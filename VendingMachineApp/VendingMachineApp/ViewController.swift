@@ -15,16 +15,22 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         vendingMachine = CoreVendingMachine()
-
-        do {
-            try vendingMachine.add(productIndex: 1)
-            try vendingMachine.add(productIndex: 2)
-            try vendingMachine.add(productIndex: 3)
-        } catch let error {
-            print(error)
-        }
-
+        addDrinkObject(number: 3)
         let dictionaryCountOfDrinks = vendingMachine.listOfInventory()
+        printInventory(dictionaryCountOfDrinks)
+    }
+
+    func addDrinkObject(number: Count) {
+        for productIndex in 1...number {
+            do {
+                try vendingMachine.add(productIndex: productIndex)
+            } catch let error {
+                print(error)
+            }
+        }
+    }
+
+    func printInventory(_ dictionaryCountOfDrinks: [Drink: Count]) {
         var listOfInventory = ""
         for drink in dictionaryCountOfDrinks {
             listOfInventory += String(format: "%@(%d개) ",
@@ -32,7 +38,6 @@ class ViewController: UIViewController {
                                       drink.value)
         }
         print(listOfInventory)
-
     }
 
 }

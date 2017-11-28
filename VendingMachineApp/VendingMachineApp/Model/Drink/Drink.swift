@@ -87,20 +87,6 @@ extension NSObject {
         return className
     }
 
-    var typeName: String {
-        var typeName = ""
-        switch self {
-        case is Milk:
-            typeName = Milk.className()
-        case is SoftDrink:
-            typeName = SoftDrink.className()
-        case is Coffee:
-            typeName  = Coffee.className()
-        default:
-            typeName = self.className
-        }
-        return typeName
-    }
 }
 
 extension Drink {

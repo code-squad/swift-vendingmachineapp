@@ -36,6 +36,7 @@
 		C9069E771FCD38D9001BBC82 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9069E711FCD38D9001BBC82 /* User.swift */; };
 		C9069E781FCD38D9001BBC82 /* EnableMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9069E721FCD38D9001BBC82 /* EnableMode.swift */; };
 		C9069E791FCD38D9001BBC82 /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9069E731FCD38D9001BBC82 /* Manager.swift */; };
+		C9069E8E1FCFD116001BBC82 /* VendingMachineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9069E8D1FCFD116001BBC82 /* VendingMachineViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +83,7 @@
 		C9069E711FCD38D9001BBC82 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C9069E721FCD38D9001BBC82 /* EnableMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnableMode.swift; sourceTree = "<group>"; };
 		C9069E731FCD38D9001BBC82 /* Manager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Manager.swift; sourceTree = "<group>"; };
+		C9069E8D1FCFD116001BBC82 /* VendingMachineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +128,7 @@
 				C9069E1C1FCD33AD001BBC82 /* Model */,
 				C9069DFC1FCD30E4001BBC82 /* AppDelegate.swift */,
 				C9069DFE1FCD30E4001BBC82 /* ViewController.swift */,
+				C9069E8D1FCFD116001BBC82 /* VendingMachineViewController.swift */,
 				C9069E1D1FCD3437001BBC82 /* StringExtension.swift */,
 				C9069E001FCD30E4001BBC82 /* Main.storyboard */,
 				C9069E031FCD30E4001BBC82 /* Assets.xcassets */,
@@ -306,6 +309,7 @@
 				C9069DFF1FCD30E4001BBC82 /* ViewController.swift in Sources */,
 				C9069E671FCD38A9001BBC82 /* StrawBerryMilk.swift in Sources */,
 				C9069E6B1FCD38A9001BBC82 /* Fanta.swift in Sources */,
+				C9069E8E1FCFD116001BBC82 /* VendingMachineViewController.swift in Sources */,
 				C9069E6A1FCD38A9001BBC82 /* Cider.swift in Sources */,
 				C9069E781FCD38D9001BBC82 /* EnableMode.swift in Sources */,
 				C9069E611FCD38A9001BBC82 /* Milk.swift in Sources */,

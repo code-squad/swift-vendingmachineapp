@@ -100,6 +100,3 @@ extension Drink {
     }
 
 }
-
-
-

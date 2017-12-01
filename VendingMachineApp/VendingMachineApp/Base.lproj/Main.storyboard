@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="ipad10_5" orientation="portrait">
+    <device id="ipad10_5" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -10,21 +10,52 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Vending Machine View Controller-->
+        <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="VendingMachineViewController" customModule="VendingMachineApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="VendingMachineApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jrr-q3-30c">
-                                <rect key="frame" x="83.5" y="90" width="667" height="667"/>
+                                <rect key="frame" x="111" y="90" width="890" height="500.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fMf-pI-5Sr">
-                                <rect key="frame" x="500.5" y="794" width="250" height="240"/>
+                                <rect key="frame" x="667" y="627.5" width="334" height="128.5"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="zpB-8H-jdC">
+                                        <rect key="frame" x="0.0" y="0.0" width="334" height="64.5"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Sw-YU-yYg">
+                                                <rect key="frame" x="0.0" y="0.0" width="167" height="64.5"/>
+                                                <state key="normal" title="+1000"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fzD-3K-xM2">
+                                                <rect key="frame" x="167" y="0.0" width="167" height="64.5"/>
+                                                <state key="normal" title="+5000"/>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CfU-f2-iUW">
+                                        <rect key="frame" x="0.0" y="64" width="334" height="64.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="zpB-8H-jdC" firstAttribute="leading" secondItem="fMf-pI-5Sr" secondAttribute="leading" id="BnI-x3-vCp"/>
+                                    <constraint firstItem="zpB-8H-jdC" firstAttribute="height" secondItem="fMf-pI-5Sr" secondAttribute="height" multiplier="0.5" id="L5M-9v-fCN"/>
+                                    <constraint firstItem="CfU-f2-iUW" firstAttribute="trailing" secondItem="zpB-8H-jdC" secondAttribute="trailing" id="Whr-IC-d5n"/>
+                                    <constraint firstItem="zpB-8H-jdC" firstAttribute="top" secondItem="fMf-pI-5Sr" secondAttribute="top" id="aoP-JU-7Fc"/>
+                                    <constraint firstItem="CfU-f2-iUW" firstAttribute="leading" secondItem="zpB-8H-jdC" secondAttribute="leading" id="bqc-eT-DPe"/>
+                                    <constraint firstAttribute="trailing" secondItem="zpB-8H-jdC" secondAttribute="trailing" id="iue-DX-MJQ"/>
+                                    <constraint firstItem="CfU-f2-iUW" firstAttribute="height" secondItem="zpB-8H-jdC" secondAttribute="height" id="nFe-nr-NHk"/>
+                                    <constraint firstAttribute="bottom" secondItem="CfU-f2-iUW" secondAttribute="bottom" id="rpi-oe-8Vn"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

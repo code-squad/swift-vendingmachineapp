@@ -38,25 +38,27 @@ class ViewController: UIViewController {
     // 천원 추가
     @IBAction func addTenMoneyButtonDidTap(_ sender: UIButton) {
         initUserMode()
-        vendingMachine.action(action: Action(option: 1, detail: 1000)!)
+        addMoney(1000)
         updateRemainMoneyLabel()
     }
 
     // 오천원 추가
     @IBAction func addFiftyMoneyButtonDidTap(_ sender: UIButton) {
         initUserMode()
-        vendingMachine.action(action: Action(option: 1, detail: 5000)!)
+        addMoney(5000)
         updateRemainMoneyLabel()
     }
 
     // User Mode로 초기화
     func initUserMode() {
-        if vendingMachine.hasMode {
-            vendingMachine.action(action: Action(option: 3, detail: -1)!)
-        }
+        vendingMachine.exitMode()
+        vendingMachine.assignMode(mode: .user)
+    }
+
+    func addMoney(_ money: Int) {
         do {
-            try vendingMachine.assignMode(mode: 2)
-        } catch let error{
+            try vendingMachine.add(detail: money)
+        } catch let error {
             print(error)
         }
     }

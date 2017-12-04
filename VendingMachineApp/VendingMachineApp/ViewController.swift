@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     // 잔돈 추가 컨트롤러 -> User Mode
     @IBOutlet var remainMoneyLabel: UILabel!
     @IBOutlet var addMoneyButtons: [UIButton]!
+    let vendingMachineID = "VendingMachineViewController"
     var vendingMachine: VendingMachine!
 
     private let numberFormatter: NumberFormatter = {
@@ -27,7 +28,7 @@ class ViewController: UIViewController {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let id = segue.identifier, id == "VendingMachineViewController" {
+        if let id = segue.identifier, id == vendingMachineID {
             guard let vendingMachineViewController = segue.destination as? VendingMachineViewController else {
                 return
             }
@@ -47,7 +48,7 @@ class ViewController: UIViewController {
             if button.tag == 1 {
                 button.addTarget(self, action: #selector(addTenMoneyButtonDidTap(_:)), for: .touchDown)
             }
-            if button.tag == 2{
+            if button.tag == 2 {
                 button.addTarget(self, action: #selector(addFiftyMoneyButtonDidTap(_:)), for: .touchDown)
             }
         }

@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UIViewController {
     // 잔돈 추가 컨트롤러 -> User Mode
     @IBOutlet var remainMoneyLabel: UILabel!
+    @IBOutlet var addMoneyButtons: [UIButton]!
     var vendingMachine: VendingMachine!
 
     private let numberFormatter: NumberFormatter = {
@@ -21,6 +22,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        initButton()
         updateRemainMoneyLabel()
     }
 
@@ -35,15 +37,31 @@ class ViewController: UIViewController {
         }
     }
 
+    func initButton() {
+        addMoneyButtons.forEach { (button: UIButton) in
+            button.layer.borderWidth = 1
+            button.layer.masksToBounds = false
+            button.layer.borderColor = UIColor.black.cgColor
+            button.layer.cornerRadius = button.frame.height/2
+            button.clipsToBounds = true
+            if button.tag == 1 {
+                button.addTarget(self, action: #selector(addTenMoneyButtonDidTap(_:)), for: .touchDown)
+            }
+            if button.tag == 2{
+                button.addTarget(self, action: #selector(addFiftyMoneyButtonDidTap(_:)), for: .touchDown)
+            }
+        }
+    }
+
     // 천원 추가
-    @IBAction func addTenMoneyButtonDidTap(_ sender: UIButton) {
+    @objc func addTenMoneyButtonDidTap(_ sender: UIButton) {
         initUserMode()
         addMoney(1000)
         updateRemainMoneyLabel()
     }
 
     // 오천원 추가
-    @IBAction func addFiftyMoneyButtonDidTap(_ sender: UIButton) {
+    @objc func addFiftyMoneyButtonDidTap(_ sender: UIButton) {
         initUserMode()
         addMoney(5000)
         updateRemainMoneyLabel()

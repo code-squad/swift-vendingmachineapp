@@ -24,28 +24,22 @@
                                     <segue destination="mCi-fE-U07" kind="embed" identifier="VendingMachineViewController" id="3Hp-Hk-3CX"/>
                                 </connections>
                             </containerView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rgZ-2f-wnX">
-                                <rect key="frame" x="166.5" y="734" width="296.5" height="60"/>
+                            <button opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rgZ-2f-wnX">
+                                <rect key="frame" x="166.5" y="734" width="296.5" height="70"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                <state key="normal" title="1000"/>
-                                <connections>
-                                    <action selector="addTenMoneyButtonDidTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YB0-jj-PAc"/>
-                                </connections>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="3" maxX="5" maxY="3"/>
+                                <state key="normal" title="1000" image="icons8-won-32">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7YB-Yk-itw">
-                                <rect key="frame" x="684.5" y="734" width="296.5" height="60"/>
+                            <button opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7YB-Yk-itw">
+                                <rect key="frame" x="684.5" y="734" width="296.5" height="70"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                <state key="normal" title="5000"/>
-                                <connections>
-                                    <action selector="addFiftyMoneyButtonDidTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dZM-1w-dtt"/>
-                                </connections>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="3" maxX="5" maxY="3"/>
+                                <state key="normal" title="5000" image="icons8-won-32">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-won-80" translatesAutoresizingMaskIntoConstraints="NO" id="sLd-VS-w8d">
-                                <rect key="frame" x="166.5" y="734" width="129" height="60"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-won-80" translatesAutoresizingMaskIntoConstraints="NO" id="rUM-X1-HcY">
-                                <rect key="frame" x="684.5" y="734" width="118.5" height="60"/>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qsv-2E-1SF">
                                 <rect key="frame" x="965" y="30" width="127" height="40"/>
                                 <constraints>
@@ -63,37 +57,31 @@
                         <constraints>
                             <constraint firstItem="U6Q-Ce-MD1" firstAttribute="top" secondItem="qsv-2E-1SF" secondAttribute="top" id="50Z-kv-RHg"/>
                             <constraint firstItem="lLs-w1-DGB" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.8" id="6Eg-RG-sSG"/>
-                            <constraint firstItem="sLd-VS-w8d" firstAttribute="leading" secondItem="rgZ-2f-wnX" secondAttribute="leading" id="BjI-Wb-MOd"/>
                             <constraint firstItem="7YB-Yk-itw" firstAttribute="bottom" secondItem="rgZ-2f-wnX" secondAttribute="bottom" id="Bmu-Eb-ZSC"/>
-                            <constraint firstItem="sLd-VS-w8d" firstAttribute="width" secondItem="rgZ-2f-wnX" secondAttribute="width" multiplier="1:2.3" id="C1M-9n-igB"/>
                             <constraint firstItem="U6Q-Ce-MD1" firstAttribute="width" secondItem="qsv-2E-1SF" secondAttribute="width" multiplier="1:3" id="EpI-z2-Yg2"/>
                             <constraint firstItem="U6Q-Ce-MD1" firstAttribute="bottom" secondItem="qsv-2E-1SF" secondAttribute="bottom" id="Hvz-62-JTy"/>
                             <constraint firstItem="lLs-w1-DGB" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="Hzu-Vh-6Iz"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="rgZ-2f-wnX" secondAttribute="bottom" constant="40" id="OlC-GQ-IZB"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="rgZ-2f-wnX" secondAttribute="bottom" constant="30" id="OlC-GQ-IZB"/>
                             <constraint firstItem="lLs-w1-DGB" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Qas-KX-kuR"/>
                             <constraint firstItem="qsv-2E-1SF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="965" id="ViJ-we-7fy"/>
-                            <constraint firstItem="rUM-X1-HcY" firstAttribute="width" secondItem="7YB-Yk-itw" secondAttribute="width" multiplier="1:2.5" id="YER-St-moB"/>
-                            <constraint firstItem="rUM-X1-HcY" firstAttribute="top" secondItem="7YB-Yk-itw" secondAttribute="top" id="cLd-WO-iYt"/>
-                            <constraint firstItem="rUM-X1-HcY" firstAttribute="bottom" secondItem="7YB-Yk-itw" secondAttribute="bottom" id="cUm-tW-Kx7"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="qsv-2E-1SF" secondAttribute="trailing" constant="20" id="fZn-4o-0Ok"/>
                             <constraint firstItem="7YB-Yk-itw" firstAttribute="trailing" secondItem="lLs-w1-DGB" secondAttribute="trailing" multiplier="0.98" id="fcg-lm-6yw"/>
                             <constraint firstItem="U6Q-Ce-MD1" firstAttribute="trailing" secondItem="qsv-2E-1SF" secondAttribute="leading" id="g9o-zz-Be1"/>
                             <constraint firstItem="7YB-Yk-itw" firstAttribute="height" secondItem="rgZ-2f-wnX" secondAttribute="height" id="hh6-2L-24V"/>
-                            <constraint firstItem="sLd-VS-w8d" firstAttribute="bottom" secondItem="rgZ-2f-wnX" secondAttribute="bottom" id="hme-IL-66F"/>
                             <constraint firstItem="rgZ-2f-wnX" firstAttribute="width" secondItem="lLs-w1-DGB" secondAttribute="width" multiplier="1:3" id="hrJ-Iu-M9M"/>
                             <constraint firstItem="7YB-Yk-itw" firstAttribute="top" secondItem="rgZ-2f-wnX" secondAttribute="top" id="jpc-A7-kx4"/>
                             <constraint firstItem="rgZ-2f-wnX" firstAttribute="leading" secondItem="lLs-w1-DGB" secondAttribute="leading" multiplier="1.5" id="kX0-tu-JGH"/>
                             <constraint firstItem="7YB-Yk-itw" firstAttribute="width" secondItem="rgZ-2f-wnX" secondAttribute="width" id="ksO-38-AN5"/>
                             <constraint firstItem="lLs-w1-DGB" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.8" id="nuX-QN-8u5"/>
                             <constraint firstItem="rgZ-2f-wnX" firstAttribute="top" secondItem="lLs-w1-DGB" secondAttribute="bottom" constant="17" id="pSo-m9-A8D"/>
-                            <constraint firstItem="sLd-VS-w8d" firstAttribute="top" secondItem="rgZ-2f-wnX" secondAttribute="top" id="qm6-rM-bw7"/>
                             <constraint firstItem="qsv-2E-1SF" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="v17-hr-Jet"/>
-                            <constraint firstItem="rUM-X1-HcY" firstAttribute="leading" secondItem="7YB-Yk-itw" secondAttribute="leading" id="xfV-hN-K6G"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="remainMoneyLabel" destination="qsv-2E-1SF" id="7HO-19-kws"/>
+                        <outletCollection property="addMoneyButtons" destination="rgZ-2f-wnX" collectionClass="NSMutableArray" id="0R0-gM-AaM"/>
+                        <outletCollection property="addMoneyButtons" destination="7YB-Yk-itw" collectionClass="NSMutableArray" id="e0r-cc-jRo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -299,7 +287,7 @@
         <image name="fanta" width="550" height="550"/>
         <image name="georgiaCoffee" width="173" height="332"/>
         <image name="icons8-money-96" width="96" height="96"/>
-        <image name="icons8-won-80" width="80" height="80"/>
+        <image name="icons8-won-32" width="32" height="32"/>
         <image name="strawBerryMilk" width="571" height="571"/>
         <image name="topCoffee" width="170" height="269"/>
     </resources>

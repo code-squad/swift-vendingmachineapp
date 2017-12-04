@@ -40,7 +40,6 @@
 		C9069E901FCFEB6C001BBC82 /* UnitTestDrinkNameEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9069E8F1FCFEB6C001BBC82 /* UnitTestDrinkNameEnum.swift */; };
 		C9069E911FCFEBA6001BBC82 /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9069E5F1FCD38A9001BBC82 /* Drink.swift */; };
 		C9069E921FCFFBFD001BBC82 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9069E1D1FCD3437001BBC82 /* StringExtension.swift */; };
-		C9069E941FCFFF7B001BBC82 /* DrinkName.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9069E931FCFFF7B001BBC82 /* DrinkName.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,7 +88,6 @@
 		C9069E731FCD38D9001BBC82 /* Manager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Manager.swift; sourceTree = "<group>"; };
 		C9069E8D1FCFD116001BBC82 /* VendingMachineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineViewController.swift; sourceTree = "<group>"; };
 		C9069E8F1FCFEB6C001BBC82 /* UnitTestDrinkNameEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestDrinkNameEnum.swift; sourceTree = "<group>"; };
-		C9069E931FCFFF7B001BBC82 /* DrinkName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkName.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,7 +188,6 @@
 				C9069E561FCD38A8001BBC82 /* SoftDrink.swift */,
 				C9069E5A1FCD38A8001BBC82 /* StrawBerryMilk.swift */,
 				C9069E531FCD38A8001BBC82 /* Top.swift */,
-				C9069E931FCFFF7B001BBC82 /* DrinkName.swift */,
 			);
 			path = Drink;
 			sourceTree = "<group>";
@@ -332,7 +329,6 @@
 				C9069E651FCD38A9001BBC82 /* Cantata.swift in Sources */,
 				C9069E681FCD38A9001BBC82 /* BananaMilk.swift in Sources */,
 				C9069E791FCD38D9001BBC82 /* Manager.swift in Sources */,
-				C9069E941FCFFF7B001BBC82 /* DrinkName.swift in Sources */,
 				C9069E231FCD3438001BBC82 /* StringExtension.swift in Sources */,
 				C9069E641FCD38A9001BBC82 /* ChocolateMilk.swift in Sources */,
 				C9069E601FCD38A9001BBC82 /* Top.swift in Sources */,

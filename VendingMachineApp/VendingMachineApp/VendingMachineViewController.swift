@@ -17,7 +17,8 @@ class VendingMachineViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.imageViews.forEach { (imageView: UIImageView) in
-            let tap = UITapGestureRecognizer(target: self, action: #selector(VendingMachineViewController.drinkViewDidTap))
+            let tap = UITapGestureRecognizer(target: self,
+                                             action: #selector(VendingMachineViewController.drinkViewDidTap))
             imageView.addGestureRecognizer(tap)
             imageView.isUserInteractionEnabled = true
         }
@@ -38,13 +39,13 @@ class VendingMachineViewController: UIViewController {
     }
 
     // Manager Mode로 초기화
-    func initManagerMode() {
+    private func initManagerMode() {
         vendingMachine.exitMode()
         vendingMachine.assignMode(mode: .manager)
     }
 
     // 재고 업데이트
-    func updateInventory() {
+    private func updateInventory() {
         let menuContents = vendingMachine.makeMenu()
         for lable in inventoryLabel.enumerated() {
             guard let drink = menuContents?.menu[lable.offset] else {

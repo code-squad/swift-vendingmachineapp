@@ -12,8 +12,8 @@ class ViewController: UIViewController {
     // 잔돈 추가 컨트롤러 -> User Mode
     @IBOutlet var remainMoneyLabel: UILabel!
     @IBOutlet var addMoneyButtons: [UIButton]!
-    let vendingMachineID = "VendingMachineViewController"
-    var vendingMachine: VendingMachine!
+    private let vendingMachineID = "VendingMachineViewController"
+    private var vendingMachine: VendingMachine!
 
     private let numberFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
@@ -33,12 +33,11 @@ class ViewController: UIViewController {
                 return
             }
             vendingMachine = VendingMachine()
-
             vendingMachineViewController.vendingMachine = vendingMachine
         }
     }
 
-    func initButton() {
+    private func initButton() {
         addMoneyButtons.forEach { (button: UIButton) in
             button.layer.borderWidth = 1
             button.layer.masksToBounds = false
@@ -46,10 +45,14 @@ class ViewController: UIViewController {
             button.layer.cornerRadius = button.frame.height/2
             button.clipsToBounds = true
             if button.tag == 1 {
-                button.addTarget(self, action: #selector(addTenMoneyButtonDidTap(_:)), for: .touchDown)
+                button.addTarget(self,
+                                 action: #selector(addTenMoneyButtonDidTap(_:)),
+                                 for: .touchDown)
             }
             if button.tag == 2 {
-                button.addTarget(self, action: #selector(addFiftyMoneyButtonDidTap(_:)), for: .touchDown)
+                button.addTarget(self,
+                                 action: #selector(addFiftyMoneyButtonDidTap(_:)),
+                                 for: .touchDown)
             }
         }
     }
@@ -69,12 +72,12 @@ class ViewController: UIViewController {
     }
 
     // User Mode로 초기화
-    func initUserMode() {
+    private func initUserMode() {
         vendingMachine.exitMode()
         vendingMachine.assignMode(mode: .user)
     }
 
-    func addMoney(_ money: Int) {
+    private func addMoney(_ money: Int) {
         do {
             try vendingMachine.add(detail: money)
         } catch let error {
@@ -83,7 +86,7 @@ class ViewController: UIViewController {
     }
 
     // 잔돈 라벨 업데이트
-    func updateRemainMoneyLabel() {
+    private func updateRemainMoneyLabel() {
         guard let menu = vendingMachine.makeMenu() else {
             remainMoneyLabel.text = "0"
             return

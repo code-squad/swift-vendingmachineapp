@@ -34,19 +34,19 @@ extension CoreVendingMachine: ManagerModeDelegate {
     // 음료수 인덱스를 넘겨서 재고를 추가하는 메소드
     func add(productIndex: Int) throws {
         let listOfDrink = AllDrinkList()
-        guard productIndex >= 1 && productIndex <= listOfDrink.count else {
+        guard productIndex >= 0 && productIndex < listOfDrink.count else {
             throw stockError.invalidProductNumber
         }
-        inventory.append(listOfDrink[productIndex-1])
+        inventory.append(listOfDrink[productIndex])
     }
 
     // 음료수 인덱스를 넘겨서 재고의 음료수를 삭제하는 메소드
     @discardableResult func delete(productIndex: Int) throws -> Drink {
         let listOfDrink = AllDrinkList()
-        guard productIndex >= 1 && productIndex <= listOfDrink.count else {
+        guard productIndex >= 0 && productIndex < listOfDrink.count else {
             throw stockError.invalidProductNumber
         }
-        let deleteDrink = listOfDrink[productIndex - 1]
+        let deleteDrink = listOfDrink[productIndex]
         for drink in inventory.enumerated() {
             if drink.element === deleteDrink {
                 inventory.remove(at: drink.offset)
@@ -101,10 +101,10 @@ extension CoreVendingMachine: UserModeDelegate {
 
     @discardableResult func buy(productIndex: Int) throws -> Drink {
         let listOfDrink = listOfCanBuy()
-        guard productIndex >= 1 && productIndex <= listOfDrink.count else {
+        guard productIndex >= 0 && productIndex < listOfDrink.count else {
             throw stockError.invalidProductNumber
         }
-        let buyDrink = listOfDrink[productIndex-1]
+        let buyDrink = listOfDrink[productIndex]
         for drink in inventory.enumerated() {
             if drink.element == buyDrink {
                 let selectDrink = drink.element

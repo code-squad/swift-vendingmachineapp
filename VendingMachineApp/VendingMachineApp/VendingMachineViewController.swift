@@ -28,21 +28,19 @@ class VendingMachineViewController: UIViewController {
     @objc func drinkViewDidTap(_ recognizer: UITapGestureRecognizer) {
         initManagerMode()
         if let imageView = recognizer.view as? UIImageView {
-            vendingMachine.action(action: Action(option: 1, detail: imageView.tag)!)
+            do {
+                try vendingMachine.add(detail: imageView.tag)
+            } catch let error {
+                print(error)
+            }
         }
         updateInventory()
     }
 
     // Manager Mode로 초기화
     func initManagerMode() {
-        if vendingMachine.hasMode {
-            vendingMachine.action(action: Action(option: 3, detail: -1)!)
-        }
-        do {
-            try vendingMachine.assignMode(mode: 1)
-        } catch let error {
-            print(error)
-        }
+        vendingMachine.exitMode()
+        vendingMachine.assignMode(mode: .manager)
     }
 
     // 재고 업데이트

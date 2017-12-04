@@ -23,18 +23,17 @@ struct User: EnableMode {
         return (.user, income, userMenu, userInventory)
     }
 
-    mutating func action(action: Action) throws {
-        switch action.option {
-        case .add:
-            delegate.add(money: action.detail)
-        case .delete:
-            do {
-                drink = try delegate.buy(productIndex: action.detail)
-            } catch let error {
-                throw error
-            }
-        case .exit: break
+    mutating func add(detail: Int) throws {
+        delegate.add(money: detail)
+    }
+
+    mutating func delete(detail: Int) throws {
+        do {
+            drink = try delegate.buy(productIndex: detail)
+        } catch let error {
+            throw error
         }
+
     }
     
     func selectDrink() -> Drink? {

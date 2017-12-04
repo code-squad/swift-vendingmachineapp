@@ -22,16 +22,17 @@ struct Manager: EnableMode {
         return ( .manager, income, managerMenu, managerInventory)
     }
 
-    mutating func action(action: Action) throws {
+    mutating func add(detail: Int) throws {
         do {
-            switch action.option {
-            case .add:
-                try delegate.add(productIndex: action.detail)
-            case .delete:
-                try delegate.delete(productIndex: action.detail)
-            case .exit: break
-            }
+            try delegate.add(productIndex: detail)
         } catch let error {
+            throw error
+        }
+    }
+    mutating func delete(detail: Int) throws {
+        do {
+            try delegate.delete(productIndex: detail)
+        } catch let error{
             throw error
         }
     }

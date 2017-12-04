@@ -46,19 +46,28 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-won-80" translatesAutoresizingMaskIntoConstraints="NO" id="rUM-X1-HcY">
                                 <rect key="frame" x="684.5" y="734" width="118.5" height="60"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qsv-2E-1SF">
-                                <rect key="frame" x="965" y="61" width="127" height="36"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qsv-2E-1SF">
+                                <rect key="frame" x="965" y="30" width="127" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="pR9-rl-JpI"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-money-96" translatesAutoresizingMaskIntoConstraints="NO" id="U6Q-Ce-MD1">
+                                <rect key="frame" x="922.5" y="30" width="42.5" height="40"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="U6Q-Ce-MD1" firstAttribute="top" secondItem="qsv-2E-1SF" secondAttribute="top" id="50Z-kv-RHg"/>
                             <constraint firstItem="lLs-w1-DGB" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.8" id="6Eg-RG-sSG"/>
                             <constraint firstItem="sLd-VS-w8d" firstAttribute="leading" secondItem="rgZ-2f-wnX" secondAttribute="leading" id="BjI-Wb-MOd"/>
                             <constraint firstItem="7YB-Yk-itw" firstAttribute="bottom" secondItem="rgZ-2f-wnX" secondAttribute="bottom" id="Bmu-Eb-ZSC"/>
                             <constraint firstItem="sLd-VS-w8d" firstAttribute="width" secondItem="rgZ-2f-wnX" secondAttribute="width" multiplier="1:2.3" id="C1M-9n-igB"/>
+                            <constraint firstItem="U6Q-Ce-MD1" firstAttribute="width" secondItem="qsv-2E-1SF" secondAttribute="width" multiplier="1:3" id="EpI-z2-Yg2"/>
+                            <constraint firstItem="U6Q-Ce-MD1" firstAttribute="bottom" secondItem="qsv-2E-1SF" secondAttribute="bottom" id="Hvz-62-JTy"/>
                             <constraint firstItem="lLs-w1-DGB" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="Hzu-Vh-6Iz"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="rgZ-2f-wnX" secondAttribute="bottom" constant="40" id="OlC-GQ-IZB"/>
                             <constraint firstItem="lLs-w1-DGB" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Qas-KX-kuR"/>
@@ -68,6 +77,7 @@
                             <constraint firstItem="rUM-X1-HcY" firstAttribute="bottom" secondItem="7YB-Yk-itw" secondAttribute="bottom" id="cUm-tW-Kx7"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="qsv-2E-1SF" secondAttribute="trailing" constant="20" id="fZn-4o-0Ok"/>
                             <constraint firstItem="7YB-Yk-itw" firstAttribute="trailing" secondItem="lLs-w1-DGB" secondAttribute="trailing" multiplier="0.98" id="fcg-lm-6yw"/>
+                            <constraint firstItem="U6Q-Ce-MD1" firstAttribute="trailing" secondItem="qsv-2E-1SF" secondAttribute="leading" id="g9o-zz-Be1"/>
                             <constraint firstItem="7YB-Yk-itw" firstAttribute="height" secondItem="rgZ-2f-wnX" secondAttribute="height" id="hh6-2L-24V"/>
                             <constraint firstItem="sLd-VS-w8d" firstAttribute="bottom" secondItem="rgZ-2f-wnX" secondAttribute="bottom" id="hme-IL-66F"/>
                             <constraint firstItem="rgZ-2f-wnX" firstAttribute="width" secondItem="lLs-w1-DGB" secondAttribute="width" multiplier="1:3" id="hrJ-Iu-M9M"/>
@@ -77,13 +87,13 @@
                             <constraint firstItem="lLs-w1-DGB" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.8" id="nuX-QN-8u5"/>
                             <constraint firstItem="rgZ-2f-wnX" firstAttribute="top" secondItem="lLs-w1-DGB" secondAttribute="bottom" constant="17" id="pSo-m9-A8D"/>
                             <constraint firstItem="sLd-VS-w8d" firstAttribute="top" secondItem="rgZ-2f-wnX" secondAttribute="top" id="qm6-rM-bw7"/>
-                            <constraint firstItem="qsv-2E-1SF" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="41" id="v17-hr-Jet"/>
+                            <constraint firstItem="qsv-2E-1SF" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="v17-hr-Jet"/>
                             <constraint firstItem="rUM-X1-HcY" firstAttribute="leading" secondItem="7YB-Yk-itw" secondAttribute="leading" id="xfV-hN-K6G"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="remainMoneyLable" destination="qsv-2E-1SF" id="XRC-RF-RU6"/>
+                        <outlet property="remainMoneyLabel" destination="qsv-2E-1SF" id="7HO-19-kws"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -264,15 +274,15 @@
                         <outletCollection property="imageViews" destination="x4s-yL-p8U" collectionClass="NSMutableArray" id="L3H-i3-dZS"/>
                         <outletCollection property="imageViews" destination="n3g-cz-yQ7" collectionClass="NSMutableArray" id="8Th-BF-Si0"/>
                         <outletCollection property="imageViews" destination="8Hh-4G-HSF" collectionClass="NSMutableArray" id="JRi-3H-ZQW"/>
-                        <outletCollection property="inventoryLable" destination="EGR-bd-OKp" collectionClass="NSMutableArray" id="t0T-Y3-KUB"/>
-                        <outletCollection property="inventoryLable" destination="uIn-UE-gLF" collectionClass="NSMutableArray" id="jlq-TG-70z"/>
-                        <outletCollection property="inventoryLable" destination="DMT-Pa-aRe" collectionClass="NSMutableArray" id="pEY-tC-nEk"/>
-                        <outletCollection property="inventoryLable" destination="7dc-cL-grv" collectionClass="NSMutableArray" id="M2e-Bh-t78"/>
-                        <outletCollection property="inventoryLable" destination="cdv-WM-DCj" collectionClass="NSMutableArray" id="JPS-h4-n0M"/>
-                        <outletCollection property="inventoryLable" destination="zz5-Ti-B0j" collectionClass="NSMutableArray" id="rKw-ir-7H8"/>
-                        <outletCollection property="inventoryLable" destination="kGH-dN-ldY" collectionClass="NSMutableArray" id="5w2-jJ-tri"/>
-                        <outletCollection property="inventoryLable" destination="A7y-kx-an9" collectionClass="NSMutableArray" id="Rg5-X4-AjE"/>
-                        <outletCollection property="inventoryLable" destination="uKP-ez-aSZ" collectionClass="NSMutableArray" id="xvc-O8-3MT"/>
+                        <outletCollection property="inventoryLabel" destination="EGR-bd-OKp" collectionClass="NSMutableArray" id="ntT-4s-wMz"/>
+                        <outletCollection property="inventoryLabel" destination="uIn-UE-gLF" collectionClass="NSMutableArray" id="O98-lI-3bs"/>
+                        <outletCollection property="inventoryLabel" destination="DMT-Pa-aRe" collectionClass="NSMutableArray" id="7bd-u9-piv"/>
+                        <outletCollection property="inventoryLabel" destination="7dc-cL-grv" collectionClass="NSMutableArray" id="ohd-sK-IZl"/>
+                        <outletCollection property="inventoryLabel" destination="cdv-WM-DCj" collectionClass="NSMutableArray" id="dvC-jN-oNQ"/>
+                        <outletCollection property="inventoryLabel" destination="zz5-Ti-B0j" collectionClass="NSMutableArray" id="0Xl-WE-WQ2"/>
+                        <outletCollection property="inventoryLabel" destination="kGH-dN-ldY" collectionClass="NSMutableArray" id="SYH-SH-szr"/>
+                        <outletCollection property="inventoryLabel" destination="A7y-kx-an9" collectionClass="NSMutableArray" id="b1r-5b-JCt"/>
+                        <outletCollection property="inventoryLabel" destination="uKP-ez-aSZ" collectionClass="NSMutableArray" id="hD2-s3-y11"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GMA-yT-Z8f" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -288,6 +298,7 @@
         <image name="coke" width="400" height="580"/>
         <image name="fanta" width="550" height="550"/>
         <image name="georgiaCoffee" width="173" height="332"/>
+        <image name="icons8-money-96" width="96" height="96"/>
         <image name="icons8-won-80" width="80" height="80"/>
         <image name="strawBerryMilk" width="571" height="571"/>
         <image name="topCoffee" width="170" height="269"/>

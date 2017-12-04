@@ -11,7 +11,7 @@ import UIKit
 class VendingMachineViewController: UIViewController {
     // 음료 추가 컨트롤러 -> Manager Mode
     @IBOutlet var imageViews: [UIImageView]!
-    @IBOutlet var inventoryLable: [UILabel]!
+    @IBOutlet var inventoryLabel: [UILabel]!
     var vendingMachine: VendingMachine!
 
     override func viewDidLoad() {
@@ -48,8 +48,9 @@ class VendingMachineViewController: UIViewController {
     // 재고 업데이트
     func updateInventory() {
         let menuContents = vendingMachine.makeMenu()
-        for lable in inventoryLable.enumerated() {
+        for lable in inventoryLabel.enumerated() {
             guard let drink = menuContents?.menu[lable.offset] else {
+                lable.element.text = "0"
                 continue
             }
             lable.element.text = "\(menuContents?.inventory[drink] ?? 0 )"

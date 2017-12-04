@@ -24,16 +24,16 @@
                                     <segue destination="mCi-fE-U07" kind="embed" identifier="VendingMachineViewController" id="3Hp-Hk-3CX"/>
                                 </connections>
                             </containerView>
-                            <button opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rgZ-2f-wnX">
-                                <rect key="frame" x="166.5" y="734" width="296.5" height="70"/>
+                            <button opaque="NO" clipsSubviews="YES" tag="1000" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rgZ-2f-wnX">
+                                <rect key="frame" x="166.5" y="734" width="297.5" height="70"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="3" maxX="5" maxY="3"/>
                                 <state key="normal" title="1000" image="icons8-won-32">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
-                            <button opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7YB-Yk-itw">
-                                <rect key="frame" x="684.5" y="734" width="296.5" height="70"/>
+                            <button opaque="NO" clipsSubviews="YES" tag="5000" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7YB-Yk-itw">
+                                <rect key="frame" x="683.5" y="734" width="297.5" height="70"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="3" maxX="5" maxY="3"/>
                                 <state key="normal" title="5000" image="icons8-won-32">
@@ -61,9 +61,11 @@
                             <constraint firstItem="U6Q-Ce-MD1" firstAttribute="width" secondItem="qsv-2E-1SF" secondAttribute="width" multiplier="1:3" id="EpI-z2-Yg2"/>
                             <constraint firstItem="U6Q-Ce-MD1" firstAttribute="bottom" secondItem="qsv-2E-1SF" secondAttribute="bottom" id="Hvz-62-JTy"/>
                             <constraint firstItem="lLs-w1-DGB" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="Hzu-Vh-6Iz"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="rgZ-2f-wnX" secondAttribute="trailing" constant="20" symbolic="YES" id="NtH-bD-VJI"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="rgZ-2f-wnX" secondAttribute="bottom" constant="30" id="OlC-GQ-IZB"/>
                             <constraint firstItem="lLs-w1-DGB" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Qas-KX-kuR"/>
                             <constraint firstItem="qsv-2E-1SF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="965" id="ViJ-we-7fy"/>
+                            <constraint firstItem="7YB-Yk-itw" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" symbolic="YES" id="YqJ-ER-kAi"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="qsv-2E-1SF" secondAttribute="trailing" constant="20" id="fZn-4o-0Ok"/>
                             <constraint firstItem="7YB-Yk-itw" firstAttribute="trailing" secondItem="lLs-w1-DGB" secondAttribute="trailing" multiplier="0.98" id="fcg-lm-6yw"/>
                             <constraint firstItem="U6Q-Ce-MD1" firstAttribute="trailing" secondItem="qsv-2E-1SF" secondAttribute="leading" id="g9o-zz-Be1"/>

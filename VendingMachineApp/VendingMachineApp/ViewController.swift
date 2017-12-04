@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     // 잔돈 추가 컨트롤러 -> User Mode
-    @IBOutlet var remainMoneyLable: UILabel!
+    @IBOutlet var remainMoneyLabel: UILabel!
     var vendingMachine: VendingMachine!
 
     private let numberFormatter: NumberFormatter = {
@@ -64,10 +64,10 @@ class ViewController: UIViewController {
     // 잔돈 라벨 업데이트
     func updateRemainMoneyLabel() {
         guard let menu = vendingMachine.makeMenu() else {
-            remainMoneyLable.text = "0"
+            remainMoneyLabel.text = "0"
             return
         }
-        remainMoneyLable.text = "\(numberFormatter.string(from: NSNumber(value: menu.money)) ?? "0")"
+        remainMoneyLabel.text = "\(numberFormatter.string(from: NSNumber(value: menu.money)) ?? "0")"
     }
     
 }

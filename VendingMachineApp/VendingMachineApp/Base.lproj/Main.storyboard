@@ -121,7 +121,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="3ej-py-Akj">
                                                 <rect key="frame" x="300" y="0.0" width="290" height="214.5"/>
                                                 <subviews>
-                                                    <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="bananaMilk" translatesAutoresizingMaskIntoConstraints="NO" id="ibX-SH-Djc">
+                                                    <imageView tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="bananaMilk" translatesAutoresizingMaskIntoConstraints="NO" id="ibX-SH-Djc">
                                                         <rect key="frame" x="0.0" y="0.0" width="290" height="194"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uIn-UE-gLF">
@@ -135,7 +135,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="tVh-yj-ux1">
                                                 <rect key="frame" x="600" y="0.0" width="290" height="214.5"/>
                                                 <subviews>
-                                                    <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="chocolateMilk" translatesAutoresizingMaskIntoConstraints="NO" id="7HL-Ss-ubq">
+                                                    <imageView tag="2" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="chocolateMilk" translatesAutoresizingMaskIntoConstraints="NO" id="7HL-Ss-ubq">
                                                         <rect key="frame" x="0.0" y="0.0" width="290" height="194"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DMT-Pa-aRe">
@@ -154,7 +154,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="tQ3-ge-mvL">
                                                 <rect key="frame" x="0.0" y="0.0" width="290" height="215"/>
                                                 <subviews>
-                                                    <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="coke" translatesAutoresizingMaskIntoConstraints="NO" id="noq-TL-oHV">
+                                                    <imageView tag="3" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="coke" translatesAutoresizingMaskIntoConstraints="NO" id="noq-TL-oHV">
                                                         <rect key="frame" x="0.0" y="0.0" width="290" height="194.5"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7dc-cL-grv">
@@ -168,7 +168,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="dTN-Yn-hiK">
                                                 <rect key="frame" x="300" y="0.0" width="290" height="215"/>
                                                 <subviews>
-                                                    <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="cider" translatesAutoresizingMaskIntoConstraints="NO" id="Gqe-vz-QjG">
+                                                    <imageView tag="4" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="cider" translatesAutoresizingMaskIntoConstraints="NO" id="Gqe-vz-QjG">
                                                         <rect key="frame" x="0.0" y="0.0" width="290" height="194.5"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cdv-WM-DCj">
@@ -182,7 +182,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="JJ0-Rs-GOW">
                                                 <rect key="frame" x="600" y="0.0" width="290" height="215"/>
                                                 <subviews>
-                                                    <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="fanta" translatesAutoresizingMaskIntoConstraints="NO" id="w29-5Y-kQ3">
+                                                    <imageView tag="5" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="fanta" translatesAutoresizingMaskIntoConstraints="NO" id="w29-5Y-kQ3">
                                                         <rect key="frame" x="0.0" y="0.0" width="290" height="194.5"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zz5-Ti-B0j">
@@ -201,7 +201,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="VF5-FJ-3Yw">
                                                 <rect key="frame" x="0.0" y="0.0" width="290" height="214.5"/>
                                                 <subviews>
-                                                    <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="cantataCoffee" translatesAutoresizingMaskIntoConstraints="NO" id="x4s-yL-p8U">
+                                                    <imageView tag="6" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="cantataCoffee" translatesAutoresizingMaskIntoConstraints="NO" id="x4s-yL-p8U">
                                                         <rect key="frame" x="0.0" y="0.0" width="290" height="194"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kGH-dN-ldY">
@@ -215,7 +215,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="HxV-Jb-dio">
                                                 <rect key="frame" x="300" y="0.0" width="290" height="214.5"/>
                                                 <subviews>
-                                                    <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="topCoffee" translatesAutoresizingMaskIntoConstraints="NO" id="n3g-cz-yQ7">
+                                                    <imageView tag="7" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="topCoffee" translatesAutoresizingMaskIntoConstraints="NO" id="n3g-cz-yQ7">
                                                         <rect key="frame" x="0.0" y="0.0" width="290" height="194"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A7y-kx-an9">
@@ -229,7 +229,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="tVW-Z6-KIz">
                                                 <rect key="frame" x="600" y="0.0" width="290" height="214.5"/>
                                                 <subviews>
-                                                    <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="georgiaCoffee" translatesAutoresizingMaskIntoConstraints="NO" id="8Hh-4G-HSF">
+                                                    <imageView tag="8" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="georgiaCoffee" translatesAutoresizingMaskIntoConstraints="NO" id="8Hh-4G-HSF">
                                                         <rect key="frame" x="0.0" y="0.0" width="290" height="194"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uKP-ez-aSZ">
@@ -254,6 +254,26 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="K15-kr-uQb"/>
                     </view>
+                    <connections>
+                        <outletCollection property="imageViews" destination="8OQ-hU-Kbw" collectionClass="NSMutableArray" id="Tt1-UG-uri"/>
+                        <outletCollection property="imageViews" destination="ibX-SH-Djc" collectionClass="NSMutableArray" id="zOO-rq-W7D"/>
+                        <outletCollection property="imageViews" destination="7HL-Ss-ubq" collectionClass="NSMutableArray" id="X2B-4h-Ive"/>
+                        <outletCollection property="imageViews" destination="noq-TL-oHV" collectionClass="NSMutableArray" id="EzZ-fG-RVL"/>
+                        <outletCollection property="imageViews" destination="Gqe-vz-QjG" collectionClass="NSMutableArray" id="gjh-j5-cme"/>
+                        <outletCollection property="imageViews" destination="w29-5Y-kQ3" collectionClass="NSMutableArray" id="4GX-vF-JJp"/>
+                        <outletCollection property="imageViews" destination="x4s-yL-p8U" collectionClass="NSMutableArray" id="L3H-i3-dZS"/>
+                        <outletCollection property="imageViews" destination="n3g-cz-yQ7" collectionClass="NSMutableArray" id="8Th-BF-Si0"/>
+                        <outletCollection property="imageViews" destination="8Hh-4G-HSF" collectionClass="NSMutableArray" id="JRi-3H-ZQW"/>
+                        <outletCollection property="inventoryLable" destination="EGR-bd-OKp" collectionClass="NSMutableArray" id="t0T-Y3-KUB"/>
+                        <outletCollection property="inventoryLable" destination="uIn-UE-gLF" collectionClass="NSMutableArray" id="jlq-TG-70z"/>
+                        <outletCollection property="inventoryLable" destination="DMT-Pa-aRe" collectionClass="NSMutableArray" id="pEY-tC-nEk"/>
+                        <outletCollection property="inventoryLable" destination="7dc-cL-grv" collectionClass="NSMutableArray" id="M2e-Bh-t78"/>
+                        <outletCollection property="inventoryLable" destination="cdv-WM-DCj" collectionClass="NSMutableArray" id="JPS-h4-n0M"/>
+                        <outletCollection property="inventoryLable" destination="zz5-Ti-B0j" collectionClass="NSMutableArray" id="rKw-ir-7H8"/>
+                        <outletCollection property="inventoryLable" destination="kGH-dN-ldY" collectionClass="NSMutableArray" id="5w2-jJ-tri"/>
+                        <outletCollection property="inventoryLable" destination="A7y-kx-an9" collectionClass="NSMutableArray" id="Rg5-X4-AjE"/>
+                        <outletCollection property="inventoryLable" destination="uKP-ez-aSZ" collectionClass="NSMutableArray" id="xvc-O8-3MT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GMA-yT-Z8f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

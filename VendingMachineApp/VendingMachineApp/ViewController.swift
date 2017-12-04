@@ -44,30 +44,16 @@ class ViewController: UIViewController {
             button.layer.borderColor = UIColor.black.cgColor
             button.layer.cornerRadius = button.frame.height/2
             button.clipsToBounds = true
-            if button.tag == 1 {
-                button.addTarget(self,
-                                 action: #selector(addTenMoneyButtonDidTap(_:)),
-                                 for: .touchDown)
-            }
-            if button.tag == 2 {
-                button.addTarget(self,
-                                 action: #selector(addFiftyMoneyButtonDidTap(_:)),
-                                 for: .touchDown)
-            }
+            button.addTarget(self,
+                             action: #selector(addMoneyButtonDidTap(_:)),
+                             for: .touchDown)
         }
     }
 
-    // 천원 추가
-    @objc func addTenMoneyButtonDidTap(_ sender: UIButton) {
+    // 음료수를 구매하기 위한 금액 추가 이벤트
+    @objc func addMoneyButtonDidTap(_ sender: UIButton) {
         initUserMode()
-        addMoney(1000)
-        updateRemainMoneyLabel()
-    }
-
-    // 오천원 추가
-    @objc func addFiftyMoneyButtonDidTap(_ sender: UIButton) {
-        initUserMode()
-        addMoney(5000)
+        addMoney(sender.tag)
         updateRemainMoneyLabel()
     }
 

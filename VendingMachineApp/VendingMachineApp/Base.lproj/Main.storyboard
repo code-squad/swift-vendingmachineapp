@@ -21,18 +21,24 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lLs-w1-DGB">
                                 <rect key="frame" x="111" y="50" width="890" height="667"/>
                                 <connections>
-                                    <segue destination="mCi-fE-U07" kind="embed" id="3Hp-Hk-3CX"/>
+                                    <segue destination="mCi-fE-U07" kind="embed" identifier="VendingMachineViewController" id="3Hp-Hk-3CX"/>
                                 </connections>
                             </containerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rgZ-2f-wnX">
                                 <rect key="frame" x="166.5" y="734" width="296.5" height="60"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <state key="normal" title="1000"/>
+                                <connections>
+                                    <action selector="addTenMoneyButtonDidTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YB0-jj-PAc"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7YB-Yk-itw">
                                 <rect key="frame" x="684.5" y="734" width="296.5" height="60"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <state key="normal" title="5000"/>
+                                <connections>
+                                    <action selector="addFiftyMoneyButtonDidTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dZM-1w-dtt"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-won-80" translatesAutoresizingMaskIntoConstraints="NO" id="sLd-VS-w8d">
                                 <rect key="frame" x="166.5" y="734" width="129" height="60"/>
@@ -40,6 +46,12 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-won-80" translatesAutoresizingMaskIntoConstraints="NO" id="rUM-X1-HcY">
                                 <rect key="frame" x="684.5" y="734" width="118.5" height="60"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qsv-2E-1SF">
+                                <rect key="frame" x="965" y="61" width="127" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -50,9 +62,11 @@
                             <constraint firstItem="lLs-w1-DGB" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="Hzu-Vh-6Iz"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="rgZ-2f-wnX" secondAttribute="bottom" constant="40" id="OlC-GQ-IZB"/>
                             <constraint firstItem="lLs-w1-DGB" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Qas-KX-kuR"/>
+                            <constraint firstItem="qsv-2E-1SF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="965" id="ViJ-we-7fy"/>
                             <constraint firstItem="rUM-X1-HcY" firstAttribute="width" secondItem="7YB-Yk-itw" secondAttribute="width" multiplier="1:2.5" id="YER-St-moB"/>
                             <constraint firstItem="rUM-X1-HcY" firstAttribute="top" secondItem="7YB-Yk-itw" secondAttribute="top" id="cLd-WO-iYt"/>
                             <constraint firstItem="rUM-X1-HcY" firstAttribute="bottom" secondItem="7YB-Yk-itw" secondAttribute="bottom" id="cUm-tW-Kx7"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="qsv-2E-1SF" secondAttribute="trailing" constant="20" id="fZn-4o-0Ok"/>
                             <constraint firstItem="7YB-Yk-itw" firstAttribute="trailing" secondItem="lLs-w1-DGB" secondAttribute="trailing" multiplier="0.98" id="fcg-lm-6yw"/>
                             <constraint firstItem="7YB-Yk-itw" firstAttribute="height" secondItem="rgZ-2f-wnX" secondAttribute="height" id="hh6-2L-24V"/>
                             <constraint firstItem="sLd-VS-w8d" firstAttribute="bottom" secondItem="rgZ-2f-wnX" secondAttribute="bottom" id="hme-IL-66F"/>
@@ -63,10 +77,14 @@
                             <constraint firstItem="lLs-w1-DGB" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.8" id="nuX-QN-8u5"/>
                             <constraint firstItem="rgZ-2f-wnX" firstAttribute="top" secondItem="lLs-w1-DGB" secondAttribute="bottom" constant="17" id="pSo-m9-A8D"/>
                             <constraint firstItem="sLd-VS-w8d" firstAttribute="top" secondItem="rgZ-2f-wnX" secondAttribute="top" id="qm6-rM-bw7"/>
+                            <constraint firstItem="qsv-2E-1SF" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="41" id="v17-hr-Jet"/>
                             <constraint firstItem="rUM-X1-HcY" firstAttribute="leading" secondItem="7YB-Yk-itw" secondAttribute="leading" id="xfV-hN-K6G"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="remainMoneyLable" destination="qsv-2E-1SF" id="XRC-RF-RU6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -75,7 +93,7 @@
         <!--Vending Machine View Controller-->
         <scene sceneID="3Hr-kH-g2p">
             <objects>
-                <viewController id="mCi-fE-U07" customClass="VendingMachineViewController" customModule="VendingMachineApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="VendingMachineViewController" id="mCi-fE-U07" customClass="VendingMachineViewController" customModule="VendingMachineApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ofO-np-tB2">
                         <rect key="frame" x="0.0" y="0.0" width="890" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -9,7 +9,7 @@
 import UIKit
 
 extension UIViewController {
-    var appDelegate:AppDelegate {
+    var appDelegate: AppDelegate {
         return UIApplication.shared.delegate as! AppDelegate
     }
 }

@@ -13,7 +13,6 @@ class ViewController: UIViewController {
     @IBOutlet var remainMoneyLabel: UILabel!
     @IBOutlet var addMoneyButtons: [UIButton]!
     private let vendingMachineID = "VendingMachineViewController"
-    private var vendingMachine: VendingMachine!
 
     private let numberFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
@@ -25,16 +24,6 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         initButton()
         updateRemainMoneyLabel()
-    }
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let id = segue.identifier, id == vendingMachineID {
-            guard let vendingMachineViewController = segue.destination as? VendingMachineViewController else {
-                return
-            }
-            vendingMachine = VendingMachine()
-            vendingMachineViewController.vendingMachine = vendingMachine
-        }
     }
 
     private func initButton() {
@@ -59,13 +48,13 @@ class ViewController: UIViewController {
 
     // User Mode로 초기화
     private func initUserMode() {
-        vendingMachine.exitMode()
-        vendingMachine.assignMode(mode: .user)
+        appDelegate.vendingMachine?.exitMode()
+        appDelegate.vendingMachine?.assignMode(mode: .user)
     }
 
     private func addMoney(_ money: Int) {
         do {
-            try vendingMachine.add(detail: money)
+            try appDelegate.vendingMachine?.add(detail: money)
         } catch let error {
             print(error)
         }
@@ -73,7 +62,7 @@ class ViewController: UIViewController {
 
     // 잔돈 라벨 업데이트
     private func updateRemainMoneyLabel() {
-        guard let menu = vendingMachine.makeMenu() else {
+        guard let menu = appDelegate.vendingMachine?.makeMenu() else {
             remainMoneyLabel.text = "0"
             return
         }

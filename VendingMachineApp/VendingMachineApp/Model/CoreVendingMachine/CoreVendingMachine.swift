@@ -12,7 +12,7 @@ import Foundation
 typealias Count = Int
 typealias Price = Int
 
-final class CoreVendingMachine {
+final class CoreVendingMachine: NSCoding {
     private var inventory: [Drink]
     private var purchases: [Drink]
     private var inputMoney: Price
@@ -25,6 +25,17 @@ final class CoreVendingMachine {
         menu = Menu()
         inputMoney = 0
         income = 0
+    }
+
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(inventory, forKey: "inventory")
+        aCoder.encode(inputMoney, forKey: "inputMoney")
+    }
+
+    convenience init?(coder aDecoder: NSCoder) {
+        self.init()
+        inventory = aDecoder.decodeObject(forKey: "inventory") as! [Drink]
+        inputMoney = aDecoder.decodeInteger(forKey: "inputMoney")
     }
 
 }

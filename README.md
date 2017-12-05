@@ -111,3 +111,14 @@
 
 ![Alt text](VendingMachineApp/image/vendingMachineScreenshot.jpeg)
 
+#### 피드백 내용
+
+- for-in과 forEach의 차이점
+  - forEach 매개변수인 body 클로저의 현재 호출로부터 나가거나 이후의 호출을 생략하기 위해서 break 또는 continue를 사용할 수 없다.
+  - 클로저의 return을 사용하면 바디 클로저의 현재 호출만 탈출할 수 있다. 외부 스코프나 이후의 클로저 호출을 생략할 수 없다.
+- 뷰 컨트롤러는 그 자체로 재사용이 가능해야 할 만큼 독립적인 단위여야 한다.
+
+### step-3
+
+- 12/5~
+

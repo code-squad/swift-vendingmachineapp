@@ -39,7 +39,7 @@
 		C9069E901FCFEB6C001BBC82 /* UnitTestDrinkNameEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9069E8F1FCFEB6C001BBC82 /* UnitTestDrinkNameEnum.swift */; };
 		C9069E911FCFEBA6001BBC82 /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9069E5F1FCD38A9001BBC82 /* Drink.swift */; };
 		C9069E921FCFFBFD001BBC82 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9069E1D1FCD3437001BBC82 /* StringExtension.swift */; };
-		C9CE02B51FD67A68005A1A47 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CE02B41FD67A68005A1A47 /* UIViewControllerExtension.swift */; };
+		C9CE02B51FD67A68005A1A47 /* AppDelegateAccessable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CE02B41FD67A68005A1A47 /* AppDelegateAccessable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,7 +87,7 @@
 		C9069E731FCD38D9001BBC82 /* Manager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Manager.swift; sourceTree = "<group>"; };
 		C9069E8D1FCFD116001BBC82 /* VendingMachineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineViewController.swift; sourceTree = "<group>"; };
 		C9069E8F1FCFEB6C001BBC82 /* UnitTestDrinkNameEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestDrinkNameEnum.swift; sourceTree = "<group>"; };
-		C9CE02B41FD67A68005A1A47 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		C9CE02B41FD67A68005A1A47 /* AppDelegateAccessable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateAccessable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +132,7 @@
 				C9CE02B31FD678E5005A1A47 /* Extension */,
 				C9069E1C1FCD33AD001BBC82 /* Model */,
 				C9069DFC1FCD30E4001BBC82 /* AppDelegate.swift */,
+				C9CE02B41FD67A68005A1A47 /* AppDelegateAccessable.swift */,
 				C9069DFE1FCD30E4001BBC82 /* ViewController.swift */,
 				C9069E8D1FCFD116001BBC82 /* VendingMachineViewController.swift */,
 				C9069E001FCD30E4001BBC82 /* Main.storyboard */,
@@ -208,7 +209,6 @@
 			isa = PBXGroup;
 			children = (
 				C9069E1D1FCD3437001BBC82 /* StringExtension.swift */,
-				C9CE02B41FD67A68005A1A47 /* UIViewControllerExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -338,7 +338,7 @@
 				C9069E791FCD38D9001BBC82 /* Manager.swift in Sources */,
 				C9069E231FCD3438001BBC82 /* StringExtension.swift in Sources */,
 				C9069E641FCD38A9001BBC82 /* ChocolateMilk.swift in Sources */,
-				C9CE02B51FD67A68005A1A47 /* UIViewControllerExtension.swift in Sources */,
+				C9CE02B51FD67A68005A1A47 /* AppDelegateAccessable.swift in Sources */,
 				C9069E601FCD38A9001BBC82 /* Top.swift in Sources */,
 				C9069E751FCD38D9001BBC82 /* VendingMachine.swift in Sources */,
 				C9069E771FCD38D9001BBC82 /* User.swift in Sources */,

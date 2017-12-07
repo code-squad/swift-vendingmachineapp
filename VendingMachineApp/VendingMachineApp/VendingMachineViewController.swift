@@ -8,7 +8,7 @@
 
 import UIKit
 
-class VendingMachineViewController: UIViewController {
+class VendingMachineViewController: UIViewController, AppDelegateAccessable {
     // 음료 추가 컨트롤러 -> Manager Mode
     @IBOutlet var imageViews: [UIImageView]!
     @IBOutlet var inventoryLabel: [UILabel]!

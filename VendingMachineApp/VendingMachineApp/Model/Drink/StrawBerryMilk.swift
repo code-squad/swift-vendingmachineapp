@@ -9,7 +9,10 @@
 import Foundation
 
 class StrawBerryMilk: Milk {
-    var ratioOfStrawBerrySyrup: Float
+    private(set) var ratioOfStrawBerrySyrup: Float
+    private enum CodingKeys: String {
+        case ratioOfStrawBerrySyrup
+    }
     init?(brand: String,
           weight: String,
           price: String,
@@ -32,6 +35,17 @@ class StrawBerryMilk: Milk {
                    farmCode: farmCode,
                    ingredients: ingredients)
         self.typeOfProduct = "딸기우유"
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        ratioOfStrawBerrySyrup = aDecoder.decodeFloat(forKey: CodingKeys.ratioOfStrawBerrySyrup.rawValue)
+        super.init(coder: aDecoder)
+        typeOfProduct = "딸기우유"
+    }
+
+    override func encode(with aCoder: NSCoder) {
+        super.encode(with: aCoder)
+        aCoder.encode(ratioOfStrawBerrySyrup, forKey: CodingKeys.ratioOfStrawBerrySyrup.rawValue)
     }
 
 }

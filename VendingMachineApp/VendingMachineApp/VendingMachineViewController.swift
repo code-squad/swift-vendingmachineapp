@@ -29,7 +29,7 @@ class VendingMachineViewController: UIViewController {
         initManagerMode()
         if let imageView = recognizer.view as? UIImageView {
             do {
-                try appDelegate.vendingMachine?.add(detail: imageView.tag)
+                try appDelegate.vendingMachine.add(detail: imageView.tag)
             } catch let error {
                 print(error)
             }
@@ -39,13 +39,13 @@ class VendingMachineViewController: UIViewController {
 
     // Manager Mode로 초기화
     private func initManagerMode() {
-        appDelegate.vendingMachine?.exitMode()
-        appDelegate.vendingMachine?.assignMode(mode: .manager)
+        appDelegate.vendingMachine.exitMode()
+        appDelegate.vendingMachine.assignMode(mode: .manager)
     }
 
     // 재고 업데이트
     private func updateInventory() {
-        let menuContents = appDelegate.vendingMachine?.makeMenu()
+        let menuContents = appDelegate.vendingMachine.makeMenu()
         for lable in inventoryLabel.enumerated() {
             guard let drink = menuContents?.menu[lable.offset] else {
                 lable.element.text = "0"

@@ -12,6 +12,10 @@ class Coffee: Drink {
     private(set) var isHot: Bool
     private(set) var amountOfCaffeine: Int
     private(set) var nameOfCoffeeBeans: String
+    private enum CodingKeys: String {
+        case isHot, amountOfCaffeine, nameOfCoffeeBeans
+    }
+
     init?(calorie: String,
           brand: String,
           weight: String,
@@ -36,6 +40,22 @@ class Coffee: Drink {
         self.typeOfProduct = "커피"
         // 제조일로부터 12개월
         self.maintenanceDay = 365
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        isHot = aDecoder.decodeBool(forKey: CodingKeys.isHot.rawValue)
+        amountOfCaffeine = aDecoder.decodeInteger(forKey: CodingKeys.amountOfCaffeine.rawValue)
+        nameOfCoffeeBeans = aDecoder.decodeObject(forKey: CodingKeys.nameOfCoffeeBeans.rawValue) as! String
+        super.init(coder: aDecoder)
+        typeOfProduct = "커피"
+        maintenanceDay = 365
+    }
+
+    override func encode(with aCoder: NSCoder) {
+        super.encode(with: aCoder)
+        aCoder.encode(isHot, forKey: CodingKeys.isHot.rawValue)
+        aCoder.encode(amountOfCaffeine, forKey: CodingKeys.amountOfCaffeine.rawValue)
+        aCoder.encode(nameOfCoffeeBeans, forKey: CodingKeys.nameOfCoffeeBeans.rawValue)
     }
 
     func isSuitableAmountOfCaffeine(to age: Int) -> Bool {

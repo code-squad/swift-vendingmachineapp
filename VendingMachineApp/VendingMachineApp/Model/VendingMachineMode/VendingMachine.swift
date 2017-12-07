@@ -18,7 +18,7 @@ struct VendingMachine {
     }
 
     init() {
-        core = CoreVendingMachine()
+            core = CoreVendingMachine()
     }
 
     // 입력한 모드에 대한 처리. 모드에 따라 메니저와 자판기, 유저와 자판기 연결
@@ -63,6 +63,10 @@ struct VendingMachine {
             return mode.selectDrink()
         }
         return nil
+    }
+
+    func saveChanges() -> Bool {
+        return core.saveChanges()
     }
 
 }

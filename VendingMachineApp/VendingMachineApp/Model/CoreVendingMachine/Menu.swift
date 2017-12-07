@@ -97,9 +97,9 @@ struct Menu {
                       coke!,
                       cider!,
                       fanta!,
+                      cantataCoffee!,
                       topCoffee!,
-                      georgiaCoffee!,
-                      cantataCoffee!]
+                      georgiaCoffee!]
     }
 
 }

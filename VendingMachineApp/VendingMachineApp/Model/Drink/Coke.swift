@@ -26,6 +26,15 @@ class Coke: SoftDrink {
         self.typeOfProduct = "콜라"
     }
 
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        self.typeOfProduct = "콜라"
+    }
+
+    override func encode(with aCoder: NSCoder) {
+        super.encode(with: aCoder)
+    }
+
     func isZeroCoke() -> Bool {
         return calorie < 4
     }

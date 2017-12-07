@@ -48,22 +48,11 @@ class VendingMachineViewController: UIViewController, AppDelegateAccessable {
     private func updateInventory() {
         if let menuContents = appDelegate.vendingMachine.makeMenu() {
             for lable in inventoryLabel.enumerated() {
-                let count = findCountOfDrink(target: menuContents.menu[lable.offset],
-                                             inventory: menuContents.inventory)
+                let drink = menuContents.menu[lable.offset]
+                let count = menuContents.inventory[drink] ?? 0
                 lable.element.text = "\(count)"
             }
         }
-
     }
-
-    private func findCountOfDrink(target: Drink, inventory: [Drink: Count]) -> Count {
-        for currentDrink in inventory.enumerated() {
-            if target == currentDrink.element.key {
-                return currentDrink.element.value
-            }
-        }
-        return 0
-    }
-
 
 }

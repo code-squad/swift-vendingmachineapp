@@ -85,10 +85,16 @@ class Drink: NSObject, NSCoding {
         super.init()
     }
 
-    
-
     func valid(with date: Date) -> Bool {
         return date < expirationDate
+    }
+
+    override var hashValue: Int {
+        return className.hashValue
+    }
+
+    override func isEqual(_ object: Any?) -> Bool {
+        return self.hashValue == (object as! Drink).hashValue
     }
 
 }
@@ -119,31 +125,4 @@ extension NSObject {
         return className
     }
 
-}
-
-extension Drink {
-
-    static func == (lhs: Drink, rhs: Drink) -> Bool {
-        return lhs.className == rhs.className
-    }
-
-    override var hashValue: Int {
-        return className.hashValue
-    }
-
-}
-
-protocol Mappable: Codable {
-    init?(jsonString: String)
-
-}
-extension Mappable {
-    init?(jsonString: String) {
-        guard let data = jsonString.data(using: .utf8) else {
-            return nil
-        }
-        self = try! JSONDecoder().decode(Self.self, from: data)
-        // I used force unwrap for simplicity.
-        // It is better to deal with exception using do-catch.
-    }
 }

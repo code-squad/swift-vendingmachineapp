@@ -36,9 +36,10 @@ final class CoreVendingMachine {
 extension CoreVendingMachine {
 
     private func setURLForKey(key: String) -> URL {
+        let archiveFileName = key + ".archive"
         let documentsDirectories = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         let documentDirectory = documentsDirectories.first!
-        return documentDirectory.appendingPathComponent(key)
+        return documentDirectory.appendingPathComponent(archiveFileName)
     }
 
     private func setProperties() {
@@ -62,6 +63,7 @@ extension CoreVendingMachine {
 
 }
 
+
 extension CoreVendingMachine: ManagerModeDelegate {
 
     // 음료수 인덱스를 넘겨서 재고를 추가하는 메소드
@@ -70,6 +72,7 @@ extension CoreVendingMachine: ManagerModeDelegate {
         guard productIndex >= 0 && productIndex < listOfDrink.count else {
             throw stockError.invalidProductNumber
         }
+        print(listOfDrink[productIndex])
         inventory.append(listOfDrink[productIndex])
     }
 

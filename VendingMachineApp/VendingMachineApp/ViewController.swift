@@ -23,6 +23,7 @@ class ViewController: UIViewController, AppDelegateAccessable {
     override func viewDidLoad() {
         super.viewDidLoad()
         initButton()
+        initUserMode()
         updateRemainMoneyLabel()
     }
 
@@ -63,7 +64,6 @@ class ViewController: UIViewController, AppDelegateAccessable {
     // 잔돈 라벨 업데이트
     private func updateRemainMoneyLabel() {
         guard let menu = appDelegate.vendingMachine.makeMenu() else {
-            remainMoneyLabel.text = "0"
             return
         }
         remainMoneyLabel.text = "\(numberFormatter.string(from: NSNumber(value: menu.money)) ?? "0")"

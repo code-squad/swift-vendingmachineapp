@@ -21,6 +21,7 @@ class VendingMachineViewController: UIViewController, AppDelegateAccessable {
             imageView.addGestureRecognizer(tap)
             imageView.isUserInteractionEnabled = true
         }
+        initManagerMode()
         updateInventory()
     }
 
@@ -45,14 +46,23 @@ class VendingMachineViewController: UIViewController, AppDelegateAccessable {
 
     // 재고 업데이트
     private func updateInventory() {
-        let menuContents = appDelegate.vendingMachine.makeMenu()
-        for lable in inventoryLabel.enumerated() {
-            guard let drink = menuContents?.menu[lable.offset] else {
-                lable.element.text = "0"
-                continue
+        if let menuContents = appDelegate.vendingMachine.makeMenu() {
+            for lable in inventoryLabel.enumerated() {
+                let count = findCountOfDrink(target: menuContents.menu[lable.offset],
+                                             inventory: menuContents.inventory)
+                lable.element.text = "\(count)"
             }
-            lable.element.text = "\(menuContents?.inventory[drink] ?? 0 )"
         }
+
+    }
+
+    private func findCountOfDrink(target: Drink, inventory: [Drink: Count]) -> Count {
+        for currentDrink in inventory.enumerated() {
+            if target == currentDrink.element.key {
+                return currentDrink.element.value
+            }
+        }
+        return 0
     }
 
 

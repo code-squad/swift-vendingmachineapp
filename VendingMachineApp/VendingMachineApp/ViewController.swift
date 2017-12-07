@@ -48,13 +48,13 @@ class ViewController: UIViewController {
 
     // User Mode로 초기화
     private func initUserMode() {
-        appDelegate.vendingMachine?.exitMode()
-        appDelegate.vendingMachine?.assignMode(mode: .user)
+        appDelegate.vendingMachine.exitMode()
+        appDelegate.vendingMachine.assignMode(mode: .user)
     }
 
     private func addMoney(_ money: Int) {
         do {
-            try appDelegate.vendingMachine?.add(detail: money)
+            try appDelegate.vendingMachine.add(detail: money)
         } catch let error {
             print(error)
         }
@@ -62,7 +62,7 @@ class ViewController: UIViewController {
 
     // 잔돈 라벨 업데이트
     private func updateRemainMoneyLabel() {
-        guard let menu = appDelegate.vendingMachine?.makeMenu() else {
+        guard let menu = appDelegate.vendingMachine.makeMenu() else {
             remainMoneyLabel.text = "0"
             return
         }

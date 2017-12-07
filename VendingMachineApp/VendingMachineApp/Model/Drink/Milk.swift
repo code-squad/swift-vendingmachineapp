@@ -11,6 +11,9 @@ import Foundation
 class Milk: Drink {
     private(set) var farmCode: String
     private(set) var ingredients: [String]
+    private enum CodingKeys: String {
+        case farmCode, ingredients
+    }
     init?(brand: String,
           weight: String,
           price: String,
@@ -31,6 +34,26 @@ class Milk: Drink {
         /// 유통기한: 제조일로부터 45일
         self.maintenanceDay = 45
     }
+
+    required init?(coder aDecoder: NSCoder) {
+        farmCode = aDecoder.decodeObject(forKey: CodingKeys.farmCode.rawValue) as! String
+        guard let ingredients = aDecoder
+            .decodeObject(forKey: CodingKeys.ingredients.rawValue) as? [String] else{
+            return nil
+        }
+        self.ingredients = ingredients
+        super.init(coder: aDecoder)
+        self.typeOfProduct = "우유"
+        /// 유통기한: 제조일로부터 45일
+        self.maintenanceDay = 45
+    }
+
+    override func encode(with aCoder: NSCoder) {
+        aCoder.encode(farmCode, forKey: CodingKeys.farmCode.rawValue)
+        aCoder.encode(ingredients, forKey: CodingKeys.ingredients.rawValue)
+        super.encode(with: aCoder)
+    }
+
 
     func isEasyOfDigestion() -> Bool {
         return ingredients.contains("lactose")

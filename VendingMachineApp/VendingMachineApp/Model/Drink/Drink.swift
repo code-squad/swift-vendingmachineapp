@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Drink: NSObject {
+class Drink: NSObject, NSCoding {
     var typeOfProduct: String
     var maintenanceDay: Double
     private(set) var calorie: Int
@@ -17,7 +17,7 @@ class Drink: NSObject {
     private(set) var price: Int
     private(set) var name: String
     private(set) var dateOfManufacture: Date
-    var expirationDate: Date? {
+    var expirationDate: Date {
         return Date(timeInterval: 3600 * 24 * maintenanceDay, since: dateOfManufacture)
     }
     override var description: String {
@@ -30,12 +30,32 @@ class Drink: NSObject {
                       name,
                       dateFormatter.string(from: dateOfManufacture))
     }
-    private let dateFormatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyyMMdd"
-        formatter.timeZone = TimeZone(abbreviation: "GMT+0:00")
-        return formatter
-    }()
+
+    private enum CodingKeys: String {
+        case calorie, brand, weight
+        case price, name, dateOfManufacture
+    }
+
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(calorie, forKey: CodingKeys.calorie.rawValue)
+        aCoder.encode(brand, forKey: CodingKeys.brand.rawValue)
+        aCoder.encode(weight, forKey: CodingKeys.weight.rawValue)
+        aCoder.encode(price, forKey: CodingKeys.price.rawValue)
+        aCoder.encode(name, forKey: CodingKeys.name.rawValue)
+        aCoder.encode(dateOfManufacture, forKey: CodingKeys.dateOfManufacture.rawValue)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        calorie = aDecoder.decodeInteger(forKey: CodingKeys.calorie.rawValue)
+        brand = aDecoder.decodeObject(forKey: CodingKeys.brand.rawValue) as! String
+        weight = aDecoder.decodeInteger(forKey: CodingKeys.weight.rawValue)
+        price = aDecoder.decodeInteger(forKey: CodingKeys.price.rawValue)
+        name = aDecoder.decodeObject(forKey: CodingKeys.name.rawValue) as! String
+        dateOfManufacture = aDecoder.decodeObject(forKey: CodingKeys.dateOfManufacture.rawValue) as! Date
+        typeOfProduct = "음료수"
+        maintenanceDay = 0
+        super.init()
+    }
 
     init?(calorie: String,
           brand: String,
@@ -57,16 +77,23 @@ class Drink: NSObject {
         self.price = price
         self.name = name
         self.dateOfManufacture = dateOfManufacture
+        super.init()
     }
 
+    
+
     func valid(with date: Date) -> Bool {
-        guard let expirationDay = self.expirationDate else {
-            return false
-        }
-        return date < expirationDay
+        return date < expirationDate
     }
 
 }
+
+let dateFormatter: DateFormatter = {
+    let formatter = DateFormatter()
+    formatter.dateFormat = "yyyyMMdd"
+    formatter.timeZone = TimeZone(abbreviation: "GMT+0:00")
+    return formatter
+}()
 
 extension NSObject {
     var className: String {
@@ -99,4 +126,19 @@ extension Drink {
         return className.hashValue
     }
 
+}
+
+protocol Mappable: Codable {
+    init?(jsonString: String)
+
+}
+extension Mappable {
+    init?(jsonString: String) {
+        guard let data = jsonString.data(using: .utf8) else {
+            return nil
+        }
+        self = try! JSONDecoder().decode(Self.self, from: data)
+        // I used force unwrap for simplicity.
+        // It is better to deal with exception using do-catch.
+    }
 }

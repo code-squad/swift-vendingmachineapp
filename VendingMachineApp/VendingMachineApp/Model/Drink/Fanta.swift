@@ -9,11 +9,12 @@
 import Foundation
 
 class Fanta: SoftDrink {
-    var tase: Taste
-    enum Taste {
-        case orange
-        case pineapple
-        case grape
+    private(set) var taste: Taste
+    enum Taste: Int {
+        case orange, pineapple, grape
+    }
+    private enum CodingKeys: String {
+        case taste = "FantaTaste"
     }
     init?(calorie: String,
           brand: String,
@@ -23,7 +24,7 @@ class Fanta: SoftDrink {
           dateOfManufacture: String,
           amountOfSugar: String,
           taste: Taste) {
-        self.tase = taste
+        self.taste = taste
         super.init(calorie: calorie,
                    brand: brand,
                    weight: weight,
@@ -31,6 +32,21 @@ class Fanta: SoftDrink {
                    name: name,
                    dateOfManufacture: dateOfManufacture,
                    amountOfSugar: amountOfSugar)
-        self.typeOfProduct = "환타"
+        typeOfProduct = "환타"
     }
+
+    required init?(coder aDecoder: NSCoder) {
+        guard let taste = Taste(rawValue: aDecoder.decodeInteger(forKey: CodingKeys.taste.rawValue)) else {
+            return nil
+        }
+        self.taste = taste
+        super.init(coder: aDecoder)
+        typeOfProduct = "환타"
+    }
+
+    override func encode(with aCoder: NSCoder) {
+        super.encode(with: aCoder)
+        aCoder.encode(taste.rawValue, forKey: CodingKeys.taste.rawValue)
+    }
+
 }

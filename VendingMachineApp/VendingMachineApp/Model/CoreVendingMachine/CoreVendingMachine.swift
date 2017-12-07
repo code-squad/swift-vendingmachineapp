@@ -8,16 +8,19 @@
 
 import Foundation
 
-
 typealias Count = Int
 typealias Price = Int
 
-final class CoreVendingMachine: NSCoding {
+final class CoreVendingMachine {
     private var inventory: [Drink]
     private var purchases: [Drink]
     private var inputMoney: Price
     private var income: Price
     private var menu: Menu
+
+    private enum CodingKeys: String {
+        case inventory, inputMoney
+    }
 
     init() {
         inventory = [Drink]()
@@ -25,17 +28,36 @@ final class CoreVendingMachine: NSCoding {
         menu = Menu()
         inputMoney = 0
         income = 0
+        setProperties()
     }
 
-    func encode(with aCoder: NSCoder) {
-        aCoder.encode(inventory, forKey: "inventory")
-        aCoder.encode(inputMoney, forKey: "inputMoney")
+}
+
+extension CoreVendingMachine {
+
+    private func setURLForKey(key: String) -> URL {
+        let documentsDirectories = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        let documentDirectory = documentsDirectories.first!
+        return documentDirectory.appendingPathComponent(key)
     }
 
-    convenience init?(coder aDecoder: NSCoder) {
-        self.init()
-        inventory = aDecoder.decodeObject(forKey: "inventory") as! [Drink]
-        inputMoney = aDecoder.decodeInteger(forKey: "inputMoney")
+    private func setProperties() {
+        if let inventoryArchive = NSKeyedUnarchiver
+            .unarchiveObject(withFile: setURLForKey(key: CodingKeys.inventory.rawValue).path) as? [Drink] {
+            inventory = inventoryArchive
+        }
+        if let inputMoneyArchive = NSKeyedUnarchiver
+            .unarchiveObject(withFile: setURLForKey(key: CodingKeys.inputMoney.rawValue).path) as? Int {
+            inputMoney = inputMoneyArchive
+        }
+    }
+
+    func saveChanges() -> Bool {
+        return NSKeyedArchiver.archiveRootObject(inventory,
+                                          toFile: setURLForKey(key: CodingKeys.inventory.rawValue).path)
+            && NSKeyedArchiver.archiveRootObject(inputMoney,
+                                                 toFile: setURLForKey(key: CodingKeys.inputMoney.rawValue).path)
+
     }
 
 }
@@ -165,3 +187,4 @@ extension CoreVendingMachine {
     }
 
 }
+

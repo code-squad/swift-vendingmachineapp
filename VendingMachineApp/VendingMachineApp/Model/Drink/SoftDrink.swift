@@ -10,6 +10,9 @@ import Foundation
 
 class SoftDrink: Drink {
     private(set) var amountOfSugar: Int
+    private enum CodingKeys: String {
+        case amountOfSugar
+    }
     init?(calorie: String,
           brand: String,
           weight: String,
@@ -31,7 +34,19 @@ class SoftDrink: Drink {
         // 제조일로부터 24개월
         self.maintenanceDay = 365 * 2
     }
+    required init?(coder aDecoder: NSCoder) {
+        amountOfSugar = aDecoder.decodeInteger(forKey: CodingKeys.amountOfSugar.rawValue)
+        super.init(coder: aDecoder)
+        typeOfProduct = "탄산음료"
+        maintenanceDay = 365 * 2
 
+    }
+
+    override func encode(with aCoder: NSCoder) {
+        super.encode(with: aCoder)
+        aCoder.encode(amountOfSugar, forKey: CodingKeys.amountOfSugar.rawValue)
+    }
+    
     func isSuitableAmountOfSugar() -> Bool {
         return amountOfSugar < 50
     }

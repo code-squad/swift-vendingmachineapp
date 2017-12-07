@@ -9,10 +9,12 @@
 import Foundation
 
 class Cantata: Coffee {
-    var taste: Taste
-    enum Taste {
-        case americano
-        case primiumLatte
+    private(set) var taste: Taste
+    private enum CodingKeys: String {
+        case taste = "CantataTaste"
+    }
+    enum Taste: Int {
+        case americano, primiumLatte
     }
     init?(calorie: String,
           brand: String,
@@ -35,6 +37,20 @@ class Cantata: Coffee {
                    amountOfCaffeine: amountOfCaffeine,
                    nameOfCoffeeBeans: nameOfCoffeeBeans)
         self.typeOfProduct = "칸타타커피"
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        guard let taste = Taste(rawValue: aDecoder.decodeInteger(forKey: CodingKeys.taste.rawValue)) else {
+            return nil
+        }
+        self.taste = taste
+        super.init(coder: aDecoder)
+        typeOfProduct = "칸타타커피"
+    }
+
+    override func encode(with aCoder: NSCoder) {
+        super.encode(with: aCoder)
+        aCoder.encode(taste.rawValue, forKey: CodingKeys.taste.rawValue)
     }
 
 }

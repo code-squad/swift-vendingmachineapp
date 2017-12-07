@@ -8,7 +8,10 @@
 
 import UIKit
 
-extension UIViewController {
+protocol AppDelegateAccessable {
+    var appDelegate: AppDelegate { get }
+}
+extension AppDelegateAccessable where Self: UIViewController {
     var appDelegate: AppDelegate {
         return UIApplication.shared.delegate as! AppDelegate
     }

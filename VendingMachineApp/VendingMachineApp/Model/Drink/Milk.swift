@@ -30,22 +30,21 @@ class Milk: Drink {
                    price: price,
                    name: name,
                    dateOfManufacture: dateOfManufacture)
-        self.typeOfProduct = "우유"
+        typeOfProduct = "우유"
         /// 유통기한: 제조일로부터 45일
-        self.maintenanceDay = 45
+        maintenanceDay = 45
     }
 
     required init?(coder aDecoder: NSCoder) {
-        farmCode = aDecoder.decodeObject(forKey: CodingKeys.farmCode.rawValue) as! String
-        guard let ingredients = aDecoder
-            .decodeObject(forKey: CodingKeys.ingredients.rawValue) as? [String] else{
+        guard let farmCode = aDecoder.decodeObject(forKey: CodingKeys.farmCode.rawValue) as? String,
+            let ingredients = aDecoder.decodeObject(forKey: CodingKeys.ingredients.rawValue) as? [String] else{
             return nil
         }
+        self.farmCode = farmCode
         self.ingredients = ingredients
         super.init(coder: aDecoder)
-        self.typeOfProduct = "우유"
-        /// 유통기한: 제조일로부터 45일
-        self.maintenanceDay = 45
+        typeOfProduct = "우유"
+        maintenanceDay = 45
     }
 
     override func encode(with aCoder: NSCoder) {

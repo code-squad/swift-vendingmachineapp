@@ -47,11 +47,16 @@ class Drink: NSObject, NSCoding {
 
     required init?(coder aDecoder: NSCoder) {
         calorie = aDecoder.decodeInteger(forKey: CodingKeys.calorie.rawValue)
-        brand = aDecoder.decodeObject(forKey: CodingKeys.brand.rawValue) as! String
         weight = aDecoder.decodeInteger(forKey: CodingKeys.weight.rawValue)
         price = aDecoder.decodeInteger(forKey: CodingKeys.price.rawValue)
-        name = aDecoder.decodeObject(forKey: CodingKeys.name.rawValue) as! String
-        dateOfManufacture = aDecoder.decodeObject(forKey: CodingKeys.dateOfManufacture.rawValue) as! Date
+        guard let brand = aDecoder.decodeObject(forKey: CodingKeys.brand.rawValue) as? String,
+            let name = aDecoder.decodeObject(forKey: CodingKeys.name.rawValue) as? String,
+            let dateOfManufacture = aDecoder.decodeObject(forKey: CodingKeys.dateOfManufacture.rawValue) as? Date else {
+                return nil
+        }
+        self.brand = brand
+        self.name = name
+        self.dateOfManufacture = dateOfManufacture
         typeOfProduct = "음료수"
         maintenanceDay = 0
         super.init()

@@ -45,7 +45,10 @@ class Coffee: Drink {
     required init?(coder aDecoder: NSCoder) {
         isHot = aDecoder.decodeBool(forKey: CodingKeys.isHot.rawValue)
         amountOfCaffeine = aDecoder.decodeInteger(forKey: CodingKeys.amountOfCaffeine.rawValue)
-        nameOfCoffeeBeans = aDecoder.decodeObject(forKey: CodingKeys.nameOfCoffeeBeans.rawValue) as! String
+        guard let nameOfCoffeeBeans = aDecoder.decodeObject(forKey: CodingKeys.nameOfCoffeeBeans.rawValue) as? String else {
+            return nil
+        }
+        self.nameOfCoffeeBeans = nameOfCoffeeBeans
         super.init(coder: aDecoder)
         typeOfProduct = "커피"
         maintenanceDay = 365

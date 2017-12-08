@@ -30,6 +30,12 @@ class Drink: NSObject, NSCoding {
                       name,
                       dateFormatter.string(from: dateOfManufacture))
     }
+    let dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyyMMdd"
+        formatter.timeZone = TimeZone(abbreviation: "GMT+0:00")
+        return formatter
+    }()
 
     private enum CodingKeys: String {
         case calorie, brand, weight
@@ -88,7 +94,9 @@ class Drink: NSObject, NSCoding {
     func valid(with date: Date) -> Bool {
         return date < expirationDate
     }
+}
 
+extension Drink {
     override var hashValue: Int {
         return className.hashValue
     }
@@ -98,13 +106,6 @@ class Drink: NSObject, NSCoding {
     }
 
 }
-
-let dateFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateFormat = "yyyyMMdd"
-    formatter.timeZone = TimeZone(abbreviation: "GMT+0:00")
-    return formatter
-}()
 
 extension NSObject {
     var className: String {

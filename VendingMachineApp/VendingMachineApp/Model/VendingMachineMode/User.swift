@@ -10,7 +10,6 @@ import Foundation
 
 struct User: EnableMode {
     private var delegate: UserModeDelegate
-    private var drink: Drink?
 
     init(target: UserModeDelegate) {
         delegate = target
@@ -27,17 +26,13 @@ struct User: EnableMode {
         delegate.add(money: detail)
     }
 
-    mutating func delete(detail: Int) throws {
+    func delete(detail: Int) throws {
         do {
-            drink = try delegate.buy(productIndex: detail)
+            try delegate.buy(productIndex: detail)
         } catch let error {
             throw error
         }
 
-    }
-    
-    func selectDrink() -> Drink? {
-        return drink
     }
 
 }

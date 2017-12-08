@@ -72,7 +72,6 @@ extension CoreVendingMachine: ManagerModeDelegate {
         guard productIndex >= 0 && productIndex < listOfDrink.count else {
             throw stockError.invalidProductNumber
         }
-        print(listOfDrink[productIndex])
         inventory.append(listOfDrink[productIndex])
     }
 

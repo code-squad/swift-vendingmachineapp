@@ -12,53 +12,60 @@ typealias Count = Int
 typealias Price = Int
 
 final class CoreVendingMachine {
-    private var inventory: [Drink]
+    private var inventory: [Drink] = initialInventroy {
+        didSet {
+            NotificationCenter.default.post(name: .didAddInventoryNotification,
+                                            object: nil)
+        }
+    }
     private var purchases: [Drink]
     private var inputMoney: Price
     private var income: Price
     private var menu: Menu
 
-    private enum CodingKeys: String {
-        case inventory, inputMoney
-    }
-
     init() {
-        inventory = [Drink]()
         purchases = [Drink]()
         menu = Menu()
-        inputMoney = 0
+        inputMoney = CoreVendingMachine.unarchive(key: .inputMoney) as? Int ?? 0
         income = 0
-        setProperties()
     }
 
 }
 
 extension CoreVendingMachine {
+    private enum CodingKeys: String {
+        case inventory, inputMoney
+    }
 
-    private func setURLForKey(key: String) -> URL {
-        let archiveFileName = key + ".archive"
+    static var initialInventroy: [Drink] {
+        return unarchive(key: .inventory) as? [Drink] ?? []
+    }
+
+    private static func setURLForKey(key: CodingKeys) -> URL {
+        let archiveFileName = key.rawValue + ".archive"
         let documentsDirectories = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         let documentDirectory = documentsDirectories.first!
         return documentDirectory.appendingPathComponent(archiveFileName)
     }
 
-    private func setProperties() {
-        if let inventoryArchive = NSKeyedUnarchiver
-            .unarchiveObject(withFile: setURLForKey(key: CodingKeys.inventory.rawValue).path) as? [Drink] {
-            inventory = inventoryArchive
-        }
-        if let inputMoneyArchive = NSKeyedUnarchiver
-            .unarchiveObject(withFile: setURLForKey(key: CodingKeys.inputMoney.rawValue).path) as? Int {
-            inputMoney = inputMoneyArchive
-        }
+    private static func unarchive(key: CodingKeys) -> Any? {
+        return NSKeyedUnarchiver.unarchiveObject(withFile: setURLForKey(key: key).path)
+    }
+
+    private func archive(_ objects: inout [Drink], key: CodingKeys) -> Bool {
+        let url = CoreVendingMachine.setURLForKey(key: key)
+        return NSKeyedArchiver.archiveRootObject(objects,
+                                                 toFile: url.path)
+    }
+
+    private func archive(_ object: inout Int, key: CodingKeys) -> Bool {
+        let url = CoreVendingMachine.setURLForKey(key: key)
+        return NSKeyedArchiver.archiveRootObject(object,
+                                                 toFile: url.path)
     }
 
     func saveChanges() -> Bool {
-        return NSKeyedArchiver.archiveRootObject(inventory,
-                                          toFile: setURLForKey(key: CodingKeys.inventory.rawValue).path)
-            && NSKeyedArchiver.archiveRootObject(inputMoney,
-                                                 toFile: setURLForKey(key: CodingKeys.inputMoney.rawValue).path)
-
+        return archive(&inventory, key: .inventory) && archive(&inputMoney, key: .inputMoney)
     }
 
 }
@@ -73,9 +80,7 @@ extension CoreVendingMachine: ManagerModeDelegate {
             throw stockError.invalidProductNumber
         }
         inventory.append(listOfDrink[productIndex])
-        NotificationCenter.default.post(name: .didAddInventoryNotification,
-                                        object: nil)
-    }
+            }
 
     // 음료수 인덱스를 넘겨서 재고의 음료수를 삭제하는 메소드
     @discardableResult func delete(productIndex: Int) throws -> Drink {

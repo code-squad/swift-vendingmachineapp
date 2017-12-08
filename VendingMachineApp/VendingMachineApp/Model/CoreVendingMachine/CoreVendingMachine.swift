@@ -73,6 +73,8 @@ extension CoreVendingMachine: ManagerModeDelegate {
             throw stockError.invalidProductNumber
         }
         inventory.append(listOfDrink[productIndex])
+        NotificationCenter.default.post(name: .didAddInventoryNotification,
+                                        object: nil)
     }
 
     // 음료수 인덱스를 넘겨서 재고의 음료수를 삭제하는 메소드

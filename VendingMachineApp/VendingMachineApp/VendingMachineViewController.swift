@@ -15,13 +15,12 @@ class VendingMachineViewController: UIViewController, AppDelegateAccessable {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.imageViews.forEach { (imageView: UIImageView) in
-            let tap = UITapGestureRecognizer(target: self,
-                                             action: #selector(VendingMachineViewController.drinkViewDidTap))
-            imageView.addGestureRecognizer(tap)
-            imageView.isUserInteractionEnabled = true
-        }
-        updateInventory()
+        makeDrinkImageViews()
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(self.updateInventoryLabel(noti:)),
+                                               name: .didAddInventoryNotification,
+                                               object: nil)
+        updateInventoryLabel(noti: nil)
     }
 
     // 음료 이미지를 클릭했을 경우
@@ -33,11 +32,10 @@ class VendingMachineViewController: UIViewController, AppDelegateAccessable {
                 print(error)
             }
         }
-        updateInventory()
     }
 
     // 재고 업데이트
-    private func updateInventory() {
+    @objc private func updateInventoryLabel(noti: Notification?) {
         if let menuContents = VendingMachine.sharedInstance.makeMenu(.manager) {
             for lable in inventoryLabel.enumerated() {
                 let drink = menuContents.menu[lable.offset]
@@ -47,4 +45,17 @@ class VendingMachineViewController: UIViewController, AppDelegateAccessable {
         }
     }
 
+    func makeDrinkImageViews() {
+        self.imageViews.forEach { (imageView: UIImageView) in
+            let tap = UITapGestureRecognizer(target: self,
+                                             action: #selector(self.drinkViewDidTap(_:)))
+            imageView.addGestureRecognizer(tap)
+            imageView.isUserInteractionEnabled = true
+        }
+    }
+
+}
+
+extension Notification.Name {
+    static let didAddInventoryNotification = Notification.Name(rawValue: "DidAddInventory")
 }

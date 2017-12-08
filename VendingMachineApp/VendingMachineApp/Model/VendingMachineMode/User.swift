@@ -16,14 +16,14 @@ struct User: EnableMode {
         delegate = target
     }
 
-    mutating func makeMenu() -> MenuContents {
+    func makeMenu() -> MenuContents {
         let income = delegate.howMuchRemainMoney()
         let userMenu = delegate.listOfCanBuy()
         let userInventory = delegate.listOfInventory()
         return (.user, income, userMenu, userInventory)
     }
 
-    mutating func add(detail: Int) throws {
+    func add(detail: Int) throws {
         delegate.add(money: detail)
     }
 

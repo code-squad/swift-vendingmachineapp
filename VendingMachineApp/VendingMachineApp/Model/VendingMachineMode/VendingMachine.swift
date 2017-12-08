@@ -11,17 +11,17 @@ import Foundation
 typealias Mode = VendingMachine.Mode
 
 struct VendingMachine {
+    static let sharedInstance: VendingMachine = VendingMachine()
+
     private var enableMode: EnableMode?
-    private var core: CoreVendingMachine
+    let core: CoreVendingMachine = {
+        return CoreVendingMachine()
+    }()
     var hasMode: Bool {
         return enableMode != nil
     }
 
-    init() {
-            core = CoreVendingMachine()
-    }
-
-    // 입력한 모드에 대한 처리. 모드에 따라 메니저와 자판기, 유저와 자판기 연결
+    // 입력한 모드에 대한 처리. 모드에 따라 매니저와 자판기, 유저와 자판기 연결
     mutating func assignMode(mode: Mode) {
         switch mode {
         case .manager:

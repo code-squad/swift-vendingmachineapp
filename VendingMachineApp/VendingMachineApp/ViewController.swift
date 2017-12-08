@@ -23,7 +23,6 @@ class ViewController: UIViewController, AppDelegateAccessable {
     override func viewDidLoad() {
         super.viewDidLoad()
         initButton()
-        initUserMode()
         updateRemainMoneyLabel()
     }
 
@@ -42,20 +41,13 @@ class ViewController: UIViewController, AppDelegateAccessable {
 
     // 음료수를 구매하기 위한 금액 추가 이벤트
     @objc func addMoneyButtonDidTap(_ sender: UIButton) {
-        initUserMode()
         addMoney(sender.tag)
         updateRemainMoneyLabel()
     }
 
-    // User Mode로 초기화
-    private func initUserMode() {
-        appDelegate.vendingMachine.exitMode()
-        appDelegate.vendingMachine.assignMode(mode: .user)
-    }
-
     private func addMoney(_ money: Int) {
         do {
-            try appDelegate.vendingMachine.add(detail: money)
+            try VendingMachine.sharedInstance.add(.user, detail: money)
         } catch let error {
             print(error)
         }
@@ -63,7 +55,7 @@ class ViewController: UIViewController, AppDelegateAccessable {
 
     // 잔돈 라벨 업데이트
     private func updateRemainMoneyLabel() {
-        guard let menu = appDelegate.vendingMachine.makeMenu() else {
+        guard let menu = VendingMachine.sharedInstance.makeMenu(.user) else {
             return
         }
         remainMoneyLabel.text = "\(numberFormatter.string(from: NSNumber(value: menu.money)) ?? "0")"

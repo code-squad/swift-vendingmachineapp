@@ -21,16 +21,14 @@ class VendingMachineViewController: UIViewController, AppDelegateAccessable {
             imageView.addGestureRecognizer(tap)
             imageView.isUserInteractionEnabled = true
         }
-        initManagerMode()
         updateInventory()
     }
 
     // 음료 이미지를 클릭했을 경우
     @objc func drinkViewDidTap(_ recognizer: UITapGestureRecognizer) {
-        initManagerMode()
         if let imageView = recognizer.view as? UIImageView {
             do {
-                try appDelegate.vendingMachine.add(detail: imageView.tag)
+                try VendingMachine.sharedInstance.add(.manager, detail: imageView.tag)
             } catch let error {
                 print(error)
             }
@@ -38,15 +36,9 @@ class VendingMachineViewController: UIViewController, AppDelegateAccessable {
         updateInventory()
     }
 
-    // Manager Mode로 초기화
-    private func initManagerMode() {
-        appDelegate.vendingMachine.exitMode()
-        appDelegate.vendingMachine.assignMode(mode: .manager)
-    }
-
     // 재고 업데이트
     private func updateInventory() {
-        if let menuContents = appDelegate.vendingMachine.makeMenu() {
+        if let menuContents = VendingMachine.sharedInstance.makeMenu(.manager) {
             for lable in inventoryLabel.enumerated() {
                 let drink = menuContents.menu[lable.offset]
                 let count = menuContents.inventory[drink] ?? 0

@@ -50,13 +50,8 @@ extension CoreVendingMachine {
         return NSKeyedUnarchiver.unarchiveObject(withFile: setURLForKey(key: key).path)
     }
 
-    private func archive(_ objects: inout [Drink], key: CodingKeys) -> Bool {
+    private func archive<T>(_ objects: inout T, key: CodingKeys) -> Bool {
         return NSKeyedArchiver.archiveRootObject(objects,
-                                                 toFile: setURLForKey(key: key).path)
-    }
-
-    private func archive(_ object: inout Int, key: CodingKeys) -> Bool {
-        return NSKeyedArchiver.archiveRootObject(object,
                                                  toFile: setURLForKey(key: key).path)
     }
 

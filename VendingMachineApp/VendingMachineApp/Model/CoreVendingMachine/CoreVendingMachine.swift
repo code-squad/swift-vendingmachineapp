@@ -35,7 +35,7 @@ extension CoreVendingMachine {
     }
 
     private func setURLForKey(key: CodingKeys) -> URL {
-        let archiveFileName = key.rawValue + ".archive"
+        let archiveFileName = key.rawValue
         let documentsDirectories = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         let documentDirectory = documentsDirectories.first!
         return documentDirectory.appendingPathComponent(archiveFileName)

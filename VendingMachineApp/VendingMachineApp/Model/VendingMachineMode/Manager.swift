@@ -19,7 +19,7 @@ struct Manager: EnableMode {
         let income = delegate.howMuchIncome()
         let managerMenu = delegate.AllDrinkList()
         let managerInventory = delegate.listOfInventory()
-        return ( .manager, income, managerMenu, managerInventory)
+        return (income, managerMenu, managerInventory)
     }
 
     func add(detail: Int) throws {
@@ -29,6 +29,7 @@ struct Manager: EnableMode {
             throw error
         }
     }
+
     func delete(detail: Int) throws {
         do {
             try delegate.delete(productIndex: detail)

@@ -19,7 +19,7 @@ struct User: EnableMode {
         let remainMoney = delegate.howMuchRemainMoney()
         let userCanBuyMenu = delegate.listOfCanBuy()
         let userInventory = delegate.listOfInventory()
-        return (remainMoney, userCanBuyMenu, userInventory)
+        return MenuContents(money: remainMoney, menu: userCanBuyMenu, inventory: userInventory)
     }
 
     func add(detail: Int) throws {

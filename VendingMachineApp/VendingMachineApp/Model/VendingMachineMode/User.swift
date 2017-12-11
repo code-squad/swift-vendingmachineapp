@@ -16,10 +16,10 @@ struct User: EnableMode {
     }
 
     func makeMenu() -> MenuContents {
-        let income = delegate.howMuchRemainMoney()
-        let userMenu = delegate.listOfCanBuy()
+        let remainMoney = delegate.howMuchRemainMoney()
+        let userCanBuyMenu = delegate.listOfCanBuy()
         let userInventory = delegate.listOfInventory()
-        return (income, userMenu, userInventory)
+        return (remainMoney, userCanBuyMenu, userInventory)
     }
 
     func add(detail: Int) throws {

@@ -123,7 +123,7 @@
                                                             </button>
                                                         </subviews>
                                                     </stackView>
-                                                    <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="strawBerryMilk" translatesAutoresizingMaskIntoConstraints="NO" id="8OQ-hU-Kbw">
+                                                    <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="StrawBerryMilk" translatesAutoresizingMaskIntoConstraints="NO" id="8OQ-hU-Kbw">
                                                         <rect key="frame" x="0.0" y="18" width="215.5" height="120.5"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EGR-bd-OKp">
@@ -152,7 +152,7 @@
                                                             </button>
                                                         </subviews>
                                                     </stackView>
-                                                    <imageView tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="bananaMilk" translatesAutoresizingMaskIntoConstraints="NO" id="ibX-SH-Djc">
+                                                    <imageView tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="BananaMilk" translatesAutoresizingMaskIntoConstraints="NO" id="ibX-SH-Djc">
                                                         <rect key="frame" x="0.0" y="18" width="216" height="120.5"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uIn-UE-gLF">
@@ -181,7 +181,7 @@
                                                             </button>
                                                         </subviews>
                                                     </stackView>
-                                                    <imageView tag="2" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="chocolateMilk" translatesAutoresizingMaskIntoConstraints="NO" id="7HL-Ss-ubq">
+                                                    <imageView tag="2" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="ChocolateMilk" translatesAutoresizingMaskIntoConstraints="NO" id="7HL-Ss-ubq">
                                                         <rect key="frame" x="0.0" y="18" width="215.5" height="120.5"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DMT-Pa-aRe">
@@ -215,7 +215,7 @@
                                                             </button>
                                                         </subviews>
                                                     </stackView>
-                                                    <imageView tag="3" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="coke" translatesAutoresizingMaskIntoConstraints="NO" id="noq-TL-oHV">
+                                                    <imageView tag="3" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="Coke" translatesAutoresizingMaskIntoConstraints="NO" id="noq-TL-oHV">
                                                         <rect key="frame" x="0.0" y="18" width="215.5" height="120.5"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7dc-cL-grv">
@@ -244,7 +244,7 @@
                                                             </button>
                                                         </subviews>
                                                     </stackView>
-                                                    <imageView tag="4" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="cider" translatesAutoresizingMaskIntoConstraints="NO" id="Gqe-vz-QjG">
+                                                    <imageView tag="4" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="Cider" translatesAutoresizingMaskIntoConstraints="NO" id="Gqe-vz-QjG">
                                                         <rect key="frame" x="0.0" y="18" width="216" height="120.5"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" tag="4" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cdv-WM-DCj">
@@ -273,7 +273,7 @@
                                                             </button>
                                                         </subviews>
                                                     </stackView>
-                                                    <imageView tag="5" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="fanta" translatesAutoresizingMaskIntoConstraints="NO" id="w29-5Y-kQ3">
+                                                    <imageView tag="5" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="Fanta" translatesAutoresizingMaskIntoConstraints="NO" id="w29-5Y-kQ3">
                                                         <rect key="frame" x="0.0" y="18" width="215.5" height="120.5"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" tag="5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zz5-Ti-B0j">
@@ -307,7 +307,7 @@
                                                             </button>
                                                         </subviews>
                                                     </stackView>
-                                                    <imageView tag="6" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="cantataCoffee" translatesAutoresizingMaskIntoConstraints="NO" id="x4s-yL-p8U">
+                                                    <imageView tag="6" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="Cantata" translatesAutoresizingMaskIntoConstraints="NO" id="x4s-yL-p8U">
                                                         <rect key="frame" x="0.0" y="18" width="215.5" height="120.5"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" tag="6" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kGH-dN-ldY">
@@ -336,7 +336,7 @@
                                                             </button>
                                                         </subviews>
                                                     </stackView>
-                                                    <imageView tag="7" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="topCoffee" translatesAutoresizingMaskIntoConstraints="NO" id="n3g-cz-yQ7">
+                                                    <imageView tag="7" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="Top" translatesAutoresizingMaskIntoConstraints="NO" id="n3g-cz-yQ7">
                                                         <rect key="frame" x="0.0" y="18" width="216" height="120.5"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" tag="7" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A7y-kx-an9">
@@ -365,7 +365,7 @@
                                                             </button>
                                                         </subviews>
                                                     </stackView>
-                                                    <imageView tag="8" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="georgiaCoffee" translatesAutoresizingMaskIntoConstraints="NO" id="8Hh-4G-HSF">
+                                                    <imageView tag="8" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="Georgia" translatesAutoresizingMaskIntoConstraints="NO" id="8Hh-4G-HSF">
                                                         <rect key="frame" x="0.0" y="18" width="215.5" height="120.5"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" tag="8" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uKP-ez-aSZ">
@@ -418,6 +418,15 @@
                         <outletCollection property="addInventoryButtons" destination="rvB-LE-ayW" collectionClass="NSMutableArray" id="KPR-kb-CPT"/>
                         <outletCollection property="addInventoryButtons" destination="K6h-i3-FtR" collectionClass="NSMutableArray" id="EDd-b5-aqm"/>
                         <outletCollection property="addInventoryButtons" destination="Wkm-np-taY" collectionClass="NSMutableArray" id="X5X-B6-PCX"/>
+                        <outletCollection property="buyDrinkButtons" destination="p06-fV-mdY" collectionClass="NSMutableArray" id="PWg-3b-sHg"/>
+                        <outletCollection property="buyDrinkButtons" destination="SaE-xa-znN" collectionClass="NSMutableArray" id="tMV-Vd-tfU"/>
+                        <outletCollection property="buyDrinkButtons" destination="Dl5-mC-AXt" collectionClass="NSMutableArray" id="WkL-FE-kSY"/>
+                        <outletCollection property="buyDrinkButtons" destination="doL-rr-5IM" collectionClass="NSMutableArray" id="dpr-6A-fPD"/>
+                        <outletCollection property="buyDrinkButtons" destination="prW-pM-YDK" collectionClass="NSMutableArray" id="iY3-5x-NVH"/>
+                        <outletCollection property="buyDrinkButtons" destination="6iE-Ln-YYA" collectionClass="NSMutableArray" id="ext-ig-B0j"/>
+                        <outletCollection property="buyDrinkButtons" destination="xas-f4-jaM" collectionClass="NSMutableArray" id="fEg-2s-Olt"/>
+                        <outletCollection property="buyDrinkButtons" destination="aWN-8Q-rnH" collectionClass="NSMutableArray" id="Bmg-g7-WhX"/>
+                        <outletCollection property="buyDrinkButtons" destination="Qod-Uk-a5V" collectionClass="NSMutableArray" id="vPq-zP-J91"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GMA-yT-Z8f" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -426,16 +435,16 @@
         </scene>
     </scenes>
     <resources>
-        <image name="bananaMilk" width="571" height="571"/>
-        <image name="cantataCoffee" width="500" height="500"/>
-        <image name="chocolateMilk" width="571" height="571"/>
-        <image name="cider" width="550" height="550"/>
-        <image name="coke" width="400" height="580"/>
-        <image name="fanta" width="550" height="550"/>
-        <image name="georgiaCoffee" width="173" height="332"/>
+        <image name="BananaMilk" width="571" height="571"/>
+        <image name="Cantata" width="500" height="500"/>
+        <image name="ChocolateMilk" width="571" height="571"/>
+        <image name="Cider" width="550" height="550"/>
+        <image name="Coke" width="400" height="580"/>
+        <image name="Fanta" width="550" height="550"/>
+        <image name="Georgia" width="173" height="332"/>
+        <image name="StrawBerryMilk" width="571" height="571"/>
+        <image name="Top" width="170" height="269"/>
         <image name="icons8-money-96" width="96" height="96"/>
         <image name="icons8-won-32" width="32" height="32"/>
-        <image name="strawBerryMilk" width="571" height="571"/>
-        <image name="topCoffee" width="170" height="269"/>
     </resources>
 </document>

@@ -136,22 +136,25 @@ extension CoreVendingMachine: UserModeDelegate {
     }
 
     @discardableResult func buy(productIndex: Int) throws -> Drink {
-        let listOfDrink = listOfCanBuy()
+        let listOfDrink = AllDrinkList()
         guard productIndex >= 0 && productIndex < listOfDrink.count else {
             throw stockError.invalidProductNumber
         }
         let buyDrink = listOfDrink[productIndex]
-        for drink in inventory.enumerated() {
-            if drink.element == buyDrink {
-                let selectDrink = drink.element
-                inputMoney -= selectDrink.price
-                income += selectDrink.price
-                inventory.remove(at: drink.offset)
-                purchases.append(selectDrink)
-                return selectDrink
-            }
+
+        guard inventory.contains(buyDrink) else {
+            throw stockError.soldOut
         }
-        throw stockError.soldOut
+        inputMoney -= buyDrink.price
+        income += buyDrink.price
+        let indexOfBuyDrink = inventory.index(of: buyDrink) ?? inventory.startIndex
+        inventory.remove(at: indexOfBuyDrink)
+        purchases.append(buyDrink)
+        NotificationCenter.default.post(name: .didBuyDrinkNotifiacation,
+                                        object: self,
+                                        userInfo: ["buyDrinkImageName": buyDrink.className,
+                                                   "count": purchases.count])
+        return buyDrink
     }
 
     // 잔액을 확인하는 메소드
@@ -191,3 +194,7 @@ extension CoreVendingMachine {
 
 }
 
+extension Notification.Name {
+    static let didAddInventoryNotification = Notification.Name(rawValue: "DidAddInventory")
+    static let didBuyDrinkNotifiacation = Notification.Name(rawValue: "DidBuyDrink")
+}

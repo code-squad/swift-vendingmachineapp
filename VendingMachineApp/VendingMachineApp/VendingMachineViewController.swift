@@ -8,7 +8,7 @@
 
 import UIKit
 
-class VendingMachineViewController: UIViewController, AppDelegateAccessable {
+class VendingMachineViewController: UIViewController {
     // 음료 추가 컨트롤러 -> Manager Mode
     @IBOutlet var imageViews: [UIImageView]!
     @IBOutlet var inventoryLabel: [UILabel]!
@@ -19,10 +19,6 @@ class VendingMachineViewController: UIViewController, AppDelegateAccessable {
         super.viewDidLoad()
         makeAddInventroyButtons()
         makeBuyDrinkButtons()
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(self.updatePurchaseDrinkListLabel(noti:)),
-                                               name: .didBuyDrinkNotifiacation,
-                                               object: nil)
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(self.updateInventoryLabel(noti:)),
                                                name: .didAddInventoryNotification,
@@ -57,19 +53,6 @@ class VendingMachineViewController: UIViewController, AppDelegateAccessable {
         }
         let count = makeCountOfDrink(at: menuContents, index: productIndex)
         inventoryLabel[productIndex].text = "\(count)"
-    }
-
-    // 구매 목록 업데이트
-    @objc private func updatePurchaseDrinkListLabel(noti: Notification?) {
-        guard let userInfo = noti?.userInfo,
-            let buyDrinkImageName = userInfo["buyDrinkImageName"] as? String,
-            let countOfPurchases = userInfo["count"] as? Int else {
-                return
-        }
-        let cardImage : UIImageView = UIImageView(image: UIImage(named: buyDrinkImageName))
-        cardImage.frame = CGRect(x: 50*(countOfPurchases-1), y: 575, width: 215, height: 120)
-        cardImage.contentMode = .scaleAspectFit
-        self.view.addSubview(cardImage)
     }
 
     private func initInventoryLable() {

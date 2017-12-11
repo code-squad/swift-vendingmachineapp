@@ -40,6 +40,7 @@
 		C9069E911FCFEBA6001BBC82 /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9069E5F1FCD38A9001BBC82 /* Drink.swift */; };
 		C9069E921FCFFBFD001BBC82 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9069E1D1FCD3437001BBC82 /* StringExtension.swift */; };
 		C90FB64A1FDE316900D4384D /* MenuContents.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90FB6491FDE316900D4384D /* MenuContents.swift */; };
+		C90FB64C1FDE7FDD00D4384D /* PurchaseListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90FB64B1FDE7FDD00D4384D /* PurchaseListViewController.swift */; };
 		C9CE02B51FD67A68005A1A47 /* AppDelegateAccessable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CE02B41FD67A68005A1A47 /* AppDelegateAccessable.swift */; };
 /* End PBXBuildFile section */
 
@@ -89,6 +90,7 @@
 		C9069E8D1FCFD116001BBC82 /* VendingMachineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineViewController.swift; sourceTree = "<group>"; };
 		C9069E8F1FCFEB6C001BBC82 /* UnitTestDrinkNameEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestDrinkNameEnum.swift; sourceTree = "<group>"; };
 		C90FB6491FDE316900D4384D /* MenuContents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuContents.swift; sourceTree = "<group>"; };
+		C90FB64B1FDE7FDD00D4384D /* PurchaseListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseListViewController.swift; sourceTree = "<group>"; };
 		C9CE02B41FD67A68005A1A47 /* AppDelegateAccessable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateAccessable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -137,6 +139,7 @@
 				C9CE02B41FD67A68005A1A47 /* AppDelegateAccessable.swift */,
 				C9069DFE1FCD30E4001BBC82 /* ViewController.swift */,
 				C9069E8D1FCFD116001BBC82 /* VendingMachineViewController.swift */,
+				C90FB64B1FDE7FDD00D4384D /* PurchaseListViewController.swift */,
 				C9069E001FCD30E4001BBC82 /* Main.storyboard */,
 				C9069E031FCD30E4001BBC82 /* Assets.xcassets */,
 				C9069E051FCD30E4001BBC82 /* LaunchScreen.storyboard */,
@@ -329,6 +332,7 @@
 				C9069E8E1FCFD116001BBC82 /* VendingMachineViewController.swift in Sources */,
 				C9069E6A1FCD38A9001BBC82 /* Cider.swift in Sources */,
 				C9069E781FCD38D9001BBC82 /* EnableMode.swift in Sources */,
+				C90FB64C1FDE7FDD00D4384D /* PurchaseListViewController.swift in Sources */,
 				C9069E611FCD38A9001BBC82 /* Milk.swift in Sources */,
 				C9069E741FCD38D9001BBC82 /* UserModeDelegate.swift in Sources */,
 				C9069E251FCD3438001BBC82 /* CoreVendingMachine.swift in Sources */,

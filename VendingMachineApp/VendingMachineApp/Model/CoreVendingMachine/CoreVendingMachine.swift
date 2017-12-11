@@ -24,7 +24,7 @@ final class CoreVendingMachine {
         menu = Menu()
         inputMoney = 0
         income = 0
-        setProperties()
+        setUnarchivedProperties()
     }
 
 }
@@ -34,25 +34,25 @@ extension CoreVendingMachine {
         case inventory, inputMoney
     }
 
-    private func setURLForKey(key: CodingKeys) -> URL {
+    private func makeURLForKey(key: CodingKeys) -> URL {
         let archiveFileName = key.rawValue
         let documentsDirectories = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         let documentDirectory = documentsDirectories.first!
         return documentDirectory.appendingPathComponent(archiveFileName)
     }
 
-    private func setProperties() {
+    private func setUnarchivedProperties() {
         inventory = unarchive(key: .inventory) as? [Drink] ?? []
         inputMoney = unarchive(key: .inputMoney) as? Int ?? 0
     }
 
     private func unarchive(key: CodingKeys) -> Any? {
-        return NSKeyedUnarchiver.unarchiveObject(withFile: setURLForKey(key: key).path)
+        return NSKeyedUnarchiver.unarchiveObject(withFile: makeURLForKey(key: key).path)
     }
 
     private func archive<T>(_ objects: inout T, key: CodingKeys) -> Bool {
         return NSKeyedArchiver.archiveRootObject(objects,
-                                                 toFile: setURLForKey(key: key).path)
+                                                 toFile: makeURLForKey(key: key).path)
     }
 
     func saveChanges() -> Bool {

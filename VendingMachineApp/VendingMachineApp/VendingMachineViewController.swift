@@ -37,7 +37,8 @@ class VendingMachineViewController: UIViewController, AppDelegateAccessable {
     // 재고 업데이트
     @objc private func updateInventoryLabel(noti: Notification?) {
         guard let menuContents = VendingMachine.sharedInstance.makeMenu(.manager),
-            let productIndex = noti?.object as? Int else {
+            let userInfo = noti?.userInfo,
+            let productIndex = userInfo["productIndex"] as? Int else {
             return
         }
         let count = makeCountOfDrink(at: menuContents, index: productIndex)

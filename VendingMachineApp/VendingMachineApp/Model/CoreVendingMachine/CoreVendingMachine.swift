@@ -72,7 +72,8 @@ extension CoreVendingMachine: ManagerModeDelegate {
         }
         inventory.append(listOfDrink[productIndex])
         NotificationCenter.default.post(name: .didAddInventoryNotification,
-                                        object: productIndex)
+                                        object: nil,
+                                        userInfo: ["productIndex": productIndex])
     }
 
     // 음료수 인덱스를 넘겨서 재고의 음료수를 삭제하는 메소드

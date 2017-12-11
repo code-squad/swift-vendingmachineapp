@@ -12,10 +12,11 @@ class VendingMachineViewController: UIViewController, AppDelegateAccessable {
     // 음료 추가 컨트롤러 -> Manager Mode
     @IBOutlet var imageViews: [UIImageView]!
     @IBOutlet var inventoryLabel: [UILabel]!
+    @IBOutlet var addInventoryButtons: [UIButton]!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        makeDrinkImageViews()
+        makeAddButtons()
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(self.updateInventoryLabel(noti:)),
                                                name: .didAddInventoryNotification,
@@ -24,13 +25,11 @@ class VendingMachineViewController: UIViewController, AppDelegateAccessable {
     }
 
     // 음료 이미지를 클릭했을 경우
-    @objc private func drinkViewDidTap(_ recognizer: UITapGestureRecognizer) {
-        if let imageView = recognizer.view as? UIImageView {
-            do {
-                try VendingMachine.sharedInstance.add(.manager, detail: imageView.tag)
-            } catch let error {
-                print(error)
-            }
+    @objc private func addInventoryButtonDidTap(_ sender: UIButton) {
+        do {
+            try VendingMachine.sharedInstance.add(.manager, detail: sender.tag)
+        } catch let error {
+            print(error)
         }
     }
 
@@ -45,21 +44,20 @@ class VendingMachineViewController: UIViewController, AppDelegateAccessable {
         inventoryLabel[productIndex].text = "\(count)"
     }
 
-    private func makeDrinkImageViews() {
-        self.imageViews.forEach { (imageView: UIImageView) in
-            let tap = UITapGestureRecognizer(target: self,
-                                             action: #selector(self.drinkViewDidTap(_:)))
-            imageView.addGestureRecognizer(tap)
-            imageView.isUserInteractionEnabled = true
-        }
-    }
-
     private func initInventoryLable() {
         if let menuContents = VendingMachine.sharedInstance.makeMenu(.manager) {
             for lable in inventoryLabel.enumerated() {
                 let count = makeCountOfDrink(at: menuContents, index: lable.offset)
                 lable.element.text = "\(count)"
             }
+        }
+    }
+
+    func makeAddButtons() {
+        addInventoryButtons.forEach { (button: UIButton) in
+            button.addTarget(self,
+                             action: #selector(self.addInventoryButtonDidTap(_:)),
+                             for: .touchDown)
         }
     }
 

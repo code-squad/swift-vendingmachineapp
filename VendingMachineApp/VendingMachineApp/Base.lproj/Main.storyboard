@@ -54,6 +54,12 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iv2-xd-pHK">
+                                <rect key="frame" x="56" y="588" width="1026" height="206"/>
+                                <connections>
+                                    <segue destination="TDs-yT-rcT" kind="embed" id="QXX-MM-VBn"/>
+                                </connections>
+                            </containerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qsv-2E-1SF">
                                 <rect key="frame" x="880" y="93" width="71" height="40"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
@@ -65,15 +71,19 @@
                         <constraints>
                             <constraint firstItem="7YB-Yk-itw" firstAttribute="height" secondItem="rgZ-2f-wnX" secondAttribute="height" id="3m9-B7-ESX"/>
                             <constraint firstItem="7YB-Yk-itw" firstAttribute="trailing" secondItem="rgZ-2f-wnX" secondAttribute="trailing" id="5pj-d3-uaZ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="iv2-xd-pHK" secondAttribute="bottom" constant="40" id="8bX-QA-xQS"/>
                             <constraint firstItem="qsv-2E-1SF" firstAttribute="top" secondItem="U6Q-Ce-MD1" secondAttribute="top" id="BPe-VT-DNJ"/>
                             <constraint firstItem="rgZ-2f-wnX" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.3" id="BVg-pY-pyh"/>
                             <constraint firstItem="7YB-Yk-itw" firstAttribute="leading" secondItem="rgZ-2f-wnX" secondAttribute="leading" id="DTJ-88-3LB"/>
                             <constraint firstItem="lLs-w1-DGB" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="Hzu-Vh-6Iz"/>
+                            <constraint firstItem="iv2-xd-pHK" firstAttribute="leading" secondItem="lLs-w1-DGB" secondAttribute="leading" id="N9X-t5-q5p"/>
                             <constraint firstItem="lLs-w1-DGB" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" multiplier="0.7" id="Qas-KX-kuR"/>
                             <constraint firstItem="qsv-2E-1SF" firstAttribute="centerX" secondItem="rgZ-2f-wnX" secondAttribute="centerX" id="RZY-gd-Zue"/>
                             <constraint firstItem="qsv-2E-1SF" firstAttribute="bottom" secondItem="U6Q-Ce-MD1" secondAttribute="bottom" id="Tfk-UN-eFe"/>
                             <constraint firstItem="qsv-2E-1SF" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="73" id="VEX-bc-se6"/>
                             <constraint firstItem="7YB-Yk-itw" firstAttribute="top" secondItem="rgZ-2f-wnX" secondAttribute="bottom" constant="35" id="Vqx-C1-Apf"/>
+                            <constraint firstItem="iv2-xd-pHK" firstAttribute="trailing" secondItem="7YB-Yk-itw" secondAttribute="trailing" id="bLd-at-KmW"/>
+                            <constraint firstItem="iv2-xd-pHK" firstAttribute="top" secondItem="lLs-w1-DGB" secondAttribute="bottom" constant="38" id="dV2-Sb-pJf"/>
                             <constraint firstItem="rgZ-2f-wnX" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="196" id="eSp-iq-wSu"/>
                             <constraint firstItem="lLs-w1-DGB" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.6" id="nuX-QN-8u5"/>
                             <constraint firstItem="qsv-2E-1SF" firstAttribute="leading" secondItem="U6Q-Ce-MD1" secondAttribute="trailing" constant="10" id="yR0-Xj-eGG"/>
@@ -432,6 +442,20 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GMA-yT-Z8f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="33.992805755395686" y="701.79856115107918"/>
+        </scene>
+        <!--Purchase List View Controller-->
+        <scene sceneID="HW0-O8-UWv">
+            <objects>
+                <viewController id="TDs-yT-rcT" customClass="PurchaseListViewController" customModule="VendingMachineApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YYd-DI-q4z">
+                        <rect key="frame" x="0.0" y="0.0" width="1026" height="206"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tsR-3V-Sy2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="667" y="255"/>
         </scene>
     </scenes>
     <resources>

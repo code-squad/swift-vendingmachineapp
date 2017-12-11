@@ -205,8 +205,78 @@
   열이 변경되지 않는다. 만약 변경할 수 있는 문자열을 기본값으로 설정하고 나중에 문자열을 변경한다면, set (_ : forKey:)을 다시 호출하지 않는 이상 기본값에 변형된 문자열 값이 반영되지 않는다.
   ~~~
 
-  ​
 
+### step-4 싱글톤 모델
+
+- 12/8
+
+#### 요구사항
+
+- VendingMachine 객체를 싱글톤(Singleton)으로 접근할 수 있도록 개선한다.
+
+#### 해결 
+
+- VendingMachine 객체를 싱글톤으로 접근하기 위해서는 내부 프로퍼티를 변경하는 mutating 함수를 전부 없애야 했다. 
+
+- 변경 전
+
+  - enableMode 프로퍼티를 만들고 함수 내부에서 Manger 혹은 User 할당 
+
+  ~~~swift
+  struct VendingMachine {
+    	private var enableMode: EnableMode?
+    	...
+    	mutating func assignMode(mode: Mode) {
+          switch mode {
+          case .manager:
+              enableMode = Manager(target: core)
+          case .user:
+              enableMode = User(target: core)
+          }
+      }
+    	...
+  }
+  ~~~
+
+- 변경 후
+
+  - enableMode 프로퍼티를 없애고 함수 내부에서 모드를 파라미터로 받고 모드에 따라 Manager 혹은 User 생성
+
+  ~~~swift
+  struct VendingMachine {
+    	static let sharedInstance: VendingMachine = VendingMachine()
+    	...
+    	func makeMenu(_ mode: Mode) -> MenuContents? {
+          var enableMode: EnableMode!
+          switch mode {
+          case .manager:
+              enableMode = Manager(target: core)
+          case .user:
+              enableMode = User(target: core)
+          }
+          return enableMode.makeMenu()
+      }
+    	...
+  }
+  ~~~
+
+### step-5 Obeserver 패턴
+
+- 12/8~11
+
+#### 요구사항
+
+- ViewController는 viewDidLoad에서 Observe를 등록한다.
+- 음식 재고가 바뀌는 Notification을 받으면 화면에 Label을 업데이트한다.
+- 추가 버튼을 누르면 해당 음식 재고를 모델에 추가할 때마다
+- VendingMachine 모델 객체에서는 전체 음식 재고를 NotificationCenter에 post한다.
+
+#### 피드백
+
+- 튜플과 Data만 있는 ValueObject를 만드는 것은 어떤 기준에서 나누면 좋을까요?
+  - 정해진 규칙이 없기 때문에 스스로 기준을 정하도록 노력해야 한다.
+- Notification 활용
+  - Notification 객체에서 object는 노티를 보내는 sender의미로 사용하고, 값을 넘길 경우는 userInfo를 활용한다.
 
 
 참고: 애플 공식문서, 아론 힐리가스의 iOS프로그래밍

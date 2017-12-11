@@ -22,11 +22,11 @@ class ViewController: UIViewController, AppDelegateAccessable {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        initButton()
+        makeButton()
         updateRemainMoneyLabel()
     }
 
-    private func initButton() {
+    private func makeButton() {
         addMoneyButtons.forEach { (button: UIButton) in
             button.layer.borderWidth = 1
             button.layer.masksToBounds = false

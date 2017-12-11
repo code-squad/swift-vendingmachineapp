@@ -20,11 +20,11 @@ class VendingMachineViewController: UIViewController, AppDelegateAccessable {
                                                selector: #selector(self.updateInventoryLabel(noti:)),
                                                name: .didAddInventoryNotification,
                                                object: nil)
-        updateInventoryLabel(noti: nil)
+        initInventoryLable()
     }
 
     // 음료 이미지를 클릭했을 경우
-    @objc func drinkViewDidTap(_ recognizer: UITapGestureRecognizer) {
+    @objc private func drinkViewDidTap(_ recognizer: UITapGestureRecognizer) {
         if let imageView = recognizer.view as? UIImageView {
             do {
                 try VendingMachine.sharedInstance.add(.manager, detail: imageView.tag)
@@ -36,22 +36,36 @@ class VendingMachineViewController: UIViewController, AppDelegateAccessable {
 
     // 재고 업데이트
     @objc private func updateInventoryLabel(noti: Notification?) {
-        if let menuContents = VendingMachine.sharedInstance.makeMenu(.manager) {
-            for lable in inventoryLabel.enumerated() {
-                let drink = menuContents.menu[lable.offset]
-                let count = menuContents.inventory[drink] ?? 0
-                lable.element.text = "\(count)"
-            }
+        guard let menuContents = VendingMachine.sharedInstance.makeMenu(.manager),
+            let productIndex = noti?.object as? Int else {
+            return
         }
+        let count = makeCountOfDrink(at: menuContents, index: productIndex)
+        inventoryLabel[productIndex].text = "\(count)"
     }
 
-    func makeDrinkImageViews() {
+    private func makeDrinkImageViews() {
         self.imageViews.forEach { (imageView: UIImageView) in
             let tap = UITapGestureRecognizer(target: self,
                                              action: #selector(self.drinkViewDidTap(_:)))
             imageView.addGestureRecognizer(tap)
             imageView.isUserInteractionEnabled = true
         }
+    }
+
+    private func initInventoryLable() {
+        if let menuContents = VendingMachine.sharedInstance.makeMenu(.manager) {
+            for lable in inventoryLabel.enumerated() {
+                let count = makeCountOfDrink(at: menuContents, index: lable.offset)
+                lable.element.text = "\(count)"
+            }
+        }
+    }
+
+    private func makeCountOfDrink(at menuContents: MenuContents, index: Int) -> Count {
+        let drink = menuContents.menu[index]
+        let count = menuContents.inventory[drink] ?? 0
+        return count
     }
 
 }

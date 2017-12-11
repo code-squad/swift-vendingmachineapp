@@ -40,7 +40,7 @@ class ViewController: UIViewController, AppDelegateAccessable {
     }
 
     // 음료수를 구매하기 위한 금액 추가 이벤트
-    @objc func addMoneyButtonDidTap(_ sender: UIButton) {
+    @objc private func addMoneyButtonDidTap(_ sender: UIButton) {
         addMoney(sender.tag)
         updateRemainMoneyLabel()
     }

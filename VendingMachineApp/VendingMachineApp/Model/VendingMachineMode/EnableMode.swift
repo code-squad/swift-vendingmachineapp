@@ -8,8 +8,6 @@
 
 import Foundation
 
-typealias MenuContents = (money: Int, menu: [Drink], inventory: [Drink: Count])
-
 protocol EnableMode {
     func makeMenu() -> MenuContents
     func add(detail: Int) throws

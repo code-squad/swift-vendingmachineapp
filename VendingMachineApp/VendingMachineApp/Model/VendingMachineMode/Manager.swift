@@ -19,7 +19,7 @@ struct Manager: EnableMode {
         let income = delegate.howMuchIncome()
         let managerMenu = delegate.AllDrinkList()
         let managerInventory = delegate.listOfInventory()
-        return (income, managerMenu, managerInventory)
+        return MenuContents(money: income, menu: managerMenu, inventory: managerInventory)
     }
 
     func add(detail: Int) throws {

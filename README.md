@@ -278,5 +278,11 @@
 - Notification 활용
   - Notification 객체에서 object는 노티를 보내는 sender의미로 사용하고, 값을 넘길 경우는 userInfo를 활용한다.
 
+#### step-6 구매목록 View 코드
+
+#### 실행결과
+
+
+
 
 참고: 애플 공식문서, 아론 힐리가스의 iOS프로그래밍

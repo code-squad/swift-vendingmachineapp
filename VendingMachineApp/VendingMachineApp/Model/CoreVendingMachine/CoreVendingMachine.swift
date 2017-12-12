@@ -51,12 +51,14 @@ extension CoreVendingMachine {
 
     private func setUnarchivedProperties() {
         inventory = unarchive(key: .inventory) as? [Drink] ?? []
+        purchases = unarchive(key: .purchases) as? [Drink] ?? []
         inputMoney = unarchive(key: .inputMoney) as? Int ?? 0
     }
 
     func saveChanges() -> Bool {
         return archive(&inventory, key: .inventory)
             && archive(&inputMoney, key: .inputMoney)
+            && archive(&purchases, key: .purchases)
     }
 
     private func unarchive(key: CodingKeys) -> Any? {

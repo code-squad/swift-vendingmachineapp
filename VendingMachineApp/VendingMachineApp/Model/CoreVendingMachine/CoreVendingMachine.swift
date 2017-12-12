@@ -30,7 +30,6 @@ final class CoreVendingMachine {
 
     init() {
         purchases = [Drink]()
-        inputMoney = 0
         income = 0
         menu = Menu().drinkList
         setUnarchivedProperties()
@@ -137,7 +136,8 @@ extension CoreVendingMachine: UserModeDelegate {
 
     @discardableResult func buy(productIndex: Int) -> Drink? {
         let buyDrink = menu[productIndex]
-        guard let buyDrinkIndex = inventory.index(of: buyDrink) else {
+        guard let buyDrinkIndex = inventory.index(of: buyDrink),
+            inputMoney >= buyDrink.price else {
             return nil
         }
         inventory.remove(at: buyDrinkIndex)

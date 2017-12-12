@@ -12,7 +12,7 @@ class ViewController: UIViewController {
     // 잔돈 추가 컨트롤러 -> User Mode
     @IBOutlet var remainMoneyLabel: UILabel!
     @IBOutlet var addMoneyButtons: [UIButton]!
-    private let vendingMachineID = "VendingMachineViewController"
+    var vendingMachine = VendingMachine.sharedInstance
 
     private let numberFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
@@ -22,8 +22,12 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateMoneyLabel()
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(self.updateRemainMoneyLabel(noti:)),
+                                               name: .didChangeMoneyNotification,
+                                               object: nil)
         makeButton()
-        updateRemainMoneyLabel()
     }
 
     private func makeButton() {
@@ -39,26 +43,19 @@ class ViewController: UIViewController {
         }
     }
 
-    // 음료수를 구매하기 위한 금액 추가 이벤트
-    @objc private func addMoneyButtonDidTap(_ sender: UIButton) {
-        addMoney(sender.tag)
-        updateRemainMoneyLabel()
+    private func updateMoneyLabel() {
+        let remains = vendingMachine.remainMoney()
+        remainMoneyLabel.text = "\(numberFormatter.string(from: NSNumber(value: remains)) ?? "0")"
     }
 
-    private func addMoney(_ money: Int) {
-        do {
-            try VendingMachine.sharedInstance.add(.user, detail: money)
-        } catch let error {
-            print(error)
-        }
+    // 음료수를 구매하기 위한 금액 추가 이벤트
+    @objc private func addMoneyButtonDidTap(_ sender: UIButton) {
+        vendingMachine.add(.user, detail: sender.tag)
     }
 
     // 잔돈 라벨 업데이트
-    private func updateRemainMoneyLabel() {
-        guard let menu = VendingMachine.sharedInstance.makeMenu(.user) else {
-            return
-        }
-        remainMoneyLabel.text = "\(numberFormatter.string(from: NSNumber(value: menu.money)) ?? "0")"
+    @objc private func updateRemainMoneyLabel(noti: Notification?) {
+        updateMoneyLabel()
     }
     
 }

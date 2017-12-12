@@ -9,10 +9,10 @@
 import Foundation
 
 protocol ManagerModeDelegate {
-    func add(productIndex: Int) throws
-    @discardableResult func delete(productIndex: Int) throws -> Drink
+    func add(productIndex: Int)
+    @discardableResult func delete(productIndex: Int) -> Drink?
     func howMuchIncome() -> Price
+    func countOfRemainDrinks() -> [Count]
     func listOfInventory() -> [Drink: Count]
     func listOfOverExpirationDate() -> [Drink]
-    func AllDrinkList() -> [Drink]
 }

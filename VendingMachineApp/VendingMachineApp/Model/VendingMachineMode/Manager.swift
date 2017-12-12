@@ -10,32 +10,21 @@ import Foundation
 
 struct Manager: EnableMode {
     private var delegate: ManagerModeDelegate
+    var countOfDrinks: [Count] {
+        return delegate.countOfRemainDrinks()
+    }
 
     init(target: ManagerModeDelegate) {
         delegate = target
     }
-
-    func makeMenu() -> MenuContents {
-        let income = delegate.howMuchIncome()
-        let managerMenu = delegate.AllDrinkList()
-        let managerInventory = delegate.listOfInventory()
-        return MenuContents(money: income, menu: managerMenu, inventory: managerInventory)
+    // 재고 추가
+    func add(detail: Int) {
+        delegate.add(productIndex: detail)
     }
 
-    func add(detail: Int) throws {
-        do {
-            try delegate.add(productIndex: detail)
-        } catch let error {
-            throw error
-        }
-    }
-
-    func delete(detail: Int) throws {
-        do {
-            try delegate.delete(productIndex: detail)
-        } catch let error{
-            throw error
-        }
+    // 재고 삭제
+    @discardableResult func delete(detail: Int) -> Drink? {
+        return delegate.delete(productIndex: detail)
     }
 
 }

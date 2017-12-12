@@ -10,29 +10,25 @@ import Foundation
 
 struct User: EnableMode {
     private var delegate: UserModeDelegate
+    var remainMoney: Int {
+        return delegate.howMuchRemainMoney()
+    }
+    var purchases: [Drink] {
+        return delegate.listOfPurchase()
+    }
 
     init(target: UserModeDelegate) {
         delegate = target
     }
 
-    func makeMenu() -> MenuContents {
-        let remainMoney = delegate.howMuchRemainMoney()
-        let userCanBuyMenu = delegate.listOfCanBuy()
-        let userInventory = delegate.listOfInventory()
-        return MenuContents(money: remainMoney, menu: userCanBuyMenu, inventory: userInventory)
-    }
-
-    func add(detail: Int) throws {
+    // 돈 추가
+    func add(detail: Int) {
         delegate.add(money: detail)
     }
 
-    func delete(detail: Int) throws {
-        do {
-            try delegate.buy(productIndex: detail)
-        } catch let error {
-            throw error
-        }
-
+    // 음료수 삭제 (음료수 구매) 
+    @discardableResult func delete(detail: Int) -> Drink? {
+        return delegate.buy(productIndex: detail)
     }
 
 }

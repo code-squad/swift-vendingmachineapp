@@ -145,9 +145,7 @@ extension CoreVendingMachine: UserModeDelegate {
         income += buyDrink.price
         purchases.append(buyDrink)
         NotificationCenter.default.post(name: .didBuyDrinkNotifiacation,
-                                        object: self,
-                                        userInfo: ["buyDrinkImageName": buyDrink.className,
-                                                   "count": purchases.count])
+                                        object: self)
         return buyDrink
     }
 

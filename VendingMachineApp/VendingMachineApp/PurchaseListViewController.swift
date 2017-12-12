@@ -9,26 +9,39 @@
 import UIKit
 
 class PurchaseListViewController: UIViewController {
+    @IBOutlet var collectionView: UICollectionView!
+    let datastore = PurchaseDataSource()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(self.updatePurchaseDrinkListLabel(noti:)),
                                                name: .didBuyDrinkNotifiacation,
                                                object: nil)
-
+        collectionView.dataSource = datastore
+        datastore.purchases = VendingMachine.sharedInstance.listOfPurchase()
     }
-    
+
     // 구매 목록 업데이트
     @objc private func updatePurchaseDrinkListLabel(noti: Notification?) {
-        guard let userInfo = noti?.userInfo,
-            let buyDrinkImageName = userInfo["buyDrinkImageName"] as? String,
-            let countOfPurchases = userInfo["count"] as? Int else {
-                return
-        }
-        let cardImage : UIImageView = UIImageView(image: UIImage(named: buyDrinkImageName))
-        cardImage.frame = CGRect(x: 5+50*(countOfPurchases-1), y: 5, width: 215, height: 120)
-        cardImage.contentMode = .scaleAspectFit
-        self.view.addSubview(cardImage)
+        datastore.purchases = VendingMachine.sharedInstance.listOfPurchase()
+        collectionView.reloadData()
     }
 
+}
+
+class PurchaseDataSource: NSObject, UICollectionViewDataSource {
+    var purchases =  [Drink]()
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return purchases.count
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let identifier = "UICollectionViewCell"
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! PurchaseCollectionViewCell
+        let drink = purchases[indexPath.row]
+        let image = UIImage(named: drink.className)
+        cell.drinkImageView.image = image
+        return cell
+    }
 }

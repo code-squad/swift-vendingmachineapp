@@ -9,7 +9,6 @@
 import Foundation
 
 protocol EnableMode {
-    func makeMenu() -> MenuContents
-    func add(detail: Int) throws
-    func delete(detail: Int) throws
+    func add(detail: Int)
+    @discardableResult func delete(detail: Int) -> Drink?
 }

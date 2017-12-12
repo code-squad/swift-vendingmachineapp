@@ -14,31 +14,29 @@ class VendingMachineViewController: UIViewController {
     @IBOutlet var inventoryLabel: [UILabel]!
     @IBOutlet var addInventoryButtons: [UIButton]!
     @IBOutlet var buyDrinkButtons: [UIButton]!
+    var vendingMachine = VendingMachine.sharedInstance
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        makeAddInventroyButtons()
-        makeBuyDrinkButtons()
+        updateInventoryLabel()
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(self.updateInventoryLabel(noti:)),
-                                               name: .didAddInventoryNotification,
+                                               name: .didChangeInventoryNotification,
                                                object: nil)
-        initInventoryLable()
+        makeAddInventroyButtons()
+        makeBuyDrinkButtons()
+
     }
 
     // 재고 추가 버튼을 클릭했을 경우
     @objc private func addInventoryButtonDidTap(_ sender: UIButton) {
-        do {
-            try VendingMachine.sharedInstance.add(.manager, detail: sender.tag)
-        } catch let error {
-            print(error)
-        }
+        vendingMachine.add(.manager, detail: sender.tag)
     }
 
     // 음료 구매 버튼을 클릭했을 경우
     @objc private func buyDrinkButtonDidTap(_ sender: UIButton) {
         do {
-            try VendingMachine.sharedInstance.delete(.user, detail: sender.tag)
+            try vendingMachine.delete(.user, detail: sender.tag)
         } catch let error {
             print(error)
         }
@@ -46,22 +44,7 @@ class VendingMachineViewController: UIViewController {
 
     // 재고 업데이트
     @objc private func updateInventoryLabel(noti: Notification?) {
-        guard let menuContents = VendingMachine.sharedInstance.makeMenu(.manager),
-            let userInfo = noti?.userInfo,
-            let productIndex = userInfo["productIndex"] as? Int else {
-            return
-        }
-        let count = makeCountOfDrink(at: menuContents, index: productIndex)
-        inventoryLabel[productIndex].text = "\(count)"
-    }
-
-    private func initInventoryLable() {
-        if let menuContents = VendingMachine.sharedInstance.makeMenu(.manager) {
-            for lable in inventoryLabel.enumerated() {
-                let count = makeCountOfDrink(at: menuContents, index: lable.offset)
-                lable.element.text = "\(count)"
-            }
-        }
+        updateInventoryLabel()
     }
 
     // 재고 추가 버튼
@@ -82,10 +65,11 @@ class VendingMachineViewController: UIViewController {
         }
     }
 
-    private func makeCountOfDrink(at menuContents: MenuContents, index: Int) -> Count {
-        let drink = menuContents.menu[index]
-        let count = menuContents.inventory[drink] ?? 0
-        return count
+    private func updateInventoryLabel() {
+        let count = vendingMachine.countOfDrinks()
+        for label in inventoryLabel.enumerated() {
+            label.element.text = "\(count[label.offset])"
+        }
     }
 
 }

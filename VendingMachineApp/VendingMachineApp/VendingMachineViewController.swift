@@ -37,8 +37,16 @@ class VendingMachineViewController: UIViewController {
     @objc private func buyDrinkButtonDidTap(_ sender: UIButton) {
         do {
             try vendingMachine.delete(.user, detail: sender.tag)
-        } catch let error {
-            print(error)
+        } catch {
+            let message = "해당 음료를 구매할 수 없습니다."
+            let alert = UIAlertController(title: "잠깐!", message: message, preferredStyle: .alert)
+            let okAction: UIAlertAction = UIAlertAction(title: "OK",
+                                                        style: .default,
+                                                        handler: { (action: UIAlertAction) in
+                alert.dismiss(animated: true, completion: nil)
+            })
+            alert.addAction(okAction)
+            present(alert, animated: true, completion: nil)
         }
     }
 

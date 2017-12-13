@@ -38,15 +38,7 @@ class VendingMachineViewController: UIViewController {
         do {
             try vendingMachine.delete(.user, detail: sender.tag)
         } catch {
-            let message = "해당 음료를 구매할 수 없습니다."
-            let alert = UIAlertController(title: "잠깐!", message: message, preferredStyle: .alert)
-            let okAction: UIAlertAction = UIAlertAction(title: "OK",
-                                                        style: .default,
-                                                        handler: { (action: UIAlertAction) in
-                alert.dismiss(animated: true, completion: nil)
-            })
-            alert.addAction(okAction)
-            present(alert, animated: true, completion: nil)
+            showAlert(title: "잠깐!", message: "해당 음료를 구매할 수 없습니다.")
         }
     }
 
@@ -78,6 +70,17 @@ class VendingMachineViewController: UIViewController {
         for label in inventoryLabel.enumerated() {
             label.element.text = "\(count[label.offset])"
         }
+    }
+
+    func showAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction: UIAlertAction = UIAlertAction(title: "OK",
+                                                    style: .default,
+                                                    handler: { (action: UIAlertAction) in
+                                                        alert.dismiss(animated: true, completion: nil)
+        })
+        alert.addAction(okAction)
+        present(alert, animated: true, completion: nil)
     }
 
 }

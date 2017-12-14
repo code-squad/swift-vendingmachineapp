@@ -59,10 +59,6 @@ struct VendingMachine {
         return user.remainMoney
     }
 
-    func getMenu() -> [Drink] {
-        return core.menu
-    }
-
     func saveChanges() -> Bool {
         return core.saveChanges()
     }

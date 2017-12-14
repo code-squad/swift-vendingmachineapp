@@ -14,7 +14,6 @@ class VendingMachineViewController: UIViewController {
     @IBOutlet var inventoryLabel: [UILabel]!
     @IBOutlet var addInventoryButtons: [UIButton]!
     @IBOutlet var buyDrinkButtons: [UIButton]!
-    var vendingMachine = VendingMachine.sharedInstance
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,13 +31,13 @@ class VendingMachineViewController: UIViewController {
 
     // 재고 추가 버튼을 클릭했을 경우
     @objc private func addInventoryButtonDidTap(_ sender: UIButton) {
-        vendingMachine.add(.manager, detail: sender.tag)
+        VendingMachine.sharedInstance.add(.manager, detail: sender.tag)
     }
 
     // 음료 구매 버튼을 클릭했을 경우
     @objc private func buyDrinkButtonDidTap(_ sender: UIButton) {
         do {
-            try vendingMachine.delete(.user, detail: sender.tag)
+            try VendingMachine.sharedInstance.delete(.user, detail: sender.tag)
         } catch let error {
             showAlert(message: error.localizedDescription)
         }
@@ -73,7 +72,7 @@ class VendingMachineViewController: UIViewController {
     }
 
     private func updateInventoryLabel() {
-        let count = vendingMachine.countOfDrinks()
+        let count = VendingMachine.sharedInstance.countOfDrinks()
         for label in inventoryLabel.enumerated() {
             label.element.text = "\(count[label.offset])"
         }

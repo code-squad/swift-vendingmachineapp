@@ -37,8 +37,8 @@ class VendingMachineViewController: UIViewController {
     @objc private func buyDrinkButtonDidTap(_ sender: UIButton) {
         do {
             try vendingMachine.delete(.user, detail: sender.tag)
-        } catch {
-            showAlert(title: "잠깐!", message: "해당 음료를 구매할 수 없습니다.")
+        } catch let error {
+            showAlert(message: error.localizedDescription)
         }
     }
 
@@ -72,7 +72,7 @@ class VendingMachineViewController: UIViewController {
         }
     }
 
-    func showAlert(title: String, message: String) {
+    private func showAlert(title: String = "잠깐!", message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okAction: UIAlertAction = UIAlertAction(title: "OK",
                                                     style: .default,

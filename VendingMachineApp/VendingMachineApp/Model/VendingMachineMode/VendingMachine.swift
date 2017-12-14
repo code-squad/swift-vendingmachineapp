@@ -37,8 +37,10 @@ struct VendingMachine {
         case .user:
             enableMode = User(target: core)
         }
-        if enableMode.delete(detail: detail) == nil {
-            throw stockError.empty
+        do {
+            try enableMode.delete(detail: detail)
+        } catch let error {
+            throw error
         }
     }
 
@@ -62,15 +64,12 @@ struct VendingMachine {
     }
 
 }
-
+enum stockError: String, Error {
+    case empty = "재고가 하나도 없습니다."
+}
 extension VendingMachine {
     enum Mode: Int {
         case manager = 1
         case user = 2
     }
-
-    enum stockError: String, Error {
-        case empty = "재고가 하나도 없습니다."
-    }
-
 }

@@ -23,8 +23,12 @@ struct Manager: EnableMode {
     }
 
     // 재고 삭제
-    @discardableResult func delete(detail: Int) -> Drink? {
-        return delegate.delete(productIndex: detail)
+    @discardableResult func delete(detail: Int) throws -> Drink {
+        do {
+            return try delegate.delete(productIndex: detail)
+        } catch let error {
+            throw error
+        }
     }
 
 }

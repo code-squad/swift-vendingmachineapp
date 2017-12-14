@@ -27,8 +27,12 @@ struct User: EnableMode {
     }
 
     // 음료수 삭제 (음료수 구매) 
-    @discardableResult func delete(detail: Int) -> Drink? {
-        return delegate.buy(productIndex: detail)
+    @discardableResult func delete(detail: Int) throws -> Drink {
+        do {
+            return try delegate.buy(productIndex: detail)
+        } catch let error{
+            throw error
+        }
     }
 
 }

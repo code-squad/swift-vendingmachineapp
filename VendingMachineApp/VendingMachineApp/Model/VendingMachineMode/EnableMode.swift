@@ -10,5 +10,5 @@ import Foundation
 
 protocol EnableMode {
     func add(detail: Int)
-    @discardableResult func delete(detail: Int) -> Drink?
+    @discardableResult func delete(detail: Int) throws -> Drink
 }

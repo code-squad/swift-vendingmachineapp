@@ -11,7 +11,6 @@ import UIKit
 class PurchaseListViewController: UIViewController {
     @IBOutlet var collectionView: UICollectionView!
     let dataSource = PurchaseDataSource()
-    let vendingMachine = VendingMachine.sharedInstance
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,8 +21,7 @@ class PurchaseListViewController: UIViewController {
             object: nil
         )
         collectionView.dataSource = dataSource
-        dataSource.purchases = vendingMachine.listOfPurchase()
-        dataSource.menu = vendingMachine.getMenu()
+        dataSource.purchases = VendingMachine.sharedInstance.listOfPurchase()
     }
 
     // 구매 목록 업데이트
@@ -32,20 +30,16 @@ class PurchaseListViewController: UIViewController {
             let purchase = userInfo["purchase"] as? Drink else {
             return
         }
-        dataSource.purchases.append(purchase)
-        collectionView.reloadData()
+        var purchasesOfDataSource = dataSource.purchases
+        purchasesOfDataSource.append(purchase)
+        collectionView.insertItems(at: [IndexPath(item: purchasesOfDataSource.count - 1, section: 0)])
     }
 
 }
 
 class PurchaseDataSource: NSObject, UICollectionViewDataSource {
     var purchases =  [Drink]()
-    var menu = [Drink]()
-    lazy var drinkImages: [UIImage] = {
-        var images = [UIImage]()
-        menu.forEach { images.append(UIImage(named: $0.className)!) }
-        return images
-    }()
+
     func collectionView(
         _ collectionView: UICollectionView,
         numberOfItemsInSection section: Int
@@ -63,7 +57,7 @@ class PurchaseDataSource: NSObject, UICollectionViewDataSource {
             for: indexPath)
             as! PurchaseCollectionViewCell
         let drink = purchases[indexPath.row]
-        cell.displayDrinkImage(image: drinkImages[menu.index(of: drink)!])
+        cell.displayDrinkImage(image: UIImage(named: drink.className)!)
         return cell
     }
 }

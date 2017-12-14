@@ -30,12 +30,11 @@ final class CoreVendingMachine {
         }
     }
     private var income: Price
-    var menu: [Drink] {
-        return Menu().drinkList
-    }
+    private let menu: [Drink]
 
     init() {
         purchases = [Drink]()
+        menu = Menu().drinkList
         income = 0
         setUnarchivedProperties()
     }

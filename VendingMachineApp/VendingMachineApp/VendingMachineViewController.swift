@@ -19,10 +19,12 @@ class VendingMachineViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateInventoryLabel()
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(self.updateInventoryLabel(noti:)),
-                                               name: .didChangeInventoryNotification,
-                                               object: nil)
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(self.updateInventoryLabel(noti:)),
+            name: .didChangeInventoryNotification,
+            object: nil
+        )
         makeAddInventroyButtons()
         makeBuyDrinkButtons()
 
@@ -50,18 +52,23 @@ class VendingMachineViewController: UIViewController {
     // 재고 추가 버튼
     private func makeAddInventroyButtons() {
         addInventoryButtons.forEach { (button: UIButton) in
-            button.addTarget(self,
-                             action: #selector(self.addInventoryButtonDidTap(_:)),
-                             for: .touchDown)
+            button.addTarget(
+                self,
+                action:
+                #selector(self.addInventoryButtonDidTap(_:)),
+                for: .touchDown
+            )
         }
     }
 
     // 음료수 구매 버튼
     private func makeBuyDrinkButtons() {
         buyDrinkButtons.forEach { (button: UIButton) in
-            button.addTarget(self,
-                             action: #selector(self.buyDrinkButtonDidTap(_:)),
-                             for: .touchDown)
+            button.addTarget(
+                self,
+                action: #selector(self.buyDrinkButtonDidTap(_:)),
+                for: .touchDown
+            )
         }
     }
 
@@ -74,10 +81,12 @@ class VendingMachineViewController: UIViewController {
 
     private func showAlert(title: String = "잠깐!", message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let okAction: UIAlertAction = UIAlertAction(title: "OK",
-                                                    style: .default,
-                                                    handler: { (action: UIAlertAction) in
-                                                        alert.dismiss(animated: true, completion: nil)
+        let okAction: UIAlertAction = UIAlertAction(
+            title: "OK",
+            style: .default,
+            handler: { (action: UIAlertAction) in
+                alert.dismiss(animated: true, completion: nil
+
         })
         alert.addAction(okAction)
         present(alert, animated: true, completion: nil)

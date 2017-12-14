@@ -14,10 +14,12 @@ class PurchaseListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(self.updatePurchaseDrinkListLabel(noti:)),
-                                               name: .didBuyDrinkNotifiacation,
-                                               object: nil)
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(self.updatePurchaseDrinkListLabel(noti:)),
+            name: .didBuyDrinkNotifiacation,
+            object: nil
+        )
         collectionView.dataSource = datastore
         datastore.purchases = VendingMachine.sharedInstance.listOfPurchase()
     }
@@ -32,11 +34,17 @@ class PurchaseListViewController: UIViewController {
 
 class PurchaseDataSource: NSObject, UICollectionViewDataSource {
     var purchases =  [Drink]()
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        numberOfItemsInSection section: Int
+        ) -> Int {
         return purchases.count
     }
 
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        cellForItemAt indexPath: IndexPath
+        ) -> UICollectionViewCell {
         let identifier = "UICollectionViewCell"
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! PurchaseCollectionViewCell
         let drink = purchases[indexPath.row]

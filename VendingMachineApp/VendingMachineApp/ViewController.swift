@@ -23,10 +23,12 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateMoneyLabel()
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(self.updateRemainMoneyLabel(noti:)),
-                                               name: .didChangeMoneyNotification,
-                                               object: nil)
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(self.updateRemainMoneyLabel(noti:)),
+            name: .didChangeMoneyNotification,
+            object: nil
+        )
         makeButton()
     }
 
@@ -37,9 +39,11 @@ class ViewController: UIViewController {
             button.layer.borderColor = UIColor.black.cgColor
             button.layer.cornerRadius = button.frame.height/2
             button.clipsToBounds = true
-            button.addTarget(self,
-                             action: #selector(addMoneyButtonDidTap(_:)),
-                             for: .touchDown)
+            button.addTarget(
+                self,
+                action: #selector(addMoneyButtonDidTap(_:)),
+                for: .touchDown
+            )
         }
     }
 

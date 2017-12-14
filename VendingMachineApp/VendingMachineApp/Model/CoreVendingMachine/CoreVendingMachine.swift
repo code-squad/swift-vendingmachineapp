@@ -82,10 +82,10 @@ extension CoreVendingMachine: ManagerModeDelegate {
     }
 
     // 음료수 인덱스를 넘겨서 재고의 음료수를 삭제하는 메소드
-    @discardableResult func delete(productIndex: Int) -> Drink? {
+    @discardableResult func delete(productIndex: Int) throws -> Drink {
         let drink = menu[productIndex]
         guard let deleteDrinkIndex = inventory.index(of: drink) else {
-            return nil
+            throw VendingMachineError.stockError
         }
         inventory.remove(at: deleteDrinkIndex)
         return drink
@@ -136,11 +136,13 @@ extension CoreVendingMachine: UserModeDelegate {
         return Array(listOfCanBuy)
     }
 
-    @discardableResult func buy(productIndex: Int) -> Drink? {
+    @discardableResult func buy(productIndex: Int) throws -> Drink {
         let buyDrink = menu[productIndex]
-        guard let buyDrinkIndex = inventory.index(of: buyDrink),
-            inputMoney >= buyDrink.price else {
-            return nil
+        guard let buyDrinkIndex = inventory.index(of: buyDrink) else {
+            throw VendingMachineError.stockError
+        }
+        guard inputMoney >= buyDrink.price else {
+            throw VendingMachineError.shortageOfMoney
         }
         inventory.remove(at: buyDrinkIndex)
         inputMoney -= buyDrink.price

@@ -42,6 +42,7 @@
 		C90FB64A1FDE316900D4384D /* MenuContents.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90FB6491FDE316900D4384D /* MenuContents.swift */; };
 		C90FB64C1FDE7FDD00D4384D /* PurchaseListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90FB64B1FDE7FDD00D4384D /* PurchaseListViewController.swift */; };
 		C90FB64E1FDF9D3500D4384D /* PurchaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90FB64D1FDF9D3500D4384D /* PurchaseCollectionViewCell.swift */; };
+		C90FB6A71FE24CE100D4384D /* VendingMachineError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90FB6A61FE24CE100D4384D /* VendingMachineError.swift */; };
 		C9CE02B51FD67A68005A1A47 /* AppDelegateAccessable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CE02B41FD67A68005A1A47 /* AppDelegateAccessable.swift */; };
 /* End PBXBuildFile section */
 
@@ -93,6 +94,7 @@
 		C90FB6491FDE316900D4384D /* MenuContents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuContents.swift; sourceTree = "<group>"; };
 		C90FB64B1FDE7FDD00D4384D /* PurchaseListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseListViewController.swift; sourceTree = "<group>"; };
 		C90FB64D1FDF9D3500D4384D /* PurchaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseCollectionViewCell.swift; sourceTree = "<group>"; };
+		C90FB6A61FE24CE100D4384D /* VendingMachineError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineError.swift; sourceTree = "<group>"; };
 		C9CE02B41FD67A68005A1A47 /* AppDelegateAccessable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateAccessable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -210,6 +212,7 @@
 				C9069E711FCD38D9001BBC82 /* User.swift */,
 				C9069E6E1FCD38D8001BBC82 /* UserModeDelegate.swift */,
 				C9069E6F1FCD38D8001BBC82 /* VendingMachine.swift */,
+				C90FB6A61FE24CE100D4384D /* VendingMachineError.swift */,
 			);
 			path = VendingMachineMode;
 			sourceTree = "<group>";
@@ -343,6 +346,7 @@
 				C9069E691FCD38A9001BBC82 /* Coke.swift in Sources */,
 				C9069E621FCD38A9001BBC82 /* Coffee.swift in Sources */,
 				C9069E631FCD38A9001BBC82 /* SoftDrink.swift in Sources */,
+				C90FB6A71FE24CE100D4384D /* VendingMachineError.swift in Sources */,
 				C9069DFD1FCD30E4001BBC82 /* AppDelegate.swift in Sources */,
 				C9069E651FCD38A9001BBC82 /* Cantata.swift in Sources */,
 				C9069E681FCD38A9001BBC82 /* BananaMilk.swift in Sources */,

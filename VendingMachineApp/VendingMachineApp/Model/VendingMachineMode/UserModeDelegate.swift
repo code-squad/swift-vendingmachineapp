@@ -11,7 +11,7 @@ import Foundation
 protocol UserModeDelegate {
     func add(money: Int)
     func listOfCanBuy() -> [Drink]
-    @discardableResult func buy(productIndex: Int) -> Drink?
+    @discardableResult func buy(productIndex: Int) throws -> Drink
     func howMuchRemainMoney() -> Price
     func listOfHotDrink() -> [Drink]
     func listOfPurchase() -> Array<Drink>

@@ -10,7 +10,8 @@ import UIKit
 
 class PurchaseListViewController: UIViewController {
     @IBOutlet var collectionView: UICollectionView!
-    let datastore = PurchaseDataSource()
+    let dataSource = PurchaseDataSource()
+    let vendingMachine = VendingMachine.sharedInstance
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,13 +21,18 @@ class PurchaseListViewController: UIViewController {
             name: .didBuyDrinkNotifiacation,
             object: nil
         )
-        collectionView.dataSource = datastore
-        datastore.purchases = VendingMachine.sharedInstance.listOfPurchase()
+        collectionView.dataSource = dataSource
+        dataSource.purchases = vendingMachine.listOfPurchase()
+        dataSource.menu = vendingMachine.getMenu()
     }
 
     // 구매 목록 업데이트
     @objc private func updatePurchaseDrinkListLabel(noti: Notification?) {
-        datastore.purchases = VendingMachine.sharedInstance.listOfPurchase()
+        guard let userInfo = noti?.userInfo,
+            let purchase = userInfo["purchase"] as? Drink else {
+            return
+        }
+        dataSource.purchases.append(purchase)
         collectionView.reloadData()
     }
 
@@ -34,6 +40,12 @@ class PurchaseListViewController: UIViewController {
 
 class PurchaseDataSource: NSObject, UICollectionViewDataSource {
     var purchases =  [Drink]()
+    var menu = [Drink]()
+    lazy var drinkImages: [UIImage] = {
+        var images = [UIImage]()
+        menu.forEach { images.append(UIImage(named: $0.className)!) }
+        return images
+    }()
     func collectionView(
         _ collectionView: UICollectionView,
         numberOfItemsInSection section: Int
@@ -46,10 +58,12 @@ class PurchaseDataSource: NSObject, UICollectionViewDataSource {
         cellForItemAt indexPath: IndexPath
         ) -> UICollectionViewCell {
         let identifier = "UICollectionViewCell"
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! PurchaseCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: identifier,
+            for: indexPath)
+            as! PurchaseCollectionViewCell
         let drink = purchases[indexPath.row]
-        let image = UIImage(named: drink.className)
-        cell.drinkImageView.image = image
+        cell.displayDrinkImage(image: drinkImages[menu.index(of: drink)!])
         return cell
     }
 }

@@ -14,24 +14,29 @@ typealias Price = Int
 final class CoreVendingMachine {
     private var inventory: [Drink] = [] {
         didSet {
-            NotificationCenter.default.post(name: .didChangeInventoryNotification,
-                                            object: self)
+            NotificationCenter.default.post(
+                name: .didChangeInventoryNotification,
+                object: self
+            )
         }
     }
     private var purchases: [Drink]
     private var inputMoney: Price = 0 {
         didSet {
-            NotificationCenter.default.post(name: .didChangeMoneyNotification,
-                                            object: self)
+            NotificationCenter.default.post(
+                name: .didChangeMoneyNotification,
+                object: self
+            )
         }
     }
     private var income: Price
-    private var menu: [Drink]
+    var menu: [Drink] {
+        return Menu().drinkList
+    }
 
     init() {
         purchases = [Drink]()
         income = 0
-        menu = Menu().drinkList
         setUnarchivedProperties()
     }
 
@@ -44,7 +49,10 @@ extension CoreVendingMachine {
 
     private func makeURLForKey(key: CodingKeys) -> URL {
         let archiveFileName = key.rawValue
-        let documentsDirectories = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        let documentsDirectories = FileManager.default.urls(
+            for: .documentDirectory,
+            in: .userDomainMask
+        )
         let documentDirectory = documentsDirectories.first!
         return documentDirectory.appendingPathComponent(archiveFileName)
     }
@@ -66,8 +74,10 @@ extension CoreVendingMachine {
     }
 
     private func archive<T>(_ objects: inout T, key: CodingKeys) -> Bool {
-        return NSKeyedArchiver.archiveRootObject(objects,
-                                                 toFile: makeURLForKey(key: key).path)
+        return NSKeyedArchiver.archiveRootObject(
+            objects,
+            toFile: makeURLForKey(key: key).path
+        )
     }
 
 }
@@ -148,8 +158,11 @@ extension CoreVendingMachine: UserModeDelegate {
         inputMoney -= buyDrink.price
         income += buyDrink.price
         purchases.append(buyDrink)
-        NotificationCenter.default.post(name: .didBuyDrinkNotifiacation,
-                                        object: self)
+        NotificationCenter.default.post(
+            name: .didBuyDrinkNotifiacation,
+            object: self,
+            userInfo: ["purchase": buyDrink]
+        )
         return buyDrink
     }
 

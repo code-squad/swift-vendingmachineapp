@@ -85,7 +85,7 @@ class VendingMachineViewController: UIViewController {
             title: "OK",
             style: .default,
             handler: { (action: UIAlertAction) in
-                alert.dismiss(animated: true, completion: nil
+                alert.dismiss(animated: true, completion: nil)
 
         })
         alert.addAction(okAction)

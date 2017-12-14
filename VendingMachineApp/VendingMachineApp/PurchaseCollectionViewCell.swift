@@ -10,4 +10,8 @@ import UIKit
 
 class PurchaseCollectionViewCell: UICollectionViewCell {
     @IBOutlet var drinkImageView: UIImageView!
+
+    func displayDrinkImage(image: UIImage) {
+        drinkImageView.image = image
+    }
 }

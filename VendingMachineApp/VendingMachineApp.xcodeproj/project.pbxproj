@@ -139,15 +139,12 @@
 		C9069DFB1FCD30E4001BBC82 /* VendingMachineApp */ = {
 			isa = PBXGroup;
 			children = (
+				C982F6671FE39CB900B2AC34 /* View */,
+				C982F6661FE39C7C00B2AC34 /* Controller */,
 				C9CE02B31FD678E5005A1A47 /* Extension */,
 				C9069E1C1FCD33AD001BBC82 /* Model */,
 				C9069DFC1FCD30E4001BBC82 /* AppDelegate.swift */,
 				C9CE02B41FD67A68005A1A47 /* AppDelegateAccessable.swift */,
-				C9069DFE1FCD30E4001BBC82 /* ViewController.swift */,
-				C9069E8D1FCFD116001BBC82 /* VendingMachineViewController.swift */,
-				C90FB64B1FDE7FDD00D4384D /* PurchaseListViewController.swift */,
-				C90FB64D1FDF9D3500D4384D /* PurchaseCollectionViewCell.swift */,
-				C982F6641FE3662F00B2AC34 /* ManagerModeController.swift */,
 				C9069E001FCD30E4001BBC82 /* Main.storyboard */,
 				C9069E031FCD30E4001BBC82 /* Assets.xcassets */,
 				C9069E051FCD30E4001BBC82 /* LaunchScreen.storyboard */,
@@ -218,6 +215,25 @@
 				C90FB6A61FE24CE100D4384D /* VendingMachineError.swift */,
 			);
 			path = VendingMachineMode;
+			sourceTree = "<group>";
+		};
+		C982F6661FE39C7C00B2AC34 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C9069DFE1FCD30E4001BBC82 /* ViewController.swift */,
+				C9069E8D1FCFD116001BBC82 /* VendingMachineViewController.swift */,
+				C90FB64B1FDE7FDD00D4384D /* PurchaseListViewController.swift */,
+				C982F6641FE3662F00B2AC34 /* ManagerModeController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C982F6671FE39CB900B2AC34 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C90FB64D1FDF9D3500D4384D /* PurchaseCollectionViewCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		C9CE02B31FD678E5005A1A47 /* Extension */ = {

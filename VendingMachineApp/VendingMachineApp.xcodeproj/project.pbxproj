@@ -45,6 +45,7 @@
 		C90FB6A71FE24CE100D4384D /* VendingMachineError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90FB6A61FE24CE100D4384D /* VendingMachineError.swift */; };
 		C982F6651FE3662F00B2AC34 /* ManagerModeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C982F6641FE3662F00B2AC34 /* ManagerModeController.swift */; };
 		C982F6951FE3C31F00B2AC34 /* PieGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C982F6941FE3C31F00B2AC34 /* PieGraphView.swift */; };
+		C982F6991FE3DC3900B2AC34 /* ManagerMode.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C982F6981FE3DC3900B2AC34 /* ManagerMode.storyboard */; };
 		C9CE02B51FD67A68005A1A47 /* AppDelegateAccessable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CE02B41FD67A68005A1A47 /* AppDelegateAccessable.swift */; };
 /* End PBXBuildFile section */
 
@@ -99,6 +100,7 @@
 		C90FB6A61FE24CE100D4384D /* VendingMachineError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineError.swift; sourceTree = "<group>"; };
 		C982F6641FE3662F00B2AC34 /* ManagerModeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerModeController.swift; sourceTree = "<group>"; };
 		C982F6941FE3C31F00B2AC34 /* PieGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieGraphView.swift; sourceTree = "<group>"; };
+		C982F6981FE3DC3900B2AC34 /* ManagerMode.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ManagerMode.storyboard; sourceTree = "<group>"; };
 		C9CE02B41FD67A68005A1A47 /* AppDelegateAccessable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateAccessable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -148,6 +150,7 @@
 				C9069DFC1FCD30E4001BBC82 /* AppDelegate.swift */,
 				C9CE02B41FD67A68005A1A47 /* AppDelegateAccessable.swift */,
 				C9069E001FCD30E4001BBC82 /* Main.storyboard */,
+				C982F6981FE3DC3900B2AC34 /* ManagerMode.storyboard */,
 				C9069E031FCD30E4001BBC82 /* Assets.xcassets */,
 				C9069E051FCD30E4001BBC82 /* LaunchScreen.storyboard */,
 				C9069E081FCD30E4001BBC82 /* Info.plist */,
@@ -331,6 +334,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9069E071FCD30E4001BBC82 /* LaunchScreen.storyboard in Resources */,
+				C982F6991FE3DC3900B2AC34 /* ManagerMode.storyboard in Resources */,
 				C9069E041FCD30E4001BBC82 /* Assets.xcassets in Resources */,
 				C9069E021FCD30E4001BBC82 /* Main.storyboard in Resources */,
 			);

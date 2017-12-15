@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="m7O-f4-b63">
+    <device id="ipad10_5" orientation="landscape">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Manager Mode Controller-->
+        <scene sceneID="NEU-4z-era">
+            <objects>
+                <viewController storyboardIdentifier="ManagerModeController" id="m7O-f4-b63" customClass="ManagerModeController" customModule="VendingMachineApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OoK-is-R2s">
+                        <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="qCR-bB-XZu">
+                                <rect key="frame" x="111" y="93.5" width="890" height="667"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="NSt-1M-NYE">
+                                        <rect key="frame" x="0.0" y="0.0" width="890" height="222.5"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="qVk-Ex-gU5">
+                                                <rect key="frame" x="0.0" y="0.0" width="296.5" height="222.5"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="StrawBerryMilk" translatesAutoresizingMaskIntoConstraints="NO" id="BPX-r6-Mlc">
+                                                        <rect key="frame" x="0.0" y="0.0" width="296.5" height="202"/>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QX6-uq-0X0">
+                                                        <rect key="frame" x="0.0" y="202" width="296.5" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="GHl-sC-Dcc">
+                                                <rect key="frame" x="296.5" y="0.0" width="297" height="222.5"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="BananaMilk" translatesAutoresizingMaskIntoConstraints="NO" id="YAp-rG-xa7">
+                                                        <rect key="frame" x="0.0" y="0.0" width="297" height="202"/>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xil-BV-VH4">
+                                                        <rect key="frame" x="0.0" y="202" width="297" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="grv-VA-Xlh">
+                                                <rect key="frame" x="593.5" y="0.0" width="296.5" height="222.5"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" tag="2" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="ChocolateMilk" translatesAutoresizingMaskIntoConstraints="NO" id="l7N-2T-dhE">
+                                                        <rect key="frame" x="0.0" y="0.0" width="296.5" height="202"/>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5vz-at-S9J">
+                                                        <rect key="frame" x="0.0" y="202" width="296.5" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ZpH-P7-jtG">
+                                        <rect key="frame" x="0.0" y="222.5" width="890" height="222"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Qr3-EH-Xgx">
+                                                <rect key="frame" x="0.0" y="0.0" width="296.5" height="222"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" tag="3" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="Coke" translatesAutoresizingMaskIntoConstraints="NO" id="aQs-q6-JZW">
+                                                        <rect key="frame" x="0.0" y="0.0" width="296.5" height="201.5"/>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wkp-zZ-fcM">
+                                                        <rect key="frame" x="0.0" y="201.5" width="296.5" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="1ko-5i-NAY">
+                                                <rect key="frame" x="296.5" y="0.0" width="297" height="222"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" tag="4" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="Cider" translatesAutoresizingMaskIntoConstraints="NO" id="OdI-UB-0QY">
+                                                        <rect key="frame" x="0.0" y="0.0" width="297" height="201.5"/>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ddb-ab-xHr">
+                                                        <rect key="frame" x="0.0" y="201.5" width="297" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="PZB-6Q-J2s">
+                                                <rect key="frame" x="593.5" y="0.0" width="296.5" height="222"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" tag="5" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="Fanta" translatesAutoresizingMaskIntoConstraints="NO" id="MtG-Re-PbM">
+                                                        <rect key="frame" x="0.0" y="0.0" width="296.5" height="201.5"/>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="swL-6d-TZX">
+                                                        <rect key="frame" x="0.0" y="201.5" width="296.5" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="wrq-Hc-xcC">
+                                        <rect key="frame" x="0.0" y="444.5" width="890" height="222.5"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="9rF-lK-QiK">
+                                                <rect key="frame" x="0.0" y="0.0" width="296.5" height="222.5"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" tag="6" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="Cantata" translatesAutoresizingMaskIntoConstraints="NO" id="FXf-3E-2aB">
+                                                        <rect key="frame" x="0.0" y="0.0" width="296.5" height="202"/>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hvK-Nr-CZ7">
+                                                        <rect key="frame" x="0.0" y="202" width="296.5" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Fkc-R8-qP3">
+                                                <rect key="frame" x="296.5" y="0.0" width="297" height="222.5"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" tag="7" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="Top" translatesAutoresizingMaskIntoConstraints="NO" id="EwQ-cT-7xV">
+                                                        <rect key="frame" x="0.0" y="0.0" width="297" height="202"/>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ER9-oZ-PbX">
+                                                        <rect key="frame" x="0.0" y="202" width="297" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="oQg-v5-KFb">
+                                                <rect key="frame" x="593.5" y="0.0" width="296.5" height="222.5"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" tag="8" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="Georgia" translatesAutoresizingMaskIntoConstraints="NO" id="yJc-Bg-eW2">
+                                                        <rect key="frame" x="0.0" y="0.0" width="296.5" height="202"/>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pll-2z-S8V">
+                                                        <rect key="frame" x="0.0" y="202" width="296.5" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vcb-ir-5CQ">
+                                <rect key="frame" x="1022" y="20" width="50" height="50"/>
+                                <state key="normal" image="icons8-Delete-50"/>
+                                <connections>
+                                    <action selector="closeButtonDidTap:" destination="m7O-f4-b63" eventType="touchUpInside" id="I44-qU-o5l"/>
+                                    <action selector="closeButtonDidTap:" destination="cL0-d4-6XD" eventType="touchUpInside" id="JVJ-aS-abn"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="qCR-bB-XZu" firstAttribute="centerX" secondItem="LKX-Vw-tbm" secondAttribute="centerX" id="1fl-Hf-qPz"/>
+                            <constraint firstItem="LKX-Vw-tbm" firstAttribute="trailing" secondItem="vcb-ir-5CQ" secondAttribute="trailing" constant="40" id="7tV-4L-nKS"/>
+                            <constraint firstItem="qCR-bB-XZu" firstAttribute="width" secondItem="OoK-is-R2s" secondAttribute="width" multiplier="0.8" id="KsS-oT-I3f"/>
+                            <constraint firstItem="vcb-ir-5CQ" firstAttribute="top" secondItem="LKX-Vw-tbm" secondAttribute="top" id="QeE-HH-lfz"/>
+                            <constraint firstItem="qCR-bB-XZu" firstAttribute="centerY" secondItem="LKX-Vw-tbm" secondAttribute="centerY" id="ToW-Uw-S0A"/>
+                            <constraint firstItem="qCR-bB-XZu" firstAttribute="height" secondItem="OoK-is-R2s" secondAttribute="height" multiplier="0.8" id="hzs-3S-UdS"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="LKX-Vw-tbm"/>
+                    </view>
+                    <connections>
+                        <outletCollection property="drinkImageViews" destination="BPX-r6-Mlc" collectionClass="NSMutableArray" id="TeN-da-kaf"/>
+                        <outletCollection property="drinkImageViews" destination="YAp-rG-xa7" collectionClass="NSMutableArray" id="33d-jC-wTJ"/>
+                        <outletCollection property="drinkImageViews" destination="l7N-2T-dhE" collectionClass="NSMutableArray" id="UiI-0C-lfU"/>
+                        <outletCollection property="drinkImageViews" destination="aQs-q6-JZW" collectionClass="NSMutableArray" id="LJD-0x-RPg"/>
+                        <outletCollection property="drinkImageViews" destination="OdI-UB-0QY" collectionClass="NSMutableArray" id="IGw-A8-nDE"/>
+                        <outletCollection property="drinkImageViews" destination="MtG-Re-PbM" collectionClass="NSMutableArray" id="Mtc-Dg-gDh"/>
+                        <outletCollection property="drinkImageViews" destination="FXf-3E-2aB" collectionClass="NSMutableArray" id="uDV-9f-qdS"/>
+                        <outletCollection property="drinkImageViews" destination="EwQ-cT-7xV" collectionClass="NSMutableArray" id="5FL-Ex-OrG"/>
+                        <outletCollection property="drinkImageViews" destination="yJc-Bg-eW2" collectionClass="NSMutableArray" id="jvk-N4-myw"/>
+                        <outletCollection property="inventoryLabel" destination="QX6-uq-0X0" collectionClass="NSMutableArray" id="NTn-CP-AZn"/>
+                        <outletCollection property="inventoryLabel" destination="xil-BV-VH4" collectionClass="NSMutableArray" id="0NL-te-dMa"/>
+                        <outletCollection property="inventoryLabel" destination="5vz-at-S9J" collectionClass="NSMutableArray" id="c5G-Fg-3lA"/>
+                        <outletCollection property="inventoryLabel" destination="wkp-zZ-fcM" collectionClass="NSMutableArray" id="dDR-jp-jso"/>
+                        <outletCollection property="inventoryLabel" destination="Ddb-ab-xHr" collectionClass="NSMutableArray" id="xds-NP-wHm"/>
+                        <outletCollection property="inventoryLabel" destination="swL-6d-TZX" collectionClass="NSMutableArray" id="lHK-WJ-MAh"/>
+                        <outletCollection property="inventoryLabel" destination="hvK-Nr-CZ7" collectionClass="NSMutableArray" id="rDO-pR-17B"/>
+                        <outletCollection property="inventoryLabel" destination="ER9-oZ-PbX" collectionClass="NSMutableArray" id="Kf9-sK-IyM"/>
+                        <outletCollection property="inventoryLabel" destination="Pll-2z-S8V" collectionClass="NSMutableArray" id="H5R-sj-RLy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QCS-IS-hGS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="cL0-d4-6XD" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="752.69784172661878" y="-151.07913669064749"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="BananaMilk" width="571" height="571"/>
+        <image name="Cantata" width="500" height="500"/>
+        <image name="ChocolateMilk" width="571" height="571"/>
+        <image name="Cider" width="550" height="550"/>
+        <image name="Coke" width="400" height="580"/>
+        <image name="Fanta" width="550" height="550"/>
+        <image name="Georgia" width="173" height="332"/>
+        <image name="StrawBerryMilk" width="571" height="571"/>
+        <image name="Top" width="170" height="269"/>
+        <image name="icons8-Delete-50" width="50" height="50"/>
+    </resources>
+</document>

@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  VendingMachineViewController.swift
 //  VendingMachineApp
 //
 //  Created by yangpc on 2017. 11. 28..
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class VendingMachineViewController: UIViewController {
     // 잔돈 추가 컨트롤러 -> User Mode
     @IBOutlet var remainMoneyLabel: UILabel!
     @IBOutlet var addMoneyButtons: [UIButton]!

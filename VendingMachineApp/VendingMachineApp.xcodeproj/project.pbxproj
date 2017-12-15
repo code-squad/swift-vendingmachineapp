@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C9069DFD1FCD30E4001BBC82 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9069DFC1FCD30E4001BBC82 /* AppDelegate.swift */; };
-		C9069DFF1FCD30E4001BBC82 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9069DFE1FCD30E4001BBC82 /* ViewController.swift */; };
+		C9069DFF1FCD30E4001BBC82 /* VendingMachineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9069DFE1FCD30E4001BBC82 /* VendingMachineViewController.swift */; };
 		C9069E021FCD30E4001BBC82 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9069E001FCD30E4001BBC82 /* Main.storyboard */; };
 		C9069E041FCD30E4001BBC82 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9069E031FCD30E4001BBC82 /* Assets.xcassets */; };
 		C9069E071FCD30E4001BBC82 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9069E051FCD30E4001BBC82 /* LaunchScreen.storyboard */; };
@@ -60,7 +60,7 @@
 /* Begin PBXFileReference section */
 		C9069DF91FCD30E4001BBC82 /* VendingMachineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendingMachineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9069DFC1FCD30E4001BBC82 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C9069DFE1FCD30E4001BBC82 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C9069DFE1FCD30E4001BBC82 /* VendingMachineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineViewController.swift; sourceTree = "<group>"; };
 		C9069E011FCD30E4001BBC82 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C9069E031FCD30E4001BBC82 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C9069E061FCD30E4001BBC82 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -220,7 +220,7 @@
 		C982F6661FE39C7C00B2AC34 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				C9069DFE1FCD30E4001BBC82 /* ViewController.swift */,
+				C9069DFE1FCD30E4001BBC82 /* VendingMachineViewController.swift */,
 				C9069E8D1FCFD116001BBC82 /* UserModeViewController.swift */,
 				C90FB64B1FDE7FDD00D4384D /* PurchaseListViewController.swift */,
 				C982F6641FE3662F00B2AC34 /* ManagerModeController.swift */,
@@ -351,7 +351,7 @@
 				C9069E661FCD38A9001BBC82 /* Georgia.swift in Sources */,
 				C9069E6C1FCD38A9001BBC82 /* Drink.swift in Sources */,
 				C9069E281FCD3438001BBC82 /* Menu.swift in Sources */,
-				C9069DFF1FCD30E4001BBC82 /* ViewController.swift in Sources */,
+				C9069DFF1FCD30E4001BBC82 /* VendingMachineViewController.swift in Sources */,
 				C9069E671FCD38A9001BBC82 /* StrawBerryMilk.swift in Sources */,
 				C9069E6B1FCD38A9001BBC82 /* Fanta.swift in Sources */,
 				C9069E8E1FCFD116001BBC82 /* UserModeViewController.swift in Sources */,

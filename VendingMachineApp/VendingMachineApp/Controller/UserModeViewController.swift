@@ -1,5 +1,5 @@
 //
-//  VendingMachineViewController.swift
+//  UserModeViewController.swift
 //  VendingMachineApp
 //
 //  Created by yangpc on 2017. 11. 30..
@@ -8,8 +8,7 @@
 
 import UIKit
 
-class VendingMachineViewController: UIViewController {
-    // 음료 추가 컨트롤러 -> Manager Mode
+class UserModeViewController: UIViewController {
     @IBOutlet var drinkImageViews: [UIImageView]!
     @IBOutlet var inventoryLabel: [UILabel]!
 

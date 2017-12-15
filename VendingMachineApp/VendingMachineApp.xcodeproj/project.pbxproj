@@ -35,7 +35,7 @@
 		C9069E771FCD38D9001BBC82 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9069E711FCD38D9001BBC82 /* User.swift */; };
 		C9069E781FCD38D9001BBC82 /* EnableMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9069E721FCD38D9001BBC82 /* EnableMode.swift */; };
 		C9069E791FCD38D9001BBC82 /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9069E731FCD38D9001BBC82 /* Manager.swift */; };
-		C9069E8E1FCFD116001BBC82 /* VendingMachineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9069E8D1FCFD116001BBC82 /* VendingMachineViewController.swift */; };
+		C9069E8E1FCFD116001BBC82 /* UserModeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9069E8D1FCFD116001BBC82 /* UserModeViewController.swift */; };
 		C9069E901FCFEB6C001BBC82 /* UnitTestDrinkNameEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9069E8F1FCFEB6C001BBC82 /* UnitTestDrinkNameEnum.swift */; };
 		C9069E911FCFEBA6001BBC82 /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9069E5F1FCD38A9001BBC82 /* Drink.swift */; };
 		C9069E921FCFFBFD001BBC82 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9069E1D1FCD3437001BBC82 /* StringExtension.swift */; };
@@ -90,7 +90,7 @@
 		C9069E711FCD38D9001BBC82 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C9069E721FCD38D9001BBC82 /* EnableMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnableMode.swift; sourceTree = "<group>"; };
 		C9069E731FCD38D9001BBC82 /* Manager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Manager.swift; sourceTree = "<group>"; };
-		C9069E8D1FCFD116001BBC82 /* VendingMachineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineViewController.swift; sourceTree = "<group>"; };
+		C9069E8D1FCFD116001BBC82 /* UserModeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModeViewController.swift; sourceTree = "<group>"; };
 		C9069E8F1FCFEB6C001BBC82 /* UnitTestDrinkNameEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestDrinkNameEnum.swift; sourceTree = "<group>"; };
 		C90FB6491FDE316900D4384D /* MenuContents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuContents.swift; sourceTree = "<group>"; };
 		C90FB64B1FDE7FDD00D4384D /* PurchaseListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseListViewController.swift; sourceTree = "<group>"; };
@@ -221,7 +221,7 @@
 			isa = PBXGroup;
 			children = (
 				C9069DFE1FCD30E4001BBC82 /* ViewController.swift */,
-				C9069E8D1FCFD116001BBC82 /* VendingMachineViewController.swift */,
+				C9069E8D1FCFD116001BBC82 /* UserModeViewController.swift */,
 				C90FB64B1FDE7FDD00D4384D /* PurchaseListViewController.swift */,
 				C982F6641FE3662F00B2AC34 /* ManagerModeController.swift */,
 			);
@@ -354,7 +354,7 @@
 				C9069DFF1FCD30E4001BBC82 /* ViewController.swift in Sources */,
 				C9069E671FCD38A9001BBC82 /* StrawBerryMilk.swift in Sources */,
 				C9069E6B1FCD38A9001BBC82 /* Fanta.swift in Sources */,
-				C9069E8E1FCFD116001BBC82 /* VendingMachineViewController.swift in Sources */,
+				C9069E8E1FCFD116001BBC82 /* UserModeViewController.swift in Sources */,
 				C9069E6A1FCD38A9001BBC82 /* Cider.swift in Sources */,
 				C9069E781FCD38D9001BBC82 /* EnableMode.swift in Sources */,
 				C90FB64C1FDE7FDD00D4384D /* PurchaseListViewController.swift in Sources */,

@@ -113,10 +113,10 @@
             </objects>
             <point key="canvasLocation" x="33.992805755395686" y="36.690647482014391"/>
         </scene>
-        <!--Vending Machine View Controller-->
+        <!--User Mode View Controller-->
         <scene sceneID="3Hr-kH-g2p">
             <objects>
-                <viewController storyboardIdentifier="VendingMachineViewController" id="mCi-fE-U07" customClass="VendingMachineViewController" customModule="VendingMachineApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UserModeViewController" id="mCi-fE-U07" customClass="UserModeViewController" customModule="VendingMachineApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ofO-np-tB2">
                         <rect key="frame" x="0.0" y="0.0" width="667" height="500"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -278,24 +278,24 @@
                         <viewLayoutGuide key="safeArea" id="K15-kr-uQb"/>
                     </view>
                     <connections>
-                        <outletCollection property="inventoryLabel" destination="EGR-bd-OKp" collectionClass="NSMutableArray" id="69N-gS-1SJ"/>
-                        <outletCollection property="inventoryLabel" destination="uIn-UE-gLF" collectionClass="NSMutableArray" id="Nrb-m4-ieG"/>
-                        <outletCollection property="inventoryLabel" destination="DMT-Pa-aRe" collectionClass="NSMutableArray" id="oJh-NU-756"/>
-                        <outletCollection property="inventoryLabel" destination="7dc-cL-grv" collectionClass="NSMutableArray" id="s3j-Ti-GcA"/>
-                        <outletCollection property="inventoryLabel" destination="cdv-WM-DCj" collectionClass="NSMutableArray" id="tdO-P9-r6V"/>
-                        <outletCollection property="inventoryLabel" destination="zz5-Ti-B0j" collectionClass="NSMutableArray" id="t07-rR-QDX"/>
-                        <outletCollection property="inventoryLabel" destination="kGH-dN-ldY" collectionClass="NSMutableArray" id="toP-Wh-Hj6"/>
-                        <outletCollection property="inventoryLabel" destination="A7y-kx-an9" collectionClass="NSMutableArray" id="bHU-9m-JLi"/>
-                        <outletCollection property="inventoryLabel" destination="uKP-ez-aSZ" collectionClass="NSMutableArray" id="Wss-TN-wch"/>
-                        <outletCollection property="drinkImageViews" destination="8OQ-hU-Kbw" collectionClass="NSMutableArray" id="ZjD-eh-vS9"/>
-                        <outletCollection property="drinkImageViews" destination="ibX-SH-Djc" collectionClass="NSMutableArray" id="nT4-EN-lTO"/>
-                        <outletCollection property="drinkImageViews" destination="7HL-Ss-ubq" collectionClass="NSMutableArray" id="kPz-aJ-FIp"/>
-                        <outletCollection property="drinkImageViews" destination="noq-TL-oHV" collectionClass="NSMutableArray" id="VJi-2c-8Iw"/>
-                        <outletCollection property="drinkImageViews" destination="Gqe-vz-QjG" collectionClass="NSMutableArray" id="SY8-2b-4s5"/>
-                        <outletCollection property="drinkImageViews" destination="w29-5Y-kQ3" collectionClass="NSMutableArray" id="Kxg-CK-xRi"/>
-                        <outletCollection property="drinkImageViews" destination="x4s-yL-p8U" collectionClass="NSMutableArray" id="V2l-6U-ia2"/>
-                        <outletCollection property="drinkImageViews" destination="n3g-cz-yQ7" collectionClass="NSMutableArray" id="vE6-lV-baC"/>
-                        <outletCollection property="drinkImageViews" destination="8Hh-4G-HSF" collectionClass="NSMutableArray" id="gZY-Io-42s"/>
+                        <outletCollection property="drinkImageViews" destination="8OQ-hU-Kbw" collectionClass="NSMutableArray" id="lSp-2F-OzV"/>
+                        <outletCollection property="drinkImageViews" destination="ibX-SH-Djc" collectionClass="NSMutableArray" id="UHl-1X-h8o"/>
+                        <outletCollection property="drinkImageViews" destination="7HL-Ss-ubq" collectionClass="NSMutableArray" id="agi-Yz-191"/>
+                        <outletCollection property="drinkImageViews" destination="noq-TL-oHV" collectionClass="NSMutableArray" id="vnd-vh-7F4"/>
+                        <outletCollection property="drinkImageViews" destination="Gqe-vz-QjG" collectionClass="NSMutableArray" id="5mw-KB-a9o"/>
+                        <outletCollection property="drinkImageViews" destination="w29-5Y-kQ3" collectionClass="NSMutableArray" id="rDl-9Z-Yu8"/>
+                        <outletCollection property="drinkImageViews" destination="x4s-yL-p8U" collectionClass="NSMutableArray" id="6nT-6a-I2r"/>
+                        <outletCollection property="drinkImageViews" destination="n3g-cz-yQ7" collectionClass="NSMutableArray" id="o82-tu-7zI"/>
+                        <outletCollection property="drinkImageViews" destination="8Hh-4G-HSF" collectionClass="NSMutableArray" id="eGI-bB-rHX"/>
+                        <outletCollection property="inventoryLabel" destination="EGR-bd-OKp" collectionClass="NSMutableArray" id="mky-hE-SbY"/>
+                        <outletCollection property="inventoryLabel" destination="uIn-UE-gLF" collectionClass="NSMutableArray" id="kxb-rf-5St"/>
+                        <outletCollection property="inventoryLabel" destination="DMT-Pa-aRe" collectionClass="NSMutableArray" id="OXt-Co-AhL"/>
+                        <outletCollection property="inventoryLabel" destination="7dc-cL-grv" collectionClass="NSMutableArray" id="lSt-Um-XSd"/>
+                        <outletCollection property="inventoryLabel" destination="cdv-WM-DCj" collectionClass="NSMutableArray" id="crZ-sC-pew"/>
+                        <outletCollection property="inventoryLabel" destination="zz5-Ti-B0j" collectionClass="NSMutableArray" id="Pig-Vc-48t"/>
+                        <outletCollection property="inventoryLabel" destination="kGH-dN-ldY" collectionClass="NSMutableArray" id="Ten-oH-swC"/>
+                        <outletCollection property="inventoryLabel" destination="A7y-kx-an9" collectionClass="NSMutableArray" id="NFv-PJ-3Jl"/>
+                        <outletCollection property="inventoryLabel" destination="uKP-ez-aSZ" collectionClass="NSMutableArray" id="olY-Gj-fZv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GMA-yT-Z8f" userLabel="First Responder" sceneMemberID="firstResponder"/>

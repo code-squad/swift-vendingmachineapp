@@ -44,6 +44,7 @@
 		C90FB64E1FDF9D3500D4384D /* PurchaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90FB64D1FDF9D3500D4384D /* PurchaseCollectionViewCell.swift */; };
 		C90FB6A71FE24CE100D4384D /* VendingMachineError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90FB6A61FE24CE100D4384D /* VendingMachineError.swift */; };
 		C982F6651FE3662F00B2AC34 /* ManagerModeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C982F6641FE3662F00B2AC34 /* ManagerModeController.swift */; };
+		C982F6951FE3C31F00B2AC34 /* PieGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C982F6941FE3C31F00B2AC34 /* PieGraphView.swift */; };
 		C9CE02B51FD67A68005A1A47 /* AppDelegateAccessable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CE02B41FD67A68005A1A47 /* AppDelegateAccessable.swift */; };
 /* End PBXBuildFile section */
 
@@ -97,6 +98,7 @@
 		C90FB64D1FDF9D3500D4384D /* PurchaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		C90FB6A61FE24CE100D4384D /* VendingMachineError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineError.swift; sourceTree = "<group>"; };
 		C982F6641FE3662F00B2AC34 /* ManagerModeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerModeController.swift; sourceTree = "<group>"; };
+		C982F6941FE3C31F00B2AC34 /* PieGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieGraphView.swift; sourceTree = "<group>"; };
 		C9CE02B41FD67A68005A1A47 /* AppDelegateAccessable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateAccessable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -232,6 +234,7 @@
 			isa = PBXGroup;
 			children = (
 				C90FB64D1FDF9D3500D4384D /* PurchaseCollectionViewCell.swift */,
+				C982F6941FE3C31F00B2AC34 /* PieGraphView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -371,6 +374,7 @@
 				C9069E651FCD38A9001BBC82 /* Cantata.swift in Sources */,
 				C9069E681FCD38A9001BBC82 /* BananaMilk.swift in Sources */,
 				C9069E791FCD38D9001BBC82 /* Manager.swift in Sources */,
+				C982F6951FE3C31F00B2AC34 /* PieGraphView.swift in Sources */,
 				C9069E231FCD3438001BBC82 /* StringExtension.swift in Sources */,
 				C9069E641FCD38A9001BBC82 /* ChocolateMilk.swift in Sources */,
 				C90FB64E1FDF9D3500D4384D /* PurchaseCollectionViewCell.swift in Sources */,

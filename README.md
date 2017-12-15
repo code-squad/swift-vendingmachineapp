@@ -297,3 +297,4 @@
 ![Alt text](VendingMachineApp/image/screenshot_step7_managerMode.jpeg)
 
 참고: 애플 공식문서, 아론 힐리가스의 iOS프로그래밍
+

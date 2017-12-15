@@ -12,7 +12,6 @@ class ViewController: UIViewController {
     // 잔돈 추가 컨트롤러 -> User Mode
     @IBOutlet var remainMoneyLabel: UILabel!
     @IBOutlet var addMoneyButtons: [UIButton]!
-    var vendingMachine = VendingMachine.sharedInstance
 
     private let numberFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
@@ -48,13 +47,13 @@ class ViewController: UIViewController {
     }
 
     private func updateMoneyLabel() {
-        let remains = vendingMachine.remainMoney()
+        let remains = VendingMachine.sharedInstance.remainMoney()
         remainMoneyLabel.text = "\(numberFormatter.string(from: NSNumber(value: remains)) ?? "0")"
     }
 
     // 음료수를 구매하기 위한 금액 추가 이벤트
     @objc private func addMoneyButtonDidTap(_ sender: UIButton) {
-        vendingMachine.add(.user, detail: sender.tag)
+        VendingMachine.sharedInstance.add(.user, detail: sender.tag)
     }
 
     // 잔돈 라벨 업데이트

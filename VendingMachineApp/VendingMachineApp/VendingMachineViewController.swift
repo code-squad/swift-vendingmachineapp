@@ -10,71 +10,36 @@ import UIKit
 
 class VendingMachineViewController: UIViewController {
     // 음료 추가 컨트롤러 -> Manager Mode
-    @IBOutlet var imageViews: [UIImageView]!
+    @IBOutlet var drinkImageViews: [UIImageView]!
     @IBOutlet var inventoryLabel: [UILabel]!
-    @IBOutlet var addInventoryButtons: [UIButton]!
-    @IBOutlet var buyDrinkButtons: [UIButton]!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         updateInventoryLabel()
+        makeDrinkImageViews()
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(self.updateInventoryLabel(noti:)),
             name: .didChangeInventoryNotification,
             object: nil
         )
-        makeAddInventroyButtons()
-        makeBuyDrinkButtons()
-
     }
 
-    // 재고 추가 버튼을 클릭했을 경우
-    @objc private func addInventoryButtonDidTap(_ sender: UIButton) {
-        VendingMachine.sharedInstance.add(.manager, detail: sender.tag)
-    }
-
-    // 음료 구매 버튼을 클릭했을 경우
-    @objc private func buyDrinkButtonDidTap(_ sender: UIButton) {
-        do {
-            try VendingMachine.sharedInstance.delete(.user, detail: sender.tag)
-        } catch let error {
-            showAlert(message: error.localizedDescription)
-        }
-    }
-
-    // 재고 업데이트
-    @objc private func updateInventoryLabel(noti: Notification?) {
-        updateInventoryLabel()
-    }
-
-    // 재고 추가 버튼
-    private func makeAddInventroyButtons() {
-        addInventoryButtons.forEach { (button: UIButton) in
-            button.addTarget(
-                self,
-                action:
-                #selector(self.addInventoryButtonDidTap(_:)),
-                for: .touchDown
-            )
-        }
-    }
-
-    // 음료수 구매 버튼
-    private func makeBuyDrinkButtons() {
-        buyDrinkButtons.forEach { (button: UIButton) in
-            button.addTarget(
-                self,
-                action: #selector(self.buyDrinkButtonDidTap(_:)),
-                for: .touchDown
-            )
-        }
-    }
+    // MARK: Methods
 
     private func updateInventoryLabel() {
         let count = VendingMachine.sharedInstance.countOfDrinks()
         for label in inventoryLabel.enumerated() {
             label.element.text = "\(count[label.offset])"
+        }
+    }
+
+    private func makeDrinkImageViews() {
+        drinkImageViews.forEach { (imageView: UIImageView) in
+            let tap = UITapGestureRecognizer(target: self,
+                                             action: #selector(self.drinkViewDidTap(_:)))
+            imageView.addGestureRecognizer(tap)
+            imageView.isUserInteractionEnabled = true
         }
     }
 
@@ -89,6 +54,24 @@ class VendingMachineViewController: UIViewController {
         })
         alert.addAction(okAction)
         present(alert, animated: true, completion: nil)
+    }
+
+    // MARK: Events
+
+    // 재고 업데이트
+    @objc private func updateInventoryLabel(noti: Notification?) {
+        updateInventoryLabel()
+    }
+
+    // 음료 이미지를 클릭했을 경우, User Mode 에서는 음료를 구매한다.
+    @objc private func drinkViewDidTap(_ recognizer: UITapGestureRecognizer) {
+        if let imageView = recognizer.view as? UIImageView {
+            do {
+                try VendingMachine.sharedInstance.delete(.user, detail: imageView.tag)
+            } catch let error {
+                showAlert(message: error.localizedDescription)
+            }
+        }
     }
 
 }

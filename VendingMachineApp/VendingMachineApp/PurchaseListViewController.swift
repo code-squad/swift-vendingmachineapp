@@ -30,9 +30,8 @@ class PurchaseListViewController: UIViewController {
             let purchase = userInfo["purchase"] as? Drink else {
             return
         }
-        var purchasesOfDataSource = dataSource.purchases
-        purchasesOfDataSource.append(purchase)
-        collectionView.insertItems(at: [IndexPath(item: purchasesOfDataSource.count - 1, section: 0)])
+        dataSource.purchases.append(purchase)
+        collectionView.insertItems(at: [IndexPath(item: dataSource.purchases.count-1, section: 0)])
     }
 
 }

@@ -46,6 +46,8 @@
 		C982F6651FE3662F00B2AC34 /* ManagerModeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C982F6641FE3662F00B2AC34 /* ManagerModeController.swift */; };
 		C982F6951FE3C31F00B2AC34 /* PieGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C982F6941FE3C31F00B2AC34 /* PieGraphView.swift */; };
 		C982F6991FE3DC3900B2AC34 /* ManagerMode.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C982F6981FE3DC3900B2AC34 /* ManagerMode.storyboard */; };
+		C982F69B1FE3E19D00B2AC34 /* ManagerModeContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C982F69A1FE3E19D00B2AC34 /* ManagerModeContainerViewController.swift */; };
+		C982F69D1FE6C67D00B2AC34 /* ManagerModePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C982F69C1FE6C67D00B2AC34 /* ManagerModePageViewController.swift */; };
 		C9CE02B51FD67A68005A1A47 /* AppDelegateAccessable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CE02B41FD67A68005A1A47 /* AppDelegateAccessable.swift */; };
 /* End PBXBuildFile section */
 
@@ -101,6 +103,8 @@
 		C982F6641FE3662F00B2AC34 /* ManagerModeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerModeController.swift; sourceTree = "<group>"; };
 		C982F6941FE3C31F00B2AC34 /* PieGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieGraphView.swift; sourceTree = "<group>"; };
 		C982F6981FE3DC3900B2AC34 /* ManagerMode.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ManagerMode.storyboard; sourceTree = "<group>"; };
+		C982F69A1FE3E19D00B2AC34 /* ManagerModeContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerModeContainerViewController.swift; sourceTree = "<group>"; };
+		C982F69C1FE6C67D00B2AC34 /* ManagerModePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerModePageViewController.swift; sourceTree = "<group>"; };
 		C9CE02B41FD67A68005A1A47 /* AppDelegateAccessable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateAccessable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -229,6 +233,8 @@
 				C9069E8D1FCFD116001BBC82 /* UserModeViewController.swift */,
 				C90FB64B1FDE7FDD00D4384D /* PurchaseListViewController.swift */,
 				C982F6641FE3662F00B2AC34 /* ManagerModeController.swift */,
+				C982F69A1FE3E19D00B2AC34 /* ManagerModeContainerViewController.swift */,
+				C982F69C1FE6C67D00B2AC34 /* ManagerModePageViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -373,10 +379,12 @@
 				C9069E621FCD38A9001BBC82 /* Coffee.swift in Sources */,
 				C982F6651FE3662F00B2AC34 /* ManagerModeController.swift in Sources */,
 				C9069E631FCD38A9001BBC82 /* SoftDrink.swift in Sources */,
+				C982F69B1FE3E19D00B2AC34 /* ManagerModeContainerViewController.swift in Sources */,
 				C90FB6A71FE24CE100D4384D /* VendingMachineError.swift in Sources */,
 				C9069DFD1FCD30E4001BBC82 /* AppDelegate.swift in Sources */,
 				C9069E651FCD38A9001BBC82 /* Cantata.swift in Sources */,
 				C9069E681FCD38A9001BBC82 /* BananaMilk.swift in Sources */,
+				C982F69D1FE6C67D00B2AC34 /* ManagerModePageViewController.swift in Sources */,
 				C9069E791FCD38D9001BBC82 /* Manager.swift in Sources */,
 				C982F6951FE3C31F00B2AC34 /* PieGraphView.swift in Sources */,
 				C9069E231FCD3438001BBC82 /* StringExtension.swift in Sources */,

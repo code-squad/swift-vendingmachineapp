@@ -116,7 +116,7 @@
         <!--ManagerMode-->
         <scene sceneID="6x3-wR-NTx">
             <objects>
-                <viewControllerPlaceholder storyboardName="ManagerMode" id="ZE7-yY-f86" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardIdentifier="ManagerMode" storyboardName="ManagerMode" id="ZE7-yY-f86" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ngi-j5-3WN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="550" y="-140"/>

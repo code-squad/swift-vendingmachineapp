@@ -60,9 +60,4 @@ class ManagerModeController: UIViewController {
         }
     }
 
-    // MARK: Actions
-
-    @IBAction func closeButtonDidTap(_ sender: UIButton) {
-        self.dismiss(animated: true, completion: nil)
-    }
 }

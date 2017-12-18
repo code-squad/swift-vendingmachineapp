@@ -56,16 +56,31 @@
             </objects>
             <point key="canvasLocation" x="1512" y="-129"/>
         </scene>
-        <!--View Controller-->
+        <!--Pie Graph View Controller-->
         <scene sceneID="amk-pg-O1l">
             <objects>
-                <viewController id="xwV-ap-yMq" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PieGraphViewController" id="xwV-ap-yMq" customClass="PieGraphViewController" customModule="VendingMachineApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IEb-Sj-hAV">
                         <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="21F-xB-ipu" customClass="PieGraphView" customModule="VendingMachineApp" customModuleProvider="target">
+                                <rect key="frame" x="111" y="83.5" width="890" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="21F-xB-ipu" firstAttribute="height" secondItem="IEb-Sj-hAV" secondAttribute="height" multiplier="0.8" id="0Uk-8Q-AAy"/>
+                            <constraint firstItem="21F-xB-ipu" firstAttribute="width" secondItem="IEb-Sj-hAV" secondAttribute="width" multiplier="0.8" id="A57-Pe-E70"/>
+                            <constraint firstItem="21F-xB-ipu" firstAttribute="centerX" secondItem="IEb-Sj-hAV" secondAttribute="centerX" id="o3l-Er-A30"/>
+                            <constraint firstItem="21F-xB-ipu" firstAttribute="centerY" secondItem="IEb-Sj-hAV" secondAttribute="centerY" id="tgx-hB-dUE"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="S1E-ob-Lki"/>
                     </view>
+                    <connections>
+                        <outlet property="pieGraphView" destination="21F-xB-ipu" id="wDB-w6-6S1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OvB-SR-9Le" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -259,6 +274,20 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gzu-o8-kui" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1192" y="569"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="0SE-QQ-n94">
+            <objects>
+                <viewController id="IMK-qV-z1N" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="M55-Vs-4Bf">
+                        <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="pHo-Gg-La3"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="S4R-3e-Ha1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
         </scene>
     </scenes>
     <resources>

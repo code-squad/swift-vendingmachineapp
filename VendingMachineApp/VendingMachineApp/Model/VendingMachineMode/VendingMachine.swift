@@ -54,6 +54,11 @@ struct VendingMachine {
         return manager.countOfDrinks
     }
 
+    func countOfPhurchases() -> [Drink: Count] {
+        let manager = Manager(target: core)
+        return manager.countOfPhurchases
+    }
+
     func remainMoney() -> Price {
         let user = User(target: core)
         return user.remainMoney

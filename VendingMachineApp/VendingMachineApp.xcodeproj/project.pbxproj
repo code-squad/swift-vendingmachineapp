@@ -48,6 +48,7 @@
 		C982F6991FE3DC3900B2AC34 /* ManagerMode.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C982F6981FE3DC3900B2AC34 /* ManagerMode.storyboard */; };
 		C982F69B1FE3E19D00B2AC34 /* ManagerModeContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C982F69A1FE3E19D00B2AC34 /* ManagerModeContainerViewController.swift */; };
 		C982F69D1FE6C67D00B2AC34 /* ManagerModePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C982F69C1FE6C67D00B2AC34 /* ManagerModePageViewController.swift */; };
+		C982F69F1FE7839600B2AC34 /* PieGraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C982F69E1FE7839600B2AC34 /* PieGraphViewController.swift */; };
 		C9CE02B51FD67A68005A1A47 /* AppDelegateAccessable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CE02B41FD67A68005A1A47 /* AppDelegateAccessable.swift */; };
 /* End PBXBuildFile section */
 
@@ -105,6 +106,7 @@
 		C982F6981FE3DC3900B2AC34 /* ManagerMode.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ManagerMode.storyboard; sourceTree = "<group>"; };
 		C982F69A1FE3E19D00B2AC34 /* ManagerModeContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerModeContainerViewController.swift; sourceTree = "<group>"; };
 		C982F69C1FE6C67D00B2AC34 /* ManagerModePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerModePageViewController.swift; sourceTree = "<group>"; };
+		C982F69E1FE7839600B2AC34 /* PieGraphViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieGraphViewController.swift; sourceTree = "<group>"; };
 		C9CE02B41FD67A68005A1A47 /* AppDelegateAccessable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateAccessable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -235,6 +237,7 @@
 				C982F6641FE3662F00B2AC34 /* ManagerModeController.swift */,
 				C982F69A1FE3E19D00B2AC34 /* ManagerModeContainerViewController.swift */,
 				C982F69C1FE6C67D00B2AC34 /* ManagerModePageViewController.swift */,
+				C982F69E1FE7839600B2AC34 /* PieGraphViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -387,6 +390,7 @@
 				C982F69D1FE6C67D00B2AC34 /* ManagerModePageViewController.swift in Sources */,
 				C9069E791FCD38D9001BBC82 /* Manager.swift in Sources */,
 				C982F6951FE3C31F00B2AC34 /* PieGraphView.swift in Sources */,
+				C982F69F1FE7839600B2AC34 /* PieGraphViewController.swift in Sources */,
 				C9069E231FCD3438001BBC82 /* StringExtension.swift in Sources */,
 				C9069E641FCD38A9001BBC82 /* ChocolateMilk.swift in Sources */,
 				C90FB64E1FDF9D3500D4384D /* PurchaseCollectionViewCell.swift in Sources */,

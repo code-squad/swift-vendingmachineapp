@@ -296,5 +296,11 @@
 
 ![Alt text](VendingMachineApp/image/screenshot_step7_managerMode.jpeg)
 
+### step-8 코어 그래픽스
+
+####  요구사항
+
+- 구매목록 배열를 참고해서 전체 구매 항목 중에 종류별 음료수가 얼마나 차지하는지 Pie로 표시한다.
+
 참고: 애플 공식문서, 아론 힐리가스의 iOS프로그래밍
 

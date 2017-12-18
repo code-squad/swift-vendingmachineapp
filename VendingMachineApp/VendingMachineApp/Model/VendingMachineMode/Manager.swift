@@ -14,6 +14,10 @@ struct Manager: EnableMode {
         return delegate.countOfRemainDrinks()
     }
 
+    var countOfPhurchases: [Drink: Count] {
+        return delegate.listOfPhurchases()
+    }
+
     init(target: ManagerModeDelegate) {
         delegate = target
     }

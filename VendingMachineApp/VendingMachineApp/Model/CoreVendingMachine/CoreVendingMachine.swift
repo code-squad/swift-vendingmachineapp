@@ -124,6 +124,25 @@ extension CoreVendingMachine: ManagerModeDelegate {
         return countDictionary
     }
 
+    func countOfPhurchaseDrinks() -> [Count] {
+        let countOfPhurchase =  listOfPhurchases()
+        var countOfPhurchaseDrinks = [Count]()
+        for drink in menu {
+            let count = countOfPhurchase[drink] ?? 0
+            countOfPhurchaseDrinks.append(count)
+        }
+        return countOfPhurchaseDrinks
+    }
+
+    func listOfPhurchases() -> [Drink: Count ] {
+        var countDictionary = [ Drink: Count ]()
+        for drink in purchases {
+            let count = countDictionary[drink] ?? 0
+            countDictionary[drink] = count + 1
+        }
+        return countDictionary
+    }
+
     // 유통기한이 지난 재고만 리턴하는 메소드
     func listOfOverExpirationDate() -> [Drink] {
         return inventory.filter { $0.valid(with: Date()) }
@@ -160,8 +179,9 @@ extension CoreVendingMachine: UserModeDelegate {
         NotificationCenter.default.post(
             name: .didBuyDrinkNotifiacation,
             object: self,
-            userInfo: ["purchase": buyDrink]
+            userInfo: ["purchase": buyDrink ]
         )
+
         return buyDrink
     }
 

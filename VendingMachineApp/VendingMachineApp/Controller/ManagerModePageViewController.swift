@@ -10,7 +10,8 @@ import UIKit
 
 class ManagerModePageViewController: UIPageViewController {
     lazy var makeViewControllers: [UIViewController] = {
-        return [viewControllerInitialize(name: "ManagerModeController")]
+        return [viewControllerInitialize(name: "ManagerModeController"),
+                viewControllerInitialize(name: "PieGraphViewController")]
     }()
     private func viewControllerInitialize(name: String) -> UIViewController {
         return UIStoryboard(name: "ManagerMode", bundle: nil).instantiateViewController(withIdentifier: name)
@@ -44,7 +45,7 @@ extension ManagerModePageViewController: UIPageViewControllerDataSource {
         guard let viewControllerIndex = makeViewControllers.index(of: viewController) else {
             return nil
         }
-        let nextIndex = viewControllerIndex - 1
+        let nextIndex = viewControllerIndex + 1
         guard nextIndex < makeViewControllers.count else {
             return makeViewControllers.first
         }

@@ -15,4 +15,6 @@ protocol ManagerModeDelegate {
     func countOfRemainDrinks() -> [Count]
     func listOfInventory() -> [Drink: Count]
     func listOfOverExpirationDate() -> [Drink]
+    func countOfPhurchaseDrinks() -> [Count]
+    func listOfPhurchases() -> [Drink: Count]
 }

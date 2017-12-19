@@ -24,29 +24,12 @@ class PieGraphView: UIView {
     }
 
     override func draw(_ rect: CGRect) {
-
         if let context = UIGraphicsGetCurrentContext() {
-            let radius = self.radius
-            let viewCenter = self.centerPoint
-
-            let valueCount = pieces.reduce(0, {$0 + $1.value})
-            var startAngle = -CGFloat.pi * 0.5
-            for piece in pieces.enumerated() {
-                let ratio = piece.element.value / valueCount
-                let endAngle = startAngle + 2 * .pi * ratio
-                let contents = ContentsOfPiece(viewCenter, radius, startAngle, endAngle, false)
-
-                context.drawPieGraphPieces(color: piece.element.color.cgColor, contents: contents)
-                let positon = CGRect(x: 0, y: 40 * piece.offset, width: 90, height: 30)
-                draw(piece.element.category, position: positon, color: piece.element.color)
-                startAngle = endAngle
-            }
+            context.drawPieGraph(pieces: self.pieces, view: self)
         }
-
-
     }
 
-    private func draw(_ string: String, position: CGRect, color: UIColor) {
+    func draw(_ string: String, position: CGRect, color: UIColor) {
         let paragraphStyle = NSMutableParagraphStyle()
         let attributes = [NSAttributedStringKey.paragraphStyle  :  paragraphStyle,
                           NSAttributedStringKey.foregroundColor :  color,
@@ -88,7 +71,7 @@ extension String {
 }
 
 extension CGContext {
-    func drawPieGraphPieces(color: CGColor, contents: ContentsOfPiece) {
+    private func drawPieGraphPieces(color: CGColor, contents: ContentsOfPiece) {
         self.setFillColor(color)
         self.move(to: contents.center)
         self.addArc(
@@ -99,5 +82,23 @@ extension CGContext {
             clockwise: contents.clockwise
         )
         self.fillPath()
+    }
+
+    func drawPieGraph(pieces: [Piece], view: PieGraphView)  {
+        let radius = view.radius
+        let viewCenter = view.centerPoint
+        let valueCount = pieces.reduce(0, {$0 + $1.value})
+        var startAngle = -CGFloat.pi * 0.5
+        for piece in pieces.enumerated() {
+            let ratio = piece.element.value / valueCount
+            let endAngle = startAngle + 2 * .pi * ratio
+            let contents = ContentsOfPiece(viewCenter, radius, startAngle, endAngle, false)
+
+            self.drawPieGraphPieces(color: piece.element.color.cgColor, contents: contents)
+            let positon = CGRect(x: 0, y: 40 * piece.offset, width: 90, height: 30)
+            view.draw(piece.element.category, position: positon, color: piece.element.color)
+            startAngle = endAngle
+        }
+
     }
 }

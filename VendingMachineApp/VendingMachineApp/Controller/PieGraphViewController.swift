@@ -17,10 +17,10 @@ class PieGraphViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         let countOfPhurchases = VendingMachine.sharedInstance.countOfPhurchases()
-        var segments = [Segment]()
+        var pieces = [Piece]()
         for dictionary in countOfPhurchases {
-            segments.append(Segment(category: dictionary.key.typeOfProduct, value: CGFloat(dictionary.value)))
+            pieces.append(Piece(category: dictionary.key.typeOfProduct, value: CGFloat(dictionary.value)))
         }
-        pieGraphView.segments = segments
+        pieGraphView.pieces = pieces
     }
 }

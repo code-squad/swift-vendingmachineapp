@@ -31,12 +31,22 @@ class PieGraphView: UIView, Circular {
 
 }
 
-struct Piece {
+struct Piece: Comparable {
     var category: String
     var color: UIColor {
         return category.makeColor
     }
     var value: CGFloat
+
+    static func == (lhs: Piece, rhs: Piece) -> Bool {
+        return lhs.category == rhs.category
+    }
+
+    static func <(lhs: Piece, rhs: Piece) -> Bool {
+        return lhs.category < rhs.category
+    }
+
+
 }
 
 protocol Circular {
@@ -80,13 +90,14 @@ extension CGContext {
         let viewCenter = view.centerPoint
         let valueCount = pieces.reduce(0, {$0 + $1.value})
         var startAngle = -CGFloat.pi * 0.5
-        for piece in pieces.enumerated() {
-            let ratio = piece.element.value / valueCount
+        for piece in pieces {
+            let i = pieces.index(of: piece) ?? pieces.endIndex
+            let ratio = piece.value / valueCount
             let endAngle = startAngle + 2 * .pi * ratio
             let contents = ContentsOfPiece(viewCenter, radius, startAngle, endAngle, false)
-            self.drawPieGraphPiece(color: piece.element.color.cgColor, contents: contents)
-            let positon = CGRect(x: 0, y: 40 * piece.offset, width: 90, height: 30)
-            piece.element.category.draw(position: positon, color: piece.element.color)
+            self.drawPieGraphPiece(color: piece.color.cgColor, contents: contents)
+            let positon = CGRect(x: 0, y: 40 * i, width: 90, height: 30)
+            piece.category.draw(position: positon, color: piece.color)
             startAngle = endAngle
         }
 

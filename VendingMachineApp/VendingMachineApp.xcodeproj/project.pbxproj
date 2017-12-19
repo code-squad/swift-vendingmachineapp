@@ -50,6 +50,7 @@
 		C982F69D1FE6C67D00B2AC34 /* ManagerModePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C982F69C1FE6C67D00B2AC34 /* ManagerModePageViewController.swift */; };
 		C982F69F1FE7839600B2AC34 /* PieGraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C982F69E1FE7839600B2AC34 /* PieGraphViewController.swift */; };
 		C982F6A21FE8FD5E00B2AC34 /* Piece.swift in Sources */ = {isa = PBXBuildFile; fileRef = C982F6A11FE8FD5E00B2AC34 /* Piece.swift */; };
+		C982F6A41FE9006800B2AC34 /* PiecesFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C982F6A31FE9006800B2AC34 /* PiecesFactory.swift */; };
 		C9CE02B51FD67A68005A1A47 /* AppDelegateAccessable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CE02B41FD67A68005A1A47 /* AppDelegateAccessable.swift */; };
 /* End PBXBuildFile section */
 
@@ -109,6 +110,7 @@
 		C982F69C1FE6C67D00B2AC34 /* ManagerModePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerModePageViewController.swift; sourceTree = "<group>"; };
 		C982F69E1FE7839600B2AC34 /* PieGraphViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieGraphViewController.swift; sourceTree = "<group>"; };
 		C982F6A11FE8FD5E00B2AC34 /* Piece.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Piece.swift; sourceTree = "<group>"; };
+		C982F6A31FE9006800B2AC34 /* PiecesFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiecesFactory.swift; sourceTree = "<group>"; };
 		C9CE02B41FD67A68005A1A47 /* AppDelegateAccessable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateAccessable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -179,7 +181,7 @@
 		C9069E1C1FCD33AD001BBC82 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				C982F6A01FE8FD3900B2AC34 /* PieGraph */,
+				C982F6A01FE8FD3900B2AC34 /* Piece */,
 				C9069E6D1FCD38B2001BBC82 /* VendingMachineMode */,
 				C9069E521FCD387D001BBC82 /* Drink */,
 				C9069E511FCD35B8001BBC82 /* CoreVendingMachine */,
@@ -254,12 +256,13 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		C982F6A01FE8FD3900B2AC34 /* PieGraph */ = {
+		C982F6A01FE8FD3900B2AC34 /* Piece */ = {
 			isa = PBXGroup;
 			children = (
 				C982F6A11FE8FD5E00B2AC34 /* Piece.swift */,
+				C982F6A31FE9006800B2AC34 /* PiecesFactory.swift */,
 			);
-			path = PieGraph;
+			path = Piece;
 			sourceTree = "<group>";
 		};
 		C9CE02B31FD678E5005A1A47 /* Extension */ = {
@@ -383,6 +386,7 @@
 				C9069E6B1FCD38A9001BBC82 /* Fanta.swift in Sources */,
 				C9069E8E1FCFD116001BBC82 /* UserModeViewController.swift in Sources */,
 				C9069E6A1FCD38A9001BBC82 /* Cider.swift in Sources */,
+				C982F6A41FE9006800B2AC34 /* PiecesFactory.swift in Sources */,
 				C9069E781FCD38D9001BBC82 /* EnableMode.swift in Sources */,
 				C90FB64C1FDE7FDD00D4384D /* PurchaseListViewController.swift in Sources */,
 				C9069E611FCD38A9001BBC82 /* Milk.swift in Sources */,

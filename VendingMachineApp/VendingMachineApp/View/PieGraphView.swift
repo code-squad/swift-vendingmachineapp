@@ -8,66 +8,45 @@
 
 import UIKit
 
-struct Segment {
-    var category: String
-    // the color of a given segment
-    var color: UIColor {
-        return category.makeColor
-    }
-    // the value of a given segment – will be used to automatically calculate a ratio
-    var value: CGFloat
-}
+typealias ContentsOfPiece = (center: CGPoint, radius: CGFloat, startAngle: CGFloat, endAngle: CGFloat, clockwise: Bool)
 
-@IBDesignable
 class PieGraphView: UIView {
-    var segments: [Segment] = [] {
+    var pieces: [Piece] = [] {
         didSet {
             setNeedsDisplay()
         }
     }
-
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        isOpaque = false
+    var radius: CGFloat {
+        return min(self.frame.size.width, self.frame.size.height) * 0.5
     }
-
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+    var centerPoint: CGPoint {
+        return CGPoint(x: self.bounds.size.width * 0.5, y: self.bounds.size.height * 0.5)
     }
 
     override func draw(_ rect: CGRect) {
 
-        let context = UIGraphicsGetCurrentContext()
+        if let context = UIGraphicsGetCurrentContext() {
+            let radius = self.radius
+            let viewCenter = self.centerPoint
 
-        let radius = min(frame.size.width, frame.size.height) * 0.5
+            let valueCount = pieces.reduce(0, {$0 + $1.value})
+            var startAngle = -CGFloat.pi * 0.5
+            for piece in pieces.enumerated() {
+                let ratio = piece.element.value / valueCount
+                let endAngle = startAngle + 2 * .pi * ratio
+                let contents = ContentsOfPiece(viewCenter, radius, startAngle, endAngle, false)
 
-        let viewCenter = CGPoint(x: bounds.size.width * 0.5, y: bounds.size.height * 0.5)
-
-        let valueCount = segments.reduce(0, {$0 + $1.value})
-        var startAngle = -CGFloat.pi * 0.5
-
-        for segment in segments.enumerated() {
-
-            context?.setFillColor(segment.element.color.cgColor)
-            let ratio = segment.element.value / valueCount
-            let endAngle = startAngle + 2 * .pi * ratio
-
-            context?.move(to: viewCenter)
-            context?.addArc(
-                center: viewCenter,
-                radius: radius,
-                startAngle: startAngle,
-                endAngle: endAngle,
-                clockwise: false
-            )
-            context?.fillPath()
-            let positon = CGRect(x: 0, y: 40 * segment.offset, width: 90, height: 30)
-            draw(segment.element.category, position: positon, color: segment.element.color)
-            startAngle = endAngle
+                context.drawPieGraphPieces(color: piece.element.color.cgColor, contents: contents)
+                let positon = CGRect(x: 0, y: 40 * piece.offset, width: 90, height: 30)
+                draw(piece.element.category, position: positon, color: piece.element.color)
+                startAngle = endAngle
+            }
         }
+
+
     }
 
-    func draw(_ string: String, position: CGRect, color: UIColor) {
+    private func draw(_ string: String, position: CGRect, color: UIColor) {
         let paragraphStyle = NSMutableParagraphStyle()
         let attributes = [NSAttributedStringKey.paragraphStyle  :  paragraphStyle,
                           NSAttributedStringKey.foregroundColor :  color,
@@ -81,6 +60,14 @@ class PieGraphView: UIView {
         attrString.draw(in: rt)
     }
 
+}
+
+struct Piece {
+    var category: String
+    var color: UIColor {
+        return category.makeColor
+    }
+    var value: CGFloat
 }
 
 extension String {
@@ -97,5 +84,20 @@ extension String {
         case "칸타타커피": return .purple
         default: return .green
         }
+    }
+}
+
+extension CGContext {
+    func drawPieGraphPieces(color: CGColor, contents: ContentsOfPiece) {
+        self.setFillColor(color)
+        self.move(to: contents.center)
+        self.addArc(
+            center: contents.center,
+            radius: contents.radius,
+            startAngle: contents.startAngle,
+            endAngle: contents.endAngle,
+            clockwise: contents.clockwise
+        )
+        self.fillPath()
     }
 }

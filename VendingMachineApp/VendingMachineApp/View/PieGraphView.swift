@@ -29,20 +29,6 @@ class PieGraphView: UIView {
         }
     }
 
-    func draw(_ string: String, position: CGRect, color: UIColor) {
-        let paragraphStyle = NSMutableParagraphStyle()
-        let attributes = [NSAttributedStringKey.paragraphStyle  :  paragraphStyle,
-                          NSAttributedStringKey.foregroundColor :  color,
-                          NSAttributedStringKey.font            :  UIFont.systemFont(ofSize: 20.0)]
-        let myText = string
-        let attrString = NSAttributedString(string: myText,
-                                            attributes: attributes)
-
-        let rt = position
-
-        attrString.draw(in: rt)
-    }
-
 }
 
 struct Piece {
@@ -71,7 +57,7 @@ extension String {
 }
 
 extension CGContext {
-    private func drawPieGraphPieces(color: CGColor, contents: ContentsOfPiece) {
+    private func drawPieGraphPiece(color: CGColor, contents: ContentsOfPiece) {
         self.setFillColor(color)
         self.move(to: contents.center)
         self.addArc(
@@ -93,12 +79,25 @@ extension CGContext {
             let ratio = piece.element.value / valueCount
             let endAngle = startAngle + 2 * .pi * ratio
             let contents = ContentsOfPiece(viewCenter, radius, startAngle, endAngle, false)
-
-            self.drawPieGraphPieces(color: piece.element.color.cgColor, contents: contents)
+            self.drawPieGraphPiece(color: piece.element.color.cgColor, contents: contents)
             let positon = CGRect(x: 0, y: 40 * piece.offset, width: 90, height: 30)
-            view.draw(piece.element.category, position: positon, color: piece.element.color)
+            piece.element.category.draw(position: positon, color: piece.element.color)
             startAngle = endAngle
         }
 
+    }
+}
+
+extension String {
+    func draw(position: CGRect, color: UIColor) {
+        let paragraphStyle = NSMutableParagraphStyle()
+        let attributes = [NSAttributedStringKey.paragraphStyle  :  paragraphStyle,
+                          NSAttributedStringKey.foregroundColor :  color,
+                          NSAttributedStringKey.font            :  UIFont.systemFont(ofSize: 20.0)]
+        let attrString = NSAttributedString(string: self,
+                                            attributes: attributes)
+
+        let rt = position
+        attrString.draw(in: rt)
     }
 }

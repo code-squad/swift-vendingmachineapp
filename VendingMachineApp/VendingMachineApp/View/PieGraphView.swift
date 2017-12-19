@@ -31,24 +31,6 @@ class PieGraphView: UIView, Circular {
 
 }
 
-struct Piece: Comparable {
-    var category: String
-    var color: UIColor {
-        return category.makeColor
-    }
-    var value: CGFloat
-
-    static func == (lhs: Piece, rhs: Piece) -> Bool {
-        return lhs.category == rhs.category
-    }
-
-    static func <(lhs: Piece, rhs: Piece) -> Bool {
-        return lhs.category < rhs.category
-    }
-
-
-}
-
 protocol Circular {
     var radius: CGFloat { get }
     var centerPoint: CGPoint { get }

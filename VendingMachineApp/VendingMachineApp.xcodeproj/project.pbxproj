@@ -49,6 +49,7 @@
 		C982F69B1FE3E19D00B2AC34 /* ManagerModeContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C982F69A1FE3E19D00B2AC34 /* ManagerModeContainerViewController.swift */; };
 		C982F69D1FE6C67D00B2AC34 /* ManagerModePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C982F69C1FE6C67D00B2AC34 /* ManagerModePageViewController.swift */; };
 		C982F69F1FE7839600B2AC34 /* PieGraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C982F69E1FE7839600B2AC34 /* PieGraphViewController.swift */; };
+		C982F6A21FE8FD5E00B2AC34 /* Piece.swift in Sources */ = {isa = PBXBuildFile; fileRef = C982F6A11FE8FD5E00B2AC34 /* Piece.swift */; };
 		C9CE02B51FD67A68005A1A47 /* AppDelegateAccessable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CE02B41FD67A68005A1A47 /* AppDelegateAccessable.swift */; };
 /* End PBXBuildFile section */
 
@@ -107,6 +108,7 @@
 		C982F69A1FE3E19D00B2AC34 /* ManagerModeContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerModeContainerViewController.swift; sourceTree = "<group>"; };
 		C982F69C1FE6C67D00B2AC34 /* ManagerModePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerModePageViewController.swift; sourceTree = "<group>"; };
 		C982F69E1FE7839600B2AC34 /* PieGraphViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieGraphViewController.swift; sourceTree = "<group>"; };
+		C982F6A11FE8FD5E00B2AC34 /* Piece.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Piece.swift; sourceTree = "<group>"; };
 		C9CE02B41FD67A68005A1A47 /* AppDelegateAccessable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateAccessable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -177,6 +179,7 @@
 		C9069E1C1FCD33AD001BBC82 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C982F6A01FE8FD3900B2AC34 /* PieGraph */,
 				C9069E6D1FCD38B2001BBC82 /* VendingMachineMode */,
 				C9069E521FCD387D001BBC82 /* Drink */,
 				C9069E511FCD35B8001BBC82 /* CoreVendingMachine */,
@@ -249,6 +252,14 @@
 				C982F6941FE3C31F00B2AC34 /* PieGraphView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		C982F6A01FE8FD3900B2AC34 /* PieGraph */ = {
+			isa = PBXGroup;
+			children = (
+				C982F6A11FE8FD5E00B2AC34 /* Piece.swift */,
+			);
+			path = PieGraph;
 			sourceTree = "<group>";
 		};
 		C9CE02B31FD678E5005A1A47 /* Extension */ = {
@@ -395,6 +406,7 @@
 				C9069E641FCD38A9001BBC82 /* ChocolateMilk.swift in Sources */,
 				C90FB64E1FDF9D3500D4384D /* PurchaseCollectionViewCell.swift in Sources */,
 				C9CE02B51FD67A68005A1A47 /* AppDelegateAccessable.swift in Sources */,
+				C982F6A21FE8FD5E00B2AC34 /* Piece.swift in Sources */,
 				C9069E601FCD38A9001BBC82 /* Top.swift in Sources */,
 				C9069E751FCD38D9001BBC82 /* VendingMachine.swift in Sources */,
 				C9069E771FCD38D9001BBC82 /* User.swift in Sources */,

@@ -10,7 +10,7 @@ import UIKit
 
 typealias ContentsOfPiece = (center: CGPoint, radius: CGFloat, startAngle: CGFloat, endAngle: CGFloat, clockwise: Bool)
 
-class PieGraphView: UIView {
+class PieGraphView: UIView, Circular {
     var pieces: [Piece] = [] {
         didSet {
             setNeedsDisplay()
@@ -37,6 +37,11 @@ struct Piece {
         return category.makeColor
     }
     var value: CGFloat
+}
+
+protocol Circular {
+    var radius: CGFloat { get }
+    var centerPoint: CGPoint { get }
 }
 
 extension String {
@@ -70,7 +75,7 @@ extension CGContext {
         self.fillPath()
     }
 
-    func drawPieGraph(pieces: [Piece], view: PieGraphView)  {
+    func drawPieGraph(pieces: [Piece], view: Circular)  {
         let radius = view.radius
         let viewCenter = view.centerPoint
         let valueCount = pieces.reduce(0, {$0 + $1.value})

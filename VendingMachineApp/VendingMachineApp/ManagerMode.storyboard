@@ -42,11 +42,11 @@
                             <constraint firstItem="6Iu-Ok-azI" firstAttribute="centerY" secondItem="21F-xB-ipu" secondAttribute="centerY" id="UJF-1U-M78"/>
                             <constraint firstItem="21F-xB-ipu" firstAttribute="centerX" secondItem="IEb-Sj-hAV" secondAttribute="centerX" id="o3l-Er-A30"/>
                             <constraint firstItem="21F-xB-ipu" firstAttribute="centerY" secondItem="IEb-Sj-hAV" secondAttribute="centerY" id="tgx-hB-dUE"/>
-                            <constraint firstItem="S1E-ob-Lki" firstAttribute="trailing" secondItem="21F-xB-ipu" secondAttribute="trailing" constant="111" id="wmA-gb-diU"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="S1E-ob-Lki"/>
                     </view>
                     <navigationItem key="navigationItem" id="1a9-i0-O2Z"/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="pieGraphView" destination="21F-xB-ipu" id="wDB-w6-6S1"/>
                     </connections>

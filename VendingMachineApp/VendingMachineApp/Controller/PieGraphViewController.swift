@@ -20,4 +20,8 @@ class PieGraphViewController: UIViewController {
         let pieces = PiecesFactory.makePieces(with: countOfPhurchases)
         pieGraphView.pieces = pieces
     }
+    
+    @IBAction func backButtonDidTap(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
+    }
 }

@@ -8,7 +8,13 @@
 
 import UIKit
 
-typealias ContentsOfPiece = (center: CGPoint, radius: CGFloat, startAngle: CGFloat, endAngle: CGFloat, clockwise: Bool)
+typealias ContentsOfPiece = (
+    center     : CGPoint,
+    radius     : CGFloat,
+    startAngle : CGFloat,
+    endAngle   : CGFloat,
+    clockwise  : Bool
+)
 
 class PieGraphView: UIView, Circular {
     enum TouchState {
@@ -25,7 +31,10 @@ class PieGraphView: UIView, Circular {
         return min(self.frame.size.width, self.frame.size.height) * 0.5
     }
     var centerPoint: CGPoint {
-        return CGPoint(x: self.bounds.size.width * 0.5, y: self.bounds.size.height * 0.5)
+        return CGPoint(
+            x: self.bounds.size.width * 0.5,
+            y: self.bounds.size.height * 0.5
+        )
     }
     var touch: TouchState = .none {
         didSet {

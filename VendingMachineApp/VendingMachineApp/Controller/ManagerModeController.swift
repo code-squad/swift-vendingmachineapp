@@ -60,4 +60,13 @@ class ManagerModeController: UIViewController {
         }
     }
 
+    @IBAction func closeButtonDidTap(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    @IBAction func forwardButtonDidTap(_ sender: UIButton) {
+        let pieGraphViewController = storyboard?.instantiateViewController(
+            withIdentifier: "PieGraphViewController"
+            ) as! PieGraphViewController
+        self.navigationController?.pushViewController(pieGraphViewController, animated: true)
+    }
 }

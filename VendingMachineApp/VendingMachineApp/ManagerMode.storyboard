@@ -1,65 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="m7O-f4-b63">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jtt-7H-adN">
     <device id="ipad10_5" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Manager Mode Container View Controller-->
-        <scene sceneID="NEU-4z-era">
-            <objects>
-                <viewController storyboardIdentifier="ManagerModeContainerViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="m7O-f4-b63" customClass="ManagerModeContainerViewController" customModule="VendingMachineApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="OoK-is-R2s">
-                        <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vcb-ir-5CQ">
-                                <rect key="frame" x="1022" y="20" width="50" height="50"/>
-                                <state key="normal" image="icons8-Delete-50"/>
-                                <connections>
-                                    <action selector="closeButtonDidTap:" destination="m7O-f4-b63" eventType="touchUpInside" id="18Y-5y-hoo"/>
-                                </connections>
-                            </button>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5bw-OW-tJX">
-                                <rect key="frame" x="111" y="84" width="890" height="667"/>
-                                <connections>
-                                    <segue destination="wnq-o0-VOg" kind="embed" id="dDq-Pn-Oe7"/>
-                                </connections>
-                            </containerView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="5bw-OW-tJX" firstAttribute="centerX" secondItem="OoK-is-R2s" secondAttribute="centerX" id="1Aa-gN-wVq"/>
-                            <constraint firstItem="LKX-Vw-tbm" firstAttribute="trailing" secondItem="vcb-ir-5CQ" secondAttribute="trailing" constant="40" id="7tV-4L-nKS"/>
-                            <constraint firstItem="5bw-OW-tJX" firstAttribute="height" secondItem="OoK-is-R2s" secondAttribute="height" multiplier="0.8" id="D29-yB-k6n"/>
-                            <constraint firstItem="5bw-OW-tJX" firstAttribute="width" secondItem="OoK-is-R2s" secondAttribute="width" multiplier="0.8" id="PTL-Vo-TBh"/>
-                            <constraint firstItem="vcb-ir-5CQ" firstAttribute="top" secondItem="LKX-Vw-tbm" secondAttribute="top" id="QeE-HH-lfz"/>
-                            <constraint firstItem="5bw-OW-tJX" firstAttribute="centerY" secondItem="OoK-is-R2s" secondAttribute="centerY" id="b9n-fe-lwv"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="LKX-Vw-tbm"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="QCS-IS-hGS" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="752.69784172661878" y="-151.07913669064749"/>
-        </scene>
-        <!--Manager Mode Page View Controller-->
-        <scene sceneID="pYh-5a-W69">
-            <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="wnq-o0-VOg" customClass="ManagerModePageViewController" customModule="VendingMachineApp" customModuleProvider="target" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="H5b-df-Xkj" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1512" y="-129"/>
-        </scene>
         <!--Pie Graph View Controller-->
         <scene sceneID="amk-pg-O1l">
             <objects>
-                <viewController storyboardIdentifier="PieGraphViewController" id="xwV-ap-yMq" customClass="PieGraphViewController" customModule="VendingMachineApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PieGraphViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="xwV-ap-yMq" customClass="PieGraphViewController" customModule="VendingMachineApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IEb-Sj-hAV">
                         <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -67,29 +22,43 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="21F-xB-ipu" customClass="PieGraphView" customModule="VendingMachineApp" customModuleProvider="target">
                                 <rect key="frame" x="111" y="83.5" width="890" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="21F-xB-ipu" secondAttribute="height" multiplier="890:667" id="q5C-eJ-dwS"/>
+                                </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Iu-Ok-azI">
+                                <rect key="frame" x="20" y="367" width="64" height="100"/>
+                                <state key="normal" title="Button" image="icons8-Back Filled-100"/>
+                                <connections>
+                                    <action selector="backButtonDidTap:" destination="xwV-ap-yMq" eventType="touchUpInside" id="Zog-dW-aqh"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="21F-xB-ipu" firstAttribute="height" secondItem="IEb-Sj-hAV" secondAttribute="height" multiplier="0.8" id="0Uk-8Q-AAy"/>
-                            <constraint firstItem="21F-xB-ipu" firstAttribute="width" secondItem="IEb-Sj-hAV" secondAttribute="width" multiplier="0.8" id="A57-Pe-E70"/>
+                            <constraint firstItem="21F-xB-ipu" firstAttribute="leading" secondItem="6Iu-Ok-azI" secondAttribute="trailing" constant="27" id="FcC-8Y-QzF"/>
+                            <constraint firstItem="6Iu-Ok-azI" firstAttribute="leading" secondItem="S1E-ob-Lki" secondAttribute="leading" constant="20" id="Fxz-dn-2So"/>
+                            <constraint firstItem="6Iu-Ok-azI" firstAttribute="centerY" secondItem="21F-xB-ipu" secondAttribute="centerY" id="UJF-1U-M78"/>
                             <constraint firstItem="21F-xB-ipu" firstAttribute="centerX" secondItem="IEb-Sj-hAV" secondAttribute="centerX" id="o3l-Er-A30"/>
                             <constraint firstItem="21F-xB-ipu" firstAttribute="centerY" secondItem="IEb-Sj-hAV" secondAttribute="centerY" id="tgx-hB-dUE"/>
+                            <constraint firstItem="S1E-ob-Lki" firstAttribute="trailing" secondItem="21F-xB-ipu" secondAttribute="trailing" constant="111" id="wmA-gb-diU"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="S1E-ob-Lki"/>
                     </view>
+                    <navigationItem key="navigationItem" id="1a9-i0-O2Z"/>
                     <connections>
                         <outlet property="pieGraphView" destination="21F-xB-ipu" id="wDB-w6-6S1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OvB-SR-9Le" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1901" y="570"/>
+            <point key="canvasLocation" x="2015.2877697841727" y="569.78417266187057"/>
         </scene>
         <!--Manager Mode Controller-->
         <scene sceneID="7cG-5N-4ih">
             <objects>
-                <viewController restorationIdentifier="ManagerModeController" storyboardIdentifier="ManagerModeController" id="KEK-EP-Hbe" customClass="ManagerModeController" customModule="VendingMachineApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ManagerModeController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="KEK-EP-Hbe" customClass="ManagerModeController" customModule="VendingMachineApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sr8-pQ-OS6">
                         <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -240,16 +209,37 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vcb-ir-5CQ">
+                                <rect key="frame" x="1009" y="35" width="50" height="50"/>
+                                <state key="normal" image="icons8-Delete-50"/>
+                                <connections>
+                                    <action selector="closeButtonDidTap:" destination="KEK-EP-Hbe" eventType="touchUpInside" id="MQP-eM-LPC"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qov-V8-bSw">
+                                <rect key="frame" x="1012" y="377" width="80" height="100"/>
+                                <state key="normal" title="Button" image="icons8-Forward Filled-100"/>
+                                <connections>
+                                    <action selector="forwardButtonDidTap:" destination="KEK-EP-Hbe" eventType="touchUpInside" id="iF5-0g-hDr"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Qov-V8-bSw" firstAttribute="leading" secondItem="ltA-6E-JOD" secondAttribute="trailing" constant="11" id="3HK-VY-Lwv"/>
+                            <constraint firstItem="caP-jR-6kj" firstAttribute="trailing" secondItem="vcb-ir-5CQ" secondAttribute="trailing" constant="53" id="5p5-NF-D73"/>
                             <constraint firstItem="ltA-6E-JOD" firstAttribute="height" secondItem="sr8-pQ-OS6" secondAttribute="height" multiplier="0.8" id="DP0-Ez-I8r"/>
                             <constraint firstItem="ltA-6E-JOD" firstAttribute="width" secondItem="sr8-pQ-OS6" secondAttribute="width" multiplier="0.8" id="FjO-Ye-tC0"/>
                             <constraint firstItem="ltA-6E-JOD" firstAttribute="centerX" secondItem="caP-jR-6kj" secondAttribute="centerX" id="Ll4-G9-yOC"/>
+                            <constraint firstItem="vcb-ir-5CQ" firstAttribute="top" secondItem="caP-jR-6kj" secondAttribute="top" constant="15" id="PIM-I1-IIW"/>
+                            <constraint firstItem="caP-jR-6kj" firstAttribute="trailing" secondItem="Qov-V8-bSw" secondAttribute="trailing" constant="20" id="Zcp-Co-TqI"/>
+                            <constraint firstItem="Qov-V8-bSw" firstAttribute="centerY" secondItem="caP-jR-6kj" secondAttribute="centerY" id="ipZ-bP-lD2"/>
                             <constraint firstItem="ltA-6E-JOD" firstAttribute="centerY" secondItem="caP-jR-6kj" secondAttribute="centerY" id="uTe-X8-p29"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="caP-jR-6kj"/>
                     </view>
+                    <navigationItem key="navigationItem" id="VwD-3M-omZ"/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outletCollection property="drinkImageViews" destination="Kmi-3p-aYN" collectionClass="NSMutableArray" id="hQK-Fl-Rpb"/>
                         <outletCollection property="drinkImageViews" destination="Mez-Th-4he" collectionClass="NSMutableArray" id="eTT-vz-jY4"/>
@@ -273,21 +263,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gzu-o8-kui" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1192" y="569"/>
+            <point key="canvasLocation" x="1306.294964028777" y="567.6258992805756"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="0SE-QQ-n94">
+        <!--Navigation Controller-->
+        <scene sceneID="DZS-V5-S4n">
             <objects>
-                <viewController id="IMK-qV-z1N" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="M55-Vs-4Bf">
-                        <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <viewLayoutGuide key="safeArea" id="pHo-Gg-La3"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="S4R-3e-Ha1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="jtt-7H-adN" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Opz-fl-Aht">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="KEK-EP-Hbe" kind="relationship" relationship="rootViewController" id="fqI-30-6Bw"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0Dh-Fo-qX0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="592" y="568"/>
         </scene>
     </scenes>
     <resources>
@@ -300,6 +294,8 @@
         <image name="Georgia" width="173" height="332"/>
         <image name="StrawBerryMilk" width="571" height="571"/>
         <image name="Top" width="170" height="269"/>
+        <image name="icons8-Back Filled-100" width="100" height="100"/>
         <image name="icons8-Delete-50" width="50" height="50"/>
+        <image name="icons8-Forward Filled-100" width="100" height="100"/>
     </resources>
 </document>

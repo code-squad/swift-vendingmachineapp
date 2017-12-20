@@ -20,13 +20,20 @@ class PieGraphView: UIView, Circular {
     enum TouchState {
         case none
         case began
-        case move
+        case move(CGFloat)
     }
     var pieces: [Piece] = [] {
         didSet {
             setNeedsDisplay()
         }
     }
+    var touchState: TouchState = .none {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
+    var touchPoint: CGPoint = CGPoint.zero
+    var flag: CGFloat = 0
     var radius: CGFloat {
         return min(self.frame.size.width, self.frame.size.height) * 0.5
     }
@@ -36,31 +43,55 @@ class PieGraphView: UIView, Circular {
             y: self.bounds.size.height * 0.5
         )
     }
-    var touch: TouchState = .none {
-        didSet {
-            setNeedsDisplay()
-        }
-    }
     override func draw(_ rect: CGRect) {
         guard let context = UIGraphicsGetCurrentContext() else {
             return
         }
-        switch touch {
+        switch touchState {
         case .began: context.drawCircle(view: self, color: UIColor.black)
-        case .move: break
-        case .none: context.drawPieGraph(pieces: self.pieces, view: self)
+        case .move(let flag): context.drawPieGraph(pieces: self.pieces, view: self, change: flag)
+        case .none: context.drawPieGraph(pieces: self.pieces, view: self, change: 0)
         }
 
+    }
+
+    func distance(a: CGPoint, b: CGPoint) -> Double {
+        let temp = pow(Double(a.x - b.x), 2.0) + pow(Double(a.y - b.y), 2.0)
+        return sqrt(temp)
     }
 
 }
 
 extension PieGraphView {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        touch = .began
+        let touch = touches.first!
+        self.touchPoint = touch.location(in: self)
+        touchState = .began
+    }
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let current = touches.first!
+        let currentTouchLocation = current.location(in: self)
+        let centerToCurrent = distance(a: centerPoint, b: currentTouchLocation)
+        let centerToPre = distance(a: centerPoint, b: touchPoint)
+        // 커지기
+        if centerToPre < centerToCurrent {
+            if radius + flag + 5 < radius {
+                flag += 5
+            }
+        }
+        // 작아지기
+        else {
+            if radius + flag - 5 > 0 {
+                flag -= 5
+            }
+        }
+        self.touchPoint = currentTouchLocation
+        touchState = .move(flag)
+
     }
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        touch = .none
+        flag = 0
+        touchState = .none
     }
 }
 
@@ -100,16 +131,14 @@ extension CGContext {
         self.fillPath()
     }
 
-    func drawPieGraph(pieces: [Piece], view: Circular)  {
-        let radius = view.radius
-        let viewCenter = view.centerPoint
+    func drawPieGraph(pieces: [Piece], view: Circular, change: CGFloat)  {
         let valueCount = pieces.reduce(0, {$0 + $1.value})
         var startAngle = -CGFloat.pi * 0.5
         for piece in pieces {
             let i = pieces.index(of: piece) ?? pieces.endIndex
             let ratio = piece.value / valueCount
             let endAngle = startAngle + 2 * .pi * ratio
-            let contents = ContentsOfPiece(viewCenter, radius, startAngle, endAngle, false)
+            let contents = ContentsOfPiece(view.centerPoint, view.radius + change, startAngle, endAngle, false)
             self.drawPieGraphPiece(color: piece.color.cgColor, contents: contents)
             let positon = CGRect(x: 0, y: 40 * i, width: 90, height: 30)
             piece.category.draw(position: positon, color: piece.color)

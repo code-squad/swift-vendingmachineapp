@@ -11,6 +11,11 @@ import UIKit
 typealias ContentsOfPiece = (center: CGPoint, radius: CGFloat, startAngle: CGFloat, endAngle: CGFloat, clockwise: Bool)
 
 class PieGraphView: UIView, Circular {
+    enum TouchState {
+        case none
+        case began
+        case move
+    }
     var pieces: [Piece] = [] {
         didSet {
             setNeedsDisplay()
@@ -22,13 +27,32 @@ class PieGraphView: UIView, Circular {
     var centerPoint: CGPoint {
         return CGPoint(x: self.bounds.size.width * 0.5, y: self.bounds.size.height * 0.5)
     }
-
-    override func draw(_ rect: CGRect) {
-        if let context = UIGraphicsGetCurrentContext() {
-            context.drawPieGraph(pieces: self.pieces, view: self)
+    var touch: TouchState = .none {
+        didSet {
+            setNeedsDisplay()
         }
     }
+    override func draw(_ rect: CGRect) {
+        guard let context = UIGraphicsGetCurrentContext() else {
+            return
+        }
+        switch touch {
+        case .began: context.drawCircle(view: self, color: UIColor.black)
+        case .move: break
+        case .none: context.drawPieGraph(pieces: self.pieces, view: self)
+        }
 
+    }
+
+}
+
+extension PieGraphView {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        touch = .began
+    }
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        touch = .none
+    }
 }
 
 protocol Circular {
@@ -82,7 +106,19 @@ extension CGContext {
             piece.category.draw(position: positon, color: piece.color)
             startAngle = endAngle
         }
+    }
 
+    func drawCircle(view: Circular, color: UIColor) {
+        self.beginPath()
+        self.addArc(
+            center: view.centerPoint,
+            radius: view.radius,
+            startAngle: 0,
+            endAngle: .pi * 2,
+            clockwise: false
+        )
+        self.setFillColor(color.cgColor)
+        self.fillPath()
     }
 }
 

@@ -10,7 +10,6 @@ import UIKit
 
 struct Piece: Comparable {
     var category: String
-    var color: UIColor
     var value: CGFloat
 
     static func == (lhs: Piece, rhs: Piece) -> Bool {

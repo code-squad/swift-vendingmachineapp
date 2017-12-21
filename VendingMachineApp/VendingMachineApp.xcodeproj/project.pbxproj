@@ -50,6 +50,7 @@
 		C982F6A21FE8FD5E00B2AC34 /* Piece.swift in Sources */ = {isa = PBXBuildFile; fileRef = C982F6A11FE8FD5E00B2AC34 /* Piece.swift */; };
 		C982F6A41FE9006800B2AC34 /* PiecesFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C982F6A31FE9006800B2AC34 /* PiecesFactory.swift */; };
 		C982F6A91FEB892100B2AC34 /* ExtensionCGContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C982F6A81FEB892100B2AC34 /* ExtensionCGContext.swift */; };
+		C982F6AB1FEB9F7400B2AC34 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = C982F6AA1FEB9F7400B2AC34 /* Color.swift */; };
 		C9CE02B51FD67A68005A1A47 /* AppDelegateAccessable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CE02B41FD67A68005A1A47 /* AppDelegateAccessable.swift */; };
 /* End PBXBuildFile section */
 
@@ -109,6 +110,7 @@
 		C982F6A11FE8FD5E00B2AC34 /* Piece.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Piece.swift; sourceTree = "<group>"; };
 		C982F6A31FE9006800B2AC34 /* PiecesFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiecesFactory.swift; sourceTree = "<group>"; };
 		C982F6A81FEB892100B2AC34 /* ExtensionCGContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionCGContext.swift; sourceTree = "<group>"; };
+		C982F6AA1FEB9F7400B2AC34 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		C9CE02B41FD67A68005A1A47 /* AppDelegateAccessable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateAccessable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -257,6 +259,7 @@
 			children = (
 				C982F6A11FE8FD5E00B2AC34 /* Piece.swift */,
 				C982F6A31FE9006800B2AC34 /* PiecesFactory.swift */,
+				C982F6AA1FEB9F7400B2AC34 /* Color.swift */,
 			);
 			path = Piece;
 			sourceTree = "<group>";
@@ -384,6 +387,7 @@
 				C9069E8E1FCFD116001BBC82 /* UserModeViewController.swift in Sources */,
 				C9069E6A1FCD38A9001BBC82 /* Cider.swift in Sources */,
 				C982F6A41FE9006800B2AC34 /* PiecesFactory.swift in Sources */,
+				C982F6AB1FEB9F7400B2AC34 /* Color.swift in Sources */,
 				C9069E781FCD38D9001BBC82 /* EnableMode.swift in Sources */,
 				C90FB64C1FDE7FDD00D4384D /* PurchaseListViewController.swift in Sources */,
 				C9069E611FCD38A9001BBC82 /* Milk.swift in Sources */,

@@ -28,8 +28,7 @@ class PieGraphViewController: UIViewController {
     override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
         if motion == .motionShake {
             pieGraphView.change = 0
-            let pieces = PiecesFactory().makePieces()
-            pieGraphView.pieces = pieces
+            pieGraphView.graphState = .none
         }
     }
 

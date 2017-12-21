@@ -10,17 +10,31 @@ import UIKit
 
 class PieGraphViewController: UIViewController {
     @IBOutlet var pieGraphView: PieGraphView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let countOfPhurchases = VendingMachine.sharedInstance.countOfPhurchases()
-        let pieces = PiecesFactory().makePieces(with: countOfPhurchases)
+        let pieces = PiecesFactory().makePieces()
         pieGraphView.pieces = pieces
     }
-    
+
+    override func becomeFirstResponder() -> Bool {
+        return true
+    }
+
+    override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
+        if motion == .motionShake {
+            pieGraphView.change = 0
+            let pieces = PiecesFactory().makePieces()
+            pieGraphView.pieces = pieces
+        }
+    }
+
+    // MARK: Events
+
     @IBAction func backButtonDidTap(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }

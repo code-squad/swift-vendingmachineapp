@@ -12,7 +12,8 @@ struct PiecesFactory {
     var colors: [UIColor] {
         return [.red, .yellow, .brown, .black, .blue, .cyan, .gray, .orange, .purple, .green]
     }
-    func makePieces(with countDictionary: [Drink: Count]) -> [Piece] {
+    func makePieces() -> [Piece] {
+        let countDictionary = VendingMachine.sharedInstance.countOfPhurchases()
         var pieces = [Piece]()
         for dictionary in countDictionary {
             pieces.append(

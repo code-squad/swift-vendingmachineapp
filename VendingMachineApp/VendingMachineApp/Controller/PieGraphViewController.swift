@@ -17,7 +17,7 @@ class PieGraphViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         let countOfPhurchases = VendingMachine.sharedInstance.countOfPhurchases()
-        let pieces = PiecesFactory.makePieces(with: countOfPhurchases)
+        let pieces = PiecesFactory().makePieces(with: countOfPhurchases)
         pieGraphView.pieces = pieces
     }
     

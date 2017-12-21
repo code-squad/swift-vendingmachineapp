@@ -36,9 +36,34 @@ class PieGraphView: UIView, EnableLine {
             return
         }
         switch graphState {
-        case .none, .moved: context.drawPieGraph(pieces: self.pieces, view: self, change: change, color: myColor.original)
-        case .began: context.drawCircle(view: self, color: UIColor.black, change: change)
-        case .ended: context.drawPieGraph(pieces: self.pieces, view: self, change: change, color: myColor.makeRandomColor())
+        case .none:
+            self.change = 0
+            context.drawPieGraph(
+                pieces  : pieces,
+                view    : self,
+                change  : change,
+                color   : myColor.original
+            )
+        case .moved:
+            context.drawPieGraph(
+                pieces : pieces,
+                view   : self,
+                change : change,
+                color  : myColor.original
+            )
+        case .began:
+            context.drawCircle(
+                view   : self,
+                color  : UIColor.black,
+                change : change
+            )
+        case .ended:
+            context.drawPieGraph(
+                pieces : self.pieces,
+                view   : self,
+                change : change,
+                color  : myColor.makeRandomColor()
+            )
         }
     }
 

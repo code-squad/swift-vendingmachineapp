@@ -11,20 +11,23 @@ import UIKit
 class PieGraphView: UIView, EnableLine {
     enum GraphState {
         case none
-        case hasContents
+        case began
+        case moved
+        case ended
     }
     var pieces: [Piece] = [] {
         didSet {
             setNeedsDisplay()
         }
     }
-    var graphState: GraphState = .hasContents {
+    var graphState: GraphState = .none {
         didSet {
             setNeedsDisplay()
         }
     }
     var touchPoint: CGPoint = CGPoint.zero
     var change: CGFloat = 0
+    var myColor = Color()
 
     // MARK: Override
 
@@ -33,10 +36,13 @@ class PieGraphView: UIView, EnableLine {
             return
         }
         switch graphState {
-        case .none: context.drawCircle(view: self, color: UIColor.black)
-        case .hasContents: context.drawPieGraph(pieces: self.pieces, view: self, change: change)
+        case .none, .moved: context.drawPieGraph(pieces: self.pieces, view: self, change: change, color: myColor.original)
+        case .began: context.drawCircle(view: self, color: UIColor.black, change: change)
+        case .ended: context.drawPieGraph(pieces: self.pieces, view: self, change: change, color: myColor.makeRandomColor())
         }
     }
+
+    // MARK: Methods
 }
 
 extension PieGraphView: Circular {
@@ -53,10 +59,7 @@ extension PieGraphView: Circular {
 
 extension PieGraphView: EnableEvent {
     func changeRadius(pre: Double, next: Double, contents: ContentsForChangeRadius) -> CGFloat? {
-        if isOutOfBound(
-            pre     : pre,
-            next    : next,
-            contents: contents) {
+        if isOutOfBound(pre: pre, next: next, contents: contents) {
             return nil
         }
         if isBigger(pre: pre, next: next) {
@@ -83,7 +86,7 @@ extension PieGraphView {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         let touch = touches.first!
         self.touchPoint = touch.location(in: self)
-        graphState = .none
+        graphState = .began
     }
 
     // 크기 변화
@@ -95,16 +98,20 @@ extension PieGraphView {
         guard let willChange = changeRadius(
             pre     : preDistance,
             next    : nextDistance,
-            contents: ContentsForChangeRadius(maxLength: radius, originalLength: self.change, change: 5)
+            contents: ContentsForChangeRadius(
+                maxLength       : radius,
+                originalLength  : self.change,
+                change          : 5
+            )
             ) else { return }
         self.change = willChange
         self.touchPoint = currentTouchLocation
-        graphState = .hasContents
+        graphState = .moved
     }
 
     // 변화 된 크기에서 색상 변경
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        pieces = PiecesFactory().changeColorOfPieces(with: pieces)
+        graphState = .ended
     }
 }
 

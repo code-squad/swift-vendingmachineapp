@@ -22,7 +22,7 @@ extension CGContext {
         self.fillPath()
     }
 
-    func drawPieGraph(pieces: [Piece], view: Circular, change: CGFloat)  {
+    func drawPieGraph(pieces: [Piece], view: Circular, change: CGFloat, color: [UIColor])  {
         let valueCount = pieces.reduce(0, {$0 + $1.value})
         var startAngle = -CGFloat.pi * 0.5
         for piece in pieces {
@@ -36,18 +36,18 @@ extension CGContext {
                 endAngle: endAngle,
                 clockwise: false
             )
-            self.drawPieGraphPiece(color: piece.color.cgColor, contents: contents)
+            self.drawPieGraphPiece(color: color[i].cgColor, contents: contents)
             let positon = CGRect(x: 0, y: 40 * i, width: 90, height: 30)
-            piece.category.draw(position: positon, color: piece.color)
+            piece.category.draw(position: positon, color: color[i])
             startAngle = endAngle
         }
     }
 
-    func drawCircle(view: Circular, color: UIColor) {
+    func drawCircle(view: Circular, color: UIColor, change: CGFloat) {
         self.beginPath()
         self.addArc(
             center: view.centerPoint,
-            radius: view.radius,
+            radius: view.radius + change,
             startAngle: 0,
             endAngle: .pi * 2,
             clockwise: false

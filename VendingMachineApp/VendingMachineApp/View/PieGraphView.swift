@@ -16,11 +16,11 @@ typealias ContentsOfPiece = (
     clockwise  : Bool
 )
 
-class PieGraphView: UIView, Circular {
+class PieGraphView: UIView, EnableLine {
     enum TouchState {
         case none
         case began
-        case move(CGFloat)
+        case move
     }
     var pieces: [Piece] = [] {
         didSet {
@@ -33,64 +33,87 @@ class PieGraphView: UIView, Circular {
         }
     }
     var touchPoint: CGPoint = CGPoint.zero
-    var flag: CGFloat = 0
-    var radius: CGFloat {
-        return min(self.frame.size.width, self.frame.size.height) * 0.5
-    }
-    var centerPoint: CGPoint {
-        return CGPoint(
-            x: self.bounds.size.width * 0.5,
-            y: self.bounds.size.height * 0.5
-        )
-    }
+    var change: CGFloat = 0
     override func draw(_ rect: CGRect) {
         guard let context = UIGraphicsGetCurrentContext() else {
             return
         }
         switch touchState {
         case .began: context.drawCircle(view: self, color: UIColor.black)
-        case .move(let flag): context.drawPieGraph(pieces: self.pieces, view: self, change: flag)
-        case .none: context.drawPieGraph(pieces: self.pieces, view: self, change: 0)
+        case .move, .none: context.drawPieGraph(pieces: self.pieces, view: self, change: change)
+        // case .none: context.drawPieGraph(pieces: self.pieces, view: self, change: 0)
         }
+    }
+}
 
+extension PieGraphView: Circular {
+    var centerPoint: CGPoint {
+        return CGPoint(
+            x: self.bounds.size.width * 0.5,
+            y: self.bounds.size.height * 0.5
+        )
+    }
+    var radius: CGFloat {
+        return min(self.frame.size.width, self.frame.size.height) * 0.5
+    }
+}
+
+extension PieGraphView: EnableEvent {
+    func changeRadius(pre: Double, next: Double, max: CGFloat, original: CGFloat, change: CGFloat) -> CGFloat? {
+        if isOutOfBound(
+            pre     : pre,
+            next    : next,
+            max     : max,
+            original: original,
+            change  : change) {
+            return nil
+        }
+        if isBigger(pre: pre, next: next) {
+            return original + change
+        }
+        return original - change
     }
 
-    func distance(a: CGPoint, b: CGPoint) -> Double {
-        let temp = pow(Double(a.x - b.x), 2.0) + pow(Double(a.y - b.y), 2.0)
-        return sqrt(temp)
+    func isBigger(pre: Double, next: Double) -> Bool {
+        return pre < next
+    }
+
+    func isOutOfBound(pre: Double, next: Double, max: CGFloat, original: CGFloat, change: CGFloat) -> Bool {
+        if isBigger(pre: pre, next: next) {
+            return max + original + change > max
+        }
+        return max + original - change < 0
     }
 
 }
 
 extension PieGraphView {
+    // 검정색 원
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         let touch = touches.first!
         self.touchPoint = touch.location(in: self)
         touchState = .began
     }
+
+    // 크기 변화
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         let current = touches.first!
         let currentTouchLocation = current.location(in: self)
-        let centerToCurrent = distance(a: centerPoint, b: currentTouchLocation)
-        let centerToPre = distance(a: centerPoint, b: touchPoint)
-        // 커지기
-        if centerToPre < centerToCurrent {
-            if radius + flag + 5 < radius {
-                flag += 5
-            }
-        }
-        // 작아지기
-        else {
-            if radius + flag - 5 > 0 {
-                flag -= 5
-            }
-        }
+        let nextDistance = distance(a: centerPoint, b: currentTouchLocation)
+        let preDistance = distance(a: centerPoint, b: touchPoint)
+        guard let willChange = changeRadius(
+            pre     : preDistance,
+            next    : nextDistance,
+            max     : radius,
+            original: self.change,
+            change  : 5) else { return }
+        self.change = willChange
         self.touchPoint = currentTouchLocation
-        touchState = .move(flag)
-
+        touchState = .move
     }
+
+    // 변화 된 크기에서 색상 변경
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        flag = 0
         touchState = .none
     }
 }
@@ -98,6 +121,29 @@ extension PieGraphView {
 protocol Circular {
     var radius: CGFloat { get }
     var centerPoint: CGPoint { get }
+}
+
+protocol EnableEvent {
+    func changeRadius(
+        pre      : Double,
+        next     : Double,
+        max      : CGFloat,
+        original : CGFloat,
+        change   : CGFloat
+        ) -> CGFloat?
+    func isBigger(pre: Double, next: Double) -> Bool
+    func isOutOfBound(pre: Double, next: Double, max: CGFloat, original: CGFloat, change: CGFloat) -> Bool
+}
+
+protocol EnableLine {
+    func distance(a: CGPoint, b: CGPoint) -> Double
+}
+
+extension EnableLine {
+    func distance(a: CGPoint, b: CGPoint) -> Double {
+        let temp = pow(Double(a.x - b.x), 2.0) + pow(Double(a.y - b.y), 2.0)
+        return sqrt(temp)
+    }
 }
 
 extension String {

@@ -51,6 +51,7 @@
 		C982F69F1FE7839600B2AC34 /* PieGraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C982F69E1FE7839600B2AC34 /* PieGraphViewController.swift */; };
 		C982F6A21FE8FD5E00B2AC34 /* Piece.swift in Sources */ = {isa = PBXBuildFile; fileRef = C982F6A11FE8FD5E00B2AC34 /* Piece.swift */; };
 		C982F6A41FE9006800B2AC34 /* PiecesFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C982F6A31FE9006800B2AC34 /* PiecesFactory.swift */; };
+		C982F6A71FEADC2F00B2AC34 /* Touch.swift in Sources */ = {isa = PBXBuildFile; fileRef = C982F6A61FEADC2F00B2AC34 /* Touch.swift */; };
 		C9CE02B51FD67A68005A1A47 /* AppDelegateAccessable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CE02B41FD67A68005A1A47 /* AppDelegateAccessable.swift */; };
 /* End PBXBuildFile section */
 
@@ -111,6 +112,7 @@
 		C982F69E1FE7839600B2AC34 /* PieGraphViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieGraphViewController.swift; sourceTree = "<group>"; };
 		C982F6A11FE8FD5E00B2AC34 /* Piece.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Piece.swift; sourceTree = "<group>"; };
 		C982F6A31FE9006800B2AC34 /* PiecesFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiecesFactory.swift; sourceTree = "<group>"; };
+		C982F6A61FEADC2F00B2AC34 /* Touch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Touch.swift; sourceTree = "<group>"; };
 		C9CE02B41FD67A68005A1A47 /* AppDelegateAccessable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateAccessable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -181,6 +183,7 @@
 		C9069E1C1FCD33AD001BBC82 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C982F6A51FEADC2000B2AC34 /* Touch */,
 				C982F6A01FE8FD3900B2AC34 /* Piece */,
 				C9069E6D1FCD38B2001BBC82 /* VendingMachineMode */,
 				C9069E521FCD387D001BBC82 /* Drink */,
@@ -263,6 +266,14 @@
 				C982F6A31FE9006800B2AC34 /* PiecesFactory.swift */,
 			);
 			path = Piece;
+			sourceTree = "<group>";
+		};
+		C982F6A51FEADC2000B2AC34 /* Touch */ = {
+			isa = PBXGroup;
+			children = (
+				C982F6A61FEADC2F00B2AC34 /* Touch.swift */,
+			);
+			path = Touch;
 			sourceTree = "<group>";
 		};
 		C9CE02B31FD678E5005A1A47 /* Extension */ = {
@@ -408,6 +419,7 @@
 				C982F69F1FE7839600B2AC34 /* PieGraphViewController.swift in Sources */,
 				C9069E231FCD3438001BBC82 /* StringExtension.swift in Sources */,
 				C9069E641FCD38A9001BBC82 /* ChocolateMilk.swift in Sources */,
+				C982F6A71FEADC2F00B2AC34 /* Touch.swift in Sources */,
 				C90FB64E1FDF9D3500D4384D /* PurchaseCollectionViewCell.swift in Sources */,
 				C9CE02B51FD67A68005A1A47 /* AppDelegateAccessable.swift in Sources */,
 				C982F6A21FE8FD5E00B2AC34 /* Piece.swift in Sources */,

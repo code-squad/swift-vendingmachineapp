@@ -21,3 +21,17 @@ struct Piece: Comparable {
         return lhs.category < rhs.category
     }
 }
+
+struct ContentsForChangeRadius {
+    var maxLength: CGFloat
+    var originalLength: CGFloat
+    var change: CGFloat
+}
+
+struct ContentsOfPiece {
+    var center: CGPoint
+    var radius: CGFloat
+    var startAngle: CGFloat
+    var endAngle: CGFloat
+    var clockwise: Bool
+}

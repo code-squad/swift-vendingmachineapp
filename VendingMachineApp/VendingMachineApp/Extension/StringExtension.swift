@@ -6,7 +6,7 @@
 //  Copyright © 2017년 JK. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 extension String {
 
@@ -42,4 +42,19 @@ extension String {
         return String(self[self.startIndex...self.index(before: startMeasureCharacter)])
     }
 
+}
+
+// MARK: For Drawing..
+extension String {
+    func draw(position: CGRect, color: UIColor) {
+        let paragraphStyle = NSMutableParagraphStyle()
+        let attributes = [NSAttributedStringKey.paragraphStyle  :  paragraphStyle,
+                          NSAttributedStringKey.foregroundColor :  color,
+                          NSAttributedStringKey.font            :  UIFont.systemFont(ofSize: 20.0)]
+        let attrString = NSAttributedString(string: self,
+                                            attributes: attributes)
+
+        let rt = position
+        attrString.draw(in: rt)
+    }
 }

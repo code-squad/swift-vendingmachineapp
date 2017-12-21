@@ -17,17 +17,16 @@ typealias ContentsOfPiece = (
 )
 
 class PieGraphView: UIView, EnableLine {
-    enum TouchState {
+    enum GraphState {
         case none
-        case began
-        case move
+        case hasContents
     }
     var pieces: [Piece] = [] {
         didSet {
             setNeedsDisplay()
         }
     }
-    var touchState: TouchState = .none {
+    var graphState: GraphState = .hasContents {
         didSet {
             setNeedsDisplay()
         }
@@ -38,10 +37,9 @@ class PieGraphView: UIView, EnableLine {
         guard let context = UIGraphicsGetCurrentContext() else {
             return
         }
-        switch touchState {
-        case .began: context.drawCircle(view: self, color: UIColor.black)
-        case .move, .none: context.drawPieGraph(pieces: self.pieces, view: self, change: change)
-        // case .none: context.drawPieGraph(pieces: self.pieces, view: self, change: 0)
+        switch graphState {
+        case .none: context.drawCircle(view: self, color: UIColor.black)
+        case .hasContents: context.drawPieGraph(pieces: self.pieces, view: self, change: change)
         }
     }
 }
@@ -92,7 +90,7 @@ extension PieGraphView {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         let touch = touches.first!
         self.touchPoint = touch.location(in: self)
-        touchState = .began
+        graphState = .none
     }
 
     // 크기 변화
@@ -106,15 +104,16 @@ extension PieGraphView {
             next    : nextDistance,
             max     : radius,
             original: self.change,
-            change  : 5) else { return }
+            change  : 5
+            ) else { return }
         self.change = willChange
         self.touchPoint = currentTouchLocation
-        touchState = .move
+        graphState = .hasContents
     }
 
     // 변화 된 크기에서 색상 변경
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        touchState = .none
+        pieces = PiecesFactory().changeColorOfPieces(with: pieces)
     }
 }
 
@@ -143,23 +142,6 @@ extension EnableLine {
     func distance(a: CGPoint, b: CGPoint) -> Double {
         let temp = pow(Double(a.x - b.x), 2.0) + pow(Double(a.y - b.y), 2.0)
         return sqrt(temp)
-    }
-}
-
-extension String {
-    var makeColor: UIColor {
-        switch self {
-        case "딸기우유": return .red
-        case "바나나우유": return .yellow
-        case "초코우유": return .brown
-        case "콜라": return .black
-        case "사이다": return .blue
-        case "환타": return .cyan
-        case "TOP커피": return .gray
-        case "조지아커피": return .orange
-        case "칸타타커피": return .purple
-        default: return .green
-        }
     }
 }
 

@@ -8,14 +8,6 @@
 
 import UIKit
 
-typealias ContentsOfPiece = (
-    center     : CGPoint,
-    radius     : CGFloat,
-    startAngle : CGFloat,
-    endAngle   : CGFloat,
-    clockwise  : Bool
-)
-
 class PieGraphView: UIView, EnableLine {
     enum GraphState {
         case none
@@ -33,6 +25,9 @@ class PieGraphView: UIView, EnableLine {
     }
     var touchPoint: CGPoint = CGPoint.zero
     var change: CGFloat = 0
+
+    // MARK: Override
+
     override func draw(_ rect: CGRect) {
         guard let context = UIGraphicsGetCurrentContext() else {
             return
@@ -57,30 +52,28 @@ extension PieGraphView: Circular {
 }
 
 extension PieGraphView: EnableEvent {
-    func changeRadius(pre: Double, next: Double, max: CGFloat, original: CGFloat, change: CGFloat) -> CGFloat? {
+    func changeRadius(pre: Double, next: Double, contents: ContentsForChangeRadius) -> CGFloat? {
         if isOutOfBound(
             pre     : pre,
             next    : next,
-            max     : max,
-            original: original,
-            change  : change) {
+            contents: contents) {
             return nil
         }
         if isBigger(pre: pre, next: next) {
-            return original + change
+            return contents.originalLength + contents.change
         }
-        return original - change
+        return contents.originalLength - contents.change
     }
 
     func isBigger(pre: Double, next: Double) -> Bool {
         return pre < next
     }
 
-    func isOutOfBound(pre: Double, next: Double, max: CGFloat, original: CGFloat, change: CGFloat) -> Bool {
+    func isOutOfBound(pre: Double, next: Double, contents: ContentsForChangeRadius) -> Bool {
         if isBigger(pre: pre, next: next) {
-            return max + original + change > max
+            return contents.maxLength + contents.originalLength + contents.change > contents.maxLength
         }
-        return max + original - change < 0
+        return contents.maxLength + contents.originalLength - contents.change < 0
     }
 
 }
@@ -102,9 +95,7 @@ extension PieGraphView {
         guard let willChange = changeRadius(
             pre     : preDistance,
             next    : nextDistance,
-            max     : radius,
-            original: self.change,
-            change  : 5
+            contents: ContentsForChangeRadius(maxLength: radius, originalLength: self.change, change: 5)
             ) else { return }
         self.change = willChange
         self.touchPoint = currentTouchLocation
@@ -117,21 +108,21 @@ extension PieGraphView {
     }
 }
 
+// 원의 속성을 가진 프로토콜
 protocol Circular {
     var radius: CGFloat { get }
     var centerPoint: CGPoint { get }
 }
 
+// 이벤트 관련 메소드를 가진 프로토콜
 protocol EnableEvent {
     func changeRadius(
         pre      : Double,
         next     : Double,
-        max      : CGFloat,
-        original : CGFloat,
-        change   : CGFloat
+        contents : ContentsForChangeRadius
         ) -> CGFloat?
     func isBigger(pre: Double, next: Double) -> Bool
-    func isOutOfBound(pre: Double, next: Double, max: CGFloat, original: CGFloat, change: CGFloat) -> Bool
+    func isOutOfBound(pre: Double, next: Double, contents: ContentsForChangeRadius) -> Bool
 }
 
 protocol EnableLine {

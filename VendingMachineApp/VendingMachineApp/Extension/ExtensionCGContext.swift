@@ -29,7 +29,13 @@ extension CGContext {
             let i = pieces.index(of: piece) ?? pieces.endIndex
             let ratio = piece.value / valueCount
             let endAngle = startAngle + 2 * .pi * ratio
-            let contents = ContentsOfPiece(view.centerPoint, view.radius + change, startAngle, endAngle, false)
+            let contents = ContentsOfPiece(
+                center: view.centerPoint,
+                radius: view.radius + change,
+                startAngle: startAngle,
+                endAngle: endAngle,
+                clockwise: false
+            )
             self.drawPieGraphPiece(color: piece.color.cgColor, contents: contents)
             let positon = CGRect(x: 0, y: 40 * i, width: 90, height: 30)
             piece.category.draw(position: positon, color: piece.color)

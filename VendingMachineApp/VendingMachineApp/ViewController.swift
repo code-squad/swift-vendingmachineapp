@@ -20,8 +20,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var starbucksAddButton: UIButton!
     @IBOutlet weak var cokeAddButton: UIButton!
     @IBOutlet weak var bananaAddButton: UIButton!
-    @IBOutlet weak var fiveLabel: UIButton!
-    @IBOutlet weak var tenLabel: UIButton!
+    @IBOutlet weak var fiveInsertButton: UIButton!
+    @IBOutlet weak var tenInsertButton: UIButton!
     private var vendingMachine = VendingMachineData()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,8 +31,8 @@ class ViewController: UIViewController {
         starbucksAddButton.layer.cornerRadius = boundRatio
         cokeAddButton.layer.cornerRadius = boundRatio
         bananaAddButton.layer.cornerRadius = boundRatio
-        fiveLabel.layer.cornerRadius = boundRatio
-        tenLabel.layer.cornerRadius = boundRatio
+        fiveInsertButton.layer.cornerRadius = boundRatio
+        tenInsertButton.layer.cornerRadius = boundRatio
     }
     @IBAction func bananaAddTouched(_ sender: Any) {
         let lightBanana = LightBananaMilk(manufacturingDate: Date())

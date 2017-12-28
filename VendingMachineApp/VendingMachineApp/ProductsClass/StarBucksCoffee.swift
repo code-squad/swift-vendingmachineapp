@@ -10,7 +10,7 @@ import Foundation
 
 class StarBucksCoffee: Coffee {
     private let reserve: Bool
-    init(manufacturingDate: String) {
+    init(manufacturingDate: Date) {
         self.reserve = false
         super.init(kind: "커피", caffeine: true, temperature: 98, brand: "스타벅스", volume: 700, price: 2000, name: "스타벅스아메리카노", manufacturingDate: manufacturingDate)
     }

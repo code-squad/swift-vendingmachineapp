@@ -11,10 +11,10 @@ import Foundation
 class Sprite: SodaPop {
     private let bottelLabelColor: String
     private var businessUse: Bool
-    init(sugarContent: Double, volume: Int, price: Int, name: String, manufacturingDate: String, labelColor: String, forBusiness used: Bool) {
-        self.bottelLabelColor = labelColor
-        self.businessUse = used
-        super.init(kind: "스프라이트", sugarContent: sugarContent, temperature: 4, brand: "코카콜라", volume: volume, price: price, name: name, manufacturingDate: manufacturingDate)
+    init(manufacturingDate: Date) {
+        self.bottelLabelColor = "Green"
+        self.businessUse = false
+        super.init(kind: "스프라이트", sugarContent: 4, temperature: 4, brand: "코카콜라", volume: 200, price: 700, name: "스프라이트", manufacturingDate: manufacturingDate)
     }
     override var description: String {
         return "\(String(describing: type(of: self)))"

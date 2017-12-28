@@ -11,7 +11,7 @@ import Foundation
 class Milk: Beverage, BeverageCheck {
     private (set) var kind: String
     private let fatContent: Double
-    init(kind: String, fatContent: Double, temperature: Double, brand: String, volume: Int, price: Int, name: String, manufacturingDate: String) {
+    init(kind: String, fatContent: Double, temperature: Double, brand: String, volume: Int, price: Int, name: String, manufacturingDate: Date) {
         self.kind = kind
         self.fatContent = fatContent
         super.init(brand: brand, volume: volume, price: price, name: name, manufacturingDate: manufacturingDate, temperature: temperature)

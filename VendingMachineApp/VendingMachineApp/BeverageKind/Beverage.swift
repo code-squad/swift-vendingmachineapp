@@ -31,15 +31,13 @@ class Beverage: CustomStringConvertible, Hashable {
         date.dateFormat = "yyyyMMdd"
         return "\(brand), \(volume)ml, \(price)원, \(name), \(date.string(from: manufacturingDate))"
     }
-    init(brand: String, volume: Int, price: Int, name: String, manufacturingDate: String, temperature: Double) {
+    init(brand: String, volume: Int, price: Int, name: String, manufacturingDate: Date, temperature: Double) {
         self.brand = brand
         self.volume = volume
         self.price = price
         self.name = name
         self.temperature = temperature
-        let date = DateFormatter()
-        date.dateFormat = "yyyyMMdd"
-        self.manufacturingDate = Date(timeInterval: DateInterval.today.rawValue, since: date.date(from: manufacturingDate)!)
+        self.manufacturingDate = Date(timeInterval: DateInterval.today.rawValue, since: manufacturingDate)
     }
     func checkAvailableList(with balance: Int) -> Bool {
         return balance >= price

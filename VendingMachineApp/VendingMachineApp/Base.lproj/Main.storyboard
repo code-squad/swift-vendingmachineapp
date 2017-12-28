@@ -160,12 +160,12 @@
                         <outlet property="ceylonTeaStock" destination="9dR-rG-B0M" id="QIr-Hr-B8z"/>
                         <outlet property="cokeAddButton" destination="1ph-SS-JY1" id="o1v-bL-Rnn"/>
                         <outlet property="cokeStock" destination="M96-qe-s2K" id="1Af-w9-SGn"/>
-                        <outlet property="fiveLabel" destination="gRE-3l-joh" id="naC-2M-H3Z"/>
+                        <outlet property="fiveInsertButton" destination="gRE-3l-joh" id="G2m-q5-hwX"/>
                         <outlet property="spriteAddButton" destination="vcY-Xn-lBv" id="Nc6-sE-FQ9"/>
                         <outlet property="spriteStock" destination="naV-Yb-sdd" id="rcH-Nq-6nY"/>
                         <outlet property="starBucksStock" destination="XFX-oc-eJV" id="bEV-gn-yUR"/>
                         <outlet property="starbucksAddButton" destination="bjW-6Y-7Vt" id="cj7-FD-3L0"/>
-                        <outlet property="tenLabel" destination="lDf-7L-c8l" id="YWW-ND-lnC"/>
+                        <outlet property="tenInsertButton" destination="lDf-7L-c8l" id="eIe-mX-kdy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

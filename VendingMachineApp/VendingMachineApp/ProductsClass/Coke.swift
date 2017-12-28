@@ -11,7 +11,7 @@ import Foundation
 class Coke: SodaPop {
     private let bottelLabelColor: String
     private var businessUse: Bool
-    init(manufacturingDate: String) {
+    init(manufacturingDate: Date) {
         self.bottelLabelColor = "RED"
         self.businessUse = true
         super.init(kind: "콜라", sugarContent: 4, temperature: 4, brand: "코카콜라", volume: 250, price: 700, name: "CocaCola", manufacturingDate: manufacturingDate)

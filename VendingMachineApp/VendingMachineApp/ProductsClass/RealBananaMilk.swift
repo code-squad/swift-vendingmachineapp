@@ -11,7 +11,7 @@ import Foundation
 class RealBananaMilk: Milk {
     private let bananMilkColor: String
     private let flavor: String
-    init(volume: Int, price: Int, manufacturingDate: String) {
+    init(volume: Int, price: Int, manufacturingDate: Date) {
         self.bananMilkColor = "WHITE"
         self.flavor = "바나나향"
         super.init(kind: "바나나", fatContent: 7, temperature: 4, brand: "매일우유", volume: volume, price: price, name: "바나나는 원래 하얗다", manufacturingDate: manufacturingDate)

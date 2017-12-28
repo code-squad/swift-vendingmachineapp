@@ -10,22 +10,28 @@ import XCTest
 @testable import VendingMachineApp
 
 class VendingMachineAppTests: XCTestCase {
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    let orignalCoke = Coke(manufacturingDate: Date())
+    let orignalCoke2 = Coke(manufacturingDate: Date())
+    let sprite = Sprite(manufacturingDate: Date())
+    let lightMilk = LightBananaMilk(manufacturingDate: Date())
+    let badLightMilk = LightBananaMilk(manufacturingDate: Date())
+    let starBucksCoffee = StarBucksCoffee(manufacturingDate: Date())
+    // 시나리오1 : 통합테스트 모든 재고를 추가하고 1000원을 넣었을때, 구매 가능한 음료 반환 테스트
+    //           잔액확인, 재고확인, 구매이력 확인
+    func test통합테스트_시나리오1() {
+        let stockBox = [orignalCoke, lightMilk, badLightMilk, starBucksCoffee]
+        let beverageData = VendingMachineData(stock: stockBox)
+        var adminMachine = AdminVendingMachine(with: beverageData)
+        adminMachine.addBeverage(sprite)
+        var userMachine = UserVendingMachine(with: beverageData)
+        userMachine.insertMoney(1000)
+        var validStock = userMachine.getValidBuyingBeverage()
+        XCTAssertEqual(orignalCoke.description, validStock[1].description)
+        XCTAssertEqual(sprite.description, validStock[2].description)
+        _ = try? userMachine.buyBeverage(sprite)
+        XCTAssertEqual(300, userMachine.getBalance())
+        XCTAssertEqual(0, userMachine.getStockList()[sprite]!)
+        XCTAssertEqual("Sprite", userMachine.getRecepit()[0])
     }
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
+
 }

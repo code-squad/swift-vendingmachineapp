@@ -19,6 +19,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var starbucksAddButton: UIButton!
     @IBOutlet weak var cokeAddButton: UIButton!
     @IBOutlet weak var bananaAddButton: UIButton!
+    @IBOutlet weak var fiveLabel: UIButton!
+    @IBOutlet weak var tenLabel: UIButton!
+    @IBOutlet weak var balanceLabel: UILabel!
     private var vendingMachine = VendingMachineData()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +31,8 @@ class ViewController: UIViewController {
         starbucksAddButton.layer.cornerRadius = boundRatio
         cokeAddButton.layer.cornerRadius = boundRatio
         bananaAddButton.layer.cornerRadius = boundRatio
+        fiveLabel.layer.cornerRadius = boundRatio
+        tenLabel.layer.cornerRadius = boundRatio
     }
     @IBAction func bananaAddTouched(_ sender: Any) {
         let lightBanana = LightBananaMilk(manufacturingDate: Date())
@@ -54,8 +59,26 @@ class ViewController: UIViewController {
         vendingMachine.addBeverage(ceylonTea)
         ceylonTeaStock.text = "\(vendingMachine.sortedStockList[ceylonTea]!)개"
     }
+    @IBAction func addFiveBalanceTouched(_ sender: Any) {
+        vendingMachine.insertMoney(5000)
+        balanceLabel.text = vendingMachine.balance.commaRepresentation
+    }
+    @IBAction func addTenBalanceTouched(_ sender: Any) {
+        vendingMachine.insertMoney(1000)
+        balanceLabel.text = vendingMachine.balance.commaRepresentation
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+}
+extension Int {
+    private static var commaFormatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        return formatter
+    }()
+    var commaRepresentation: String {
+        return Int.commaFormatter.string(from: NSNumber(value: self)) ?? ""
     }
 }

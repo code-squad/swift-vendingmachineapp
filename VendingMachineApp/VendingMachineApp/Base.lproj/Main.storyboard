@@ -100,25 +100,77 @@
                                     <action selector="ceylonAddTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ped-Zx-qOq"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gRE-3l-joh">
+                                <rect key="frame" x="384" y="383" width="113" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.68172985406091369" green="0.68172985406091369" blue="0.68172985406091369" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="₩5,000">
+                                    <color key="titleColor" red="0.99494768639999998" green="0.97901037079999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="addFiveBalanceTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PqF-kw-TVv"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lDf-7L-c8l">
+                                <rect key="frame" x="505" y="383" width="113" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.68172985409999998" green="0.68172985409999998" blue="0.68172985409999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="₩1,000">
+                                    <color key="titleColor" red="0.99494768639999998" green="0.97901037079999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="addTenBalanceTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zpw-rE-IE1"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gpc-nc-K3Y">
+                                <rect key="frame" x="448" y="427" width="135" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.80569876269035534" green="0.80569876269035534" blue="0.80569876269035534" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="원" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rjX-ok-pKb">
+                                <rect key="frame" x="583" y="427" width="35" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.80569876269035534" green="0.80569876269035534" blue="0.80569876269035534" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="잔액" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k4O-PC-mLE">
+                                <rect key="frame" x="384" y="427" width="64" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.80569876269999996" green="0.80569876269999996" blue="0.80569876269999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="balanceLabel" destination="Gpc-nc-K3Y" id="834-9H-nyJ"/>
                         <outlet property="bananaAddButton" destination="YEh-kg-rWg" id="q5l-MT-loY"/>
                         <outlet property="bananaStock" destination="FtT-44-oV6" id="de1-2C-t9o"/>
                         <outlet property="ceylonAddButton" destination="hhr-EE-7ng" id="QbI-Fv-KbW"/>
                         <outlet property="ceylonTeaStock" destination="9dR-rG-B0M" id="QIr-Hr-B8z"/>
                         <outlet property="cokeAddButton" destination="1ph-SS-JY1" id="o1v-bL-Rnn"/>
                         <outlet property="cokeStock" destination="M96-qe-s2K" id="1Af-w9-SGn"/>
+                        <outlet property="fiveLabel" destination="gRE-3l-joh" id="naC-2M-H3Z"/>
                         <outlet property="spriteAddButton" destination="vcY-Xn-lBv" id="Nc6-sE-FQ9"/>
                         <outlet property="spriteStock" destination="naV-Yb-sdd" id="rcH-Nq-6nY"/>
                         <outlet property="starBucksStock" destination="XFX-oc-eJV" id="bEV-gn-yUR"/>
                         <outlet property="starbucksAddButton" destination="bjW-6Y-7Vt" id="cj7-FD-3L0"/>
+                        <outlet property="tenLabel" destination="lDf-7L-c8l" id="YWW-ND-lnC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="50.9765625" y="35.9375"/>
         </scene>
     </scenes>
     <resources>

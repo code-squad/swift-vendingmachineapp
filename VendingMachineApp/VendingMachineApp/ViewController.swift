@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var starBucksStock: UILabel!
     @IBOutlet weak var bananaStock: UILabel!
     @IBOutlet weak var cokeStock: UILabel!
+    @IBOutlet weak var balanceLabel: UILabel!
     @IBOutlet weak var ceylonAddButton: UIButton!
     @IBOutlet weak var spriteAddButton: UIButton!
     @IBOutlet weak var starbucksAddButton: UIButton!
@@ -21,7 +22,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var bananaAddButton: UIButton!
     @IBOutlet weak var fiveLabel: UIButton!
     @IBOutlet weak var tenLabel: UIButton!
-    @IBOutlet weak var balanceLabel: UILabel!
     private var vendingMachine = VendingMachineData()
     override func viewDidLoad() {
         super.viewDidLoad()

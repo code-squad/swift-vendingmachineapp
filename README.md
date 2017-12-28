@@ -1,57 +1,29 @@
-# 진행 방법
+# 음료 자판기 앱
 
-- 음료수 자판기 iOS 앱에 요구사항을 파악한다.
-- 요구사항에 대한 구현을 완료한 후 자신의 github 아이디에 해당하는 브랜치에 Pull Request(이하 PR)를 통해 코드 리뷰 요청을 한다.
-- 코드 리뷰 피드백에 대한 개선 작업을 하고 다시 PUSH한다.
-- 모든 피드백을 완료하면 다음 단계를 도전하고 앞의 과정을 반복한다.
+## Step1 (시작하기 - 아이패드 앱)
+### 요구사항
+- 음료 자판기 앱 프로젝트 저장소를 본인 저장소로 fork하고 로컬에 clone한다.
+- iOS 프로젝트 Single View App 템플릿으로 하고 프로젝트 이름을 "VendingMachineApp"으로 지정하고, 위에 만든 로컬 저장소 경로에 생성한다.
+- 프로젝트에 대한 일반 설정 (General)에서 Devices 항목을 iPad로 변경하고, Device Orientation 항목을 가로 (Landscape Left, Landscape Right)만 선택한다.
+- 기본 상태로 아이패드 프로 10.5 시뮬레이터를 골라서 실행한다.
+- iOS 앱 프로젝트 기본 구조인 MVC 형태에 맞춰서 기존 레벨2에서 작성한 자판기 소스 파일을 적용한다.
+- readme.md 파일을 자신의 프로젝트에 대한 설명으로 변경한다.
+    + 단계별로 미션을 해결하고 리뷰를 받고나면 readme.md 파일에 주요 작업 내용(바뀐 화면 이미지, 핵심 기능 설명)과 완성 날짜시간을 기록한다.
+    + 실행한 화면을 캡처해서 readme.md 파일에 포함한다.
 
-# 코드 리뷰 과정
-> 저장소 브랜치에 자신의 github 아이디에 해당하는 브랜치가 존재해야 한다.
->
-> 자신의 github 아이디에 해당하는 브랜치가 있는지 확인한다.
+### 프로그래밍 요구사항
+- 레벨2 VendingMachine 미션의 Main, InputView, OutputView를 제외하고 전체 클래스를 프로젝트로 복사한다.
+- 기존 코드들은 MVC 중에서 대부분 Model의 역할을 담당한다.
+- iOS 앱 구조는 MVC 중에서도 우선 ViewController-Model 사이 관계에 집중하고, ViewController-View 관계는 다음 단계에서 개선한다.
+- ViewController 클래스에 VendingMachine 객체를 변수로 추가하고 viewDidLoad() 함수에서 음료수 객체 3종류를 추가하고 재고 목록을 print() 한다.
 
-1. 자신의 github 아이디에 해당하는 브랜치가 없는 경우 브랜치 생성 요청 채널을 통해 브랜치 생성을 요청한다.
-프로젝트를 자신의 계정으로 fork한다. 저장소 우측 상단의 fork 버튼을 활용한다.
-
-2. fork한 프로젝트를 자신의 컴퓨터로 clone한다.
+- 콘솔 화면
 ```
-git clone https://github.com/{본인_아이디}/{저장소 아이디}
-ex) https://github.com/godrm/swift-vendingmachineapp
-```
-
-3. clone한 프로젝트 이동
-```
-cd {저장소 아이디}
-ex) cd swift-vendingmachineapp
+딸기우유(2개) 바나나우유(1개) 팹시콜라(3개)
 ```
 
-4. 본인 아이디로 브랜치를 만들기 위한 checkout
+### 결과
+#### Console
 ```
-git checkout -t origin/본인_아이디
-ex) git checkout -t origin/godrm
+죠지아커피 3000원(1개) 딸기우유 1000원(1개) 펩시콜라 2000원(1개)
 ```
-
-5. commit
-```
-git status //확인
-git rm 파일명 //삭제된 파일
-git add 파일명(or * 모두) // 추가/변경 파일
-git commit -m "메세지" // 커밋
-```
-
-6. 본인 원격 저장소에 올리기
-```
-git push origin 본인_아이디
-ex) git push origin godrm
-```
-
-7. pull request
-8. pull request는 github 서비스에서 진행할 수 있다.
-9. pull request는 반드시 original 저장소의 브랜치와 fork한 자신의 저장소 브랜치 이름이 같아야 하며, 브랜치 이름은 자신의 github 아이디여야 한다.
-10. code review 및 push
-11. pull request를 통해 피드백을 받는다.
-12. 코드 리뷰 피드백에 대한 개선 작업을 하고 다시 PUSH한다.
-
-## 앞의 코드 리뷰 과정은 [영상 보기](https://www.youtube.com/watch?v=ZSZoaG0PqLg) 를 통해 참고 가능
-
-## 실습 중 모든 질문은 슬랙 채널에서...

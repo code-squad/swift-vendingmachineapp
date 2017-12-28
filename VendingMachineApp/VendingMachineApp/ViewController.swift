@@ -9,7 +9,8 @@
 import UIKit
 
 class ViewController: UIViewController {
-    var vendingMachine = VendingMachine()
+    var admin = VendingMachineAdmin.init(vendingMachine: VendingMachine())
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setVendingMachine()
@@ -27,15 +28,13 @@ class ViewController: UIViewController {
                                        name: "다이어트콜라", dateOfManufacture: dateOfManufacture, lowCalorie: true)
         let georgia = Georgia.init(brand: "코카콜라", weight: 400, price: 3000,
                                    name: "죠지아", dateOfManufacture: dateOfManufacture, hot: false)
-        vendingMachine.addInventory(category: String(strawberryMilk.description.split(separator: "(")[0]),
-                                    product: strawberryMilk)
-        vendingMachine.addInventory(category: String(pepciCoke.description.split(separator: "(")[0]),
-                                    product: pepciCoke)
-        vendingMachine.addInventory(category: String(georgia.description.split(separator: "(")[0]), product: georgia)
+        admin.add(product: strawberryMilk)
+        admin.add(product: pepciCoke)
+        admin.add(product: georgia)
     }
 
     private func printVendingMachine() {
-        for (key, value) in vendingMachine.getInventory() {
+        for (key, value) in admin.getInventory() {
             print("\(key) \(value[0].price)원(\(value.count)개)", terminator: " ")
         }
     }

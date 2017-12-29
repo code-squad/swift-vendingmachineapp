@@ -9,7 +9,9 @@
 import UIKit
 
 class ViewController: UIViewController {
-    private var admin = VendingMachineAdmin.init(vendingMachine: VendingMachine())
+    private let vendingMachine = VendingMachine()
+    private var admin: VendingMachineAdmin!
+    private var user: VendingMachineUser!
     private var dateOfManufacture: Date!
     private var validate: Date!
 
@@ -23,10 +25,14 @@ class ViewController: UIViewController {
     @IBOutlet weak var fantaCount: UILabel!
     @IBOutlet weak var pepsiCount: UILabel!
 
+    @IBOutlet weak var balance: UILabel!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         dateOfManufacture = Date()
         validate = Date.init(timeInterval: (60.0 * 60 * 24 * 14), since: dateOfManufacture)
+        admin = VendingMachineAdmin.init(vendingMachine: vendingMachine)
+        user = VendingMachineUser.init(vendingMachine: vendingMachine)
         setVendingMachine()
     }
 
@@ -40,6 +46,7 @@ class ViewController: UIViewController {
         spriteCount.text = "0 개"
         fantaCount.text = "0 개"
         pepsiCount.text = "0 개"
+        balance.text = String(format: "잔액 : %6d 원", 0)
     }
 
     override func didReceiveMemoryWarning() {
@@ -142,6 +149,16 @@ class ViewController: UIViewController {
         default:
             return
         }
+    }
+
+    @IBAction func insert1000Coins(_ sender: Any) {
+        user.insertCoins(1000)
+        balance.text = String(format: "잔액 : %6d 원", user.getBalance())
+    }
+
+    @IBAction func insert5000coins(_ sender: Any) {
+        user.insertCoins(5000)
+        balance.text = String(format: "잔액 : %6d 원", user.getBalance())
     }
 
 }

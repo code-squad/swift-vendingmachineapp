@@ -14,6 +14,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var balanceLabel: UILabel!
     private var vendingMachine = VendingMachineData()
     private let countingUnit = "개"
+    private let fiveThounsand = 5000
+    private let oneThounsand = 1000
     override func viewDidLoad() {
         super.viewDidLoad()
         let boundRatio: CGFloat = 15.0
@@ -47,13 +49,11 @@ class ViewController: UIViewController {
         stockLabel[4].text = "\(vendingMachine.sortedStockList[ceylonTea]!)" + countingUnit
     }
     @IBAction func addFiveBalanceTouched(_ sender: Any) {
-        let decimal = buttonGroup[5].titleLabel?.text ?? ""
-        vendingMachine.insertMoney(Int(decimal)!)
+        vendingMachine.insertMoney(fiveThounsand)
         balanceLabel.text = vendingMachine.balance.commaRepresentation
     }
-    @IBAction func addTenBalanceTouched(_ sender: Any) {
-        let decimal = buttonGroup[6].titleLabel?.text ?? ""
-        vendingMachine.insertMoney(Int(decimal)!)
+    @IBAction func addOneBalanceTouched(_ sender: Any) {
+        vendingMachine.insertMoney(oneThounsand)
         balanceLabel.text = vendingMachine.balance.commaRepresentation
     }
     override func didReceiveMemoryWarning() {

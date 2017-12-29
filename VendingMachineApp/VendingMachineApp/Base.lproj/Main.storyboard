@@ -79,7 +79,7 @@
                                     <color key="titleColor" red="0.99494768639999998" green="0.97901037079999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="addTenBalanceTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zpw-rE-IE1"/>
+                                    <action selector="addOneBalanceTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eob-J5-mrC"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Vending Machine" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZSf-7w-gsT">

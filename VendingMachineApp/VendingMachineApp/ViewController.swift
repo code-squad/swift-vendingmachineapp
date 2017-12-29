@@ -47,11 +47,13 @@ class ViewController: UIViewController {
         stockLabel[4].text = "\(vendingMachine.sortedStockList[ceylonTea]!)" + countingUnit
     }
     @IBAction func addFiveBalanceTouched(_ sender: Any) {
-        vendingMachine.insertMoney(5000)
+        let decimal = buttonGroup[5].titleLabel?.text ?? ""
+        vendingMachine.insertMoney(Int(decimal)!)
         balanceLabel.text = vendingMachine.balance.commaRepresentation
     }
     @IBAction func addTenBalanceTouched(_ sender: Any) {
-        vendingMachine.insertMoney(1000)
+        let decimal = buttonGroup[6].titleLabel?.text ?? ""
+        vendingMachine.insertMoney(Int(decimal)!)
         balanceLabel.text = vendingMachine.balance.commaRepresentation
     }
     override func didReceiveMemoryWarning() {

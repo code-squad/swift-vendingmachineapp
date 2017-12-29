@@ -9,55 +9,42 @@
 import UIKit
 
 class ViewController: UIViewController {
-    @IBOutlet weak var ceylonTeaStock: UILabel!
-    @IBOutlet weak var spriteStock: UILabel!
-    @IBOutlet weak var starBucksStock: UILabel!
-    @IBOutlet weak var bananaStock: UILabel!
-    @IBOutlet weak var cokeStock: UILabel!
+    @IBOutlet var stockLabel: [UILabel]!
+    @IBOutlet var buttonGroup: [UIButton]!
     @IBOutlet weak var balanceLabel: UILabel!
-    @IBOutlet weak var ceylonAddButton: UIButton!
-    @IBOutlet weak var spriteAddButton: UIButton!
-    @IBOutlet weak var starbucksAddButton: UIButton!
-    @IBOutlet weak var cokeAddButton: UIButton!
-    @IBOutlet weak var bananaAddButton: UIButton!
-    @IBOutlet weak var fiveInsertButton: UIButton!
-    @IBOutlet weak var tenInsertButton: UIButton!
     private var vendingMachine = VendingMachineData()
+    private let countingUnit = "개"
     override func viewDidLoad() {
         super.viewDidLoad()
         let boundRatio: CGFloat = 15.0
-        ceylonAddButton.layer.cornerRadius = boundRatio
-        spriteAddButton.layer.cornerRadius = boundRatio
-        starbucksAddButton.layer.cornerRadius = boundRatio
-        cokeAddButton.layer.cornerRadius = boundRatio
-        bananaAddButton.layer.cornerRadius = boundRatio
-        fiveInsertButton.layer.cornerRadius = boundRatio
-        tenInsertButton.layer.cornerRadius = boundRatio
+        for button in buttonGroup {
+            button.layer.cornerRadius = boundRatio
+        }
     }
     @IBAction func bananaAddTouched(_ sender: Any) {
         let lightBanana = LightBananaMilk(manufacturingDate: Date())
         vendingMachine.addBeverage(lightBanana)
-        bananaStock.text = "\(vendingMachine.sortedStockList[lightBanana]!)개"
+        stockLabel[0].text = "\(vendingMachine.sortedStockList[lightBanana]!)" + countingUnit
     }
     @IBAction func cokeAddTouched(_ sender: Any) {
         let coke = Coke(manufacturingDate: Date())
         vendingMachine.addBeverage(coke)
-        cokeStock.text = "\(vendingMachine.sortedStockList[coke]!)개"
+        stockLabel[1].text = "\(vendingMachine.sortedStockList[coke]!)" + countingUnit
     }
     @IBAction func starBucksAddTouched(_ sender: Any) {
         let starBucks = StarBucksCoffee(manufacturingDate: Date())
         vendingMachine.addBeverage(starBucks)
-        starBucksStock.text = "\(vendingMachine.sortedStockList[starBucks]!)개"
+        stockLabel[2].text = "\(vendingMachine.sortedStockList[starBucks]!)" + countingUnit
     }
     @IBAction func spriteAddTouched(_ sender: Any) {
         let sprite = Sprite(manufacturingDate: Date())
         vendingMachine.addBeverage(sprite)
-        spriteStock.text = "\(vendingMachine.sortedStockList[sprite]!)개"
+        stockLabel[3].text = "\(vendingMachine.sortedStockList[sprite]!)" + countingUnit
     }
     @IBAction func ceylonAddTouched(_ sender: Any) {
         let ceylonTea = CeylonTea(manufacturingDate: Date())
         vendingMachine.addBeverage(ceylonTea)
-        ceylonTeaStock.text = "\(vendingMachine.sortedStockList[ceylonTea]!)개"
+        stockLabel[4].text = "\(vendingMachine.sortedStockList[ceylonTea]!)" + countingUnit
     }
     @IBAction func addFiveBalanceTouched(_ sender: Any) {
         vendingMachine.insertMoney(5000)

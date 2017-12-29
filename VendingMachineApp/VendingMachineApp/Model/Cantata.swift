@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Kantata: Coffee {
+class Cantata: Coffee {
     private let taste: String = "칸타타커피"
 
     override init(brand: String, weight: Int, price: Int, name: String, dateOfManufacture: Date, hot: Bool) {
@@ -17,7 +17,7 @@ class Kantata: Coffee {
     }
 
     override var description: String {
-        return "\(taste)(\(String(describing: Kantata.self))) - " + super.description
+        return "\(taste)(\(String(describing: Cantata.self))) - " + super.description
     }
 
 }

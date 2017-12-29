@@ -8,7 +8,7 @@
 
 import Foundation
 
-class PepciCoke: Soda {
+class PepsiCoke: Soda {
     private let taste: String = "펩시콜라"
 
     override init(brand: String, weight: Int, price: Int, name: String, dateOfManufacture: Date, lowCalorie: Bool) {
@@ -17,7 +17,7 @@ class PepciCoke: Soda {
     }
 
     override var description: String {
-        return "\(taste)(\(String(describing: PepciCoke.self))) - " + super.description
+        return "\(taste)(\(String(describing: PepsiCoke.self))) - " + super.description
     }
 
 }

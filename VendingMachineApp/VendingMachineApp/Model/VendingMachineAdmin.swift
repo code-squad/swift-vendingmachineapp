@@ -18,11 +18,7 @@ struct VendingMachineAdmin {
     //    특정 상품 인스턴스를 넘겨서 재고를 추가하는 메소드
     mutating func add(product: Beverage) {
         let category: Category = String(product.description.split(separator: "(")[0])
-        if var inventory = vendingMachine.getInventory()[category] {
-            inventory.append(product)
-        } else {
-            vendingMachine.addInventory(category: category, product: product)
-        }
+        vendingMachine.addProduct(category: category, product: product)
     }
 
     //    유통기한이 지난 재고만 리턴하는 메소드

@@ -13,7 +13,7 @@ protocol VendingMachineProtocol {
     func getBalance() -> Int
     func getInventory() -> Inventory
     func getSalesHistory() -> Products
-    func addInventory(category: Category, product: Beverage)
+    func addProduct(category: Category, product: Beverage)
     func insertCoins(_ amount: Int)
     func remove(category: Category, index: Int)
     func buy(category: Category)

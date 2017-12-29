@@ -59,8 +59,12 @@ class VendingMachine: VendingMachineProtocol, CustomStringConvertible {
         return salesHistory
     }
 
-    func addInventory(category: Category, product: Beverage) {
-        inventory[category] = [product]
+    func addProduct(category: Category, product: Beverage) {
+        if inventory[category] != nil {
+            inventory[category]?.append(product)
+        } else {
+            inventory[category] = [product]
+        }
     }
 
     func insertCoins(_ amount: Int) {

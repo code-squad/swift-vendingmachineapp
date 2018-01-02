@@ -9,7 +9,7 @@
 import Foundation
 
 class Sprite: Soda {
-    private let taste: String = "사이다"
+    private let taste: String = SodaCategory.sprite.name
 
     override init(brand: String, weight: Int, price: Int, name: String, dateOfManufacture: Date, lowCalorie: Bool) {
         super.init(brand: brand, weight: weight, price: price, name: name,

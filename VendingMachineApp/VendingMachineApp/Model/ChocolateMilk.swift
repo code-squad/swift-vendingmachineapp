@@ -9,7 +9,7 @@
 import Foundation
 
 class ChocolateMilk: Milk {
-    private let taste: String = "초코우유"
+    private let taste: String = MilkCategory.chocolate.name
 
     init(validate: Date) {
         super.init(milkCategory: Milk.MilkCategory.chocolate, dateOfManufacture: Date(), validate: validate)

@@ -15,20 +15,6 @@ class ViewController: UIViewController {
     private var dateOfManufacture: Date!
     private var validate: Date!
 
-    enum Coins {
-        case thousand
-        case fiveThousand
-
-        var value: Int {
-            switch self {
-            case .thousand:
-                return 1000
-            case .fiveThousand:
-                return 5000
-            }
-        }
-    }
-
     @IBOutlet var beverageCounts: [UILabel]!
 
     @IBOutlet weak var balance: UILabel!
@@ -138,10 +124,7 @@ class ViewController: UIViewController {
         guard let button = sender as? UIButton else {
             return
         }
-        guard let coins = Int((button.titleLabel?.text!)!) else {
-            return
-        }
-        switch coins {
+        switch button.tag {
         case Coins.thousand.value:
             user.insertCoins(Coins.thousand.value)
         case Coins.fiveThousand.value:

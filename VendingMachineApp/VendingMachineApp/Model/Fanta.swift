@@ -16,6 +16,10 @@ class Fanta: Soda {
                    dateOfManufacture: dateOfManufacture, lowCalorie: lowCalorie)
     }
 
+    init(lowCalorie: Bool) {
+        super.init(sodaCategory: Soda.SodaCategory.fanta, dateOfManufacture: Date(), lowCalorie: lowCalorie)
+    }
+
     override var description: String {
         return "\(taste)(\(String(describing: Fanta.self))) - " + super.description
     }

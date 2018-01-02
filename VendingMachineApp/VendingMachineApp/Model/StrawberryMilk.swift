@@ -11,6 +11,10 @@ import Foundation
 class StrawberryMilk: Milk {
     private let taste: String = "딸기우유"
 
+    init(validate: Date) {
+        super.init(milkCategory: Milk.MilkCategory.strawberry, dateOfManufacture: Date(), validate: validate)
+    }
+
     override init(brand: String, weight: Int, price: Int, name: String, dateOfManufacture: Date, validate: Date) {
         super.init(brand: brand, weight: weight, price: price, name: name,
                    dateOfManufacture: dateOfManufacture, validate: validate)

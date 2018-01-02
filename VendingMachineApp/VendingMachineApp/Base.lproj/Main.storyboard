@@ -196,7 +196,7 @@
                                 <rect key="frame" x="75" y="345" width="150" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="kantata.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="tTQ-3g-qEJ">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cantata.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="tTQ-3g-qEJ">
                                 <rect key="frame" x="324" y="342" width="150" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -246,10 +246,10 @@
     </scenes>
     <resources>
         <image name="bananaMilk.jpg" width="150" height="150"/>
+        <image name="cantata.jpg" width="150" height="150"/>
         <image name="chocoMilk.jpg" width="150" height="150"/>
         <image name="fanta.jpg" width="150" height="150"/>
         <image name="georgia.jpg" width="150" height="150"/>
-        <image name="kantata.jpg" width="150" height="150"/>
         <image name="pepsi.jpg" width="150" height="150"/>
         <image name="sprite.jpg" width="150" height="150"/>
         <image name="strawberryMilk.jpg" width="150" height="150"/>

@@ -39,67 +39,52 @@ class ViewController: UIViewController {
     }
 
     @IBAction func addChocolateMilk(_ sender: Any) {
-        let chocolateMilk = ChocolateMilk.init(brand: "서울우유", weight: 200, price: 1000,
-                                               name: "초코우유", dateOfManufacture: dateOfManufacture, validate: validate)
-        admin.add(product: chocolateMilk)
-        refreshBeverageCount()
+        let chocolateMilk = ChocolateMilk.init(validate: validate)
+        addProduct(chocolateMilk)
     }
 
     @IBAction func addBananaMilk(_ sender: Any) {
-        let bananaMilk = BananaMilk.init(brand: "서울우유", weight: 200, price: 1000,
-                                         name: "날마다바나나우유", dateOfManufacture: dateOfManufacture, validate: validate)
-        admin.add(product: bananaMilk)
-        refreshBeverageCount()
+        let bananaMilk = BananaMilk.init(validate: validate)
+        addProduct(bananaMilk)
     }
 
     @IBAction func addStrawberryMilk(_ sender: Any) {
-        let strawberryMilk = StrawberryMilk.init(brand: "서울우유", weight: 200, price: 1000,
-                                                 name: "날마다딸기우유",
-                                                 dateOfManufacture: dateOfManufacture,
-                                                 validate: validate)
-        admin.add(product: strawberryMilk)
-        refreshBeverageCount()
+        let strawberryMilk = StrawberryMilk.init(validate: validate)
+        addProduct(strawberryMilk)
     }
 
     @IBAction func addGeorgia(_ sender: Any) {
-        let georgia = Georgia.init(brand: "코카콜라", weight: 400, price: 3000,
-                                   name: "죠지아", dateOfManufacture: dateOfManufacture, hot: false)
-        admin.add(product: georgia)
-        refreshBeverageCount()
+        let georgia = Georgia.init(hot: false)
+        addProduct(georgia)
     }
 
     @IBAction func addCantata(_ sender: Any) {
-        let cantata = Cantata.init(brand: "Cantata", weight: 400, price: 3000,
-                                   name: "칸타타", dateOfManufacture: dateOfManufacture, hot: true)
-        admin.add(product: cantata)
-        refreshBeverageCount()
+        let cantata = Cantata.init(hot: true)
+        addProduct(cantata)
     }
 
     @IBAction func addTOPCoffee(_ sender: Any) {
-        let topCoffee = TOPCoffee.init(brand: "맥심", weight: 400, price: 3000,
-                                       name: "TOP아메리카노", dateOfManufacture: dateOfManufacture, hot: true)
-        admin.add(product: topCoffee)
-        refreshBeverageCount()
+        let topCoffee = TOPCoffee.init(hot: true)
+        addProduct(topCoffee)
     }
 
     @IBAction func addSprite(_ sender: Any) {
-        let sprite = Sprite.init(brand: "코카콜라", weight: 350, price: 2000,
-                                 name: "스프라이트", dateOfManufacture: dateOfManufacture, lowCalorie: false)
-        admin.add(product: sprite)
-        refreshBeverageCount()
+        let sprite = Sprite.init(lowCalorie: false)
+        addProduct(sprite)
     }
 
     @IBAction func addFanta(_ sender: Any) {
-        let fanta = Fanta.init(brand: "코카콜라", weight: 350, price: 2000,
-                               name: "환타", dateOfManufacture: dateOfManufacture, lowCalorie: false)
-        admin.add(product: fanta)
-        refreshBeverageCount()
+        let fanta = Fanta.init(lowCalorie: false)
+        addProduct(fanta)
     }
 
     @IBAction func addPepsi(_ sender: Any) {
-        let pepsiCoke = PepsiCoke.init(brand: "펩시", weight: 350, price: 2000,
-                                       name: "다이어트콜라", dateOfManufacture: dateOfManufacture, lowCalorie: true)
-        admin.add(product: pepsiCoke)
+        let pepsiCoke = PepsiCoke.init(lowCalorie: true)
+        addProduct(pepsiCoke)
+    }
+
+    private func addProduct(_ product: Beverage) {
+        admin.add(product: product)
         refreshBeverageCount()
     }
 

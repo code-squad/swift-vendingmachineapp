@@ -12,7 +12,6 @@ class ViewController: UIViewController {
     @IBOutlet var stockLabel: [UILabel]!
     @IBOutlet var buttonGroup: [UIButton]!
     @IBOutlet weak var balanceLabel: UILabel!
-    private var vendingMachine = VendingMachineData()
     private let countingUnit = "개"
     private let fiveThounsand = 5000
     private let oneThounsand = 1000
@@ -69,5 +68,11 @@ extension Int {
     }()
     var commaRepresentation: String {
         return Int.commaFormatter.string(from: NSNumber(value: self)) ?? ""
+    }
+}
+extension ViewController {
+    var vendingMachine: VendingMachineData {
+        let appDelegate = UIApplication.shared.delegate as? AppDelegate
+        return (appDelegate?.vendingMachine)!
     }
 }

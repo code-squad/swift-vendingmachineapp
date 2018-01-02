@@ -15,15 +15,7 @@ class ViewController: UIViewController {
     private var dateOfManufacture: Date!
     private var validate: Date!
 
-    @IBOutlet weak var chocolateMilkCount: UILabel!
-    @IBOutlet weak var bananaMilkCount: UILabel!
-    @IBOutlet weak var strawberryMilkCount: UILabel!
-    @IBOutlet weak var georgiaCount: UILabel!
-    @IBOutlet weak var cantataCount: UILabel!
-    @IBOutlet weak var topCoffeeCount: UILabel!
-    @IBOutlet weak var spriteCount: UILabel!
-    @IBOutlet weak var fantaCount: UILabel!
-    @IBOutlet weak var pepsiCount: UILabel!
+    @IBOutlet var beverageCounts: [UILabel]!
 
     @IBOutlet weak var balance: UILabel!
 
@@ -37,15 +29,7 @@ class ViewController: UIViewController {
     }
 
     private func setVendingMachine() {
-        chocolateMilkCount.text = "0 개"
-        bananaMilkCount.text = "0 개"
-        strawberryMilkCount.text = "0 개"
-        georgiaCount.text = "0 개"
-        cantataCount.text = "0 개"
-        topCoffeeCount.text = "0 개"
-        spriteCount.text = "0 개"
-        fantaCount.text = "0 개"
-        pepsiCount.text = "0 개"
+        beverageCounts.forEach { $0.text = "0 개" }
         balance.text = String(format: "잔액 : %6d 원", 0)
     }
 
@@ -129,23 +113,23 @@ class ViewController: UIViewController {
     private func setBeverageCountLabel(_ key: Category, _ value: Products) {
         switch key {
         case "초코우유":
-            chocolateMilkCount.text = "\(value.count) 개"
+            beverageCounts[0].text = "\(value.count) 개"
         case "바나나우유":
-            bananaMilkCount.text = "\(value.count) 개"
+            beverageCounts[1].text = "\(value.count) 개"
         case "딸기우유":
-            strawberryMilkCount.text = "\(value.count) 개"
+            beverageCounts[2].text = "\(value.count) 개"
         case "죠지아커피":
-            georgiaCount.text = "\(value.count) 개"
+            beverageCounts[3].text = "\(value.count) 개"
         case "칸타타커피":
-            cantataCount.text = "\(value.count) 개"
+            beverageCounts[4].text = "\(value.count) 개"
         case "TOP커피":
-            topCoffeeCount.text = "\(value.count) 개"
+            beverageCounts[5].text = "\(value.count) 개"
         case "사이다":
-            spriteCount.text = "\(value.count) 개"
+            beverageCounts[6].text = "\(value.count) 개"
         case "환타":
-            fantaCount.text = "\(value.count) 개"
+            beverageCounts[7].text = "\(value.count) 개"
         case "펩시콜라":
-            pepsiCount.text = "\(value.count) 개"
+            beverageCounts[8].text = "\(value.count) 개"
         default:
             return
         }

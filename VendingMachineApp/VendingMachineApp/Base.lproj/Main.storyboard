@@ -229,15 +229,15 @@
                     </view>
                     <connections>
                         <outlet property="balance" destination="8BI-1e-fUM" id="kmo-J2-Sf9"/>
-                        <outlet property="bananaMilkCount" destination="UrY-u5-jvh" id="8Er-dI-z9i"/>
-                        <outlet property="cantataCount" destination="N5Q-FY-rjt" id="j0N-rX-V0i"/>
-                        <outlet property="chocolateMilkCount" destination="Icz-bb-rVo" id="qdU-iI-hO0"/>
-                        <outlet property="fantaCount" destination="doO-ja-DdG" id="2jb-0L-e0W"/>
-                        <outlet property="georgiaCount" destination="d4e-bN-twA" id="Ch6-q8-etP"/>
-                        <outlet property="pepsiCount" destination="eK8-aa-MxU" id="XA9-Lo-6me"/>
-                        <outlet property="spriteCount" destination="ewi-UR-pEG" id="Jhq-83-YoO"/>
-                        <outlet property="strawberryMilkCount" destination="jzh-wr-Plx" id="ptZ-BW-JP7"/>
-                        <outlet property="topCoffeeCount" destination="xUW-5f-h5x" id="oyT-QF-fdK"/>
+                        <outletCollection property="beverageCounts" destination="Icz-bb-rVo" collectionClass="NSMutableArray" id="S7R-gg-VU1"/>
+                        <outletCollection property="beverageCounts" destination="UrY-u5-jvh" collectionClass="NSMutableArray" id="mEC-no-qoC"/>
+                        <outletCollection property="beverageCounts" destination="jzh-wr-Plx" collectionClass="NSMutableArray" id="QlX-dw-Lep"/>
+                        <outletCollection property="beverageCounts" destination="d4e-bN-twA" collectionClass="NSMutableArray" id="BBa-zK-vYR"/>
+                        <outletCollection property="beverageCounts" destination="N5Q-FY-rjt" collectionClass="NSMutableArray" id="ULe-Ro-LXv"/>
+                        <outletCollection property="beverageCounts" destination="xUW-5f-h5x" collectionClass="NSMutableArray" id="HiW-im-1oW"/>
+                        <outletCollection property="beverageCounts" destination="ewi-UR-pEG" collectionClass="NSMutableArray" id="SwE-Cg-ORO"/>
+                        <outletCollection property="beverageCounts" destination="doO-ja-DdG" collectionClass="NSMutableArray" id="0Oi-sP-V0k"/>
+                        <outletCollection property="beverageCounts" destination="eK8-aa-MxU" collectionClass="NSMutableArray" id="KDm-ER-ghD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -43,6 +43,7 @@
 		8E0985CC1FF5039400F777DF /* strawberryMilk.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8E0985C11FF5039200F777DF /* strawberryMilk.jpg */; };
 		8E0985CF1FF5039400F777DF /* pepsi.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8E0985C41FF5039400F777DF /* pepsi.jpg */; };
 		8E0985D21FFB2D3E00F777DF /* cantata.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8E0985D11FFB2D3D00F777DF /* cantata.jpg */; };
+		8E2E02721FFB727200C41065 /* Coins.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2E02711FFB727200C41065 /* Coins.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +106,7 @@
 		8E0985C11FF5039200F777DF /* strawberryMilk.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = strawberryMilk.jpg; sourceTree = "<group>"; };
 		8E0985C41FF5039400F777DF /* pepsi.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pepsi.jpg; sourceTree = "<group>"; };
 		8E0985D11FFB2D3D00F777DF /* cantata.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cantata.jpg; sourceTree = "<group>"; };
+		8E2E02711FFB727200C41065 /* Coins.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coins.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,6 +208,7 @@
 				8E0985711FF499F700F777DF /* VendingMachineAdmin.swift */,
 				8E09856C1FF499F700F777DF /* VendingMachineProtocol.swift */,
 				8E0985701FF499F700F777DF /* VendingMachineUser.swift */,
+				8E2E02711FFB727200C41065 /* Coins.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -401,6 +404,7 @@
 				8E0985871FF499F900F777DF /* VendingMachineAdmin.swift in Sources */,
 				8E0985851FF499F900F777DF /* Cantata.swift in Sources */,
 				8E0985861FF499F900F777DF /* VendingMachineUser.swift in Sources */,
+				8E2E02721FFB727200C41065 /* Coins.swift in Sources */,
 				8E0985891FF499F900F777DF /* PepsiCoke.swift in Sources */,
 				8E0985831FF499F900F777DF /* Fanta.swift in Sources */,
 				8E09858D1FF499F900F777DF /* ValidationChecker.swift in Sources */,

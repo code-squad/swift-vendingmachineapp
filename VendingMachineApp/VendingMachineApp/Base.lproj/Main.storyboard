@@ -102,10 +102,11 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pLM-eI-uYx">
                                 <rect key="frame" x="854" y="289" width="70" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration" identifier="222"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="+1000"/>
                                 <connections>
-                                    <action selector="insert1000Coins:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Mhp-fm-vsE"/>
+                                    <action selector="insertCoins:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EUk-Bs-Vdr"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hvj-S1-yb3">
@@ -114,7 +115,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="+5000"/>
                                 <connections>
-                                    <action selector="insert5000coins:" destination="BYZ-38-t0r" eventType="touchUpInside" id="u2M-C2-PNh"/>
+                                    <action selector="insertCoins:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IBs-FX-zme"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Icz-bb-rVo">

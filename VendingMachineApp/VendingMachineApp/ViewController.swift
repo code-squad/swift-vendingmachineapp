@@ -97,23 +97,23 @@ class ViewController: UIViewController {
 
     private func setBeverageCountLabel(_ key: Category, _ value: Products) {
         switch key {
-        case "초코우유":
+        case Milk.MilkCategory.chocolate.name:
             beverageCounts[0].text = "\(value.count) 개"
-        case "바나나우유":
+        case Milk.MilkCategory.banana.name:
             beverageCounts[1].text = "\(value.count) 개"
-        case "딸기우유":
+        case Milk.MilkCategory.strawberry.name:
             beverageCounts[2].text = "\(value.count) 개"
-        case "죠지아커피":
+        case Coffee.CoffeeCategory.georgia.name:
             beverageCounts[3].text = "\(value.count) 개"
-        case "칸타타커피":
+        case Coffee.CoffeeCategory.cantata.name:
             beverageCounts[4].text = "\(value.count) 개"
-        case "TOP커피":
+        case Coffee.CoffeeCategory.topCoffee.name:
             beverageCounts[5].text = "\(value.count) 개"
-        case "사이다":
+        case Soda.SodaCategory.sprite.name:
             beverageCounts[6].text = "\(value.count) 개"
-        case "환타":
+        case Soda.SodaCategory.fanta.name:
             beverageCounts[7].text = "\(value.count) 개"
-        case "펩시콜라":
+        case Soda.SodaCategory.pepsi.name:
             beverageCounts[8].text = "\(value.count) 개"
         default:
             return

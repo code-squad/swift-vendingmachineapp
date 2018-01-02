@@ -9,7 +9,7 @@
 import Foundation
 
 class Fanta: Soda {
-    private let taste: String = "환타"
+    private let taste: String = SodaCategory.fanta.name
 
     override init(brand: String, weight: Int, price: Int, name: String, dateOfManufacture: Date, lowCalorie: Bool) {
         super.init(brand: brand, weight: weight, price: price, name: name,

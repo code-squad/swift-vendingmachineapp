@@ -9,10 +9,10 @@
 import Foundation
 
 class Georgia: Coffee {
-    private let taste: String = "죠지아커피"
+    private let taste: String = CoffeeCategory.georgia.name
 
     init(hot: Bool) {
-        super.init(coffeeCategory: Coffee.CoffeeCategory.georgia, dateOfManufacture: Date(), hot: hot)
+        super.init(coffeeCategory: CoffeeCategory.georgia, dateOfManufacture: Date(), hot: hot)
     }
 
     override init(brand: String, weight: Int, price: Int, name: String, dateOfManufacture: Date, hot: Bool) {

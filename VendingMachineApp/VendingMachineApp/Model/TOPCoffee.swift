@@ -9,7 +9,7 @@
 import Foundation
 
 class TOPCoffee: Coffee {
-    private let taste: String = "TOP커피"
+    private let taste: String = CoffeeCategory.topCoffee.name
 
     init(hot: Bool) {
         super.init(coffeeCategory: Coffee.CoffeeCategory.topCoffee, dateOfManufacture: Date(), hot: hot)

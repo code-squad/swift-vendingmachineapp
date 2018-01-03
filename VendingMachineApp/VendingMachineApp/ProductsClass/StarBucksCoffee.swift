@@ -9,10 +9,18 @@
 import Foundation
 
 class StarBucksCoffee: Coffee {
-    private let reserve: Bool
+    private let reserve: Bool = false
+    convenience init() {
+        self.init(manufacturingDate: Date())
+    }
     init(manufacturingDate: Date) {
-        self.reserve = false
         super.init(kind: "커피", caffeine: true, temperature: 98, brand: "스타벅스", volume: 700, price: 2000, name: "스타벅스아메리카노", manufacturingDate: manufacturingDate)
+    }
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    override func encode(with aCoder: NSCoder) {
+        super.encode(with: aCoder)
     }
     override var description: String {
         return "\(String(describing: type(of: self)))"

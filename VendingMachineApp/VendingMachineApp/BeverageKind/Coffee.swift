@@ -9,12 +9,25 @@
 import Foundation
 
 class Coffee: Beverage, BeverageCheck {
-    private (set) var kind: String
-    private let caffeine: Bool
+    private (set) var kind: String = ""
+    private var caffeine: Bool = true
     init(kind: String, caffeine: Bool, temperature: Double, brand: String, volume: Int, price: Int, name: String, manufacturingDate: Date) {
         self.kind = kind
         self.caffeine = caffeine
         super.init(brand: brand, volume: volume, price: price, name: name, manufacturingDate: manufacturingDate, temperature: temperature)
+    }
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        guard let kind = aDecoder.decodeObject(forKey: "kind") as? String else {
+            return
+        }
+        self.kind = kind
+        self.caffeine = aDecoder.decodeBool(forKey: "caffeine")
+    }
+    override func encode(with aCoder: NSCoder) {
+        aCoder.encode(self.kind, forKey: "kind")
+        aCoder.encode(self.caffeine, forKey: "caffeine")
+        super.encode(with: aCoder)
     }
     func isCaffeine() -> Bool {
         return caffeine

@@ -21,6 +21,11 @@ class TOPCoffee: Coffee {
         try super.init(from: decoder)
     }
 
+    override func encode(to encoder: Encoder) throws {
+        var container = encoder.unkeyedContainer()
+        try container.encode(taste)
+    }
+
     override var description: String {
         return "\(taste)(\(String(describing: TOPCoffee.self))) - " + super.description
     }

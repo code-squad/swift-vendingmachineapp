@@ -120,11 +120,8 @@ class ViewController: UIViewController {
         }
     }
 
-    @IBAction func insertCoins(_ sender: Any) {
-        guard let button = sender as? UIButton else {
-            return
-        }
-        switch button.tag {
+    @IBAction func insertCoins(_ sender: UIButton) {
+        switch sender.tag {
         case Coins.thousand.value:
             user.insertCoins(Coins.thousand.value)
         case Coins.fiveThousand.value:

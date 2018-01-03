@@ -9,22 +9,19 @@
 import UIKit
 
 class ViewController: UIViewController {
-    private let vendingMachine = VendingMachine()
     private var admin: VendingMachineAdmin!
     private var user: VendingMachineUser!
-    private var dateOfManufacture: Date!
     private var validate: Date!
 
     @IBOutlet var beverageCounts: [UILabel]!
-
     @IBOutlet weak var balance: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        dateOfManufacture = Date()
-        validate = Date.init(timeInterval: (60.0 * 60 * 24 * 14), since: dateOfManufacture)
-        admin = VendingMachineAdmin.init(vendingMachine: vendingMachine)
-        user = VendingMachineUser.init(vendingMachine: vendingMachine)
+        let appDelegate = UIApplication.shared.delegate as? AppDelegate
+        admin = VendingMachineAdmin.init(vendingMachine: (appDelegate?.vendingMachine)!)
+        user = VendingMachineUser.init(vendingMachine: (appDelegate?.vendingMachine)!)
+        validate = Date.init(timeInterval: (60.0 * 60 * 24 * 14), since: Date())
         setVendingMachine()
     }
 

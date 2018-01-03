@@ -78,6 +78,11 @@ class Milk: Beverage {
         try super.init(from: decoder)
     }
 
+    override func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: MilkKeys.self)
+        try container.encode(validate, forKey: .validate)
+    }
+
     func validate(with data: Date) -> Bool {
         return data < validate
     }

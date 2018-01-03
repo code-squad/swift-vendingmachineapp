@@ -25,6 +25,11 @@ class StrawberryMilk: Milk {
         try super.init(from: decoder)
     }
 
+    override func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: StrawberryMilkKeys.self)
+        try container.encode(taste, forKey: .taste)
+    }
+
     override var description: String {
         return "\(taste)(\(String(describing: StrawberryMilk.self))) - " + super.description
     }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Beverage: CustomStringConvertible {
+class Beverage: CustomStringConvertible, Codable {
     private let brand: String
     private let weight: Int
     let price: Int

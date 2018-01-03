@@ -9,15 +9,20 @@
 import Foundation
 
 class StrawberryMilk: Milk {
-    private let taste: String = MilkCategory.strawberry.name
+    private var taste: String = MilkCategory.strawberry.name
+
+    enum StrawberryMilkKeys: String, CodingKey {
+        case taste
+    }
 
     init(validate: Date) {
         super.init(milkCategory: Milk.MilkCategory.strawberry, dateOfManufacture: Date(), validate: validate)
     }
 
-    override init(brand: String, weight: Int, price: Int, name: String, dateOfManufacture: Date, validate: Date) {
-        super.init(brand: brand, weight: weight, price: price, name: name,
-                   dateOfManufacture: dateOfManufacture, validate: validate)
+    required init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: StrawberryMilkKeys.self)
+        taste = try values.decode(String.self, forKey: .taste)
+        try super.init(from: decoder)
     }
 
     override var description: String {

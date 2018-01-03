@@ -11,6 +11,10 @@ import Foundation
 class Milk: Beverage {
     private var validate: Date
 
+    enum MilkKeys: String, CodingKey {
+        case validate
+    }
+
     enum MilkCategory {
         case chocolate
         case banana
@@ -61,16 +65,17 @@ class Milk: Beverage {
         }
     }
 
-    init(brand: String, weight: Int, price: Int, name: String, dateOfManufacture: Date, validate: Date) {
-        self.validate = validate
-        super.init(brand: brand, weight: weight, price: price, name: name, dateOfManufacture: dateOfManufacture)
-    }
-
     init(milkCategory: MilkCategory, dateOfManufacture: Date, validate: Date) {
         self.validate = validate
         super.init(brand: milkCategory.brand, weight: milkCategory.weight,
                    price: milkCategory.price, name: milkCategory.name,
                    dateOfManufacture: dateOfManufacture)
+    }
+
+    required init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: MilkKeys.self)
+        validate = try values.decode(Date.self, forKey: .validate)
+        try super.init(from: decoder)
     }
 
     func validate(with data: Date) -> Bool {

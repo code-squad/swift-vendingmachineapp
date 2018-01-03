@@ -9,15 +9,16 @@
 import Foundation
 
 class Sprite: Soda {
-    private let taste: String = SodaCategory.sprite.name
-
-    override init(brand: String, weight: Int, price: Int, name: String, dateOfManufacture: Date, lowCalorie: Bool) {
-        super.init(brand: brand, weight: weight, price: price, name: name,
-                   dateOfManufacture: dateOfManufacture, lowCalorie: lowCalorie)
-    }
+    private var taste: String = SodaCategory.sprite.name
 
     init(lowCalorie: Bool) {
         super.init(sodaCategory: Soda.SodaCategory.sprite, dateOfManufacture: Date(), lowCalorie: lowCalorie)
+    }
+
+    required init(from decoder: Decoder) throws {
+        let value = try decoder.singleValueContainer()
+        taste = try value.decode(String.self)
+        try super.init(from: decoder)
     }
 
     override var description: String {

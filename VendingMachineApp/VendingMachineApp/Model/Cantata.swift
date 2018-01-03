@@ -9,15 +9,16 @@
 import Foundation
 
 class Cantata: Coffee {
-    private let taste: String = CoffeeCategory.cantata.name
+    private var taste: String = CoffeeCategory.cantata.name
 
     init(hot: Bool) {
         super.init(coffeeCategory: Coffee.CoffeeCategory.cantata, dateOfManufacture: Date(), hot: hot)
     }
 
-    override init(brand: String, weight: Int, price: Int, name: String, dateOfManufacture: Date, hot: Bool) {
-        super.init(brand: brand, weight: weight, price: price, name: name,
-                   dateOfManufacture: dateOfManufacture, hot: hot)
+    required init(from decoder: Decoder) throws {
+        var value = try decoder.unkeyedContainer()
+        taste = try value.decode(String.self)
+        try super.init(from: decoder)
     }
 
     override var description: String {

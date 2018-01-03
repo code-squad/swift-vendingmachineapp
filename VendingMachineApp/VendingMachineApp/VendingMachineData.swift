@@ -8,26 +8,36 @@
 
 import Foundation
 
-class VendingMachineData {
-    private (set) var stock: [Beverage]
+class VendingMachineData: NSObject, NSCoding, NSCopying {
+    private (set) var stock = [Beverage]()
     private (set) var sortedStockList = [Beverage: Int]()
-    private (set) var balance: Int
-    convenience init() {
+    private (set) var balance: Int = 0
+    convenience override init() {
         self.init(stock: [])
     }
     init(stock: [Beverage]) {
+        super.init()
         self.stock = stock
         self.balance = 0
         for item in stock {
             self.makeBeverageList(item)
         }
     }
-    private func makeBeverageList(_ item: Beverage) {
-        if sortedStockList[item] != nil {
-            sortedStockList[item]! += 1
-        } else {
-            sortedStockList[item] = 1
+    required init?(coder aDecoder: NSCoder) {
+        super.init()
+        guard let stock = aDecoder.decodeObject(forKey: "stock") as? [Beverage] else { return }
+        self.stock = stock
+//        guard let sortedStockList = aDecoder.decodeObject(forKey: "sortedStockList") as? [Beverage: Int] else { return }
+        for item in stock {
+            self.makeBeverageList(item)
         }
+//        self.sortedStockList = sortedStockList
+        self.balance = aDecoder.decodeInteger(forKey: "balance")
+    }
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(self.stock, forKey: "stock")
+//        aCoder.encode(self.sortedStockList, forKey: "sortedStockList")
+        aCoder.encode(self.balance, forKey: "balance")
     }
     init(stock: [Beverage], stockList: [Beverage: Int], balance: Int) {
         self.stock = stock
@@ -55,6 +65,13 @@ class VendingMachineData {
         stock.append(item)
         makeBeverageList(item)
     }
+    private func makeBeverageList(_ item: Beverage) {
+        if sortedStockList[item] != nil {
+            sortedStockList[item]! += 1
+        } else {
+            sortedStockList[item] = 1
+        }
+    }
     func removeBeverage(_ item: Beverage) throws {
         guard let index = stock.index(where: { $0.name == item.name }) else {
             throw ErrorCode.noStock
@@ -64,5 +81,11 @@ class VendingMachineData {
         }
         sortedStockList[item]! -= 1
         stock.remove(at: index)
+    }
+}
+extension VendingMachineData {
+    func copy(with zone: NSZone? = nil) -> Any {
+        let newBeverage = Beverage()
+        return newBeverage
     }
 }

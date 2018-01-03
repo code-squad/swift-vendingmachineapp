@@ -18,38 +18,52 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let boundRatio: CGFloat = 15.0
-        for button in buttonGroup {
-            button.layer.cornerRadius = boundRatio
+        buttonGroup.forEach { $0.layer.cornerRadius = boundRatio }
+        setViewDidLoad()
+    }
+    private func setViewDidLoad() {
+        balanceLabel.text = String(vendingMachine.balance.commaRepresentation)
+        let keyBox = [LightBananaMilk(), Coke(), StarBucksCoffee(), Sprite(), CeylonTea()]
+        for index in 0..<stockLabel.count {
+            setLabelContents(label: index, key: keyBox[index])
+        }
+    }
+    private func setLabelContents(label index: Int, key: Beverage) {
+        if let sortedBeverage = vendingMachine.sortedStockList[key] {
+            stockLabel[index].text = "\(sortedBeverage)" + countingUnit
+        } else {
+            stockLabel[index].text = "0" + countingUnit
         }
     }
     @IBAction func bananaAddTouched(_ sender: Any) {
         let lightBanana = LightBananaMilk(manufacturingDate: Date())
         vendingMachine.addBeverage(lightBanana)
-        stockLabel[0].text = "\(vendingMachine.sortedStockList[lightBanana]!)" + countingUnit
+        setLabelContents(label: 0, key: lightBanana)
     }
     @IBAction func cokeAddTouched(_ sender: Any) {
         let coke = Coke(manufacturingDate: Date())
         vendingMachine.addBeverage(coke)
-        stockLabel[1].text = "\(vendingMachine.sortedStockList[coke]!)" + countingUnit
+        setLabelContents(label: 1, key: coke)
     }
     @IBAction func starBucksAddTouched(_ sender: Any) {
         let starBucks = StarBucksCoffee(manufacturingDate: Date())
         vendingMachine.addBeverage(starBucks)
-        stockLabel[2].text = "\(vendingMachine.sortedStockList[starBucks]!)" + countingUnit
+        setLabelContents(label: 2, key: starBucks)
     }
     @IBAction func spriteAddTouched(_ sender: Any) {
         let sprite = Sprite(manufacturingDate: Date())
         vendingMachine.addBeverage(sprite)
-        stockLabel[3].text = "\(vendingMachine.sortedStockList[sprite]!)" + countingUnit
+        setLabelContents(label: 3, key: sprite)
     }
     @IBAction func ceylonAddTouched(_ sender: Any) {
         let ceylonTea = CeylonTea(manufacturingDate: Date())
         vendingMachine.addBeverage(ceylonTea)
-        stockLabel[4].text = "\(vendingMachine.sortedStockList[ceylonTea]!)" + countingUnit
+        setLabelContents(label: 4, key: ceylonTea)
     }
     @IBAction func addFiveBalanceTouched(_ sender: Any) {
         vendingMachine.insertMoney(fiveThounsand)
         balanceLabel.text = vendingMachine.balance.commaRepresentation
+        UserDefaults.standard.integer(forKey: "balance")
     }
     @IBAction func addOneBalanceTouched(_ sender: Any) {
         vendingMachine.insertMoney(oneThounsand)
@@ -57,7 +71,6 @@ class ViewController: UIViewController {
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 }
 extension Int {
@@ -72,7 +85,9 @@ extension Int {
 }
 extension ViewController {
     var vendingMachine: VendingMachineData {
-        let appDelegate = UIApplication.shared.delegate as? AppDelegate
-        return (appDelegate?.vendingMachine)!
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return VendingMachineData()
+        }
+        return appDelegate.vendingMachine
     }
 }

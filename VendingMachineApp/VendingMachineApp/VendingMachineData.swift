@@ -8,7 +8,7 @@
 
 import Foundation
 
-class VendingMachineData: NSObject, NSCoding, NSCopying {
+class VendingMachineData: NSObject, NSCoding {
     private (set) var stock = [Beverage]()
     private (set) var sortedStockList = [Beverage: Int]()
     private (set) var balance: Int = 0
@@ -27,16 +27,13 @@ class VendingMachineData: NSObject, NSCoding, NSCopying {
         super.init()
         guard let stock = aDecoder.decodeObject(forKey: "stock") as? [Beverage] else { return }
         self.stock = stock
-//        guard let sortedStockList = aDecoder.decodeObject(forKey: "sortedStockList") as? [Beverage: Int] else { return }
         for item in stock {
             self.makeBeverageList(item)
         }
-//        self.sortedStockList = sortedStockList
         self.balance = aDecoder.decodeInteger(forKey: "balance")
     }
     func encode(with aCoder: NSCoder) {
         aCoder.encode(self.stock, forKey: "stock")
-//        aCoder.encode(self.sortedStockList, forKey: "sortedStockList")
         aCoder.encode(self.balance, forKey: "balance")
     }
     init(stock: [Beverage], stockList: [Beverage: Int], balance: Int) {
@@ -66,8 +63,8 @@ class VendingMachineData: NSObject, NSCoding, NSCopying {
         makeBeverageList(item)
     }
     private func makeBeverageList(_ item: Beverage) {
-        if sortedStockList[item] != nil {
-            sortedStockList[item]! += 1
+        if let stockListNumber = sortedStockList[item] {
+            sortedStockList[item] = stockListNumber + 1
         } else {
             sortedStockList[item] = 1
         }
@@ -83,7 +80,7 @@ class VendingMachineData: NSObject, NSCoding, NSCopying {
         stock.remove(at: index)
     }
 }
-extension VendingMachineData {
+extension VendingMachineData: NSCopying {
     func copy(with zone: NSZone? = nil) -> Any {
         let newBeverage = Beverage()
         return newBeverage

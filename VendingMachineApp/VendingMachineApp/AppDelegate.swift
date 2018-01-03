@@ -14,6 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var vendingMachine: VendingMachine!
     private var encodedData: Data!
+    private let userDefaults = UserDefaults.standard
 
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -27,6 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidEnterBackground(_ application: UIApplication) {
         encodedData = try? JSONEncoder().encode(vendingMachine)
+        userDefaults.set(encodedData, forKey: "encodedData")
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {

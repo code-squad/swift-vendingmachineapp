@@ -11,6 +11,10 @@ import Foundation
 class Soda: Beverage {
     private let lowCalorie: Bool
 
+    enum SodaKeys: String, CodingKey {
+        case lowCalorie
+    }
+
     enum SodaCategory {
         case sprite
         case fanta
@@ -61,16 +65,17 @@ class Soda: Beverage {
         }
     }
 
-    init(brand: String, weight: Int, price: Int, name: String, dateOfManufacture: Date, lowCalorie: Bool) {
-        self.lowCalorie = lowCalorie
-        super.init(brand: brand, weight: weight, price: price, name: name, dateOfManufacture: dateOfManufacture)
-    }
-
     init(sodaCategory: SodaCategory, dateOfManufacture: Date, lowCalorie: Bool) {
         self.lowCalorie = lowCalorie
         super.init(brand: sodaCategory.brand, weight: sodaCategory.weight,
                    price: sodaCategory.price, name: sodaCategory.name,
                    dateOfManufacture: dateOfManufacture)
+    }
+
+    required init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: SodaKeys.self)
+        lowCalorie = try values.decode(Bool.self, forKey: .lowCalorie)
+        try super.init(from: decoder)
     }
 
     func isLowCalorie() -> Bool {

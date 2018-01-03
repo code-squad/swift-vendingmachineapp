@@ -12,7 +12,7 @@ typealias Products = [Beverage]
 typealias Category = String
 typealias Inventory = [Category: Products]
 
-class VendingMachine: VendingMachineProtocol, CustomStringConvertible {
+class VendingMachine: VendingMachineProtocol, CustomStringConvertible, Codable {
     private var coins: Int
     private var inventory: Inventory
     private var salesHistory: Products = []

@@ -11,6 +11,10 @@ import Foundation
 class Coffee: Beverage {
     private var hot: Bool
 
+    enum CoffeeKeys: String, CodingKey {
+        case hot
+    }
+
     enum CoffeeCategory {
         case georgia
         case cantata
@@ -61,16 +65,17 @@ class Coffee: Beverage {
         }
     }
 
-    init(brand: String, weight: Int, price: Int, name: String, dateOfManufacture: Date, hot: Bool) {
-        self.hot = hot
-        super.init(brand: brand, weight: weight, price: price, name: name, dateOfManufacture: dateOfManufacture)
-    }
-
     init(coffeeCategory: CoffeeCategory, dateOfManufacture: Date, hot: Bool) {
         self.hot = hot
         super.init(brand: coffeeCategory.brand, weight: coffeeCategory.weight,
                    price: coffeeCategory.price, name: coffeeCategory.name,
                    dateOfManufacture: dateOfManufacture)
+    }
+
+    required init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CoffeeKeys.self)
+        hot = try values.decode(Bool.self, forKey: .hot)
+        try super.init(from: decoder)
     }
 
     func isHot() -> Bool {

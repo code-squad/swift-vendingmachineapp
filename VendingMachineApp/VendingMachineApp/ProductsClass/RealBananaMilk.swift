@@ -9,12 +9,19 @@
 import Foundation
 
 class RealBananaMilk: Milk {
-    private let bananMilkColor: String
-    private let flavor: String
-    init(volume: Int, price: Int, manufacturingDate: Date) {
-        self.bananMilkColor = "WHITE"
-        self.flavor = "바나나향"
-        super.init(kind: "바나나", fatContent: 7, temperature: 4, brand: "매일우유", volume: volume, price: price, name: "바나나는 원래 하얗다", manufacturingDate: manufacturingDate)
+    private let bananMilkColor: String = "WHITE"
+    private let flavor: String = "바나나향"
+    convenience init() {
+        self.init(manufacturingDate: Date())
+    }
+    init(manufacturingDate: Date) {
+        super.init(kind: "바나나", fatContent: 7, temperature: 4, brand: "매일우유", volume: 270, price: 1200, name: "바나나는 원래 하얗다", manufacturingDate: manufacturingDate)
+    }
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    override func encode(with aCoder: NSCoder) {
+        super.encode(with: aCoder)
     }
     override var description: String {
         return "\(String(describing: type(of: self)))"

@@ -9,10 +9,18 @@
 import Foundation
 
 class LightBananaMilk: Milk {
-    private var bottleCapColor: String
+    private let bottleCapColor: String = "BLUE"
+    convenience init() {
+        self.init(manufacturingDate: Date())
+    }
     init(manufacturingDate: Date) {
-        self.bottleCapColor = "BLUE"
         super.init(kind: "바나나", fatContent: 1.5, temperature: 4, brand: "빙그레", volume: 250, price: 700, name: "저지방 바나나우유", manufacturingDate: manufacturingDate)
+    }
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    override func encode(with aCoder: NSCoder) {
+        super.encode(with: aCoder)
     }
     override var description: String {
         return "\(String(describing: type(of: self)))"

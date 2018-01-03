@@ -9,12 +9,25 @@
 import Foundation
 
 class SodaPop: Beverage, BeverageCheck {
-    private (set) var kind: String
-    private let sugarContent: Double
+    private (set) var kind: String = ""
+    private var sugarContent: Double = 0
     init(kind: String, sugarContent: Double, temperature: Double, brand: String, volume: Int, price: Int, name: String, manufacturingDate: Date) {
         self.kind = kind
         self.sugarContent = sugarContent
         super.init(brand: brand, volume: volume, price: price, name: name, manufacturingDate: manufacturingDate, temperature: temperature)
+    }
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        guard let kind = aDecoder.decodeObject(forKey: "kind") as? String else {
+            return
+        }
+        self.kind = kind
+        self.sugarContent = aDecoder.decodeDouble(forKey: "sugarContent")
+    }
+    override func encode(with aCoder: NSCoder) {
+        aCoder.encode(self.kind, forKey: "kind")
+        aCoder.encode(self.sugarContent, forKey: "sugarContent")
+        super.encode(with: aCoder)
     }
     func isHighSugar() -> Bool {
         return sugarContent > 5

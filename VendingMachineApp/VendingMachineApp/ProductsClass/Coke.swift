@@ -9,17 +9,23 @@
 import Foundation
 
 class Coke: SodaPop {
-    private let bottelLabelColor: String
-    private var businessUse: Bool
+    private let bottelLabelColor: String = "RED"
+    private let businessUse: Bool = true
+    convenience init() {
+        self.init(manufacturingDate: Date())
+    }
     init(manufacturingDate: Date) {
-        self.bottelLabelColor = "RED"
-        self.businessUse = true
         super.init(kind: "콜라", sugarContent: 4, temperature: 4, brand: "코카콜라", volume: 250, price: 700, name: "CocaCola", manufacturingDate: manufacturingDate)
+    }
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    override func encode(with aCoder: NSCoder) {
+        super.encode(with: aCoder)
     }
     override var description: String {
         return "\(String(describing: type(of: self)))"
     }
-
     func isBusinessUse() -> Bool {
         return businessUse
     }

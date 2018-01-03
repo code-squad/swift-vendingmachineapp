@@ -9,10 +9,18 @@
 import Foundation
 
 class CeylonTea: Milk {
-    private let flavor: String
+    private let flavor: String = "홍차향"
+    convenience init() {
+        self.init(manufacturingDate: Date())
+    }
     init(manufacturingDate: Date) {
-        self.flavor = "홍차향"
         super.init(kind: "밀크티", fatContent: 7, temperature: 90, brand: "롯데", volume: 250, price: 700, name: "실론티", manufacturingDate: manufacturingDate)
+    }
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    override func encode(with aCoder: NSCoder) {
+        super.encode(with: aCoder)
     }
     override var description: String {
         return "\(String(describing: type(of: self)))"

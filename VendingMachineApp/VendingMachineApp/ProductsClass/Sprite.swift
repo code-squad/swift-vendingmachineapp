@@ -9,12 +9,19 @@
 import Foundation
 
 class Sprite: SodaPop {
-    private let bottelLabelColor: String
-    private var businessUse: Bool
+    private let bottelLabelColor: String = "Green"
+    private let businessUse: Bool = false
+    convenience init() {
+        self.init(manufacturingDate: Date())
+    }
     init(manufacturingDate: Date) {
-        self.bottelLabelColor = "Green"
-        self.businessUse = false
         super.init(kind: "스프라이트", sugarContent: 4, temperature: 4, brand: "코카콜라", volume: 200, price: 700, name: "스프라이트", manufacturingDate: manufacturingDate)
+    }
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    override func encode(with aCoder: NSCoder) {
+        super.encode(with: aCoder)
     }
     override var description: String {
         return "\(String(describing: type(of: self)))"

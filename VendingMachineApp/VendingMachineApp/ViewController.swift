@@ -22,14 +22,14 @@ class ViewController: UIViewController {
         setViewDidLoad()
     }
     private func setViewDidLoad() {
-        balanceLabel.text = String(vendingMachine.balance.commaRepresentation)
+        balanceLabel.text = String(VendingMachineData.sharedInstance.balance.commaRepresentation)
         let keyBox = [LightBananaMilk(), Coke(), StarBucksCoffee(), Sprite(), CeylonTea()]
         for index in 0..<stockLabel.count {
             setLabelContents(label: index, key: keyBox[index])
         }
     }
     private func setLabelContents(label index: Int, key: Beverage) {
-        if let sortedBeverage = vendingMachine.sortedStockList[key] {
+        if let sortedBeverage = VendingMachineData.sharedInstance.sortedStockList[key] {
             stockLabel[index].text = "\(sortedBeverage)" + countingUnit
         } else {
             stockLabel[index].text = "0" + countingUnit
@@ -37,37 +37,37 @@ class ViewController: UIViewController {
     }
     @IBAction func bananaAddTouched(_ sender: Any) {
         let lightBanana = LightBananaMilk(manufacturingDate: Date())
-        vendingMachine.addBeverage(lightBanana)
+        VendingMachineData.sharedInstance.addBeverage(lightBanana)
         setLabelContents(label: 0, key: lightBanana)
     }
     @IBAction func cokeAddTouched(_ sender: Any) {
         let coke = Coke(manufacturingDate: Date())
-        vendingMachine.addBeverage(coke)
+        VendingMachineData.sharedInstance.addBeverage(coke)
         setLabelContents(label: 1, key: coke)
     }
     @IBAction func starBucksAddTouched(_ sender: Any) {
         let starBucks = StarBucksCoffee(manufacturingDate: Date())
-        vendingMachine.addBeverage(starBucks)
+        VendingMachineData.sharedInstance.addBeverage(starBucks)
         setLabelContents(label: 2, key: starBucks)
     }
     @IBAction func spriteAddTouched(_ sender: Any) {
         let sprite = Sprite(manufacturingDate: Date())
-        vendingMachine.addBeverage(sprite)
+        VendingMachineData.sharedInstance.addBeverage(sprite)
         setLabelContents(label: 3, key: sprite)
     }
     @IBAction func ceylonAddTouched(_ sender: Any) {
         let ceylonTea = CeylonTea(manufacturingDate: Date())
-        vendingMachine.addBeverage(ceylonTea)
+        VendingMachineData.sharedInstance.addBeverage(ceylonTea)
         setLabelContents(label: 4, key: ceylonTea)
     }
     @IBAction func addFiveBalanceTouched(_ sender: Any) {
-        vendingMachine.insertMoney(fiveThounsand)
-        balanceLabel.text = vendingMachine.balance.commaRepresentation
+        VendingMachineData.sharedInstance.insertMoney(fiveThounsand)
+        balanceLabel.text = VendingMachineData.sharedInstance.balance.commaRepresentation
         UserDefaults.standard.integer(forKey: "balance")
     }
     @IBAction func addOneBalanceTouched(_ sender: Any) {
-        vendingMachine.insertMoney(oneThounsand)
-        balanceLabel.text = vendingMachine.balance.commaRepresentation
+        VendingMachineData.sharedInstance.insertMoney(oneThounsand)
+        balanceLabel.text = VendingMachineData.sharedInstance.balance.commaRepresentation
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -81,13 +81,5 @@ extension Int {
     }()
     var commaRepresentation: String {
         return Int.commaFormatter.string(from: NSNumber(value: self)) ?? ""
-    }
-}
-extension ViewController {
-    var vendingMachine: VendingMachineData {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            return VendingMachineData()
-        }
-        return appDelegate.vendingMachine
     }
 }

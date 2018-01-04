@@ -57,3 +57,25 @@
 ![초기 화면](capture/step2_01.png)
 ![재고 추가 화면](capture/step2_02.png)
 ![금액 추가 화면](capture/step2_03.png)
+
+---
+## Step3 (앱 생명주기와 객체 저장)
+### 요구사항
+- 앱 시작부터 종료까지 생명주기를 관리하는 방법을 학습한다.
+- 앱 실행 이후 마지막 자판기 재고 상태와 잔액 등 VendingMachine 객체의 속성을 앱을 종료하더라도 저장하도록 개선한다.
+- 앱을 다시 실행하면 마지막 재고 상태를 그대로 복원한다.
+- 객체의 속성을 저장하기 위한 아카이브(Archive) 관련된 내용을 학습한다.
+- 실행하고 새로운 화면을 캡처해서 readme.md 파일에 포함한다.
+
+### 프로그래밍 요구사항
+- VendingMachine 변수를 ViewController에서 포함하지 않고 AppDelegate로 옮긴다.
+- AppDelegate에 선언한 변수를 ViewController에서 접근하기 위한 방법을 찾는다.
+    + 힌트. UIApplication.delegate 객체가 AppDelegate의 인스터스임
+- 앱 종료(background) 시점 콜백 함수에서 VendingMachine 객체 인스턴스 속성을 저장한다.
+    + 저장할 때는 VendingMachine을 아카이브해서 하나의 데이터 값으로 변형한다.
+    + 값을 저장하고 복원하는 데에는 UserDefault 라는 파운데이션 라이브러리를 사용한다.
+- 앱 시작(activate) 시점 콜백 함수에서 기존에 저장된 값에서 불러와서 VendingMachine 객체 인스턴스를 생성한다.
+    + 복원할 때는 저장된 데이터 값을 언아카이브해서 VendingMachine 객체를 생성한다.
+
+### 특이사항
+Swift4에 새로 적용된 Codable 을 활용해서 구현

@@ -12,7 +12,11 @@ class VendingMachineData: NSObject, NSCoding {
     private (set) var stock = [Beverage]()
     private (set) var sortedStockList = [Beverage: Int]()
     private (set) var balance: Int = 0
-    convenience override init() {
+    static var sharedInstance: VendingMachineData = {
+        return VendingMachineData()
+    }()
+
+    private convenience override init() {
         self.init(stock: [])
     }
     init(stock: [Beverage]) {

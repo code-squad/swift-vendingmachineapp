@@ -11,19 +11,18 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
-    var vendingMachine = VendingMachineData()
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         if UserDefaults.standard.object(forKey: "vendingMachine") != nil {
             let userDefaultMachine = UserDefaults.standard.object(forKey: "vendingMachine")
             guard let vendingMachineData = userDefaultMachine as? Data else { return false }
             guard let unarchiveVendingMachine = NSKeyedUnarchiver.unarchiveObject(with: vendingMachineData) else { return false }
             guard let vendingMachine = unarchiveVendingMachine as? VendingMachineData else { return false }
-            self.vendingMachine = vendingMachine
+            VendingMachineData.sharedInstance = vendingMachine
         }
         return true
     }
     func applicationWillResignActive(_ application: UIApplication) {
-        UserDefaults.standard.set(NSKeyedArchiver.archivedData(withRootObject: self.vendingMachine), forKey: "vendingMachine")
+        UserDefaults.standard.set(NSKeyedArchiver.archivedData(withRootObject: VendingMachineData.sharedInstance), forKey: "vendingMachine")
     }
     func applicationDidEnterBackground(_ application: UIApplication) {
     }
@@ -32,6 +31,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidBecomeActive(_ application: UIApplication) {
     }
     func applicationWillTerminate(_ application: UIApplication) {
-        UserDefaults.standard.set(NSKeyedArchiver.archivedData(withRootObject: self.vendingMachine), forKey: "vendingMachine")
+        UserDefaults.standard.set(NSKeyedArchiver.archivedData(withRootObject: VendingMachineData.sharedInstance), forKey: "vendingMachine")
     }
 }

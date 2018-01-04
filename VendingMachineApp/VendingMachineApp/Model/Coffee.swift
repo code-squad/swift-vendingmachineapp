@@ -81,6 +81,7 @@ class Coffee: Beverage {
     override func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CoffeeKeys.self)
         try container.encode(hot, forKey: .hot)
+        try super.encode(to: encoder)
     }
 
     func isHot() -> Bool {

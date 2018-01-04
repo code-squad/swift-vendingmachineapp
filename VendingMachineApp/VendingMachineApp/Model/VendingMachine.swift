@@ -15,7 +15,7 @@ typealias Inventory = [Category: Products]
 class VendingMachine: VendingMachineProtocol, CustomStringConvertible, Codable {
     private var coins: Int
     private var inventory: Inventory
-    private var salesHistory: Products = []
+    private var salesHistory: Products
 
     enum Mode {
         case admin
@@ -26,11 +26,13 @@ class VendingMachine: VendingMachineProtocol, CustomStringConvertible, Codable {
     init() {
         coins = 0
         inventory = [:]
+        salesHistory = []
     }
 
     init(coins: Int, inventory: Inventory) {
         self.coins = coins
         self.inventory = inventory
+        self.salesHistory = []
     }
 
     var description: String {

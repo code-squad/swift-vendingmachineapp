@@ -81,6 +81,7 @@ class Milk: Beverage {
     override func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: MilkKeys.self)
         try container.encode(validate, forKey: .validate)
+        try super.encode(to: encoder)
     }
 
     func validate(with data: Date) -> Bool {

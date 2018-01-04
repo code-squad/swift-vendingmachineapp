@@ -27,12 +27,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
-        encodedData = try? JSONEncoder().encode(vendingMachine)
+        encodedData = try? PropertyListEncoder().encode(vendingMachine)
         userDefaults.set(encodedData, forKey: "encodedData")
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
-
+        let data = userDefaults.data(forKey: "encodedData")!
+        vendingMachine = try? PropertyListDecoder().decode(VendingMachine.self, from: data)
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {

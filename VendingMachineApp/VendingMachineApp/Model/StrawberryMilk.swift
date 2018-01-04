@@ -28,6 +28,7 @@ class StrawberryMilk: Milk {
     override func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: StrawberryMilkKeys.self)
         try container.encode(taste, forKey: .taste)
+        try super.encode(to: encoder)
     }
 
     override var description: String {

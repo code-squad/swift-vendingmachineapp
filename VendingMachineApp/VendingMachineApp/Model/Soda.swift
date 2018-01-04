@@ -81,6 +81,7 @@ class Soda: Beverage {
     override func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: SodaKeys.self)
         try container.encode(lowCalorie, forKey: .lowCalorie)
+        try super.encode(to: encoder)
     }
 
     func isLowCalorie() -> Bool {

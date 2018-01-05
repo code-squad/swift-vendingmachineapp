@@ -12,13 +12,12 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var vendingMachine: VendingMachine!
     private var encodedData: Data!
     private let userDefaults = UserDefaults.standard
 
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        vendingMachine = VendingMachine()
+        VendingMachine.setInstance()
         return true
     }
 
@@ -27,13 +26,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
-        encodedData = try? PropertyListEncoder().encode(vendingMachine)
+        encodedData = try? PropertyListEncoder().encode(VendingMachine.sharedInstance)
         userDefaults.set(encodedData, forKey: "encodedData")
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
         let data = userDefaults.data(forKey: "encodedData")!
-        vendingMachine = try? PropertyListDecoder().decode(VendingMachine.self, from: data)
+        VendingMachine.sharedInstance = try? PropertyListDecoder().decode(VendingMachine.self, from: data)
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {

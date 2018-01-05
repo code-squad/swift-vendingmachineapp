@@ -154,7 +154,7 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 * 단점
     * 싱글톤은 전역변수처럼 여기저기서 사용할 수 있기 때문에, 시스템에 오류가 발생할 확률이 높다.
     * 단위테스트시 어려움이 있다. 싱글톤 객체의 생성과 소멸이 확실하지 않기 때문에, 생성과 소멸 함수를 따로 만들어주어 테스트시 사용해야한다.
-    * 멀티쓰레드 완경에서 쓰레드 세이프하게 만들어줘야한다.<br>
+    * 멀티쓰레드 환경에서 쓰레드 세이프하게 만들어줘야한다.<br>
     swift에서 static이 lazily initalized되어서 GCD에서 제공해주는 dispatch_once()로 싱글톤 객체를 만들어 쓰레드 세이프하게 안해도 된다.<br>
 
     > **Dispatch** from doc.<br>

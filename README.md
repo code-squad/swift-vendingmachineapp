@@ -79,3 +79,15 @@
 
 ### 특이사항
 Swift4에 새로 적용된 Codable 을 활용해서 구현
+
+---
+## Step4 (싱글톤 모델)
+### 요구사항
+- 앱 구조 개선을 위해서 VendingMachine 객체를 싱글톤으로 변경한다.
+    + 앞단계 미션에서 사용했던 UserDefault도 싱글톤 객체
+- readme.md 파일에 주요 작업 내용(바뀐 화면 이미지, 핵심 기능 설명)과 완성 날짜시간을 기록한다.
+
+### 프로그래밍 요구사항
+- VendingMachine 객체를 싱글톤(Singleton)으로 접근할 수 있도록 개선한다.
+- VendingMachine 싱글톤으로 sharedInstance 인터페이스를 통해서 AppDelegate와 ViewController에서 접근하도록 코드를 수정한다.
+- 모든 동작은 이전 단계와 동일하게 동작해야 한다.

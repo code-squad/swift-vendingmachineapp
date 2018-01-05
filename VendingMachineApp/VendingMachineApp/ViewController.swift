@@ -25,40 +25,40 @@ class ViewController: UIViewController {
         balanceLabel.text = String(VendingMachineData.sharedInstance.balance.commaRepresentation)
         let keyBox = [LightBananaMilk(), Coke(), StarBucksCoffee(), Sprite(), CeylonTea()]
         for index in 0..<stockLabel.count {
-            setLabelContents(label: index, key: keyBox[index])
+            setLabelContents(label: stockLabel[index], key: keyBox[index])
         }
     }
-    private func setLabelContents(label index: Int, key: Beverage) {
+    private func setLabelContents(label: UILabel, key: Beverage) {
         if let sortedBeverage = VendingMachineData.sharedInstance.sortedStockList[key] {
-            stockLabel[index].text = "\(sortedBeverage)" + countingUnit
+            label.text = "\(sortedBeverage)" + countingUnit
         } else {
-            stockLabel[index].text = "0" + countingUnit
+            label.text = "0" + countingUnit
         }
     }
     @IBAction func bananaAddTouched(_ sender: Any) {
         let lightBanana = LightBananaMilk(manufacturingDate: Date())
         VendingMachineData.sharedInstance.addBeverage(lightBanana)
-        setLabelContents(label: 0, key: lightBanana)
+        setLabelContents(label: stockLabel[0], key: lightBanana)
     }
     @IBAction func cokeAddTouched(_ sender: Any) {
         let coke = Coke(manufacturingDate: Date())
         VendingMachineData.sharedInstance.addBeverage(coke)
-        setLabelContents(label: 1, key: coke)
+        setLabelContents(label: stockLabel[1], key: coke)
     }
     @IBAction func starBucksAddTouched(_ sender: Any) {
         let starBucks = StarBucksCoffee(manufacturingDate: Date())
         VendingMachineData.sharedInstance.addBeverage(starBucks)
-        setLabelContents(label: 2, key: starBucks)
+        setLabelContents(label: stockLabel[2], key: starBucks)
     }
     @IBAction func spriteAddTouched(_ sender: Any) {
         let sprite = Sprite(manufacturingDate: Date())
         VendingMachineData.sharedInstance.addBeverage(sprite)
-        setLabelContents(label: 3, key: sprite)
+        setLabelContents(label: stockLabel[3], key: sprite)
     }
     @IBAction func ceylonAddTouched(_ sender: Any) {
         let ceylonTea = CeylonTea(manufacturingDate: Date())
         VendingMachineData.sharedInstance.addBeverage(ceylonTea)
-        setLabelContents(label: 4, key: ceylonTea)
+        setLabelContents(label: stockLabel[4], key: ceylonTea)
     }
     @IBAction func addFiveBalanceTouched(_ sender: Any) {
         VendingMachineData.sharedInstance.insertMoney(fiveThounsand)

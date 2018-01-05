@@ -18,9 +18,8 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let appDelegate = UIApplication.shared.delegate as? AppDelegate
-        admin = VendingMachineAdmin.init(vendingMachine: (appDelegate?.vendingMachine)!)
-        user = VendingMachineUser.init(vendingMachine: (appDelegate?.vendingMachine)!)
+        admin = VendingMachineAdmin.init(vendingMachine: VendingMachine.sharedInstance!)
+        user = VendingMachineUser.init(vendingMachine: VendingMachine.sharedInstance!)
         validate = Date.init(timeInterval: (60.0 * 60 * 24 * 14), since: Date())
         setVendingMachine()
     }

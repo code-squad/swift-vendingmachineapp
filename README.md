@@ -164,4 +164,15 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 The free function dispatch_once is no longer available in Swift. In Swift, you can use lazily initialized globals or static properties and get the same thread-safety and called-once guarantees as dispatch_once provided.
 
 
+  <br><br><br>
+# 관찰자 패턴 적용하기 Step5
+## 프로그래밍 요구사항
+* ViewController는 viewDidLoad에서 Observe를 등록한다.
+* 음식 재고가 바뀌는 Notification을 받으면 화면에 Label을 업데이트한다.
+* 추가 버튼을 누르면 해당 음식 재고를 모델에 추가할 때마다 VendingMachine 모델 객체에서는 전체 음식 재고를 NotificationCenter에 post한다.
+* 모든 동작은 이전 단계와 동일하게 동작해야 한다.
 
+#### 관찰자 패턴
+> 객체 사이에 일 대 다의 의존 관계를 정의해두어, 어떤 객체의 상태가 변할 때 그 객체에 의존성을 가진 다른 객체들이 그 변화를 통지 받고 자동으로 업에이트될 수 있게 만듭니다. (GoF의 디자인 패턴 382p)
+
+MVC패턴의 기반이되는것이 관찰자 패턴이다.

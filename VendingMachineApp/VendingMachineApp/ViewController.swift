@@ -29,8 +29,8 @@ class ViewController: UIViewController {
     @objc private func catchNotification(notification: Notification) {
         guard let beverageKey = notification.object as? Beverage else { return }
         guard let userInfo = notification.userInfo else { return }
-        guard let label = userInfo["label"] as? Int else { return }
-        setLabelContents(label: stockLabel[label], key: beverageKey)
+        guard let stocklabel = userInfo["label"] as? UILabel else { return }
+        setLabelContents(label: stocklabel, key: beverageKey)
     }
     private func setViewDidLoad() {
         balanceLabel.text = String(VendingMachineData.sharedInstance.balance.commaRepresentation)
@@ -51,35 +51,35 @@ class ViewController: UIViewController {
         VendingMachineData.sharedInstance.addBeverage(lightBanana)
         NotificationCenter.default.post(name: .labelNC,
                                         object: lightBanana,
-                                        userInfo: ["label": 0])
+                                        userInfo: ["label": stockLabel[0]])
     }
     @IBAction func cokeAddTouched(_ sender: Any) {
         let coke = Coke(manufacturingDate: Date())
         VendingMachineData.sharedInstance.addBeverage(coke)
         NotificationCenter.default.post(name: .labelNC,
                                         object: coke,
-                                        userInfo: ["label": 1])
+                                        userInfo: ["label": stockLabel[1]])
     }
     @IBAction func starBucksAddTouched(_ sender: Any) {
         let starBucks = StarBucksCoffee(manufacturingDate: Date())
         VendingMachineData.sharedInstance.addBeverage(starBucks)
         NotificationCenter.default.post(name: .labelNC,
                                         object: starBucks,
-                                        userInfo: ["label": 2])
+                                        userInfo: ["label": stockLabel[2]])
     }
     @IBAction func spriteAddTouched(_ sender: Any) {
         let sprite = Sprite(manufacturingDate: Date())
         VendingMachineData.sharedInstance.addBeverage(sprite)
         NotificationCenter.default.post(name: .labelNC,
                                         object: sprite,
-                                        userInfo: ["label": 3])
+                                        userInfo: ["label": stockLabel[3]])
     }
     @IBAction func ceylonAddTouched(_ sender: Any) {
         let ceylonTea = CeylonTea(manufacturingDate: Date())
         VendingMachineData.sharedInstance.addBeverage(ceylonTea)
         NotificationCenter.default.post(name: .labelNC,
                                         object: ceylonTea,
-                                        userInfo: ["label": 4])
+                                        userInfo: ["label": stockLabel[4]])
     }
     @IBAction func addFiveBalanceTouched(_ sender: Any) {
         VendingMachineData.sharedInstance.insertMoney(fiveThounsand)
@@ -94,6 +94,7 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
 }
+
 extension Int {
     private static var commaFormatter: NumberFormatter = {
         let formatter = NumberFormatter()

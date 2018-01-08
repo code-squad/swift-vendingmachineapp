@@ -12,10 +12,7 @@
 ```
 [StarBucksCoffee: 1, LightBananaMilk: 1, Coke: 2]
 ```
-<<<<<<< HEAD
 
-=======
->>>>>>> a0abdad426851b2e7f40ca96f726501c50518265
 <br><br><br>
 # MVC 패턴 Step2
 ## 프로그래밍 요구사항
@@ -176,3 +173,5 @@ The free function dispatch_once is no longer available in Swift. In Swift, you c
 > 객체 사이에 일 대 다의 의존 관계를 정의해두어, 어떤 객체의 상태가 변할 때 그 객체에 의존성을 가진 다른 객체들이 그 변화를 통지 받고 자동으로 업에이트될 수 있게 만듭니다. (GoF의 디자인 패턴 382p)
 
 MVC패턴의 기반이되는것이 관찰자 패턴이다.
+
+[Using protocols to make NotificationCenter a better place](https://medium.com/@leoneparise/using-protocols-to-make-notificationcenter-a-better-place-dd42cc8761c)

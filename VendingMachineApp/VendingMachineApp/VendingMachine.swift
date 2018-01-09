@@ -9,7 +9,7 @@
 import Foundation
 
 // inventory를 Collection 프로토콜로 캡슐화.
-class VendingMachine: Machine, Sequence {
+class VendingMachine: Sequence, Machine {
     // Iterator.Element의 타입앨리아스
     typealias Element = Beverage
     typealias ProductType = Beverage
@@ -170,7 +170,7 @@ extension VendingMachine: UserServable {
     }
 
     // 전체 상품 재고를 (사전으로 표현하는) 종류별로 반환.
-    func checkTheStock() -> [MenuType : Stock] {
+    func checkTheStock() -> [MenuType:Stock] {
         return stockManager.showStockList()
     }
 

@@ -22,7 +22,7 @@ class VendingMachineAppTests: XCTestCase {
         let stockBox = [orignalCoke, lightMilk, badLightMilk, starBucksCoffee]
         let beverageData = VendingMachineData(stock: stockBox)
         var adminMachine = AdminVendingMachine(with: beverageData)
-        adminMachine.addBeverage(sprite)
+        adminMachine.addBeverage(item: sprite)
         var userMachine = UserVendingMachine(with: beverageData)
         userMachine.insertMoney(1000)
         var validStock = userMachine.getValidBuyingBeverage()

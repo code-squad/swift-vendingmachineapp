@@ -15,7 +15,7 @@ class Coke: SodaPop {
         self.init(manufacturingDate: Date())
     }
     init(manufacturingDate: Date) {
-        super.init(kind: "콜라", sugarContent: 4, temperature: 4, brand: "코카콜라", volume: 250, price: 700, name: "CocaCola", manufacturingDate: manufacturingDate)
+        super.init(kind: "콜라", sugarContent: 4, temperature: 4, brand: "코카콜라", volume: 250, price: 700, name: "Coke", manufacturingDate: manufacturingDate)
     }
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)

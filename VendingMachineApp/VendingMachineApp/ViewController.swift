@@ -15,23 +15,24 @@ class ViewController: UIViewController {
     private let countingUnit = "개"
     private let fiveThounsand = 5000
     private let oneThounsand = 1000
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let boundRatio: CGFloat = 15.0
         buttonGroup.forEach { $0.layer.cornerRadius = boundRatio }
         NotificationCenter.default.addObserver(self,
-                                               selector: #selector(catchNotification(notification:)),
+                                               selector: #selector(updateStockLabel(notification:)),
                                                name: .labelNC,
                                                object: nil)
         initStockLabel()
     }
     
-    @objc private func catchNotification(notification: Notification) {
-        guard let beverageKey = notification.object as? Beverage else { return }
+    @objc private func updateStockLabel(notification: Notification) {
+        let beverageLabel = ["LightBananaMilk": 0, "Coke": 1, "StarBucksCoffee": 2, "Sprite": 3, "CeylonTea": 4]
         guard let userInfo = notification.userInfo else { return }
-        guard let labelTag = userInfo["label"] as? Int else { return }
-        setLabelContents(label: stockLabel[labelTag], key: beverageKey)
+        guard let beverage = userInfo["beverage"] as? Beverage else { return }
+        guard let indexOfLabel = beverageLabel[beverage.description] else { return }
+        setLabelContents(label: stockLabel[indexOfLabel], key: beverage)
     }
     
     private func initStockLabel() {
@@ -52,27 +53,27 @@ class ViewController: UIViewController {
     
     @IBAction func bananaAddTouched(_ sender: Any) {
         let lightBanana = LightBananaMilk(manufacturingDate: Date())
-        VendingMachineData.sharedInstance.addBeverage(item: lightBanana, labelTag: stockLabel[0].tag)
+        VendingMachineData.sharedInstance.addBeverage(item: lightBanana)
     }
     
     @IBAction func cokeAddTouched(_ sender: Any) {
         let coke = Coke(manufacturingDate: Date())
-        VendingMachineData.sharedInstance.addBeverage(item: coke, labelTag: stockLabel[1].tag)
+        VendingMachineData.sharedInstance.addBeverage(item: coke)
     }
     
     @IBAction func starBucksAddTouched(_ sender: Any) {
         let starBucks = StarBucksCoffee(manufacturingDate: Date())
-        VendingMachineData.sharedInstance.addBeverage(item: starBucks, labelTag: stockLabel[2].tag)
+        VendingMachineData.sharedInstance.addBeverage(item: starBucks)
     }
     
     @IBAction func spriteAddTouched(_ sender: Any) {
         let sprite = Sprite(manufacturingDate: Date())
-        VendingMachineData.sharedInstance.addBeverage(item: sprite, labelTag: stockLabel[3].tag)
+        VendingMachineData.sharedInstance.addBeverage(item: sprite)
     }
     
     @IBAction func ceylonAddTouched(_ sender: Any) {
         let ceylonTea = CeylonTea(manufacturingDate: Date())
-        VendingMachineData.sharedInstance.addBeverage(item: ceylonTea, labelTag: stockLabel[4].tag)
+        VendingMachineData.sharedInstance.addBeverage(item: ceylonTea)
     }
     
     @IBAction func addFiveBalanceTouched(_ sender: Any) {

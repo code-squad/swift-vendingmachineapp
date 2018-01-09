@@ -16,9 +16,6 @@ class VendingMachineData: NSObject, NSCoding {
         return VendingMachineData()
     }()
 
-    private convenience override init() {
-        self.init(stock: [])
-    }
     init(stock: [Beverage]) {
         super.init()
         self.stock = stock
@@ -27,6 +24,15 @@ class VendingMachineData: NSObject, NSCoding {
             self.makeBeverageList(item)
         }
     }
+    
+    private convenience override init() {
+        self.init(stock: [])
+    }
+    
+    convenience init(stock: [Beverage], stockList: [Beverage: Int]) {
+        self.init(stock: stock, stockList: stockList, balance: 0)
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         super.init()
         guard let stock = aDecoder.decodeObject(forKey: "stock") as? [Beverage] else { return }
@@ -36,21 +42,22 @@ class VendingMachineData: NSObject, NSCoding {
         }
         self.balance = aDecoder.decodeInteger(forKey: "balance")
     }
+    
     func encode(with aCoder: NSCoder) {
         aCoder.encode(self.stock, forKey: "stock")
         aCoder.encode(self.balance, forKey: "balance")
     }
+    
     init(stock: [Beverage], stockList: [Beverage: Int], balance: Int) {
         self.stock = stock
         self.sortedStockList = stockList
         self.balance = balance
     }
-    convenience init(stock: [Beverage], stockList: [Beverage: Int]) {
-        self.init(stock: stock, stockList: stockList, balance: 0)
-    }
+    
     func insertMoney(_ money: Int) {
         balance += money
     }
+    
     func processBuying(_ selectedValue: Beverage) throws -> Beverage {
         guard let item = stock.index(where: { $0.name == selectedValue.name }) else {
             throw ErrorCode.noStock
@@ -62,10 +69,15 @@ class VendingMachineData: NSObject, NSCoding {
         balance -= selectedValue.price
         return stock.remove(at: item)
     }
-    func addBeverage(_ item: Beverage) {
+    
+    func addBeverage(item: Beverage, labelTag: Int) {
         stock.append(item)
         makeBeverageList(item)
+        NotificationCenter.default.post(name: .labelNC,
+                                        object: item,
+                                        userInfo: ["label": labelTag])
     }
+    
     private func makeBeverageList(_ item: Beverage) {
         if let stockListNumber = sortedStockList[item] {
             sortedStockList[item] = stockListNumber + 1
@@ -73,6 +85,7 @@ class VendingMachineData: NSObject, NSCoding {
             sortedStockList[item] = 1
         }
     }
+    
     func removeBeverage(_ item: Beverage) throws {
         guard let index = stock.index(where: { $0.name == item.name }) else {
             throw ErrorCode.noStock

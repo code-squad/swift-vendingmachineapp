@@ -10,6 +10,17 @@ import Foundation
 
 extension Date {
 
+    enum MilkExpirationInterval {
+        case twoWeek
+
+        var value: Double {
+            switch self {
+            case .twoWeek:
+                return 60.0 * 60 * 24 * 7 * 2
+            }
+        }
+    }
+
     func getStringFromDate() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyyMMdd"

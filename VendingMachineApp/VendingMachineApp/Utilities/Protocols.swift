@@ -11,7 +11,6 @@ import Foundation
 typealias Stock = Int
 typealias Balance = Int
 typealias Purchased = Int
-typealias Argument = Int
 
 protocol Product {
     associatedtype MenuType: EnumCollection, Purchasable
@@ -25,10 +24,10 @@ protocol Product {
 protocol Machine: Sequence {
     associatedtype MenuType: EnumCollection, Purchasable
     associatedtype ProductType: Product
-    func checkTheStock() -> [MenuType:Stock]
 }
 
 protocol Managable: Machine {
+
     func fullSupply(_ count: Int)
 
     func supply(productType: MenuType, _ addCount: Stock)
@@ -36,6 +35,8 @@ protocol Managable: Machine {
     func remove(productType: MenuType, _ addCount: Stock)
 
     func showPurchasedList() -> [HistoryInfo]
+
+    func checkTheStock() -> [MenuType:Stock]
 }
 
 protocol UserServable: Machine {
@@ -51,20 +52,8 @@ protocol UserServable: Machine {
     func showExpiredProducts(on day: Date) -> [MenuType:Stock]
 
     func showHotProducts() -> [MenuType]
-}
 
-protocol ActivateMode {
-    func prompt() -> [Argument]?
-    func perform(_ arguments: [Argument]) -> String?
-}
-
-extension ActivateMode {
-    // 사용자 입력 문자열을 2개의 인자로 분리 및 숫자 변환.
-    func splitUserInput() -> [Int] {
-        guard let userInput = readLine(), userInput != "q" || userInput != "quit" else { return [] }
-        return userInput.split(separator: " ").flatMap { Int($0) }
-    }
-
+    func checkTheStock() -> [MenuType:Stock]
 }
 
 protocol Purchasable {

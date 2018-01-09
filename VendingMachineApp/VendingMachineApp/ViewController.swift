@@ -15,7 +15,8 @@ class ViewController: UIViewController {
     private let countingUnit = "개"
     private let fiveThounsand = 5000
     private let oneThounsand = 1000
-    
+    private let keyBox = [LightBananaMilk(), Coke(), StarBucksCoffee(), Sprite(), CeylonTea()]
+
     override func viewDidLoad() {
         super.viewDidLoad()
         let boundRatio: CGFloat = 15.0
@@ -28,16 +29,14 @@ class ViewController: UIViewController {
     }
     
     @objc private func updateStockLabel(notification: Notification) {
-        let beverageLabel = ["LightBananaMilk": 0, "Coke": 1, "StarBucksCoffee": 2, "Sprite": 3, "CeylonTea": 4]
         guard let userInfo = notification.userInfo else { return }
         guard let beverage = userInfo["beverage"] as? Beverage else { return }
-        guard let indexOfLabel = beverageLabel[beverage.description] else { return }
+        guard let indexOfLabel = keyBox.index(of: beverage) else { return }
         setLabelContents(label: stockLabel[indexOfLabel], key: beverage)
     }
     
     private func initStockLabel() {
         balanceLabel.text = String(VendingMachineData.sharedInstance.balance.commaRepresentation)
-        let keyBox = [LightBananaMilk(), Coke(), StarBucksCoffee(), Sprite(), CeylonTea()]
         for index in 0..<stockLabel.count {
             setLabelContents(label: stockLabel[index], key: keyBox[index])
         }
@@ -53,27 +52,27 @@ class ViewController: UIViewController {
     
     @IBAction func bananaAddTouched(_ sender: Any) {
         let lightBanana = LightBananaMilk(manufacturingDate: Date())
-        VendingMachineData.sharedInstance.addBeverage(item: lightBanana)
+        VendingMachineData.sharedInstance.addBeverage(lightBanana)
     }
     
     @IBAction func cokeAddTouched(_ sender: Any) {
         let coke = Coke(manufacturingDate: Date())
-        VendingMachineData.sharedInstance.addBeverage(item: coke)
+        VendingMachineData.sharedInstance.addBeverage(coke)
     }
     
     @IBAction func starBucksAddTouched(_ sender: Any) {
         let starBucks = StarBucksCoffee(manufacturingDate: Date())
-        VendingMachineData.sharedInstance.addBeverage(item: starBucks)
+        VendingMachineData.sharedInstance.addBeverage(starBucks)
     }
     
     @IBAction func spriteAddTouched(_ sender: Any) {
         let sprite = Sprite(manufacturingDate: Date())
-        VendingMachineData.sharedInstance.addBeverage(item: sprite)
+        VendingMachineData.sharedInstance.addBeverage(sprite)
     }
     
     @IBAction func ceylonAddTouched(_ sender: Any) {
         let ceylonTea = CeylonTea(manufacturingDate: Date())
-        VendingMachineData.sharedInstance.addBeverage(item: ceylonTea)
+        VendingMachineData.sharedInstance.addBeverage(ceylonTea)
     }
     
     @IBAction func addFiveBalanceTouched(_ sender: Any) {

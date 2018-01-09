@@ -70,7 +70,7 @@ class VendingMachineData: NSObject, NSCoding {
         return stock.remove(at: item)
     }
     
-    func addBeverage(item: Beverage) {
+    func addBeverage(_ item: Beverage) {
         stock.append(item)
         makeBeverageList(item)
         NotificationCenter.default.post(name: .labelNC,

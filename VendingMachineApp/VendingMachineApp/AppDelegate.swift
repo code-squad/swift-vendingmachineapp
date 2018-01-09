@@ -21,15 +21,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         return true
     }
+    
     func applicationWillResignActive(_ application: UIApplication) {
         UserDefaults.standard.set(NSKeyedArchiver.archivedData(withRootObject: VendingMachineData.sharedInstance), forKey: "vendingMachine")
     }
+    
     func applicationDidEnterBackground(_ application: UIApplication) {
     }
+    
     func applicationWillEnterForeground(_ application: UIApplication) {
     }
+    
     func applicationDidBecomeActive(_ application: UIApplication) {
     }
+    
     func applicationWillTerminate(_ application: UIApplication) {
         UserDefaults.standard.set(NSKeyedArchiver.archivedData(withRootObject: VendingMachineData.sharedInstance), forKey: "vendingMachine")
     }

@@ -15,8 +15,8 @@ class ViewController: UIViewController {
     private let countingUnit = "개"
     private let fiveThounsand = 5000
     private let oneThounsand = 1000
-    private let keyBox = [LightBananaMilk(), Coke(), StarBucksCoffee(), Sprite(), CeylonTea()]
-
+    private var sortedBeverageLabel = [Beverage: UILabel]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let boundRatio: CGFloat = 15.0
@@ -25,24 +25,34 @@ class ViewController: UIViewController {
                                                selector: #selector(updateStockLabel(notification:)),
                                                name: .labelNC,
                                                object: nil)
+        self.sortedBeverageLabel = matchStockLabel()
         initStockLabel()
+    }
+    
+    private func matchStockLabel() -> [Beverage: UILabel] {
+        let spareBox = [LightBananaMilk(), Coke(), StarBucksCoffee(), Sprite(), CeylonTea()]
+        var beverageLabel = [Beverage: UILabel]()
+        for index in 0..<stockLabel.count {
+            beverageLabel[spareBox[index]] = stockLabel[index]
+        }
+        return beverageLabel
     }
     
     @objc private func updateStockLabel(notification: Notification) {
         guard let userInfo = notification.userInfo else { return }
         guard let beverage = userInfo["beverage"] as? Beverage else { return }
-        guard let indexOfLabel = keyBox.index(of: beverage) else { return }
-        setLabelContents(label: stockLabel[indexOfLabel], key: beverage)
+        guard let beverageLabel = sortedBeverageLabel[beverage] else { return }
+        setLabelContents(key: beverage, label: beverageLabel)
     }
     
     private func initStockLabel() {
         balanceLabel.text = String(VendingMachineData.sharedInstance.balance.commaRepresentation)
-        for index in 0..<stockLabel.count {
-            setLabelContents(label: stockLabel[index], key: keyBox[index])
+        for beverage in sortedBeverageLabel {
+            setLabelContents(key: beverage.key, label: beverage.value)
         }
     }
     
-    private func setLabelContents(label: UILabel, key: Beverage) {
+    private func setLabelContents(key: Beverage, label: UILabel) {
         if let sortedBeverage = VendingMachineData.sharedInstance.sortedStockList[key] {
             label.text = "\(sortedBeverage)" + countingUnit
         } else {

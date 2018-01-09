@@ -180,18 +180,26 @@
 			children = (
 				EECEBFD72003314000B19DD3 /* AppDelegate.swift */,
 				EECEBFD92003314000B19DD3 /* ViewController.swift */,
-				EE22980420033D85005DF200 /* VendingMachine.swift */,
-				EE2297FC20033D85005DF200 /* MoneyManager.swift */,
-				EE2297FE20033D85005DF200 /* StockManager.swift */,
-				EE2297FD20033D85005DF200 /* HistoryInfo.swift */,
-				EE22980520033D86005DF200 /* Beverage */,
-				EE2297FF20033D85005DF200 /* Utilities */,
+				EEEB4EEA2004CA6F00F3C4FB /* Model */,
 				EECEBFDB2003314000B19DD3 /* Main.storyboard */,
 				EECEBFDE2003314000B19DD3 /* Assets.xcassets */,
 				EECEBFE02003314000B19DD3 /* LaunchScreen.storyboard */,
 				EECEBFE32003314000B19DD3 /* Info.plist */,
 			);
 			path = VendingMachineApp;
+			sourceTree = "<group>";
+		};
+		EEEB4EEA2004CA6F00F3C4FB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EE22980420033D85005DF200 /* VendingMachine.swift */,
+				EE2297FC20033D85005DF200 /* MoneyManager.swift */,
+				EE2297FE20033D85005DF200 /* StockManager.swift */,
+				EE2297FD20033D85005DF200 /* HistoryInfo.swift */,
+				EE22980520033D86005DF200 /* Beverage */,
+				EE2297FF20033D85005DF200 /* Utilities */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -20,7 +20,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         admin = VendingMachineAdmin.init(vendingMachine: VendingMachine.sharedInstance!)
         user = VendingMachineUser.init(vendingMachine: VendingMachine.sharedInstance!)
-        validate = Date.init(timeInterval: (60.0 * 60 * 24 * 14), since: Date())
+        validate = Date.init(timeInterval: (Date.MilkExpirationInterval.twoWeek.value), since: Date())
         setVendingMachine()
     }
 

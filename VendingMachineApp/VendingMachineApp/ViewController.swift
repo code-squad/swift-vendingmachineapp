@@ -9,17 +9,21 @@
 import UIKit
 
 class ViewController: UIViewController {
+    let machine: VendingMachine
+
+    required init?(coder aDecoder: NSCoder) {
+        machine = VendingMachine()
+        super.init(coder: aDecoder)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        let machine = VendingMachine()
+        machine.supply(productType: .strawberryMilk, 2)
+        machine.supply(productType: .bananaMilk, 1)
+        machine.supply(productType: .coke, 3)
+        for beverage in machine.checkTheStock() {
+            print("\(beverage.key.productName)(\(beverage.value)개)", terminator: "  ")
+        }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-
 }
-

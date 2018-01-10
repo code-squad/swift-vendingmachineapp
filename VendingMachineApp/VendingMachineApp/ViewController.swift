@@ -18,8 +18,8 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        admin = VendingMachineAdmin.init(vendingMachine: VendingMachine.sharedInstance!)
-        user = VendingMachineUser.init(vendingMachine: VendingMachine.sharedInstance!)
+        admin = VendingMachineAdmin.init(vendingMachine: VendingMachine.sharedInstance)
+        user = VendingMachineUser.init(vendingMachine: VendingMachine.sharedInstance)
         validate = Date.init(timeInterval: (Date.MilkExpirationInterval.twoWeek.value), since: Date())
         setVendingMachine()
     }

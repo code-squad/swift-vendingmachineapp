@@ -17,24 +17,18 @@ class VendingMachine: VendingMachineProtocol, CustomStringConvertible, Codable {
     private var inventory: Inventory
     private var salesHistory: Products
 
+    static var sharedInstance: VendingMachine! = VendingMachine()
+
     enum Mode {
         case admin
         case user
         case none
     }
 
-    static var sharedInstance: VendingMachine?
-
     private init() {
         coins = 0
         inventory = [:]
         salesHistory = []
-    }
-
-    static func setInstance() {
-        if sharedInstance == nil {
-            sharedInstance = VendingMachine()
-        }
     }
 
     var description: String {

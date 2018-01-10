@@ -17,7 +17,7 @@ class VendingMachine: VendingMachineProtocol, CustomStringConvertible, Codable {
     private var inventory: Inventory
     private var salesHistory: Products
 
-    static var sharedInstance: VendingMachine! = VendingMachine()
+    private static var instance: VendingMachine?
 
     enum Mode {
         case admin
@@ -29,6 +29,17 @@ class VendingMachine: VendingMachineProtocol, CustomStringConvertible, Codable {
         coins = 0
         inventory = [:]
         salesHistory = []
+    }
+
+    static func load(vendingMachine: VendingMachine?) {
+        instance = vendingMachine
+    }
+
+    static func sharedInstance() -> VendingMachine {
+        if instance == nil {
+            instance = VendingMachine()
+        }
+        return instance!
     }
 
     var description: String {

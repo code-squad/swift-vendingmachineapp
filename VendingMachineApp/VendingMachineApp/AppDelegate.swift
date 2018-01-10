@@ -25,13 +25,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
-        encodedData = try? PropertyListEncoder().encode(VendingMachine.sharedInstance)
+        encodedData = try? PropertyListEncoder().encode(VendingMachine.sharedInstance())
         userDefaults.set(encodedData, forKey: "encodedData")
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
         let data = userDefaults.data(forKey: "encodedData")!
-        VendingMachine.sharedInstance = try? PropertyListDecoder().decode(VendingMachine.self, from: data)
+        let loadedVendingMachine = try? PropertyListDecoder().decode(VendingMachine.self, from: data)
+        VendingMachine.load(vendingMachine: loadedVendingMachine)
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {

@@ -18,12 +18,12 @@
 
 ### 학습 내용
 
->- **[앱 인터페이스와 구성요소]()**
->- **[시스템 프레임워크 - 1. 앱 초기화 과정]()**
->- **[시스템 프레임워크 - 2. 메인 런 루프]()**
->- **[시스템 프레임워크 - 3. 메인 런 루프]()**
->- **[시스템 프레임워크 - 4. 앱 생명주기]()**
->- **[시스템 프레임워크 - 5. iOS와 코코아 터치 프레임워크]()**
+>- **[앱 인터페이스와 구성요소](https://github.com/undervineg/swift-vendingmachineapp/blob/vending-step2/md/app_interfaces.md)**
+>- **[시스템 프레임워크 - 1. 앱 초기화 과정](https://github.com/undervineg/swift-vendingmachineapp/blob/vending-step2/md/app_initialization.md)**
+>- **[시스템 프레임워크 - 2. 메인 런 루프](https://github.com/undervineg/swift-vendingmachineapp/blob/vending-step2/md/main_run_loop.md)**
+>- **[시스템 프레임워크 - 3. MVC 패턴구조](https://github.com/undervineg/swift-vendingmachineapp/blob/vending-step2/md/mvc_structure.md)**
+>- **[시스템 프레임워크 - 4. 앱 생명주기](https://github.com/undervineg/swift-vendingmachineapp/blob/vending-step2/md/app_lifecycle.md)**
+>- **[시스템 프레임워크 - 5. iOS와 코코아 터치 프레임워크](https://github.com/undervineg/swift-vendingmachineapp/blob/vending-step2/md/cocoatouch_framework.md)**
 
 2017-01-09 (작업시간: 1일)
 

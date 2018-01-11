@@ -9,33 +9,78 @@
 import UIKit
 
 class ViewController: UIViewController {
+    @IBOutlet weak var receiptView: UIScrollView!
+    @IBOutlet var buyButtonGroup: [UIButton]!
+    @IBOutlet var addButtonGroup: [UIButton]!
     @IBOutlet var stockLabel: [UILabel]!
-    @IBOutlet var buttonGroup: [UIButton]!
     @IBOutlet weak var balanceLabel: UILabel!
+    private var sortedBeverageLabel = [Beverage: UILabel]()
+    private var sortedBuyButton = [UIButton: Beverage]()
+    private var sortedAddButton = [UIButton: Beverage]()
     private let countingUnit = "개"
     private let fiveThounsand = 5000
     private let oneThounsand = 1000
-    private var sortedBeverageLabel = [Beverage: UILabel]()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         let boundRatio: CGFloat = 15.0
-        buttonGroup.forEach { $0.layer.cornerRadius = boundRatio }
+        addButtonGroup.forEach { $0.layer.cornerRadius = boundRatio }
+        let beverages = [LightBananaMilk(), Coke(), StarBucksCoffee(), Sprite(), CeylonTea()]
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(updateStockLabel(notification:)),
                                                name: .labelNC,
                                                object: nil)
-        self.sortedBeverageLabel = matchStockLabel()
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(updateRecepitView(notification:)),
+                                               name: .recepitNC,
+                                               object: nil)
+        self.sortedBeverageLabel = match(labels: stockLabel, sequence: beverages)
+        self.sortedBuyButton = match(buttons: buyButtonGroup, sequence: beverages)
+        self.sortedAddButton = match(buttons: addButtonGroup, sequence: beverages)
         initStockLabel()
     }
     
-    private func matchStockLabel() -> [Beverage: UILabel] {
-        let spareBox = [LightBananaMilk(), Coke(), StarBucksCoffee(), Sprite(), CeylonTea()]
+    private func initStockLabel() {
+        for beverage in sortedBeverageLabel {
+            setLabelContents(key: beverage.key, label: beverage.value)
+        }
+    }
+    
+    private func match(buttons: [UIButton], sequence beverages: [Beverage]) -> [UIButton: Beverage] {
+        var matchedButton = [UIButton: Beverage]()
+        for index in 0..<buttons.count {
+            matchedButton[buttons[index]] = beverages[index]
+        }
+        return matchedButton
+    }
+    
+    private func match(labels: [UILabel], sequence beverages: [Beverage]) -> [Beverage: UILabel] {
         var beverageLabel = [Beverage: UILabel]()
-        for index in 0..<stockLabel.count {
-            beverageLabel[spareBox[index]] = stockLabel[index]
+        for index in 0..<labels.count {
+            beverageLabel[beverages[index]] = labels[index]
         }
         return beverageLabel
+    }
+    
+    @objc private func updateRecepitView(notification: Notification) {
+        guard let userInfo = notification.userInfo else { return }
+        guard let beverage = userInfo["recepit"] as? Beverage else { return }
+        guard let receiptCount = userInfo["count"] as? Int else { return }
+        makeReceiptView(beverage: beverage, count: receiptCount)
+    }
+    
+    private func makeReceiptView(beverage: Beverage, count: Int) {
+        guard let beverageImg = UIImage(named: beverage.description) else { return }
+        let beverageImgView = UIImageView(image: beverageImg)
+        let imgRatio = CGFloat(3)
+        let xPoint = CGFloat((beverageImg.size.width/imgRatio) * CGFloat(count - 1))
+        beverageImgView.frame = CGRect(x: xPoint, y: 0,
+                                       width: beverageImg.size.width/imgRatio,
+                                       height: beverageImg.size.height/imgRatio)
+        self.receiptView.addSubview(beverageImgView)
+        self.receiptView.contentSize =  CGSize(width: beverageImgView.frame.size.width * CGFloat(count),
+                                               height: beverageImgView.frame.size.height)
+        
     }
     
     @objc private func updateStockLabel(notification: Notification) {
@@ -45,14 +90,8 @@ class ViewController: UIViewController {
         setLabelContents(key: beverage, label: beverageLabel)
     }
     
-    private func initStockLabel() {
-        balanceLabel.text = String(VendingMachineData.sharedInstance.balance.commaRepresentation)
-        for beverage in sortedBeverageLabel {
-            setLabelContents(key: beverage.key, label: beverage.value)
-        }
-    }
-    
     private func setLabelContents(key: Beverage, label: UILabel) {
+        balanceLabel.text = String(VendingMachineData.sharedInstance.balance.commaRepresentation)
         if let sortedBeverage = VendingMachineData.sharedInstance.sortedStockList[key] {
             label.text = "\(sortedBeverage)" + countingUnit
         } else {
@@ -60,29 +99,22 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction func bananaAddTouched(_ sender: Any) {
-        let lightBanana = LightBananaMilk(manufacturingDate: Date())
-        VendingMachineData.sharedInstance.addBeverage(lightBanana)
+    @IBAction func buyTouched(_ sender: UIButton) {
+        guard let item = sortedBuyButton[buyButtonGroup[sender.tag]] else { return }
+        do {
+            try VendingMachineData.sharedInstance.buyBeverage(item)
+        } catch let error as ErrorCode {
+            let alert = UIAlertController(title: "VendingMachine", message: error.description, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        } catch {
+            print("other error")
+        }
     }
     
-    @IBAction func cokeAddTouched(_ sender: Any) {
-        let coke = Coke(manufacturingDate: Date())
-        VendingMachineData.sharedInstance.addBeverage(coke)
-    }
-    
-    @IBAction func starBucksAddTouched(_ sender: Any) {
-        let starBucks = StarBucksCoffee(manufacturingDate: Date())
-        VendingMachineData.sharedInstance.addBeverage(starBucks)
-    }
-    
-    @IBAction func spriteAddTouched(_ sender: Any) {
-        let sprite = Sprite(manufacturingDate: Date())
-        VendingMachineData.sharedInstance.addBeverage(sprite)
-    }
-    
-    @IBAction func ceylonAddTouched(_ sender: Any) {
-        let ceylonTea = CeylonTea(manufacturingDate: Date())
-        VendingMachineData.sharedInstance.addBeverage(ceylonTea)
+    @IBAction func addTouched(_ sender: UIButton) {
+        guard let item = sortedAddButton[addButtonGroup[sender.tag]] else { return }
+        VendingMachineData.sharedInstance.addBeverage(item)
     }
     
     @IBAction func addFiveBalanceTouched(_ sender: Any) {
@@ -114,4 +146,5 @@ extension Int {
 
 extension Notification.Name {
     static let labelNC = Notification.Name("labelNC")
+    static let recepitNC = Notification.Name("recepitNC")
 }

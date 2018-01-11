@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		400E3D501FF4B82800B25072 /* Banan.png in Resources */ = {isa = PBXBuildFile; fileRef = 400E3D4B1FF4B82700B25072 /* Banan.png */; };
-		400E3D511FF4B82800B25072 /* sprite.png in Resources */ = {isa = PBXBuildFile; fileRef = 400E3D4C1FF4B82700B25072 /* sprite.png */; };
-		400E3D521FF4B82800B25072 /* starbucks.png in Resources */ = {isa = PBXBuildFile; fileRef = 400E3D4D1FF4B82700B25072 /* starbucks.png */; };
-		400E3D531FF4B82800B25072 /* ceylontea.png in Resources */ = {isa = PBXBuildFile; fileRef = 400E3D4E1FF4B82700B25072 /* ceylontea.png */; };
+		400E3D501FF4B82800B25072 /* LightBananaMilk.png in Resources */ = {isa = PBXBuildFile; fileRef = 400E3D4B1FF4B82700B25072 /* LightBananaMilk.png */; };
+		400E3D511FF4B82800B25072 /* Sprite.png in Resources */ = {isa = PBXBuildFile; fileRef = 400E3D4C1FF4B82700B25072 /* Sprite.png */; };
+		400E3D521FF4B82800B25072 /* StarBucksCoffee.png in Resources */ = {isa = PBXBuildFile; fileRef = 400E3D4D1FF4B82700B25072 /* StarBucksCoffee.png */; };
+		400E3D531FF4B82800B25072 /* CeylonTea.png in Resources */ = {isa = PBXBuildFile; fileRef = 400E3D4E1FF4B82700B25072 /* CeylonTea.png */; };
 		400E3D541FF4B82800B25072 /* Coke.png in Resources */ = {isa = PBXBuildFile; fileRef = 400E3D4F1FF4B82700B25072 /* Coke.png */; };
 		40BB47961FF34A19003DD3BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BB47951FF34A19003DD3BF /* AppDelegate.swift */; };
 		40BB47981FF34A19003DD3BF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BB47971FF34A19003DD3BF /* ViewController.swift */; };
@@ -52,10 +52,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		400E3D4B1FF4B82700B25072 /* Banan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Banan.png; sourceTree = "<group>"; };
-		400E3D4C1FF4B82700B25072 /* sprite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sprite.png; sourceTree = "<group>"; };
-		400E3D4D1FF4B82700B25072 /* starbucks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = starbucks.png; sourceTree = "<group>"; };
-		400E3D4E1FF4B82700B25072 /* ceylontea.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ceylontea.png; sourceTree = "<group>"; };
+		400E3D4B1FF4B82700B25072 /* LightBananaMilk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LightBananaMilk.png; sourceTree = "<group>"; };
+		400E3D4C1FF4B82700B25072 /* Sprite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Sprite.png; sourceTree = "<group>"; };
+		400E3D4D1FF4B82700B25072 /* StarBucksCoffee.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StarBucksCoffee.png; sourceTree = "<group>"; };
+		400E3D4E1FF4B82700B25072 /* CeylonTea.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CeylonTea.png; sourceTree = "<group>"; };
 		400E3D4F1FF4B82700B25072 /* Coke.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Coke.png; sourceTree = "<group>"; };
 		40BB47921FF34A19003DD3BF /* VendingMachineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendingMachineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40BB47951FF34A19003DD3BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -113,11 +113,11 @@
 		400E3D401FF4B7EF00B25072 /* resource */ = {
 			isa = PBXGroup;
 			children = (
-				400E3D4B1FF4B82700B25072 /* Banan.png */,
-				400E3D4E1FF4B82700B25072 /* ceylontea.png */,
+				400E3D4B1FF4B82700B25072 /* LightBananaMilk.png */,
+				400E3D4E1FF4B82700B25072 /* CeylonTea.png */,
 				400E3D4F1FF4B82700B25072 /* Coke.png */,
-				400E3D4C1FF4B82700B25072 /* sprite.png */,
-				400E3D4D1FF4B82700B25072 /* starbucks.png */,
+				400E3D4C1FF4B82700B25072 /* Sprite.png */,
+				400E3D4D1FF4B82700B25072 /* StarBucksCoffee.png */,
 			);
 			path = resource;
 			sourceTree = "<group>";
@@ -319,14 +319,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				400E3D501FF4B82800B25072 /* Banan.png in Resources */,
+				400E3D501FF4B82800B25072 /* LightBananaMilk.png in Resources */,
 				40BB47A01FF34A19003DD3BF /* LaunchScreen.storyboard in Resources */,
-				400E3D521FF4B82800B25072 /* starbucks.png in Resources */,
+				400E3D521FF4B82800B25072 /* StarBucksCoffee.png in Resources */,
 				40BB479D1FF34A19003DD3BF /* Assets.xcassets in Resources */,
 				40BB479B1FF34A19003DD3BF /* Main.storyboard in Resources */,
 				400E3D541FF4B82800B25072 /* Coke.png in Resources */,
-				400E3D511FF4B82800B25072 /* sprite.png in Resources */,
-				400E3D531FF4B82800B25072 /* ceylontea.png in Resources */,
+				400E3D511FF4B82800B25072 /* Sprite.png in Resources */,
+				400E3D531FF4B82800B25072 /* CeylonTea.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,6 +11,7 @@ import Foundation
 class VendingMachineData: NSObject, NSCoding {
     private (set) var stock = [Beverage]()
     private (set) var sortedStockList = [Beverage: Int]()
+    private (set) var receipt = [Beverage]()
     private (set) var balance: Int = 0
     static var sharedInstance: VendingMachineData = {
         return VendingMachineData()
@@ -58,7 +59,7 @@ class VendingMachineData: NSObject, NSCoding {
         balance += money
     }
     
-    func processBuying(_ selectedValue: Beverage) throws -> Beverage {
+    func buyBeverage(_ selectedValue: Beverage) throws {
         guard let item = stock.index(where: { $0.name == selectedValue.name }) else {
             throw ErrorCode.noStock
         }
@@ -67,7 +68,13 @@ class VendingMachineData: NSObject, NSCoding {
         }
         sortedStockList[selectedValue]! -= 1
         balance -= selectedValue.price
-        return stock.remove(at: item)
+        receipt.append(selectedValue)
+        NotificationCenter.default.post(name: .labelNC,
+                                        object: self,
+                                        userInfo: ["beverage": stock.remove(at: item)])
+        NotificationCenter.default.post(name: .recepitNC,
+                                        object: self,
+                                        userInfo: ["recepit": selectedValue, "count": receipt.count])
     }
     
     func addBeverage(_ item: Beverage) {
@@ -97,6 +104,7 @@ class VendingMachineData: NSObject, NSCoding {
         stock.remove(at: index)
     }
 }
+
 extension VendingMachineData: NSCopying {
     func copy(with zone: NSZone? = nil) -> Any {
         let newBeverage = Beverage()

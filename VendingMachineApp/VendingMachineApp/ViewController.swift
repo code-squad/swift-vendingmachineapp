@@ -21,7 +21,16 @@ class ViewController: UIViewController {
         admin = VendingMachineAdmin.init(vendingMachine: VendingMachine.sharedInstance())
         user = VendingMachineUser.init(vendingMachine: VendingMachine.sharedInstance())
         validate = Date.init(timeInterval: (Date.MilkExpirationInterval.twoWeek.value), since: Date())
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(changeBeverageCounts(notification:)),
+                                               name: .beverageCounts,
+                                               object: nil)
         setVendingMachine()
+    }
+
+    @objc private func changeBeverageCounts(notification: Notification) {
+        guard let inventory = notification.object as? Inventory else { return }
+        refreshBeverageCount(inventory: inventory)
     }
 
     private func setVendingMachine() {
@@ -81,11 +90,9 @@ class ViewController: UIViewController {
 
     private func addProduct(_ product: Beverage) {
         admin.add(product: product)
-        refreshBeverageCount()
     }
 
-    private func refreshBeverageCount() {
-        let inventory: Inventory = admin.getInventory()
+    private func refreshBeverageCount(inventory: Inventory) {
         for (key, value) in inventory {
             setBeverageCountLabel(key, value)
         }
@@ -128,4 +135,8 @@ class ViewController: UIViewController {
         balance.text = String(format: "잔액 : %6d 원", user.getBalance())
     }
 
+}
+
+extension Notification.Name {
+    static let beverageCounts = Notification.Name("beverageCounts")
 }

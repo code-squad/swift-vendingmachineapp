@@ -74,6 +74,7 @@ class VendingMachine: VendingMachineProtocol, CustomStringConvertible, Codable {
         } else {
             inventory[category] = [product]
         }
+        NotificationCenter.default.post(name: .beverageCounts, object: inventory)
     }
 
     func insertCoins(_ amount: Int) {

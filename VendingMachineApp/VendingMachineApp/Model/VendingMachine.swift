@@ -79,6 +79,7 @@ class VendingMachine: VendingMachineProtocol, CustomStringConvertible, Codable {
 
     func insertCoins(_ amount: Int) {
         coins += amount
+        NotificationCenter.default.post(name: .coins, object: coins)
     }
 
     func remove(category: Category, index: Int) {

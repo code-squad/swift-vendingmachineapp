@@ -25,12 +25,21 @@ class ViewController: UIViewController {
                                                selector: #selector(changeBeverageCounts(notification:)),
                                                name: .beverageCounts,
                                                object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(changeCoins(notification:)),
+                                               name: .coins,
+                                               object: nil)
         setVendingMachine()
     }
 
     @objc private func changeBeverageCounts(notification: Notification) {
         guard let inventory = notification.object as? Inventory else { return }
         refreshBeverageCount(inventory: inventory)
+    }
+
+    @objc private func changeCoins(notification: Notification) {
+        guard let coins = notification.object as? Int else { return }
+        refreshCoins(coins: coins)
     }
 
     private func setVendingMachine() {
@@ -132,11 +141,15 @@ class ViewController: UIViewController {
         default:
             return
         }
-        balance.text = String(format: "잔액 : %6d 원", user.getBalance())
+    }
+
+    private func refreshCoins(coins: Int) {
+        balance.text = String(format: "잔액 : %6d 원", coins)
     }
 
 }
 
 extension Notification.Name {
     static let beverageCounts = Notification.Name("beverageCounts")
+    static let coins = Notification.Name("coins")
 }

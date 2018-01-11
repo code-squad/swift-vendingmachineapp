@@ -33,12 +33,14 @@ class ViewController: UIViewController {
     }
 
     @objc private func changeBeverageCounts(notification: Notification) {
-        guard let inventory = notification.object as? Inventory else { return }
+        guard let userInfo = notification.userInfo as? [String: Inventory] else { return }
+        guard let inventory = userInfo["inventory"] else { return }
         refreshBeverageCount(inventory: inventory)
     }
 
     @objc private func changeCoins(notification: Notification) {
-        guard let coins = notification.object as? Int else { return }
+        guard let userInfo = notification.userInfo as? [String: Int] else { return }
+        guard let coins = userInfo["coins"] else { return }
         refreshCoins(coins: coins)
     }
 

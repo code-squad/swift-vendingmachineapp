@@ -91,3 +91,20 @@ Swift4에 새로 적용된 Codable 을 활용해서 구현
 - VendingMachine 객체를 싱글톤(Singleton)으로 접근할 수 있도록 개선한다.
 - VendingMachine 싱글톤으로 sharedInstance 인터페이스를 통해서 AppDelegate와 ViewController에서 접근하도록 코드를 수정한다.
 - 모든 동작은 이전 단계와 동일하게 동작해야 한다.
+
+---
+## Step5 (관찰자(Observer) 패턴)
+### 요구사항
+- MVC 패턴에서 Model과 Controller의 직접적인 참조 관계를 끊기 위해서 관찰자(Observer) 패턴을 적용한다. NotificationCenter 강의 슬라이드
+- 관찰자 패턴을 적용해서 재고가 추가될 때마다 화면을 갱신하도록 개선한다.
+
+![Observer패턴 적용된 MVC](capture/vendingapp-notificationcenter-mvc.png)
+
+- readme.md 파일에 주요 작업 내용(바뀐 화면 이미지, 핵심 기능 설명)과 완성 날짜시간을 기록한다.
+
+### 프로그래밍 요구사항
+- ViewController는 viewDidLoad에서 Observe를 등록한다.
+- 음식 재고가 바뀌는 Notification을 받으면 화면에 Label을 업데이트한다.
+- 추가 버튼을 누르면 해당 음식 재고를 모델에 추가할 때마다
+- VendingMachine 모델 객체에서는 전체 음식 재고를 NotificationCenter에 post한다.
+- 모든 동작은 이전 단계와 동일하게 동작해야 한다.

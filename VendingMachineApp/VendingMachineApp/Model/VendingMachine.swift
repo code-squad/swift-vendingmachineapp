@@ -74,12 +74,12 @@ class VendingMachine: VendingMachineProtocol, CustomStringConvertible, Codable {
         } else {
             inventory[category] = [product]
         }
-        NotificationCenter.default.post(name: .beverageCounts, object: nil, userInfo: ["inventory": inventory])
+        NotificationCenter.default.post(name: .beverageCounts, object: self, userInfo: ["inventory": inventory])
     }
 
     func insertCoins(_ amount: Int) {
         coins += amount
-        NotificationCenter.default.post(name: .coins, object: nil, userInfo: ["coins": coins])
+        NotificationCenter.default.post(name: .coins, object: self, userInfo: ["coins": coins])
     }
 
     func remove(category: Category, index: Int) {

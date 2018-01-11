@@ -24,11 +24,11 @@ class ViewController: UIViewController {
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(changeBeverageCounts(notification:)),
                                                name: .beverageCounts,
-                                               object: nil)
+                                               object: VendingMachine.sharedInstance())
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(changeCoins(notification:)),
                                                name: .coins,
-                                               object: nil)
+                                               object: VendingMachine.sharedInstance())
         setVendingMachine()
     }
 

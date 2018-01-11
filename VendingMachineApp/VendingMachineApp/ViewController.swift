@@ -44,6 +44,9 @@ class ViewController: UIViewController {
         for beverage in sortedBeverageLabel {
             setLabelContents(key: beverage.key, label: beverage.value)
         }
+        for index in 0..<VendingMachineData.sharedInstance.receipt.count {
+            makeReceiptView(beverage: VendingMachineData.sharedInstance.receipt[index], count: index)
+        }
     }
     
     private func match(buttons: [UIButton], sequence beverages: [Beverage]) -> [UIButton: Beverage] {

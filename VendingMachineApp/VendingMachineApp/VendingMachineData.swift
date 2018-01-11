@@ -37,16 +37,19 @@ class VendingMachineData: NSObject, NSCoding {
     required init?(coder aDecoder: NSCoder) {
         super.init()
         guard let stock = aDecoder.decodeObject(forKey: "stock") as? [Beverage] else { return }
+        guard let receipt = aDecoder.decodeObject(forKey: "receipt") as? [Beverage] else { return }
         self.stock = stock
         for item in stock {
             self.makeBeverageList(item)
         }
+        self.receipt = receipt
         self.balance = aDecoder.decodeInteger(forKey: "balance")
     }
     
     func encode(with aCoder: NSCoder) {
         aCoder.encode(self.stock, forKey: "stock")
         aCoder.encode(self.balance, forKey: "balance")
+        aCoder.encode(self.receipt, forKey: "receipt")
     }
     
     init(stock: [Beverage], stockList: [Beverage: Int], balance: Int) {

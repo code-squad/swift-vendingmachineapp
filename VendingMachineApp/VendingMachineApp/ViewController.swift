@@ -45,7 +45,7 @@ class ViewController: UIViewController {
             setLabelContents(key: beverage.key, label: beverage.value)
         }
         for beverage in VendingMachineData.sharedInstance.receipt {
-            makeReceiptView(beverage)
+            fillReceiptScrollView(beverage)
         }
     }
     
@@ -60,22 +60,22 @@ class ViewController: UIViewController {
     @objc private func updateRecepitView(notification: Notification) {
         guard let userInfo = notification.userInfo else { return }
         guard let beverage = userInfo["beverage"] as? Beverage else { return }
-        makeReceiptView(beverage)
+        fillReceiptScrollView(beverage)
     }
     
-    private func makeReceiptView(_ beverage: Beverage) {
+    private func fillReceiptScrollView(_ beverage: Beverage) {
         guard let beverageImg = UIImage(named: beverage.description) else { return }
         let beverageImgView = UIImageView(image: beverageImg)
         self.receiptScroll.addSubview(beverageImgView)
-        adjustImages(self.receiptScroll)
+        adjustImageCoordinate(at: self.receiptScroll)
         self.receiptScroll.contentSize = CGSize(width: beverageImgView.frame.width * CGFloat(self.receiptScroll.subviews.count - 1),
                                                 height: beverageImgView.frame.height)
     }
     
-    private func adjustImages(_ receiptView: UIView) {
+    private func adjustImageCoordinate(at receiptScrollView: UIView) {
         let indexOfsubView = self.receiptScroll.subviews.count - 1
-        let boughtBeverageOrigin = CGPoint(x: receiptView.subviews[indexOfsubView].frame.size.width * CGFloat(indexOfsubView - 1), y: 0)
-        receiptView.subviews[indexOfsubView].frame = CGRect(origin: boughtBeverageOrigin, size: receiptView.subviews[indexOfsubView].frame.size)
+        let boughtBeverageOrigin = CGPoint(x: receiptScrollView.subviews[indexOfsubView].frame.size.width * CGFloat(indexOfsubView - 1), y: 0)
+        receiptScrollView.subviews[indexOfsubView].frame = CGRect(origin: boughtBeverageOrigin, size: receiptScrollView.subviews[indexOfsubView].frame.size)
     }
     
     @objc private func updateStockLabel(notification: Notification) {

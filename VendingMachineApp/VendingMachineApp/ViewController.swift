@@ -103,6 +103,48 @@ class ViewController: UIViewController {
         admin.add(product: product)
     }
 
+    @IBAction func buyChocolateMilk(_ sender: Any) {
+        buyBeverage(category: Milk.MilkCategory.chocolate.name)
+    }
+
+    @IBAction func buyBananaMilk(_ sender: Any) {
+        buyBeverage(category: Milk.MilkCategory.banana.name)
+    }
+
+    @IBAction func buyStrawberryMilk(_ sender: Any) {
+        buyBeverage(category: Milk.MilkCategory.strawberry.name)
+    }
+
+    @IBAction func buyGeorgia(_ sender: Any) {
+        buyBeverage(category: Coffee.CoffeeCategory.georgia.name)
+    }
+
+    @IBAction func buyCantata(_ sender: Any) {
+        buyBeverage(category: Coffee.CoffeeCategory.cantata.name)
+    }
+
+    @IBAction func buyTOPCoffee(_ sender: Any) {
+        buyBeverage(category: Coffee.CoffeeCategory.topCoffee.name)
+    }
+
+    @IBAction func buySprite(_ sender: Any) {
+        buyBeverage(category: Soda.SodaCategory.sprite.name)
+    }
+
+    @IBAction func buyFanta(_ sender: Any) {
+        buyBeverage(category: Soda.SodaCategory.fanta.name)
+    }
+
+    @IBAction func buyPepsi(_ sender: Any) {
+        buyBeverage(category: Soda.SodaCategory.pepsi.name)
+    }
+
+    private func buyBeverage(category: Category) {
+        for product in user.getBuyableProducts() where product == category {
+            user.buy(category: category)
+        }
+    }
+
     private func refreshBeverageCount(inventory: Inventory) {
         for (key, value) in inventory {
             setBeverageCountLabel(key, value)

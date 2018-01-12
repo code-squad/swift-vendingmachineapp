@@ -89,6 +89,8 @@ class VendingMachine: VendingMachineProtocol, CustomStringConvertible, Codable {
     func buy(category: Category) {
         salesHistory.append(inventory[category]!.removeFirst())
         coins -= salesHistory.last!.price
+        NotificationCenter.default.post(name: .beverageCounts, object: self, userInfo: ["inventory": inventory])
+        NotificationCenter.default.post(name: .coins, object: self, userInfo: ["coins": coins])
     }
 
 }

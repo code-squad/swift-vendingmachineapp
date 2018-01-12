@@ -67,15 +67,15 @@ class ViewController: UIViewController {
         guard let beverageImg = UIImage(named: beverage.description) else { return }
         let beverageImgView = UIImageView(image: beverageImg)
         self.receiptScroll.addSubview(beverageImgView)
-        adjustImageCoordinate(at: self.receiptScroll)
+        adjustImageCoordinate()
         self.receiptScroll.contentSize = CGSize(width: beverageImgView.frame.width * CGFloat(self.receiptScroll.subviews.count - 1),
                                                 height: beverageImgView.frame.height)
     }
     
-    private func adjustImageCoordinate(at receiptScrollView: UIView) {
+    private func adjustImageCoordinate() {
         let indexOfsubView = self.receiptScroll.subviews.count - 1
-        let boughtBeverageOrigin = CGPoint(x: receiptScrollView.subviews[indexOfsubView].frame.size.width * CGFloat(indexOfsubView - 1), y: 0)
-        receiptScrollView.subviews[indexOfsubView].frame = CGRect(origin: boughtBeverageOrigin, size: receiptScrollView.subviews[indexOfsubView].frame.size)
+        let boughtBeverageOrigin = CGPoint(x: self.receiptScroll.subviews[indexOfsubView].frame.size.width * CGFloat(indexOfsubView - 1), y: 0)
+        self.receiptScroll.subviews[indexOfsubView].frame = CGRect(origin: boughtBeverageOrigin, size: self.receiptScroll.subviews[indexOfsubView].frame.size)
     }
     
     @objc private func updateStockLabel(notification: Notification) {

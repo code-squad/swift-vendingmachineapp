@@ -78,9 +78,12 @@ class Coffee: Beverage {
 
     init(coffeeCategory: CoffeeCategory, dateOfManufacture: Date, hot: Bool) {
         self.hot = hot
-        super.init(brand: coffeeCategory.brand, weight: coffeeCategory.weight,
-                   price: coffeeCategory.price, name: coffeeCategory.name,
-                   dateOfManufacture: dateOfManufacture)
+        super.init(brand: coffeeCategory.brand,
+                   weight: coffeeCategory.weight,
+                   price: coffeeCategory.price,
+                   name: coffeeCategory.name,
+                   dateOfManufacture: dateOfManufacture,
+                   image: coffeeCategory.image)
     }
 
     required init(from decoder: Decoder) throws {

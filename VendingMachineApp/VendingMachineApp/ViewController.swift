@@ -29,6 +29,10 @@ class ViewController: UIViewController {
                                                selector: #selector(changeCoins(notification:)),
                                                name: .coins,
                                                object: VendingMachine.sharedInstance())
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(changePurchaseList(notification:)),
+                                               name: .purchase,
+                                               object: VendingMachine.sharedInstance())
         setVendingMachine()
     }
 
@@ -42,6 +46,12 @@ class ViewController: UIViewController {
         guard let userInfo = notification.userInfo as? [String: Int] else { return }
         guard let coins = userInfo["coins"] else { return }
         refreshCoins(coins: coins)
+    }
+
+    @objc private func changePurchaseList(notification: Notification) {
+        guard let userInfo = notification.userInfo as? [String: String] else { return }
+        guard let image = userInfo["image"] else { return }
+        addImageForPurchaseList(image: image)
     }
 
     private func setVendingMachine() {
@@ -104,54 +114,44 @@ class ViewController: UIViewController {
     }
 
     @IBAction func buyChocolateMilk(_ sender: Any) {
-        buyBeverage(category: Milk.MilkCategory.chocolate.name,
-                    image: Milk.MilkCategory.chocolate.image)
+        buyBeverage(category: Milk.MilkCategory.chocolate.name)
     }
 
     @IBAction func buyBananaMilk(_ sender: Any) {
-        buyBeverage(category: Milk.MilkCategory.banana.name,
-                    image: Milk.MilkCategory.banana.image)
+        buyBeverage(category: Milk.MilkCategory.banana.name)
     }
 
     @IBAction func buyStrawberryMilk(_ sender: Any) {
-        buyBeverage(category: Milk.MilkCategory.strawberry.name,
-                    image: Milk.MilkCategory.strawberry.image)
+        buyBeverage(category: Milk.MilkCategory.strawberry.name)
     }
 
     @IBAction func buyGeorgia(_ sender: Any) {
-        buyBeverage(category: Coffee.CoffeeCategory.georgia.name,
-                    image: Coffee.CoffeeCategory.georgia.image)
+        buyBeverage(category: Coffee.CoffeeCategory.georgia.name)
     }
 
     @IBAction func buyCantata(_ sender: Any) {
-        buyBeverage(category: Coffee.CoffeeCategory.cantata.name,
-                    image: Coffee.CoffeeCategory.cantata.image)
+        buyBeverage(category: Coffee.CoffeeCategory.cantata.name)
     }
 
     @IBAction func buyTOPCoffee(_ sender: Any) {
-        buyBeverage(category: Coffee.CoffeeCategory.topCoffee.name,
-                    image: Coffee.CoffeeCategory.topCoffee.image)
+        buyBeverage(category: Coffee.CoffeeCategory.topCoffee.name)
     }
 
     @IBAction func buySprite(_ sender: Any) {
-        buyBeverage(category: Soda.SodaCategory.sprite.name,
-                    image: Soda.SodaCategory.sprite.image)
+        buyBeverage(category: Soda.SodaCategory.sprite.name)
     }
 
     @IBAction func buyFanta(_ sender: Any) {
-        buyBeverage(category: Soda.SodaCategory.fanta.name,
-                    image: Soda.SodaCategory.fanta.image)
+        buyBeverage(category: Soda.SodaCategory.fanta.name)
     }
 
     @IBAction func buyPepsi(_ sender: Any) {
-        buyBeverage(category: Soda.SodaCategory.pepsi.name,
-                    image: Soda.SodaCategory.pepsi.image)
+        buyBeverage(category: Soda.SodaCategory.pepsi.name)
     }
 
-    private func buyBeverage(category: Category, image: String) {
+    private func buyBeverage(category: Category) {
         for product in user.getBuyableProducts() where product == category {
             user.buy(category: category)
-            addImageForPurchaseList(image: image)
         }
     }
 
@@ -220,4 +220,5 @@ class ViewController: UIViewController {
 extension Notification.Name {
     static let beverageCounts = Notification.Name("beverageCounts")
     static let coins = Notification.Name("coins")
+    static let purchase = Notification.Name("purchase")
 }

@@ -91,6 +91,7 @@ class VendingMachine: VendingMachineProtocol, CustomStringConvertible, Codable {
         coins -= salesHistory.last!.price
         NotificationCenter.default.post(name: .beverageCounts, object: self, userInfo: ["inventory": inventory])
         NotificationCenter.default.post(name: .coins, object: self, userInfo: ["coins": coins])
+        NotificationCenter.default.post(name: .purchase, object: self, userInfo: ["image": salesHistory.last!.image])
     }
 
 }

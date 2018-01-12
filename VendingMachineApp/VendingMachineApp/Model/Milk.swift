@@ -78,9 +78,12 @@ class Milk: Beverage {
 
     init(milkCategory: MilkCategory, dateOfManufacture: Date, validate: Date) {
         self.validate = validate
-        super.init(brand: milkCategory.brand, weight: milkCategory.weight,
-                   price: milkCategory.price, name: milkCategory.name,
-                   dateOfManufacture: dateOfManufacture)
+        super.init(brand: milkCategory.brand,
+                   weight: milkCategory.weight,
+                   price: milkCategory.price,
+                   name: milkCategory.name,
+                   dateOfManufacture: dateOfManufacture,
+                   image: milkCategory.image)
     }
 
     required init(from decoder: Decoder) throws {

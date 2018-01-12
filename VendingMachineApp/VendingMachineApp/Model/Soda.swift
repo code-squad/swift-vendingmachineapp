@@ -78,9 +78,12 @@ class Soda: Beverage {
 
     init(sodaCategory: SodaCategory, dateOfManufacture: Date, lowCalorie: Bool) {
         self.lowCalorie = lowCalorie
-        super.init(brand: sodaCategory.brand, weight: sodaCategory.weight,
-                   price: sodaCategory.price, name: sodaCategory.name,
-                   dateOfManufacture: dateOfManufacture)
+        super.init(brand: sodaCategory.brand,
+                   weight: sodaCategory.weight,
+                   price: sodaCategory.price,
+                   name: sodaCategory.name,
+                   dateOfManufacture: dateOfManufacture,
+                   image: sodaCategory.image)
     }
 
     required init(from decoder: Decoder) throws {

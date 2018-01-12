@@ -14,13 +14,15 @@ class Beverage: CustomStringConvertible, Codable {
     let price: Int
     private let name: String
     private let dateOfManufacture: Date
+    let image: String
 
-    init(brand: String, weight: Int, price: Int, name: String, dateOfManufacture: Date) {
+    init(brand: String, weight: Int, price: Int, name: String, dateOfManufacture: Date, image: String) {
         self.brand = brand
         self.weight = weight
         self.price = price
         self.name = name
         self.dateOfManufacture = dateOfManufacture
+        self.image = image
     }
 
     var description: String {

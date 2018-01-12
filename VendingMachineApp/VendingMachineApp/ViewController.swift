@@ -34,9 +34,9 @@ class ViewController: UIViewController {
                                                selector: #selector(updateRecepitView(notification:)),
                                                name: .recepitNC,
                                                object: nil)
-        self.sortedBeverageLabel = match(labels: stockLabel, sequence: beverages)
-        self.sortedBuyButton = match(buttons: buyButtonGroup, sequence: beverages)
-        self.sortedAddButton = match(buttons: addButtonGroup, sequence: beverages)
+        self.sortedBeverageLabel = matches(indexList: beverages, valueList: stockLabel)
+        self.sortedBuyButton = matches(indexList: buyButtonGroup, valueList: beverages)
+        self.sortedAddButton = matches(indexList: addButtonGroup, valueList: beverages)
         initStockLabel()
     }
     
@@ -49,20 +49,12 @@ class ViewController: UIViewController {
         }
     }
     
-    private func match(buttons: [UIButton], sequence beverages: [Beverage]) -> [UIButton: Beverage] {
-        var matchedButton = [UIButton: Beverage]()
-        for index in 0..<buttons.count {
-            matchedButton[buttons[index]] = beverages[index]
+    private func matches<T, U>(indexList: [T], valueList: [U]) -> [T: U] {
+        var matchedList = [T: U]()
+        for index in 0..<indexList.count {
+            matchedList[indexList[index]] = valueList[index]
         }
-        return matchedButton
-    }
-    
-    private func match(labels: [UILabel], sequence beverages: [Beverage]) -> [Beverage: UILabel] {
-        var beverageLabel = [Beverage: UILabel]()
-        for index in 0..<labels.count {
-            beverageLabel[beverages[index]] = labels[index]
-        }
-        return beverageLabel
+        return matchedList
     }
     
     @objc private func updateRecepitView(notification: Notification) {
@@ -81,9 +73,9 @@ class ViewController: UIViewController {
     }
     
     private func adjustImages(_ receiptView: UIView) {
-        let indexOfImage = self.receiptScroll.subviews.count - 1
-            receiptView.subviews[indexOfImage].frame = CGRect(origin: CGPoint(x: receiptView.subviews[indexOfImage].frame.size.width * CGFloat(indexOfImage - 1), y: 0),
-                                                              size: receiptView.subviews[indexOfImage].frame.size)
+        let indexOfsubView = self.receiptScroll.subviews.count - 1
+        let boughtBeverageOrigin = CGPoint(x: receiptView.subviews[indexOfsubView].frame.size.width * CGFloat(indexOfsubView - 1), y: 0)
+        receiptView.subviews[indexOfsubView].frame = CGRect(origin: boughtBeverageOrigin, size: receiptView.subviews[indexOfsubView].frame.size)
     }
     
     @objc private func updateStockLabel(notification: Notification) {
@@ -106,12 +98,11 @@ class ViewController: UIViewController {
         guard let item = sortedBuyButton[buyButtonGroup[sender.tag]] else { return }
         do {
             try VendingMachineData.sharedInstance.buyBeverage(item)
-        } catch let error as ErrorCode {
+        } catch {
+            let error = (error as? ErrorCode) ?? ErrorCode.inValidError
             let alert = UIAlertController(title: "VendingMachine", message: error.description, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
             self.present(alert, animated: true, completion: nil)
-        } catch {
-            print("other error")
         }
     }
     

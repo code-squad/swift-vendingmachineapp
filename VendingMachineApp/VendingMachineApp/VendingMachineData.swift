@@ -77,7 +77,7 @@ class VendingMachineData: NSObject, NSCoding {
                                         userInfo: ["beverage": stock.remove(at: item)])
         NotificationCenter.default.post(name: .recepitNC,
                                         object: self,
-                                        userInfo: ["recepit": selectedValue, "count": receipt.count])
+                                        userInfo: ["beverage": selectedValue])
     }
     
     func addBeverage(_ item: Beverage) {

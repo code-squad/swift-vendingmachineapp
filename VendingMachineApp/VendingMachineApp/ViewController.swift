@@ -104,45 +104,69 @@ class ViewController: UIViewController {
     }
 
     @IBAction func buyChocolateMilk(_ sender: Any) {
-        buyBeverage(category: Milk.MilkCategory.chocolate.name)
+        buyBeverage(category: Milk.MilkCategory.chocolate.name,
+                    image: Milk.MilkCategory.chocolate.image)
     }
 
     @IBAction func buyBananaMilk(_ sender: Any) {
-        buyBeverage(category: Milk.MilkCategory.banana.name)
+        buyBeverage(category: Milk.MilkCategory.banana.name,
+                    image: Milk.MilkCategory.banana.image)
     }
 
     @IBAction func buyStrawberryMilk(_ sender: Any) {
-        buyBeverage(category: Milk.MilkCategory.strawberry.name)
+        buyBeverage(category: Milk.MilkCategory.strawberry.name,
+                    image: Milk.MilkCategory.strawberry.image)
     }
 
     @IBAction func buyGeorgia(_ sender: Any) {
-        buyBeverage(category: Coffee.CoffeeCategory.georgia.name)
+        buyBeverage(category: Coffee.CoffeeCategory.georgia.name,
+                    image: Coffee.CoffeeCategory.georgia.image)
     }
 
     @IBAction func buyCantata(_ sender: Any) {
-        buyBeverage(category: Coffee.CoffeeCategory.cantata.name)
+        buyBeverage(category: Coffee.CoffeeCategory.cantata.name,
+                    image: Coffee.CoffeeCategory.cantata.image)
     }
 
     @IBAction func buyTOPCoffee(_ sender: Any) {
-        buyBeverage(category: Coffee.CoffeeCategory.topCoffee.name)
+        buyBeverage(category: Coffee.CoffeeCategory.topCoffee.name,
+                    image: Coffee.CoffeeCategory.topCoffee.image)
     }
 
     @IBAction func buySprite(_ sender: Any) {
-        buyBeverage(category: Soda.SodaCategory.sprite.name)
+        buyBeverage(category: Soda.SodaCategory.sprite.name,
+                    image: Soda.SodaCategory.sprite.image)
     }
 
     @IBAction func buyFanta(_ sender: Any) {
-        buyBeverage(category: Soda.SodaCategory.fanta.name)
+        buyBeverage(category: Soda.SodaCategory.fanta.name,
+                    image: Soda.SodaCategory.fanta.image)
     }
 
     @IBAction func buyPepsi(_ sender: Any) {
-        buyBeverage(category: Soda.SodaCategory.pepsi.name)
+        buyBeverage(category: Soda.SodaCategory.pepsi.name,
+                    image: Soda.SodaCategory.pepsi.image)
     }
 
-    private func buyBeverage(category: Category) {
+    private func buyBeverage(category: Category, image: String) {
         for product in user.getBuyableProducts() where product == category {
             user.buy(category: category)
+            addImageForPurchaseList(image: image)
         }
+    }
+
+    private func addImageForPurchaseList(image: String) {
+        let purchaseListX: Int = 870
+        let purchaseListY: Int = admin.getSalesHistory().count * 50 + 300
+        let imageViewFrameWidth: Int = 150
+        let imageViewFrameHeight: Int = 150
+        let beverageImage = UIImageView(image: UIImage(named: "\(image)"))
+        beverageImage.frame = CGRect(x: purchaseListX,
+                                     y: purchaseListY,
+                                     width: imageViewFrameWidth,
+                                     height: imageViewFrameHeight)
+        beverageImage.contentMode = .scaleAspectFit
+        self.view.addSubview(beverageImage)
     }
 
     private func refreshBeverageCount(inventory: Inventory) {

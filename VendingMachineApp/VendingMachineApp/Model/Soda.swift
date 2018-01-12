@@ -63,6 +63,17 @@ class Soda: Beverage {
                 return 2000
             }
         }
+
+        var image: String {
+            switch self {
+            case .sprite:
+                return "sprite.jpg"
+            case .fanta:
+                return "fanta.jpg"
+            case .pepsi:
+                return "pepsi.jpg"
+            }
+        }
     }
 
     init(sodaCategory: SodaCategory, dateOfManufacture: Date, lowCalorie: Bool) {

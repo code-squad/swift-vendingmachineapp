@@ -204,11 +204,11 @@
                     <connections>
                         <outlet property="balanceLabel" destination="Gpc-nc-K3Y" id="834-9H-nyJ"/>
                         <outlet property="receiptScroll" destination="jYG-KK-hSP" id="wV9-Kb-zhW"/>
-                        <outletCollection property="stockLabel" destination="FtT-44-oV6" collectionClass="NSMutableArray" id="LIU-qf-PbD"/>
-                        <outletCollection property="stockLabel" destination="M96-qe-s2K" collectionClass="NSMutableArray" id="mRo-VA-EMQ"/>
-                        <outletCollection property="stockLabel" destination="XFX-oc-eJV" collectionClass="NSMutableArray" id="ehQ-xu-Zdf"/>
-                        <outletCollection property="stockLabel" destination="naV-Yb-sdd" collectionClass="NSMutableArray" id="7Op-Hd-UGJ"/>
-                        <outletCollection property="stockLabel" destination="9dR-rG-B0M" collectionClass="NSMutableArray" id="c54-wQ-HZ5"/>
+                        <outletCollection property="stockLabelGroup" destination="FtT-44-oV6" collectionClass="NSMutableArray" id="LIU-qf-PbD"/>
+                        <outletCollection property="stockLabelGroup" destination="M96-qe-s2K" collectionClass="NSMutableArray" id="mRo-VA-EMQ"/>
+                        <outletCollection property="stockLabelGroup" destination="XFX-oc-eJV" collectionClass="NSMutableArray" id="ehQ-xu-Zdf"/>
+                        <outletCollection property="stockLabelGroup" destination="naV-Yb-sdd" collectionClass="NSMutableArray" id="7Op-Hd-UGJ"/>
+                        <outletCollection property="stockLabelGroup" destination="9dR-rG-B0M" collectionClass="NSMutableArray" id="c54-wQ-HZ5"/>
                         <outletCollection property="buyButtonGroup" destination="V80-dQ-mjE" collectionClass="NSMutableArray" id="E5u-Y9-fkQ"/>
                         <outletCollection property="buyButtonGroup" destination="45U-lq-SH6" collectionClass="NSMutableArray" id="1IJ-XR-I4h"/>
                         <outletCollection property="buyButtonGroup" destination="e7b-PS-9Io" collectionClass="NSMutableArray" id="cYM-Rd-U9w"/>

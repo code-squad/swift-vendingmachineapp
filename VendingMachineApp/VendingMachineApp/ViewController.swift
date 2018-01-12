@@ -12,7 +12,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var receiptScroll: UIScrollView!
     @IBOutlet var buyButtonGroup: [UIButton]!
     @IBOutlet var addButtonGroup: [UIButton]!
-    @IBOutlet var stockLabel: [UILabel]!
+    @IBOutlet var stockLabelGroup: [UILabel]!
     @IBOutlet weak var balanceLabel: UILabel!
     private var sortedBeverageLabel = [Beverage: UILabel]()
     private var sortedBuyButton = [UIButton: Beverage]()
@@ -34,7 +34,7 @@ class ViewController: UIViewController {
                                                selector: #selector(updateRecepitView(notification:)),
                                                name: .recepitNC,
                                                object: nil)
-        self.sortedBeverageLabel = matches(indexList: beverages, valueList: stockLabel)
+        self.sortedBeverageLabel = matches(indexList: beverages, valueList: stockLabelGroup)
         self.sortedBuyButton = matches(indexList: buyButtonGroup, valueList: beverages)
         self.sortedAddButton = matches(indexList: addButtonGroup, valueList: beverages)
         initStockLabel()

@@ -205,6 +205,9 @@
                                 <state key="normal" title="구매">
                                     <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="buyChocolateMilk:" destination="BYZ-38-t0r" eventType="touchUpInside" id="naC-pL-nFk"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZBh-KJ-4Nf">
                                 <rect key="frame" x="376" y="254" width="46" height="30"/>
@@ -213,6 +216,9 @@
                                 <state key="normal" title="구매">
                                     <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="buyBananaMilk:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fNM-Yk-Mci"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qwz-L9-ghF">
                                 <rect key="frame" x="620" y="254" width="46" height="30"/>
@@ -221,6 +227,9 @@
                                 <state key="normal" title="구매">
                                     <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="buyStrawberryMilk:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Emw-w6-Ucv"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="arO-25-56B">
                                 <rect key="frame" x="127" y="506" width="46" height="30"/>
@@ -229,6 +238,9 @@
                                 <state key="normal" title="구매">
                                     <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="buyGeorgia:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rHD-90-MbQ"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xfh-Et-R7t">
                                 <rect key="frame" x="376" y="506" width="46" height="30"/>
@@ -237,6 +249,9 @@
                                 <state key="normal" title="구매">
                                     <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="buyCantata:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lXV-68-a1m"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1VE-72-9ZA">
                                 <rect key="frame" x="620" y="506" width="46" height="30"/>
@@ -245,6 +260,9 @@
                                 <state key="normal" title="구매">
                                     <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="buyTOPCoffee:" destination="BYZ-38-t0r" eventType="touchUpInside" id="p6t-9g-fej"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sfA-Bx-Aap">
                                 <rect key="frame" x="127" y="755" width="46" height="30"/>
@@ -253,6 +271,9 @@
                                 <state key="normal" title="구매">
                                     <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="buySprite:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1nV-y2-I23"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hJu-IT-XjY">
                                 <rect key="frame" x="376" y="755" width="46" height="30"/>
@@ -261,6 +282,9 @@
                                 <state key="normal" title="구매">
                                     <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="buyFanta:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BCN-d8-lVV"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b7J-4q-l0O">
                                 <rect key="frame" x="620" y="755" width="46" height="30"/>
@@ -269,6 +293,9 @@
                                 <state key="normal" title="구매">
                                     <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="buyPepsi:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2N6-Al-w74"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="1000" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pLM-eI-uYx">
                                 <rect key="frame" x="855" y="127" width="70" height="30"/>

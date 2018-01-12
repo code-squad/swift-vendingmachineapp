@@ -108,3 +108,30 @@ Swift4에 새로 적용된 Codable 을 활용해서 구현
 - 추가 버튼을 누르면 해당 음식 재고를 모델에 추가할 때마다
 - VendingMachine 모델 객체에서는 전체 음식 재고를 NotificationCenter에 post한다.
 - 모든 동작은 이전 단계와 동일하게 동작해야 한다.
+
+---
+## Step6 (구매목록 View 코드)
+### 요구사항
+- 구매 목록에 대한 제품 이미지뷰를 동적으로 코드로 직접 View에 추가한다.
+- readme.md 파일에 주요 작업 내용(바뀐 화면 이미지, 핵심 기능 설명)과 완성 날짜시간을 기록한다.
+- 실행하고 새로운 화면을 캡처해서 readme.md 파일에 포함한다.
+
+### 프로그래밍 요구사항
+- 실행이후 구매 목록을 화면 아래 이미지로 추가한다.
+![구매목록 이미지 추가](capture/vendingapp-purchaselist.png)
+- 구매 목록도 앱 종료이후에 저장되도록 개선한다.
+- 특정 제품을 구매할 때마다 해당 제품 이미지를 추가하도록 구현한다.
+    + NotificationCenter를 활용하자!
+- 특정 시점에 self.view.addSubView() 메서드로 UIImageView를 수동 추가
+- 힌트
+```
+let cardImage : UIImageView = UIImageView(image:imageInstance)
+cardImage.frame = CGRect(x: x, y: y, width: width, height: height)
+```
+모든 동작은 이전 단계와 동일하게 동작해야 한다.
+
+### 결과
+#### UI
+![초기 화면](capture/step6_01.png)
+![재고 추가 화면](capture/step6_02.png)
+![금액 추가 화면](capture/step6_03.png)

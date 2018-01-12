@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--User View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="VendingMachineApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="UserViewController" customModule="VendingMachineApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -23,7 +23,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="LightBananaMilk.png"/>
                                 <connections>
-                                    <action selector="addTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="38t-AX-3rY"/>
+                                    <action selector="buyTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="17f-LU-jSG"/>
                                 </connections>
                             </button>
                             <button opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1ph-SS-JY1">
@@ -31,7 +31,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="Coke.png"/>
                                 <connections>
-                                    <action selector="addTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VsM-hv-Tj5"/>
+                                    <action selector="buyTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fYc-nV-Npa"/>
                                 </connections>
                             </button>
                             <button opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bjW-6Y-7Vt">
@@ -39,7 +39,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="StarBucksCoffee.png"/>
                                 <connections>
-                                    <action selector="addTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="C5q-ce-Wsi"/>
+                                    <action selector="buyTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gDC-BV-dxh"/>
                                 </connections>
                             </button>
                             <button opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vcY-Xn-lBv">
@@ -47,7 +47,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="Sprite.png"/>
                                 <connections>
-                                    <action selector="addTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CjW-1C-GQj"/>
+                                    <action selector="buyTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8Fm-T9-QbJ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" clipsSubviews="YES" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hhr-EE-7ng">
@@ -55,7 +55,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="CeylonTea.png"/>
                                 <connections>
-                                    <action selector="addTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lSR-ea-Hsi"/>
+                                    <action selector="buyTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Z3l-1o-UiB"/>
                                 </connections>
                             </button>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gRE-3l-joh">
@@ -148,55 +148,17 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V80-dQ-mjE">
-                                <rect key="frame" x="101" y="369" width="70" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="구매"/>
-                                <connections>
-                                    <action selector="buyTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KUN-co-r7u"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="45U-lq-SH6">
-                                <rect key="frame" x="289" y="367" width="70" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="구매"/>
-                                <connections>
-                                    <action selector="buyTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DOe-iF-CbF"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e7b-PS-9Io">
-                                <rect key="frame" x="477" y="371" width="70" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="구매"/>
-                                <connections>
-                                    <action selector="buyTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qA2-l2-yuf"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dVa-xg-iAn">
-                                <rect key="frame" x="665" y="369" width="70" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="구매"/>
-                                <connections>
-                                    <action selector="buyTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hh5-9w-qqz"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="45u-be-dnA">
-                                <rect key="frame" x="853" y="371" width="70" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="구매"/>
-                                <connections>
-                                    <action selector="buyTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9YI-DD-rtu"/>
-                                </connections>
-                            </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" directionalLockEnabled="YES" alwaysBounceHorizontal="YES" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jYG-KK-hSP">
                                 <rect key="frame" x="40" y="557" width="944" height="167"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="88w-94-Nr6">
+                                <rect key="frame" x="40" y="59" width="22" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <segue destination="Dkq-ug-hUV" kind="presentation" modalTransitionStyle="flipHorizontal" id="HYp-gC-eSW"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -209,21 +171,131 @@
                         <outletCollection property="stockLabelGroup" destination="XFX-oc-eJV" collectionClass="NSMutableArray" id="ehQ-xu-Zdf"/>
                         <outletCollection property="stockLabelGroup" destination="naV-Yb-sdd" collectionClass="NSMutableArray" id="7Op-Hd-UGJ"/>
                         <outletCollection property="stockLabelGroup" destination="9dR-rG-B0M" collectionClass="NSMutableArray" id="c54-wQ-HZ5"/>
-                        <outletCollection property="buyButtonGroup" destination="V80-dQ-mjE" collectionClass="NSMutableArray" id="E5u-Y9-fkQ"/>
-                        <outletCollection property="buyButtonGroup" destination="45U-lq-SH6" collectionClass="NSMutableArray" id="1IJ-XR-I4h"/>
-                        <outletCollection property="buyButtonGroup" destination="e7b-PS-9Io" collectionClass="NSMutableArray" id="cYM-Rd-U9w"/>
-                        <outletCollection property="buyButtonGroup" destination="dVa-xg-iAn" collectionClass="NSMutableArray" id="eEO-IK-uMK"/>
-                        <outletCollection property="buyButtonGroup" destination="45u-be-dnA" collectionClass="NSMutableArray" id="hxz-NX-9sx"/>
-                        <outletCollection property="addButtonGroup" destination="YEh-kg-rWg" collectionClass="NSMutableArray" id="UMc-5B-1Zu"/>
-                        <outletCollection property="addButtonGroup" destination="1ph-SS-JY1" collectionClass="NSMutableArray" id="WAu-Wx-A0k"/>
-                        <outletCollection property="addButtonGroup" destination="bjW-6Y-7Vt" collectionClass="NSMutableArray" id="Ekf-8R-YwA"/>
-                        <outletCollection property="addButtonGroup" destination="vcY-Xn-lBv" collectionClass="NSMutableArray" id="vja-Xn-BAF"/>
-                        <outletCollection property="addButtonGroup" destination="hhr-EE-7ng" collectionClass="NSMutableArray" id="W7I-sa-3O5"/>
+                        <outletCollection property="buyButtonGroup" destination="YEh-kg-rWg" collectionClass="NSMutableArray" id="0l3-2Y-FNR"/>
+                        <outletCollection property="buyButtonGroup" destination="1ph-SS-JY1" collectionClass="NSMutableArray" id="pnf-Wr-qX7"/>
+                        <outletCollection property="buyButtonGroup" destination="bjW-6Y-7Vt" collectionClass="NSMutableArray" id="4bu-dJ-RDg"/>
+                        <outletCollection property="buyButtonGroup" destination="vcY-Xn-lBv" collectionClass="NSMutableArray" id="4xU-Ce-Udk"/>
+                        <outletCollection property="buyButtonGroup" destination="hhr-EE-7ng" collectionClass="NSMutableArray" id="Yld-Dm-kIM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-186" y="30"/>
+        </scene>
+        <!--Admin View Controller-->
+        <scene sceneID="DBJ-P9-5gM">
+            <objects>
+                <viewController id="Dkq-ug-hUV" customClass="AdminViewController" customModule="VendingMachineApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ENY-wH-8wK">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yhp-Ae-3D5">
+                                <rect key="frame" x="52" y="63" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="x">
+                                    <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="closeButtonTouched:" destination="Dkq-ug-hUV" eventType="touchUpInside" id="jSc-08-7G4"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="siL-dn-6Ko">
+                                <rect key="frame" x="46" y="154" width="180" height="180"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="LightBananaMilk.png"/>
+                                <connections>
+                                    <action selector="addTouched:" destination="Dkq-ug-hUV" eventType="touchUpInside" id="Zeq-xd-GUS"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DNr-ol-XlI">
+                                <rect key="frame" x="234" y="154" width="180" height="180"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="Coke.png"/>
+                                <connections>
+                                    <action selector="addTouched:" destination="Dkq-ug-hUV" eventType="touchUpInside" id="fOS-zw-fjp"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eGf-fd-VGj">
+                                <rect key="frame" x="422" y="154" width="180" height="180"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="StarBucksCoffee.png"/>
+                                <connections>
+                                    <action selector="addTouched:" destination="Dkq-ug-hUV" eventType="touchUpInside" id="aJz-S5-hZP"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Yj-zx-AQG">
+                                <rect key="frame" x="610" y="154" width="180" height="180"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="Sprite.png"/>
+                                <connections>
+                                    <action selector="addTouched:" destination="Dkq-ug-hUV" eventType="touchUpInside" id="Dcg-no-TI8"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" clipsSubviews="YES" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H7b-QC-Zyr">
+                                <rect key="frame" x="798" y="154" width="180" height="180"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="CeylonTea.png"/>
+                                <connections>
+                                    <action selector="addTouched:" destination="Dkq-ug-hUV" eventType="touchUpInside" id="Cee-uc-2PS"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0개" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OH8-le-R3h">
+                                <rect key="frame" x="101" y="342" width="70" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0개" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MQ9-O1-Ki6">
+                                <rect key="frame" x="289" y="342" width="70" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0개" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eZq-my-FPk">
+                                <rect key="frame" x="477" y="342" width="70" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0개" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HpV-CQ-oxs">
+                                <rect key="frame" x="665" y="342" width="70" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" tag="4" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0개" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xfe-CY-2ax">
+                                <rect key="frame" x="853" y="342" width="70" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.8756741751269036" green="0.8756741751269036" blue="0.8756741751269036" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="9Pb-fb-Pv3"/>
+                    </view>
+                    <connections>
+                        <outletCollection property="addButtonGroup" destination="siL-dn-6Ko" collectionClass="NSMutableArray" id="Kbd-pi-4fg"/>
+                        <outletCollection property="addButtonGroup" destination="DNr-ol-XlI" collectionClass="NSMutableArray" id="QZ3-4n-GTq"/>
+                        <outletCollection property="addButtonGroup" destination="eGf-fd-VGj" collectionClass="NSMutableArray" id="eIk-bH-88Z"/>
+                        <outletCollection property="addButtonGroup" destination="3Yj-zx-AQG" collectionClass="NSMutableArray" id="uOa-iz-CaK"/>
+                        <outletCollection property="addButtonGroup" destination="H7b-QC-Zyr" collectionClass="NSMutableArray" id="9Iq-Qw-YPo"/>
+                        <outletCollection property="stockLabelGroup" destination="OH8-le-R3h" collectionClass="NSMutableArray" id="Dm0-2m-ACh"/>
+                        <outletCollection property="stockLabelGroup" destination="MQ9-O1-Ki6" collectionClass="NSMutableArray" id="9il-el-xWR"/>
+                        <outletCollection property="stockLabelGroup" destination="eZq-my-FPk" collectionClass="NSMutableArray" id="qbv-Te-ktT"/>
+                        <outletCollection property="stockLabelGroup" destination="HpV-CQ-oxs" collectionClass="NSMutableArray" id="2ET-wd-8wg"/>
+                        <outletCollection property="stockLabelGroup" destination="Xfe-CY-2ax" collectionClass="NSMutableArray" id="ubq-5Z-jBX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mO9-Jt-n8t" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-186" y="780"/>
         </scene>
     </scenes>
     <resources>

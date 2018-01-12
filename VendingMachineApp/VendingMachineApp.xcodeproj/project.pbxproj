@@ -13,7 +13,7 @@
 		400E3D531FF4B82800B25072 /* CeylonTea.png in Resources */ = {isa = PBXBuildFile; fileRef = 400E3D4E1FF4B82700B25072 /* CeylonTea.png */; };
 		400E3D541FF4B82800B25072 /* Coke.png in Resources */ = {isa = PBXBuildFile; fileRef = 400E3D4F1FF4B82700B25072 /* Coke.png */; };
 		40BB47961FF34A19003DD3BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BB47951FF34A19003DD3BF /* AppDelegate.swift */; };
-		40BB47981FF34A19003DD3BF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BB47971FF34A19003DD3BF /* ViewController.swift */; };
+		40BB47981FF34A19003DD3BF /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BB47971FF34A19003DD3BF /* UserViewController.swift */; };
 		40BB479B1FF34A19003DD3BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40BB47991FF34A19003DD3BF /* Main.storyboard */; };
 		40BB479D1FF34A19003DD3BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40BB479C1FF34A19003DD3BF /* Assets.xcassets */; };
 		40BB47A01FF34A19003DD3BF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40BB479E1FF34A19003DD3BF /* LaunchScreen.storyboard */; };
@@ -32,6 +32,7 @@
 		40BB48DC1FF35479003DD3BF /* LightBananaMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BB48C71FF35478003DD3BF /* LightBananaMilk.swift */; };
 		40BB48DD1FF35479003DD3BF /* StarBucksCoffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BB48C81FF35478003DD3BF /* StarBucksCoffee.swift */; };
 		40BB48E01FF35479003DD3BF /* SodaPop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BB48CB1FF35479003DD3BF /* SodaPop.swift */; };
+		40BF6B2A2008CA1F00421983 /* AdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BF6B292008CA1F00421983 /* AdminViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,7 +60,7 @@
 		400E3D4F1FF4B82700B25072 /* Coke.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Coke.png; sourceTree = "<group>"; };
 		40BB47921FF34A19003DD3BF /* VendingMachineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendingMachineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40BB47951FF34A19003DD3BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		40BB47971FF34A19003DD3BF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		40BB47971FF34A19003DD3BF /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		40BB479A1FF34A19003DD3BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		40BB479C1FF34A19003DD3BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		40BB479F1FF34A19003DD3BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -83,6 +84,7 @@
 		40BB48C71FF35478003DD3BF /* LightBananaMilk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightBananaMilk.swift; sourceTree = "<group>"; };
 		40BB48C81FF35478003DD3BF /* StarBucksCoffee.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarBucksCoffee.swift; sourceTree = "<group>"; };
 		40BB48CB1FF35479003DD3BF /* SodaPop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SodaPop.swift; sourceTree = "<group>"; };
+		40BF6B292008CA1F00421983 /* AdminViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,7 +153,8 @@
 				40BB48B81FF35477003DD3BF /* Supporting */,
 				40BB48BE1FF35478003DD3BF /* VendingMachineData.swift */,
 				40BB47951FF34A19003DD3BF /* AppDelegate.swift */,
-				40BB47971FF34A19003DD3BF /* ViewController.swift */,
+				40BB47971FF34A19003DD3BF /* UserViewController.swift */,
+				40BF6B292008CA1F00421983 /* AdminViewController.swift */,
 				40BB47991FF34A19003DD3BF /* Main.storyboard */,
 				40BB479C1FF34A19003DD3BF /* Assets.xcassets */,
 				40BB479E1FF34A19003DD3BF /* LaunchScreen.storyboard */,
@@ -372,13 +375,14 @@
 				40BB48D81FF35479003DD3BF /* Coke.swift in Sources */,
 				40BB48DA1FF35479003DD3BF /* RealBananaMilk.swift in Sources */,
 				40BB48E01FF35479003DD3BF /* SodaPop.swift in Sources */,
-				40BB47981FF34A19003DD3BF /* ViewController.swift in Sources */,
+				40BB47981FF34A19003DD3BF /* UserViewController.swift in Sources */,
 				40BB48DD1FF35479003DD3BF /* StarBucksCoffee.swift in Sources */,
 				40BB48D01FF35479003DD3BF /* SupportingEnum.swift in Sources */,
 				40BB48D61FF35479003DD3BF /* Milk.swift in Sources */,
 				40BB47961FF34A19003DD3BF /* AppDelegate.swift in Sources */,
 				40BB48CF1FF35479003DD3BF /* ErrorCode.swift in Sources */,
 				40BB48D41FF35479003DD3BF /* VendingMachineData.swift in Sources */,
+				40BF6B2A2008CA1F00421983 /* AdminViewController.swift in Sources */,
 				40BB48DB1FF35479003DD3BF /* CeylonTea.swift in Sources */,
 				40BB48D91FF35479003DD3BF /* Sprite.swift in Sources */,
 				40BB48D51FF35479003DD3BF /* Coffee.swift in Sources */,

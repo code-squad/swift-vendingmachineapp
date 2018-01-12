@@ -63,6 +63,17 @@ class Coffee: Beverage {
                 return 3000
             }
         }
+
+        var image: String {
+            switch self {
+            case .georgia:
+                return "georgia.jpg"
+            case .cantata:
+                return "cantata.jpg"
+            case .topCoffee:
+                return "topCoffee.jpeg"
+            }
+        }
     }
 
     init(coffeeCategory: CoffeeCategory, dateOfManufacture: Date, hot: Bool) {

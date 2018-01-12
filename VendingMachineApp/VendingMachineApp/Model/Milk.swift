@@ -63,6 +63,17 @@ class Milk: Beverage {
                 return 1000
             }
         }
+
+        var image: String {
+            switch self {
+            case .chocolate:
+                return "chocoMilk.jpg"
+            case .banana:
+                return "bananaMilk.jpg"
+            case .strawberry:
+                return "strawberryMilk.jpg"
+            }
+        }
     }
 
     init(milkCategory: MilkCategory, dateOfManufacture: Date, validate: Date) {

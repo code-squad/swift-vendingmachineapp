@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-    @IBOutlet weak var receiptView: UIScrollView!
+    @IBOutlet weak var receiptScroll: UIScrollView!
     @IBOutlet var buyButtonGroup: [UIButton]!
     @IBOutlet var addButtonGroup: [UIButton]!
     @IBOutlet var stockLabel: [UILabel]!
@@ -23,7 +23,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let boundRatio: CGFloat = 15.0
+        let boundRatio: CGFloat = 35.0
         addButtonGroup.forEach { $0.layer.cornerRadius = boundRatio }
         let beverages = [LightBananaMilk(), Coke(), StarBucksCoffee(), Sprite(), CeylonTea()]
         NotificationCenter.default.addObserver(self,
@@ -44,8 +44,8 @@ class ViewController: UIViewController {
         for beverage in sortedBeverageLabel {
             setLabelContents(key: beverage.key, label: beverage.value)
         }
-        for index in 0..<VendingMachineData.sharedInstance.receipt.count {
-            makeReceiptView(beverage: VendingMachineData.sharedInstance.receipt[index], count: index)
+        for beverage in VendingMachineData.sharedInstance.receipt {
+            makeReceiptView(beverage)
         }
     }
     
@@ -67,23 +67,23 @@ class ViewController: UIViewController {
     
     @objc private func updateRecepitView(notification: Notification) {
         guard let userInfo = notification.userInfo else { return }
-        guard let beverage = userInfo["recepit"] as? Beverage else { return }
-        guard let receiptCount = userInfo["count"] as? Int else { return }
-        makeReceiptView(beverage: beverage, count: receiptCount)
+        guard let beverage = userInfo["beverage"] as? Beverage else { return }
+        makeReceiptView(beverage)
     }
     
-    private func makeReceiptView(beverage: Beverage, count: Int) {
+    private func makeReceiptView(_ beverage: Beverage) {
         guard let beverageImg = UIImage(named: beverage.description) else { return }
         let beverageImgView = UIImageView(image: beverageImg)
-        let imgRatio = CGFloat(3)
-        let xPoint = CGFloat((beverageImg.size.width/imgRatio) * CGFloat(count - 1))
-        beverageImgView.frame = CGRect(x: xPoint, y: 0,
-                                       width: beverageImg.size.width/imgRatio,
-                                       height: beverageImg.size.height/imgRatio)
-        self.receiptView.addSubview(beverageImgView)
-        self.receiptView.contentSize =  CGSize(width: beverageImgView.frame.size.width * CGFloat(count),
-                                               height: beverageImgView.frame.size.height)
-        
+        self.receiptScroll.addSubview(beverageImgView)
+        adjustImages(self.receiptScroll)
+        self.receiptScroll.contentSize = CGSize(width: beverageImgView.frame.width * CGFloat(self.receiptScroll.subviews.count - 1),
+                                                height: beverageImgView.frame.height)
+    }
+    
+    private func adjustImages(_ receiptView: UIView) {
+        let indexOfImage = self.receiptScroll.subviews.count - 1
+            receiptView.subviews[indexOfImage].frame = CGRect(origin: CGPoint(x: receiptView.subviews[indexOfImage].frame.size.width * CGFloat(indexOfImage - 1), y: 0),
+                                                              size: receiptView.subviews[indexOfImage].frame.size)
     }
     
     @objc private func updateStockLabel(notification: Notification) {

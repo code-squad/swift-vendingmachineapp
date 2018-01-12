@@ -203,7 +203,7 @@
                     </view>
                     <connections>
                         <outlet property="balanceLabel" destination="Gpc-nc-K3Y" id="834-9H-nyJ"/>
-                        <outlet property="receiptView" destination="jYG-KK-hSP" id="wV9-Kb-zhW"/>
+                        <outlet property="receiptScroll" destination="jYG-KK-hSP" id="wV9-Kb-zhW"/>
                         <outletCollection property="stockLabel" destination="FtT-44-oV6" collectionClass="NSMutableArray" id="LIU-qf-PbD"/>
                         <outletCollection property="stockLabel" destination="M96-qe-s2K" collectionClass="NSMutableArray" id="mRo-VA-EMQ"/>
                         <outletCollection property="stockLabel" destination="XFX-oc-eJV" collectionClass="NSMutableArray" id="ehQ-xu-Zdf"/>
@@ -223,14 +223,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="50.9765625" y="35.9375"/>
+            <point key="canvasLocation" x="-186" y="30"/>
         </scene>
     </scenes>
     <resources>
-        <image name="CeylonTea.png" width="500" height="500"/>
-        <image name="Coke.png" width="500" height="500"/>
-        <image name="LightBananaMilk.png" width="500" height="500"/>
-        <image name="Sprite.png" width="500" height="500"/>
-        <image name="StarBucksCoffee.png" width="500" height="500"/>
+        <image name="CeylonTea.png" width="166" height="166"/>
+        <image name="Coke.png" width="166" height="166"/>
+        <image name="LightBananaMilk.png" width="166" height="166"/>
+        <image name="Sprite.png" width="166" height="166"/>
+        <image name="StarBucksCoffee.png" width="166" height="166"/>
     </resources>
 </document>

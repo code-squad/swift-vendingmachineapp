@@ -8,15 +8,13 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class UserViewController: UIViewController {
     @IBOutlet weak var receiptScroll: UIScrollView!
     @IBOutlet var buyButtonGroup: [UIButton]!
-    @IBOutlet var addButtonGroup: [UIButton]!
     @IBOutlet var stockLabelGroup: [UILabel]!
     @IBOutlet weak var balanceLabel: UILabel!
     private var sortedBeverageLabel = [Beverage: UILabel]()
     private var sortedBuyButton = [UIButton: Beverage]()
-    private var sortedAddButton = [UIButton: Beverage]()
     private let countingUnit = "개"
     private let fiveThounsand = 5000
     private let oneThounsand = 1000
@@ -24,7 +22,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let boundRatio: CGFloat = 35.0
-        addButtonGroup.forEach { $0.layer.cornerRadius = boundRatio }
+        buyButtonGroup.forEach { $0.layer.cornerRadius = boundRatio }
         let beverages = [LightBananaMilk(), Coke(), StarBucksCoffee(), Sprite(), CeylonTea()]
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(updateStockLabel(notification:)),
@@ -36,7 +34,6 @@ class ViewController: UIViewController {
                                                object: nil)
         self.sortedBeverageLabel = matches(indexList: beverages, valueList: stockLabelGroup)
         self.sortedBuyButton = matches(indexList: buyButtonGroup, valueList: beverages)
-        self.sortedAddButton = matches(indexList: addButtonGroup, valueList: beverages)
         initStockLabel()
     }
     
@@ -106,11 +103,6 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction func addTouched(_ sender: UIButton) {
-        guard let item = sortedAddButton[addButtonGroup[sender.tag]] else { return }
-        VendingMachineData.sharedInstance.addBeverage(item)
-    }
-    
     @IBAction func addFiveBalanceTouched(_ sender: Any) {
         VendingMachineData.sharedInstance.insertMoney(fiveThounsand)
         balanceLabel.text = VendingMachineData.sharedInstance.balance.commaRepresentation
@@ -119,10 +111,6 @@ class ViewController: UIViewController {
     @IBAction func addOneBalanceTouched(_ sender: Any) {
         VendingMachineData.sharedInstance.insertMoney(oneThounsand)
         balanceLabel.text = VendingMachineData.sharedInstance.balance.commaRepresentation
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
     }
 }
 

@@ -11,7 +11,14 @@ import Foundation
 class StockManager<MachineType: Machine, ProductType: Product> {
     private var machine: MachineType
     // 자판기 메뉴별 남은 재고 기록.
-    private var stock: [ProductType.MenuType:Stock]
+    private var stock: [ProductType.MenuType:Stock] {
+        didSet {
+            // 뷰 업데이트. M -> C (직접 호출은 아님)
+            NotificationCenter.default.post(
+                name: NSNotification.Name(NotificationNames.didUpdateInventory.description),
+                object: nil)
+        }
+    }
     // 구입이력 기록.
     private var purchasedHistory: [HistoryInfo]
     init(_ machine: MachineType) {

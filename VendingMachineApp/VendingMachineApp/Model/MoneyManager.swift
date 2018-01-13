@@ -9,12 +9,16 @@
 import Foundation
 
 class MoneyManager<MachineType: Machine> {
-    private var machine: MachineType
     // 현재 잔액
-    private(set) var balance: Balance
-    init(_ machine: MachineType) {
+    private(set) var balance: Balance {
+        didSet {
+            NotificationCenter.default.post(
+                name: NSNotification.Name(NotificationNames.didUpdateBalance.description),
+                object: nil)
+        }
+    }
+    init() {
         self.balance = 0
-        self.machine = machine
     }
 
     // 삽입 가능한 돈 단위.

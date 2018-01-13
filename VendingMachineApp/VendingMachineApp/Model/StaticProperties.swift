@@ -6,4 +6,13 @@
 //  Copyright © 2018년 심 승민. All rights reserved.
 //
 
-import Foundation
+enum NotificationNames: CustomStringConvertible {
+    case didUpdateInventory
+    case didUpdateBalance
+    var description: String {
+        switch self {
+        case .didUpdateInventory: return "didUpdateInventory"
+        case .didUpdateBalance: return "didUpdateBalance"
+        }
+    }
+}

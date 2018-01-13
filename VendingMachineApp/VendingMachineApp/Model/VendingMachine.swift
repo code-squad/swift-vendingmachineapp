@@ -24,21 +24,16 @@ class VendingMachine: Sequence, Machine {
         self.isManagerRemoved = false
         // 장부기록, 돈관리의 책임을 위임.
         self.stockManager = StockManager(self)
-        self.moneyManager = MoneyManager(self)
+        self.moneyManager = MoneyManager()
     }
     // 자판기 내 음료수 인스턴스 저장.
     private var inventory: [Beverage] = [] {
         // 상태변화가 생길 때마다 장부 및 잔액을 업데이트.
         didSet(oldInventory) {
-            // 음료수 단순 제거 시 (구입 + 관리 시 제거)
-            let removed = isRemoved(oldInventory, inventory)
-            // 음료수 구입 시
-            let purchased = isPurchased(removed)
-            // 재고를 넣을 때와 음료수를 빼먹을 때 둘 다 업데이트.
+            let removed = isRemoved(oldInventory, inventory)    // 음료수 단순 제거 시
+            let purchased = isPurchased(removed)                // 음료수 구입 시
             stockManager.updateStock(recentChanged, isNewArrival: !removed)
-            // manager가 제거한 음료수 개수는 업데이트 안 함.
             stockManager.recordPurchasedHistory(recentChanged, isPurchased: purchased)
-            // 잔액은 음료수를 빼먹을 때만 업데이트. manager가 제거한 음료수 가격은 업데이트 안 함.
             moneyManager.updateBalance(recentChanged, isPurchased: purchased)
             isManagerRemoved = false
         }
@@ -68,8 +63,8 @@ class VendingMachine: Sequence, Machine {
 extension VendingMachine {
     typealias MenuType = Menu
     // 선택 가능한 메뉴.
-    enum Menu: EnumCollection, Purchasable {
-        case strawberryMilk
+    enum Menu: Int, EnumCollection, Purchasable {
+        case strawberryMilk = 1
         case bananaMilk
         case chocoMilk
         case coke
@@ -112,24 +107,24 @@ extension VendingMachine: Managable {
     // 모든 메뉴의 재고를 count개씩 자판기에 공급.
     func fullSupply(_ count: Int) {
         for menu in MenuType.allValues {
-            supply(productType: menu, count)
+            supply(menu, count)
         }
     }
 
     // 특정상품의 재고를 N개 공급.
-    func supply(productType: MenuType, _ addCount: Stock) {
-        for _ in 0..<addCount {
+    func supply(_ menu: MenuType, _ count: Stock) {
+        for _ in 0..<count {
             // 인벤토리에 추가.
-            self.recentChanged = productType.generate()
+            self.recentChanged = menu.generate()
             inventory.append(recentChanged)
         }
     }
 
     // 특정상품의 재고를 N개 제거.
-    func remove(productType: MenuType, _ addCount: Stock) {
-        for _ in 0..<addCount {
+    func remove(_ menu: MenuType, _ count: Stock) {
+        for _ in 0..<count {
             isManagerRemoved = true
-            _ = self.pop(productType)
+            _ = self.pop(menu)
         }
     }
 
@@ -141,9 +136,8 @@ extension VendingMachine: Managable {
 
 extension VendingMachine: UserServable {
     // 주화 삽입.
-    func insertMoney<MachineType>(_ money: MoneyManager<MachineType>.Unit) {
-        guard let moneyUnit = money as? MoneyManager<VendingMachine>.Unit else { return }
-        moneyManager.insert(money: moneyUnit)
+    func insertMoney(_ money: MoneyManager<VendingMachine>.Unit) {
+        moneyManager.insert(money: money)
     }
 
     // 구매가능한 음료 중 선택한 음료수를 반환.

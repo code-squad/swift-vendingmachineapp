@@ -10,6 +10,9 @@ import UIKit
 
 class ViewController: UIViewController {
     let machine: VendingMachine
+    @IBOutlet var addStockButtons: [UIButton]!
+    @IBOutlet var stockLabels: [UILabel]!
+    @IBOutlet weak var balanceLabel: UILabel!
 
     required init?(coder aDecoder: NSCoder) {
         machine = VendingMachine()
@@ -18,12 +21,66 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let machine = VendingMachine()
-        machine.supply(productType: .strawberryMilk, 2)
-        machine.supply(productType: .bananaMilk, 1)
-        machine.supply(productType: .coke, 3)
-        for beverage in machine.checkTheStock() {
-            print("\(beverage.key.productName)(\(beverage.value)개)", terminator: "  ")
+        // 자판기(M)에 변화가 생기면 재고라벨(V), 잔액라벨(V) 업데이트.
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(updateStockLabels),
+            name: Notification.Name(NotificationNames.didUpdateInventory.description),
+            object: nil)
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(updateBalanceLabel),
+            name: Notification.Name(NotificationNames.didUpdateBalance.description),
+            object: nil)
+    }
+
+    // 재고 추가 버튼 클릭 시. V -> C -> M
+    @IBAction func addStock(_ sender: UIButton) {
+        // 이벤트가 발생한 버튼
+        for button in addStockButtons where button.tag == sender.tag {
+            // 버튼 태그로 메뉴의 rawValue에 매핑하여 재고 추가.
+            machine.supply(VendingMachine.Menu(rawValue: button.tag)!, 1)
         }
     }
+
+    // 인벤토리(M)에 변화가 생기면 호출됨. M -> C -> V
+    @objc func updateStockLabels() {
+        for (item, stock) in machine.checkTheStock() {
+            updateStockLabel(of: item, stock: stock)
+        }
+    }
+
+    private func updateStockLabel(of item: VendingMachine.Menu, stock: Stock) {
+        for label in stockLabels {
+            if item == VendingMachine.Menu(rawValue: label.tag) {
+                label.text = "\(stock)개"
+            }
+        }
+    }
+
+    // 금액 추가 버튼 클릭 시. V -> C -> M
+    @IBAction func insertMoney(_ sender: UIButton) {
+        // 버튼 태그에 따라 특정 금액 삽입.
+        machine.insertMoney(MoneyManager<VendingMachine>.Unit(rawValue: sender.tag)!)
+    }
+
+    // 인벤토리(M)에 변화가 생기면 호출됨. M -> C -> V
+    @objc func updateBalanceLabel() {
+        // 잔액라벨 업데이트.
+        if let balance = machine.showBalance().currency() {
+            balanceLabel.text = balance + "원"
+        }
+    }
+
+    deinit {
+        NotificationCenter.default.removeObserver(
+            self,
+            name: NSNotification.Name(NotificationNames.didUpdateInventory.description),
+            object: self)
+        NotificationCenter.default.removeObserver(
+            self,
+            name: NSNotification.Name(NotificationNames.didUpdateBalance.description),
+            object: self)
+    }
+
 }

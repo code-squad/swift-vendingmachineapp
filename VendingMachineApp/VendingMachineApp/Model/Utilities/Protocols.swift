@@ -27,12 +27,11 @@ protocol Machine: Sequence {
 }
 
 protocol Managable: Machine {
-
     func fullSupply(_ count: Int)
 
-    func supply(productType: MenuType, _ addCount: Stock)
+    func supply(_ menu: MenuType, _ count: Stock)
 
-    func remove(productType: MenuType, _ addCount: Stock)
+    func remove(_ menu: MenuType, _ count: Stock)
 
     func showPurchasedList() -> [HistoryInfo]
 
@@ -40,10 +39,9 @@ protocol Managable: Machine {
 }
 
 protocol UserServable: Machine {
-
     func popProduct(_ menu: MenuType) -> ProductType?
 
-    func insertMoney<MachineType>(_ money: MoneyManager<MachineType>.Unit)
+    func insertMoney(_ money: MoneyManager<Self>.Unit)
 
     func showBalance() -> Balance
 

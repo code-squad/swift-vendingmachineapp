@@ -61,3 +61,12 @@ extension Dictionary where Value == Int {
         return newDictionary
     }
 }
+
+extension Int {
+    func currency() -> String? {
+        let formatter = NumberFormatter()
+        formatter.locale = Locale.current
+        formatter.numberStyle = .decimal
+        return formatter.string(from: self as NSNumber)
+   }
+}

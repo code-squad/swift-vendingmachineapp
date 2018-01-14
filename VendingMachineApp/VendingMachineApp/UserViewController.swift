@@ -29,6 +29,7 @@ class UserViewController: UIViewController {
                                                name: .recepitNC,
                                                object: nil)
         self.sortedBeverageLabel = AppSetting.matches(indexList: AppSetting.keyBox, valueList: stockLabelGroup)
+        
         self.sortedBuyButton = AppSetting.matches(indexList: buyButtonGroup, valueList: AppSetting.keyBox)
         initStockLabel()
     }

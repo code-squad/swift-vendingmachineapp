@@ -31,7 +31,7 @@
 
 ## 자판기 앱 화면(view) 구현
 
-![]()
+![](img/2_vendingmachine_v1.png)
 
 ### 화면 구성
 >- 각 상품에 대한 이미지를 추가한다.
@@ -41,6 +41,70 @@
 >- 현재 잔액을 표시할 레이블을 추가한다.
 
 - 각 상품과 라벨 등을 Stack View에 넣어 오토레이아웃 적용
+- 중복되는 아웃렛들을 IBOutletCollection으로 만들고 tag를 부여하여 사용
+
+#### IBOutletCollection 사용하기
+1. 중복되는 요소들 중 하나를 View Controller로 끌어서 IBOutletCollection 만듦
+2. 만든 IBOutletCollection 옆의 동그라미(+) 버튼을 Main.storyboard의 중복되는 요소들로 드래그하여 UI 객체배열 완성
+3. 각 요소를 구분하기 위한 tag 부여
+4. IBAction을 하나 만들어서 각 요소와 연결
+5. IBAction 내에서 IBOutletCollection으로 만든 배열 사용
+	- 예시:
+
+		```swift
+		@IBAction func buttonTapped(_ sender: UIButton) {
+			for button in starButtons {
+				// 액션이 일어난 버튼의 태그와 같거나 작은 버튼들에
+				if button.tag <= sender.tag {
+					button.setImage(UIImage.init(named: “star_selected”), 				for: .normal)
+				} else {
+					button.setImage(UIImage.init(named: “star_normal”), for: .normal)
+				}
+			}
+		}
+		```
+
+>- IBOutletCollection은 순서를 보장하지 않는다.
+>- 연결된 ViewController에는 NSArray로 생성된다.
+
+[참고: What is an IBOutletCollection in iOS](https://medium.com/@abhimuralidharan/what-is-an-iboutletcollection-in-ios-78cfbc4080a1)
+
+#### 라벨 내 마진 주기
+- UILabel에 배경색을 주면 콘텐츠(텍스트)와 배경색 사이에 공간이 없어 보기 좋지 않음.
+- **UILabel에는 마진을 줄 수 없다.**
+- **버튼을 라벨 대신 사용한다 :**
+    - Accessibility > **User Interaction Enabled 체크 해제**
+    - Accessibility > **Static Text 체크**
+    - View > **User Interaction Enabled 체크 해제**
+    - Size Inspector > **Content Insets** 값 정의
+
+![](img/2_margin.png)
+
+#### UI 요소에 테두리/색상테두리/둥근테두리 주기
+- Identity Inspector > User Defined Runtime Attributes에 키 추가 :
+    - 테두리: **layer.borderWidth** (Number)
+    - 테두리색상: **layer.borderUIColor** (Color) 
+    - 둥근테두리: **layer.cornerRadius** (Number)
+
+![](img/2_runtime_attribute.png)
+
+#### StackView에 spacing을 주면 이미지가 올라감
+- Baseline Relative 체크
+
+![](img/2_baseline.png)
+
+#### 이미지뷰와 재고라벨에 Set vertical compression resistance priority to 123 에러가 남
+- 문제원인: stackview에 spacing을 주면 콘텐츠가 무너질 수도 있기 때문에 나타나는 에러로 추정.
+- 해결방법: 재고라벨에 Height 제약을 줌.
+
+<img src="img/2_height.png" width="30%"></img>
+
+#### 이미지뷰 크기 동일하게 고정하기(150x150)
+- 자기자신에게 제약조건 width, height를 주면 됨
+
+<img src="img/2_width_height.png" width="40%"></img>
+
+<br/>
 
 ### 기능 구현
 >- 각 상품의 재고 추가 버튼을 누르면 각 상품 재고를 추가하도록 코드를 구현한다.
@@ -48,4 +112,28 @@
 >- 금액 입력 버튼을 누르면 해당 금액을 추가하도록 코드를 구현한다.
 >- 금액을 추가하고 나면 잔액 레이블을 다시 표시한다.
 
-<br/>
+#### 프로토콜 UserServable에 insertMoney(_ money: MoneyManager.Unit) 정의 시, MoneyManager 클래스에 제네릭 제약조건이 필요
+- 문제사항: 
+	- insertMoney() 함수의 파라미터로 쓰이는 MoneyManager 클래스가 (Machine을 제네릭으로 가지는) 제약조건을 가짐. 
+	- 하지만, 프로토콜 정의 시 `MoneyManager<Machine>.Unit`으로 적으면 `Using 'Machine' as a concrete type conforming to protocol 'Machine' is not supported` 에러 발생. 
+	- 하지만 따로 associatedtype을 정의해주기에는 부수적인 제약조건 문제가 생길 가능성이 큼.
+- 해결방법: `insertMoney(_ money: MoneyManager<Self>.Unit)`로 정의. UserServable은 Machine 클래스를 상속받으므로, <Self>를 사용하여 자기자신 타입(Self)을 넣어줘도 됨.
+
+#### Model 업데이트 시, NotificationCenter 사용
+- MVC에 맞추어 함수 설계
+    - **View ➔ Controller**: **IBAction** 사용
+    - **Controller ➔ Model**: Model 객체의 메소드 사용
+    - **Model ➔ Controller**: **NotificationCenter.default.post()** 사용
+        - 처음에는 ViewController의 View 업데이트 함수를 직접 호출하도록 만듦
+        - iOS에서 Model은 직접 ViewController에 메시지를 보내지 않음 ➔ NotificationCenter 를 사용하는 방법으로 변경
+    - **Controller ➔ View**: **update 함수** 정의, **NotificationCenter.default.addObserver()**로 Model에서 post한 Notification.Name에 해당하는 노티 발생 시, update 함수에 연결.
+
+##### 문제점: 뷰 업데이트가 안 됨
+- 문제원인: NotificationCenter.default 메소드들의 **object 파라미터 값**을 잘못 넣음
+	- **addObserver 메소드의 object**: 노티를 **받을** 객체. nil인 경우, 어느 객체에서 보내든 상관 안 함
+	- **post 메소드의 object**: 노티를 **보내는** 객체. 보통 post를 보내는 객체인 자기자신, **self**를 넣는다. nil인 경우, 보내는 객체가 어딘지 전달하지 않음.
+	- **addObserver의 object가 정의되면, post의 object도 같이 정의해야 한다. 아니면 둘 다 nil로 정의해야 한다.**
+
+#### NSUnknownKeyException 에러발생
+- 에러코드: VendingMachineApp[37705:2367314] *** Terminating app due to uncaught exception 'NSUnknownKeyException', reason: **'[<VendingMachineApp.ViewController 0x7fef47508040> setValue:forUndefinedKey:]: this class is not key value coding-compliant for the key productImages.'**
+- 문제원인: 뷰컨트롤러에 연결한 IBOutlet을 지우고나서 연결을 끊지 않음

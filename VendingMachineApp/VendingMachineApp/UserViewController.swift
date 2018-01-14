@@ -15,15 +15,11 @@ class UserViewController: UIViewController {
     @IBOutlet weak var balanceLabel: UILabel!
     private var sortedBeverageLabel = [Beverage: UILabel]()
     private var sortedBuyButton = [UIButton: Beverage]()
-    private let countingUnit = "개"
-    private let fiveThounsand = 5000
-    private let oneThounsand = 1000
 
     override func viewDidLoad() {
         super.viewDidLoad()
         let boundRatio: CGFloat = 35.0
         buyButtonGroup.forEach { $0.layer.cornerRadius = boundRatio }
-        let beverages = [LightBananaMilk(), Coke(), StarBucksCoffee(), Sprite(), CeylonTea()]
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(updateStockLabel(notification:)),
                                                name: .labelNC,
@@ -32,26 +28,18 @@ class UserViewController: UIViewController {
                                                selector: #selector(updateRecepitView(notification:)),
                                                name: .recepitNC,
                                                object: nil)
-        self.sortedBeverageLabel = matches(indexList: beverages, valueList: stockLabelGroup)
-        self.sortedBuyButton = matches(indexList: buyButtonGroup, valueList: beverages)
+        self.sortedBeverageLabel = AppSetting.matches(indexList: AppSetting.keyBox, valueList: stockLabelGroup)
+        self.sortedBuyButton = AppSetting.matches(indexList: buyButtonGroup, valueList: AppSetting.keyBox)
         initStockLabel()
     }
     
     private func initStockLabel() {
         for beverage in sortedBeverageLabel {
-            setLabelContents(key: beverage.key, label: beverage.value)
+            AppSetting.setLabelContent(key: beverage.key, stockLabel: beverage.value, balanceLabel: balanceLabel)
         }
         for beverage in VendingMachineData.sharedInstance.receipt {
             fillReceiptScrollView(beverage)
         }
-    }
-    
-    private func matches<T, U>(indexList: [T], valueList: [U]) -> [T: U] {
-        var matchedList = [T: U]()
-        for index in 0..<indexList.count {
-            matchedList[indexList[index]] = valueList[index]
-        }
-        return matchedList
     }
     
     @objc private func updateRecepitView(notification: Notification) {
@@ -79,16 +67,7 @@ class UserViewController: UIViewController {
         guard let userInfo = notification.userInfo else { return }
         guard let beverage = userInfo["beverage"] as? Beverage else { return }
         guard let beverageLabel = sortedBeverageLabel[beverage] else { return }
-        setLabelContents(key: beverage, label: beverageLabel)
-    }
-    
-    private func setLabelContents(key: Beverage, label: UILabel) {
-        balanceLabel.text = String(VendingMachineData.sharedInstance.balance.commaRepresentation)
-        if let sortedBeverage = VendingMachineData.sharedInstance.sortedStockList[key] {
-            label.text = "\(sortedBeverage)" + countingUnit
-        } else {
-            label.text = "0" + countingUnit
-        }
+        AppSetting.setLabelContent(key: beverage, stockLabel: beverageLabel, balanceLabel: balanceLabel)
     }
     
     @IBAction func buyTouched(_ sender: UIButton) {
@@ -104,25 +83,13 @@ class UserViewController: UIViewController {
     }
     
     @IBAction func addFiveBalanceTouched(_ sender: Any) {
-        VendingMachineData.sharedInstance.insertMoney(fiveThounsand)
+        VendingMachineData.sharedInstance.insertMoney(AppSetting.fiveThounsand)
         balanceLabel.text = VendingMachineData.sharedInstance.balance.commaRepresentation
     }
     
     @IBAction func addOneBalanceTouched(_ sender: Any) {
-        VendingMachineData.sharedInstance.insertMoney(oneThounsand)
+        VendingMachineData.sharedInstance.insertMoney(AppSetting.oneThounsand)
         balanceLabel.text = VendingMachineData.sharedInstance.balance.commaRepresentation
-    }
-}
-
-extension Int {
-    private static var commaFormatter: NumberFormatter = {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .decimal
-        return formatter
-    }()
-    
-    var commaRepresentation: String {
-        return Int.commaFormatter.string(from: NSNumber(value: self)) ?? ""
     }
 }
 

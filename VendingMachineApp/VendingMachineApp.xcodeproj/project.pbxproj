@@ -22,7 +22,7 @@
 		40BB48CE1FF35479003DD3BF /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BB48B71FF35477003DD3BF /* Beverage.swift */; };
 		40BB48CF1FF35479003DD3BF /* ErrorCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BB48B91FF35477003DD3BF /* ErrorCode.swift */; };
 		40BB48D01FF35479003DD3BF /* SupportingEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BB48BA1FF35477003DD3BF /* SupportingEnum.swift */; };
-		40BB48D41FF35479003DD3BF /* VendingMachineData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BB48BE1FF35478003DD3BF /* VendingMachineData.swift */; };
+		40BB48D41FF35479003DD3BF /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BB48BE1FF35478003DD3BF /* VendingMachine.swift */; };
 		40BB48D51FF35479003DD3BF /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BB48BF1FF35478003DD3BF /* Coffee.swift */; };
 		40BB48D61FF35479003DD3BF /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BB48C01FF35478003DD3BF /* Milk.swift */; };
 		40BB48D81FF35479003DD3BF /* Coke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BB48C31FF35478003DD3BF /* Coke.swift */; };
@@ -34,6 +34,8 @@
 		40BB48E01FF35479003DD3BF /* SodaPop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BB48CB1FF35479003DD3BF /* SodaPop.swift */; };
 		40BF6B2A2008CA1F00421983 /* AdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BF6B292008CA1F00421983 /* AdminViewController.swift */; };
 		40BF6B2C200AF87800421983 /* AppSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BF6B2B200AF87800421983 /* AppSetting.swift */; };
+		40E13BEA200C4EC60027A714 /* AdminVendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E13BE9200C4EC60027A714 /* AdminVendingMachine.swift */; };
+		40E13BF7200C711C0027A714 /* UserVendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E13BF6200C711C0027A714 /* UserVendingMachine.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,7 +77,7 @@
 		40BB48B71FF35477003DD3BF /* Beverage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Beverage.swift; sourceTree = "<group>"; };
 		40BB48B91FF35477003DD3BF /* ErrorCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorCode.swift; sourceTree = "<group>"; };
 		40BB48BA1FF35477003DD3BF /* SupportingEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupportingEnum.swift; sourceTree = "<group>"; };
-		40BB48BE1FF35478003DD3BF /* VendingMachineData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VendingMachineData.swift; sourceTree = "<group>"; };
+		40BB48BE1FF35478003DD3BF /* VendingMachine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VendingMachine.swift; sourceTree = "<group>"; };
 		40BB48BF1FF35478003DD3BF /* Coffee.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
 		40BB48C01FF35478003DD3BF /* Milk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Milk.swift; sourceTree = "<group>"; };
 		40BB48C31FF35478003DD3BF /* Coke.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coke.swift; sourceTree = "<group>"; };
@@ -87,6 +89,8 @@
 		40BB48CB1FF35479003DD3BF /* SodaPop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SodaPop.swift; sourceTree = "<group>"; };
 		40BF6B292008CA1F00421983 /* AdminViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminViewController.swift; sourceTree = "<group>"; };
 		40BF6B2B200AF87800421983 /* AppSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSetting.swift; sourceTree = "<group>"; };
+		40E13BE9200C4EC60027A714 /* AdminVendingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminVendingMachine.swift; sourceTree = "<group>"; };
+		40E13BF6200C711C0027A714 /* UserVendingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserVendingMachine.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,14 +153,11 @@
 		40BB47941FF34A19003DD3BF /* VendingMachineApp */ = {
 			isa = PBXGroup;
 			children = (
+				40E13BED200C573E0027A714 /* Model */,
 				400E3D401FF4B7EF00B25072 /* resource */,
-				40BB48E11FF3549E003DD3BF /* BeverageKind */,
-				40BB48C21FF35478003DD3BF /* ProductsClass */,
-				40BB48B81FF35477003DD3BF /* Supporting */,
 				40BB47971FF34A19003DD3BF /* UserViewController.swift */,
 				40BF6B292008CA1F00421983 /* AdminViewController.swift */,
 				40BF6B2B200AF87800421983 /* AppSetting.swift */,
-				40BB48BE1FF35478003DD3BF /* VendingMachineData.swift */,
 				40BB47951FF34A19003DD3BF /* AppDelegate.swift */,
 				40BB47991FF34A19003DD3BF /* Main.storyboard */,
 				40BB479C1FF34A19003DD3BF /* Assets.xcassets */,
@@ -215,6 +216,19 @@
 				40BB48CB1FF35479003DD3BF /* SodaPop.swift */,
 			);
 			path = BeverageKind;
+			sourceTree = "<group>";
+		};
+		40E13BED200C573E0027A714 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				40BB48B81FF35477003DD3BF /* Supporting */,
+				40BB48C21FF35478003DD3BF /* ProductsClass */,
+				40BB48E11FF3549E003DD3BF /* BeverageKind */,
+				40BB48BE1FF35478003DD3BF /* VendingMachine.swift */,
+				40E13BE9200C4EC60027A714 /* AdminVendingMachine.swift */,
+				40E13BF6200C711C0027A714 /* UserVendingMachine.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -374,8 +388,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				40BB48DC1FF35479003DD3BF /* LightBananaMilk.swift in Sources */,
+				40E13BF7200C711C0027A714 /* UserVendingMachine.swift in Sources */,
 				40BB48CE1FF35479003DD3BF /* Beverage.swift in Sources */,
 				40BB48D81FF35479003DD3BF /* Coke.swift in Sources */,
+				40E13BEA200C4EC60027A714 /* AdminVendingMachine.swift in Sources */,
 				40BB48DA1FF35479003DD3BF /* RealBananaMilk.swift in Sources */,
 				40BB48E01FF35479003DD3BF /* SodaPop.swift in Sources */,
 				40BB47981FF34A19003DD3BF /* UserViewController.swift in Sources */,
@@ -385,7 +401,7 @@
 				40BB47961FF34A19003DD3BF /* AppDelegate.swift in Sources */,
 				40BF6B2C200AF87800421983 /* AppSetting.swift in Sources */,
 				40BB48CF1FF35479003DD3BF /* ErrorCode.swift in Sources */,
-				40BB48D41FF35479003DD3BF /* VendingMachineData.swift in Sources */,
+				40BB48D41FF35479003DD3BF /* VendingMachine.swift in Sources */,
 				40BF6B2A2008CA1F00421983 /* AdminViewController.swift in Sources */,
 				40BB48DB1FF35479003DD3BF /* CeylonTea.swift in Sources */,
 				40BB48D91FF35479003DD3BF /* Sprite.swift in Sources */,

@@ -15,6 +15,7 @@ class UserViewController: UIViewController {
     @IBOutlet weak var balanceLabel: UILabel!
     private var sortedBeverageLabel = [Beverage: UILabel]()
     private var sortedBuyButton = [UIButton: Beverage]()
+    private var user: UserVendingMachine!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,8 +30,8 @@ class UserViewController: UIViewController {
                                                name: .recepitNC,
                                                object: nil)
         self.sortedBeverageLabel = AppSetting.matches(indexList: AppSetting.keyBox, valueList: stockLabelGroup)
-        
         self.sortedBuyButton = AppSetting.matches(indexList: buyButtonGroup, valueList: AppSetting.keyBox)
+        self.user = UserVendingMachine(VendingMachine.sharedInstance)
         initStockLabel()
     }
     
@@ -38,7 +39,7 @@ class UserViewController: UIViewController {
         for beverage in sortedBeverageLabel {
             AppSetting.setLabelContent(key: beverage.key, stockLabel: beverage.value, balanceLabel: balanceLabel)
         }
-        for beverage in VendingMachineData.sharedInstance.receipt {
+        for beverage in VendingMachine.sharedInstance.receipt {
             fillReceiptScrollView(beverage)
         }
     }
@@ -74,7 +75,7 @@ class UserViewController: UIViewController {
     @IBAction func buyTouched(_ sender: UIButton) {
         guard let item = sortedBuyButton[buyButtonGroup[sender.tag]] else { return }
         do {
-            try VendingMachineData.sharedInstance.buyBeverage(item)
+            try user.buyBeverage(item)
         } catch {
             let error = (error as? ErrorCode) ?? ErrorCode.inValidError
             let alert = UIAlertController(title: "VendingMachine", message: error.description, preferredStyle: .alert)
@@ -84,17 +85,12 @@ class UserViewController: UIViewController {
     }
     
     @IBAction func addFiveBalanceTouched(_ sender: Any) {
-        VendingMachineData.sharedInstance.insertMoney(AppSetting.fiveThounsand)
-        balanceLabel.text = VendingMachineData.sharedInstance.balance.commaRepresentation
+        user.insertMoney(AppSetting.fiveThounsand)
+        balanceLabel.text = user.vendingMachineBalance().commaRepresentation
     }
     
     @IBAction func addOneBalanceTouched(_ sender: Any) {
-        VendingMachineData.sharedInstance.insertMoney(AppSetting.oneThounsand)
-        balanceLabel.text = VendingMachineData.sharedInstance.balance.commaRepresentation
+        user.insertMoney(AppSetting.oneThounsand)
+        balanceLabel.text = user.vendingMachineBalance().commaRepresentation
     }
-}
-
-extension Notification.Name {
-    static let labelNC = Notification.Name("labelNC")
-    static let recepitNC = Notification.Name("recepitNC")
 }

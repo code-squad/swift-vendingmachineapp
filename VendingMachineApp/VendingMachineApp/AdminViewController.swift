@@ -13,7 +13,8 @@ class AdminViewController: UIViewController {
     @IBOutlet var stockLabelGroup: [UILabel]!
     private var sortedBeverageLabel = [Beverage: UILabel]()
     private var sortedAddButton = [UIButton: Beverage]()
-
+    private var admin: AdminVendingMachine!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self,
@@ -22,6 +23,7 @@ class AdminViewController: UIViewController {
                                                object: nil)
         self.sortedBeverageLabel = AppSetting.matches(indexList: AppSetting.keyBox, valueList: stockLabelGroup)
         self.sortedAddButton = AppSetting.matches(indexList: addButtonGroup, valueList: AppSetting.keyBox)
+        self.admin = AdminVendingMachine(VendingMachine.sharedInstance)
         initStockLabel()
     }
     
@@ -40,7 +42,7 @@ class AdminViewController: UIViewController {
     
     @IBAction func addTouched(_ sender: UIButton) {
         guard let item = sortedAddButton[addButtonGroup[sender.tag]] else { return }
-        VendingMachineData.sharedInstance.addBeverage(item)
+        admin.addBeverage(item)
     }
     
     @IBAction func closeButtonTouched(_ sender: UIButton) {

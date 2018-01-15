@@ -20,7 +20,7 @@ class VendingMachineAppTests: XCTestCase {
     //           잔액확인, 재고확인
     func test통합테스트_시나리오1() {
         let stockBox = [orignalCoke, lightMilk, badLightMilk, starBucksCoffee]
-        let machine = VendingMachineData(stock: stockBox)
+        let machine = VendingMachine(stock: stockBox)
         machine.addBeverage(sprite)
         machine.insertMoney(1000)
         _ = try? machine.buyBeverage(sprite)

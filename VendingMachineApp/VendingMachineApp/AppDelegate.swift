@@ -16,14 +16,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let userDefaultMachine = UserDefaults.standard.object(forKey: "vendingMachine")
             guard let vendingMachineData = userDefaultMachine as? Data else { return false }
             guard let unarchiveVendingMachine = NSKeyedUnarchiver.unarchiveObject(with: vendingMachineData) else { return false }
-            guard let vendingMachine = unarchiveVendingMachine as? VendingMachineData else { return false }
-            VendingMachineData.sharedInstance = vendingMachine
+            guard let vendingMachine = unarchiveVendingMachine as? VendingMachine else { return false }
+            VendingMachine.sharedInstance = vendingMachine
         }
         return true
     }
     
     func applicationWillResignActive(_ application: UIApplication) {
-        UserDefaults.standard.set(NSKeyedArchiver.archivedData(withRootObject: VendingMachineData.sharedInstance), forKey: "vendingMachine")
+        UserDefaults.standard.set(NSKeyedArchiver.archivedData(withRootObject: VendingMachine.sharedInstance), forKey: "vendingMachine")
     }
     
     func applicationDidEnterBackground(_ application: UIApplication) {
@@ -36,6 +36,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func applicationWillTerminate(_ application: UIApplication) {
-        UserDefaults.standard.set(NSKeyedArchiver.archivedData(withRootObject: VendingMachineData.sharedInstance), forKey: "vendingMachine")
+        UserDefaults.standard.set(NSKeyedArchiver.archivedData(withRootObject: VendingMachine.sharedInstance), forKey: "vendingMachine")
     }
 }

@@ -23,7 +23,7 @@ struct AppSetting {
     }
     
     static func setLabelContent(key: Beverage, stockLabel: UILabel, balanceLabel: UILabel) {
-        balanceLabel.text = String(VendingMachineData.sharedInstance.balance.commaRepresentation)
+        balanceLabel.text = String(VendingMachine.sharedInstance.vendingMachineBalance())
         setContets(key, stockLabel)
     }
     
@@ -33,7 +33,7 @@ struct AppSetting {
     
     private static func setContets(_ key: Beverage, _ stockLabel: UILabel) {
         let countingUnit = "개"
-        if let sortedBeverage = VendingMachineData.sharedInstance.sortedStockList[key] {
+        if let sortedBeverage = VendingMachine.sharedInstance.sortedStockList[key] {
             stockLabel.text = "\(sortedBeverage)" + countingUnit
         } else {
             stockLabel.text = "0" + countingUnit
@@ -51,4 +51,9 @@ extension Int {
     var commaRepresentation: String {
         return Int.commaFormatter.string(from: NSNumber(value: self)) ?? ""
     }
+}
+
+extension Notification.Name {
+    static let labelNC = Notification.Name("labelNC")
+    static let recepitNC = Notification.Name("recepitNC")
 }

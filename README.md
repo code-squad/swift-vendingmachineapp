@@ -135,3 +135,30 @@ cardImage.frame = CGRect(x: x, y: y, width: width, height: height)
 ![초기 화면](capture/step6_01.png)
 ![재고 추가 화면](capture/step6_02.png)
 ![금액 추가 화면](capture/step6_03.png)
+
+---
+## Step7 (Frame과 Bounds)
+### 요구사항
+- 뷰 좌표시스템부터 Frame과 Bounds에 특성에 대해 학습한다.
+- 새로운 뷰컨트롤러를 추가하고 관리자 화면을 구현한다.
+- readme.md 파일에 주요 작업 내용(바뀐 화면 이미지, 핵심 기능 설명)과 완성 날짜시간을 기록한다.
+- 실행하고 새로운 화면을 캡처해서 readme.md 파일에 포함한다.
+
+### 프로그래밍 요구사항
+- 스토리보드에서 Button을 추가하고, Attributes에서 Type을 Info Light로 설정한다.
+- 새로운 ViewController를 옆에 추가하고, Button에서 Segue를 연결한다.
+- Segue를 선택하고 Kind를 Present Modally로 지정하고, Transition을 Flip Horizontal로 설정한다.
+- 새롭게 추가한 화면을 관리자 모드로 동작하도록 개선한다.
+    - 이미지와 재고 추가 버튼을 복사해서 관리자 화면으로 복사하고, 동작하도록 코드를 수정한다.
+    - 재고 추가 버튼은 기존 화면에서 삭제한다.
+    - 관리자 화면에 [닫기] 버튼을 추가하고, 버튼을 누르면 dissmiss()를 호출한다.
+- 다른 동작은 이전 단계와 동일하게 동작해야 한다.
+
+### 결과
+#### UI
+![초기 화면](capture/step7_01.png)
+![관리자모드](capture/step7_02.png)
+![관리자모드 음료추가](capture/step7_03.png)
+![사용자모드 적용확인](capture/step7_04.png)
+![사용자모드 금액추가](capture/step7_05.png)
+![사용자모드 음료구매](capture/step7_06.png)

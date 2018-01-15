@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             guard let vendingMachineData = userDefaultMachine as? Data else { return false }
             guard let unarchiveVendingMachine = NSKeyedUnarchiver.unarchiveObject(with: vendingMachineData) else { return false }
             guard let vendingMachine = unarchiveVendingMachine as? VendingMachine else { return false }
-            VendingMachine.sharedInstance = vendingMachine
+            VendingMachine.load(instance: vendingMachine)
         }
         return true
     }

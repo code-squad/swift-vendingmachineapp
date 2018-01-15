@@ -142,7 +142,7 @@
 
 <br/>
 
-### 피드백
+### Feedback
 #### 스토리보드보다 코드로 객체를 만들고 표현하는 연습을 하는 편이 동작 방식을 이해하는 데 좋다. 
 - `layer.cornerRadius` 값을 디자인 타임에 적용해서 확인하는 것도 좋지만, 코드로 속성을 어디에 넣어야 바뀌는지 공부하고 동작 방식을 이해하는 게 더 중요함
 - 개선사항: 기존에 스토리보드의 Identity Inspector > User Defined Runtime Attributes에 줬던 `layer.cornerRadius`를 viewController에서 작성
@@ -196,16 +196,47 @@
 
 	```swift
 	struct Mapper {
-	    static func mappingUnit(with sender: UIButton) -> Int {
-	        var unit = Int()
+	    static func mappingUnit(with sender: UIButton) -> MoneyManager<VendingMachine>.Unit? {
+	        var unit = MoneyManager<VendingMachine>.Unit(rawValue: 100)
 	        switch sender.tag {
-	        case 1: unit = 100
-	        case 2: unit = 500
-	        case 3: unit = 1000
+	        case 1: unit = MoneyManager<VendingMachine>.Unit(rawValue: 100)
+	        case 2: unit = MoneyManager<VendingMachine>.Unit(rawValue: 500)
+	        case 3: unit = MoneyManager<VendingMachine>.Unit(rawValue: 1000)
 	        default: break
 	        }
 	        return unit
-	    }
+    	}
    	 	...
     }
 	```
+	>- UIButton, UILabel 등을 같은 타입으로 받으려면 **UIView**를 쓰면 된다.
+
+#### 하드코딩해서 단위를 붙이지 않는다.
+- 단위를 붙일 때, 여러 국가를 지원할 때를 고려해서 하드코딩 값을 넣기보다는 Formatter를 만드는 편이 좋다.
+- 기존:
+
+	```swift
+	@objc func updateBalanceLabel() {
+		if let balance = machine.showBalance().currency() {
+			balanceLabel.text = balance + "원"
+		}
+	}	
+	```
+- 개선: Formatter 열거형 정의
+
+	```swift
+	enum Formatter {
+	    case kor(Int)
+	    case eng(Int)
+	    var moneyUnit: String {
+	        switch self {
+	        case .kor(let value):
+	            guard let valueInCurrencyFormat = value.currency() else { return "원" }
+	            return valueInCurrencyFormat + "원"
+	        case .eng(let value):
+	            guard let valueInCurrencyFormat = value.currency() else { return "won" }
+	            return valueInCurrencyFormat + "원"
+	        }
+    }
+	```	
+	사용 시: `Formatter.kor(machine.showBalance()).moneyUnit`

@@ -49,7 +49,7 @@ class ViewController: UIViewController {
     // 재고 추가 버튼 클릭 시. V -> C -> M
     @objc func addStock(_ sender: UIButton) {
         // 버튼 태그로 메뉴의 rawValue에 매핑하여 재고 추가.
-        machine.supply(VendingMachine.Menu(rawValue: sender.tag)!, 1)
+        machine.supply(Mapper.mappingMenu(with: sender), 1)
     }
 
     // 인벤토리(M)에 변화가 생기면 호출됨. M -> C -> V
@@ -61,7 +61,7 @@ class ViewController: UIViewController {
 
     private func updateStockLabel(of item: VendingMachine.Menu, stock: Stock) {
         for label in stockLabels {
-            if item == VendingMachine.Menu(rawValue: label.tag) {
+            if item == Mapper.mappingMenu(with: label) {
                 label.text = "\(stock)개"
             }
         }
@@ -70,7 +70,8 @@ class ViewController: UIViewController {
     // 금액 추가 버튼 클릭 시. V -> C -> M
     @objc func insertMoney(_ sender: UIButton) {
         // 버튼 태그에 따라 특정 금액 삽입.
-        machine.insertMoney(MoneyManager<VendingMachine>.Unit(rawValue: sender.tag)!)
+        machine.insertMoney(
+            MoneyManager<VendingMachine>.Unit(rawValue: Mapper.mappingUnit(with: sender))!)
     }
 
     // 인벤토리(M)에 변화가 생기면 호출됨. M -> C -> V

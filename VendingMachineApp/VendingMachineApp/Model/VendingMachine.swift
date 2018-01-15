@@ -63,8 +63,8 @@ class VendingMachine: Sequence, Machine {
 extension VendingMachine {
     typealias MenuType = Menu
     // 선택 가능한 메뉴.
-    enum Menu: Int, EnumCollection, Purchasable {
-        case strawberryMilk = 1
+    enum Menu: EnumCollection, Purchasable {
+        case strawberryMilk
         case bananaMilk
         case chocoMilk
         case coke

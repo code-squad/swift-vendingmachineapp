@@ -12,11 +12,14 @@ class AdminViewController: UIViewController {
     private var admin: VendingMachineAdmin!
 
     @IBOutlet var beverageCounts: [UILabel]!
-    private var beverageCountsText: [Category: UILabel] = [:]
+    private var sortedBeverageCounts: [Category: UILabel] = [:]
+    private var sortedBeverageCategory: [Category] = []
 
     override func viewDidLoad() {
         admin = VendingMachineAdmin.init(vendingMachine: VendingMachine.sharedInstance())
-        
+        sortedBeverageCategory.append(contentsOf: Milk.getCategoryAll)
+        sortedBeverageCategory.append(contentsOf: Coffee.getCategoryAll)
+        sortedBeverageCategory.append(contentsOf: Soda.getCategoryAll)
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(changeBeverageCounts(notification:)),
                                                name: .beverageCounts,
@@ -33,17 +36,11 @@ class AdminViewController: UIViewController {
 
     private func initAdminVendingMachine() {
         beverageCounts.forEach { $0.text = "0 개" }
-        beverageCountsText[Milk.MilkCategory.chocolate.name] = beverageCounts[0]
-        beverageCountsText[Milk.MilkCategory.banana.name] = beverageCounts[1]
-        beverageCountsText[Milk.MilkCategory.strawberry.name] = beverageCounts[2]
-        beverageCountsText[Coffee.CoffeeCategory.georgia.name] = beverageCounts[3]
-        beverageCountsText[Coffee.CoffeeCategory.cantata.name] = beverageCounts[4]
-        beverageCountsText[Coffee.CoffeeCategory.topCoffee.name] = beverageCounts[5]
-        beverageCountsText[Soda.SodaCategory.sprite.name] = beverageCounts[6]
-        beverageCountsText[Soda.SodaCategory.fanta.name] = beverageCounts[7]
-        beverageCountsText[Soda.SodaCategory.pepsi.name] = beverageCounts[8]
+        for i in 0..<sortedBeverageCategory.count {
+            sortedBeverageCounts[sortedBeverageCategory[i]] = beverageCounts[i]
+        }
         admin.getInventory().forEach { key, value in
-            beverageCountsText[key]?.text = "\(value.count) 개"
+            sortedBeverageCounts[key]?.text = "\(value.count) 개"
         }
     }
 
@@ -88,7 +85,7 @@ class AdminViewController: UIViewController {
     }
 
     private func refreshBeverageCount(category: Category, categoryCount: Int) {
-        beverageCountsText[category]?.text = "\(categoryCount) 개"
+        sortedBeverageCounts[category]?.text = "\(categoryCount) 개"
     }
 
     @IBAction func closeAdminMode(_ sender: Any) {

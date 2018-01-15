@@ -76,6 +76,10 @@ class Milk: Beverage {
         }
     }
 
+    static var getCategoryAll: [String] {
+        return [MilkCategory.chocolate.name, MilkCategory.banana.name, MilkCategory.strawberry.name]
+    }
+
     init(milkCategory: MilkCategory, dateOfManufacture: Date, validate: Date) {
         self.validate = validate
         super.init(brand: milkCategory.brand,

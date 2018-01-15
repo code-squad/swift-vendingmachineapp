@@ -9,7 +9,7 @@
 import Foundation
 
 extension Notification.Name {
-    static let beverageCounts = Notification.Name("beverageCounts")
-    static let coins = Notification.Name("coins")
-    static let purchase = Notification.Name("purchase")
+    static let beverageCounts = Notification.Name(Keyword.Key.beverageCounts.value)
+    static let coins = Notification.Name(Keyword.Key.coins.value)
+    static let purchase = Notification.Name(Keyword.Key.purchase.value)
 }

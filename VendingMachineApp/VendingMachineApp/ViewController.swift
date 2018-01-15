@@ -13,11 +13,15 @@ class ViewController: UIViewController {
 
     @IBOutlet var beverageCounts: [UILabel]!
     @IBOutlet weak var balance: UILabel!
-    private var beverageCountsText: [Category: UILabel] = [:]
+    private var sortedBeverageCounts: [Category: UILabel] = [:]
+    private var sortedBeverageCategory: [Category] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         user = VendingMachineUser.init(vendingMachine: VendingMachine.sharedInstance())
+        sortedBeverageCategory.append(contentsOf: Milk.getCategoryAll)
+        sortedBeverageCategory.append(contentsOf: Coffee.getCategoryAll)
+        sortedBeverageCategory.append(contentsOf: Soda.getCategoryAll)
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(changeBeverageCounts(notification:)),
                                                name: .beverageCounts,
@@ -56,15 +60,9 @@ class ViewController: UIViewController {
     private func initVendingMachine() {
         beverageCounts.forEach { $0.text = "0 개" }
         balance.text = String(format: "잔액 : %6d 원", 0)
-        beverageCountsText[Milk.MilkCategory.chocolate.name] = beverageCounts[0]
-        beverageCountsText[Milk.MilkCategory.banana.name] = beverageCounts[1]
-        beverageCountsText[Milk.MilkCategory.strawberry.name] = beverageCounts[2]
-        beverageCountsText[Coffee.CoffeeCategory.georgia.name] = beverageCounts[3]
-        beverageCountsText[Coffee.CoffeeCategory.cantata.name] = beverageCounts[4]
-        beverageCountsText[Coffee.CoffeeCategory.topCoffee.name] = beverageCounts[5]
-        beverageCountsText[Soda.SodaCategory.sprite.name] = beverageCounts[6]
-        beverageCountsText[Soda.SodaCategory.fanta.name] = beverageCounts[7]
-        beverageCountsText[Soda.SodaCategory.pepsi.name] = beverageCounts[8]
+        for i in 0..<sortedBeverageCategory.count {
+            sortedBeverageCounts[sortedBeverageCategory[i]] = beverageCounts[i]
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -129,7 +127,7 @@ class ViewController: UIViewController {
     }
 
     private func refreshBeverageCount(category: Category, categoryCount: Int) {
-        beverageCountsText[category]?.text = "\(categoryCount) 개"
+        sortedBeverageCounts[category]?.text = "\(categoryCount) 개"
     }
 
     @IBAction func insertCoins(_ sender: UIButton) {

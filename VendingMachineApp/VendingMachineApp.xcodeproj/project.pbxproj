@@ -169,7 +169,6 @@
 				8E09858F1FF49A1C00F777DF /* Model */,
 				8E0985921FF49A5A00F777DF /* Utility */,
 				8E0985351FF496F100F777DF /* AppDelegate.swift */,
-				8E1C4152200C77E600F9FCA2 /* Keyword.swift */,
 				8E0985371FF496F100F777DF /* ViewController.swift */,
 				8E1C414E200C574700F9FCA2 /* AdminViewController.swift */,
 				8E0985391FF496F100F777DF /* Main.storyboard */,
@@ -231,6 +230,7 @@
 				8E0985641FF499F600F777DF /* DateUtility.swift */,
 				8E0985661FF499F600F777DF /* StringUtility.swift */,
 				8E1C4150200C69AD00F9FCA2 /* NotificationUtility.swift */,
+				8E1C4152200C77E600F9FCA2 /* Keyword.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";

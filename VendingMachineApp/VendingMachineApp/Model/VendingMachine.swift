@@ -20,13 +20,17 @@ protocol UserAble {
 }
 
 class VendingMachine: NSObject, NSCoding, UserAble, AdminAble {
-    private (set) var stock = [Beverage]()
+    private var stock = [Beverage]()
     private (set) var sortedStockList = [Beverage: Int]()
     private (set) var receipt = [Beverage]()
     private var balance: Int = 0
-    static var sharedInstance: VendingMachine = {
+    private (set) static var sharedInstance: VendingMachine = {
         return VendingMachine()
     }()
+    
+    static func load(instance: VendingMachine) {
+        self.sharedInstance = instance
+    }
 
     init(stock: [Beverage]) {
         super.init()

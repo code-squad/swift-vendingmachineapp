@@ -42,7 +42,7 @@ extension EnumCollection {
 
 extension Dictionary where Value == Int {
     // 딕셔너리 값이 Int인 경우, 결과값을 누적해서 업데이트 가능.
-    mutating func update(forKey key: Key, _ isAdded: Bool) -> [Key:Value] {
+    func update(forKey key: Key, _ isAdded: Bool) -> [Key:Value] {
         var newDictionary = self
         var newValue: Int = 0
         // 해당 키의 기존 값이 있는 경우.

@@ -11,18 +11,18 @@ import UIKit
 
 struct Mapper {
     // balanceButton의 tag 값과 MoneyManager.Unit 모델에 사용될 값을 매핑
-    static func mappingUnit(with sender: UIButton) -> Int {
-        var unit = Int()
+    static func mappingUnit(with sender: UIButton) -> MoneyManager<VendingMachine>.Unit? {
+        var unit = MoneyManager<VendingMachine>.Unit(rawValue: 100)
         switch sender.tag {
-        case 1: unit = 100
-        case 2: unit = 500
-        case 3: unit = 1000
+        case 1: unit = MoneyManager<VendingMachine>.Unit(rawValue: 100)
+        case 2: unit = MoneyManager<VendingMachine>.Unit(rawValue: 500)
+        case 3: unit = MoneyManager<VendingMachine>.Unit(rawValue: 1000)
         default: break
         }
         return unit
     }
 
-    static func mappingMenu(with sender: UIView) -> VendingMachine.Menu {
+    static func mappingMenu(with sender: UIView) -> VendingMachine.Menu? {
         var menu: VendingMachine.Menu = .strawberryMilk
         switch sender.tag {
         case 1: menu = .strawberryMilk

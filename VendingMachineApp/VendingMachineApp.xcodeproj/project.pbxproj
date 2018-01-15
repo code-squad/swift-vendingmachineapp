@@ -47,6 +47,7 @@
 		8E1C4151200C69AD00F9FCA2 /* NotificationUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1C4150200C69AD00F9FCA2 /* NotificationUtility.swift */; };
 		8E1C4153200C77E600F9FCA2 /* Keyword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1C4152200C77E600F9FCA2 /* Keyword.swift */; };
 		8E2E02721FFB727200C41065 /* Coins.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2E02711FFB727200C41065 /* Coins.swift */; };
+		8ECB4994200CA08C00FBD600 /* BeverageFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECB4993200CA08C00FBD600 /* BeverageFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +114,7 @@
 		8E1C4150200C69AD00F9FCA2 /* NotificationUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationUtility.swift; sourceTree = "<group>"; };
 		8E1C4152200C77E600F9FCA2 /* Keyword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keyword.swift; sourceTree = "<group>"; };
 		8E2E02711FFB727200C41065 /* Coins.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coins.swift; sourceTree = "<group>"; };
+		8ECB4993200CA08C00FBD600 /* BeverageFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -217,6 +219,7 @@
 				8E09856C1FF499F700F777DF /* VendingMachineProtocol.swift */,
 				8E0985701FF499F700F777DF /* VendingMachineUser.swift */,
 				8E2E02711FFB727200C41065 /* Coins.swift */,
+				8ECB4993200CA08C00FBD600 /* BeverageFactory.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -421,6 +424,7 @@
 				8E09858D1FF499F900F777DF /* ValidationChecker.swift in Sources */,
 				8E0985881FF499F900F777DF /* Coffee.swift in Sources */,
 				8E0985821FF499F900F777DF /* VendingMachineProtocol.swift in Sources */,
+				8ECB4994200CA08C00FBD600 /* BeverageFactory.swift in Sources */,
 				8E0985801FF499F900F777DF /* BananaMilk.swift in Sources */,
 				8E0985811FF499F900F777DF /* Sprite.swift in Sources */,
 				8E09858B1FF499F900F777DF /* Milk.swift in Sources */,

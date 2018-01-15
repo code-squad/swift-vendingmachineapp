@@ -29,7 +29,7 @@ class ViewController: UIViewController {
                                                selector: #selector(changePurchaseList(notification:)),
                                                name: .purchase,
                                                object: VendingMachine.sharedInstance())
-        setVendingMachine()
+        initVendingMachine()
     }
 
     @objc private func changeBeverageCounts(notification: Notification) {
@@ -51,7 +51,7 @@ class ViewController: UIViewController {
         addImageForPurchaseList(image: image, count: count)
     }
 
-    private func setVendingMachine() {
+    private func initVendingMachine() {
         beverageCounts.forEach { $0.text = "0 개" }
         balance.text = String(format: "잔액 : %6d 원", 0)
     }

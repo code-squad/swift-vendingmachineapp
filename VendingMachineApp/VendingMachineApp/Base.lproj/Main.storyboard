@@ -277,10 +277,10 @@
             </objects>
             <point key="canvasLocation" x="33.992805755395686" y="75.539568345323744"/>
         </scene>
-        <!--View Controller For Admin-->
+        <!--Admin View Controller-->
         <scene sceneID="1HW-SM-RSP">
             <objects>
-                <viewController id="2nq-Wo-bN1" customClass="ViewControllerForAdmin" customModule="VendingMachineApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="2nq-Wo-bN1" customClass="AdminViewController" customModule="VendingMachineApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0hD-KN-rwJ">
                         <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -291,7 +291,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="추가"/>
                                 <connections>
-                                    <action selector="addChocolateMilk:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Zw0-JA-DTY"/>
                                     <action selector="addChocolateMilk:" destination="2nq-Wo-bN1" eventType="touchUpInside" id="pCZ-L5-ofr"/>
                                 </connections>
                             </button>
@@ -302,7 +301,6 @@
                                 <state key="normal" title="추가"/>
                                 <connections>
                                     <action selector="addBananaMilk:" destination="2nq-Wo-bN1" eventType="touchUpInside" id="1WJ-Ip-bxb"/>
-                                    <action selector="addBananaMilk:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LTa-08-kFJ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MYg-iv-CR3">
@@ -311,7 +309,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="추가"/>
                                 <connections>
-                                    <action selector="addStrawberryMilk:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wAO-aX-5Tv"/>
                                     <action selector="addStrawberryMilk:" destination="2nq-Wo-bN1" eventType="touchUpInside" id="xkK-Cr-6Kr"/>
                                 </connections>
                             </button>
@@ -321,7 +318,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="추가"/>
                                 <connections>
-                                    <action selector="addGeorgia:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Zpt-xa-cwB"/>
                                     <action selector="addGeorgia:" destination="2nq-Wo-bN1" eventType="touchUpInside" id="zPO-zv-Ko7"/>
                                 </connections>
                             </button>
@@ -331,7 +327,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="추가"/>
                                 <connections>
-                                    <action selector="addCantata:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AxC-Av-pwT"/>
                                     <action selector="addCantata:" destination="2nq-Wo-bN1" eventType="touchUpInside" id="yI2-xw-5qy"/>
                                 </connections>
                             </button>
@@ -342,7 +337,6 @@
                                 <state key="normal" title="추가"/>
                                 <connections>
                                     <action selector="addTOPCoffee:" destination="2nq-Wo-bN1" eventType="touchUpInside" id="CH8-ht-XJw"/>
-                                    <action selector="addTOPCoffee:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JNE-cq-2JX"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uEN-ZZ-XGo">
@@ -351,7 +345,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="추가"/>
                                 <connections>
-                                    <action selector="addSprite:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5er-qL-yjN"/>
                                     <action selector="addSprite:" destination="2nq-Wo-bN1" eventType="touchUpInside" id="hfZ-G4-8FZ"/>
                                 </connections>
                             </button>
@@ -362,7 +355,6 @@
                                 <state key="normal" title="추가"/>
                                 <connections>
                                     <action selector="addFanta:" destination="2nq-Wo-bN1" eventType="touchUpInside" id="JIQ-Rb-f8I"/>
-                                    <action selector="addFanta:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xiX-XG-1We"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8RC-fE-we2">
@@ -371,7 +363,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="추가"/>
                                 <connections>
-                                    <action selector="addPepsi:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Kbf-ab-J78"/>
                                     <action selector="addPepsi:" destination="2nq-Wo-bN1" eventType="touchUpInside" id="co4-PU-mcL"/>
                                 </connections>
                             </button>

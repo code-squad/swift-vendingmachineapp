@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewControllerForAdmin: UIViewController {
+class AdminViewController: UIViewController {
     private var admin: VendingMachineAdmin!
     private var validate: Date!
 
@@ -21,7 +21,7 @@ class ViewControllerForAdmin: UIViewController {
                                                selector: #selector(changeBeverageCounts(notification:)),
                                                name: .beverageCounts,
                                                object: VendingMachine.sharedInstance())
-        setVendingMachine()
+        initAdminVendingMachine()
     }
 
     @objc private func changeBeverageCounts(notification: Notification) {
@@ -30,7 +30,7 @@ class ViewControllerForAdmin: UIViewController {
         refreshBeverageCount(inventory: inventory)
     }
 
-    private func setVendingMachine() {
+    private func initAdminVendingMachine() {
         beverageCounts.forEach { $0.text = "0 개" }
     }
 

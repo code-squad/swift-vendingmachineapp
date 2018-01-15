@@ -193,6 +193,7 @@
 	}	
 	```
 - 개선사항: Mapper 구조체를 작성하여 UI요소인 sender의 tag에 따라 특정 model 값을 리턴하는 함수들 추가
+	- 개선 1: (여러 UI 요소 타입을 받으려면 **UIView** 사용)
 
 	```swift
 	struct Mapper {
@@ -209,7 +210,17 @@
    	 	...
     }
 	```
-	>- UIButton, UILabel 등을 같은 타입으로 받으려면 **UIView**를 쓰면 된다.
+	- 개선 2: 
+	
+	```swift
+	static func mappingUnit(with sender: UIButton) -> MoneyManager<VendingMachine>.Unit? {
+        return MoneyManager.Unit(rawValue: sender.tag)
+    }
+	```
+	>- 이전처럼 직접 tag값을 사용하는 것 같지만, init?(rawValue:) 를 쓰면 sender.tag 를 넣더라도 범위에 들어가면 열거형 타입이 생성될꺼고 아니면 nil 값이 된다.
+	>- 결과적으로는 동일하지만 switch-case 로 모든 값을 매칭해주지 않아도 init() 함수로 매칭할 수 있다.
+	>- 이렇게 작성할 경우, 유지보수나 확장성 측면에서도 **Menu에 case가 추가되거나 삭제해도 이 부분을 수정할 필요가 없다**는 장점이 있다. 
+	>- **개발자가 코드로 실수할 수 있는 부분을 컴파일러가 검사할 수 있도록 만드는 방식**이 있다면 그걸 선택하는 게 좋다.
 
 #### 하드코딩해서 단위를 붙이지 않는다.
 - 단위를 붙일 때, 여러 국가를 지원할 때를 고려해서 하드코딩 값을 넣기보다는 Formatter를 만드는 편이 좋다.

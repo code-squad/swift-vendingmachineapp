@@ -13,7 +13,7 @@ class MoneyManager<MachineType: Machine> {
     private(set) var balance: Balance {
         didSet {
             NotificationCenter.default.post(
-                name: NSNotification.Name(NotificationNames.didUpdateBalance.description),
+                name: Notifications.didUpdateBalance.name,
                 object: nil)
         }
     }

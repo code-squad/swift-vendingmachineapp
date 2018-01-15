@@ -76,6 +76,10 @@ class Soda: Beverage {
         }
     }
 
+    static var getCategoryAll: [String] {
+        return [SodaCategory.sprite.name, SodaCategory.fanta.name, SodaCategory.pepsi.name]
+    }
+
     init(sodaCategory: SodaCategory, dateOfManufacture: Date, lowCalorie: Bool) {
         self.lowCalorie = lowCalorie
         super.init(brand: sodaCategory.brand,

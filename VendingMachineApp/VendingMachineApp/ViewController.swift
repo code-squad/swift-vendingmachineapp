@@ -48,11 +48,8 @@ class ViewController: UIViewController {
 
     // 재고 추가 버튼 클릭 시. V -> C -> M
     @objc func addStock(_ sender: UIButton) {
-        // 이벤트가 발생한 버튼
-        for button in addStockButtons where button.tag == sender.tag {
-            // 버튼 태그로 메뉴의 rawValue에 매핑하여 재고 추가.
-            machine.supply(VendingMachine.Menu(rawValue: button.tag)!, 1)
-        }
+        // 버튼 태그로 메뉴의 rawValue에 매핑하여 재고 추가.
+        machine.supply(VendingMachine.Menu(rawValue: sender.tag)!, 1)
     }
 
     // 인벤토리(M)에 변화가 생기면 호출됨. M -> C -> V

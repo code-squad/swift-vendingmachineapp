@@ -34,20 +34,20 @@ class ViewController: UIViewController {
 
     @objc private func changeBeverageCounts(notification: Notification) {
         guard let userInfo = notification.userInfo as? [String: Inventory] else { return }
-        guard let inventory = userInfo["inventory"] else { return }
+        guard let inventory = userInfo[Keyword.Key.inventory.value] else { return }
         refreshBeverageCount(inventory: inventory)
     }
 
     @objc private func changeCoins(notification: Notification) {
         guard let userInfo = notification.userInfo as? [String: Int] else { return }
-        guard let coins = userInfo["coins"] else { return }
+        guard let coins = userInfo[Keyword.Key.coins.value] else { return }
         refreshCoins(coins: coins)
     }
 
     @objc private func changePurchaseList(notification: Notification) {
         guard let userInfo = notification.userInfo as? [String: Any] else { return }
-        guard let image = userInfo["image"] as? String else { return }
-        guard let count = userInfo["purchaseListCount"] as? Int else { return }
+        guard let image = userInfo[Keyword.Key.image.value] as? String else { return }
+        guard let count = userInfo[Keyword.Key.purchaseListCount.value] as? Int else { return }
         addImageForPurchaseList(image: image, count: count)
     }
 

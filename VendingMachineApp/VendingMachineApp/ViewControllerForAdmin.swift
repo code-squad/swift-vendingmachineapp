@@ -26,7 +26,7 @@ class ViewControllerForAdmin: UIViewController {
 
     @objc private func changeBeverageCounts(notification: Notification) {
         guard let userInfo = notification.userInfo as? [String: Inventory] else { return }
-        guard let inventory = userInfo["inventory"] else { return }
+        guard let inventory = userInfo[Keyword.Key.inventory.value] else { return }
         refreshBeverageCount(inventory: inventory)
     }
 

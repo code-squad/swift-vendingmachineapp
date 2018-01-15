@@ -9,18 +9,14 @@
 import UIKit
 
 class ViewController: UIViewController {
-    private var admin: VendingMachineAdmin!
     private var user: VendingMachineUser!
-    private var validate: Date!
 
     @IBOutlet var beverageCounts: [UILabel]!
     @IBOutlet weak var balance: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        admin = VendingMachineAdmin.init(vendingMachine: VendingMachine.sharedInstance())
         user = VendingMachineUser.init(vendingMachine: VendingMachine.sharedInstance())
-        validate = Date.init(timeInterval: (Date.MilkExpirationInterval.twoWeek.value), since: Date())
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(changeBeverageCounts(notification:)),
                                                name: .beverageCounts,
@@ -49,9 +45,10 @@ class ViewController: UIViewController {
     }
 
     @objc private func changePurchaseList(notification: Notification) {
-        guard let userInfo = notification.userInfo as? [String: String] else { return }
-        guard let image = userInfo["image"] else { return }
-        addImageForPurchaseList(image: image)
+        guard let userInfo = notification.userInfo as? [String: Any] else { return }
+        guard let image = userInfo["image"] as? String else { return }
+        guard let count = userInfo["purchaseListCount"] as? Int else { return }
+        addImageForPurchaseList(image: image, count: count)
     }
 
     private func setVendingMachine() {
@@ -62,55 +59,6 @@ class ViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-
-    @IBAction func addChocolateMilk(_ sender: Any) {
-        let chocolateMilk = ChocolateMilk.init(validate: validate)
-        addProduct(chocolateMilk)
-    }
-
-    @IBAction func addBananaMilk(_ sender: Any) {
-        let bananaMilk = BananaMilk.init(validate: validate)
-        addProduct(bananaMilk)
-    }
-
-    @IBAction func addStrawberryMilk(_ sender: Any) {
-        let strawberryMilk = StrawberryMilk.init(validate: validate)
-        addProduct(strawberryMilk)
-    }
-
-    @IBAction func addGeorgia(_ sender: Any) {
-        let georgia = Georgia.init(hot: false)
-        addProduct(georgia)
-    }
-
-    @IBAction func addCantata(_ sender: Any) {
-        let cantata = Cantata.init(hot: true)
-        addProduct(cantata)
-    }
-
-    @IBAction func addTOPCoffee(_ sender: Any) {
-        let topCoffee = TOPCoffee.init(hot: true)
-        addProduct(topCoffee)
-    }
-
-    @IBAction func addSprite(_ sender: Any) {
-        let sprite = Sprite.init(lowCalorie: false)
-        addProduct(sprite)
-    }
-
-    @IBAction func addFanta(_ sender: Any) {
-        let fanta = Fanta.init(lowCalorie: false)
-        addProduct(fanta)
-    }
-
-    @IBAction func addPepsi(_ sender: Any) {
-        let pepsiCoke = PepsiCoke.init(lowCalorie: true)
-        addProduct(pepsiCoke)
-    }
-
-    private func addProduct(_ product: Beverage) {
-        admin.add(product: product)
     }
 
     @IBAction func buyChocolateMilk(_ sender: Any) {
@@ -155,9 +103,9 @@ class ViewController: UIViewController {
         }
     }
 
-    private func addImageForPurchaseList(image: String) {
-        let purchaseListX: Int = 870
-        let purchaseListY: Int = admin.getSalesHistory().count * 50 + 300
+    private func addImageForPurchaseList(image: String, count: Int) {
+        let purchaseListX: Int = 875
+        let purchaseListY: Int = count * 50 + 260
         let imageViewFrameWidth: Int = 150
         let imageViewFrameHeight: Int = 150
         let beverageImage = UIImageView(image: UIImage(named: "\(image)"))
@@ -215,10 +163,4 @@ class ViewController: UIViewController {
         balance.text = String(format: "잔액 : %6d 원", coins)
     }
 
-}
-
-extension Notification.Name {
-    static let beverageCounts = Notification.Name("beverageCounts")
-    static let coins = Notification.Name("coins")
-    static let purchase = Notification.Name("purchase")
 }

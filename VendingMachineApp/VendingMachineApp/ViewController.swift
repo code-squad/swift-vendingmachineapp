@@ -63,7 +63,7 @@ class ViewController: UIViewController {
     private func updateStockLabel(of item: VendingMachine.Menu, stock: Stock) {
         for label in stockLabels {
             if item == Mapper.mappingMenu(with: label) {
-                label.text = "\(stock)개"
+                label.text = Formatter.kor(stock).numberUnit
             }
         }
     }
@@ -78,9 +78,7 @@ class ViewController: UIViewController {
     // 인벤토리(M)에 변화가 생기면 호출됨. M -> C -> V
     @objc func updateBalanceLabel() {
         // 잔액라벨 업데이트.
-        if let balance = machine.showBalance().currency() {
-            balanceLabel.text = balance + "원"
-        }
+        balanceLabel.text = Formatter.kor(machine.showBalance()).moneyUnit
     }
 
     deinit {

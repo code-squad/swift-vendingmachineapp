@@ -13,6 +13,7 @@ class AdminViewController: UIViewController {
     private var validate: Date!
 
     @IBOutlet var beverageCounts: [UILabel]!
+    private var beverageCountsText: [Category: UILabel] = [:]
 
     override func viewDidLoad() {
         admin = VendingMachineAdmin.init(vendingMachine: VendingMachine.sharedInstance())
@@ -25,13 +26,26 @@ class AdminViewController: UIViewController {
     }
 
     @objc private func changeBeverageCounts(notification: Notification) {
-        guard let userInfo = notification.userInfo as? [String: Inventory] else { return }
-        guard let inventory = userInfo[Keyword.Key.inventory.value] else { return }
-        refreshBeverageCount(inventory: inventory)
+        guard let userInfo = notification.userInfo as? [String: Any] else { return }
+        guard let category = userInfo[Keyword.Key.category.value] as? Category else { return }
+        guard let categoryCount = userInfo[Keyword.Key.categoryCount.value] as? Int else { return }
+        refreshBeverageCount(category: category, categoryCount: categoryCount)
     }
 
     private func initAdminVendingMachine() {
         beverageCounts.forEach { $0.text = "0 개" }
+        beverageCountsText[Milk.MilkCategory.chocolate.name] = beverageCounts[0]
+        beverageCountsText[Milk.MilkCategory.banana.name] = beverageCounts[1]
+        beverageCountsText[Milk.MilkCategory.strawberry.name] = beverageCounts[2]
+        beverageCountsText[Coffee.CoffeeCategory.georgia.name] = beverageCounts[3]
+        beverageCountsText[Coffee.CoffeeCategory.cantata.name] = beverageCounts[4]
+        beverageCountsText[Coffee.CoffeeCategory.topCoffee.name] = beverageCounts[5]
+        beverageCountsText[Soda.SodaCategory.sprite.name] = beverageCounts[6]
+        beverageCountsText[Soda.SodaCategory.fanta.name] = beverageCounts[7]
+        beverageCountsText[Soda.SodaCategory.pepsi.name] = beverageCounts[8]
+        admin.getInventory().forEach { key, value in
+            beverageCountsText[key]?.text = "\(value.count) 개"
+        }
     }
 
     @IBAction func addChocolateMilk(_ sender: Any) {
@@ -83,35 +97,8 @@ class AdminViewController: UIViewController {
         admin.add(product: product)
     }
 
-    private func refreshBeverageCount(inventory: Inventory) {
-        for (key, value) in inventory {
-            setBeverageCountLabel(key, value)
-        }
-    }
-
-    private func setBeverageCountLabel(_ key: Category, _ value: Products) {
-        switch key {
-        case Milk.MilkCategory.chocolate.name:
-            beverageCounts[0].text = "\(value.count) 개"
-        case Milk.MilkCategory.banana.name:
-            beverageCounts[1].text = "\(value.count) 개"
-        case Milk.MilkCategory.strawberry.name:
-            beverageCounts[2].text = "\(value.count) 개"
-        case Coffee.CoffeeCategory.georgia.name:
-            beverageCounts[3].text = "\(value.count) 개"
-        case Coffee.CoffeeCategory.cantata.name:
-            beverageCounts[4].text = "\(value.count) 개"
-        case Coffee.CoffeeCategory.topCoffee.name:
-            beverageCounts[5].text = "\(value.count) 개"
-        case Soda.SodaCategory.sprite.name:
-            beverageCounts[6].text = "\(value.count) 개"
-        case Soda.SodaCategory.fanta.name:
-            beverageCounts[7].text = "\(value.count) 개"
-        case Soda.SodaCategory.pepsi.name:
-            beverageCounts[8].text = "\(value.count) 개"
-        default:
-            return
-        }
+    private func refreshBeverageCount(category: Category, categoryCount: Int) {
+        beverageCountsText[category]?.text = "\(categoryCount) 개"
     }
 
     @IBAction func closeAdminMode(_ sender: Any) {

@@ -16,6 +16,8 @@ struct Keyword {
         case purchase
         case image
         case purchaseListCount
+        case category
+        case categoryCount
 
         var value: String {
             switch self {
@@ -31,6 +33,10 @@ struct Keyword {
                 return "image"
             case .purchaseListCount:
                 return "purchaseListCount"
+            case .category:
+                return "category"
+            case .categoryCount:
+                return "categoryCount"
             }
         }
     }

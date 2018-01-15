@@ -62,8 +62,8 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="o7K-zz-ybS">
-                                <rect key="frame" x="55" y="67" width="528" height="701.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="o7K-zz-ybS">
+                                <rect key="frame" x="54" y="83" width="528" height="701.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="30" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zob-gy-kzD">
                                         <rect key="frame" x="0.0" y="0.0" width="528" height="214"/>

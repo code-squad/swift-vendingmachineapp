@@ -22,7 +22,7 @@ struct Mapper {
         return unit
     }
 
-    static func mappingMenu(with sender: UIButton) -> VendingMachine.Menu {
+    static func mappingMenu(with sender: UIView) -> VendingMachine.Menu {
         var menu: VendingMachine.Menu = .strawberryMilk
         switch sender.tag {
         case 1: menu = .strawberryMilk
@@ -39,20 +39,4 @@ struct Mapper {
         return menu
     }
 
-    static func mappingMenu(with sender: UILabel) -> VendingMachine.Menu {
-        var menu: VendingMachine.Menu = .strawberryMilk
-        switch sender.tag {
-        case 1: menu = .strawberryMilk
-        case 2: menu = .bananaMilk
-        case 3: menu = .chocoMilk
-        case 4: menu = .coke
-        case 5: menu = .cider
-        case 6: menu = .fanta
-        case 7: menu = .top
-        case 8: menu = .cantata
-        case 9: menu = .georgia
-        default: break
-        }
-        return menu
-    }
 }

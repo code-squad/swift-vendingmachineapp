@@ -8,13 +8,24 @@
 
 import Foundation
 
-class VendingMachineData: NSObject, NSCoding {
+protocol AdminAble {
+    func addBeverage(_ item: Beverage)
+}
+
+protocol UserAble {
+    func insertMoney(_ money: Int)
+    func vendingMachineBalance() -> Int
+    func vendingMachineReceipt() -> [Beverage]
+    func buyBeverage(_ selectedValue: Beverage) throws
+}
+
+class VendingMachine: NSObject, NSCoding, UserAble, AdminAble {
     private (set) var stock = [Beverage]()
     private (set) var sortedStockList = [Beverage: Int]()
     private (set) var receipt = [Beverage]()
-    private (set) var balance: Int = 0
-    static var sharedInstance: VendingMachineData = {
-        return VendingMachineData()
+    private var balance: Int = 0
+    static var sharedInstance: VendingMachine = {
+        return VendingMachine()
     }()
 
     init(stock: [Beverage]) {
@@ -56,10 +67,6 @@ class VendingMachineData: NSObject, NSCoding {
         self.stock = stock
         self.sortedStockList = stockList
         self.balance = balance
-    }
-    
-    func insertMoney(_ money: Int) {
-        balance += money
     }
     
     func buyBeverage(_ selectedValue: Beverage) throws {
@@ -106,9 +113,21 @@ class VendingMachineData: NSObject, NSCoding {
         sortedStockList[item]! -= 1
         stock.remove(at: index)
     }
+    
+    func insertMoney(_ money: Int) {
+        self.balance += money
+    }
+    
+    func vendingMachineBalance() -> Int {
+        return self.balance
+    }
+    
+    func vendingMachineReceipt() -> [Beverage] {
+        return self.receipt
+    }
 }
 
-extension VendingMachineData: NSCopying {
+extension VendingMachine: NSCopying {
     func copy(with zone: NSZone? = nil) -> Any {
         let newBeverage = Beverage()
         return newBeverage

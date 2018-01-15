@@ -7,7 +7,7 @@
 - **Background** - 앱이 **백그라운드**에 있지만 **여전히 코드가 실행**되고 있는 상태. 대부분의 앱은 **Suspended 상태로 이행하는 도중 일시적으로 Background 상태에 진입**한다. 파일 다운로드, 업로드, 연산 처리 등 **여분의 실행시간이 필요한 앱인 경우, 특정 시간동안 이 상태로 남아 있는** 경우도 있다.
 - **Suspended** - 앱이 **메모리에 유지**되지만 **실행되는 코드가 없는** 상태. **메모리가 부족한 상황**이 오면 **시스템은 특별한 알림 없이 Suspended 상태의 앱들을 정리**한다.
 
-<center><img src="../img/1_appstate.png" width="60%"></img></center>
+<center><img src="../img/1_appstate.png" width="40%"></img></center>
 
 - 앱 실행상태가 변할 때마다 AppDelegate에 정의된 특정 메소드가 호출됨
 	- **application(_:willFinishLaunchingWithOptions:)**: 앱이 구동되어 필요한 **초기 실행 과정이 완료되기 직전**에 호출된다.

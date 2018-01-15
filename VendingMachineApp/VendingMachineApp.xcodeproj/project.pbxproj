@@ -45,6 +45,7 @@
 		8E0985D21FFB2D3E00F777DF /* cantata.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8E0985D11FFB2D3D00F777DF /* cantata.jpg */; };
 		8E1C414F200C574700F9FCA2 /* ViewControllerForAdmin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1C414E200C574700F9FCA2 /* ViewControllerForAdmin.swift */; };
 		8E1C4151200C69AD00F9FCA2 /* NotificationUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1C4150200C69AD00F9FCA2 /* NotificationUtility.swift */; };
+		8E1C4153200C77E600F9FCA2 /* Keyword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1C4152200C77E600F9FCA2 /* Keyword.swift */; };
 		8E2E02721FFB727200C41065 /* Coins.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2E02711FFB727200C41065 /* Coins.swift */; };
 /* End PBXBuildFile section */
 
@@ -110,6 +111,7 @@
 		8E0985D11FFB2D3D00F777DF /* cantata.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cantata.jpg; sourceTree = "<group>"; };
 		8E1C414E200C574700F9FCA2 /* ViewControllerForAdmin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerForAdmin.swift; sourceTree = "<group>"; };
 		8E1C4150200C69AD00F9FCA2 /* NotificationUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationUtility.swift; sourceTree = "<group>"; };
+		8E1C4152200C77E600F9FCA2 /* Keyword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keyword.swift; sourceTree = "<group>"; };
 		8E2E02711FFB727200C41065 /* Coins.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coins.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -165,6 +167,7 @@
 				8E09858F1FF49A1C00F777DF /* Model */,
 				8E0985921FF49A5A00F777DF /* Utility */,
 				8E0985351FF496F100F777DF /* AppDelegate.swift */,
+				8E1C4152200C77E600F9FCA2 /* Keyword.swift */,
 				8E0985371FF496F100F777DF /* ViewController.swift */,
 				8E1C414E200C574700F9FCA2 /* ViewControllerForAdmin.swift */,
 				8E0985391FF496F100F777DF /* Main.storyboard */,
@@ -406,6 +409,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E1C4151200C69AD00F9FCA2 /* NotificationUtility.swift in Sources */,
+				8E1C4153200C77E600F9FCA2 /* Keyword.swift in Sources */,
 				8E09857F1FF499F900F777DF /* Beverage.swift in Sources */,
 				8E09858E1FF499F900F777DF /* StrawberryMilk.swift in Sources */,
 				8E0985871FF499F900F777DF /* VendingMachineAdmin.swift in Sources */,

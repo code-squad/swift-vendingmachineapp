@@ -139,3 +139,73 @@
 - 문제원인: 뷰컨트롤러에 연결한 IBOutlet을 지우고나서 연결을 끊지 않음
 
 2017-01-14 (작업시간: 1일)
+
+<br/>
+
+### 피드백
+#### 스토리보드보다 코드로 객체를 만들고 표현하는 연습을 하는 편이 동작 방식을 이해하는 데 좋다. 
+- `layer.cornerRadius` 값을 디자인 타임에 적용해서 확인하는 것도 좋지만, 코드로 속성을 어디에 넣어야 바뀌는지 공부하고 동작 방식을 이해하는 게 더 중요함
+- 개선사항: 기존에 스토리보드의 Identity Inspector > User Defined Runtime Attributes에 줬던 `layer.cornerRadius`를 viewController에서 작성
+
+#### 하나의 파일로 extension을 합치면 어떤 장단점이 있을까요?
+- 익스텐션을 각 타입에 따라 여러 파일로 분리해놓는게 필요한 경우에만 선택적으로 확장할 수 있는 장점이 있다.
+
+#### Notification.Name(enum.rawValue) 형태보다는 Notification.Name() 자체를 만들어두고 활용한다.
+- 기존: 
+
+	```swift
+	enum Notifications: CustomStringConvertible {
+	    case didUpdateInventory = "didUpdateInventory"
+	    case didUpdateBalance = "didUpdateBalance"
+	    var name: Notification.Name {
+	        return Notification.Name(self.description)
+	    }
+	    var description: String {
+	        switch self {
+	        case .didUpdateInventory: return
+	        case .didUpdateBalance: return
+	        }
+	    }
+	}
+	```
+	사용 시: `Notification.Name(NotificationNames.didUpdateBalance.description)`
+- 개선: 
+
+	```swift
+	enum Notifications: String {
+	    case didUpdateInventory
+	    case didUpdateBalance
+	    var name: Notification.Name {
+	        return Notification.Name(self.rawValue)
+	    }
+	}
+	```
+	사용 시: `Notifications.didUpdateBalance.name`
+	
+#### ★ 화면 요소와 데이터를 매칭해야 하는 경우는 항상 발생한다.
+- 직접적으로 스토리보드에서 태그값을 넣어놓고 sender.tag 에 접근하기 보다는 화면요소와 데이터를 매칭할 수 있는 데이터 구조를 갖고 있는 것이 좋다.
+- 값을 바꾸거나 데이터 구조가 변경되면 이에 따라 화면 요소까지 바꿔야 하기 때문이다.
+	
+	``` swift
+	@objc func insertMoney(_ sender: UIButton) {
+		// 버튼 태그에 따라 특정 금액 삽입.
+		machine.insertMoney(MoneyManager<VendingMachine>.Unit(rawValue: sender.tag)!)
+	}	
+	```
+- 개선사항: Mapper 구조체를 작성하여 UI요소인 sender의 tag에 따라 특정 model 값을 리턴하는 함수들 추가
+
+	```swift
+	struct Mapper {
+	    static func mappingUnit(with sender: UIButton) -> Int {
+	        var unit = Int()
+	        switch sender.tag {
+	        case 1: unit = 100
+	        case 2: unit = 500
+	        case 3: unit = 1000
+	        default: break
+	        }
+	        return unit
+	    }
+   	 	...
+    }
+	```

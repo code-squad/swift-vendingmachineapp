@@ -18,7 +18,7 @@ enum Formatter {
             return valueInCurrencyFormat + "원"
         case .eng(let value):
             guard let valueInCurrencyFormat = value.currency() else { return "won" }
-            return valueInCurrencyFormat + "원"
+            return valueInCurrencyFormat + "won"
         }
     }
     var numberUnit: String {

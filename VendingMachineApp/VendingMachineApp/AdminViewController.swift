@@ -10,14 +10,13 @@ import UIKit
 
 class AdminViewController: UIViewController {
     private var admin: VendingMachineAdmin!
-    private var validate: Date!
 
     @IBOutlet var beverageCounts: [UILabel]!
     private var beverageCountsText: [Category: UILabel] = [:]
 
     override func viewDidLoad() {
         admin = VendingMachineAdmin.init(vendingMachine: VendingMachine.sharedInstance())
-        validate = Date.init(timeInterval: (Date.MilkExpirationInterval.twoWeek.value), since: Date())
+        
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(changeBeverageCounts(notification:)),
                                                name: .beverageCounts,
@@ -49,52 +48,43 @@ class AdminViewController: UIViewController {
     }
 
     @IBAction func addChocolateMilk(_ sender: Any) {
-        let chocolateMilk = ChocolateMilk.init(validate: validate)
-        addProduct(chocolateMilk)
+        addProduct(taste: BeverageFactory.Taste.chocoMilk)
     }
 
     @IBAction func addBananaMilk(_ sender: Any) {
-        let bananaMilk = BananaMilk.init(validate: validate)
-        addProduct(bananaMilk)
+        addProduct(taste: BeverageFactory.Taste.bananaMilk)
     }
 
     @IBAction func addStrawberryMilk(_ sender: Any) {
-        let strawberryMilk = StrawberryMilk.init(validate: validate)
-        addProduct(strawberryMilk)
+        addProduct(taste: BeverageFactory.Taste.strawberryMilk)
     }
 
     @IBAction func addGeorgia(_ sender: Any) {
-        let georgia = Georgia.init(hot: false)
-        addProduct(georgia)
+        addProduct(taste: BeverageFactory.Taste.georgia)
     }
 
     @IBAction func addCantata(_ sender: Any) {
-        let cantata = Cantata.init(hot: true)
-        addProduct(cantata)
+        addProduct(taste: BeverageFactory.Taste.cantata)
     }
 
     @IBAction func addTOPCoffee(_ sender: Any) {
-        let topCoffee = TOPCoffee.init(hot: true)
-        addProduct(topCoffee)
+        addProduct(taste: BeverageFactory.Taste.topCoffee)
     }
 
     @IBAction func addSprite(_ sender: Any) {
-        let sprite = Sprite.init(lowCalorie: false)
-        addProduct(sprite)
+        addProduct(taste: BeverageFactory.Taste.sprite)
     }
 
     @IBAction func addFanta(_ sender: Any) {
-        let fanta = Fanta.init(lowCalorie: false)
-        addProduct(fanta)
+        addProduct(taste: BeverageFactory.Taste.fanta)
     }
 
     @IBAction func addPepsi(_ sender: Any) {
-        let pepsiCoke = PepsiCoke.init(lowCalorie: true)
-        addProduct(pepsiCoke)
+        addProduct(taste: BeverageFactory.Taste.pepsi)
     }
 
-    private func addProduct(_ product: Beverage) {
-        admin.add(product: product)
+    private func addProduct(taste: BeverageFactory.Taste) {
+        admin.add(product: BeverageFactory.createBeverage(taste: taste))
     }
 
     private func refreshBeverageCount(category: Category, categoryCount: Int) {

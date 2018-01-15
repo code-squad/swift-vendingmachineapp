@@ -74,12 +74,14 @@ class VendingMachine: VendingMachineProtocol, CustomStringConvertible, Codable {
         } else {
             inventory[category] = [product]
         }
-        NotificationCenter.default.post(name: .beverageCounts, object: self, userInfo: ["inventory": inventory])
+        NotificationCenter.default.post(name: .beverageCounts, object: self,
+                                        userInfo: [Keyword.Key.category.value: category,
+                                                   Keyword.Key.categoryCount.value: inventory[category]?.count ?? 0])
     }
 
     func insertCoins(_ amount: Int) {
         coins += amount
-        NotificationCenter.default.post(name: .coins, object: self, userInfo: ["coins": coins])
+        NotificationCenter.default.post(name: .coins, object: self, userInfo: [Keyword.Key.coins.value: coins])
     }
 
     func remove(category: Category, index: Int) {
@@ -89,11 +91,13 @@ class VendingMachine: VendingMachineProtocol, CustomStringConvertible, Codable {
     func buy(category: Category) {
         salesHistory.append(inventory[category]!.removeFirst())
         coins -= salesHistory.last!.price
-        NotificationCenter.default.post(name: .beverageCounts, object: self, userInfo: ["inventory": inventory])
-        NotificationCenter.default.post(name: .coins, object: self, userInfo: ["coins": coins])
+        NotificationCenter.default.post(name: .beverageCounts, object: self,
+                                        userInfo: [Keyword.Key.category.value: category,
+                                                   Keyword.Key.categoryCount.value: inventory[category]?.count ?? 0])
+        NotificationCenter.default.post(name: .coins, object: self, userInfo: [Keyword.Key.coins.value: coins])
         NotificationCenter.default.post(name: .purchase, object: self,
-                                        userInfo: ["image": salesHistory.last!.image,
-                                                   "purchaseListCount": salesHistory.count])
+                                        userInfo: [Keyword.Key.image.value: salesHistory.last!.image,
+                                                   Keyword.Key.purchaseListCount.value: salesHistory.count])
     }
 
 }

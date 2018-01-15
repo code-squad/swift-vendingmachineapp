@@ -13,6 +13,8 @@ class ViewController: UIViewController {
     @IBOutlet var addStockButtons: [UIButton]!
     @IBOutlet var stockLabels: [UILabel]!
     @IBOutlet weak var balanceLabel: UILabel!
+    @IBOutlet var productImageViews: [UIImageView]!
+    @IBOutlet var balanceButtons: [UIButton]!
 
     required init?(coder aDecoder: NSCoder) {
         machine = VendingMachine()
@@ -21,6 +23,16 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        // 둥근 테두리 적용
+        productImageViews.forEach { $0.layer.cornerRadius = 30 }
+        balanceButtons.forEach { $0.layer.cornerRadius = 10 }
+        // 버튼에 이벤트 적용
+        addStockButtons.forEach {
+            $0.addTarget(self, action: #selector(addStock(_:)), for: .touchUpInside)
+        }
+        balanceButtons.forEach {
+            $0.addTarget(self, action: #selector(insertMoney(_:)), for: .touchUpInside)
+        }
         // 자판기(M)에 변화가 생기면 재고라벨(V), 잔액라벨(V) 업데이트.
         NotificationCenter.default.addObserver(
             self,
@@ -35,7 +47,7 @@ class ViewController: UIViewController {
     }
 
     // 재고 추가 버튼 클릭 시. V -> C -> M
-    @IBAction func addStock(_ sender: UIButton) {
+    @objc func addStock(_ sender: UIButton) {
         // 이벤트가 발생한 버튼
         for button in addStockButtons where button.tag == sender.tag {
             // 버튼 태그로 메뉴의 rawValue에 매핑하여 재고 추가.
@@ -59,7 +71,7 @@ class ViewController: UIViewController {
     }
 
     // 금액 추가 버튼 클릭 시. V -> C -> M
-    @IBAction func insertMoney(_ sender: UIButton) {
+    @objc func insertMoney(_ sender: UIButton) {
         // 버튼 태그에 따라 특정 금액 삽입.
         machine.insertMoney(MoneyManager<VendingMachine>.Unit(rawValue: sender.tag)!)
     }

@@ -24,7 +24,7 @@ class VendingMachineAppTests: XCTestCase {
         machine.addBeverage(sprite)
         machine.insertMoney(1000)
         _ = try? machine.buyBeverage(sprite)
-        XCTAssertEqual(300, machine.balance)
+        XCTAssertEqual(300, machine.vendingMachineBalance())
         XCTAssertEqual(0, machine.sortedStockList[sprite]!)
     }
 

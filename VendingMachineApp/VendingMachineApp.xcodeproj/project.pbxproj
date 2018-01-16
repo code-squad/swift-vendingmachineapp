@@ -36,6 +36,7 @@
 		40BF6B2C200AF87800421983 /* AppSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BF6B2B200AF87800421983 /* AppSetting.swift */; };
 		40E13BEA200C4EC60027A714 /* AdminVendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E13BE9200C4EC60027A714 /* AdminVendingMachine.swift */; };
 		40E13BF7200C711C0027A714 /* UserVendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E13BF6200C711C0027A714 /* UserVendingMachine.swift */; };
+		40E13BF9200C826B0027A714 /* PieGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E13BF8200C826B0027A714 /* PieGraphView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +92,7 @@
 		40BF6B2B200AF87800421983 /* AppSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSetting.swift; sourceTree = "<group>"; };
 		40E13BE9200C4EC60027A714 /* AdminVendingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminVendingMachine.swift; sourceTree = "<group>"; };
 		40E13BF6200C711C0027A714 /* UserVendingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserVendingMachine.swift; sourceTree = "<group>"; };
+		40E13BF8200C826B0027A714 /* PieGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieGraphView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +161,7 @@
 				40BF6B292008CA1F00421983 /* AdminViewController.swift */,
 				40BF6B2B200AF87800421983 /* AppSetting.swift */,
 				40BB47951FF34A19003DD3BF /* AppDelegate.swift */,
+				40E13BF8200C826B0027A714 /* PieGraphView.swift */,
 				40BB47991FF34A19003DD3BF /* Main.storyboard */,
 				40BB479C1FF34A19003DD3BF /* Assets.xcassets */,
 				40BB479E1FF34A19003DD3BF /* LaunchScreen.storyboard */,
@@ -387,6 +390,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40E13BF9200C826B0027A714 /* PieGraphView.swift in Sources */,
 				40BB48DC1FF35479003DD3BF /* LightBananaMilk.swift in Sources */,
 				40E13BF7200C711C0027A714 /* UserVendingMachine.swift in Sources */,
 				40BB48CE1FF35479003DD3BF /* Beverage.swift in Sources */,

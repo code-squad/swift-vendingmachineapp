@@ -12,7 +12,7 @@ class Beverage: CustomStringConvertible, Codable {
     private let brand: String
     private let weight: Int
     let price: Int
-    private let name: String
+    let name: String
     private let dateOfManufacture: Date
     let image: String
 
@@ -35,10 +35,17 @@ class Beverage: CustomStringConvertible, Codable {
 
 }
 
-extension Beverage: Equatable {
+extension Beverage: Hashable {
+
+    var hashValue: Int {
+        return self.weight * self.price * 16777619
+    }
 
     static func == (lhs: Beverage, rhs: Beverage) -> Bool {
-        return lhs.description == rhs.description
+        return (lhs.brand == rhs.brand)
+            && (lhs.name == rhs.name)
+            && (lhs.weight == rhs.weight)
+            && (lhs.price == rhs.price)
     }
 
 }

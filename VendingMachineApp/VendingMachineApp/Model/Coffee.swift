@@ -76,10 +76,6 @@ class Coffee: Beverage {
         }
     }
 
-    static var getCategoryAll: [String] {
-        return [CoffeeCategory.georgia.name, CoffeeCategory.cantata.name, CoffeeCategory.topCoffee.name]
-    }
-
     init(coffeeCategory: CoffeeCategory, dateOfManufacture: Date, hot: Bool) {
         self.hot = hot
         super.init(brand: coffeeCategory.brand,

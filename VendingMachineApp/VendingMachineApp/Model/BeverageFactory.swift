@@ -48,4 +48,18 @@ struct BeverageFactory {
         return beverage
     }
 
+    static func createBeverageAll() -> [Beverage] {
+        var beverages: [Beverage] = []
+        beverages.append(createBeverage(taste: Taste.chocoMilk))
+        beverages.append(createBeverage(taste: Taste.bananaMilk))
+        beverages.append(createBeverage(taste: Taste.strawberryMilk))
+        beverages.append(createBeverage(taste: Taste.georgia))
+        beverages.append(createBeverage(taste: Taste.cantata))
+        beverages.append(createBeverage(taste: Taste.topCoffee))
+        beverages.append(createBeverage(taste: Taste.sprite))
+        beverages.append(createBeverage(taste: Taste.fanta))
+        beverages.append(createBeverage(taste: Taste.pepsi))
+        return beverages
+    }
+
 }

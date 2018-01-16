@@ -9,8 +9,7 @@
 import Foundation
 
 typealias Products = [Beverage]
-typealias Category = String
-typealias Inventory = [Category: Products]
+typealias Inventory = [Beverage: Products]
 
 class VendingMachine: VendingMachineProtocol, CustomStringConvertible, Codable {
     private var coins: Int
@@ -68,15 +67,15 @@ class VendingMachine: VendingMachineProtocol, CustomStringConvertible, Codable {
         return salesHistory
     }
 
-    func addProduct(category: Category, product: Beverage) {
-        if inventory[category] != nil {
-            inventory[category]?.append(product)
+    func add(product: Beverage) {
+        if inventory[product] != nil {
+            inventory[product]?.append(product)
         } else {
-            inventory[category] = [product]
+            inventory[product] = [product]
         }
         NotificationCenter.default.post(name: .beverageCounts, object: self,
-                                        userInfo: [Keyword.Key.category.value: category,
-                                                   Keyword.Key.categoryCount.value: inventory[category]?.count ?? 0])
+                                        userInfo: [Keyword.Key.product.value: product,
+                                                   Keyword.Key.productCount.value: inventory[product]?.count ?? 0])
     }
 
     func insertCoins(_ amount: Int) {
@@ -84,16 +83,16 @@ class VendingMachine: VendingMachineProtocol, CustomStringConvertible, Codable {
         NotificationCenter.default.post(name: .coins, object: self, userInfo: [Keyword.Key.coins.value: coins])
     }
 
-    func remove(category: Category, index: Int) {
-        inventory[category]?.remove(at: index)
+    func remove(product: Beverage, index: Int) {
+        inventory[product]?.remove(at: index)
     }
 
-    func buy(category: Category) {
-        salesHistory.append(inventory[category]!.removeFirst())
+    func buy(product: Beverage) {
+        salesHistory.append(inventory[product]!.removeFirst())
         coins -= salesHistory.last!.price
         NotificationCenter.default.post(name: .beverageCounts, object: self,
-                                        userInfo: [Keyword.Key.category.value: category,
-                                                   Keyword.Key.categoryCount.value: inventory[category]?.count ?? 0])
+                                        userInfo: [Keyword.Key.product.value: product,
+                                                   Keyword.Key.productCount.value: inventory[product]?.count ?? 0])
         NotificationCenter.default.post(name: .coins, object: self, userInfo: [Keyword.Key.coins.value: coins])
         NotificationCenter.default.post(name: .purchase, object: self,
                                         userInfo: [Keyword.Key.image.value: salesHistory.last!.image,

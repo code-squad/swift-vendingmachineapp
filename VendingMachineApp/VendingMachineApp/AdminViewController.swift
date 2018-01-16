@@ -12,14 +12,12 @@ class AdminViewController: UIViewController {
     private var admin: VendingMachineAdmin!
 
     @IBOutlet var beverageCounts: [UILabel]!
-    private var sortedBeverageCounts: [Category: UILabel] = [:]
-    private var sortedBeverageCategory: [Category] = []
+    private var sortedBeverageCounts: [Beverage: UILabel] = [:]
+    private var sortedBeverages: [Beverage] = []
 
     override func viewDidLoad() {
         admin = VendingMachineAdmin.init(vendingMachine: VendingMachine.sharedInstance())
-        sortedBeverageCategory.append(contentsOf: Milk.getCategoryAll)
-        sortedBeverageCategory.append(contentsOf: Coffee.getCategoryAll)
-        sortedBeverageCategory.append(contentsOf: Soda.getCategoryAll)
+        sortedBeverages = BeverageFactory.createBeverageAll()
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(changeBeverageCounts(notification:)),
                                                name: .beverageCounts,
@@ -29,15 +27,15 @@ class AdminViewController: UIViewController {
 
     @objc private func changeBeverageCounts(notification: Notification) {
         guard let userInfo = notification.userInfo as? [String: Any] else { return }
-        guard let category = userInfo[Keyword.Key.category.value] as? Category else { return }
-        guard let categoryCount = userInfo[Keyword.Key.categoryCount.value] as? Int else { return }
-        refreshBeverageCount(category: category, categoryCount: categoryCount)
+        guard let product = userInfo[Keyword.Key.product.value] as? Beverage else { return }
+        guard let productCount = userInfo[Keyword.Key.productCount.value] as? Int else { return }
+        refreshBeverageCount(product: product, productCount: productCount)
     }
 
     private func initAdminVendingMachine() {
         beverageCounts.forEach { $0.text = "0 개" }
-        for i in 0..<sortedBeverageCategory.count {
-            sortedBeverageCounts[sortedBeverageCategory[i]] = beverageCounts[i]
+        for i in 0..<sortedBeverages.count {
+            sortedBeverageCounts[sortedBeverages[i]] = beverageCounts[i]
         }
         admin.getInventory().forEach { key, value in
             sortedBeverageCounts[key]?.text = "\(value.count) 개"
@@ -84,8 +82,8 @@ class AdminViewController: UIViewController {
         admin.add(product: BeverageFactory.createBeverage(taste: taste))
     }
 
-    private func refreshBeverageCount(category: Category, categoryCount: Int) {
-        sortedBeverageCounts[category]?.text = "\(categoryCount) 개"
+    private func refreshBeverageCount(product: Beverage, productCount: Int) {
+        sortedBeverageCounts[product]?.text = "\(productCount) 개"
     }
 
     @IBAction func closeAdminMode(_ sender: Any) {

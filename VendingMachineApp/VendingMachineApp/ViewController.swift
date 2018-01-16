@@ -13,15 +13,13 @@ class ViewController: UIViewController {
 
     @IBOutlet var beverageCounts: [UILabel]!
     @IBOutlet weak var balance: UILabel!
-    private var sortedBeverageCounts: [Category: UILabel] = [:]
-    private var sortedBeverageCategory: [Category] = []
+    private var sortedBeverageCounts: [Beverage: UILabel] = [:]
+    private var sortedBeverages: [Beverage] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         user = VendingMachineUser.init(vendingMachine: VendingMachine.sharedInstance())
-        sortedBeverageCategory.append(contentsOf: Milk.getCategoryAll)
-        sortedBeverageCategory.append(contentsOf: Coffee.getCategoryAll)
-        sortedBeverageCategory.append(contentsOf: Soda.getCategoryAll)
+        sortedBeverages = BeverageFactory.createBeverageAll()
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(changeBeverageCounts(notification:)),
                                                name: .beverageCounts,
@@ -37,11 +35,19 @@ class ViewController: UIViewController {
         initVendingMachine()
     }
 
+    private func initVendingMachine() {
+        beverageCounts.forEach { $0.text = "0 개" }
+        balance.text = String(format: "잔액 : %6d 원", 0)
+        for i in 0..<sortedBeverages.count {
+            sortedBeverageCounts[sortedBeverages[i]] = beverageCounts[i]
+        }
+    }
+
     @objc private func changeBeverageCounts(notification: Notification) {
         guard let userInfo = notification.userInfo as? [String: Any] else { return }
-        guard let category = userInfo[Keyword.Key.category.value] as? Category else { return }
-        guard let categoryCount = userInfo[Keyword.Key.categoryCount.value] as? Int else { return }
-        refreshBeverageCount(category: category, categoryCount: categoryCount)
+        guard let product = userInfo[Keyword.Key.product.value] as? Beverage else { return }
+        guard let productCount = userInfo[Keyword.Key.productCount.value] as? Int else { return }
+        refreshBeverageCount(product: product, productCount: productCount)
     }
 
     @objc private func changeCoins(notification: Notification) {
@@ -57,58 +63,50 @@ class ViewController: UIViewController {
         addImageForPurchaseList(image: image, count: count)
     }
 
-    private func initVendingMachine() {
-        beverageCounts.forEach { $0.text = "0 개" }
-        balance.text = String(format: "잔액 : %6d 원", 0)
-        for i in 0..<sortedBeverageCategory.count {
-            sortedBeverageCounts[sortedBeverageCategory[i]] = beverageCounts[i]
-        }
-    }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
     @IBAction func buyChocolateMilk(_ sender: Any) {
-        buyBeverage(category: Milk.MilkCategory.chocolate.name)
+        buyBeverage(name: Milk.MilkCategory.chocolate.name)
     }
 
     @IBAction func buyBananaMilk(_ sender: Any) {
-        buyBeverage(category: Milk.MilkCategory.banana.name)
+        buyBeverage(name: Milk.MilkCategory.banana.name)
     }
 
     @IBAction func buyStrawberryMilk(_ sender: Any) {
-        buyBeverage(category: Milk.MilkCategory.strawberry.name)
+        buyBeverage(name: Milk.MilkCategory.strawberry.name)
     }
 
     @IBAction func buyGeorgia(_ sender: Any) {
-        buyBeverage(category: Coffee.CoffeeCategory.georgia.name)
+        buyBeverage(name: Coffee.CoffeeCategory.georgia.name)
     }
 
     @IBAction func buyCantata(_ sender: Any) {
-        buyBeverage(category: Coffee.CoffeeCategory.cantata.name)
+        buyBeverage(name: Coffee.CoffeeCategory.cantata.name)
     }
 
     @IBAction func buyTOPCoffee(_ sender: Any) {
-        buyBeverage(category: Coffee.CoffeeCategory.topCoffee.name)
+        buyBeverage(name: Coffee.CoffeeCategory.topCoffee.name)
     }
 
     @IBAction func buySprite(_ sender: Any) {
-        buyBeverage(category: Soda.SodaCategory.sprite.name)
+        buyBeverage(name: Soda.SodaCategory.sprite.name)
     }
 
     @IBAction func buyFanta(_ sender: Any) {
-        buyBeverage(category: Soda.SodaCategory.fanta.name)
+        buyBeverage(name: Soda.SodaCategory.fanta.name)
     }
 
     @IBAction func buyPepsi(_ sender: Any) {
-        buyBeverage(category: Soda.SodaCategory.pepsi.name)
+        buyBeverage(name: Soda.SodaCategory.pepsi.name)
     }
 
-    private func buyBeverage(category: Category) {
-        for product in user.getBuyableProducts() where product == category {
-            user.buy(category: category)
+    private func buyBeverage(name: String) {
+        for product in user.getBuyableProducts() where product.name == name {
+            user.buy(product: product)
         }
     }
 
@@ -126,8 +124,8 @@ class ViewController: UIViewController {
         self.view.addSubview(beverageImage)
     }
 
-    private func refreshBeverageCount(category: Category, categoryCount: Int) {
-        sortedBeverageCounts[category]?.text = "\(categoryCount) 개"
+    private func refreshBeverageCount(product: Beverage, productCount: Int) {
+        sortedBeverageCounts[product]?.text = "\(productCount) 개"
     }
 
     @IBAction func insertCoins(_ sender: UIButton) {

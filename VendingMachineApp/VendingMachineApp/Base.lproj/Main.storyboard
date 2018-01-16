@@ -297,11 +297,17 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="txv-dN-xTk" customClass="PieGraphView" customModule="VendingMachineApp" customModuleProvider="target">
+                                <rect key="frame" x="573" y="398" width="350" height="350"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.8756741751269036" green="0.8756741751269036" blue="0.8756741751269036" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="9Pb-fb-Pv3"/>
                     </view>
                     <connections>
+                        <outlet property="pieGraph" destination="txv-dN-xTk" id="gf0-A9-Xwz"/>
                         <outletCollection property="addButtonGroup" destination="siL-dn-6Ko" collectionClass="NSMutableArray" id="Kbd-pi-4fg"/>
                         <outletCollection property="addButtonGroup" destination="DNr-ol-XlI" collectionClass="NSMutableArray" id="QZ3-4n-GTq"/>
                         <outletCollection property="addButtonGroup" destination="eGf-fd-VGj" collectionClass="NSMutableArray" id="eIk-bH-88Z"/>

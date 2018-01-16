@@ -9,6 +9,7 @@
 import UIKit
 
 class AdminViewController: UIViewController {
+    @IBOutlet weak var pieGraph: PieGraphView!
     @IBOutlet var addButtonGroup: [UIButton]!
     @IBOutlet var stockLabelGroup: [UILabel]!
     private var sortedBeverageLabel = [Beverage: UILabel]()
@@ -25,6 +26,11 @@ class AdminViewController: UIViewController {
         self.sortedAddButton = AppSetting.matches(indexList: addButtonGroup, valueList: AppSetting.keyBox)
         self.admin = AdminVendingMachine(VendingMachine.sharedInstance)
         initStockLabel()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.pieGraph.setPieGraph(receipts: admin.getUserBuyHistory())
+        self.pieGraph.draw(pieGraph.frame)
     }
     
     private func initStockLabel() {

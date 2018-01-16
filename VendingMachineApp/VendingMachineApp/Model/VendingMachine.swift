@@ -10,6 +10,7 @@ import Foundation
 
 protocol AdminAble {
     func addBeverage(_ item: Beverage)
+    func getUserBuyHistory() -> [Beverage: Int]
 }
 
 protocol UserAble {
@@ -21,8 +22,9 @@ protocol UserAble {
 
 class VendingMachine: NSObject, NSCoding, UserAble, AdminAble {
     private var stock = [Beverage]()
-    private (set) var sortedStockList = [Beverage: Int]()
     private (set) var receipt = [Beverage]()
+    private (set) var sortedStockList = [Beverage: Int]()
+    private var userBuyHistory = [Beverage: Int]()
     private var balance: Int = 0
     private (set) static var sharedInstance: VendingMachine = {
         return VendingMachine()
@@ -36,9 +38,7 @@ class VendingMachine: NSObject, NSCoding, UserAble, AdminAble {
         super.init()
         self.stock = stock
         self.balance = 0
-        for item in stock {
-            self.makeBeverageList(item)
-        }
+        self.sortedStockList = stock.toDictionary()
     }
     
     private convenience override init() {
@@ -54,9 +54,8 @@ class VendingMachine: NSObject, NSCoding, UserAble, AdminAble {
         guard let stock = aDecoder.decodeObject(forKey: "stock") as? [Beverage] else { return }
         guard let receipt = aDecoder.decodeObject(forKey: "receipt") as? [Beverage] else { return }
         self.stock = stock
-        for item in stock {
-            self.makeBeverageList(item)
-        }
+        self.sortedStockList = stock.toDictionary()
+        self.userBuyHistory = receipt.toDictionary()
         self.receipt = receipt
         self.balance = aDecoder.decodeInteger(forKey: "balance")
     }
@@ -83,6 +82,7 @@ class VendingMachine: NSObject, NSCoding, UserAble, AdminAble {
         sortedStockList[selectedValue]! -= 1
         balance -= selectedValue.price
         receipt.append(selectedValue)
+        userBuyHistory = receipt.toDictionary()
         NotificationCenter.default.post(name: .labelNC,
                                         object: self,
                                         userInfo: ["beverage": stock.remove(at: item)])
@@ -93,18 +93,10 @@ class VendingMachine: NSObject, NSCoding, UserAble, AdminAble {
     
     func addBeverage(_ item: Beverage) {
         stock.append(item)
-        makeBeverageList(item)
+        sortedStockList = stock.toDictionary()
         NotificationCenter.default.post(name: .labelNC,
                                         object: self,
                                         userInfo: ["beverage": item])
-    }
-    
-    private func makeBeverageList(_ item: Beverage) {
-        if let stockListNumber = sortedStockList[item] {
-            sortedStockList[item] = stockListNumber + 1
-        } else {
-            sortedStockList[item] = 1
-        }
     }
     
     func removeBeverage(_ item: Beverage) throws {
@@ -129,11 +121,29 @@ class VendingMachine: NSObject, NSCoding, UserAble, AdminAble {
     func vendingMachineReceipt() -> [Beverage] {
         return self.receipt
     }
+    
+    func getUserBuyHistory() -> [Beverage: Int] {
+        return self.userBuyHistory
+    }
 }
 
 extension VendingMachine: NSCopying {
     func copy(with zone: NSZone? = nil) -> Any {
         let newBeverage = Beverage()
         return newBeverage
+    }
+}
+
+extension Array where Element: Beverage {
+    func toDictionary() -> [Element: Int] {
+        var dict = [Element: Int]()
+        for key in self {
+            if let listNum = dict[key] {
+                dict[key] = listNum + 1
+            } else {
+                dict[key] = 1
+            }
+        }
+        return dict
     }
 }

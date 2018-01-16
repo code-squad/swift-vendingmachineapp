@@ -18,4 +18,8 @@ class AdminVendingMachine: AdminAble {
     func addBeverage(_ item: Beverage) {
         vendingMachine.addBeverage(item)
     }
+    
+    func getUserBuyHistory() -> [Beverage: Int] {
+       return vendingMachine.getUserBuyHistory()
+    }
 }

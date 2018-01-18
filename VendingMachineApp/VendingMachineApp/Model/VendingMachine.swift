@@ -9,7 +9,7 @@
 import Foundation
 
 // inventory를 Collection 프로토콜로 캡슐화.
-class VendingMachine: Sequence, Machine {
+final class VendingMachine: Sequence, Machine {
     // Iterator.Element의 타입앨리아스
     typealias Element = Beverage
     typealias ProductType = Beverage
@@ -23,8 +23,8 @@ class VendingMachine: Sequence, Machine {
         self.recentChanged = Beverage()
         self.isManagerRemoved = false
         // 장부기록, 돈관리의 책임을 위임.
-        self.stockManager = StockManager(self)
         self.moneyManager = MoneyManager()
+        self.stockManager = StockManager(self)
     }
     // 자판기 내 음료수 인스턴스 저장.
     private var inventory: [Beverage] = [] {
@@ -63,7 +63,7 @@ class VendingMachine: Sequence, Machine {
 extension VendingMachine {
     typealias MenuType = Menu
     // 선택 가능한 메뉴. 순서대로 번호 부여.
-    enum Menu: Int, EnumCollection, Purchasable {
+    enum Menu: Int, EnumCollection, Purchasable, Codable {
         case strawberryMilk = 1
         case bananaMilk
         case chocoMilk
@@ -186,4 +186,31 @@ extension VendingMachine: UserServable {
         }
     }
 
+}
+
+extension VendingMachine: Codable {
+    enum CodingKeys: String, CodingKey {
+        case inventory
+        case recentChanged
+        case isManagerRemoved
+        case stockManager
+        case moneyManager
+    }
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(inventory, forKey: .inventory)
+        try container.encode(recentChanged, forKey: .recentChanged)
+        try container.encode(isManagerRemoved, forKey: .isManagerRemoved)
+        try container.encode(stockManager, forKey: .stockManager)
+        try container.encode(moneyManager, forKey: .moneyManager)
+    }
+    convenience init(from decoder: Decoder) throws {
+        self.init()
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        self.inventory = try values.decode([Beverage].self, forKey: .inventory)
+        self.recentChanged = try values.decode(Beverage.self, forKey: .recentChanged)
+        self.isManagerRemoved = try values.decode(Bool.self, forKey: .isManagerRemoved)
+        self.stockManager = try values.decode(StockManager.self, forKey: .stockManager)
+        self.moneyManager = try values.decode(MoneyManager.self, forKey: .moneyManager)
+    }
 }

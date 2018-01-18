@@ -9,7 +9,7 @@
 import Foundation
 
 // 구입이력 포맷.
-struct HistoryInfo {
+struct HistoryInfo: Codable {
     private(set) var purchasingDate: Date
     private(set) var purchasedMenu: String
     private(set) var count: Purchased

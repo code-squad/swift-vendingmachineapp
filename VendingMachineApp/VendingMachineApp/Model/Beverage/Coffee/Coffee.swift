@@ -22,6 +22,10 @@ class Coffee: Beverage {
         super.init(brand, volume, price, productName, manufacturedDate, expirationDate, calories, menuType)
     }
 
+    required convenience init(from decoder: Decoder) throws {
+        fatalError("init(from:) has not been implemented")
+    }
+
     func isDecaffeinated() -> Bool {
         return caffeineLevels <= 10
     }

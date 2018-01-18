@@ -21,9 +21,16 @@ class Milk: Beverage {
     }
     required init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        self.manufacturerCode = try values.decode(Int.self, forKey: CodingKeys.manufacturerCode)
-        self.packingMaterial = try values.decode(String.self, forKey: CodingKeys.packingMaterial)
+        self.manufacturerCode = try values.decode(Int.self, forKey: .manufacturerCode)
+        self.packingMaterial = try values.decode(String.self, forKey: .packingMaterial)
         try super.init(from: decoder)
+    }
+
+    override func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(manufacturerCode, forKey: .manufacturerCode)
+        try container.encode(packingMaterial, forKey: .packingMaterial)
+        try super.encode(to: encoder)
     }
 
     func isManufacturedFrom(_ factory: Int) -> Bool {

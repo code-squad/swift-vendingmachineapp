@@ -9,20 +9,19 @@
 import UIKit
 
 class ViewController: UIViewController {
-    let machine: VendingMachine
+    var machine: VendingMachine?
     @IBOutlet var addStockButtons: [UIButton]!
     @IBOutlet var stockLabels: [UILabel]!
     @IBOutlet weak var balanceLabel: UILabel!
     @IBOutlet var productImageViews: [UIImageView]!
     @IBOutlet var balanceButtons: [UIButton]!
 
-    required init?(coder aDecoder: NSCoder) {
-        machine = VendingMachine()
-        super.init(coder: aDecoder)
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
+        let delegate = UIApplication.shared.delegate as? AppDelegate
+        self.machine = delegate?.machineStore.machine
+        updateStockLabels()
+        updateBalanceLabel()
         // 둥근 테두리 적용
         productImageViews.forEach { $0.layer.cornerRadius = 30 }
         balanceButtons.forEach { $0.layer.cornerRadius = 10 }
@@ -48,13 +47,14 @@ class ViewController: UIViewController {
 
     // 재고 추가 버튼 클릭 시. V -> C -> M
     @objc func addStock(_ sender: UIButton) {
-        guard let menu = Mapper.mappingMenu(with: sender) else { return }
+        guard let machine = self.machine, let menu = Mapper.mappingMenu(with: sender) else { return }
         // 버튼 태그로 메뉴의 rawValue에 매핑하여 재고 추가.
         machine.supply(menu, 1)
     }
 
     // 인벤토리(M)에 변화가 생기면 호출됨. M -> C -> V
     @objc func updateStockLabels() {
+        guard let machine = self.machine else { return }
         for (item, stock) in machine.checkTheStock() {
             updateStockLabel(of: item, stock: stock)
         }
@@ -70,13 +70,14 @@ class ViewController: UIViewController {
 
     // 금액 추가 버튼 클릭 시. V -> C -> M
     @objc func insertMoney(_ sender: UIButton) {
-        guard let unit = Mapper.mappingUnit(with: sender) else { return }
+        guard let machine = self.machine, let unit = Mapper.mappingUnit(with: sender) else { return }
         // 버튼 태그에 따라 특정 금액 삽입.
         machine.insertMoney(unit)
     }
 
     // 인벤토리(M)에 변화가 생기면 호출됨. M -> C -> V
     @objc func updateBalanceLabel() {
+        guard let machine = self.machine else { return }
         // 잔액라벨 업데이트.
         balanceLabel.text = Formatter.kor(machine.showBalance()).moneyUnit
     }

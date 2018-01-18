@@ -22,6 +22,13 @@ class SoftDrink: Beverage {
         self.carbonContent = try values.decode(Int.self, forKey: CodingKeys.carbonContent)
         try super.init(from: decoder)
     }
+
+    override func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(carbonContent, forKey: .carbonContent)
+        try super.encode(to: encoder)
+    }
+
     var containsCarbonicGas: Bool {
         return self.carbonContent > 10
     }

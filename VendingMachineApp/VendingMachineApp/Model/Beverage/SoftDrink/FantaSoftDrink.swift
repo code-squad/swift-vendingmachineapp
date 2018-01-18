@@ -17,7 +17,6 @@ class FantaSoftDrink: SoftDrink {
         super.init(brand, volume, price, productName, manufacturedDate, expirationDate, calories, menuType,
                    carbonContent: carbonContent)
     }
-
     convenience init(_ menu: VendingMachine.Menu) {
         self.init(stringData["brands"]![menu]!, intData["volume"]![menu]!, intData["price"]![menu]!,
                   stringData["productName"]![menu]!, Date(timeIntervalSinceNow: 0),
@@ -29,8 +28,14 @@ class FantaSoftDrink: SoftDrink {
         self.ingredients = try values.decode(String.self, forKey: CodingKeys.ingredients)
         try super.init(from: decoder)
     }
+
+    override func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(ingredients, forKey: .ingredients)
+        try super.encode(to: encoder)
+    }
+
     override var description: String {
         return String.init(describing: type(of: self))
-//        return "환타(" + String.init(describing: type(of: self)) + ") - " + super.description
     }
 }

@@ -18,7 +18,6 @@ class StrawBerryMilk: Milk {
                    manufacturedDate, expirationDate, calories, menuType,
                    manufacturerCode: manufacturerCode, packingMaterial: packingMaterial)
     }
-
     convenience init(_ menu: VendingMachine.Menu) {
         self.init(stringData["brands"]![menu]!, intData["volume"]![menu]!, intData["price"]![menu]!,
                   stringData["productName"]![menu]!, Date(timeIntervalSinceNow: 0),
@@ -26,15 +25,19 @@ class StrawBerryMilk: Milk {
                   intData["calories"]![menu]!, menu, manufacturerCode: intData["manufacturerCode"]![menu]!,
                   packingMaterial: stringData["packingMaterial"]![menu]!)
     }
-
     required init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         self.ingredients = try values.decode(String.self, forKey: CodingKeys.ingredients)
         try super.init(from: decoder)
     }
 
+    override func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(ingredients, forKey: .ingredients)
+        try super.encode(to: encoder)
+    }
+
     override var description: String {
         return String.init(describing: type(of: self))
-//        return "딸기우유(" + String.init(describing: type(of: self)) + ") - " + super.description
     }
 }

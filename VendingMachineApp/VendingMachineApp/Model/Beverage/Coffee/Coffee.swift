@@ -21,13 +21,20 @@ class Coffee: Beverage {
         self.isSweetened = isSweetened
         super.init(brand, volume, price, productName, manufacturedDate, expirationDate, calories, menuType)
     }
-
     required init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         self.caffeineLevels = try values.decode(Int.self, forKey: CodingKeys.caffeineLevels)
         self.isHot = try values.decode(Bool.self, forKey: CodingKeys.isHot)
         self.isSweetened = try values.decode(Bool.self, forKey: CodingKeys.isSweetened)
         try super.init(from: decoder)
+    }
+
+    override func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(caffeineLevels, forKey: .caffeineLevels)
+        try container.encode(isHot, forKey: .isHot)
+        try container.encode(isSweetened, forKey: .isSweetened)
+        try super.encode(to: encoder)
     }
 
     func isDecaffeinated() -> Bool {

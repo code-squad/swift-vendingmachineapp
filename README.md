@@ -271,7 +271,9 @@
 3. `func encode(to encoder: Encoder) throws` 및 `required init(from decoder: Decoder) throws` 구현
 4. 상속관계에 있는 서브 클래스의 경우, Codable은 채택하지 않고 `required init(from decoder: Decoder) throws`를 오버라이드한 후 `try super.init(from: decoder)` 추가
 
-[참고: Start Developing iOS Apps](https://developer.apple.com/library/content/referencelibrary/GettingStarted/DevelopiOSAppsSwift/PersistData.html)
+**[참고: Start Developing iOS Apps](https://developer.apple.com/library/content/referencelibrary/GettingStarted/DevelopiOSAppsSwift/PersistData.html)**
+
+**[참고: Swift 4.0 Codable — Decoding subclasses](https://medium.com/tsengineering/swift-4-0-codable-decoding-subclasses-inherited-classes-heterogeneous-arrays-ee3e180eb556)**
 
 ### 파일시스템에 저장할 공간 마련: 어플리케이션 샌드박스, UserDefaults 등
 #### UserDefaults란
@@ -303,5 +305,5 @@
 
 
 ### 학습 내용
->- **[객체 복사](../md/copy_object.md)**
->- **[Dynamic Type](../md/dynamic_type.md)**
+>- **[객체 복사](https://github.com/undervineg/swift-vendingmachineapp/blob/vending-step3/md/copy_object.md)**
+>- **[Dynamic Type](https://github.com/undervineg/swift-vendingmachineapp/blob/vending-step3/md/dynamic_type.md)**

@@ -342,3 +342,13 @@ extension Notification.Name {
   <br><br><br>
 # 코어 그래픽스(Core Graphics) Step8
 ## 프로그래밍 요구사항
+
+* 스토리보스에서 관리자 화면에 UIView를 추가하고, Identity에서 Custom Class 항목에 PieGraphView를 지정한다. 크기는 400 x 400 크기 정도로 지정한다.
+* PieGraphView 속성에 음료 구매목록 배열을 추가한다.
+* PieGraphView.swift 파일에 drawRect() 메서드에서 구매목록 배열를 참고해서 전체 구매 항목 중에 종류별 음료수가 얼마나 차지하는지 Pie로 표시한다.
+
+스텝8을 진행하면서 어려웠던 점은, 코어그래픽스의 대한 이해이다. 현재 그저 가져다 쓰기만했기때문에, 완전한 이해를 했다고는 볼 수 없다. 하지만 뷰에 그려지는 방식을 코드로 제어할 수 있음을 알았으며, 그래픽스 뿐만아닌 UIFont를 지정해주어 String값도 넣어 줄 수 있음을 배웠다. 다만 Pie Graph를 그릴때의 코드를 거의 다 참조하였다.
+[PieGraph](https://github.com/hamishknight/Pie-Chart-View)
+
+다음은 실행했을 때의 화면이다.
+![Step9](./ScreenShot/step9.png)

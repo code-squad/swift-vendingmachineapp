@@ -18,11 +18,17 @@ class TopCoffee: Coffee {
                    caffeineLevels: caffeineLevels, isHot: isHot, isSweetened: isSweetened)
     }
     convenience init(_ menu: VendingMachine.Menu) {
-        self.init(stringData["brands"]![menu]!, intData["volume"]![menu]!, intData["price"]![menu]!,
-                  stringData["productName"]![menu]!, Date(timeIntervalSinceNow: 0),
-                  Date(timeIntervalSinceNow: TimeInterval(intData["expirationDate"]![menu]!)),
-                  intData["calories"]![menu]!, menu,
-                  caffeineLevels: intData["caffeineLevels"]![menu]!, isHot: true, isSweetened: true)
+        self.init(stringData[Beverage.CodingKeys.brand]![menu]!,
+                  intData[Beverage.CodingKeys.volume]![menu]!,
+                  intData[Beverage.CodingKeys.price]![menu]!,
+                  stringData[Beverage.CodingKeys.productName]![menu]!,
+                  Date(timeIntervalSinceNow: 0),
+                  Date(timeIntervalSinceNow: TimeInterval(intData[Beverage.CodingKeys.expirationDate]![menu]!)),
+                  intData[Beverage.CodingKeys.calories]![menu]!,
+                  menu,
+                  caffeineLevels: intData[Beverage.CodingKeys.caffeineLevels]![menu]!,
+                  isHot: true,
+                  isSweetened: true)
     }
     required init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)

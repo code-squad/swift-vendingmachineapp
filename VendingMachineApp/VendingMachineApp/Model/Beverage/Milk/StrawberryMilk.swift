@@ -19,11 +19,16 @@ class StrawBerryMilk: Milk {
                    manufacturerCode: manufacturerCode, packingMaterial: packingMaterial)
     }
     convenience init(_ menu: VendingMachine.Menu) {
-        self.init(stringData["brands"]![menu]!, intData["volume"]![menu]!, intData["price"]![menu]!,
-                  stringData["productName"]![menu]!, Date(timeIntervalSinceNow: 0),
-                  Date(timeIntervalSinceNow: TimeInterval(intData["expirationDate"]![menu]!)),
-                  intData["calories"]![menu]!, menu, manufacturerCode: intData["manufacturerCode"]![menu]!,
-                  packingMaterial: stringData["packingMaterial"]![menu]!)
+        self.init(stringData[Beverage.CodingKeys.brand]![menu]!,
+                  intData[Beverage.CodingKeys.volume]![menu]!,
+                  intData[Beverage.CodingKeys.price]![menu]!,
+                  stringData[Beverage.CodingKeys.productName]![menu]!,
+                  Date(timeIntervalSinceNow: 0),
+                  Date(timeIntervalSinceNow: TimeInterval(intData[Beverage.CodingKeys.expirationDate]![menu]!)),
+                  intData[Beverage.CodingKeys.calories]![menu]!,
+                  menu,
+                  manufacturerCode: intData[Beverage.CodingKeys.manufacturerCode]![menu]!,
+                  packingMaterial: stringData[Beverage.CodingKeys.packingMaterial]![menu]!)
     }
     required init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)

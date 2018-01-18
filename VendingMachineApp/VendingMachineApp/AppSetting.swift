@@ -23,7 +23,7 @@ struct AppSetting {
     }
     
     static func setLabelContent(key: Beverage, stockLabel: UILabel, balanceLabel: UILabel) {
-        balanceLabel.text = String(VendingMachine.sharedInstance.vendingMachineBalance())
+        balanceLabel.text = String(VendingMachine.sharedInstance.vendingMachineBalance().commaRepresentation)
         setContets(key, stockLabel)
     }
     

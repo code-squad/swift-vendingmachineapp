@@ -8,17 +8,33 @@
 
 import Foundation
 
-struct Store {
-    private let machine: VendingMachine
-    let archiveURL: URL = {
-        return ArchiveManager.archiveURL("machine.archive")
-    }()
-
-    func saveMachine() -> Bool {
-        return NSKeyedArchiver.archiveRootObject(machine, toFile: archiveURL.path)
+class MachineStore {
+    static let Key = "machine"
+    var machine: VendingMachine
+    let encoder: PropertyListEncoder
+    let decoder: PropertyListDecoder
+    init() {
+        self.machine = VendingMachine()
+        self.encoder = PropertyListEncoder()
+        self.decoder = PropertyListDecoder()
     }
 
-    func loadMachine() -> VendingMachine? {
-        return NSKeyedUnarchiver.unarchiveObject(withFile: archiveURL.path) as? VendingMachine
+    func saveChanges() {
+        var data = Data()
+        do {
+            data = try encoder.encode(self.machine)
+        } catch {
+            NSLog(error.localizedDescription)
+        }
+        UserDefaults.standard.set(data, forKey: MachineStore.Key)
+    }
+
+    func loadMachine() {
+        guard let data = UserDefaults.standard.data(forKey: MachineStore.Key) else { return }
+        do {
+            machine = try decoder.decode(VendingMachine.self, from: data)
+        } catch {
+            NSLog(error.localizedDescription)
+        }
     }
 }

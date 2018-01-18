@@ -8,8 +8,8 @@
 
 import Foundation
 
-class StockManager<MachineType: Machine, ProductType: Product> {
-    private var machine: MachineType
+final class StockManager<MachineType: Machine, ProductType: Product> {
+    private var machine: MachineType?
     // 자판기 메뉴별 남은 재고 기록.
     private var stock: [ProductType.MenuType:Stock] {
         didSet {
@@ -21,7 +21,7 @@ class StockManager<MachineType: Machine, ProductType: Product> {
     }
     // 구입이력 기록.
     private var purchasedHistory: [HistoryInfo]
-    init(_ machine: MachineType) {
+    init(_ machine: MachineType?) {
         self.machine = machine
         self.stock = [:]
         self.purchasedHistory = []
@@ -81,4 +81,22 @@ class StockManager<MachineType: Machine, ProductType: Product> {
         }
     }
 
+}
+
+extension StockManager: Codable {
+    enum CodingKeys: String, CodingKey {
+        case stock
+        case purchasedHistory
+    }
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(stock, forKey: .stock)
+        try container.encode(purchasedHistory, forKey: .purchasedHistory)
+    }
+    convenience init(from decoder: Decoder) throws {
+        self.init(nil)
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        self.stock = try values.decode([ProductType.MenuType: Stock].self, forKey: .stock)
+        self.purchasedHistory = try values.decode([HistoryInfo].self, forKey: .purchasedHistory)
+    }
 }

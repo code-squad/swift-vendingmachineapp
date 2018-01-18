@@ -8,7 +8,7 @@
 
 import Foundation
 
-class MoneyManager<MachineType: Machine> {
+final class MoneyManager<MachineType: Machine> {
     // 현재 잔액
     private(set) var balance: Balance {
         didSet {
@@ -47,4 +47,19 @@ class MoneyManager<MachineType: Machine> {
         return sellingList.filter { balance >= $0.price }
     }
 
+}
+
+extension MoneyManager: Codable {
+    enum CodingKeys: String, CodingKey {
+        case balance
+    }
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(balance, forKey: .balance)
+    }
+    convenience init(from decoder: Decoder) throws {
+        self.init()
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        self.balance = try values.decode(Balance.self, forKey: .balance)
+    }
 }

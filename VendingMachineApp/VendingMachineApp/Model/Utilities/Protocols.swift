@@ -21,7 +21,7 @@ protocol Product {
     var price: Int { get }
 }
 
-protocol Machine: Sequence {
+protocol Machine: Sequence, Codable {
     associatedtype MenuType: EnumCollection, Purchasable
     associatedtype ProductType: Product
 }

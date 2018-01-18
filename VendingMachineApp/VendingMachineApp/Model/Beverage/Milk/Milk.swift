@@ -20,6 +20,10 @@ class Milk: Beverage {
         super.init(brand, volume, price, productName, manufacturedDate, expirationDate, calories, menuType)
     }
 
+    required convenience init(from decoder: Decoder) throws {
+        fatalError("init(from:) has not been implemented")
+    }
+
     func isManufacturedFrom(_ factory: Int) -> Bool {
         return self.manufacturerCode == factory
     }

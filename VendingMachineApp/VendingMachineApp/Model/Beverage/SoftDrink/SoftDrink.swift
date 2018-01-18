@@ -17,7 +17,9 @@ class SoftDrink: Beverage {
         self.carbonContent = carbonContent
         super.init(brand, volume, price, productName, manufacturedDate, expirationDate, calories, menuType)
     }
-
+    required convenience init(from decoder: Decoder) throws {
+        fatalError("init(from:) has not been implemented")
+    }
     var containsCarbonicGas: Bool {
         return self.carbonContent > 10
     }

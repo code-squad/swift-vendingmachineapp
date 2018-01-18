@@ -10,9 +10,9 @@ import Foundation
 
 class Coffee: Beverage {
     // 카페인 함유량, 뜨거운음료여부, 무가당여부, 유통기한, 칼로리
-    private let caffeineLevels: Int
+    private var caffeineLevels: Int
     private(set) var isHot: Bool
-    private let isSweetened: Bool
+    private var isSweetened: Bool
     init(_ brand: String, _ volume: Int, _ price: Int, _ productName: String,
          _ manufacturedDate: Date, _ expirationDate: Date, _ calories: Int, _ menuType: VendingMachine.Menu,
          caffeineLevels: Int, isHot: Bool, isSweetened: Bool) {
@@ -22,8 +22,12 @@ class Coffee: Beverage {
         super.init(brand, volume, price, productName, manufacturedDate, expirationDate, calories, menuType)
     }
 
-    required convenience init(from decoder: Decoder) throws {
-        fatalError("init(from:) has not been implemented")
+    required init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        self.caffeineLevels = try values.decode(Int.self, forKey: CodingKeys.caffeineLevels)
+        self.isHot = try values.decode(Bool.self, forKey: CodingKeys.isHot)
+        self.isSweetened = try values.decode(Bool.self, forKey: CodingKeys.isSweetened)
+        try super.init(from: decoder)
     }
 
     func isDecaffeinated() -> Bool {

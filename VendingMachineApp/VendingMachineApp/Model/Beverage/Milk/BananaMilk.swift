@@ -27,6 +27,12 @@ class BananaMilk: Milk {
                   packingMaterial: stringData["packingMaterial"]![menu]!)
     }
 
+    required init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        self.ingredients = try values.decode(String.self, forKey: CodingKeys.ingredients)
+        try super.init(from: decoder)
+    }
+
     override var description: String {
         return String.init(describing: type(of: self))
 //        return "바나나우유(" + String.init(describing: type(of: self)) + ") - " + super.description

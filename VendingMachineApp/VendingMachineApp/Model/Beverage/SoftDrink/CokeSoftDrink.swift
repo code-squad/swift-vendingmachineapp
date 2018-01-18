@@ -9,7 +9,7 @@
 import Foundation
 
 class CokeSoftDrink: SoftDrink {
-    private let ingredients: String
+    private var ingredients: String
     override init(_ brand: String, _ volume: Int, _ price: Int, _ productName: String,
                   _ manufacturedDate: Date, _ expirationDate: Date, _ calories: Int, _ menuType: VendingMachine.Menu,
                   carbonContent: Int) {
@@ -25,7 +25,11 @@ class CokeSoftDrink: SoftDrink {
                   Date(timeIntervalSinceNow: TimeInterval(intData["expirationDate"]![menu]!)),
                   intData["calories"]![menu]!, menu, carbonContent: intData["carbonContent"]![menu]!)
     }
-
+    required init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        self.ingredients = try values.decode(String.self, forKey: CodingKeys.ingredients)
+        try super.init(from: decoder)
+    }
     override var description: String {
         return String.init(describing: type(of: self))
 //        return "코카콜라(" + String.init(describing: type(of: self)) + ") - " + super.description

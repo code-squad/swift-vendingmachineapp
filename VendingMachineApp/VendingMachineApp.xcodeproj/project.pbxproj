@@ -139,9 +139,9 @@
 			isa = PBXGroup;
 			children = (
 				EE22980620033D86005DF200 /* Beverage.swift */,
+				EE22981120033D86005DF200 /* BeverageData.swift */,
 				EE22980720033D86005DF200 /* Milk */,
 				EE22980C20033D86005DF200 /* SoftDrink */,
-				EE22981120033D86005DF200 /* BeverageData.swift */,
 				EE22981220033D86005DF200 /* Coffee */,
 			);
 			path = Beverage;
@@ -150,9 +150,9 @@
 		EE22980720033D86005DF200 /* Milk */ = {
 			isa = PBXGroup;
 			children = (
+				EE22980A20033D86005DF200 /* Milk.swift */,
 				EE22980820033D86005DF200 /* StrawberryMilk.swift */,
 				EE22980920033D86005DF200 /* ChocoMilk.swift */,
-				EE22980A20033D86005DF200 /* Milk.swift */,
 				EE22980B20033D86005DF200 /* BananaMilk.swift */,
 			);
 			path = Milk;
@@ -161,8 +161,8 @@
 		EE22980C20033D86005DF200 /* SoftDrink */ = {
 			isa = PBXGroup;
 			children = (
-				EE22980D20033D86005DF200 /* CiderSoftDrink.swift */,
 				EE22980E20033D86005DF200 /* SoftDrink.swift */,
+				EE22980D20033D86005DF200 /* CiderSoftDrink.swift */,
 				EE22980F20033D86005DF200 /* FantaSoftDrink.swift */,
 				EE22981020033D86005DF200 /* CokeSoftDrink.swift */,
 			);
@@ -172,10 +172,10 @@
 		EE22981220033D86005DF200 /* Coffee */ = {
 			isa = PBXGroup;
 			children = (
+				EE22981620033D86005DF200 /* Coffee.swift */,
 				EE22981320033D86005DF200 /* TopCoffee.swift */,
 				EE22981420033D86005DF200 /* GeorgiaCoffee.swift */,
 				EE22981520033D86005DF200 /* CantataCoffee.swift */,
-				EE22981620033D86005DF200 /* Coffee.swift */,
 			);
 			path = Coffee;
 			sourceTree = "<group>";

@@ -10,15 +10,17 @@ import Foundation
 
 class SoftDrink: Beverage {
     // 탄산첨가여부, 유통기한, 칼로리
-    private let carbonContent: Int
+    private var carbonContent: Int
     init(_ brand: String, _ volume: Int, _ price: Int, _ productName: String,
          _ manufacturedDate: Date, _ expirationDate: Date, _ calories: Int, _ menuType: VendingMachine.Menu,
          carbonContent: Int) {
         self.carbonContent = carbonContent
         super.init(brand, volume, price, productName, manufacturedDate, expirationDate, calories, menuType)
     }
-    required convenience init(from decoder: Decoder) throws {
-        fatalError("init(from:) has not been implemented")
+    required init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        self.carbonContent = try values.decode(Int.self, forKey: CodingKeys.carbonContent)
+        try super.init(from: decoder)
     }
     var containsCarbonicGas: Bool {
         return self.carbonContent > 10

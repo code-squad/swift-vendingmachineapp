@@ -21,15 +21,8 @@ class Beverage: Product, CustomStringConvertible, Codable {
     private(set) var expirationDate: Date
     private(set) var calories: Int
     private(set) var menuType: VendingMachine.MenuType
-    init() {
-        brand = ""
-        volume = 0
-        price = 0
-        productName = ""
-        manufacturedDate = Date(timeIntervalSinceNow: 0)
-        expirationDate = Date(timeIntervalSinceNow: 0)
-        calories = 0
-        menuType = .strawberryMilk
+    convenience init() {
+        self.init("", 0, 0, "", Date(), Date(), 0, .strawberryMilk)
     }
     init(_ brand: String, _ volume: Int, _ price: Int, _ productName: String,
          _ manufacturedDate: Date, _ expirationDate: Date, _ calories: Int, _ menuType: VendingMachine.Menu) {
@@ -66,6 +59,13 @@ class Beverage: Product, CustomStringConvertible, Codable {
         case expirationDate
         case calories
         case menuType
+        case manufacturerCode
+        case packingMaterial
+        case ingredients
+        case carbonContent
+        case caffeineLevels
+        case isHot
+        case isSweetened
     }
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
@@ -78,8 +78,7 @@ class Beverage: Product, CustomStringConvertible, Codable {
         try container.encode(calories, forKey: .calories)
         try container.encode(menuType, forKey: .menuType)
     }
-    required convenience init(from decoder: Decoder) throws {
-        self.init()
+    required init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         self.brand = try values.decode(String.self, forKey: .brand)
         self.volume = try values.decode(Int.self, forKey: .volume)

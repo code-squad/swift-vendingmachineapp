@@ -306,4 +306,17 @@
 
 ### 학습 내용
 >- **[객체 복사](https://github.com/undervineg/swift-vendingmachineapp/blob/vending-step3/md/copy_object.md)**
+>- **[Codable과 NSCoding을 아카이빙하는 방법의 차이 및 장단점]()**
 >- **[Dynamic Type](https://github.com/undervineg/swift-vendingmachineapp/blob/vending-step3/md/dynamic_type.md)**
+
+<br/>
+
+## 싱글톤(Singleton) 모델 적용
+
+### VendingMachine 객체를 싱글톤으로 접근할 수 있도록 개선
+#### 
+
+### 학습 내용
+>- **[구조체를 싱글톤으로 생성하는 방식]()**
+>- **[클래스를 싱글톤으로 생성 방식과 어떻게 다른가]()**
+>- **[싱글톤 객체의 장점과 단점]()**

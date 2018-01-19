@@ -329,5 +329,5 @@ class func restoreStates(_ machine: VendingMachine) {
 ```
 
 ### 학습 내용
->- **[싱글톤 객체의 장점과 단점]()**
->- **[Class 메소드와 Static 메소드의 차이]()**
+>- **[싱글톤 객체의 장점과 단점](https://github.com/undervineg/swift-vendingmachineapp/blob/vending-step4/md/singleton.md)**
+>- **[Class 메소드와 Static 메소드의 차이](https://github.com/undervineg/swift-vendingmachineapp/blob/vending-step4/md/class_method.md)**

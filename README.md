@@ -306,7 +306,7 @@
 
 ### 학습 내용
 >- **[객체 복사](https://github.com/undervineg/swift-vendingmachineapp/blob/vending-step3/md/copy_object.md)**
->- **[Codable과 NSCoding을 아카이빙하는 방법의 차이 및 장단점]()**
+>- **[Codable과 NSCoding을 아카이빙하는 방법의 차이 및 장단점](https://github.com/undervineg/swift-vendingmachineapp/blob/vending-step4/md/archiving_difference.md)**
 >- **[Dynamic Type](https://github.com/undervineg/swift-vendingmachineapp/blob/vending-step3/md/dynamic_type.md)**
 
 <br/>

@@ -18,4 +18,4 @@
 
 ### 단점
 - 의존도(Coupling)을 높이게 되어 한 곳에서의 변경이 다른 부분에 영향을 미치게 될 확률이 높아진다. 즉, 여러 곳에서 참조가 가능하기 때문에 멀티 쓰레드 환경에서 데이터 변경 시 문제가 생길 수 있다.
-- 모킹 객체를 만들지 못하기 때문에 단위 테스트가 어렵다. 따라서 프로토콜을 활용하면 좋다. ([참고: Stack Overflow](https://stackoverflow.com/questions/8256989/singleton-and-unit-testing))
+- 모킹 객체를 만들지 못하기 때문에 단위 테스트가 어렵다. 따라서  mock 객체를 작성하기 위해 싱글톤 객체에 의존하기 보다는 싱글톤 객체가 채택한 프로토콜에 의존하도록 작성하는게 좋ek. ([참고: Stack Overflow](https://stackoverflow.com/questions/8256989/singleton-and-unit-testing))

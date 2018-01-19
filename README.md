@@ -344,7 +344,7 @@ class func restoreStates(_ machine: VendingMachine) {
 	- **addObserver의 object가 정의되면, post의 object도 같이 정의해야 한다. 아니면 둘 다 nil로 정의해야 한다.**
 
 ### 학습 내용
->- **[옵저버 패턴과 느슨한 결합, 장점]()**
+>- **[옵저버 패턴과 느슨한 결합, 장점](https://github.com/undervineg/swift-vendingmachineapp/blob/vending-step5/md/loose_coupled.md)**
 	
 ### Feedback
 #### Notification.Name(enum.rawValue) 형태보다는 Notification.Name() 자체를 만들어두고 활용한다.

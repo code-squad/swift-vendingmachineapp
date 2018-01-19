@@ -314,9 +314,20 @@
 ## 싱글톤(Singleton) 모델 적용
 
 ### VendingMachine 객체를 싱글톤으로 접근할 수 있도록 개선
-#### 
+#### Class VendingMachine
+- static 변수로 VendingMachine 객체 생성
+- 직접 접근하지 않도록 class 메소드를 만들어 싱글톤 객체 반환
+- 직접 값 변경하지 못하도록 class 메소드 추가
+```swift
+private static var sharedInstance = VendingMachine()
+class func shared() -> VendingMachine {
+    return sharedInstance
+}
+class func restoreStates(_ machine: VendingMachine) {
+    sharedInstance = machine
+}
+```
 
 ### 학습 내용
->- **[구조체를 싱글톤으로 생성하는 방식]()**
->- **[클래스를 싱글톤으로 생성 방식과 어떻게 다른가]()**
 >- **[싱글톤 객체의 장점과 단점]()**
+>- **[Class 메소드와 Static 메소드의 차이]()**

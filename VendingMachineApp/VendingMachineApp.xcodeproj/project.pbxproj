@@ -47,6 +47,7 @@
 		8E1C4151200C69AD00F9FCA2 /* NotificationUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1C4150200C69AD00F9FCA2 /* NotificationUtility.swift */; };
 		8E1C4153200C77E600F9FCA2 /* Keyword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1C4152200C77E600F9FCA2 /* Keyword.swift */; };
 		8E2E02721FFB727200C41065 /* Coins.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2E02711FFB727200C41065 /* Coins.swift */; };
+		8EC0F91A2011876300CEBBD4 /* PieGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC0F9192011876300CEBBD4 /* PieGraphView.swift */; };
 		8ECB4994200CA08C00FBD600 /* BeverageFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECB4993200CA08C00FBD600 /* BeverageFactory.swift */; };
 /* End PBXBuildFile section */
 
@@ -114,6 +115,7 @@
 		8E1C4150200C69AD00F9FCA2 /* NotificationUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationUtility.swift; sourceTree = "<group>"; };
 		8E1C4152200C77E600F9FCA2 /* Keyword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keyword.swift; sourceTree = "<group>"; };
 		8E2E02711FFB727200C41065 /* Coins.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coins.swift; sourceTree = "<group>"; };
+		8EC0F9192011876300CEBBD4 /* PieGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieGraphView.swift; sourceTree = "<group>"; };
 		8ECB4993200CA08C00FBD600 /* BeverageFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -175,6 +177,7 @@
 				8E09853C1FF496F100F777DF /* Assets.xcassets */,
 				8E09853E1FF496F100F777DF /* LaunchScreen.storyboard */,
 				8E0985411FF496F100F777DF /* Info.plist */,
+				8EC0F9192011876300CEBBD4 /* PieGraphView.swift */,
 			);
 			path = VendingMachineApp;
 			sourceTree = "<group>";
@@ -423,6 +426,7 @@
 				8E0985831FF499F900F777DF /* Fanta.swift in Sources */,
 				8E09858D1FF499F900F777DF /* ValidationChecker.swift in Sources */,
 				8E0985881FF499F900F777DF /* Coffee.swift in Sources */,
+				8EC0F91A2011876300CEBBD4 /* PieGraphView.swift in Sources */,
 				8E0985821FF499F900F777DF /* VendingMachineProtocol.swift in Sources */,
 				8ECB4994200CA08C00FBD600 /* BeverageFactory.swift in Sources */,
 				8E0985801FF499F900F777DF /* BananaMilk.swift in Sources */,

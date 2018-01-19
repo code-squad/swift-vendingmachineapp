@@ -10,6 +10,13 @@ import Foundation
 
 // inventory를 Collection 프로토콜로 캡슐화.
 final class VendingMachine: Sequence, Machine {
+    private static var sharedInstance = VendingMachine()
+    class func shared() -> VendingMachine {
+        return sharedInstance
+    }
+    class func restoreStates(_ machine: VendingMachine) {
+        sharedInstance = machine
+    }
     // Iterator.Element의 타입앨리아스
     typealias Element = Beverage
     typealias ProductType = Beverage
@@ -18,7 +25,7 @@ final class VendingMachine: Sequence, Machine {
     let start: Int
     private var recentChanged: Beverage
     private var isManagerRemoved: Bool
-    init() {
+    private init() {
         self.start = 0
         self.recentChanged = Beverage()
         self.isManagerRemoved = false

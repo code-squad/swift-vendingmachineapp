@@ -10,11 +10,9 @@ import Foundation
 
 class MachineStore {
     static let Key = "machine"
-    var machine: VendingMachine
     let encoder: PropertyListEncoder
     let decoder: PropertyListDecoder
     init() {
-        self.machine = VendingMachine()
         self.encoder = PropertyListEncoder()
         self.decoder = PropertyListDecoder()
     }
@@ -22,17 +20,18 @@ class MachineStore {
     func saveChanges() {
         var data = Data()
         do {
-            data = try encoder.encode(self.machine)
+            data = try encoder.encode(VendingMachine.shared())
         } catch {
             NSLog(error.localizedDescription)
         }
         UserDefaults.standard.set(data, forKey: MachineStore.Key)
     }
 
-    func loadMachine() {
+    func loadData() {
         guard let data = UserDefaults.standard.data(forKey: MachineStore.Key) else { return }
         do {
-            machine = try decoder.decode(VendingMachine.self, from: data)
+            let loadedMachine = try decoder.decode(VendingMachine.self, from: data)
+            VendingMachine.restoreStates(loadedMachine)
         } catch {
             NSLog(error.localizedDescription)
         }

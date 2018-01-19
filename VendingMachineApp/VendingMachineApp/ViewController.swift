@@ -18,8 +18,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let delegate = UIApplication.shared.delegate as? AppDelegate
-        self.machine = delegate?.machineStore.machine
+        self.machine = VendingMachine.shared()
         updateStockLabels()
         updateBalanceLabel()
         // 둥근 테두리 적용

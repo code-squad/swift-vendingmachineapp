@@ -119,21 +119,6 @@
 	- 하지만 따로 associatedtype을 정의해주기에는 부수적인 제약조건 문제가 생길 가능성이 큼.
 - 해결방법: `insertMoney(_ money: MoneyManager<Self>.Unit)`로 정의. UserServable은 Machine 클래스를 상속받으므로, <Self>를 사용하여 자기자신 타입(Self)을 넣어줘도 됨.
 
-#### Model 업데이트 시, NotificationCenter 사용
-- MVC에 맞추어 함수 설계
-    - **View ➔ Controller**: **IBAction** 사용
-    - **Controller ➔ Model**: Model 객체의 메소드 사용
-    - **Model ➔ Controller**: **NotificationCenter.default.post()** 사용
-        - 처음에는 ViewController의 View 업데이트 함수를 직접 호출하도록 만듦
-        - iOS에서 Model은 직접 ViewController에 메시지를 보내지 않음 ➔ NotificationCenter 를 사용하는 방법으로 변경
-    - **Controller ➔ View**: **update 함수** 정의, **NotificationCenter.default.addObserver()**로 Model에서 post한 Notification.Name에 해당하는 노티 발생 시, update 함수에 연결.
-
-##### 문제점: 뷰 업데이트가 안 됨
-- 문제원인: NotificationCenter.default 메소드들의 **object 파라미터 값**을 잘못 넣음
-	- **addObserver 메소드의 object**: 노티를 **받을** 객체. nil인 경우, 어느 객체에서 보내든 상관 안 함
-	- **post 메소드의 object**: 노티를 **보내는** 객체. 보통 post를 보내는 객체인 자기자신, **self**를 넣는다. nil인 경우, 보내는 객체가 어딘지 전달하지 않음.
-	- **addObserver의 object가 정의되면, post의 object도 같이 정의해야 한다. 아니면 둘 다 nil로 정의해야 한다.**
-
 #### NSUnknownKeyException 에러발생
 - 에러코드: VendingMachineApp[37705:2367314] *** Terminating app due to uncaught exception 'NSUnknownKeyException', reason: **'[<VendingMachineApp.ViewController 0x7fef47508040> setValue:forUndefinedKey:]: this class is not key value coding-compliant for the key productImages.'**
 - 문제원인: 뷰컨트롤러에 연결한 IBOutlet을 지우고나서 연결을 끊지 않음
@@ -149,38 +134,6 @@
 
 #### 하나의 파일로 extension을 합치면 어떤 장단점이 있을까요?
 - 익스텐션을 각 타입에 따라 여러 파일로 분리해놓는게 필요한 경우에만 선택적으로 확장할 수 있는 장점이 있다.
-
-#### Notification.Name(enum.rawValue) 형태보다는 Notification.Name() 자체를 만들어두고 활용한다.
-- 기존: 
-
-	```swift
-	enum Notifications: CustomStringConvertible {
-	    case didUpdateInventory = "didUpdateInventory"
-	    case didUpdateBalance = "didUpdateBalance"
-	    var name: Notification.Name {
-	        return Notification.Name(self.description)
-	    }
-	    var description: String {
-	        switch self {
-	        case .didUpdateInventory: return
-	        case .didUpdateBalance: return
-	        }
-	    }
-	}
-	```
-	사용 시: `Notification.Name(NotificationNames.didUpdateBalance.description)`
-- 개선: 
-
-	```swift
-	enum Notifications: String {
-	    case didUpdateInventory
-	    case didUpdateBalance
-	    var name: Notification.Name {
-	        return Notification.Name(self.rawValue)
-	    }
-	}
-	```
-	사용 시: `Notifications.didUpdateBalance.name`
 	
 #### ★ 화면 요소와 데이터를 매칭해야 하는 경우는 항상 발생한다.
 - 직접적으로 스토리보드에서 태그값을 넣어놓고 sender.tag 에 접근하기 보다는 화면요소와 데이터를 매칭할 수 있는 데이터 구조를 갖고 있는 것이 좋다.
@@ -311,10 +264,8 @@
 
 <br/>
 
-## 싱글톤(Singleton) 모델 적용
-
+## 싱글톤(Singleton) 패턴 적용
 ### VendingMachine 객체를 싱글톤으로 접근할 수 있도록 개선
-#### Class VendingMachine
 - static 변수로 VendingMachine 객체 생성
 - 직접 접근하지 않도록 class 메소드를 만들어 싱글톤 객체 반환
 - 직접 값 변경하지 못하도록 class 메소드 추가
@@ -331,3 +282,108 @@ class func restoreStates(_ machine: VendingMachine) {
 ### 학습 내용
 >- **[싱글톤 객체의 장점과 단점](https://github.com/undervineg/swift-vendingmachineapp/blob/vending-step4/md/singleton.md)**
 >- **[Class 메소드와 Static 메소드의 차이](https://github.com/undervineg/swift-vendingmachineapp/blob/vending-step4/md/class_method.md)**
+
+
+## 옵저버(Observer) 패턴 적용
+### Model 업데이트 시, NotificationCenter 사용
+### MVC에 맞추어 함수 설계
+
+![](img/5_observer.png)
+
+#### **View ➔ Controller**
+- **IBAction** 사용
+
+#### **Controller ➔ Model**
+- Model의 싱글턴 객체 사용
+
+#### **Model ➔ Controller**
+- **NotificationCenter.default.post()** 사용
+    - 처음에는 ViewController의 View 업데이트 함수를 직접 호출하도록 만듦
+    - iOS에서 Model은 직접 ViewController에 메시지를 보내지 않음 ➔ NotificationCenter 를 사용하는 방법으로 변경
+    - (예) 잔액이 변경되면 노티를 보냄
+
+	    ```swift
+	    private(set) var balance: Balance {
+	        didSet {
+	            NotificationCenter.default.post(
+	                name: .didUpdateBalance,
+	                object: nil)
+	        }
+	    }
+	    ```
+
+#### **Controller ➔ View**
+- **update 함수** 정의
+- **NotificationCenter.default.addObserver()**로 Model에서 post한 Notification.Name에 해당하는 노티 발생 시, update 함수에 연결.
+	- (예) 뷰컨트롤러: 잔액이 변경되었다는 노티를 받으면 잔액라벨을 업데이트
+
+		```swift
+		NotificationCenter.default.addObserver(
+	            self,
+	            selector: #selector(updateBalanceLabel),
+	            name: .didUpdateBalance,
+	            object: nil)
+		```
+
+	- 옵저버 제거: 뷰 컨트롤러 객체가 사라질 때 옵저버도 제거한다.
+	
+		```swift
+		deinit {
+	        NotificationCenter.default.removeObserver(
+	            self,
+	            name: .didUpdateBalance,
+	            object: self)
+	    }
+		```
+
+
+#### 문제점: 뷰 업데이트가 안 됨
+- 문제원인: NotificationCenter.default 메소드들의 **object 파라미터 값**을 잘못 넣음
+	- **addObserver 메소드의 object**: 노티를 **받을** 객체. nil인 경우, 어느 객체에서 보내든 상관 안 함
+	- **post 메소드의 object**: 노티를 **보내는** 객체. 보통 post를 보내는 객체인 자기자신, **self**를 넣는다. nil인 경우, 보내는 객체가 어딘지 전달하지 않음.
+	- **addObserver의 object가 정의되면, post의 object도 같이 정의해야 한다. 아니면 둘 다 nil로 정의해야 한다.**
+
+### 학습 내용
+>- **[옵저버 패턴과 느슨한 결합, 장점]()**
+	
+### Feedback
+#### Notification.Name(enum.rawValue) 형태보다는 Notification.Name() 자체를 만들어두고 활용한다.
+- 기존: 
+
+	```swift
+	enum Notifications: CustomStringConvertible {
+	    case didUpdateInventory = "didUpdateInventory"
+	    case didUpdateBalance = "didUpdateBalance"
+	    var name: Notification.Name {
+	        return Notification.Name(self.description)
+	    }
+	    var description: String {
+	        switch self {
+	        case .didUpdateInventory: return
+	        case .didUpdateBalance: return
+	        }
+	    }
+	}
+	```
+	사용 시: `Notification.Name(NotificationNames.didUpdateBalance.description)`
+- 개선 1: 
+
+	```swift
+	enum Notifications: String {
+	    case didUpdateInventory
+	    case didUpdateBalance
+	    var name: Notification.Name {
+	        return Notification.Name(self.rawValue)
+	    }
+	}
+	```
+	사용 시: `Notifications.didUpdateBalance.name`
+- 개선 2:
+
+	```swift
+	extension Notification.Name {
+	    static let didUpdateInventory = Notification.Name("didUpdateInventory")
+	    static let didUpdateBalance = Notification.Name("didUpdateBalance")
+	}
+	```
+	사용 시: `.didUpdateInventory` 또는 `Notification.Name.didUpdateInventory`

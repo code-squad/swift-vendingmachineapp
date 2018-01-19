@@ -15,7 +15,7 @@ final class StockManager<MachineType: Machine, ProductType: Product> {
         didSet {
             // 뷰 업데이트. M -> C (직접 호출은 아님)
             NotificationCenter.default.post(
-                name: Notifications.didUpdateInventory.name,
+                name: .didUpdateInventory,
                 object: nil)
         }
     }

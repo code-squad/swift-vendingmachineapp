@@ -8,10 +8,7 @@
 
 import Foundation
 
-enum Notifications: String {
-    case didUpdateInventory
-    case didUpdateBalance
-    var name: Notification.Name {
-        return Notification.Name(self.rawValue)
-    }
+extension Notification.Name {
+    static let didUpdateInventory = Notification.Name("didUpdateInventory")
+    static let didUpdateBalance = Notification.Name("didUpdateBalance")
 }

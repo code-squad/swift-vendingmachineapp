@@ -13,7 +13,7 @@ final class MoneyManager<MachineType: Machine> {
     private(set) var balance: Balance {
         didSet {
             NotificationCenter.default.post(
-                name: Notifications.didUpdateBalance.name,
+                name: .didUpdateBalance,
                 object: nil)
         }
     }

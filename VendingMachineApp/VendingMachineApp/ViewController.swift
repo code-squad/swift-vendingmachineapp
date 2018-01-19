@@ -35,12 +35,12 @@ class ViewController: UIViewController {
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(updateStockLabels),
-            name: Notifications.didUpdateInventory.name,
+            name: .didUpdateInventory,
             object: nil)
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(updateBalanceLabel),
-            name: Notifications.didUpdateBalance.name,
+            name: .didUpdateBalance,
             object: nil)
     }
 
@@ -84,11 +84,11 @@ class ViewController: UIViewController {
     deinit {
         NotificationCenter.default.removeObserver(
             self,
-            name: Notifications.didUpdateInventory.name,
+            name: .didUpdateInventory,
             object: self)
         NotificationCenter.default.removeObserver(
             self,
-            name: Notifications.didUpdateBalance.name,
+            name: .didUpdateBalance,
             object: self)
     }
 

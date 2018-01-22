@@ -8,9 +8,7 @@
 
 import Foundation
 
-class Beverage: Product, CustomStringConvertible, Codable {
-    typealias MenuType = VendingMachine.MenuType
-
+class Beverage: CustomStringConvertible, Codable {
     // 브랜드(String), 무게(Int), 가격(Int), 이름(String), 제조일자(Date)
     private(set) var brand: String
     private(set) var volume: Int
@@ -20,7 +18,7 @@ class Beverage: Product, CustomStringConvertible, Codable {
     private(set) var manufacturedDate: Date
     private(set) var expirationDate: Date
     private(set) var calories: Int
-    private(set) var menuType: VendingMachine.MenuType
+    private(set) var menuType: VendingMachine.Menu
     convenience init() {
         self.init("", 0, 0, "", Date(), Date(), 0, .strawberryMilk)
     }
@@ -87,6 +85,6 @@ class Beverage: Product, CustomStringConvertible, Codable {
         self.manufacturedDate = try values.decode(Date.self, forKey: .manufacturedDate)
         self.expirationDate = try values.decode(Date.self, forKey: .expirationDate)
         self.calories = try values.decode(Int.self, forKey: .calories)
-        self.menuType = try values.decode(VendingMachine.MenuType.self, forKey: .menuType)
+        self.menuType = try values.decode(VendingMachine.Menu.self, forKey: .menuType)
     }
 }

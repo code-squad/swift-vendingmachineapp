@@ -13,7 +13,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="VendingMachineApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="VendingMachineApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -355,37 +355,37 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="balanceLabel" destination="QaK-A6-w1Y" id="2Kh-Q3-WFo"/>
-                        <outletCollection property="addStockButtons" destination="twc-0R-6Ev" collectionClass="NSMutableArray" id="Unr-kl-4qa"/>
-                        <outletCollection property="addStockButtons" destination="S1Q-63-Mes" collectionClass="NSMutableArray" id="kMo-lU-MeV"/>
-                        <outletCollection property="addStockButtons" destination="Npc-Xx-ZdD" collectionClass="NSMutableArray" id="bri-hm-weS"/>
-                        <outletCollection property="addStockButtons" destination="uJ8-X3-gXt" collectionClass="NSMutableArray" id="eJD-go-pum"/>
-                        <outletCollection property="addStockButtons" destination="RXt-i7-xfy" collectionClass="NSMutableArray" id="SNR-1f-m27"/>
-                        <outletCollection property="addStockButtons" destination="mZt-aA-Ncr" collectionClass="NSMutableArray" id="0BB-s3-kxD"/>
-                        <outletCollection property="addStockButtons" destination="1mF-yh-LQZ" collectionClass="NSMutableArray" id="BNX-Ga-p9p"/>
-                        <outletCollection property="addStockButtons" destination="Y9H-33-BAo" collectionClass="NSMutableArray" id="boU-ut-KiE"/>
-                        <outletCollection property="addStockButtons" destination="ASh-ao-nAw" collectionClass="NSMutableArray" id="mjQ-qh-Fw8"/>
-                        <outletCollection property="stockLabels" destination="aBD-Wv-MZJ" collectionClass="NSMutableArray" id="77g-BS-0kd"/>
-                        <outletCollection property="stockLabels" destination="nIw-Hq-nLW" collectionClass="NSMutableArray" id="8aw-do-uKY"/>
-                        <outletCollection property="stockLabels" destination="sOA-dy-jXF" collectionClass="NSMutableArray" id="OFt-1D-sKK"/>
-                        <outletCollection property="stockLabels" destination="W1g-Gt-86Q" collectionClass="NSMutableArray" id="4Tl-W8-hR7"/>
-                        <outletCollection property="stockLabels" destination="Gru-l0-tdl" collectionClass="NSMutableArray" id="v2K-0h-szh"/>
-                        <outletCollection property="stockLabels" destination="u8b-y2-wbi" collectionClass="NSMutableArray" id="auu-vc-DUR"/>
-                        <outletCollection property="stockLabels" destination="kuI-1k-BGm" collectionClass="NSMutableArray" id="cwx-PR-nO7"/>
-                        <outletCollection property="stockLabels" destination="HdB-C5-pmb" collectionClass="NSMutableArray" id="2VE-Fw-vWV"/>
-                        <outletCollection property="stockLabels" destination="HGT-xN-Xmh" collectionClass="NSMutableArray" id="qOy-iI-oij"/>
-                        <outletCollection property="productImageViews" destination="vCU-Vo-5y2" collectionClass="NSMutableArray" id="MwN-2f-aDK"/>
-                        <outletCollection property="productImageViews" destination="i3Z-SH-TlM" collectionClass="NSMutableArray" id="Y79-qB-zVx"/>
-                        <outletCollection property="productImageViews" destination="oe7-Gx-8rY" collectionClass="NSMutableArray" id="y7m-Sk-Kj8"/>
-                        <outletCollection property="productImageViews" destination="Gep-xy-reI" collectionClass="NSMutableArray" id="u1x-xE-c64"/>
-                        <outletCollection property="productImageViews" destination="Bsa-eB-Yyx" collectionClass="NSMutableArray" id="WVf-eN-pCA"/>
-                        <outletCollection property="productImageViews" destination="a7V-xC-AaR" collectionClass="NSMutableArray" id="gLJ-TG-xCg"/>
-                        <outletCollection property="productImageViews" destination="UUz-tS-obQ" collectionClass="NSMutableArray" id="oMk-lJ-QQa"/>
-                        <outletCollection property="productImageViews" destination="e9t-c6-kFh" collectionClass="NSMutableArray" id="eUc-DI-Ras"/>
-                        <outletCollection property="productImageViews" destination="bwP-di-Zm0" collectionClass="NSMutableArray" id="UDH-3b-H1p"/>
-                        <outletCollection property="balanceButtons" destination="x2h-j6-p3t" collectionClass="NSMutableArray" id="8yn-sb-CPU"/>
-                        <outletCollection property="balanceButtons" destination="GL8-4P-INC" collectionClass="NSMutableArray" id="3Jh-rO-I2E"/>
-                        <outletCollection property="balanceButtons" destination="bX3-2M-Yvp" collectionClass="NSMutableArray" id="HYM-J3-QL5"/>
+                        <outlet property="balanceLabel" destination="QaK-A6-w1Y" id="oEV-ym-oFp"/>
+                        <outletCollection property="addStockButtons" destination="twc-0R-6Ev" collectionClass="NSMutableArray" id="sMt-ua-PKP"/>
+                        <outletCollection property="addStockButtons" destination="S1Q-63-Mes" collectionClass="NSMutableArray" id="OSz-2C-kAC"/>
+                        <outletCollection property="addStockButtons" destination="Npc-Xx-ZdD" collectionClass="NSMutableArray" id="Odr-ea-JW1"/>
+                        <outletCollection property="addStockButtons" destination="uJ8-X3-gXt" collectionClass="NSMutableArray" id="8C0-lr-ikI"/>
+                        <outletCollection property="addStockButtons" destination="RXt-i7-xfy" collectionClass="NSMutableArray" id="9sN-8P-aiP"/>
+                        <outletCollection property="addStockButtons" destination="mZt-aA-Ncr" collectionClass="NSMutableArray" id="YiS-FT-Hd8"/>
+                        <outletCollection property="addStockButtons" destination="1mF-yh-LQZ" collectionClass="NSMutableArray" id="yGb-io-TEK"/>
+                        <outletCollection property="addStockButtons" destination="Y9H-33-BAo" collectionClass="NSMutableArray" id="cGk-S1-0Vh"/>
+                        <outletCollection property="addStockButtons" destination="ASh-ao-nAw" collectionClass="NSMutableArray" id="jXm-VS-ZRe"/>
+                        <outletCollection property="stockLabels" destination="aBD-Wv-MZJ" collectionClass="NSMutableArray" id="d5Q-6T-2zD"/>
+                        <outletCollection property="stockLabels" destination="nIw-Hq-nLW" collectionClass="NSMutableArray" id="UPU-FW-B37"/>
+                        <outletCollection property="stockLabels" destination="sOA-dy-jXF" collectionClass="NSMutableArray" id="oIR-b4-pHL"/>
+                        <outletCollection property="stockLabels" destination="W1g-Gt-86Q" collectionClass="NSMutableArray" id="lXy-eS-kBV"/>
+                        <outletCollection property="stockLabels" destination="Gru-l0-tdl" collectionClass="NSMutableArray" id="oXc-HB-I57"/>
+                        <outletCollection property="stockLabels" destination="u8b-y2-wbi" collectionClass="NSMutableArray" id="vhO-fq-eHb"/>
+                        <outletCollection property="stockLabels" destination="kuI-1k-BGm" collectionClass="NSMutableArray" id="ERC-08-bsc"/>
+                        <outletCollection property="stockLabels" destination="HdB-C5-pmb" collectionClass="NSMutableArray" id="ejt-yO-idz"/>
+                        <outletCollection property="stockLabels" destination="HGT-xN-Xmh" collectionClass="NSMutableArray" id="D4v-iz-FiK"/>
+                        <outletCollection property="productImageViews" destination="vCU-Vo-5y2" collectionClass="NSMutableArray" id="cIr-Hv-rZz"/>
+                        <outletCollection property="productImageViews" destination="i3Z-SH-TlM" collectionClass="NSMutableArray" id="fQv-rs-tBT"/>
+                        <outletCollection property="productImageViews" destination="oe7-Gx-8rY" collectionClass="NSMutableArray" id="koy-IG-ojY"/>
+                        <outletCollection property="productImageViews" destination="Gep-xy-reI" collectionClass="NSMutableArray" id="E4X-nQ-gyW"/>
+                        <outletCollection property="productImageViews" destination="Bsa-eB-Yyx" collectionClass="NSMutableArray" id="UKj-eI-2uv"/>
+                        <outletCollection property="productImageViews" destination="a7V-xC-AaR" collectionClass="NSMutableArray" id="Ea3-eG-0Re"/>
+                        <outletCollection property="productImageViews" destination="UUz-tS-obQ" collectionClass="NSMutableArray" id="ccM-Wo-nWN"/>
+                        <outletCollection property="productImageViews" destination="e9t-c6-kFh" collectionClass="NSMutableArray" id="89D-oD-9r7"/>
+                        <outletCollection property="productImageViews" destination="bwP-di-Zm0" collectionClass="NSMutableArray" id="Fja-Vk-jiX"/>
+                        <outletCollection property="balanceButtons" destination="x2h-j6-p3t" collectionClass="NSMutableArray" id="uN6-jq-Doa"/>
+                        <outletCollection property="balanceButtons" destination="GL8-4P-INC" collectionClass="NSMutableArray" id="nQ6-om-SbI"/>
+                        <outletCollection property="balanceButtons" destination="bX3-2M-Yvp" collectionClass="NSMutableArray" id="wHs-kg-TBC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

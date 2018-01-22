@@ -8,10 +8,10 @@
 
 import Foundation
 
-final class StockManager<MachineType: Machine, ProductType: Product> {
-    private var machine: MachineType?
+final class StockManager {
+    private var machine: VendingMachine?
     // 자판기 메뉴별 남은 재고 기록.
-    private var stock: [ProductType.MenuType:Stock] {
+    private var stock: [VendingMachine.Menu:Stock] {
         didSet {
             // 뷰 업데이트. M -> C (직접 호출은 아님)
             NotificationCenter.default.post(
@@ -21,39 +21,39 @@ final class StockManager<MachineType: Machine, ProductType: Product> {
     }
     // 구입이력 기록.
     private var purchasedHistory: [HistoryInfo]
-    init(_ machine: MachineType?) {
+    init(_ machine: VendingMachine?) {
         self.machine = machine
         self.stock = [:]
         self.purchasedHistory = []
     }
 
     // 인벤토리 상태에 따라 장부 업데이트.
-    func updateStock(_ recentChanged: ProductType, isNewArrival: Bool) {
+    func updateStock(_ recentChanged: Beverage, isNewArrival: Bool) {
         stock = stock.update(forKey: recentChanged.menuType, isNewArrival)
     }
 
     // 품절 여부 반환.
-    func isSoldOut(_ beverageType: ProductType.MenuType) -> Bool {
+    func isSoldOut(_ beverageType: VendingMachine.Menu) -> Bool {
         guard let stock = stock[beverageType] else { return true }
         return stock < 1
     }
 
     // 재고 기록 반환.
-    func showStockList() -> [ProductType.MenuType:Stock] {
+    func showStockList() -> [VendingMachine.Menu:Stock] {
         return stock
     }
 
     // 품절이 아닌 메뉴 리스트 반환.
-    func showSellingList() -> [ProductType.MenuType] {
+    func showSellingList() -> [VendingMachine.Menu] {
         let notSoldOutList = stock.filter { !isSoldOut($0.key) }
         return notSoldOutList.flatMap { $0.key }
     }
 
     // 유통기한이 지난 재고 리스트 반환.
-    func showExpiredList(on checkingDay: Date) -> [ProductType.MenuType:Stock] {
-        var expiredList: [ProductType.MenuType:Stock] = [:]
+    func showExpiredList(on checkingDay: Date) -> [VendingMachine.Menu:Stock] {
+        var expiredList: [VendingMachine.Menu:Stock] = [:]
         // 현재 자판기 내 음료수 중
-        guard let machine = machine as? [ProductType] else { return [:] }
+        guard let machine = machine else { return [:] }
         for product in machine {
             // 유통기한이 현재 날짜 기준으로 지난 경우,
             guard product.isExpired(with: checkingDay) else { continue }
@@ -69,7 +69,7 @@ final class StockManager<MachineType: Machine, ProductType: Product> {
     }
 
     // 구입 이력 기록.
-    func recordPurchasedHistory(_ recentChanged: ProductType, isPurchased: Bool) {
+    func recordPurchasedHistory(_ recentChanged: Beverage, isPurchased: Bool) {
         // 음료수를 빼먹은 경우, 구입 이력 생성 및 기록.
         if isPurchased {
             // 현재 구입된 음료수의 구입이력 생성.
@@ -96,7 +96,7 @@ extension StockManager: Codable {
     convenience init(from decoder: Decoder) throws {
         self.init(nil)
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        self.stock = try values.decode([ProductType.MenuType: Stock].self, forKey: .stock)
+        self.stock = try values.decode([VendingMachine.Menu: Stock].self, forKey: .stock)
         self.purchasedHistory = try values.decode([HistoryInfo].self, forKey: .purchasedHistory)
     }
 }

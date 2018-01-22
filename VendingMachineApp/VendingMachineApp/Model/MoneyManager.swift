@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class MoneyManager<MachineType: Machine> {
+final class MoneyManager {
     // 현재 잔액
     private(set) var balance: Balance {
         didSet {
@@ -29,7 +29,7 @@ final class MoneyManager<MachineType: Machine> {
     }
 
     // 잔액 차감.
-    func updateBalance<ProductType: Product>(_ recentChanged: ProductType, isPurchased: Bool) {
+    func updateBalance(_ recentChanged: Beverage, isPurchased: Bool) {
         if isPurchased {
             // 현재 잔액에서 빼먹은 음료수의 가격만큼을 차감.
             balance -= recentChanged.price
@@ -42,7 +42,7 @@ final class MoneyManager<MachineType: Machine> {
     }
 
     // 현재 잔액으로 구입가능한 음료수 리스트 반환.
-    func showAffordableList(from sellingList: [MachineType.MenuType]) -> [MachineType.MenuType] {
+    func showAffordableList(from sellingList: [VendingMachine.Menu]) -> [VendingMachine.Menu] {
         // 품절이 아닌 음료수 중에서 가격이 잔액보다 같거나 작은 메뉴만 반환.
         return sellingList.filter { balance >= $0.price }
     }

@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-    var machine: VendingMachine?
+    var machine: (Managable&UserServable)?
     @IBOutlet var addStockButtons: [UIButton]!
     @IBOutlet var stockLabels: [UILabel]!
     @IBOutlet weak var balanceLabel: UILabel!
@@ -18,7 +18,6 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.machine = VendingMachine.shared()
         updateStockLabels()
         updateBalanceLabel()
         // 둥근 테두리 적용
@@ -46,7 +45,8 @@ class ViewController: UIViewController {
 
     // 재고 추가 버튼 클릭 시. V -> C -> M
     @objc func addStock(_ sender: UIButton) {
-        guard let machine = self.machine, let menu = Mapper.mappingMenu(with: sender) else { return }
+        guard let machine = self.machine,
+            let menu: VendingMachine.Menu = Mapper.mappingMenu(with: sender) else { return }
         // 버튼 태그로 메뉴의 rawValue에 매핑하여 재고 추가.
         machine.supply(menu, 1)
     }
@@ -69,7 +69,8 @@ class ViewController: UIViewController {
 
     // 금액 추가 버튼 클릭 시. V -> C -> M
     @objc func insertMoney(_ sender: UIButton) {
-        guard let machine = self.machine, let unit = Mapper.mappingUnit(with: sender) else { return }
+        guard let machine = self.machine,
+            let unit: MoneyManager.Unit = Mapper.mappingUnit(with: sender) else { return }
         // 버튼 태그에 따라 특정 금액 삽입.
         machine.insertMoney(unit)
     }

@@ -12,50 +12,37 @@ typealias Stock = Int
 typealias Balance = Int
 typealias Purchased = Int
 
-protocol Product {
-    associatedtype MenuType: EnumCollection, Purchasable
-    var menuType: MenuType { get }
-    func isExpired(with date: Date) -> Bool
-    func isLowCalorie() -> Bool
-    var productName: String { get }
-    var price: Int { get }
-}
-
-protocol Machine: Sequence, Codable {
-    associatedtype MenuType: EnumCollection, Purchasable
-    associatedtype ProductType: Product
-}
-
-protocol Managable: Machine {
+protocol Managable {
     func fullSupply(_ count: Int)
 
-    func supply(_ menu: MenuType, _ count: Stock)
+    func supply(_ menu: VendingMachine.Menu, _ count: Stock)
 
-    func remove(_ menu: MenuType, _ count: Stock)
+    func remove(_ menu: VendingMachine.Menu, _ count: Stock)
 
     func showPurchasedList() -> [HistoryInfo]
 
-    func checkTheStock() -> [MenuType:Stock]
+    func checkTheStock() -> [VendingMachine.Menu:Stock]
 }
 
-protocol UserServable: Machine {
-    func popProduct(_ menu: MenuType) -> ProductType?
+protocol UserServable {
+    func popProduct(_ menu: VendingMachine.Menu) -> Beverage?
 
-    func insertMoney(_ money: MoneyManager<Self>.Unit)
+    func insertMoney(_ money: MoneyManager.Unit)
 
     func showBalance() -> Balance
 
-    func showAffordableProducts() -> [MenuType]
+    func showAffordableProducts() -> [VendingMachine.Menu]
 
-    func showExpiredProducts(on day: Date) -> [MenuType:Stock]
+    func showExpiredProducts(on day: Date) -> [VendingMachine.Menu:Stock]
 
-    func showHotProducts() -> [MenuType]
+    func showHotProducts() -> [VendingMachine.Menu]
 
-    func checkTheStock() -> [MenuType:Stock]
+    func checkTheStock() -> [VendingMachine.Menu:Stock]
 }
 
-protocol Purchasable {
-    var price: Int { get }
-
-    var productName: String { get }
+// EnumCollection을 채택한 타입은 Hashable도 구현해야 함. Enum은 이미 Hashable이므로 hashValue를 따로 구현해줄 필요 없음.
+protocol EnumCollection: Hashable {
+    // sequence를 array로 타입캐스팅하여 반환.
+    static var allValues: [Self] { get }
+    static func getCase(rawValue: Int) -> VendingMachine.Menu?
 }

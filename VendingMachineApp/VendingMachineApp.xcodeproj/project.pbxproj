@@ -45,7 +45,6 @@
 		EECEBFDD2003314000B19DD3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EECEBFDB2003314000B19DD3 /* Main.storyboard */; };
 		EECEBFDF2003314000B19DD3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EECEBFDE2003314000B19DD3 /* Assets.xcassets */; };
 		EECEBFE22003314000B19DD3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EECEBFE02003314000B19DD3 /* LaunchScreen.storyboard */; };
-		EED49CFF200F72BB00FF3EFD /* MachineStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED49CFE200F72BB00FF3EFD /* MachineStore.swift */; };
 		FFD19234F9A08DCFD630931D /* Pods_VendingMachineApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D64D99DD97092661F5B0FF6 /* Pods_VendingMachineApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -93,7 +92,6 @@
 		EECEBFDE2003314000B19DD3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EECEBFE12003314000B19DD3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EECEBFE32003314000B19DD3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EED49CFE200F72BB00FF3EFD /* MachineStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MachineStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -219,7 +217,6 @@
 			children = (
 				EECEBFD72003314000B19DD3 /* AppDelegate.swift */,
 				EECEBFD92003314000B19DD3 /* ViewController.swift */,
-				EED49CFE200F72BB00FF3EFD /* MachineStore.swift */,
 				EEAA0851200C7FE00057C261 /* Mapper.swift */,
 				EEAA0858200CA8780057C261 /* Formatter.swift */,
 				EEEB4EEA2004CA6F00F3C4FB /* Model */,
@@ -417,7 +414,6 @@
 				EE22982B20033D86005DF200 /* BeverageData.swift in Sources */,
 				EE22982C20033D86005DF200 /* TopCoffee.swift in Sources */,
 				EECEBFD82003314000B19DD3 /* AppDelegate.swift in Sources */,
-				EED49CFF200F72BB00FF3EFD /* MachineStore.swift in Sources */,
 				EE22982820033D86005DF200 /* SoftDrink.swift in Sources */,
 				EE22982920033D86005DF200 /* FantaSoftDrink.swift in Sources */,
 				EE4D6B93200A73EC00B9A662 /* StaticProperties.swift in Sources */,

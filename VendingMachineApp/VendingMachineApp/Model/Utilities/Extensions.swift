@@ -8,12 +8,6 @@
 
 import Foundation
 
-// EnumCollection을 채택한 타입은 Hashable도 구현해야 함. Enum은 이미 Hashable이므로 hashValue를 따로 구현해줄 필요 없음.
-protocol EnumCollection: Hashable {
-    // sequence를 array로 타입캐스팅하여 반환.
-    static var allValues: [Self] { get }
-}
-
 // enum 내부 값을 배열로 가져오는 확장 기능.
 // [출처](https://theswiftdev.com/2017/10/12/swift-enum-all-values/)
 extension EnumCollection {

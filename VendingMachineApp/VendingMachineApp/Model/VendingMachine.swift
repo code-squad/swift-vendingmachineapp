@@ -9,19 +9,18 @@
 import Foundation
 
 // inventory를 Collection 프로토콜로 캡슐화.
-final class VendingMachine: Sequence, Machine {
-    private static var sharedInstance = VendingMachine()
-    class func shared() -> VendingMachine {
+final class VendingMachine: Sequence {
+    private static var sharedInstance: VendingMachine = VendingMachine()
+    fileprivate class func shared() -> VendingMachine {
         return sharedInstance
     }
-    class func restoreStates(_ machine: VendingMachine) {
+    fileprivate class func restoreStates(_ machine: VendingMachine) {
         sharedInstance = machine
     }
     // Iterator.Element의 타입앨리아스
     typealias Element = Beverage
-    typealias ProductType = Beverage
-    private var stockManager: StockManager<VendingMachine, Beverage>!
-    private var moneyManager: MoneyManager<VendingMachine>!
+    private var stockManager: StockManager!
+    private var moneyManager: MoneyManager!
     let start: Int
     private var recentChanged: Beverage
     private var isManagerRemoved: Bool
@@ -68,9 +67,12 @@ final class VendingMachine: Sequence, Machine {
 }
 
 extension VendingMachine {
-    typealias MenuType = Menu
     // 선택 가능한 메뉴. 순서대로 번호 부여.
-    enum Menu: Int, EnumCollection, Purchasable, Codable {
+    enum Menu: Int, EnumCollection, Codable {
+        static func getCase(rawValue: Int) -> VendingMachine.Menu? {
+            return self.init(rawValue: rawValue)
+        }
+
         case strawberryMilk = 1
         case bananaMilk
         case chocoMilk
@@ -113,13 +115,13 @@ extension VendingMachine {
 extension VendingMachine: Managable {
     // 모든 메뉴의 재고를 count개씩 자판기에 공급.
     func fullSupply(_ count: Int) {
-        for menu in MenuType.allValues {
+        for menu in Menu.allValues {
             supply(menu, count)
         }
     }
 
     // 특정상품의 재고를 N개 공급.
-    func supply(_ menu: MenuType, _ count: Stock) {
+    func supply(_ menu: Menu, _ count: Stock) {
         for _ in 0..<count {
             // 인벤토리에 추가.
             self.recentChanged = menu.generate()
@@ -128,7 +130,7 @@ extension VendingMachine: Managable {
     }
 
     // 특정상품의 재고를 N개 제거.
-    func remove(_ menu: MenuType, _ count: Stock) {
+    func remove(_ menu: Menu, _ count: Stock) {
         for _ in 0..<count {
             isManagerRemoved = true
             _ = self.pop(menu)
@@ -143,12 +145,12 @@ extension VendingMachine: Managable {
 
 extension VendingMachine: UserServable {
     // 주화 삽입.
-    func insertMoney(_ money: MoneyManager<VendingMachine>.Unit) {
+    func insertMoney(_ money: MoneyManager.Unit) {
         moneyManager.insert(money: money)
     }
 
     // 구매가능한 음료 중 선택한 음료수를 반환.
-    func popProduct(_ menu: MenuType) -> ProductType? {
+    func popProduct(_ menu: Menu) -> Beverage? {
         // 품절이 아닌 상품 중, 현재 금액으로 살 수 있는 메뉴 리스트를 받아옴.
         let affordableList = moneyManager.showAffordableList(from: stockManager.showSellingList())
         // 리스트에 선택한 상품이 있는 경우, 해당 음료수 반환. 없는 경우, nil 반환. (아무일도 일어나지 않음)
@@ -157,7 +159,7 @@ extension VendingMachine: UserServable {
     }
 
     // 자판기 인벤토리에서 특정 메뉴의 음료수를 반환.
-    private func pop(_ menu: MenuType) -> Beverage? {
+    private func pop(_ menu: Menu) -> Beverage? {
         for (position, beverage) in inventory.enumerated() where menu == beverage.menuType {
             self.recentChanged = beverage
             return inventory.remove(at: position)
@@ -171,23 +173,23 @@ extension VendingMachine: UserServable {
     }
 
     // 전체 상품 재고를 (사전으로 표현하는) 종류별로 반환.
-    func checkTheStock() -> [MenuType:Stock] {
+    func checkTheStock() -> [Menu:Stock] {
         return stockManager.showStockList()
     }
 
-    func showAffordableProducts() -> [MenuType] {
+    func showAffordableProducts() -> [Menu] {
         return moneyManager.showAffordableList(from: stockManager.showSellingList())
     }
 
     // 유통기한이 지난 재고 리스트 반환.
-    func showExpiredProducts(on day: Date) -> [MenuType:Stock] {
+    func showExpiredProducts(on day: Date) -> [Menu:Stock] {
         return stockManager.showExpiredList(on: day)
     }
 
     // 따뜻한 음료 리스트 리턴.
-    func showHotProducts() -> [MenuType] {
+    func showHotProducts() -> [Menu] {
         // 커피타입인 경우만 해당.
-        return MenuType.allValues.filter {
+        return Menu.allValues.filter {
             guard let coffee = $0.generate() as? Coffee else { return false }
             return coffee.isHot
         }
@@ -219,5 +221,36 @@ extension VendingMachine: Codable {
         self.isManagerRemoved = try values.decode(Bool.self, forKey: .isManagerRemoved)
         self.stockManager = try values.decode(StockManager.self, forKey: .stockManager)
         self.moneyManager = try values.decode(MoneyManager.self, forKey: .moneyManager)
+    }
+}
+
+class MachineStore {
+    static let Key = "machine"
+    let encoder: PropertyListEncoder
+    let decoder: PropertyListDecoder
+    init() {
+        self.encoder = PropertyListEncoder()
+        self.decoder = PropertyListDecoder()
+    }
+
+    func saveChanges() {
+        var data = Data()
+        do {
+            data = try encoder.encode(VendingMachine.shared())
+        } catch {
+            NSLog(error.localizedDescription)
+        }
+        UserDefaults.standard.set(data, forKey: MachineStore.Key)
+    }
+
+    func loadData() -> VendingMachine? {
+        guard let data = UserDefaults.standard.data(forKey: MachineStore.Key) else { return nil }
+        do {
+            let loadedMachine = try decoder.decode(VendingMachine.self, from: data)
+            VendingMachine.restoreStates(loadedMachine)
+        } catch {
+            NSLog(error.localizedDescription)
+        }
+        return VendingMachine.shared()
     }
 }

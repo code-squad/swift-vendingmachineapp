@@ -303,7 +303,7 @@ VendingMachine 싱글톤 객체를 MachineStore를 통해서만 접근할 수 �
 ### 학습 내용
 >- **[싱글톤 객체의 장점과 단점](https://github.com/undervineg/swift-vendingmachineapp/blob/vending-step4/md/singleton.md)**
 >- **[Class 메소드와 Static 메소드의 차이](https://github.com/undervineg/swift-vendingmachineapp/blob/vending-step4/md/class_method.md)**
->- **[의존성 주입(DI)]()**
+>- **[의존성 주입(DI)](https://github.com/undervineg/swift-vendingmachineapp/blob/undervineg/md/dependency_injection.md)**
 
 
 ## 옵저버(Observer) 패턴 적용

@@ -279,9 +279,31 @@ class func restoreStates(_ machine: VendingMachine) {
 }
 ```
 
+### 의존성 주입
+ViewController에서 VendingMachine의 sharedInstance에 직접 접근하지 않고 외부에서 주입하도록 수정
+#### ViewController의 model 객체 타입을 프로토콜 타입으로 선언
+- 기존: Managable, UserServable이 제네릭 프로토콜인 Machine을 상속하고 있기 때문에 ViewController<제약조건>으로 작성함.
+	- 에러코드: **Unknown class _TtC17VendingMachineApp14ViewController in Interface Builder file.**
+	- 해결방법: **IB 사용 시, 뷰컨트롤러에 제네릭 제약조건을 주면 동작하지 않는다.** (제네릭 프로토콜 다 지워서 해결)
+	- 개선: `var machine: (Managable&UserServable)?`
+
+#### MachineStore를 VendingMachine.swift로 이동
+VendingMachine 싱글톤 객체를 MachineStore를 통해서만 접근할 수 있도록 VendingMachine.swift로 옮긴 후 shared()를 fileprivate으로 변경
+
+#### AppDelegate에서 ViewController에 의존성 주입
+- 기존: ViewController에서 VendingMachine.shared()로 직접 접근
+- 변경: AppDelegate에서 machineStore를 통해 데이터를 가져와서 ViewController의 machine에 주입
+	
+	```swift
+	if let mainVC = window?.rootViewController as? ViewController {
+		mainVC.machine = machineStore.loadData()
+	}
+	```
+
 ### 학습 내용
 >- **[싱글톤 객체의 장점과 단점](https://github.com/undervineg/swift-vendingmachineapp/blob/vending-step4/md/singleton.md)**
 >- **[Class 메소드와 Static 메소드의 차이](https://github.com/undervineg/swift-vendingmachineapp/blob/vending-step4/md/class_method.md)**
+>- **[의존성 주입(DI)]()**
 
 
 ## 옵저버(Observer) 패턴 적용

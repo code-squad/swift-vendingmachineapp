@@ -40,8 +40,18 @@ final class VendingMachine: Sequence {
             let purchased = isPurchased(removed)                // 음료수 구입 시
             stockManager.updateStock(recentChanged, isNewArrival: !removed)
             stockManager.recordPurchasedHistory(recentChanged, isPurchased: purchased)
+            notifyPurchasing(purchased)
             moneyManager.updateBalance(recentChanged, isPurchased: purchased)
             isManagerRemoved = false
+        }
+    }
+
+    private func notifyPurchasing(_ isPurchased: Bool) {
+        if isPurchased {
+            NotificationCenter.default.post(
+                name: .didUpdateInventory,
+                object: nil,
+                userInfo: [UserInfoKeys.purchasedBeverage: recentChanged])
         }
     }
 
@@ -68,20 +78,20 @@ final class VendingMachine: Sequence {
 
 extension VendingMachine {
     // 선택 가능한 메뉴. 순서대로 번호 부여.
-    enum Menu: Int, EnumCollection, Codable {
-        static func getCase(rawValue: Int) -> VendingMachine.Menu? {
-            return self.init(rawValue: rawValue)
-        }
-
+    enum Menu: Int, EnumCollection, Codable, CustomStringConvertible {
         case strawberryMilk = 1
         case bananaMilk
-        case chocoMilk
+        case coffeeMilk
         case coke
         case cider
         case fanta
         case top
         case cantata
         case georgia
+
+        static func getCase(rawValue: Int) -> VendingMachine.Menu? {
+            return self.init(rawValue: rawValue)
+        }
 
         // 각 메뉴의 가격은 노출 가능.
         var price: Int {
@@ -92,13 +102,17 @@ extension VendingMachine {
             return generate().productName
         }
 
+        var description: String {
+            return self.rawValue.description
+        }
+
         // 각 메뉴별 Beverage 인스턴스 생성.
         fileprivate func generate() -> Beverage {
             var beverage = Beverage()
             switch self {
             case .strawberryMilk: beverage = StrawBerryMilk(self)
             case .bananaMilk: beverage = BananaMilk(self)
-            case .chocoMilk: beverage = ChocoMilk(self)
+            case .coffeeMilk: beverage = CoffeeMilk(self)
             case .coke: beverage = CokeSoftDrink(self)
             case .cider: beverage = CiderSoftDrink(self)
             case .fanta: beverage = FantaSoftDrink(self)
@@ -108,7 +122,6 @@ extension VendingMachine {
             }
             return beverage
         }
-
     }
 }
 
@@ -150,6 +163,7 @@ extension VendingMachine: UserServable {
     }
 
     // 구매가능한 음료 중 선택한 음료수를 반환.
+    @discardableResult
     func popProduct(_ menu: Menu) -> Beverage? {
         // 품절이 아닌 상품 중, 현재 금액으로 살 수 있는 메뉴 리스트를 받아옴.
         let affordableList = moneyManager.showAffordableList(from: stockManager.showSellingList())
@@ -159,6 +173,7 @@ extension VendingMachine: UserServable {
     }
 
     // 자판기 인벤토리에서 특정 메뉴의 음료수를 반환.
+    @discardableResult
     private func pop(_ menu: Menu) -> Beverage? {
         for (position, beverage) in inventory.enumerated() where menu == beverage.menuType {
             self.recentChanged = beverage

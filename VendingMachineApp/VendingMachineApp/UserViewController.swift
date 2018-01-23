@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class UserViewController: UIViewController {
     var machine: (Managable&UserServable)?
     @IBOutlet var stockLabels: [UILabel]!
     @IBOutlet weak var balanceLabel: UILabel!

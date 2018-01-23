@@ -9,7 +9,7 @@
 import UIKit
 
 class AdminViewController: UIViewController {
-    var machine: (Managable&UserServable)?
+    var machine: Managable?
     @IBOutlet var addStockButtons: [UIButton]!
     @IBOutlet var stockLabels: [UILabel]!
 

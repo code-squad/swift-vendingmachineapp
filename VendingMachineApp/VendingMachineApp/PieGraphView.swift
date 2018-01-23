@@ -10,6 +10,7 @@ import UIKit
 
 class PieGraphView: UIView {
     private var beverageCounts: [Beverage: Int] = [:]
+    private var graphRatio = 1.0
 
     var purchaseList: [Beverage] = [] {
         didSet {
@@ -20,6 +21,7 @@ class PieGraphView: UIView {
     enum States {
         case none
         case begin
+        case move
     }
 
     var state: States = .none {
@@ -31,7 +33,7 @@ class PieGraphView: UIView {
     override func draw(_ rect: CGRect) {
         guard let context = UIGraphicsGetCurrentContext() else { return }
         switch state {
-        case .none:
+        case .none, .move:
             drawPieChart(context: context, beverageCounts: beverageCounts)
         case .begin:
             drawBaseBlackCircle(context: context)
@@ -59,7 +61,7 @@ class PieGraphView: UIView {
 
     private func drawEachSegment(context: CGContext, key: Beverage, startAngle: CGFloat, endAngle: CGFloat) {
         let center = CGPoint(x: Int(frame.width * 0.5), y: Int(frame.height * 0.5))
-        let radius = CGFloat(min(Int(frame.width * 0.5), Int(frame.height * 0.5)))
+        let radius = CGFloat(min(Double(frame.width * 0.5), Double(frame.height * 0.5)) * graphRatio)
         let color = getRandomColor()
         context.setFillColor(color)
         context.move(to: center)
@@ -109,7 +111,7 @@ class PieGraphView: UIView {
 
     private func drawBaseBlackCircle(context: CGContext) {
         let center = CGPoint(x: Int(frame.width * 0.5), y: Int(frame.height * 0.5))
-        let radius = CGFloat(min(Int(frame.width * 0.5), Int(frame.height * 0.5)))
+        let radius = CGFloat(min(Double(frame.width * 0.5), Double(frame.height * 0.5)) * graphRatio)
         context.beginPath()
         context.addArc(center: center, radius: radius,
                        startAngle: 0.0, endAngle: 2 * .pi,
@@ -121,6 +123,16 @@ class PieGraphView: UIView {
     /* Touch Events */
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         state = .begin
+    }
+
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard let touch = touches.first else { return }
+        let fingerLocation = touch.location(in: self)
+        let xValue = pow(bounds.size.width * 0.5 - fingerLocation.x, 2)
+        let yValue = pow(bounds.size.height * 0.5 - fingerLocation.y, 2)
+        let distance = sqrt(xValue + yValue)
+        graphRatio = Double(distance) / Double(bounds.size.width * 0.5)
+        state = .move
     }
 
 }

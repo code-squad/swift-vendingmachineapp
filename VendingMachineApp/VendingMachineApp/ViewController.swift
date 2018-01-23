@@ -16,14 +16,16 @@ class ViewController: UIViewController {
     @IBOutlet var productImageViews: [UIImageView]!
     @IBOutlet var balanceButtons: [UIButton]!
     @IBOutlet var purchaseButtons: [UIButton]!
-    let purchasedImageViewPositionX: Int
-    let purchasedImageViewPositionY: Int
-    let imageMaker: ProductImageMaker
+    let purchasedImageViewPosition: CGPoint
+    let purchasedImageViewSize: CGSize
+    let purchasedImageSpacing: CGFloat
+    let imageViewMaker: ProductImageViewMaker
 
     required init?(coder aDecoder: NSCoder) {
-        self.purchasedImageViewPositionX = 40
-        self.purchasedImageViewPositionY = 686
-        self.imageMaker = ProductImageMaker(purchasedImageViewPositionX, purchasedImageViewPositionY)
+        self.purchasedImageViewPosition = CGPoint(x: 40, y: 686)
+        self.purchasedImageViewSize = CGSize(width: 140, height: 100)
+        self.purchasedImageSpacing = 50
+        self.imageViewMaker = ProductImageViewMaker(purchasedImageViewPosition, purchasedImageViewSize)
         super.init(coder: aDecoder)
     }
 
@@ -77,7 +79,7 @@ class ViewController: UIViewController {
     // 화면 아래 구입한 음료수 이미지 추가
     private func updatePurchasedImages(_ purchasedInfo: Beverage) {
         let source = Mapper.mappingImage(purchasedInfo)
-        let imageView = imageMaker.imageViewWithPosition(source)
+        let imageView = imageViewMaker.produce(source, purchasedImageSpacing)
         self.view.addSubview(imageView)
     }
 

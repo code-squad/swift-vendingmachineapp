@@ -9,28 +9,22 @@
 import Foundation
 import UIKit
 
-class ProductImageMaker {
+class ProductImageViewMaker {
     private var leftTop: CGPoint
     private let size: CGSize
     private var count: Int
-    init(_ startX: Int, _ startY: Int) {
-        self.leftTop = CGPoint(x: startX, y: startY)
-        self.size = CGSize(width: 140, height: 100)
+    init(_ leftTop: CGPoint, _ size: CGSize) {
+        self.leftTop = leftTop
+        self.size = size
         count = 0
     }
 
-    func imageViewWithPosition(_ source: UIImage?) -> UIImageView {
+    func produce(_ source: UIImage?, _ spacing: CGFloat) -> UIImageView {
         let imageView = UIImageView(image: source)
         imageView.contentMode = .scaleAspectFit
-        updatePosition()
+        (count > 0) ? self.leftTop.x += spacing : nil
         imageView.frame = CGRect(origin: leftTop, size: size)
         count += 1
         return imageView
-    }
-
-    private func updatePosition() {
-        if count > 0 {
-            self.leftTop.x += 50
-        }
     }
 }

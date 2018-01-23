@@ -28,7 +28,7 @@
 		EE22982E20033D86005DF200 /* CantataCoffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE22981520033D86005DF200 /* CantataCoffee.swift */; };
 		EE22982F20033D86005DF200 /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE22981620033D86005DF200 /* Coffee.swift */; };
 		EE33E0CF2016D2750021773F /* CoffeeMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE33E0CE2016D2750021773F /* CoffeeMilk.swift */; };
-		EE33E0D12016DC430021773F /* ProductImageMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE33E0D02016DC430021773F /* ProductImageMaker.swift */; };
+		EE33E0D12016DC430021773F /* ProductImageViewMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE33E0D02016DC430021773F /* ProductImageViewMaker.swift */; };
 		EE4D6B93200A73EC00B9A662 /* StaticProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4D6B92200A73EC00B9A662 /* StaticProperties.swift */; };
 		EE4D6B9D200A836A00B9A662 /* 4.png in Resources */ = {isa = PBXBuildFile; fileRef = EE4D6B94200A836800B9A662 /* 4.png */; };
 		EE4D6B9E200A836A00B9A662 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = EE4D6B95200A836900B9A662 /* 2.png */; };
@@ -74,7 +74,7 @@
 		EE22981520033D86005DF200 /* CantataCoffee.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CantataCoffee.swift; sourceTree = "<group>"; };
 		EE22981620033D86005DF200 /* Coffee.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
 		EE33E0CE2016D2750021773F /* CoffeeMilk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoffeeMilk.swift; sourceTree = "<group>"; };
-		EE33E0D02016DC430021773F /* ProductImageMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductImageMaker.swift; sourceTree = "<group>"; };
+		EE33E0D02016DC430021773F /* ProductImageViewMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductImageViewMaker.swift; sourceTree = "<group>"; };
 		EE4D6B92200A73EC00B9A662 /* StaticProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticProperties.swift; sourceTree = "<group>"; };
 		EE4D6B94200A836800B9A662 /* 4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 4.png; sourceTree = "<group>"; };
 		EE4D6B95200A836900B9A662 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
@@ -219,7 +219,7 @@
 			children = (
 				EECEBFD72003314000B19DD3 /* AppDelegate.swift */,
 				EECEBFD92003314000B19DD3 /* ViewController.swift */,
-				EE33E0D02016DC430021773F /* ProductImageMaker.swift */,
+				EE33E0D02016DC430021773F /* ProductImageViewMaker.swift */,
 				EEAA0851200C7FE00057C261 /* Mapper.swift */,
 				EEAA0858200CA8780057C261 /* Formatter.swift */,
 				EEEB4EEA2004CA6F00F3C4FB /* Model */,
@@ -417,7 +417,7 @@
 				EE22982B20033D86005DF200 /* BeverageData.swift in Sources */,
 				EE22982C20033D86005DF200 /* TopCoffee.swift in Sources */,
 				EECEBFD82003314000B19DD3 /* AppDelegate.swift in Sources */,
-				EE33E0D12016DC430021773F /* ProductImageMaker.swift in Sources */,
+				EE33E0D12016DC430021773F /* ProductImageViewMaker.swift in Sources */,
 				EE22982820033D86005DF200 /* SoftDrink.swift in Sources */,
 				EE22982920033D86005DF200 /* FantaSoftDrink.swift in Sources */,
 				EE4D6B93200A73EC00B9A662 /* StaticProperties.swift in Sources */,

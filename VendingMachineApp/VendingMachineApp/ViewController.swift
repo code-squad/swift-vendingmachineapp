@@ -59,7 +59,9 @@ class ViewController: UIViewController {
             name: .didUpdateBalance,
             object: nil)
         NotificationCenter.default.addObserver(
-            forName: .didUpdateInventory, object: nil, queue: nil, using: catchNotification)
+            self,
+            selector: #selector(catchNotification(notification:)),
+            name: .didUpdateInventory, object: nil)
     }
 
     @objc func purchase(_ sender: UIButton) {
@@ -68,7 +70,7 @@ class ViewController: UIViewController {
         _ = machine.popProduct(menu)
     }
 
-    func catchNotification(notification: Notification) {
+    @objc func catchNotification(notification: Notification) {
         if let purchased = notification.userInfo,
             let purchasedBeverage = purchased[UserInfoKeys.purchasedBeverage] as? Beverage {
             // 뷰 업데이트

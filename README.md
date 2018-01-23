@@ -450,7 +450,7 @@ func catchNotification(notification: Notification) {
 }
 ```
 
-####addObserver(_:selector:name:object) vs. addObserver(forName:object:queue:using:)
+#### addObserver(_:selector:name:object) vs. addObserver(forName:object:queue:using:)
 - 둘 다 Notification 객체를 받는 메소드를 selector에 지정해주면 Notification 객체의 UserInfo를 가지고 처리할 수 있다.
 - addObserver(forName:object:queue:using:)는 셀렉터 대신 block 안에서 노티를 받은 후의 작업을 수행할 수 있는데, queue 인자를 통해 작업순서를 지정할 수 있고, block 인자는 이스케이프 클로저 형태로 되어있어 노티가 끝난 후 작업 수행이 보장돼있기 때문에 멀티쓰레드 환경에서 노티피케이션 처리를 병렬화할 수 있는 형태이다.
 
@@ -497,3 +497,56 @@ class ProductImageMaker {
 
 ### 학습 내용
 >- **[뷰: 코드 생성 vs. 스토리보드 생성](https://github.com/undervineg/swift-vendingmachineapp/blob/undervineg/md/code_vs_storyboard.md)**
+
+<br/>
+
+## Frame과 Bounds
+
+<img src="img/7_vendingmachine_v3_1.png" width="49%">
+<img src="img/7_vendingmachine_v3_2.png" width="49%">
+
+### Action Segue로 Unwind하기 (AdminViewController→ViewController) 
+1. unwind 시 호출할 함수를 직접 입력한다. 주의할 것은 돌아갈 뷰컨트롤러에 입력해야 동작한다.
+
+	```swift
+	@IBAction func dismiss(_ segue: UIStoryboardSegue) {
+		// 아무것도 안 써도 된다.
+	}
+	```
+
+	> An unwind segue is created by adding an action method to the destination view controller (the view controller you want to unwind to).
+	...
+	Because you want to unwind back to XYZToDoListTableViewController, you need to add an action method with this format to the XYZToDoListTableViewController interface and implementation.
+	> [출처: Stack Overflow](https://stackoverflow.com/questions/23721818/unwind-segue-not-working)
+
+2. 현재 뷰컨트롤러의 트리거를 exit으로 드래그하면 Action 메소드가 뜬다. 방금 추가한 메소드를 선택한다. 단, 스토리보드에서 추가한 뷰 컨트롤러의 class를 지정해줘야 연결할 수 있다.
+    > 코코아 터치 시스템은 앱 내부에 정의된 모든 메소드를 스캔하여 UIStoryboard 타입의 인자값을 입력받는 액션 메소드를 모두 수집한다. 그리고 Exit 아이콘의 목록으로 출력한다.
+    > [출처: 재은씨의 swift3 기본편]()
+
+<br/>
+
+### Action Segue로 데이터 넘기기 (ViewController→AdminViewController)
+1. AdminViewController에 넘길 데이터와 같은 타입의 변수들을 선언한다.
+
+	```swift
+	class AdminViewController: UIViewController {
+	    var machine: (Managable&UserServable)?
+	    ...
+	}
+	```
+
+2. ViewController에서 prepare 메소드를 오버라이드한다.
+    + segue.destination을 AdminViewController로 다운캐스팅
+    + 1번에서 추가한 변수에 ViewController의 데이터를 직접 대입한다.
+
+	```swift
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let adminVC = segue.destination as? AdminViewController {
+            adminVC.machine = self.machine
+        }
+    }
+    ```
+
+### 학습 내용
+>- **[디스플레이에 관하여: 포인트 vs. 픽셀]()**
+>- **[Frame vs. Bounds]()**

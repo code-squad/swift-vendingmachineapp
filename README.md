@@ -368,6 +368,8 @@ VendingMachine 싱글톤 객체를 MachineStore를 통해서만 접근할 수 �
 ### 학습 내용
 >- **[옵저버 패턴과 느슨한 결합, 장점](https://github.com/undervineg/swift-vendingmachineapp/blob/vending-step5/md/loose_coupled.md)**
 	
+<br/>
+
 ### Feedback
 #### Notification.Name(enum.rawValue) 형태보다는 Notification.Name() 자체를 만들어두고 활용한다.
 - 기존: 
@@ -409,3 +411,81 @@ VendingMachine 싱글톤 객체를 MachineStore를 통해서만 접근할 수 �
 	}
 	```
 	사용 시: `.didUpdateInventory` 또는 `Notification.Name.didUpdateInventory`
+	
+
+## 구매 상품 이미지를 코드로 추가
+
+![](img/6_vendingmachine_v2.png)
+
+### 구매 버튼 클릭 시 인벤토리 변경 → 알림
+- 인벤토리에 변경이 있을 시, 뷰 컨트롤러에 알림: 구매한 음료수 정보도 전송
+
+```swift
+func notifyPurchasing(_ isPurchased: Bool) {
+    if isPurchased {
+        NotificationCenter.default.post(
+            name: .didUpdateInventory,
+            object: nil,
+            userInfo: [UserInfoKeys.purchasedBeverage: recentChanged])
+	}
+}
+```
+
+### 인벤토리 변경 시 하단에 구매한 상품 이미지 노출
+- 인벤토리 변경 시, 뷰 컨트롤러에서 받은 노티의 음료수 정보를 꺼내어 사용
+
+```swift
+NotificationCenter.default.addObserver(forName: .didUpdateInventory, object: nil, queue: nil, using: catchNotification)
+
+func catchNotification(notification: Notification) {
+    if let purchased = notification.userInfo,
+        let purchasedBeverage = purchased[UserInfoKeys.purchasedBeverage] as? Beverage {
+        // 뷰 업데이트
+        updatePurchasedImages(purchasedBeverage)
+    }
+}
+```
+
+- 화면 하단에 이미지 추가
+
+```swift
+private func updatePurchasedImages(_ purchasedInfo: Beverage) {
+    let source = Mapper.mappingImage(purchasedInfo)
+    let imageView = imageMaker.imageViewWithPosition(source)
+    self.view.addSubview(imageView)
+}
+```
+
+- 이미지 뷰 생성 구조체: 최초 생성 시 외에는 좌상단 x좌표를 50pt씩 업데이트.
+
+```swift
+class ProductImageMaker {
+    private var leftTop: CGPoint
+    private let size: CGSize
+    private var count: Int
+    init(_ startX: Int, _ startY: Int) {
+        self.leftTop = CGPoint(x: startX, y: startY)
+        self.size = CGSize(width: 140, height: 100)
+        count = 0
+    }
+
+    func imageViewWithPosition(_ source: UIImage?) -> UIImageView {
+        let imageView = UIImageView(image: source)
+        imageView.contentMode = .scaleAspectFit
+        updatePosition()
+        imageView.frame = CGRect(origin: leftTop, size: size)
+        count += 1
+        return imageView
+    }
+
+    private func updatePosition() {
+        if count > 0 {
+            self.leftTop.x += 50
+        }
+    }
+}
+```
+
+
+### 학습 내용
+>- **[뷰: 코드 생성 vs. 스토리보드 생성]()**

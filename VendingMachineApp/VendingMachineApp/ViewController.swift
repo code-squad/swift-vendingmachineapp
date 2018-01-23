@@ -10,7 +10,6 @@ import UIKit
 
 class ViewController: UIViewController {
     var machine: (Managable&UserServable)?
-    @IBOutlet var addStockButtons: [UIButton]!
     @IBOutlet var stockLabels: [UILabel]!
     @IBOutlet weak var balanceLabel: UILabel!
     @IBOutlet var productImageViews: [UIImageView]!
@@ -29,6 +28,13 @@ class ViewController: UIViewController {
         super.init(coder: aDecoder)
     }
 
+    // 세그 실행 직전 데이터 전달 위함.
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let adminVC = segue.destination as? AdminViewController {
+            adminVC.machine = self.machine
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         updateStockLabels()
@@ -38,16 +44,13 @@ class ViewController: UIViewController {
         productImageViews.forEach { $0.layer.borderWidth = 5 }
         balanceButtons.forEach { $0.layer.cornerRadius = 10 }
         // 버튼에 이벤트 적용
-        addStockButtons.forEach {
-            $0.addTarget(self, action: #selector(addStock(_:)), for: .touchUpInside)
-        }
         balanceButtons.forEach {
             $0.addTarget(self, action: #selector(insertMoney(_:)), for: .touchUpInside)
         }
         purchaseButtons.forEach {
             $0.addTarget(self, action: #selector(purchase(_:)), for: .touchUpInside)
         }
-        // 자판기(M)에 변화가 생기면 재고라벨(V), 잔액라벨(V) 업데이트.
+        // 자판기(M)에 변화가 생기면 잔액라벨(V) 업데이트.
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(updateStockLabels),
@@ -61,7 +64,8 @@ class ViewController: UIViewController {
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(catchNotification(notification:)),
-            name: .didUpdateInventory, object: nil)
+            name: .didUpdateInventory,
+            object: nil)
     }
 
     @objc func purchase(_ sender: UIButton) {
@@ -83,14 +87,6 @@ class ViewController: UIViewController {
         let source = Mapper.mappingImage(purchasedInfo)
         let imageView = imageViewMaker.produce(source, purchasedImageSpacing)
         self.view.addSubview(imageView)
-    }
-
-    // 재고 추가 버튼 클릭 시. V -> C -> M
-    @objc func addStock(_ sender: UIButton) {
-        guard let machine = self.machine,
-            let menu: VendingMachine.Menu = Mapper.mappingMenu(with: sender) else { return }
-        // 버튼 태그로 메뉴의 rawValue에 매핑하여 재고 추가.
-        machine.supply(menu, 1)
     }
 
     // 인벤토리(M)에 변화가 생기면 호출됨. M -> C -> V
@@ -122,6 +118,10 @@ class ViewController: UIViewController {
         guard let machine = self.machine else { return }
         // 잔액라벨 업데이트.
         balanceLabel.text = Formatter.kor(machine.showBalance()).moneyUnit
+    }
+
+    @IBAction func dismiss(_ segue: UIStoryboardSegue) {
+
     }
 
     deinit {

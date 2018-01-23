@@ -14,12 +14,28 @@ class PieGraphView: UIView {
     var purchaseList: [Beverage] = [] {
         didSet {
             countProductsFromPurchaseList()
+        }
+    }
+
+    enum States {
+        case none
+        case begin
+    }
+
+    var state: States = .none {
+        didSet {
             setNeedsDisplay()
         }
     }
 
     override func draw(_ rect: CGRect) {
-        drawContext(beverageCounts: beverageCounts)
+        guard let context = UIGraphicsGetCurrentContext() else { return }
+        switch state {
+        case .none:
+            drawPieChart(context: context, beverageCounts: beverageCounts)
+        case .begin:
+            drawBaseBlackCircle(context: context)
+        }
     }
 
     private func countProductsFromPurchaseList() {
@@ -32,8 +48,7 @@ class PieGraphView: UIView {
         }
     }
 
-    private func drawContext(beverageCounts: [Beverage: Int]) {
-        guard let context = UIGraphicsGetCurrentContext() else { return }
+    private func drawPieChart(context: CGContext, beverageCounts: [Beverage: Int]) {
         var startAngle: CGFloat = 0
         for (key, value) in beverageCounts {
             let endAngle = startAngle + 2 * .pi * (CGFloat(value) / CGFloat(purchaseList.count))
@@ -90,6 +105,22 @@ class PieGraphView: UIView {
                                             attributes: attributes)
         let renderRect = CGRect(origin: position, size: attrString.size())
         attrString.draw(in: renderRect)
+    }
+
+    private func drawBaseBlackCircle(context: CGContext) {
+        let center = CGPoint(x: Int(frame.width * 0.5), y: Int(frame.height * 0.5))
+        let radius = CGFloat(min(Int(frame.width * 0.5), Int(frame.height * 0.5)))
+        context.beginPath()
+        context.addArc(center: center, radius: radius,
+                       startAngle: 0.0, endAngle: 2 * .pi,
+                       clockwise: false)
+        context.setFillColor(UIColor.black.cgColor)
+        context.fillPath()
+    }
+
+    /* Touch Events */
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        state = .begin
     }
 
 }

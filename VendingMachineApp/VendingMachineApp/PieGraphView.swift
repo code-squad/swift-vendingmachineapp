@@ -9,14 +9,20 @@
 import UIKit
 
 class PieGraphView: UIView {
+    private var beverageCounts: [Beverage: Int] = [:]
+
     var purchaseList: [Beverage] = [] {
         didSet {
+            countProductsFromPurchaseList()
             setNeedsDisplay()
         }
     }
 
     override func draw(_ rect: CGRect) {
-        var beverageCounts: [Beverage: Int] = [:]
+        drawContext(beverageCounts: beverageCounts)
+    }
+
+    private func countProductsFromPurchaseList() {
         for beverage in purchaseList {
             if beverageCounts[beverage] == nil {
                 beverageCounts[beverage] = 1
@@ -24,7 +30,6 @@ class PieGraphView: UIView {
                 beverageCounts[beverage]! += 1
             }
         }
-        drawContext(beverageCounts: beverageCounts)
     }
 
     private func drawContext(beverageCounts: [Beverage: Int]) {

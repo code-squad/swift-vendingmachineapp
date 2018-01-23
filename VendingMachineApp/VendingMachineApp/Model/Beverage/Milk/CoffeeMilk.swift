@@ -8,12 +8,12 @@
 
 import Foundation
 
-class ChocoMilk: Milk {
+class CoffeeMilk: Milk {
     private(set) var ingredients: String
     override init(_ brand: String, _ volume: Int, _ price: Int, _ productName: String,
                   _ manufacturedDate: Date, _ expirationDate: Date, _ calories: Int,
                   _ menuType: VendingMachine.Menu, manufacturerCode: Int, packingMaterial: String) {
-        self.ingredients = "코코아분말"
+        self.ingredients = "커피분말"
         super.init(brand, volume, price, productName, manufacturedDate, expirationDate, calories, menuType,
                    manufacturerCode: manufacturerCode, packingMaterial: packingMaterial)
     }

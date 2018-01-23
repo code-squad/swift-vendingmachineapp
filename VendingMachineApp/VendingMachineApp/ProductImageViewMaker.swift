@@ -10,20 +10,18 @@ import Foundation
 import UIKit
 
 class ProductImageViewMaker {
-    private var leftTop: CGPoint
-    private let size: CGSize
+    private var area: CGRect
     private var count: Int
-    init(_ leftTop: CGPoint, _ size: CGSize) {
-        self.leftTop = leftTop
-        self.size = size
+    init(_ area: CGRect) {
+        self.area = area
         count = 0
     }
 
     func produce(_ source: UIImage?, _ spacing: CGFloat) -> UIImageView {
         let imageView = UIImageView(image: source)
         imageView.contentMode = .scaleAspectFit
-        (count > 0) ? self.leftTop.x += spacing : nil
-        imageView.frame = CGRect(origin: leftTop, size: size)
+        (count > 0) ? self.area.origin.x += spacing : nil
+        imageView.frame = self.area
         count += 1
         return imageView
     }

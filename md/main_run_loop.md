@@ -21,9 +21,9 @@
 - 최초로 받은 뷰가 이벤트를 처리하지 않으면, **응답자 체인(Responder Chain)**을 통해 다른 뷰로 전달된다.
 - 뷰는 종종 애플리케이션의 외관을 수정하고 상태나 데이터를 업데이트하는 일련의 액션을 수행한다. 이런 **액션이 완료되면 애플리케이션 객체로 제어가 돌려지며**, 애플리케이션 객체가 이벤트 큐의 다음 이벤트를 취한다.
 
-![](../img/1_runloop.png)
+![](img/1_runloop.png)
 
-![](../img/1_runloop2.jpg)
+![](img/1_runloop2.jpg)
 
 [참고: App Programming Guide for iOS](https://developer.apple.com/library/content/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/TheAppLifeCycle/TheAppLifeCycle.html#//apple_ref/doc/uid/TP40007072-CH2-SW14)
 

@@ -162,3 +162,31 @@ cardImage.frame = CGRect(x: x, y: y, width: width, height: height)
 ![사용자모드 적용확인](capture/step7_04.png)
 ![사용자모드 금액추가](capture/step7_05.png)
 ![사용자모드 음료구매](capture/step7_06.png)
+
+---
+## Step8 (코어 그래픽스(Core Graphics))
+### 요구사항
+- 2D 그래픽을 그리는 Core Graphics API에 대해 학습한다.
+- 관리자 화면에 파이 그래프를 그리는 커스텀 View를 구현한다.
+- readme.md 파일에 주요 작업 내용(바뀐 화면 이미지, 핵심 기능 설명)과 완성 날짜시간을 기록한다.
+- 실행하고 새로운 화면을 캡처해서 readme.md 파일에 포함한다.
+
+### 프로그래밍 요구사항
+- UIView에서 상속받는 새로운 PieGraphView 클래스를 추가한다.
+- 스토리보스에서 관리자 화면에 UIView를 추가하고, Identity에서 Custom Class 항목에 PieGraphView를 지정한다. 크기는 400 x 400 크기 정도로 지정한다.
+- PieGraphView 속성에 음료 구매목록 배열을 추가한다.
+- PieGraphView.swift 파일에 drawRect() 메서드에서 구매목록 배열를 참고해서 전체 구매 항목 중에 종류별 음료수가 얼마나 차지하는지 Pie로 표시한다.
+- 관리자 화면의 viewWillAppear() 메서드에서 PieGraphView 객체에 구매 목록을 업데이트한다.
+- 다른 동작은 이전 단계와 동일하게 동작해야 한다.
+
+### 결과
+#### UI
+![초기 화면](capture/step8_01.png)
+![관리자모드](capture/step8_02.png)
+![관리자모드 음료추가](capture/step8_03.png)
+![사용자모드 적용확인](capture/step8_04.png)
+![사용자모드 금액추가](capture/step8_05.png)
+![사용자모드 음료구매](capture/step8_06.png)
+![관리자모드 적용확인](capture/step8_07.png)
+![사용자모드 음료추가구매](capture/step8_08.png)
+![관리자모드 적용확인](capture/step8_09.png)

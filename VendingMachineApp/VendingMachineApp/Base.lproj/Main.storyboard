@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--User View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="MainViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="VendingMachineApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainViewController" id="BYZ-38-t0r" customClass="UserViewController" customModule="VendingMachineApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -473,32 +473,31 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="giT-tt-rm3">
-                                <rect key="frame" x="54" y="40" width="524" height="556.5"/>
+                                <rect key="frame" x="54" y="40" width="522" height="557"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="50" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bV2-1W-ukR">
-                                        <rect key="frame" x="0.0" y="0.0" width="524" height="166"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="50" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bV2-1W-ukR">
+                                        <rect key="frame" x="0.0" y="0.0" width="522" height="166"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="center" spacing="20" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IjX-y8-Xr7">
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IjX-y8-Xr7">
                                                 <rect key="frame" x="0.0" y="0.0" width="140" height="166"/>
                                                 <subviews>
-                                                    <button opaque="NO" tag="1" contentMode="scaleToFill" ambiguous="YES" restorationIdentifier="1" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Ux-wJ-AsL">
-                                                        <rect key="frame" x="47" y="0.0" width="46" height="29"/>
+                                                    <button opaque="NO" tag="1" contentMode="scaleToFill" restorationIdentifier="1" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Ux-wJ-AsL">
+                                                        <rect key="frame" x="47" y="0.0" width="46" height="28.5"/>
                                                         <inset key="contentEdgeInsets" minX="10" minY="5" maxX="10" maxY="5"/>
                                                         <state key="normal" title="추가"/>
                                                     </button>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" restorationIdentifier="image1" image="1.png" translatesAutoresizingMaskIntoConstraints="NO" id="KgC-bp-buU">
-                                                        <rect key="frame" x="0.0" y="42" width="140" height="100"/>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="image1" image="1.png" translatesAutoresizingMaskIntoConstraints="NO" id="KgC-bp-buU">
+                                                        <rect key="frame" x="0.0" y="41.5" width="140" height="100"/>
                                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="100" id="N7F-yK-BiK"/>
                                                             <constraint firstAttribute="width" constant="140" id="ggF-eW-Opa"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="0개" textAlignment="center" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="Jsg-ZU-bi2">
-                                                        <rect key="frame" x="20" y="145.5" width="100" height="20.5"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0개" textAlignment="center" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="Jsg-ZU-bi2">
+                                                        <rect key="frame" x="57.5" y="145" width="25.5" height="21"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="20.5" id="cuR-QH-ZaH"/>
-                                                            <constraint firstAttribute="width" constant="100" id="gAl-kl-tq6"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -510,25 +509,24 @@
                                                     <constraint firstItem="KgC-bp-buU" firstAttribute="top" secondItem="9Ux-wJ-AsL" secondAttribute="bottom" constant="13" id="7Fx-6D-IRg"/>
                                                 </constraints>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="center" spacing="20" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kCX-kj-xAK">
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kCX-kj-xAK">
                                                 <rect key="frame" x="190" y="0.0" width="142" height="166"/>
                                                 <subviews>
-                                                    <button opaque="NO" tag="2" contentMode="scaleToFill" ambiguous="YES" restorationIdentifier="2" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wAf-d9-L8f">
-                                                        <rect key="frame" x="56" y="0.0" width="30" height="31"/>
+                                                    <button opaque="NO" tag="2" contentMode="scaleToFill" restorationIdentifier="2" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wAf-d9-L8f">
+                                                        <rect key="frame" x="56" y="0.0" width="30" height="30.5"/>
                                                         <state key="normal" title="추가"/>
                                                     </button>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" restorationIdentifier="image2" image="2.png" translatesAutoresizingMaskIntoConstraints="NO" id="dYN-AA-4h4">
-                                                        <rect key="frame" x="1" y="42" width="140" height="100"/>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="image2" image="2.png" translatesAutoresizingMaskIntoConstraints="NO" id="dYN-AA-4h4">
+                                                        <rect key="frame" x="1" y="41.5" width="140" height="100"/>
                                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="140" id="LT5-eP-Fuf"/>
                                                             <constraint firstAttribute="height" constant="100" id="Xd6-Rc-Ddv"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="0개" textAlignment="center" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="inO-s6-s1T">
-                                                        <rect key="frame" x="21" y="145.5" width="100" height="20.5"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0개" textAlignment="center" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="inO-s6-s1T">
+                                                        <rect key="frame" x="58.5" y="145" width="25.5" height="21"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="100" id="4JB-LX-97F"/>
                                                             <constraint firstAttribute="height" constant="20.5" id="LU7-EX-o0E"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -541,26 +539,25 @@
                                                     <constraint firstItem="dYN-AA-4h4" firstAttribute="top" secondItem="wAf-d9-L8f" secondAttribute="bottom" constant="11" id="s2S-2r-XTs"/>
                                                 </constraints>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="center" spacing="20" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8d7-aQ-H7Y">
-                                                <rect key="frame" x="382" y="0.0" width="142" height="166"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8d7-aQ-H7Y">
+                                                <rect key="frame" x="382" y="0.0" width="140" height="166"/>
                                                 <subviews>
-                                                    <button opaque="NO" tag="3" contentMode="scaleToFill" ambiguous="YES" restorationIdentifier="addBtn3" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v8b-8A-kA2">
-                                                        <rect key="frame" x="56" y="0.0" width="30" height="30.5"/>
+                                                    <button opaque="NO" tag="3" contentMode="scaleToFill" restorationIdentifier="addBtn3" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v8b-8A-kA2">
+                                                        <rect key="frame" x="56" y="0.0" width="28" height="30"/>
                                                         <state key="normal" title="추가"/>
                                                     </button>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="3" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" restorationIdentifier="image3" image="3.png" translatesAutoresizingMaskIntoConstraints="NO" id="IJp-MF-lVf">
-                                                        <rect key="frame" x="1" y="41.5" width="140.5" height="100"/>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="3" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="image3" image="3.png" translatesAutoresizingMaskIntoConstraints="NO" id="IJp-MF-lVf">
+                                                        <rect key="frame" x="0.0" y="41" width="140" height="100"/>
                                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="100" id="93L-Bd-eBK"/>
                                                             <constraint firstAttribute="width" constant="140" id="Vgp-DA-AD1"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" restorationIdentifier="stockLabel3" text="0개" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jBW-Wu-Oz7">
-                                                        <rect key="frame" x="21" y="145.5" width="100" height="20.5"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="stockLabel3" text="0개" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jBW-Wu-Oz7">
+                                                        <rect key="frame" x="57.5" y="145" width="25.5" height="21"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="20.5" id="HSP-Wz-hlv"/>
-                                                            <constraint firstAttribute="width" constant="100" id="K9T-Et-5FI"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -569,32 +566,33 @@
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstItem="IJp-MF-lVf" firstAttribute="top" secondItem="v8b-8A-kA2" secondAttribute="bottom" constant="11" id="Cr9-Mv-klK"/>
+                                                    <constraint firstAttribute="trailing" secondItem="IJp-MF-lVf" secondAttribute="trailing" id="Cru-Cq-cUR"/>
+                                                    <constraint firstItem="v8b-8A-kA2" firstAttribute="leading" secondItem="8d7-aQ-H7Y" secondAttribute="leading" constant="56" id="nMF-MT-v0y"/>
                                                 </constraints>
                                             </stackView>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="q0X-iw-4IF">
-                                        <rect key="frame" x="0.0" y="196" width="524" height="165"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="q0X-iw-4IF">
+                                        <rect key="frame" x="0.0" y="196" width="522" height="165"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="center" spacing="20" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e01-JZ-iJg">
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e01-JZ-iJg">
                                                 <rect key="frame" x="0.0" y="0.0" width="140" height="165"/>
                                                 <subviews>
-                                                    <button opaque="NO" tag="4" contentMode="scaleToFill" ambiguous="YES" restorationIdentifier="addBtn4" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eky-7w-BrR">
-                                                        <rect key="frame" x="55" y="0.0" width="30" height="30"/>
+                                                    <button opaque="NO" tag="4" contentMode="scaleToFill" restorationIdentifier="addBtn4" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eky-7w-BrR">
+                                                        <rect key="frame" x="55" y="0.0" width="30" height="29.5"/>
                                                         <state key="normal" title="추가"/>
                                                     </button>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="4" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" restorationIdentifier="image4" image="4.png" translatesAutoresizingMaskIntoConstraints="NO" id="g8Q-xx-sIt">
-                                                        <rect key="frame" x="0.0" y="41" width="140" height="100"/>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="4" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="image4" image="4.png" translatesAutoresizingMaskIntoConstraints="NO" id="g8Q-xx-sIt">
+                                                        <rect key="frame" x="0.0" y="40.5" width="140" height="100"/>
                                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="140" id="liy-T0-YrW"/>
                                                             <constraint firstAttribute="height" constant="100" id="zuL-uB-XWF"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" tag="4" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="0개" textAlignment="center" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="t7N-hJ-2HI">
-                                                        <rect key="frame" x="20" y="144.5" width="100" height="20.5"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" tag="4" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0개" textAlignment="center" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="t7N-hJ-2HI">
+                                                        <rect key="frame" x="57.5" y="144" width="25.5" height="21"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="100" id="1rP-gK-5VE"/>
                                                             <constraint firstAttribute="height" constant="20.5" id="MXd-3W-d49"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -607,26 +605,25 @@
                                                     <constraint firstItem="g8Q-xx-sIt" firstAttribute="top" secondItem="Eky-7w-BrR" secondAttribute="bottom" constant="11" id="jKD-X5-lEO"/>
                                                 </constraints>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="center" spacing="20" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6QZ-VI-oy1">
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6QZ-VI-oy1">
                                                 <rect key="frame" x="190" y="0.0" width="142" height="165"/>
                                                 <subviews>
-                                                    <button opaque="NO" tag="5" contentMode="scaleToFill" ambiguous="YES" restorationIdentifier="addBtn5" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OhX-sH-C8r">
-                                                        <rect key="frame" x="56" y="0.0" width="30" height="30"/>
+                                                    <button opaque="NO" tag="5" contentMode="scaleToFill" restorationIdentifier="addBtn5" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OhX-sH-C8r">
+                                                        <rect key="frame" x="56" y="0.0" width="30" height="29.5"/>
                                                         <state key="normal" title="추가"/>
                                                     </button>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="5" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" restorationIdentifier="image5" image="5.png" translatesAutoresizingMaskIntoConstraints="NO" id="xLr-dI-dvA">
-                                                        <rect key="frame" x="1" y="41" width="140" height="100"/>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="5" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="image5" image="5.png" translatesAutoresizingMaskIntoConstraints="NO" id="xLr-dI-dvA">
+                                                        <rect key="frame" x="1" y="40.5" width="140" height="100"/>
                                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="100" id="7U4-75-wyF"/>
                                                             <constraint firstAttribute="width" constant="140" id="f27-Zp-0FU"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" tag="5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" restorationIdentifier="stockLabel5" text="0개" textAlignment="center" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="g3q-uC-oVc">
-                                                        <rect key="frame" x="21" y="144.5" width="100" height="20.5"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" tag="5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="stockLabel5" text="0개" textAlignment="center" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="g3q-uC-oVc">
+                                                        <rect key="frame" x="58.5" y="144" width="25.5" height="21"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="20.5" id="BQA-Bp-wkC"/>
-                                                            <constraint firstAttribute="width" constant="100" id="FnU-sf-rPJ"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -638,25 +635,24 @@
                                                     <constraint firstItem="xLr-dI-dvA" firstAttribute="top" secondItem="OhX-sH-C8r" secondAttribute="bottom" constant="11" id="ZB6-oX-xJh"/>
                                                 </constraints>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="center" spacing="20" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XeO-G7-Z4p">
-                                                <rect key="frame" x="382" y="0.0" width="142" height="165"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XeO-G7-Z4p">
+                                                <rect key="frame" x="382" y="0.0" width="140" height="165"/>
                                                 <subviews>
-                                                    <button opaque="NO" tag="6" contentMode="scaleToFill" ambiguous="YES" restorationIdentifier="addBtn6" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O8Z-x5-J2L">
-                                                        <rect key="frame" x="56" y="0.0" width="30" height="30"/>
+                                                    <button opaque="NO" tag="6" contentMode="scaleToFill" restorationIdentifier="addBtn6" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O8Z-x5-J2L">
+                                                        <rect key="frame" x="55" y="0.0" width="30" height="29.5"/>
                                                         <state key="normal" title="추가"/>
                                                     </button>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="6" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" restorationIdentifier="image6" image="6.png" translatesAutoresizingMaskIntoConstraints="NO" id="rxU-75-bfT">
-                                                        <rect key="frame" x="1" y="41" width="140.5" height="100"/>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="6" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="image6" image="6.png" translatesAutoresizingMaskIntoConstraints="NO" id="rxU-75-bfT">
+                                                        <rect key="frame" x="0.0" y="40.5" width="140" height="100"/>
                                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="140" id="Vw6-IO-ZPH"/>
                                                             <constraint firstAttribute="height" constant="100" id="tiC-Vw-8VI"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" tag="6" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="0개" textAlignment="center" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="SJW-eV-gSd">
-                                                        <rect key="frame" x="21" y="144.5" width="100" height="20.5"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" tag="6" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0개" textAlignment="center" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="SJW-eV-gSd">
+                                                        <rect key="frame" x="21" y="144" width="98" height="21"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="100" id="FXf-xQ-dw5"/>
                                                             <constraint firstAttribute="height" constant="20.5" id="Yxl-2t-s9k"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -671,13 +667,13 @@
                                             </stackView>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="8cZ-df-Vln">
-                                        <rect key="frame" x="0.0" y="391" width="524" height="165.5"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="8cZ-df-Vln">
+                                        <rect key="frame" x="0.0" y="391" width="522" height="166"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="center" spacing="20" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hrV-qe-bj6">
-                                                <rect key="frame" x="0.0" y="0.0" width="140" height="165.5"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hrV-qe-bj6">
+                                                <rect key="frame" x="0.0" y="0.0" width="140" height="166"/>
                                                 <subviews>
-                                                    <button opaque="NO" tag="7" contentMode="scaleToFill" ambiguous="YES" restorationIdentifier="addBtn7" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="huw-iC-1Tb">
+                                                    <button opaque="NO" tag="7" contentMode="scaleToFill" restorationIdentifier="addBtn7" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="huw-iC-1Tb">
                                                         <rect key="frame" x="55" y="0.0" width="30" height="30.5"/>
                                                         <state key="normal" title="추가"/>
                                                     </button>
@@ -690,10 +686,9 @@
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" tag="7" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="stockLabel7" text="0개" textAlignment="center" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="vF5-yN-ch9">
-                                                        <rect key="frame" x="20" y="145" width="100" height="20.5"/>
+                                                        <rect key="frame" x="57.5" y="145" width="25.5" height="21"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="20.5" id="GZ4-Lk-OOQ"/>
-                                                            <constraint firstAttribute="width" constant="100" id="uXN-UW-ABU"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -704,10 +699,10 @@
                                                     <constraint firstItem="VZg-qH-aOI" firstAttribute="top" secondItem="huw-iC-1Tb" secondAttribute="bottom" constant="11" id="0Wo-i9-fmB"/>
                                                 </constraints>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="center" spacing="20" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qCc-QK-YPY">
-                                                <rect key="frame" x="190" y="0.0" width="142" height="165.5"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qCc-QK-YPY">
+                                                <rect key="frame" x="190" y="0.0" width="142" height="166"/>
                                                 <subviews>
-                                                    <button opaque="NO" tag="8" contentMode="scaleToFill" ambiguous="YES" restorationIdentifier="addBtn8" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VoY-A4-Nqc">
+                                                    <button opaque="NO" tag="8" contentMode="scaleToFill" restorationIdentifier="addBtn8" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VoY-A4-Nqc">
                                                         <rect key="frame" x="56" y="0.0" width="30" height="30.5"/>
                                                         <state key="normal" title="추가"/>
                                                     </button>
@@ -720,9 +715,8 @@
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" tag="8" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0개" textAlignment="center" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="aT5-M0-oDt">
-                                                        <rect key="frame" x="21" y="145" width="100" height="20.5"/>
+                                                        <rect key="frame" x="58.5" y="145" width="25.5" height="21"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="100" id="dDC-aG-eGj"/>
                                                             <constraint firstAttribute="height" constant="20.5" id="tIL-n2-ipj"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -735,15 +729,15 @@
                                                     <constraint firstItem="S4d-kb-acG" firstAttribute="top" secondItem="VoY-A4-Nqc" secondAttribute="bottom" constant="11" id="Qcu-ZS-ryO"/>
                                                 </constraints>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="center" spacing="20" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nVb-CQ-AjS">
-                                                <rect key="frame" x="382" y="0.0" width="142" height="165.5"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nVb-CQ-AjS">
+                                                <rect key="frame" x="382" y="0.0" width="140" height="166"/>
                                                 <subviews>
-                                                    <button opaque="NO" tag="9" contentMode="scaleToFill" ambiguous="YES" restorationIdentifier="addBtn9" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ww5-5w-Btr">
-                                                        <rect key="frame" x="56" y="0.0" width="30" height="30.5"/>
+                                                    <button opaque="NO" tag="9" contentMode="scaleToFill" restorationIdentifier="addBtn9" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ww5-5w-Btr">
+                                                        <rect key="frame" x="55" y="0.0" width="30" height="30.5"/>
                                                         <state key="normal" title="추가"/>
                                                     </button>
                                                     <imageView userInteractionEnabled="NO" tag="9" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="image9" image="9.png" translatesAutoresizingMaskIntoConstraints="NO" id="Dgs-sz-Lec">
-                                                        <rect key="frame" x="1" y="41.5" width="140.5" height="100"/>
+                                                        <rect key="frame" x="0.0" y="41.5" width="140" height="100"/>
                                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="140" id="LUg-a6-gEu"/>
@@ -751,9 +745,8 @@
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" tag="9" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="stockLabel9" text="0개" textAlignment="center" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="VF2-ew-adT">
-                                                        <rect key="frame" x="21" y="145" width="100" height="20.5"/>
+                                                        <rect key="frame" x="21" y="145" width="98" height="21"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="100" id="L7D-KF-dP0"/>
                                                             <constraint firstAttribute="height" constant="20.5" id="Qle-c8-oMi"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -771,6 +764,7 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="q0X-iw-4IF" firstAttribute="centerY" secondItem="giT-tt-rm3" secondAttribute="centerY" id="19p-Yd-PN7"/>
+                                    <constraint firstItem="q0X-iw-4IF" firstAttribute="top" secondItem="giT-tt-rm3" secondAttribute="top" constant="196" id="yvl-hi-rK1"/>
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="659-FX-f6n">

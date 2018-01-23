@@ -64,6 +64,7 @@ class Beverage: CustomStringConvertible, Codable {
         case caffeineLevels
         case isHot
         case isSweetened
+        case productImageName
     }
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)

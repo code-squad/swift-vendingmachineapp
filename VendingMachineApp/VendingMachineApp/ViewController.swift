@@ -16,16 +16,16 @@ class ViewController: UIViewController {
     @IBOutlet var productImageViews: [UIImageView]!
     @IBOutlet var balanceButtons: [UIButton]!
     @IBOutlet var purchaseButtons: [UIButton]!
-    let purchasedImageViewPosition: CGPoint
-    let purchasedImageViewSize: CGSize
+    let purchasedImageViewRect: CGRect
     let purchasedImageSpacing: CGFloat
     let imageViewMaker: ProductImageViewMaker
 
     required init?(coder aDecoder: NSCoder) {
-        self.purchasedImageViewPosition = CGPoint(x: 40, y: 686)
-        self.purchasedImageViewSize = CGSize(width: 140, height: 100)
+        let origin = CGPoint(x: 40, y: 686)
+        let size = CGSize(width: 140, height: 100)
+        self.purchasedImageViewRect = CGRect(origin: origin, size: size)
         self.purchasedImageSpacing = 50
-        self.imageViewMaker = ProductImageViewMaker(purchasedImageViewPosition, purchasedImageViewSize)
+        self.imageViewMaker = ProductImageViewMaker(self.purchasedImageViewRect)
         super.init(coder: aDecoder)
     }
 

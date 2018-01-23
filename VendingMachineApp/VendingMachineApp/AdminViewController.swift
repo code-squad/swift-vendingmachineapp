@@ -54,16 +54,9 @@ class AdminViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func respondTouched(_ sender: UIPanGestureRecognizer) {
-        if sender.state == .began {
-            self.pieGraph.setFillColor()
-        } else if sender.state == .ended {
+    override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
+        if motion == .motionShake {
             self.pieGraph.setPieGraph(receipts: admin.getUserBuyHistory())
         }
-        print(sender.translation(in: self.pieGraph))
     }
-
-    //        self.pieGraph.transform = (self.pieGraph.transform).scaledBy(x: sender.scale, y: sender.scale)
-//        sender.scale = 1.0
-//        self.pieGraph.setTransform(scale: 1.0)
 }

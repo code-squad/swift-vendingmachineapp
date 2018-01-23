@@ -14,9 +14,7 @@ final class StockManager {
     private var stock: [VendingMachine.Menu:Stock] {
         didSet {
             // 뷰 업데이트. M -> C (직접 호출은 아님)
-            NotificationCenter.default.post(
-                name: .didUpdateInventory,
-                object: nil)
+            NotificationCenter.default.post(name: .didUpdateStock, object: nil)
         }
     }
     // 구입이력 기록.

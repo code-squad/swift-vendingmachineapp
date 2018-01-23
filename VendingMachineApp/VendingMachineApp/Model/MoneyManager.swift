@@ -12,9 +12,7 @@ final class MoneyManager {
     // 현재 잔액
     private(set) var balance: Balance {
         didSet {
-            NotificationCenter.default.post(
-                name: .didUpdateBalance,
-                object: nil)
+            NotificationCenter.default.post(name: .didUpdateBalance, object: nil)
         }
     }
     init() {

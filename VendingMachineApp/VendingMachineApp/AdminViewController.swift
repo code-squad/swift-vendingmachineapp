@@ -25,6 +25,9 @@ class AdminViewController: UIViewController {
                                                name: .beverageCounts,
                                                object: VendingMachine.sharedInstance())
         initAdminVendingMachine()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
         pieGraphView.purchaseList = admin.getSalesHistory()
     }
 

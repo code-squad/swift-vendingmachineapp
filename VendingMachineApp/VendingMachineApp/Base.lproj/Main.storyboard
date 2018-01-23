@@ -465,8 +465,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2gd-d8-BVh" customClass="PieGraphView" customModule="VendingMachineApp" customModuleProvider="target">
+                                <rect key="frame" x="706" y="331" width="400" height="400"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pFc-f0-Sve">
-                                <rect key="frame" x="920" y="56" width="46" height="30"/>
+                                <rect key="frame" x="883" y="141" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="닫기"/>
@@ -474,16 +479,12 @@
                                     <action selector="closeAdminMode:" destination="2nq-Wo-bN1" eventType="touchUpInside" id="Fqp-nG-aIk"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2gd-d8-BVh" customClass="PieGraphView" customModule="VendingMachineApp" customModuleProvider="target">
-                                <rect key="frame" x="706" y="331" width="400" height="400"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="mON-yo-pTo"/>
                     </view>
                     <connections>
+                        <outlet property="pieGraphView" destination="2gd-d8-BVh" id="NKo-8C-vHE"/>
                         <outletCollection property="beverageCounts" destination="ZWY-5y-Yf9" collectionClass="NSMutableArray" id="vgg-Rd-Pbu"/>
                         <outletCollection property="beverageCounts" destination="Ovu-CA-ZtR" collectionClass="NSMutableArray" id="bsZ-Qj-gSx"/>
                         <outletCollection property="beverageCounts" destination="aBM-3W-9rh" collectionClass="NSMutableArray" id="RY2-dL-NZI"/>

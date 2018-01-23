@@ -435,7 +435,11 @@ func notifyPurchasing(_ isPurchased: Bool) {
 - 인벤토리 변경 시, 뷰 컨트롤러에서 받은 노티의 음료수 정보를 꺼내어 사용
 
 ```swift
-NotificationCenter.default.addObserver(forName: .didUpdateInventory, object: nil, queue: nil, using: catchNotification)
+NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(catchNotification(notification:)),
+            name: .didUpdateInventory, 
+            object: nil)
 
 func catchNotification(notification: Notification) {
     if let purchased = notification.userInfo,
@@ -445,6 +449,10 @@ func catchNotification(notification: Notification) {
     }
 }
 ```
+
+####addObserver(_:selector:name:object) vs. addObserver(forName:object:queue:using:)
+- 둘 다 Notification 객체를 받는 메소드를 selector에 지정해주면 Notification 객체의 UserInfo를 가지고 처리할 수 있다.
+- addObserver(forName:object:queue:using:)는 셀렉터 대신 block 안에서 노티를 받은 후의 작업을 수행할 수 있는데, queue 인자를 통해 작업순서를 지정할 수 있고, block 인자는 이스케이프 클로저 형태로 되어있어 노티가 끝난 후 작업 수행이 보장돼있기 때문에 멀티쓰레드 환경에서 노티피케이션 처리를 병렬화할 수 있는 형태이다.
 
 - 화면 하단에 이미지 추가
 
@@ -488,4 +496,4 @@ class ProductImageMaker {
 
 
 ### 학습 내용
->- **[뷰: 코드 생성 vs. 스토리보드 생성]()**
+>- **[뷰: 코드 생성 vs. 스토리보드 생성](https://github.com/undervineg/swift-vendingmachineapp/blob/undervineg/md/code_vs_storyboard.md)**

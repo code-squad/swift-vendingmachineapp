@@ -15,6 +15,8 @@ class AdminViewController: UIViewController {
     private var sortedBeverageCounts: [Beverage: UILabel] = [:]
     private var sortedBeverages: [Beverage] = []
 
+    @IBOutlet weak var pieGraphView: PieGraphView!
+
     override func viewDidLoad() {
         admin = VendingMachineAdmin.init(vendingMachine: VendingMachine.sharedInstance())
         sortedBeverages = BeverageFactory.createBeverageAll()
@@ -23,6 +25,7 @@ class AdminViewController: UIViewController {
                                                name: .beverageCounts,
                                                object: VendingMachine.sharedInstance())
         initAdminVendingMachine()
+        pieGraphView.purchaseList = admin.getSalesHistory()
     }
 
     @objc private func changeBeverageCounts(notification: Notification) {

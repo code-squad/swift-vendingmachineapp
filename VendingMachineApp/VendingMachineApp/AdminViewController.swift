@@ -30,12 +30,11 @@ class AdminViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.pieGraph.setPieGraph(receipts: admin.getUserBuyHistory())
-        self.pieGraph.draw(pieGraph.frame)
     }
     
     private func initStockLabel() {
         for beverage in sortedBeverageLabel {
-           AppSetting.setLabelContent(key: beverage.key, stockLabel: beverage.value)
+            AppSetting.setLabelContent(key: beverage.key, stockLabel: beverage.value)
         }
     }
     
@@ -54,4 +53,17 @@ class AdminViewController: UIViewController {
     @IBAction func closeButtonTouched(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }
+    
+    @IBAction func respondTouched(_ sender: UIPanGestureRecognizer) {
+        if sender.state == .began {
+            self.pieGraph.setFillColor()
+        } else if sender.state == .ended {
+            self.pieGraph.setPieGraph(receipts: admin.getUserBuyHistory())
+        }
+        print(sender.translation(in: self.pieGraph))
+    }
+
+    //        self.pieGraph.transform = (self.pieGraph.transform).scaledBy(x: sender.scale, y: sender.scale)
+//        sender.scale = 1.0
+//        self.pieGraph.setTransform(scale: 1.0)
 }

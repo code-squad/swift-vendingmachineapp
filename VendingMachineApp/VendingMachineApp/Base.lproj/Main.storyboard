@@ -300,9 +300,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="txv-dN-xTk" customClass="PieGraphView" customModule="VendingMachineApp" customModuleProvider="target">
-                                <rect key="frame" x="337" y="398" width="350" height="350"/>
+                                <rect key="frame" x="337" y="389" width="350" height="350"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.8756741751269036" green="0.8756741751269036" blue="0.8756741751269036" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

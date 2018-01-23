@@ -351,4 +351,25 @@ extension Notification.Name {
 [PieGraph](https://github.com/hamishknight/Pie-Chart-View)
 
 다음은 실행했을 때의 화면이다.
-![Step9](./ScreenShot/step9.png)
+![Step8](./ScreenShot/step8.png)
+
+  <br><br><br>
+# 터치 이벤트 핸들러 Step9
+## 프로그래밍 요구사항
+
+* PieGraphView 클래스에 다음의 터치 이벤트를 처리하는 핸들러 메서드를 추가한다.
+* 그래프에 손을 터치하면 (떨어지지않은 상태) 그래프를 지우고 검정색 동그라미 그래프만 그린다.
+     * 그래프에 손을 떨어지지 않은 상태에서 손을 움직일때,
+     * 터치한 점부터 원점에 가까워지면 파이 그래프 크기를 줄이고,
+     * 터치한 점부터 원점에서 멀어지면 파이 그래프 크기를 늘린다.
+     * 그래프에 손을 떨어지면 구매이력 그래프 색상을 바꿔서 바뀐 크기대로 다시 그린다.
+* 관리자 화면 ViewController에서 Shake 이벤트를 받으면 원래 크기대로 복구한다.
+* 다른 동작은 이전 단계와 동일하게 동작해야 한다.
+
+어려웠던 점은, 터치 이벤트를 다룰때의 어려움이 있었고, Core Graphics의 동장 방식의 이해의 부족이었다. 
+
+코어그래픽스의 context는 하나의 도화지라 생각하면 좋다.
+
+다음은 실행했을 때의 화면이다.
+![Step9-1](./ScreenShot/step9-1.png)
+![Step9-2](./ScreenShot/step9-2.png)

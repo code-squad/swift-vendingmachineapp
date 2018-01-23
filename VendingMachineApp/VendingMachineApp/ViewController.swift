@@ -15,13 +15,25 @@ class ViewController: UIViewController {
     @IBOutlet weak var balanceLabel: UILabel!
     @IBOutlet var productImageViews: [UIImageView]!
     @IBOutlet var balanceButtons: [UIButton]!
+    @IBOutlet var purchaseButtons: [UIButton]!
+    let purchasedImageViewPositionX: Int
+    let purchasedImageViewPositionY: Int
+    let imageMaker: ProductImageMaker
+
+    required init?(coder aDecoder: NSCoder) {
+        self.purchasedImageViewPositionX = 40
+        self.purchasedImageViewPositionY = 686
+        self.imageMaker = ProductImageMaker(purchasedImageViewPositionX, purchasedImageViewPositionY)
+        super.init(coder: aDecoder)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         updateStockLabels()
         updateBalanceLabel()
         // 둥근 테두리 적용
-        productImageViews.forEach { $0.layer.cornerRadius = 30 }
+        productImageViews.forEach { $0.layer.cornerRadius = 15 }
+        productImageViews.forEach { $0.layer.borderWidth = 5 }
         balanceButtons.forEach { $0.layer.cornerRadius = 10 }
         // 버튼에 이벤트 적용
         addStockButtons.forEach {
@@ -30,17 +42,43 @@ class ViewController: UIViewController {
         balanceButtons.forEach {
             $0.addTarget(self, action: #selector(insertMoney(_:)), for: .touchUpInside)
         }
+        purchaseButtons.forEach {
+            $0.addTarget(self, action: #selector(purchase(_:)), for: .touchUpInside)
+        }
         // 자판기(M)에 변화가 생기면 재고라벨(V), 잔액라벨(V) 업데이트.
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(updateStockLabels),
-            name: .didUpdateInventory,
+            name: .didUpdateStock,
             object: nil)
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(updateBalanceLabel),
             name: .didUpdateBalance,
             object: nil)
+        NotificationCenter.default.addObserver(
+            forName: .didUpdateInventory, object: nil, queue: nil, using: catchNotification)
+    }
+
+    @objc func purchase(_ sender: UIButton) {
+        guard let machine = self.machine,
+            let menu: VendingMachine.Menu = Mapper.mappingMenu(with: sender) else { return }
+        _ = machine.popProduct(menu)
+    }
+
+    func catchNotification(notification: Notification) {
+        if let purchased = notification.userInfo,
+            let purchasedBeverage = purchased[UserInfoKeys.purchasedBeverage] as? Beverage {
+            // 뷰 업데이트
+            updatePurchasedImages(purchasedBeverage)
+        }
+    }
+
+    // 화면 아래 구입한 음료수 이미지 추가
+    private func updatePurchasedImages(_ purchasedInfo: Beverage) {
+        let source = Mapper.mappingImage(purchasedInfo)
+        let imageView = imageMaker.imageViewWithPosition(source)
+        self.view.addSubview(imageView)
     }
 
     // 재고 추가 버튼 클릭 시. V -> C -> M
@@ -83,14 +121,9 @@ class ViewController: UIViewController {
     }
 
     deinit {
-        NotificationCenter.default.removeObserver(
-            self,
-            name: .didUpdateInventory,
-            object: self)
-        NotificationCenter.default.removeObserver(
-            self,
-            name: .didUpdateBalance,
-            object: self)
+        NotificationCenter.default.removeObserver(self, name: .didUpdateStock, object: self)
+        NotificationCenter.default.removeObserver(self, name: .didUpdateBalance, object: self)
+        NotificationCenter.default.removeObserver(self, name: .didUpdateInventory, object: self)
     }
 
 }

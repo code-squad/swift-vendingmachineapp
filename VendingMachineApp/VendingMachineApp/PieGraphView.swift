@@ -20,11 +20,12 @@ class PieGraphView: UIView {
 
     enum States {
         case none
-        case begin
-        case move
+        case began
+        case moved
+        case ended
     }
 
-    var state: States = .none {
+    private var state: States = .none {
         didSet {
             setNeedsDisplay()
         }
@@ -33,9 +34,9 @@ class PieGraphView: UIView {
     override func draw(_ rect: CGRect) {
         guard let context = UIGraphicsGetCurrentContext() else { return }
         switch state {
-        case .none, .move:
+        case .none, .moved, .ended:
             drawPieChart(context: context, beverageCounts: beverageCounts)
-        case .begin:
+        case .began:
             drawBaseBlackCircle(context: context)
         }
     }
@@ -122,7 +123,7 @@ class PieGraphView: UIView {
 
     /* Touch Events */
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        state = .begin
+        state = .began
     }
 
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -132,7 +133,11 @@ class PieGraphView: UIView {
         let yValue = pow(bounds.size.height * 0.5 - fingerLocation.y, 2)
         let distance = sqrt(xValue + yValue)
         graphRatio = Double(distance) / Double(bounds.size.width * 0.5)
-        state = .move
+        state = .moved
+    }
+
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        state = .ended
     }
 
 }

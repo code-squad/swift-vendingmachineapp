@@ -31,6 +31,10 @@ class AdminViewController: UIViewController {
         pieGraphView.purchaseList = admin.getSalesHistory()
     }
 
+    override func motionBegan(_ motion: UIEventSubtype, with event: UIEvent?) {
+        if motion == .motionShake { pieGraphView.shakeMotion() }
+    }
+
     @objc private func changeBeverageCounts(notification: Notification) {
         guard let userInfo = notification.userInfo as? [String: Any] else { return }
         guard let product = userInfo[Keyword.Key.product.value] as? Beverage else { return }

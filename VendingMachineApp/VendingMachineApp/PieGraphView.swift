@@ -51,6 +51,11 @@ class PieGraphView: UIView {
         }
     }
 
+    func shakeMotion() {
+        graphRatio = 1.0
+        state = .none
+    }
+
     private func drawPieChart(context: CGContext, beverageCounts: [Beverage: Int]) {
         var startAngle: CGFloat = 0
         for (key, value) in beverageCounts {

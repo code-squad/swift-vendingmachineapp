@@ -19,4 +19,7 @@ struct Mapper {
         return T.getCase(rawValue: sender.tag) as? T
     }
 
+    static func mappingImage(_ imageInfo: Beverage) -> UIImage? {
+        return UIImage(named: imageInfo.menuType.description)
+    }
 }

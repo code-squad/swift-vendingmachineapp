@@ -9,13 +9,11 @@
 import UIKit
 
 class PieGraphView: UIView {
-    private var beverageCounts: [Beverage: Int] = [:]
     private var graphRatio = 1.0
+    private var totalCount = 0
 
-    var purchaseList: [Beverage] = [] {
-        didSet {
-            countProductsFromPurchaseList()
-        }
+    var beverageCounts: [Beverage: Int] = [:] {
+        didSet { totalCount = beverageCounts.values.reduce(0, +) }
     }
 
     enum States {
@@ -26,28 +24,17 @@ class PieGraphView: UIView {
     }
 
     private var state: States = .none {
-        didSet {
-            setNeedsDisplay()
-        }
+        didSet { setNeedsDisplay() }
     }
 
     override func draw(_ rect: CGRect) {
+        super.draw(rect)
         guard let context = UIGraphicsGetCurrentContext() else { return }
         switch state {
         case .none, .moved, .ended:
             drawPieChart(context: context, beverageCounts: beverageCounts)
         case .began:
             drawBaseBlackCircle(context: context)
-        }
-    }
-
-    private func countProductsFromPurchaseList() {
-        for beverage in purchaseList {
-            if beverageCounts[beverage] == nil {
-                beverageCounts[beverage] = 1
-            } else {
-                beverageCounts[beverage]! += 1
-            }
         }
     }
 
@@ -59,7 +46,7 @@ class PieGraphView: UIView {
     private func drawPieChart(context: CGContext, beverageCounts: [Beverage: Int]) {
         var startAngle: CGFloat = 0
         for (key, value) in beverageCounts {
-            let endAngle = startAngle + 2 * .pi * (CGFloat(value) / CGFloat(purchaseList.count))
+            let endAngle = startAngle + 2 * .pi * (CGFloat(value) / CGFloat(totalCount))
             drawEachSegment(context: context, key: key, startAngle: startAngle, endAngle: endAngle)
             startAngle = endAngle
         }
@@ -128,10 +115,12 @@ class PieGraphView: UIView {
 
     /* Touch Events */
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
         state = .began
     }
 
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesMoved(touches, with: event)
         guard let touch = touches.first else { return }
         let fingerLocation = touch.location(in: self)
         let xValue = pow(bounds.size.width * 0.5 - fingerLocation.x, 2)
@@ -142,6 +131,7 @@ class PieGraphView: UIView {
     }
 
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesEnded(touches, with: event)
         state = .ended
     }
 

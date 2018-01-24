@@ -18,6 +18,7 @@ class AdminViewController: UIViewController {
     @IBOutlet weak var pieGraphView: PieGraphView!
 
     override func viewDidLoad() {
+        super.viewDidLoad()
         admin = VendingMachineAdmin.init(vendingMachine: VendingMachine.sharedInstance())
         sortedBeverages = BeverageFactory.createBeverageAll()
         NotificationCenter.default.addObserver(self,
@@ -28,10 +29,19 @@ class AdminViewController: UIViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        pieGraphView.purchaseList = admin.getSalesHistory()
+        super.viewWillAppear(animated)
+        var beverageCounts: [Beverage: Int] = [:]
+        for beverage in admin.getSalesHistory() {
+            if beverageCounts[beverage] == nil {
+                beverageCounts[beverage] = 0
+            }
+            beverageCounts[beverage]! += 1
+        }
+        pieGraphView.beverageCounts = beverageCounts
     }
 
     override func motionBegan(_ motion: UIEventSubtype, with event: UIEvent?) {
+        super.motionBegan(motion, with: event)
         if motion == .motionShake { pieGraphView.shakeMotion() }
     }
 

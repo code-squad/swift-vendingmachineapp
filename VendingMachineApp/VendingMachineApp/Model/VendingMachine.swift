@@ -151,7 +151,7 @@ extension VendingMachine: Managable {
     }
 
     // 시작이후 구매 상품 이력 반환.
-    func showPurchasedList() -> [HistoryInfo] {
+    func purchasedList() -> [HistoryInfo] {
         return stockManager.purchasedHistory
     }
 }
@@ -192,17 +192,17 @@ extension VendingMachine: UserServable {
         return stockManager.showStockList()
     }
 
-    func showAffordableProducts() -> [Menu] {
+    func affordableProducts() -> [Menu] {
         return moneyManager.showAffordableList(from: stockManager.showSellingList())
     }
 
     // 유통기한이 지난 재고 리스트 반환.
-    func showExpiredProducts(on day: Date) -> [Menu:Stock] {
+    func expiredProducts(on day: Date) -> [Menu:Stock] {
         return stockManager.showExpiredList(on: day)
     }
 
     // 따뜻한 음료 리스트 리턴.
-    func showHotProducts() -> [Menu] {
+    func hotProducts() -> [Menu] {
         // 커피타입인 경우만 해당.
         return Menu.allValues.filter {
             guard let coffee = $0.generate() as? Coffee else { return false }

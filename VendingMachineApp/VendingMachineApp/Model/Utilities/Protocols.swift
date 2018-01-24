@@ -10,7 +10,6 @@ import Foundation
 
 typealias Stock = Int
 typealias Balance = Int
-typealias Purchased = Int
 
 protocol Managable {
     func fullSupply(_ count: Int)

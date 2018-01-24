@@ -18,7 +18,7 @@ final class StockManager {
         }
     }
     // 구입이력 기록.
-    private var purchasedHistory: [HistoryInfo]
+    private(set) var purchasedHistory: [HistoryInfo]
     init(_ machine: VendingMachine?) {
         self.machine = machine
         self.stock = [:]
@@ -61,21 +61,18 @@ final class StockManager {
         return expiredList
     }
 
-    // 구입 이력 반환.
-    func showPurchasedHistory() -> [HistoryInfo] {
-        return purchasedHistory
-    }
-
-    // 구입 이력 기록.
+    // 구입 이력 생성.
     func recordPurchasedHistory(_ recentChanged: Beverage, isPurchased: Bool) {
-        // 음료수를 빼먹은 경우, 구입 이력 생성 및 기록.
-        if isPurchased {
-            // 현재 구입된 음료수의 구입이력 생성.
-            let purchasedInfo = HistoryInfo(purchasingDate: Date(timeIntervalSinceNow: 0),
-                                            purchasedMenu: recentChanged.productName,
-                                            count: 1)
-            // 기록.
-            purchasedHistory.append(purchasedInfo)
+        // 음료수가 구매된 경우에만 기록
+        guard isPurchased else { return }
+        if let lastRecord = purchasedHistory.last, lastRecord.purchasedMenu == recentChanged.menuType {
+            lastRecord.updateCount(by: 1)
+        } else {
+            let newInfo = HistoryInfo(
+                purchasingDate: Date(timeIntervalSinceNow: 0),
+                purchasedMenu: recentChanged.menuType,
+                count: 1)
+            purchasedHistory.append(newInfo)
         }
     }
 

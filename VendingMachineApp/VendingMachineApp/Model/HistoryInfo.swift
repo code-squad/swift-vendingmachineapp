@@ -9,8 +9,21 @@
 import Foundation
 
 // 구입이력 포맷.
-struct HistoryInfo: Codable {
+class HistoryInfo: Codable, CustomStringConvertible {
     private(set) var purchasingDate: Date
-    private(set) var purchasedMenu: String
-    private(set) var count: Purchased
+    private(set) var purchasedMenu: VendingMachine.Menu
+    private(set) var count: Int
+    init(purchasingDate: Date, purchasedMenu: VendingMachine.Menu, count: Int) {
+        self.purchasingDate = purchasingDate
+        self.purchasedMenu = purchasedMenu
+        self.count = count
+    }
+
+    func updateCount(by addedCount: Int) {
+        self.count += addedCount
+    }
+
+    var description: String {
+        return "구매일자: \(purchasingDate) | 상품이름: \(purchasedMenu.productName) | 구매개수: \(count)개"
+    }
 }

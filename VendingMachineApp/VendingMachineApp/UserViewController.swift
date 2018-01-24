@@ -9,7 +9,7 @@
 import UIKit
 
 class UserViewController: UIViewController {
-    var machine: (Managable&UserServable)?
+    var machine: (UserServable&Managable)?
     @IBOutlet var stockLabels: [UILabel]!
     @IBOutlet weak var balanceLabel: UILabel!
     @IBOutlet var productImageViews: [UIImageView]!

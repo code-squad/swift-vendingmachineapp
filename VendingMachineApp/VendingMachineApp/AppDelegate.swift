@@ -16,8 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        if let mainVC = window?.rootViewController as? UserViewController {
-            mainVC.machine = machineStore.loadData()
+        if let userVC = window?.rootViewController as? UserViewController {
+            userVC.machine = machineStore.loadData()
         }
         return true
     }

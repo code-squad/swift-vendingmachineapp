@@ -152,7 +152,7 @@ extension VendingMachine: Managable {
 
     // 시작이후 구매 상품 이력 반환.
     func showPurchasedList() -> [HistoryInfo] {
-        return stockManager.showPurchasedHistory()
+        return stockManager.purchasedHistory
     }
 }
 

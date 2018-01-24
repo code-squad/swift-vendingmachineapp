@@ -56,7 +56,6 @@ class PieGraphView: UIView {
                             width: 350 * scale,
                             height: 350 * scale)
         self.center = CGPoint(x: 512, y: 564)
-        self.layoutIfNeeded()
     }
     
     private func drawPieGraph(context: CGContext, colors: [UIColor]) {

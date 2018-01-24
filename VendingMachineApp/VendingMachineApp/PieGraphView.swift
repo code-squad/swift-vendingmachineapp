@@ -39,6 +39,9 @@ class PieGraphView: UIView {
             Segment(value: CGFloat(receipts[StarBucksCoffee()] ?? 0),
                     name: StarBucksCoffee().description)
         ]
+        self.frame = CGRect(x: 337, y: 389,
+                            width: 350,
+                            height: 350)
         setNeedsDisplay()
     }
     
@@ -47,8 +50,17 @@ class PieGraphView: UIView {
         drawPieGraph(context: context, colors: colors)
     }
     
+    private func drawFrame() {
+        let scale = graphRatio * 1.5
+        self.frame = CGRect(x: self.frame.origin.x, y: self.frame.origin.y,
+                            width: 350 * scale,
+                            height: 350 * scale)
+        self.center = CGPoint(x: 512, y: 564)
+        self.layoutIfNeeded()
+    }
+    
     private func drawPieGraph(context: CGContext, colors: [UIColor]) {
-        let radius = min(bounds.size.width, bounds.size.height) * graphRatio
+        let radius = min(bounds.size.width, bounds.size.height) * 0.5
         let viewCenter = CGPoint(x: bounds.size.width * 0.5, y: bounds.size.height * 0.5)
         let valueCount = segments.reduce(0) { $0 + $1.value }
         var startAngle = -CGFloat.pi * 0.5
@@ -80,28 +92,34 @@ class PieGraphView: UIView {
                           NSAttributedStringKey.font: UIFont.systemFont(ofSize: 30 * graphRatio)]
         let textToRender = beverage.name as NSString
         var renderRect = CGRect(origin: .zero, size: textToRender.size(withAttributes: attributes))
-        renderRect.origin = CGPoint(x: segmentCenter.x - renderRect.size.width * 0.5, y: segmentCenter.y - renderRect.size.height * 0.5)
+        renderRect.origin = CGPoint(x: segmentCenter.x - renderRect.size.width * 0.5,
+                                    y: segmentCenter.y - renderRect.size.height * 0.5)
         textToRender.draw(in: renderRect, withAttributes: attributes)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
         self.tempColors = self.colors
         self.colors = [UIColor].init(repeating: UIColor.black, count: 5)
+        setNeedsDisplay()
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesMoved(touches, with: event)
         if let touch = touches.first {
             let position = touch.location(in: self)
             let xValue = pow(bounds.size.width * 0.5 - position.x, 2)
             let yValue = pow(bounds.size.width * 0.5 - position.y, 2)
             let distance = sqrt(xValue + yValue)
-            print(distance)
-            graphRatio = distance / 100
+            let scale = distance / 100
+            graphRatio = scale
         }
+        drawFrame()
         setNeedsDisplay()
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesEnded(touches, with: event)
         self.colors = self.tempColors
         setNeedsDisplay()
     }

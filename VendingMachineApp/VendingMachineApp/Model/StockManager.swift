@@ -18,7 +18,18 @@ final class StockManager {
         }
     }
     // 구입이력 기록.
-    private(set) var purchasedHistory: [HistoryInfo]
+    private(set) var purchasedHistory: [HistoryInfo] {
+        didSet {
+            guard let lastRecord = purchasedHistory.last else { return }
+            // 새 음료수가 추가된 경우에만 알림
+            if oldValue.count < purchasedHistory.count {
+                NotificationCenter.default.post(
+                    name: .didUpdateRecord,
+                    object: nil,
+                    userInfo: [UserInfoKeys.addedRecord: lastRecord])
+            }
+        }
+    }
     init(_ machine: VendingMachine?) {
         self.machine = machine
         self.stock = [:]

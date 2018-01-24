@@ -18,7 +18,7 @@ protocol Managable {
 
     func remove(_ menu: VendingMachine.Menu, _ count: Stock)
 
-    func showPurchasedList() -> [HistoryInfo]
+    func purchasedList() -> [HistoryInfo]
 
     func checkTheStock() -> [VendingMachine.Menu:Stock]
 }
@@ -30,11 +30,11 @@ protocol UserServable {
 
     func showBalance() -> Balance
 
-    func showAffordableProducts() -> [VendingMachine.Menu]
+    func affordableProducts() -> [VendingMachine.Menu]
 
-    func showExpiredProducts(on day: Date) -> [VendingMachine.Menu:Stock]
+    func expiredProducts(on day: Date) -> [VendingMachine.Menu:Stock]
 
-    func showHotProducts() -> [VendingMachine.Menu]
+    func hotProducts() -> [VendingMachine.Menu]
 
     func checkTheStock() -> [VendingMachine.Menu:Stock]
 }

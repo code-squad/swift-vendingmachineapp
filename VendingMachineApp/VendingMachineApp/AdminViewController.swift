@@ -29,7 +29,7 @@ class AdminViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.pieGraph.setPieGraph(receipts: admin.getUserBuyHistory())
+        self.pieGraph.setPieGraph(pieGraphData: admin)
     }
     
     private func initStockLabel() {
@@ -56,7 +56,7 @@ class AdminViewController: UIViewController {
     
     override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
         if motion == .motionShake {
-            self.pieGraph.setPieGraph(receipts: admin.getUserBuyHistory())
+            self.pieGraph.setPieGraph(pieGraphData: admin)
         }
     }
 }

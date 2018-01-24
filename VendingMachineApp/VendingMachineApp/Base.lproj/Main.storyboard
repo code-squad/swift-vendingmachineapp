@@ -13,7 +13,7 @@
         <!--User View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="MainViewController" id="BYZ-38-t0r" customClass="UserViewController" customModule="VendingMachineApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UserViewController" id="BYZ-38-t0r" customClass="UserViewController" customModule="VendingMachineApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -769,6 +769,11 @@
                                     <segue destination="eOK-uZ-2J7" kind="unwind" unwindAction="dismiss:" id="TpE-Q8-r6A"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dph-mT-Skt" customClass="PieGraphView" customModule="VendingMachineApp" customModuleProvider="target">
+                                <rect key="frame" x="619" y="323" width="400" height="400"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -814,8 +819,8 @@
         <image name="4.png" width="78" height="148"/>
         <image name="5.png" width="71" height="149"/>
         <image name="6.png" width="77" height="147"/>
-        <image name="7.png" width="75" height="148"/>
-        <image name="8.png" width="74" height="150"/>
+        <image name="7.png" width="74" height="150"/>
+        <image name="8.png" width="75" height="148"/>
         <image name="9.png" width="106" height="150"/>
     </resources>
 </document>

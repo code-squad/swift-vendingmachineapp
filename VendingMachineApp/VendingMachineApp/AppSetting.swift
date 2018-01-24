@@ -13,6 +13,11 @@ struct AppSetting {
     private (set) static var fiveThounsand = 5000
     private (set) static var oneThounsand = 1000
     private (set) static var keyBox = [LightBananaMilk(), Coke(), StarBucksCoffee(), Sprite(), CeylonTea()]
+    private (set) var colors = [UIColor(red: 1.0, green: 31.0/255.0, blue: 73.0/255.0, alpha: 1.0),
+                                UIColor(red: 1.0, green: 222.0/255.0, blue: 0.0, alpha: 1.0),
+                                UIColor(red: 0.0, green: 222.0/255.0, blue: 1.0, alpha: 1.0),
+                                UIColor(red: 1.0, green: 138.0/255.0, blue: 0.0, alpha: 1.0),
+                                UIColor(red: 138.0/255.0, green: 1.0, blue: 222.0/255.0, alpha: 1.0)]
     
     static func matches<T, U>(indexList: [T], valueList: [U]) -> [T: U] {
         var matchedList = [T: U]()

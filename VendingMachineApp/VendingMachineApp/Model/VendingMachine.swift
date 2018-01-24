@@ -8,9 +8,12 @@
 
 import Foundation
 
-protocol AdminAble {
-    func addBeverage(_ item: Beverage)
+protocol AdminAbleGetData {
     func getUserBuyHistory() -> [Beverage: Int]
+}
+
+protocol AdminAbleSetData {
+    func addBeverage(_ item: Beverage)
 }
 
 protocol UserAble {
@@ -20,7 +23,7 @@ protocol UserAble {
     func buyBeverage(_ selectedValue: Beverage) throws
 }
 
-class VendingMachine: NSObject, NSCoding, UserAble, AdminAble {
+class VendingMachine: NSObject, NSCoding, UserAble, AdminAbleSetData, AdminAbleGetData {
     private var stock = [Beverage]()
     private (set) var receipt = [Beverage]()
     private (set) var sortedStockList = [Beverage: Int]()

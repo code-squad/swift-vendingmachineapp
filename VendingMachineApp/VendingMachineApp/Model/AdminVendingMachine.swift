@@ -8,10 +8,10 @@
 
 import Foundation
 
-class AdminVendingMachine: AdminAble {
-    private var vendingMachine: AdminAble
+class AdminVendingMachine: AdminAbleSetData, AdminAbleGetData, PieGraphDataSource {
+    private var vendingMachine: AdminAbleSetData & AdminAbleGetData
     
-    init(_ machine: AdminAble) {
+    init(_ machine: AdminAbleSetData & AdminAbleGetData) {
         self.vendingMachine = machine
     }
     

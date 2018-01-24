@@ -12,6 +12,7 @@
 		400E3D521FF4B82800B25072 /* StarBucksCoffee.png in Resources */ = {isa = PBXBuildFile; fileRef = 400E3D4D1FF4B82700B25072 /* StarBucksCoffee.png */; };
 		400E3D531FF4B82800B25072 /* CeylonTea.png in Resources */ = {isa = PBXBuildFile; fileRef = 400E3D4E1FF4B82700B25072 /* CeylonTea.png */; };
 		400E3D541FF4B82800B25072 /* Coke.png in Resources */ = {isa = PBXBuildFile; fileRef = 400E3D4F1FF4B82700B25072 /* Coke.png */; };
+		40A136C92018859C00756974 /* PieGrapDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A136C82018859C00756974 /* PieGrapDataSource.swift */; };
 		40BB47961FF34A19003DD3BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BB47951FF34A19003DD3BF /* AppDelegate.swift */; };
 		40BB47981FF34A19003DD3BF /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BB47971FF34A19003DD3BF /* UserViewController.swift */; };
 		40BB479B1FF34A19003DD3BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40BB47991FF34A19003DD3BF /* Main.storyboard */; };
@@ -62,6 +63,7 @@
 		400E3D4D1FF4B82700B25072 /* StarBucksCoffee.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StarBucksCoffee.png; sourceTree = "<group>"; };
 		400E3D4E1FF4B82700B25072 /* CeylonTea.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CeylonTea.png; sourceTree = "<group>"; };
 		400E3D4F1FF4B82700B25072 /* Coke.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Coke.png; sourceTree = "<group>"; };
+		40A136C82018859C00756974 /* PieGrapDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieGrapDataSource.swift; sourceTree = "<group>"; };
 		40BB47921FF34A19003DD3BF /* VendingMachineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendingMachineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40BB47951FF34A19003DD3BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		40BB47971FF34A19003DD3BF /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 				40BF6B2B200AF87800421983 /* AppSetting.swift */,
 				40BB47951FF34A19003DD3BF /* AppDelegate.swift */,
 				40E13BF8200C826B0027A714 /* PieGraphView.swift */,
+				40A136C82018859C00756974 /* PieGrapDataSource.swift */,
 				40BB47991FF34A19003DD3BF /* Main.storyboard */,
 				40BB479C1FF34A19003DD3BF /* Assets.xcassets */,
 				40BB479E1FF34A19003DD3BF /* LaunchScreen.storyboard */,
@@ -391,6 +394,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				40E13BF9200C826B0027A714 /* PieGraphView.swift in Sources */,
+				40A136C92018859C00756974 /* PieGrapDataSource.swift in Sources */,
 				40BB48DC1FF35479003DD3BF /* LightBananaMilk.swift in Sources */,
 				40E13BF7200C711C0027A714 /* UserVendingMachine.swift in Sources */,
 				40BB48CE1FF35479003DD3BF /* Beverage.swift in Sources */,

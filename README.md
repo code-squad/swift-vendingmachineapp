@@ -502,8 +502,7 @@ class ProductImageMaker {
 
 ## Frame과 Bounds
 
-<img src="img/7_vendingmachine_v3_1.png" width="49%">
-<img src="img/7_vendingmachine_v3_2.png" width="49%">
+<img src="img/7_vendingmachine_v3_1.png" width="45%"><img src="img/7_vendingmachine_v3_2.png" width="45%">
 
 ### Action Segue로 Unwind하기 (AdminViewController→ViewController) 
 1. unwind 시 호출할 함수를 직접 입력한다. 주의할 것은 돌아갈 뷰컨트롤러에 입력해야 동작한다.
@@ -548,5 +547,5 @@ class ProductImageMaker {
     ```
 
 ### 학습 내용
->- **[디스플레이에 관하여: 포인트 vs. 픽셀]()**
->- **[Frame vs. Bounds]()**
+>- **[디스플레이에 관하여: 포인트 vs. 픽셀](https://github.com/undervineg/swift-vendingmachineapp/blob/vending-step7/md/point_and_pixel.md)**
+>- **[Frame vs. Bounds](https://github.com/undervineg/swift-vendingmachineapp/blob/vending-step7/md/frame_and_bounds.md)**

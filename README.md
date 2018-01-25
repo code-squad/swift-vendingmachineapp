@@ -684,7 +684,6 @@ private func drawText(_ segment: Segment, inside sector: Sector) {
 ```
 
 ### 학습 내용
->- **[코어 그래픽스로 파이 그래프 그리기]()**
->- **[UIView와 Core Graphics 개요]()**
->- **[View Drawing Cycle]()**
->- **[Arcs and Rotations]()**
+>- **[UIView와 Core Graphics 개요](https://github.com/undervineg/swift-vendingmachineapp/blob/vending-step8/md/uiview_and_coregraphics.md)**
+>- **[View Drawing Cycle](https://github.com/undervineg/swift-vendingmachineapp/blob/vending-step8/md/coordinate_in_ios.md)**
+>- **[Arcs and Rotations](https://github.com/undervineg/swift-vendingmachineapp/blob/vending-step8/md/arcs_and_rotations.md)**

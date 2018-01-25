@@ -25,29 +25,27 @@ class AdminViewController: UIViewController {
             selector: #selector(updateStockLabels),
             name: .didUpdateStock,
             object: nil)
-        // purchasedHistory의 카운트 증가 시, 차트 세그먼트 추가
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(addSegment),
             name: .didUpdateRecord,
             object: nil)
         // 초기 세그먼트 세팅.
-        pieGraphView.segments = machine?.purchasedList().map { generateSegment($0) }
+        pieGraphView.segments = machine?.purchasedCount().map({ (menu, count) -> Segment in
+            generateSegment(menu, count)
+        })
     }
 
     // 세그먼트 생성 함수.
-    private func generateSegment(_ info: HistoryInfo) -> Segment {
-        return Segment(
-            name: info.purchasedMenu.productName,
-            value: info.count,
-            color: UIColor.random)
+    private func generateSegment(_ menu: VendingMachine.Menu, _ purchasedCount: Int) -> Segment {
+        return Segment(name: menu.productName, value: purchasedCount, color: UIColor.random)
     }
 
     // 추가된 구매이력으로 세그먼트 추가.
     @objc func addSegment(_ notification: Notification) {
         guard let userInfo = notification.userInfo else { return }
         if let addedRecord = userInfo[UserInfoKeys.addedRecord] as? HistoryInfo {
-            let newSegment = generateSegment(addedRecord)
+            let newSegment = generateSegment(addedRecord.purchasedMenu, addedRecord.count)
             pieGraphView.segments?.append(newSegment)
         }
     }

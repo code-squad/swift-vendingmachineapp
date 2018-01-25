@@ -209,8 +209,7 @@
 
 ## 앱 생명주기와 객체 저장
 
-<img src="img/3_initial.png" width="45%">
-<img src="img/3_update.png" width="45%">
+<img src="img/3_initial.png" width="45%"><img src="img/3_update.png" width="45%">
 
 ### 저장 가능한 모델 구현: Codable 사용
 - 기존: NSObject, NSCoding 사용. class에만 적용 가능함

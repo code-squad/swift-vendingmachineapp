@@ -33,7 +33,6 @@ class AdminViewController: UIViewController {
             object: nil)
         // 초기 세그먼트 세팅.
         pieGraphView.segments = machine?.purchasedList().map { generateSegment($0) }
-        pieGraphView.setNeedsDisplay()
     }
 
     // 세그먼트 생성 함수.

@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct VendingMachineAdmin {
+struct VendingMachineAdmin: VendingMachineAdminProtocol {
     private var vendingMachine: VendingMachineProtocol
 
     init(vendingMachine: VendingMachineProtocol) {
@@ -32,6 +32,17 @@ struct VendingMachineAdmin {
 
     func getSalesHistory() -> Products {
         return vendingMachine.getSalesHistory()
+    }
+
+    func getProductSalesCounts() -> [Beverage: Int] {
+        var productCounts: [Beverage: Int] = [:]
+        for beverage in getSalesHistory() {
+            if productCounts[beverage] == nil {
+                productCounts[beverage] = 0
+            }
+            productCounts[beverage]! += 1
+        }
+        return productCounts
     }
 
     func getInventory() -> Inventory {

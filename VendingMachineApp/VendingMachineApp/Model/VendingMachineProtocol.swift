@@ -19,3 +19,7 @@ protocol VendingMachineProtocol {
     func buy(product: Beverage)
 
 }
+
+protocol VendingMachineAdminProtocol {
+    func getProductSalesCounts() -> [Beverage: Int]
+}

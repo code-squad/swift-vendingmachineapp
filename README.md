@@ -626,23 +626,24 @@ struct Segment: CustomStringConvertible {
 - Core Graphics 컨텍스트에 addArc()를 이용하여 부채꼴을 그린 후 색상을 채운 후 테두리선을 그림
 > Q. UIBezierPath로는 그려지지 않는다. (CALayer를 사용하지 않고) 어떻게 그려야 하나?
 
-	```swift   
-	private func drawGraph(_ segment: Segment, in sector: Sector) {
-	    let ctx = UIGraphicsGetCurrentContext()
-	    ctx?.addArc(
-	        center: sector.origin,
-	        radius: sector.radius,
-	        startAngle: sector.startAngle,
-	        endAngle: sector.endAngle,
-	        clockwise: false)
-	    // 테두리를 그릴 선.
-	    ctx?.addLine(to: sector.origin)
-	    ctx?.setFillColor(segment.color.cgColor)
-	    ctx?.setLineWidth(3)
-	    ctx?.setStrokeColor(UIColor.black.cgColor)
-	    ctx?.drawPath(using: .fillStroke)
-	}
-	```
+```swift   
+private func drawGraph(_ segment: Segment, in sector: Sector) {
+    let ctx = UIGraphicsGetCurrentContext()
+    ctx?.addArc(
+        center: sector.origin,
+        radius: sector.radius,
+        startAngle: sector.startAngle,
+        endAngle: sector.endAngle,
+        clockwise: false)
+    // 테두리를 그릴 선.
+    ctx?.addLine(to: sector.origin)
+    ctx?.setFillColor(segment.color.cgColor)
+    ctx?.setLineWidth(3)
+    ctx?.setStrokeColor(UIColor.black.cgColor)
+    ctx?.drawPath(using: .fillStroke)
+}
+```
+
 > **Q. addArc 시 clockwise를 false로 설정했는데 시계방향으로 진행된다. 이유는?**
 - 모든 세그먼트들을 돌면서 개별 파이를 그린다.
 - startAngle은 0(오른쪽)부터 시작하여 시계방향으로 진행된다.

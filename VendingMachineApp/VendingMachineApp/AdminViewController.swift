@@ -33,6 +33,7 @@ class AdminViewController: UIViewController {
             object: nil)
         // 초기 세그먼트 세팅.
         pieGraphView.segments = machine?.purchasedList().map { generateSegment($0) }
+        pieGraphView.setNeedsDisplay()
     }
 
     // 세그먼트 생성 함수.
@@ -40,9 +41,7 @@ class AdminViewController: UIViewController {
         return Segment(
             name: info.purchasedMenu.productName,
             value: info.count,
-            color: UIColor(red: CGFloat(info.count)*100/255,
-                           green: CGFloat(info.count)*100/255,
-                           blue: CGFloat(info.count)*100/255, alpha: 1))
+            color: UIColor.random)
     }
 
     // 추가된 구매이력으로 세그먼트 추가.
@@ -56,8 +55,7 @@ class AdminViewController: UIViewController {
 
     // 현재 뷰컨트롤러가 보일 시, 파이그래프 뷰 업데이트.
     override func viewWillAppear(_ animated: Bool) {
-        // PieGraphView 객체에 구매목록 업데이트
-        pieGraphView.setNeedsLayout()
+        pieGraphView.setNeedsDisplay()
     }
 
     // 재고 추가 버튼 클릭 시. V -> C -> M

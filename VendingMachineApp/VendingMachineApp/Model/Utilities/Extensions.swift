@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 // enum 내부 값을 배열로 가져오는 확장 기능.
 // [출처](https://theswiftdev.com/2017/10/12/swift-enum-all-values/)
@@ -63,4 +64,13 @@ extension Int {
         formatter.numberStyle = .decimal
         return formatter.string(from: self as NSNumber)
    }
+}
+
+extension UIColor {
+    static var random: UIColor {
+        let red = CGFloat(drand48())
+        let green = CGFloat(drand48())
+        let blue = CGFloat(drand48())
+        return UIColor(red: red, green: green, blue: blue, alpha: 1)
+    }
 }

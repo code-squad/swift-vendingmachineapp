@@ -549,3 +549,142 @@ class ProductImageMaker {
 ### 학습 내용
 >- **[디스플레이에 관하여: 포인트 vs. 픽셀](https://github.com/undervineg/swift-vendingmachineapp/blob/vending-step7/md/point_and_pixel.md)**
 >- **[Frame vs. Bounds](https://github.com/undervineg/swift-vendingmachineapp/blob/vending-step7/md/frame_and_bounds.md)**
+
+<br/>
+
+## 코어 그래픽스(Core Graphics)
+![](img/8_vendingmachine_v4.png)
+
+### AdminViewController 위 UIView: PieGraphView 클래스 추가
+- Main.storyboard에 UIView 추가: 400x400 크기 및 바탕색과 동일한 연회색으로 설정
+- UIView 클래스 추가: PieGraphView
+- 코드와 스토리보드 연결: Main.storyboard에 추가한 UIView의 Identity > Custom Class를 PieGraphView로 선택
+
+### Segment 구조체: PieGraphView에 쓰일 데이터 구조
+파이차트의 각 요소를 나타내는 데이터구조인 Segment 구조체 추가
+
+```swift
+struct Segment: CustomStringConvertible {
+    let name: String
+    let value: Int
+    let color: UIColor
+}
+```
+
+### VendingMachine 수정
+#### 음료별 총 판매개수 기록
+파이차트에 나타내기 위한 음료별 총 판매개수 기록
+- 판매기록 시 새 메뉴가 추가되면 AdminViewController에 알림 (새 메뉴가 판매되면 세그먼트 추가하기 위함)
+
+	```swift
+	private(set) var totalPurchasedCount: [VendingMachine.Menu:Int] {
+        didSet {
+            // 새 음료 종류가 추가된 경우에만 알림.
+            if oldValue.count < totalPurchasedCount.count {
+                // 가장 최근 구매이력 항목을 이용.
+                guard let lastRecord = purchasedHistory.last else { return }
+                NotificationCenter.default.post(
+                    name: .didUpdateRecord,
+                    object: nil,
+                    userInfo: [UserInfoKeys.addedRecord: lastRecord])
+            }
+        }
+    }
+	```
+
+### AdminViewContoller: 구매이력을 통한 Segment 생성 및 뷰 업데이트
+- viewDidLoad: 음료별 총 판매개수 데이터를 이용하여 Segment 객체 생성. pieGraphView 객체의 Segment 파라미터에 주입.
+
+	```swift
+	pieGraphView.segments = machine?.purchasedCount().map({ (menu, count) -> Segment in
+		Segment(name: menu.productName, value: purchasedCount, color: UIColor.random)
+	})
+	```
+
+- 음료별 총 판매개수 업데이트 시: 새 음료수의 판매개수가 업데이트되면 (노티를 받은 후) 새 세그먼트를 생성하여 pieGraphView에 주입.
+
+	```swift
+	@objc func addSegment(_ notification: Notification) {
+        guard let userInfo = notification.userInfo else { return }
+        if let addedRecord = userInfo[UserInfoKeys.addedRecord] as? HistoryInfo {
+            let newSegment = generateSegment(addedRecord.purchasedMenu, addedRecord.count)
+            pieGraphView.segments?.append(newSegment)
+        }
+    }
+	```
+
+- AdminViewController가 노출될 때, 즉 viewWillAppear인 시점에 pieGraphView도 새로 그린다.
+
+	```swift
+	override func viewWillAppear(_ animated: Bool) {
+        pieGraphView.setNeedsDisplay()
+    }
+	```
+
+### PieGraphView 구현
+#### 음료별 파이 그리기
+- Core Graphics 컨텍스트에 addArc()를 이용하여 부채꼴을 그린 후 색상을 채운 후 테두리선을 그림
+> Q. UIBezierPath로는 그려지지 않는다. (CALayer를 사용하지 않고) 어떻게 그려야 하나?
+
+	```swift   
+	private func drawGraph(_ segment: Segment, in sector: Sector) {
+	    let ctx = UIGraphicsGetCurrentContext()
+	    ctx?.addArc(
+	        center: sector.origin,
+	        radius: sector.radius,
+	        startAngle: sector.startAngle,
+	        endAngle: sector.endAngle,
+	        clockwise: false)
+	    // 테두리를 그릴 선.
+	    ctx?.addLine(to: sector.origin)
+	    ctx?.setFillColor(segment.color.cgColor)
+	    ctx?.setLineWidth(3)
+	    ctx?.setStrokeColor(UIColor.black.cgColor)
+	    ctx?.drawPath(using: .fillStroke)
+	}
+	```
+> **Q. addArc 시 clockwise를 false로 설정했는데 시계방향으로 진행된다. 이유는?**
+- 모든 세그먼트들을 돌면서 개별 파이를 그린다.
+- startAngle은 0(오른쪽)부터 시작하여 시계방향으로 진행된다.
+- 한 개 파이를 그린 후, 끝난 지점의 endAngle을 다시 startAngle에 대입하여 다음 파이를 그린다.
+
+	```swift
+	override func draw(_ rect: CGRect) {
+        let origin = CGPoint(x: bounds.width/2, y: bounds.height/2)
+        // 경계 부분이 잘릴 수 있으니 -6 정도로 여유를 준다.
+        let radius = CGFloat(min(bounds.width, bounds.height)/2-6)
+        var startAngle: CGFloat = 0
+        segments?.forEach { segment in
+            let endAngle: CGFloat = startAngle + radians(from: degree(of: segment.value))
+            let sector = Sector(origin: origin, radius: radius, startAngle: startAngle, endAngle: endAngle)
+            drawGraph(segment, in: sector)
+            drawText(segment, inside: sector)
+            startAngle = endAngle
+        }
+    }
+	```
+
+#### 파이 위에 텍스트 그리기
+- 텍스트 위치 계산: 파이 중간쯤에 텍스트를 그리기 위해 **반지름의 1/2**, **파이 각도의 2/3** 를 이용하여 **cos**, **sin** 공식으로 텍스트 위치 계산
+- 텍스트 중앙정렬: 글자 개수(length)가 아니라, CG로 나타낼 수 있는 실제 길이의 절반만큼 뺀다.
+	- **text.size().width** 사용
+
+```swift
+private func drawText(_ segment: Segment, inside sector: Sector) {
+    let text = NSMutableAttributedString(string: segment.name, attributes: textAttributes)
+    let halfAngle = sector.startAngle + (sector.endAngle-sector.startAngle)/2
+    // 절반은 너무 좁아서 반지름길이의 2/3 정도로 잡음.
+    let halfRadius = sector.radius*2/3
+    // 텍스트 중앙정렬을 위해 글자 실제길이의 절반을 왼쪽으로 옮김(-).
+    let centerOfSegment = CGPoint(
+        x: sector.origin.x+cos(halfAngle)*halfRadius-text.size().width/2,
+        y: sector.origin.y+sin(halfAngle)*halfRadius)
+    text.draw(at: centerOfSegment)
+}
+```
+
+### 학습 내용
+>- **[코어 그래픽스로 파이 그래프 그리기]()**
+>- **[UIView와 Core Graphics 개요]()**
+>- **[View Drawing Cycle]()**
+>- **[Arcs and Rotations]()**

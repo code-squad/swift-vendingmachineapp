@@ -22,7 +22,7 @@ class PieGraphView: UIView {
     }
 
     var textAttributes: [NSAttributedStringKey: Any]? {
-        return [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 15, weight: .init(rawValue: 5)),
+        return [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 20, weight: .init(rawValue: 5)),
                 NSAttributedStringKey.foregroundColor: UIColor.black]
     }
 

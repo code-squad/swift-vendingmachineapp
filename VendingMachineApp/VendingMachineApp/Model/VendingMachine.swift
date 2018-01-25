@@ -154,6 +154,11 @@ extension VendingMachine: Managable {
     func purchasedList() -> [HistoryInfo] {
         return stockManager.purchasedHistory
     }
+
+    // 음료수들의 총 판매개수 반환.
+    func purchasedCount() -> [Menu:Int] {
+        return stockManager.totalPurchasedCount
+    }
 }
 
 extension VendingMachine: UserServable {

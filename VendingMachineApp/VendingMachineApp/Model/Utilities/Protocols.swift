@@ -21,6 +21,8 @@ protocol Managable {
     func purchasedList() -> [HistoryInfo]
 
     func checkTheStock() -> [VendingMachine.Menu:Stock]
+
+    func purchasedCount() -> [VendingMachine.Menu:Int]
 }
 
 protocol UserServable {

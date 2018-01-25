@@ -20,9 +20,18 @@ final class StockManager {
     // 구입이력 기록.
     private(set) var purchasedHistory: [HistoryInfo] {
         didSet {
+            // 해당 음료의 총 구입개수 업데이트
             guard let lastRecord = purchasedHistory.last else { return }
-            // 새 음료수가 추가된 경우에만 알림
-            if oldValue.count < purchasedHistory.count {
+            let sum = sumPurchasedCount(of: lastRecord.purchasedMenu)
+            totalPurchasedCount.updateValue(sum, forKey: lastRecord.purchasedMenu)
+        }
+    }
+    private(set) var totalPurchasedCount: [VendingMachine.Menu:Int] {
+        didSet {
+            // 새 음료 종류가 추가된 경우에만 알림.
+            if oldValue.count < totalPurchasedCount.count {
+                // 가장 최근 구매이력 항목을 이용.
+                guard let lastRecord = purchasedHistory.last else { return }
                 NotificationCenter.default.post(
                     name: .didUpdateRecord,
                     object: nil,
@@ -34,6 +43,7 @@ final class StockManager {
         self.machine = machine
         self.stock = [:]
         self.purchasedHistory = []
+        self.totalPurchasedCount = [:]
     }
 
     // 인벤토리 상태에 따라 장부 업데이트.
@@ -75,15 +85,22 @@ final class StockManager {
     // 구입 이력 생성.
     func recordPurchasedHistory(_ recentChanged: Beverage, isPurchased: Bool) {
         // 음료수가 구매된 경우에만 기록
-        guard isPurchased else { return }
-        if let lastRecord = purchasedHistory.last, lastRecord.purchasedMenu == recentChanged.menuType {
-            lastRecord.updateCount(by: 1)
-        } else {
+        if isPurchased {
             let newInfo = HistoryInfo(
                 purchasingDate: Date(timeIntervalSinceNow: 0),
                 purchasedMenu: recentChanged.menuType,
                 count: 1)
             purchasedHistory.append(newInfo)
+        }
+    }
+
+    // 특정 음료수의 총 판매량
+    private func sumPurchasedCount(of menu: VendingMachine.Menu) -> Int {
+        return purchasedHistory.reduce(0) {
+            if $1.purchasedMenu == menu {
+                return $0 + $1.count
+            }
+            return 0
         }
     }
 
@@ -93,16 +110,19 @@ extension StockManager: Codable {
     enum CodingKeys: String, CodingKey {
         case stock
         case purchasedHistory
+        case purchasedCount
     }
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(stock, forKey: .stock)
         try container.encode(purchasedHistory, forKey: .purchasedHistory)
+        try container.encode(totalPurchasedCount, forKey: .purchasedCount)
     }
     convenience init(from decoder: Decoder) throws {
         self.init(nil)
         let values = try decoder.container(keyedBy: CodingKeys.self)
         self.stock = try values.decode([VendingMachine.Menu: Stock].self, forKey: .stock)
         self.purchasedHistory = try values.decode([HistoryInfo].self, forKey: .purchasedHistory)
+        self.totalPurchasedCount = try values.decode([VendingMachine.Menu: Int].self, forKey: .purchasedCount)
     }
 }

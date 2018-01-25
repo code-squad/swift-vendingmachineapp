@@ -12,8 +12,8 @@ class PieGraphView: UIView {
     private var graphRatio = 1.0
     private var totalCount = 0
 
-    var beverageCounts: [Beverage: Int] = [:] {
-        didSet { totalCount = beverageCounts.values.reduce(0, +) }
+    var admin: VendingMachineAdminProtocol? = nil {
+        didSet { totalCount = (admin?.getProductSalesCounts().values.reduce(0, +))! }
     }
 
     enum States {
@@ -32,7 +32,7 @@ class PieGraphView: UIView {
         guard let context = UIGraphicsGetCurrentContext() else { return }
         switch state {
         case .none, .moved, .ended:
-            drawPieChart(context: context, beverageCounts: beverageCounts)
+            drawPieChart(context: context, productCounts: (admin?.getProductSalesCounts())!)
         case .began:
             drawBaseBlackCircle(context: context)
         }
@@ -43,9 +43,9 @@ class PieGraphView: UIView {
         state = .none
     }
 
-    private func drawPieChart(context: CGContext, beverageCounts: [Beverage: Int]) {
+    private func drawPieChart(context: CGContext, productCounts: [Beverage: Int]) {
         var startAngle: CGFloat = 0
-        for (key, value) in beverageCounts {
+        for (key, value) in (admin?.getProductSalesCounts())! {
             let endAngle = startAngle + 2 * .pi * (CGFloat(value) / CGFloat(totalCount))
             drawEachSegment(context: context, key: key, startAngle: startAngle, endAngle: endAngle)
             startAngle = endAngle

@@ -30,14 +30,7 @@ class AdminViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        var beverageCounts: [Beverage: Int] = [:]
-        for beverage in admin.getSalesHistory() {
-            if beverageCounts[beverage] == nil {
-                beverageCounts[beverage] = 0
-            }
-            beverageCounts[beverage]! += 1
-        }
-        pieGraphView.beverageCounts = beverageCounts
+        pieGraphView.admin = admin
     }
 
     override func motionBegan(_ motion: UIEventSubtype, with event: UIEvent?) {

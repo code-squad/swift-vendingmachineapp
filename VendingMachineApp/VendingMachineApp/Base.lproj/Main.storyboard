@@ -769,15 +769,20 @@
                                     <segue destination="eOK-uZ-2J7" kind="unwind" unwindAction="dismiss:" id="TpE-Q8-r6A"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dph-mT-Skt" customClass="PieGraphView" customModule="VendingMachineApp" customModuleProvider="target">
-                                <rect key="frame" x="619" y="323" width="400" height="400"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dph-mT-Skt" customClass="PieGraphView" customModule="VendingMachineApp" customModuleProvider="target">
+                                <rect key="frame" x="537" y="266" width="500" height="500"/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="500" id="Ovu-Az-H8h"/>
+                                    <constraint firstAttribute="width" constant="500" id="kxA-Jx-4on"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="659-FX-f6n" firstAttribute="top" secondItem="jt6-Lx-Rgr" secondAttribute="top" constant="20" id="0wb-cp-BXx"/>
+                            <constraint firstItem="jt6-Lx-Rgr" firstAttribute="trailing" secondItem="dph-mT-Skt" secondAttribute="trailing" constant="75" id="8ko-zr-avC"/>
+                            <constraint firstItem="jt6-Lx-Rgr" firstAttribute="bottom" secondItem="dph-mT-Skt" secondAttribute="bottom" constant="68" id="DIk-Z9-8wI"/>
                             <constraint firstItem="jt6-Lx-Rgr" firstAttribute="trailing" secondItem="659-FX-f6n" secondAttribute="trailing" constant="40" id="J03-0S-CUK"/>
                             <constraint firstItem="659-FX-f6n" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="5aS-Mv-Cca" secondAttribute="leading" constant="20" symbolic="YES" id="NxW-ZM-bqD"/>
                             <constraint firstItem="giT-tt-rm3" firstAttribute="leading" secondItem="jt6-Lx-Rgr" secondAttribute="leading" constant="30" id="a7s-Ig-0Qr"/>

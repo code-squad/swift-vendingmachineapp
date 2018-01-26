@@ -17,11 +17,11 @@ class PieGraphView: UIView {
         }
     }
 
-    var sum: Int? {
+    private var sum: Int? {
         return segments?.reduce(0, { $0 + $1.value })
     }
 
-    var textAttributes: [NSAttributedStringKey: Any]? {
+    private var textAttributes: [NSAttributedStringKey: Any]? {
         return [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 20, weight: .init(rawValue: 5)),
                 NSAttributedStringKey.foregroundColor: UIColor.black]
     }

@@ -623,7 +623,9 @@ struct Segment: CustomStringConvertible {
 ### PieGraphView 구현
 #### 음료별 파이 그리기
 - Core Graphics 컨텍스트에 addArc()를 이용하여 부채꼴을 그린 후 색상을 채운 후 테두리선을 그림
-> Q. UIBezierPath로는 그려지지 않는다. (CALayer를 사용하지 않고) 어떻게 그려야 하나?
+
+>- Q. 처음에 UIBezierPath로 그리려고 했는데 세그먼트들이 그려지지 않고 하나의 원으로 그려진다. 왜 이러는 걸까?
+>- A. 어쩌면 path가 close되지 않아서 fill 명령에 의해서 가득 채워지지 않았나 의심해볼 수 있다.
 
 ```swift   
 private func drawGraph(_ segment: Segment, in sector: Sector) {
@@ -643,7 +645,10 @@ private func drawGraph(_ segment: Segment, in sector: Sector) {
 }
 ```
 
-> **Q. addArc 시 clockwise를 false로 설정했는데 시계방향으로 진행된다. 이유는?**
+>- Q. addArc 시, clockwise를 false로 했는데 시계방향으로 그려진다. UIKit하고 좌표시스템이 달라서 그런걸까? CTM 변환도 해보았는데 안된다.
+>- A. **Core Graphics 개념이 OS X를 기준으로 만들어져서 좌측 아래가 origin** 원점이라고 가정하고 설명이 되어있다. (우리가 수학에서 배운 **1 사분면**)
+**iOS는 Y축이 0을 기준으로 뒤집어져**(flipped - 수학에서 **4사분면** 인데 **Y값이 증가**하죠) 되어 있다보니 시계/반시계 동작이 반대로 동작합니다.
+
 - 모든 세그먼트들을 돌면서 개별 파이를 그린다.
 - startAngle은 0(오른쪽)부터 시작하여 시계방향으로 진행된다.
 - 한 개 파이를 그린 후, 끝난 지점의 endAngle을 다시 startAngle에 대입하여 다음 파이를 그린다.
@@ -682,6 +687,13 @@ private func drawText(_ segment: Segment, inside sector: Sector) {
     text.draw(at: centerOfSegment)
 }
 ```
+
+### Feedback
+#### setNeedsDisplay와 draw(rect:) 함수의 관계는 어떻게 되나?
+- setNeedsDisplay()를 호출하면 draw() 함수가 호출되어 view가 갱신된다.
+
+####draw(rect:) 함수는 override 한 것인데 super.draw()를 호출하지 않고 있다. 이렇게 해도 되는걸까? 안되는걸까?
+- **UIView를 직접 서브클래싱 한 경우**에는 안 써도 되지만, **다른 뷰 클래스를 서브클래싱한 경우**라면 super를 호출해야 한다.
 
 ### 학습 내용
 >- **[UIView와 Core Graphics 개요](https://github.com/undervineg/swift-vendingmachineapp/blob/vending-step8/md/uiview_and_coregraphics.md)**

@@ -8,18 +8,13 @@
 
 import UIKit
 
-class AdminViewController: UIViewController {
+class AdminViewController: UIViewController, PieGraphDataSource {
     var machine: Managable?
     @IBOutlet var addStockButtons: [UIButton]!
     @IBOutlet var stockLabels: [UILabel]!
     @IBOutlet weak var pieGraphView: PieGraphView! {
         didSet {
-            // 초기 세그먼트 세팅.
-            pieGraphView.segments = machine?.purchasedCounts().map({ (menu, count) -> Segment in
-                generateSegment(menu, count)
-            })
-            // 초기 터치상태 세팅.
-            pieGraphView.status = UITouchPhase.stationary
+            pieGraphView.dataSource = self
             // 쉐이크 제스처 시, pieGraphView가 first responder가 됨
             pieGraphView.becomeFirstResponder()
         }
@@ -43,19 +38,33 @@ class AdminViewController: UIViewController {
             object: nil)
     }
 
+    func initialSegments() -> [Segment]? {
+        return machine?.purchasedCounts().map({ (menu, count) -> Segment in
+            generateSegment(menu, count)
+        })
+    }
+
+    func newSegment() -> Segment? {
+        return willBeAdded
+    }
+
+    func totalValues() -> Int? {
+        // 세그먼트 추가될 시 총 판매개수도 함께 세팅.
+        return machine?.totalPurchasedCount
+    }
+
     // 세그먼트 생성 함수.
     private func generateSegment(_ menu: VendingMachine.Menu, _ purchasedCount: Int) -> Segment {
-        // 세그먼트 추가될 시 총 판매개수도 함께 세팅.
-        pieGraphView.totalSegmentValues(machine?.totalPurchasedCount)
         return Segment(name: menu.productName, value: purchasedCount, color: UIColor.random)
     }
+
+    private var willBeAdded: Segment?
 
     // 추가된 구매이력으로 세그먼트 추가.
     @objc func addSegment(_ notification: Notification) {
         guard let userInfo = notification.userInfo else { return }
         if let addedRecord = userInfo[UserInfoKeys.addedRecord] as? HistoryInfo {
-            let newSegment = generateSegment(addedRecord.purchasedMenu, addedRecord.count)
-            pieGraphView.segments?.append(newSegment)
+            self.willBeAdded = generateSegment(addedRecord.purchasedMenu, addedRecord.count)
         }
     }
 

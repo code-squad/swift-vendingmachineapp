@@ -9,6 +9,14 @@
 import UIKit
 
 class PieGraphView: UIView {
+    var dataSource: PieGraphDataSource? {
+        didSet {
+            self.segments = dataSource?.initialSegments()
+            originalFrame = frame
+            status = UITouchPhase.stationary
+        }
+    }
+
     // 원점. 프레임 크기와 상관없이 무조건 뷰의 중점.
     private var origin: CGPoint {
         return CGPoint(x: bounds.width/2, y: bounds.height/2)
@@ -18,17 +26,18 @@ class PieGraphView: UIView {
         return CGFloat(min(bounds.width, bounds.height)/2-6)
     }
     // AdminViewController에서 의존성 주입.
-    var segments: [Segment]? {
+    private var segments: [Segment]? {
         didSet {
+            guard let dataSource = dataSource, let newSeg = dataSource.newSegment() else { return }
+            segments?.append(newSeg)
             // 세그먼트에 변화가 생기면 뷰 업데이트.
             self.setNeedsDisplay()
         }
     }
 
     // 모든 세그먼트들의 합 (총 구매 개수)
-    private var sum: Int?
-    func totalSegmentValues(_ sum: Int?) {
-        self.sum = sum
+    private var sum: Int? {
+        return dataSource?.totalValues()
     }
 
     private var textAttributes: [NSAttributedStringKey: Any] {
@@ -67,7 +76,7 @@ class PieGraphView: UIView {
         context?.drawPath(using: .fill)
     }
 
-    var status: UITouchPhase?
+    private var status: UITouchPhase?
     private var beganPosition: CGPoint?
 
     // 터치 시작 - 원점으로부터 터치 위치까지의 거리 저장. 그래프를 검은색 원으로 변경하여 표시.
@@ -123,20 +132,14 @@ class PieGraphView: UIView {
         return true
     }
 
-    // 뷰 크기 변경 전 원본 프레임 저장 (복귀 위함)
-    var originalFrame: CGRect
-    required init?(coder aDecoder: NSCoder) {
-        originalFrame = CGRect()
-        super.init(coder: aDecoder)
-        originalFrame = frame
-    }
+    // 원본 프레임 저장
+    private var originalFrame: CGRect?
 
     // 쉐이크 모션 끝날 시, 설정값들을 리셋하여 기본 그래프 표시.
     override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
         if motion == .motionShake {
-//            self.clearsContextBeforeDrawing = true
             status = .stationary
-            frame = originalFrame
+            frame = originalFrame ?? frame
             setNeedsDisplay()
         }
     }

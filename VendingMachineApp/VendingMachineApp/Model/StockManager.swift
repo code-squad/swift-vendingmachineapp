@@ -23,13 +23,15 @@ final class StockManager {
             // 해당 음료의 총 구입개수 업데이트
             guard let lastRecord = purchasedHistory.last else { return }
             let sum = sumPurchasedCount(of: lastRecord.purchasedMenu)
-            totalPurchasedCount.updateValue(sum, forKey: lastRecord.purchasedMenu)
+            purchasedCounts.updateValue(sum, forKey: lastRecord.purchasedMenu)
+            totalPurchasedCount += lastRecord.count
         }
     }
-    private(set) var totalPurchasedCount: [VendingMachine.Menu:Int] {
+    private(set) var totalPurchasedCount: Int
+    private(set) var purchasedCounts: [VendingMachine.Menu:Int] {
         didSet {
             // 새 음료 종류가 추가된 경우에만 알림.
-            if oldValue.count < totalPurchasedCount.count {
+            if oldValue.count < purchasedCounts.count {
                 // 가장 최근 구매이력 항목을 이용.
                 guard let lastRecord = purchasedHistory.last else { return }
                 NotificationCenter.default.post(
@@ -43,7 +45,8 @@ final class StockManager {
         self.machine = machine
         self.stock = [:]
         self.purchasedHistory = []
-        self.totalPurchasedCount = [:]
+        self.purchasedCounts = [:]
+        self.totalPurchasedCount = 0
     }
 
     // 인벤토리 상태에 따라 장부 업데이트.
@@ -111,18 +114,21 @@ extension StockManager: Codable {
         case stock
         case purchasedHistory
         case purchasedCount
+        case totalPurchasedCount
     }
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(stock, forKey: .stock)
         try container.encode(purchasedHistory, forKey: .purchasedHistory)
-        try container.encode(totalPurchasedCount, forKey: .purchasedCount)
+        try container.encode(purchasedCounts, forKey: .purchasedCount)
+        try container.encode(totalPurchasedCount, forKey: .totalPurchasedCount)
     }
     convenience init(from decoder: Decoder) throws {
         self.init(nil)
         let values = try decoder.container(keyedBy: CodingKeys.self)
         self.stock = try values.decode([VendingMachine.Menu: Stock].self, forKey: .stock)
         self.purchasedHistory = try values.decode([HistoryInfo].self, forKey: .purchasedHistory)
-        self.totalPurchasedCount = try values.decode([VendingMachine.Menu: Int].self, forKey: .purchasedCount)
+        self.purchasedCounts = try values.decode([VendingMachine.Menu: Int].self, forKey: .purchasedCount)
+        self.totalPurchasedCount = try values.decode(Int.self, forKey: .totalPurchasedCount)
     }
 }

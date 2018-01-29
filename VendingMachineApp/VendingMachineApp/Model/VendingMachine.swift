@@ -156,7 +156,11 @@ extension VendingMachine: Managable {
     }
 
     // 음료수들의 총 판매개수 반환.
-    func purchasedCount() -> [Menu:Int] {
+    func purchasedCounts() -> [Menu:Int] {
+        return stockManager.purchasedCounts
+    }
+
+    var totalPurchasedCount: Int {
         return stockManager.totalPurchasedCount
     }
 }

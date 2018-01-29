@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PieGraphView: UIView {
+class PieGraphView: UIView, TouchableGraphView {
     // 원점
     private var origin: CGPoint {
         return CGPoint(x: bounds.width/2, y: bounds.height/2)
@@ -32,11 +32,11 @@ class PieGraphView: UIView {
         self.initialFrameSize = frame.size
     }
     // 모든 세그먼트들의 합 (총 구매 개수)
-    private var sum: Int? {
-        return segments?.reduce(0, {
-            return $0 + $1.value
-        })
+    private var sum: Int?
+    func totalSegmentValues(_ sum: Int?) {
+        self.sum = sum
     }
+
     private var textAttributes: [NSAttributedStringKey: Any] {
         return [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 20, weight: .init(rawValue: 5)),
                 NSAttributedStringKey.foregroundColor: UIColor.black]
@@ -74,12 +74,6 @@ class PieGraphView: UIView {
         context?.drawPath(using: .fill)
     }
 
-    enum TouchStatus {
-        case none
-        case began
-        case moved
-        case ended
-    }
     var status: TouchStatus = .none
     private var beganRadiusFromOrigin: CGFloat = 0
     private var movedRadius: CGFloat? {

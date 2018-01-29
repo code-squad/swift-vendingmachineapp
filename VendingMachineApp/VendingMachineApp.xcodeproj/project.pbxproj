@@ -11,7 +11,7 @@
 		EE22981B20033D86005DF200 /* HistoryInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2297FD20033D85005DF200 /* HistoryInfo.swift */; };
 		EE22981C20033D86005DF200 /* StockManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2297FE20033D85005DF200 /* StockManager.swift */; };
 		EE22981D20033D86005DF200 /* EnumExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE22980020033D85005DF200 /* EnumExtensions.swift */; };
-		EE22981E20033D86005DF200 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE22980120033D85005DF200 /* Protocols.swift */; };
+		EE22981E20033D86005DF200 /* UserServableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE22980120033D85005DF200 /* UserServableProtocol.swift */; };
 		EE22981F20033D86005DF200 /* CustomIterator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE22980220033D85005DF200 /* CustomIterator.swift */; };
 		EE22982120033D86005DF200 /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE22980420033D85005DF200 /* VendingMachine.swift */; };
 		EE22982220033D86005DF200 /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE22980620033D86005DF200 /* Beverage.swift */; };
@@ -33,6 +33,10 @@
 		EE22EDC4201EB2080084F399 /* CGContextExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE22EDC3201EB2080084F399 /* CGContextExtension.swift */; };
 		EE22EDC6201EB24D0084F399 /* AttributedStringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE22EDC5201EB24D0084F399 /* AttributedStringExtension.swift */; };
 		EE22EDC8201EB2800084F399 /* CGPointExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE22EDC7201EB2800084F399 /* CGPointExtension.swift */; };
+		EE22EDCA201F02F30084F399 /* TouchStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE22EDC9201F02F30084F399 /* TouchStatus.swift */; };
+		EE22EDCC201F03520084F399 /* ManagableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE22EDCB201F03520084F399 /* ManagableProtocol.swift */; };
+		EE22EDCE201F038B0084F399 /* EnumCollectionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE22EDCD201F038B0084F399 /* EnumCollectionProtocol.swift */; };
+		EE22EDD0201F03A90084F399 /* TouchableGraphViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE22EDCF201F03A90084F399 /* TouchableGraphViewProtocol.swift */; };
 		EE33E0CF2016D2750021773F /* CoffeeMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE33E0CE2016D2750021773F /* CoffeeMilk.swift */; };
 		EE33E0D12016DC430021773F /* ProductImageViewMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE33E0D02016DC430021773F /* ProductImageViewMaker.swift */; };
 		EE4D6B93200A73EC00B9A662 /* NotificationStatics.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4D6B92200A73EC00B9A662 /* NotificationStatics.swift */; };
@@ -65,7 +69,7 @@
 		EE2297FD20033D85005DF200 /* HistoryInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryInfo.swift; sourceTree = "<group>"; };
 		EE2297FE20033D85005DF200 /* StockManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockManager.swift; sourceTree = "<group>"; };
 		EE22980020033D85005DF200 /* EnumExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnumExtensions.swift; sourceTree = "<group>"; };
-		EE22980120033D85005DF200 /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		EE22980120033D85005DF200 /* UserServableProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserServableProtocol.swift; sourceTree = "<group>"; };
 		EE22980220033D85005DF200 /* CustomIterator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomIterator.swift; sourceTree = "<group>"; };
 		EE22980420033D85005DF200 /* VendingMachine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VendingMachine.swift; sourceTree = "<group>"; };
 		EE22980620033D86005DF200 /* Beverage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Beverage.swift; sourceTree = "<group>"; };
@@ -87,6 +91,10 @@
 		EE22EDC3201EB2080084F399 /* CGContextExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGContextExtension.swift; sourceTree = "<group>"; };
 		EE22EDC5201EB24D0084F399 /* AttributedStringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedStringExtension.swift; sourceTree = "<group>"; };
 		EE22EDC7201EB2800084F399 /* CGPointExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGPointExtension.swift; sourceTree = "<group>"; };
+		EE22EDC9201F02F30084F399 /* TouchStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchStatus.swift; sourceTree = "<group>"; };
+		EE22EDCB201F03520084F399 /* ManagableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagableProtocol.swift; sourceTree = "<group>"; };
+		EE22EDCD201F038B0084F399 /* EnumCollectionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumCollectionProtocol.swift; sourceTree = "<group>"; };
+		EE22EDCF201F03A90084F399 /* TouchableGraphViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchableGraphViewProtocol.swift; sourceTree = "<group>"; };
 		EE33E0CE2016D2750021773F /* CoffeeMilk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoffeeMilk.swift; sourceTree = "<group>"; };
 		EE33E0D02016DC430021773F /* ProductImageViewMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductImageViewMaker.swift; sourceTree = "<group>"; };
 		EE4D6B92200A73EC00B9A662 /* NotificationStatics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationStatics.swift; sourceTree = "<group>"; };
@@ -145,12 +153,13 @@
 			isa = PBXGroup;
 			children = (
 				EE22EDC2201EB18F0084F399 /* Extensions */,
-				EE22980120033D85005DF200 /* Protocols.swift */,
+				EE22EDD1201F04060084F399 /* Protocols */,
 				EE22980220033D85005DF200 /* CustomIterator.swift */,
 				EEAA0851200C7FE00057C261 /* ImageToDataMapper.swift */,
 				EEAA0858200CA8780057C261 /* UnitFormatter.swift */,
 				EE4D6B92200A73EC00B9A662 /* NotificationStatics.swift */,
 				EE33E0D02016DC430021773F /* ProductImageViewMaker.swift */,
+				EE22EDC9201F02F30084F399 /* TouchStatus.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -212,6 +221,17 @@
 				EE22EDC7201EB2800084F399 /* CGPointExtension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		EE22EDD1201F04060084F399 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				EE22EDCB201F03520084F399 /* ManagableProtocol.swift */,
+				EE22980120033D85005DF200 /* UserServableProtocol.swift */,
+				EE22EDCF201F03A90084F399 /* TouchableGraphViewProtocol.swift */,
+				EE22EDCD201F038B0084F399 /* EnumCollectionProtocol.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		EE4D6B752008774000B9A662 /* img */ = {
@@ -432,11 +452,12 @@
 				EE22982220033D86005DF200 /* Beverage.swift in Sources */,
 				EE22981D20033D86005DF200 /* EnumExtensions.swift in Sources */,
 				EE8D800620175C0800F8C0D7 /* AdminViewController.swift in Sources */,
+				EE22EDCC201F03520084F399 /* ManagableProtocol.swift in Sources */,
 				EE22EDBE201EB1430084F399 /* IntExtension.swift in Sources */,
 				EEAA0852200C7FE00057C261 /* ImageToDataMapper.swift in Sources */,
 				EE33E0CF2016D2750021773F /* CoffeeMilk.swift in Sources */,
 				EECEBFDA2003314000B19DD3 /* UserViewController.swift in Sources */,
-				EE22981E20033D86005DF200 /* Protocols.swift in Sources */,
+				EE22981E20033D86005DF200 /* UserServableProtocol.swift in Sources */,
 				EE22982D20033D86005DF200 /* GeorgiaCoffee.swift in Sources */,
 				EE22EDC0201EB15F0084F399 /* UIColorExtension.swift in Sources */,
 				EE22982E20033D86005DF200 /* CantataCoffee.swift in Sources */,
@@ -452,11 +473,14 @@
 				EE22EDC6201EB24D0084F399 /* AttributedStringExtension.swift in Sources */,
 				EE22981C20033D86005DF200 /* StockManager.swift in Sources */,
 				EE22981B20033D86005DF200 /* HistoryInfo.swift in Sources */,
+				EE22EDD0201F03A90084F399 /* TouchableGraphViewProtocol.swift in Sources */,
 				EE22982B20033D86005DF200 /* BeverageData.swift in Sources */,
 				EE22982C20033D86005DF200 /* TopCoffee.swift in Sources */,
+				EE22EDCA201F02F30084F399 /* TouchStatus.swift in Sources */,
 				EE22EDC8201EB2800084F399 /* CGPointExtension.swift in Sources */,
 				EECEBFD82003314000B19DD3 /* AppDelegate.swift in Sources */,
 				EE33E0D12016DC430021773F /* ProductImageViewMaker.swift in Sources */,
+				EE22EDCE201F038B0084F399 /* EnumCollectionProtocol.swift in Sources */,
 				EE22982820033D86005DF200 /* SoftDrink.swift in Sources */,
 				EE22982920033D86005DF200 /* FantaSoftDrink.swift in Sources */,
 				EE22EDBC201EB11F0084F399 /* DictionaryExtension.swift in Sources */,

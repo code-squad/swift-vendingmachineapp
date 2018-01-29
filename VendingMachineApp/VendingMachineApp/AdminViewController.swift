@@ -15,7 +15,7 @@ class AdminViewController: UIViewController {
     @IBOutlet weak var pieGraphView: PieGraphView! {
         didSet {
             // 초기 세그먼트 세팅.
-            pieGraphView.segments = machine?.purchasedCount().map({ (menu, count) -> Segment in
+            pieGraphView.segments = machine?.purchasedCounts().map({ (menu, count) -> Segment in
                 generateSegment(menu, count)
             })
             pieGraphView.status = .none
@@ -58,6 +58,7 @@ class AdminViewController: UIViewController {
 
     // 세그먼트 생성 함수.
     private func generateSegment(_ menu: VendingMachine.Menu, _ purchasedCount: Int) -> Segment {
+        pieGraphView.totalSegmentValues(machine?.totalPurchasedCount)
         return Segment(name: menu.productName, value: purchasedCount, color: UIColor.random)
     }
 

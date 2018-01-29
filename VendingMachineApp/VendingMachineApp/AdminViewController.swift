@@ -18,7 +18,8 @@ class AdminViewController: UIViewController {
             pieGraphView.segments = machine?.purchasedCounts().map({ (menu, count) -> Segment in
                 generateSegment(menu, count)
             })
-            pieGraphView.status = .none
+            // 초기 터치상태 세팅.
+            pieGraphView.status = UITouchPhase.stationary
             // 쉐이크 제스처 시, pieGraphView가 first responder가 됨
             pieGraphView.becomeFirstResponder()
         }
@@ -40,24 +41,11 @@ class AdminViewController: UIViewController {
             selector: #selector(addSegment(_:)),
             name: .didUpdateRecord,
             object: nil)
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(resizePieGraph(_:)),
-            name: .didUpdatePieSize,
-            object: nil)
-    }
-
-    // 파이그래프 크기가 변경되면 파이그래프 '뷰' 크기도 변경
-    @objc private func resizePieGraph(_ notification: Notification) {
-        guard let userInfo = notification.userInfo else { return }
-        if let newPieRadius = userInfo[UserInfoKeys.newPieRadius] as? CGFloat {
-            pieGraphView.bounds.size.width = newPieRadius*2+6
-            pieGraphView.bounds.size.height = newPieRadius*2+6
-        }
     }
 
     // 세그먼트 생성 함수.
     private func generateSegment(_ menu: VendingMachine.Menu, _ purchasedCount: Int) -> Segment {
+        // 세그먼트 추가될 시 총 판매개수도 함께 세팅.
         pieGraphView.totalSegmentValues(machine?.totalPurchasedCount)
         return Segment(name: menu.productName, value: purchasedCount, color: UIColor.random)
     }

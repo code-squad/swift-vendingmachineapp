@@ -33,10 +33,8 @@
 		EE22EDC4201EB2080084F399 /* CGContextExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE22EDC3201EB2080084F399 /* CGContextExtension.swift */; };
 		EE22EDC6201EB24D0084F399 /* AttributedStringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE22EDC5201EB24D0084F399 /* AttributedStringExtension.swift */; };
 		EE22EDC8201EB2800084F399 /* CGPointExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE22EDC7201EB2800084F399 /* CGPointExtension.swift */; };
-		EE22EDCA201F02F30084F399 /* TouchStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE22EDC9201F02F30084F399 /* TouchStatus.swift */; };
 		EE22EDCC201F03520084F399 /* ManagableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE22EDCB201F03520084F399 /* ManagableProtocol.swift */; };
 		EE22EDCE201F038B0084F399 /* EnumCollectionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE22EDCD201F038B0084F399 /* EnumCollectionProtocol.swift */; };
-		EE22EDD0201F03A90084F399 /* TouchableGraphViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE22EDCF201F03A90084F399 /* TouchableGraphViewProtocol.swift */; };
 		EE33E0CF2016D2750021773F /* CoffeeMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE33E0CE2016D2750021773F /* CoffeeMilk.swift */; };
 		EE33E0D12016DC430021773F /* ProductImageViewMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE33E0D02016DC430021773F /* ProductImageViewMaker.swift */; };
 		EE4D6B93200A73EC00B9A662 /* NotificationStatics.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4D6B92200A73EC00B9A662 /* NotificationStatics.swift */; };
@@ -91,10 +89,8 @@
 		EE22EDC3201EB2080084F399 /* CGContextExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGContextExtension.swift; sourceTree = "<group>"; };
 		EE22EDC5201EB24D0084F399 /* AttributedStringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedStringExtension.swift; sourceTree = "<group>"; };
 		EE22EDC7201EB2800084F399 /* CGPointExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGPointExtension.swift; sourceTree = "<group>"; };
-		EE22EDC9201F02F30084F399 /* TouchStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchStatus.swift; sourceTree = "<group>"; };
 		EE22EDCB201F03520084F399 /* ManagableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagableProtocol.swift; sourceTree = "<group>"; };
 		EE22EDCD201F038B0084F399 /* EnumCollectionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumCollectionProtocol.swift; sourceTree = "<group>"; };
-		EE22EDCF201F03A90084F399 /* TouchableGraphViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchableGraphViewProtocol.swift; sourceTree = "<group>"; };
 		EE33E0CE2016D2750021773F /* CoffeeMilk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoffeeMilk.swift; sourceTree = "<group>"; };
 		EE33E0D02016DC430021773F /* ProductImageViewMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductImageViewMaker.swift; sourceTree = "<group>"; };
 		EE4D6B92200A73EC00B9A662 /* NotificationStatics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationStatics.swift; sourceTree = "<group>"; };
@@ -159,7 +155,6 @@
 				EEAA0858200CA8780057C261 /* UnitFormatter.swift */,
 				EE4D6B92200A73EC00B9A662 /* NotificationStatics.swift */,
 				EE33E0D02016DC430021773F /* ProductImageViewMaker.swift */,
-				EE22EDC9201F02F30084F399 /* TouchStatus.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -228,7 +223,6 @@
 			children = (
 				EE22EDCB201F03520084F399 /* ManagableProtocol.swift */,
 				EE22980120033D85005DF200 /* UserServableProtocol.swift */,
-				EE22EDCF201F03A90084F399 /* TouchableGraphViewProtocol.swift */,
 				EE22EDCD201F038B0084F399 /* EnumCollectionProtocol.swift */,
 			);
 			path = Protocols;
@@ -473,10 +467,8 @@
 				EE22EDC6201EB24D0084F399 /* AttributedStringExtension.swift in Sources */,
 				EE22981C20033D86005DF200 /* StockManager.swift in Sources */,
 				EE22981B20033D86005DF200 /* HistoryInfo.swift in Sources */,
-				EE22EDD0201F03A90084F399 /* TouchableGraphViewProtocol.swift in Sources */,
 				EE22982B20033D86005DF200 /* BeverageData.swift in Sources */,
 				EE22982C20033D86005DF200 /* TopCoffee.swift in Sources */,
-				EE22EDCA201F02F30084F399 /* TouchStatus.swift in Sources */,
 				EE22EDC8201EB2800084F399 /* CGPointExtension.swift in Sources */,
 				EECEBFD82003314000B19DD3 /* AppDelegate.swift in Sources */,
 				EE33E0D12016DC430021773F /* ProductImageViewMaker.swift in Sources */,

@@ -12,7 +12,17 @@ class AdminViewController: UIViewController {
     var machine: Managable?
     @IBOutlet var addStockButtons: [UIButton]!
     @IBOutlet var stockLabels: [UILabel]!
-    @IBOutlet weak var pieGraphView: PieGraphView!
+    @IBOutlet weak var pieGraphView: PieGraphView! {
+        didSet {
+            // 초기 세그먼트 세팅.
+            pieGraphView.segments = machine?.purchasedCount().map({ (menu, count) -> Segment in
+                generateSegment(menu, count)
+            })
+            pieGraphView.status = .none
+            // 쉐이크 제스처 시, pieGraphView가 first responder가 됨
+            pieGraphView.becomeFirstResponder()
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,13 +37,23 @@ class AdminViewController: UIViewController {
             object: nil)
         NotificationCenter.default.addObserver(
             self,
-            selector: #selector(addSegment),
+            selector: #selector(addSegment(_:)),
             name: .didUpdateRecord,
             object: nil)
-        // 초기 세그먼트 세팅.
-        pieGraphView.segments = machine?.purchasedCount().map({ (menu, count) -> Segment in
-            generateSegment(menu, count)
-        })
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(resizePieGraph(_:)),
+            name: .didUpdatePieSize,
+            object: nil)
+    }
+
+    // 파이그래프 크기가 변경되면 파이그래프 '뷰' 크기도 변경
+    @objc private func resizePieGraph(_ notification: Notification) {
+        guard let userInfo = notification.userInfo else { return }
+        if let newPieRadius = userInfo[UserInfoKeys.newPieRadius] as? CGFloat {
+            pieGraphView.bounds.size.width = newPieRadius*2+6
+            pieGraphView.bounds.size.height = newPieRadius*2+6
+        }
     }
 
     // 세그먼트 생성 함수.

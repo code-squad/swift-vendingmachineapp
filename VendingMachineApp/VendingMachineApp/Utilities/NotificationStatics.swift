@@ -13,11 +13,13 @@ extension Notification.Name {
     static let didUpdateBalance = Notification.Name("didUpdateBalance")
     static let didUpdateInventory = Notification.Name("didUpdateInventory")
     static let didUpdateRecord = Notification.Name("didUpdateRecord")
+    static let didUpdatePieSize = Notification.Name("didUpdatePieSize")
 }
 
 enum UserInfoKeys: String, CustomStringConvertible {
     case purchasedBeverage
     case addedRecord
+    case newPieRadius
     var description: String {
         return self.rawValue
     }

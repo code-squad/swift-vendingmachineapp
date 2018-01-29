@@ -35,6 +35,7 @@
 		EE22EDC8201EB2800084F399 /* CGPointExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE22EDC7201EB2800084F399 /* CGPointExtension.swift */; };
 		EE22EDCC201F03520084F399 /* ManagableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE22EDCB201F03520084F399 /* ManagableProtocol.swift */; };
 		EE22EDCE201F038B0084F399 /* EnumCollectionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE22EDCD201F038B0084F399 /* EnumCollectionProtocol.swift */; };
+		EE22EDD3201FA24A0084F399 /* PieGraphDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE22EDD2201FA24A0084F399 /* PieGraphDataSource.swift */; };
 		EE33E0CF2016D2750021773F /* CoffeeMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE33E0CE2016D2750021773F /* CoffeeMilk.swift */; };
 		EE33E0D12016DC430021773F /* ProductImageViewMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE33E0D02016DC430021773F /* ProductImageViewMaker.swift */; };
 		EE4D6B93200A73EC00B9A662 /* NotificationStatics.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4D6B92200A73EC00B9A662 /* NotificationStatics.swift */; };
@@ -91,6 +92,7 @@
 		EE22EDC7201EB2800084F399 /* CGPointExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGPointExtension.swift; sourceTree = "<group>"; };
 		EE22EDCB201F03520084F399 /* ManagableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagableProtocol.swift; sourceTree = "<group>"; };
 		EE22EDCD201F038B0084F399 /* EnumCollectionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumCollectionProtocol.swift; sourceTree = "<group>"; };
+		EE22EDD2201FA24A0084F399 /* PieGraphDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieGraphDataSource.swift; sourceTree = "<group>"; };
 		EE33E0CE2016D2750021773F /* CoffeeMilk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoffeeMilk.swift; sourceTree = "<group>"; };
 		EE33E0D02016DC430021773F /* ProductImageViewMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductImageViewMaker.swift; sourceTree = "<group>"; };
 		EE4D6B92200A73EC00B9A662 /* NotificationStatics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationStatics.swift; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 				EE22EDCB201F03520084F399 /* ManagableProtocol.swift */,
 				EE22980120033D85005DF200 /* UserServableProtocol.swift */,
 				EE22EDCD201F038B0084F399 /* EnumCollectionProtocol.swift */,
+				EE22EDD2201FA24A0084F399 /* PieGraphDataSource.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -475,6 +478,7 @@
 				EE22EDCE201F038B0084F399 /* EnumCollectionProtocol.swift in Sources */,
 				EE22982820033D86005DF200 /* SoftDrink.swift in Sources */,
 				EE22982920033D86005DF200 /* FantaSoftDrink.swift in Sources */,
+				EE22EDD3201FA24A0084F399 /* PieGraphDataSource.swift in Sources */,
 				EE22EDBC201EB11F0084F399 /* DictionaryExtension.swift in Sources */,
 				EE4D6B93200A73EC00B9A662 /* NotificationStatics.swift in Sources */,
 				EE22982F20033D86005DF200 /* Coffee.swift in Sources */,

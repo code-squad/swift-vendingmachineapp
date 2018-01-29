@@ -17,7 +17,7 @@ extension Int {
     }
 
     func degrees(in total: Int?) -> Int {
-        guard let total = total else { return 0 }
+        guard let total = total, total != 0 else { return 0 }
         return (self*360)/total
     }
 

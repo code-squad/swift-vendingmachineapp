@@ -699,3 +699,136 @@ private func drawText(_ segment: Segment, inside sector: Sector) {
 >- **[UIView와 Core Graphics 개요](https://github.com/undervineg/swift-vendingmachineapp/blob/vending-step8/md/uiview_and_coregraphics.md)**
 >- **[View Drawing Cycle](https://github.com/undervineg/swift-vendingmachineapp/blob/vending-step8/md/coordinate_in_ios.md)**
 >- **[Arcs and Rotations](https://github.com/undervineg/swift-vendingmachineapp/blob/vending-step8/md/arcs_and_rotations.md)**
+
+<br/>
+
+## 터치 이벤트 핸들러
+<img src="img/9_vendingmachine_moved_small.png" width="33%"></img><img src="img/9_vendingmachine_moved_big.png" width="33%"></img><img src="img/9_vendingmachine_ended.png" width="33%"></img>
+### PieGraphView에 터치 이벤트 시 검은색 원 표시 및 크기 변경
+- TouchStatus 종류 추가: draw() 시 터치 상태별로 다르게 그리기 위함.
+	- none: 맨 초기 상태 또는 shake 시
+	- began: 터치 시작될 시
+	- moved: 터치 움직일 시
+	- ended: 터치 끝날 시
+
+```swift
+enum TouchStatus {
+    case none
+    case began
+    case moved
+    case ended
+}
+
+override func draw(_ rect: CGRect) {
+    switch status {
+    case .none: drawPieGraph(radius: self.radius)
+    case .began: drawBlackCircle(radius: self.radius)
+    case .moved: drawBlackCircle(radius: self.movedRadius)
+    case .ended: drawPieGraph(radius: self.movedRadius)
+    }
+}
+```
+
+- 파이그래프 뷰에 터치 이벤트 메소드 재정의
+	- status를 저장
+	- status별 draw 시 사용할 원의 radius 계산. 
+	- setNeedsDisplay()를 통해 draw() 호출.
+
+```swift
+// 터치 시작 - 원점으로부터 터치 위치까지의 거리 저장. 그래프를 검은색 원으로 변경하여 표시.
+override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    status = .began
+    guard let thisTouch = touches.first else { return }
+    beganRadiusFromOrigin = thisTouch.location(in: self).distance(from: origin)
+    setNeedsDisplay()
+}
+
+// 터치 움직임 - 원점으로부터 현재 터치 위치까지 거리를 radius로 하는 검은색 원 표시.
+override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+    status = .moved
+    guard let thisTouch = touches.first else { return }
+    let currPosition = thisTouch.location(in: self)
+    movedRadius = currPosition.distance(from: origin)
+    setNeedsDisplay()
+}
+
+// 터치 끝 - 원점으로부터 현재 터치가 끝난 지점까지 거리를 radius로 하는 파이그래프 표시.
+override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+status = .ended
+guard let thisTouch = touches.first else { return }
+let currPosition = thisTouch.location(in: self)
+movedRadius = currPosition.distance(from: origin)
+segments?.forEach({ $0.setRandomColor() })
+setNeedsDisplay()
+}
+```
+### 그래프 크기 변경 시 view 크기도 변경
+- Notification post: 터치로 그래프 반경이 변경될 시, AdminViewController에 알림. 이 때, 변경된 반지름 전달.
+
+```swift
+private var movedRadius: CGFloat? {
+    didSet {
+        // 터치를 통해 원 사이즈가 조정되면 뷰 자체의 사이즈도 같이 조정하도록 노티보냄
+        NotificationCenter.default.post(
+            name: .didUpdatePieSize,
+            object: nil,
+            userInfo: [UserInfoKeys.newPieRadius: movedRadius ?? self.radius])
+    }
+}
+```
+
+- Notification observer: AdminViewController에서 노티를 받으면 노티로 받은 변경된 반지름을 이용하여 pieGraphView 사이즈 변경
+
+```swift
+@objc private func resizePieGraph(_ notification: Notification) {
+    guard let userInfo = notification.userInfo else { return }
+    if let newPieRadius = userInfo[UserInfoKeys.newPieRadius] as? CGFloat {
+        pieGraphView.bounds.size.width = newPieRadius*2+6
+        pieGraphView.bounds.size.height = newPieRadius*2+6
+    }
+}
+```
+
+- bounds가 세팅될 때마다 코너를 둥글게 처리
+	- 이 때, clipsToBounds를 true로 꼭 해야 적용된다.
+```swift
+override var bounds: CGRect {
+    didSet {
+        self.layer.cornerRadius = self.bounds.size.width/2
+        self.clipsToBounds = true
+    }
+}
+```
+
+### Shake 이벤트 시 원상복구
+- motionEnded() 메소드 재정의
+	- motion 중 .motionShake일 때, status, movedRadius와 같은 설정값을 모두 리셋하고 draw() 호출하여 다시 그림.
+
+```swift
+override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
+    if motion == .motionShake {
+        status = .none
+        movedRadius = nil
+        setNeedsDisplay()
+    }
+}
+```
+
+- motion 이벤트 발생 시 pieGraphView가 첫 응답자가 되도록 first responder 설정
+	- PieGraphView 클래스에서 canBecomeFirstResponder를 true로 재정의
+	- AdminViewController에서 pieGraphView를 first responder로 설정
+
+```swift
+override var canBecomeFirstResponder: Bool {
+    return true
+}
+```
+
+```swift
+pieGraphView.becomeFirstResponder()
+```
+
+### 학습 내용
+>- **[Event와 Responder]()**
+>- **[UIView의 터치 이벤트]()**
+>- **[Gesture Recognizer]()**

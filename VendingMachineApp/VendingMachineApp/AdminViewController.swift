@@ -31,21 +31,12 @@ class AdminViewController: UIViewController, PieGraphDataSource {
             selector: #selector(updateStockLabels),
             name: .didUpdateStock,
             object: nil)
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(addSegment(_:)),
-            name: .didUpdateRecord,
-            object: nil)
     }
 
     func initialSegments() -> [Segment]? {
         return machine?.purchasedCounts().map({ (menu, count) -> Segment in
             generateSegment(menu, count)
         })
-    }
-
-    func newSegment() -> Segment? {
-        return willBeAdded
     }
 
     func totalValues() -> Int? {
@@ -56,16 +47,6 @@ class AdminViewController: UIViewController, PieGraphDataSource {
     // 세그먼트 생성 함수.
     private func generateSegment(_ menu: VendingMachine.Menu, _ purchasedCount: Int) -> Segment {
         return Segment(name: menu.productName, value: purchasedCount, color: UIColor.random)
-    }
-
-    private var willBeAdded: Segment?
-
-    // 추가된 구매이력으로 세그먼트 추가.
-    @objc func addSegment(_ notification: Notification) {
-        guard let userInfo = notification.userInfo else { return }
-        if let addedRecord = userInfo[UserInfoKeys.addedRecord] as? HistoryInfo {
-            self.willBeAdded = generateSegment(addedRecord.purchasedMenu, addedRecord.count)
-        }
     }
 
     // 현재 뷰컨트롤러가 보일 시, 파이그래프 뷰 업데이트.

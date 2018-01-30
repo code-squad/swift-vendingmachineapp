@@ -22,25 +22,12 @@ final class StockManager {
         didSet {
             // 해당 음료의 총 구입개수 업데이트
             guard let lastRecord = purchasedHistory.last else { return }
-            let sum = sumPurchasedCount(of: lastRecord.purchasedMenu)
-            purchasedCounts.updateValue(sum, forKey: lastRecord.purchasedMenu)
+            purchasedCounts = purchasedCounts.update(amount: 1, forKey: lastRecord.purchasedMenu, true)
             totalPurchasedCount += lastRecord.count
         }
     }
     private(set) var totalPurchasedCount: Int
-    private(set) var purchasedCounts: [VendingMachine.Menu:Int] {
-        didSet {
-            // 새 음료 종류가 추가된 경우에만 알림.
-            if oldValue.count < purchasedCounts.count {
-                // 가장 최근 구매이력 항목을 이용.
-                guard let lastRecord = purchasedHistory.last else { return }
-                NotificationCenter.default.post(
-                    name: .didUpdateRecord,
-                    object: nil,
-                    userInfo: [UserInfoKeys.addedRecord: lastRecord])
-            }
-        }
-    }
+    private(set) var purchasedCounts: [VendingMachine.Menu:Int]
     init(_ machine: VendingMachine?) {
         self.machine = machine
         self.stock = [:]
@@ -51,7 +38,7 @@ final class StockManager {
 
     // 인벤토리 상태에 따라 장부 업데이트.
     func updateStock(_ recentChanged: Beverage, isNewArrival: Bool) {
-        stock = stock.update(forKey: recentChanged.menuType, isNewArrival)
+        stock = stock.update(amount: 1, forKey: recentChanged.menuType, isNewArrival)
     }
 
     // 품절 여부 반환.
@@ -80,7 +67,7 @@ final class StockManager {
             // 유통기한이 현재 날짜 기준으로 지난 경우,
             guard product.isExpired(with: checkingDay) else { continue }
             // 리스트에 해당 음료수의 이름과 개수 기록.
-            expiredList = expiredList.update(forKey: product.menuType, true)
+            expiredList = expiredList.update(amount: 1, forKey: product.menuType, true)
         }
         return expiredList
     }
@@ -94,16 +81,6 @@ final class StockManager {
                 purchasedMenu: recentChanged.menuType,
                 count: 1)
             purchasedHistory.append(newInfo)
-        }
-    }
-
-    // 특정 음료수의 총 판매량
-    private func sumPurchasedCount(of menu: VendingMachine.Menu) -> Int {
-        return purchasedHistory.reduce(0) {
-            if $1.purchasedMenu == menu {
-                return $0 + $1.count
-            }
-            return 0
         }
     }
 

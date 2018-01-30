@@ -11,9 +11,10 @@ import UIKit
 class PieGraphView: UIView {
     var dataSource: PieGraphDataSource? {
         didSet {
-            self.segments = dataSource?.initialSegments()
             originalFrame = frame
             status = UITouchPhase.stationary
+            segments = dataSource?.initialSegments()
+            sum = dataSource?.totalValues()
         }
     }
 
@@ -26,18 +27,10 @@ class PieGraphView: UIView {
         return CGFloat(min(bounds.width, bounds.height)/2-6)
     }
     // AdminViewController에서 의존성 주입.
-    private var segments: [Segment]? {
-        didSet {
-            // 세그먼트에 변화가 생기면 뷰 업데이트.
-            self.setNeedsDisplay()
-        }
-    }
+    private var segments: [Segment]?
 
     // 모든 세그먼트들의 합 (총 구매 개수)
-    private var sum: Int? {
-        let total = dataSource?.totalValues()
-        return total
-    }
+    private var sum: Int?
 
     private var textAttributes: [NSAttributedStringKey: Any] {
         return [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 20, weight: .init(rawValue: 5)),

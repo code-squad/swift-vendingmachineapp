@@ -28,8 +28,6 @@ class PieGraphView: UIView {
     // AdminViewController에서 의존성 주입.
     private var segments: [Segment]? {
         didSet {
-            guard let dataSource = dataSource, let newSeg = dataSource.newSegment() else { return }
-            segments?.append(newSeg)
             // 세그먼트에 변화가 생기면 뷰 업데이트.
             self.setNeedsDisplay()
         }
@@ -37,7 +35,8 @@ class PieGraphView: UIView {
 
     // 모든 세그먼트들의 합 (총 구매 개수)
     private var sum: Int? {
-        return dataSource?.totalValues()
+        let total = dataSource?.totalValues()
+        return total
     }
 
     private var textAttributes: [NSAttributedStringKey: Any] {

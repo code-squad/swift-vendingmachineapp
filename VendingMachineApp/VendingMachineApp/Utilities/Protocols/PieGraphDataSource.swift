@@ -11,7 +11,5 @@ import Foundation
 protocol PieGraphDataSource {
     func initialSegments() -> [Segment]?
 
-    func newSegment() -> Segment?
-
     func totalValues() -> Int?
 }

@@ -12,13 +12,7 @@ class AdminViewController: UIViewController, PieGraphDataSource {
     var machine: Managable?
     @IBOutlet var addStockButtons: [UIButton]!
     @IBOutlet var stockLabels: [UILabel]!
-    @IBOutlet weak var pieGraphView: PieGraphView! {
-        didSet {
-            pieGraphView.dataSource = self
-            // 쉐이크 제스처 시, pieGraphView가 first responder가 됨
-            pieGraphView.becomeFirstResponder()
-        }
-    }
+    @IBOutlet weak var pieGraphView: PieGraphView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +25,9 @@ class AdminViewController: UIViewController, PieGraphDataSource {
             selector: #selector(updateStockLabels),
             name: .didUpdateStock,
             object: nil)
+        pieGraphView.dataSource = self
+        // 쉐이크 제스처 시, pieGraphView가 first responder가 됨
+        pieGraphView.becomeFirstResponder()
     }
 
     func initialSegments() -> [Segment]? {

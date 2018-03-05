@@ -1,57 +1,55 @@
-# 진행 방법
+# Making a VendingMachineApp
+## Step 1
+## #1. iOS 앱을 구성하는 핵심 객체들(UIKit Framework의 핵심 객체들)
+  - **UIApplication : 시스템으로부터 이벤트를 받아 Custom Objects로 이벤트를 전달하고 상위 레이어의 앱 동작을 조정**
+    - 메인 이벤트 루프와 같은 것들을 담당하는 객체로 앱 상태 변화나 푸시 메세지 도착처럼 특수한 형태의 이벤트를 우리가 정의한 델리게이트 객체에 전달하여 사전에 정의된 메소드를 호출할 수 있도록 한다.
+    - 아래 App delegate 객체 내의 custom logic들은 UIApplication 객체와 상호작용한다.
 
-- 음료수 자판기 iOS 앱에 요구사항을 파악한다.
-- 요구사항에 대한 구현을 완료한 후 자신의 github 아이디에 해당하는 브랜치에 Pull Request(이하 PR)를 통해 코드 리뷰 요청을 한다.
-- 코드 리뷰 피드백에 대한 개선 작업을 하고 다시 PUSH한다.
-- 모든 피드백을 완료하면 다음 단계를 도전하고 앞의 과정을 반복한다.
+  - **App Delegate :  App의 초기화, 상태변화, 다른 앱의 기타 이벤트를 핸들링**
+    - 상태변화 : Not running, Active, Inactive, Background, Suspended
+      ![screensh_78_1](http://cfile4.uf.tistory.com/image/2732B2345739D02D1E8E5B){: class="bigger-image" }
+        1. not runnig : 실행중이지 않던 프로그램이 실행이 된다
+        2. foreground: 앱이 실행 된다
+          - (2-1) inactive 사용자 입력 받을 수 없는 상태 ex 알림 떴을때, 시스템 메세지 (베터리 부족합니다 등등)
+          - (2-2) active 사용자와 교류 가능 상태
+        3. background 홈버튼 눌러서 내리기 (끈거 x. 코드는 실행되고 있음)
+        4. susperded 상태 : background로 실행되는 앱은 일정한 이유에 따라 OS가 앱을 끈다. 코드 실행하지 않는 상태로 변경
 
-# 코드 리뷰 과정
-> 저장소 브랜치에 자신의 github 아이디에 해당하는 브랜치가 존재해야 한다.
->
-> 자신의 github 아이디에 해당하는 브랜치가 있는지 확인한다.
+    - custom 객체로서 앱 런칭시점에 UIApplicationMain 함수에 의해 생성된다.
 
-1. 자신의 github 아이디에 해당하는 브랜치가 없는 경우 브랜치 생성 요청 채널을 통해 브랜치 생성을 요청한다.
-프로젝트를 자신의 계정으로 fork한다. 저장소 우측 상단의 fork 버튼을 활용한다.
+  - **View Controller : App의 Contents가 화면에 보이게 하는 역할**
+    - 하나의 View Controller 객체는 하나의 뷰와 뷰의 서브뷰를 관리. View Controller 객체는 자신이 관리하는 뷰를 앱의 윈도우에 위치시킴으로써 뷰가 화면에 보여지도록 한다.
+    - UIViewController클래스는 여러 View Controller 객체들의 부모클래스이며, 기본적으로 뷰를 로딩하고, 화면에 뷰를 보여지게 하고, 뷰를 전환(디바이스 변화에 따른)하는 등의 기본적인 동작들을 지원
 
-2. fork한 프로젝트를 자신의 컴퓨터로 clone한다.
-```
-git clone https://github.com/{본인_아이디}/{저장소 아이디}
-ex) https://github.com/godrm/swift-vendingmachineapp
-```
+  - **UIWindow : 화면에 보여지는 뷰 객체들을 조정**
+    - 화면에 보여지는 Contents를 바꾸기 위해서는 View Controller 를 이용해야 한다. 자체로 Contents를 바꾸지 못함.
+    - UIApplication과의 상호작용을 통해 이벤트를 뷰와 View Controller에 전달
 
-3. clone한 프로젝트 이동
-```
-cd {저장소 아이디}
-ex) cd swift-vendingmachineapp
-```
+  - **View & Control & layer : Contents의 시각적인 표현을 담당**
 
-4. 본인 아이디로 브랜치를 만들기 위한 checkout
-```
-git checkout -t origin/본인_아이디
-ex) git checkout -t origin/godrm
-```
+## #2. App초기화(App Loading Process) 과정 단순화
+  1. App 실행: main() 함수 실행됨
+  2. main(): UIApplicationMain() 호출
+  3. UIApplicationMain(): UIApplication 객체 생성
+  4. UIApplication 객체: Info.plist 파일을 바탕으로 앱에 필요한 데이터와 객체 로드
+  5. AppDelegate 객체 생성 및 UIApplication 객체와 연결
+  6. 이벤트 루프 생성 등 실행에 필요한 준비 진행
+  7. 실행 완료 직전, AppDelegate의 ``application(_:didFinishLaunchingWithOptions:)`` 메시지 전송
 
-5. commit
-```
-git status //확인
-git rm 파일명 //삭제된 파일
-git add 파일명(or * 모두) // 추가/변경 파일
-git commit -m "메세지" // 커밋
-```
-
-6. 본인 원격 저장소에 올리기
-```
-git push origin 본인_아이디
-ex) git push origin godrm
-```
-
-7. pull request
-8. pull request는 github 서비스에서 진행할 수 있다.
-9. pull request는 반드시 original 저장소의 브랜치와 fork한 자신의 저장소 브랜치 이름이 같아야 하며, 브랜치 이름은 자신의 github 아이디여야 한다.
-10. code review 및 push
-11. pull request를 통해 피드백을 받는다.
-12. 코드 리뷰 피드백에 대한 개선 작업을 하고 다시 PUSH한다.
-
-## 앞의 코드 리뷰 과정은 [영상 보기](https://www.youtube.com/watch?v=ZSZoaG0PqLg) 를 통해 참고 가능
-
-## 실습 중 모든 질문은 슬랙 채널에서...
+## #3. iOS 메인 런루프 동작 이해
+  - 메인 런 루프 : 앱에 들어오는 이벤트들을 애플리케이션 객체가 처리할 수 있도록 계속해서 라우팅하고, 처리결과로 UI와 상태를 업데이트
+    - 이벤트 처리를 위한 loop로 입력소스와 타이머소스를 주로 처리.
+      - 입력소스(input source): 다른 thread나 어플리케이션에서 전달되는 메시지 이벤트(비동기식)
+      - 타이머소스(timer source): 예정시간이나 반복수행간격에 따라 발생하는 이벤트(동기식)
+    - **사용자 이벤트 발생 및 처리과정**
+      ![screensh_78_2](http://cfile7.uf.tistory.com/image/25205A3358ED9B5801EEF3){: class="bigger-image" }
+        1. 이벤트 발생(터치, 키보드 등)
+        2. 시스템에서 port를 통해 앱으로 전달
+        3. 이벤트 큐에 등록
+        4. 이벤트에 맞는 메소드 실행
+    - **전달받은 이벤트를 앱의 run loop에서 처리하는 과정**
+      ![screensh_78_3](http://cfile21.uf.tistory.com/image/2262143E58ED9D960F31FF){: class="bigger-image" }
+        1. run loop 대기 중 이벤트 발생(주로 입력소스와 타이머소스 처리)
+        2. 정해진 메소드 호출(타이머에서 설정한 시간데 따라)
+        3. 메소드 완료 후 변경될 필요가 있는 사항 적용(뷰의 경우 setNeedsLayout, setNeedsDisplay)
+        4. runUntil- 메소드에서 정한 시간까지 유지, 할일 없으면 suspend 상태.

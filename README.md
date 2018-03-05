@@ -53,3 +53,19 @@
         2. 정해진 메소드 호출(타이머에서 설정한 시간데 따라)
         3. 메소드 완료 후 변경될 필요가 있는 사항 적용(뷰의 경우 setNeedsLayout, setNeedsDisplay)
         4. runUntil- 메소드에서 정한 시간까지 유지, 할일 없으면 suspend 상태.
+
+## Step 2
+![screemsh_step2](./img/Step2.png)
+## IBOutlet Collection 기능에 대해 학습하고 중복되는 아웃렛을 제거한다.
+  1. 중복되는 요소들 중 하나를 View Controller로 끌어서 IBOutletCollection 만듦
+  2. 만든 IBOutletCollection 옆의 동그라미(+) 버튼을 Main.storyboard의 중복되는 요소들로 드래그하여 UI 객체배열 완성
+  3. 각 요소를 구분하기 위한 tag 부여
+  4. IBAction을 하나 만들어서 각 요소와 연결
+  5. IBAction 내에서 IBOutletCollection으로 만든 배열 사용
+
+## UIImageView 에서 이미지를 표시할 때 사각형 코너를 둥글게하도록 변경해본다.
+  - Inspector - Drawing - View - clip to Bounds 클릭
+  - Identity Inspector > User Defined Runtime Attributes에 키 추가 :
+  - 테두리: layer.borderWidth (Number)
+  - 테두리색상: layer.borderUIColor (Color)
+  - 둥근테두리: layer.cornerRadius (Number)

@@ -30,5 +30,13 @@ class Beverage: CustomStringConvertible {
         self.price = price
         self.date = manufacturedDate
     }
+    
+    init() {
+        self.brand = ""
+        self.name = ""
+        self.volume = 0
+        self.price = 0
+        self.date = Date()
+    }
 
 }

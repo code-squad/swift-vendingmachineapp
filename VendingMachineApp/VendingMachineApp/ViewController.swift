@@ -20,9 +20,48 @@ let baseProductsBox = [
 class ViewController: UIViewController {
 
     var vendingMachine = VendingMachine(productsBox: baseProductsBox)
+
+    @IBOutlet var products: [UIImageView]!
+    @IBOutlet var labelOfProducts: [UILabel]!
+    @IBOutlet weak var balance: UILabel!
+    @IBOutlet var addInventory: [UIButton]!
+    @IBOutlet var addMoney: [UIButton]!
+    
+    @IBAction func addInventoryButtonTouched(_ sender: UIButton) {
+        switch sender.tag {
+        case 0: vendingMachine.addBeverage(StrawberryMilk())
+        case 1: vendingMachine.addBeverage(BananaMilk())
+        case 2: vendingMachine.addBeverage(PepciCoke())
+        case 3: vendingMachine.addBeverage(Fanta())
+        case 4: vendingMachine.addBeverage(TOPCoffee())
+        case 5: vendingMachine.addBeverage(Georgia())
+        default:
+            return
+        }
+        updateInventory()
+    }
+    @IBAction func addMoneyButtonTouched(_ sender: UIButton) {
+        switch sender.tag {
+        case 0: vendingMachine.addMoney(1000)
+        case 1: vendingMachine.addMoney(5000)
+        default:
+            return
+        }
+        balance.text = "\(vendingMachine.getBalance())원"
+    }
+    
+    private func updateInventory() {
+        var inventoryIndex = 0
+        for oneProductName in vendingMachine.generateProductNamesInNumber() {
+            labelOfProducts[inventoryIndex].text = "\(self.vendingMachine.generateCountOfProduct(oneProductName))개"
+            inventoryIndex += 1
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        balance.text = "\(vendingMachine.getBalance())원"
+        updateInventory()
     }
 
     override func didReceiveMemoryWarning() {

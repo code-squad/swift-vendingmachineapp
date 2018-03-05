@@ -23,6 +23,13 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        for oneProductName in vendingMachine.generateListOfProduct() {
+            let oneProduct = vendingMachine.generateBeverageFromProductName(oneProductName)
+                ?? Beverage(brand: "", name: "", volume: 0, price: 0, manufacturedDate: Date())
+            print("""
+                \(String(describing: type(of: oneProduct).self)) (\(vendingMachine.generateCountOfProduct(oneProductName))개)
+                """)
+        }
 
         // Do any additional setup after loading the view, typically from a nib.
     }

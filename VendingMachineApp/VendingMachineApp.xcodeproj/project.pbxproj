@@ -27,6 +27,12 @@
 		04FC678F204D1DE700B084D5 /* PepciCoke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FC678B204D1DE600B084D5 /* PepciCoke.swift */; };
 		04FC6790204D1DE700B084D5 /* Sprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FC678C204D1DE700B084D5 /* Sprite.swift */; };
 		04FC6791204D1DE700B084D5 /* SodaPop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FC678D204D1DE700B084D5 /* SodaPop.swift */; };
+		04FC679D204D39EF00B084D5 /* StrawberryMilk.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 04FC6797204D39EE00B084D5 /* StrawberryMilk.jpg */; };
+		04FC679E204D39EF00B084D5 /* TOP.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 04FC6798204D39EE00B084D5 /* TOP.jpg */; };
+		04FC679F204D39EF00B084D5 /* BananaMilk.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 04FC6799204D39EE00B084D5 /* BananaMilk.jpg */; };
+		04FC67A0204D39EF00B084D5 /* PepciCOke.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 04FC679A204D39EE00B084D5 /* PepciCOke.jpg */; };
+		04FC67A1204D39EF00B084D5 /* Georgia.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 04FC679B204D39EE00B084D5 /* Georgia.jpg */; };
+		04FC67A2204D39EF00B084D5 /* Fanta.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 04FC679C204D39EE00B084D5 /* Fanta.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +58,12 @@
 		04FC678B204D1DE600B084D5 /* PepciCoke.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PepciCoke.swift; sourceTree = "<group>"; };
 		04FC678C204D1DE700B084D5 /* Sprite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sprite.swift; sourceTree = "<group>"; };
 		04FC678D204D1DE700B084D5 /* SodaPop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SodaPop.swift; sourceTree = "<group>"; };
+		04FC6797204D39EE00B084D5 /* StrawberryMilk.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = StrawberryMilk.jpg; sourceTree = "<group>"; };
+		04FC6798204D39EE00B084D5 /* TOP.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = TOP.jpg; sourceTree = "<group>"; };
+		04FC6799204D39EE00B084D5 /* BananaMilk.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = BananaMilk.jpg; sourceTree = "<group>"; };
+		04FC679A204D39EE00B084D5 /* PepciCOke.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = PepciCOke.jpg; sourceTree = "<group>"; };
+		04FC679B204D39EE00B084D5 /* Georgia.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Georgia.jpg; sourceTree = "<group>"; };
+		04FC679C204D39EE00B084D5 /* Fanta.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Fanta.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +80,7 @@
 		04FC6752204D1CEB00B084D5 = {
 			isa = PBXGroup;
 			children = (
+				04FC67A3204D39FB00B084D5 /* ProductImage */,
 				04FC6792204D1E0600B084D5 /* VendingMachine */,
 				04FC675D204D1CEB00B084D5 /* VendingMachineApp */,
 				04FC675C204D1CEB00B084D5 /* Products */,
@@ -149,6 +162,19 @@
 			path = SodaPop;
 			sourceTree = "<group>";
 		};
+		04FC67A3204D39FB00B084D5 /* ProductImage */ = {
+			isa = PBXGroup;
+			children = (
+				04FC6799204D39EE00B084D5 /* BananaMilk.jpg */,
+				04FC679C204D39EE00B084D5 /* Fanta.jpg */,
+				04FC679B204D39EE00B084D5 /* Georgia.jpg */,
+				04FC679A204D39EE00B084D5 /* PepciCOke.jpg */,
+				04FC6797204D39EE00B084D5 /* StrawberryMilk.jpg */,
+				04FC6798204D39EE00B084D5 /* TOP.jpg */,
+			);
+			path = ProductImage;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -208,6 +234,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04FC679D204D39EF00B084D5 /* StrawberryMilk.jpg in Resources */,
+				04FC679E204D39EF00B084D5 /* TOP.jpg in Resources */,
+				04FC679F204D39EF00B084D5 /* BananaMilk.jpg in Resources */,
+				04FC67A0204D39EF00B084D5 /* PepciCOke.jpg in Resources */,
+				04FC67A1204D39EF00B084D5 /* Georgia.jpg in Resources */,
+				04FC67A2204D39EF00B084D5 /* Fanta.jpg in Resources */,
 				04FC6769204D1CEB00B084D5 /* LaunchScreen.storyboard in Resources */,
 				04FC6766204D1CEB00B084D5 /* Assets.xcassets in Resources */,
 				04FC6764204D1CEB00B084D5 /* Main.storyboard in Resources */,

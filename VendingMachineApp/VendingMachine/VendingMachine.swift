@@ -19,7 +19,7 @@ protocol AdminMode {
 }
 
 protocol UserMode {
-    mutating func addMoney(_ userMoney: Int)
+    mutating func addMoney(_ userMoney: VendingMachine.AvailableMoney)
     mutating func buy(_ product: Beverage)
     mutating func updateProductNumbersAndKinds()
     func generateInvalidProducts() -> [Beverage]
@@ -29,7 +29,13 @@ protocol UserMode {
 }
 
 struct VendingMachine: AdminMode, UserMode {
-
+    
+    enum AvailableMoney : Int {
+        case oneThousand = 1000
+        case fiveThousands = 5000
+        case unavailableMoney = 0
+    }
+    
     private var inventory: Inventory = Inventory([])
     private var balance: Int = 0
     private var historyOfProductsSold: [Beverage] = []
@@ -46,8 +52,8 @@ struct VendingMachine: AdminMode, UserMode {
         self.inventory.addBeverage(product)
     }
 
-    mutating func addMoney(_ userMoney: Int) {
-        self.balance += userMoney
+    mutating func addMoney(_ userMoney: AvailableMoney) {
+        self.balance += userMoney.rawValue
     }
 
     func generateListOfValidProduct() -> [ObjectIdentifier] {

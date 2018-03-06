@@ -42,8 +42,8 @@ class ViewController: UIViewController {
     }
     @IBAction func addMoneyButtonTouched(_ sender: UIButton) {
         switch sender.tag {
-        case 0: vendingMachine.addMoney(1000)
-        case 1: vendingMachine.addMoney(5000)
+        case 0: vendingMachine.addMoney(.oneThousand)
+        case 1: vendingMachine.addMoney(.fiveThousands)
         default:
             return
         }

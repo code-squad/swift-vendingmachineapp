@@ -28,18 +28,19 @@ class ViewController: UIViewController {
     @IBOutlet var addMoney: [UIButton]!
     
     @IBAction func addInventoryButtonTouched(_ sender: UIButton) {
-        switch sender.tag {
-        case 0: vendingMachine.addBeverage(StrawberryMilk())
-        case 1: vendingMachine.addBeverage(BananaMilk())
-        case 2: vendingMachine.addBeverage(PepciCoke())
-        case 3: vendingMachine.addBeverage(Fanta())
-        case 4: vendingMachine.addBeverage(TOPCoffee())
-        case 5: vendingMachine.addBeverage(Georgia())
+        switch sender.restorationIdentifier {
+        case "firstProduct"? : vendingMachine.addBeverage(StrawberryMilk())
+        case "secondProduct"?: vendingMachine.addBeverage(BananaMilk())
+        case "thirdProduct"?: vendingMachine.addBeverage(PepciCoke())
+        case "fourthProduct"?: vendingMachine.addBeverage(Fanta())
+        case "fifthProduct"?: vendingMachine.addBeverage(TOPCoffee())
+        case "sixthProduct"?: vendingMachine.addBeverage(Georgia())
         default:
             return
         }
         updateInventory()
     }
+    
     @IBAction func addMoneyButtonTouched(_ sender: UIButton) {
         switch sender.tag {
         case 0: vendingMachine.addMoney(.oneThousand)

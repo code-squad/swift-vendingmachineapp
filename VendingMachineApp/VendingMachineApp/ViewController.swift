@@ -18,14 +18,14 @@ let baseProductsBox = [
 ]
 
 class ViewController: UIViewController {
-
-    var vendingMachine = VendingMachine(productsBox: baseProductsBox)
-
+    
     @IBOutlet var products: [UIImageView]!
     @IBOutlet var labelOfProducts: [UILabel]!
     @IBOutlet weak var balance: UILabel!
     @IBOutlet var addInventory: [UIButton]!
     @IBOutlet var addMoney: [UIButton]!
+    
+    var vendingMachine : VendingMachine!
     
     @IBAction func addInventoryButtonTouched(_ sender: UIButton) {
         switch sender.restorationIdentifier {
@@ -61,6 +61,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        vendingMachine = appDelegate.vendingMachine
         balance.text = "\(vendingMachine.getBalance())원"
         updateInventory()
     }

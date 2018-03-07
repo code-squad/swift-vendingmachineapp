@@ -8,24 +8,17 @@
 
 import UIKit
 
-let baseProductsBox = [
-    StrawberryMilk(), StrawberryMilk(), StrawberryMilk(),
-    BananaMilk(), BananaMilk(), BananaMilk(),
-    PepciCoke(), PepciCoke(), PepciCoke(), PepciCoke(), PepciCoke(),
-    Fanta(), Fanta(), Fanta(),
-    TOPCoffee(), TOPCoffee(), TOPCoffee(),
-    Georgia(), Georgia()
-]
+
 
 class ViewController: UIViewController {
+    
+    var vendingMachine : VendingMachine!
     
     @IBOutlet var products: [UIImageView]!
     @IBOutlet var labelOfProducts: [UILabel]!
     @IBOutlet weak var balance: UILabel!
     @IBOutlet var addInventory: [UIButton]!
     @IBOutlet var addMoney: [UIButton]!
-    
-    var vendingMachine : VendingMachine!
     
     @IBAction func addInventoryButtonTouched(_ sender: UIButton) {
         switch sender.restorationIdentifier {

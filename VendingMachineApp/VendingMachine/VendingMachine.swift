@@ -28,7 +28,37 @@ protocol UserMode {
     func generateBeverageFromProductName(_ productName: ObjectIdentifier) -> Beverage?
 }
 
-struct VendingMachine: AdminMode, UserMode {
+class VendingMachine: NSObject, NSCoding, AdminMode, UserMode {
+    private var inventory: Inventory = Inventory([])
+    private var balance: Int = 0
+    private var historyOfProductsSold: [Beverage] = []
+    private var productNumbersAndKinds: [Int: ObjectIdentifier] = [:]
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(inventory, forKey: "inventory")
+        aCoder.encode(balance, forKey: "balance")
+        aCoder.encode(historyOfProductsSold, forKey: "historyOfProductsSold")
+        aCoder.encode(productNumbersAndKinds, forKey: "productNumbersAndKinds")
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        self.inventory = aDecoder.decodeObject(forKey: "inventory") as! Inventory
+        self.balance = aDecoder.decodeObject(forKey: "balance") as! Int
+        self.historyOfProductsSold = aDecoder.decodeObject(forKey: "historyOfProductsSold") as! [Beverage]
+        self.productNumbersAndKinds = aDecoder.decodeObject(forKey: "productNumbersAndKinds") as! [Int : ObjectIdentifier]
+        
+        super.init()
+    }
+    
+    
+    private let baseProductsBox = [
+        StrawberryMilk(), StrawberryMilk(), StrawberryMilk(),
+        BananaMilk(), BananaMilk(), BananaMilk(),
+        PepciCoke(), PepciCoke(), PepciCoke(), PepciCoke(), PepciCoke(),
+        Fanta(), Fanta(), Fanta(),
+        TOPCoffee(), TOPCoffee(), TOPCoffee(),
+        Georgia(), Georgia()
+    ]
     
     enum AvailableMoney : Int {
         case oneThousand = 1000
@@ -36,23 +66,28 @@ struct VendingMachine: AdminMode, UserMode {
         case unavailableMoney = 0
     }
     
-    private var inventory: Inventory = Inventory([])
-    private var balance: Int = 0
-    private var historyOfProductsSold: [Beverage] = []
-    private var productNumbersAndKinds: [Int: ObjectIdentifier] = [:]
-
+    
     init(productsBox: [Beverage]) {
+        super.init()
         for oneProduct in productsBox {
             self.inventory.addBeverage(oneProduct)
         }
-        self.updateProductNumbersAndKinds()
+        updateProductNumbersAndKinds()
+    }
+    
+    override init() {
+        super.init()
+        for oneProduct in baseProductsBox {
+            self.inventory.addBeverage(oneProduct)
+        }
+        updateProductNumbersAndKinds()
     }
 
-    mutating func addBeverage(_ product: Beverage) {
+    func addBeverage(_ product: Beverage) {
         self.inventory.addBeverage(product)
     }
 
-    mutating func addMoney(_ userMoney: AvailableMoney) {
+    func addMoney(_ userMoney: AvailableMoney) {
         self.balance += userMoney.rawValue
     }
 
@@ -60,7 +95,7 @@ struct VendingMachine: AdminMode, UserMode {
         return self.inventory.generateListOfValidProduct(self.balance)
     }
 
-    mutating func buy(_ product: Beverage) {
+    func buy(_ product: Beverage) {
         let soldProduct = self.removeProduct(ObjectIdentifier(type(of: product)))
         guard let product = soldProduct else { return }
         self.historyOfProductsSold.append(product)
@@ -71,7 +106,7 @@ struct VendingMachine: AdminMode, UserMode {
         return self.balance
     }
 
-    mutating func removeProduct(_ product: ObjectIdentifier) -> Beverage? {
+    func removeProduct(_ product: ObjectIdentifier) -> Beverage? {
         return self.inventory.removeBeverage(product)
     }
 
@@ -91,7 +126,7 @@ struct VendingMachine: AdminMode, UserMode {
         return self.inventory.generateListOfProduct()
     }
 
-    mutating func updateProductNumbersAndKinds() {
+    func updateProductNumbersAndKinds() {
         var productNumber = 1
         for oneProduct in self.inventory.generateListOfProduct() {
             self.productNumbersAndKinds.updateValue(oneProduct, forKey: productNumber)
@@ -113,3 +148,4 @@ struct VendingMachine: AdminMode, UserMode {
     }
 
 }
+

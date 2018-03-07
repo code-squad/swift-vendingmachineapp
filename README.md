@@ -6,16 +6,6 @@
     - 아래 App delegate 객체 내의 custom logic들은 UIApplication 객체와 상호작용한다.
 
   - **App Delegate :  App의 초기화, 상태변화, 다른 앱의 기타 이벤트를 핸들링**
-    - 상태변화 : Not running, Active, Inactive, Background, Suspended
-      ![screensh_78_1](http://cfile4.uf.tistory.com/image/2732B2345739D02D1E8E5B)
-        1. not runnig : 실행중이지 않던 프로그램이 실행이 된다
-        2. foreground: 앱이 실행 된다
-            - (2-1) inactive 사용자 입력 받을 수 없는 상태 ex 알림 떴을때, 시스템 메세지 (베터리 부족합니다 등등)
-            - (2-2) active 사용자와 교류 가능 상태
-
-        3. background 홈버튼 눌러서 내리기 (끈거 x. 코드는 실행되고 있음)
-        4. susperded 상태 : background로 실행되는 앱은 일정한 이유에 따라 OS가 앱을 끈다. 코드 실행하지 않는 상태로 변경
-
     - custom 객체로서 앱 런칭시점에 UIApplicationMain 함수에 의해 생성된다.
 
   - **View Controller : App의 Contents가 화면에 보이게 하는 역할**
@@ -85,3 +75,23 @@
     2. 인터페이스 빌더 사용 : 인스펙터 활용
 
 ## - Step3
+## #1. 앱 생명주기(Application Life Cycle) /
+  - **3가지 실행모드, 5가지 상태**, 홈 버튼을 통해 생기는 변화
+  - 상태변화 : Not running, Active, Inactive, Background, Suspended
+  ![screensh_78_1](http://cfile4.uf.tistory.com/image/2732B2345739D02D1E8E5B)
+    1. not runnig : 실행중이지 않던 프로그램이 실행이 된다
+    2. foreground: 앱이 실행 된다
+        - (2-1) inactive 사용자 입력 받을 수 없는 상태 ex 알림 떴을때, 시스템 메세지 (베터리 부족합니다 등등)
+        - (2-2) active 사용자와 교류 가능 상태
+
+    3. background 홈버튼 눌러서 내리기 (끈거 x. 코드는 실행되고 있음)
+    4. suspended 상태 : background로 실행되는 앱은 일정한 이유에 따라 OS가 앱을 끈다. 코드 실행하지 않는 상태로 변경
+
+## #2. 아카이브
+  - 모델 객체를 저장하는 방법 중 하나로, 객체의 아카이빙은 그 객체의 프로퍼티들을 모두 기록하고, 파일시스템에 그 내용을 저장하는 것을 포함한다.
+  - 언아카이빙 : 아카이브한 데이터로부터 객체를 다시 만든다.
+  - **인스턴스들을 아카이방/언아카이빙해야할 클래스들은 모두 NSCoding Protocol을 따라야 한다.**
+  - **필수 메서드인**``encodeWithCoder(_:)``**와** ``init(coder:)``**를 구현해야 한다.**
+  - 적용방법
+
+## #3. 사용자 설정값을 저장하는 UserDefault 클래스와 UserDefault 클래스에 저장할 수 있는 데이터 타입

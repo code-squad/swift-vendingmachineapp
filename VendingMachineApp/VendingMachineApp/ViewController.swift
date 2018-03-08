@@ -12,6 +12,8 @@ class ViewController: UIViewController {
     @IBOutlet var beverageImages: [UIImageView]!
     @IBOutlet var addedBeverageButtons: [UIButton]!
     @IBOutlet var beverageQuantityLabels: [UILabel]!
+    @IBOutlet var addedMoneyButtons: [UIButton]!
+    @IBOutlet weak var moneyLabel: UILabel!
     
     private var vendingMachine: VendingMachine
     
@@ -32,6 +34,17 @@ class ViewController: UIViewController {
             $0.layer.masksToBounds = true
             $0.backgroundColor = UIColor.white
         })
+    }
+    
+    @IBAction func insertMoneyAction(_ sender: UIButton) {
+        let money: Money = Money(sender.tag)
+        try? vendingMachine.insertMoney(coin: money)
+        
+        updateMoeny()
+    }
+    
+    private func updateMoeny() {
+        moneyLabel.text = "\(vendingMachine.countChange()) 원"
     }
     
     @IBAction func insertBeverageAction(_ sender: UIButton) {

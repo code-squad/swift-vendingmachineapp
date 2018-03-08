@@ -25,6 +25,9 @@ class ViewController: UIViewController {
         let coke: Beverage = Coke(brand: "팹시", weight: 350, price: 2000, name: "다이어트콜라",
                         manufactureDate: formatter.date(from: "20171005") ?? Date(), calorie: 25)
         
+        vendingMachine.addInInventory(beverageName: strawberryMilk, number: 2)
+        vendingMachine.addInInventory(beverageName: bananaMilk, number: 1)
+        vendingMachine.addInInventory(beverageName: coke, number: 3)
     }
 
     override func didReceiveMemoryWarning() {

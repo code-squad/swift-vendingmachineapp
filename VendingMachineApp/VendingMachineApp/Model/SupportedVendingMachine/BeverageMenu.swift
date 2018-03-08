@@ -54,12 +54,6 @@ enum BeverageMenu {
             return coffee.isHot
         })
     }
-    
-    static func makeQuantity(_ defaultQuantity: Int) {
-        self.forEach({ beverageMenu in
-            VendingMachine().insertBeverage(beverageMenu: beverageMenu, quantity: defaultQuantity)
-        })
-    }
 }
 
 extension BeverageMenu {

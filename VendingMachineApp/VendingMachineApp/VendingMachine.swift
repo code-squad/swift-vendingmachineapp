@@ -77,8 +77,4 @@ extension VendingMachine: MachineManagerable {
     func fetchListOfValidDate() -> [BeverageMenu] {
         return BeverageMenu.filterExpireDateOnToday()
     }
-    
-    func supply(_ defaultQuantity: Int = 1) {
-        BeverageMenu.makeQuantity(defaultQuantity)
-    }
 }

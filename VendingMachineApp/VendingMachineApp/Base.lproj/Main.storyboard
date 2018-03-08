@@ -158,7 +158,7 @@
                                 <color key="textColor" red="0.0048598507420000003" green="0.096086271109999996" blue="0.57499289509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZjE-ji-G9n">
+                            <button opaque="NO" tag="5000" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZjE-ji-G9n">
                                 <rect key="frame" x="893" y="170" width="63" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0048598507420000003" green="0.096086271109999996" blue="0.57499289509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -166,8 +166,11 @@
                                 <state key="normal" title="5000">
                                     <color key="titleColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="insertMoneyAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fch-pl-1Bo"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W58-2S-SQ7">
+                            <button opaque="NO" tag="1000" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W58-2S-SQ7">
                                 <rect key="frame" x="893" y="112" width="63" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0048598507420000003" green="0.096086271109999996" blue="0.57499289509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -175,6 +178,9 @@
                                 <state key="normal" title="1000">
                                     <color key="titleColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="insertMoneyAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CxU-cg-tMx"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="잔액 :" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rO0-ik-JGR" userLabel="잔액">
                                 <rect key="frame" x="853" y="269" width="66" height="22"/>
@@ -183,8 +189,8 @@
                                 <color key="textColor" red="0.0048598507420000003" green="0.096086271109999996" blue="0.57499289509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ciC-eL-5LR" userLabel="현재 잔액">
-                                <rect key="frame" x="927" y="269" width="66" height="22"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0 원" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ciC-eL-5LR" userLabel="현재 잔액">
+                                <rect key="frame" x="927" y="269" width="90" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0048598507420000003" green="0.096086271109999996" blue="0.57499289509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -195,6 +201,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="moneyLabel" destination="ciC-eL-5LR" id="sQM-YC-ucZ"/>
                         <outletCollection property="beverageImages" destination="Yaj-Q9-dLH" collectionClass="NSMutableArray" id="Pul-Ve-4kl"/>
                         <outletCollection property="beverageImages" destination="8U6-Pg-BqM" collectionClass="NSMutableArray" id="k40-W0-SZx"/>
                         <outletCollection property="beverageImages" destination="pp2-qG-b4A" collectionClass="NSMutableArray" id="e1Y-El-UYV"/>
@@ -213,6 +220,8 @@
                         <outletCollection property="beverageQuantityLabels" destination="ah4-wi-ATe" collectionClass="NSMutableArray" id="F5E-S5-hni"/>
                         <outletCollection property="beverageQuantityLabels" destination="PdU-DG-weA" collectionClass="NSMutableArray" id="NZK-oe-vt3"/>
                         <outletCollection property="beverageQuantityLabels" destination="IMm-E3-Nb0" collectionClass="NSMutableArray" id="dOh-1v-cc1"/>
+                        <outletCollection property="addedMoneyButtons" destination="W58-2S-SQ7" collectionClass="NSMutableArray" id="pN2-Oa-s5L"/>
+                        <outletCollection property="addedMoneyButtons" destination="ZjE-ji-G9n" collectionClass="NSMutableArray" id="7Lv-EV-KKD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

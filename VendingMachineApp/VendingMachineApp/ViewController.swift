@@ -9,30 +9,20 @@
 import UIKit
 
 class ViewController: UIViewController {
-    private var vendingMachine: VendingMachine
+    @IBOutlet var beverageImages: [UIImageView]!
     
-    required init?(coder aDecoder: NSCoder) {
-        vendingMachine = VendingMachine()
-        super.init(coder: aDecoder)
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        vendingMachine.insertBeverage(beverageMenu: .bananaMilk, quantity: 2)
-        vendingMachine.insertBeverage(beverageMenu: .cocaCola, quantity: 2)
-        vendingMachine.insertBeverage(beverageMenu: .pepsi, quantity: 3)
-        
-        let result: String = vendingMachine.countCurrentInventory().reduce("=> ") {
-            $0 + $1.beverageMenu.makeInstance().description + "(" + String($1.quantity) + "개) "
-        }
-        
-        print(result)
+        setRoundedImages()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    private func setRoundedImages() {
+        beverageImages.forEach({
+            $0.layer.cornerRadius = 50.0
+            $0.layer.masksToBounds = true
+            $0.backgroundColor = UIColor.white
+        })
     }
 }
 

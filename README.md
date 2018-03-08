@@ -75,6 +75,16 @@
     2. 인터페이스 빌더 사용 : 인스펙터 활용
 
 ## - Step3
+## #0. Controller에서 AppDelegate 내부에 선언한 변수 접근하기
+  ```swift
+  //Controller 내부
+  //해당 변수 선언
+  var aVariable : object!
+
+  //viewDidLoad() 함수 내부 : delegate할당 및 변수 할당
+  let appDelegate = UIApplication.shared.delegate as! AppDelegate
+  aVariable = appDelegate.value
+  ```
 ## #1. 앱 생명주기(Application Life Cycle) /
   - **3가지 실행모드, 5가지 상태**, 홈 버튼을 통해 생기는 변화
   - 상태변화 : Not running, Active, Inactive, Background, Suspended
@@ -90,8 +100,27 @@
 ## #2. 아카이브
   - 모델 객체를 저장하는 방법 중 하나로, 객체의 아카이빙은 그 객체의 프로퍼티들을 모두 기록하고, 파일시스템에 그 내용을 저장하는 것을 포함한다.
   - 언아카이빙 : 아카이브한 데이터로부터 객체를 다시 만든다.
-  - **인스턴스들을 아카이방/언아카이빙해야할 클래스들은 모두 NSCoding Protocol을 따라야 한다.**
+  - **인스턴스들을 아카이방/언아카이빙해야할 클래스들은 모두 NSCoding Protocol을 따라야 한다. 하지만, UIView와 UIViewController는 모두 NSCoding을 이미 따르고 있음.**
   - **필수 메서드인**``encodeWithCoder(_:)``**와** ``init(coder:)``**를 구현해야 한다.**
-  - 적용방법
 
 ## #3. 사용자 설정값을 저장하는 UserDefault 클래스와 UserDefault 클래스에 저장할 수 있는 데이터 타입
+  - UserDefaults란?
+    - 사용자 설정을 저장하는 용도의 직렬화(plist)
+    - 저장: UserDefaults.standard.set(data, forKey: MachineStore.Key)
+    - 불러오기: let data = UserDefaults.standard.data(forKey: MachineStore.Key)
+
+    ```swift
+      func saveChanges(_ machine : VendingMachine) {
+      let encodedData = NSKeyedArchiver.archivedData(withRootObject: machine)
+      userDefaults.set(encodedData, forKey : "vendingMachine")
+  }
+
+  func loadMachine() -> VendingMachine? {
+      guard let encodedData = userDefaults.data(forKey: "vendingMachine") else { return nil }
+      guard let archivedMachine = NSKeyedUnarchiver.unarchiveObject(with: encodedData) as? VendingMachine else { return nil }
+          return archivedMachine
+      }
+    ```
+  - UserDefault 클래스에 저장할 수 있는 데이터 타입
+    - UserDefaults 클래스는 float, double, 정수, 부울 값 및 URL과 같은 일반적인 유형에 액세스하기 위한 편리한 메소드를 제공한다.
+    - 기본 객체는 NSData, NSString, NSNumber, NSDate, NSArray 또는 NSDictionary의 인스턴스 (또는 컬렉션, 인스턴스의 조합)의 속성 목록이어야 한다.

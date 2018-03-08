@@ -28,6 +28,8 @@ class ViewController: UIViewController {
         vendingMachine.addInInventory(beverageName: strawberryMilk, number: 2)
         vendingMachine.addInInventory(beverageName: bananaMilk, number: 1)
         vendingMachine.addInInventory(beverageName: coke, number: 3)
+        
+        print(vendingMachine.showEntireInventory())
     }
 
     override func didReceiveMemoryWarning() {

@@ -5,7 +5,7 @@
 
 ##### 실행결과 
 
-<img src=".images/vendingmachineapp-result-1.png"></img>
+<img src="./images/vendingmachineapp-result-1.png"></img>
 
 ##### App Programming Guide for iOS
 * iOS 앱을 구성하는 핵심 객체들과 iOS 메인 런루프 동작 이해하기 위해서 [애플 앱 프로그래밍 가이드](https://developer.apple.com/library/content/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/Introduction/Introduction.html#//apple_ref/doc/uid/TP40007072) 문서를 학습함
@@ -24,8 +24,8 @@
     * 레벨2 자판기에서 View에 해당하는 InputView와 OutputView는 스토리보드나 코드로 작성하는 화면요소로 대체함
     * 이제 특별한 요구사항이 없을 경우 `print() 함수로 출력하는 경우는 지양함`
 
-<img src=".images/vendingapp-app-MVC.png" src="45%"></img>
-<img src=".images/vendingapp-MVC.png" src="45%"></img>
+<img src="./images/vendingapp-app-MVC.png" src="45%"></img>
+<img src="./images/vendingapp-MVC.png" src="45%"></img>
 
 ##### 프로그래밍 요구사항
 * 아이패드 앱을 구현함
@@ -41,7 +41,7 @@
 
 ##### 실행결과
 
-<img src=".images/vendingmachineapp-result-2.png"></img>
+<img src="./images/vendingmachineapp-result-2.png"></img>
 
 ##### [CALayer](https://developer.apple.com/documentation/quartzcore/calayer)
 * 이미지 라운드 처리

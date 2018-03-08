@@ -10,6 +10,15 @@ import UIKit
 
 class ViewController: UIViewController {
     @IBOutlet var beverageImages: [UIImageView]!
+    @IBOutlet var addedBeverageButtons: [UIButton]!
+    @IBOutlet var beverageQuantityLabels: [UILabel]!
+    
+    private var vendingMachine: VendingMachine
+    
+    required init?(coder aDecoder: NSCoder) {
+        vendingMachine = VendingMachine()
+        super.init(coder: aDecoder)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +32,24 @@ class ViewController: UIViewController {
             $0.layer.masksToBounds = true
             $0.backgroundColor = UIColor.white
         })
+    }
+    
+    @IBAction func insertBeverageAction(_ sender: UIButton) {
+        let beverageMenu: BeverageMenu = matchBeverageMenu(index: sender.tag)
+        
+        vendingMachine.insertBeverage(beverageMenu: beverageMenu)
+        updateBeverageQuantity(index: sender.tag)
+    }
+    
+    private func updateBeverageQuantity(index: Int) {
+        let beverageMenu: BeverageMenu = matchBeverageMenu(index: index)
+        let quantity: Int = vendingMachine.countBeverageQuantity(beverageMenu: beverageMenu)
+        
+        beverageQuantityLabels[index].text = "\(quantity) 개"
+    }
+    
+    private func matchBeverageMenu(index: Int) -> BeverageMenu {
+        return BeverageMenu.getBeverageMenu(index: index)
     }
 }
 

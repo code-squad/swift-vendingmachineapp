@@ -21,7 +21,20 @@ class PepciCoke: SodaPop {
         super.init(brand: "코카콜라", name: "다이어트콜라", volume: 350, price: 2000,
                    manufacturedDate: form.date(from: "20170110") ?? Date(), lowCalorie: true)
     }
-
+    
+    override func encode(with aCoder: NSCoder) {
+        aCoder.encode(self.kind, forKey: "kind")
+        super.encode(with: aCoder)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        guard let kind = aDecoder.decodeObject(forKey: "kind") as? String else {
+            return
+        }
+        self.kind = kind
+    }
+    
     override var description: String {
         return "\(self.kind)(\(String(describing: PepciCoke.self))) - \(super.description)"
     }

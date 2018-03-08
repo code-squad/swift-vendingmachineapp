@@ -22,6 +22,20 @@ class TOPCoffee: Coffee {
         super.init(brand: "맥심", name: "TOP아메리카노", volume: 400, price: 3000,
                    manufacturedDate: form.date(from: "20170117") ?? Date(), hot: false)
     }
+    
+    override func encode(with aCoder: NSCoder) {
+        aCoder.encode(self.kind, forKey: "kind")
+        super.encode(with: aCoder)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        guard let kind = aDecoder.decodeObject(forKey: "kind") as? String else {
+            return
+        }
+        self.kind = kind
+    }
+
 
     override var description: String {
         return "\(self.kind)(\(String(describing: TOPCoffee.self))) - \(super.description)"

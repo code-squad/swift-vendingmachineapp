@@ -40,10 +40,10 @@ class ViewController: UIViewController {
         let money: Money = Money(sender.tag)
         try? vendingMachine.insertMoney(coin: money)
         
-        updateMoeny()
+        updateMoney()
     }
     
-    private func updateMoeny() {
+    private func updateMoney() {
         moneyLabel.text = "\(vendingMachine.countChange()) 원"
     }
     

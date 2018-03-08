@@ -12,17 +12,23 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var vendingMachine = VendingMachine()
-    var userDefault = UserDefaults.standard
+    var vendingMachine : VendingMachine!
+    var machineStore = MachineStore()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        return true
+        guard let decodedData = machineStore.loadMachine() else {
+            vendingMachine = VendingMachine()
+            return true
+        }
+        vendingMachine = decodedData
+        return true                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
+        machineStore.saveChanges(vendingMachine)
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -32,6 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
+        machineStore.saveChanges(vendingMachine)
     }
 
 

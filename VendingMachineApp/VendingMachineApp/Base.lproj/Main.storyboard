@@ -138,7 +138,7 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <state key="normal" title="재고추가"/>
                                 <connections>
-                                    <action selector="addInventoryButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vCk-8Q-HRo"/>
+                                    <action selector="addInventoryButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0dL-CK-nVY"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="thirdProduct" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BNB-E4-12X">
@@ -147,7 +147,7 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <state key="normal" title="재고추가"/>
                                 <connections>
-                                    <action selector="addInventoryButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RSS-KX-e1c"/>
+                                    <action selector="addInventoryButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RgN-zX-ejT"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="secondProduct" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3DG-3t-E44">
@@ -156,7 +156,7 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <state key="normal" title="재고추가"/>
                                 <connections>
-                                    <action selector="addInventoryButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="og5-Tq-NJh"/>
+                                    <action selector="addInventoryButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1nP-zN-kck"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="fourthProduct" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="slS-PV-JNq">
@@ -165,7 +165,7 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <state key="normal" title="재고추가"/>
                                 <connections>
-                                    <action selector="addInventoryButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RP0-Af-50p"/>
+                                    <action selector="addInventoryButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aVV-K3-Goy"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="sixthProduct" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ad6-Jy-S7T">
@@ -174,7 +174,7 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <state key="normal" title="재고추가"/>
                                 <connections>
-                                    <action selector="addInventoryButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="a4F-mT-uLf"/>
+                                    <action selector="addInventoryButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="H61-hJ-BF8"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="fifthProduct" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E6n-eM-Nrd">
@@ -183,7 +183,7 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <state key="normal" title="재고추가"/>
                                 <connections>
-                                    <action selector="addInventoryButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9Pw-O7-Ubo"/>
+                                    <action selector="addInventoryButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zJ2-L2-cwq"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Peo-PU-KMc">
@@ -192,7 +192,7 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <state key="normal" title="+1000"/>
                                 <connections>
-                                    <action selector="addMoneyButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1Sf-Mm-GYi"/>
+                                    <action selector="addMoneyButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oVy-56-JTT"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="reR-l4-q3o">
@@ -201,7 +201,7 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <state key="normal" title="+5000"/>
                                 <connections>
-                                    <action selector="addMoneyButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mml-wK-dTG"/>
+                                    <action selector="addMoneyButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Dva-Hj-49n"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Balance" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OIS-fI-S9W">
@@ -216,27 +216,27 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="balance" destination="OIS-fI-S9W" id="gik-ZL-Nwg"/>
-                        <outletCollection property="products" destination="s3k-KN-fAf" collectionClass="NSMutableArray" id="UuA-bL-hzd"/>
-                        <outletCollection property="products" destination="IGk-ft-c3C" collectionClass="NSMutableArray" id="hca-ND-c8w"/>
-                        <outletCollection property="products" destination="Sah-ST-oGg" collectionClass="NSMutableArray" id="c5a-iK-dIt"/>
-                        <outletCollection property="products" destination="4Hm-IP-3Kz" collectionClass="NSMutableArray" id="DxZ-4e-WI4"/>
-                        <outletCollection property="products" destination="qln-z6-qqV" collectionClass="NSMutableArray" id="J6n-cr-aU5"/>
-                        <outletCollection property="products" destination="W9d-7H-HmY" collectionClass="NSMutableArray" id="95i-Vu-C14"/>
-                        <outletCollection property="labelOfProducts" destination="YsE-HH-KlB" collectionClass="NSMutableArray" id="2ee-Kj-R0X"/>
-                        <outletCollection property="labelOfProducts" destination="mnB-Pa-4W6" collectionClass="NSMutableArray" id="NFu-tC-D2C"/>
-                        <outletCollection property="labelOfProducts" destination="AKl-Ci-mAf" collectionClass="NSMutableArray" id="K2n-qg-Qgh"/>
-                        <outletCollection property="labelOfProducts" destination="FIP-Th-8Qu" collectionClass="NSMutableArray" id="pE3-1n-Enp"/>
-                        <outletCollection property="labelOfProducts" destination="mNb-d0-fad" collectionClass="NSMutableArray" id="Glt-NK-DnT"/>
-                        <outletCollection property="labelOfProducts" destination="3sh-By-tHC" collectionClass="NSMutableArray" id="Mx4-Af-iEb"/>
-                        <outletCollection property="addInventory" destination="zfu-7g-tXv" collectionClass="NSMutableArray" id="tTk-jh-886"/>
-                        <outletCollection property="addInventory" destination="3DG-3t-E44" collectionClass="NSMutableArray" id="5bv-Su-BoX"/>
-                        <outletCollection property="addInventory" destination="BNB-E4-12X" collectionClass="NSMutableArray" id="ETV-Rh-QKX"/>
-                        <outletCollection property="addInventory" destination="slS-PV-JNq" collectionClass="NSMutableArray" id="Yzb-eV-FwQ"/>
-                        <outletCollection property="addInventory" destination="E6n-eM-Nrd" collectionClass="NSMutableArray" id="rpe-d5-8tO"/>
-                        <outletCollection property="addInventory" destination="ad6-Jy-S7T" collectionClass="NSMutableArray" id="paV-gD-0Zd"/>
-                        <outletCollection property="addMoney" destination="Peo-PU-KMc" collectionClass="NSMutableArray" id="Bth-Tn-dku"/>
-                        <outletCollection property="addMoney" destination="reR-l4-q3o" collectionClass="NSMutableArray" id="5go-br-57l"/>
+                        <outlet property="balance" destination="OIS-fI-S9W" id="EIQ-ha-DUB"/>
+                        <outletCollection property="products" destination="s3k-KN-fAf" collectionClass="NSMutableArray" id="Kdy-4j-9HU"/>
+                        <outletCollection property="products" destination="IGk-ft-c3C" collectionClass="NSMutableArray" id="ffm-bj-fc2"/>
+                        <outletCollection property="products" destination="Sah-ST-oGg" collectionClass="NSMutableArray" id="Zji-Wi-aOB"/>
+                        <outletCollection property="products" destination="4Hm-IP-3Kz" collectionClass="NSMutableArray" id="qP5-CR-89C"/>
+                        <outletCollection property="products" destination="qln-z6-qqV" collectionClass="NSMutableArray" id="NF5-oa-YgU"/>
+                        <outletCollection property="products" destination="W9d-7H-HmY" collectionClass="NSMutableArray" id="b7t-cc-mDz"/>
+                        <outletCollection property="labelOfProducts" destination="YsE-HH-KlB" collectionClass="NSMutableArray" id="KLE-cF-Ffk"/>
+                        <outletCollection property="labelOfProducts" destination="mnB-Pa-4W6" collectionClass="NSMutableArray" id="peH-fq-8Sp"/>
+                        <outletCollection property="labelOfProducts" destination="AKl-Ci-mAf" collectionClass="NSMutableArray" id="N9H-MG-FYl"/>
+                        <outletCollection property="labelOfProducts" destination="FIP-Th-8Qu" collectionClass="NSMutableArray" id="lkz-ap-snf"/>
+                        <outletCollection property="labelOfProducts" destination="mNb-d0-fad" collectionClass="NSMutableArray" id="RY8-XY-PeK"/>
+                        <outletCollection property="labelOfProducts" destination="3sh-By-tHC" collectionClass="NSMutableArray" id="un1-yz-8Ep"/>
+                        <outletCollection property="addInventory" destination="zfu-7g-tXv" collectionClass="NSMutableArray" id="hQi-yx-YHr"/>
+                        <outletCollection property="addInventory" destination="3DG-3t-E44" collectionClass="NSMutableArray" id="sG8-Ue-GJ2"/>
+                        <outletCollection property="addInventory" destination="BNB-E4-12X" collectionClass="NSMutableArray" id="edZ-sW-1yW"/>
+                        <outletCollection property="addInventory" destination="slS-PV-JNq" collectionClass="NSMutableArray" id="jiF-5l-ivv"/>
+                        <outletCollection property="addInventory" destination="E6n-eM-Nrd" collectionClass="NSMutableArray" id="0Dc-rk-aFZ"/>
+                        <outletCollection property="addInventory" destination="ad6-Jy-S7T" collectionClass="NSMutableArray" id="nw4-Az-kly"/>
+                        <outletCollection property="addMoney" destination="Peo-PU-KMc" collectionClass="NSMutableArray" id="wQd-ls-dhk"/>
+                        <outletCollection property="addMoney" destination="reR-l4-q3o" collectionClass="NSMutableArray" id="6ah-BM-yVO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

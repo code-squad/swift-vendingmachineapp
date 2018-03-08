@@ -29,58 +29,55 @@ protocol UserMode {
 }
 
 class VendingMachine: NSObject, NSCoding, AdminMode, UserMode {
+    
     private var inventory: Inventory = Inventory([])
     private var balance: Int = 0
     private var historyOfProductsSold: [Beverage] = []
     private var productNumbersAndKinds: [Int: ObjectIdentifier] = [:]
-    
-    func encode(with aCoder: NSCoder) {
-        aCoder.encode(inventory, forKey: "inventory")
-        aCoder.encode(balance, forKey: "balance")
-        aCoder.encode(historyOfProductsSold, forKey: "historyOfProductsSold")
-        aCoder.encode(productNumbersAndKinds, forKey: "productNumbersAndKinds")
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        self.inventory = aDecoder.decodeObject(forKey: "inventory") as! Inventory
-        self.balance = aDecoder.decodeObject(forKey: "balance") as! Int
-        self.historyOfProductsSold = aDecoder.decodeObject(forKey: "historyOfProductsSold") as! [Beverage]
-        self.productNumbersAndKinds = aDecoder.decodeObject(forKey: "productNumbersAndKinds") as! [Int : ObjectIdentifier]
-        
-        super.init()
-    }
-    
-    
-    private let baseProductsBox = [
-        StrawberryMilk(), StrawberryMilk(), StrawberryMilk(),
-        BananaMilk(), BananaMilk(), BananaMilk(),
-        PepciCoke(), PepciCoke(), PepciCoke(), PepciCoke(), PepciCoke(),
-        Fanta(), Fanta(), Fanta(),
-        TOPCoffee(), TOPCoffee(), TOPCoffee(),
-        Georgia(), Georgia()
-    ]
-    
-    enum AvailableMoney : Int {
-        case oneThousand = 1000
-        case fiveThousands = 5000
-        case unavailableMoney = 0
-    }
-    
     
     init(productsBox: [Beverage]) {
         super.init()
         for oneProduct in productsBox {
             self.inventory.addBeverage(oneProduct)
         }
-        updateProductNumbersAndKinds()
+        self.updateProductNumbersAndKinds()
     }
     
     override init() {
+        let baseProductsBox = [
+            StrawberryMilk(), StrawberryMilk(), StrawberryMilk(),
+            BananaMilk(), BananaMilk(), BananaMilk(),
+            PepciCoke(), PepciCoke(), PepciCoke(), PepciCoke(), PepciCoke(),
+            Fanta(), Fanta(), Fanta(),
+            TOPCoffee(), TOPCoffee(), TOPCoffee(),
+            Georgia(), Georgia()
+        ]
         super.init()
         for oneProduct in baseProductsBox {
             self.inventory.addBeverage(oneProduct)
         }
-        updateProductNumbersAndKinds()
+        self.updateProductNumbersAndKinds()
+    }
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(inventory, forKey: "inventory")
+        aCoder.encode(balance, forKey: "balance")
+        aCoder.encode(historyOfProductsSold, forKey: "historyOfProductsSold")
+    }
+    
+    required init(coder aDecoder: NSCoder) {
+        super.init()
+        guard let history = aDecoder.decodeObject(forKey: "historyOfProductsSold") as? [Beverage] else { return }
+        guard let inventory = aDecoder.decodeObject(forKey: "inventory") as? Inventory else { return }
+        self.inventory = inventory
+        self.balance = aDecoder.decodeInteger(forKey: "balance")
+        self.historyOfProductsSold = history
+    }
+    
+    enum AvailableMoney : Int {
+        case oneThousand = 1000
+        case fiveThousands = 5000
+        case unavailableMoney = 0
     }
 
     func addBeverage(_ product: Beverage) {

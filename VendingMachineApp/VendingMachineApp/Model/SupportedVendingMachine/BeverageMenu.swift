@@ -10,10 +10,10 @@ import Foundation
 
 enum BeverageMenu {
     case bananaMilk
-    case cocaCola
-    case georgia
-    case pepsi
     case strawberryMilk
+    case cocaCola
+    case pepsi
+    case georgia
     case top
     
     func makeInstance() -> Beverage {

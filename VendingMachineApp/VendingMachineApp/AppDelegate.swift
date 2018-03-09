@@ -14,10 +14,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var vendingMachine : VendingMachine!
     var machineStore = MachineStore()
+    let baseProductsBox = [
+        StrawberryMilk(), StrawberryMilk(), StrawberryMilk(),
+        BananaMilk(), BananaMilk(), BananaMilk(),
+        PepciCoke(), PepciCoke(), PepciCoke(), PepciCoke(), PepciCoke(),
+        Fanta(), Fanta(), Fanta(),
+        TOPCoffee(), TOPCoffee(), TOPCoffee(),
+        Georgia(), Georgia()
+    ]
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         guard let decodedData = machineStore.loadMachine() else {
-            vendingMachine = VendingMachine()
+            vendingMachine = VendingMachine(productsBox: baseProductsBox)
             return true
         }
         vendingMachine = decodedData

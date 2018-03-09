@@ -43,22 +43,6 @@ class VendingMachine: NSObject, NSCoding, AdminMode, UserMode {
         self.updateProductNumbersAndKinds()
     }
     
-    override init() {
-        let baseProductsBox = [
-            StrawberryMilk(), StrawberryMilk(), StrawberryMilk(),
-            BananaMilk(), BananaMilk(), BananaMilk(),
-            PepciCoke(), PepciCoke(), PepciCoke(), PepciCoke(), PepciCoke(),
-            Fanta(), Fanta(), Fanta(),
-            TOPCoffee(), TOPCoffee(), TOPCoffee(),
-            Georgia(), Georgia()
-        ]
-        super.init()
-        for oneProduct in baseProductsBox {
-            self.inventory.addBeverage(oneProduct)
-        }
-        self.updateProductNumbersAndKinds()
-    }
-    
     func encode(with aCoder: NSCoder) {
         aCoder.encode(inventory, forKey: "inventory")
         aCoder.encode(balance, forKey: "balance")

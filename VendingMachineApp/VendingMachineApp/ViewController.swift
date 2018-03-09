@@ -12,6 +12,17 @@ class ViewController: UIViewController {
 
     var vendingMachine = VendingMachine()
     
+    @IBOutlet weak var countOfMenu1: UILabel!
+    @IBOutlet weak var countOfMenu2: UILabel!
+    @IBOutlet weak var countOfMenu3: UILabel!
+    @IBOutlet weak var countOfMenu4: UILabel!
+    @IBOutlet weak var countOfMenu5: UILabel!
+    @IBOutlet weak var countOfMenu6: UILabel!
+    @IBOutlet weak var countOfMenu7: UILabel!
+    @IBOutlet weak var countOfMenu8: UILabel!
+    @IBOutlet weak var countOfMenu9: UILabel!
+    @IBOutlet weak var balance: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let formatter = DateFormatter()
@@ -42,5 +53,38 @@ class ViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
+    @IBAction func addBalance1(_ sender: Any) {
+    }
+    
+    @IBAction func addBalance2(_ sender: Any) {
+    }
+    
+    @IBAction func addMenu1(_ sender: Any) {
+    }
 
+    @IBAction func addMenu2(_ sender: Any) {
+    }
+    
+    @IBAction func addMenu3(_ sender: Any) {
+    }
+    
+    @IBAction func addMenu4(_ sender: Any) {
+    }
+    
+    @IBAction func addMenu5(_ sender: Any) {
+    }
+    
+    @IBAction func addMenu6(_ sender: Any) {
+    }
+    
+    @IBAction func addMenu7(_ sender: Any) {
+    }
+    
+    @IBAction func addMenu8(_ sender: Any) {
+    }
+    
+    @IBAction func addMenu9(_ sender: Any) {
+    }
+    
 }

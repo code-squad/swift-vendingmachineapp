@@ -26,6 +26,9 @@
                                 <rect key="frame" x="150" y="51" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="추가"/>
+                                <connections>
+                                    <action selector="addMenu1:" destination="BYZ-38-t0r" eventType="touchUpInside" id="G4Y-LA-3jp"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="URH-kr-cWk">
                                 <rect key="frame" x="144" y="247" width="23" height="21"/>
@@ -42,6 +45,9 @@
                                 <rect key="frame" x="381" y="50" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="추가"/>
+                                <connections>
+                                    <action selector="addMenu2:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DNT-Eb-1c3"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6kh-Wj-bYY">
                                 <rect key="frame" x="555" y="89" width="150" height="150"/>
@@ -51,6 +57,9 @@
                                 <rect key="frame" x="615" y="51" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="추가"/>
+                                <connections>
+                                    <action selector="addMenu3:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uiS-f2-lfl"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="01S-ke-9a1">
                                 <rect key="frame" x="89" y="331" width="150" height="150"/>
@@ -60,6 +69,9 @@
                                 <rect key="frame" x="149" y="293" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="추가"/>
+                                <connections>
+                                    <action selector="addMenu4:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mvN-KV-TcH"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OBd-PF-ufY">
                                 <rect key="frame" x="320" y="330" width="150" height="150"/>
@@ -69,6 +81,9 @@
                                 <rect key="frame" x="380" y="292" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="추가"/>
+                                <connections>
+                                    <action selector="addMenu5:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CAE-CF-xqY"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zv0-lK-tbt">
                                 <rect key="frame" x="554" y="331" width="150" height="150"/>
@@ -78,6 +93,9 @@
                                 <rect key="frame" x="614" y="293" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="추가"/>
+                                <connections>
+                                    <action selector="addMenu6:" destination="BYZ-38-t0r" eventType="touchUpInside" id="x4T-5u-awo"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xD1-W6-Tez">
                                 <rect key="frame" x="88" y="580" width="150" height="150"/>
@@ -87,6 +105,9 @@
                                 <rect key="frame" x="148" y="542" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="추가"/>
+                                <connections>
+                                    <action selector="addMenu7:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xcs-2j-S9x"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fA8-D6-lW7">
                                 <rect key="frame" x="319" y="579" width="150" height="150"/>
@@ -96,6 +117,9 @@
                                 <rect key="frame" x="379" y="541" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="추가"/>
+                                <connections>
+                                    <action selector="addMenu8:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7cq-TA-Skt"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EUE-WL-pZX">
                                 <rect key="frame" x="553" y="580" width="150" height="150"/>
@@ -105,16 +129,25 @@
                                 <rect key="frame" x="613" y="542" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="추가"/>
+                                <connections>
+                                    <action selector="addMenu9:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9GT-1M-awD"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QSL-ul-04o">
                                 <rect key="frame" x="813" y="89" width="44" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="+1000"/>
+                                <connections>
+                                    <action selector="addBalance1:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PNt-05-B4n"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dqo-wi-tEF">
                                 <rect key="frame" x="908" y="90" width="47" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="+5000"/>
+                                <connections>
+                                    <action selector="addBalance2:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lUh-Si-nSC"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="잔액 :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jND-ct-tZH">
                                 <rect key="frame" x="816" y="218" width="39" height="21"/>
@@ -260,6 +293,18 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="balance" destination="VD1-ts-NTi" id="fYw-s0-l9d"/>
+                        <outlet property="countOfMenu1" destination="URH-kr-cWk" id="E9O-2b-qDa"/>
+                        <outlet property="countOfMenu2" destination="keD-3J-Q35" id="CTz-50-CDl"/>
+                        <outlet property="countOfMenu3" destination="VXf-lM-JTc" id="MNZ-Ju-TNh"/>
+                        <outlet property="countOfMenu4" destination="WiB-Cz-j7f" id="HRF-e0-sMP"/>
+                        <outlet property="countOfMenu5" destination="jQF-YF-srq" id="Uko-z7-8Pa"/>
+                        <outlet property="countOfMenu6" destination="ORR-We-0yL" id="IC7-6k-M0n"/>
+                        <outlet property="countOfMenu7" destination="bXK-MR-f0k" id="q5j-Zw-Kc8"/>
+                        <outlet property="countOfMenu8" destination="EpI-h7-JJH" id="u3k-CL-uxq"/>
+                        <outlet property="countOfMenu9" destination="7LM-Ur-YyG" id="2Xh-vU-cTx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

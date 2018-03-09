@@ -18,6 +18,10 @@ class Soda: Beverage {
         return " - \(super.description)"
     }
     
+    var descriptionDetail: String {
+        return "\(self.kindOf)(\(type(of: self)))\(super.description)"
+    }
+    
     func isSweet() -> Bool {
         return (self.saccharide > 25)
     }

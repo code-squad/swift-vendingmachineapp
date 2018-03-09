@@ -15,9 +15,7 @@ class Kantata: Coffee {
         super.init(brand: brand, weight: weight, price: price, name: name, manufactureDate: manufactureDate)
         super.kindOf = "칸타타"
     }
-    override var description: String {
-        return "\(self.kindOf)(\(type(of: self)))\(super.description)"
-    }
+    
     func isGuatemalaBeans() -> Bool {
         return (self.kindOfBeans == "GuatemalaAntiqua")
     }

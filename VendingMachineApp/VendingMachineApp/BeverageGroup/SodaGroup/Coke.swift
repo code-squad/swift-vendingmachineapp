@@ -15,9 +15,6 @@ class Coke: Soda {
         super.init(brand: brand, weight: weight, price: price, name: name, manufactureDate: manufactureDate)
         super.kindOf = "콜라"
     }
-    override var description: String {
-        return "\(self.kindOf)(\(type(of: self)))\(super.description)"
-    }
     
     func isLowCalorie() -> Bool {
         return calorie < 80

@@ -17,9 +17,15 @@ class Coffee: Beverage {
     override var description: String {
         return " - \(super.description)"
     }
+    
+    var descriptionDetail: String {
+        return "\(self.kindOf)(\(type(of: self)))\(super.description)"
+    }
+    
     func isRichCaffeine() -> Bool {
         return self.caffeineContent > 70
     }
+    
     func isModerateCaffeine() -> Bool {
         return caffeineContent == 76
     }

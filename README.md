@@ -55,3 +55,29 @@ private func setRoundedImages() {
     })
 }
 ```
+
+### 3. 앱 생명주기와 객체 저장
+
+##### 요구사항
+* 앱 시작부터 종료까지 생명주기를 관리하는 방법을 학습함
+* 앱 실행 이후 마지막 자판기 재고 상태와 잔액 등 VendingMachine 객체의 속성을 앱을 종료하더라도 저장하도록 개선함
+* 앱을 다시 실행하면 마지막 재고 상태를 그대로 복원함
+* 객체의 속성을 저장하기 위한 아카이브(Archive) 관련된 내용을 학습함
+
+##### 프로그래밍 요구사항
+* VendingMachine 변수를 ViewController에서 포함하지 않고 AppDelegate로 옮김
+* AppDelegate에 선언한 변수를 ViewController에서 접근하기 위한 방법을 찾음
+    * `Hint. UIApplication.delegate 객체가 AppDelegate의 인스터스임`
+* 앱 종료(background) 시점 콜백 함수에서 VendingMachine 객체 인스턴스 속성을 저장한다.
+    * 저장할 때는 VendingMachine을 아카이브해서 하나의 데이터 값으로 변형함
+    * 값을 저장하고 복원하는 데에는 UserDefault 라는 파운데이션 라이브러리를 사용함
+* 앱 시작(activate) 시점 콜백 함수에서 기존에 저장된 값에서 불러와서 VendingMachine 객체 인스턴스를 생성함
+    * 복원할 때는 저장된 데이터 값을 언아카이브해서 VendingMachine 객체를 생성함
+
+##### 실행결과
+
+##### [UserDefaults](https://developer.apple.com/documentation/foundation/userdefaults)
+
+##### [Archives and Serialization](https://developer.apple.com/documentation/foundation/archives_and_serialization)
+
+##### [Encoding and Decoding Custom Types](https://developer.apple.com/documentation/foundation/archives_and_serialization/encoding_and_decoding_custom_types)

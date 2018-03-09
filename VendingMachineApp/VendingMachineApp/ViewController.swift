@@ -15,16 +15,8 @@ class ViewController: UIViewController {
     }
     var countOfEachBeverage = [Int](repeating: 0, count: 9)
     var vendingMachine = VendingMachine()
-    
-    @IBOutlet weak var countOfMenu1: UILabel!
-    @IBOutlet weak var countOfMenu2: UILabel!
-    @IBOutlet weak var countOfMenu3: UILabel!
-    @IBOutlet weak var countOfMenu4: UILabel!
-    @IBOutlet weak var countOfMenu5: UILabel!
-    @IBOutlet weak var countOfMenu6: UILabel!
-    @IBOutlet weak var countOfMenu7: UILabel!
-    @IBOutlet weak var countOfMenu8: UILabel!
-    @IBOutlet weak var countOfMenu9: UILabel!
+
+    @IBOutlet var countOfMenu: [UILabel]!
     @IBOutlet weak var balance: UILabel!
     
     override func viewDidLoad() {
@@ -69,6 +61,7 @@ class ViewController: UIViewController {
                     return
                 }
                 self.countOfEachBeverage[type.rawValue] += numberOf
+                self.updateCountOfEachBeverage()
             }
         }
         alert.addAction(cancel)
@@ -77,6 +70,13 @@ class ViewController: UIViewController {
             text.placeholder = "갯수입력"
         })
         self.present(alert, animated: true)
+        
+    }
+    
+    func updateCountOfEachBeverage() {
+        for (index, menu) in countOfMenu.enumerated() {
+            menu.text = String(countOfEachBeverage[index])
+        }
     }
     
     @IBAction func addBalance1(_ sender: Any) {

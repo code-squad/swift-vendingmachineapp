@@ -295,15 +295,15 @@
                     </view>
                     <connections>
                         <outlet property="balance" destination="VD1-ts-NTi" id="fYw-s0-l9d"/>
-                        <outlet property="countOfMenu1" destination="URH-kr-cWk" id="E9O-2b-qDa"/>
-                        <outlet property="countOfMenu2" destination="keD-3J-Q35" id="CTz-50-CDl"/>
-                        <outlet property="countOfMenu3" destination="VXf-lM-JTc" id="MNZ-Ju-TNh"/>
-                        <outlet property="countOfMenu4" destination="WiB-Cz-j7f" id="HRF-e0-sMP"/>
-                        <outlet property="countOfMenu5" destination="jQF-YF-srq" id="Uko-z7-8Pa"/>
-                        <outlet property="countOfMenu6" destination="ORR-We-0yL" id="IC7-6k-M0n"/>
-                        <outlet property="countOfMenu7" destination="bXK-MR-f0k" id="q5j-Zw-Kc8"/>
-                        <outlet property="countOfMenu8" destination="EpI-h7-JJH" id="u3k-CL-uxq"/>
-                        <outlet property="countOfMenu9" destination="7LM-Ur-YyG" id="2Xh-vU-cTx"/>
+                        <outletCollection property="countOfMenu" destination="URH-kr-cWk" collectionClass="NSMutableArray" id="YAT-ei-gHQ"/>
+                        <outletCollection property="countOfMenu" destination="keD-3J-Q35" collectionClass="NSMutableArray" id="etP-1a-XbL"/>
+                        <outletCollection property="countOfMenu" destination="VXf-lM-JTc" collectionClass="NSMutableArray" id="f9c-wc-oVM"/>
+                        <outletCollection property="countOfMenu" destination="WiB-Cz-j7f" collectionClass="NSMutableArray" id="3e2-sA-uEG"/>
+                        <outletCollection property="countOfMenu" destination="jQF-YF-srq" collectionClass="NSMutableArray" id="Brq-Zm-FgB"/>
+                        <outletCollection property="countOfMenu" destination="ORR-We-0yL" collectionClass="NSMutableArray" id="LSm-Ay-BJa"/>
+                        <outletCollection property="countOfMenu" destination="bXK-MR-f0k" collectionClass="NSMutableArray" id="a6M-QO-sOc"/>
+                        <outletCollection property="countOfMenu" destination="EpI-h7-JJH" collectionClass="NSMutableArray" id="WTb-ci-V5M"/>
+                        <outletCollection property="countOfMenu" destination="7LM-Ur-YyG" collectionClass="NSMutableArray" id="gBf-RP-zFD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

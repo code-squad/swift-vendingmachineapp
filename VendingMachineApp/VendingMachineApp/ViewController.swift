@@ -9,7 +9,11 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    enum TypeOf: Int {
+        case strawberryMilk = 0, bananaMilk, chocoMilk, sprite, coke, fanta, georgia, top, kantanta
+        
+    }
+    var countOfEachBeverage = [Int](repeating: 0, count: 9)
     var vendingMachine = VendingMachine()
     
     @IBOutlet weak var countOfMenu1: UILabel!
@@ -54,37 +58,68 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
+    func alertCountOfBeverage(type: TypeOf) {
+        let title = "추가"
+        let message = "추가 할 재고 갯수를 입력하세요."
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let cancel = UIAlertAction(title: "취소", style: .cancel)
+        let ok = UIAlertAction(title: "확인", style: .default) {(_) in
+            if let inputValue = alert.textFields?[0] {
+                guard let numberOf = Int(inputValue.text ?? "0") else {
+                    return
+                }
+                self.countOfEachBeverage[type.rawValue] += numberOf
+            }
+        }
+        alert.addAction(cancel)
+        alert.addAction(ok)
+        alert.addTextField(configurationHandler: {(text) in
+            text.placeholder = "갯수입력"
+        })
+        self.present(alert, animated: true)
+    }
+    
     @IBAction func addBalance1(_ sender: Any) {
+        
     }
     
     @IBAction func addBalance2(_ sender: Any) {
     }
     
     @IBAction func addMenu1(_ sender: Any) {
+        alertCountOfBeverage(type: TypeOf.strawberryMilk)
     }
 
     @IBAction func addMenu2(_ sender: Any) {
+        alertCountOfBeverage(type: TypeOf.bananaMilk)
     }
     
     @IBAction func addMenu3(_ sender: Any) {
+        alertCountOfBeverage(type: TypeOf.chocoMilk)
     }
     
     @IBAction func addMenu4(_ sender: Any) {
+        alertCountOfBeverage(type: TypeOf.sprite)
     }
     
     @IBAction func addMenu5(_ sender: Any) {
+        alertCountOfBeverage(type: TypeOf.coke)
     }
     
     @IBAction func addMenu6(_ sender: Any) {
+        alertCountOfBeverage(type: TypeOf.fanta)
     }
     
     @IBAction func addMenu7(_ sender: Any) {
+        alertCountOfBeverage(type: TypeOf.georgia)
     }
     
     @IBAction func addMenu8(_ sender: Any) {
+        alertCountOfBeverage(type: TypeOf.top)
     }
     
     @IBAction func addMenu9(_ sender: Any) {
+        alertCountOfBeverage(type: TypeOf.kantanta)
     }
     
 }

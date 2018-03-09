@@ -11,13 +11,13 @@ import UIKit
 class ViewController: UIViewController {
     enum TypeOf: Int {
         case strawberryMilk = 0, bananaMilk, chocoMilk, sprite, coke, fanta, georgia, top, kantanta
-        
     }
     var countOfEachBeverage = [Int](repeating: 0, count: 9)
     var totalAmount = 0
     var vendingMachine = VendingMachine()
 
     @IBOutlet var countOfMenu: [UILabel]!
+    @IBOutlet var imageOfMenu: [UIImageView]!
     @IBOutlet weak var balance: UILabel!
     
     override func viewDidLoad() {
@@ -45,6 +45,11 @@ class ViewController: UIViewController {
             print("\(beverageName)(\(beverage.count)개)", terminator: " ")
         }
         print("")
+        
+        for index in 0..<9 {
+            imageOfMenu[index].layer.cornerRadius = imageOfMenu[index].frame.width/4
+            imageOfMenu[index].clipsToBounds = true
+        }
     }
 
     override func didReceiveMemoryWarning() {

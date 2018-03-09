@@ -290,7 +290,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="1" green="0.97129637172527794" blue="0.83182171527168958" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
@@ -304,6 +304,15 @@
                         <outletCollection property="countOfMenu" destination="bXK-MR-f0k" collectionClass="NSMutableArray" id="a6M-QO-sOc"/>
                         <outletCollection property="countOfMenu" destination="EpI-h7-JJH" collectionClass="NSMutableArray" id="WTb-ci-V5M"/>
                         <outletCollection property="countOfMenu" destination="7LM-Ur-YyG" collectionClass="NSMutableArray" id="gBf-RP-zFD"/>
+                        <outletCollection property="imageOfMenu" destination="jVh-Ss-Xqo" collectionClass="NSMutableArray" id="Q0T-oC-hMb"/>
+                        <outletCollection property="imageOfMenu" destination="Q8q-6b-Oot" collectionClass="NSMutableArray" id="Vet-tD-Veq"/>
+                        <outletCollection property="imageOfMenu" destination="6kh-Wj-bYY" collectionClass="NSMutableArray" id="rGY-UE-UzN"/>
+                        <outletCollection property="imageOfMenu" destination="01S-ke-9a1" collectionClass="NSMutableArray" id="kIM-hb-Ulk"/>
+                        <outletCollection property="imageOfMenu" destination="OBd-PF-ufY" collectionClass="NSMutableArray" id="cat-2Y-Ix1"/>
+                        <outletCollection property="imageOfMenu" destination="zv0-lK-tbt" collectionClass="NSMutableArray" id="5tS-N1-9l4"/>
+                        <outletCollection property="imageOfMenu" destination="xD1-W6-Tez" collectionClass="NSMutableArray" id="Ps6-Gb-yoS"/>
+                        <outletCollection property="imageOfMenu" destination="fA8-D6-lW7" collectionClass="NSMutableArray" id="wqE-pK-G6L"/>
+                        <outletCollection property="imageOfMenu" destination="EUE-WL-pZX" collectionClass="NSMutableArray" id="UFP-Gm-yam"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

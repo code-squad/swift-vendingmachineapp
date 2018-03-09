@@ -15,9 +15,6 @@ class Fanta: Soda {
         super.init(brand: brand, weight: weight, price: price, name: name, manufactureDate: manufactureDate)
         super.kindOf = "환타"
     }
-    override var description: String {
-        return "\(self.kindOf)(\(type(of: self)))\(super.description)"
-    }
     
     func isAluminumCan() -> Bool {
         return self.materials == "Aluminum"

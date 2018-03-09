@@ -18,6 +18,10 @@ class Milk: Beverage {
     override var description: String {
         return " - \(super.description)"
     }
+    
+    var descriptionDetail: String {
+        return "\(self.kindOf)(\(type(of: self)))\(super.description)"
+    }
 
     func isOverExpirationDate() -> Bool {
         return expirationDate >= Date()

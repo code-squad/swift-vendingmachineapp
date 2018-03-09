@@ -15,13 +15,11 @@ class StrawberryMilk: Milk {
         super.init(brand: brand, weight: weight, price: price, name: name, manufactureDate: manufactureDate)
         super.kindOf = "딸기우유"
     }
-    override var description: String {
-        return "\(self.kindOf)(\(type(of: self)))\(super.description)"
-    }
     
     func quantityOfstrawberrySyrup() -> Int {
         return strawberrySyrup
     }
+    
     func isModerateSyrup() -> Bool {
         return strawberrySyrup == 5
     }

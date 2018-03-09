@@ -14,9 +14,6 @@ class Georgia: Coffee {
         super.init(brand: brand, weight: weight, price: price, name: name, manufactureDate: manufactureDate)
         super.kindOf = "조지아"
     }
-    override var description: String {
-        return "\(self.kindOf)\(type(of: self)))\(super.description)"
-    }
 
     func isRichCoffeeExtract() -> Bool {
         return self.coffeeExtract > 10

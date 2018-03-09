@@ -124,3 +124,24 @@
   - UserDefault 클래스에 저장할 수 있는 데이터 타입
     - UserDefaults 클래스는 float, double, 정수, 부울 값 및 URL과 같은 일반적인 유형에 액세스하기 위한 편리한 메소드를 제공한다.
     - 기본 객체는 NSData, NSString, NSNumber, NSDate, NSArray 또는 NSDictionary의 인스턴스 (또는 컬렉션, 인스턴스의 조합)의 속성 목록이어야 한다.
+
+## - Step4
+## #1. 싱글톤 패턴
+  - 싱글톤 패턴이란? **매번 똑같은 하나의 인스턴스만 반환하도록 하는 클래스 설계 방식**
+    - 싱글톤 패턴(Singleton Pattern)은 단 하나의 인스턴스(객체 혹은 오브젝트)를 만들어 두고 이를 여러 곳에서 쉽게 액세스 할 수 있게 하는것이 목적이다.
+
+  - 클래스 경우 싱글톤을 생성하는 방법
+    -  init에 private이 걸려있어 직접 선언과 동시 호출을 제한시킨다.
+    ```
+      class VendingMachine {
+    	static var instance: VendingMachine = VendingMachine()
+    	private init(){
+
+    	}
+    }
+    ```
+  - 싱글톤 객체의 장점과 단점에 대해 학습한다.
+    - 장점
+      1. 객체 생성 횟수를 줄일 수 있어 메모리 공간이 절약된다. (힙 메모리가 가벼워진다)
+      2. 여러 개의 인스턴스를 생성하는 경우에 비해 인스턴스간의 간섭이 줄어든다.
+    - 단점 :

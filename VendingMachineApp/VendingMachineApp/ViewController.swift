@@ -52,8 +52,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        vendingMachine = appDelegate.vendingMachine
+        vendingMachine = VendingMachine.shared()
         balance.text = "\(vendingMachine.getBalance())원"
         updateInventory()
     }

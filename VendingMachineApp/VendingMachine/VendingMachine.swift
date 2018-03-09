@@ -34,8 +34,26 @@ class VendingMachine: NSObject, NSCoding, AdminMode, UserMode {
     private var balance: Int = 0
     private var historyOfProductsSold: [Beverage] = []
     private var productNumbersAndKinds: [Int: ObjectIdentifier] = [:]
+    private static let baseProductsBox = [
+        StrawberryMilk(), StrawberryMilk(), StrawberryMilk(),
+        BananaMilk(), BananaMilk(), BananaMilk(),
+        PepciCoke(), PepciCoke(), PepciCoke(), PepciCoke(), PepciCoke(),
+        Fanta(), Fanta(), Fanta(),
+        TOPCoffee(), TOPCoffee(), TOPCoffee(),
+        Georgia(), Georgia()
+    ]
     
-    init(productsBox: [Beverage]) {
+    private static var instance : VendingMachine = VendingMachine(baseProductsBox)
+    
+    static func shared() -> VendingMachine {
+        return instance
+    }
+    
+    static func loadInstance(_ machine : VendingMachine) {
+        instance = machine
+    }
+    
+    private init(_ productsBox: [Beverage]) {
         super.init()
         for oneProduct in productsBox {
             self.inventory.addBeverage(oneProduct)

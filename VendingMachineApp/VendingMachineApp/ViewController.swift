@@ -14,6 +14,7 @@ class ViewController: UIViewController {
         
     }
     var countOfEachBeverage = [Int](repeating: 0, count: 9)
+    var totalAmount = 0
     var vendingMachine = VendingMachine()
 
     @IBOutlet var countOfMenu: [UILabel]!
@@ -79,11 +80,14 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction func addBalance1(_ sender: Any) {
-        
+    @IBAction func addBalance1(sender: UIButton) {
+        totalAmount += 1000
+        balance.text = String(totalAmount)
     }
     
-    @IBAction func addBalance2(_ sender: Any) {
+    @IBAction func addBalance2(_ sender: UIButton) {
+        totalAmount += 5000
+        balance.text = String(totalAmount)
     }
     
     @IBAction func addMenu1(_ sender: Any) {

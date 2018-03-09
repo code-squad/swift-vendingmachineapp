@@ -12,23 +12,11 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var vendingMachine : VendingMachine!
     var machineStore = MachineStore()
-    let baseProductsBox = [
-        StrawberryMilk(), StrawberryMilk(), StrawberryMilk(),
-        BananaMilk(), BananaMilk(), BananaMilk(),
-        PepciCoke(), PepciCoke(), PepciCoke(), PepciCoke(), PepciCoke(),
-        Fanta(), Fanta(), Fanta(),
-        TOPCoffee(), TOPCoffee(), TOPCoffee(),
-        Georgia(), Georgia()
-    ]
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        guard let decodedData = machineStore.loadMachine() else {
-            vendingMachine = VendingMachine(productsBox: baseProductsBox)
-            return true
-        }
-        vendingMachine = decodedData
+        guard let decodedData = machineStore.loadMachine() else { return true }
+        VendingMachine.loadInstance(decodedData)
         return true                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
     }
 
@@ -36,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
-        machineStore.saveChanges(vendingMachine)
+        machineStore.saveChanges(VendingMachine.shared())
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -46,7 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
-        machineStore.saveChanges(vendingMachine)
+        machineStore.saveChanges(VendingMachine.shared())
     }
 
 

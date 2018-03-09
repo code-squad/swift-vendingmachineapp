@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jVh-Ss-Xqo">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="strawberryMilk.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="jVh-Ss-Xqo">
                                 <rect key="frame" x="90" y="89" width="150" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -37,7 +37,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Q8q-6b-Oot">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bananaMilk.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Q8q-6b-Oot">
                                 <rect key="frame" x="321" y="88" width="150" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -49,7 +49,7 @@
                                     <action selector="addMenu2:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DNT-Eb-1c3"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6kh-Wj-bYY">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="chocoMilk.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="6kh-Wj-bYY">
                                 <rect key="frame" x="555" y="89" width="150" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -61,7 +61,7 @@
                                     <action selector="addMenu3:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uiS-f2-lfl"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="01S-ke-9a1">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sprite.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="01S-ke-9a1">
                                 <rect key="frame" x="89" y="331" width="150" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -73,7 +73,7 @@
                                     <action selector="addMenu4:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mvN-KV-TcH"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OBd-PF-ufY">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="coke.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="OBd-PF-ufY">
                                 <rect key="frame" x="320" y="330" width="150" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -85,7 +85,7 @@
                                     <action selector="addMenu5:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CAE-CF-xqY"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zv0-lK-tbt">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="fanta.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="zv0-lK-tbt">
                                 <rect key="frame" x="554" y="331" width="150" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -97,7 +97,7 @@
                                     <action selector="addMenu6:" destination="BYZ-38-t0r" eventType="touchUpInside" id="x4T-5u-awo"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xD1-W6-Tez">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="georgia.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="xD1-W6-Tez">
                                 <rect key="frame" x="88" y="580" width="150" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -109,7 +109,7 @@
                                     <action selector="addMenu7:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xcs-2j-S9x"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fA8-D6-lW7">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="top.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="fA8-D6-lW7">
                                 <rect key="frame" x="319" y="579" width="150" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -121,7 +121,7 @@
                                     <action selector="addMenu8:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7cq-TA-Skt"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EUE-WL-pZX">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="kantata.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="EUE-WL-pZX">
                                 <rect key="frame" x="553" y="580" width="150" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -311,4 +311,15 @@
             <point key="canvasLocation" x="137.58992805755395" y="133.81294964028777"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="bananaMilk.jpg" width="550" height="550"/>
+        <image name="chocoMilk.jpg" width="600" height="600"/>
+        <image name="coke.jpg" width="650" height="650"/>
+        <image name="fanta.jpg" width="700" height="700"/>
+        <image name="georgia.jpg" width="300" height="300"/>
+        <image name="kantata.jpg" width="450" height="450"/>
+        <image name="sprite.jpg" width="320" height="320"/>
+        <image name="strawberryMilk.jpeg" width="600" height="600"/>
+        <image name="top.jpg" width="500" height="500"/>
+    </resources>
 </document>

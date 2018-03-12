@@ -10,6 +10,9 @@ import Foundation
 
 class Kantata: Coffee {
     private var kindOfBeans: String = "GuatemalaAntiqua"
+    convenience init() {
+        self.init(brand: "", weight: 0, price: 0, name: "", manufactureDate: Date(), kindOfBeans: "")
+    }
     init(brand: String, weight: Int, price: Int, name: String, manufactureDate: Date, kindOfBeans: String) {
         self.kindOfBeans = kindOfBeans
         super.init(brand: brand, weight: weight, price: price, name: name, manufactureDate: manufactureDate)

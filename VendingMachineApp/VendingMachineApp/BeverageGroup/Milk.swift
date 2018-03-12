@@ -9,7 +9,7 @@
 import Foundation
 
 class Milk: Beverage {
-    private var expirationDate: Date
+    private var expirationDate: Date = Date()
     override init(brand: String, weight: Int, price: Int, name: String, manufactureDate: Date) {
         self.expirationDate = manufactureDate.addingTimeInterval(864000)
         super.init(brand: brand, weight: weight, price: price, name: name, manufactureDate: manufactureDate)

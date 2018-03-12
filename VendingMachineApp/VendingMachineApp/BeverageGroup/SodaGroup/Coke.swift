@@ -10,6 +10,9 @@ import Foundation
 
 class Coke: Soda {
     private var calorie: Int = 110
+    convenience init() {
+        self.init(brand: "", weight: 0, price: 0, name: "", manufactureDate: Date(), calorie: 1)
+    }
     init(brand: String, weight: Int, price: Int, name: String, manufactureDate: Date, calorie: Int) {
         self.calorie = calorie
         super.init(brand: brand, weight: weight, price: price, name: name, manufactureDate: manufactureDate)

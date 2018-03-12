@@ -18,15 +18,29 @@ class InventoryBox {
             switch self {
             case .strawberryMilk: return ObjectIdentifier(StrawberryMilk.self)
             case .bananaMilk: return ObjectIdentifier(BananaMilk.self)
-            case .chocoMilk return ObjectIdentifier(ChocoMilk.self)
-            case .sprite return ObjectIdentifier(Sprite.self)
+            case .chocoMilk: return ObjectIdentifier(ChocoMilk.self)
+            case .sprite: return ObjectIdentifier(Sprite.self)
             case .coke: return ObjectIdentifier(Coke.self)
-            case .fanta return ObjectIdentifier(Fanta.self)
-            case .georgia return ObjectIdentifier(Georgia.self)
+            case .fanta: return ObjectIdentifier(Fanta.self)
+            case .georgia: return ObjectIdentifier(Georgia.self)
             case .top: return ObjectIdentifier(Top.self)
-            case .kantanta return ObjectIdentifier(Kantata.self)
+            case .kantanta: return ObjectIdentifier(Kantata.self)
             }
         }
+        func beverageFromMenu() -> Beverage {
+            switch self {
+            case .strawberryMilk: return StrawberryMilk()
+            case .bananaMilk: return BananaMilk()
+            case .chocoMilk: return ChocoMilk()
+            case .sprite: return Sprite()
+            case .coke: return Coke()
+            case .fanta: return Fanta()
+            case .georgia: return Georgia()
+            case .top: return Top()
+            case .kantanta: return Kantata()
+            }
+        }
+        
         static let kind = [strawberryMilk, bananaMilk, chocoMilk, sprite, coke, fanta, georgia, top, kantanta]
     }
     private var box: [ObjectIdentifier: [Beverage]]
@@ -94,10 +108,13 @@ class InventoryBox {
     }
     
     func menuTypeToInventoryMenu(menuType: InventoryMenu) -> Beverage {
-        return (box[menuType.beveragekeyFromMenu()]?.first) ?? Beverage()
+        return menuType.beverageFromMenu()
     }
     
     func countOfBeverage(menuType: InventoryMenu) -> Int {
-        return box[menuType.beveragekeyFromMenu()]?.count ?? 0
+        guard let beverage = box[menuType.beveragekeyFromMenu()] else {
+            return 0
+        }
+        return beverage.count
     }
 }

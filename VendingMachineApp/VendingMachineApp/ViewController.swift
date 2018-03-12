@@ -80,7 +80,6 @@ class ViewController: UIViewController {
     }
     
     func updateCountOfEachBeverage(vendingMachine: VendingMachine) {
-        // 각 Beverage의 개수를 countOfMenu.text에 각각 출력해준다.
         for (index, menu) in TypeOf.kind.enumerated() {
             countOfMenu[index].text = String(vendingMachine.beverageNumberOf(menuType: menu))
         }

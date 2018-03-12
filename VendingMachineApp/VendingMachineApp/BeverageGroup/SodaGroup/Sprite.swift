@@ -10,6 +10,9 @@ import Foundation
 
 class Sprite: Soda {
     private var flavoringSyrups: String = "레몬라임향"
+    convenience init() {
+        self.init(brand: "", weight: 0, price: 0, name: "", manufactureDate: Date(), flavoringSyrups: "")
+    }
     init(brand: String, weight: Int, price: Int, name: String, manufactureDate: Date, flavoringSyrups: String) {
         self.flavoringSyrups = flavoringSyrups
         super.init(brand: brand, weight: weight, price: price, name: name, manufactureDate: manufactureDate)

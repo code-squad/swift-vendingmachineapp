@@ -10,6 +10,9 @@ import Foundation
 
 class Fanta: Soda {
     private var materials: String = "Aluminum"
+    convenience init() {
+        self.init(brand: "", weight: 0, price: 0, name: "", manufactureDate: Date(), materials: "")
+    }
     init(brand: String, weight: Int, price: Int, name: String, manufactureDate: Date, materials: String) {
         self.materials = materials
         super.init(brand: brand, weight: weight, price: price, name: name, manufactureDate: manufactureDate)

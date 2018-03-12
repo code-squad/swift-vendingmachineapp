@@ -75,9 +75,13 @@ private func setRoundedImages() {
     * 복원할 때는 저장된 데이터 값을 언아카이브해서 VendingMachine 객체를 생성함
 
 ##### 실행결과
+<img src="./images/vendingmachineapp-result-3.gif"></img>
 
-##### [UserDefaults](https://developer.apple.com/documentation/foundation/userdefaults)
+##### App Life Cycle
+* [정리](https://wiki.yuaming.com/ios/app-life-cycle.html) 
 
-##### [Archives and Serialization](https://developer.apple.com/documentation/foundation/archives_and_serialization)
+##### 깊은 복사와 얕은 복사
+* [정리](https://wiki.yuaming.com/ios/shallow-deep-copy.html) 
 
-##### [Encoding and Decoding Custom Types](https://developer.apple.com/documentation/foundation/archives_and_serialization/encoding_and_decoding_custom_types)
+##### 아카이빙과 직렬화
+* [정리](https://wiki.yuaming.com/ios/archives-serialization.html) 

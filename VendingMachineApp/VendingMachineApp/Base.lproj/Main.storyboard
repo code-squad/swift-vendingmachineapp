@@ -47,7 +47,6 @@
                                 <state key="normal" title="추가"/>
                                 <connections>
                                     <action selector="addBeverageWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="w69-35-IvL"/>
-                                    <action selector="addMenu2:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DNT-Eb-1c3"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="chocoMilk.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="6kh-Wj-bYY">
@@ -60,7 +59,6 @@
                                 <state key="normal" title="추가"/>
                                 <connections>
                                     <action selector="addBeverageWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vX7-Y3-mAg"/>
-                                    <action selector="addMenu3:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uiS-f2-lfl"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sprite.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="01S-ke-9a1">
@@ -73,7 +71,6 @@
                                 <state key="normal" title="추가"/>
                                 <connections>
                                     <action selector="addBeverageWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EIb-th-t1R"/>
-                                    <action selector="addMenu4:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mvN-KV-TcH"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="coke.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="OBd-PF-ufY">
@@ -86,7 +83,6 @@
                                 <state key="normal" title="추가"/>
                                 <connections>
                                     <action selector="addBeverageWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="C0D-kH-PB7"/>
-                                    <action selector="addMenu5:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CAE-CF-xqY"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="fanta.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="zv0-lK-tbt">
@@ -99,7 +95,6 @@
                                 <state key="normal" title="추가"/>
                                 <connections>
                                     <action selector="addBeverageWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JRE-CL-uCV"/>
-                                    <action selector="addMenu6:" destination="BYZ-38-t0r" eventType="touchUpInside" id="x4T-5u-awo"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="georgia.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="xD1-W6-Tez">
@@ -112,7 +107,6 @@
                                 <state key="normal" title="추가"/>
                                 <connections>
                                     <action selector="addBeverageWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ruo-lj-8Cc"/>
-                                    <action selector="addMenu7:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xcs-2j-S9x"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="top.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="fA8-D6-lW7">
@@ -125,7 +119,6 @@
                                 <state key="normal" title="추가"/>
                                 <connections>
                                     <action selector="addBeverageWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xdu-ux-Iy1"/>
-                                    <action selector="addMenu8:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7cq-TA-Skt"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="kantata.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="EUE-WL-pZX">
@@ -138,7 +131,6 @@
                                 <state key="normal" title="추가"/>
                                 <connections>
                                     <action selector="addBeverageWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EEd-VY-eij"/>
-                                    <action selector="addMenu9:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9GT-1M-awD"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QSL-ul-04o">

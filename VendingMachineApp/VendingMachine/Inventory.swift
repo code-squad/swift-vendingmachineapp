@@ -8,12 +8,12 @@
 
 import Foundation
 
-class Inventory : NSObject, NSCoding {
+class Inventory : NSObject, NSCoding, countProducts {
     private var inventoryBox: [ObjectIdentifier: [Beverage]] = [:]
     let kindsOfMilk: [ObjectIdentifier] = [StrawberryMilk.getKind(), BananaMilk.getKind(), ChocolateMilk.getKind()]
     let kindsOfCoffee: [ObjectIdentifier] = [TOPCoffee.getKind(), Cantata.getKind(), Georgia.getKind()]
 
-    private init(_ productsBox: [Beverage]) {
+    init(_ productsBox: [Beverage]) {
         super.init()
         for oneProduct in productsBox {
             self.addBeverage(oneProduct)
@@ -77,4 +77,5 @@ class Inventory : NSObject, NSCoding {
     func generateCountOfProduct(_ productName: ObjectIdentifier) -> Int {
         return (self.inventoryBox[productName] ?? []).count
     }
+
 }

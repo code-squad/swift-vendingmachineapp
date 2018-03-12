@@ -23,6 +23,7 @@ class InventoryBox {
             default: return ObjectIdentifier(InventoryBox.self)
             }
         }
+        static let kind = [strawberryMilk, bananaMilk, chocoMilk, sprite, coke, fanta, georgia, top, kantanta]
     }
     private var box: [ObjectIdentifier: [Beverage]]
     init() {
@@ -88,8 +89,11 @@ class InventoryBox {
         return hotDrink
     }
     
-    func nToInventoryMenu(menuType: InventoryMenu) -> Beverage {
+    func menuTypeToInventoryMenu(menuType: InventoryMenu) -> Beverage {
         return (box[menuType.beveragekeyFromMenu()]?.first) ?? Beverage()
     }
     
+    func countOfBeverage(menuType: InventoryMenu) -> Int {
+        return box[menuType.beveragekeyFromMenu()]?.count ?? 0
+    }
 }

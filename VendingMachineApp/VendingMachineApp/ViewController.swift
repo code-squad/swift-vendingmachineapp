@@ -24,27 +24,27 @@ class ViewController: UIViewController {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyyMMdd"
         
-        let strawberryMilk: Beverage = StrawberryMilk(brand: "서울우유", weight: 200, price: 1000,
-                        name: "딸기우유", manufactureDate: formatter.date(from: "20171009") ?? Date(),
-                        strawberrySyrup: 5)
-        let bananaMilk: Beverage = BananaMilk(brand: "서울우유", weight: 200, price: 1000, name: "바나나우유",
-                                    manufactureDate: formatter.date(from: "20171012") ?? Date(), bananaSyrup: 3)
-        let coke: Beverage = Coke(brand: "팹시", weight: 350, price: 2000, name: "팹시콜라",
-                        manufactureDate: formatter.date(from: "20171005") ?? Date(), calorie: 25)
-        
-        vendingMachine.addInInventory(beverageName: strawberryMilk, number: 2)
-        vendingMachine.addInInventory(beverageName: bananaMilk, number: 1)
-        vendingMachine.addInInventory(beverageName: coke, number: 3)
-        
-        for menu in vendingMachine.showEntireInventory() {
-            let beverage = menu.value
-            guard let beverageName = beverage.first?.name else {
-                return
-            }
-            print("\(beverageName)(\(beverage.count)개)", terminator: " ")
-        }
-        print("")
-        
+//        let strawberryMilk: Beverage = StrawberryMilk(brand: "서울우유", weight: 200, price: 1000,
+//                        name: "딸기우유", manufactureDate: formatter.date(from: "20171009") ?? Date(),
+//                        strawberrySyrup: 5)
+//        let bananaMilk: Beverage = BananaMilk(brand: "서울우유", weight: 200, price: 1000, name: "바나나우유",
+//                                    manufactureDate: formatter.date(from: "20171012") ?? Date(), bananaSyrup: 3)
+//        let coke: Beverage = Coke(brand: "팹시", weight: 350, price: 2000, name: "팹시콜라",
+//                        manufactureDate: formatter.date(from: "20171005") ?? Date(), calorie: 25)
+//
+//        vendingMachine.addInInventory(beverageName: strawberryMilk, number: 2)
+//        vendingMachine.addInInventory(beverageName: bananaMilk, number: 1)
+//        vendingMachine.addInInventory(beverageName: coke, number: 3)
+//
+//        for menu in vendingMachine.showEntireInventory() {
+//            let beverage = menu.value
+//            guard let beverageName = beverage.first?.name else {
+//                return
+//            }
+//            print("\(beverageName)(\(beverage.count)개)", terminator: " ")
+//        }
+//        print("")
+//
         for index in 0..<9 {
             imageOfMenu[index].layer.cornerRadius = imageOfMenu[index].frame.width/4
             imageOfMenu[index].clipsToBounds = true
@@ -65,9 +65,8 @@ class ViewController: UIViewController {
                 guard let numberOf = Int(inputValue.text ?? "0") else {
                     return
                 }
-                self.vendingMachine.choiceBeverageData(menuType: type)
-                self.vendingMachine.addInInventory(beverageName: <#T##Beverage#>, number: numberOf)
-                self.countOfEachBeverage[type.rawValue] += numberOf
+                let beverageName = self.vendingMachine.choiceBeverageData(menuType: type)
+                self.vendingMachine.addInInventory(beverageName: beverageName, number: numberOf)
                 self.updateCountOfEachBeverage()
             }
         }
@@ -81,8 +80,9 @@ class ViewController: UIViewController {
     }
     
     func updateCountOfEachBeverage() {
-        for (index, menu) in countOfMenu.enumerated() {
-            menu.text = String(countOfEachBeverage[index])
+        // 각 Beverage의 개수를 countOfMenu.text에 각각 출력해준다.
+        for (index, menu) in TypeOf.kind.enumerated() {
+            countOfMenu[index].text = String(vendingMachine.beverageNumberOf(menuType: menu))
         }
     }
     

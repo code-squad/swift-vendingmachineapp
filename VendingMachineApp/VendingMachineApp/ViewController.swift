@@ -14,18 +14,19 @@ class ViewController: UIViewController {
     @IBOutlet var beverageQuantityLabels: [UILabel]!
     @IBOutlet var addedMoneyButtons: [UIButton]!
     @IBOutlet weak var moneyLabel: UILabel!
-    
-    private var vendingMachine: VendingMachine
-    
-    required init?(coder aDecoder: NSCoder) {
-        vendingMachine = VendingMachine()
-        super.init(coder: aDecoder)
-    }
+    var vendingMachine: (Userable & MachineManagerable & InventoryCountable)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setRoundedImages()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        updateMoney()
+        
+        for index in 0..<beverageQuantityLabels.count {
+            updateBeverageQuantity(index: index)
+        }
     }
     
     private func setRoundedImages() {
@@ -37,26 +38,28 @@ class ViewController: UIViewController {
     }
     
     @IBAction func insertMoneyAction(_ sender: UIButton) {
-        let money: Money = Money(sender.tag)
-        try? vendingMachine.insertMoney(coin: money)
+        let money = Money(sender.tag)
+        try? self.vendingMachine?.insertMoney(coin: money)
         
         updateMoney()
     }
     
     private func updateMoney() {
-        moneyLabel.text = "\(vendingMachine.countChange()) 원"
+        if let machine = self.vendingMachine {
+            moneyLabel.text = "\(machine.countChange()) 원"
+        }
     }
     
     @IBAction func insertBeverageAction(_ sender: UIButton) {
-        let beverageMenu: BeverageMenu = matchBeverageMenu(index: sender.tag)
+        let beverageMenu = matchBeverageMenu(index: sender.tag)
         
-        vendingMachine.insertBeverage(beverageMenu: beverageMenu)
+        self.vendingMachine?.insertBeverage(beverageMenu: beverageMenu, quantity: 1)
         updateBeverageQuantity(index: sender.tag)
     }
     
     private func updateBeverageQuantity(index: Int) {
-        let beverageMenu: BeverageMenu = matchBeverageMenu(index: index)
-        let quantity: Int = vendingMachine.countBeverageQuantity(beverageMenu: beverageMenu)
+        let beverageMenu = matchBeverageMenu(index: index)
+        let quantity = self.vendingMachine?.countBeverageQuantity(beverageMenu: beverageMenu) ?? 0
         
         beverageQuantityLabels[index].text = "\(quantity) 개"
     }

@@ -12,6 +12,8 @@ class Inventory : NSObject, NSCoding {
     private var inventoryBox: [ObjectIdentifier: [Beverage]] = [:]
     let kindsOfMilk: [ObjectIdentifier] = [StrawberryMilk.getKind(), BananaMilk.getKind(), ChocolateMilk.getKind()]
     let kindsOfCoffee: [ObjectIdentifier] = [TOPCoffee.getKind(), Cantata.getKind(), Georgia.getKind()]
+    let productsInNumericalOrder = [StrawberryMilk.getKind(),BananaMilk.getKind(),PepciCoke.getKind(),
+                                    Fanta.getKind(), TOPCoffee.getKind(), Georgia.getKind()]
 
     init(_ productsBox: [Beverage]) {
         super.init()
@@ -76,8 +78,6 @@ class Inventory : NSObject, NSCoding {
 
     
     func generateCountOfProduct() -> [Int] {
-        let productsInNumericalOrder = [StrawberryMilk.getKind(),BananaMilk.getKind(),PepciCoke.getKind(),
-                                        Fanta.getKind(), TOPCoffee.getKind(), Georgia.getKind()]
         var countOfProducts : [Int] = []
         for oneProduct in productsInNumericalOrder {
             countOfProducts.append((inventoryBox[oneProduct]?.count) ?? 0)

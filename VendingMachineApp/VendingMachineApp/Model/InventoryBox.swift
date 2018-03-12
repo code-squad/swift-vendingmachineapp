@@ -13,13 +13,14 @@ class InventoryBox {
         case invalidBeverage
     }
     enum InventoryMenu: Int {
-        case top = 1, strawberryMilk, bananaMilk, coke
+        case strawberryMilk = 0, bananaMilk, chocoMilk, sprite, coke, fanta, georgia, top, kantanta
         func beveragekeyFromMenu() -> ObjectIdentifier {
             switch self {
             case .strawberryMilk: return ObjectIdentifier(StrawberryMilk.self)
             case .bananaMilk: return ObjectIdentifier(BananaMilk.self)
             case .coke: return ObjectIdentifier(Coke.self)
             case .top: return ObjectIdentifier(Top.self)
+            default: return ObjectIdentifier(InventoryBox.self)
             }
         }
     }

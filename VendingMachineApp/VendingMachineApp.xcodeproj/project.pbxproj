@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		87B275352051232800B37980 /* StrawberryMilk.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 87B2752F2051232800B37980 /* StrawberryMilk.jpg */; };
-		87B275362051232800B37980 /* Pepsi.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 87B275302051232800B37980 /* Pepsi.jpg */; };
-		87B275372051232800B37980 /* BananaMilk.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 87B275312051232800B37980 /* BananaMilk.jpg */; };
-		87B275382051232800B37980 /* GeogiaCoffie.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 87B275322051232800B37980 /* GeogiaCoffie.jpg */; };
-		87B275392051232800B37980 /* Coke.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 87B275332051232800B37980 /* Coke.jpg */; };
-		87B2753A2051232800B37980 /* TOPCoffee.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 87B275342051232800B37980 /* TOPCoffee.jpg */; };
+		871FE6E720562CEE00BABAF1 /* TOPCoffee.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 871FE6E120562CED00BABAF1 /* TOPCoffee.jpg */; };
+		871FE6E820562CEE00BABAF1 /* Pepsi.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 871FE6E220562CED00BABAF1 /* Pepsi.jpg */; };
+		871FE6E920562CEE00BABAF1 /* BananaMilk.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 871FE6E320562CED00BABAF1 /* BananaMilk.jpg */; };
+		871FE6EA20562CEE00BABAF1 /* Coke.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 871FE6E420562CEE00BABAF1 /* Coke.jpg */; };
+		871FE6EB20562CEE00BABAF1 /* GeogiaCoffie.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 871FE6E520562CEE00BABAF1 /* GeogiaCoffie.jpg */; };
+		871FE6EC20562CEE00BABAF1 /* StrawberryMilk.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 871FE6E620562CEE00BABAF1 /* StrawberryMilk.jpg */; };
 		87DC71052051005E00B0F76A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DC71042051005E00B0F76A /* AppDelegate.swift */; };
 		87DC71072051005E00B0F76A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DC71062051005E00B0F76A /* ViewController.swift */; };
 		87DC710A2051005E00B0F76A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87DC71082051005E00B0F76A /* Main.storyboard */; };
@@ -46,12 +46,12 @@
 /* Begin PBXFileReference section */
 		02784DDD89C9E562208ED71A /* Pods_VendingMachineApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VendingMachineApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C579B1E58B3F484010B1FA1 /* Pods-VendingMachineApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VendingMachineApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VendingMachineApp/Pods-VendingMachineApp.debug.xcconfig"; sourceTree = "<group>"; };
-		87B2752F2051232800B37980 /* StrawberryMilk.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = StrawberryMilk.jpg; sourceTree = "<group>"; };
-		87B275302051232800B37980 /* Pepsi.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Pepsi.jpg; sourceTree = "<group>"; };
-		87B275312051232800B37980 /* BananaMilk.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = BananaMilk.jpg; sourceTree = "<group>"; };
-		87B275322051232800B37980 /* GeogiaCoffie.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = GeogiaCoffie.jpg; sourceTree = "<group>"; };
-		87B275332051232800B37980 /* Coke.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Coke.jpg; sourceTree = "<group>"; };
-		87B275342051232800B37980 /* TOPCoffee.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = TOPCoffee.jpg; sourceTree = "<group>"; };
+		871FE6E120562CED00BABAF1 /* TOPCoffee.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = TOPCoffee.jpg; sourceTree = "<group>"; };
+		871FE6E220562CED00BABAF1 /* Pepsi.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Pepsi.jpg; sourceTree = "<group>"; };
+		871FE6E320562CED00BABAF1 /* BananaMilk.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = BananaMilk.jpg; sourceTree = "<group>"; };
+		871FE6E420562CEE00BABAF1 /* Coke.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Coke.jpg; sourceTree = "<group>"; };
+		871FE6E520562CEE00BABAF1 /* GeogiaCoffie.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = GeogiaCoffie.jpg; sourceTree = "<group>"; };
+		871FE6E620562CEE00BABAF1 /* StrawberryMilk.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = StrawberryMilk.jpg; sourceTree = "<group>"; };
 		87DC71012051005E00B0F76A /* VendingMachineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendingMachineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87DC71042051005E00B0F76A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		87DC71062051005E00B0F76A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -113,17 +113,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		87B2752E2051232800B37980 /* Resource */ = {
+		871FE6E020562CA700BABAF1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				87B2752F2051232800B37980 /* StrawberryMilk.jpg */,
-				87B275302051232800B37980 /* Pepsi.jpg */,
-				87B275312051232800B37980 /* BananaMilk.jpg */,
-				87B275322051232800B37980 /* GeogiaCoffie.jpg */,
-				87B275332051232800B37980 /* Coke.jpg */,
-				87B275342051232800B37980 /* TOPCoffee.jpg */,
+				871FE6E320562CED00BABAF1 /* BananaMilk.jpg */,
+				871FE6E420562CEE00BABAF1 /* Coke.jpg */,
+				871FE6E520562CEE00BABAF1 /* GeogiaCoffie.jpg */,
+				871FE6E220562CED00BABAF1 /* Pepsi.jpg */,
+				871FE6E620562CEE00BABAF1 /* StrawberryMilk.jpg */,
+				871FE6E120562CED00BABAF1 /* TOPCoffee.jpg */,
 			);
-			path = Resource;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		87DC70F82051005E00B0F76A = {
@@ -147,7 +147,7 @@
 		87DC71032051005E00B0F76A /* VendingMachineApp */ = {
 			isa = PBXGroup;
 			children = (
-				87B2752E2051232800B37980 /* Resource */,
+				871FE6E020562CA700BABAF1 /* Resources */,
 				87DC711B2051081B00B0F76A /* Extensions */,
 				87DC711D2051081B00B0F76A /* Model */,
 				87DC71172051081B00B0F76A /* Protocols */,
@@ -290,15 +290,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				871FE6EA20562CEE00BABAF1 /* Coke.jpg in Resources */,
 				87DC710F2051005E00B0F76A /* LaunchScreen.storyboard in Resources */,
-				87B275392051232800B37980 /* Coke.jpg in Resources */,
-				87B275372051232800B37980 /* BananaMilk.jpg in Resources */,
-				87B275362051232800B37980 /* Pepsi.jpg in Resources */,
+				871FE6E920562CEE00BABAF1 /* BananaMilk.jpg in Resources */,
+				871FE6E820562CEE00BABAF1 /* Pepsi.jpg in Resources */,
 				87DC710C2051005E00B0F76A /* Assets.xcassets in Resources */,
+				871FE6EC20562CEE00BABAF1 /* StrawberryMilk.jpg in Resources */,
 				87DC710A2051005E00B0F76A /* Main.storyboard in Resources */,
-				87B275352051232800B37980 /* StrawberryMilk.jpg in Resources */,
-				87B275382051232800B37980 /* GeogiaCoffie.jpg in Resources */,
-				87B2753A2051232800B37980 /* TOPCoffee.jpg in Resources */,
+				871FE6E720562CEE00BABAF1 /* TOPCoffee.jpg in Resources */,
+				871FE6EB20562CEE00BABAF1 /* GeogiaCoffie.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

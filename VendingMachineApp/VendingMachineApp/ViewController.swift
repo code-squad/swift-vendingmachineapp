@@ -63,7 +63,7 @@ class ViewController: UIViewController {
             countOfMenu[index].text = String(vendingMachine.beverageNumberOf(menuType: menu))
         }
     }
-    @IBAction func addBeverage(sender: AnyObject) {
+    @IBAction func addBeverage(sender: UIButton) {
         var type = TypeOf.otherBeverage
         for button in addNumberOfMenu where button.tag == sender.tag {
             type = vendingMachine.typeSelector(tag: button.tag)

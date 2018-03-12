@@ -28,11 +28,7 @@ protocol UserMode {
     func generateBeverageFromProductName(_ productName: ObjectIdentifier) -> Beverage?
 }
 
-protocol countProducts {
-    func generateCountOfProduct(_ productName: ObjectIdentifier) -> Int
-}
-
-class VendingMachine: NSObject, NSCoding, AdminMode, UserMode, countProducts {
+class VendingMachine: NSObject, NSCoding, AdminMode, UserMode{
     
     private var inventory: Inventory = Inventory([])
     private var balance: Int = 0
@@ -89,12 +85,12 @@ class VendingMachine: NSObject, NSCoding, AdminMode, UserMode, countProducts {
     func addBeverage(_ product: Beverage) {
         self.inventory.addBeverage(product)
         NotificationCenter.default.post(name: Notification.Name("didUpdateInventory"), object: self, userInfo: [
-            "inventory" : inventory])
+            "inventory" : inventory ])
     }
 
     func addMoney(_ userMoney: AvailableMoney) {
         self.balance += userMoney.rawValue
-        NotificationCenter.default.post(name: Notification.Name("didUpdateBalance"), object: balance, userInfo : ["balance" : balance])
+        NotificationCenter.default.post(name: Notification.Name("didUpdateBalance"), object: self, userInfo : ["balance" : balance])
     }
 
     func generateListOfValidProduct() -> [ObjectIdentifier] {
@@ -144,13 +140,8 @@ class VendingMachine: NSObject, NSCoding, AdminMode, UserMode, countProducts {
         return self.inventory.generateBeverageFromProductName(productName)
     }
 
-    func generateCountOfProduct(_ productName: ObjectIdentifier) -> Int {
-        return self.inventory.generateCountOfProduct(productName)
-    }
-    
-    func generateProductNamesInNumber() -> [ObjectIdentifier] {
-        return [StrawberryMilk.getKind(),BananaMilk.getKind(),PepciCoke.getKind(),
-                Fanta.getKind(), TOPCoffee.getKind(), Georgia.getKind()]
+    func generateCountOfProduct() -> [Int] {
+        return self.inventory.generateCountOfProduct()
     }
 
 }

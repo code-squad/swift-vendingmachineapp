@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Inventory : NSObject, NSCoding, countProducts {
+class Inventory : NSObject, NSCoding {
     private var inventoryBox: [ObjectIdentifier: [Beverage]] = [:]
     let kindsOfMilk: [ObjectIdentifier] = [StrawberryMilk.getKind(), BananaMilk.getKind(), ChocolateMilk.getKind()]
     let kindsOfCoffee: [ObjectIdentifier] = [TOPCoffee.getKind(), Cantata.getKind(), Georgia.getKind()]
@@ -74,8 +74,15 @@ class Inventory : NSObject, NSCoding, countProducts {
         return Array(hotProducts.filter({$0.isEmpty == false}).joined())
     }
 
-    func generateCountOfProduct(_ productName: ObjectIdentifier) -> Int {
-        return (self.inventoryBox[productName] ?? []).count
+    
+    func generateCountOfProduct() -> [Int] {
+        let productsInNumericalOrder = [StrawberryMilk.getKind(),BananaMilk.getKind(),PepciCoke.getKind(),
+                                        Fanta.getKind(), TOPCoffee.getKind(), Georgia.getKind()]
+        var countOfProducts : [Int] = []
+        for oneProduct in productsInNumericalOrder {
+            countOfProducts.append((inventoryBox[oneProduct]?.count) ?? 0)
+        }
+        return countOfProducts
     }
 
 }

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		041FA4DE20565E17001ED747 /* Keyword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041FA4DD20565E17001ED747 /* Keyword.swift */; };
+		041FA4E020568D60001ED747 /* VendingMachineBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041FA4DF20568D60001ED747 /* VendingMachineBase.swift */; };
 		04E7A0A4204F822D00C611FB /* MachineStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E7A0A3204F822D00C611FB /* MachineStore.swift */; };
 		04FC675F204D1CEB00B084D5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FC675E204D1CEB00B084D5 /* AppDelegate.swift */; };
 		04FC6761204D1CEB00B084D5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FC6760204D1CEB00B084D5 /* ViewController.swift */; };
@@ -39,6 +40,7 @@
 
 /* Begin PBXFileReference section */
 		041FA4DD20565E17001ED747 /* Keyword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keyword.swift; sourceTree = "<group>"; };
+		041FA4DF20568D60001ED747 /* VendingMachineBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineBase.swift; sourceTree = "<group>"; };
 		04E7A0A3204F822D00C611FB /* MachineStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MachineStore.swift; sourceTree = "<group>"; };
 		04FC675B204D1CEB00B084D5 /* VendingMachineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendingMachineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04FC675E204D1CEB00B084D5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				04FC6772204D1D6800B084D5 /* VendingMachine.swift */,
+				041FA4DF20568D60001ED747 /* VendingMachineBase.swift */,
 				04FC6770204D1D6800B084D5 /* Inventory.swift */,
 				04E7A0A3204F822D00C611FB /* MachineStore.swift */,
 				04FC6793204D1E2A00B084D5 /* Beverage */,
@@ -269,6 +272,7 @@
 				04FC6788204D1DDA00B084D5 /* ChocolateMilk.swift in Sources */,
 				04FC6789204D1DDA00B084D5 /* Milk.swift in Sources */,
 				04FC677E204D1D9800B084D5 /* Cantata.swift in Sources */,
+				041FA4E020568D60001ED747 /* VendingMachineBase.swift in Sources */,
 				04FC677F204D1D9800B084D5 /* Coffee.swift in Sources */,
 				04FC6780204D1D9800B084D5 /* Top.swift in Sources */,
 				04E7A0A4204F822D00C611FB /* MachineStore.swift in Sources */,

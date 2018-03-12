@@ -150,4 +150,29 @@
       1. 의존도를 높이게 되어 한 곳에서의 변경이 다른 부분에 영향을 미치게 될 확률이 높아진다. 즉, 여러 곳에서 참조가 가능하기 때문에 멀티 쓰레드 환경에서 데이터 변경 시 문제가 생길 수 있다.
 
 ## - Step5
-## #1. 관잘자 패턴
+## #1. 관찰자 패턴
+  - 관찰자 패턴이란? **객체 사이에 일 대 다의 의존 관계를 정의 해두어, 어떤 객체의 상태가 변할 때 그 객체에 의존성을 가진 다른 객체들이 그 변화를 통지 받고 자동으로 업데이트될 수 있게 만만드는 것**
+  - 적용방법 :
+    - ViewController : viewDidLoad() 함수 내 Observer 등록
+      ```
+      NotificationCenter.default.addObserver(self, selector: #selector(updateInventoryLabels(notification:)), name: Notification.Name("didUpdateInventory"), object: nil)
+      NotificationCenter.default.addObserver(self, selector: #selector(updateBalanceLabel(notification:)), name: Notification.Name("didUpdateBalance"), object: nil)
+      ```
+
+    - Model(VendingMachine) : 해당 메서드 내부 Observer post 적용
+      ```
+      NotificationCenter.default.post(name: Notification.Name("didUpdateInventory"), object: self, userInfo: [
+      "inventory" : inventory])
+      ```
+
+    - ViewController : 라벨 또는 버튼 관련 메서드 Notification 반영
+      ```
+      @objc private func updateInventoryLabels(notification : Notification) {
+          guard let userInfo = notification.userInfo as? [String : Inventory] else { return }
+          guard let inventory = userInfo["inventory"] else { return }
+          updateInventory(inventory)
+      }
+      ```
+
+  - 왜 사용하는 것일까? (모델과 컨트롤러가 직접 참조하지 않고 느슨하게 연결된 (loosed coupled) 구조가 왜 좋은 것일까?)
+    - 상태 변화를 수신해야 하는 객체가 여러 개거나 전달 받아야 할 정보가 많을수록 객체들이 많아질 수 있고, 그렇게 되면 객체들의 연결이 복잡해지고 강하게 연결될 가능성이 크다. 때문에 옵저버 패턴을 이용하여 최대한 느슨하게 연결할 수 있도록 도와주기 때문이다.

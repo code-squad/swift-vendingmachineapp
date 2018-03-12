@@ -76,8 +76,13 @@ struct VendingMachine {
         return purchaseProductHistory.historyOfPurchase()
     }
     
+    // menu type으로 해당 Beverage를 리턴해주는 메소드
     func choiceBeverageData(menuType: InventoryBox.InventoryMenu) -> Beverage {
-        return inventoryBox.numberToInventoryMenu(menuType: menuType)
+        return inventoryBox.menuTypeToInventoryMenu(menuType: menuType)
+    }
+    
+    func beverageNumberOf(menuType: InventoryBox.InventoryMenu) -> Int {
+        return inventoryBox.countOfBeverage(menuType: menuType)
     }
     
 }

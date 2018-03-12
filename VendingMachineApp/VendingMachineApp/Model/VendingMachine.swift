@@ -85,4 +85,8 @@ struct VendingMachine {
         return inventoryBox.countOfBeverage(menuType: menuType)
     }
     
+    func typeSelector(tag: Int) -> InventoryBox.InventoryMenu {
+        return inventoryBox.selectMenuType(tag: tag)
+    }
+    
 }

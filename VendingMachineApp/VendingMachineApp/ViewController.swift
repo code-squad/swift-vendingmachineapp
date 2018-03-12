@@ -17,6 +17,7 @@ class ViewController: UIViewController {
 
     @IBOutlet var countOfMenu: [UILabel]!
     @IBOutlet var imageOfMenu: [UIImageView]!
+    @IBOutlet var addNumberOfMenu: [UIButton]!
     @IBOutlet weak var balance: UILabel!
     
     override func viewDidLoad() {
@@ -24,27 +25,6 @@ class ViewController: UIViewController {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyyMMdd"
         
-//        let strawberryMilk: Beverage = StrawberryMilk(brand: "서울우유", weight: 200, price: 1000,
-//                        name: "딸기우유", manufactureDate: formatter.date(from: "20171009") ?? Date(),
-//                        strawberrySyrup: 5)
-//        let bananaMilk: Beverage = BananaMilk(brand: "서울우유", weight: 200, price: 1000, name: "바나나우유",
-//                                    manufactureDate: formatter.date(from: "20171012") ?? Date(), bananaSyrup: 3)
-//        let coke: Beverage = Coke(brand: "팹시", weight: 350, price: 2000, name: "팹시콜라",
-//                        manufactureDate: formatter.date(from: "20171005") ?? Date(), calorie: 25)
-//
-//        vendingMachine.addInInventory(beverageName: strawberryMilk, number: 2)
-//        vendingMachine.addInInventory(beverageName: bananaMilk, number: 1)
-//        vendingMachine.addInInventory(beverageName: coke, number: 3)
-//
-//        for menu in vendingMachine.showEntireInventory() {
-//            let beverage = menu.value
-//            guard let beverageName = beverage.first?.name else {
-//                return
-//            }
-//            print("\(beverageName)(\(beverage.count)개)", terminator: " ")
-//        }
-//        print("")
-//
         for index in 0..<9 {
             imageOfMenu[index].layer.cornerRadius = imageOfMenu[index].frame.width/4
             imageOfMenu[index].clipsToBounds = true
@@ -76,7 +56,6 @@ class ViewController: UIViewController {
             text.placeholder = "갯수입력"
         })
         self.present(alert, animated: true)
-        
     }
     
     func updateCountOfEachBeverage(vendingMachine: VendingMachine) {
@@ -84,51 +63,58 @@ class ViewController: UIViewController {
             countOfMenu[index].text = String(vendingMachine.beverageNumberOf(menuType: menu))
         }
     }
-    
-    @IBAction func addBalance1(sender: UIButton) {
-        totalAmount += 1000
-        balance.text = String(totalAmount)
+    @IBAction func addBeverage(sender: AnyObject) {
+        var type = TypeOf.otherBeverage
+        for button in addNumberOfMenu where button.tag == sender.tag {
+            type = vendingMachine.typeSelector(tag: button.tag)
+        }
+        alertCountOfBeverage(type: type)
     }
     
-    @IBAction func addBalance2(_ sender: UIButton) {
-        totalAmount += 5000
-        balance.text = String(totalAmount)
-    }
-    
-    @IBAction func addMenu1(_ sender: Any) {
-        alertCountOfBeverage(type: TypeOf.strawberryMilk)
-    }
-
-    @IBAction func addMenu2(_ sender: Any) {
-        alertCountOfBeverage(type: TypeOf.bananaMilk)
-    }
-    
-    @IBAction func addMenu3(_ sender: Any) {
-        alertCountOfBeverage(type: TypeOf.chocoMilk)
-    }
-    
-    @IBAction func addMenu4(_ sender: Any) {
-        alertCountOfBeverage(type: TypeOf.sprite)
-    }
-    
-    @IBAction func addMenu5(_ sender: Any) {
-        alertCountOfBeverage(type: TypeOf.coke)
-    }
-    
-    @IBAction func addMenu6(_ sender: Any) {
-        alertCountOfBeverage(type: TypeOf.fanta)
-    }
-    
-    @IBAction func addMenu7(_ sender: Any) {
-        alertCountOfBeverage(type: TypeOf.georgia)
-    }
-    
-    @IBAction func addMenu8(_ sender: Any) {
-        alertCountOfBeverage(type: TypeOf.top)
-    }
-    
-    @IBAction func addMenu9(_ sender: Any) {
-        alertCountOfBeverage(type: TypeOf.kantanta)
-    }
-    
+//    @IBAction func addBalance1(sender: UIButton) {
+//        totalAmount += 1000
+//        balance.text = String(totalAmount)
+//    }
+//    
+//    @IBAction func addBalance2(_ sender: UIButton) {
+//        totalAmount += 5000
+//        balance.text = String(totalAmount)
+//    }
+//    
+//    @IBAction func addMenu1(_ sender: Any) {
+//        alertCountOfBeverage(type: TypeOf.strawberryMilk)
+//    }
+//
+//    @IBAction func addMenu2(_ sender: Any) {
+//        alertCountOfBeverage(type: TypeOf.bananaMilk)
+//    }
+//    
+//    @IBAction func addMenu3(_ sender: Any) {
+//        alertCountOfBeverage(type: TypeOf.chocoMilk)
+//    }
+//    
+//    @IBAction func addMenu4(_ sender: Any) {
+//        alertCountOfBeverage(type: TypeOf.sprite)
+//    }
+//    
+//    @IBAction func addMenu5(_ sender: Any) {
+//        alertCountOfBeverage(type: TypeOf.coke)
+//    }
+//    
+//    @IBAction func addMenu6(_ sender: Any) {
+//        alertCountOfBeverage(type: TypeOf.fanta)
+//    }
+//    
+//    @IBAction func addMenu7(_ sender: Any) {
+//        alertCountOfBeverage(type: TypeOf.georgia)
+//    }
+//    
+//    @IBAction func addMenu8(_ sender: Any) {
+//        alertCountOfBeverage(type: TypeOf.top)
+//    }
+//    
+//    @IBAction func addMenu9(_ sender: Any) {
+//        alertCountOfBeverage(type: TypeOf.kantanta)
+//    }
+//    
 }

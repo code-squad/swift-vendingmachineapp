@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct BeverageBox {
+final class BeverageBox {
     private(set) var beverageMenu: BeverageMenu
     private(set) var quantity: Int
     
@@ -20,5 +20,24 @@ struct BeverageBox {
     init(beverageMenu: BeverageMenu, quantity: Int) {
         self.beverageMenu = beverageMenu
         self.quantity = quantity
+    }
+}
+
+extension BeverageBox: Codable {
+    private enum CodingKeys: CodingKey {
+        case beverageMenu, quantity
+    }
+    
+    convenience init(from decoder: Decoder) throws {
+        self.init()
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        self.beverageMenu = try values.decode(BeverageMenu.self, forKey: .beverageMenu)
+        self.quantity = try values.decode(Int.self, forKey: .quantity)
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(beverageMenu, forKey: .beverageMenu)
+        try container.encode(quantity, forKey: .quantity)
     }
 }

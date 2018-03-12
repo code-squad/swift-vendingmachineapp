@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Money {
+class Money: Codable {
     private var change: Int
     
     init(_ change: Int) {
@@ -46,5 +46,4 @@ extension Money: Equatable, Comparable {
     static func == (lhs: Money, rhs: Money) -> Bool {
         return lhs.countChange() == rhs.countChange()
     }
-    
 }

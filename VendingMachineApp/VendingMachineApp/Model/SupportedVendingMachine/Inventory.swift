@@ -8,13 +8,13 @@
 
 import Foundation
 
-class Inventory {
+final class Inventory {
     private var beverageBoxes: [BeverageBox]
     
     init(_ beverageBoxes: [BeverageBox]) {
         self.beverageBoxes = beverageBoxes
     }
-    
+
     func add(beverageMenu: BeverageMenu, quantity: Int = 1) -> Inventory {
         return updateBeverageBox(beverageBox: BeverageBox(beverageMenu: beverageMenu, quantity: quantity))
     }
@@ -35,12 +35,29 @@ class Inventory {
     }
     
     func fetchListOfBeverage() -> [BeverageBox] {
-        return BeverageMenu.map({ menu -> BeverageBox in
+        return BeverageMenu.allValues.map({ menu -> BeverageBox in
             BeverageBox(beverageMenu: menu, quantity: countBeverage(beverageMenu: menu))
         })
     }
-    
 }
+
+extension Inventory: Codable {
+    private enum CodingKeys: CodingKey {
+        case beverageBoxes
+    }
+    
+    convenience init(from decoder: Decoder) throws {
+        self.init([BeverageBox]())
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        self.beverageBoxes = try values.decode([BeverageBox].self, forKey: .beverageBoxes)
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(beverageBoxes, forKey: .beverageBoxes)
+    }
+}
+
 
 private extension Inventory {
     func isAvailable(beverageMenu: BeverageMenu) -> Bool {

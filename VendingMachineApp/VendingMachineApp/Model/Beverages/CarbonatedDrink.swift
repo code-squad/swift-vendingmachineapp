@@ -13,4 +13,8 @@ class CarbonatedDrink: Beverage {
         super.init(brand: brand, volume: volume, price: price, productName: productName,
                    expiryDate: expiryDate, calorie: calorie)
     }
+    
+    required init(from decoder: Decoder) throws {
+        try super.init(from: decoder)
+    }
 }

@@ -88,9 +88,8 @@ class InventoryBox {
         return hotDrink
     }
     
-    func numberToInventoryMenu(number: Int) -> Beverage {
-        let beverage = InventoryMenu.init(rawValue: number)
-        return (box[beverage?.beveragekeyFromMenu() ?? ObjectIdentifier(self)]?.first) ?? Beverage()
+    func nToInventoryMenu(menuType: InventoryMenu) -> Beverage {
+        return (box[menuType.beveragekeyFromMenu()]?.first) ?? Beverage()
     }
     
 }

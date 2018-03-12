@@ -9,13 +9,10 @@
 import UIKit
 
 class ViewController: UIViewController {
-//    enum TypeOf: Int {
-//        case strawberryMilk = 0, bananaMilk, chocoMilk, sprite, coke, fanta, georgia, top, kantanta
-//    }
-    
     var countOfEachBeverage = [Int](repeating: 0, count: 9)
     var totalAmount = 0
     var vendingMachine = VendingMachine()
+    var inventoryBox = InventoryBox()
     typealias TypeOf = InventoryBox.InventoryMenu
 
     @IBOutlet var countOfMenu: [UILabel]!
@@ -68,6 +65,8 @@ class ViewController: UIViewController {
                 guard let numberOf = Int(inputValue.text ?? "0") else {
                     return
                 }
+                self.vendingMachine.choiceBeverageData(menuType: type)
+                self.vendingMachine.addInInventory(beverageName: <#T##Beverage#>, number: numberOf)
                 self.countOfEachBeverage[type.rawValue] += numberOf
                 self.updateCountOfEachBeverage()
             }

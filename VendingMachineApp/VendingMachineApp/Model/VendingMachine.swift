@@ -76,8 +76,8 @@ struct VendingMachine {
         return purchaseProductHistory.historyOfPurchase()
     }
     
-    func choiceBeverageData(number: Int) -> Beverage {
-        return inventoryBox.numberToInventoryMenu(number: number)
+    func choiceBeverageData(menuType: InventoryBox.InventoryMenu) -> Beverage {
+        return inventoryBox.numberToInventoryMenu(menuType: menuType)
     }
     
 }

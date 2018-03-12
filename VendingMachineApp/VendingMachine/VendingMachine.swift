@@ -8,6 +8,13 @@
 
 import Foundation
 
+protocol BaseMode {
+    mutating func addBeverage(_ product: Beverage)
+    mutating func addMoney(_ userMoney: VendingMachine.AvailableMoney)
+    func getBalance() -> Int
+    func generateCountOfProduct() -> [Int]
+}
+
 protocol AdminMode {
     mutating func addBeverage(_ product: Beverage)
     mutating func removeProduct(_ product: ObjectIdentifier) -> Beverage?
@@ -28,7 +35,7 @@ protocol UserMode {
     func generateBeverageFromProductName(_ productName: ObjectIdentifier) -> Beverage?
 }
 
-class VendingMachine: NSObject, NSCoding, AdminMode, UserMode {
+class VendingMachine: NSObject, NSCoding, AdminMode, UserMode, BaseMode {
     
     private var inventory: Inventory = Inventory([])
     private var balance: Int = 0

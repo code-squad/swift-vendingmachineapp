@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    var vendingMachine : VendingMachine!
+    var vendingMachine : BaseMode!
     
     @IBOutlet var products: [UIImageView]!
     @IBOutlet var labelOfProducts: [UILabel]!
@@ -52,7 +52,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        vendingMachine = VendingMachine.shared()
+        vendingMachine = VendingMachine.shared() as BaseMode
         updateBalance(vendingMachine.getBalance())
         updateInventory()
         NotificationCenter.default.addObserver(self, selector: #selector(updateInventoryLabels(notification:)), name: .didUpdateInventory , object: nil)

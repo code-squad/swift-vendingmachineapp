@@ -14,6 +14,10 @@ class StrawberryMilk: Milk {
                    expiryDate: expiryDate, calorie: calorie)
     }
     
+    required init(from decoder: Decoder) throws {
+        try super.init(from: decoder)
+    }
+    
     override var description: String {
         return "딸기우유"
     }

@@ -15,6 +15,10 @@ class TOP: Coffee {
                    expiryDate: expiryDate, calorie: calorie, isHot: isHot)
     }
     
+    required init(from decoder: Decoder) throws {
+        try super.init(from: decoder)
+    }
+    
     override var description: String {
         return "TOP"
     }

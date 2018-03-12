@@ -8,15 +8,53 @@
 
 import Foundation
 
-class VendingMachine {
+class VendingMachineSetting {
+    private let keyProperty: String = "machine"
+    
+    func save() {
+        var data: Data = Data()
+        do {
+            data = try PropertyListEncoder().encode(VendingMachine.shared())
+        } catch {
+            print(error.localizedDescription)
+        }
+        
+        UserDefaults.standard.set(data, forKey: keyProperty)
+    }
+    
+    func load() -> VendingMachine {
+        var machine: VendingMachine = VendingMachine.shared()
+        guard let data = UserDefaults.standard.object(forKey: keyProperty) as? Data else { return machine }
+        
+        do {
+            machine = try PropertyListDecoder().decode(VendingMachine.self, from: data)
+            VendingMachine.stored(machine)
+        } catch {
+            print(error.localizedDescription)
+        }
+        
+        return VendingMachine.shared()
+    }
+}
+
+final class VendingMachine {
     private var money: Money
     private var inventory: Inventory
-    private let salesHistory: SalesHistory
+    private var salesHistory: SalesHistory
+    private static var shareInstance: VendingMachine = VendingMachine()
     
     init() {
         self.money = Money(0)
         self.inventory = Inventory([])
         self.salesHistory = SalesHistory()
+    }
+    
+    class func shared() -> VendingMachine {
+        return shareInstance
+    }
+    
+    class func stored(_ machine: VendingMachine) {
+        shareInstance = machine
     }
 }
 
@@ -76,5 +114,26 @@ extension VendingMachine: MachineManagerable {
     
     func fetchListOfValidDate() -> [BeverageMenu] {
         return BeverageMenu.filterExpireDateOnToday()
+    }
+}
+
+extension VendingMachine: Codable {
+    private enum CodingKeys: CodingKey {
+        case money, inventory, salesHistory
+    }
+    
+    convenience init(from decoder: Decoder) throws {
+        self.init()
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        self.money = try values.decode(Money.self, forKey: .money)
+        self.inventory = try values.decode(Inventory.self, forKey: .inventory)
+        self.salesHistory = try values.decode(SalesHistory.self, forKey: .salesHistory)
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(money, forKey: .money)
+        try container.encode(inventory, forKey: .inventory)
+        try container.encode(salesHistory, forKey: .salesHistory)
     }
 }

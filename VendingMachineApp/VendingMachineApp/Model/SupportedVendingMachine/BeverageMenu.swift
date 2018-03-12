@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum BeverageMenu {
+enum BeverageMenu: Int, Codable {
     case bananaMilk
     case strawberryMilk
     case cocaCola
@@ -40,13 +40,13 @@ enum BeverageMenu {
     }
     
     static func filterExpireDateOnToday() -> [BeverageMenu] {
-        return self.filter({ beverageMene -> Bool in
+        return allValues.filter({ beverageMene -> Bool in
             return beverageMene.makeInstance().isExpired(with: DateUtility.today())
         })
     }
     
     static func filterHottedBeverages() -> [BeverageMenu] {
-        return self.filter({ beverageMene -> Bool in
+        return allValues.filter({ beverageMene -> Bool in
             guard let coffee = beverageMene.makeInstance() as? Coffee else {
                 return false
             }
@@ -57,23 +57,15 @@ enum BeverageMenu {
 }
 
 extension BeverageMenu {
-    private static var allValues: [BeverageMenu] {
+    static var allValues: [BeverageMenu] {
         return [.bananaMilk, .cocaCola, .georgia, .pepsi, .strawberryMilk, .top]
     }
     
-    static func map<T>(_ function: ((BeverageMenu) -> T)) -> [T] {
-        return allValues.map(function)
-    }
-    
-    static func filter(_ function: ((BeverageMenu) -> Bool)) -> [BeverageMenu] {
-        return allValues.filter(function)
-    }
-    
-    static func forEach(_ function: ((BeverageMenu) -> Void)) {
-        allValues.forEach(function)
-    }
-    
     static func getBeverageMenu(index: Int) -> BeverageMenu {
-        return allValues[index]
+        guard let beverageMenu = BeverageMenu(rawValue: index) else {
+            return BeverageMenu.bananaMilk
+        }
+        
+        return beverageMenu
     }
 }

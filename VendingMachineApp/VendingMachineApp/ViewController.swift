@@ -9,12 +9,14 @@
 import UIKit
 
 class ViewController: UIViewController {
-    enum TypeOf: Int {
-        case strawberryMilk = 0, bananaMilk, chocoMilk, sprite, coke, fanta, georgia, top, kantanta
-    }
+//    enum TypeOf: Int {
+//        case strawberryMilk = 0, bananaMilk, chocoMilk, sprite, coke, fanta, georgia, top, kantanta
+//    }
+    
     var countOfEachBeverage = [Int](repeating: 0, count: 9)
     var totalAmount = 0
     var vendingMachine = VendingMachine()
+    typealias TypeOf = InventoryBox.InventoryMenu
 
     @IBOutlet var countOfMenu: [UILabel]!
     @IBOutlet var imageOfMenu: [UIImageView]!

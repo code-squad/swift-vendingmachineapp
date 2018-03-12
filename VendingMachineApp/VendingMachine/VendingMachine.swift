@@ -84,13 +84,13 @@ class VendingMachine: NSObject, NSCoding, AdminMode, UserMode{
 
     func addBeverage(_ product: Beverage) {
         self.inventory.addBeverage(product)
-        NotificationCenter.default.post(name: Notification.Name("didUpdateInventory"), object: self, userInfo: [
-            "inventory" : inventory ])
+        NotificationCenter.default.post(name: .didUpdateInventory, object: self, userInfo: [
+            Keyword.UserInfo.inventory.rawValue : inventory ])
     }
 
     func addMoney(_ userMoney: AvailableMoney) {
         self.balance += userMoney.rawValue
-        NotificationCenter.default.post(name: Notification.Name("didUpdateBalance"), object: self, userInfo : ["balance" : balance])
+        NotificationCenter.default.post(name: .didUpdateBalance, object: self, userInfo : [Keyword.UserInfo.balance.rawValue : balance])
     }
 
     func generateListOfValidProduct() -> [ObjectIdentifier] {

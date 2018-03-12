@@ -28,7 +28,7 @@ protocol UserMode {
     func generateBeverageFromProductName(_ productName: ObjectIdentifier) -> Beverage?
 }
 
-class VendingMachine: NSObject, NSCoding, AdminMode, UserMode{
+class VendingMachine: NSObject, NSCoding, AdminMode, UserMode {
     
     private var inventory: Inventory = Inventory([])
     private var balance: Int = 0
@@ -84,13 +84,12 @@ class VendingMachine: NSObject, NSCoding, AdminMode, UserMode{
 
     func addBeverage(_ product: Beverage) {
         self.inventory.addBeverage(product)
-        NotificationCenter.default.post(name: .didUpdateInventory, object: self, userInfo: [
-            Keyword.UserInfo.inventory.rawValue : inventory ])
+        NotificationCenter.default.post(name: .didUpdateInventory , object: self)
     }
 
     func addMoney(_ userMoney: AvailableMoney) {
         self.balance += userMoney.rawValue
-        NotificationCenter.default.post(name: .didUpdateBalance, object: self, userInfo : [Keyword.UserInfo.balance.rawValue : balance])
+        NotificationCenter.default.post(name: .didUpdateBalance, object: self, userInfo : [Keyword.Key.balance.rawValue : balance])
     }
 
     func generateListOfValidProduct() -> [ObjectIdentifier] {

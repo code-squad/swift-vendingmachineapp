@@ -9,18 +9,15 @@
 import Foundation
 
 struct Keyword {
-    enum UserInfo : String {
+    enum Key : String {
         case inventory = "inventory"
         case balance = "balance"
-    }
-    
-    enum NotificationName : String {
         case didUpdateInventory = "didUpdateInventory"
         case didUpdateBalance = "didUpdateBalance"
     }
 }
 
 extension Notification.Name {
-    static let didUpdateInventory = Notification.Name(Keyword.NotificationName.didUpdateInventory.rawValue)
-    static let didUpdateBalance = Notification.Name(Keyword.NotificationName.didUpdateBalance.rawValue)
+    static let didUpdateInventory = Notification.Name(Keyword.Key.didUpdateInventory.rawValue)
+    static let didUpdateBalance = Notification.Name(Keyword.Key.didUpdateBalance.rawValue)
 }

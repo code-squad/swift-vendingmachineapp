@@ -27,7 +27,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="추가"/>
                                 <connections>
-                                    <action selector="addMenu1:" destination="BYZ-38-t0r" eventType="touchUpInside" id="G4Y-LA-3jp"/>
+                                    <action selector="addBeverageWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3Sp-VF-7nY"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="URH-kr-cWk">
@@ -46,6 +46,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="추가"/>
                                 <connections>
+                                    <action selector="addBeverageWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="w69-35-IvL"/>
                                     <action selector="addMenu2:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DNT-Eb-1c3"/>
                                 </connections>
                             </button>
@@ -58,6 +59,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="추가"/>
                                 <connections>
+                                    <action selector="addBeverageWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vX7-Y3-mAg"/>
                                     <action selector="addMenu3:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uiS-f2-lfl"/>
                                 </connections>
                             </button>
@@ -70,6 +72,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="추가"/>
                                 <connections>
+                                    <action selector="addBeverageWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EIb-th-t1R"/>
                                     <action selector="addMenu4:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mvN-KV-TcH"/>
                                 </connections>
                             </button>
@@ -82,6 +85,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="추가"/>
                                 <connections>
+                                    <action selector="addBeverageWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="C0D-kH-PB7"/>
                                     <action selector="addMenu5:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CAE-CF-xqY"/>
                                 </connections>
                             </button>
@@ -94,6 +98,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="추가"/>
                                 <connections>
+                                    <action selector="addBeverageWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JRE-CL-uCV"/>
                                     <action selector="addMenu6:" destination="BYZ-38-t0r" eventType="touchUpInside" id="x4T-5u-awo"/>
                                 </connections>
                             </button>
@@ -106,6 +111,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="추가"/>
                                 <connections>
+                                    <action selector="addBeverageWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ruo-lj-8Cc"/>
                                     <action selector="addMenu7:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xcs-2j-S9x"/>
                                 </connections>
                             </button>
@@ -118,6 +124,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="추가"/>
                                 <connections>
+                                    <action selector="addBeverageWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xdu-ux-Iy1"/>
                                     <action selector="addMenu8:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7cq-TA-Skt"/>
                                 </connections>
                             </button>
@@ -130,6 +137,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="추가"/>
                                 <connections>
+                                    <action selector="addBeverageWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EEd-VY-eij"/>
                                     <action selector="addMenu9:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9GT-1M-awD"/>
                                 </connections>
                             </button>
@@ -313,6 +321,15 @@
                         <outletCollection property="imageOfMenu" destination="xD1-W6-Tez" collectionClass="NSMutableArray" id="Ps6-Gb-yoS"/>
                         <outletCollection property="imageOfMenu" destination="fA8-D6-lW7" collectionClass="NSMutableArray" id="wqE-pK-G6L"/>
                         <outletCollection property="imageOfMenu" destination="EUE-WL-pZX" collectionClass="NSMutableArray" id="UFP-Gm-yam"/>
+                        <outletCollection property="addNumberOfMenu" destination="S7i-AI-k4m" collectionClass="NSMutableArray" id="YSI-I3-91v"/>
+                        <outletCollection property="addNumberOfMenu" destination="JvB-pr-Qfu" collectionClass="NSMutableArray" id="o2v-Sg-chd"/>
+                        <outletCollection property="addNumberOfMenu" destination="u21-qf-1vu" collectionClass="NSMutableArray" id="Jga-Jq-IF6"/>
+                        <outletCollection property="addNumberOfMenu" destination="CUN-Ki-BPZ" collectionClass="NSMutableArray" id="UDh-FN-lc4"/>
+                        <outletCollection property="addNumberOfMenu" destination="AbH-s5-lHj" collectionClass="NSMutableArray" id="yAV-rr-8GT"/>
+                        <outletCollection property="addNumberOfMenu" destination="ll6-w0-9YD" collectionClass="NSMutableArray" id="zx9-cq-UKB"/>
+                        <outletCollection property="addNumberOfMenu" destination="C0R-Vl-yC3" collectionClass="NSMutableArray" id="NsS-ue-9jn"/>
+                        <outletCollection property="addNumberOfMenu" destination="HhT-Q4-cqV" collectionClass="NSMutableArray" id="T5L-xi-ZIQ"/>
+                        <outletCollection property="addNumberOfMenu" destination="Ddp-wI-GyJ" collectionClass="NSMutableArray" id="zqb-3R-KvZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

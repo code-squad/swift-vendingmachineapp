@@ -13,7 +13,7 @@ class InventoryBox {
         case invalidBeverage
     }
     enum InventoryMenu: Int {
-        case strawberryMilk = 0, bananaMilk, chocoMilk, sprite, coke, fanta, georgia, top, kantanta
+        case strawberryMilk = 0, bananaMilk, chocoMilk, sprite, coke, fanta, georgia, top, kantanta, otherBeverage
         func beveragekeyFromMenu() -> ObjectIdentifier {
             switch self {
             case .strawberryMilk: return ObjectIdentifier(StrawberryMilk.self)
@@ -25,6 +25,7 @@ class InventoryBox {
             case .georgia: return ObjectIdentifier(Georgia.self)
             case .top: return ObjectIdentifier(Top.self)
             case .kantanta: return ObjectIdentifier(Kantata.self)
+            case .otherBeverage: return ObjectIdentifier(Beverage.self)
             }
         }
         func beverageFromMenu() -> Beverage {
@@ -38,6 +39,7 @@ class InventoryBox {
             case .georgia: return Georgia()
             case .top: return Top()
             case .kantanta: return Kantata()
+            case .otherBeverage: return Beverage()
             }
         }
         
@@ -116,5 +118,12 @@ class InventoryBox {
             return 0
         }
         return beverage.count
+    }
+    
+    func selectMenuType(tag: Int) -> InventoryMenu {
+        guard let type = InventoryMenu.init(rawValue: tag) else {
+            return .otherBeverage
+        }
+        return type
     }
 }

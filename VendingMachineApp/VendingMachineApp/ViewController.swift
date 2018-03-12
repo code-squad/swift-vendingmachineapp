@@ -43,7 +43,7 @@ class ViewController: UIViewController {
     @objc private func updateInventoryLabels(notification : Notification) {
         guard let userInfo = notification.userInfo as? [String : Inventory] else { return }
         guard let inventory = userInfo["inventory"] else { return }
-        updateInventory(inventory)
+        updateInventory(inventory.generateCountOfProduct())
     }
     
     @objc private func updateBalanceLabel(notification : Notification) {
@@ -56,7 +56,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         vendingMachine = VendingMachine.shared()
         updateBalance(vendingMachine.getBalance())
-        updateInventory(vendingMachine)
+        updateInventory(vendingMachine.generateCountOfProduct())
         NotificationCenter.default.addObserver(self, selector: #selector(updateInventoryLabels(notification:)), name: Notification.Name("didUpdateInventory"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(updateBalanceLabel(notification:)), name: Notification.Name("didUpdateBalance"), object: nil)
     }
@@ -65,10 +65,10 @@ class ViewController: UIViewController {
         balance.text = "\(insertedMoney)원"
     }
     
-    private func updateInventory(_ inventory : countProducts) {
+    private func updateInventory(_ countOfProducts : [Int]) {
         var inventoryIndex = 0
-        for oneProductName in vendingMachine.generateProductNamesInNumber() {
-            labelOfProducts[inventoryIndex].text = "\(inventory.generateCountOfProduct(oneProductName))개"
+        for countOfOneProduct in countOfProducts {
+            labelOfProducts[inventoryIndex].text = "\(countOfOneProduct)개"
             inventoryIndex += 1
         }
     }

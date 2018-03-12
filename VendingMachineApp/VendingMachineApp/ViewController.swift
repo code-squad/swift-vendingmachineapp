@@ -42,23 +42,25 @@ class ViewController: UIViewController {
     
     @objc private func updateInventoryLabels(notification : Notification) {
         guard let userInfo = notification.userInfo as? [String : Inventory] else { return }
-        guard let inventory = userInfo["inventory"] else { return }
+        guard let inventory = userInfo[Keyword.UserInfo.inventory.rawValue] else { return }
         updateInventory(inventory.generateCountOfProduct())
     }
     
     @objc private func updateBalanceLabel(notification : Notification) {
         guard let userInfo = notification.userInfo as? [String : Int] else { return }
-        guard let insertedMoney = userInfo["balance"] else { return }
+        guard let insertedMoney = userInfo[Keyword.UserInfo.balance.rawValue] else { return }
         updateBalance(insertedMoney)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         vendingMachine = VendingMachine.shared()
+        
         updateBalance(vendingMachine.getBalance())
         updateInventory(vendingMachine.generateCountOfProduct())
-        NotificationCenter.default.addObserver(self, selector: #selector(updateInventoryLabels(notification:)), name: Notification.Name("didUpdateInventory"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(updateBalanceLabel(notification:)), name: Notification.Name("didUpdateBalance"), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(updateInventoryLabels(notification:)), name: .didUpdateInventory , object: VendingMachine.shared())
+        NotificationCenter.default.addObserver(self, selector: #selector(updateBalanceLabel(notification:)), name: .didUpdateBalance , object: VendingMachine.shared())
     }
     
     private func updateBalance(_ insertedMoney : Int) {
@@ -76,7 +78,6 @@ class ViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-
 
 }
 

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		041FA4DE20565E17001ED747 /* Keyword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041FA4DD20565E17001ED747 /* Keyword.swift */; };
 		04E7A0A4204F822D00C611FB /* MachineStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E7A0A3204F822D00C611FB /* MachineStore.swift */; };
 		04FC675F204D1CEB00B084D5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FC675E204D1CEB00B084D5 /* AppDelegate.swift */; };
 		04FC6761204D1CEB00B084D5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FC6760204D1CEB00B084D5 /* ViewController.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		041FA4DD20565E17001ED747 /* Keyword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keyword.swift; sourceTree = "<group>"; };
 		04E7A0A3204F822D00C611FB /* MachineStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MachineStore.swift; sourceTree = "<group>"; };
 		04FC675B204D1CEB00B084D5 /* VendingMachineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendingMachineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04FC675E204D1CEB00B084D5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 			children = (
 				04FC675E204D1CEB00B084D5 /* AppDelegate.swift */,
 				04FC6760204D1CEB00B084D5 /* ViewController.swift */,
+				041FA4DD20565E17001ED747 /* Keyword.swift */,
 				04FC6762204D1CEB00B084D5 /* Main.storyboard */,
 				04FC6765204D1CEB00B084D5 /* Assets.xcassets */,
 				04FC6767204D1CEB00B084D5 /* LaunchScreen.storyboard */,
@@ -260,6 +263,7 @@
 				04FC678F204D1DE700B084D5 /* PepciCoke.swift in Sources */,
 				04FC6790204D1DE700B084D5 /* Sprite.swift in Sources */,
 				04FC6791204D1DE700B084D5 /* SodaPop.swift in Sources */,
+				041FA4DE20565E17001ED747 /* Keyword.swift in Sources */,
 				04FC6786204D1DDA00B084D5 /* StrawberryMilk.swift in Sources */,
 				04FC6787204D1DDA00B084D5 /* BananaMilk.swift in Sources */,
 				04FC6788204D1DDA00B084D5 /* ChocolateMilk.swift in Sources */,

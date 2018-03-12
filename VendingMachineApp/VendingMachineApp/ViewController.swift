@@ -67,7 +67,7 @@ class ViewController: UIViewController {
                 }
                 let beverageName = self.vendingMachine.choiceBeverageData(menuType: type)
                 self.vendingMachine.addInInventory(beverageName: beverageName, number: numberOf)
-                self.updateCountOfEachBeverage()
+                self.updateCountOfEachBeverage(vendingMachine: self.vendingMachine)
             }
         }
         alert.addAction(cancel)
@@ -79,7 +79,7 @@ class ViewController: UIViewController {
         
     }
     
-    func updateCountOfEachBeverage() {
+    func updateCountOfEachBeverage(vendingMachine: VendingMachine) {
         // 각 Beverage의 개수를 countOfMenu.text에 각각 출력해준다.
         for (index, menu) in TypeOf.kind.enumerated() {
             countOfMenu[index].text = String(vendingMachine.beverageNumberOf(menuType: menu))

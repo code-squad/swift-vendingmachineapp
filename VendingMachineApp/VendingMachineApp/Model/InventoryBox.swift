@@ -18,9 +18,13 @@ class InventoryBox {
             switch self {
             case .strawberryMilk: return ObjectIdentifier(StrawberryMilk.self)
             case .bananaMilk: return ObjectIdentifier(BananaMilk.self)
+            case .chocoMilk return ObjectIdentifier(ChocoMilk.self)
+            case .sprite return ObjectIdentifier(Sprite.self)
             case .coke: return ObjectIdentifier(Coke.self)
+            case .fanta return ObjectIdentifier(Fanta.self)
+            case .georgia return ObjectIdentifier(Georgia.self)
             case .top: return ObjectIdentifier(Top.self)
-            default: return ObjectIdentifier(InventoryBox.self)
+            case .kantanta return ObjectIdentifier(Kantata.self)
             }
         }
         static let kind = [strawberryMilk, bananaMilk, chocoMilk, sprite, coke, fanta, georgia, top, kantanta]

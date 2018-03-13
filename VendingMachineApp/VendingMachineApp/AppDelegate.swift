@@ -10,7 +10,6 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-// vendgingMachine을 data로 아카이빙을해서 UserDefault에 넣은 것을
     var window: UIWindow?
     var vendingMachine = VendingMachine()
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -29,6 +28,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
+        if let data = UserDefaults.standard.data(forKey: "vendingMachine") {
+            vendingMachine = (NSKeyedUnarchiver.unarchiveObject(with: data) as? VendingMachine)!
+        }
     }
 
     func applicationWillTerminate(_ application: UIApplication) {

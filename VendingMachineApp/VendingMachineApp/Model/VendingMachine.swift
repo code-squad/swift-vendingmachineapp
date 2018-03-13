@@ -8,17 +8,18 @@
 
 import Foundation
 
-struct VendingMachine {
+class VendingMachine {
     private(set) var coins: Int
     private var inventoryBox: InventoryBox
-    private let purchaseProductHistory: PurchaseProductHistory
+    private var purchaseProductHistory: PurchaseProductHistory
+
     init() {
-        self.coins = 0
+        coins = 0
         inventoryBox = InventoryBox()
         purchaseProductHistory = PurchaseProductHistory()
     }
     // 자판기 금액을 원하는 금액만큼 올리는 메소드
-    mutating func putCoins(coins: Int) {
+    func putCoins(coins: Int) {
         self.coins = coins
     }
     
@@ -41,7 +42,7 @@ struct VendingMachine {
     }
     
     // 음료수를 구매하는 메소드
-    mutating func buyBeverage(beverageKey: ObjectIdentifier) {
+    func buyBeverage(beverageKey: ObjectIdentifier) {
         do {
             let beverageOfChoice = try inventoryBox.sellDrink(beverageKey: beverageKey)
             purchaseProductHistory.recordOfPurchaseHistory(date: Date(), beverage: beverageOfChoice.name)

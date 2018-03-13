@@ -8,7 +8,7 @@
 
 import Foundation
 
-class InventoryBox {
+class InventoryBox: NSObject, NSCoding {
     enum VendingMachinError: Error {
         case invalidBeverage
     }
@@ -46,7 +46,13 @@ class InventoryBox {
         static let kind = [strawberryMilk, bananaMilk, chocoMilk, sprite, coke, fanta, georgia, top, kantanta]
     }
     private var box: [ObjectIdentifier: [Beverage]]
-    init() {
+    required init?(coder aDecoder: NSCoder) {
+        self.box = aDecoder.decodeObject(forKey: "box") as! [ObjectIdentifier : [Beverage]]
+    }
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(box, forKey: "box")
+    }
+    override init() {
         box = [ObjectIdentifier: [Beverage]]()
     }
     func storageBeverageStock(beverage: Beverage) {

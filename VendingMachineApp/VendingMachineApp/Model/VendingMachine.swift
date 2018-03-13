@@ -8,16 +8,27 @@
 
 import Foundation
 
-class VendingMachine {
-    private(set) var coins: Int
-    private var inventoryBox: InventoryBox
-    private var purchaseProductHistory: PurchaseProductHistory
-
-    init() {
-        coins = 0
-        inventoryBox = InventoryBox()
-        purchaseProductHistory = PurchaseProductHistory()
+class VendingMachine: NSObject, NSCoding {
+    private(set) var coins: Int = 0
+    private var inventoryBox = InventoryBox()
+    private var purchaseProductHistory = PurchaseProductHistory()
+    override init() {
+        super.init()
     }
+
+    required init?(coder aDecoder: NSCoder) {
+        coins = (aDecoder.decodeObject(forKey: "coins") as? Int)!
+        inventoryBox = (aDecoder.decodeObject(forKey: "inventoryBox") as? InventoryBox)!
+        purchaseProductHistory = (aDecoder.decodeObject(forKey: "purchaseProductHistory") as? PurchaseProductHistory)!
+        super.init()
+    }
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(coins, forKey: "coins")
+        aCoder.encode(inventoryBox, forKey: "inventoryBox")
+        aCoder.encode(purchaseProductHistory, forKey: "purchaseProductHistory")
+    }
+    
     // 자판기 금액을 원하는 금액만큼 올리는 메소드
     func putCoins(coins: Int) {
         self.coins = coins

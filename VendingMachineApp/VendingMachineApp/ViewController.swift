@@ -17,6 +17,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var balance: UILabel!
     @IBOutlet var addInventory: [UIButton]!
     @IBOutlet var addMoney: [UIButton]!
+    @IBOutlet var buyProduct: [UIButton]!
+    
     
     @IBAction func addInventoryButtonTouched(_ sender: UIButton) {
         guard let vendingMachine = self.vendingMachine else { return }
@@ -27,6 +29,20 @@ class ViewController: UIViewController {
         case "fourthProduct"?: vendingMachine.addBeverage(Fanta())
         case "fifthProduct"?: vendingMachine.addBeverage(TOPCoffee())
         case "sixthProduct"?: vendingMachine.addBeverage(Georgia())
+        default:
+            return
+        }
+    }
+    
+    @IBAction func buyProductButtonTouched(_ sender: UIButton) {
+        guard let vendingMachine = self.vendingMachine else { return }
+        switch sender.restorationIdentifier {
+        case "buy1Product"? : vendingMachine.buy(StrawberryMilk())
+        case "buy2Product"?: vendingMachine.buy(BananaMilk())
+        case "buy3Product"?: vendingMachine.buy(PepciCoke())
+        case "buy4Product"?: vendingMachine.buy(Fanta())
+        case "buy5Product"?: vendingMachine.buy(TOPCoffee())
+        case "buy6Product"?: vendingMachine.buy(Georgia())
         default:
             return
         }

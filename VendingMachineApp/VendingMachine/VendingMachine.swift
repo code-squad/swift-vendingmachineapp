@@ -11,6 +11,7 @@ import Foundation
 protocol BaseMode {
     func addBeverage(_ product: Beverage)
     func addMoney(_ userMoney: VendingMachine.AvailableMoney)
+    func buy(_ product: Beverage)
     func getBalance() -> Int
     func generateCountOfProduct() -> [Int]
 }
@@ -108,6 +109,8 @@ class VendingMachine: NSObject, NSCoding, AdminMode, UserMode, BaseMode {
         guard let product = soldProduct else { return }
         self.historyOfProductsSold.append(product)
         self.balance -= product.price
+        NotificationCenter.default.post(name: .didUpdateInventory , object: self)
+        NotificationCenter.default.post(name: .didUpdateBalance, object: self, userInfo : [Keyword.Key.balance.rawValue : balance])
     }
 
     func getBalance() -> Int {

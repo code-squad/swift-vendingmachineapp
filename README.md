@@ -78,7 +78,7 @@ private func setRoundedImages() {
 <img src="./images/vendingmachineapp-result-3.gif"></img>
 
 ##### App Life Cycle
-* [정리](https://wiki.yuaming.com/ios/app-life-cycle.html) 
+* [정리](https://wiki.yuaming.com/ios/ios-programming.html) 
 
 ##### 깊은 복사와 얕은 복사
 * [정리](https://wiki.yuaming.com/ios/shallow-deep-copy.html) 

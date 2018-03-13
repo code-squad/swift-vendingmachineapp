@@ -9,8 +9,6 @@
 import UIKit
 
 class ViewController: UIViewController {
-    var countOfEachBeverage = [Int](repeating: 0, count: 9)
-    var totalAmount = 0
     var vendingMachine = VendingMachine()
     var inventoryBox = InventoryBox()
     typealias TypeOf = InventoryBox.InventoryMenu

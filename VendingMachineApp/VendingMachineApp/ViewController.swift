@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-    var vendingMachine = VendingMachine()
+    var vendingMachine: VendingMachine!
     var inventoryBox = InventoryBox()
     typealias TypeOf = InventoryBox.InventoryMenu
 
@@ -20,6 +20,9 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let appDelegate = UIApplication.shared.delegate as? AppDelegate
+        vendingMachine = appDelegate?.vendingMachine
+        
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyyMMdd"
         

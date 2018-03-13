@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    var vendingMachine : VendingMachineBase! = VendingMachineBase.init(VendingMachine.shared())
+    var vendingMachine : BaseMode?
     
     @IBOutlet var products: [UIImageView]!
     @IBOutlet var labelOfProducts: [UILabel]!
@@ -19,6 +19,7 @@ class ViewController: UIViewController {
     @IBOutlet var addMoney: [UIButton]!
     
     @IBAction func addInventoryButtonTouched(_ sender: UIButton) {
+        guard let vendingMachine = self.vendingMachine else { return }
         switch sender.restorationIdentifier {
         case "firstProduct"? : vendingMachine.addBeverage(StrawberryMilk())
         case "secondProduct"?: vendingMachine.addBeverage(BananaMilk())
@@ -32,6 +33,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func addMoneyButtonTouched(_ sender: UIButton) {
+        guard let vendingMachine = self.vendingMachine else { return }
         switch sender.tag {
         case 0: vendingMachine.addMoney(.oneThousand)
         case 1: vendingMachine.addMoney(.fiveThousands)
@@ -52,6 +54,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        guard let vendingMachine = self.vendingMachine else { return }
         updateBalance(vendingMachine.getBalance())
         updateInventory()
         NotificationCenter.default.addObserver(self, selector: #selector(updateInventoryLabels(notification:)), name: .didUpdateInventory , object: nil)
@@ -63,6 +66,7 @@ class ViewController: UIViewController {
     }
     
     private func updateInventory() {
+        guard let vendingMachine = self.vendingMachine else { return }
         var inventoryIndex = 0
         for countOfOneProduct in vendingMachine.generateCountOfProduct() {
             labelOfProducts[inventoryIndex].text = countOfOneProduct.formatCount()

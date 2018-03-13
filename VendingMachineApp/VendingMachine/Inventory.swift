@@ -14,7 +14,7 @@ class Inventory : NSObject, NSCoding {
     let kindsOfCoffee: [ObjectIdentifier] = [TOPCoffee.getKind(), Cantata.getKind(), Georgia.getKind()]
     let productsInNumericalOrder = [StrawberryMilk.getKind(),BananaMilk.getKind(),PepciCoke.getKind(),
                                     Fanta.getKind(), TOPCoffee.getKind(), Georgia.getKind()]
-
+    
     init(_ productsBox: [Beverage]) {
         super.init()
         for oneProduct in productsBox {

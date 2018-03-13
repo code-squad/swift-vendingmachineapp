@@ -9,8 +9,8 @@
 import Foundation
 
 protocol BaseMode {
-    mutating func addBeverage(_ product: Beverage)
-    mutating func addMoney(_ userMoney: VendingMachine.AvailableMoney)
+    func addBeverage(_ product: Beverage)
+    func addMoney(_ userMoney: VendingMachine.AvailableMoney)
     func getBalance() -> Int
     func generateCountOfProduct() -> [Int]
 }
@@ -149,6 +149,6 @@ class VendingMachine: NSObject, NSCoding, AdminMode, UserMode, BaseMode {
     func generateCountOfProduct() -> [Int] {
         return self.inventory.generateCountOfProduct()
     }
-
+    
 }
 

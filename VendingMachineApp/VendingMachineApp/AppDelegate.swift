@@ -17,6 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         guard let decodedData = machineStore.loadMachine() else { return true }
         VendingMachine.loadInstance(decodedData)
+        let viewController = window?.rootViewController as? ViewController
+        viewController?.vendingMachine = VendingMachine.shared()
         return true                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
     }
 

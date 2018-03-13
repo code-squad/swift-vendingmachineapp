@@ -12,6 +12,7 @@ class VendingMachine: NSObject, NSCoding {
     private(set) var coins: Int = 0
     private var inventoryBox = InventoryBox()
     private var purchaseProductHistory = PurchaseProductHistory()
+    
     override init() {
         super.init()
     }

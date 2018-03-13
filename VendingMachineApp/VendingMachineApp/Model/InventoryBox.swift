@@ -45,9 +45,12 @@ class InventoryBox: NSObject, NSCoding {
         
         static let kind = [strawberryMilk, bananaMilk, chocoMilk, sprite, coke, fanta, georgia, top, kantanta]
     }
-    private var box: [ObjectIdentifier: [Beverage]]
+    private var box = [ObjectIdentifier: [Beverage]]()
     required init?(coder aDecoder: NSCoder) {
-        self.box = aDecoder.decodeObject(forKey: "box") as! [ObjectIdentifier : [Beverage]]
+        guard let boxData = aDecoder.decodeObject(forKey: "box") as? [ObjectIdentifier: [Beverage]] else {
+            return
+        }
+        self.box = boxData
     }
     func encode(with aCoder: NSCoder) {
         aCoder.encode(box, forKey: "box")

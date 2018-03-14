@@ -18,17 +18,28 @@ class ViewController: UIViewController {
     @IBOutlet var addInventory: [UIButton]!
     @IBOutlet var addMoney: [UIButton]!
     @IBOutlet var buyProduct: [UIButton]!
+    @IBOutlet weak var listOfPurchase: UILabel!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        guard let vendingMachine = self.vendingMachine else { return }
+        updateBalance(vendingMachine.getBalance())
+        updateInventory()
+        updateListOfPurchase()
+        NotificationCenter.default.addObserver(self, selector: #selector(updateInventoryLabels(notification:)), name: .didUpdateInventory , object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateBalanceLabel(notification:)), name: .didUpdateBalance , object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateListOfPurchase(notification:)), name: .didUpdateListOfPurchase , object: nil)
+    }
     
     @IBAction func addInventoryButtonTouched(_ sender: UIButton) {
         guard let vendingMachine = self.vendingMachine else { return }
         switch sender.restorationIdentifier {
-        case "firstProduct"? : vendingMachine.addBeverage(StrawberryMilk())
-        case "secondProduct"?: vendingMachine.addBeverage(BananaMilk())
-        case "thirdProduct"?: vendingMachine.addBeverage(PepciCoke())
-        case "fourthProduct"?: vendingMachine.addBeverage(Fanta())
-        case "fifthProduct"?: vendingMachine.addBeverage(TOPCoffee())
-        case "sixthProduct"?: vendingMachine.addBeverage(Georgia())
+        case "add1Product"? : vendingMachine.addBeverage(StrawberryMilk())
+        case "add2Product"?: vendingMachine.addBeverage(BananaMilk())
+        case "add3Product"?: vendingMachine.addBeverage(PepciCoke())
+        case "add4Product"?: vendingMachine.addBeverage(Fanta())
+        case "add5Product"?: vendingMachine.addBeverage(TOPCoffee())
+        case "add6Product"?: vendingMachine.addBeverage(Georgia())
         default:
             return
         }
@@ -68,13 +79,32 @@ class ViewController: UIViewController {
         updateBalance(insertedMoney)
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        guard let vendingMachine = self.vendingMachine else { return }
-        updateBalance(vendingMachine.getBalance())
-        updateInventory()
-        NotificationCenter.default.addObserver(self, selector: #selector(updateInventoryLabels(notification:)), name: .didUpdateInventory , object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(updateBalanceLabel(notification:)), name: .didUpdateBalance , object: nil)
+    @objc private func updateListOfPurchase(notification : Notification) {
+        updateListOfPurchase()
+    }
+    
+    private func updateListOfPurchase() {
+        guard let productsSold = vendingMachine?.generateListOfHistory() else { return }
+        var xOfImage = 70
+        for oneProduct in productsSold {
+            let productImg = UIImage(named : getImgSource(ObjectIdentifier(type(of : oneProduct)))) ?? UIImage()
+            let imageView = UIImageView(image : productImg)
+            imageView.frame = CGRect(x: xOfImage, y: 650, width: 150, height: 150)
+            self.view.addSubview(imageView)
+            xOfImage += 80
+        }
+    }
+    
+    private func getImgSource(_ productKind : ObjectIdentifier) -> String {
+        switch productKind {
+        case StrawberryMilk.getKind(): return Keyword.Img.strawberryMilk.rawValue
+        case BananaMilk.getKind(): return Keyword.Img.bananaMilk.rawValue
+        case PepciCoke.getKind(): return Keyword.Img.pepciCoke.rawValue
+        case Fanta.getKind(): return Keyword.Img.fanta.rawValue
+        case TOPCoffee.getKind(): return Keyword.Img.topCoffee.rawValue
+        case Georgia.getKind(): return Keyword.Img.georgia.rawValue
+        default: return ""
+        }
     }
     
     private func updateBalance(_ insertedMoney : Int) {

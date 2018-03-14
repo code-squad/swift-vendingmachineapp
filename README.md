@@ -88,6 +88,7 @@ private func setRoundedImages() {
 
 ##### SLAP
 * [정리](https://wiki.yuaming.com/oop/slap.html)
+* 피드백을 받고 프로그래밍의 정석 SLAP 개념이 생각나서 다시 정리함
 
 ```swift
 /*

@@ -78,10 +78,67 @@ private func setRoundedImages() {
 <img src="./images/vendingmachineapp-result-3.gif"></img>
 
 ##### App Life Cycle
-* [정리](https://wiki.yuaming.com/ios/ios-programming.html) 
+* [정리](https://wiki.yuaming.com/ios/app-programming-for-ios.html) 
 
 ##### 깊은 복사와 얕은 복사
 * [정리](https://wiki.yuaming.com/ios/shallow-deep-copy.html) 
 
 ##### 아카이빙과 직렬화
 * [정리](https://wiki.yuaming.com/ios/archives-serialization.html) 
+
+##### SLAP
+* [정리](https://wiki.yuaming.com/oop/slap.html)
+
+```swift
+/*
+    지금은 큰 상관없다고 느낄수 있지만, 이렇게 모든 객체에 속성을 변경하는 것도 UIImageView 상속을 받아서 (예를 들어 RoundImageView) 객체 내부에서 self.layer.cornerRadius 를 바꿀 수도 있습니다. 상위 모듈에서 하위 모듈의 속성을 모두 조정해야 하는 건 아닙니다.
+*/
+
+// Before
+class ViewController: UIViewController {
+    @IBOutlet var beverageImages: [UIImageView]!
+
+    // ...
+    private func setRoundedImages() {
+        beverageImages.forEach({
+            $0.layer.cornerRadius = 50.0
+            $0.layer.masksToBounds = true
+            $0.backgroundColor = UIColor.white
+        })
+    }
+    
+    // ...
+}
+
+// After
+class RoundImageView: UIImageView {    
+    func setRoundedImage() {
+        self.layer.cornerRadius = 50.0
+        self.layer.masksToBounds = true
+        self.backgroundColor = UIColor.white
+    }
+}
+
+class ViewController: UIViewController {
+    @IBOutlet var beverageImages: [RoundImageView]!
+
+    // ...
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    
+        setImageViews()
+    }
+    
+    private func setImageViews() {
+        beverageImages.forEach({
+            $0.setRoundedImage()
+        })
+    }
+
+    // ...
+}
+```
+
+
+

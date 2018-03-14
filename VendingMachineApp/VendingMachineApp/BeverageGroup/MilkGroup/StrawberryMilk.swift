@@ -18,6 +18,13 @@ class StrawberryMilk: Milk {
         super.init(brand: brand, weight: weight, price: price, name: name, manufactureDate: manufactureDate)
         super.kindOf = "딸기우유"
     }
+    required init?(coder aDecoder: NSCoder) {
+        strawberrySyrup = aDecoder.decodeInteger(forKey: "strawberrySyrup")
+        super.init(coder: aDecoder)
+    }
+    override func encode(with aCoder: NSCoder) {
+        aCoder.encode(strawberrySyrup, forKey: "strawberrySyrup")
+    }
     
     func quantityOfstrawberrySyrup() -> Int {
         return strawberrySyrup

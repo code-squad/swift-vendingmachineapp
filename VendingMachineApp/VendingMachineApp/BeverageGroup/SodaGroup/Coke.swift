@@ -18,6 +18,13 @@ class Coke: Soda {
         super.init(brand: brand, weight: weight, price: price, name: name, manufactureDate: manufactureDate)
         super.kindOf = "콜라"
     }
+    required init?(coder aDecoder: NSCoder) {
+        calorie = aDecoder.decodeInteger(forKey: "calorie")
+        super.init(coder: aDecoder)
+    }
+    override func encode(with aCoder: NSCoder) {
+        aCoder.encode(calorie, forKey: "calorie")
+    }
     
     func isLowCalorie() -> Bool {
         return calorie < 80

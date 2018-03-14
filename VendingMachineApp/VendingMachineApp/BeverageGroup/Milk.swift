@@ -15,6 +15,14 @@ class Milk: Beverage {
         super.init(brand: brand, weight: weight, price: price, name: name, manufactureDate: manufactureDate)
         super.kindOf = "우유"
     }
+    required init?(coder aDecoder: NSCoder) {
+        expirationDate = aDecoder.decodeObject(forKey: "expirationDate") as? Date ?? Date()
+        super.init()
+    }
+    override func encode(with aCoder: NSCoder) {
+        aCoder.encode(expirationDate, forKey: "expirationDate")
+    }
+    
     override var description: String {
         return " - \(super.description)"
     }

@@ -14,6 +14,14 @@ class Coffee: Beverage {
         super.init(brand: brand, weight: weight, price: price, name: name, manufactureDate: manufactureDate)
         super.kindOf = "커피"
     }
+    required init?(coder aDecoder: NSCoder) {
+        caffeineContent = (aDecoder.decodeObject(forKey: "caffeineContent") as? Int)!
+        super.init()
+    }
+    override func encode(with aCoder: NSCoder) {
+        aCoder.encode(caffeineContent, forKey: "caffeineContent")
+    }
+    
     override var description: String {
         return " - \(super.description)"
     }

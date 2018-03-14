@@ -18,6 +18,13 @@ class Fanta: Soda {
         super.init(brand: brand, weight: weight, price: price, name: name, manufactureDate: manufactureDate)
         super.kindOf = "환타"
     }
+    required init?(coder aDecoder: NSCoder) {
+        materials = (aDecoder.decodeObject(forKey: "materials") as? String) ?? ""
+        super.init(coder: aDecoder)
+    }
+    override func encode(with aCoder: NSCoder) {
+        aCoder.encode(materials, forKey: "materials")
+    }
     
     func isAluminumCan() -> Bool {
         return self.materials == "Aluminum"

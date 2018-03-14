@@ -17,6 +17,13 @@ class Georgia: Coffee {
         super.init(brand: brand, weight: weight, price: price, name: name, manufactureDate: manufactureDate)
         super.kindOf = "조지아"
     }
+    required init?(coder aDecoder: NSCoder) {
+        coffeeExtract = aDecoder.decodeDouble(forKey: "coffeeExtract")
+        super.init(coder: aDecoder)
+    }
+    override func encode(with aCoder: NSCoder) {
+        aCoder.encode(coffeeExtract, forKey: "coffeeExtract")
+    }
 
     func isRichCoffeeExtract() -> Bool {
         return self.coffeeExtract > 10

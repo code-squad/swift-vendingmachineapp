@@ -18,6 +18,13 @@ class Kantata: Coffee {
         super.init(brand: brand, weight: weight, price: price, name: name, manufactureDate: manufactureDate)
         super.kindOf = "칸타타"
     }
+    required init?(coder aDecoder: NSCoder) {
+        kindOfBeans = (aDecoder.decodeObject(forKey: "kindOfBeans") as? String) ?? ""
+        super.init(coder: aDecoder)
+    }
+    override func encode(with aCoder: NSCoder) {
+        aCoder.encode(kindOfBeans, forKey: "kindOfBeans")
+    }
     
     func isGuatemalaBeans() -> Bool {
         return (self.kindOfBeans == "GuatemalaAntiqua")

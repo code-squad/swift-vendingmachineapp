@@ -18,6 +18,13 @@ class Sprite: Soda {
         super.init(brand: brand, weight: weight, price: price, name: name, manufactureDate: manufactureDate)
         super.kindOf = "사이다"
     }
+    required init?(coder aDecoder: NSCoder) {
+        flavoringSyrups = (aDecoder.decodeObject(forKey: "flavoringSyrups") as? String) ?? ""
+        super.init(coder: aDecoder)
+    }
+    override func encode(with aCoder: NSCoder) {
+        aCoder.encode(flavoringSyrups, forKey: "flavoringSyrups")
+    }
     
     func isLemonLimeFlavor() -> Bool {
         return (self.flavoringSyrups == "레몬라임향")

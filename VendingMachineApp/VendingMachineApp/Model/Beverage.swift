@@ -8,14 +8,14 @@
 
 import Foundation
 
-class Beverage: CustomStringConvertible {
+class Beverage: NSObject, NSCoding {
     var kindOf: String
     var brand: String
     var weight: Int
     var price: Int
     var name: String
     var manufactureDate: Date
-    init() {
+    override init() {
         kindOf = ""
         brand = ""
         weight = 0
@@ -32,7 +32,24 @@ class Beverage: CustomStringConvertible {
         self.name = name
         self.manufactureDate = manufactureDate.addingTimeInterval(21600)
     }
-    var description: String {
+    required init?(coder aDecoder: NSCoder) {
+        kindOf = aDecoder.decodeObject(forKey: "kindOf") as? String ?? ""
+        brand = aDecoder.decodeObject(forKey: "brand") as? String ?? ""
+        weight = aDecoder.decodeInteger(forKey: "weight")
+        price = aDecoder.decodeInteger(forKey: "price")
+        name = (aDecoder.decodeObject(forKey: "name") as? String) ?? ""
+        manufactureDate = aDecoder.decodeObject(forKey: "manufactureDate") as? Date ?? Date()
+        super.init()
+    }
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(kindOf, forKey: "kindOf")
+        aCoder.encode(brand, forKey: "brand")
+        aCoder.encode(weight, forKey: "weight")
+        aCoder.encode(price, forKey: "price")
+        aCoder.encode(name, forKey: "name")
+        aCoder.encode(manufactureDate, forKey: "manufactureDate")
+    }
+    override var description: String {
         let dateFormat = DateFormatter()
         dateFormat.dateFormat = "yyyyMMdd"
         let manufactureDateByFormat = dateFormat.string(from: self.manufactureDate as Date)

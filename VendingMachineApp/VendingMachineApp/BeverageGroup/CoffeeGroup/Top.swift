@@ -17,6 +17,13 @@ class Top: Coffee {
         super.init(brand: brand, weight: weight, price: price, name: name, manufactureDate: manufactureDate)
         super.kindOf = "TOP"
     }
+    required init?(coder aDecoder: NSCoder) {
+        isHotDrink = aDecoder.decodeBool(forKey: "isHotDrink")
+        super.init(coder: aDecoder)
+    }
+    override func encode(with aCoder: NSCoder) {
+        aCoder.encode(isHotDrink, forKey: "isHotDrink")
+    }
     
     func isColdDrink() -> Bool {
         return !self.isHotDrink

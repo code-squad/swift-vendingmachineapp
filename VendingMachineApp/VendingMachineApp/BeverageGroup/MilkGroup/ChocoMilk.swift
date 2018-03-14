@@ -17,6 +17,13 @@ class ChocoMilk: Milk {
         super.init(brand: brand, weight: weight, price: price, name: name, manufactureDate: manufactureDate)
         super.kindOf = "초코우유"
     }
+    required init?(coder aDecoder: NSCoder) {
+        cocoaPowder = aDecoder.decodeDouble(forKey: "cocoaPowder")
+        super.init(coder: aDecoder)
+    }
+    override func encode(with aCoder: NSCoder) {
+        aCoder.encode(cocoaPowder, forKey: "cocoaPowder")
+    }
     
     func isDarkChocolate() -> Bool {
         return self.cocoaPowder > 3.0

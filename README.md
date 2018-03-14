@@ -176,3 +176,39 @@
 
   - 왜 사용하는 것일까? (모델과 컨트롤러가 직접 참조하지 않고 느슨하게 연결된 (loosed coupled) 구조가 왜 좋은 것일까?)
     - 상태 변화를 수신해야 하는 객체가 여러 개거나 전달 받아야 할 정보가 많을수록 객체들이 많아질 수 있고, 그렇게 되면 객체들의 연결이 복잡해지고 강하게 연결될 가능성이 크다. 때문에 옵저버 패턴을 이용하여 최대한 느슨하게 연결할 수 있도록 도와주기 때문이다.
+
+## - Step6
+## 구매목록 View 코드
+  - 실행화면
+    ![screemsh_step6-1](./img/Step6-1.png)
+    ![screemsh_step6-2](./img/Step6-2.png)
+  - 실행이후 구매 목록을 화면 아래 이미지로 추가한다. : viewDidLoad() 내부 updateListOfPurchase() 메서드 추가
+    ```
+    private func updateListOfPurchase() {
+      guard let productsSold = vendingMachine?.generateListOfHistory() else { return }
+        var xOfImage = 70
+        for oneProduct in productsSold {
+            let productImg = UIImage(named : getImgSource(ObjectIdentifier(type(of : oneProduct)))) ?? UIImage()
+            let imageView = UIImageView(image : productImg)
+            imageView.frame = CGRect(x: xOfImage, y: 650, width: 150, height: 150)
+            self.view.addSubview(imageView)
+            xOfImage += 80
+        }
+    }
+    ```
+  - 특정 제품을 구매할 때마다 해당 제품 이미지를 추가하도록 구현한다. : Notification 등록
+    ```
+    NotificationCenter.default.addObserver(self, selector: #selector(updateListOfPurchase(notification:)), name: .didUpdateListOfPurchase , object: nil)
+    NotificationCenter.default.post(name: .didUpdateListOfPurchase, object: self)
+    ```
+
+  - 뷰를 코드로 생성해서 추가하는 것과 스토리보드 상에서 미리 생성하는 것의 차이
+    - 코드 생성
+      1. 조작 가능: 실행중간에 속성 등 변경 가능하다.
+      2. 재사용 가능: 작성한 코드를 재사용하기 쉽다.
+      3. 찾아보기 쉬움: 화면이 복잡할 때 IB에서는 특정 요소를 찾아서 선택하는 게 쉽지 않지만, 코드로 작성하면 찾기 쉽다.
+      4. 머지 충돌 발생률 낮음: 협업 시 스토리보드에 작성한 사람이 있으면 머지 충돌이 일어날 확률이 높다.
+      5. 뷰컨트롤러에 제네릭 사용 가능: IB로 작성한 뷰 컨트롤러 클래스에는 제네릭 제약조건을 줄 수 없지만, 코드로 작성하면 제네릭 제약조건이 있는 뷰 컨트롤러를 생성할 수 있다.
+    - 스토리보드 생성
+      1. 사용이 쉽다: 코드로 작성하면 빼먹으면 안되는 코드가 있기도 하고, 코드 길이가 길어질 수 있다.
+      2. 시각적이다: 눈으로 보고 확인하며 작성할 수 있다.

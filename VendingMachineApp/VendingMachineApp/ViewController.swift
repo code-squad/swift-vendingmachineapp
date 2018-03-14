@@ -19,10 +19,14 @@ class ViewController: UIViewController {
     @IBOutlet var addMoney: [UIButton]!
     @IBOutlet var buyProduct: [UIButton]!
     @IBOutlet weak var listOfPurchase: UILabel!
+    private var ButtonsByProduct : [UIButton:Beverage] = [:]
+    private var imageViewMaker : ImageViewMaker!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         guard let vendingMachine = self.vendingMachine else { return }
+        imageViewMaker = ImageViewMaker()
+        setButtonsByProduct()
         updateBalance(vendingMachine.getBalance())
         updateInventory()
         updateListOfPurchase()
@@ -33,30 +37,14 @@ class ViewController: UIViewController {
     
     @IBAction func addInventoryButtonTouched(_ sender: UIButton) {
         guard let vendingMachine = self.vendingMachine else { return }
-        switch sender.restorationIdentifier {
-        case "add1Product"? : vendingMachine.addBeverage(StrawberryMilk())
-        case "add2Product"?: vendingMachine.addBeverage(BananaMilk())
-        case "add3Product"?: vendingMachine.addBeverage(PepciCoke())
-        case "add4Product"?: vendingMachine.addBeverage(Fanta())
-        case "add5Product"?: vendingMachine.addBeverage(TOPCoffee())
-        case "add6Product"?: vendingMachine.addBeverage(Georgia())
-        default:
-            return
-        }
+        guard let productByTouch = ButtonsByProduct[addInventory[sender.tag]] else { return }
+        vendingMachine.addBeverage(productByTouch)
     }
     
     @IBAction func buyProductButtonTouched(_ sender: UIButton) {
         guard let vendingMachine = self.vendingMachine else { return }
-        switch sender.restorationIdentifier {
-        case "buy1Product"? : vendingMachine.buy(StrawberryMilk())
-        case "buy2Product"?: vendingMachine.buy(BananaMilk())
-        case "buy3Product"?: vendingMachine.buy(PepciCoke())
-        case "buy4Product"?: vendingMachine.buy(Fanta())
-        case "buy5Product"?: vendingMachine.buy(TOPCoffee())
-        case "buy6Product"?: vendingMachine.buy(Georgia())
-        default:
-            return
-        }
+        guard let productByTouch = ButtonsByProduct[addInventory[sender.tag]] else { return }
+        vendingMachine.buy(productByTouch)
     }
     
     @IBAction func addMoneyButtonTouched(_ sender: UIButton) {
@@ -85,25 +73,8 @@ class ViewController: UIViewController {
     
     private func updateListOfPurchase() {
         guard let productsSold = vendingMachine?.generateListOfHistory() else { return }
-        var xOfImage = 70
-        for oneProduct in productsSold {
-            let productImg = UIImage(named : getImgSource(ObjectIdentifier(type(of : oneProduct)))) ?? UIImage()
-            let imageView = UIImageView(image : productImg)
-            imageView.frame = CGRect(x: xOfImage, y: 650, width: 150, height: 150)
-            self.view.addSubview(imageView)
-            xOfImage += 80
-        }
-    }
-    
-    private func getImgSource(_ productKind : ObjectIdentifier) -> String {
-        switch productKind {
-        case StrawberryMilk.getKind(): return Keyword.Img.strawberryMilk.rawValue
-        case BananaMilk.getKind(): return Keyword.Img.bananaMilk.rawValue
-        case PepciCoke.getKind(): return Keyword.Img.pepciCoke.rawValue
-        case Fanta.getKind(): return Keyword.Img.fanta.rawValue
-        case TOPCoffee.getKind(): return Keyword.Img.topCoffee.rawValue
-        case Georgia.getKind(): return Keyword.Img.georgia.rawValue
-        default: return ""
+        for oneImageView in imageViewMaker.generateImageViewOfPurchase(productsSold) {
+            self.view.addSubview(oneImageView)
         }
     }
     
@@ -117,6 +88,13 @@ class ViewController: UIViewController {
         for countOfOneProduct in vendingMachine.generateCountOfProduct() {
             labelOfProducts[inventoryIndex].text = countOfOneProduct.formatCount()
             inventoryIndex += 1
+        }
+    }
+    
+    private func setButtonsByProduct() {
+        let productsInNumericalOrder = [StrawberryMilk(),BananaMilk(),PepciCoke(),Fanta(), TOPCoffee(), Georgia()]
+        for index in 0..<addInventory.count {
+            ButtonsByProduct.updateValue(productsInNumericalOrder[index], forKey: addInventory[index])
         }
     }
     

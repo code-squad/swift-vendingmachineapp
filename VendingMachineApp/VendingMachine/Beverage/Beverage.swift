@@ -58,5 +58,9 @@ class Beverage: NSObject, NSCoding {
         self.volume = aDecoder.decodeInteger(forKey: "volume")
         self.price = aDecoder.decodeInteger(forKey: "price")
     }
+    
+    func getKind() -> ObjectIdentifier {
+        return ObjectIdentifier(self)
+    }
 
 }

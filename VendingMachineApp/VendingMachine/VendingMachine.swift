@@ -14,6 +14,7 @@ protocol BaseMode {
     func buy(_ product: Beverage)
     func getBalance() -> Int
     func generateCountOfProduct() -> [Int]
+    func generateListOfHistory() -> [Beverage]
 }
 
 protocol AdminMode {
@@ -111,6 +112,7 @@ class VendingMachine: NSObject, NSCoding, AdminMode, UserMode, BaseMode {
         self.balance -= product.price
         NotificationCenter.default.post(name: .didUpdateInventory , object: self)
         NotificationCenter.default.post(name: .didUpdateBalance, object: self, userInfo : [Keyword.Key.balance.rawValue : balance])
+        NotificationCenter.default.post(name: .didUpdateListOfPurchase, object: self)
     }
 
     func getBalance() -> Int {

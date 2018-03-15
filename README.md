@@ -95,6 +95,7 @@ private func setRoundedImages() {
     지금은 큰 상관없다고 느낄수 있지만, 이렇게 모든 객체에 속성을 변경하는 것도 UIImageView 상속을 받아서 (예를 들어 RoundImageView) 객체 내부에서 self.layer.cornerRadius 를 바꿀 수도 있습니다. 상위 모듈에서 하위 모듈의 속성을 모두 조정해야 하는 건 아닙니다.
 */
 
+// # 1
 // Before
 class ViewController: UIViewController {
     @IBOutlet var beverageImages: [UIImageView]!
@@ -111,6 +112,7 @@ class ViewController: UIViewController {
     // ...
 }
 
+// # 2
 // After
 class RoundImageView: UIImageView {    
     func setRoundedImage() {
@@ -138,6 +140,30 @@ class ViewController: UIViewController {
     }
 
     // ...
+}
+
+/*
+    RoundImageView 내부에서layoutSubviews 또는 awakeFromNib 이용해서 속성 바꾸기 
+*/
+// # 3
+// View Life Cycle 에 대해 정리가 필요함!
+class ViewController: UIViewController {
+    @IBOutlet var beverageImages: [RoundImageView]!
+
+    // ...
+}
+
+class RoundImageView: UIImageView {
+    override func awakeFromNib() {
+        setup()
+        super.awakeFromNib()
+    }
+    
+    func setup() {
+        self.layer.cornerRadius = 50.0
+        self.layer.masksToBounds = true
+        self.backgroundColor = UIColor.white
+    }
 }
 ```
 

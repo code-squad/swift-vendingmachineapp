@@ -9,16 +9,12 @@
 import UIKit
 
 class RoundImageView: UIImageView {
-
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    override func awakeFromNib() {
+        setup()
+        super.awakeFromNib()
     }
-    */
     
-    func setRoundedImage() {
+    func setup() {
         self.layer.cornerRadius = 50.0
         self.layer.masksToBounds = true
         self.backgroundColor = UIColor.white

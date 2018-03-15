@@ -19,14 +19,6 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-        setImageViews()
-    }
-    
-    private func setImageViews() {
-        beverageImages.forEach({
-            $0.setRoundedImage()
-        })
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -15,6 +15,9 @@ protocol BaseMode {
     func getBalance() -> Int
     func generateCountOfProduct() -> [Int]
     func generateListOfHistory() -> [Beverage]
+    func getProductNumbersAndKind() -> [Int : ObjectIdentifier] 
+    func generateBeverageFromProductName(_ productName: ObjectIdentifier) -> Beverage?
+    func updateProductNumbersAndKinds()
 }
 
 protocol AdminMode {
@@ -140,8 +143,8 @@ class VendingMachine: NSObject, NSCoding, AdminMode, UserMode, BaseMode {
     }
 
     func updateProductNumbersAndKinds() {
-        var productNumber = 1
-        for oneProduct in self.inventory.generateListOfProduct() {
+        var productNumber = 0
+        for oneProduct in self.inventory.productsInNumericalOrder {
             self.productNumbersAndKinds.updateValue(oneProduct, forKey: productNumber)
             productNumber += 1
         }
@@ -155,5 +158,8 @@ class VendingMachine: NSObject, NSCoding, AdminMode, UserMode, BaseMode {
         return self.inventory.generateCountOfProduct()
     }
     
+    func getProductNumbersAndKind() -> [Int : ObjectIdentifier] {
+        return self.productNumbersAndKinds
+    }
 }
 

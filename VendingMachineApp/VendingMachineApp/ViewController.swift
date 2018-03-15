@@ -92,9 +92,12 @@ class ViewController: UIViewController {
     }
     
     private func setButtonsByProduct() {
-        let productsInNumericalOrder = [StrawberryMilk(),BananaMilk(),PepciCoke(),Fanta(), TOPCoffee(), Georgia()]
+        guard let vendingMachine = self.vendingMachine else { return }
+        vendingMachine.updateProductNumbersAndKinds()
+        var productNumbersAndKind = vendingMachine.getProductNumbersAndKind()
         for index in 0..<addInventory.count {
-            ButtonsByProduct.updateValue(productsInNumericalOrder[index], forKey: addInventory[index])
+            guard let oneProduct = vendingMachine.generateBeverageFromProductName(productNumbersAndKind[index] ?? ObjectIdentifier(Beverage.self)) else { return }
+            ButtonsByProduct.updateValue(oneProduct, forKey: addInventory[index])
         }
     }
     

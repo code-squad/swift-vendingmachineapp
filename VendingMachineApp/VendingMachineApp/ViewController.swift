@@ -19,14 +19,12 @@ class ViewController: UIViewController {
     @IBOutlet var addMoney: [UIButton]!
     @IBOutlet var buyProduct: [UIButton]!
     @IBOutlet weak var listOfPurchase: UILabel!
-    private var ButtonsByProduct : [UIButton:Beverage] = [:]
     private var imageViewMaker : ImageViewMaker!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         guard let vendingMachine = self.vendingMachine else { return }
         imageViewMaker = ImageViewMaker()
-        setButtonsByProduct()
         updateBalance(vendingMachine.getBalance())
         updateInventory()
         updateListOfPurchase()
@@ -37,13 +35,13 @@ class ViewController: UIViewController {
     
     @IBAction func addInventoryButtonTouched(_ sender: UIButton) {
         guard let vendingMachine = self.vendingMachine else { return }
-        guard let productByTouch = ButtonsByProduct[addInventory[sender.tag]] else { return }
+        let productByTouch = vendingMachine.generateProductSelected(sender.tag)
         vendingMachine.addBeverage(productByTouch)
     }
     
     @IBAction func buyProductButtonTouched(_ sender: UIButton) {
         guard let vendingMachine = self.vendingMachine else { return }
-        guard let productByTouch = ButtonsByProduct[addInventory[sender.tag]] else { return }
+        let productByTouch = vendingMachine.generateProductSelected(sender.tag)
         vendingMachine.buy(productByTouch)
     }
     
@@ -88,16 +86,6 @@ class ViewController: UIViewController {
         for countOfOneProduct in vendingMachine.generateCountOfProduct() {
             labelOfProducts[inventoryIndex].text = countOfOneProduct.formatCount()
             inventoryIndex += 1
-        }
-    }
-    
-    private func setButtonsByProduct() {
-        guard let vendingMachine = self.vendingMachine else { return }
-        vendingMachine.updateProductNumbersAndKinds()
-        var productNumbersAndKind = vendingMachine.getProductNumbersAndKind()
-        for index in 0..<addInventory.count {
-            guard let oneProduct = vendingMachine.generateBeverageFromProductName(productNumbersAndKind[index] ?? ObjectIdentifier(Beverage.self)) else { return }
-            ButtonsByProduct.updateValue(oneProduct, forKey: addInventory[index])
         }
     }
     

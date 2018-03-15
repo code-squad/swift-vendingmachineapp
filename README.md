@@ -168,6 +168,75 @@ class RoundImageView: UIImageView {
 }
 ```
 
-===
+### 4. 싱글톤 객체
 
+##### 프로그래밍 요구사항
+* VendingMachine 객체를 싱글톤(Singleton)으로 접근할 수 있도록 개선함 
+* VendingMachine 싱글톤으로 sharedInstance 인터페이스를 통해서 AppDelegate와 ViewController에서 접근하도록 코드를 수정함
+* 모든 동작은 이전 단계와 동일하게 동작해야 함
 
+##### 결과
+* [How to set rootViewController with Swift?](https://stackoverflow.com/questions/24316966/how-to-set-the-rootviewcontroller-with-swift-ios-7)
+
+```swift
+// VendingMachine 객체를 직접 생성하는 것이 아니라 싱글톤 패턴으로 전역적으로 접근할 수 있게 바꿈
+
+final class VendingMachine {
+    // ...
+    
+    static func shared() -> VendingMachine {
+        return shareInstance
+    }
+    
+    static func stored(_ machine: VendingMachine) {
+        shareInstance = machine
+    }
+
+    // ...
+}
+
+class AppDelegate: UIResponder, UIApplicationDelegate {
+    // ...
+
+    if let viewController = window?.rootViewController as? ViewController {
+        viewController.vendingMachine = machineSetting.load()
+    }
+
+    // ...
+}
+```
+
+##### 싱글톤 패턴
+* [정리](https://github.com/yuaming/design-patterns)
+
+##### struct, class 싱글톤 패턴
+* class는 참조이기 때문에 같은 메모리 주소 값을 가짐. struct는 값이기 때문에 메모리 주소 값이 다름
+* 싱글톤 패턴은 전역에서 유일무이한 객체인 것이 보장되어야 하기 때문에 class로 많이 사용함
+
+<img src="./images/singleton-test.png"></img>
+
+```swift
+class MyClassSingleton {
+    static let sharedInstance = MyClassSingleton()
+    private init(){}
+    
+    func helloClass() { print("hello from class Singleton") }
+}
+
+struct MyStructSingleton {
+    static let sharedInstance = MyStructSingleton()
+    private init() {}
+    
+    func helloStruct() { print("hello from struct Singleton") }
+}
+
+let class1 = MyClassSingleton.sharedInstance
+let class2 = MyClassSingleton.sharedInstance
+class1.helloClass()
+class2.helloClass()
+
+let struct1 =  MyStructSingleton.sharedInstance
+let struct2 = MyStructSingleton.sharedInstance
+struct1.helloStruct()
+struct2.helloStruct()
+```

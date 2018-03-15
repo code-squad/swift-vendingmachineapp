@@ -49,11 +49,11 @@ final class VendingMachine {
         self.salesHistory = SalesHistory()
     }
     
-    class func shared() -> VendingMachine {
+    static func shared() -> VendingMachine {
         return shareInstance
     }
     
-    class func stored(_ machine: VendingMachine) {
+    static func stored(_ machine: VendingMachine) {
         shareInstance = machine
     }
 }

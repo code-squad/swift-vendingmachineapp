@@ -212,3 +212,28 @@
     - 스토리보드 생성
       1. 사용이 쉽다: 코드로 작성하면 빼먹으면 안되는 코드가 있기도 하고, 코드 길이가 길어질 수 있다.
       2. 시각적이다: 눈으로 보고 확인하며 작성할 수 있다.
+
+## - Step 7
+### Frame과 Bounds
+  - 실행화면
+    ![screemsh_step7-1](./img/Step7-1.png)
+    ![screemsh_step7-2](./img/Step7-2.png)
+  - 주요개념
+    - Geometry: 뷰의 위치, 크기를 표시
+    - Frame: Superview(상위뷰)의 좌표시스템 내에서 view의 위치, 크기를 나타냄
+    - Center: Superview(상위뷰)의 좌표시스템 내에서 view의 중심 위치를 나타냄
+    - Bounds: 자기자신의 좌표시스템 내에서 view의 위치, 크기를 나타냄
+      - Bounds를 변경하는 것은 해당 위치에서 view를 다시 그리라는 의미가 된다. Bounds는 상위 뷰와 아무런 관련이 없으므로, view의 origin을 변경하더라도 내부의 subview가 움직이는 것처럼 보일 수 있다.
+      - Bounds는 Scroll View의 핵심이다.
+
+  - swift view 데이터 통신
+    - A->B->C 형태의 뷰 컨트롤러로 진행
+    - A에서 B로 갈때 그리고 B에서 A로 갈때 스토리보드상 ctrl + 드래그를 통한 show를 이용할 경우 게속 스택 위에 뷰를 쌓는형태가 되므로 메모리에 매우 좋지않다 그러므로 A->B로 갈때 show를 사용한 후
+    - B에서 A로 돌아갈땐 dismiss를 이용하자. ``dismiss(animated: true, completion: nil)`` in B ViewController
+    - 세그웨이를 통하여 데이터를 넘길땐 prepare for segue를 이용한다.
+    ```
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let adminViewController = segue.destination as? AdminViewController else { return }
+        adminViewController.adminVendingMachine = self.vendingMachine as? AdminMode
+    }
+    ```

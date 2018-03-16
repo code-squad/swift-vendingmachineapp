@@ -34,20 +34,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(_ application: UIApplication) {
         let data = NSKeyedArchiver.archivedData(withRootObject: vendingMachine)
         UserDefaults.standard.set(data, forKey: "vendingMachine")
-        
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
-//        if let data = UserDefaults.standard.data(forKey: "vendingMachine") {
-//            vendingMachine = (NSKeyedUnarchiver.unarchiveObject(with: data) as? VendingMachine)!
-//        }
-        
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
-//        if let data = UserDefaults.standard.data(forKey: "vendingMachine") {
-//            vendingMachine = (NSKeyedUnarchiver.unarchiveObject(with: data) as? VendingMachine)!
-//        }
     }
 
     func applicationWillTerminate(_ application: UIApplication) {

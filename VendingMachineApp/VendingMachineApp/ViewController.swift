@@ -12,14 +12,7 @@ class ViewController: UIViewController {
     var vendingMachine: VendingMachine!
     var inventoryBox = InventoryBox()
     typealias TypeOf = InventoryBox.InventoryMenu
-    var updateData: VendingMachine {
-        get {
-            return vendingMachine
-        }
-        set(updateVendingMachine) {
-            vendingMachine = updateVendingMachine
-        }
-    }
+
     @IBOutlet var countOfMenu: [UILabel]!
     @IBOutlet var imageOfMenu: [UIImageView]!
     @IBOutlet var addNumberOfMenu: [UIButton]!

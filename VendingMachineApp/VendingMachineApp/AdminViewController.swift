@@ -48,6 +48,7 @@ class AdminViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         updateInventory()
+        super.viewWillAppear(animated)
     }
 
     override func didReceiveMemoryWarning() {

@@ -18,7 +18,7 @@ class VendingMachine: NSObject, NSCoding {
     }
 
     required init?(coder aDecoder: NSCoder) {
-        coins = (aDecoder.decodeObject(forKey: "coins") as? Int)!
+        coins = aDecoder.decodeInteger(forKey: "coins")
         inventoryBox = (aDecoder.decodeObject(forKey: "inventoryBox") as? InventoryBox)!
         purchaseProductHistory = (aDecoder.decodeObject(forKey: "purchaseProductHistory") as? PurchaseProductHistory)!
         super.init()

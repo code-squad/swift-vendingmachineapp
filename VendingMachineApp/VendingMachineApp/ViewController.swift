@@ -12,7 +12,14 @@ class ViewController: UIViewController {
     var vendingMachine: VendingMachine!
     var inventoryBox = InventoryBox()
     typealias TypeOf = InventoryBox.InventoryMenu
-
+    var updateData: VendingMachine {
+        get {
+            return vendingMachine
+        }
+        set(updateVendingMachine) {
+            vendingMachine = updateVendingMachine
+        }
+    }
     @IBOutlet var countOfMenu: [UILabel]!
     @IBOutlet var imageOfMenu: [UIImageView]!
     @IBOutlet var addNumberOfMenu: [UIButton]!
@@ -20,8 +27,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let appDelegate = UIApplication.shared.delegate as? AppDelegate
-        vendingMachine = appDelegate?.vendingMachine
+        vendingMachine = (UIApplication.shared.delegate as? AppDelegate)?.sharedInstance()
         
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyyMMdd"
@@ -49,6 +55,7 @@ class ViewController: UIViewController {
                 let beverageName = self.vendingMachine.choiceBeverageData(menuType: type)
                 self.vendingMachine.addInInventory(beverageName: beverageName, number: numberOf)
                 self.updateCountOfEachBeverage(vendingMachine: self.vendingMachine)
+                self.updateData = self.vendingMachine
             }
         }
         alert.addAction(cancel)

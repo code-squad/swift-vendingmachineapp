@@ -8,12 +8,21 @@
 
 import Foundation
 
-class PurchaseProductHistory {
+class PurchaseProductHistory: NSObject, NSCoding {
     private var purchaseDate: [Date]
     private var purchaseBeverage: [String]
-    init() {
+    override init() {
         purchaseDate = [Date]()
         purchaseBeverage = [String]()
+    }
+    required init?(coder aDecoder: NSCoder) {
+        purchaseDate = aDecoder.decodeObject(forKey: "purchaseDate") as? [Date] ?? [Date()]
+        purchaseBeverage = (aDecoder.decodeObject(forKey: "purchaseBeverage") as? [String]) ?? [""]
+    }
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(purchaseDate, forKey: "purchaseDate")
+        aCoder.encode(purchaseBeverage, forKey: "purchaseBeverage")
     }
     
     func recordOfPurchaseHistory(date: Date, beverage: String) {

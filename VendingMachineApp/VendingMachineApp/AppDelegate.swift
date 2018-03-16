@@ -15,6 +15,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         return true
     }
+    
+    func sharedInstance() -> VendingMachine {
+        return vendingMachine
+    }
 
     func applicationWillResignActive(_ application: UIApplication) {
         let data = NSKeyedArchiver.archivedData(withRootObject: vendingMachine)
@@ -22,9 +26,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
+        let data = NSKeyedArchiver.archivedData(withRootObject: vendingMachine)
+        UserDefaults.standard.set(data, forKey: "vendingMachine")
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
+        if let data = UserDefaults.standard.data(forKey: "vendingMachine") {
+            vendingMachine = (NSKeyedUnarchiver.unarchiveObject(with: data) as? VendingMachine)!
+        }
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {

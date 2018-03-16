@@ -47,13 +47,15 @@ class InventoryBox: NSObject, NSCoding {
     }
     private var box = [ObjectIdentifier: [Beverage]]()
     required init?(coder aDecoder: NSCoder) {
-        guard let boxData = aDecoder.decodeObject(forKey: "box") as? [ObjectIdentifier: [Beverage]] else {
+        super.init()
+        guard let boxData = aDecoder.decodeObject(forKey: "box") as? [Beverage] else {
             return
         }
-        self.box = boxData
+        _ = boxData.flatMap({beverage in storageBeverageStock(beverage: beverage)})
     }
     func encode(with aCoder: NSCoder) {
-        aCoder.encode(box, forKey: "box")
+        let boxData: [Beverage] = box.values.flatMap({$0})
+        aCoder.encode(boxData, forKey: "box")
     }
     override init() {
         box = [ObjectIdentifier: [Beverage]]()

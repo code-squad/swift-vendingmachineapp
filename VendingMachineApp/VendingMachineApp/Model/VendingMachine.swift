@@ -9,11 +9,12 @@
 import Foundation
 
 class VendingMachine: NSObject, NSCoding {
+    static var shardManager = VendingMachine()
     private(set) var coins: Int = 0
     private var inventoryBox = InventoryBox()
     private var purchaseProductHistory = PurchaseProductHistory()
     
-    override init() {
+    private override init() {
         super.init()
     }
 

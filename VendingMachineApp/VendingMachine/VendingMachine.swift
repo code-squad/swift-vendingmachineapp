@@ -19,26 +19,12 @@ protocol BaseMode {
 }
 
 protocol AdminMode {
-    mutating func addBeverage(_ product: Beverage)
-    mutating func removeProduct(_ product: ObjectIdentifier) -> Beverage?
-    mutating func updateProductNumbersAndKinds()
-    func generateListOfHistory() -> [Beverage]
-    func generateInvalidProducts() -> [Beverage]
-    func generateListOfProduct() -> [ObjectIdentifier]
-    func generateBeverageFromProductName(_ productNumber: ObjectIdentifier) -> Beverage?
+    func addBeverage(_ product: Beverage)
+    func generateProductSelected(_ productNum : Int) -> Beverage
+    func generateCountOfProduct() -> [Int]
 }
 
-protocol UserMode {
-    mutating func addMoney(_ userMoney: VendingMachine.AvailableMoney)
-    mutating func buy(_ product: Beverage)
-    mutating func updateProductNumbersAndKinds()
-    func generateInvalidProducts() -> [Beverage]
-    func generateListOfValidProduct() -> [ObjectIdentifier]
-    func getBalance() -> Int
-    func generateBeverageFromProductName(_ productName: ObjectIdentifier) -> Beverage?
-}
-
-class VendingMachine: NSObject, NSCoding, AdminMode, UserMode, BaseMode {
+class VendingMachine: NSObject, NSCoding, AdminMode, BaseMode {
     
     private var inventory: Inventory = Inventory([])
     private var balance: Int = 0

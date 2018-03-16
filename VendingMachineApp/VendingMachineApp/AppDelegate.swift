@@ -11,8 +11,14 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
-    var vendingMachine = VendingMachine()
+    var vendingMachine = VendingMachine.shardManager
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        if let data = UserDefaults.standard.data(forKey: "vendingMachine") {
+            vendingMachine = (NSKeyedUnarchiver.unarchiveObject(with: data) as? VendingMachine)!
+        }
+        if let vc = window?.rootViewController?.childViewControllers.first as? ViewController {
+            vc.vendingMachine = vendingMachine
+        }
         return true
     }
     
@@ -28,18 +34,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(_ application: UIApplication) {
         let data = NSKeyedArchiver.archivedData(withRootObject: vendingMachine)
         UserDefaults.standard.set(data, forKey: "vendingMachine")
+        
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
-        if let data = UserDefaults.standard.data(forKey: "vendingMachine") {
-            vendingMachine = (NSKeyedUnarchiver.unarchiveObject(with: data) as? VendingMachine)!
-        }
+//        if let data = UserDefaults.standard.data(forKey: "vendingMachine") {
+//            vendingMachine = (NSKeyedUnarchiver.unarchiveObject(with: data) as? VendingMachine)!
+//        }
+        
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
-        if let data = UserDefaults.standard.data(forKey: "vendingMachine") {
-            vendingMachine = (NSKeyedUnarchiver.unarchiveObject(with: data) as? VendingMachine)!
-        }
+//        if let data = UserDefaults.standard.data(forKey: "vendingMachine") {
+//            vendingMachine = (NSKeyedUnarchiver.unarchiveObject(with: data) as? VendingMachine)!
+//        }
     }
 
     func applicationWillTerminate(_ application: UIApplication) {

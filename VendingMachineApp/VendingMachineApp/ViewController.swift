@@ -15,7 +15,6 @@ class ViewController: UIViewController {
     @IBOutlet var products: [UIImageView]!
     @IBOutlet var labelOfProducts: [UILabel]!
     @IBOutlet weak var balance: UILabel!
-    @IBOutlet var addInventory: [UIButton]!
     @IBOutlet var addMoney: [UIButton]!
     @IBOutlet var buyProduct: [UIButton]!
     @IBOutlet weak var listOfPurchase: UILabel!
@@ -33,12 +32,6 @@ class ViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(updateListOfPurchase(notification:)), name: .didUpdateListOfPurchase , object: nil)
     }
     
-    @IBAction func addInventoryButtonTouched(_ sender: UIButton) {
-        guard let vendingMachine = self.vendingMachine else { return }
-        let productByTouch = vendingMachine.generateProductSelected(sender.tag)
-        vendingMachine.addBeverage(productByTouch)
-    }
-    
     @IBAction func buyProductButtonTouched(_ sender: UIButton) {
         guard let vendingMachine = self.vendingMachine else { return }
         let productByTouch = vendingMachine.generateProductSelected(sender.tag)
@@ -53,6 +46,11 @@ class ViewController: UIViewController {
         default:
             return
         }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let adminViewController = segue.destination as? AdminViewController else { return }
+        adminViewController.adminVendingMachine = self.vendingMachine as? AdminMode
     }
     
     @objc private func updateInventoryLabels(notification : Notification) {

@@ -39,7 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func setUserDefault() {
-        let data = NSKeyedArchiver.archivedData(withRootObject: vendingMachine)
+        let data = NSKeyedArchiver.archivedData(withRootObject: VendingMachine.sharedInstance())
         UserDefaults.standard.set(data, forKey: "vendingMachine")
     }
 

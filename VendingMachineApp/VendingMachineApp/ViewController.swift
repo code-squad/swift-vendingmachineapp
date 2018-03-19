@@ -49,6 +49,7 @@ class ViewController: UIViewController {
                 let beverageName = self.vendingMachine.choiceBeverageData(menuType: type)
                 self.vendingMachine.addInInventory(beverageName: beverageName, number: numberOf)
                 self.updateCountOfEachBeverage(vendingMachine: self.vendingMachine)
+                VendingMachine.storedInstance(self.vendingMachine)
             }
         }
         alert.addAction(cancel)

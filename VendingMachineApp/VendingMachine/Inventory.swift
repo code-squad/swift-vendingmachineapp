@@ -75,7 +75,6 @@ class Inventory : NSObject, NSCoding {
         let hotProducts = coffeeProducts.map({$0.filter({(($0 as? Coffee)?.isHot()) ?? false})})
         return Array(hotProducts.filter({$0.isEmpty == false}).joined())
     }
-
     
     func generateCountOfProduct() -> [Int] {
         var countOfProducts : [Int] = []

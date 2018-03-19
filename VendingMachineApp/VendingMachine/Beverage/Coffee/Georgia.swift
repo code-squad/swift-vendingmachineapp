@@ -38,6 +38,6 @@ class Georgia: Coffee {
 
 
     override var description: String {
-        return "\(self.kind)(\(String(describing: Georgia.self)) - \(super.description)"
+        return "\(self.kind)"
     }
 }

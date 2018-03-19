@@ -16,9 +16,12 @@ class AdminViewController: UIViewController {
     @IBOutlet var products: [UIImageView]!
     @IBOutlet var labelOfProducts: [UILabel]!
     @IBOutlet var addInventory: [UIButton]!
-    
+    @IBOutlet weak var pieGraphView: PieGraphView!
+    private var imageViewMaker : ImageViewMaker!
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        imageViewMaker = ImageViewMaker()
         updateInventory()
         NotificationCenter.default.addObserver(self, selector: #selector(updateInventoryLabels(notification:)), name: .didUpdateInventory , object: nil)
     }
@@ -48,6 +51,10 @@ class AdminViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         updateInventory()
+        guard let vendingMachine = self.adminVendingMachine else { return }
+        let listPurchaseByCount = Inventory(vendingMachine.generateListOfHistory()).generateCountOfProduct()
+        pieGraphView.setPieGraph(listPurchaseByCount, productsName: vendingMachine.generateListOfProductName())
+        pieGraphView.draw(pieGraphView.frame)
         super.viewWillAppear(animated)
     }
 

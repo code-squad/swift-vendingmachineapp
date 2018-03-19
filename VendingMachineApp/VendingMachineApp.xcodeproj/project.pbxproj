@@ -10,6 +10,7 @@
 		041FA4DE20565E17001ED747 /* Keyword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041FA4DD20565E17001ED747 /* Keyword.swift */; };
 		041FA4E22059076E001ED747 /* ImageViewMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041FA4E12059076E001ED747 /* ImageViewMaker.swift */; };
 		045C2BE9205B84B30025EA79 /* AdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045C2BE8205B84B30025EA79 /* AdminViewController.swift */; };
+		04E1AD76205CDB5B00B69F7B /* PieGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E1AD75205CDB5B00B69F7B /* PieGraphView.swift */; };
 		04E7A0A4204F822D00C611FB /* MachineStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E7A0A3204F822D00C611FB /* MachineStore.swift */; };
 		04FC675F204D1CEB00B084D5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FC675E204D1CEB00B084D5 /* AppDelegate.swift */; };
 		04FC6761204D1CEB00B084D5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FC6760204D1CEB00B084D5 /* ViewController.swift */; };
@@ -43,6 +44,7 @@
 		041FA4DD20565E17001ED747 /* Keyword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keyword.swift; sourceTree = "<group>"; };
 		041FA4E12059076E001ED747 /* ImageViewMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewMaker.swift; sourceTree = "<group>"; };
 		045C2BE8205B84B30025EA79 /* AdminViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminViewController.swift; sourceTree = "<group>"; };
+		04E1AD75205CDB5B00B69F7B /* PieGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieGraphView.swift; sourceTree = "<group>"; };
 		04E7A0A3204F822D00C611FB /* MachineStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MachineStore.swift; sourceTree = "<group>"; };
 		04FC675B204D1CEB00B084D5 /* VendingMachineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendingMachineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04FC675E204D1CEB00B084D5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 				045C2BE8205B84B30025EA79 /* AdminViewController.swift */,
 				041FA4DD20565E17001ED747 /* Keyword.swift */,
 				041FA4E12059076E001ED747 /* ImageViewMaker.swift */,
+				04E1AD75205CDB5B00B69F7B /* PieGraphView.swift */,
 				04FC6762204D1CEB00B084D5 /* Main.storyboard */,
 				04FC6765204D1CEB00B084D5 /* Assets.xcassets */,
 				04FC6767204D1CEB00B084D5 /* LaunchScreen.storyboard */,
@@ -275,6 +278,7 @@
 				04FC6788204D1DDA00B084D5 /* ChocolateMilk.swift in Sources */,
 				04FC6789204D1DDA00B084D5 /* Milk.swift in Sources */,
 				041FA4E22059076E001ED747 /* ImageViewMaker.swift in Sources */,
+				04E1AD76205CDB5B00B69F7B /* PieGraphView.swift in Sources */,
 				04FC677E204D1D9800B084D5 /* Cantata.swift in Sources */,
 				04FC677F204D1D9800B084D5 /* Coffee.swift in Sources */,
 				04FC6780204D1D9800B084D5 /* Top.swift in Sources */,

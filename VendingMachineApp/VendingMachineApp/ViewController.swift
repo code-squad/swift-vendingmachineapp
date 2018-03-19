@@ -21,11 +21,12 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         NotificationCenter.default.addObserver(self, selector: #selector(updateMoney), name: NSNotification.Name.money, object: nil)
-        
         NotificationCenter.default.addObserver(self, selector: #selector(updateBeverageQuantity), name: NSNotification.Name.inventory, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         updateMoney()
         updateBeverageQuantity()
     }
@@ -51,7 +52,7 @@ class ViewController: UIViewController {
         var beverageMenu: BeverageMenu = BeverageMenu.bananaMilk
         var quantity: Int = 0
         
-        for index in 0..<beverageQuantityLabels.count {
+        for index in 0..<beverageQuantityLabels.indices.count {
             beverageMenu = matchBeverageMenu(index: index)
             quantity = self.vendingMachine?.countBeverageQuantity(beverageMenu: beverageMenu) ?? 0
             beverageQuantityLabels[index].text = Formatter.ea(quantity).unit

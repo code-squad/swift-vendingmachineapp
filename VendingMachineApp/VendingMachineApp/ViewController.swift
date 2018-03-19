@@ -20,7 +20,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        vendingMachine = (UIApplication.shared.delegate as? AppDelegate)?.sharedInstance()
+        vendingMachine = (UIApplication.shared.delegate as? AppDelegate)?.shared()
         self.updateCountOfEachBeverage(vendingMachine: self.vendingMachine)
         
         let formatter = DateFormatter()
@@ -70,6 +70,10 @@ class ViewController: UIViewController {
             type = vendingMachine.typeSelector(tag: button.tag)
         }
         alertCountOfBeverage(type: type)
+    }
+    
+    @IBAction func removeAllBeverage(_ sender: Any) {
+        UserDefaults.standard.removeObject(forKey: "vendingMachine")
     }
     
 }

@@ -240,6 +240,12 @@
 
 ## - Step 8
 ### 코어 그래픽스(Core Graphics)
-    - 실행화면
-      ![screemsh_step8-1](./img/Step8-1.png)
-      ![screemsh_step8-2](./img/Step8-2.png)
+  - 실행화면
+    ![screemsh_step8-1](./img/Step8-1.png)
+    ![screemsh_step8-2](./img/Step8-2.png)
+
+  - setNeedsDisplay()
+    - 드로잉 사이클(next drawing cycle)동안 View를 업데이트해야 함을 시스템에 알리는 메서드.
+    - 드로잉 사이클 : 시스템이 현재 View의 스냅샷 캡쳐(업데이트 전) -> 컨텐츠가 변경되었다?(시스템에게 View업데이트 요청) -> 요청받았다고 바로 그리는게 아니라, 현재 실행루프를 끝날때까지 대기하고 == 다음 드로잉 사이클때까지 대기한다는 뜻 -> 다음 드로잉 사이클이 오면, 이때 View업데이트를 요청받은 View를 전부 업데이트함
+
+    - draw()는 View가 처음 표시될 때, 또는 View의 보이는 부분을 무효화하는 이벤트가 발생할 때 호출된다. 직접 이 메소드를 호출하면 안된다. View의 일부분을 무효화하고 해당 부분을 다시 그려지게 하려면 대신 setNeedsDisplay () 또는 setNeedsDisplay (_ :) 메서드를 호출해야한다.

@@ -20,7 +20,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        vendingMachine = (UIApplication.shared.delegate as? AppDelegate)?.shared()
+        vendingMachine = VendingMachine.sharedInstance()
         self.updateCountOfEachBeverage(vendingMachine: self.vendingMachine)
         
         let formatter = DateFormatter()

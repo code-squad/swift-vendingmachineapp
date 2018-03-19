@@ -21,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
+        setUserDefault()
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {

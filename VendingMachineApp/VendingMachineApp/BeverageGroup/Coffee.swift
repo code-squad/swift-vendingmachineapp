@@ -15,7 +15,7 @@ class Coffee: Beverage {
         super.kindOf = "커피"
     }
     required init?(coder aDecoder: NSCoder) {
-        caffeineContent = (aDecoder.decodeObject(forKey: "caffeineContent") as? Int)!
+        caffeineContent = aDecoder.decodeInteger(forKey: "caffeineContent")
         super.init()
     }
     override func encode(with aCoder: NSCoder) {

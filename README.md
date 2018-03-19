@@ -295,6 +295,11 @@ final class VendingMachine {
 }
 ```
 
+##### Feedback
+* `beverageQuantityLabels.indices`
+** [Collection > indices](https://developer.apple.com/documentation/swift/collection/1641719-indices)
+* 항상 override 하는 메소드에 super.xxxx 형태로 호출하는 코드가 넣어야 함
+
 ##### Observer 패턴
 * [정리](https://wiki.yuaming.com/ios/observer.html)
 
@@ -303,4 +308,3 @@ final class VendingMachine {
 
 ##### NSNotification
 * [정리](https://wiki.yuaming.com/ios/nsnotificationcenter.html)
-

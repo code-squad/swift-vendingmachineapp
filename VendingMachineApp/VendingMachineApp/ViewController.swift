@@ -21,7 +21,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         vendingMachine = VendingMachine.sharedInstance()
-        self.updateCountOfEachBeverage(vendingMachine: vendingMachine)
+        self.updateCountOfEachBeverage()
         
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyyMMdd"
@@ -48,7 +48,7 @@ class ViewController: UIViewController {
                 }
                 let beverageName = self.vendingMachine.choiceBeverageData(menuType: type)
                 self.vendingMachine.addInInventory(beverageName: beverageName, number: numberOf)
-                self.updateCountOfEachBeverage(vendingMachine: self.vendingMachine)
+                self.updateCountOfEachBeverage()
                 VendingMachine.storedInstance(self.vendingMachine)
             }
         }
@@ -60,7 +60,7 @@ class ViewController: UIViewController {
         self.present(alert, animated: true)
     }
     
-    func updateCountOfEachBeverage(vendingMachine: VendingMachine) {
+    func updateCountOfEachBeverage() {
         for (index, menu) in TypeOf.kind.enumerated() {
             countOfMenu[index].text = String(vendingMachine.beverageNumberOf(menuType: menu))
         }

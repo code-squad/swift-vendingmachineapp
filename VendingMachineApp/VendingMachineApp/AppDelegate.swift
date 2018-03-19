@@ -14,7 +14,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var vendingMachine = VendingMachine.sharedInstance()
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         if let data = UserDefaults.standard.data(forKey: "vendingMachine") {
-            vendingMachine = (NSKeyedUnarchiver.unarchiveObject(with: data) as? VendingMachine)!
+            let vending = (NSKeyedUnarchiver.unarchiveObject(with: data) as? VendingMachine)!
+            VendingMachine.storedInstance(vending)
         }
         return true
     }

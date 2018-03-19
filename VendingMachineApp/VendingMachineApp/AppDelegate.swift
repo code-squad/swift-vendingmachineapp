@@ -10,14 +10,10 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    var window: UIWindow?
     var vendingMachine = VendingMachine.shardManager
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         if let data = UserDefaults.standard.data(forKey: "vendingMachine") {
             vendingMachine = (NSKeyedUnarchiver.unarchiveObject(with: data) as? VendingMachine)!
-        }
-        if let vc = window?.rootViewController?.childViewControllers.first as? ViewController {
-            vc.vendingMachine = vendingMachine
         }
         return true
     }

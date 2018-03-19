@@ -36,6 +36,6 @@ class PepciCoke: SodaPop {
     }
     
     override var description: String {
-        return "\(self.kind)(\(String(describing: PepciCoke.self))) - \(super.description)"
+        return "\(self.kind)"
     }
 }

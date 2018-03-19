@@ -52,9 +52,7 @@ class AdminViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         updateInventory()
         guard let vendingMachine = self.adminVendingMachine else { return }
-        let listPurchaseByCount = Inventory(vendingMachine.generateListOfHistory()).generateCountOfProduct()
-        pieGraphView.setPieGraph(listPurchaseByCount, productsName: vendingMachine.generateListOfProductName())
-        pieGraphView.draw(pieGraphView.frame)
+        pieGraphView.setPieGraph(vendingMachine.generateListOfProductNameAndCount())
         super.viewWillAppear(animated)
     }
 

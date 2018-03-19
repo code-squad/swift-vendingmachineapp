@@ -9,7 +9,7 @@
 import Foundation
 
 class VendingMachine: NSObject, NSCoding {
-    static var shardManager = VendingMachine()
+    static var vendingMachine = VendingMachine()
     private(set) var coins: Int = 0
     private var inventoryBox = InventoryBox()
     private var purchaseProductHistory = PurchaseProductHistory()
@@ -29,6 +29,10 @@ class VendingMachine: NSObject, NSCoding {
         aCoder.encode(coins, forKey: "coins")
         aCoder.encode(inventoryBox, forKey: "inventoryBox")
         aCoder.encode(purchaseProductHistory, forKey: "purchaseProductHistory")
+    }
+    
+    static func sharedInstance() -> VendingMachine {
+        return vendingMachine
     }
     
     // 자판기 금액을 원하는 금액만큼 올리는 메소드

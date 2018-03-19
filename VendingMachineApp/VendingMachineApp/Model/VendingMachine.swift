@@ -35,6 +35,10 @@ class VendingMachine: NSObject, NSCoding {
         return vendingMachine
     }
     
+    static func storedInstance(_ vendingMachine: VendingMachine) {
+        self.vendingMachine = vendingMachine
+    }
+    
     // 자판기 금액을 원하는 금액만큼 올리는 메소드
     func putCoins(coins: Int) {
         self.coins = coins

@@ -320,3 +320,27 @@ while i != c.endIndex {
 
 ##### NSNotification
 * [정리](https://wiki.yuaming.com/ios/nsnotificationcenter.html)
+
+### 6. 구매목록 View 코드
+
+##### 요구사항
+* 구매 목록에 대한 제품 이미지뷰를 동적으로 코드로 직접 View에 추가함
+
+##### 프로그래밍 요구사항
+* 실행이후 구매 목록을 화면 아래 이미지로 추가함
+* 구매 목록도 앱 종료이후에 저장되도록 개선함
+* 특정 제품을 구매할 때마다 해당 제품 이미지를 추가하도록 구현함
+    * _NotificationCenter 이용하자!_
+* 특정 시점에 self.view.addSubView() 메서드로 UIImageView를 수동 추가함
+* 힌트
+```swift
+let cardImage : UIImageView = UIImageView(image:imageInstance)
+cardImage.frame = CGRect(x: x, y: y, width: width, height: height)
+```
+* 모든 동작은 이전 단계와 동일하게 동작해야 함
+
+##### 실행결과
+
+##### View를 코드로 작성하는 것과 스토리보드에서 미리 생성하는 것의 차이점
+
+##### https://developer.apple.com/library/content/samplecode/UICatalog/Introduction/Intro.html[UIKit의 모든 화면 요소 Sample을 받아서 분석]

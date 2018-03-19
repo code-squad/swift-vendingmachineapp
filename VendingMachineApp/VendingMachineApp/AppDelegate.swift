@@ -18,10 +18,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         return true
     }
-    
-    func shared() -> VendingMachine {
-        return vendingMachine
-    }
 
     func applicationWillResignActive(_ application: UIApplication) {
         setUserDefault()

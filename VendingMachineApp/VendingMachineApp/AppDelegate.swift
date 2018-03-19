@@ -21,10 +21,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
-        setUserDefault()
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
+        setUserDefault()
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -34,7 +34,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
-        setUserDefault()
     }
     
     func setUserDefault() {

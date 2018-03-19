@@ -52,7 +52,7 @@ class ViewController: UIViewController {
         var beverageMenu: BeverageMenu = BeverageMenu.bananaMilk
         var quantity: Int = 0
         
-        for index in 0..<beverageQuantityLabels.indices.count {
+        for index in beverageQuantityLabels.indices {
             beverageMenu = matchBeverageMenu(index: index)
             quantity = self.vendingMachine?.countBeverageQuantity(beverageMenu: beverageMenu) ?? 0
             beverageQuantityLabels[index].text = Formatter.ea(quantity).unit

@@ -247,7 +247,7 @@ struct2.helloStruct()
 * MVC 패턴에서 Model과 Controller의 직접적인 참조 관계를 끊기 위해서 관찰자(Observer) 패턴을 적용함
 * 찰자 패턴을 적용해서 재고가 추가될 때마다 화면을 갱신하도록 개선함
 
-<img src="./image/vendingapp-notificationcenter-mvc.png" />
+<img src="./images/vendingapp-notificationcenter-mvc.png" />
 
 ##### 프로그래밍 요구사항
 * ViewController는 viewDidLoad에서 Observe를 등록함
@@ -298,6 +298,18 @@ final class VendingMachine {
 ##### Feedback
 * `beverageQuantityLabels.indices`
     * [Collection > indices](https://developer.apple.com/documentation/swift/collection/1641719-indices)
+
+```swift
+var c = MyFancyCollection([10, 20, 30, 40, 50])
+var i = c.startIndex
+while i != c.endIndex {
+    c[i] /= 5
+    i = c.index(after: i)
+}
+
+// c == MyFancyCollection([2, 4, 6, 8, 10])
+```
+
 * 항상 override 하는 메소드에 super.xxxx 형태로 호출하는 코드가 넣어야 함
 
 ##### Observer 패턴

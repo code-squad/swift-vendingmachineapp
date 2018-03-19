@@ -237,3 +237,9 @@
         adminViewController.adminVendingMachine = self.vendingMachine as? AdminMode
     }
     ```
+
+## - Step 8
+### 코어 그래픽스(Core Graphics)
+    - 실행화면
+      ![screemsh_step8-1](./img/Step8-1.png)
+      ![screemsh_step8-2](./img/Step8-2.png)

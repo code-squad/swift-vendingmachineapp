@@ -22,8 +22,7 @@ protocol AdminMode {
     func addBeverage(_ product: Beverage)
     func generateProductSelected(_ productNum : Int) -> Beverage
     func generateCountOfProduct() -> [Int]
-    func generateListOfHistory() -> [Beverage]
-    func generateListOfProductName() -> [String]
+    func generateListOfProductNameAndCount() -> [String:Int]
 }
 
 class VendingMachine: NSObject, NSCoding, AdminMode, BaseMode {
@@ -148,12 +147,14 @@ class VendingMachine: NSObject, NSCoding, AdminMode, BaseMode {
         return self.generateBeverageFromProductName(self.inventory.productsInNumericalOrder[productNum]) ?? Beverage()
     }
     
-    func generateListOfProductName() -> [String] {
-        var productsNames : [String] = []
-        for index in 0..<6 {
-            productsNames.append(self.generateProductSelected(index).description)
+    func generateListOfProductNameAndCount() -> [String:Int] {
+        var productsNamesByCount : [String: Int] = [:]
+        var tempInventory = Inventory(self.generateListOfHistory()).generateCountOfProduct()
+        for index in 0..<tempInventory.count {
+            guard tempInventory[index] != 0 else { continue }
+            productsNamesByCount.updateValue(tempInventory[index], forKey: self.generateProductSelected(index).description)
         }
-        return productsNames
+        return productsNamesByCount
     }
     
 }

@@ -25,16 +25,18 @@ class PieGraphView: UIView {
         .gray
     ]
     
-    var segments = [Segment]() {
+    private var segments = [Segment]() {
         didSet {
             setNeedsDisplay()
         }
     }
     
-    func setPieGraph(_ countOfProduct : [Int], productsName : [String]) {
+    func setPieGraph(_ productsNameAndCount : [String : Int]) {
         var segments :[Segment] = []
-        for index in 0..<countOfProduct.count {
-            segments.append(Segment(color : colors[index], value: CGFloat(countOfProduct[index]), name: productsName[index]))
+        var indexOfColor = 0
+        for oneKey in productsNameAndCount.keys {
+            segments.append(Segment(color : colors[indexOfColor], value: CGFloat(productsNameAndCount[oneKey] ?? 0), name: oneKey))
+            indexOfColor += 1
         }
         self.segments = segments
     }

@@ -102,4 +102,27 @@ for index in 0..<9 {
 ---
 
 
+# VendingMachineApp step3
+
+>  앱 생명주기와 객체 저장
+
+앱 시작부터 종료까지 생명주기를 관리하는 방법을 학습한다.<br  />
+앱 실행 이후 마지막 자판기 재고 상태와 잔액 등 VendingMachine 객체의 속성을 앱을 종료하더라도 저장하도록 개선한다.<br  />
+앱을 다시 실행하면 마지막 재고 상태를 그대로 복원한다.<br  />
+객체의 속성을 저장하기 위한 아카이브(Archive) 관련된 내용을 학습한다.<br  />
+실행하고 새로운 화면을 캡처해서 readme.md 파일에 포함한다.<br  />
+
+---
+
+
+- ***실행 화면***
+<br  />
+<img src="/img/vending_step3.gif" width="80%" height="80%"><br  />
+
+
+- ***학습꺼리***
+###  # 사용자 설정값을 저장하는 UserDefault 클래스에 대해 학습한다. (UserDefault에서 저장할 수 있는 데이터 타입들을 학습한다.)<br  />
+: UserDefault에서 저장할 수 있는 데이터 타입은 NSData, NSString, NSNumber, NSDate, NSArray, or NSDictionary가 있다.
+
+---
 

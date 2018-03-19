@@ -125,9 +125,4 @@ for index in 0..<9 {
 ###  # 사용자 설정값을 저장하는 UserDefault 클래스에 대해 학습한다. (UserDefault에서 저장할 수 있는 데이터 타입들을 학습한다.)<br  />
 : UserDefault에서 저장할 수 있는 데이터 타입은 NSData, NSString, NSNumber, NSDate, NSArray, or NSDictionary가 있다.
 
-### # 애플 Archive와 Serialization 개발자 문서를 학습한다.
-
-### # 스위프트 4 Encoding, Decoding 개발자 문서를 학습한다.
-
-
 ---

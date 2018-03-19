@@ -240,3 +240,67 @@ let struct2 = MyStructSingleton.sharedInstance
 struct1.helloStruct()
 struct2.helloStruct()
 ```
+
+### 5. 관찰자(Observer) 패턴
+
+##### 요구사항
+* MVC 패턴에서 Model과 Controller의 직접적인 참조 관계를 끊기 위해서 관찰자(Observer) 패턴을 적용함
+* 찰자 패턴을 적용해서 재고가 추가될 때마다 화면을 갱신하도록 개선함
+
+<img src="./image/vendingapp-notificationcenter-mvc.png" />
+
+##### 프로그래밍 요구사항
+* ViewController는 viewDidLoad에서 Observe를 등록함
+* 음식 재고가 바뀌는 Notification을 받으면 화면에 Label을 업데이트함
+* 추가 버튼을 누르면 해당 음식 재고를 모델에 추가할 때마다
+* VendingMachine 모델 객체에서는 변화에 대해 NotificationCenter에 post함
+* 모든 동작은 이전 단계와 동일하게 동작해야 함
+
+##### 결과
+
+```swift
+class ViewController: UIViewController {
+    // ...
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(updateMoney), name: NSNotification.Name.money, object: nil)    
+        NotificationCenter.default.addObserver(self, selector: #selector(updateBeverageQuantity), name: NSNotification.Name.inventory, object: nil)
+    }
+
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+
+    // ...
+}
+
+final class VendingMachine {
+    // ...
+
+    private var money: Money {
+        didSet {
+            NotificationCenter.default.post(name: Notification.Name.money, object: nil)
+        }
+    }
+    
+    private var inventory: Inventory {
+        didSet {
+            NotificationCenter.default.post(name: Notification.Name.inventory, object: nil)
+        }
+    }
+
+    // ...
+}
+```
+
+##### Observer 패턴
+* [정리](https://wiki.yuaming.com/ios/observer.html)
+
+##### MVC 패턴
+* [정리](https://wiki.yuaming.com/ios/mvc.html)
+
+##### NSNotification
+* [정리](https://wiki.yuaming.com/ios/nsnotificationcenter.html)
+

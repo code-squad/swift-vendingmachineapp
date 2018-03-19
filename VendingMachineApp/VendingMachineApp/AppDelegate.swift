@@ -10,7 +10,8 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    var vendingMachine = VendingMachine.shardManager
+    var window: UIWindow?
+    var vendingMachine = VendingMachine.sharedInstance()
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         if let data = UserDefaults.standard.data(forKey: "vendingMachine") {
             vendingMachine = (NSKeyedUnarchiver.unarchiveObject(with: data) as? VendingMachine)!
@@ -18,18 +19,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-    func sharedInstance() -> VendingMachine {
+    func shared() -> VendingMachine {
         return vendingMachine
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
-        let data = NSKeyedArchiver.archivedData(withRootObject: vendingMachine)
-        UserDefaults.standard.set(data, forKey: "vendingMachine")
+        setUserDefault()
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
-        let data = NSKeyedArchiver.archivedData(withRootObject: vendingMachine)
-        UserDefaults.standard.set(data, forKey: "vendingMachine")
+        setUserDefault()
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -39,6 +38,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
+        setUserDefault()
+    }
+    
+    func setUserDefault() {
         let data = NSKeyedArchiver.archivedData(withRootObject: vendingMachine)
         UserDefaults.standard.set(data, forKey: "vendingMachine")
     }

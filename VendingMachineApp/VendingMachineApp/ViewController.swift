@@ -21,7 +21,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         vendingMachine = VendingMachine.sharedInstance()
-        self.updateCountOfEachBeverage(vendingMachine: self.vendingMachine)
+        self.updateCountOfEachBeverage(vendingMachine: vendingMachine)
         
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyyMMdd"

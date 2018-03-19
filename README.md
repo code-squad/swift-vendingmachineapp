@@ -299,7 +299,7 @@ final class VendingMachine {
 * [정리](https://wiki.yuaming.com/ios/observer.html)
 
 ##### MVC 패턴
-* [정리](https://wiki.yuaming.com/ios/mvc.html)
+* [정리](https://wiki.yuaming.com/ios/model-view-controller.html)
 
 ##### NSNotification
 * [정리](https://wiki.yuaming.com/ios/nsnotificationcenter.html)

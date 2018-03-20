@@ -32,7 +32,7 @@ class ViewController: UIViewController {
         }
         
         NotificationCenter.default.addObserver(self,
-                                               selector: Selector(("receiveDidSendMessageNotification:")),
+                                               selector: #selector(changeInventoryBox),
                                                name: NSNotification.Name("changeInventoryBox"),
                                                object: nil)
     }
@@ -67,7 +67,7 @@ class ViewController: UIViewController {
         self.present(alert, animated: true)
     }
     
-    func changeInventoryBox() {
+    @objc func changeInventoryBox() {
         for (index, menu) in TypeOf.kind.enumerated() {
             countOfMenu[index].text = String(vendingMachine.beverageNumberOf(menuType: menu))
         }

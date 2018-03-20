@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		871FE6E720562CEE00BABAF1 /* TOPCoffee.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 871FE6E120562CED00BABAF1 /* TOPCoffee.jpg */; };
+		871FE6E720562CEE00BABAF1 /* TOP.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 871FE6E120562CED00BABAF1 /* TOP.jpg */; };
 		871FE6E820562CEE00BABAF1 /* Pepsi.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 871FE6E220562CED00BABAF1 /* Pepsi.jpg */; };
 		871FE6E920562CEE00BABAF1 /* BananaMilk.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 871FE6E320562CED00BABAF1 /* BananaMilk.jpg */; };
-		871FE6EA20562CEE00BABAF1 /* Coke.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 871FE6E420562CEE00BABAF1 /* Coke.jpg */; };
-		871FE6EB20562CEE00BABAF1 /* GeogiaCoffie.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 871FE6E520562CEE00BABAF1 /* GeogiaCoffie.jpg */; };
+		871FE6EA20562CEE00BABAF1 /* CocaCola.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 871FE6E420562CEE00BABAF1 /* CocaCola.jpg */; };
+		871FE6EB20562CEE00BABAF1 /* Georgia.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 871FE6E520562CEE00BABAF1 /* Georgia.jpg */; };
 		871FE6EC20562CEE00BABAF1 /* StrawberryMilk.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 871FE6E620562CEE00BABAF1 /* StrawberryMilk.jpg */; };
 		874EDD9F20595B35003BFDD8 /* RoundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874EDD9E20595B35003BFDD8 /* RoundImageView.swift */; };
 		874EDDA120595EB3003BFDD8 /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874EDDA020595EB3003BFDD8 /* Formatter.swift */; };
@@ -58,11 +58,11 @@
 /* Begin PBXFileReference section */
 		02784DDD89C9E562208ED71A /* Pods_VendingMachineApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VendingMachineApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C579B1E58B3F484010B1FA1 /* Pods-VendingMachineApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VendingMachineApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VendingMachineApp/Pods-VendingMachineApp.debug.xcconfig"; sourceTree = "<group>"; };
-		871FE6E120562CED00BABAF1 /* TOPCoffee.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = TOPCoffee.jpg; sourceTree = "<group>"; };
+		871FE6E120562CED00BABAF1 /* TOP.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = TOP.jpg; sourceTree = "<group>"; };
 		871FE6E220562CED00BABAF1 /* Pepsi.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Pepsi.jpg; sourceTree = "<group>"; };
 		871FE6E320562CED00BABAF1 /* BananaMilk.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = BananaMilk.jpg; sourceTree = "<group>"; };
-		871FE6E420562CEE00BABAF1 /* Coke.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Coke.jpg; sourceTree = "<group>"; };
-		871FE6E520562CEE00BABAF1 /* GeogiaCoffie.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = GeogiaCoffie.jpg; sourceTree = "<group>"; };
+		871FE6E420562CEE00BABAF1 /* CocaCola.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = CocaCola.jpg; sourceTree = "<group>"; };
+		871FE6E520562CEE00BABAF1 /* Georgia.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Georgia.jpg; sourceTree = "<group>"; };
 		871FE6E620562CEE00BABAF1 /* StrawberryMilk.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = StrawberryMilk.jpg; sourceTree = "<group>"; };
 		871FE6F320565B5300BABAF1 /* VendingMachineAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VendingMachineAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		874EDD9E20595B35003BFDD8 /* RoundImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundImageView.swift; sourceTree = "<group>"; };
@@ -139,11 +139,11 @@
 			isa = PBXGroup;
 			children = (
 				871FE6E320562CED00BABAF1 /* BananaMilk.jpg */,
-				871FE6E420562CEE00BABAF1 /* Coke.jpg */,
-				871FE6E520562CEE00BABAF1 /* GeogiaCoffie.jpg */,
+				871FE6E420562CEE00BABAF1 /* CocaCola.jpg */,
+				871FE6E520562CEE00BABAF1 /* Georgia.jpg */,
 				871FE6E220562CED00BABAF1 /* Pepsi.jpg */,
 				871FE6E620562CEE00BABAF1 /* StrawberryMilk.jpg */,
-				871FE6E120562CED00BABAF1 /* TOPCoffee.jpg */,
+				871FE6E120562CED00BABAF1 /* TOP.jpg */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -354,15 +354,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				871FE6EA20562CEE00BABAF1 /* Coke.jpg in Resources */,
+				871FE6EA20562CEE00BABAF1 /* CocaCola.jpg in Resources */,
 				87DC710F2051005E00B0F76A /* LaunchScreen.storyboard in Resources */,
 				871FE6E920562CEE00BABAF1 /* BananaMilk.jpg in Resources */,
 				871FE6E820562CEE00BABAF1 /* Pepsi.jpg in Resources */,
 				87DC710C2051005E00B0F76A /* Assets.xcassets in Resources */,
 				871FE6EC20562CEE00BABAF1 /* StrawberryMilk.jpg in Resources */,
 				87DC710A2051005E00B0F76A /* Main.storyboard in Resources */,
-				871FE6E720562CEE00BABAF1 /* TOPCoffee.jpg in Resources */,
-				871FE6EB20562CEE00BABAF1 /* GeogiaCoffie.jpg in Resources */,
+				871FE6E720562CEE00BABAF1 /* TOP.jpg in Resources */,
+				871FE6EB20562CEE00BABAF1 /* Georgia.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

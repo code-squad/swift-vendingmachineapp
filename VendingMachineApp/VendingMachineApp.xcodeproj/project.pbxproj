@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		409433E3D682F5601703F84A /* Pods_VendingMachineAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3919BE56C2E68A0B1F3B228D /* Pods_VendingMachineAppTests.framework */; };
 		45B7637E205FDC5200D68608 /* VendingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B7637D205FDC5200D68608 /* VendingProtocol.swift */; };
-		45E2AC7D206097B00072C2D3 /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E62B362051289600FC3738 /* VendingMachine.swift */; };
 		45E2AC7E206097C60072C2D3 /* InventoryBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E62B342051289600FC3738 /* InventoryBox.swift */; };
 		45E62AF720511EC000FC3738 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E62AF620511EC000FC3738 /* AppDelegate.swift */; };
 		45E62AF920511EC000FC3738 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E62AF820511EC000FC3738 /* ViewController.swift */; };
@@ -633,7 +632,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				45E62B0C20511EC000FC3738 /* VendingMachineAppTests.swift in Sources */,
-				45E2AC7D206097B00072C2D3 /* VendingMachine.swift in Sources */,
 				45E2AC7E206097C60072C2D3 /* InventoryBox.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

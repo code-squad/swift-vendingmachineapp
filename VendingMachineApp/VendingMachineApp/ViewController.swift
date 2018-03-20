@@ -21,7 +21,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         vendingMachine = VendingMachine.sharedInstance()
-        self.updateCountOfEachBeverage()
+        changeInventoryBox()
         
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyyMMdd"
@@ -53,7 +53,6 @@ class ViewController: UIViewController {
                 }
                 let beverageName = self.vendingMachine.choiceBeverageData(menuType: type)
                 self.vendingMachine.addInInventory(beverageName: beverageName, number: numberOf)
-                self.updateCountOfEachBeverage()
                 guard let vending = self.vendingMachine as? VendingMachine else {
                     return
                 }

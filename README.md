@@ -106,6 +106,7 @@ for index in 0..<9 {
 
 # VendingMachineApp step3
 
+<<<<<<< HEAD
 >  앱 생명주기와 객체 저장
 
 앱 시작부터 종료까지 생명주기를 관리하는 방법을 학습한다.<br  />
@@ -128,6 +129,8 @@ for index in 0..<9 {
 
 ---
 
+=======
+>>>>>>> 682acb486ba35ffef31e3aeabf2950e8694d5579
 # VendingMachineApp step3
 
 >  앱 생명주기와 객체 저장

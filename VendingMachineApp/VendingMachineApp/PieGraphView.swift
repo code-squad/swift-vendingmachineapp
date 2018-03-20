@@ -16,6 +16,14 @@ struct Segment {
 
 class PieGraphView: UIView {
     
+    enum Status {
+        case none
+        case began
+        case moved
+        case ended
+    }
+    
+    private var graphRatio = 0.5
     private var colors : [UIColor] = [
         UIColor(red: 0.88, green:0.40, blue:0.40, alpha:1.0),
         UIColor(red:0.29, green:0.53, blue:0.91, alpha:1.0),
@@ -31,6 +39,23 @@ class PieGraphView: UIView {
         }
     }
     
+    private var status : Status = .none {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
+    
+    override func draw(_ rect: CGRect) {
+        guard let ctx = UIGraphicsGetCurrentContext() else { return }
+        switch status {
+        case .none: drawPieGraph(ctx)
+        case .began: drawCircle(ctx)
+        case .moved: drawPieGraph(ctx)
+        case .ended: drawPieGraph(ctx)
+        }
+        super.draw(rect)
+    }
+    
     func setPieGraph(_ productsNameAndCount : [String : Int]) {
         var segments :[Segment] = []
         var indexOfColor = 0
@@ -41,23 +66,35 @@ class PieGraphView: UIView {
         self.segments = segments
     }
     
-    override func draw(_ rect: CGRect) {
-        let ctx = UIGraphicsGetCurrentContext()
-        let radius = min(frame.size.width, frame.size.height) * 0.5
-        let viewCenter = CGPoint(x: bounds.size.width * 0.5, y: bounds.size.height * 0.5)
+    func shakeMotion() {
+        graphRatio = 0.5
+        status = .none
+    }
+    
+    private func drawCircle(_ ctx: CGContext) {
+        let ctx = ctx
+        let radius = CGFloat(min(Double(frame.size.width), Double(frame.size.height)) * graphRatio)
+        let viewCenter = CGPoint(x: Double(bounds.size.width) * graphRatio, y: Double(bounds.size.height) * graphRatio)
+        ctx.setFillColor(UIColor.black.cgColor)
+        ctx.move(to: viewCenter)
+        ctx.addArc(center: viewCenter, radius: radius, startAngle: 0.0, endAngle: 2 * .pi, clockwise: false)
+        ctx.fillPath()
+    }
+    
+    private func drawPieGraph(_ ctx: CGContext) {
+        let ctx = ctx
+        let radius = CGFloat(min(Double(frame.size.width), Double(frame.size.height)) * graphRatio)
+        let viewCenter = CGPoint(x: Double(bounds.size.width) * graphRatio, y: Double(bounds.size.height) * graphRatio)
         let valueCount = segments.reduce(0, {$0 + $1.value})
         var startAngle = -CGFloat.pi * 0.5
-        
         for segment in segments {
-            ctx?.setFillColor(segment.color.cgColor)
+            ctx.setFillColor(segment.color.cgColor)
             let endAngle = startAngle + 2 * .pi * (segment.value / valueCount)
-            ctx?.move(to: viewCenter)
-            ctx?.addArc(center: viewCenter, radius: radius, startAngle: startAngle, endAngle: endAngle, clockwise: false)
-            ctx?.fillPath()
-            
+            ctx.move(to: viewCenter)
+            ctx.addArc(center: viewCenter, radius: radius, startAngle: startAngle, endAngle: endAngle, clockwise: false)
+            ctx.fillPath()
             let halfAngle = startAngle + (endAngle - startAngle) * 0.5
             drawLegend(halfAngle: halfAngle, viewCenter: viewCenter, radius: radius, beverageName: segment.name)
-
             startAngle = endAngle
         }
     }
@@ -75,5 +112,27 @@ class PieGraphView: UIView {
         renderRect.origin = CGPoint(x: segmentCenter.x - renderRect.size.width * 0.5,
                                     y: segmentCenter.y - renderRect.size.height * 0.5)
         textToRender.draw(in: renderRect, withAttributes: attributes)
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        status = .began
+        super.touchesBegan(touches, with: event)
+    }
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        status = .moved
+        guard let touch = touches.first else { return }
+        let locationTouchedFirst = touch.location(in: self)
+        let viewCenter = CGPoint(x: bounds.size.width * 0.5, y: bounds.size.height * 0.5)
+        let xOfDistance = pow(viewCenter.x - locationTouchedFirst.x, 2)
+        let yOfDistance = pow(viewCenter.y - locationTouchedFirst.y, 2)
+        let distance = sqrt(xOfDistance + yOfDistance)
+        graphRatio = Double(distance) / Double(viewCenter.y)
+        super.touchesMoved(touches, with: event)
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        status = .ended
+        super.touchesEnded(touches, with: event)
     }
 }

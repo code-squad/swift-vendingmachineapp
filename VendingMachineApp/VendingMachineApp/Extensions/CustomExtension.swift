@@ -22,4 +22,5 @@ extension TypeName {
 extension Notification.Name {
     static let money = Notification.Name("Money")
     static let inventory = Notification.Name("Inventory")
+    static let salesHistory = Notification.Name("SalesHistory")
 }

@@ -38,7 +38,6 @@ class VendingMachineSetting {
 }
 
 final class VendingMachine {
-    private var salesHistory: SalesHistory
     private static var shareInstance: VendingMachine = VendingMachine()
     private var money: Money {
         didSet {
@@ -49,6 +48,12 @@ final class VendingMachine {
     private var inventory: Inventory {
         didSet {
             NotificationCenter.default.post(name: Notification.Name.inventory, object: nil)
+        }
+    }
+    
+    private var salesHistory: SalesHistory {
+        didSet {
+            NotificationCenter.default.post(name: Notification.Name.salesHistory, object: nil)
         }
     }
     

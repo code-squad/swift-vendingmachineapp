@@ -247,5 +247,72 @@
   - setNeedsDisplay()
     - 드로잉 사이클(next drawing cycle)동안 View를 업데이트해야 함을 시스템에 알리는 메서드.
     - 드로잉 사이클 : 시스템이 현재 View의 스냅샷 캡쳐(업데이트 전) -> 컨텐츠가 변경되었다?(시스템에게 View업데이트 요청) -> 요청받았다고 바로 그리는게 아니라, 현재 실행루프를 끝날때까지 대기하고 == 다음 드로잉 사이클때까지 대기한다는 뜻 -> 다음 드로잉 사이클이 오면, 이때 View업데이트를 요청받은 View를 전부 업데이트함
-
     - draw()는 View가 처음 표시될 때, 또는 View의 보이는 부분을 무효화하는 이벤트가 발생할 때 호출된다. 직접 이 메소드를 호출하면 안된다. View의 일부분을 무효화하고 해당 부분을 다시 그려지게 하려면 대신 setNeedsDisplay () 또는 setNeedsDisplay (_ :) 메서드를 호출해야한다.
+    - 참조 : http://zeddios.tistory.com/359
+
+## - Step9
+### 터치 이벤트(Touch-event)
+  - 실행화면
+    - began
+    ![screemsh_step9-1](./img/Step9-1.png)
+    - moved
+    ![screemsh_step9-2](./img/Step9-2.png)
+
+  - 구현방법
+
+    - touch-status 설정
+      ```
+      enum Status {
+        case none
+        case began
+        case moved
+        case ended
+    }
+    private var status : Status = .none {
+    didSet {
+        setNeedsDisplay()
+      }
+    }
+
+      ```
+    - draw() Status설정에 따른 적용
+      ```
+    override func draw(_ rect: CGRect) {
+    guard let ctx = UIGraphicsGetCurrentContext() else { return }
+    switch status {
+      case .none: drawPieGraph(ctx)
+      case .began: drawCircle(ctx)
+      case .moved: drawPieGraph(ctx)
+      case .ended: drawPieGraph(ctx)
+    }
+      super.draw(rect)
+    }
+      ```
+    - touch-관련 메서드
+      ```
+      override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+          status = .began
+          super.touchesBegan(touches, with: event)
+      }
+
+      override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+          status = .moved
+          guard let touch = touches.first else { return }
+          let locationTouchedFirst = touch.location(in: self)
+          let viewCenter = CGPoint(x: bounds.size.width * 0.5, y: bounds.size.height * 0.5)
+          let xOfDistance = pow(viewCenter.x - locationTouchedFirst.x, 2)
+          let yOfDistance = pow(viewCenter.y - locationTouchedFirst.y, 2)
+          let distance = sqrt(xOfDistance + yOfDistance)
+          graphRatio = Double(distance) / Double(viewCenter.y)
+          super.touchesMoved(touches, with: event)
+      }
+
+      override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+          status = .ended
+          super.touchesEnded(touches, with: event)
+      }
+      ```
+  - Responder-chain
+    - Responder Chain은 Responder객체들로 구성된다. 많은 유형의 event들은 event 전달을 위해 responder chain에 의존하고, Responder chain은 일련의 연결된 responder객체들이다. 첫 번째 responder로 시작하여 application객체로 끝난다. 첫 번째 responder가 event를 처리 할 수 없는 경우 event는 responder chain의 다음 responder에게 전달한다.
+    - Responder Chain 특정 전달 경로를 따른다. 초기 객체(hit-test view 또는 첫 번째 responder)가 event를 처리하지 않으면 UIKit은 event를 chain에 있는 다음 responder에게 전달한다. 각 responder들은 nextResponder 메소드를 호출하여 event를 처리할지 아니면 다음 responder에게 전달할지 결정한다.. 이 프로세스는 responder객체가 event를 처리하거나 responder가 더 이상 없을 때까지 계속된다.
+  - 참조 : https://medium.com/@audrl1010/event-handling-guide-for-ios-68a1e62c15ff

@@ -20,6 +20,6 @@ class Georgia: Coffee {
     }
     
     override var description: String {
-        return "조지아커피"
+        return "조지아커피, Georgia"
     }
 }

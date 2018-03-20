@@ -9,11 +9,11 @@
 import Foundation
 
 protocol TypeName: AnyObject {
-    static var bringTypeName: String { get }
+    var bringTypeName: String { get }
 }
 
 extension TypeName {
-    static var bringTypeName: String {
+    var bringTypeName: String {
         let type = String(describing: self)
         return type
     }

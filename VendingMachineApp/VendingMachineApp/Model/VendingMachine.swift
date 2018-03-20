@@ -8,7 +8,7 @@
 
 import Foundation
 
-class VendingMachine: NSObject, NSCoding {
+class VendingMachine: NSObject, NSCoding, Vending {
     private static var vendingMachine = VendingMachine()
     private(set) var coins: Int = 0
     private var inventoryBox = InventoryBox()

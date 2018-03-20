@@ -68,7 +68,7 @@ class ViewController: UIViewController {
         self.present(alert, animated: true)
     }
     
-    func updateCountOfEachBeverage() {
+    func changeInventoryBox() {
         for (index, menu) in TypeOf.kind.enumerated() {
             countOfMenu[index].text = String(vendingMachine.beverageNumberOf(menuType: menu))
         }

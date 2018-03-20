@@ -26,7 +26,7 @@ class ViewController: UIViewController {
     private func setup() {
         NotificationCenter.default.addObserver(self, selector: #selector(updateMoney), name: NSNotification.Name.money, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(updateBeverageQuantity), name: NSNotification.Name.inventory, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(recordSalesHistory), name: NSNotification.Name.salesHistory, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(recodeSalesHistory), name: NSNotification.Name.salesHistory, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -34,7 +34,7 @@ class ViewController: UIViewController {
         
         updateMoney()
         updateBeverageQuantity()
-        recordSalesHistory()
+        recodeSalesHistory()
     }
     
     @IBAction func insertMoneyAction(_ sender: UIButton) {
@@ -71,13 +71,28 @@ class ViewController: UIViewController {
         return BeverageMenu.getBeverageMenu(index: index)
     }
     
+    @objc private func recodeSalesHistory() {
+        if let machine = self.vendingMachine {
+            var positionNumber: CGFloat = 0
+            
+            for beverageMenu in machine.fetchSalesHistory() {
+                updateImageView(beverageMenu, positionNumber)
+                positionNumber += 1
+            }
+        }
+    }
+    
+    private func updateImageView(_ beverage: String, _ positionNumber: CGFloat) {
+        let imageName = beverage.components(separatedBy: ",")[1].trimmingCharacters(in: .whitespaces)
+        let image = UIImage(named: "\(imageName).jpg")
+        let imageView = RoundImageView(image: image, position: positionNumber)
+        imageView.removeFromSuperview()
+        self.view.addSubview(imageView)
+    }
+    
     @IBAction func buyBeveragesAction(_ sender: UIButton) {
         let beverageMenu = matchBeverageMenu(index: sender.tag)
         try? self.vendingMachine?.buyBeverage(beverageMenu: beverageMenu)
-    }
-    
-    @objc private func recordSalesHistory() {
-        
     }
     
     deinit {

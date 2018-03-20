@@ -19,6 +19,6 @@ class StrawberryMilk: Milk {
     }
     
     override var description: String {
-        return "딸기우유"
+        return "딸기우유, StrawberryMilk"
     }
 }

@@ -19,6 +19,6 @@ class Pepsi: CarbonatedDrink {
     }
     
     override var description: String {
-        return "펩시"
+        return "펩시, Pepsi"
     }
 }

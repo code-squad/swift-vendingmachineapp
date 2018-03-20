@@ -24,6 +24,7 @@ class VendingMachineSetting {
     
     func load() -> VendingMachine {
         var machine: VendingMachine = VendingMachine.shared()
+
         guard let data = UserDefaults.standard.object(forKey: keyProperty) as? Data else { return machine }
         
         do {
@@ -97,7 +98,7 @@ extension VendingMachine: Userable {
 
     func buyBeverage(beverageMenu: BeverageMenu) throws {
         let beverage = beverageMenu.makeInstance()
-        salesHistory.addSalesHistory(date: DateUtility.today(), beverageMenu: beverageMenu)
+        salesHistory = salesHistory.addSalesHistory(date: DateUtility.today(), beverageMenu: beverageMenu)
         try deductBeverage(beverageMenu: beverageMenu)
         try deductMoney(coin: beverage.price)
     }

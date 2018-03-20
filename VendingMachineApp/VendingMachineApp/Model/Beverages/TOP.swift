@@ -20,6 +20,6 @@ class TOP: Coffee {
     }
     
     override var description: String {
-        return "TOP"
+        return "TOP, TOP"
     }
 }

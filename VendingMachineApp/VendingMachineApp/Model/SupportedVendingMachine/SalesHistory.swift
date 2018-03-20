@@ -17,9 +17,15 @@ final class SalesHistory {
         self.saleBeverageMenus = []
     }
     
-    func addSalesHistory(date: Date, beverageMenu: BeverageMenu) {
+    init(_ saleDate: [Date], _ saleBeverageMenus: [BeverageMenu]) {
+        self.saleDate = saleDate
+        self.saleBeverageMenus = saleBeverageMenus
+    }
+    
+    func addSalesHistory(date: Date, beverageMenu: BeverageMenu) -> SalesHistory {
         saleDate.append(date)
         saleBeverageMenus.append(beverageMenu)
+        return SalesHistory(saleDate, saleBeverageMenus)
     }
     
     func historyOfSales() -> [String] {
@@ -27,7 +33,8 @@ final class SalesHistory {
         var history: [String] = []
         
         for (index, date) in saleDate.enumerated() {
-            history.append("\(dateFormatter.string(from: date)) -> \(saleBeverageMenus[index].makeInstance().description)")
+            let beverage = saleBeverageMenus[index].makeInstance()
+            history.append("\(dateFormatter.string(from: date)) -> \(beverage.description)")
         }
         
         return history

@@ -19,6 +19,6 @@ class CocaCola: CarbonatedDrink {
     }
     
     override var description: String {
-        return "코카콜라"
+        return "코카콜라, CocaCola"
     }
 }

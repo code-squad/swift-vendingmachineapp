@@ -23,7 +23,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TOPCoffee.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="zRX-z7-ba3" customClass="RoundImageView" customModule="VendingMachineApp" customModuleProvider="target">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TOP.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="zRX-z7-ba3" customClass="RoundImageView" customModule="VendingMachineApp" customModuleProvider="target">
                                 <rect key="frame" x="603" y="379" width="150" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -31,7 +31,7 @@
                                 <rect key="frame" x="397" y="112" width="150" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Coke.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="pp2-qG-b4A" customClass="RoundImageView" customModule="VendingMachineApp" customModuleProvider="target">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="CocaCola.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="pp2-qG-b4A" customClass="RoundImageView" customModule="VendingMachineApp" customModuleProvider="target">
                                 <rect key="frame" x="604" y="112" width="150" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -39,7 +39,7 @@
                                 <rect key="frame" x="186" y="379" width="150" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="GeogiaCoffie.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Lgz-80-Dkg" customClass="RoundImageView" customModule="VendingMachineApp" customModuleProvider="target">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Georgia.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Lgz-80-Dkg" customClass="RoundImageView" customModule="VendingMachineApp" customModuleProvider="target">
                                 <rect key="frame" x="396" y="379" width="150" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -309,10 +309,10 @@
     </scenes>
     <resources>
         <image name="BananaMilk.jpg" width="1200" height="1524"/>
-        <image name="Coke.jpg" width="705" height="705"/>
-        <image name="GeogiaCoffie.jpg" width="350" height="703"/>
+        <image name="CocaCola.jpg" width="705" height="705"/>
+        <image name="Georgia.jpg" width="350" height="703"/>
         <image name="Pepsi.jpg" width="398" height="398"/>
         <image name="StrawberryMilk.jpg" width="571" height="571"/>
-        <image name="TOPCoffee.jpg" width="250" height="250"/>
+        <image name="TOP.jpg" width="250" height="250"/>
     </resources>
 </document>

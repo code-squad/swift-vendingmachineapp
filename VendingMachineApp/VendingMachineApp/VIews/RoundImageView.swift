@@ -33,11 +33,11 @@ class RoundImageView: UIImageView {
         self.awakeFromNib()
     }
     
-    func setSize() {
+    private func setSize() {
         cgRect.origin.x += position * 30.0
     }
     
-    func setup() {
+    private func setup() {
         self.layer.cornerRadius = 50.0
         self.layer.masksToBounds = true
         self.backgroundColor = UIColor.white

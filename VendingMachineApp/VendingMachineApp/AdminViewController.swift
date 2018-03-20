@@ -59,4 +59,11 @@ class AdminViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
+    override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
+        if motion == .motionShake {
+            pieGraphView.shakeMotion()
+        }
+        super.motionEnded(motion, with: event)
+    }
 }

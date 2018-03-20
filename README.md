@@ -5,7 +5,7 @@
 
 ##### 실행결과 
 
-<img src="./images/vendingmachineapp-result-1.png"></img>
+<img src="./images/vendingmachine-app-result-1.png"></img>
 
 ##### App Programming Guide for iOS
 * iOS 앱을 구성하는 핵심 객체들과 iOS 메인 런루프 동작 이해하기 위해서 [애플 앱 프로그래밍 가이드](https://developer.apple.com/library/content/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/Introduction/Introduction.html#//apple_ref/doc/uid/TP40007072) 문서를 학습함
@@ -41,7 +41,7 @@
 
 ##### 실행결과
 
-<img src="./images/vendingmachineapp-result-2.png"></img>
+<img src="./images/vendingmachine-app-result-2.png"></img>
 
 ##### [CALayer](https://developer.apple.com/documentation/quartzcore/calayer)
 * 이미지 라운드 처리
@@ -75,7 +75,7 @@ private func setRoundedImages() {
     * 복원할 때는 저장된 데이터 값을 언아카이브해서 VendingMachine 객체를 생성함
 
 ##### 실행결과
-<img src="./images/vendingmachineapp-result-3.gif"></img>
+<img src="./images/vendingmachine-app-result-3.gif"></img>
 
 ##### App Life Cycle
 * [정리](https://wiki.yuaming.com/ios/app-programming-for-ios.html) 
@@ -328,7 +328,7 @@ while i != c.endIndex {
 
 ##### 프로그래밍 요구사항
 * 실행이후 구매 목록을 화면 아래 이미지로 추가함
-* 구매 목록도 앱 종료이후에 저장되도록 개선함
+* 구매 목록도 앱 종료 이후에 저장되도록 개선함
 * 특정 제품을 구매할 때마다 해당 제품 이미지를 추가하도록 구현함
     * _NotificationCenter 이용하자!_
 * 특정 시점에 self.view.addSubView() 메서드로 UIImageView를 수동 추가함
@@ -339,7 +339,10 @@ cardImage.frame = CGRect(x: x, y: y, width: width, height: height)
 ```
 * 모든 동작은 이전 단계와 동일하게 동작해야 함
 
-##### 실행결과
+##### 결과
+
+<img src="./images/vendingmachine-app-result-6.png"></img>
+
 
 ##### View를 코드로 작성하는 것과 스토리보드에서 미리 생성하는 것의 차이점
 

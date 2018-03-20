@@ -30,6 +30,11 @@ class ViewController: UIViewController {
             imageOfMenu[index].layer.cornerRadius = imageOfMenu[index].frame.width/4
             imageOfMenu[index].clipsToBounds = true
         }
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: Selector(("receiveDidSendMessageNotification:")),
+                                               name: NSNotification.Name("changeInventoryBox"),
+                                               object: nil)
     }
 
     override func didReceiveMemoryWarning() {

@@ -181,7 +181,7 @@
 				874EDDA220595F09003BFDD8 /* VIews */,
 				871FE6E020562CA700BABAF1 /* Resources */,
 				87DC711B2051081B00B0F76A /* Extensions */,
-				87DC711D2051081B00B0F76A /* Model */,
+				87DC711D2051081B00B0F76A /* Models */,
 				87DC71172051081B00B0F76A /* Protocols */,
 				87DC71302051081B00B0F76A /* Utilities */,
 				87DC71042051005E00B0F76A /* AppDelegate.swift */,
@@ -212,14 +212,14 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		87DC711D2051081B00B0F76A /* Model */ = {
+		87DC711D2051081B00B0F76A /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				87DC71162051081B00B0F76A /* VendingMachine.swift */,
 				87DC711E2051081B00B0F76A /* Beverages */,
 				87DC71292051081B00B0F76A /* SupportedVendingMachine */,
 			);
-			path = Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		87DC711E2051081B00B0F76A /* Beverages */ = {

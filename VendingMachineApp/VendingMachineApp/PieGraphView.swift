@@ -5,7 +5,6 @@
 //  Created by 권재욱 on 2018. 3. 17..
 //  Copyright © 2018년 권재욱. All rights reserved.
 //
-
 import UIKit
 
 struct Segment {
@@ -39,21 +38,16 @@ class PieGraphView: UIView {
         }
     }
     
-    private var status : Status = .none {
+    var status : Status = .none {
         didSet {
             setNeedsDisplay()
         }
     }
     
     override func draw(_ rect: CGRect) {
-        guard let ctx = UIGraphicsGetCurrentContext() else { return }
-        switch status {
-        case .none: drawPieGraph(ctx)
-        case .began: drawCircle(ctx)
-        case .moved: drawPieGraph(ctx)
-        case .ended: drawPieGraph(ctx)
-        }
         super.draw(rect)
+        guard let ctx = UIGraphicsGetCurrentContext() else { return }
+        drawPieGraph(ctx)
     }
     
     func setPieGraph(_ productsNameAndCount : [String : Int]) {
@@ -71,20 +65,16 @@ class PieGraphView: UIView {
         status = .none
     }
     
-    private func drawCircle(_ ctx: CGContext) {
-        let ctx = ctx
-        let radius = CGFloat(min(Double(frame.size.width), Double(frame.size.height)) * graphRatio)
-        let viewCenter = CGPoint(x: Double(bounds.size.width) * graphRatio, y: Double(bounds.size.height) * graphRatio)
-        ctx.setFillColor(UIColor.black.cgColor)
-        ctx.move(to: viewCenter)
-        ctx.addArc(center: viewCenter, radius: radius, startAngle: 0.0, endAngle: 2 * .pi, clockwise: false)
-        ctx.fillPath()
-    }
-    
     private func drawPieGraph(_ ctx: CGContext) {
-        let ctx = ctx
         let radius = CGFloat(min(Double(frame.size.width), Double(frame.size.height)) * graphRatio)
         let viewCenter = CGPoint(x: Double(bounds.size.width) * graphRatio, y: Double(bounds.size.height) * graphRatio)
+        if status == .began {
+            ctx.setFillColor(UIColor.black.cgColor)
+            ctx.move(to: viewCenter)
+            ctx.addArc(center: viewCenter, radius: radius, startAngle: 0.0, endAngle: 2 * .pi, clockwise: false)
+            ctx.fillPath()
+            return
+        }
         let valueCount = segments.reduce(0, {$0 + $1.value})
         var startAngle = -CGFloat.pi * 0.5
         for segment in segments {
@@ -115,11 +105,12 @@ class PieGraphView: UIView {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        status = .began
         super.touchesBegan(touches, with: event)
+        status = .began
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesMoved(touches, with: event)
         status = .moved
         guard let touch = touches.first else { return }
         let locationTouchedFirst = touch.location(in: self)
@@ -128,11 +119,10 @@ class PieGraphView: UIView {
         let yOfDistance = pow(viewCenter.y - locationTouchedFirst.y, 2)
         let distance = sqrt(xOfDistance + yOfDistance)
         graphRatio = Double(distance) / Double(viewCenter.y)
-        super.touchesMoved(touches, with: event)
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        status = .ended
         super.touchesEnded(touches, with: event)
+        status = .ended
     }
 }

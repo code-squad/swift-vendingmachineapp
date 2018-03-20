@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-    var vendingMachine: VendingMachine!
+    var vendingMachine: Vending!
     var inventoryBox = InventoryBox()
     typealias TypeOf = InventoryBox.InventoryMenu
 
@@ -49,7 +49,10 @@ class ViewController: UIViewController {
                 let beverageName = self.vendingMachine.choiceBeverageData(menuType: type)
                 self.vendingMachine.addInInventory(beverageName: beverageName, number: numberOf)
                 self.updateCountOfEachBeverage()
-                VendingMachine.storedInstance(self.vendingMachine)
+                guard let vending = self.vendingMachine as? VendingMachine else {
+                    return
+                }
+                VendingMachine.storedInstance(vending)
             }
         }
         alert.addAction(cancel)

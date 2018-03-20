@@ -19,8 +19,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         return true
     }
+<<<<<<< HEAD
 
     func applicationWillResignActive(_ application: UIApplication) {
+=======
+    
+    func shared() -> VendingMachine {
+        return vendingMachine
+    }
+
+    func applicationWillResignActive(_ application: UIApplication) {
+        setUserDefault()
+>>>>>>> 682acb486ba35ffef31e3aeabf2950e8694d5579
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
@@ -34,10 +44,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
+<<<<<<< HEAD
     }
     
     func setUserDefault() {
         let data = NSKeyedArchiver.archivedData(withRootObject: VendingMachine.sharedInstance())
+=======
+        setUserDefault()
+    }
+    
+    func setUserDefault() {
+        let data = NSKeyedArchiver.archivedData(withRootObject: vendingMachine)
+>>>>>>> 682acb486ba35ffef31e3aeabf2950e8694d5579
         UserDefaults.standard.set(data, forKey: "vendingMachine")
     }
 

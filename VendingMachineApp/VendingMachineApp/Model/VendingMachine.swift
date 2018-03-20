@@ -8,8 +8,13 @@
 
 import Foundation
 
+<<<<<<< HEAD
 class VendingMachine: NSObject, NSCoding, Vending {
     private static var vendingMachine = VendingMachine()
+=======
+class VendingMachine: NSObject, NSCoding {
+    static var vendingMachine = VendingMachine()
+>>>>>>> 682acb486ba35ffef31e3aeabf2950e8694d5579
     private(set) var coins: Int = 0
     private var inventoryBox = InventoryBox()
     private var purchaseProductHistory = PurchaseProductHistory()
@@ -35,10 +40,13 @@ class VendingMachine: NSObject, NSCoding, Vending {
         return vendingMachine
     }
     
+<<<<<<< HEAD
     static func storedInstance(_ vendingMachine: VendingMachine) {
         self.vendingMachine = vendingMachine
     }
     
+=======
+>>>>>>> 682acb486ba35ffef31e3aeabf2950e8694d5579
     // 자판기 금액을 원하는 금액만큼 올리는 메소드
     func putCoins(coins: Int) {
         self.coins = coins

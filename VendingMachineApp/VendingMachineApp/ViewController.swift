@@ -20,8 +20,13 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+<<<<<<< HEAD
         vendingMachine = VendingMachine.sharedInstance()
         self.updateCountOfEachBeverage()
+=======
+        vendingMachine = (UIApplication.shared.delegate as? AppDelegate)?.shared()
+        self.updateCountOfEachBeverage(vendingMachine: self.vendingMachine)
+>>>>>>> 682acb486ba35ffef31e3aeabf2950e8694d5579
         
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyyMMdd"

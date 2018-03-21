@@ -49,7 +49,7 @@ class VendingMachine: NSObject, NSCoding, Vending {
         for _ in 0..<number {
             inventoryBox.storageBeverageStock(beverage: beverageName)
         }
-        NotificationCenter.default.post(name: Notification.Name("changeInventoryBox"), object: self)
+        NotificationCenter.default.post(name: Notification.Name.DidResetInventoryBox, object: self)
     }
     
     func deleteInventory(beverageName: Beverage, number: Int) {
@@ -112,4 +112,8 @@ class VendingMachine: NSObject, NSCoding, Vending {
         return inventoryBox.selectMenuType(tag: tag)
     }
     
+}
+
+extension Notification.Name {
+    static let DidResetInventoryBox = Notification.Name("changeInventoryBox")
 }

@@ -33,7 +33,7 @@ class ViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(changeInventoryBox),
-                                               name: NSNotification.Name("changeInventoryBox"),
+                                               name: Notification.Name.DidResetInventoryBox,
                                                object: nil)
     }
 

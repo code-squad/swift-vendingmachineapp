@@ -88,7 +88,7 @@ class ViewController: UIViewController {
         for (index, menu) in TypeOf.kind.enumerated() {
             countOfMenu[index].text = String(vendingMachine.beverageNumberOf(menuType: menu))
         }
-        guard let data = notification.userInfo as? [String:Beverage] else {
+        guard let data = notification.userInfo as? [String: Beverage] else {
             return
         }
         guard let beverage = data["purchasedBeverage"] else {
@@ -96,7 +96,11 @@ class ViewController: UIViewController {
         }
         
         // 이미지 선택 및 위치 설정
-        let image = UIImage(named: String(describing: beverage))
+        let imageName = String(describing: beverage.bringImageName)
+        guard let image = UIImage(named: imageName) else {
+            return
+        }
+        //let image = UIImage(named: String(describing: beverage.bringImageName))
         let imageView = UIImageView(frame: CGRect(x: 40, y: 575, width: 140, height: 100))
         imageView.image = image
         self.view.addSubview(imageView)

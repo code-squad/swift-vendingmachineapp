@@ -10,8 +10,8 @@ import Foundation
 
 class Coffee: Beverage {
     private var caffeineContent: Int = 76
-    override init(brand: String, weight: Int, price: Int, name: String, manufactureDate: Date, imageName: String) {
-        super.init(brand: brand, weight: weight, price: price, name: name, manufactureDate: manufactureDate, imageName: imageName)
+    override init(brand: String, weight: Int, price: Int, name: String, manufactureDate: Date) {
+        super.init(brand: brand, weight: weight, price: price, name: name, manufactureDate: manufactureDate)
         super.kindOf = "커피"
     }
     required init?(coder aDecoder: NSCoder) {

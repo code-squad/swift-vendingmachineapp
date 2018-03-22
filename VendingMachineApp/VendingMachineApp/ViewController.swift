@@ -96,7 +96,7 @@ class ViewController: UIViewController {
         }
         
         // 이미지 선택 및 위치 설정
-        let image = UIImage(named: beverage)
+        let image = UIImage(named: String(describing: beverage))
         let imageView = UIImageView(frame: CGRect(x: 40, y: 575, width: 140, height: 100))
         imageView.image = image
         self.view.addSubview(imageView)

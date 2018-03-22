@@ -10,9 +10,9 @@ import Foundation
 
 class Milk: Beverage {
     private var expirationDate: Date = Date()
-    override init(brand: String, weight: Int, price: Int, name: String, manufactureDate: Date) {
+    override init(brand: String, weight: Int, price: Int, name: String, manufactureDate: Date, imageName: String) {
         self.expirationDate = manufactureDate.addingTimeInterval(864000)
-        super.init(brand: brand, weight: weight, price: price, name: name, manufactureDate: manufactureDate)
+        super.init(brand: brand, weight: weight, price: price, name: name, manufactureDate: manufactureDate, imageName: imageName)
         super.kindOf = "우유"
     }
     required init?(coder aDecoder: NSCoder) {

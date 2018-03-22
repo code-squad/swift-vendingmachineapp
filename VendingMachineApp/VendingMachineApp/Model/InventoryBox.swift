@@ -42,6 +42,20 @@ class InventoryBox: NSObject, NSCoding {
             case .otherBeverage: return Beverage()
             }
         }
+        func imageFromMenu() -> String {
+            switch self {
+            case .strawberryMilk: return "strawberryMilk.jpeg"
+            case .bananaMilk: return "bananaMilk.jpeg"
+            case .chocoMilk: return "chocoMilk.jpeg"
+            case .sprite: return "sprite.jpeg"
+            case .coke: return "coke.jpeg"
+            case .fanta: return "fanta.jpeg"
+            case .georgia: return "georgia.jpeg"
+            case .top: return "v.jpeg"
+            case .kantanta: return "kantanta.jpeg"
+            case .otherBeverage: return ""
+            }
+        }
         
         static let kind = [strawberryMilk, bananaMilk, chocoMilk, sprite, coke, fanta, georgia, top, kantanta]
     }

@@ -58,7 +58,13 @@ struct Controller {
         }
         return stock
     }
-/*
+
+    func vendingMachineDescription() -> String {
+        let vending = VendingMachine(stockItems: self.setVendingMachineStock(unit: 3))
+        return vending.showStockDefault()
+    }
+
+    /*
     func run() {
         let productSets = setVendingMachineStock(unit: 3)
         var vendingMachine = VendingMachine(stockItems: productSets)

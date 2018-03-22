@@ -11,4 +11,5 @@ import Foundation
 protocol InventoryCountable {
     func countBeverageQuantity(beverageMenu: BeverageMenu) -> Int
     func countCurrentInventory() -> [BeverageBox]
+    func fetchSalesHistory() -> [String]
 }

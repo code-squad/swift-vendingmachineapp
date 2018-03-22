@@ -81,6 +81,10 @@ extension VendingMachine: InventoryCountable {
     func countCurrentInventory() -> [BeverageBox] {
         return inventory.fetchListOfBeverage()
     }
+    
+    func fetchSalesHistory() -> [String] {
+        return salesHistory.historyOfSales()
+    }
 }
 
 extension VendingMachine: Userable {
@@ -117,10 +121,6 @@ extension VendingMachine: MachineManagerable {
         return inventory.fetchListOfBeverage().filter ({
             $0.beverageMenu.makeInstance().price <= money
         })
-    }
-    
-    func fetchSalesHistory() -> [String] {
-        return salesHistory.historyOfSales()
     }
     
     func fetchListOfHottedBeverage() -> [BeverageMenu] {

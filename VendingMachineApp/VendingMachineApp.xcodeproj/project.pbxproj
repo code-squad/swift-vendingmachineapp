@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		409433E3D682F5601703F84A /* Pods_VendingMachineAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3919BE56C2E68A0B1F3B228D /* Pods_VendingMachineAppTests.framework */; };
 		450238D820637A49004566C7 /* PurchaseProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450238D720637A49004566C7 /* PurchaseProduct.swift */; };
+		450238DA2063A82C004566C7 /* ImageMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450238D92063A82C004566C7 /* ImageMapper.swift */; };
 		45B7637E205FDC5200D68608 /* VendingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B7637D205FDC5200D68608 /* VendingProtocol.swift */; };
 		45E2AC7E206097C60072C2D3 /* InventoryBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E62B342051289600FC3738 /* InventoryBox.swift */; };
 		45E62AF720511EC000FC3738 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E62AF620511EC000FC3738 /* AppDelegate.swift */; };
@@ -71,6 +72,7 @@
 		382A922FA53EE30F774A31CC /* Pods-VendingMachineAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VendingMachineAppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-VendingMachineAppUITests/Pods-VendingMachineAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		3919BE56C2E68A0B1F3B228D /* Pods_VendingMachineAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VendingMachineAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		450238D720637A49004566C7 /* PurchaseProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseProduct.swift; sourceTree = "<group>"; };
+		450238D92063A82C004566C7 /* ImageMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageMapper.swift; sourceTree = "<group>"; };
 		45B7637D205FDC5200D68608 /* VendingProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingProtocol.swift; sourceTree = "<group>"; };
 		45E62AF320511EC000FC3738 /* VendingMachineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendingMachineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45E62AF620511EC000FC3738 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 				45E62B362051289600FC3738 /* VendingMachine.swift */,
 				45B7637D205FDC5200D68608 /* VendingProtocol.swift */,
 				450238D720637A49004566C7 /* PurchaseProduct.swift */,
+				450238D92063A82C004566C7 /* ImageMapper.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -617,6 +620,7 @@
 				45E62B3B2051289600FC3738 /* PurchaseProductHistory.swift in Sources */,
 				45E62B4F205129AB00FC3738 /* Kantata.swift in Sources */,
 				45E62B3A2051289600FC3738 /* InventoryBox.swift in Sources */,
+				450238DA2063A82C004566C7 /* ImageMapper.swift in Sources */,
 				45E62B56205129AB00FC3738 /* Coke.swift in Sources */,
 				45E62B58205129AB00FC3738 /* Sprite.swift in Sources */,
 				45E62B53205129AB00FC3738 /* ChocoMilk.swift in Sources */,

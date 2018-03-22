@@ -11,11 +11,11 @@ import Foundation
 class Kantata: Coffee {
     private var kindOfBeans: String = "GuatemalaAntiqua"
     convenience init() {
-        self.init(brand: "", weight: 0, price: 0, name: "", manufactureDate: Date(), kindOfBeans: "")
+        self.init(brand: "", weight: 0, price: 0, name: "", manufactureDate: Date(), kindOfBeans: "", imageName: "kantata.jpg")
     }
-    init(brand: String, weight: Int, price: Int, name: String, manufactureDate: Date, kindOfBeans: String) {
+    init(brand: String, weight: Int, price: Int, name: String, manufactureDate: Date, kindOfBeans: String, imageName: String) {
         self.kindOfBeans = kindOfBeans
-        super.init(brand: brand, weight: weight, price: price, name: name, manufactureDate: manufactureDate)
+        super.init(brand: brand, weight: weight, price: price, name: name, manufactureDate: manufactureDate, imageName: imageName)
         super.kindOf = "칸타타"
     }
     required init?(coder aDecoder: NSCoder) {

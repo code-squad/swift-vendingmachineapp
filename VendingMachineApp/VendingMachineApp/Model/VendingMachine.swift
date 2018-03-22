@@ -66,8 +66,8 @@ class VendingMachine: NSObject, NSCoding, Vending {
     // 음료수를 구매하는 메소드
     func buyBeverage(beverageName: Beverage) {
         do {
-            let beverageOfChoice = try inventoryBox.sellDrink(beverageKey: beverageKey)
-            purchaseProductHistory.recordOfPurchaseHistory(date: Date(), beverage: beverageOfChoice.name)
+            let beverageOfChoice = try inventoryBox.sellDrink(beverage: beverageName)
+            purchaseProductHistory.recordOfPurchaseHistory(purchaseProduct: PurchaseProduct.init(purchaseBeverage: beverageName))
             self.coins -= beverageOfChoice.price
         } catch {
             print("Beverage error")
@@ -95,7 +95,7 @@ class VendingMachine: NSObject, NSCoding, Vending {
     }
     
     // 시작이후 구매 상품 이력을 배열로 리턴하는 메소드
-    func showPurchaseProductHistory() -> [String] {
+    func showPurchaseProductHistory() -> [PurchaseProduct] {
         return purchaseProductHistory.historyOfPurchase()
     }
     

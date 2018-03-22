@@ -9,32 +9,23 @@
 import Foundation
 
 class PurchaseProductHistory: NSObject, NSCoding {
-    private var purchaseDate: [Date]
-    private var purchaseBeverage: [String]
+    private var purchaseProducts: [PurchaseProduct]
     override init() {
-        purchaseDate = [Date]()
-        purchaseBeverage = [String]()
+        purchaseProducts = [PurchaseProduct]()
     }
     required init?(coder aDecoder: NSCoder) {
-        purchaseDate = aDecoder.decodeObject(forKey: "purchaseDate") as? [Date] ?? [Date()]
-        purchaseBeverage = (aDecoder.decodeObject(forKey: "purchaseBeverage") as? [String]) ?? [""]
+        purchaseProducts = (aDecoder.decodeObject(forKey: "purchaseProducts") as? [PurchaseProduct])!
     }
     
     func encode(with aCoder: NSCoder) {
-        aCoder.encode(purchaseDate, forKey: "purchaseDate")
-        aCoder.encode(purchaseBeverage, forKey: "purchaseBeverage")
+        aCoder.encode(purchaseProducts, forKey: "purchaseProducts")
     }
     
-    func recordOfPurchaseHistory(date: Date, beverage: String) {
-        purchaseDate.append(date)
-        purchaseBeverage.append(beverage)
+    func recordOfPurchaseHistory(purchaseProduct: PurchaseProduct) {
+        purchaseProducts.append(purchaseProduct)
     }
     
-    func historyOfPurchase() -> [String] {
-        var history = [String]()
-        for (index, date) in purchaseDate.enumerated() {
-            history.append(String(describing: date)+purchaseBeverage[index])
-        }
-        return history
+    func historyOfPurchase() -> [PurchaseProduct] {
+        return purchaseProducts
     }
 }

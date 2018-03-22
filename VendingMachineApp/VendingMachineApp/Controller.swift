@@ -39,7 +39,7 @@ struct Controller {
         }
     }
 
-    private func setVendingMachineStock(unit: Int) -> [Beverage] {
+    func setVendingMachineStock(unit: Int) -> [Beverage] {
         var stock = [Beverage]()
         let chocoMilk = ChocoMilk(brand: "서울우유", weight: 200, price: 1000, name: "날마다초코우유", manufactured: "20180212")
         let bananaMilk = BananaMilk(brand: "서울우유", weight: 200, price: 1000, name: "날마다바나나우유", manufactured: "20180213")

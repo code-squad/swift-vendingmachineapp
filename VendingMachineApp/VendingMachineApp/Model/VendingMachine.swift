@@ -64,7 +64,7 @@ class VendingMachine: NSObject, NSCoding, Vending {
     }
     
     // 음료수를 구매하는 메소드
-    func buyBeverage(beverageKey: ObjectIdentifier) {
+    func buyBeverage(beverageName: Beverage) {
         do {
             let beverageOfChoice = try inventoryBox.sellDrink(beverageKey: beverageKey)
             purchaseProductHistory.recordOfPurchaseHistory(date: Date(), beverage: beverageOfChoice.name)

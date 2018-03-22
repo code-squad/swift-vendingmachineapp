@@ -20,6 +20,10 @@ class DolceLatte: Beverage {
         super.init(brand: brand, weight: weight, price: price, name: name, manufactured: manufactured, valid: self.validDuration, calorie: self.calorie, hot: self.hot, caffeine: self.caffeine)
     }
 
+    override init() {
+        super.init(brand: "스타벅스", weight: 473, price: 6000, name: "돌체라떼", manufactured: "20180322", valid: self.validDuration, calorie: self.calorie, hot: self.hot, caffeine: self.caffeine)
+    }
+
     override func package() -> Package {
         return .bottle
     }

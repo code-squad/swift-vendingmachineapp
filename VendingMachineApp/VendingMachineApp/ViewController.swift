@@ -84,10 +84,22 @@ class ViewController: UIViewController {
             countOfMenu[index].text = String(vendingMachine.beverageNumberOf(menuType: menu))
         }
     }
-    @objc func changePurchaseHistory() {
+    @objc func changePurchaseHistory(_ notification: Notification) {
         for (index, menu) in TypeOf.kind.enumerated() {
             countOfMenu[index].text = String(vendingMachine.beverageNumberOf(menuType: menu))
         }
+        guard let data = notification.userInfo as? [String:Beverage] else {
+            return
+        }
+        guard let beverage = data["purchasedBeverage"] else {
+            return
+        }
+        
+        // 이미지 선택 및 위치 설정
+        let image = UIImage(named: beverage)
+        let imageView = UIImageView(frame: CGRect(x: 40, y: 575, width: 140, height: 100))
+        imageView.image = image
+        self.view.addSubview(imageView)
     }
     
     @IBAction func addBeverage(sender: UIButton) {

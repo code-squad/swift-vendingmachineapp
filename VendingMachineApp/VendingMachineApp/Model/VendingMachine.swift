@@ -68,6 +68,7 @@ class VendingMachine: NSObject, NSCoding, Vending {
         do {
             let beverageOfChoice = try inventoryBox.sellDrink(beverage: beverageName)
             purchaseProductHistory.recordOfPurchaseHistory(purchaseProduct: PurchaseProduct.init(purchaseBeverage: beverageName))
+            NotificationCenter.default.post(name: Notification.Name.DidResetPurchaseHistory, object: self, userInfo: ["purchasedBeverage": beverageName])
             self.coins -= beverageOfChoice.price
         } catch {
             print("Beverage error")

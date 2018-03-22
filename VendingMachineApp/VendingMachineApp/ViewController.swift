@@ -20,10 +20,10 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setup()
+        registerObservers()
     }
     
-    private func setup() {
+    private func registerObservers() {
         NotificationCenter.default.addObserver(self, selector: #selector(updateMoney), name: NSNotification.Name.money, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(updateBeverageQuantity), name: NSNotification.Name.inventory, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(recodeSalesHistory), name: NSNotification.Name.salesHistory, object: nil)

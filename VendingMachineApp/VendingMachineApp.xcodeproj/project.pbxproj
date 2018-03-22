@@ -16,6 +16,7 @@
 		874EDD9F20595B35003BFDD8 /* RoundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874EDD9E20595B35003BFDD8 /* RoundImageView.swift */; };
 		874EDDA120595EB3003BFDD8 /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874EDDA020595EB3003BFDD8 /* Formatter.swift */; };
 		8775F7B82063777600271FE8 /* SalesHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8775F7B72063777600271FE8 /* SalesHistoryView.swift */; };
+		8775F7BC20638DC400271FE8 /* AdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8775F7BB20638DC400271FE8 /* AdminViewController.swift */; };
 		87DC71052051005E00B0F76A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DC71042051005E00B0F76A /* AppDelegate.swift */; };
 		87DC71072051005E00B0F76A /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DC71062051005E00B0F76A /* UserViewController.swift */; };
 		87DC710A2051005E00B0F76A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87DC71082051005E00B0F76A /* Main.storyboard */; };
@@ -69,6 +70,7 @@
 		874EDD9E20595B35003BFDD8 /* RoundImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundImageView.swift; sourceTree = "<group>"; };
 		874EDDA020595EB3003BFDD8 /* Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
 		8775F7B72063777600271FE8 /* SalesHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalesHistoryView.swift; sourceTree = "<group>"; };
+		8775F7BB20638DC400271FE8 /* AdminViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminViewController.swift; sourceTree = "<group>"; };
 		87DC71012051005E00B0F76A /* VendingMachineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendingMachineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87DC71042051005E00B0F76A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		87DC71062051005E00B0F76A /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 				87DC710B2051005E00B0F76A /* Assets.xcassets */,
 				87DC710D2051005E00B0F76A /* LaunchScreen.storyboard */,
 				87DC71102051005E00B0F76A /* Info.plist */,
+				8775F7BB20638DC400271FE8 /* AdminViewController.swift */,
 			);
 			path = VendingMachineApp;
 			sourceTree = "<group>";
@@ -438,6 +441,7 @@
 				87DC71382051081B00B0F76A /* Beverage.swift in Sources */,
 				87DC71422051081B00B0F76A /* SalesHistory.swift in Sources */,
 				87DC71432051081B00B0F76A /* VendingMachineErrors.swift in Sources */,
+				8775F7BC20638DC400271FE8 /* AdminViewController.swift in Sources */,
 				87DC71392051081B00B0F76A /* StrawberryMilk.swift in Sources */,
 				87DC71072051005E00B0F76A /* UserViewController.swift in Sources */,
 				87DC71352051081B00B0F76A /* MachineManagerable.swift in Sources */,

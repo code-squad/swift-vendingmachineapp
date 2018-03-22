@@ -24,7 +24,7 @@ class VendingMachineSetting {
     
     func load() -> VendingMachine {
         var machine: VendingMachine = VendingMachine.shared()
-
+        
         guard let data = UserDefaults.standard.object(forKey: keyProperty) as? Data else { return machine }
         
         do {

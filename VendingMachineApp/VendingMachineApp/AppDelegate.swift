@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let machineSetting: VendingMachineSetting = VendingMachineSetting()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        if let viewController = window?.rootViewController as? ViewController {
+        if let viewController = window?.rootViewController as? UserViewController {
             viewController.vendingMachine = machineSetting.load()
         }
         

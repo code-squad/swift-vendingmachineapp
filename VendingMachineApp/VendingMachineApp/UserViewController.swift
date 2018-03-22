@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class UserViewController: UIViewController {
     @IBOutlet var beverageImages: [RoundImageView]!
     @IBOutlet var addedBeverageButtons: [UIButton]!
     @IBOutlet var boughtBeverageButtons: [UIButton]!

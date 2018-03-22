@@ -422,12 +422,12 @@ init(image: UIImage?, position: CGFloat) {
 ##### 프로그래밍 요구사항
 * 스토리보드에서 Button을 추가하고, Attributes에서 Type을 Info Light로 설정함
 * 새로운 ViewController를 옆에 추가하고, Button에서 Segue를 연결함
-* Segue를 선택하고 Kind를 Present Modally로 지정하고, Transition을 Flip Horizontal로 설정한다.
-* 새롭게 추가한 화면을 관리자 모드로 동작하도록 개선한다.
-    * 이미지와 재고 추가 버튼을 복사해서 관리자 화면으로 복사하고, 동작하도록 코드를 수정한다.
-    * 재고 추가 버튼은 기존 화면에서 삭제한다.
-    * 관리자 화면에 [닫기] 버튼을 추가하고, 버튼을 누르면 dissmiss()를 호출한다.
-* 다른 동작은 이전 단계와 동일하게 동작해야 한다.
+* Segue를 선택하고 Kind를 Present Modally로 지정하고, Transition을 Flip Horizontal로 설정함
+* 새롭게 추가한 화면을 관리자 모드로 동작하도록 개선함
+    * 이미지와 재고 추가 버튼을 복사해서 관리자 화면으로 복사하고, 동작하도록 코드를 수정함
+    * 재고 추가 버튼은 기존 화면에서 삭제함
+    * 관리자 화면에 [닫기] 버튼을 추가하고, 버튼을 누르면 dissmiss()를 호출함
+* 다른 동작은 이전 단계와 동일하게 동작해야 함
 
 ##### 결과
 * [다양한 화면 전환](https://wiki.yuaming.com/ios/view-segue.html)

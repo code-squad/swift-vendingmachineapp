@@ -28,12 +28,11 @@ class RoundImageView: UIImageView {
     init(image: UIImage?, position: CGFloat) {
         super.init(image: image)
         self.position = position
-        setSize()
+        movePoints()
         self.frame = cgRect
-        self.awakeFromNib()
     }
     
-    private func setSize() {
+    private func movePoints() {
         cgRect.origin.x += position * 30.0
     }
     

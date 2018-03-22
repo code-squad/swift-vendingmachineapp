@@ -8,11 +8,16 @@
 
 import Foundation
 
-class ImageMapper {
-    
+protocol ImageMapper {
+    var bringImageName: String { get }
 }
 
-
-//1. 각 beverage에 img이름 넣기
-//2. 클래스 이름 가져오기
-//3. mapping enum 만들기
+extension ImageMapper {
+    var bringImageName: String {
+        let name = String(describing: type(of: self))
+        let lowercasedOffirstWord = String(name[name.startIndex]).lowercased()
+        let anotherWords = name.dropFirst()
+        let result = lowercasedOffirstWord + anotherWords + ".jpg"
+        return result
+    }
+}

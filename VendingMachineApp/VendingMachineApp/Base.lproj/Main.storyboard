@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="strawberryMilk.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="jVh-Ss-Xqo">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="strawberryMilk.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="jVh-Ss-Xqo">
                                 <rect key="frame" x="90" y="89" width="140" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -423,7 +423,7 @@
         <image name="georgia.jpg" width="300" height="300"/>
         <image name="kantata.jpg" width="450" height="450"/>
         <image name="sprite.jpg" width="320" height="320"/>
-        <image name="strawberryMilk.jpeg" width="600" height="600"/>
+        <image name="strawberryMilk.jpg" width="600" height="600"/>
         <image name="top.jpg" width="500" height="500"/>
     </resources>
 </document>

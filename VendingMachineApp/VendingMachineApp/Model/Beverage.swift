@@ -8,14 +8,13 @@
 
 import Foundation
 
-class Beverage: NSObject, NSCoding {
+class Beverage: NSObject, NSCoding, ImageMapper {
     var kindOf: String
     var brand: String
     var weight: Int
     var price: Int
     var name: String
     var manufactureDate: Date
-    var imageName: String
     override init() {
         kindOf = ""
         brand = ""
@@ -23,17 +22,15 @@ class Beverage: NSObject, NSCoding {
         price = 0
         name = ""
         manufactureDate = Date()
-        imageName = ""
     }
     
-    init(brand: String, weight: Int, price: Int, name: String, manufactureDate: Date, imageName: String) {
+    init(brand: String, weight: Int, price: Int, name: String, manufactureDate: Date) {
         self.kindOf = "음료"
         self.brand = brand
         self.weight = weight
         self.price = price
         self.name = name
         self.manufactureDate = manufactureDate.addingTimeInterval(21600)
-        self.imageName = imageName
     }
     required init?(coder aDecoder: NSCoder) {
         kindOf = aDecoder.decodeObject(forKey: "kindOf") as? String ?? ""
@@ -42,7 +39,6 @@ class Beverage: NSObject, NSCoding {
         price = aDecoder.decodeInteger(forKey: "price")
         name = (aDecoder.decodeObject(forKey: "name") as? String) ?? ""
         manufactureDate = aDecoder.decodeObject(forKey: "manufactureDate") as? Date ?? Date()
-        imageName = (aDecoder.decodeObject(forKey: "imageName") as? String) ?? ""
         super.init()
     }
     func encode(with aCoder: NSCoder) {
@@ -52,7 +48,6 @@ class Beverage: NSObject, NSCoding {
         aCoder.encode(price, forKey: "price")
         aCoder.encode(name, forKey: "name")
         aCoder.encode(manufactureDate, forKey: "manufactureDate")
-        aCoder.encode(imageName, forKey: "imageName")
     }
     override var description: String {
         let dateFormat = DateFormatter()
@@ -60,5 +55,4 @@ class Beverage: NSObject, NSCoding {
         let manufactureDateByFormat = dateFormat.string(from: self.manufactureDate as Date)
         return "\(self.brand), \(self.weight)ml, \(self.price)원, \(self.name), \(manufactureDateByFormat)"
     }
-    
 }

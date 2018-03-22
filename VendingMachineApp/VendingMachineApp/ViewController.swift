@@ -16,6 +16,7 @@ class ViewController: UIViewController {
     @IBOutlet var countOfMenu: [UILabel]!
     @IBOutlet var imageOfMenu: [UIImageView]!
     @IBOutlet var addNumberOfMenu: [UIButton]!
+    @IBOutlet var purchaseOfMenu: [UIButton]!
     @IBOutlet weak var balance: UILabel!
     
     override func viewDidLoad() {

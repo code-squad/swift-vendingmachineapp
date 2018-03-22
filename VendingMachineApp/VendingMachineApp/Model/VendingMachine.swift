@@ -116,4 +116,5 @@ class VendingMachine: NSObject, NSCoding, Vending {
 
 extension Notification.Name {
     static let DidResetInventoryBox = Notification.Name("changeInventoryBox")
+    static let DidResetPurchaseHistory = Notification.Name("changePurchaseHistory")
 }

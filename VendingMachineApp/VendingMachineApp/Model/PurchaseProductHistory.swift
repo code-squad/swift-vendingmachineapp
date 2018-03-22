@@ -14,7 +14,7 @@ class PurchaseProductHistory: NSObject, NSCoding {
         purchaseProducts = [PurchaseProduct]()
     }
     required init?(coder aDecoder: NSCoder) {
-        purchaseProducts = (aDecoder.decodeObject(forKey: "purchaseProducts") as? [PurchaseProduct])!
+        purchaseProducts = (aDecoder.decodeObject(forKey: "purchaseProducts") as? [PurchaseProduct]) ?? []
     }
     
     func encode(with aCoder: NSCoder) {

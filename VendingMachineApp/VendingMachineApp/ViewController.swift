@@ -28,6 +28,7 @@ class ViewController: UIViewController {
         
         for index in 0..<9 {
             imageOfMenu[index].layer.cornerRadius = imageOfMenu[index].frame.width/4
+            imageOfMenu[index].layer.borderWidth = 5
             imageOfMenu[index].clipsToBounds = true
         }
         

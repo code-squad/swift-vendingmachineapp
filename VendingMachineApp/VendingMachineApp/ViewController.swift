@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var moneyLabel: UILabel!
     
     var vendingMachine: (Userable & MachineManagerable & InventoryCountable)?
+    private var salesHistoryView: SalesHistoryView = SalesHistoryView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,22 +74,23 @@ class ViewController: UIViewController {
     
     @objc private func recodeSalesHistory() {
         if let machine = self.vendingMachine {
-            var positionNumber: CGFloat = 0
+            var positionNumber = 1
             
-            for beverageMenu in machine.fetchSalesHistory() {
-                updateImageView(beverageMenu, positionNumber)
+            machine.fetchSalesHistory().forEach {
+                if positionNumber > salesHistoryView.count {
+                    salesHistoryView.makeImageView($0)
+                    updateImageView(positionNumber)
+                }
+                
                 positionNumber += 1
             }
         }
     }
     
-    private func updateImageView(_ beverage: String, _ positionNumber: CGFloat) {
-        let imageName = beverage.components(separatedBy: ",")[1].trimmingCharacters(in: .whitespaces)
-        let image = UIImage(named: "\(imageName).jpg")
-        let imageView = RoundImageView(image: image, position: positionNumber)
-        imageView.removeFromSuperview()
-        self.view.addSubview(imageView)
+    private func updateImageView(_ position: Int) {
+        self.view.addSubview(salesHistoryView[position-1])
     }
+
     
     @IBAction func buyBeveragesAction(_ sender: UIButton) {
         let beverageMenu = matchBeverageMenu(index: sender.tag)
@@ -99,4 +101,3 @@ class ViewController: UIViewController {
         NotificationCenter.default.removeObserver(self)
     }
 }
-

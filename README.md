@@ -1,13 +1,6 @@
 ## Step1 - 아이패드 앱 시작
 > iOS 앱 프로젝트 기본 구조인 MVC 형태에 맞춰서 기존 레벨2에서 작성한 자판기 소스 파일을 적용한다.
 
-iOS 앱을 구성하는 핵심 객체들과 iOS 메인 런루프 동작 이해하기 위해서 애플 앱 프로그래밍 가이드 문서를 학습한다.
-
-macOS 프로젝트 템플릿과 iOS 프로젝트 템플릿 구조의 차이점을 학습한다.
-
-iOS 프로젝트에는 main.swift 가 생략되어 있다.
-UIApplicationMain() 함수의 역할에 대해 찾아보고 학습한다.
-
 ## iOS infrastructure
 앱은 내가 작성한 커스텀 코드와 시스템 프레임워크 사이에서 상호작용한다. 시스템 프레임워크는 앱이 실행되는데 기본적인 인프라를 제공하고, 내 코드는 그 인프라를 커스텀하도록 설계하여 내가 원하는대로 앱이 보여지도록 만들 수 있다.
 iOS프레임워크는 MVC패턴과 델리게이션 같은 디자인패턴을 기반으로 동작한다.  
@@ -91,15 +84,36 @@ main함수를 보면 알 수 있지만, (함수의 리턴 부분을 보면)UIApp
   1. 이벤트 발생(ex. 터치)
   2. 시스템에서 port를 통해 앱으로 전달(메인 런루프는 다른 런루프와 달리 사용자 액션으로 인한 이벤트를 Operating System으로부터 받는다.)
   3. 이벤트 queue에 등록
-  4. 이벤트에 맞는 Application 객체의 메소드 실행
+  4. 이벤트에 맞는 메소드 실행
 
-- 
+- 애플리케이션 객체(Application Object)는 로우레벨 이벤트를 받아 UIEvent로 변환하여 해당하는 객체로 내보낸다.
+  - 애플리케이션은 각 이벤트를 도착한 순서대로 처리해야 하기 때문에 로우레벨 이벤트는 FIFO 이벤트 큐에 들어간다.
+  - 애플리케이션 객체는 이벤트 최상위에 있는 객체를 취해서 이벤트 객체(UIEvent)로 변환하고 유저 이벤트가 일어난 Window에 디스패치(dispatch)한다.
+  - 전달한 이벤트가 돌아왔을 때 애플리케이션은 큐에서 다음 객체를 가져와서 디스패치한다. 앱이 종료될 때까지 이 과정을 반복한다.
+  - 또한, 앱이 실행되었을 때 이벤트를 처리하는 책임을 가진 객체들을 코어 그룹으로 설정한다.
+- 코어 객체(Core Objects)는 이벤트에 응답하고 UI를 업데이트한다.
+  - 애플리케이션 객체에서 보낸 이벤트는 Window가 먼저 받고, Window는 이벤트를 처리하기에 가장 적절한 핸들러인 View에 보낸다.
+  - 최초로 받은 뷰가 이벤트를 처리하지 않으면, 응답자 체인(Responder Chain)\*을 통해 다른 뷰로 전달된다.
+  - 뷰는 종종 애플리케이션의 외관을 수정하고 상태나 데이터를 업데이트하는 일련의 액션을 수행한다. 이런 액션이 완료되면 애플리케이션 객체로 제어가 돌려지며, 애플리케이션 객체가 이벤트 큐의 다음 이벤트를 취한다.
+
+
+
+- 전달받은 이벤트를 앱의 run loop에서 처리하는 과정
+<img src="./Screenshot/step1-4.png" width="80%">
+
+1. run loop 대기 중 이벤트 발생(주로 입력소스와 타이머소스 처리)
+2. 정해진 메소드 호출(타이머에서 설정한 시간데 따라)
+3. 메소드 완료 후 변경될 필요가 있는 사항 적용(뷰의 경우 setNeedsLayout, setNeedsDisplay)
+4. runUntil- 메소드에서 정한 시간까지 유지, 할일 없으면 suspend 상태.
+
+
+
+\* Responder chain : 뷰 요소들은 responder를 상속받아서 구현되어있다. Responder chain은 이벤트를 구성한다. linked list처럼 다음에 응답할 애 다음에 응답할 애 다음 다음 그다음...
 
 ***
 
 
 ### 앱 프로그래밍 가이드
-- 시스템과 앱 사이의 동작과 상호작용을 이해해야한다.
 - Apps Are Expected to Support Key Features
 - Apps Follow Well-Defined Execution Paths
 - Apps Must Run Efficiently in a Multitasking Environment
@@ -113,12 +127,7 @@ main함수를 보면 알 수 있지만, (함수의 리턴 부분을 보면)UIApp
 #### 일반적으로 앱 번들에 포함되는 것들
 - *App executable, Info.plist(information property list file), App icons, Launch images, Storyboard files (or nib files), \*Ad hoc distribution icon, \*Settings bundle, Nonlocalized resource files, \*Subdirectories for localized resources*
 
-
 \* *Ad hoc distribution icon*: This icon is normally provided by the App Store from the materials you submit to iTunes Connect. However, because apps distributed ad hoc do not go through the App Store, your icon must be present in your app bundle instead. iTunes uses this icon to represent your app.
 \* *Settings bundle*: If you want to expose custom app preferences through the Settings app, you must include a settings bundle.
 \* *Subdirectories for localized resources*: An iOS app should be internationalized and have a language.lproj directory for each language it supports.<br/>
 Localized resources must be placed in language-specific project directories, the names for which consist of an ISO 639-1 language abbreviation plus the .lproj suffix. (For example, the en.lproj, fr.lproj, and es.lproj directories contain resources localized for English, French, and Spanish.)
-
-### 사용자 데이터 프라이버시
-거의 모든 iOS 디바이스들은 사용자의 개인정보에 접근할 수 있다. 어떠한 사용자들은 이를 원치 않을 수 있기 때문에, 만약 앱이 부적절하게 사용자의 개인정보에 접근했다면 문제가 될 수 있기 때문에 해당 정부나 관련 기관에서 권고하는 사항들을 숙지하는 것이 중요하다.
-만약 사용자의 개인정보에 접근하고싶다면 `Info.plist`파일에 사용자 동의를 구하는 description을 설정한다.

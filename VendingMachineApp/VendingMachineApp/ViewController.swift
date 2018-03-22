@@ -78,8 +78,8 @@ class ViewController: UIViewController {
             
             machine.fetchSalesHistory().forEach {
                 if positionNumber > salesHistoryView.count {
-                    salesHistoryView.makeImageView($0)
-                    updateImageView(positionNumber)
+                    let index = salesHistoryView.makeImageView($0)
+                    updateImageView(index)
                 }
                 
                 positionNumber += 1
@@ -88,7 +88,7 @@ class ViewController: UIViewController {
     }
     
     private func updateImageView(_ position: Int) {
-        self.view.addSubview(salesHistoryView[position-1])
+        self.view.addSubview(salesHistoryView[position])
     }
 
     

@@ -84,4 +84,9 @@ class VendingMachine {
     func hasMiminumBalance() -> Bool {
         return self.balance.hasMiminumBalance(than: stock.cheapestPrice())
     }
+
+    func howMany(of beverage: Beverage) -> Int {
+        return self.stock.howMany(of: beverage)
+    }
+
 }

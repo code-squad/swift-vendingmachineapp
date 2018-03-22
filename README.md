@@ -429,4 +429,9 @@ init(image: UIImage?, position: CGFloat) {
     * 관리자 화면에 [닫기] 버튼을 추가하고, 버튼을 누르면 dissmiss()를 호출한다.
 * 다른 동작은 이전 단계와 동일하게 동작해야 한다.
 
-##### View를 코드로 생성해서 추가하는 것과 Storyboard 상에서 미리 생성하는 것의 차이점
+##### 결과
+* [다양한 화면 전환](https://wiki.yuaming.com/ios/view-segue.html)
+
+<img src="./images/vendingmachine-app-result-7-1.png" width="45%"></img>
+<img src="./images/vendingmachine-app-result-7-2.png" width="45%"></img>
+

@@ -133,6 +133,43 @@
                                     <action selector="addBeverageWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EEd-VY-eij"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QSL-ul-04o">
+                                <rect key="frame" x="786" y="101" width="44" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="+1000"/>
+                                <connections>
+                                    <action selector="addBalance1WithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3Pr-ct-YcL"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dqo-wi-tEF">
+                                <rect key="frame" x="881" y="102" width="47" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="+5000"/>
+                                <connections>
+                                    <action selector="addBalance2:" destination="BYZ-38-t0r" eventType="touchUpInside" id="C4x-BI-VNT"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="잔액 :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jND-ct-tZH">
+                                <rect key="frame" x="789" y="155" width="39" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VD1-ts-NTi">
+                                <rect key="frame" x="847" y="154" width="58" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="원" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1vN-4z-0i9">
+                                <rect key="frame" x="913" y="154" width="15" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BsG-4E-S42">
                                 <rect key="frame" x="120" y="196" width="15" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -260,43 +297,51 @@
                                     <action selector="removeAllBeverage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HRO-Ls-Iix"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QSL-ul-04o">
-                                <rect key="frame" x="786" y="101" width="44" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zc0-oo-s1C">
+                                <rect key="frame" x="185" y="187" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="+1000"/>
-                                <connections>
-                                    <action selector="addBalance1WithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3Pr-ct-YcL"/>
-                                </connections>
+                                <state key="normal" title="구매"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dqo-wi-tEF">
-                                <rect key="frame" x="881" y="102" width="47" height="30"/>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9FK-nU-81m">
+                                <rect key="frame" x="416" y="187" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="+5000"/>
-                                <connections>
-                                    <action selector="addBalance2:" destination="BYZ-38-t0r" eventType="touchUpInside" id="C4x-BI-VNT"/>
-                                </connections>
+                                <state key="normal" title="구매"/>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="잔액 :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jND-ct-tZH">
-                                <rect key="frame" x="789" y="155" width="39" height="21"/>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iwL-Ev-QvJ">
+                                <rect key="frame" x="648" y="186" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VD1-ts-NTi">
-                                <rect key="frame" x="847" y="154" width="58" height="21"/>
+                                <state key="normal" title="구매"/>
+                            </button>
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Ml-dR-N9B">
+                                <rect key="frame" x="185" y="368" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="원" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1vN-4z-0i9">
-                                <rect key="frame" x="913" y="154" width="15" height="21"/>
+                                <state key="normal" title="구매"/>
+                            </button>
+                            <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pDG-c7-ekR">
+                                <rect key="frame" x="416" y="368" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <state key="normal" title="구매"/>
+                            </button>
+                            <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QAN-vt-6Pe">
+                                <rect key="frame" x="648" y="367" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="구매"/>
+                            </button>
+                            <button opaque="NO" tag="6" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TKB-Ce-9gT">
+                                <rect key="frame" x="185" y="542" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="구매"/>
+                            </button>
+                            <button opaque="NO" tag="7" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NpJ-Kk-9xU">
+                                <rect key="frame" x="416" y="542" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="구매"/>
+                            </button>
+                            <button opaque="NO" tag="8" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gjq-Ld-mfH">
+                                <rect key="frame" x="648" y="541" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="구매"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.97129637172527794" blue="0.83182171527168958" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -330,6 +375,15 @@
                         <outletCollection property="addNumberOfMenu" destination="C0R-Vl-yC3" collectionClass="NSMutableArray" id="NsS-ue-9jn"/>
                         <outletCollection property="addNumberOfMenu" destination="HhT-Q4-cqV" collectionClass="NSMutableArray" id="T5L-xi-ZIQ"/>
                         <outletCollection property="addNumberOfMenu" destination="Ddp-wI-GyJ" collectionClass="NSMutableArray" id="zqb-3R-KvZ"/>
+                        <outletCollection property="purchaseOfMenu" destination="Zc0-oo-s1C" collectionClass="NSMutableArray" id="8Dm-YR-iKx"/>
+                        <outletCollection property="purchaseOfMenu" destination="9FK-nU-81m" collectionClass="NSMutableArray" id="m9w-oO-WFS"/>
+                        <outletCollection property="purchaseOfMenu" destination="iwL-Ev-QvJ" collectionClass="NSMutableArray" id="ZDl-T4-5ah"/>
+                        <outletCollection property="purchaseOfMenu" destination="5Ml-dR-N9B" collectionClass="NSMutableArray" id="M6C-nd-jUh"/>
+                        <outletCollection property="purchaseOfMenu" destination="pDG-c7-ekR" collectionClass="NSMutableArray" id="uU0-YX-aKr"/>
+                        <outletCollection property="purchaseOfMenu" destination="QAN-vt-6Pe" collectionClass="NSMutableArray" id="C7s-Re-cP9"/>
+                        <outletCollection property="purchaseOfMenu" destination="TKB-Ce-9gT" collectionClass="NSMutableArray" id="l0i-Ei-7qN"/>
+                        <outletCollection property="purchaseOfMenu" destination="NpJ-Kk-9xU" collectionClass="NSMutableArray" id="zZb-ii-7vP"/>
+                        <outletCollection property="purchaseOfMenu" destination="Gjq-Ld-mfH" collectionClass="NSMutableArray" id="j6j-5D-Jk1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -8,17 +8,6 @@
 
 import Foundation
 
-protocol TypeName: AnyObject {
-    var bringTypeName: String { get }
-}
-
-extension TypeName {
-    var bringTypeName: String {
-        let type = String(describing: self)
-        return type
-    }
-}
-
 extension Notification.Name {
     static let money = Notification.Name("Money")
     static let inventory = Notification.Name("Inventory")

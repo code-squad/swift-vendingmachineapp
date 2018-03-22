@@ -136,6 +136,12 @@ class Stock {
         return result
     }
 
+    func howManyItem(_ itemCode: ObjectIdentifier) -> Int {
+        guard let items = inventory[itemCode] else {
+            return 0
+        }
+        return items.count
+    }
 
 
 }

@@ -80,4 +80,8 @@ class StockController {
         return stock.cheapestPrice()
     }
 
+    func howMany(of beverage: Beverage) -> Int {
+        return self.stock.howManyItem(ObjectIdentifier(type(of: beverage)))
+    }
+
 }

@@ -301,41 +301,65 @@
                                 <rect key="frame" x="185" y="187" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="구매"/>
+                                <connections>
+                                    <action selector="purchaseBeverageWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aoS-no-tTU"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9FK-nU-81m">
                                 <rect key="frame" x="416" y="187" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="구매"/>
+                                <connections>
+                                    <action selector="purchaseBeverageWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5Vy-4g-ulu"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iwL-Ev-QvJ">
                                 <rect key="frame" x="648" y="186" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="구매"/>
+                                <connections>
+                                    <action selector="purchaseBeverageWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3V3-mB-wNA"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Ml-dR-N9B">
                                 <rect key="frame" x="185" y="368" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="구매"/>
+                                <connections>
+                                    <action selector="purchaseBeverageWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="J3w-T5-Pgk"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pDG-c7-ekR">
                                 <rect key="frame" x="416" y="368" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="구매"/>
+                                <connections>
+                                    <action selector="purchaseBeverageWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AW7-Tc-K8Q"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QAN-vt-6Pe">
                                 <rect key="frame" x="648" y="367" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="구매"/>
+                                <connections>
+                                    <action selector="purchaseBeverageWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ta9-j0-41N"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="6" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TKB-Ce-9gT">
                                 <rect key="frame" x="185" y="542" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="구매"/>
+                                <connections>
+                                    <action selector="purchaseBeverageWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Jc4-Gi-HXp"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="7" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NpJ-Kk-9xU">
                                 <rect key="frame" x="416" y="542" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="구매"/>
+                                <connections>
+                                    <action selector="purchaseBeverageWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="laC-ck-aUa"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="8" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gjq-Ld-mfH">
                                 <rect key="frame" x="648" y="541" width="30" height="30"/>

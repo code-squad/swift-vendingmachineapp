@@ -37,6 +37,11 @@ class ViewController: UIViewController {
                                                selector: #selector(changeInventoryBox),
                                                name: Notification.Name.DidResetInventoryBox,
                                                object: nil)
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(changePurchaseHistory),
+                                               name: Notification.Name.DidResetPurchaseHistory,
+                                               object: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -55,7 +60,6 @@ class ViewController: UIViewController {
                 }
                 let beverageName = self.vendingMachine.choiceBeverageData(menuType: type)
                 self.vendingMachine.addInInventory(beverageName: beverageName, number: numberOf)
-                self.vendingMachine.buyBeverage(beverageName: beverageName)
                 guard let vending = self.vendingMachine as? VendingMachine else {
                     return
                 }
@@ -70,17 +74,36 @@ class ViewController: UIViewController {
         self.present(alert, animated: true)
     }
     
+    func printPurchaseImage(type: TypeOf) {
+        let beverageName = self.vendingMachine.choiceBeverageData(menuType: type)
+        self.vendingMachine.buyBeverage(beverageName: beverageName)
+    }
+    
     @objc func changeInventoryBox() {
         for (index, menu) in TypeOf.kind.enumerated() {
             countOfMenu[index].text = String(vendingMachine.beverageNumberOf(menuType: menu))
         }
     }
+    @objc func changePurchaseHistory() {
+        for (index, menu) in TypeOf.kind.enumerated() {
+            countOfMenu[index].text = String(vendingMachine.beverageNumberOf(menuType: menu))
+        }
+    }
+    
     @IBAction func addBeverage(sender: UIButton) {
         var type = TypeOf.otherBeverage
         for button in addNumberOfMenu where button.tag == sender.tag {
             type = vendingMachine.typeSelector(tag: button.tag)
         }
         alertCountOfBeverage(type: type)
+    }
+    
+    @IBAction func purchaseBeverage(sender: UIButton) {
+        var type = TypeOf.otherBeverage
+        for button in purchaseOfMenu where button.tag == sender.tag {
+            type = vendingMachine.typeSelector(tag: button.tag)
+        }
+        printPurchaseImage(type: type)
     }
     
     @IBAction func removeAllBeverage(_ sender: Any) {

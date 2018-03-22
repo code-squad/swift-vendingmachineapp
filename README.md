@@ -340,6 +340,32 @@ cardImage.frame = CGRect(x: x, y: y, width: width, height: height)
 * 모든 동작은 이전 단계와 동일하게 동작해야 함
 
 ##### 결과
+* 항상 실수를 줄일 수 있도록 메소드를 만드는 것도 중요함
+    * index가 Int가 아니라 Range라면 어떨까요? 왜냐하면 배열에 들어있는 범위에 맞춰서 넘겨야 하는데 Int 면 범위를 벗어날 가능성이 높음
+* 새로 만든 초기화 메소드에서 awakeFromNib을 호출하는 구조는 좋지 않음
+    * private init을 만들어서 awakeFromNib에서 만드거나
+    * 지정 초기화 메서드로 만들면 awakeFromNib와 동일하게 setup 호출
+    * 다른 초기화 메소드를 생성하는 경우가 있다면 다른 init에서 지정 초기화 메소드를 호출하도록 만드는 것도 좋음
+
+```swift
+// before
+init(image: UIImage?, position: CGFloat) {
+    super.init(image: image)
+    self.position = position
+    setSize()
+    self.frame = cgRect
+    self.awakeFromNib()
+}
+
+// after
+init(image: UIImage?, position: CGFloat) {
+    super.init(image: image)
+    self.position = position
+    movePoints()
+    setup()
+    self.frame = cgRect
+}
+```
 
 <img src="./images/vendingmachine-app-result-6.png"></img>
 
@@ -390,3 +416,17 @@ cardImage.frame = CGRect(x: x, y: y, width: width, height: height)
 * [Storyboards vs NIBs vs Code: The Great Debate!](https://www.raywenderlich.com/51992/storyboards-vs-nibs-vs-code-the-great-debate)
 
 ##### [UIKit의 모든 화면 요소 Sample을 받아서 분석](https://developer.apple.com/library/content/samplecode/UICatalog/Introduction/Intro.html)
+
+### 7. Frame과 Bounds
+
+##### 프로그래밍 요구사항
+* 스토리보드에서 Button을 추가하고, Attributes에서 Type을 Info Light로 설정함
+* 새로운 ViewController를 옆에 추가하고, Button에서 Segue를 연결함
+* Segue를 선택하고 Kind를 Present Modally로 지정하고, Transition을 Flip Horizontal로 설정한다.
+* 새롭게 추가한 화면을 관리자 모드로 동작하도록 개선한다.
+    * 이미지와 재고 추가 버튼을 복사해서 관리자 화면으로 복사하고, 동작하도록 코드를 수정한다.
+    * 재고 추가 버튼은 기존 화면에서 삭제한다.
+    * 관리자 화면에 [닫기] 버튼을 추가하고, 버튼을 누르면 dissmiss()를 호출한다.
+* 다른 동작은 이전 단계와 동일하게 동작해야 한다.
+
+##### View를 코드로 생성해서 추가하는 것과 Storyboard 상에서 미리 생성하는 것의 차이점

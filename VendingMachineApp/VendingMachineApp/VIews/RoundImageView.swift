@@ -29,6 +29,7 @@ class RoundImageView: UIImageView {
         super.init(image: image)
         self.position = position
         movePoints()
+        setup()
         self.frame = cgRect
     }
     

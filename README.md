@@ -152,3 +152,6 @@ Localized resources must be placed in language-specific project directories, the
 - 사용방법
   - [참고링크 -  Abhimuralidharan](https://medium.com/@abhimuralidharan/what-is-an-iboutletcollection-in-ios-78cfbc4080a1)
   - [참고동영상 - Mitchell Hudson](https://www.youtube.com/watch?v=OoP1fEzH1F0)
+
+### super.awakeFromNib()
+[참고](https://developer.apple.com/documentation/objectivec/nsobject/1402907-awakefromnib)

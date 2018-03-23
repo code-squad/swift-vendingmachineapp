@@ -9,8 +9,8 @@
 import Foundation
 
 class PurchaseProduct: NSObject, NSCoding {
-    private var purchaseDate: Date
-    private var purchaseBeverage: Beverage
+    private(set) var purchaseDate: Date
+    private(set) var purchaseBeverage: Beverage
     override init() {
         purchaseDate = Date()
         purchaseBeverage = Beverage()

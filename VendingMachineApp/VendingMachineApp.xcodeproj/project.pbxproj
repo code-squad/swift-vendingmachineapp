@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		409433E3D682F5601703F84A /* Pods_VendingMachineAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3919BE56C2E68A0B1F3B228D /* Pods_VendingMachineAppTests.framework */; };
+		4500243520648FBC00181271 /* ImageViewMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4500243420648FBC00181271 /* ImageViewMaker.swift */; };
 		450238D820637A49004566C7 /* PurchaseProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450238D720637A49004566C7 /* PurchaseProduct.swift */; };
 		450238DA2063A82C004566C7 /* ImageMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450238D92063A82C004566C7 /* ImageMapper.swift */; };
 		45B7637E205FDC5200D68608 /* VendingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B7637D205FDC5200D68608 /* VendingProtocol.swift */; };
@@ -71,6 +72,7 @@
 		2DD51F2E908260AEECDF7194 /* Pods_VendingMachineApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VendingMachineApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		382A922FA53EE30F774A31CC /* Pods-VendingMachineAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VendingMachineAppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-VendingMachineAppUITests/Pods-VendingMachineAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		3919BE56C2E68A0B1F3B228D /* Pods_VendingMachineAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VendingMachineAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4500243420648FBC00181271 /* ImageViewMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewMaker.swift; sourceTree = "<group>"; };
 		450238D720637A49004566C7 /* PurchaseProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseProduct.swift; sourceTree = "<group>"; };
 		450238D92063A82C004566C7 /* ImageMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageMapper.swift; sourceTree = "<group>"; };
 		45B7637D205FDC5200D68608 /* VendingProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingProtocol.swift; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 				45B7637D205FDC5200D68608 /* VendingProtocol.swift */,
 				450238D720637A49004566C7 /* PurchaseProduct.swift */,
 				450238D92063A82C004566C7 /* ImageMapper.swift */,
+				4500243420648FBC00181271 /* ImageViewMaker.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -632,6 +635,7 @@
 				45E62B4D205129AB00FC3738 /* Coffee.swift in Sources */,
 				45E62AF720511EC000FC3738 /* AppDelegate.swift in Sources */,
 				45E62B3C2051289600FC3738 /* VendingMachine.swift in Sources */,
+				4500243520648FBC00181271 /* ImageViewMaker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

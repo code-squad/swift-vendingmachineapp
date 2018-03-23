@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     var vendingMachine: Vending!
     var inventoryBox = InventoryBox()
     typealias TypeOf = InventoryBox.InventoryMenu
+    var imageX = 0
 
     @IBOutlet var countOfMenu: [UILabel]!
     @IBOutlet var imageOfMenu: [UIImageView]!
@@ -23,7 +24,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         vendingMachine = VendingMachine.sharedInstance()
         changeInventoryBox()
-        
+        for products in vendingMachine.showPurchaseProductHistory() {
+            printPurchaseProducts(beverage: products.purchaseBeverage)
+        }
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyyMMdd"
         
@@ -74,9 +77,25 @@ class ViewController: UIViewController {
         self.present(alert, animated: true)
     }
     
-    func printPurchaseImage(type: TypeOf) {
+    func addPurchaseProductHistory(type: TypeOf) {
         let beverageName = self.vendingMachine.choiceBeverageData(menuType: type)
         self.vendingMachine.buyBeverage(beverageName: beverageName)
+        guard let vending = self.vendingMachine as? VendingMachine else {
+            return
+        }
+        VendingMachine.storedInstance(vending)
+    }
+    
+    func printPurchaseProducts(beverage: Beverage) {
+        let imageName = String(describing: beverage.bringImageName)
+        guard let image = UIImage(named: imageName) else {
+            return
+        }
+        
+        let imageView = ImageViewMaker.makeImageView(imageX: imageX)
+        imageView.image = image
+        self.view.addSubview(imageView)
+        self.imageX += 50
     }
     
     @objc func changeInventoryBox() {
@@ -85,25 +104,13 @@ class ViewController: UIViewController {
         }
     }
     @objc func changePurchaseHistory(_ notification: Notification) {
-        for (index, menu) in TypeOf.kind.enumerated() {
-            countOfMenu[index].text = String(vendingMachine.beverageNumberOf(menuType: menu))
-        }
         guard let data = notification.userInfo as? [String: Beverage] else {
             return
         }
         guard let beverage = data["purchasedBeverage"] else {
             return
         }
-        
-        // 이미지 선택 및 위치 설정
-        let imageName = String(describing: beverage.bringImageName)
-        guard let image = UIImage(named: imageName) else {
-            return
-        }
-        //let image = UIImage(named: String(describing: beverage.bringImageName))
-        let imageView = UIImageView(frame: CGRect(x: 40, y: 575, width: 140, height: 100))
-        imageView.image = image
-        self.view.addSubview(imageView)
+        printPurchaseProducts(beverage: beverage)
     }
     
     @IBAction func addBeverage(sender: UIButton) {
@@ -119,7 +126,7 @@ class ViewController: UIViewController {
         for button in purchaseOfMenu where button.tag == sender.tag {
             type = vendingMachine.typeSelector(tag: button.tag)
         }
-        printPurchaseImage(type: type)
+        addPurchaseProductHistory(type: type)
     }
     
     @IBAction func removeAllBeverage(_ sender: Any) {

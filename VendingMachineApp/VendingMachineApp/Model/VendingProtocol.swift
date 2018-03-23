@@ -18,4 +18,5 @@ protocol Vending {
     func buyBeverage(beverageName: Beverage)
     func showPurchaseProductHistory() -> [PurchaseProduct]
     func putCoins(coins: Int)
+    func checkBalance () -> Int
 }

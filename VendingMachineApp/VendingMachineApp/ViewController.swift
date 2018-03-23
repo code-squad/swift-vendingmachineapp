@@ -24,6 +24,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         vendingMachine = VendingMachine.sharedInstance()
         changeInventoryBox()
+        changeCoin()
         for products in vendingMachine.showPurchaseProductHistory() {
             printPurchaseProducts(beverage: products.purchaseBeverage)
         }
@@ -44,6 +45,11 @@ class ViewController: UIViewController {
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(changePurchaseHistory),
                                                name: Notification.Name.DidResetPurchaseHistory,
+                                               object: nil)
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(changeCoin),
+                                               name: Notification.Name.DidResetBalance,
                                                object: nil)
     }
 
@@ -114,6 +120,10 @@ class ViewController: UIViewController {
         printPurchaseProducts(beverage: beverage)
     }
     
+    @objc func changeCoin() {
+        balance.text = String(vendingMachine.checkBalance())
+    }
+    
     @IBAction func addBeverage(sender: UIButton) {
         var type = TypeOf.otherBeverage
         for button in addNumberOfMenu where button.tag == sender.tag {
@@ -136,5 +146,6 @@ class ViewController: UIViewController {
     
     @IBAction func addBalance(_ button: UIButton) {
         self.vendingMachine.putCoins(coins: button.tag)
+        changeCoin()
     }
 }

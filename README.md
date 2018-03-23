@@ -370,50 +370,8 @@ init(image: UIImage?, position: CGFloat) {
 <img src="./images/vendingmachine-app-result-6.png"></img>
 
 
-##### Storyboard, Nib(Xib) Files, Custom Code
-* Storyboard
-    * 장점
-        * View Controller 사이에서 이동이 주된 목적인 경우
-        * Navigation 흐름(push, pop, present, dismiss 등)을 작업이 쉬움
-        * View Controller가 자동으로 생성되므로 deinit이나 init을 해줄 필요 없음
-        * 프로토타입을 만들 때 유용함
-        * Table View Controller 사용할 때 장점이 있음
-            * Cell과 함께 디자인해서 Table View와 함께 둘 수 있음
-            * 여러 형태 Cell 템플릿을 디자인 할 수 있음
-            * Static Cell 사용 가능함(스토리보드에서만 가능)
-    * 단점
-        * Storyboard를 한 덩어리로 만들지 말자
-            * 기능, 주제, 메뉴 등 분류하여 여러 개 스토리보드로 구현해야 함
-        * 여러 사람이 작업할 경우 출동이 발생할 수 있음. Merge 작업이 쉽지 않음
-        * 재사용성. 스토리보드에 지나치게 의존되어 있음. 그렇기 때문에 모든 View Controller 복사 또는 옮겨야 함
-* Nib(Xib) Files
-    * 장점
-        * 객체지향 관점에서 View를 분리된 모듈로 나눠서 개발, 테스트, 디버그를 쉽게 해줌
-        * ModalView, 간단한 로그인, 회원가입 => 동일한 레이아웃을 공유하는 경우
-        * 재사용 가능한 View, Table Cell => 재사용성
-    * 단점    
-        * 성능
-        * Nib(Xib)는 필요할 때 로드함. 필요할 때 메모리로 사용하지 않으나 로드할 때 지연이 발생할 수 있음
-* 코드로 작성
-    * 장점
-        * 스토리보드와 Nib(Xib) 으로 할 수 있는 모든 것이 코드로 가능함
-        * 스토리보드나 Nib(Xib)로 만들 수 없는 동적인 View나 복잡한 레이아웃을 가진 View를 만들 수 있음
-        * 코드를 작성하는 법을 알면 어떻게 움직이는지 이해할 수 있음
-        * UI를 코드로 작성하면 더 많은 제어를 할 수 있고 이해할 수 있는 범위가 넓어짐
-        * Merge 충돌을 해결하는 것이 어렵지 않음
-        * 코드로 만든 UI는 결국 코드로 변화해야 하는 작업을 거치지 않기 때문에 성능이 좋음
-        * 재사용성 가능한 디자인으로 구현할 수 있음
-    * 단점
-        * 프로토타입 제작이 스토리보드에 비해 시간이 오래 걸림
-        * 리팩토링이 어려움 
-* _결론은 3개를 적절히 사용하는 것이 좋음_
-    * 연관있는 화면을 별도로 그룹으로 모으고 각각 그룹을 분리된 Storyboard로 구현함
-    * Storyboard의 Table View Controller 내에 재사용성할 수 없는 Table Cell을 디자인함
-    * Nib(Xib) 재사용 가능한 테이블 셀을 디자인함. Nib은 코드를 불러들임
-    * Custom View, View Controller 사이에서 Nib으로 디자인함
-    * Dynaimc View, 일반적으로 Storyboard, Nib(Xib)로 쉽게 구현할 수 없는 View를 코드로 구현함
-* [iOS User Interfaces: Storyboards vs. NIBs vs. Custom Code](https://www.toptal.com/ios/ios-user-interfaces-storyboards-vs-nibs-vs-custom-code)
-* [Storyboards vs NIBs vs Code: The Great Debate!](https://www.raywenderlich.com/51992/storyboards-vs-nibs-vs-code-the-great-debate)
+##### Storyboard, Nib(Xib) Files, Custom Code 이용하여 View를 만드는 것에 대한 차이점
+* [정리](https://wiki.yuaming.com/ios/storyboard-nib-code-difference.html)
 
 ##### [UIKit의 모든 화면 요소 Sample을 받아서 분석](https://developer.apple.com/library/content/samplecode/UICatalog/Introduction/Intro.html)
 
@@ -435,3 +393,24 @@ init(image: UIImage?, position: CGFloat) {
 <img src="./images/vendingmachine-app-result-7-1.png" width="45%"></img>
 <img src="./images/vendingmachine-app-result-7-2.png" width="45%"></img>
 
+##### Frame, Bounds
+* [정리](https://wiki.yuaming.com/ios/frame-bounds.html)
+
+### 8. 코어 그래픽스(Core Graphics)
+
+##### 요구사항
+* 2D 그래픽을 그리는 Core Graphics API에 대해 학습함
+* 관리자 화면에 파이 그래프를 그리는 커스텀 View를 구현함
+
+##### 프로그래밍 요구사항
+* UIView에서 상속받는 새로운 PieGraphView 클래스를 추가함
+* 스토리보스에서 관리자 화면에 UIView를 추가하고, Identity에서 Custom Class 항목에 PieGraphView를 지정함. 크기는 400 x 400 크기 정도로 지정함
+* PieGraphView 속성에 음료 구매목록 배열을 추가함
+* PieGraphView.swift 파일에 drawRect() 메서드에서 구매목록 배열를 참고해서 전체 구매 항목 중에 종류별 음료수가 얼마나 차지하는지 Pie로 표시함
+* 관리자 화면의 viewWillAppear() 메서드에서 PieGraphView 객체에 구매 목록을 업데이트함
+
+##### 결과
+
+##### 2D 그래프를 그리기 위해 다양한 색상과 배경을 가진 점, 선, 면을 그리는 연습하기
+
+##### 패스(Path)를 이용해서 한꺼번에 그리는 연습하기

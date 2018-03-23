@@ -21,7 +21,7 @@ struct Controller {
             SoftDrink(brand: "코카콜라", weight: 500, price: 2000, name: "제로코크", manufactured: "20171005")
         ]
 
-        func addItems(_ index: Int) throws -> Beverage {
+        func addItem(_ index: Int) throws -> Beverage {
             guard 0...beverages.count-1 ~= index else {
                 throw Exception.outOfStock
             }

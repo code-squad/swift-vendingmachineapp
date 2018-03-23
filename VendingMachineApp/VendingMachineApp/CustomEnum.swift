@@ -55,11 +55,13 @@ enum Package {
 enum ValidMoney {
     case thousand
     case fiveThousand
+    case zero
 
     var cash: Int {
         switch self {
         case .thousand: return 1000
         case .fiveThousand: return 5000
+        case .zero: return 0
         }
     }
 }

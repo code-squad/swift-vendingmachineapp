@@ -44,6 +44,7 @@
 		87DC71452051081B00B0F76A /* Inventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DC712E2051081B00B0F76A /* Inventory.swift */; };
 		87DC71462051081B00B0F76A /* BeverageMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DC712F2051081B00B0F76A /* BeverageMenu.swift */; };
 		87DC71472051081B00B0F76A /* DateUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DC71312051081B00B0F76A /* DateUtility.swift */; };
+		87EE93A72064C52E000D9B21 /* PieGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87EE93A62064C52E000D9B21 /* PieGraphView.swift */; };
 		DE9109302350D6893271B8D8 /* Pods_VendingMachineApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02784DDD89C9E562208ED71A /* Pods_VendingMachineApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -100,6 +101,7 @@
 		87DC712E2051081B00B0F76A /* Inventory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Inventory.swift; sourceTree = "<group>"; };
 		87DC712F2051081B00B0F76A /* BeverageMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeverageMenu.swift; sourceTree = "<group>"; };
 		87DC71312051081B00B0F76A /* DateUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateUtility.swift; sourceTree = "<group>"; };
+		87EE93A62064C52E000D9B21 /* PieGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieGraphView.swift; sourceTree = "<group>"; };
 		BD0F49E0C66FF6E0EB2AE538 /* Pods-VendingMachineApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VendingMachineApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-VendingMachineApp/Pods-VendingMachineApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -155,6 +157,7 @@
 		874EDDA220595F09003BFDD8 /* VIews */ = {
 			isa = PBXGroup;
 			children = (
+				87EE93A62064C52E000D9B21 /* PieGraphView.swift */,
 				874EDD9E20595B35003BFDD8 /* RoundImageView.swift */,
 				8775F7B72063777600271FE8 /* SalesHistoryView.swift */,
 			);
@@ -183,6 +186,7 @@
 		87DC71032051005E00B0F76A /* VendingMachineApp */ = {
 			isa = PBXGroup;
 			children = (
+				87EE93A82064C537000D9B21 /* Controllers */,
 				874EDDA220595F09003BFDD8 /* VIews */,
 				871FE6E020562CA700BABAF1 /* Resources */,
 				87DC711B2051081B00B0F76A /* Extensions */,
@@ -190,12 +194,10 @@
 				87DC71172051081B00B0F76A /* Protocols */,
 				87DC71302051081B00B0F76A /* Utilities */,
 				87DC71042051005E00B0F76A /* AppDelegate.swift */,
-				87DC71062051005E00B0F76A /* UserViewController.swift */,
 				87DC71082051005E00B0F76A /* Main.storyboard */,
 				87DC710B2051005E00B0F76A /* Assets.xcassets */,
 				87DC710D2051005E00B0F76A /* LaunchScreen.storyboard */,
 				87DC71102051005E00B0F76A /* Info.plist */,
-				8775F7BB20638DC400271FE8 /* AdminViewController.swift */,
 			);
 			path = VendingMachineApp;
 			sourceTree = "<group>";
@@ -265,6 +267,15 @@
 				874EDDA020595EB3003BFDD8 /* Formatter.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		87EE93A82064C537000D9B21 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				87DC71062051005E00B0F76A /* UserViewController.swift */,
+				8775F7BB20638DC400271FE8 /* AdminViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -448,6 +459,7 @@
 				87DC713A2051081B00B0F76A /* Georgia.swift in Sources */,
 				87DC71342051081B00B0F76A /* Userable.swift in Sources */,
 				874EDD9F20595B35003BFDD8 /* RoundImageView.swift in Sources */,
+				87EE93A72064C52E000D9B21 /* PieGraphView.swift in Sources */,
 				87DC71052051005E00B0F76A /* AppDelegate.swift in Sources */,
 				87DC71442051081B00B0F76A /* Money.swift in Sources */,
 				87DC71332051081B00B0F76A /* InventoryCountable.swift in Sources */,

@@ -83,6 +83,8 @@ class ViewController: UIViewController {
 
     private func setBalance() {
         self.balanceLabel.text = "\(vending.showBalance())원"
+        self.balanceLabel.adjustsFontSizeToFitWidth = true
+        self.balanceLabel.textAlignment = .center
     }
 
     override func viewDidLoad() {

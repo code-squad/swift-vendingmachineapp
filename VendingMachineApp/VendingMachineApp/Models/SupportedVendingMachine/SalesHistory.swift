@@ -33,7 +33,7 @@ final class SalesHistory {
         var history: [String] = []
         
         for (index, date) in saleDate.enumerated() {
-            let beverage = saleBeverageMenus[index].makeInstance()
+            let beverage = BeverageMaker.newInstances(saleBeverageMenus[index])
             history.append("\(dateFormatter.string(from: date)) -> \(beverage.description)")
         }
         

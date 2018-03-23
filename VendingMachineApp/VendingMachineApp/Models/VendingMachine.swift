@@ -101,7 +101,7 @@ extension VendingMachine: Userable {
     }
 
     func buyBeverage(beverageMenu: BeverageMenu) throws {
-        let beverage = beverageMenu.makeInstance()
+        let beverage = BeverageMaker.newInstances(beverageMenu)
         salesHistory = salesHistory.addSalesHistory(date: DateUtility.today(), beverageMenu: beverageMenu)
         try deductBeverage(beverageMenu: beverageMenu)
         try deductMoney(coin: beverage.price)
@@ -115,20 +115,6 @@ extension VendingMachine: MachineManagerable {
 
     func deductBeverage(beverageMenu: BeverageMenu, quantity: Int = 1) throws {
         inventory = try inventory.deduct(beverageMenu: beverageMenu, quantity: quantity)
-    }
-    
-    func fetchListOfPurchasableBeverages() -> [BeverageBox] {
-        return inventory.fetchListOfBeverage().filter ({
-            $0.beverageMenu.makeInstance().price <= money
-        })
-    }
-    
-    func fetchListOfHottedBeverage() -> [BeverageMenu] {
-        return BeverageMenu.filterHottedBeverages()
-    }
-    
-    func fetchListOfValidDate() -> [BeverageMenu] {
-        return BeverageMenu.filterExpireDateOnToday()
     }
 }
 

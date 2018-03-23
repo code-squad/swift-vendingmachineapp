@@ -16,4 +16,5 @@ protocol Vending {
     func beverageNumberOf(menuType: InventoryBox.InventoryMenu) -> Int
     func typeSelector(tag: Int) -> InventoryBox.InventoryMenu
     func buyBeverage(beverageName: Beverage)
+    func showPurchaseProductHistory() -> [PurchaseProduct]
 }

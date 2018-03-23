@@ -69,4 +69,8 @@ extension String{
     init(balanceFormat: Int) {
         self = String(format: "\(balanceFormat) 원", balanceFormat)
     }
+
+    init(amountFormat: Int) {
+        self = String(format: "\(amountFormat)개", amountFormat)
+    }
 }

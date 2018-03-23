@@ -26,7 +26,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func addButtonTouched(sender: UIButton) {
-        guard let item = try? Controller.AdminController().addItems(sender.tag) else { return }
+        guard let item = try? Controller.AdminController().addItem(sender.tag) else { return }
         vending.add(inputItem: item)
         self.updateItemNumber()
     }
@@ -38,7 +38,7 @@ class ViewController: UIViewController {
         case 1:
             vending.addBalance(money: ValidMoney.fiveThousand.cash)
         default:
-            vending.addBalance(money: 0)
+            vending.addBalance(money: ValidMoney.zero.cash)
         }
         self.setBalance()
     }

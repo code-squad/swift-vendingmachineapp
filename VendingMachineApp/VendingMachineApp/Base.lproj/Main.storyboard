@@ -23,7 +23,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="추가"/>
                                 <connections>
-                                    <action selector="test" destination="BYZ-38-t0r" eventType="touchUpInside" id="J4P-cO-gYF"/>
+                                    <action selector="bananaMilkTouchedWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1re-6F-NQY"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OK1-hC-dJQ">
@@ -31,7 +31,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="추가"/>
                                 <connections>
-                                    <action selector="test" destination="BYZ-38-t0r" eventType="touchUpInside" id="SRM-D1-opc"/>
+                                    <action selector="chocoMilkTouchedWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zmv-TZ-B4S"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TvP-21-09W">
@@ -39,7 +39,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="추가"/>
                                 <connections>
-                                    <action selector="test" destination="BYZ-38-t0r" eventType="touchUpInside" id="XqG-Pd-SiH"/>
+                                    <action selector="coffeeTouchedWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vaN-m3-bhc"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pjx-rB-xb8">
@@ -47,7 +47,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="추가"/>
                                 <connections>
-                                    <action selector="test" destination="BYZ-38-t0r" eventType="touchUpInside" id="nuA-YQ-fY3"/>
+                                    <action selector="energyDrinkTouchedWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7kE-fs-8zZ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dJ5-eP-xul">
@@ -55,7 +55,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="추가"/>
                                 <connections>
-                                    <action selector="test" destination="BYZ-38-t0r" eventType="touchUpInside" id="jwS-Tl-kMQ"/>
+                                    <action selector="softDrinkTouchedWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hLt-1e-dy7"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dHE-62-6tz">
@@ -118,7 +118,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="추가"/>
                                 <connections>
-                                    <action selector="test" destination="BYZ-38-t0r" eventType="touchUpInside" id="jks-t5-Mfo"/>
+                                    <action selector="dolceLatteTouchedWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SH6-t5-1dv"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="02v-m8-kyR">
@@ -136,26 +136,33 @@
                                 <rect key="frame" x="853" y="200" width="48" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="+ 1000"/>
+                                <connections>
+                                    <action selector="addBalance:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CQB-0o-3iG"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="5000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xn2-db-vkA">
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="5000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xn2-db-vkA">
                                 <rect key="frame" x="946" y="199" width="51" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="+ 5000"/>
+                                <connections>
+                                    <action selector="addBalance:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HpJ-wa-FJJ"/>
+                                </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" restorationIdentifier="balance" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IpP-nZ-l6U">
-                                <rect key="frame" x="910" y="277" width="42" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" restorationIdentifier="balance" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IpP-nZ-l6U">
+                                <rect key="frame" x="865" y="277" width="132" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.84903796542526144" green="0.94034631037465877" blue="0.98328930139541626" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="balanceLabel" destination="IpP-nZ-l6U" id="edX-yi-jYS"/>
                         <outlet property="bananaMilk" destination="PWs-xi-rZx" id="bPu-k9-UM9"/>
-                        <outlet property="bananaMilkButton" destination="4Ae-Xq-4xf" id="Yen-yb-QcZ"/>
+                        <outlet property="bananaMilkButton" destination="4Ae-Xq-4xf" id="BBn-o5-xyh"/>
                         <outlet property="bananamilkStock" destination="dHE-62-6tz" id="wRd-dY-rVw"/>
                         <outlet property="chocoMilkButton" destination="OK1-hC-dJQ" id="04v-Wn-MEC"/>
                         <outlet property="chocomilk" destination="RpD-bV-zkI" id="uCT-gi-cqQ"/>
@@ -172,15 +179,8 @@
                         <outlet property="softDrink" destination="EM7-eR-Ulc" id="0vG-BN-U5n"/>
                         <outlet property="softDrinkButton" destination="dJ5-eP-xul" id="VSf-RW-KUS"/>
                         <outlet property="softdrinkStock" destination="NRi-3r-Gha" id="sKP-Rk-H6B"/>
-                        <outletCollection property="addButtons" destination="4Ae-Xq-4xf" collectionClass="NSMutableArray" id="vNM-hU-xi2"/>
-                        <outletCollection property="addButtons" destination="OK1-hC-dJQ" collectionClass="NSMutableArray" id="JtI-vD-fy8"/>
-                        <outletCollection property="addButtons" destination="TvP-21-09W" collectionClass="NSMutableArray" id="Ia7-oe-etz"/>
-                        <outletCollection property="addButtons" destination="pjx-rB-xb8" collectionClass="NSMutableArray" id="q5f-7n-rYN"/>
-                        <outletCollection property="addButtons" destination="dJ5-eP-xul" collectionClass="NSMutableArray" id="to2-aY-jxN"/>
-                        <outletCollection property="beverageLabels" destination="PCX-VD-c7u" collectionClass="NSMutableArray" id="4Li-t5-MWI"/>
-                        <outletCollection property="beverageLabels" destination="cGV-c5-zHa" collectionClass="NSMutableArray" id="wJo-5I-yPc"/>
-                        <outletCollection property="beverageLabels" destination="QJC-KZ-SmB" collectionClass="NSMutableArray" id="xTs-3F-UMq"/>
-                        <outletCollection property="beverageLabels" destination="NRi-3r-Gha" collectionClass="NSMutableArray" id="ILG-Uf-KAt"/>
+                        <outletCollection property="moneyButtons" destination="lyn-hO-lIX" collectionClass="NSMutableArray" id="dWI-8w-Ltq"/>
+                        <outletCollection property="moneyButtons" destination="Xn2-db-vkA" collectionClass="NSMutableArray" id="YZ0-Km-aXn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -101,36 +101,9 @@ for index in 0..<9 {
 }
 ```
 
----
-
-
-# VendingMachineApp step3
-
-<<<<<<< HEAD
->  앱 생명주기와 객체 저장
-
-앱 시작부터 종료까지 생명주기를 관리하는 방법을 학습한다.<br  />
-앱 실행 이후 마지막 자판기 재고 상태와 잔액 등 VendingMachine 객체의 속성을 앱을 종료하더라도 저장하도록 개선한다.<br  />
-앱을 다시 실행하면 마지막 재고 상태를 그대로 복원한다.<br  />
-객체의 속성을 저장하기 위한 아카이브(Archive) 관련된 내용을 학습한다.<br  />
-실행하고 새로운 화면을 캡처해서 readme.md 파일에 포함한다.<br  />
-
----
-
-
-- ***실행 화면***
 <br  />
-<img src="/img/vending_step3.gif" width="80%" height="80%"><br  />
-
-
-- ***학습꺼리***
-###  # 사용자 설정값을 저장하는 UserDefault 클래스에 대해 학습한다. (UserDefault에서 저장할 수 있는 데이터 타입들을 학습한다.)<br  />
-: UserDefault에서 저장할 수 있는 데이터 타입은 NSData, NSString, NSNumber, NSDate, NSArray, or NSDictionary가 있다.
-
 ---
 
-=======
->>>>>>> 682acb486ba35ffef31e3aeabf2950e8694d5579
 # VendingMachineApp step3
 
 >  앱 생명주기와 객체 저장
@@ -187,3 +160,83 @@ VendingMachine 싱글톤으로 sharedInstance 인터페이스를 통해서 AppDe
 단점 - 클래스들 간의 결합도가 높아져서 객체지향 설계 원칙인 개방-폐쇄 원칙에 위배된다.
 
 ---
+
+
+# VendingMachineApp step5
+
+> 관찰자(Observer) 패턴
+
+ViewController는 viewDidLoad에서 Observe를 등록한다.<br  />
+음식 재고가 바뀌는 Notification을 받으면 화면에 Label을 업데이트한다.<br  />
+추가 버튼을 누르면 해당 음식 재고를 모델에 추가할 때마다
+VendingMachine 모델 객체에서는 변화에 대해 NotificationCenter에 post한다.<br  />
+모든 동작은 이전 단계와 동일하게 동작해야 한다.<br  />
+
+---
+
+- ***학습꺼리***
+
+### # 다양한 Observer 등록 패턴을 학습한다.
+: Observer 등록은 다음과 같다.
+
+
+```swift
+NotificationCenter.default.addObserver(self,
+			selector: #selector(changeInventoryBox),
+			name: Notification.Name.DidResetInventoryBox,
+			object: nil)
+```
+
+옵저버는 프로토콜, 클래스 등에서 생성하여 등록할 수 있다.
+
+```swift 
+protocol Observable {
+    func addObserver(_ observer: Observer)
+    func removeObserver(_ observer: Observer)
+}
+protocol Observer: class {
+    func update(_ temp: Float, density: Float)
+}
+```
+
+```swift
+class Observation: Observable {
+    var observers = [Observer]()
+    func addObserver(_ observer: Observer) {
+        observers.append(observer)
+    }
+    func removeObserver(_ observer: Observer) {
+        observers = observers.filter({ $0 !== observer })
+    }
+}
+```
+
+출처: https://magicmon.github.io/2017/07/04/Observer-Pattern/
+
+### # 모델과 컨트롤러가 직접 참조하지 않고 느슨하게 연결된 (loosed coupled) 구조가 왜 좋은지 토론한다.
+: 모델과 컨트롤러 간의 의존성이 낮아져서 확장성이 좋아지기 때문이다.
+
+---
+
+
+# VendingMachineApp step6
+
+> 구매목록 View 코드
+
+실행이후 구매 목록을 화면 아래 이미지로 추가한다.<br  />
+구매 목록도 앱 종료이후에 저장되도록 개선한다.<br  />
+특정 제품을 구매할 때마다 해당 제품 이미지를 추가하도록 구현한다.<br  />
+(NotificationCenter를 활용하자!)<br  />
+특정 시점에 self.view.addSubView() 메서드로 UIImageView를 수동 추가<br  />
+
+---
+
+- ***학습꺼리***
+
+### # 뷰를 코드로 생성해서 추가하는 것과 스토리보드 상에서 미리 생성하는 것의 차이에 대해 학습한다.
+
+: 뷰를 코드로 생성해서 추가하는 것은 동적으로 필요할 때 뷰를 만들 수 있다는 장점이 있고, 스토리보드 상에서 미리 생성하여 정적으로 안정적인 뷰를 만들 수 있다.
+<br  />
+
+- ***실행 화면***
+<br  />

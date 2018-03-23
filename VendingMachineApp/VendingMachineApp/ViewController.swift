@@ -53,14 +53,13 @@ class ViewController: UIViewController {
         self.setBalance()
     }
 
-
     private func updateItemNumber() {
-        self.bananamilkStock.text = "\(vending.howMany(of: BananaMilk()))개"
-        self.chocomilkStock.text = "\(vending.howMany(of: ChocoMilk()))개"
-        self.coffeeStock.text = "\(vending.howMany(of: Coffee()))개"
-        self.dolcelatteStock.text = "\(vending.howMany(of: DolceLatte()))개"
-        self.energydrinkStock.text = "\(vending.howMany(of: EnergyDrink()))개"
-        self.softdrinkStock.text = "\(vending.howMany(of: SoftDrink()))개"
+        self.bananamilkStock.text = String(amountFormat: vending.howMany(of: BananaMilk()))
+        self.chocomilkStock.text = String(amountFormat: vending.howMany(of: ChocoMilk()))
+        self.coffeeStock.text = String(amountFormat: vending.howMany(of: Coffee()))
+        self.dolcelatteStock.text = String(amountFormat: vending.howMany(of: DolceLatte()))
+        self.energydrinkStock.text = String(amountFormat: vending.howMany(of: EnergyDrink()))
+        self.softdrinkStock.text = String(amountFormat: vending.howMany(of: SoftDrink()))
     }
 
     private func setBalance() {

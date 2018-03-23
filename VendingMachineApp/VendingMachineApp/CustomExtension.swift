@@ -62,3 +62,11 @@ extension Dictionary {
         return newSet
     }
 }
+
+// MARK: Extension String
+
+extension String{
+    init(balanceFormat: Int) {
+        self = String(format: "\(balanceFormat) 원", balanceFormat)
+    }
+}

@@ -44,9 +44,9 @@ class ViewController: UIViewController {
     @IBAction func addBalance(_ sender: UIButton) {
         switch sender.tag {
         case 0:
-            vending.addBalance(money: 1000)
+            vending.addBalance(money: ValidMoney.thousand.cash)
         case 1:
-            vending.addBalance(money: 5000)
+            vending.addBalance(money: ValidMoney.fiveThousand.cash)
         default:
             vending.addBalance(money: 0)
         }
@@ -64,7 +64,7 @@ class ViewController: UIViewController {
     }
 
     private func setBalance() {
-        self.balanceLabel.text = "\(vending.showBalance())원"
+        self.balanceLabel.text = String(balanceFormat: vending.showBalance())
         self.balanceLabel.adjustsFontSizeToFitWidth = true
         self.balanceLabel.textAlignment = .center
     }

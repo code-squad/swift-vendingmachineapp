@@ -139,6 +139,10 @@ Localized resources must be placed in language-specific project directories, the
 > - 금액 입력 버튼을 누르면 해당 금액을 추가>하도록 코드를 구현한다.
 > - 금액을 추가하고 나면 잔액 레이블을 다시 표시한다.
 
+- 구현화면 : 2018.03.23 12:10
+<img src="./Screenshot/step2-1.png" width="80%">
+
+
 ### IBOutlet Collection
 - 특징
   - IBOutlet Collection을 사용하면 중복되는 outlet요소들을 합칠 수 있다.

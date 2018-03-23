@@ -41,7 +41,7 @@ class VendingMachine: NSObject, NSCoding, Vending {
     
     // 자판기 금액을 원하는 금액만큼 올리는 메소드
     func putCoins(coins: Int) {
-        self.coins = coins
+        self.coins += coins
     }
     
     // 특정 상품 인스턴스를 넘겨서 재고를 추가하는 메소드
@@ -118,4 +118,5 @@ class VendingMachine: NSObject, NSCoding, Vending {
 extension Notification.Name {
     static let DidResetInventoryBox = Notification.Name("changeInventoryBox")
     static let DidResetPurchaseHistory = Notification.Name("changePurchaseHistory")
+    static let DidResetBalance = Notification.Name("changeCoin")
 }

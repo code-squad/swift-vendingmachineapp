@@ -131,3 +131,20 @@ main함수를 보면 알 수 있지만, (함수의 리턴 부분을 보면)UIApp
 \* *Settings bundle*: If you want to expose custom app preferences through the Settings app, you must include a settings bundle.
 \* *Subdirectories for localized resources*: An iOS app should be internationalized and have a language.lproj directory for each language it supports.<br/>
 Localized resources must be placed in language-specific project directories, the names for which consist of an ISO 639-1 language abbreviation plus the .lproj suffix. (For example, the en.lproj, fr.lproj, and es.lproj directories contain resources localized for English, French, and Spanish.)
+
+
+## Step2 - MVC 패턴
+> - 각 상품의 재고 추가 버튼을 누르면 각 상품 재고를 추가하도록 코드를 구현한다.
+> - 재고 추가 버튼을 누르고 나면 전체 레이블을 다시 표시한다.
+> - 금액 입력 버튼을 누르면 해당 금액을 추가>하도록 코드를 구현한다.
+> - 금액을 추가하고 나면 잔액 레이블을 다시 표시한다.
+
+### IBOutlet Collection
+- 특징
+  - IBOutlet Collection을 사용하면 중복되는 outlet요소들을 합칠 수 있다.
+  - 연결된 ViewController에는 NSArray형태로 저장된다.
+  - 순서가 보장되지 않는다.
+  - index대신에 tag로 요소를 구분한다.
+- 사용방법
+  - [참고링크 -  Abhimuralidharan](https://medium.com/@abhimuralidharan/what-is-an-iboutletcollection-in-ios-78cfbc4080a1)
+  - [참고동영상 - Mitchell Hudson](https://www.youtube.com/watch?v=OoP1fEzH1F0)

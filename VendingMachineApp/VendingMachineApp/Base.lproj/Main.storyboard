@@ -88,7 +88,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cGV-c5-zHa">
-                                <rect key="frame" x="492" y="345" width="42" height="28"/>
+                                <rect key="frame" x="492" y="348" width="42" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -102,30 +102,30 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" tag="4" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NRi-3r-Gha">
-                                <rect key="frame" x="492" y="621" width="42" height="21"/>
+                                <rect key="frame" x="492" y="622" width="42" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PWs-xi-rZx" customClass="BeverageImageView" customModule="VendingMachineApp" customModuleProvider="target">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bananamilk.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="PWs-xi-rZx" customClass="BeverageImageView" customModule="VendingMachineApp" customModuleProvider="target">
                                 <rect key="frame" x="121" y="199" width="136" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RpD-bV-zkI" customClass="BeverageImageView" customModule="VendingMachineApp" customModuleProvider="target">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="chocomilk.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="RpD-bV-zkI" customClass="BeverageImageView" customModule="VendingMachineApp" customModuleProvider="target">
                                 <rect key="frame" x="282" y="198" width="136" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hZy-9d-jMe" customClass="BeverageImageView" customModule="VendingMachineApp" customModuleProvider="target">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="top.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="hZy-9d-jMe" customClass="BeverageImageView" customModule="VendingMachineApp" customModuleProvider="target">
                                 <rect key="frame" x="445" y="199" width="136" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s8V-Hz-ZHQ" customClass="BeverageImageView" customModule="VendingMachineApp" customModuleProvider="target">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="redbull.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="s8V-Hz-ZHQ" customClass="BeverageImageView" customModule="VendingMachineApp" customModuleProvider="target">
                                 <rect key="frame" x="282" y="476" width="136" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EM7-eR-Ulc" customClass="BeverageImageView" customModule="VendingMachineApp" customModuleProvider="target">
-                                <rect key="frame" x="445" y="475" width="136" height="128"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="coke.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="EM7-eR-Ulc" customClass="BeverageImageView" customModule="VendingMachineApp" customModuleProvider="target">
+                                <rect key="frame" x="445" y="476" width="136" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IN8-D5-Y41">
@@ -143,7 +143,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="meI-qP-y0j" customClass="BeverageImageView" customModule="VendingMachineApp" customModuleProvider="target">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="starbucks.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="meI-qP-y0j" customClass="BeverageImageView" customModule="VendingMachineApp" customModuleProvider="target">
                                 <rect key="frame" x="121" y="476" width="136" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -161,26 +161,14 @@
                     </view>
                     <connections>
                         <outlet property="balanceLabel" destination="IpP-nZ-l6U" id="edX-yi-jYS"/>
-                        <outlet property="bananaMilk" destination="PWs-xi-rZx" id="bPu-k9-UM9"/>
                         <outlet property="bananamilkStock" destination="dHE-62-6tz" id="wRd-dY-rVw"/>
-                        <outlet property="chocomilk" destination="RpD-bV-zkI" id="uCT-gi-cqQ"/>
                         <outlet property="chocomilkStock" destination="PCX-VD-c7u" id="MlG-Bc-FH2"/>
-                        <outlet property="coffee" destination="hZy-9d-jMe" id="Vs6-UX-SGI"/>
                         <outlet property="coffeeStock" destination="cGV-c5-zHa" id="hIc-6s-FxM"/>
-                        <outlet property="dolceLatte" destination="meI-qP-y0j" id="36o-4n-yir"/>
                         <outlet property="dolcelatteStock" destination="02v-m8-kyR" id="gZj-rL-2dz"/>
-                        <outlet property="energyDrink" destination="s8V-Hz-ZHQ" id="G79-hg-8N2"/>
                         <outlet property="energydrinkStock" destination="QJC-KZ-SmB" id="ZtK-68-7CJ"/>
-                        <outlet property="softDrink" destination="EM7-eR-Ulc" id="0vG-BN-U5n"/>
                         <outlet property="softdrinkStock" destination="NRi-3r-Gha" id="sKP-Rk-H6B"/>
                         <outletCollection property="moneyButtons" destination="lyn-hO-lIX" collectionClass="NSMutableArray" id="dWI-8w-Ltq"/>
                         <outletCollection property="moneyButtons" destination="Xn2-db-vkA" collectionClass="NSMutableArray" id="YZ0-Km-aXn"/>
-                        <outletCollection property="addButtons" destination="4Ae-Xq-4xf" collectionClass="NSMutableArray" id="8Wy-WC-uu4"/>
-                        <outletCollection property="addButtons" destination="OK1-hC-dJQ" collectionClass="NSMutableArray" id="UpL-lZ-MjH"/>
-                        <outletCollection property="addButtons" destination="TvP-21-09W" collectionClass="NSMutableArray" id="seg-k6-nQr"/>
-                        <outletCollection property="addButtons" destination="IN8-D5-Y41" collectionClass="NSMutableArray" id="14D-rb-zty"/>
-                        <outletCollection property="addButtons" destination="pjx-rB-xb8" collectionClass="NSMutableArray" id="Hzy-AH-zyt"/>
-                        <outletCollection property="addButtons" destination="dJ5-eP-xul" collectionClass="NSMutableArray" id="FlF-eF-8hm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -188,4 +176,12 @@
             <point key="canvasLocation" x="94.964028776978424" y="135.97122302158274"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="bananamilk.jpg" width="460" height="460"/>
+        <image name="chocomilk.jpg" width="500" height="500"/>
+        <image name="coke.jpg" width="1200" height="1200"/>
+        <image name="redbull.jpg" width="640" height="640"/>
+        <image name="starbucks.jpg" width="600" height="600"/>
+        <image name="top.jpg" width="600" height="600"/>
+    </resources>
 </document>

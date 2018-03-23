@@ -12,13 +12,7 @@ class ViewController: UIViewController {
     let vending = VendingMachine(stockItems: Controller().setVendingMachineStock(unit: 1))
     @IBOutlet weak var balanceLabel: UILabel!
     @IBOutlet var moneyButtons: [UIButton]!
-
-    @IBOutlet weak var bananaMilkButton: UIButton!
-    @IBOutlet weak var chocoMilkButton: UIButton!
-    @IBOutlet weak var coffeeButton: UIButton!
-    @IBOutlet weak var dolceLatteButton: UIButton!
-    @IBOutlet weak var energyDrinkButton: UIButton!
-    @IBOutlet weak var softDrinkButton: UIButton!
+    @IBOutlet var addButtons: [UIButton]!
 
     @IBOutlet weak var bananaMilk: BeverageImageView!
     @IBOutlet weak var chocomilk: BeverageImageView!
@@ -34,28 +28,16 @@ class ViewController: UIViewController {
     @IBOutlet weak var energydrinkStock: UILabel!
     @IBOutlet weak var softdrinkStock: UILabel!
 
-    @IBAction func bananaMilkTouched(sender: UIButton) {
-        vending.add(inputItem: BananaMilk())
-        self.updateItemNumber()
-    }
-    @IBAction func chocoMilkTouched(sender: UIButton) {
-        vending.add(inputItem: ChocoMilk())
-        self.updateItemNumber()
-    }
-    @IBAction func coffeeTouched(sender: UIButton) {
-        vending.add(inputItem: Coffee())
-        self.updateItemNumber()
-    }
-    @IBAction func dolceLatteTouched(sender: UIButton) {
-        vending.add(inputItem: DolceLatte())
-        self.updateItemNumber()
-    }
-    @IBAction func energyDrinkTouched(sender: UIButton) {
-        vending.add(inputItem: EnergyDrink())
-        self.updateItemNumber()
-    }
-    @IBAction func softDrinkTouched(sender: UIButton) {
-        vending.add(inputItem: SoftDrink())
+    @IBAction func addButtonTouched(sender: UIButton) {
+        switch sender.tag {
+        case 0: vending.add(inputItem: BananaMilk())
+        case 1: vending.add(inputItem: ChocoMilk())
+        case 2: vending.add(inputItem: Coffee())
+        case 3: vending.add(inputItem: DolceLatte())
+        case 4: vending.add(inputItem: EnergyDrink())
+        case 5: vending.add(inputItem: SoftDrink())
+        default: break
+        }
         self.updateItemNumber()
     }
 

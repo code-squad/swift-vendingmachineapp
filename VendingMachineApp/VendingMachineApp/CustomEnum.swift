@@ -51,3 +51,15 @@ enum Package {
     case pet
     case carton
 }
+
+enum ValidMoney {
+    case thousand
+    case fiveThousand
+
+    var cash: Int {
+        switch self {
+        case .thousand: return 1000
+        case .fiveThousand: return 5000
+        }
+    }
+}

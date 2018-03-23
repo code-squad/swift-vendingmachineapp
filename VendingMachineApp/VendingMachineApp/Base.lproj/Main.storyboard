@@ -133,20 +133,20 @@
                                     <action selector="addBeverageWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EEd-VY-eij"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QSL-ul-04o">
+                            <button opaque="NO" tag="1000" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QSL-ul-04o">
                                 <rect key="frame" x="786" y="101" width="44" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="+1000"/>
                                 <connections>
-                                    <action selector="addBalance1WithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3Pr-ct-YcL"/>
+                                    <action selector="addBalance:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CZf-ag-JUh"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dqo-wi-tEF">
+                            <button opaque="NO" tag="5000" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dqo-wi-tEF">
                                 <rect key="frame" x="881" y="102" width="47" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="+5000"/>
                                 <connections>
-                                    <action selector="addBalance2:" destination="BYZ-38-t0r" eventType="touchUpInside" id="C4x-BI-VNT"/>
+                                    <action selector="addBalance:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PiT-JO-HVq"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="잔액 :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jND-ct-tZH">

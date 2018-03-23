@@ -134,4 +134,7 @@ class ViewController: UIViewController {
         UserDefaults.standard.removeObject(forKey: "vendingMachine")
     }
     
+    @IBAction func addBalance(_ button: UIButton) {
+        self.vendingMachine.putCoins(coins: button.tag)
+    }
 }

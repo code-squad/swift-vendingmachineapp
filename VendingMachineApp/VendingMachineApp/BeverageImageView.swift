@@ -11,6 +11,7 @@ import UIKit
 class BeverageImageView: UIImageView {
 
     override func awakeFromNib() {
+        super.awakeFromNib()
         self.setBeverageImage()
     }
 

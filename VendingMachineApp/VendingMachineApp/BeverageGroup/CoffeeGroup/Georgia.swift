@@ -11,7 +11,7 @@ import Foundation
 class Georgia: Coffee {
     private var coffeeExtract: Double = 12.6
     convenience init() {
-        self.init(brand: "", weight: 0, price: 0, name: "", manufactureDate: Date(), coffeeExtract: 1)
+        self.init(brand: "", weight: 0, price: 1000, name: "", manufactureDate: Date(), coffeeExtract: 1)
     }
     init(brand: String, weight: Int, price: Int, name: String, manufactureDate: Date, coffeeExtract: Double) {
         super.init(brand: brand, weight: weight, price: price, name: name, manufactureDate: manufactureDate)

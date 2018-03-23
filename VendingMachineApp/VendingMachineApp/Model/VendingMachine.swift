@@ -70,6 +70,7 @@ class VendingMachine: NSObject, NSCoding, Vending {
             purchaseProductHistory.recordOfPurchaseHistory(purchaseProduct: PurchaseProduct.init(purchaseBeverage: beverageName))
             NotificationCenter.default.post(name: Notification.Name.DidResetPurchaseHistory, object: self, userInfo: ["purchasedBeverage": beverageName])
             self.coins -= beverageOfChoice.price
+            NotificationCenter.default.post(name: Notification.Name.DidResetBalance, object: self)
         } catch {
             print("Beverage error")
         }

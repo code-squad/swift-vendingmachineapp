@@ -9,7 +9,9 @@
 import UIKit
 
 class ViewController: UIViewController {
-    let vending = VendingMachine(stockItems: Controller().setVendingMachineStock(unit: 1))
+    //let vending = VendingMachine(stockItems: Controller().setVendingMachineStock(unit: 1))
+    var vending: VendingMachine!
+
     @IBOutlet weak var balanceLabel: UILabel!
     @IBOutlet var moneyButtons: [UIButton]!
     @IBOutlet weak var bananamilkStock: UILabel!
@@ -21,6 +23,8 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        vending = appDelegate.vending
         self.updateItemNumber()
         self.setBalance()
     }

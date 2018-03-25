@@ -8,7 +8,17 @@
 
 import Foundation
 
-class VendingMachine {
+class VendingMachine: NSCoding {
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(stock, forKey: "stock")
+        aCoder.encode(balance, forKey: "balance")
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        stock = aDecoder.decodeObject(forKey: "stock") as! StockController
+        balance = aDecoder.decodeObject(forKey: "balance") as! Money
+    }
+
     private(set) var stock = StockController(items: [Beverage]())
     private var balance = Money()
 

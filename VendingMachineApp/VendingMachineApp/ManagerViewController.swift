@@ -74,4 +74,7 @@ class ManagerViewController: UIViewController {
         UserDefaults.standard.removeObject(forKey: "vendingMachine")
     }
 
+    @IBAction func closeManagerView(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
 }

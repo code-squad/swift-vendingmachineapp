@@ -38,6 +38,7 @@
 		45E62B58205129AB00FC3738 /* Sprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E62B4C205129AB00FC3738 /* Sprite.swift */; };
 		45EEBC8B2068979A00DEF064 /* RoundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EEBC8A2068979A00DEF064 /* RoundImageView.swift */; };
 		45EEBC8D2068B82B00DEF064 /* BeveragePrice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EEBC8C2068B82B00DEF064 /* BeveragePrice.swift */; };
+		45EEBC8F2068DD3F00DEF064 /* ManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EEBC8E2068DD3F00DEF064 /* ManagerViewController.swift */; };
 		45EFF5D720524C5D002A7731 /* BananaMilk.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 45EFF5CE20524C5C002A7731 /* BananaMilk.jpg */; };
 		45EFF5D820524C5D002A7731 /* Top.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 45EFF5CF20524C5C002A7731 /* Top.jpg */; };
 		45EFF5D920524C5D002A7731 /* ChocoMilk.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 45EFF5D020524C5C002A7731 /* ChocoMilk.jpg */; };
@@ -109,6 +110,7 @@
 		45E62B4C205129AB00FC3738 /* Sprite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sprite.swift; sourceTree = "<group>"; };
 		45EEBC8A2068979A00DEF064 /* RoundImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundImageView.swift; sourceTree = "<group>"; };
 		45EEBC8C2068B82B00DEF064 /* BeveragePrice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeveragePrice.swift; sourceTree = "<group>"; };
+		45EEBC8E2068DD3F00DEF064 /* ManagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerViewController.swift; sourceTree = "<group>"; };
 		45EFF5CE20524C5C002A7731 /* BananaMilk.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = BananaMilk.jpg; sourceTree = "<group>"; };
 		45EFF5CF20524C5C002A7731 /* Top.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Top.jpg; sourceTree = "<group>"; };
 		45EFF5D020524C5C002A7731 /* ChocoMilk.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ChocoMilk.jpg; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 				45E62AFD20511EC000FC3738 /* Assets.xcassets */,
 				45E62AFF20511EC000FC3738 /* LaunchScreen.storyboard */,
 				45E62B0220511EC000FC3738 /* Info.plist */,
+				45EEBC8E2068DD3F00DEF064 /* ManagerViewController.swift */,
 			);
 			path = VendingMachineApp;
 			sourceTree = "<group>";
@@ -625,6 +628,7 @@
 				45E62B54205129AB00FC3738 /* StrawberryMilk.swift in Sources */,
 				45E62B4E205129AB00FC3738 /* Georgia.swift in Sources */,
 				450238D820637A49004566C7 /* PurchaseProduct.swift in Sources */,
+				45EEBC8F2068DD3F00DEF064 /* ManagerViewController.swift in Sources */,
 				45E62B50205129AB00FC3738 /* Top.swift in Sources */,
 				45E62B3B2051289600FC3738 /* PurchaseProductHistory.swift in Sources */,
 				45E62B4F205129AB00FC3738 /* Kantata.swift in Sources */,

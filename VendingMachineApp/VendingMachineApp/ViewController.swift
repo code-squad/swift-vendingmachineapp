@@ -10,13 +10,11 @@ import UIKit
 
 class ViewController: UIViewController {
     private var vendingMachine: Vending!
-    private var inventoryBox = InventoryBox()
     typealias TypeOf = InventoryBox.InventoryMenu
     private var imageX = 0
 
     @IBOutlet var countOfMenu: [UILabel]!
     @IBOutlet var imageOfMenu: [RoundImageView]!
-    @IBOutlet var addNumberOfMenu: [UIButton]!
     @IBOutlet var purchaseOfMenu: [UIButton]!
     @IBOutlet weak var balance: UILabel!
     
@@ -26,7 +24,6 @@ class ViewController: UIViewController {
         changeInventoryBox()
         changeCoin()
         registerObserver()
-       
     }
 
     override func didReceiveMemoryWarning() {
@@ -60,28 +57,6 @@ class ViewController: UIViewController {
                                                object: nil)
     }
     
-    func alertCountOfBeverage(type: TypeOf) {
-        let title = "추가"
-        let message = "추가 할 재고 갯수를 입력하세요."
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let cancel = UIAlertAction(title: "취소", style: .cancel)
-        let ok = UIAlertAction(title: "확인", style: .default) {(_) in
-            if let inputValue = alert.textFields?[0] {
-                guard let numberOf = Int(inputValue.text ?? "0") else {
-                    return
-                }
-                let beverageName = self.vendingMachine.choiceBeverageData(menuType: type)
-                self.vendingMachine.addInInventory(beverageName: beverageName, number: numberOf)
-            }
-        }
-        alert.addAction(cancel)
-        alert.addAction(ok)
-        alert.addTextField(configurationHandler: {(text) in
-            text.placeholder = "갯수입력"
-        })
-        self.present(alert, animated: true)
-    }
-    
     func addPurchaseProductHistory(type: TypeOf) {
         let beverageName = self.vendingMachine.choiceBeverageData(menuType: type)
         self.vendingMachine.buyBeverage(beverageName: beverageName)
@@ -108,11 +83,6 @@ class ViewController: UIViewController {
         self.present(alert, animated: true)
     }
     
-    @objc func changeInventoryBox() {
-        for (index, menu) in TypeOf.kind.enumerated() {
-            countOfMenu[index].text = String(vendingMachine.beverageNumberOf(menuType: menu))
-        }
-    }
     @objc func changePurchaseHistory(_ notification: Notification) {
         changeInventoryBox()
         guard let data = notification.userInfo as? [String: Beverage] else {
@@ -128,12 +98,10 @@ class ViewController: UIViewController {
         balance.text = String(vendingMachine.checkBalance())
     }
     
-    @IBAction func addBeverage(sender: UIButton) {
-        var type = TypeOf.otherBeverage
-        for button in addNumberOfMenu where button.tag == sender.tag {
-            type = vendingMachine.typeSelector(tag: button.tag)
+    @objc func changeInventoryBox() {
+        for (index, menu) in TypeOf.kind.enumerated() {
+            countOfMenu[index].text = String(vendingMachine.beverageNumberOf(menuType: menu))
         }
-        alertCountOfBeverage(type: type)
     }
     
     @IBAction func purchaseBeverage(sender: UIButton) {
@@ -142,10 +110,6 @@ class ViewController: UIViewController {
             type = vendingMachine.typeSelector(tag: button.tag)
         }
         addPurchaseProductHistory(type: type)
-    }
-    
-    @IBAction func removeAllBeverage(_ sender: Any) {
-        UserDefaults.standard.removeObject(forKey: "vendingMachine")
     }
     
     @IBAction func addBalance(_ button: UIButton) {

@@ -8,10 +8,18 @@
 
 import Foundation
 
-class Shelf {
+class Shelf: NSObject, NSCoding {
+    func encode(with aCoder: NSCoder) {
+
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+
+    }
+
     private(set) var itemTags = [ObjectIdentifier]()
 
-    init() { }
+    override init() { }
 
     init(items: [ObjectIdentifier: [Beverage]]) {
         var newDict = items

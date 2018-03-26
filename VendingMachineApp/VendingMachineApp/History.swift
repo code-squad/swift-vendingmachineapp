@@ -8,22 +8,32 @@
 
 import Foundation
 
-struct History {
+class History: NSObject, NSCoding {
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(purchase, forKey: "purchase")
+        aCoder.encode(supply, forKey: "supply")
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        purchase = aDecoder.decodeObject(forKey: "purchase") as! [Beverage]
+        supply = aDecoder.decodeObject(forKey: "supply") as! [Beverage]
+    }
+
     private var purchase = [Beverage]()
     private var supply =  [Beverage]()
 
-    init() {}
+    override init() {}
 
     init(_ purchase: [Beverage], _ supply: [Beverage]) {
         self.purchase = purchase
         self.supply = supply
     }
 
-    mutating func addPurchaseLog(_ item: Beverage) {
+    func addPurchaseLog(_ item: Beverage) {
         self.purchase.append(item)
     }
 
-    mutating func addSupplyLog(_ item: Beverage) {
+    func addSupplyLog(_ item: Beverage) {
         self.supply.append(item)
     }
 

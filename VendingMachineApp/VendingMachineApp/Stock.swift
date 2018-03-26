@@ -8,10 +8,29 @@
 
 import Foundation
 
-class Stock {
+class Stock: NSObject, NSCoding {
+    func encode(with aCoder: NSCoder) {
+        var items = [[Beverage]]()
+        for set in self.inventory {
+            items.append(set.value)
+        }
+        aCoder.encode(items, forKey: "items")
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        guard let tempItems = aDecoder.decodeObject(forKey: "items") as? [[Beverage]] else {
+            return
+        }
+        let flattenItems = tempItems.joined()
+        let itemSets = flattenItems.reduce(into: [ObjectIdentifier: [Beverage]]()) {
+            $0[ObjectIdentifier(type(of: $1)), default:[]].append($1)
+        }
+           self.inventory = itemSets
+    }
+
     private var inventory = [ObjectIdentifier: [Beverage]]()
 
-    init() {}
+    override init() {}
 
     init(items: [Beverage]) {
         let itemSets = items.reduce(into: [ObjectIdentifier: [Beverage]]()) {

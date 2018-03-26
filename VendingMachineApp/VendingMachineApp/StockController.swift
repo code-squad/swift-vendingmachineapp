@@ -8,19 +8,31 @@
 
 import Foundation
 
-class StockController {
+class StockController: NSObject, NSCoding {
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(history, forKey: "history")
+        aCoder.encode(shelf, forKey: "shelf")
+        aCoder.encode(stock, forKey: "stock")
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        history = aDecoder.decodeObject(forKey: "history") as! History
+        shelf = aDecoder.decodeObject(forKey: "shelf") as! Shelf
+        stock = aDecoder.decodeObject(forKey: "stock") as! Stock
+    }
 
     private var history = History()
     private(set) var shelf = Shelf()
     private var stock = Stock()
 
     init (items: [Beverage]) {
-        items.forEach {item in self.history.addSupplyLog(item)}
         let stockSets = items.reduce(into: [ObjectIdentifier: [Beverage]]()) {
             $0[ObjectIdentifier(type(of: $1)), default:[]].append($1)
         }
         self.shelf = Shelf(items: stockSets)
         self.stock = Stock(sets: stockSets)
+        super.init()
+        items.forEach {item in self.history.addSupplyLog(item)}
     }
 
     func buy(itemCode: Int, balance: Int) throws -> Beverage {

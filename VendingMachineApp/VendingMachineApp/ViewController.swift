@@ -26,7 +26,7 @@ class ViewController: UIViewController {
         changeInventoryBox()
         changeCoin()
         for products in vendingMachine.showPurchaseProductHistory() {
-            printPurchaseProducts(beverage: products.purchaseBeverage)
+            addPurchaseImage(beverage: products.purchaseBeverage)
         }
         
         NotificationCenter.default.addObserver(self,
@@ -80,7 +80,7 @@ class ViewController: UIViewController {
         self.vendingMachine.buyBeverage(beverageName: beverageName)
     }
     
-    func printPurchaseProducts(beverage: Beverage) {
+    func addPurchaseImage(beverage: Beverage) {
         let imageName = String(describing: beverage.bringImageName)
         guard let image = UIImage(named: imageName) else {
             return
@@ -114,7 +114,7 @@ class ViewController: UIViewController {
         guard let beverage = data["purchasedBeverage"] else {
             return
         }
-        printPurchaseProducts(beverage: beverage)
+        addPurchaseImage(beverage: beverage)
     }
     
     @objc func changeCoin() {

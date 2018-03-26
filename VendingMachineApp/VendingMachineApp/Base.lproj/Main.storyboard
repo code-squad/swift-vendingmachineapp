@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="StrawberryMilk.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="jVh-Ss-Xqo">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="StrawberryMilk.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="jVh-Ss-Xqo" customClass="RoundImageView" customModule="VendingMachineApp" customModuleProvider="target">
                                 <rect key="frame" x="90" y="89" width="140" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -37,7 +37,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BananaMilk.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Q8q-6b-Oot">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BananaMilk.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Q8q-6b-Oot" customClass="RoundImageView" customModule="VendingMachineApp" customModuleProvider="target">
                                 <rect key="frame" x="321" y="88" width="140" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -49,7 +49,7 @@
                                     <action selector="addBeverageWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="w69-35-IvL"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ChocoMilk.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="6kh-Wj-bYY">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ChocoMilk.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="6kh-Wj-bYY" customClass="RoundImageView" customModule="VendingMachineApp" customModuleProvider="target">
                                 <rect key="frame" x="555" y="89" width="140" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -61,7 +61,7 @@
                                     <action selector="addBeverageWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vX7-Y3-mAg"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Sprite.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="01S-ke-9a1">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Sprite.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="01S-ke-9a1" customClass="RoundImageView" customModule="VendingMachineApp" customModuleProvider="target">
                                 <rect key="frame" x="87" y="264" width="140" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -73,7 +73,7 @@
                                     <action selector="addBeverageWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EIb-th-t1R"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Coke.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="OBd-PF-ufY">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Coke.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="OBd-PF-ufY" customClass="RoundImageView" customModule="VendingMachineApp" customModuleProvider="target">
                                 <rect key="frame" x="318" y="263" width="140" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -85,7 +85,7 @@
                                     <action selector="addBeverageWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="C0D-kH-PB7"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Fanta.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="zv0-lK-tbt">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Fanta.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="zv0-lK-tbt" customClass="RoundImageView" customModule="VendingMachineApp" customModuleProvider="target">
                                 <rect key="frame" x="552" y="264" width="140" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -97,7 +97,7 @@
                                     <action selector="addBeverageWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JRE-CL-uCV"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Georgia.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="xD1-W6-Tez">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Georgia.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="xD1-W6-Tez" customClass="RoundImageView" customModule="VendingMachineApp" customModuleProvider="target">
                                 <rect key="frame" x="86" y="439" width="140" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -109,7 +109,7 @@
                                     <action selector="addBeverageWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ruo-lj-8Cc"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Top.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="fA8-D6-lW7">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Top.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="fA8-D6-lW7" customClass="RoundImageView" customModule="VendingMachineApp" customModuleProvider="target">
                                 <rect key="frame" x="317" y="438" width="140" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -121,7 +121,7 @@
                                     <action selector="addBeverageWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xdu-ux-Iy1"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Kantata.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="EUE-WL-pZX">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Kantata.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="EUE-WL-pZX" customClass="RoundImageView" customModule="VendingMachineApp" customModuleProvider="target">
                                 <rect key="frame" x="551" y="439" width="140" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>

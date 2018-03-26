@@ -592,6 +592,14 @@
                                     <action selector="removeAllBeverage:" destination="aBw-uA-1jo" eventType="touchUpInside" id="Q7A-g2-Tia"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dk0-5g-awY">
+                                <rect key="frame" x="990" y="77" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="닫기"/>
+                                <connections>
+                                    <action selector="closeManagerView:" destination="aBw-uA-1jo" eventType="touchUpInside" id="3OW-E0-qPd"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.83221340673575128" green="0.83221340673575128" blue="0.83221340673575128" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="I2F-Ny-3mc"/>

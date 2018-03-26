@@ -11,7 +11,7 @@ import Foundation
 class Sprite: Soda {
     private var flavoringSyrups: String = "레몬라임향"
     convenience init() {
-        self.init(brand: "", weight: 0, price: 2000, name: "", manufactureDate: Date(), flavoringSyrups: "")
+        self.init(brand: "", weight: 0, price: BeveragePrice.sprite, name: "", manufactureDate: Date(), flavoringSyrups: "레몬라임향")
     }
     init(brand: String, weight: Int, price: Int, name: String, manufactureDate: Date, flavoringSyrups: String) {
         self.flavoringSyrups = flavoringSyrups

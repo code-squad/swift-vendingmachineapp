@@ -11,7 +11,7 @@ import Foundation
 class BananaMilk: Milk {
     private var bananaSyrup: Int = 1
     convenience init() {
-        self.init(brand: "", weight: 0, price: 1000, name: "", manufactureDate: Date(), bananaSyrup: 1)
+        self.init(brand: "", weight: 0, price: BeveragePrice.bananaMilk, name: "", manufactureDate: Date(), bananaSyrup: 1)
     }
     init(brand: String, weight: Int, price: Int, name: String, manufactureDate: Date, bananaSyrup: Int) {
         self.bananaSyrup = bananaSyrup

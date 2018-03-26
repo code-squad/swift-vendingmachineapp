@@ -51,9 +51,15 @@ class ViewController: UIViewController {
                                                selector: #selector(changeCoin),
                                                name: Notification.Name.DidResetBalance,
                                                object: nil)
+        
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(purchaseFailure),
                                                name: Notification.Name.DidPurchaseFailure,
+                                               object: nil)
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(haveNoCoin),
+                                               name: Notification.Name.NoCoin,
                                                object: nil)
     }
     
@@ -72,6 +78,15 @@ class ViewController: UIViewController {
         imageView.image = image
         self.view.addSubview(imageView)
         self.imageX += 50
+    }
+    
+    @objc func haveNoCoin() {
+        let title = "구매 실패"
+        let message = "코인을 충전해주세요"
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let ok = UIAlertAction(title: "확인", style: .default) {(_) in }
+        alert.addAction(ok)
+        self.present(alert, animated: true)
     }
     
     @objc func purchaseFailure() {

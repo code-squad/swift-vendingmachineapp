@@ -66,6 +66,10 @@ class VendingMachine: NSObject, NSCoding, Vending {
     // 음료수를 구매하는 메소드
     func buyBeverage(beverageName: Beverage) {
         do {
+            if coins <= 0 {
+                NotificationCenter.default.post(name: Notification.Name.NoCoin, object: self)
+                return
+            }
             let beverageOfChoice = try inventoryBox.sellDrink(beverage: beverageName)
             purchaseProductHistory.recordOfPurchaseHistory(purchaseProduct: PurchaseProduct.init(purchaseBeverage: beverageName))
             NotificationCenter.default.post(name: Notification.Name.DidResetPurchaseHistory, object: self, userInfo: ["purchasedBeverage": beverageName])
@@ -121,4 +125,5 @@ extension Notification.Name {
     static let DidResetPurchaseHistory = Notification.Name("changePurchaseHistory")
     static let DidPurchaseFailure = Notification.Name("purchaseFailure")
     static let DidResetBalance = Notification.Name("changeCoin")
+    static let NoCoin = Notification.Name("haveNoCoin")
 }

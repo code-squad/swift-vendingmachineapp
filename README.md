@@ -260,7 +260,7 @@ Segue를 선택하고 Kind를 Present Modally로 지정하고, Transition을 Fli
  
 - ***실행 화면***
 
-<img src="/img/vending_step6.gif" width="80%" height="80%">
+<img src="/img/vending_step7.gif" width="80%" height="80%">
 
 ---
 

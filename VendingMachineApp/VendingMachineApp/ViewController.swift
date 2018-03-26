@@ -73,10 +73,6 @@ class ViewController: UIViewController {
                 }
                 let beverageName = self.vendingMachine.choiceBeverageData(menuType: type)
                 self.vendingMachine.addInInventory(beverageName: beverageName, number: numberOf)
-                guard let vending = self.vendingMachine as? VendingMachine else {
-                    return
-                }
-                VendingMachine.storedInstance(vending)
             }
         }
         alert.addAction(cancel)
@@ -90,10 +86,6 @@ class ViewController: UIViewController {
     func addPurchaseProductHistory(type: TypeOf) {
         let beverageName = self.vendingMachine.choiceBeverageData(menuType: type)
         self.vendingMachine.buyBeverage(beverageName: beverageName)
-        guard let vending = self.vendingMachine as? VendingMachine else {
-            return
-        }
-        VendingMachine.storedInstance(vending)
     }
     
     func printPurchaseProducts(beverage: Beverage) {

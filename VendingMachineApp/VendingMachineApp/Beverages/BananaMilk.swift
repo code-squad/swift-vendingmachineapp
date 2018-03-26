@@ -24,7 +24,15 @@ class BananaMilk: Beverage {
     override init() {
         super.init(brand: "서울우유", weight: 200, price: 1000, name: "날마다바나나우유", manufactured: "20180322", valid: self.validDuration, calorie: self.calorie, hot: self.hot, caffeine: self.caffeine)
     }
+    
+    override func encode(with aCoder: NSCoder) {
+        super.encode(with: aCoder)
+    }
 
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
     override func package() -> Package {
         return .carton
     }

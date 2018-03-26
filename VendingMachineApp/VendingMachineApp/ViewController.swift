@@ -28,8 +28,6 @@ class ViewController: UIViewController {
         for products in vendingMachine.showPurchaseProductHistory() {
             printPurchaseProducts(beverage: products.purchaseBeverage)
         }
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyyMMdd"
         
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(changeInventoryBox),

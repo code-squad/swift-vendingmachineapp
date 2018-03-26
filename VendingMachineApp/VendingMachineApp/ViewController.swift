@@ -25,10 +25,21 @@ class ViewController: UIViewController {
         vendingMachine = VendingMachine.sharedInstance()
         changeInventoryBox()
         changeCoin()
+        registerObserver()
+       
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
+    func printPurchaseProductImage(){
         for products in vendingMachine.showPurchaseProductHistory() {
             addPurchaseImage(beverage: products.purchaseBeverage)
         }
-        
+    }
+    
+    func registerObserver() {
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(changeInventoryBox),
                                                name: Notification.Name.DidResetInventoryBox,
@@ -47,10 +58,6 @@ class ViewController: UIViewController {
                                                selector: #selector(purchaseFailure),
                                                name: Notification.Name.DidPurchaseFailure,
                                                object: nil)
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
     }
     
     func alertCountOfBeverage(type: TypeOf) {

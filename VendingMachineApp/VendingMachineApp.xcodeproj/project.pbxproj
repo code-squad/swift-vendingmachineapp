@@ -36,6 +36,7 @@
 		45E62B56205129AB00FC3738 /* Coke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E62B4A205129AB00FC3738 /* Coke.swift */; };
 		45E62B57205129AB00FC3738 /* Fanta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E62B4B205129AB00FC3738 /* Fanta.swift */; };
 		45E62B58205129AB00FC3738 /* Sprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E62B4C205129AB00FC3738 /* Sprite.swift */; };
+		45EEBC8B2068979A00DEF064 /* RoundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EEBC8A2068979A00DEF064 /* RoundImageView.swift */; };
 		45EFF5D720524C5D002A7731 /* BananaMilk.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 45EFF5CE20524C5C002A7731 /* BananaMilk.jpg */; };
 		45EFF5D820524C5D002A7731 /* Top.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 45EFF5CF20524C5C002A7731 /* Top.jpg */; };
 		45EFF5D920524C5D002A7731 /* ChocoMilk.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 45EFF5D020524C5C002A7731 /* ChocoMilk.jpg */; };
@@ -105,6 +106,7 @@
 		45E62B4A205129AB00FC3738 /* Coke.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coke.swift; sourceTree = "<group>"; };
 		45E62B4B205129AB00FC3738 /* Fanta.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fanta.swift; sourceTree = "<group>"; };
 		45E62B4C205129AB00FC3738 /* Sprite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sprite.swift; sourceTree = "<group>"; };
+		45EEBC8A2068979A00DEF064 /* RoundImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundImageView.swift; sourceTree = "<group>"; };
 		45EFF5CE20524C5C002A7731 /* BananaMilk.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = BananaMilk.jpg; sourceTree = "<group>"; };
 		45EFF5CF20524C5C002A7731 /* Top.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Top.jpg; sourceTree = "<group>"; };
 		45EFF5D020524C5C002A7731 /* ChocoMilk.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ChocoMilk.jpg; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 				450238D720637A49004566C7 /* PurchaseProduct.swift */,
 				450238D92063A82C004566C7 /* ImageMapper.swift */,
 				4500243420648FBC00181271 /* ImageViewMaker.swift */,
+				45EEBC8A2068979A00DEF064 /* RoundImageView.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -624,6 +627,7 @@
 				45E62B4F205129AB00FC3738 /* Kantata.swift in Sources */,
 				45E62B3A2051289600FC3738 /* InventoryBox.swift in Sources */,
 				450238DA2063A82C004566C7 /* ImageMapper.swift in Sources */,
+				45EEBC8B2068979A00DEF064 /* RoundImageView.swift in Sources */,
 				45E62B56205129AB00FC3738 /* Coke.swift in Sources */,
 				45E62B58205129AB00FC3738 /* Sprite.swift in Sources */,
 				45E62B53205129AB00FC3738 /* ChocoMilk.swift in Sources */,

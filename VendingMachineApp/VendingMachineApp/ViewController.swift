@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     private var imageX = 0
 
     @IBOutlet var countOfMenu: [UILabel]!
-    @IBOutlet var imageOfMenu: [UIImageView]!
+    @IBOutlet var imageOfMenu: [RoundImageView]!
     @IBOutlet var addNumberOfMenu: [UIButton]!
     @IBOutlet var purchaseOfMenu: [UIButton]!
     @IBOutlet weak var balance: UILabel!
@@ -30,12 +30,6 @@ class ViewController: UIViewController {
         }
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyyMMdd"
-        
-        for index in 0..<9 {
-            imageOfMenu[index].layer.cornerRadius = imageOfMenu[index].frame.width/4
-            imageOfMenu[index].layer.borderWidth = 5
-            imageOfMenu[index].clipsToBounds = true
-        }
         
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(changeInventoryBox),

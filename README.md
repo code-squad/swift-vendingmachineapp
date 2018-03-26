@@ -243,3 +243,24 @@ class Observation: Observable {
 
 ---
 
+
+# VendingMachineApp step7
+
+> Frame과 Bounds
+
+스토리보드에서 Button을 추가하고, Attributes에서 Type을 Info Light로 설정한다.  
+새로운 ViewController를 옆에 추가하고, Button에서 Segue를 연결한다.  
+Segue를 선택하고 Kind를 Present Modally로 지정하고, Transition을 Flip Horizontal로 설정한다.  
+새롭게 추가한 화면을 관리자 모드로 동작하도록 개선한다.  
+이미지와 재고 추가 버튼을 복사해서 관리자 화면으로 복사하고, 동작하도록 코드를 수정한다.  
+재고 추가 버튼은 기존 화면에서 삭제한다.  
+관리자 화면에 [닫기] 버튼을 추가하고, 버튼을 누르면 dissmiss()를 호출한다.  
+다른 동작은 이전 단계와 동일하게 동작해야 한다.  
+---
+ 
+- ***실행 화면***
+
+<img src="/img/vending_step6.gif" width="80%" height="80%">
+
+---
+

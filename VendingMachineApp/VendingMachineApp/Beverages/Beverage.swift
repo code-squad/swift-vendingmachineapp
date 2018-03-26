@@ -8,7 +8,31 @@
 
 import Foundation
 
-class Beverage: CustomStringConvertible {
+class Beverage: NSObject, NSCoding {
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(brand, forKey: "brand")
+        aCoder.encode(weight, forKey: "weight")
+        aCoder.encode(itemPrice, forKey: "itemPrice")
+        aCoder.encode(name, forKey: "name")
+        aCoder.encode(manufactured, forKey: "manufactured")
+        aCoder.encode(validDuration, forKey: "validDuration")
+        aCoder.encode(calorie, forKey: "calorie")
+        aCoder.encode(hot, forKey: "hot")
+        aCoder.encode(caffeine, forKey: "caffeine")
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        brand = aDecoder.decodeObject(forKey: "brand") as! String
+        weight = aDecoder.decodeInteger(forKey: "weight")
+        itemPrice = aDecoder.decodeInteger(forKey: "itemPrice")
+        name = aDecoder.decodeObject(forKey: "name") as! String
+        manufactured = aDecoder.decodeObject(forKey: "manufactured") as! Date
+        validDuration = aDecoder.decodeInteger(forKey: "validDuration")
+        calorie = aDecoder.decodeInteger(forKey: "calorie")
+        hot = aDecoder.decodeBool(forKey: "hot")
+        caffeine = aDecoder.decodeInteger(forKey: "caffeine")
+    }
+
     var type: String {
         return "음료"
     }
@@ -22,11 +46,11 @@ class Beverage: CustomStringConvertible {
     private var hot: Bool
     private var caffeine: Int
 
-    var description: String {
+    override var description: String {
         return "\(type) - \(brand) | \(weight)ml | \(itemPrice)원 | \(name) | \(manufactured.description)"
     }
 
-    init() {
+    override init() {
         self.brand = ""
         self.weight = 0
         self.itemPrice = 0

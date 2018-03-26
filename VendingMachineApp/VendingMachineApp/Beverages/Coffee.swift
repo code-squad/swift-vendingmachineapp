@@ -24,6 +24,14 @@ class Coffee: Beverage {
         super.init(brand: "맥심", weight: 400, price: 3000, name: "TOP아메리카노", manufactured: "20180322", valid: self.validDuration, calorie: self.calorie, hot: self.hot, caffeine: self.caffeine)
     }
 
+    override func encode(with aCoder: NSCoder) {
+        super.encode(with: aCoder)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+
     override func package() -> Package {
         return .can
     }

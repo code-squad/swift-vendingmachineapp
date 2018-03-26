@@ -29,4 +29,11 @@ class SoftDrink: Beverage {
         return .pet
     }
 
+    override func encode(with aCoder: NSCoder) {
+        super.encode(with: aCoder)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
 }

@@ -72,7 +72,7 @@ class VendingMachine: NSObject, NSCoding, Vending {
             self.coins -= beverageOfChoice.price
             NotificationCenter.default.post(name: Notification.Name.DidResetBalance, object: self)
         } catch {
-            print("Beverage error")
+            NotificationCenter.default.post(name: Notification.Name.DidPurchaseFailure, object: self)
         }
     }
     
@@ -119,5 +119,6 @@ class VendingMachine: NSObject, NSCoding, Vending {
 extension Notification.Name {
     static let DidResetInventoryBox = Notification.Name("changeInventoryBox")
     static let DidResetPurchaseHistory = Notification.Name("changePurchaseHistory")
+    static let DidPurchaseFailure = Notification.Name("purchaseFailure")
     static let DidResetBalance = Notification.Name("changeCoin")
 }

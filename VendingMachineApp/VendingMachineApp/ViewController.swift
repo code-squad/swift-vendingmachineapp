@@ -33,7 +33,7 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
-    func printPurchaseProductImage(){
+    func printPurchaseProductImage() {
         for products in vendingMachine.showPurchaseProductHistory() {
             addPurchaseImage(beverage: products.purchaseBeverage)
         }

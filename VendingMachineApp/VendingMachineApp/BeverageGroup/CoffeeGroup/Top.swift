@@ -11,7 +11,7 @@ import Foundation
 class Top: Coffee {
     private var isHotDrink: Bool = false
     convenience init() {
-        self.init(brand: "", weight: 0, price: 1500, name: "", manufactureDate: Date(), isHotDrink: true)
+        self.init(brand: "", weight: 0, price: BeveragePrice.top, name: "", manufactureDate: Date(), isHotDrink: false)
     }
     init(brand: String, weight: Int, price: Int, name: String, manufactureDate: Date, isHotDrink: Bool) {
         super.init(brand: brand, weight: weight, price: price, name: name, manufactureDate: manufactureDate)

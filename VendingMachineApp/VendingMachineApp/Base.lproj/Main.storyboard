@@ -370,7 +370,7 @@
                                 <rect key="frame" x="1025" y="51" width="22" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
-                                    <segue destination="aBw-uA-1jo" kind="show" id="yPC-dw-Iyq"/>
+                                    <segue destination="aBw-uA-1jo" kind="presentation" modalTransitionStyle="flipHorizontal" id="yPC-dw-Iyq"/>
                                 </connections>
                             </button>
                         </subviews>

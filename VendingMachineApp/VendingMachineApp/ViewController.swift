@@ -9,10 +9,10 @@
 import UIKit
 
 class ViewController: UIViewController {
-    var vendingMachine: Vending!
-    var inventoryBox = InventoryBox()
+    private var vendingMachine: Vending!
+    private var inventoryBox = InventoryBox()
     typealias TypeOf = InventoryBox.InventoryMenu
-    var imageX = 0
+    private var imageX = 0
 
     @IBOutlet var countOfMenu: [UILabel]!
     @IBOutlet var imageOfMenu: [UIImageView]!

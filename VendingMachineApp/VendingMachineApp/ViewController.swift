@@ -51,6 +51,10 @@ class ViewController: UIViewController {
                                                selector: #selector(changeCoin),
                                                name: Notification.Name.DidResetBalance,
                                                object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(purchaseFailure),
+                                               name: Notification.Name.DidPurchaseFailure,
+                                               object: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -102,6 +106,15 @@ class ViewController: UIViewController {
         imageView.image = image
         self.view.addSubview(imageView)
         self.imageX += 50
+    }
+    
+    @objc func purchaseFailure() {
+        let title = "구매 실패"
+        let message = "음료를 구매 할 수 없습니다."
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let ok = UIAlertAction(title: "확인", style: .default) {(_) in }
+        alert.addAction(ok)
+        self.present(alert, animated: true)
     }
     
     @objc func changeInventoryBox() {

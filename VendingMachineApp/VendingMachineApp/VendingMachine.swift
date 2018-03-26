@@ -8,7 +8,7 @@
 
 import Foundation
 
-class VendingMachine: NSCoding {
+class VendingMachine: NSObject, NSCoding {
     func encode(with aCoder: NSCoder) {
         aCoder.encode(stock, forKey: "stock")
         aCoder.encode(balance, forKey: "balance")

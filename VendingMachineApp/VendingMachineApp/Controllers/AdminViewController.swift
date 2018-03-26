@@ -8,17 +8,34 @@
 
 import UIKit
 
-class AdminViewController: UIViewController {
+class AdminViewController: UIViewController, PieGraphViewDataSource {
+    @IBOutlet weak var pieGraphView: PieGraphView!
     @IBOutlet var addedBeverageButtons: [UIButton]!
     
     private var vendingMachine: (Userable & MachineManagerable & InventoryCountable)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.pieGraphView.dataSource = self
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        pieGraphView.setNeedsDisplay()
+    }
+
     func fillData(_ data: Userable & MachineManagerable & InventoryCountable) {
         self.vendingMachine = data
+    }
+    
+    func pieGraphView(_ pieGraphView: PieGraphView) -> PieGraphItem {
+        var piePraphItem = PieGraphItem([String]())
+        
+        if let machine = self.vendingMachine {
+            piePraphItem = PieGraphItem(machine.fetchSalesHistory())
+        }
+        
+        return piePraphItem
     }
 
     @IBAction func insertBeverageAction(_ sender: UIButton) {

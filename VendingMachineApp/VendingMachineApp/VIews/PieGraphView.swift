@@ -37,10 +37,6 @@ struct PieGraphItem {
     var total: CGFloat {
         return self.convert().reduce(0, {$0 + $1.value})
     }
-    
-    var startAngle: CGFloat {
-        return -CGFloat.pi * 0.5
-    }
 }
 
 private extension PieGraphItem {
@@ -52,7 +48,7 @@ private extension PieGraphItem {
     
     func convertToMenu() -> [String: CGFloat] {
         let result = history.map {
-            return $0.split(separator: ",")[1].trimmingCharacters(in: .whitespaces)
+            return $0.split(separator: ",")[0].trimmingCharacters(in: .whitespaces)
         }
         
         return result.reduce([String: CGFloat]()) { key, count in
@@ -72,22 +68,22 @@ class PieGraphView: UIView {
 
     override func draw(_ rect: CGRect) {
         if let graphItem = self.dataSource?.pieGraphView(self) {
-            drawPieGraphs(rect, graphItem)
+            drawPieGraphs(graphItem)
         }
     }
 }
 
 private extension PieGraphView {
-    func drawPieGraphs(_ rect: CGRect, _ graphItem: PieGraphItem) {
+    func drawPieGraphs(_ graphItem: PieGraphItem) {
         if let context = UIGraphicsGetCurrentContext() {
-            let radius = min(frame.size.width, frame.size.height) * 0.5
+            let radius = min(frame.size.height, frame.size.height) * 0.5
             let valueCount = graphItem.total
             let viewCenter = CGPoint(x: bounds.size.width * 0.5, y: bounds.size.height * 0.5)
-            var startAngle = graphItem.startAngle
+            var startAngle = -CGFloat.pi * 0.5
             
             for item in graphItem.convert() {
                 let endAngle = startAngle + 2 * .pi * (item.value / valueCount)
-                
+
                 context.setFillColor(randomColor())
                 context.move(to: viewCenter)
                 context.addArc(center: viewCenter, radius: radius, startAngle: startAngle, endAngle: endAngle, clockwise: false)

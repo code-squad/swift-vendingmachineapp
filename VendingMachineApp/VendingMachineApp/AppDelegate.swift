@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // 기존에 저장된 값에서 불러와서 VendingMachine 객체 인스턴스를 생성하기
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        guard let roadedData = DataStorage().roadVendingMachine() else {
+        guard let roadedData = DataStorage().loadVendingMachine() else {
             return true
         }
             self.vending = roadedData

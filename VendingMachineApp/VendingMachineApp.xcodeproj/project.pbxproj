@@ -29,6 +29,7 @@
 		E82DA5202060AD2300536B2A /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82DA50F2060AD2300536B2A /* Controller.swift */; };
 		E82DA5212060AD2300536B2A /* CustomEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82DA5102060AD2300536B2A /* CustomEnum.swift */; };
 		E82DA5222060AD2300536B2A /* CustomExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82DA5112060AD2300536B2A /* CustomExtension.swift */; };
+		FDC4CD8C2069F03100543BBF /* DataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC4CD8B2069F03100543BBF /* DataStorage.swift */; };
 		FDCCEF482063A7350069A039 /* redbull.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FDCCEF422063A7350069A039 /* redbull.jpg */; };
 		FDCCEF492063A7350069A039 /* starbucks.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FDCCEF432063A7350069A039 /* starbucks.jpg */; };
 		FDCCEF4A2063A7350069A039 /* bananamilk.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FDCCEF442063A7350069A039 /* bananamilk.jpg */; };
@@ -63,6 +64,7 @@
 		E82DA50F2060AD2300536B2A /* Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
 		E82DA5102060AD2300536B2A /* CustomEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomEnum.swift; sourceTree = "<group>"; };
 		E82DA5112060AD2300536B2A /* CustomExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomExtension.swift; sourceTree = "<group>"; };
+		FDC4CD8B2069F03100543BBF /* DataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStorage.swift; sourceTree = "<group>"; };
 		FDCCEF422063A7350069A039 /* redbull.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = redbull.jpg; sourceTree = "<group>"; };
 		FDCCEF432063A7350069A039 /* starbucks.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = starbucks.jpg; sourceTree = "<group>"; };
 		FDCCEF442063A7350069A039 /* bananamilk.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bananamilk.jpg; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 				E82DA5042060AD2200536B2A /* StockController.swift */,
 				E82DA50E2060AD2300536B2A /* VendingMachine.swift */,
 				E82DA4EE2060AA1E00536B2A /* AppDelegate.swift */,
+				FDC4CD8B2069F03100543BBF /* DataStorage.swift */,
 				E82DA4F02060AA1E00536B2A /* ViewController.swift */,
 				E82DA4F22060AA1F00536B2A /* Main.storyboard */,
 				E82DA4F52060AA1F00536B2A /* Assets.xcassets */,
@@ -242,6 +245,7 @@
 				E82DA51B2060AD2300536B2A /* DolceLatte.swift in Sources */,
 				E82DA4F12060AA1E00536B2A /* ViewController.swift in Sources */,
 				E82DA5222060AD2300536B2A /* CustomExtension.swift in Sources */,
+				FDC4CD8C2069F03100543BBF /* DataStorage.swift in Sources */,
 				E82DA5142060AD2300536B2A /* Shelf.swift in Sources */,
 				E82DA5212060AD2300536B2A /* CustomEnum.swift in Sources */,
 				E82DA4EF2060AA1E00536B2A /* AppDelegate.swift in Sources */,

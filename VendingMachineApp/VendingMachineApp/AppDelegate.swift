@@ -16,11 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // 기존에 저장된 값에서 불러와서 VendingMachine 객체 인스턴스를 생성하기
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        if UserDefaults.standard.object(forKey: "vendingMachine") != nil {
-            let encodedVending = UserDefaults.standard.data(forKey: "vendingMachine")
-            guard let archivedMachine = NSKeyedUnarchiver.unarchiveObject(with: encodedVending!) as? VendingMachine else { return false }
-            self.vending = archivedMachine
+        guard let roadedData = DataStorage().roadVendingMachine() else {
+            return true
         }
+            self.vending = roadedData
             return true
         }
 
@@ -31,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         //  VendingMachine 객체 인스턴스 속성을 저장하기. 저장할 때는 VendingMachine을 아카이브해서 하나의 데이터 값으로 변형한다
     func applicationDidEnterBackground(_ application: UIApplication) {
-        UserDefaults.standard.set(NSKeyedArchiver.archivedData(withRootObject: self.vending), forKey: "vendingMachine")
+        DataStorage().saveVendingMachine(data: self.vending)
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -44,7 +43,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     //  VendingMachine 객체 인스턴스 속성을 저장하기. 저장할 때는 VendingMachine을 아카이브해서 하나의 데이터 값으로 변형한다
     func applicationWillTerminate(_ application: UIApplication) {
-        UserDefaults.standard.set(NSKeyedArchiver.archivedData(withRootObject: self.vending), forKey: "vendingMachine")
+        DataStorage().saveVendingMachine(data: self.vending)
     }
 
 }

@@ -168,167 +168,147 @@ Localized resources must be placed in language-specific project directories, the
 
 
 
- ### 간단한 iOS앱의 생명주기
- <img src="./Screenshot/step1-2.png" width="80%">
+### 간단한 iOS앱의 생명주기
+<img src="./Screenshot/step1-2.png" width="80%">
 
- *(왼쪽: iOS시스템 프레임워크 /// 오른쪽: 커스텀코드)*
+*(왼쪽: iOS시스템 프레임워크 /// 오른쪽: 커스텀코드)*
 
- - main함수 실행과 UIApplicationMain()호출
- - 스위프트에서는 `@UIAnnotationMain`찾아서 실행
- - 커스텀코드측(AppDelegate에 작성된 `application()`메소드가 시스템에 의해 자동호출
-   - AppDelegate클래스에 `application()` 메소드에 원하는 코드를 작성해두면 앱이 처음 시작될때 해당 코드를 실행할 수 있다.
- - 시스템 프레임워크의 이벤트 루프 실행되면서 이벤트 핸들에 의해 커스텀 코드로 연결됨
-   - 커스텀 코드중 `@IBAction`으로 구현된 코드가 이벤트를 받아와서 메소드 내에 구현된 코드를 실행하므로 이벤트 핸들이라고 할 수 있다. **`@IBAction`메소드같이 사용자가 어떤 이벤트를 보냈을때 실행되도록 구현해놓은 메소드를 이벤트 핸들이라고 할 수 있다.**
-   - (원하는 이벤트가 발생했을때 제어하도록 커스텀코드와 연결해놓으면 이벤트 루프에서는 특정 이벤트가 발생했을때 우리가 만든 핸들을 통해(`@IBAction`) 커스텀코드를 실행할 수 있도록 처리함)
- - AppDelegate클래스의 `applicationWillTerminate()`호출하여 앱 메모리에서 제거하기 위한 준비
-
-
- ## The Main Run Loop
- - 앱의 main run loop은 사용자 관련 프로세스를 받은 순서대로 처리한다.(터치이벤트와 같은)
- - UIApplication객체는 앱이 launching되는 시점에 main run loop을 생성한 뒤 run loop로 이벤트를 처리
- - main run loop은 앱의 메인 스레드에서 동작
-
- ### 사용자의 이벤트가 인식되는 구조
- 1. 사용자는 디바이스에서 특정 액션을 취함 (터치, 줌 등)
- 2. 그 액션에 해당하는 이벤트가 시스템에 의해 생성, UIKit에서 생성한 port를 통해 앱에 전달
- 3. 이벤트들은 앱 내부적으로 queue에 저장(FIFO)
- 4. UIApplication객체가 가장 먼저 이 이벤트를 받아서 어떤 동작이 취해질 지 결정
-   - 터치 이벤트의 경우 main window객체가 인식하고 window객체가 다시 터치가 발생한 view로 이벤트를 전달함
-   - 다른 이벤트들도 다양한 app객체에 따라 조금씩 다르게 동작
-
- ### 주로 발생되는 이벤트 처리에 대한 설명
- - Touch이벤트: **터치 이벤트가 발생한 view객체** 로 전달
-   - view는 응답을 할 줄 아는(Responder) 객체이므로 터치 이벤트가 발생한 뷰 객체로 전달됨. 만약 해당 뷰에서 처리되지 않는 터치이벤트는 Responder chain을 따라 계속 내려가게됨
- - Remote control / Shake motion events: **First responder object객체**
-   - 미디어콘텐츠의 재생이나 되감기 등과같은 remote control이벤트는 주로 헤드폰같은 악세사리에서 발생
- - Accelerometer / Magnetometer / Gyroscope: **내가 정한 객체** 로 전달
-   - 가속도계, 방향, 중력센서(자이로스코프)와 관련된 이벤트를 내가 지정한 객체로 전달됨
- - Location: **내가 정한 객체**
-   - Core location Framework를 사용해서 위치와 관련된 이벤트 등록
- - Redraw: **업데이트가 필요한 객체**
-   - Redraw 이벤트는 이벤트 객체를 갖지는 않고, 단순히 업데이트가 필요한 view객체에 요청
- - **참고**, 이벤트 소스 종류
-   - 입력소스(input source): 다른 thread나 어플리케이션에서 전달되는 메시지 이벤트(비동기식)
-   - 타이머소스(timer source): 예정시간이나 반복수행간격에 따라 발생하는 이벤트(동기식)
- - **Touch나 Remote Control** 같은 이벤트는 앱의 Responder객체를 통해 처리된다.
- - Responder객체는 앱의 모든 곳에 존재
- - UIApplication, 커스텀 view객체, ViewController객체 모두 Responder객체에 해당된다.
- - 대부분의 이벤트는 특정 객체를 대상으로 전달되지만 다른 객체로 변경할 수도 있음
-   - UIView의 hitTest나 pointInside사용 등
-   - 이벤트를 받은 객체에서 해당 이벤트를 처리하지 않는다면 부모뷰로 이벤트를 전달 시킬 수 있다.
- - **Control** 에서 발생하는 이벤트(ex. Button)는 보통 몇 가지로 제한된 이벤트만 존재한다. 그 이벤트들을 다시 Action메시지로 패키징하여 지정된 객체로 전달한다. (Target-action design pattern)
-
- ## 앱의 실행상태
- <img src="./Screenshot/step3-1.png" width="100%">
-
- 시스템 내에서 일어나는 액션을 통해 시스템은 앱의 상태를 바꾸게 됨.
- - Not running: 아직 실행되지 않거나 실행되다가 시스템에 의해 종료
- - Inactive: 앱이 foreground에 올라와있지만 이벤트를 받지않고있는 상태(다른 코드를 실행 중일 수 있다) 앱에서는 보통 앱 상태변화가 일어나는 동안에 짧게 이 상태를 갖게됨
- - Active: 앱이 foreground에서 실행중이고 이벤트를 받고 있는 상태
-   - *(Inactive와 Active 상태를 합쳐서 Foreground 라고 함)*
- - Background:
-   - 앱이 background에 있고 코드를 실행하고있는상태.
-   - 대부분의 앱은 suspended로 가는 도중에 잠깐 이 상태에 머무름.
-   - 이외에도 background상태로 실행되는 앱의 경우에는 Inactive대신에 Background상태로 진입한다.
- - Suspended:
-   - 앱이 background에 있으면서 코드를 실행하고있지 않은 상태.
-   - 시스템은 자동으로 suspended로 변경하고 따로 알려주지 않는다.
-   - suspended상태에로 메모리에는 올라가 있음.
-   - 메모리가 부족한 상황이 오면 시스템이 앱을 kill하기도 하는데, 이 때도 따로 알려주지 않는다.
-
- ### AppDelegate methods
- > - 대부분의 상태변화는 AppDelegate객체의 메소드 호출을 거친다.
- > - AppDelegate.swift 파일에는 앱의 상태에 따라 실행되는 함수들이 정의되어 있다.
- > - 앱의 상태에 따라 실행되는 delegate 함수들이 정의되어 있기때문에 함수안에 코드를 작성 함으로써 앱의 특정 상태에서 동작하는 로직을 구현 할 수 있다.
-
- - `application:willFinishLaunchingWithOptions:` 앱을 실행할 때 최초로 실행할 코드를 작성하면 좋음.
- - `application:didFinishLaunchingWithOptions:` 앱의 화면이 사용자에게 보여지기 직전에 최종 초기화 작업을 진행
- - `applicationDidBecomeActive:` 앱이 이제 Foreground로 갈 것. 최종 준비작업.
- - `applicationWillResignActive:` 앱이 Foreground에서 다른 상태로 전환이 될것임을 알려줍니다. 앱이 잠잠한(quiescent) 상태로 변환되는 작업을 여기서 진행하세요.
- - `applicationDidEnterBackground:` 앱이 Background로 돌아감. 그리고 언제든지 Suspended상태로 변환이 될 수 있다.
- - `applicationWillEnterForeground:` 앱이 Background에서 다시 Foreground로 돌아오게 될 것임을 알려줌. 아직 앱이 Active상태는 아님.
- - `applicationWillTerminate:` 앱이 종료될 것임을 알려줍니다. 만약 앱이 Suspended상태라면 이 메소드는 호출되지 않습니다.
-
- ```
- application(_:didFinishLaunching:) - 앱이 처음 시작될 때 실행
- applicationWillResignActive: - 앱이 active 에서 inactive로 이동될 때 실행
- applicationDidEnterBackground: - 앱이 background 상태일 때 실행
- applicationWillEnterForeground: - 앱이 background에서 foreground로 이동 될때 실행 (아직 foreground에서 실행중이진 않음)
- applicationDidBecomeActive: - 앱이 active상태가 되어 실행 중일 때
- applicationWillTerminate: - 앱이 종료될 때 실행
- ```
- [참고-앱 생명주기(App Lifecycle) vs 뷰 컨트롤러 생명주기(ViewController Lifecycle) in iOS](https://medium.com/ios-development-with-swift/%EC%95%B1-%EC%83%9D%EB%AA%85%EC%A3%BC%EA%B8%B0-app-lifecycle-vs-%EB%B7%B0-%EC%83%9D%EB%AA%85%EC%A3%BC%EA%B8%B0-view-lifecycle-in-ios-336ae00d1855)
- [참고-앱라이프사이클](http://rhammer.tistory.com/94)
- <img src="./Screenshot/step3-2.png" width="100%">
+- main함수 실행과 UIApplicationMain()호출
+- 스위프트에서는 `@UIAnnotationMain`찾아서 실행
+- 커스텀코드측(AppDelegate에 작성된 `application()`메소드가 시스템에 의해 자동호출
+ - AppDelegate클래스에 `application()` 메소드에 원하는 코드를 작성해두면 앱이 처음 시작될때 해당 코드를 실행할 수 있다.
+- 시스템 프레임워크의 이벤트 루프 실행되면서 이벤트 핸들에 의해 커스텀 코드로 연결됨
+ - 커스텀 코드중 `@IBAction`으로 구현된 코드가 이벤트를 받아와서 메소드 내에 구현된 코드를 실행하므로 이벤트 핸들이라고 할 수 있다. **`@IBAction`메소드같이 사용자가 어떤 이벤트를 보냈을때 실행되도록 구현해놓은 메소드를 이벤트 핸들이라고 할 수 있다.**
+ - (원하는 이벤트가 발생했을때 제어하도록 커스텀코드와 연결해놓으면 이벤트 루프에서는 특정 이벤트가 발생했을때 우리가 만든 핸들을 통해(`@IBAction`) 커스텀코드를 실행할 수 있도록 처리함)
+- AppDelegate클래스의 `applicationWillTerminate()`호출하여 앱 메모리에서 제거하기 위한 준비
 
 
- ## 아카이빙
- - iOS앱은 기본적으로 사용자에게 데이터를 조작할 인터페이스를 제공함
- - 모델 객체: 사용자가 조작하는 데이터를 보관하는 역할 (저장과 로딩)
- - 뷰 객체: 단순히 그 데이터 반영
- - 컨트롤러 객체: 뷰와 모델 객체의 동기화 책임
- - **아카이빙은 iOS에서 모델 객체를 저장하는 가장 흔한 방법 중 하나임**
-   - **아카이빙:** 객체의 아카이빙이란 그 객체의 프로퍼티를 모두 기록하고 파일 시스템에 그 내요을 저장한다는 뜻
-   - **언아카이빙:** 아카이브한 데이터로부터 객체를 다시 만든다.
- - **아카이빙/언아카이빙 할 클래스들은 반드시 NSCoding프로토콜을 따라야한다.**
-   - `어떤 객체의 속성이 또 다른 객체, 그 객체의 속성은 또 다른 객체...`처럼 수직관계를 형성하는 구조라면 NSCoding이 저장 할 수 있는 스위프트value 단계까지 NSCoding프로토콜 구현을 해줘야한다.
-   - 만약 아카이빙 할 필요는 없지만 수직구조 내에 위치해서 프로토콜 구현이 필요한 일부 속성(객체)은 NSCoding프로토콜을 준수하지만 메소드 선언만 해놓고 구현하지 않아도 된다. `(Shelf 객체)`
- - 스토리같은 인터페이스 파일에 객체를 추가할때 객체들은 아카이빙 된다.
- - 실행 중에 객체들은 인터페이스 파일에서 언아카이빙되어 메모리에 로드된다.
- - UIView와 UIVIewController들은 모두 NSCoding 프로토콜을 따른다.
- - 아카이빙하고싶은 모델객체를 NSCoding을 따르게 만들어준다.
+## The Main Run Loop
+- 앱의 main run loop은 사용자 관련 프로세스를 받은 순서대로 처리한다.(터치이벤트와 같은)
+- UIApplication객체는 앱이 launching되는 시점에 main run loop을 생성한 뒤 run loop로 이벤트를 처리
+- main run loop은 앱의 메인 스레드에서 동작
 
- ```swift
- // NSCoding구현 필수 메서드
- class Robot: NSCoding {
-   var name : String = ""
-   var nemesis : Robot
-   var model : Int
+### 사용자의 이벤트가 인식되는 구조
+1. 사용자는 디바이스에서 특정 액션을 취함 (터치, 줌 등)
+2. 그 액션에 해당하는 이벤트가 시스템에 의해 생성, UIKit에서 생성한 port를 통해 앱에 전달
+3. 이벤트들은 앱 내부적으로 queue에 저장(FIFO)
+4. UIApplication객체가 가장 먼저 이 이벤트를 받아서 어떤 동작이 취해질 지 결정
+ - 터치 이벤트의 경우 main window객체가 인식하고 window객체가 다시 터치가 발생한 view로 이벤트를 전달함
+ - 다른 이벤트들도 다양한 app객체에 따라 조금씩 다르게 동작
 
-   func encode(with aCoder: NSCoder) {
-     aCoder.encode(name, forKey: "name")
-     aCoder.encode(nemesis, forKey: "nemesis")
-     aCoder.encode(model, forKey: "model")
-   }
-   // 메시지를 받으면 인자로 전달된 NSCoder객체 안의 모든 프로퍼티들을 인코딩한다. 데이터 스트림은 키-값 쌍으로 구성되어 파일시스템에 저장된다.
+### 주로 발생되는 이벤트 처리에 대한 설명
+- Touch이벤트: **터치 이벤트가 발생한 view객체** 로 전달
+ - view는 응답을 할 줄 아는(Responder) 객체이므로 터치 이벤트가 발생한 뷰 객체로 전달됨. 만약 해당 뷰에서 처리되지 않는 터치이벤트는 Responder chain을 따라 계속 내려가게됨
+- Remote control / Shake motion events: **First responder object객체**
+ - 미디어콘텐츠의 재생이나 되감기 등과같은 remote control이벤트는 주로 헤드폰같은 악세사리에서 발생
+- Accelerometer / Magnetometer / Gyroscope: **내가 정한 객체** 로 전달
+ - 가속도계, 방향, 중력센서(자이로스코프)와 관련된 이벤트를 내가 지정한 객체로 전달됨
+- Location: **내가 정한 객체**
+ - Core location Framework를 사용해서 위치와 관련된 이벤트 등록
+- Redraw: **업데이트가 필요한 객체**
+ - Redraw 이벤트는 이벤트 객체를 갖지는 않고, 단순히 업데이트가 필요한 view객체에 요청
+- **참고**, 이벤트 소스 종류
+ - 입력소스(input source): 다른 thread나 어플리케이션에서 전달되는 메시지 이벤트(비동기식)
+ - 타이머소스(timer source): 예정시간이나 반복수행간격에 따라 발생하는 이벤트(동기식)
+- **Touch나 Remote Control** 같은 이벤트는 앱의 Responder객체를 통해 처리된다.
+- Responder객체는 앱의 모든 곳에 존재
+- UIApplication, 커스텀 view객체, ViewController객체 모두 Responder객체에 해당된다.
+- 대부분의 이벤트는 특정 객체를 대상으로 전달되지만 다른 객체로 변경할 수도 있음
+ - UIView의 hitTest나 pointInside사용 등
+ - 이벤트를 받은 객체에서 해당 이벤트를 처리하지 않는다면 부모뷰로 이벤트를 전달 시킬 수 있다.
+- **Control** 에서 발생하는 이벤트(ex. Button)는 보통 몇 가지로 제한된 이벤트만 존재한다. 그 이벤트들을 다시 Action메시지로 패키징하여 지정된 객체로 전달한다. (Target-action design pattern)
 
-   required init?(coder aDecoder: NSCoder) {
-     name = aDecoder.decodeObject(forKey: "name") as! String
-     nemesis = aDecoder.decodeObject(forKey: "nemesis") as! Robot?
-     model = aDecoder.decodeInteger(forKey: “model")
-   }
- }
- ```
- - `aCoder.encode(저장할 객체속성, forKey: "인코딩 프로퍼티를 식별할 키값이 될 문자열")`
- - 아카이브에서 로드되는 객체들은 `init(coder:)`메시지를 받는다. 이 메서드는 `encode(with:)`에서 인코딩된 모든 객체를 꺼내와 해당 프로퍼티에 할당해야한다.
+## 앱의 실행상태
+<img src="./Screenshot/step3-1.png" width="100%">
 
+시스템 내에서 일어나는 액션을 통해 시스템은 앱의 상태를 바꾸게 됨.
+- Not running: 아직 실행되지 않거나 실행되다가 시스템에 의해 종료
+- Inactive: 앱이 foreground에 올라와있지만 이벤트를 받지않고있는 상태(다른 코드를 실행 중일 수 있다) 앱에서는 보통 앱 상태변화가 일어나는 동안에 짧게 이 상태를 갖게됨
+- Active: 앱이 foreground에서 실행중이고 이벤트를 받고 있는 상태
+ - *(Inactive와 Active 상태를 합쳐서 Foreground 라고 함)*
+- Background:
+ - 앱이 background에 있고 코드를 실행하고있는상태.
+ - 대부분의 앱은 suspended로 가는 도중에 잠깐 이 상태에 머무름.
+ - 이외에도 background상태로 실행되는 앱의 경우에는 Inactive대신에 Background상태로 진입한다.
+- Suspended:
+ - 앱이 background에 있으면서 코드를 실행하고있지 않은 상태.
+ - 시스템은 자동으로 suspended로 변경하고 따로 알려주지 않는다.
+ - suspended상태에로 메모리에는 올라가 있음.
+ - 메모리가 부족한 상황이 오면 시스템이 앱을 kill하기도 하는데, 이 때도 따로 알려주지 않는다.
 
-### ObjectIdentifier 인코딩
-- ObjectIdentifier는 아카이빙되지 않는다. 따라서 ObjectIdentifier를 유추할 수 있는 형태로 인코딩하고, 인코딩된 값에서 ObjectIdentifier를 구해서 디코딩한다.
-- Stock 클래스의 속성 `inventory`형태가 `[ObjectIdentifier: [Beverage]]`이기때문에 Beverage로부터 ObjectIdentifier를 유추해내는 로직이 필요했다.
- - encode 메소드 내에서 속성을 그대로 저장하는것이 아니라 로컬변수 저장이 가능하다.
-```Swift
-// Stock.swift
+### AppDelegate methods
+> - 대부분의 상태변화는 AppDelegate객체의 메소드 호출을 거친다.
+> - AppDelegate.swift 파일에는 앱의 상태에 따라 실행되는 함수들이 정의되어 있다.
+> - 앱의 상태에 따라 실행되는 delegate 함수들이 정의되어 있기때문에 함수안에 코드를 작성 함으로써 앱의 특정 상태에서 동작하는 로직을 구현 할 수 있다.
 
-class Stock: NSObject, NSCoding {
-   func encode(with aCoder: NSCoder) {
-       var items = [[Beverage]]()
-       for set in self.inventory {
-           items.append(set.value)
-       }
-       aCoder.encode(items, forKey: "items")
-   }
+- `application:willFinishLaunchingWithOptions:` 앱을 실행할 때 최초로 실행할 코드를 작성하면 좋음.
+- `application:didFinishLaunchingWithOptions:` 앱의 화면이 사용자에게 보여지기 직전에 최종 초기화 작업을 진행
+- `applicationDidBecomeActive:` 앱이 이제 Foreground로 갈 것. 최종 준비작업.
+- `applicationWillResignActive:` 앱이 Foreground에서 다른 상태로 전환이 될것임을 알려줍니다. 앱이 잠잠한(quiescent) 상태로 변환되는 작업을 여기서 진행하세요.
+- `applicationDidEnterBackground:` 앱이 Background로 돌아감. 그리고 언제든지 Suspended상태로 변환이 될 수 있다.
+- `applicationWillEnterForeground:` 앱이 Background에서 다시 Foreground로 돌아오게 될 것임을 알려줌. 아직 앱이 Active상태는 아님.
+- `applicationWillTerminate:` 앱이 종료될 것임을 알려줍니다. 만약 앱이 Suspended상태라면 이 메소드는 호출되지 않습니다.
 
-   required init?(coder aDecoder: NSCoder) {
-       guard let tempItems = aDecoder.decodeObject(forKey: "items") as? [[Beverage]] else {
-           return
-       }
-       let flattenItems = tempItems.joined()
-       let itemSets = flattenItems.reduce(into: [ObjectIdentifier: [Beverage]]()) {
-           $0[ObjectIdentifier(type(of: $1)), default:[]].append($1)
-       }
-          self.inventory = itemSets
-   }
-
-   private var inventory = [ObjectIdentifier: [Beverage]]()
 ```
+application(_:didFinishLaunching:) - 앱이 처음 시작될 때 실행
+applicationWillResignActive: - 앱이 active 에서 inactive로 이동될 때 실행
+applicationDidEnterBackground: - 앱이 background 상태일 때 실행
+applicationWillEnterForeground: - 앱이 background에서 foreground로 이동 될때 실행 (아직 foreground에서 실행중이진 않음)
+applicationDidBecomeActive: - 앱이 active상태가 되어 실행 중일 때
+applicationWillTerminate: - 앱이 종료될 때 실행
+```
+[참고-앱 생명주기(App Lifecycle) vs 뷰 컨트롤러 생명주기(ViewController Lifecycle) in iOS](https://medium.com/ios-development-with-swift/%EC%95%B1-%EC%83%9D%EB%AA%85%EC%A3%BC%EA%B8%B0-app-lifecycle-vs-%EB%B7%B0-%EC%83%9D%EB%AA%85%EC%A3%BC%EA%B8%B0-view-lifecycle-in-ios-336ae00d1855)
+[참고-앱라이프사이클](http://rhammer.tistory.com/94)
+<img src="./Screenshot/step3-2.png" width="100%">
+
+
+## 아카이빙
+- iOS앱은 기본적으로 사용자에게 데이터를 조작할 인터페이스를 제공함
+- 모델 객체: 사용자가 조작하는 데이터를 보관하는 역할 (저장과 로딩)
+- 뷰 객체: 단순히 그 데이터 반영
+- 컨트롤러 객체: 뷰와 모델 객체의 동기화 책임
+- **아카이빙은 iOS에서 모델 객체를 저장하는 가장 흔한 방법 중 하나임**
+ - **아카이빙:** 객체의 아카이빙이란 그 객체의 프로퍼티를 모두 기록하고 파일 시스템에 그 내요을 저장한다는 뜻
+ - **언아카이빙:** 아카이브한 데이터로부터 객체를 다시 만든다.
+- **아카이빙/언아카이빙 할 클래스들은 반드시 NSCoding프로토콜을 따라야한다.**
+ - `어떤 객체의 속성이 또 다른 객체, 그 객체의 속성은 또 다른 객체...`처럼 수직관계를 형성하는 구조라면 NSCoding이 저장 할 수 있는 스위프트value 단계까지 NSCoding프로토콜 구현을 해줘야한다.
+ - 만약 아카이빙 할 필요는 없지만 수직구조 내에 위치해서 프로토콜 구현이 필요한 일부 속성(객체)은 NSCoding프로토콜을 준수하지만 메소드 선언만 해놓고 구현하지 않아도 된다. `(Shelf 객체)`
+- 스토리같은 인터페이스 파일에 객체를 추가할때 객체들은 아카이빙 된다.
+- 실행 중에 객체들은 인터페이스 파일에서 언아카이빙되어 메모리에 로드된다.
+- UIView와 UIVIewController들은 모두 NSCoding 프로토콜을 따른다.
+- 아카이빙하고싶은 모델객체를 NSCoding을 따르게 만들어준다.
+
+```swift
+// NSCoding구현 필수 메서드
+class Robot: NSCoding {
+ var name : String = ""
+ var nemesis : Robot
+ var model : Int
+
+ func encode(with aCoder: NSCoder) {
+   aCoder.encode(name, forKey: "name")
+   aCoder.encode(nemesis, forKey: "nemesis")
+   aCoder.encode(model, forKey: "model")
+ }
+ // 메시지를 받으면 인자로 전달된 NSCoder객체 안의 모든 프로퍼티들을 인코딩한다. 데이터 스트림은 키-값 쌍으로 구성되어 파일시스템에 저장된다.
+
+ required init?(coder aDecoder: NSCoder) {
+   name = aDecoder.decodeObject(forKey: "name") as! String
+   nemesis = aDecoder.decodeObject(forKey: "nemesis") as! Robot?
+   model = aDecoder.decodeInteger(forKey: “model")
+ }
+}
+```
+- `aCoder.encode(저장할 객체속성, forKey: "인코딩 프로퍼티를 식별할 키값이 될 문자열")`
+- 아카이브에서 로드되는 객체들은 `init(coder:)`메시지를 받는다. 이 메서드는 `encode(with:)`에서 인코딩된 모든 객체를 꺼내와 해당 프로퍼티를 할당해야한다.
+
+## UserDefaults
+앱의 설정값을 저장하고 나중에 읽기위한 용도로 사용됨
+[참고링크](https://qiita.com/KokiEnomoto/items/c79c7f3793a244246fcf#2-%E4%BF%9D%E5%AD%98)
+[참고링크](http://seorenn.blogspot.kr/2017/01/userdefaults-nsuserdefaults.html)
+
+
+## Step4 - 싱글톤 모델
+> 싱글톤 Singleton : 프로그램 내에서 사용하는 특정 객체가 오직 하나의 인스턴스만 만들어지게 보장되도록 하는 디자인 패턴
+
+[참고링크1](https://blog.seotory.com/post/2016/03/java-singleton-pattern)

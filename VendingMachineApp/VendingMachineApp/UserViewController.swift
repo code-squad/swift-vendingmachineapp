@@ -9,10 +9,10 @@
 import UIKit
 
 class UserViewController: UIViewController {
-    private var vendingMachine: Vending!
+    var vendingMachine: Vending?
     typealias TypeOf = InventoryBox.InventoryMenu
     private var imageX = 0
-
+    
     @IBOutlet var countOfMenu: [UILabel]!
     @IBOutlet var imageOfMenu: [RoundImageView]!
     @IBOutlet var purchaseOfMenu: [UIButton]!
@@ -20,7 +20,6 @@ class UserViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        vendingMachine = VendingMachine.sharedInstance()
         changeInventoryBox()
         changeCoin()
         registerObserver()
@@ -31,7 +30,7 @@ class UserViewController: UIViewController {
     }
     
     func printPurchaseProductImage() {
-        for products in vendingMachine.showPurchaseProductHistory() {
+        for products in (vendingMachine?.showPurchaseProductHistory())! {
             addPurchaseImage(beverage: products.purchaseBeverage)
         }
     }
@@ -64,8 +63,10 @@ class UserViewController: UIViewController {
     }
     
     func addPurchaseProductHistory(type: TypeOf) {
-        let beverageName = self.vendingMachine.choiceBeverageData(menuType: type)
-        self.vendingMachine.buyBeverage(beverageName: beverageName)
+        guard let beverageName = self.vendingMachine?.choiceBeverageData(menuType: type) else {
+            return
+        }
+        self.vendingMachine?.buyBeverage(beverageName: beverageName)
     }
     
     func addPurchaseImage(beverage: Beverage) {
@@ -109,24 +110,33 @@ class UserViewController: UIViewController {
     }
     
     @objc func changeCoin() {
-        balance.text = String(vendingMachine.checkBalance())
+        guard let vendingMachine = vendingMachine else { return }
+        balance.text = String(describing: vendingMachine.checkBalance())
     }
     
     @objc func changeInventoryBox() {
+        guard let vendingMachine = vendingMachine else { return }
         for (index, menu) in TypeOf.kind.enumerated() {
-            countOfMenu[index].text = String(vendingMachine.beverageNumberOf(menuType: menu))
+            countOfMenu[index].text = String(describing: vendingMachine.beverageNumberOf(menuType: menu))
         }
     }
     
     @IBAction func purchaseBeverage(sender: UIButton) {
-        var type = TypeOf.otherBeverage
         for button in purchaseOfMenu where button.tag == sender.tag {
-            type = vendingMachine.typeSelector(tag: button.tag)
+            guard let type = vendingMachine?.typeSelector(tag: button.tag) else {
+                return
+            }
+            addPurchaseProductHistory(type: type)
         }
-        addPurchaseProductHistory(type: type)
     }
     
     @IBAction func addBalance(_ button: UIButton) {
-        self.vendingMachine.putCoins(coins: button.tag)
+        self.vendingMachine?.putCoins(coins: button.tag)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let admin = segue.destination as? ManagerViewController {
+            admin.vendingMachine = vendingMachine
+        }
     }
 }

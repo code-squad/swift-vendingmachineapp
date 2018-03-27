@@ -67,7 +67,7 @@ class VendingMachine: NSObject, NSCoding, Vending {
     // 음료수를 구매하는 메소드
     func buyBeverage(beverageName: Beverage) {
         do {
-            guard coins <= 0 || coins < beverageName.price else {
+            guard coins >= beverageName.price else {
                 NotificationCenter.default.post(name: Notification.Name.NoCoin, object: self)
                 return
             }

@@ -10,7 +10,7 @@ import UIKit
 
 class ManagerViewController: UIViewController {
 
-    private var vendingMachine: Vending!
+    var vendingMachine: Vending?
     typealias TypeOf = InventoryBox.InventoryMenu
 
     @IBOutlet var countOfMenu: [UILabel]!
@@ -18,7 +18,6 @@ class ManagerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        vendingMachine = VendingMachine.sharedInstance()
         changeInventoryBox()
         registerObserver()
     }
@@ -44,8 +43,10 @@ class ManagerViewController: UIViewController {
                 guard let numberOf = Int(inputValue.text ?? "0") else {
                     return
                 }
-                let beverageName = self.vendingMachine.choiceBeverageData(menuType: type)
-                self.vendingMachine.addInInventory(beverageName: beverageName, number: numberOf)
+                guard let beverageName = self.vendingMachine?.choiceBeverageData(menuType: type) else {
+                    return
+                }
+                self.vendingMachine?.addInInventory(beverageName: beverageName, number: numberOf)
             }
         }
         alert.addAction(cancel)
@@ -57,15 +58,19 @@ class ManagerViewController: UIViewController {
     }
     
     @objc func changeInventoryBox() {
+        guard let vendingMachine = vendingMachine else { return }
         for (index, menu) in TypeOf.kind.enumerated() {
-            countOfMenu[index].text = String(vendingMachine.beverageNumberOf(menuType: menu))
+            countOfMenu[index].text = String(describing: vendingMachine.beverageNumberOf(menuType: menu))
         }
     }
     
     @IBAction func addBeverage(sender: UIButton) {
         var type = TypeOf.otherBeverage
         for button in addNumberOfMenu where button.tag == sender.tag {
-            type = vendingMachine.typeSelector(tag: button.tag)
+            guard let choice = vendingMachine?.typeSelector(tag: button.tag) else {
+                return
+            }
+            type = choice
         }
         alertCountOfBeverage(type: type)
     }

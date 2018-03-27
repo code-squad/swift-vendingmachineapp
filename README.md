@@ -409,8 +409,8 @@ init(image: UIImage?, position: CGFloat) {
 * PieGraphView.swift 파일에 drawRect() 메서드에서 구매목록 배열를 참고해서 전체 구매 항목 중에 종류별 음료수가 얼마나 차지하는지 Pie로 표시함
 * 관리자 화면의 viewWillAppear() 메서드에서 PieGraphView 객체에 구매 목록을 업데이트함
 
+
 ##### 결과
 
-##### 2D 그래프를 그리기 위해 다양한 색상과 배경을 가진 점, 선, 면을 그리는 연습하기
-
-##### 패스(Path)를 이용해서 한꺼번에 그리는 연습하기
+##### Core Graphics
+* [정리](https://wiki.yuaming.com/ios/core-graphics.html)

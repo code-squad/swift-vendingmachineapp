@@ -410,6 +410,7 @@ init(image: UIImage?, position: CGFloat) {
 * 관리자 화면의 viewWillAppear() 메서드에서 PieGraphView 객체에 구매 목록을 업데이트함
 
 ##### 실행결과
+* 그래프를 그리는 것보다 그래프 위의 텍스트를 중간 정렬해서 그리는 부분에서 힘들었음. 왜냐하면 Context에서 해당 View의 좌표만 가지고 있을 뿐 Addarc로 그리는 영역에 대한 각각 좌표 영역을 알아 오는 방법을 찾지 못함. 그래서 어떻게 구현할까 어제 계속 찾아봤지만 해답을 찾지 못함. 오늘 스크럼에서 냅스터에게 힌트를 얻게 되어 구현함 
 
 <img src="./images/vendingmachine-app-result-8.gif" />
 

@@ -433,3 +433,8 @@ init(image: UIImage?, position: CGFloat) {
     * 제한된 최대/최소 크기를 지정하고 그 이상 커지거나 작아지지 않도록 함
 * 관리자 화면 ViewController에서 Shake 이벤트를 받으면 원래 크기대로 복구함
 * 다른 동작은 이전 단계와 동일하게 동작해야 함
+
+##### 실행결과
+
+##### iOS Touch Event
+* [정리](https://wiki.yuaming.com/ios/touch-event.html)

@@ -9,10 +9,18 @@
 import Foundation
 
 class VendingMachine: NSObject, NSCoding {
-    static let sharedInstance = VendingMachine()
+    static var sharedInstance = VendingMachine()
 
     private override convenience init() {
         self.init(stockItems: Controller().setVendingMachineStock(unit: 1))
+    }
+
+    class func sharedVendingMachine() -> VendingMachine {
+        return sharedInstance
+    }
+
+    class func loadData(_ data: VendingMachine) {
+        sharedInstance = data
     }
 
     func encode(with aCoder: NSCoder) {

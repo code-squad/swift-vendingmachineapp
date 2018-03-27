@@ -42,6 +42,7 @@ class VendingMachine: NSObject, NSCoding, Vending {
     // 자판기 금액을 원하는 금액만큼 올리는 메소드
     func putCoins(coins: Int) {
         self.coins += coins
+        NotificationCenter.default.post(name: Notification.Name.DidResetBalance, object: self)
     }
     
     // 특정 상품 인스턴스를 넘겨서 재고를 추가하는 메소드
@@ -72,6 +73,7 @@ class VendingMachine: NSObject, NSCoding, Vending {
             }
             let beverageOfChoice = try inventoryBox.sellDrink(beverage: beverageName)
             purchaseProductHistory.recordOfPurchaseHistory(purchaseProduct: PurchaseProduct.init(purchaseBeverage: beverageName))
+            NotificationCenter.default.post(name: Notification.Name.DidResetInventoryBox, object: self)
             NotificationCenter.default.post(name: Notification.Name.DidResetPurchaseHistory, object: self, userInfo: ["purchasedBeverage": beverageName])
             self.coins -= beverageOfChoice.price
             NotificationCenter.default.post(name: Notification.Name.DidResetBalance, object: self)

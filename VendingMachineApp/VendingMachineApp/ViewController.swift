@@ -99,7 +99,6 @@ class ViewController: UIViewController {
     }
     
     @objc func changePurchaseHistory(_ notification: Notification) {
-        changeInventoryBox()
         guard let data = notification.userInfo as? [String: Beverage] else {
             return
         }
@@ -129,6 +128,5 @@ class ViewController: UIViewController {
     
     @IBAction func addBalance(_ button: UIButton) {
         self.vendingMachine.putCoins(coins: button.tag)
-        changeCoin()
     }
 }

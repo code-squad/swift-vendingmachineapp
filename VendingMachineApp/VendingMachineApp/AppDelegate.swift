@@ -12,7 +12,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var vending = VendingMachine(stockItems: Controller().setVendingMachineStock(unit: 1))
+    var vending = VendingMachine.sharedInstance
 
     // 기존에 저장된 값에서 불러와서 VendingMachine 객체 인스턴스를 생성하기
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {

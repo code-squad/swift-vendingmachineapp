@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class UserViewController: UIViewController {
     private var vendingMachine: Vending!
     typealias TypeOf = InventoryBox.InventoryMenu
     private var imageX = 0

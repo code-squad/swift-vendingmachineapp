@@ -11,11 +11,13 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
-    var vendingMachine = VendingMachine.sharedInstance()
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         if let data = UserDefaults.standard.data(forKey: "vendingMachine") {
             let vending = (NSKeyedUnarchiver.unarchiveObject(with: data) as? VendingMachine)!
             VendingMachine.storedInstance(vending)
+        }
+        if let vc = window?.rootViewController as? UserViewController {
+            vc.vendingMachine = VendingMachine.sharedInstance()
         }
         return true
     }

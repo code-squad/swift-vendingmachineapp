@@ -9,6 +9,12 @@
 import Foundation
 
 class VendingMachine: NSObject, NSCoding {
+    static let sharedInstance = VendingMachine()
+
+    private override convenience init() {
+        self.init(stockItems: Controller().setVendingMachineStock(unit: 1))
+    }
+
     func encode(with aCoder: NSCoder) {
         aCoder.encode(stock, forKey: "stock")
         aCoder.encode(balance, forKey: "balance")
@@ -22,7 +28,8 @@ class VendingMachine: NSObject, NSCoding {
     private(set) var stock = StockController(items: [Beverage]())
     private var balance = Money()
 
-    init(stockItems: [Beverage]) {
+    private init(stockItems: [Beverage]) {
+        super.init()
         self.stock = StockController(items: stockItems)
     }
 

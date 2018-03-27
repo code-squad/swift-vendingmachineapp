@@ -10,7 +10,7 @@ import Foundation
 
 class DataStorage {
 
-    func roadVendingMachine() -> VendingMachine? {
+    func loadVendingMachine() -> VendingMachine? {
         // 존재확인
         if UserDefaults.standard.object(forKey: "vendingMachine") != nil {
             // key값으로 데이터 가져옴

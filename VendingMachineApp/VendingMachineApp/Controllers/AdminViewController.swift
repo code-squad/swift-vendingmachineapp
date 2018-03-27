@@ -28,7 +28,7 @@ class AdminViewController: UIViewController, PieGraphViewDataSource {
         self.vendingMachine = data
     }
     
-    func pieGraphView(_ pieGraphView: PieGraphView) -> PieGraphItem {
+    func bind(_ pieGraphView: PieGraphView) -> PieGraphItem {
         var piePraphItem = PieGraphItem([String]())
         
         if let machine = self.vendingMachine {

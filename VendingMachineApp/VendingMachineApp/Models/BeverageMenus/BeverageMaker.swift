@@ -20,7 +20,7 @@ struct BeverageMaker {
         case .pepsi:
             return producePepsi()
         case .top:
-            return producePepsi()
+            return produceTop()
         case .strawberryMilk:
             return produceStrawberryMilk()
         }

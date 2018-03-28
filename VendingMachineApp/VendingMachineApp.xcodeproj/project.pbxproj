@@ -49,6 +49,7 @@
 		45EFF5DE20524C5D002A7731 /* Georgia.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 45EFF5D520524C5C002A7731 /* Georgia.jpg */; };
 		45EFF5DF20524C5D002A7731 /* Kantata.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 45EFF5D620524C5C002A7731 /* Kantata.jpg */; };
 		45F01070206BE79F006C2CF5 /* PieGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F0106F206BE79F006C2CF5 /* PieGraphView.swift */; };
+		45F01072206BF98B006C2CF5 /* PieDrawable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F01071206BF98B006C2CF5 /* PieDrawable.swift */; };
 		DB5EF0C194294CF809B6A1AB /* Pods_VendingMachineApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DD51F2E908260AEECDF7194 /* Pods_VendingMachineApp.framework */; };
 		EF316A51E4BC0AC31B9A7F92 /* Pods_VendingMachineAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99C8AD999B4A520C61782E19 /* Pods_VendingMachineAppUITests.framework */; };
 /* End PBXBuildFile section */
@@ -122,6 +123,7 @@
 		45EFF5D520524C5C002A7731 /* Georgia.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Georgia.jpg; sourceTree = "<group>"; };
 		45EFF5D620524C5C002A7731 /* Kantata.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Kantata.jpg; sourceTree = "<group>"; };
 		45F0106F206BE79F006C2CF5 /* PieGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieGraphView.swift; sourceTree = "<group>"; };
+		45F01071206BF98B006C2CF5 /* PieDrawable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieDrawable.swift; sourceTree = "<group>"; };
 		99C8AD999B4A520C61782E19 /* Pods_VendingMachineAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VendingMachineAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2A33F658DAF940273682960 /* Pods-VendingMachineApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VendingMachineApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VendingMachineApp/Pods-VendingMachineApp.debug.xcconfig"; sourceTree = "<group>"; };
 		D4AEE2B9C41B1EF49A30FAA2 /* Pods-VendingMachineAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VendingMachineAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-VendingMachineAppTests/Pods-VendingMachineAppTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -227,6 +229,7 @@
 				45EEBC8A2068979A00DEF064 /* RoundImageView.swift */,
 				45EEBC8C2068B82B00DEF064 /* BeveragePrice.swift */,
 				45F0106F206BE79F006C2CF5 /* PieGraphView.swift */,
+				45F01071206BF98B006C2CF5 /* PieDrawable.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -637,6 +640,7 @@
 				45E62B4F205129AB00FC3738 /* Kantata.swift in Sources */,
 				45E62B3A2051289600FC3738 /* InventoryBox.swift in Sources */,
 				450238DA2063A82C004566C7 /* ImageMapper.swift in Sources */,
+				45F01072206BF98B006C2CF5 /* PieDrawable.swift in Sources */,
 				45EEBC8B2068979A00DEF064 /* RoundImageView.swift in Sources */,
 				45E62B56205129AB00FC3738 /* Coke.swift in Sources */,
 				45E62B58205129AB00FC3738 /* Sprite.swift in Sources */,

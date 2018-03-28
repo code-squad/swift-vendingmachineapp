@@ -9,7 +9,15 @@
 import UIKit
 
 class PieGraphView: UIView {
+    private var listOfBeveragePurchases = [PurchaseProduct]()
+    
+    func drawRect() {
+        
+    }
+}
 
-
-
+extension PieGraphView: PieDrawable {
+    func sendData(data: [PurchaseProduct]) {
+        listOfBeveragePurchases = data
+    }
 }

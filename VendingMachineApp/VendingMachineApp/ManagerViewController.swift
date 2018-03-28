@@ -11,6 +11,7 @@ import UIKit
 class ManagerViewController: UIViewController {
 
     var vendingMachine: Vending?
+    var pieDrawable: PieDrawable?
     typealias TypeOf = InventoryBox.InventoryMenu
 
     @IBOutlet var countOfMenu: [UILabel]!
@@ -20,6 +21,7 @@ class ManagerViewController: UIViewController {
         super.viewDidLoad()
         changeInventoryBox()
         registerObserver()
+        drawPieGraph()
     }
     
     func registerObserver() {
@@ -27,6 +29,11 @@ class ManagerViewController: UIViewController {
                                                selector: #selector(changeInventoryBox),
                                                name: Notification.Name.DidResetInventoryBox,
                                                object: nil)
+    }
+    
+    func drawPieGraph() {
+        guard let vendingMachine = vendingMachine else { return }
+        pieDrawable?.sendData(data: vendingMachine.showPurchaseProductHistory())
     }
 
     override func didReceiveMemoryWarning() {
@@ -82,4 +89,5 @@ class ManagerViewController: UIViewController {
     @IBAction func closeManagerView(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
+
 }

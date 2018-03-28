@@ -324,3 +324,124 @@ class Robot: NSCoding {
 - 멀티스레드 환경이나 참조하는 객체가 너무 많은 경우 하나의 공유 인스턴스에 접근하는 것 자체가 과부하가 될 수도 있다.
 - 싱글톤 패턴은 다른 객체와 과도한 결합성을 줄이는 데는 도움이 되지만 싱글턴 객체가 병목구간이 되거나 취약지점이 될 위험도있다.
 - ex)멀티스레드 환경에서 NSFileManager클래스를 사용해서 동시에 여러 파일/디렉토리에 접근하는 경우에는 공유인스턴스를 사용하기보다는 각 스레드별로 NSFileManager객체 인스턴스를 생성해서 쓰도록 권장하고있다.
+
+
+### 싱글톤 적용하면서 이슈
+#### 문제상황
+- 싱글톤 객체를 만들어놓고 사용하지 않음
+- 싱글톤 객체를 앱델리게이트에서 사용하도록 수정했는데 앱 종료 후 다시 런칭했을때 초기화된 자판기 로드됨
+- **의심상황1** : AppDelegate의 변수 `vending`을 만들때 언아카이빙된 객체가 지정되는게 아니라 싱글톤 객체 초기화 `init()`함수에서 새롭게 초기화된(빈 자판기)객체가 지정된다.
+- **의심상황2** : 아카이빙이 제대로 되지 않는다. 아카이빙 할때 넘겨주는 vendingMachine데이터가 앱델리게이트의 `self.vending`으로, 의심상황1과 같이 싱글톤 객체 초기화 `init()`함수에서 새롭게 초기화된(빈 자판기)객체가 지정된다.
+***
+
+- **문제 원인1 :** `applicationWillTerminate()`에서 아카이빙할때 앱델리게이트의 `self.vending`을 저장하도록 넘김. static변수인 sharedInstance가 초기화되면서 초기값이 들어감
+- 언아카이빙 시에는 `self.vending = loadedData`으로 객체를 바꿔버리면서, viewController에서 언아카이빙된 자판기를 사용하긴 하지만 *싱글톤을 사용하게 되지 않는다...*  
+```swift
+class AppDelegate: UIResponder, UIApplicationDelegate {
+
+    var window: UIWindow?
+    let vending = VendingMachine.sharedInstance
+
+    // 언아카이빙
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        guard let loadedData = DataStorage().loadVendingMachine() else {
+            return true // 로드될 자판기가 없으면 초기화된 sharedInstance로 vending 세팅
+        }
+        self.vending = loadedData
+        return true
+    }
+
+    func applicationWillTerminate(_ application: UIApplication) {
+       DataStorage().saveVendingMachine(data: self.vending)
+    }
+
+// DataStorage.swift - 아카이빙과 언아카이빙 메소드 참고
+class DataStorage {
+
+    func loadVendingMachine() -> VendingMachine? {
+        // 존재확인
+        if UserDefaults.standard.object(forKey: "vendingMachine") != nil {
+            // key값으로 데이터 가져옴
+            let encodedVending = UserDefaults.standard.data(forKey: "vendingMachine")
+            guard let archivedMachine = NSKeyedUnarchiver.unarchiveObject(with: encodedVending!) as? VendingMachine else { return nil }
+            return archivedMachine
+        }
+        return nil
+    }
+
+    func saveVendingMachine(data: VendingMachine) {
+        UserDefaults.standard.set(NSKeyedArchiver.archivedData(withRootObject: data), forKey: "vendingMachine")
+    }
+}
+
+```
+***
+- **문제 원인1 추가:** AppDelegate에서 `let vending = VendingMachine.sharedInstance`로 접근하면 아래 코드에서 `static var sharedInstance = VendingMachine()`여기로 접근
+  - `VendingMachine()`부분 때문에 모든 재고를 한 개씩 추가하는 init()이 실행되면서 싱글톤 객체의 자판기는 빈 자판기가 돼버림. 따라서 아래의 타입메소드를 추가했다.
+
+- 싱글톤객체의 `init()`은 빈 자판기(음료수 재고가 하나씩 있는 초기 형태)생성
+- `sharedVendingMachine()`: 현재 시점의 싱글톤객체 상태 그대로를 리턴함
+  - (싱글톤객체를 호출하면서 빈 자판기로 초기화되는 문제 방지)
+- `loadData()`: 싱글톤객체 생성 후 싱글톤 객체의 상태를 변경해주고싶을때 원하는 상태의 VendingMachine을 파라미터로 넘겨주면 싱글톤객체 상태를 바꿔준다. 대신에 외부에 접근해서 값을 바꾸지 않고 타입메서드를 통해서만 바꾸기 위해서 만듦.
+
+```swift
+class VendingMachine: NSObject, NSCoding {
+    static var sharedInstance = VendingMachine()
+
+    private override convenience init() {
+        self.init(stockItems: Controller().setVendingMachineStock(unit: 1))
+    }
+
+    class func sharedVendingMachine() -> VendingMachine {
+        return sharedInstance
+    }
+
+    class func loadData(_ data: VendingMachine) {
+        sharedInstance = data
+    }
+```
+
+***
+
+- **문제 원인 2:** viewDidLoad에서 appDelegate의 `vending`을 불러오면서, AppDelegate의 `vending`변수에 접근하게되고 새로운 빈 `vending`인스턴스가 만들어짐
+```swift
+// ViewController.swift
+override func viewDidLoad() {
+    super.viewDidLoad()
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    vending = appDelegate.vending
+    self.updateItemNumber()
+    self.setBalance()
+}
+```
+***
+
+- **정리 및 해결:** 결국 원인은 싱글톤으로 만들어진 객체와 로드된 자판기객체가 따로 생성되고, 로드된 자판기 데이터가 싱글톤객체에 제대로 반영되지 않아서 생긴 문제였다. 또한 아카이빙할때도 데이터 값이 바뀐 자판기가 아니라 sharedInstance가 처음 초기화될때 의 자판기 데이터가 저장됐던 것이 문제.
+
+```swift
+class AppDelegate: UIResponder, UIApplicationDelegate {
+
+    var window: UIWindow?
+    // vending 변수 제거
+
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        guard let loadedData = DataStorage().loadVendingMachine() else { return true } // 초기화된 sharedInstance로 vending 세팅
+        VendingMachine.loadData(loadedData)
+        // 로드된 vending 데이터를 싱글톤객체 sharedInstance에 대입
+        return true
+    }
+
+    func applicationDidEnterBackground(_ application: UIApplication) {
+    DataStorage().saveVendingMachine(data: VendingMachine.sharedVendingMachine())
+    // 현재 싱글톤의 상태 데이터를 (그대로)리턴받아서 저장
+}
+
+// ViewController에서도 현재 상태 데이터를 가진 싱글톤 객체를 바탕으로 동작
+override func viewDidLoad() {
+     super.viewDidLoad()
+     vending = VendingMachine.sharedVendingMachine()
+     self.updateItemNumber()
+     self.setBalance()
+ }
+
+```

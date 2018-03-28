@@ -309,6 +309,18 @@ class Robot: NSCoding {
 
 
 ## Step4 - 싱글톤 모델
-> 싱글톤 Singleton : 프로그램 내에서 사용하는 특정 객체가 오직 하나의 인스턴스만 만들어지게 보장되도록 하는 디자인 패턴
+> 싱글톤 Singleton : 인스턴스가 딱 하나만 있는 객체
+> 싱글톤 Singleton패턴 : 프로그램 내에서 사용하는 특정 객체가 오직 하나의 인스턴스만 만들어지게 보장되도록 하는 디자인 패턴
 
+앱 내부에서 공통적으로 사용하는 객체 인스턴스가 딱 하나만 있기 때문에 다른 객체들이 서로 공유해서 사용할 수 있다.
+예를들어 NSFileManager나 UIApplication클래스의 객체는 싱글턴으로 공유 인스턴스를 사용한다.
+
+
+[참고서적 - Cocoa Internals, 김정](http://www.kyobobook.co.kr/product/detailViewKor.laf?ejkGb=KOR&mallGb=KOR&barcode=9788966262076&orderClick=LAG&Kc=)
 [참고링크1](https://blog.seotory.com/post/2016/03/java-singleton-pattern)
+
+### 싱글톤모델의 장단점
+- 멀티스레드 환경에서 안정적이지 않음
+- 멀티스레드 환경이나 참조하는 객체가 너무 많은 경우 하나의 공유 인스턴스에 접근하는 것 자체가 과부하가 될 수도 있다.
+- 싱글톤 패턴은 다른 객체와 과도한 결합성을 줄이는 데는 도움이 되지만 싱글턴 객체가 병목구간이 되거나 취약지점이 될 위험도있다.
+- ex)멀티스레드 환경에서 NSFileManager클래스를 사용해서 동시에 여러 파일/디렉토리에 접근하는 경우에는 공유인스턴스를 사용하기보다는 각 스레드별로 NSFileManager객체 인스턴스를 생성해서 쓰도록 권장하고있다.

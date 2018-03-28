@@ -12,16 +12,13 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var vending = VendingMachine.sharedInstance
 
     // 기존에 저장된 값에서 불러와서 VendingMachine 객체 인스턴스를 생성하기
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        guard let roadedData = DataStorage().loadVendingMachine() else {
-            return true
-        }
-            self.vending = roadedData
-            return true
-        }
+        guard let loadedData = DataStorage().loadVendingMachine() else { return true } // 초기화된 sharedInstance로 vending 세팅
+        VendingMachine.loadData(loadedData) // 로드된 vending 데이터를 sharedInstance에 대입
+        return true
+    }
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -30,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         //  VendingMachine 객체 인스턴스 속성을 저장하기. 저장할 때는 VendingMachine을 아카이브해서 하나의 데이터 값으로 변형한다
     func applicationDidEnterBackground(_ application: UIApplication) {
-        DataStorage().saveVendingMachine(data: self.vending)
+        DataStorage().saveVendingMachine(data: VendingMachine.sharedVendingMachine())
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -43,7 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     //  VendingMachine 객체 인스턴스 속성을 저장하기. 저장할 때는 VendingMachine을 아카이브해서 하나의 데이터 값으로 변형한다
     func applicationWillTerminate(_ application: UIApplication) {
-        DataStorage().saveVendingMachine(data: self.vending)
+        DataStorage().saveVendingMachine(data: VendingMachine.sharedVendingMachine())
     }
 
 }

@@ -445,3 +445,31 @@ override func viewDidLoad() {
  }
 
 ```
+
+## Step5 - Observer패턴
+
+
+
+### DIP(Dependency Inversion Principle 의존성 역전 원리)
+- 사전적 정의: 의존관계를 갖는 모듈 인스턴스의 구성이 추상화에 의존한다.
+- High level modules should not depend on low-level modules. Both should depend on abstractions.
+- 의존관계가 있는 객체를 프로토콜을 선언하여 프로토콜에 의존하게 만드는 것
+- 전통적인 흐름: 상위모듈이 하위모듈 인스턴스를 직접 생성한다.
+  - 이렇게되면 **하위 모듈의 코드 형식이 상위모듈에 의해 결정되기때문에 하위모듈의 다형성이 동작하기 어렵ㄴ다. 또한 유닛테스트도 어렵다.**
+- DIP를 사용하게되면, **구체적인 의존관계가 추상화에 의해 결정되기때문에** 다형성과 재사용성이 높아짐
+
+- **cf. Dependency Injection: DIP를 구현하는 기법 중 하나.**
+
+### Observer 패턴
+[참고- 야곰의 블로그](http://blog.yagom.net/267)
+[참고- 얄미대디 블로그](https://jdub7138.blog.me/220937372865)
+- MVC구조에서, Model이 Controller에게 말을 걸기위해 사용하는 방식
+- NotificationCenter가 하는: 객체 A와 B 간 정보를 주고받을때, 사이에서 객체 간에 서로 누가 누군지는 알 수 없지만, 노티피케이션 이름마 알고있다면 노티피케이션 센터에다가 나 이런 노티를 날렸으니 너가 알아서 처리해! 라고 하는 명령, 그럼 그 노티피케이션 센터는 해당 노티를 기다리고 있는 객체에게 해당 명령 수행요청.
+- 옵저버 추가 메소드: `addObserver()`, `addObserverForName()`
+- 옵저버 제거 메소드: `removeObserver()`
+- notification 보내기(post): `postNotification()`
+
+<img src="./Screenshot/step4-1.png" width="80%">
+
+
+- selector: 오브젝티브-C 추론을 위해 selector 함수 앞에 `@objc` 어노테이션이 필요. 셀렉터 메소드는 항상 하나의 유일한 NSNotification타입의 인스턴스를 인자로 받아야한다.

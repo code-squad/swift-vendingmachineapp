@@ -25,12 +25,21 @@ class ViewController: UIViewController {
         vending = VendingMachine.sharedVendingMachine()
         self.updateItemNumber()
         self.setBalance()
+        NotificationCenter.default.addObserver(self, selector: #selector(didAddBalance(_:)), name: .addBalance, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(didAddItem(_:)), name: .addItem, object: nil)
+    }
+
+    @objc private func didAddItem(_ notification: Notification) {
+        self.updateItemNumber()
+    }
+
+    @objc private func didAddBalance(_ notification: Notification) {
+        self.setBalance()
     }
 
     @IBAction func addButtonTouched(sender: UIButton) {
         guard let item = try? Controller.AdminController().addItem(sender.tag) else { return }
         vending.add(inputItem: item)
-        self.updateItemNumber()
     }
 
     @IBAction func addBalance(_ sender: UIButton) {
@@ -42,7 +51,6 @@ class ViewController: UIViewController {
         default:
             vending.addBalance(money: ValidMoney.zero.cash)
         }
-        self.setBalance()
     }
 
     private func updateItemNumber() {

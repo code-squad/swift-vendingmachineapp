@@ -43,6 +43,7 @@ class VendingMachine: NSObject, NSCoding {
 
     func addBalance(money: Int) {
         self.balance.add(money)
+        NotificationCenter.default.post(name: .addBalance, object: nil)
     }
 
     func subtractBalance(money: Int) {
@@ -65,6 +66,7 @@ class VendingMachine: NSObject, NSCoding {
 
     func add(inputItem: Beverage) {
         stock.addItem(item: inputItem)
+        NotificationCenter.default.post(name: .addItem, object: nil)
     }
 
     func removeItem(itemCode: Int) throws {

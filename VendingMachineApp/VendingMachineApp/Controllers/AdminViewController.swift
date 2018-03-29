@@ -29,13 +29,13 @@ class AdminViewController: UIViewController, PieGraphViewDataSource {
     }
     
     func bind(_ pieGraphView: PieGraphView) -> PieGraphItem {
-        var piePraphItem = PieGraphItem([String]())
+        var pieGraphItem = PieGraphItem([String]())
         
         if let machine = self.vendingMachine {
-            piePraphItem = PieGraphItem(machine.fetchSalesHistory())
+            pieGraphItem = PieGraphItem(machine.fetchSalesHistory())
         }
         
-        return piePraphItem
+        return pieGraphItem
     }
 
     @IBAction func insertBeverageAction(_ sender: UIButton) {

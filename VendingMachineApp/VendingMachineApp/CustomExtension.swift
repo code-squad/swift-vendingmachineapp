@@ -74,3 +74,11 @@ extension String{
         self = String(format: "\(amountFormat)개", amountFormat)
     }
 }
+
+
+extension Notification.Name {
+    static let addBalance = Notification.Name("addBalance")
+    static let addItem = Notification.Name("addItem")
+}
+
+

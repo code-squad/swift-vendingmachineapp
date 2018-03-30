@@ -436,5 +436,7 @@ init(image: UIImage?, position: CGFloat) {
 
 ##### 실행결과
 
+<img src="./images/vendingmachine-app-result-9.gif" />
+
 ##### iOS Touch Event
 * [정리](https://wiki.yuaming.com/ios/touch-event.html)

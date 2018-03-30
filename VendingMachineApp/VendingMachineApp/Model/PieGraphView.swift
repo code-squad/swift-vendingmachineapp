@@ -26,6 +26,13 @@ class PieGraphView: UIView {
             self.beverage = data
         }
     }
+    private var textAttributes: [NSAttributedStringKey: Any] = {
+        let myShadow = NSShadow()
+        myShadow.shadowBlurRadius = 3
+        myShadow.shadowOffset = CGSize(width: 3, height: 3)
+        myShadow.shadowColor = UIColor.gray
+        return [NSAttributedStringKey.foregroundColor: UIColor.white, NSAttributedStringKey.shadow: myShadow]
+    }()
 
     private struct Constants {
         static let arcWidth: CGFloat = 10
@@ -41,6 +48,13 @@ class PieGraphView: UIView {
         let x1 = Int(center.x + cos(startAngle) * radius)
         let y1 = Int(center.y + sin(startAngle) * radius)
         return CGPoint(x: x1, y: y1)
+    }
+    
+    private func calculateTextPoint(center: CGPoint, startAngle: CGFloat, endAngle: CGFloat, radius: CGFloat) -> CGPoint {
+        let halfAngle = (endAngle + startAngle) / 2
+        print(halfAngle)
+        return calculatePoint(center: center, startAngle: halfAngle, radius: radius/2 + 0.5)
+        
     }
     
     override func draw(_ rect: CGRect) {
@@ -63,6 +77,15 @@ class PieGraphView: UIView {
             path.addLine(to: center)
             path.fill()
             path.close()
+            
+            // 글자 넣기
+            let textPoint = calculateTextPoint(center: center, startAngle: startAngle, endAngle: endAngle, radius: radius)
+            let textToRender: NSString = product.key as NSString
+            
+            var renderRect = CGRect(origin: .zero, size: textToRender.size(withAttributes: textAttributes))
+            renderRect.origin = textPoint
+
+            textToRender.draw(in: renderRect, withAttributes: textAttributes)
             
             startAngle = endAngle
         }

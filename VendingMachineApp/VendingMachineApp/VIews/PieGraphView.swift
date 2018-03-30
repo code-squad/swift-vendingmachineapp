@@ -165,10 +165,8 @@ private extension PieGraphView {
     
     func drawText(_ endAngle: CGFloat, _ item: PieGraphItem) {
         let halfAngle = startAngle + (endAngle - startAngle) * 0.5
-        let textPositionValue : CGFloat = 0.67
-        let textCenter = CGPoint(x: viewCenter.x + radius * textPositionValue * cos(halfAngle), y: viewCenter.y + radius * textPositionValue * sin(halfAngle))
+        let textCenter = CGPoint(x: viewCenter.x + radius * PieGraphAttribute.textPositionValue * cos(halfAngle), y: viewCenter.y + radius * PieGraphAttribute.textPositionValue * sin(halfAngle))
         let text = "\(item.menu): \(Formatter.ea(Int(item.value)).unit)"
-        
         var renderRect = CGRect(origin: .zero, size: text.size(withAttributes: PieGraphAttribute.text))
         
         renderRect.origin = CGPoint(x: textCenter.x - renderRect.size.width * 0.5, y: textCenter.y - renderRect.size.height * 0.5)
@@ -178,6 +176,8 @@ private extension PieGraphView {
 }
 
 struct PieGraphAttribute {
+    static let textPositionValue: CGFloat = 0.67
+    
     static var text: [NSAttributedStringKey: Any] {
         return [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 15, weight: .medium),
                 NSAttributedStringKey.foregroundColor: UIColor.black]

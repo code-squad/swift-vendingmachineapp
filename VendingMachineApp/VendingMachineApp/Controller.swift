@@ -8,37 +8,33 @@
 
 import Foundation
 
-struct Controller {
+// 관리자 모드에서 add동작을 위해 필요한 AdminController
+struct AdminController {
+    let beverages = [
+        BananaMilk(brand: "서울우유", weight: 200, price: 1000, name: "날마다바나나우유", manufactured: "20180213"),
+        ChocoMilk(brand: "서울우유", weight: 200, price: 1000, name: "날마다초코우유", manufactured: "20180212"),
+        Coffee(brand: "맥심", weight: 400, price: 3000, name: "TOP아메리카노", manufactured: "20171010"),
+        DolceLatte(brand: "스타벅스", weight: 473, price: 6000, name: "돌체라떼", manufactured: "20171210"),
+        EnergyDrink(brand: "레드불", weight: 350, price: 2000, name: "레드불", manufactured: "20171010"),
+        SoftDrink(brand: "코카콜라", weight: 500, price: 2000, name: "제로코크", manufactured: "20171005")
+    ]
 
-    // 관리자 모드에서 add동작을 위해 필요한 AdminController
-    struct AdminController {
-        let beverages = [
-            BananaMilk(brand: "서울우유", weight: 200, price: 1000, name: "날마다바나나우유", manufactured: "20180213"),
-            ChocoMilk(brand: "서울우유", weight: 200, price: 1000, name: "날마다초코우유", manufactured: "20180212"),
-            Coffee(brand: "맥심", weight: 400, price: 3000, name: "TOP아메리카노", manufactured: "20171010"),
-            DolceLatte(brand: "스타벅스", weight: 473, price: 6000, name: "돌체라떼", manufactured: "20171210"),
-            EnergyDrink(brand: "레드불", weight: 350, price: 2000, name: "레드불", manufactured: "20171010"),
-            SoftDrink(brand: "코카콜라", weight: 500, price: 2000, name: "제로코크", manufactured: "20171005")
-        ]
-
-        func pickItem(_ index: Int) throws -> Beverage {
-            guard 0...beverages.count-1 ~= index else {
-                throw Exception.outOfStock
-            }
-            return self.beverages[index]
+    func pickItem(_ index: Int) throws -> Beverage {
+        guard 0...beverages.count-1 ~= index else {
+            throw Exception.outOfStock
         }
-
-        func addItemsDescription() -> String {
-            var result = ""
-            var index = 0
-            for item in beverages {
-                index += 1
-                result += "\(index)) \(item.type) | "
-            }
-            return result
-        }
+        return self.beverages[index]
     }
 
+    func addItemsDescription() -> String {
+        var result = ""
+        var index = 0
+        for item in beverages {
+            index += 1
+            result += "\(index)) \(item.type) | "
+        }
+        return result
+    }
     func setVendingMachineStock(unit: Int) -> [Beverage] {
         var stock = [Beverage]()
         let chocoMilk = ChocoMilk(brand: "서울우유", weight: 200, price: 1000, name: "날마다초코우유", manufactured: "20180212")
@@ -47,7 +43,7 @@ struct Controller {
         let americano = Coffee(brand: "맥심", weight: 400, price: 3000, name: "TOP아메리카노", manufactured: "20171010")
         let dolceLatte = DolceLatte(brand: "스타벅스", weight: 473, price: 6000, name: "돌체라떼", manufactured: "20171210")
         let energyDrink = EnergyDrink(brand: "레드불", weight: 350, price: 2000, name: "레드불", manufactured: "20171010")
-
+        
         for _ in 0..<unit {
             stock.append(chocoMilk)
             stock.append(bananaMilk)
@@ -58,9 +54,11 @@ struct Controller {
         }
         return stock
     }
+}
 
 
-    /*
+struct Controller {
+/*
     func run() {
         let productSets = setVendingMachineStock(unit: 3)
         var vendingMachine = VendingMachine(stockItems: productSets)

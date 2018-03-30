@@ -9,6 +9,7 @@
 import UIKit
 
 class PieGraphView: UIView {
+    @IBInspectable let graphColor = [UIColor.red, UIColor.orange, UIColor.yellow, UIColor.green, UIColor.blue, UIColor.purple, UIColor.gray, UIColor.brown, UIColor.darkGray]
     var beverage = [String: Int]()
     private var numberOfBeverage: Int {
         var number = 0
@@ -29,9 +30,6 @@ class PieGraphView: UIView {
     private struct Constants {
         static let arcWidth: CGFloat = 10
     }
-    @IBInspectable var counter: Int = 5
-    @IBInspectable var outlineColor: UIColor = UIColor.blue
-    @IBInspectable var counterColor: UIColor = UIColor.orange
     
     private func calculateAngle(endAngle: CGFloat, number: Int) -> CGFloat {
         print(numberOfBeverage)
@@ -52,17 +50,17 @@ class PieGraphView: UIView {
         var endAngle: CGFloat = 0
         
         // 음료수 별 비율을 계산하여 그래프로 출력
-        for product in beverage {
+        for (index, product) in beverage.enumerated() {
             let path = UIBezierPath()
             path.move(to: center)
-            counterColor.setStroke()
+            graphColor[index].setFill()
             endAngle = calculateAngle(endAngle: endAngle, number: product.value)
             let point = calculatePoint(center: center, startAngle: startAngle, radius: radius)
             
             path.addLine(to: point)
             path.addArc(withCenter: center, radius: radius, startAngle: startAngle, endAngle: endAngle, clockwise: true)
             path.addLine(to: center)
-            path.stroke()
+            path.fill()
             path.close()
             
             startAngle = endAngle

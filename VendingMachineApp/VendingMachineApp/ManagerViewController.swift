@@ -9,23 +9,6 @@
 import UIKit
 
 class ManagerViewController: UIViewController, PieDrawable {
-    func sendData() -> [String: Int] {
-        guard let vendingMachine = vendingMachine else { return [:] }
-        let data = vendingMachine.showPurchaseProductHistory()
-        var beverage = [String: Int]()
-        let listOfBeveragePurchases = data.map({$0.purchaseBeverage}) //[Beverage]
-        var name: String
-        
-        for _ in data {
-            name = String(describing: listOfBeveragePurchases)
-            if !beverage.keys.contains(name) {
-                beverage[name] = 0
-            }
-            beverage[name]! += 1
-        }
-        return beverage
-    }
-    
     var vendingMachine: Vending?
     typealias TypeOf = InventoryBox.InventoryMenu
 
@@ -82,6 +65,23 @@ class ManagerViewController: UIViewController, PieDrawable {
             text.placeholder = "갯수입력"
         })
         self.present(alert, animated: true)
+    }
+    
+    func sendData() -> [String: Int] {
+        guard let vendingMachine = vendingMachine else { return [:] }
+        let data = vendingMachine.showPurchaseProductHistory()
+        var beverage = [String: Int]()
+        let listOfBeveragePurchases = data.map({$0.purchaseBeverage}) //[Beverage]
+        var name: String
+        
+        for _ in data {
+            name = String(describing: listOfBeveragePurchases)
+            if !beverage.keys.contains(name) {
+                beverage[name] = 0
+            }
+            beverage[name]! += 1
+        }
+        return beverage
     }
     
     @objc func changeInventoryBox() {

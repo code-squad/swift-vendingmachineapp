@@ -66,17 +66,46 @@ class PieGraphView: UIView {
         }
     }
     
-    override func layoutSublayers(of layer: CALayer) {
-        super.layoutSublayers(of: layer)
-    }
+    private var isTouched: Bool = false
 
     override func draw(_ rect: CGRect) {
+        super.draw(rect)
+        
         if let graphItem = self.dataSource?.bind(self) {
             drawPieGraph(graphItem)
         }
     }
 }
 
+
+// MARK: Touch events
+extension PieGraphView {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        isTouched = true
+        setNeedsDisplay()
+    }
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesMoved(touches, with: event)
+        isTouched = true
+        setNeedsDisplay()
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesCancelled(touches, with: event)
+        isTouched = false
+        setNeedsDisplay()
+    }
+    
+    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesCancelled(touches, with: event)
+        isTouched = false
+        setNeedsDisplay()
+    }
+}
+
+// MARK: Draw a pie graph
 private extension PieGraphView {
     func drawPieGraph(_ graphItem: PieGraphItem) {
         if let context = UIGraphicsGetCurrentContext() {
@@ -89,7 +118,12 @@ private extension PieGraphView {
             for item in graphItem.convert() {
                 let endAngle = startAngle + 2 * .pi * (item.value / valueCount)
 
-                context.setFillColor(PieGraphAttribute.pickColor(index))
+                if isTouched {
+                    context.setFillColor(UIColor.black.cgColor)
+                } else {
+                    context.setFillColor(PieGraphAttribute.pickColor(index))
+                }
+                
                 context.move(to: viewCenter)
                 context.addArc(center: viewCenter, radius: radius, startAngle: startAngle, endAngle: endAngle, clockwise: false)
                 context.fillPath()

@@ -66,8 +66,12 @@ class PieGraphView: UIView {
         }
     }
     
+    private var radius: CGFloat = 0
+    private var startAngle = -CGFloat.pi * 0.5
+    private var scale: CGFloat = 0.2
     private var isTouched: Bool = false
-
+    private var viewCenter: CGPoint = CGPoint()
+    
     override func draw(_ rect: CGRect) {
         super.draw(rect)
         
@@ -76,7 +80,6 @@ class PieGraphView: UIView {
         }
     }
 }
-
 
 // MARK: Touch events
 extension PieGraphView {
@@ -89,6 +92,23 @@ extension PieGraphView {
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesMoved(touches, with: event)
         isTouched = true
+        
+        if let touch = touches.first {
+            let position = touch.location(in: self)
+            let xDistance = pow(bounds.size.width * 0.5 - position.x, 2)
+            let yDistance = pow(bounds.size.width * 0.5 - position.y, 2)
+            let distance = sqrt(xDistance + yDistance)
+            
+            switch distance / 100 {
+            case ..<0.2:
+                scale = 0.2
+            case 0.5...:
+                scale = 0.5
+            default:
+                scale = distance / 100
+            }
+        }
+        
         setNeedsDisplay()
     }
     
@@ -107,17 +127,24 @@ extension PieGraphView {
 
 // MARK: Draw a pie graph
 private extension PieGraphView {
+    func getCurrentContext() -> CGContext? {
+        guard let context = UIGraphicsGetCurrentContext() else {
+            return nil
+        }
+        
+        viewCenter = CGPoint(x: bounds.size.width * 0.5, y: bounds.size.height * 0.5)
+        radius = min(frame.size.height, frame.size.height) * scale
+        return context
+    }
+    
     func drawPieGraph(_ graphItem: PieGraphItem) {
-        if let context = UIGraphicsGetCurrentContext() {
-            let radius = min(frame.size.height, frame.size.height) * 0.5
-            let valueCount = graphItem.total
-            let viewCenter = CGPoint(x: bounds.size.width * 0.5, y: bounds.size.height * 0.5)
-            var startAngle = -CGFloat.pi * 0.5
+        if let context = getCurrentContext() {
             var index = 0
+            let valueCount = graphItem.total
             
             for item in graphItem.convert() {
                 let endAngle = startAngle + 2 * .pi * (item.value / valueCount)
-
+                
                 if isTouched {
                     context.setFillColor(UIColor.black.cgColor)
                 } else {
@@ -128,7 +155,7 @@ private extension PieGraphView {
                 context.addArc(center: viewCenter, radius: radius, startAngle: startAngle, endAngle: endAngle, clockwise: false)
                 context.fillPath()
                 
-                drawText(startAngle, endAngle, radius, viewCenter, item)
+                drawText(endAngle, item)
                 
                 startAngle = endAngle
                 index += 1
@@ -136,7 +163,7 @@ private extension PieGraphView {
         }
     }
     
-    func drawText(_ startAngle: CGFloat, _ endAngle: CGFloat, _ radius: CGFloat, _ viewCenter: CGPoint, _ item: PieGraphItem) {
+    func drawText(_ endAngle: CGFloat, _ item: PieGraphItem) {
         let halfAngle = startAngle + (endAngle - startAngle) * 0.5
         let textPositionValue : CGFloat = 0.67
         let textCenter = CGPoint(x: viewCenter.x + radius * textPositionValue * cos(halfAngle), y: viewCenter.y + radius * textPositionValue * sin(halfAngle))

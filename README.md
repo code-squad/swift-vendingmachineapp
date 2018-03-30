@@ -447,8 +447,8 @@ override func viewDidLoad() {
 ```
 
 ## Step5 - Observer패턴
-
-
+> - MVC 패턴에서 Model과 Controller의 직접적인 참조 관계를 끊기 위해서 관찰자(Observer) 패턴을 적용한다.
+> - 관찰자 패턴을 적용해서 재고가 추가될 때마다 화면을 갱신하도록 개선한다.
 
 ### DIP(Dependency Inversion Principle 의존성 역전 원리)
 - 사전적 정의: 의존관계를 갖는 모듈 인스턴스의 구성이 추상화에 의존한다.

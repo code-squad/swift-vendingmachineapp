@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         //  VendingMachine 객체 인스턴스 속성을 저장하기. 저장할 때는 VendingMachine을 아카이브해서 하나의 데이터 값으로 변형한다
     func applicationDidEnterBackground(_ application: UIApplication) {
-        DataStorage().saveVendingMachine(data: VendingMachine.sharedVendingMachine())
+        DataStorage().saveVendingMachine(data: VendingMachine.shared())
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -40,7 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     //  VendingMachine 객체 인스턴스 속성을 저장하기. 저장할 때는 VendingMachine을 아카이브해서 하나의 데이터 값으로 변형한다
     func applicationWillTerminate(_ application: UIApplication) {
-        DataStorage().saveVendingMachine(data: VendingMachine.sharedVendingMachine())
+        DataStorage().saveVendingMachine(data: VendingMachine.shared())
     }
 
 }

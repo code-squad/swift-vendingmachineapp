@@ -610,6 +610,7 @@
                         <viewLayoutGuide key="safeArea" id="I2F-Ny-3mc"/>
                     </view>
                     <connections>
+                        <outlet property="pieChartView" destination="yf0-ld-DcZ" id="Mi2-bJ-u8h"/>
                         <outletCollection property="addNumberOfMenu" destination="z1M-5w-ILA" collectionClass="NSMutableArray" id="ZqX-Ta-2Uh"/>
                         <outletCollection property="addNumberOfMenu" destination="CxR-lj-mHb" collectionClass="NSMutableArray" id="kuk-yX-hCg"/>
                         <outletCollection property="addNumberOfMenu" destination="hSz-QD-IN4" collectionClass="NSMutableArray" id="C5J-g2-dLY"/>

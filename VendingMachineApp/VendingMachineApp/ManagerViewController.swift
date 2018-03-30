@@ -8,12 +8,28 @@
 
 import UIKit
 
-class ManagerViewController: UIViewController {
-
+class ManagerViewController: UIViewController, PieDrawable {
+    func sendData() -> [String: Int] {
+        guard let vendingMachine = vendingMachine else { return [:] }
+        let data = vendingMachine.showPurchaseProductHistory()
+        var beverage = [String: Int]()
+        let listOfBeveragePurchases = data.map({$0.purchaseBeverage}) //[Beverage]
+        var name: String
+        
+        for _ in data {
+            name = String(describing: listOfBeveragePurchases)
+            if !beverage.keys.contains(name) {
+                beverage[name] = 0
+            }
+            beverage[name]! += 1
+        }
+        return beverage
+    }
+    
     var vendingMachine: Vending?
-    var pieDrawable: PieDrawable?
     typealias TypeOf = InventoryBox.InventoryMenu
 
+    @IBOutlet weak var pieChartView: PieGraphView!
     @IBOutlet var countOfMenu: [UILabel]!
     @IBOutlet var addNumberOfMenu: [UIButton]!
     
@@ -24,6 +40,11 @@ class ManagerViewController: UIViewController {
         drawPieGraph()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        pieChartView.setNeedsDisplay()
+    }
+    
     func registerObserver() {
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(changeInventoryBox),
@@ -32,8 +53,7 @@ class ManagerViewController: UIViewController {
     }
     
     func drawPieGraph() {
-        guard let vendingMachine = vendingMachine else { return }
-        pieDrawable?.sendData(data: vendingMachine.showPurchaseProductHistory())
+        pieChartView.pieDrawable = self
     }
 
     override func didReceiveMemoryWarning() {

@@ -22,6 +22,7 @@ class UserViewController: UIViewController {
         super.viewDidLoad()
         changeInventoryBox()
         changeCoin()
+        printPurchaseProductImage()
         registerObserver()
     }
 

@@ -9,6 +9,6 @@
 import Foundation
 
 protocol PieDrawable {
-    func sendData(data: [PurchaseProduct])
+    
+    func sendData() -> [String: Int]
 }
-

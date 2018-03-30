@@ -11,6 +11,20 @@ import UIKit
 class PieGraphView: UIView {
     private var graphColor = [UIColor.red, UIColor.orange, UIColor.yellow, UIColor.green, UIColor.blue, UIColor.purple, UIColor.gray, UIColor.brown, UIColor.darkGray]
     private var beverage = [String: Int]()
+    struct DataOfPieGraph {
+        var path: UIBezierPath
+        var startAngle: CGFloat
+        var endAngle: CGFloat
+        var index: Int
+        var product: (key: String, value: Int)
+        init(path: UIBezierPath, startAngle: CGFloat, endAngle: CGFloat, index: Int, product: (key: String, value: Int)) {
+            self.path = path
+            self.startAngle = startAngle
+            self.endAngle = endAngle
+            self.index = index
+            self.product = product
+        }
+    }
     private var numberOfBeverage: Float {
         var number: Float = 0
         for data in beverage {
@@ -61,36 +75,47 @@ class PieGraphView: UIView {
         let halfAngle = (endAngle + startAngle) / 2
         print(halfAngle)
         return calculatePoint(center: center, startAngle: halfAngle, radius: radius/2 + 0.5)
-        
+    }
+    
+    // 파이그래프 세팅
+    private func setPieGraphdrawing(pieData: DataOfPieGraph) -> CGFloat {
+        pieData.path.move(to: centerOfGraph)
+        graphColor[pieData.index].setFill()
+        return calculateAngle(endAngle: pieData.endAngle, number: Float(pieData.product.value))
+    }
+    
+    // 파이그래프 그리기
+    private func drawPieGraph(pieData: DataOfPieGraph) {
+        let point = calculatePoint(center: centerOfGraph, startAngle: pieData.startAngle, radius: radiusOfGraph)
+        pieData.path.addLine(to: point)
+        pieData.path.addArc(withCenter: centerOfGraph, radius: radiusOfGraph, startAngle: pieData.startAngle, endAngle: pieData.endAngle, clockwise: true)
+        pieData.path.addLine(to: centerOfGraph)
+        pieData.path.fill()
+        pieData.path.close()
+    }
+    
+    // 파이그래프에 글자 넣기
+    private func drawTextOnPieGraph(pieData: DataOfPieGraph) {
+        let textPoint = calculateTextPoint(center: centerOfGraph, startAngle: pieData.startAngle, endAngle: pieData.endAngle, radius: radiusOfGraph)
+        let textToRender: NSString = pieData.product.key as NSString
+        var renderRect = CGRect(origin: .zero, size: textToRender.size(withAttributes: textAttributes))
+        renderRect.origin = textPoint
+        textToRender.draw(in: renderRect, withAttributes: textAttributes)
     }
     
     override func draw(_ rect: CGRect) {
         var startAngle: CGFloat = 0
         var endAngle: CGFloat = 0
+        var dataOfPieGraph: DataOfPieGraph
         
         // 음료수 별 비율을 계산하여 그래프로 출력
         for (index, product) in beverage.enumerated() {
             let path = UIBezierPath()
-            path.move(to: centerOfGraph)
-            graphColor[index].setFill()
-            endAngle = calculateAngle(endAngle: endAngle, number: Float(product.value))
-            let point = calculatePoint(center: centerOfGraph, startAngle: startAngle, radius: radiusOfGraph)
-            
-            path.addLine(to: point)
-            path.addArc(withCenter: centerOfGraph, radius: radiusOfGraph, startAngle: startAngle, endAngle: endAngle, clockwise: true)
-            path.addLine(to: centerOfGraph)
-            path.fill()
-            path.close()
-            
-            // 글자 넣기
-            let textPoint = calculateTextPoint(center: centerOfGraph, startAngle: startAngle, endAngle: endAngle, radius: radiusOfGraph)
-            let textToRender: NSString = product.key as NSString
-            
-            var renderRect = CGRect(origin: .zero, size: textToRender.size(withAttributes: textAttributes))
-            renderRect.origin = textPoint
-
-            textToRender.draw(in: renderRect, withAttributes: textAttributes)
-            
+            dataOfPieGraph = DataOfPieGraph(path: path, startAngle: startAngle, endAngle: endAngle, index: index, product: product)
+            endAngle = setPieGraphdrawing(pieData: dataOfPieGraph)
+            dataOfPieGraph.endAngle = endAngle
+            drawPieGraph(pieData: dataOfPieGraph)
+            drawTextOnPieGraph(pieData: dataOfPieGraph)
             startAngle = endAngle
         }
     }

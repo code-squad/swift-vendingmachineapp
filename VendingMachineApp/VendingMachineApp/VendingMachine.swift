@@ -8,26 +8,40 @@
 
 import Foundation
 
-fileprivate var sharedVendingMachine = VendingMachine()
-
-protocol SharingVendingMachine {
-    var sharedInstance: VendingMachine { get }
+protocol DefaultMode {
+    func add(inputItem: Beverage)
+    func removeItem(itemCode: Int) throws
+    func addBalance(money: Int)
+    func showBalance() -> Int
+    func showStockDefault() -> String
+    func showStock() -> String
+    func history() -> String
+    func hasMiminumBalance() -> Bool
+    func howMany(of beverage: Beverage) -> Int
+    func hotBeverage() -> [ObjectIdentifier: [Beverage]]
+    func discardItems() -> [ObjectIdentifier: [Beverage]]
+    func validItems() -> [ObjectIdentifier: [Beverage]]
+    func possibleToBuy() -> [ObjectIdentifier: [Beverage]]
 }
 
-extension SharingVendingMachine {
-    var sharedInstance: VendingMachine {
-        return sharedVendingMachine
-    }
+protocol AdminMode {
+    func add(inputItem: Beverage)
+    func removeItem(itemCode: Int) throws
+    func addBalance(money: Int)
 }
 
-class VendingMachine: NSObject, NSCoding, SharingVendingMachine {
+protocol UserMode {
+    func addBalance(money: Int)
+    func subtractBalance(money: Int)
+    func buy(itemCode: Int) throws -> Beverage
+}
 
-    fileprivate override convenience init() {
-        self.init(stockItems: Controller().setVendingMachineStock(unit: 1))
-    }
 
-    var sharedInstance: VendingMachine {
-        return sharedVendingMachine
+class VendingMachine: NSObject, NSCoding, DefaultMode, AdminMode, UserMode {
+    private static var sharedVendingMachine = VendingMachine()
+
+    private override convenience init() {
+        self.init(stockItems: AdminController().setVendingMachineStock(unit: 1))
     }
 
     class func shared() -> VendingMachine {
@@ -51,7 +65,7 @@ class VendingMachine: NSObject, NSCoding, SharingVendingMachine {
     private(set) var stock = StockController(items: [Beverage]())
     private var balance = Money()
 
-    private init(stockItems: [Beverage]) {
+    init(stockItems: [Beverage]) {
         super.init()
         self.stock = StockController(items: stockItems)
     }

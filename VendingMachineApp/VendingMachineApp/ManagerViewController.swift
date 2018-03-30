@@ -74,8 +74,8 @@ class ManagerViewController: UIViewController, PieDrawable {
         let listOfBeveragePurchases = data.map({$0.purchaseBeverage}) //[Beverage]
         var name: String
         
-        for _ in data {
-            name = String(describing: listOfBeveragePurchases)
+        for product in listOfBeveragePurchases {
+            name = String(describing: type(of: product))
             if !beverage.keys.contains(name) {
                 beverage[name] = 0
             }

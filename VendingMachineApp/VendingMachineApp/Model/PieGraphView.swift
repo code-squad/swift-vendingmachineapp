@@ -9,12 +9,12 @@
 import UIKit
 
 class PieGraphView: UIView {
-    @IBInspectable let graphColor = [UIColor.red, UIColor.orange, UIColor.yellow, UIColor.green, UIColor.blue, UIColor.purple, UIColor.gray, UIColor.brown, UIColor.darkGray]
-    var beverage = [String: Int]()
-    private var numberOfBeverage: Int {
-        var number = 0
+    private var graphColor = [UIColor.red, UIColor.orange, UIColor.yellow, UIColor.green, UIColor.blue, UIColor.purple, UIColor.gray, UIColor.brown, UIColor.darkGray]
+    private var beverage = [String: Int]()
+    private var numberOfBeverage: Float {
+        var number: Float = 0
         for data in beverage {
-            number += data.value
+            number += Float(data.value)
         }
         return number
     }
@@ -31,9 +31,10 @@ class PieGraphView: UIView {
         static let arcWidth: CGFloat = 10
     }
     
-    private func calculateAngle(endAngle: CGFloat, number: Int) -> CGFloat {
-        print(numberOfBeverage)
-        return endAngle + 2 * .pi * CGFloat(number / numberOfBeverage)
+    private func calculateAngle(endAngle: CGFloat, number: Float) -> CGFloat {
+        let angle = 2 * .pi * CGFloat(number / numberOfBeverage)
+        let result = endAngle + angle
+        return result
     }
     
     private func calculatePoint(center: CGPoint, startAngle: CGFloat, radius: CGFloat) -> CGPoint {
@@ -54,7 +55,7 @@ class PieGraphView: UIView {
             let path = UIBezierPath()
             path.move(to: center)
             graphColor[index].setFill()
-            endAngle = calculateAngle(endAngle: endAngle, number: product.value)
+            endAngle = calculateAngle(endAngle: endAngle, number: Float(product.value))
             let point = calculatePoint(center: center, startAngle: startAngle, radius: radius)
             
             path.addLine(to: point)

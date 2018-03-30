@@ -9,7 +9,7 @@
 import UIKit
 
 protocol PieGraphViewDataSource {
-    func bind(_ pieGraphView: PieGraphView) -> PieGraphItem
+    func changeContent(_ pieGraphView: PieGraphView) -> PieGraphItem
 }
 
 struct PieGraphItem {
@@ -75,7 +75,7 @@ class PieGraphView: UIView {
     override func draw(_ rect: CGRect) {
         super.draw(rect)
         
-        if let graphItem = self.dataSource?.bind(self) {
+        if let graphItem = self.dataSource?.changeContent(self) {
             drawPieGraph(graphItem)
         }
     }

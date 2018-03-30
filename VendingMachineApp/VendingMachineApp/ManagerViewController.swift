@@ -67,7 +67,7 @@ class ManagerViewController: UIViewController, PieDrawable {
         self.present(alert, animated: true)
     }
     
-    func sendData() -> [String: Int] {
+    func receiveData() -> [String: Int] {
         guard let vendingMachine = vendingMachine else { return [:] }
         let data = vendingMachine.showPurchaseProductHistory()
         var beverage = [String: Int]()

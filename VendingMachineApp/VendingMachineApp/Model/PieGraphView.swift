@@ -34,7 +34,7 @@ class PieGraphView: UIView {
     }
     var pieDrawable: PieDrawable? {
         didSet {
-            guard let data = pieDrawable?.sendData() else {
+            guard let data = pieDrawable?.receiveData() else {
                 return
             }
             self.beverage = data

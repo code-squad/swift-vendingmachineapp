@@ -146,7 +146,7 @@ private extension PieGraphView {
                 let endAngle = startAngle + 2 * .pi * (item.value / valueCount)
                 
                 if isTouched {
-                    context.setFillColor(UIColor.black.cgColor)
+                    context.setFillColor(PieGraphAttribute.showColorWhenTouching())
                 } else {
                     context.setFillColor(PieGraphAttribute.pickColor(index))
                 }
@@ -186,5 +186,9 @@ struct PieGraphAttribute {
     static func pickColor(_ index: Int) -> CGColor {
         let colors: [UIColor] = [UIColor.white, UIColor.brown, UIColor.cyan, UIColor.green, UIColor.magenta, UIColor.purple]
         return colors[index].cgColor
+    }
+    
+    static func showColorWhenTouching() -> CGColor {
+        return UIColor.black.cgColor
     }
 }

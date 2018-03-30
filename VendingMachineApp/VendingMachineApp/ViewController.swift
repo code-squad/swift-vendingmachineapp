@@ -8,7 +8,12 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, SharingVendingMachine {
+
+    func sharedInstance() -> VendingMachine {
+        return self.sharedInstance
+    }
+
     var vending: VendingMachine!
 
     @IBOutlet weak var balanceLabel: UILabel!
@@ -22,7 +27,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        vending = VendingMachine.sharedVendingMachine()
+        vending = self.sharedInstance()
         self.updateItemNumber()
         self.setBalance()
         NotificationCenter.default.addObserver(self, selector: #selector(didAddBalance(_:)), name: .addBalance, object: nil)

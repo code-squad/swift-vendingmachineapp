@@ -8,19 +8,34 @@
 
 import Foundation
 
-class VendingMachine: NSObject, NSCoding {
-    static var sharedInstance = VendingMachine()
+fileprivate var sharedVendingMachine = VendingMachine()
 
-    private override convenience init() {
+protocol SharingVendingMachine {
+    var sharedInstance: VendingMachine { get }
+}
+
+extension SharingVendingMachine {
+    var sharedInstance: VendingMachine {
+        return sharedVendingMachine
+    }
+}
+
+class VendingMachine: NSObject, NSCoding, SharingVendingMachine {
+
+    fileprivate override convenience init() {
         self.init(stockItems: Controller().setVendingMachineStock(unit: 1))
     }
 
-    class func sharedVendingMachine() -> VendingMachine {
-        return sharedInstance
+    var sharedInstance: VendingMachine {
+        return sharedVendingMachine
+    }
+
+    class func shared() -> VendingMachine {
+        return sharedVendingMachine
     }
 
     class func loadData(_ data: VendingMachine) {
-        sharedInstance = data
+        sharedVendingMachine = data
     }
 
     func encode(with aCoder: NSCoder) {

@@ -95,8 +95,8 @@ extension PieGraphView {
         
         if let touch = touches.first {
             let position = touch.location(in: self)
-            let xDistance = pow(bounds.size.width * 0.5 - position.x, 2)
-            let yDistance = pow(bounds.size.width * 0.5 - position.y, 2)
+            let xDistance = pow(bounds.size.width * PieGraphAttribute.oneHalf - position.x, 2)
+            let yDistance = pow(bounds.size.width * PieGraphAttribute.oneHalf - position.y, 2)
             let distance = sqrt(xDistance + yDistance)
             
             switch distance / 100 {
@@ -132,7 +132,7 @@ private extension PieGraphView {
             return nil
         }
         
-        viewCenter = CGPoint(x: bounds.size.width * 0.5, y: bounds.size.height * 0.5)
+        viewCenter = CGPoint(x: bounds.size.width * PieGraphAttribute.oneHalf, y: bounds.size.height * PieGraphAttribute.oneHalf)
         radius = min(frame.size.height, frame.size.height) * scale
         return context
     }
@@ -164,18 +164,19 @@ private extension PieGraphView {
     }
     
     func drawText(_ endAngle: CGFloat, _ item: PieGraphItem) {
-        let halfAngle = startAngle + (endAngle - startAngle) * 0.5
+        let halfAngle = startAngle + (endAngle - startAngle) * PieGraphAttribute.oneHalf
         let textCenter = CGPoint(x: viewCenter.x + radius * PieGraphAttribute.textPositionValue * cos(halfAngle), y: viewCenter.y + radius * PieGraphAttribute.textPositionValue * sin(halfAngle))
         let text = "\(item.menu): \(Formatter.ea(Int(item.value)).unit)"
         var renderRect = CGRect(origin: .zero, size: text.size(withAttributes: PieGraphAttribute.text))
         
-        renderRect.origin = CGPoint(x: textCenter.x - renderRect.size.width * 0.5, y: textCenter.y - renderRect.size.height * 0.5)
+        renderRect.origin = CGPoint(x: textCenter.x - renderRect.size.width * PieGraphAttribute.oneHalf, y: textCenter.y - renderRect.size.height * PieGraphAttribute.oneHalf)
         
         text.draw(in: renderRect, withAttributes: PieGraphAttribute.text)
     }
 }
 
 struct PieGraphAttribute {
+    static let oneHalf: CGFloat = 0.5
     static let textPositionValue: CGFloat = 0.67
     
     static var text: [NSAttributedStringKey: Any] {

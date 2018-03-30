@@ -10,5 +10,5 @@ import Foundation
 
 protocol PieDrawable {
     
-    func sendData() -> [String: Int]
+    func receiveData() -> [String: Int]
 }

@@ -26,13 +26,20 @@ class PieGraphView: UIView {
             self.beverage = data
         }
     }
-    private var textAttributes: [NSAttributedStringKey: Any] = {
+    private lazy var textAttributes: [NSAttributedStringKey: Any] = {
         let myShadow = NSShadow()
         myShadow.shadowBlurRadius = 3
         myShadow.shadowOffset = CGSize(width: 3, height: 3)
         myShadow.shadowColor = UIColor.gray
         return [NSAttributedStringKey.foregroundColor: UIColor.white, NSAttributedStringKey.shadow: myShadow]
     }()
+    
+    private var centerOfGraph: CGPoint {
+        return CGPoint(x: bounds.width / 2, y: self.bounds.height / 2)
+    }
+    private var radiusOfGraph: CGFloat {
+        return max(bounds.width, bounds.height)/2 - Constants.arcWidth/2
+    }
 
     private struct Constants {
         static let arcWidth: CGFloat = 10
@@ -58,28 +65,25 @@ class PieGraphView: UIView {
     }
     
     override func draw(_ rect: CGRect) {
-        // 중심점과 반지름 계산
-        let center = CGPoint(x: bounds.width / 2, y: bounds.height / 2)
-        let radius: CGFloat = max(bounds.width, bounds.height)/2 - Constants.arcWidth/2
         var startAngle: CGFloat = 0
         var endAngle: CGFloat = 0
         
         // 음료수 별 비율을 계산하여 그래프로 출력
         for (index, product) in beverage.enumerated() {
             let path = UIBezierPath()
-            path.move(to: center)
+            path.move(to: centerOfGraph)
             graphColor[index].setFill()
             endAngle = calculateAngle(endAngle: endAngle, number: Float(product.value))
-            let point = calculatePoint(center: center, startAngle: startAngle, radius: radius)
+            let point = calculatePoint(center: centerOfGraph, startAngle: startAngle, radius: radiusOfGraph)
             
             path.addLine(to: point)
-            path.addArc(withCenter: center, radius: radius, startAngle: startAngle, endAngle: endAngle, clockwise: true)
-            path.addLine(to: center)
+            path.addArc(withCenter: centerOfGraph, radius: radiusOfGraph, startAngle: startAngle, endAngle: endAngle, clockwise: true)
+            path.addLine(to: centerOfGraph)
             path.fill()
             path.close()
             
             // 글자 넣기
-            let textPoint = calculateTextPoint(center: center, startAngle: startAngle, endAngle: endAngle, radius: radius)
+            let textPoint = calculateTextPoint(center: centerOfGraph, startAngle: startAngle, endAngle: endAngle, radius: radiusOfGraph)
             let textToRender: NSString = product.key as NSString
             
             var renderRect = CGRect(origin: .zero, size: textToRender.size(withAttributes: textAttributes))

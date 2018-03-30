@@ -43,7 +43,7 @@ class ViewController: UIViewController, SharingVendingMachine {
     }
 
     @IBAction func addButtonTouched(sender: UIButton) {
-        guard let item = try? Controller.AdminController().addItem(sender.tag) else { return }
+        guard let item = try? Controller.AdminController().pickItem(sender.tag) else { return }
         vending.add(inputItem: item)
     }
 

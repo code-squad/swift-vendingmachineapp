@@ -8,13 +8,9 @@
 
 import UIKit
 
-class ViewController: UIViewController, SharingVendingMachine {
+class ViewController: UIViewController {
 
-    func sharedInstance() -> VendingMachine {
-        return self.sharedInstance
-    }
-
-    var vending: VendingMachine!
+    var vending: DefaultMode?
 
     @IBOutlet weak var balanceLabel: UILabel!
     @IBOutlet var moneyButtons: [UIButton]!
@@ -27,11 +23,14 @@ class ViewController: UIViewController, SharingVendingMachine {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        vending = self.sharedInstance()
-        self.updateItemNumber()
-        self.setBalance()
-        NotificationCenter.default.addObserver(self, selector: #selector(didAddBalance(_:)), name: .addBalance, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(didAddItem(_:)), name: .addItem, object: nil)
+        if self.vending != nil {
+            self.updateItemNumber()
+            self.setBalance()
+            NotificationCenter.default.addObserver(self, selector: #selector(didAddBalance(_:)), name: .addBalance, object: nil)
+            NotificationCenter.default.addObserver(self, selector: #selector(didAddItem(_:)), name: .addItem, object: nil)
+        } else {
+            self.vending = VendingMachine(stockItems: AdminController().setVendingMachineStock(unit: 1))
+        }
     }
 
     @objc private func didAddItem(_ notification: Notification) {
@@ -43,22 +42,23 @@ class ViewController: UIViewController, SharingVendingMachine {
     }
 
     @IBAction func addButtonTouched(sender: UIButton) {
-        guard let item = try? Controller.AdminController().pickItem(sender.tag) else { return }
-        vending.add(inputItem: item)
+        guard let item = try? AdminController().pickItem(sender.tag) else { return }
+        vending?.add(inputItem: item)
     }
 
     @IBAction func addBalance(_ sender: UIButton) {
         switch sender.tag {
         case 0:
-            vending.addBalance(money: ValidMoney.thousand.cash)
+            vending?.addBalance(money: ValidMoney.thousand.cash)
         case 1:
-            vending.addBalance(money: ValidMoney.fiveThousand.cash)
+            vending?.addBalance(money: ValidMoney.fiveThousand.cash)
         default:
-            vending.addBalance(money: ValidMoney.zero.cash)
+            vending?.addBalance(money: ValidMoney.zero.cash)
         }
     }
 
     private func updateItemNumber() {
+        guard let vending = self.vending else { return }
         self.bananamilkStock.text = String(amountFormat: vending.howMany(of: BananaMilk()))
         self.chocomilkStock.text = String(amountFormat: vending.howMany(of: ChocoMilk()))
         self.coffeeStock.text = String(amountFormat: vending.howMany(of: Coffee()))
@@ -68,7 +68,8 @@ class ViewController: UIViewController, SharingVendingMachine {
     }
 
     private func setBalance() {
-        self.balanceLabel.text = String(balanceFormat: vending.showBalance())
+        guard let balance = vending?.showBalance else { return }
+        self.balanceLabel.text = String(balanceFormat: balance())
         self.balanceLabel.adjustsFontSizeToFitWidth = true
         self.balanceLabel.textAlignment = .center
     }

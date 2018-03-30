@@ -17,6 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         guard let loadedData = DataStorage().loadVendingMachine() else { return true } // 초기화된 sharedInstance로 vending 세팅
         VendingMachine.loadData(loadedData) // 로드된 vending 데이터를 sharedInstance에 대입
+        let defaultViewController = self.window?.rootViewController as! ViewController
+        defaultViewController.vending = VendingMachine.shared()
         return true
     }
 

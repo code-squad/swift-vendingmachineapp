@@ -77,8 +77,8 @@ extension String{
 
 
 extension Notification.Name {
-    static let addBalance = Notification.Name("addBalance")
-    static let addItem = Notification.Name("addItem")
+    static let changedBalance = Notification.Name("changedBalance")
+    static let changedItemNumber = Notification.Name("changedItemNumber")
 }
 
 

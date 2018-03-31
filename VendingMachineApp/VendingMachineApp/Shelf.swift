@@ -14,12 +14,28 @@ class Shelf: NSObject, NSCoding {
     }
 
     required init?(coder aDecoder: NSCoder) {
-
+        self.itemTags = [
+            ObjectIdentifier(type(of: BananaMilk())),
+            ObjectIdentifier(type(of: ChocoMilk())),
+            ObjectIdentifier(type(of: Coffee())),
+            ObjectIdentifier(type(of: DolceLatte())),
+            ObjectIdentifier(type(of: EnergyDrink())),
+            ObjectIdentifier(type(of: SoftDrink()))
+        ]
     }
 
     private(set) var itemTags = [ObjectIdentifier]()
 
-    override init() { }
+    override init() {
+        self.itemTags = [
+            ObjectIdentifier(type(of: BananaMilk())),
+            ObjectIdentifier(type(of: ChocoMilk())),
+            ObjectIdentifier(type(of: Coffee())),
+            ObjectIdentifier(type(of: DolceLatte())),
+            ObjectIdentifier(type(of: EnergyDrink())),
+            ObjectIdentifier(type(of: SoftDrink()))
+        ]
+    }
 
     init(items: [ObjectIdentifier: [Beverage]]) {
         var newDict = items
@@ -40,13 +56,14 @@ class Shelf: NSObject, NSCoding {
     }
 
     func matchCode(option: Int) throws -> ObjectIdentifier {
-        guard option-1 < itemTags.count else {
+        guard option < itemTags.count else {
             throw Exception.outOfStock
         }
-        guard option > 0 else {
+        guard option > -1 else {
             throw Exception.outOfStock
         }
-        return self.itemTags[option-1]
+        let result = self.itemTags[option]
+        return result
     }
 
 }

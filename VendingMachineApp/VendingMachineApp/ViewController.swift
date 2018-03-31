@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UIViewController {
 
     var vending: DefaultMode?
+    var boughtItems : [Beverage]?
 
     @IBOutlet weak var balanceLabel: UILabel!
     @IBOutlet var moneyButtons: [UIButton]!
@@ -26,24 +27,33 @@ class ViewController: UIViewController {
         if self.vending != nil {
             self.updateItemNumber()
             self.setBalance()
-            NotificationCenter.default.addObserver(self, selector: #selector(didAddBalance(_:)), name: .addBalance, object: nil)
-            NotificationCenter.default.addObserver(self, selector: #selector(didAddItem(_:)), name: .addItem, object: nil)
+            NotificationCenter.default.addObserver(self, selector: #selector(didChangedBalance), name: .changedBalance, object: nil)
+            NotificationCenter.default.addObserver(self, selector: #selector(didChangeItemNumber(_:)), name: .changedItemNumber, object: nil)
         } else {
             self.vending = VendingMachine(stockItems: AdminController().setVendingMachineStock(unit: 1))
         }
     }
 
-    @objc private func didAddItem(_ notification: Notification) {
+    @objc private func didChangeItemNumber(_ notification: Notification) {
         self.updateItemNumber()
     }
 
-    @objc private func didAddBalance(_ notification: Notification) {
+    @objc private func didChangedBalance(_ notification: Notification) {
         self.setBalance()
     }
 
     @IBAction func addButtonTouched(sender: UIButton) {
         guard let item = try? AdminController().pickItem(sender.tag) else { return }
         vending?.add(inputItem: item)
+    }
+
+    @IBAction func buyButtonTouched(_ sender: UIButton) {
+        guard let item = try? vending!.buy(itemCode: sender.tag) else { return }
+        if item != nil {
+            boughtItems?.append(item)
+        } else {
+            return
+        }
     }
 
     @IBAction func addBalance(_ sender: UIButton) {

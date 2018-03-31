@@ -29,7 +29,6 @@ class StockController: NSObject, NSCoding {
         let stockSets = items.reduce(into: [ObjectIdentifier: [Beverage]]()) {
             $0[ObjectIdentifier(type(of: $1)), default:[]].append($1)
         }
-        self.shelf = Shelf(items: stockSets)
         self.stock = Stock(sets: stockSets)
         super.init()
         items.forEach {item in self.history.addSupplyLog(item)}
@@ -39,22 +38,19 @@ class StockController: NSObject, NSCoding {
         let key = try shelf.matchCode(option: itemCode)
         let item = stock.buy(itemCode: key)
         self.history.addPurchaseLog(item)
-        self.shelf = shelf.update(newItems: self.stock.currentInventory())
         return item
     }
 
-    // remove한 뒤에 리턴해버리니까 음료수가 한개만 남은상태에서
+//     remove한 뒤에 리턴해버리니까 음료수가 한개만 남은상태에서
     // 구매하려고하면 range에러뜨는 상황 발생해서 두 메소드로 나눔
     func removeItem(_ itemCode: Int) throws {
         let key = try shelf.matchCode(option: itemCode)
         self.stock.removeItem(key)
-        self.shelf = shelf.update(newItems: self.stock.currentInventory())
     }
 
     func addItem(item: Beverage) {
         self.stock.addItem(item)
         self.history.addSupplyLog(item)
-        self.shelf = shelf.update(newItems: self.stock.currentInventory())
     }
 
     func findHotBeverage() -> [ObjectIdentifier: [Beverage]] {

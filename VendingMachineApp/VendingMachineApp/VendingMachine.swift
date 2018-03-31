@@ -11,6 +11,7 @@ import Foundation
 protocol DefaultMode {
     func add(inputItem: Beverage)
     func removeItem(itemCode: Int) throws
+    func buy(itemCode: Int) throws -> Beverage
     func addBalance(money: Int)
     func showBalance() -> Int
     func showStockDefault() -> String
@@ -72,7 +73,7 @@ class VendingMachine: NSObject, NSCoding, DefaultMode, AdminMode, UserMode {
 
     func addBalance(money: Int) {
         self.balance.add(money)
-        NotificationCenter.default.post(name: .addBalance, object: nil)
+        NotificationCenter.default.post(name: .changedBalance, object: nil)
     }
 
     func subtractBalance(money: Int) {
@@ -90,12 +91,14 @@ class VendingMachine: NSObject, NSCoding, DefaultMode, AdminMode, UserMode {
         }
         self.balance.subtract(selectedItem.price())
         try stock.removeItem(itemCode)
+        NotificationCenter.default.post(name: .changedItemNumber, object: nil)
+        NotificationCenter.default.post(name: .changedBalance, object: nil)
         return selectedItem
     }
 
     func add(inputItem: Beverage) {
         stock.addItem(item: inputItem)
-        NotificationCenter.default.post(name: .addItem, object: nil)
+        NotificationCenter.default.post(name: .changedItemNumber, object: nil)
     }
 
     func removeItem(itemCode: Int) throws {

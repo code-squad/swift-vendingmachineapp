@@ -73,7 +73,6 @@ class PieGraphView: UIView {
     
     private func calculateTextPoint(center: CGPoint, startAngle: CGFloat, endAngle: CGFloat, radius: CGFloat) -> CGPoint {
         let halfAngle = (endAngle + startAngle) / 2
-        print(halfAngle)
         return calculatePoint(center: center, startAngle: halfAngle, radius: radius/2 + 0.5)
     }
     

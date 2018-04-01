@@ -41,7 +41,6 @@ class History: NSObject, NSCoding {
         guard let lastItem = self.purchase.last else {
             return (Beverage(), nil)
         }
-        NotificationCenter.default.post(name: .changedItemNumber, object: nil)
         return (lastItem, self.purchase.index(of: lastItem))
     }
     

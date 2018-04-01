@@ -23,6 +23,7 @@ protocol DefaultMode {
     func discardItems() -> [ObjectIdentifier: [Beverage]]
     func validItems() -> [ObjectIdentifier: [Beverage]]
     func possibleToBuy() -> [ObjectIdentifier: [Beverage]]
+    func lastPurchasedItem() -> (item: Beverage, index: Int?)
 }
 
 protocol AdminMode {
@@ -93,6 +94,7 @@ class VendingMachine: NSObject, NSCoding, DefaultMode, AdminMode, UserMode {
         try stock.removeItem(itemCode)
         NotificationCenter.default.post(name: .changedItemNumber, object: nil)
         NotificationCenter.default.post(name: .changedBalance, object: nil)
+        NotificationCenter.default.post(name: .updatePurchaseLog, object: nil)
         return selectedItem
     }
 

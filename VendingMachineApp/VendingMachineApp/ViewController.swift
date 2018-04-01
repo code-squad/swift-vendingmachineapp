@@ -11,7 +11,6 @@ import UIKit
 class ViewController: UIViewController {
 
     var vending: DefaultMode?
-    var boughtItems : [Beverage]?
 
     @IBOutlet weak var balanceLabel: UILabel!
     @IBOutlet var moneyButtons: [UIButton]!
@@ -29,6 +28,7 @@ class ViewController: UIViewController {
             self.setBalance()
             NotificationCenter.default.addObserver(self, selector: #selector(didChangedBalance), name: .changedBalance, object: nil)
             NotificationCenter.default.addObserver(self, selector: #selector(didChangeItemNumber(_:)), name: .changedItemNumber, object: nil)
+            NotificationCenter.default.addObserver(self, selector: #selector(didBuy), name: .updatePurchaseLog, object: nil)
         } else {
             self.vending = VendingMachine(stockItems: AdminController().setVendingMachineStock(unit: 1))
         }
@@ -42,6 +42,10 @@ class ViewController: UIViewController {
         self.setBalance()
     }
 
+    @objc private func didBuy() {
+        self.updatePurchasedItemView(self.vending!.lastPurchasedItem())
+    }
+
     @IBAction func addButtonTouched(sender: UIButton) {
         guard let item = try? AdminController().pickItem(sender.tag) else { return }
         vending?.add(inputItem: item)
@@ -49,11 +53,7 @@ class ViewController: UIViewController {
 
     @IBAction func buyButtonTouched(_ sender: UIButton) {
         guard let item = try? vending!.buy(itemCode: sender.tag) else { return }
-        if item != nil {
-            boughtItems?.append(item)
-        } else {
-            return
-        }
+//        self.updatePurchasedItemView(self.vending!.lastPurchasedItem())
     }
 
     @IBAction func addBalance(_ sender: UIButton) {
@@ -84,13 +84,21 @@ class ViewController: UIViewController {
         self.balanceLabel.textAlignment = .center
     }
 
+    private func updatePurchasedItemView(_ willPrint: (item: Beverage, index: Int?)) {
+        guard let numberOfPurchase = willPrint.index else {
+            return
+        }
+        let yLocation = 575
+        let xLocation = 40 + (numberOfPurchase * 50)
+        let itemImage: BeverageImageView = BeverageImageView().getItemImage(willPrint.item)
+        itemImage.frame = CGRect(x: xLocation, y: yLocation, width: 136, height: 128)
+        self.view.addSubview(itemImage)
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
-
 
 }
 

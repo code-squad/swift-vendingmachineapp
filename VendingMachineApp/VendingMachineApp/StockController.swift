@@ -92,4 +92,7 @@ class StockController: NSObject, NSCoding {
         return self.stock.howManyItem(ObjectIdentifier(type(of: beverage)))
     }
 
+    func lastPurchasedItem() -> (item: Beverage, index: Int?){
+        return self.history.lastPurchasedItem()
+    }
 }

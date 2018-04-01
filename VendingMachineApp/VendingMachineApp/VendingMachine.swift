@@ -148,4 +148,9 @@ class VendingMachine: NSObject, NSCoding, DefaultMode, AdminMode, UserMode {
         return self.stock.howMany(of: beverage)
     }
 
+    func lastPurchasedItem() -> (item: Beverage, index: Int?){
+        return self.stock.lastPurchasedItem()
+    }
+
+
 }

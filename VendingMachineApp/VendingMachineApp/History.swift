@@ -37,6 +37,14 @@ class History: NSObject, NSCoding {
         self.supply.append(item)
     }
 
+    func lastPurchasedItem() -> (item: Beverage, index: Int?) {
+        guard let lastItem = self.purchase.last else {
+            return (Beverage(), nil)
+        }
+        NotificationCenter.default.post(name: .changedItemNumber, object: nil)
+        return (lastItem, self.purchase.index(of: lastItem))
+    }
+    
     func log() -> String {
         var title = ""
         var log = ""

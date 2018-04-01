@@ -473,3 +473,7 @@ override func viewDidLoad() {
 
 
 - selector: 오브젝티브-C 추론을 위해 selector 함수 앞에 `@objc` 어노테이션이 필요. 셀렉터 메소드는 항상 하나의 유일한 NSNotification타입의 인스턴스를 인자로 받아야한다.
+
+## Step6 - 구매목록 View코드
+- 구현 화면 : 2018.04.02 01:50
+<img src="./Screenshot/step6-2.png" width="80%">

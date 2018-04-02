@@ -477,3 +477,35 @@ override func viewDidLoad() {
 ## Step6 - 구매목록 View코드
 - 구현 화면 : 2018.04.02 01:50
 <img src="./Screenshot/step6-2.png" width="80%">
+
+### UIView
+> 미션 내에 UIImageview를 사용하고 설정하는 부분에서 궁금한게 있어서 정리.
+> [스탠포드iOS강의]()내용 참고
+
+#### UIView의 생성자
+(UIView의 생성자는 보통 건드리지않는게 좋지만..! 그래도 종류를 알아두고자 정리함.)
+- UIView는 두개의 필수 생성자가 있다. 바로 `init(frame: CGRect)`과 `init(coder: NSCoder)`이다.
+- `init(coder: NSCoder)`: 스토리보드에서 나오면서 UIView를만들때 만들어지는 생성자.
+  - 뷰를 스토리보드에서 드래그해서만들었는데, 만약 앱이 실행될때 스토리보드가 재구성되면 이 생성자가 호출되면서 UIView가 만들어짐.
+- `init(frame: CGRect)`: CGRect타입으로 프레임을 정해주고 UIView를 생성
+  ```swift
+  let rect = CGRect(x: 10, y: 10, width: 100, height: 100)
+  let myView = UIView(frame: rect)
+  ```
+  - [CGRect](https://developer.apple.com/documentation/coregraphics/cgrect): A structure that contains the location and dimensions of a rectangle.
+
+#### frame과 center
+> positioning a view.
+
+- frame : 나의 뷰가 슈퍼뷰의 어디에 있나
+- center: 슈퍼뷰의 중간점 (나의 뷰의 중간점이아님!)
+- Use frame and center to position a UIView!
+  - frame과 center는 뷰를 positioning하기위함이다. *뷰를 그리는 동작을 위해서 frame이나 center를 사용하지 않는다.*
+
+#### drawRect()- How to redraw a view?
+- 뷰의 `setNeedsDisplay()`을 호출해서 뷰를 그려준다. (`drawRect`를 직접 호출하면 안됨. `drawRect`는 시스템이 호출한다!)
+
+- `setNeedsDisplay()`메소드는 시스템에게 "이 뷰는 다시 그려질 필요가 있다"고 메시지를 보내고, 뷰는 미래의 적절한 시점에 `drawRect()`메소드를 호출한다.
+- 이렇게 동작하는 이유는, 뷰는 여러 복잡한 계층구조에 얽혀있고 성능문제도 있기때문에, 뷰 중에 어떤 것이 하나 바뀐다고 모든 뷰를 다시 다 그리는 것이 아니라, ***하나가 바뀌면 모든게 바뀔때까지 기다렸다가 한번에 필요한 부분만 바뀐 뷰를 그려주는 방식으로 동작*** 할 수 있게한다.
+
+- `setNeedsDisplayInRect(regionThatNeedsToBeRedrawn: CGRect)`는 더 최적화된버전으로, 해당 뷰 중에서 바꾸고싶은 영역을 지정해주면된다.

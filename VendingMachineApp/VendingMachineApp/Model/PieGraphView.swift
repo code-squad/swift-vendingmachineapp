@@ -9,8 +9,9 @@
 import UIKit
 
 class PieGraphView: UIView {
-    private var graphColor = [UIColor.red, UIColor.orange, UIColor.yellow, UIColor.green, UIColor.blue, UIColor.purple, UIColor.gray, UIColor.brown, UIColor.darkGray]
+    private var graphColor = [UIColor.red, UIColor.orange, UIColor.yellow, UIColor.green, UIColor.blue, UIColor.purple, UIColor.gray, UIColor.brown, UIColor.darkGray, UIColor.black]
     private var beverage = [String: Int]()
+    private var isTouched = false
     struct DataOfPieGraph {
         var path: UIBezierPath
         var startAngle: CGFloat
@@ -22,6 +23,13 @@ class PieGraphView: UIView {
             self.startAngle = startAngle
             self.endAngle = endAngle
             self.index = index
+            self.product = product
+        }
+        init(path: UIBezierPath, product: (key: String, value: Int)) {
+            self.path = path
+            self.startAngle = 0
+            self.endAngle = 2 * .pi
+            self.index = 8
             self.product = product
         }
     }
@@ -107,15 +115,34 @@ class PieGraphView: UIView {
         var endAngle: CGFloat = 0
         var dataOfPieGraph: DataOfPieGraph
         
-        // 음료수 별 비율을 계산하여 그래프로 출력
-        for (index, product) in beverage.enumerated() {
+        if isTouched {
+            // 검은색 원 그리기
             let path = UIBezierPath()
-            dataOfPieGraph = DataOfPieGraph(path: path, startAngle: startAngle, endAngle: endAngle, index: index, product: product)
+            dataOfPieGraph = DataOfPieGraph(path: path, product: (key: "circle", value: Int(numberOfBeverage)))
             endAngle = setPieGraphdrawing(pieData: dataOfPieGraph)
-            dataOfPieGraph.endAngle = endAngle
             drawPieGraph(pieData: dataOfPieGraph)
-            drawTextOnPieGraph(pieData: dataOfPieGraph)
-            startAngle = endAngle
+        } else {
+            // 음료수 별 비율을 계산하여 그래프로 출력
+            for (index, product) in beverage.enumerated() {
+                let path = UIBezierPath()
+                dataOfPieGraph = DataOfPieGraph(path: path, startAngle: startAngle, endAngle: endAngle, index: index, product: product)
+                endAngle = setPieGraphdrawing(pieData: dataOfPieGraph)
+                dataOfPieGraph.endAngle = endAngle
+                drawPieGraph(pieData: dataOfPieGraph)
+                drawTextOnPieGraph(pieData: dataOfPieGraph)
+                startAngle = endAngle
+            }
+        }
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard let touch = touches.first else {
+            return
+        }
+        let location = touch.location(in: self)
+        if pow((centerOfGraph.x - location.x), 2) + pow((centerOfGraph.y - location.y), 2) < pow(radiusOfGraph, 2) {
+            isTouched = true
+            setNeedsDisplay()
         }
     }
 }

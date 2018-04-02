@@ -478,6 +478,7 @@ override func viewDidLoad() {
 - 구현 화면 : 2018.04.02 01:50
 <img src="./Screenshot/step6-2.png" width="80%">
 
+
 ### UIView
 > 미션 내에 UIImageview를 사용하고 설정하는 부분에서 궁금한게 있어서 정리.
 > [스탠포드iOS강의]()내용 참고

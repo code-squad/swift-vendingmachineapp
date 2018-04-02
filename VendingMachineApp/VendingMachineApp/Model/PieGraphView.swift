@@ -12,6 +12,7 @@ class PieGraphView: UIView {
     private var graphColor = [UIColor.red, UIColor.orange, UIColor.yellow, UIColor.green, UIColor.blue, UIColor.purple, UIColor.gray, UIColor.brown, UIColor.darkGray, UIColor.black]
     private var beverage = [String: Int]()
     private var isTouched = false
+    private var originLength: CGFloat = 0
     struct DataOfPieGraph {
         var path: UIBezierPath
         var startAngle: CGFloat
@@ -59,8 +60,17 @@ class PieGraphView: UIView {
     private var centerOfGraph: CGPoint {
         return CGPoint(x: bounds.width / 2, y: self.bounds.height / 2)
     }
+    private var sizeOfView: CGFloat {
+        return max(bounds.width, bounds.height)
+    }
+    private var radius: CGFloat = 0
     private var radiusOfGraph: CGFloat {
-        return max(bounds.width, bounds.height)/2 - Constants.arcWidth/2
+        get {
+            return radius
+        }
+        set(newRadius) {
+            radius = newRadius
+        }
     }
 
     private struct Constants {
@@ -123,6 +133,7 @@ class PieGraphView: UIView {
             drawPieGraph(pieData: dataOfPieGraph)
         } else {
             // 음료수 별 비율을 계산하여 그래프로 출력
+            radius = sizeOfView/2 - Constants.arcWidth/2
             for (index, product) in beverage.enumerated() {
                 let path = UIBezierPath()
                 dataOfPieGraph = DataOfPieGraph(path: path, startAngle: startAngle, endAngle: endAngle, index: index, product: product)
@@ -145,4 +156,16 @@ class PieGraphView: UIView {
             setNeedsDisplay()
         }
     }
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard let touch = touches.first else {
+            return
+        }
+        let location = touch.location(in: self)
+        let currentLength = sqrt(pow((centerOfGraph.x - location.x), 2) + pow((centerOfGraph.y - location.y), 2))
+        
+        radiusOfGraph = currentLength
+        setNeedsDisplay()
+    }
+    
 }

@@ -21,11 +21,23 @@ class ManagerViewController: UIViewController, PieDrawable {
         changeInventoryBox()
         registerObserver()
         drawPieGraph()
+        becomeFirstResponder()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         pieChartView.setNeedsDisplay()
+    }
+    
+    override var canBecomeFirstResponder: Bool {
+        return true
+    }
+    
+    override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
+        if motion == .motionShake {
+            pieChartView.isInitialized = false
+            pieChartView.setNeedsDisplay()
+        }
     }
     
     func registerObserver() {

@@ -24,14 +24,18 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         if self.vending != nil {
-            self.updateItemNumber()
-            self.setBalance()
-            NotificationCenter.default.addObserver(self, selector: #selector(didChangedBalance), name: .changedBalance, object: nil)
-            NotificationCenter.default.addObserver(self, selector: #selector(didChangeItemNumber(_:)), name: .changedItemNumber, object: nil)
-            NotificationCenter.default.addObserver(self, selector: #selector(didBuy), name: .updatePurchaseLog, object: nil)
+            self.setIntroView()
         } else {
             self.vending = VendingMachine(stockItems: AdminController().setVendingMachineStock(unit: 1))
         }
+    }
+
+    private func setIntroView() {
+        self.updateItemNumber()
+        self.setBalance()
+        NotificationCenter.default.addObserver(self, selector: #selector(didChangedBalance), name: .changedBalance, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(didChangeItemNumber(_:)), name: .changedItemNumber, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(didBuy), name: .updatePurchaseLog, object: nil)
     }
 
     @objc private func didChangeItemNumber(_ notification: Notification) {
@@ -53,7 +57,6 @@ class ViewController: UIViewController {
 
     @IBAction func buyButtonTouched(_ sender: UIButton) {
         guard let item = try? vending!.buy(itemCode: sender.tag) else { return }
-//        self.updatePurchasedItemView(self.vending!.lastPurchasedItem())
     }
 
     @IBAction func addBalance(_ sender: UIButton) {

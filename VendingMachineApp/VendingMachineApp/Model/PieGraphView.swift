@@ -55,7 +55,7 @@ class PieGraphView: UIView {
         myShadow.shadowBlurRadius = 3
         myShadow.shadowOffset = CGSize(width: 3, height: 3)
         myShadow.shadowColor = UIColor.gray
-        return [NSAttributedStringKey.foregroundColor: UIColor.white, NSAttributedStringKey.shadow: myShadow]
+        return [NSAttributedStringKey.foregroundColor: UIColor.white, NSAttributedStringKey.shadow: myShadow, NSAttributedStringKey.font: UIFont(name: "Helvetica-Bold", size: radiusOfGraph - Constants.fontSize)!]
     }()
     
     private var centerOfGraph: CGPoint {
@@ -75,6 +75,8 @@ class PieGraphView: UIView {
     }
     private struct Constants {
         static let arcWidth: CGFloat = 10
+        static let minRadius: CGFloat = 20
+        static let fontSize: CGFloat = 300
     }
     
     private func calculateAngle(endAngle: CGFloat, number: Float) -> CGFloat {
@@ -91,7 +93,7 @@ class PieGraphView: UIView {
     
     private func calculateTextPoint(center: CGPoint, startAngle: CGFloat, endAngle: CGFloat, radius: CGFloat) -> CGPoint {
         let halfAngle = (endAngle + startAngle) / 2
-        return calculatePoint(center: center, startAngle: halfAngle, radius: radius/2 + 0.5)
+        return calculatePoint(center: center, startAngle: halfAngle, radius: radius/2)
     }
     
     // 파이그래프 세팅
@@ -120,31 +122,40 @@ class PieGraphView: UIView {
         textToRender.draw(in: renderRect, withAttributes: textAttributes)
     }
     
-    override func draw(_ rect: CGRect) {
+    // 검은색 원 그리기
+    private func drawBlackCircle() {
+        let path = UIBezierPath()
+        var dataOfPieGraph = DataOfPieGraph(path: path, product: (key: "circle", value: Int(numberOfBeverage)))
+        dataOfPieGraph.endAngle = setPieGraphdrawing(pieData: dataOfPieGraph)
+        drawPieGraph(pieData: dataOfPieGraph)
+    }
+    
+    // 음료수 별 비율을 계산하여 그래프로 출력
+    private func drawPieGraphByCalculation() {
         var startAngle: CGFloat = 0
         var endAngle: CGFloat = 0
         var dataOfPieGraph: DataOfPieGraph
+        for (index, product) in beverage.enumerated() {
+            let path = UIBezierPath()
+            dataOfPieGraph = DataOfPieGraph(path: path, startAngle: startAngle, endAngle: endAngle, index: index, product: product)
+            endAngle = setPieGraphdrawing(pieData: dataOfPieGraph)
+            dataOfPieGraph.endAngle = endAngle
+            drawPieGraph(pieData: dataOfPieGraph)
+            drawTextOnPieGraph(pieData: dataOfPieGraph)
+            startAngle = endAngle
+        }
+    }
+    
+    override func draw(_ rect: CGRect) {
+        
         if !isInitialized {
             radius = sizeOfView/2 - Constants.arcWidth/2
             isInitialized = true
         }
         if isTouched {
-            // 검은색 원 그리기
-            let path = UIBezierPath()
-            dataOfPieGraph = DataOfPieGraph(path: path, product: (key: "circle", value: Int(numberOfBeverage)))
-            endAngle = setPieGraphdrawing(pieData: dataOfPieGraph)
-            drawPieGraph(pieData: dataOfPieGraph)
+            drawBlackCircle()
         } else {
-            // 음료수 별 비율을 계산하여 그래프로 출력
-            for (index, product) in beverage.enumerated() {
-                let path = UIBezierPath()
-                dataOfPieGraph = DataOfPieGraph(path: path, startAngle: startAngle, endAngle: endAngle, index: index, product: product)
-                endAngle = setPieGraphdrawing(pieData: dataOfPieGraph)
-                dataOfPieGraph.endAngle = endAngle
-                drawPieGraph(pieData: dataOfPieGraph)
-                drawTextOnPieGraph(pieData: dataOfPieGraph)
-                startAngle = endAngle
-            }
+            drawPieGraphByCalculation()
         }
     }
     
@@ -168,8 +179,8 @@ class PieGraphView: UIView {
             var currentLength = sqrt(pow((centerOfGraph.x - location.x), 2) + pow((centerOfGraph.y - location.y), 2))
             if currentLength > sizeOfView/2 {
                 currentLength = sizeOfView/2
-            } else if currentLength < 20 {
-                currentLength = 20
+            } else if currentLength < Constants.minRadius {
+                currentLength = Constants.minRadius
             }
             radiusOfGraph = currentLength
             setNeedsDisplay()

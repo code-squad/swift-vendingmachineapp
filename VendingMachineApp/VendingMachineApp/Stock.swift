@@ -64,6 +64,7 @@ class Stock: NSObject, NSCoding {
                 break
             } else if set.key != ObjectIdentifier(type(of: item)) {
                 let newItemSet = [ObjectIdentifier(type(of: item)) : [item]]
+                self.inventory = self.inventory.update(other: newItemSet)
             }
         }
     }

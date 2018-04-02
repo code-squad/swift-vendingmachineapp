@@ -51,6 +51,7 @@ class StockController: NSObject, NSCoding {
     func addItem(item: Beverage) {
         self.stock.addItem(item)
         self.history.addSupplyLog(item)
+        self.shelf = shelf.update(newItems: self.stock.currentInventory())
     }
 
     func findHotBeverage() -> [ObjectIdentifier: [Beverage]] {

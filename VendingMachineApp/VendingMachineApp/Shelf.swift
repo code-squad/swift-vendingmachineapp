@@ -52,7 +52,7 @@ class Shelf: NSObject, NSCoding {
     }
 
     func update(newItems: [ObjectIdentifier: [Beverage]]) -> Shelf {
-        return Shelf(items: newItems)
+        return Shelf()
     }
 
     func matchCode(option: Int) throws -> ObjectIdentifier {

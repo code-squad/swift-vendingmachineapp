@@ -12,7 +12,7 @@ class PieGraphView: UIView {
     private var graphColor = [UIColor.red, UIColor.orange, UIColor.yellow, UIColor.green, UIColor.blue, UIColor.purple, UIColor.gray, UIColor.brown, UIColor.darkGray, UIColor.black]
     private var beverage = [String: Int]()
     private var isTouched = false
-    private var isInitialized = false
+    var isInitialized = false
     private var originLength: CGFloat = 0
     struct DataOfPieGraph {
         var path: UIBezierPath
@@ -73,7 +73,6 @@ class PieGraphView: UIView {
             radius = newRadius
         }
     }
-
     private struct Constants {
         static let arcWidth: CGFloat = 10
     }

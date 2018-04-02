@@ -44,6 +44,10 @@ class BeverageImageView: UIImageView {
         return self
     }
 
+    func getImage(of beverage: Beverage) -> BeverageImageView {
+        return BeverageImageView(image: UIImage(named: beverage.itemImage))
+    }
+
     /*
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.

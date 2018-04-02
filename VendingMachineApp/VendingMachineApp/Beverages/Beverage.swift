@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Beverage: NSObject, NSCoding {
+class Beverage: NSObject, NSCoding, ImageSelector {
     func encode(with aCoder: NSCoder) {
         aCoder.encode(brand, forKey: "brand")
         aCoder.encode(weight, forKey: "weight")

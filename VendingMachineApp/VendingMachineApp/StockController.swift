@@ -41,7 +41,7 @@ class StockController: NSObject, NSCoding {
         return item
     }
 
-//     remove한 뒤에 리턴해버리니까 음료수가 한개만 남은상태에서
+    // remove한 뒤에 리턴해버리니까 음료수가 한개만 남은상태에서
     // 구매하려고하면 range에러뜨는 상황 발생해서 두 메소드로 나눔
     func removeItem(_ itemCode: Int) throws {
         let key = try shelf.matchCode(option: itemCode)
@@ -51,7 +51,6 @@ class StockController: NSObject, NSCoding {
     func addItem(item: Beverage) {
         self.stock.addItem(item)
         self.history.addSupplyLog(item)
-        self.shelf = shelf.update(newItems: self.stock.currentInventory())
     }
 
     func findHotBeverage() -> [ObjectIdentifier: [Beverage]] {

@@ -31,7 +31,7 @@ class PieGraphView: UIView {
             self.path = path
             self.startAngle = 0
             self.endAngle = 2 * .pi
-            self.index = 8
+            self.index = 9
             self.product = product
         }
     }
@@ -177,8 +177,26 @@ class PieGraphView: UIView {
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let number = graphColor.count - 2
+        graphColor = graphColor.shuffle(number)
         isTouched = false
         setNeedsDisplay()
     }
     
+}
+
+extension Array {
+    mutating func shuffle(_ number: Int) -> [UIColor] {
+        guard let data = self as? [UIColor] else {
+            return [UIColor]()
+        }
+        var list = data
+        for index in list.indices {
+            if index > number { break }
+            let random = Int(arc4random_uniform(UInt32(number)))
+            list.swapAt(index, random)
+            
+        }
+        return list
+    }
 }

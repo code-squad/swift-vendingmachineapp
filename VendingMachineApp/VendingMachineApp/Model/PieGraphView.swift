@@ -166,7 +166,12 @@ class PieGraphView: UIView {
         }
         let location = touch.location(in: self)
         if isTouched {
-            let currentLength = sqrt(pow((centerOfGraph.x - location.x), 2) + pow((centerOfGraph.y - location.y), 2))
+            var currentLength = sqrt(pow((centerOfGraph.x - location.x), 2) + pow((centerOfGraph.y - location.y), 2))
+            if currentLength > sizeOfView/2 {
+                currentLength = sizeOfView/2
+            } else if currentLength < 20 {
+                currentLength = 20
+            }
             radiusOfGraph = currentLength
             setNeedsDisplay()
         }

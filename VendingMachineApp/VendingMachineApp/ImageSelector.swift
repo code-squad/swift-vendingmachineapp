@@ -11,3 +11,10 @@ import Foundation
 protocol ImageSelector {
     var itemImage: String { get }
 }
+
+extension ImageSelector {
+    var itemImage: String {
+        let className = String(describing: type(of: self))
+        return "\(className).jpg"
+    }
+}

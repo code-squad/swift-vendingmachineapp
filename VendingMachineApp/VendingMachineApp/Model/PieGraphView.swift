@@ -85,15 +85,15 @@ class PieGraphView: UIView {
         return result
     }
     
-    private func calculatePoint(center: CGPoint, startAngle: CGFloat, radius: CGFloat) -> CGPoint {
-        let x1 = Int(center.x + cos(startAngle) * radius)
-        let y1 = Int(center.y + sin(startAngle) * radius)
+    private func calculatePoint(center: CGPoint, angle: CGFloat, radius: CGFloat) -> CGPoint {
+        let x1 = Int(center.x + (cos(angle) * radius))
+        let y1 = Int(center.y + (sin(angle) * radius))
         return CGPoint(x: x1, y: y1)
     }
     
     private func calculateTextPoint(center: CGPoint, startAngle: CGFloat, endAngle: CGFloat, radius: CGFloat) -> CGPoint {
         let halfAngle = (endAngle + startAngle) / 2
-        return calculatePoint(center: center, startAngle: halfAngle, radius: radius/2)
+        return calculatePoint(center: center, angle: halfAngle, radius: radius/2)
     }
     
     // 파이그래프 세팅
@@ -105,7 +105,7 @@ class PieGraphView: UIView {
     
     // 파이그래프 그리기
     private func drawPieGraph(pieData: DataOfPieGraph) {
-        let point = calculatePoint(center: centerOfGraph, startAngle: pieData.startAngle, radius: radiusOfGraph)
+        let point = calculatePoint(center: centerOfGraph, angle: pieData.startAngle, radius: radiusOfGraph)
         pieData.path.addLine(to: point)
         pieData.path.addArc(withCenter: centerOfGraph, radius: radiusOfGraph, startAngle: pieData.startAngle, endAngle: pieData.endAngle, clockwise: true)
         pieData.path.addLine(to: centerOfGraph)

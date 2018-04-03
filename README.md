@@ -510,3 +510,7 @@ override func viewDidLoad() {
 - 이렇게 동작하는 이유는, 뷰는 여러 복잡한 계층구조에 얽혀있고 성능문제도 있기때문에, 뷰 중에 어떤 것이 하나 바뀐다고 모든 뷰를 다시 다 그리는 것이 아니라, ***하나가 바뀌면 모든게 바뀔때까지 기다렸다가 한번에 필요한 부분만 바뀐 뷰를 그려주는 방식으로 동작*** 할 수 있게한다.
 
 - `setNeedsDisplayInRect(regionThatNeedsToBeRedrawn: CGRect)`는 더 최적화된버전으로, 해당 뷰 중에서 바꾸고싶은 영역을 지정해주면된다.
+
+## Step7 - Frame과 Bounds
+- 구현 화면 : 2018.04.03 18:00
+<img src="./Screenshot/step7-1.gif" width="80%">

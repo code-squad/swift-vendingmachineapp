@@ -93,24 +93,16 @@ class ViewController: UIViewController {
         guard !(list.isEmpty) else {
             return
         }
-        let yLocation = Int(self.view.frame.height * 0.73)
-        for order in 0..<list.count {
-            let xLocation = 40 + (order * 50)
-            let itemImage: BeverageImageView = BeverageImageView().getImage(of: list[order])
-            itemImage.frame = CGRect(x: xLocation, y: yLocation, width: 140, height: 100)
-            self.view.addSubview(itemImage)
-        }
+        let historyImages = HistoryImageMaker().previousHistoryLog(log: list)
+        historyImages.forEach( {self.view.addSubview($0)} )
     }
 
     private func updatePurchasedItemView(_ willPrint: (item: Beverage, index: Int?)) {
-        guard let numberOfPurchase = willPrint.index else {
+        guard let index = willPrint.index else {
             return
         }
-        let yLocation = Int(self.view.frame.height * 0.73)
-        let xLocation = 40 + (numberOfPurchase * 50)
-        let itemImage: BeverageImageView = BeverageImageView().getImage(of: willPrint.item)
-        itemImage.frame = CGRect(x: xLocation, y: yLocation, width: 140, height: 100)
-        self.view.addSubview(itemImage)
+        let purchasedItemImage = HistoryImageMaker().updatePurchasedItemView((willPrint.item, index))
+        self.view.addSubview(purchasedItemImage)
     }
 
     override func didReceiveMemoryWarning() {

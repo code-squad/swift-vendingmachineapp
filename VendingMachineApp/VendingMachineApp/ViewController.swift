@@ -93,7 +93,7 @@ class ViewController: UIViewController {
         guard !(list.isEmpty) else {
             return
         }
-        let yLocation = 575
+        let yLocation = Int(self.view.frame.height * 0.73)
         for order in 0..<list.count {
             let xLocation = 40 + (order * 50)
             let itemImage: BeverageImageView = BeverageImageView().getImage(of: list[order])
@@ -106,7 +106,7 @@ class ViewController: UIViewController {
         guard let numberOfPurchase = willPrint.index else {
             return
         }
-        let yLocation = 575
+        let yLocation = Int(self.view.frame.height * 0.73)
         let xLocation = 40 + (numberOfPurchase * 50)
         let itemImage: BeverageImageView = BeverageImageView().getImage(of: willPrint.item)
         itemImage.frame = CGRect(x: xLocation, y: yLocation, width: 140, height: 100)

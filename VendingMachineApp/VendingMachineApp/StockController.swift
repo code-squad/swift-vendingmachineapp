@@ -95,4 +95,8 @@ class StockController: NSObject, NSCoding {
     func lastPurchasedItem() -> (item: Beverage, index: Int?){
         return self.history.lastPurchasedItem()
     }
+
+    func purchaseLog() -> [Beverage] {
+        return self.history.purchaseLog()
+    }
 }

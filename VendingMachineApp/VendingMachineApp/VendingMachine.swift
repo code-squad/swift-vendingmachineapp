@@ -24,6 +24,7 @@ protocol DefaultMode {
     func validItems() -> [ObjectIdentifier: [Beverage]]
     func possibleToBuy() -> [ObjectIdentifier: [Beverage]]
     func lastPurchasedItem() -> (item: Beverage, index: Int?)
+    func purchaseLog() -> [Beverage] 
 }
 
 protocol AdminMode {
@@ -152,6 +153,10 @@ class VendingMachine: NSObject, NSCoding, DefaultMode, AdminMode, UserMode {
 
     func lastPurchasedItem() -> (item: Beverage, index: Int?){
         return self.stock.lastPurchasedItem()
+    }
+
+    func purchaseLog() -> [Beverage] {
+        return self.stock.purchaseLog()
     }
 
 

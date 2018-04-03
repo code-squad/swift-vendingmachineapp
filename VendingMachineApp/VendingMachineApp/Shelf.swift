@@ -13,15 +13,8 @@ class Shelf: NSObject, NSCoding {
 
     }
 
-    required init?(coder aDecoder: NSCoder) {
-        self.itemTags = [
-            ObjectIdentifier(type(of: BananaMilk())),
-            ObjectIdentifier(type(of: ChocoMilk())),
-            ObjectIdentifier(type(of: Coffee())),
-            ObjectIdentifier(type(of: DolceLatte())),
-            ObjectIdentifier(type(of: EnergyDrink())),
-            ObjectIdentifier(type(of: SoftDrink()))
-        ]
+    required convenience init?(coder aDecoder: NSCoder) {
+        self.init()
     }
 
     private(set) var itemTags = [ObjectIdentifier]()

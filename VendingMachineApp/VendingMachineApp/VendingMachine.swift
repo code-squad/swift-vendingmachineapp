@@ -30,13 +30,16 @@ protocol DefaultMode {
 protocol AdminMode {
     func add(inputItem: Beverage)
     func removeItem(itemCode: Int) throws
-    func addBalance(money: Int)
+    func howMany(of beverage: Beverage) -> Int
+    func lastPurchasedItem() -> (item: Beverage, index: Int?)
+    func purchaseLog() -> [Beverage]
 }
 
 protocol UserMode {
     func addBalance(money: Int)
     func subtractBalance(money: Int)
     func buy(itemCode: Int) throws -> Beverage
+    func howMany(of beverage: Beverage) -> Int
 }
 
 

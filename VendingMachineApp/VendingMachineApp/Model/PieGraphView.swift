@@ -206,17 +206,13 @@ class PieGraphView: UIView {
     }
 }
 
-extension Array {
+extension Array where Element == UIColor {
     mutating func shuffle(_ number: Int) -> [UIColor] {
-        guard let data = self as? [UIColor] else {
-            return [UIColor]()
-        }
-        var list = data
+        var list = self
         for index in list.indices {
             if index > number { break }
             let random = Int(arc4random_uniform(UInt32(number)))
             list.swapAt(index, random)
-            
         }
         return list
     }

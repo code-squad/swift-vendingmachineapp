@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="ipad10_5" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -108,23 +108,23 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bananamilk.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="PWs-xi-rZx" customClass="BeverageImageView" customModule="VendingMachineApp" customModuleProvider="target">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BananaMilk.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="PWs-xi-rZx" customClass="BeverageImageView" customModule="VendingMachineApp" customModuleProvider="target">
                                 <rect key="frame" x="121" y="110" width="140" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="chocomilk.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="RpD-bV-zkI" customClass="BeverageImageView" customModule="VendingMachineApp" customModuleProvider="target">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ChocoMilk.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="RpD-bV-zkI" customClass="BeverageImageView" customModule="VendingMachineApp" customModuleProvider="target">
                                 <rect key="frame" x="282" y="109" width="140" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="top.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="hZy-9d-jMe" customClass="BeverageImageView" customModule="VendingMachineApp" customModuleProvider="target">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Coffee.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="hZy-9d-jMe" customClass="BeverageImageView" customModule="VendingMachineApp" customModuleProvider="target">
                                 <rect key="frame" x="445" y="110" width="140" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="redbull.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="s8V-Hz-ZHQ" customClass="BeverageImageView" customModule="VendingMachineApp" customModuleProvider="target">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="EnergyDrink.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="s8V-Hz-ZHQ" customClass="BeverageImageView" customModule="VendingMachineApp" customModuleProvider="target">
                                 <rect key="frame" x="282" y="375" width="140" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="coke.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="EM7-eR-Ulc" customClass="BeverageImageView" customModule="VendingMachineApp" customModuleProvider="target">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="SoftDrink.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="EM7-eR-Ulc" customClass="BeverageImageView" customModule="VendingMachineApp" customModuleProvider="target">
                                 <rect key="frame" x="445" y="375" width="140" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -143,7 +143,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="starbucks.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="meI-qP-y0j" customClass="BeverageImageView" customModule="VendingMachineApp" customModuleProvider="target">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="DolceLatte.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="meI-qP-y0j" customClass="BeverageImageView" customModule="VendingMachineApp" customModuleProvider="target">
                                 <rect key="frame" x="121" y="375" width="140" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -237,11 +237,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="bananamilk.jpg" width="460" height="460"/>
-        <image name="chocomilk.jpg" width="500" height="500"/>
-        <image name="coke.jpg" width="1200" height="1200"/>
-        <image name="redbull.jpg" width="640" height="640"/>
-        <image name="starbucks.jpg" width="600" height="600"/>
-        <image name="top.jpg" width="600" height="600"/>
+        <image name="BananaMilk.jpg" width="460" height="460"/>
+        <image name="ChocoMilk.jpg" width="500" height="500"/>
+        <image name="Coffee.jpg" width="600" height="600"/>
+        <image name="DolceLatte.jpg" width="600" height="600"/>
+        <image name="EnergyDrink.jpg" width="640" height="640"/>
+        <image name="SoftDrink.jpg" width="1200" height="1200"/>
     </resources>
 </document>

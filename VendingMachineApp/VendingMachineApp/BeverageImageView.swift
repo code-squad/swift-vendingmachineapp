@@ -16,7 +16,6 @@ class BeverageImageView: UIImageView {
     }
 
     private func setBeverageImage() {
-
         self.contentMode = .scaleAspectFill
         self.clipsToBounds = true
         self.layer.borderWidth = 5

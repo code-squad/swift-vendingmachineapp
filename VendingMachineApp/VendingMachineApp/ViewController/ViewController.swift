@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    var vending: DefaultMode?
+    var vending: (DefaultMode & AdminMode & UserMode)?
 
     @IBOutlet weak var balanceLabel: UILabel!
     @IBOutlet var moneyButtons: [UIButton]!

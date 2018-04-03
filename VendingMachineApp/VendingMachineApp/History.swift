@@ -10,8 +10,8 @@ import Foundation
 
 class History: NSObject, NSCoding {
     func encode(with aCoder: NSCoder) {
-        aCoder.encode([Beverage](), forKey: "purchase")
-        aCoder.encode([Beverage](), forKey: "supply")
+        aCoder.encode(purchase, forKey: "purchase")
+        aCoder.encode(supply, forKey: "supply")
     }
 
     required init?(coder aDecoder: NSCoder) {

@@ -246,7 +246,8 @@ class Observation: Observable {
 
 # VendingMachineApp step7
 
-> Frame과 Bounds
+> Frame과 Bounds  
+
 
 스토리보드에서 Button을 추가하고, Attributes에서 Type을 Info Light로 설정한다.  
 새로운 ViewController를 옆에 추가하고, Button에서 Segue를 연결한다.  
@@ -261,6 +262,44 @@ Segue를 선택하고 Kind를 Present Modally로 지정하고, Transition을 Fli
 - ***실행 화면***
 
 <img src="/img/vending_step7.gif" width="80%" height="80%">
+
+---
+
+# VendingMachineApp step8
+
+> 코어 그래픽스(Core Graphics)
+
+
+스토리보스에서 관리자 화면에 UIView를 추가하고, Identity에서 Custom Class 항목에 PieGraphView를 지정한다. 크기는 400 x 400 크기 정도로 지정한다.  
+
+PieGraphView 속성에 음료 구매목록 배열을 추가한다.  
+PieGraphView.swift 파일에 drawRect() 메서드에서 구매목록 배열를 참고해서 전체 구매 항목 중에 종류별 음료수가 얼마나 차지하는지 Pie로 표시한다.  
+관리자 화면의 viewWillAppear() 메서드에서 PieGraphView 객체에 구매 목록을 업데이트한다.  
+
+다른 동작은 이전 단계와 동일하게 동작해야 한다.  
+
+---
+
+# VendingMachineApp step9
+
+> 마무리하기
+
+
+PieGraphView 클래스에 다음의 터치 이벤트를 처리하는 핸들러 메서드를 추가한다.  
+그래프에 손을 터치하면 (떨어지지않은 상태) 그래프를 지우고 검정색 동그라미 그래프만 그린다.  
+	그래프에 손을 떨어지지 않은 상태에서 손을 움직일때,
+	터치한 점부터 원점에 가까워지면 파이 그래프 크기를 줄이고,
+	터치한 점부터 원점에서 멀어지면 파이 그래프 크기를 늘린다.  
+	그래프에 손을 떨어지면 구매이력 그래프 색상을 바꿔서 바뀐 크기대로 다시 그린다.  
+	제한된 최대/최소 크기를 지정하고 그 이상 커지거나 작아지지 않도록 한다.
+관리자 화면 ViewController에서 Shake 이벤트를 받으면 원래 크기대로 복구한다.  
+다른 동작은 이전 단계와 동일하게 동작해야 한다.
+
+---
+
+- ***실행 화면***
+
+<img src="/img/vending_step9.gif" width="80%" height="80%">
 
 ---
 

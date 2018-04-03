@@ -56,10 +56,7 @@ class Shelf: NSObject, NSCoding {
     }
 
     func matchCode(option: Int) throws -> ObjectIdentifier {
-        guard option < itemTags.count else {
-            throw Exception.outOfStock
-        }
-        guard option > -1 else {
+        guard 0..<itemTags.count ~= option else {
             throw Exception.outOfStock
         }
         let result = self.itemTags[option]

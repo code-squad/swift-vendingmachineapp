@@ -33,6 +33,7 @@ class ViewController: UIViewController {
     private func setIntroView() {
         self.updateItemNumber()
         self.setBalance()
+        self.previousHistoryLog()
         NotificationCenter.default.addObserver(self, selector: #selector(didChangedBalance), name: .changedBalance, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(didChangeItemNumber(_:)), name: .changedItemNumber, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(didBuy), name: .updatePurchaseLog, object: nil)
@@ -87,14 +88,28 @@ class ViewController: UIViewController {
         self.balanceLabel.textAlignment = .center
     }
 
+    private func previousHistoryLog() {
+        let list = (self.vending?.purchaseLog())!
+        guard !(list.isEmpty) else {
+            return
+        }
+        let yLocation = 575
+        for order in 0..<list.count {
+            let xLocation = 40 + (order * 50)
+            let itemImage: BeverageImageView = BeverageImageView().getImage(of: list[order])
+            itemImage.frame = CGRect(x: xLocation, y: yLocation, width: 140, height: 100)
+            self.view.addSubview(itemImage)
+        }
+    }
+
     private func updatePurchasedItemView(_ willPrint: (item: Beverage, index: Int?)) {
         guard let numberOfPurchase = willPrint.index else {
             return
         }
         let yLocation = 575
         let xLocation = 40 + (numberOfPurchase * 50)
-        let itemImage: BeverageImageView = BeverageImageView().getItemImage(willPrint.item)
-        itemImage.frame = CGRect(x: xLocation, y: yLocation, width: 136, height: 128)
+        let itemImage: BeverageImageView = BeverageImageView().getImage(of: willPrint.item)
+        itemImage.frame = CGRect(x: xLocation, y: yLocation, width: 140, height: 100)
         self.view.addSubview(itemImage)
     }
 

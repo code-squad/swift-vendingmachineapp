@@ -10,8 +10,8 @@ import Foundation
 
 class History: NSObject, NSCoding {
     func encode(with aCoder: NSCoder) {
-        aCoder.encode(purchase, forKey: "purchase")
-        aCoder.encode(supply, forKey: "supply")
+        aCoder.encode([Beverage](), forKey: "purchase")
+        aCoder.encode([Beverage](), forKey: "supply")
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -60,6 +60,10 @@ class History: NSObject, NSCoding {
             title += " >> 입고 내역이 없습니다. \n"
         }
         return title+log
+    }
+
+    func purchaseLog() -> [Beverage] {
+        return self.purchase
     }
 
 }

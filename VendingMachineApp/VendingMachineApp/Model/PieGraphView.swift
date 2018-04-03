@@ -159,6 +159,11 @@ class PieGraphView: UIView {
         }
     }
     
+    func drawByShake() {
+        isInitialized = false
+        setNeedsDisplay()
+    }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let touch = touches.first else {
             return
@@ -194,16 +199,6 @@ class PieGraphView: UIView {
         setNeedsDisplay()
     }
     
-    override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
-        if motion == .motionShake {
-            isInitialized = false
-            setNeedsDisplay()
-        }
-    }
-    
-    override var canBecomeFirstResponder: Bool {
-        return true
-    }
 }
 
 extension Array where Element == UIColor {

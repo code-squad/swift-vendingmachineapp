@@ -12,7 +12,7 @@ class PieGraphView: UIView {
     private var graphColor = [UIColor.red, UIColor.orange, UIColor.yellow, UIColor.green, UIColor.blue, UIColor.purple, UIColor.gray, UIColor.brown, UIColor.darkGray, UIColor.black]
     private var beverage = [String: Int]()
     private var isTouched = false
-    var isInitialized = false
+    private var isInitialized = false
     private var originLength: CGFloat = 0
     struct DataOfPieGraph {
         var path: UIBezierPath
@@ -194,6 +194,16 @@ class PieGraphView: UIView {
         setNeedsDisplay()
     }
     
+    override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
+        if motion == .motionShake {
+            isInitialized = false
+            setNeedsDisplay()
+        }
+    }
+    
+    override var canBecomeFirstResponder: Bool {
+        return true
+    }
 }
 
 extension Array {

@@ -22,8 +22,12 @@ class AdminViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setIntroView()
+        NotificationCenter.default.addObserver(self, selector: #selector(didChangeItemNumber(_:)), name: .changedItemNumber, object: nil)
+    }
 
-        // Do any additional setup after loading the view.
+    @objc private func didChangeItemNumber(_ notification: Notification) {
+        self.updateItemNumber()
     }
 
     private func setIntroView() {
@@ -33,6 +37,7 @@ class AdminViewController: UIViewController {
     @IBAction func addButtonTouched(sender: UIButton) {
         guard let item = try? AdminController().pickItem(sender.tag) else { return }
         vending?.add(inputItem: item)
+
     }
 
     private func updateItemNumber() {
@@ -45,6 +50,9 @@ class AdminViewController: UIViewController {
         self.softdrinkStock.text = String(amountFormat: vending.howMany(of: SoftDrink()))
     }
 
+    @IBAction func closeButtonTouched(_ sender: Any) {
+        self.dismiss(animated: true, completion: {()})
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -31,6 +31,7 @@
 		E82DA5222060AD2300536B2A /* CustomExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82DA5112060AD2300536B2A /* CustomExtension.swift */; };
 		FD4D5E2D2072470B00EACB23 /* ImageSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4D5E2C2072470B00EACB23 /* ImageSelector.swift */; };
 		FD611D512073497F00428C4F /* HistoryImageMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD611D502073497F00428C4F /* HistoryImageMaker.swift */; };
+		FD611D5320735ED800428C4F /* AdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD611D5220735ED800428C4F /* AdminViewController.swift */; };
 		FDC4CD8C2069F03100543BBF /* DataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC4CD8B2069F03100543BBF /* DataStorage.swift */; };
 		FDCCEF482063A7350069A039 /* EnergyDrink.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FDCCEF422063A7350069A039 /* EnergyDrink.jpg */; };
 		FDCCEF492063A7350069A039 /* DolceLatte.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FDCCEF432063A7350069A039 /* DolceLatte.jpg */; };
@@ -68,6 +69,7 @@
 		E82DA5112060AD2300536B2A /* CustomExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomExtension.swift; sourceTree = "<group>"; };
 		FD4D5E2C2072470B00EACB23 /* ImageSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSelector.swift; sourceTree = "<group>"; };
 		FD611D502073497F00428C4F /* HistoryImageMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryImageMaker.swift; sourceTree = "<group>"; };
+		FD611D5220735ED800428C4F /* AdminViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminViewController.swift; sourceTree = "<group>"; };
 		FDC4CD8B2069F03100543BBF /* DataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStorage.swift; sourceTree = "<group>"; };
 		FDCCEF422063A7350069A039 /* EnergyDrink.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = EnergyDrink.jpg; sourceTree = "<group>"; };
 		FDCCEF432063A7350069A039 /* DolceLatte.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = DolceLatte.jpg; sourceTree = "<group>"; };
@@ -122,7 +124,6 @@
 				E82DA50E2060AD2300536B2A /* VendingMachine.swift */,
 				E82DA4EE2060AA1E00536B2A /* AppDelegate.swift */,
 				FDC4CD8B2069F03100543BBF /* DataStorage.swift */,
-				E82DA4F02060AA1E00536B2A /* ViewController.swift */,
 				E82DA4F22060AA1F00536B2A /* Main.storyboard */,
 				E82DA4F52060AA1F00536B2A /* Assets.xcassets */,
 				E82DA4F72060AA1F00536B2A /* LaunchScreen.storyboard */,
@@ -130,6 +131,7 @@
 				FDCCEF4E2063A9240069A039 /* BeverageImageView.swift */,
 				FD4D5E2C2072470B00EACB23 /* ImageSelector.swift */,
 				FD611D502073497F00428C4F /* HistoryImageMaker.swift */,
+				FD611D542073659400428C4F /* ViewController */,
 			);
 			path = VendingMachineApp;
 			sourceTree = "<group>";
@@ -146,6 +148,15 @@
 				E82DA50C2060AD2200536B2A /* SoftDrink.swift */,
 			);
 			path = Beverages;
+			sourceTree = "<group>";
+		};
+		FD611D542073659400428C4F /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E82DA4F02060AA1E00536B2A /* ViewController.swift */,
+				FD611D5220735ED800428C4F /* AdminViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		FDCCEF412063A7350069A039 /* img */ = {
@@ -251,6 +262,7 @@
 				E82DA51B2060AD2300536B2A /* DolceLatte.swift in Sources */,
 				E82DA4F12060AA1E00536B2A /* ViewController.swift in Sources */,
 				E82DA5222060AD2300536B2A /* CustomExtension.swift in Sources */,
+				FD611D5320735ED800428C4F /* AdminViewController.swift in Sources */,
 				FDC4CD8C2069F03100543BBF /* DataStorage.swift in Sources */,
 				E82DA5142060AD2300536B2A /* Shelf.swift in Sources */,
 				E82DA5212060AD2300536B2A /* CustomEnum.swift in Sources */,

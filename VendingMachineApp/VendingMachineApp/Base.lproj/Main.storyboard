@@ -219,7 +219,7 @@
                                 <rect key="frame" x="919" y="379" width="22" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
-                                    <segue destination="jtk-19-e0H" kind="presentation" modalTransitionStyle="flipHorizontal" id="xUX-Vy-KvN"/>
+                                    <segue destination="jtk-19-e0H" kind="presentation" identifier="moveToAdminView" modalTransitionStyle="flipHorizontal" id="xUX-Vy-KvN"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -374,6 +374,9 @@
                                 <rect key="frame" x="945" y="336" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="닫기"/>
+                                <connections>
+                                    <action selector="closeButtonTouched:" destination="jtk-19-e0H" eventType="touchUpInside" id="Vtu-6f-tjb"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.99103374025734781" green="0.99763482809066772" blue="0.86437490678136097" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

@@ -29,13 +29,14 @@
 		E82DA5202060AD2300536B2A /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82DA50F2060AD2300536B2A /* Controller.swift */; };
 		E82DA5212060AD2300536B2A /* CustomEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82DA5102060AD2300536B2A /* CustomEnum.swift */; };
 		E82DA5222060AD2300536B2A /* CustomExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82DA5112060AD2300536B2A /* CustomExtension.swift */; };
+		FD4D5E2D2072470B00EACB23 /* ImageSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4D5E2C2072470B00EACB23 /* ImageSelector.swift */; };
 		FDC4CD8C2069F03100543BBF /* DataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC4CD8B2069F03100543BBF /* DataStorage.swift */; };
-		FDCCEF482063A7350069A039 /* redbull.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FDCCEF422063A7350069A039 /* redbull.jpg */; };
-		FDCCEF492063A7350069A039 /* starbucks.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FDCCEF432063A7350069A039 /* starbucks.jpg */; };
-		FDCCEF4A2063A7350069A039 /* bananamilk.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FDCCEF442063A7350069A039 /* bananamilk.jpg */; };
-		FDCCEF4B2063A7350069A039 /* chocomilk.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FDCCEF452063A7350069A039 /* chocomilk.jpg */; };
-		FDCCEF4C2063A7350069A039 /* top.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FDCCEF462063A7350069A039 /* top.jpg */; };
-		FDCCEF4D2063A7350069A039 /* coke.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FDCCEF472063A7350069A039 /* coke.jpg */; };
+		FDCCEF482063A7350069A039 /* EnergyDrink.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FDCCEF422063A7350069A039 /* EnergyDrink.jpg */; };
+		FDCCEF492063A7350069A039 /* DolceLatte.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FDCCEF432063A7350069A039 /* DolceLatte.jpg */; };
+		FDCCEF4A2063A7350069A039 /* BananaMilk.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FDCCEF442063A7350069A039 /* BananaMilk.jpg */; };
+		FDCCEF4B2063A7350069A039 /* ChocoMilk.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FDCCEF452063A7350069A039 /* ChocoMilk.jpg */; };
+		FDCCEF4C2063A7350069A039 /* Coffee.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FDCCEF462063A7350069A039 /* Coffee.jpg */; };
+		FDCCEF4D2063A7350069A039 /* SoftDrink.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FDCCEF472063A7350069A039 /* SoftDrink.jpg */; };
 		FDCCEF4F2063A9240069A039 /* BeverageImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCCEF4E2063A9240069A039 /* BeverageImageView.swift */; };
 /* End PBXBuildFile section */
 
@@ -64,13 +65,14 @@
 		E82DA50F2060AD2300536B2A /* Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
 		E82DA5102060AD2300536B2A /* CustomEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomEnum.swift; sourceTree = "<group>"; };
 		E82DA5112060AD2300536B2A /* CustomExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomExtension.swift; sourceTree = "<group>"; };
+		FD4D5E2C2072470B00EACB23 /* ImageSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSelector.swift; sourceTree = "<group>"; };
 		FDC4CD8B2069F03100543BBF /* DataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStorage.swift; sourceTree = "<group>"; };
-		FDCCEF422063A7350069A039 /* redbull.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = redbull.jpg; sourceTree = "<group>"; };
-		FDCCEF432063A7350069A039 /* starbucks.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = starbucks.jpg; sourceTree = "<group>"; };
-		FDCCEF442063A7350069A039 /* bananamilk.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bananamilk.jpg; sourceTree = "<group>"; };
-		FDCCEF452063A7350069A039 /* chocomilk.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = chocomilk.jpg; sourceTree = "<group>"; };
-		FDCCEF462063A7350069A039 /* top.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = top.jpg; sourceTree = "<group>"; };
-		FDCCEF472063A7350069A039 /* coke.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = coke.jpg; sourceTree = "<group>"; };
+		FDCCEF422063A7350069A039 /* EnergyDrink.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = EnergyDrink.jpg; sourceTree = "<group>"; };
+		FDCCEF432063A7350069A039 /* DolceLatte.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = DolceLatte.jpg; sourceTree = "<group>"; };
+		FDCCEF442063A7350069A039 /* BananaMilk.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = BananaMilk.jpg; sourceTree = "<group>"; };
+		FDCCEF452063A7350069A039 /* ChocoMilk.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ChocoMilk.jpg; sourceTree = "<group>"; };
+		FDCCEF462063A7350069A039 /* Coffee.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Coffee.jpg; sourceTree = "<group>"; };
+		FDCCEF472063A7350069A039 /* SoftDrink.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = SoftDrink.jpg; sourceTree = "<group>"; };
 		FDCCEF4E2063A9240069A039 /* BeverageImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -124,6 +126,7 @@
 				E82DA4F72060AA1F00536B2A /* LaunchScreen.storyboard */,
 				E82DA4FA2060AA1F00536B2A /* Info.plist */,
 				FDCCEF4E2063A9240069A039 /* BeverageImageView.swift */,
+				FD4D5E2C2072470B00EACB23 /* ImageSelector.swift */,
 			);
 			path = VendingMachineApp;
 			sourceTree = "<group>";
@@ -145,12 +148,12 @@
 		FDCCEF412063A7350069A039 /* img */ = {
 			isa = PBXGroup;
 			children = (
-				FDCCEF422063A7350069A039 /* redbull.jpg */,
-				FDCCEF432063A7350069A039 /* starbucks.jpg */,
-				FDCCEF442063A7350069A039 /* bananamilk.jpg */,
-				FDCCEF452063A7350069A039 /* chocomilk.jpg */,
-				FDCCEF462063A7350069A039 /* top.jpg */,
-				FDCCEF472063A7350069A039 /* coke.jpg */,
+				FDCCEF422063A7350069A039 /* EnergyDrink.jpg */,
+				FDCCEF432063A7350069A039 /* DolceLatte.jpg */,
+				FDCCEF442063A7350069A039 /* BananaMilk.jpg */,
+				FDCCEF452063A7350069A039 /* ChocoMilk.jpg */,
+				FDCCEF462063A7350069A039 /* Coffee.jpg */,
+				FDCCEF472063A7350069A039 /* SoftDrink.jpg */,
 			);
 			path = img;
 			sourceTree = "<group>";
@@ -214,15 +217,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FDCCEF482063A7350069A039 /* redbull.jpg in Resources */,
-				FDCCEF4A2063A7350069A039 /* bananamilk.jpg in Resources */,
+				FDCCEF482063A7350069A039 /* EnergyDrink.jpg in Resources */,
+				FDCCEF4A2063A7350069A039 /* BananaMilk.jpg in Resources */,
 				E82DA4F92060AA1F00536B2A /* LaunchScreen.storyboard in Resources */,
 				E82DA4F62060AA1F00536B2A /* Assets.xcassets in Resources */,
-				FDCCEF4D2063A7350069A039 /* coke.jpg in Resources */,
-				FDCCEF492063A7350069A039 /* starbucks.jpg in Resources */,
+				FDCCEF4D2063A7350069A039 /* SoftDrink.jpg in Resources */,
+				FDCCEF492063A7350069A039 /* DolceLatte.jpg in Resources */,
 				E82DA4F42060AA1F00536B2A /* Main.storyboard in Resources */,
-				FDCCEF4B2063A7350069A039 /* chocomilk.jpg in Resources */,
-				FDCCEF4C2063A7350069A039 /* top.jpg in Resources */,
+				FDCCEF4B2063A7350069A039 /* ChocoMilk.jpg in Resources */,
+				FDCCEF4C2063A7350069A039 /* Coffee.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,6 +256,7 @@
 				E82DA5192060AD2300536B2A /* ChocoMilk.swift in Sources */,
 				E82DA5122060AD2300536B2A /* Stock.swift in Sources */,
 				E82DA5162060AD2300536B2A /* StockController.swift in Sources */,
+				FD4D5E2D2072470B00EACB23 /* ImageSelector.swift in Sources */,
 				E82DA51F2060AD2300536B2A /* VendingMachine.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

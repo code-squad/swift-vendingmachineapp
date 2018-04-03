@@ -21,7 +21,7 @@ class ManagerViewController: UIViewController, PieDrawable {
         changeInventoryBox()
         registerObserver()
         drawPieGraph()
-        drawByShake()
+        becomeFirstResponder()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -38,10 +38,6 @@ class ManagerViewController: UIViewController, PieDrawable {
     
     func drawPieGraph() {
         pieChartView.pieDrawable = self
-    }
-    
-    func drawByShake() {
-        pieChartView.becomeFirstResponder()
     }
 
     override func didReceiveMemoryWarning() {
@@ -114,5 +110,14 @@ class ManagerViewController: UIViewController, PieDrawable {
     @IBAction func closeManagerView(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
-
+    
+    override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
+        if motion == .motionShake {
+            pieChartView.drawByShake()
+        }
+    }
+    
+    override var canBecomeFirstResponder: Bool {
+        return true
+    }
 }

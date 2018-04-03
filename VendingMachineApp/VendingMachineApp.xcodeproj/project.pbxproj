@@ -30,6 +30,7 @@
 		E82DA5212060AD2300536B2A /* CustomEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82DA5102060AD2300536B2A /* CustomEnum.swift */; };
 		E82DA5222060AD2300536B2A /* CustomExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82DA5112060AD2300536B2A /* CustomExtension.swift */; };
 		FD4D5E2D2072470B00EACB23 /* ImageSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4D5E2C2072470B00EACB23 /* ImageSelector.swift */; };
+		FD611D512073497F00428C4F /* HistoryImageMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD611D502073497F00428C4F /* HistoryImageMaker.swift */; };
 		FDC4CD8C2069F03100543BBF /* DataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC4CD8B2069F03100543BBF /* DataStorage.swift */; };
 		FDCCEF482063A7350069A039 /* EnergyDrink.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FDCCEF422063A7350069A039 /* EnergyDrink.jpg */; };
 		FDCCEF492063A7350069A039 /* DolceLatte.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FDCCEF432063A7350069A039 /* DolceLatte.jpg */; };
@@ -66,6 +67,7 @@
 		E82DA5102060AD2300536B2A /* CustomEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomEnum.swift; sourceTree = "<group>"; };
 		E82DA5112060AD2300536B2A /* CustomExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomExtension.swift; sourceTree = "<group>"; };
 		FD4D5E2C2072470B00EACB23 /* ImageSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSelector.swift; sourceTree = "<group>"; };
+		FD611D502073497F00428C4F /* HistoryImageMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryImageMaker.swift; sourceTree = "<group>"; };
 		FDC4CD8B2069F03100543BBF /* DataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStorage.swift; sourceTree = "<group>"; };
 		FDCCEF422063A7350069A039 /* EnergyDrink.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = EnergyDrink.jpg; sourceTree = "<group>"; };
 		FDCCEF432063A7350069A039 /* DolceLatte.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = DolceLatte.jpg; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 				E82DA4FA2060AA1F00536B2A /* Info.plist */,
 				FDCCEF4E2063A9240069A039 /* BeverageImageView.swift */,
 				FD4D5E2C2072470B00EACB23 /* ImageSelector.swift */,
+				FD611D502073497F00428C4F /* HistoryImageMaker.swift */,
 			);
 			path = VendingMachineApp;
 			sourceTree = "<group>";
@@ -257,6 +260,7 @@
 				E82DA5122060AD2300536B2A /* Stock.swift in Sources */,
 				E82DA5162060AD2300536B2A /* StockController.swift in Sources */,
 				FD4D5E2D2072470B00EACB23 /* ImageSelector.swift in Sources */,
+				FD611D512073497F00428C4F /* HistoryImageMaker.swift in Sources */,
 				E82DA51F2060AD2300536B2A /* VendingMachine.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

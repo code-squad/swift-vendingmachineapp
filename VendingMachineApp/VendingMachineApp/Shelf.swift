@@ -20,14 +20,12 @@ class Shelf: NSObject, NSCoding {
     private(set) var itemTags = [ObjectIdentifier]()
 
     override init() {
-        self.itemTags = [
-            ObjectIdentifier(type(of: BananaMilk())),
-            ObjectIdentifier(type(of: ChocoMilk())),
-            ObjectIdentifier(type(of: Coffee())),
-            ObjectIdentifier(type(of: DolceLatte())),
-            ObjectIdentifier(type(of: EnergyDrink())),
-            ObjectIdentifier(type(of: SoftDrink()))
-        ]
+        self.itemTags = [BananaMilk.self,
+                         ChocoMilk.self,
+                         Coffee.self,
+                         DolceLatte.self,
+                         EnergyDrink.self,
+                         SoftDrink.self].map({ ObjectIdentifier($0) })
     }
 
     init(items: [ObjectIdentifier: [Beverage]]) {

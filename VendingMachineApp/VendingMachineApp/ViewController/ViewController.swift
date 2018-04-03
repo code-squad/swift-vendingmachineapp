@@ -105,10 +105,20 @@ class ViewController: UIViewController {
         self.view.addSubview(purchasedItemImage)
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "moveToAdminView" {
+            if let nextVC = segue.destination as?  AdminViewController {
+                nextVC.vending = self.vending as! AdminMode
+
+            }
+        }
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
 
 }
 

@@ -23,7 +23,6 @@ class AdminViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setIntroView()
-        NotificationCenter.default.addObserver(self, selector: #selector(didChangeItemNumber(_:)), name: .changedItemNumber, object: nil)
     }
 
     @objc private func didChangeItemNumber(_ notification: Notification) {
@@ -32,6 +31,7 @@ class AdminViewController: UIViewController {
 
     private func setIntroView() {
         self.updateItemNumber()
+        NotificationCenter.default.addObserver(self, selector: #selector(didChangeItemNumber(_:)), name: .changedItemNumber, object: nil)
     }
 
     @IBAction func addButtonTouched(sender: UIButton) {

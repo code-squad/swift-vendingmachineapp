@@ -107,9 +107,8 @@ class ViewController: UIViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "moveToAdminView" {
-            if let nextVC = segue.destination as?  AdminViewController {
-                nextVC.vending = self.vending as! AdminMode
-
+            if let nextVC = segue.destination as? AdminViewController {
+                nextVC.vending = self.vending
             }
         }
     }

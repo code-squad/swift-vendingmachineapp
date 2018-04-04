@@ -371,13 +371,18 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bpz-Wy-jRc">
-                                <rect key="frame" x="945" y="336" width="30" height="30"/>
+                                <rect key="frame" x="830" y="56" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="닫기"/>
                                 <connections>
                                     <action selector="closeButtonTouched:" destination="jtk-19-e0H" eventType="touchUpInside" id="Vtu-6f-tjb"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9wW-te-Aal" customClass="PieGraphView" customModule="VendingMachineApp" customModuleProvider="target">
+                                <rect key="frame" x="645" y="105" width="400" height="400"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.99103374025734781" green="0.99763482809066772" blue="0.86437490678136097" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <viewLayoutGuide key="safeArea" id="tiS-EN-XEb"/>
@@ -388,6 +393,7 @@
                         <outlet property="coffeeStock" destination="1oD-ye-kIC" id="3P6-QL-hTU"/>
                         <outlet property="dolcelatteStock" destination="a9R-oH-a0h" id="fKF-iC-T40"/>
                         <outlet property="energydrinkStock" destination="hb7-lR-3Ke" id="i9W-Jj-Ux3"/>
+                        <outlet property="pieGraph" destination="9wW-te-Aal" id="5cB-iJ-K01"/>
                         <outlet property="softdrinkStock" destination="hPd-FP-zvr" id="8kk-Gq-eQO"/>
                     </connections>
                 </viewController>

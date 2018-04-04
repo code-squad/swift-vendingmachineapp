@@ -29,6 +29,7 @@
 		E82DA5202060AD2300536B2A /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82DA50F2060AD2300536B2A /* Controller.swift */; };
 		E82DA5212060AD2300536B2A /* CustomEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82DA5102060AD2300536B2A /* CustomEnum.swift */; };
 		E82DA5222060AD2300536B2A /* CustomExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82DA5112060AD2300536B2A /* CustomExtension.swift */; };
+		FD3C872A20750E80009FCFF1 /* PieGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3C872920750E80009FCFF1 /* PieGraphView.swift */; };
 		FD4D5E2D2072470B00EACB23 /* ImageSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4D5E2C2072470B00EACB23 /* ImageSelector.swift */; };
 		FD611D512073497F00428C4F /* HistoryImageMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD611D502073497F00428C4F /* HistoryImageMaker.swift */; };
 		FD611D5320735ED800428C4F /* AdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD611D5220735ED800428C4F /* AdminViewController.swift */; };
@@ -67,6 +68,7 @@
 		E82DA50F2060AD2300536B2A /* Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
 		E82DA5102060AD2300536B2A /* CustomEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomEnum.swift; sourceTree = "<group>"; };
 		E82DA5112060AD2300536B2A /* CustomExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomExtension.swift; sourceTree = "<group>"; };
+		FD3C872920750E80009FCFF1 /* PieGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieGraphView.swift; sourceTree = "<group>"; };
 		FD4D5E2C2072470B00EACB23 /* ImageSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSelector.swift; sourceTree = "<group>"; };
 		FD611D502073497F00428C4F /* HistoryImageMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryImageMaker.swift; sourceTree = "<group>"; };
 		FD611D5220735ED800428C4F /* AdminViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminViewController.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 				E82DA5002060AD2100536B2A /* Stock.swift */,
 				E82DA5042060AD2200536B2A /* StockController.swift */,
 				E82DA50E2060AD2300536B2A /* VendingMachine.swift */,
+				FD3C872920750E80009FCFF1 /* PieGraphView.swift */,
 				E82DA4EE2060AA1E00536B2A /* AppDelegate.swift */,
 				FDC4CD8B2069F03100543BBF /* DataStorage.swift */,
 				E82DA4F22060AA1F00536B2A /* Main.storyboard */,
@@ -260,6 +263,7 @@
 				E82DA5202060AD2300536B2A /* Controller.swift in Sources */,
 				E82DA5172060AD2300536B2A /* BananaMilk.swift in Sources */,
 				E82DA51B2060AD2300536B2A /* DolceLatte.swift in Sources */,
+				FD3C872A20750E80009FCFF1 /* PieGraphView.swift in Sources */,
 				E82DA4F12060AA1E00536B2A /* ViewController.swift in Sources */,
 				E82DA5222060AD2300536B2A /* CustomExtension.swift in Sources */,
 				FD611D5320735ED800428C4F /* AdminViewController.swift in Sources */,

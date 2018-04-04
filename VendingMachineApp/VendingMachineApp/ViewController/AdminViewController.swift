@@ -19,6 +19,7 @@ class AdminViewController: UIViewController {
     @IBOutlet weak var energydrinkStock: UILabel!
     @IBOutlet weak var softdrinkStock: UILabel!
 
+    @IBOutlet weak var pieGraph: PieGraphView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,6 +58,10 @@ class AdminViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        self.pieGraph.historyData = self.vending?.purchaseLog()
     }
 
 

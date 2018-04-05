@@ -23,31 +23,66 @@ class PieGraphView: UIView {
     var radius: CGFloat {
         return min(self.bounds.width, self.bounds.height) / 2
     }
+    var endAngles: [Beverage: CGFloat]? {
+        let arrangedList = historyData?.reduce(into: [Beverage:Int]()) {
+            $0[$1, default: 0] += 1
+        }
+        let degrees = arrangedList?.mapValues({
+            CGFloat(CGFloat($0) / CGFloat((historyData?.count)!) * 360)
+        })
+
+        return degrees
+    }
 
     override func draw(_ rect: CGRect) {
+        // BananaMilk
+        var endpointOfPrevious = 90.degreesToRadians
         UIColor.blue.setFill()
-        UIColor.yellow.setStroke()
-
-        let startAngle: CGFloat = 0
-        let endAngle: CGFloat = CGFloat(120).degreesToRadians
-        let path = UIBezierPath(arcCenter: centerPoint,
+        let path1 = UIBezierPath(arcCenter: centerPoint,
                                 radius: radius,
-                                startAngle: startAngle,
-                                endAngle: endAngle,
+                                startAngle: 0,
+                                endAngle: endpointOfPrevious,
                                 clockwise: true)
-        path.addLine(to: centerPoint)
-        path.close()
-        path.lineWidth = 10.0
-        path.stroke()
-        path.fill()
+        path1.addLine(to: centerPoint)
+        path1.close()
+        path1.lineWidth = 10.0
+        path1.fill()
+
+        // ChocoMilk
+        UIColor.red.setFill()
+        let path2 = UIBezierPath(arcCenter: centerPoint,
+                                 radius: radius,
+                                 startAngle: endpointOfPrevious,
+                                 endAngle: endpointOfPrevious + 30.degreesToRadians,
+                                 clockwise: true)
+        endpointOfPrevious += 30.degreesToRadians
+        path2.addLine(to: centerPoint)
+        path2.close()
+        path2.lineWidth = 10.0
+        path2.fill()
+
+        // TOP
+        UIColor.green.setFill()
+        let path3 = UIBezierPath(arcCenter: centerPoint,
+                                 radius: radius,
+                                 startAngle: endpointOfPrevious,
+                                 endAngle: endpointOfPrevious + 60.degreesToRadians,
+                                 clockwise: true)
+        endpointOfPrevious += 60.degreesToRadians
+        path3.addLine(to: centerPoint)
+        path3.close()
+        path3.lineWidth = 10.0
+        path3.fill()
+
+        // DolceLatte
+
+
+        // EnergyDrink
+
+
+        // SoftDrink
+
+
     }
-
-    private func drawPie() {
-        var piePaths = [UIBezierPath]()
-
-    }
-
-
-
 
 }

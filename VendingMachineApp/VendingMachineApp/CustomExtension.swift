@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 // MARK: Extension Date type
 
@@ -82,4 +83,14 @@ extension Notification.Name {
     static let updatePurchaseLog = Notification.Name("updatePurchaseLog")
 }
 
+// MARK: Calculate Radians
+
+extension BinaryInteger {
+    var degreesToRadians: CGFloat { return CGFloat(Int(self)) * .pi / 180 }
+}
+
+extension FloatingPoint {
+    var degreesToRadians: Self { return self * .pi / 180 }
+    var radiansToDegrees: Self { return self * 180 / .pi }
+}
 

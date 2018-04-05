@@ -11,15 +11,23 @@ import UIKit
 class PieGraphView: UIView {
 
     var historyData: [Beverage]?
+    var centerX: CGFloat {
+        return self.bounds.width / 2
+    }
+    var centerY: CGFloat {
+        return self.bounds.height / 2
+    }
+    var centerPoint: CGPoint {
+        return CGPoint(x: centerX, y: centerY)
+    }
+    var radius: CGFloat {
+        return min(self.bounds.width, self.bounds.height) / 2
+    }
 
     override func draw(_ rect: CGRect) {
         UIColor.blue.setFill()
         UIColor.yellow.setStroke()
-        let size = self.bounds
-        let centerX = size.width / 2
-        let centerY = size.height / 2
-        let centerPoint = CGPoint(x: centerX, y: centerY)
-        let radius = min(size.width, size.height) / 2
+
         let startAngle: CGFloat = 0
         let endAngle: CGFloat = CGFloat(120).degreesToRadians
         let path = UIBezierPath(arcCenter: centerPoint,
@@ -32,6 +40,11 @@ class PieGraphView: UIView {
         path.lineWidth = 10.0
         path.stroke()
         path.fill()
+    }
+
+    private func drawPie() {
+        var piePaths = [UIBezierPath]()
+
     }
 
 

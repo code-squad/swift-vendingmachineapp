@@ -514,3 +514,49 @@ override func viewDidLoad() {
 ## Step7 - Frame과 Bounds
 - 구현 화면 : 2018.04.03 18:00
 <img src="./Screenshot/step7-1.gif" width="80%">
+
+
+## Step8 - Core Graphics
+AdminViewController에 UIView를 추가하고, 해당 UIView클래스 내부에 자기 자신의 속성과 메소드를 선언해서 그림을 그리는 작업 UIKit에 준비된 API들을 이용해서 자신의 뷰를 그린다.
+
+### UIView - frame과 Bounds
+https://soulpark.wordpress.com/2012/11/30/uiview-frame-bounds-coordinate-conversion/
+UIView는 눈에 보이는 모든 클래스의 슈퍼클래스이다. 따라서 UIView는 특정 UIView (UIWindow 도 UIView 의 서브클래스) 의 자식요소로 포함됨으로써 화면에 표시된다.
+UIView는 frame외에 bounds속성을 가지는데, 두 속성 모두 CGRect타입이다. (`CGRect :  init(origin: CGPoint, size: CGSize)`)
+<img src="./Screenshot/step8-1.png" width="70%">
+  - `frame`: (40,40,240,380)
+  - `bounds`: (0,0,240,380)
+- `frame`의 좌표는 슈퍼뷰를 기준으로 한다. 뷰를 포지셔닝 한다고도 한다. (나-UIView가 지금 **슈퍼뷰의 어디쯤에** 있나?)
+- `bounds`의 좌표는 자신을 기준으로 한다. 따라서 자신 뷰의 왼쪽 상단부터 시작하는, 원점이 기준이 된다. 원점(0,0)으로부터 width, height값대로 사이즈가 지정된다.
+- cf. `center`또한 슈퍼뷰를 기준으로 한다. 슈퍼뷰의 중간점을 가리킨다.
+  - Use frame and center to position a UIView!
+  - frame과 center는 뷰를 positioning하기위함이다.
+- ***뷰를 그리는 동작을 위해서 frame이나 center를 사용하지 않는다.***
+
+### UIBezierPath
+- 커스텀 UIView 내에서 렌더링할 수 있도록(표현할 수 있도록) 직선이나 곡선들로 구성된 경로(Paths)를 생성할 수 있도록 해주는 클래스.
+- path를 이용하면 간단한 평면 도형을 그릴 수 있다.
+
+#### UIColor의 setFill() setStroke()
+UIBezierPath로 path를 만들고 시각적으로 도형을 보여주고 싶을때 테두리나 색 채우기를 통해서 표현 할 수 있다. <br/>
+이때 fill(색 채움)이나 stroke(테두리)작업을 path에 직접 한다고 생각할 수 있는데, **해당 메소드는 먼저 UIColor에서 호출해야한다.**
+
+- `setFill()`: Sets the color of subsequent fill operations to the color that the receiver represents.
+- `setStroke()`: Sets the color of subsequent stroke operations to the color that the receiver represents.
+- 두 메소드 정의에서 모두 `Sets the color of subsequent`라고 되어있는데 이는 다음(subsequent) 뷰의 색을 채우거나 테두리를 그린다는 뜻이다.
+- *UIColor인스턴스에 `set메소드`를 호출하고 다음 코드에서는 또 그 뷰의 관련된 메소드를 호출(`.stroke 혹은 .fill`)하여 사용하는 방식인데,*
+- 이는 다시말해 **`stroke()`를 호출하면 이전 코드에서 `setStroke()`로 세팅된 UIColor인스턴스가 있으면 그 인스턴스를 사용하여 동작시키는 방식인 것 같다.**
+- **JK's comment:** draw함수가 호출되면 context가 만들어지고, 절차적 방식인 C기반의 함수로 동작하는 방식이라고 한다. swift나 objective-c에서 쓰는 UIKit은 그 context함수들과 매핑되어있어서 코드상으로는 숨겨져있는 부분이다.
+- UIColor.blue.setFill()처럼 선언하고 그 다음코드에 오는 path그리고, 컬러 선언하고 그 다음코드에 오는 path를 그리고... 이런 방식으로 동작한다.
+  - (color선언한 펜 잡고 그리고, 다른 색 선언되면 그 펜 놓고 다른 펜 잡고 그리고...이런 방식...)
+- 예시코드 ([출처: Stack overflow](https://stackoverflow.com/questions/25533091/how-to-change-the-color-of-a-uibezierpath-in-swift))
+```swift
+// Drawing the border of the rounded rectangle:
+    let redColor = UIColor.red
+    redColor.setStroke() // Stroke subsequent views with a red color
+    let roundedRectagle = CGRect(x: 0,y: 0, width: 90,height: 20)
+    let rectangleBorderPath = UIBezierPath(roundedRect: roundedRectagle,cornerRadius: 5)
+    rectangleBorderPath.lineWidth = 3.0
+    rectangleBorderPath.stroke() // Apply the red color stroke on this view
+
+```

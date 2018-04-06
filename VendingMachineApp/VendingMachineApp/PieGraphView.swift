@@ -23,28 +23,32 @@ class PieGraphView: UIView {
     var radius: CGFloat {
         return min(self.bounds.width, self.bounds.height) / 2
     }
-    var endAngles: [String: CGFloat]? {
+
+
+
+    var endRadians: [String: CGFloat]? {
         let arrangedList = historyData?.reduce(into: [String:Int]()) {
             $0[$1.type, default: 0] += 1
         }
-        let degrees = arrangedList?.mapValues({CGFloat(CGFloat($0) / CGFloat((historyData?.count)!) * 360).degreesToRadians
+        let radians = arrangedList?.mapValues({CGFloat(CGFloat($0) / CGFloat((historyData?.count)!) * 360).degreesToRadians
         })
 
-        return degrees
+        return radians
     }
 
     let pieColors = [UIColor.yellow, UIColor.brown, UIColor.blue, UIColor.cyan, UIColor.purple, UIColor.green]
 
 
     override func draw(_ rect: CGRect) {
-        guard let angleData = endAngles else {return}
-        var startAngle = CGFloat(0)
+        guard let radiansData = endRadians else {return}
+        var startArc = CGFloat(0)
         var index = 0
-        for list in angleData.keys {
-            let endAngle = angleData[list]!
-            self.makePath(from: startAngle, to: endAngle, cIndex: index)
+        for list in radiansData.keys {
+            let endArc = radiansData[list]!
+            self.makePath(from: startArc, to: endArc, cIndex: index)
+
             index += 1
-            startAngle += endAngle
+            startArc += endArc
         }
     }
 
@@ -61,6 +65,9 @@ class PieGraphView: UIView {
         path.fill()
         return path
     }
+
+
+
 
 
 

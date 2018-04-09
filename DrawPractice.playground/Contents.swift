@@ -60,3 +60,29 @@ path.addLine(to: centerPoint)
 }
 
 draw(CGRect(x: 0, y: 0, width: 400, height: 400))
+
+//let arr = [1,2,3,4,5,6,7,8,9,10]
+
+let angles: [String:Int] = ["ss":5,"ff":2,"rr":3,"rt":4]
+//let angleKeys = angles.keys
+
+
+let runningSum = angles.values
+    .reduce(into: []) { $0.append(($0.last ?? 0) + $1) }
+
+
+
+//let angles: [String:Int] = ["ss":5,"ff":2,"rr":3,"rt":4]
+//let endAngles = angles.reduce(into: [String: Int]()) { $0[$1.key, default: 0] += $1.value }
+
+//var endAngles: [String: CGFloat]? {
+//    let angles: [String: CGFloat]? = arrangedHistory?.mapValues({CGFloat(CGFloat($0) / CGFloat((historyData?.count)!) * 360)
+//    })
+//    let endAngles = angles?.reduce(into: [String: CGFloat]()) { $0[$1.key, default: CGFloat(0)] += $1.value }
+//    //        let endAngles = angles?.reduce(into: []) { $0.append(($0.last ?? 0) + $1.value) }
+//    return angles
+//} 이건 value가 더해지는 동작은 안하고 딕셔너리 순서만 바뀜;
+
+
+
+

@@ -519,6 +519,9 @@ override func viewDidLoad() {
 ## Step8 - Core Graphics
 AdminViewController에 UIView를 추가하고, 해당 UIView클래스 내부에 자기 자신의 속성과 메소드를 선언해서 그림을 그리는 작업 UIKit에 준비된 API들을 이용해서 자신의 뷰를 그린다.
 
+- 구현화면 : 2018.04.09 20:00
+<img src="./Screenshot/step8-2.png" width="80%">
+
 ### UIView - frame과 Bounds
 https://soulpark.wordpress.com/2012/11/30/uiview-frame-bounds-coordinate-conversion/
 UIView는 눈에 보이는 모든 클래스의 슈퍼클래스이다. 따라서 UIView는 특정 UIView (UIWindow 도 UIView 의 서브클래스) 의 자식요소로 포함됨으로써 화면에 표시된다.

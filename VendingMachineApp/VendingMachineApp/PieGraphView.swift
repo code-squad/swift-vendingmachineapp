@@ -24,40 +24,49 @@ class PieGraphView: UIView {
         return min(self.bounds.width, self.bounds.height) / 2
     }
 
-    var angles: [String: CGFloat]? {
-        let arrangedList = historyData?.reduce(into: [String:Int]()) {
-            $0[$1.type, default: 0] += 1
-        }
-        let angles = arrangedList?.mapValues({CGFloat(CGFloat($0) / CGFloat((historyData?.count)!) * 360)
+    var arrangedHistory: [String:Int]? {
+       return historyData?.reduce(into: [String:Int]()) { $0[$1.type, default: 0] += 1 }
+    }
+
+    var endAngles: [CGFloat]? {
+        let angles: [String: CGFloat]? = arrangedHistory?.mapValues({CGFloat(CGFloat($0) / CGFloat((historyData?.count)!) * 360)
         })
-        return angles
+        let endAngles = angles?.values.reduce(into: []) { $0.append(($0.last ?? 0) + $1) }
+        return endAngles
     }
 
     var endRadians: [String: CGFloat]? {
-        let arrangedList = historyData?.reduce(into: [String:Int]()) {
-            $0[$1.type, default: 0] += 1
-        }
-        let radians = arrangedList?.mapValues({CGFloat(CGFloat($0) / CGFloat((historyData?.count)!) * 360).degreesToRadians
+        let radians = arrangedHistory?.mapValues({CGFloat(CGFloat($0) / CGFloat((historyData?.count)!) * 360).degreesToRadians
         })
 
         return radians
     }
 
-    let pieColors = [UIColor.yellow, UIColor.brown, UIColor.blue, UIColor.cyan, UIColor.purple, UIColor.green]
+    private lazy var myFontSize: CGFloat = 23.0
+    private lazy var myTextRect = CGSize(width: 130, height: 40)
+    private lazy var pieColors = [UIColor.yellow, UIColor.red, UIColor.blue, UIColor.magenta, UIColor.orange, UIColor.green]
 
 
     override func draw(_ rect: CGRect) {
         guard let radiansData = endRadians else {return}
-        guard let anglesData = angles else {return}
         var startArc = CGFloat(0)
         var index = 0
         for list in radiansData.keys {
             let endArc = radiansData[list]!
             self.makePath(from: startArc, to: endArc, cIndex: index)
-            makeText(list).draw(in: self.textRect(anglesData[list]!))
+
+            let angle = self.drawText(text: list, startArc: startArc, arc: endArc)
+            makeText(list).draw(in: self.textRect(angle))
+
             index += 1
             startArc += endArc
         }
+    }
+
+    private func drawText(text: String, startArc: CGFloat, arc: CGFloat) -> CGFloat {
+        let endArc = startArc + arc
+        let angle = (startArc + endArc) / 2
+        return angle
     }
 
     private func makePath(from start: CGFloat, to endpoint: CGFloat, cIndex: Int) -> UIBezierPath {
@@ -78,9 +87,15 @@ class PieGraphView: UIView {
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = .center
 
+        let shadow = NSShadow()
+        shadow.shadowColor = UIColor.darkGray
+        shadow.shadowOffset = CGSize(width: 2, height: 2)
+        shadow.shadowBlurRadius = 2
+
         let customAttributes = [NSAttributedStringKey.paragraphStyle: paragraphStyle,
-                                NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 23.0),
+                                NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: myFontSize),
                                 NSAttributedStringKey.foregroundColor: UIColor.white,
+                                NSAttributedStringKey.shadow: shadow
                                 ]
 
         let customText = NSAttributedString(string: myText,
@@ -88,18 +103,20 @@ class PieGraphView: UIView {
         return customText
     }
 
-    private func coordinatesfromCentralAngle(_ degree: CGFloat) -> (x: CGFloat, y: CGFloat) {
-        let halfDegree = degree / 2
+    private func coordinatesfromCentralAngle(_ angle: CGFloat) -> CGPoint {
+        let halfR = self.radius / 2
+        let adjustmentX: CGFloat = 75
+        let adjustmentY: CGFloat = 25
 
-        let pointX = CGFloat(sin(halfDegree * .pi / 180)) * self.radius
-        let pointY = CGFloat(cos(halfDegree * .pi / 180)) * self.radius
-        return (x: pointX, y: pointY)
+        let pointX = (centerX + (cos(angle) * halfR)) - adjustmentX
+        let pointY = (centerY + (sin(angle) * halfR)) - adjustmentY
+
+        return CGPoint(x: pointX, y: pointY)
     }
 
-
     private func textRect(_ degree: CGFloat) -> CGRect {
-        let point = self.coordinatesfromCentralAngle(degree)
-        return CGRect(x: point.x, y: point.x, width: 200, height: 200)
+        let myOrigin = self.coordinatesfromCentralAngle(degree)
+        return CGRect(origin: myOrigin, size: self.myTextRect)
     }
 
 }

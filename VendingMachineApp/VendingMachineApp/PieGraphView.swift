@@ -42,12 +42,48 @@ class PieGraphView: UIView {
     private let degree = 360.0
     private lazy var myFontSize: CGFloat = 23.0
     private lazy var myTextRect = CGSize(width: 130, height: 40)
-    private lazy var pieColors = [UIColor.yellow, UIColor.red, UIColor.blue, UIColor.magenta, UIColor.orange, UIColor.green]
 
     enum DrawingType {
         case defaultGraph
         case blackCircle
         case redrawGraph
+    }
+
+    enum PieColors {
+        case red
+        case green
+        case blue
+        case purple
+
+        var colorList: [UIColor] {
+            switch self {
+            case .red:
+                var colors: [UIColor] = []
+                for i in 0..<6 {
+                    colors.append(UIColor.red.withAlphaComponent(1.0 - (0.15 * CGFloat(i))))
+                }
+                return colors
+            case .green:
+                var colors: [UIColor] = []
+                for i in 0..<6 {
+                    colors.append(UIColor.green.withAlphaComponent(1.0 - (0.15 * CGFloat(i))))
+                }
+                return colors
+            case .blue:
+                var colors: [UIColor] = []
+                for i in 0..<6 {
+                    colors.append(UIColor.blue.withAlphaComponent(1.0 - (0.15 * CGFloat(i))))
+                }
+                return colors
+            case .purple:
+                var colors: [UIColor] = []
+                for i in 0..<6 {
+                    colors.append(UIColor.purple.withAlphaComponent(1.0 - (0.15 * CGFloat(i))))
+                }
+                return colors
+            }
+        }
+        static let allValues = [red, green, blue, purple]
     }
 
     private var drawType: DrawingType = .defaultGraph
@@ -57,9 +93,10 @@ class PieGraphView: UIView {
         case .defaultGraph:
             var startArc = CGFloat(0)
             var index = 0
+            let colorNumber = Int(arc4random_uniform(UInt32(PieColors.allValues.count)))
             for itemName in endRadians.keys {
                 let endArc = endRadians[itemName]!
-                self.makePath(from: startArc, to: endArc, cIndex: index, radius: self.radius)
+                self.makePath(from: startArc, to: endArc, cIndex: index, radius: self.radius, colorNumber: colorNumber)
 
                 let arc = self.getArcRadian(startArc: startArc, arc: endArc)
                 makeLabelWithAttributes(of: itemName).draw(in: self.textRect(of: arc))
@@ -73,9 +110,10 @@ class PieGraphView: UIView {
         case .redrawGraph:
             var startArc = CGFloat(0)
             var index = 0
+            let colorNumber = Int(arc4random_uniform(UInt32(PieColors.allValues.count)))
             for itemName in endRadians.keys {
                 let endArc = endRadians[itemName]!
-                self.makePath(from: startArc, to: endArc, cIndex: index, radius: self.changeableRadius)
+                self.makePath(from: startArc, to: endArc, cIndex: index, radius: self.changeableRadius, colorNumber: colorNumber)
 
                 let arc = self.getArcRadian(startArc: startArc, arc: endArc)
                 makeLabelWithAttributes(of: itemName).draw(in: self.textRect(of: arc))
@@ -93,7 +131,8 @@ class PieGraphView: UIView {
         return angle
     }
 
-    private func makePath(from start: CGFloat, to endpoint: CGFloat, cIndex: Int, radius: CGFloat) -> UIBezierPath {
+    private func makePath(from start: CGFloat, to endpoint: CGFloat, cIndex: Int, radius: CGFloat, colorNumber: Int) -> UIBezierPath {
+        let pieColors = PieColors.allValues[colorNumber].colorList
         pieColors[cIndex].setFill()
         let end = start + endpoint
         let path = UIBezierPath(arcCenter: centerPoint,
@@ -174,6 +213,7 @@ class PieGraphView: UIView {
 
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         drawType = .redrawGraph
+
         guard let touch = touches.first else { return }
         let newLocation = touch.location(in: self)
         changeableRadius = sqrt(pow((newLocation.x - centerPoint.x), 2) + pow((newLocation.y - centerPoint.y), 2))

@@ -12,6 +12,11 @@ class PieGraphView: UIView {
 
     var historyData: [Beverage]?
 
+    private var history: [Beverage] {
+        guard let history = historyData else { return [Beverage]() }
+        return history
+    }
+
     private var centerPoint: CGPoint {
         return CGPoint(x: self.bounds.width / 2, y: self.bounds.height / 2)
     }
@@ -19,28 +24,29 @@ class PieGraphView: UIView {
         return min(self.bounds.width, self.bounds.height) / 2
     }
 
-    private var arrangedHistory: [String:Int]? {
-       return historyData?.reduce(into: [String:Int]()) { $0[$1.type, default: 0] += 1 }
+    private var arrangedHistory: [String:Int] {
+        return history.reduce(into: [String:Int]()) { $0[$1.type, default: 0] += 1 }
+
     }
 
-    private var endRadians: [String: CGFloat]? {
-        let radians = arrangedHistory?.mapValues({CGFloat(CGFloat($0) / CGFloat((historyData?.count)!) * 360).degreesToRadians
+    private var endRadians: [String: CGFloat] {
+        let radians = arrangedHistory.mapValues({
+            CGFloat(Double($0) / Double(history.count) * degree).degreesToRadians
         })
-
         return radians
     }
 
+    private let degree = 360.0
     private lazy var myFontSize: CGFloat = 23.0
     private lazy var myTextRect = CGSize(width: 130, height: 40)
     private lazy var pieColors = [UIColor.yellow, UIColor.red, UIColor.blue, UIColor.magenta, UIColor.orange, UIColor.green]
 
 
     override func draw(_ rect: CGRect) {
-        guard let radiansData = endRadians else {return}
         var startArc = CGFloat(0)
         var index = 0
-        for itemName in radiansData.keys {
-            let endArc = radiansData[itemName]!
+        for itemName in endRadians.keys {
+            let endArc = endRadians[itemName]!
             self.makePath(from: startArc, to: endArc, cIndex: index)
 
             let arc = self.getArcRadian(startArc: startArc, arc: endArc)

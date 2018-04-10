@@ -36,8 +36,11 @@ extension FloatingPoint {
     var radiansToDegrees: Self { return self * 180 / .pi }
 }
 
-120.degreesToRadians
-((CGFloat(5)/CGFloat(15))*CGFloat(360)).degreesToRadians
+let test: Int = 120
+let testFloat = CGFloat((5/15.0)*360)
+
+let intToRadian = test.degreesToRadians
+let cgfloatToRadian = testFloat.degreesToRadians
 
 
 

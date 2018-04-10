@@ -20,9 +20,12 @@ class PieGraphView: UIView {
     private var centerPoint: CGPoint {
         return CGPoint(x: self.bounds.width / 2, y: self.bounds.height / 2)
     }
+
     private var radius: CGFloat {
         return min(self.bounds.width, self.bounds.height) / 2
     }
+
+    private var changeableRadius: CGFloat = 0.0
 
     private var arrangedHistory: [String:Int] {
         return history.reduce(into: [String:Int]()) { $0[$1.type, default: 0] += 1 }
@@ -41,20 +44,47 @@ class PieGraphView: UIView {
     private lazy var myTextRect = CGSize(width: 130, height: 40)
     private lazy var pieColors = [UIColor.yellow, UIColor.red, UIColor.blue, UIColor.magenta, UIColor.orange, UIColor.green]
 
+    enum DrawingType {
+        case defaultGraph
+        case blackCircle
+        case redrawGraph
+    }
+
+    private var drawType: DrawingType = .defaultGraph
 
     override func draw(_ rect: CGRect) {
-        var startArc = CGFloat(0)
-        var index = 0
-        for itemName in endRadians.keys {
-            let endArc = endRadians[itemName]!
-            self.makePath(from: startArc, to: endArc, cIndex: index)
+        switch drawType {
+        case .defaultGraph:
+            var startArc = CGFloat(0)
+            var index = 0
+            for itemName in endRadians.keys {
+                let endArc = endRadians[itemName]!
+                self.makePath(from: startArc, to: endArc, cIndex: index, radius: self.radius)
 
-            let arc = self.getArcRadian(startArc: startArc, arc: endArc)
-            makeLabelWithAttributes(of: itemName).draw(in: self.textRect(of: arc))
+                let arc = self.getArcRadian(startArc: startArc, arc: endArc)
+                makeLabelWithAttributes(of: itemName).draw(in: self.textRect(of: arc))
 
-            index += 1
-            startArc += endArc
+                index += 1
+                startArc += endArc
+            }
+        case .blackCircle:
+            self.drawBlackCircle(radius: self.changeableRadius)
+
+        case .redrawGraph:
+            var startArc = CGFloat(0)
+            var index = 0
+            for itemName in endRadians.keys {
+                let endArc = endRadians[itemName]!
+                self.makePath(from: startArc, to: endArc, cIndex: index, radius: self.changeableRadius)
+
+                let arc = self.getArcRadian(startArc: startArc, arc: endArc)
+                makeLabelWithAttributes(of: itemName).draw(in: self.textRect(of: arc))
+
+                index += 1
+                startArc += endArc
+            }
         }
+
     }
 
     private func getArcRadian(startArc: CGFloat, arc: CGFloat) -> CGFloat {
@@ -63,7 +93,7 @@ class PieGraphView: UIView {
         return angle
     }
 
-    private func makePath(from start: CGFloat, to endpoint: CGFloat, cIndex: Int) -> UIBezierPath {
+    private func makePath(from start: CGFloat, to endpoint: CGFloat, cIndex: Int, radius: CGFloat) -> UIBezierPath {
         pieColors[cIndex].setFill()
         let end = start + endpoint
         let path = UIBezierPath(arcCenter: centerPoint,
@@ -111,6 +141,43 @@ class PieGraphView: UIView {
     private func textRect(of radian: CGFloat) -> CGRect {
         let myOrigin = self.getOriginOfTextRect(radian)
         return CGRect(origin: myOrigin, size: self.myTextRect)
+    }
+
+    private func drawBlackCircle(radius: CGFloat) {
+        UIColor.black.setStroke()
+        UIColor.white.setFill()
+        let path = UIBezierPath(arcCenter: centerPoint,
+                                radius: radius,
+                                startAngle: 0,
+                                endAngle: CGFloat(degree).degreesToRadians,
+                                clockwise: false)
+        path.lineWidth = 5.0
+        path.fill()
+        path.stroke()
+    }
+
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        drawType = .blackCircle
+        guard let touch = touches.first else { return }
+        let newLocation = touch.location(in: self)
+        changeableRadius = sqrt(pow((newLocation.x - centerPoint.x), 2) + pow((newLocation.y - centerPoint.y), 2))
+        setNeedsDisplay()
+    }
+
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        drawType = .blackCircle
+        guard let touch = touches.first else { return }
+        let newLocation = touch.location(in: self)
+        changeableRadius = sqrt(pow((newLocation.x - centerPoint.x), 2) + pow((newLocation.y - centerPoint.y), 2))
+        setNeedsDisplay()
+    }
+
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        drawType = .redrawGraph
+        guard let touch = touches.first else { return }
+        let newLocation = touch.location(in: self)
+        changeableRadius = sqrt(pow((newLocation.x - centerPoint.x), 2) + pow((newLocation.y - centerPoint.y), 2))
+        setNeedsDisplay()
     }
 
 }

@@ -11,31 +11,26 @@ import UIKit
 class PieGraphView: UIView {
 
     var historyData: [Beverage]?
-    var centerX: CGFloat {
-        return self.bounds.width / 2
+
+    private var centerPoint: CGPoint {
+        return CGPoint(x: self.bounds.width / 2, y: self.bounds.height / 2)
     }
-    var centerY: CGFloat {
-        return self.bounds.height / 2
-    }
-    var centerPoint: CGPoint {
-        return CGPoint(x: centerX, y: centerY)
-    }
-    var radius: CGFloat {
+    private var radius: CGFloat {
         return min(self.bounds.width, self.bounds.height) / 2
     }
 
-    var arrangedHistory: [String:Int]? {
+    private var arrangedHistory: [String:Int]? {
        return historyData?.reduce(into: [String:Int]()) { $0[$1.type, default: 0] += 1 }
     }
 
-    var endAngles: [CGFloat]? {
+    private var endAngles: [CGFloat]? {
         let angles: [String: CGFloat]? = arrangedHistory?.mapValues({CGFloat(CGFloat($0) / CGFloat((historyData?.count)!) * 360)
         })
         let endAngles = angles?.values.reduce(into: []) { $0.append(($0.last ?? 0) + $1) }
         return endAngles
     }
 
-    var endRadians: [String: CGFloat]? {
+    private var endRadians: [String: CGFloat]? {
         let radians = arrangedHistory?.mapValues({CGFloat(CGFloat($0) / CGFloat((historyData?.count)!) * 360).degreesToRadians
         })
 
@@ -51,19 +46,19 @@ class PieGraphView: UIView {
         guard let radiansData = endRadians else {return}
         var startArc = CGFloat(0)
         var index = 0
-        for list in radiansData.keys {
-            let endArc = radiansData[list]!
+        for itemName in radiansData.keys {
+            let endArc = radiansData[itemName]!
             self.makePath(from: startArc, to: endArc, cIndex: index)
 
-            let angle = self.drawText(text: list, startArc: startArc, arc: endArc)
-            makeText(list).draw(in: self.textRect(angle))
+            let arc = self.getArcRadian(startArc: startArc, arc: endArc)
+            makeLabelWithAttributes(of: itemName).draw(in: self.textRect(of: arc))
 
             index += 1
             startArc += endArc
         }
     }
 
-    private func drawText(text: String, startArc: CGFloat, arc: CGFloat) -> CGFloat {
+    private func getArcRadian(startArc: CGFloat, arc: CGFloat) -> CGFloat {
         let endArc = startArc + arc
         let angle = (startArc + endArc) / 2
         return angle
@@ -83,7 +78,7 @@ class PieGraphView: UIView {
         return path
     }
 
-    private func makeText(_ myText: String) -> NSAttributedString {
+    private func makeLabelWithAttributes(of myText: String) -> NSAttributedString {
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = .center
 
@@ -103,19 +98,19 @@ class PieGraphView: UIView {
         return customText
     }
 
-    private func coordinatesfromCentralAngle(_ angle: CGFloat) -> CGPoint {
-        let halfR = self.radius / 2
+    private func getOriginOfTextRect(_ radian: CGFloat) -> CGPoint {
+        let halfRadius = self.radius / 2
         let adjustmentX: CGFloat = 75
         let adjustmentY: CGFloat = 25
 
-        let pointX = (centerX + (cos(angle) * halfR)) - adjustmentX
-        let pointY = (centerY + (sin(angle) * halfR)) - adjustmentY
+        let pointX = (centerPoint.x + (cos(radian) * halfRadius)) - adjustmentX
+        let pointY = (centerPoint.y + (sin(radian) * halfRadius)) - adjustmentY
 
         return CGPoint(x: pointX, y: pointY)
     }
 
-    private func textRect(_ degree: CGFloat) -> CGRect {
-        let myOrigin = self.coordinatesfromCentralAngle(degree)
+    private func textRect(of radian: CGFloat) -> CGRect {
+        let myOrigin = self.getOriginOfTextRect(radian)
         return CGRect(origin: myOrigin, size: self.myTextRect)
     }
 

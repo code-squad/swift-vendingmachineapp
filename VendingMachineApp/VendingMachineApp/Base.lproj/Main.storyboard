@@ -205,7 +205,7 @@
                                     <action selector="buyButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ehr-0l-2xd"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" userInteractionEnabled="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tET-20-6JJ">
+                            <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tET-20-6JJ">
                                 <rect key="frame" x="498" y="535" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="구매">

@@ -23,13 +23,6 @@ class PieGraphView: UIView {
        return historyData?.reduce(into: [String:Int]()) { $0[$1.type, default: 0] += 1 }
     }
 
-    private var endAngles: [CGFloat]? {
-        let angles: [String: CGFloat]? = arrangedHistory?.mapValues({CGFloat(CGFloat($0) / CGFloat((historyData?.count)!) * 360)
-        })
-        let endAngles = angles?.values.reduce(into: []) { $0.append(($0.last ?? 0) + $1) }
-        return endAngles
-    }
-
     private var endRadians: [String: CGFloat]? {
         let radians = arrangedHistory?.mapValues({CGFloat(CGFloat($0) / CGFloat((historyData?.count)!) * 360).degreesToRadians
         })

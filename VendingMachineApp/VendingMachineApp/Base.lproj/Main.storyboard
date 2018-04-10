@@ -378,7 +378,7 @@
                                     <action selector="closeButtonTouched:" destination="jtk-19-e0H" eventType="touchUpInside" id="Vtu-6f-tjb"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9wW-te-Aal" customClass="PieGraphView" customModule="VendingMachineApp" customModuleProvider="target">
+                            <view multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9wW-te-Aal" customClass="PieGraphView" customModule="VendingMachineApp" customModuleProvider="target">
                                 <rect key="frame" x="645" y="105" width="400" height="400"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

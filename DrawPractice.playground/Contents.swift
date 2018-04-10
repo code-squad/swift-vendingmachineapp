@@ -88,4 +88,6 @@ let runningSum = angles.values
 
 
 
+let dddd = sqrt(pow((newLocation.x - center.x), 2) + pow((newLocation.y - center.y), 2))
+
 

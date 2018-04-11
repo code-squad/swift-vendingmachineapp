@@ -39,6 +39,7 @@ class PieGraphView: UIView {
         return radians
     }
 
+    let cococo = UIColor.red
     private let degree = 360.0
     private lazy var myFontSize: CGFloat = 23.0
     private lazy var myTextRect = CGSize(width: 130, height: 40)
@@ -58,32 +59,24 @@ class PieGraphView: UIView {
         var colorList: [UIColor] {
             switch self {
             case .red:
-                var colors: [UIColor] = []
-                for i in 0..<6 {
-                    colors.append(UIColor.red.withAlphaComponent(1.0 - (0.15 * CGFloat(i))))
-                }
-                return colors
+                return self.makeColorList(themeColor: UIColor.red)
             case .green:
-                var colors: [UIColor] = []
-                for i in 0..<6 {
-                    colors.append(UIColor.green.withAlphaComponent(1.0 - (0.15 * CGFloat(i))))
-                }
-                return colors
+                return self.makeColorList(themeColor: UIColor.green)
             case .blue:
-                var colors: [UIColor] = []
-                for i in 0..<6 {
-                    colors.append(UIColor.blue.withAlphaComponent(1.0 - (0.15 * CGFloat(i))))
-                }
-                return colors
+                return self.makeColorList(themeColor: UIColor.blue)
             case .purple:
-                var colors: [UIColor] = []
-                for i in 0..<6 {
-                    colors.append(UIColor.purple.withAlphaComponent(1.0 - (0.15 * CGFloat(i))))
-                }
-                return colors
+                return self.makeColorList(themeColor: UIColor.purple)
             }
         }
         static let allValues = [red, green, blue, purple]
+
+        func makeColorList(themeColor: UIColor) -> [UIColor] {
+            var colors: [UIColor] = []
+            for i in 0..<6 {
+                colors.append(themeColor.withAlphaComponent(1.0 - (0.15 * CGFloat(i))))
+            }
+            return colors
+        }
     }
 
     private var drawType: DrawingType = .defaultGraph

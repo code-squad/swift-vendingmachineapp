@@ -20,6 +20,10 @@ class BeverageImageView: UIImageView {
         self.layer.borderWidth = 5
         self.layer.borderColor = UIColor.gray.withAlphaComponent(0.3).cgColor
         self.layer.cornerRadius = 15.0
+        let shadow = NSShadow()
+        shadow.shadowColor = UIColor.darkGray
+        shadow.shadowOffset = CGSize(width: 2, height: 2)
+        shadow.shadowBlurRadius = 2
         self.frame.size = CGSize(width: 140, height: 130)
     }
 

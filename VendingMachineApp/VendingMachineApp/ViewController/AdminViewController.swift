@@ -18,7 +18,7 @@ class AdminViewController: UIViewController {
     @IBOutlet weak var dolcelatteStock: UILabel!
     @IBOutlet weak var energydrinkStock: UILabel!
     @IBOutlet weak var softdrinkStock: UILabel!
-
+    @IBOutlet var addButtons: [UIButton]!
     @IBOutlet weak var pieGraph: PieGraphView!
 
     override func viewDidLoad() {
@@ -30,8 +30,16 @@ class AdminViewController: UIViewController {
         self.updateItemNumber()
     }
 
+    private func setAddButtonsUI() {
+        for button in self.addButtons {
+            button.layer.cornerRadius = 5.0
+        }
+    }
+
     private func setIntroView() {
         self.updateItemNumber()
+        self.setAddButtonsUI()
+        self.pieGraph.layer.cornerRadius = 10.0
         NotificationCenter.default.addObserver(self, selector: #selector(didChangeItemNumber(_:)), name: .changedItemNumber, object: nil)
     }
 

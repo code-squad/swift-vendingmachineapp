@@ -20,6 +20,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var dolcelatteStock: UILabel!
     @IBOutlet weak var energydrinkStock: UILabel!
     @IBOutlet weak var softdrinkStock: UILabel!
+    @IBOutlet var buyButtons: [UIButton]!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,10 +31,30 @@ class ViewController: UIViewController {
         }
     }
 
+    private func setMoneyButtonsUI() {
+        for button in self.moneyButtons {
+            button.layer.cornerRadius = 5.0
+        }
+    }
+
+    private func setBalanceLabelUI() {
+        self.balanceLabel.clipsToBounds = true
+        self.balanceLabel.layer.cornerRadius = 5.0
+    }
+
+    private func setBuyButtonsUI() {
+        for button in self.buyButtons {
+            button.layer.cornerRadius = 5.0
+        }
+    }
+
     private func setIntroView() {
         self.updateItemNumber()
         self.setBalance()
         self.previousHistoryLog()
+        self.setMoneyButtonsUI()
+        self.setBalanceLabelUI()
+        self.setBuyButtonsUI()
         NotificationCenter.default.addObserver(self, selector: #selector(didChangedBalance), name: .changedBalance, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(didChangeItemNumber(_:)), name: .changedItemNumber, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(didBuy), name: .updatePurchaseLog, object: nil)
@@ -49,11 +70,6 @@ class ViewController: UIViewController {
 
     @objc private func didBuy() {
         self.updatePurchasedItemView(self.vending!.lastPurchasedItem())
-    }
-
-    @IBAction func addButtonTouched(sender: UIButton) {
-        guard let item = try? AdminController().pickItem(sender.tag) else { return }
-        vending?.add(inputItem: item)
     }
 
     @IBAction func buyButtonTouched(_ sender: UIButton) {

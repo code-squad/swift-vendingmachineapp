@@ -48,6 +48,8 @@ class PieGraphView: UIView {
     private let degree = 360.0
     private lazy var myFontSize: CGFloat = 23.0
     private lazy var myTextRect = CGSize(width: 130, height: 40)
+    private lazy var pieLineWidth: CGFloat = 1.0
+    private lazy var blackCircleLineWidth: CGFloat = 3.0
 
 
     // MARK: Draw and Make the graph
@@ -61,7 +63,7 @@ class PieGraphView: UIView {
 
             for itemName in endRadians.keys {
                 let endArc = endRadians[itemName]!
-                self.makePath(from: startArc,
+                self.drawOnePiePiece(from: startArc,
                               to: endArc,
                               colorIndex: index,
                               radius: self.radius,
@@ -81,7 +83,7 @@ class PieGraphView: UIView {
 
             for itemName in endRadians.keys {
                 let endArc = endRadians[itemName]!
-                self.makePath(from: startArc,
+                self.drawOnePiePiece(from: startArc,
                               to: endArc,
                               colorIndex: index,
                               radius: self.newRadius,
@@ -105,7 +107,7 @@ class PieGraphView: UIView {
         return angle
     }
 
-    private func makePath(from start: CGFloat,
+    private func drawOnePiePiece(from start: CGFloat,
                           to endpoint: CGFloat,
                           colorIndex: Int,
                           radius: CGFloat,
@@ -122,7 +124,7 @@ class PieGraphView: UIView {
                                 clockwise: true)
         path.addLine(to: centerPoint)
         path.close()
-        path.lineWidth = 1.0
+        path.lineWidth = self.pieLineWidth
         path.fill()
         path.stroke()
     }
@@ -135,7 +137,7 @@ class PieGraphView: UIView {
                                 startAngle: 0,
                                 endAngle: CGFloat(degree).degreesToRadians,
                                 clockwise: false)
-        path.lineWidth = 3.0
+        path.lineWidth = self.blackCircleLineWidth
         path.fill()
         path.stroke()
     }

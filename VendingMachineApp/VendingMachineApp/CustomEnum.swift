@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 // 에러 케이스 enum
 enum Exception: Error {
@@ -65,3 +66,43 @@ enum ValidMoney {
         }
     }
 }
+
+
+// 파이그래프에 사용되는 enum 선언
+
+enum DrawType {
+    case defaultGraph
+    case blackCircle
+    case redrawGraph
+}
+
+enum PieColors {
+    case red
+    case green
+    case blue
+    case purple
+
+    static let allValues = [red, green, blue, purple]
+
+    var colorList: [UIColor] {
+        switch self {
+        case .red:
+            return self.makeList(themeColor: UIColor.red)
+        case .green:
+            return self.makeList(themeColor: UIColor.green)
+        case .blue:
+            return self.makeList(themeColor: UIColor.blue)
+        case .purple:
+            return self.makeList(themeColor: UIColor.purple)
+        }
+    }
+
+    func makeList(themeColor: UIColor) -> [UIColor] {
+        var colors: [UIColor] = []
+        for i in 0..<6 {
+            colors.append(themeColor.withAlphaComponent(1.0 - (0.15 * CGFloat(i))))
+        }
+        return colors
+    }
+}
+

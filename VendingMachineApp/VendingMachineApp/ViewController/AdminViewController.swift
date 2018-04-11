@@ -72,5 +72,10 @@ class AdminViewController: UIViewController {
         self.pieGraph.historyData = self.vending?.purchaseLog()
     }
 
+    override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
+        if motion == .motionShake {
+            self.pieGraph.redrawByShakeGesture()
+        }
+    }
 
 }

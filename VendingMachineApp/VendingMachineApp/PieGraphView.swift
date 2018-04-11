@@ -209,4 +209,11 @@ class PieGraphView: UIView {
         setNeedsDisplay()
     }
 
+    // MARK: Shake Gestures
+
+    func redrawByShakeGesture() {
+        self.drawType = .defaultGraph
+        setNeedsDisplay()
+    }
+
 }

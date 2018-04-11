@@ -9,29 +9,20 @@
 import Foundation
 
 protocol DefaultMode {
-    func add(inputItem: Beverage)
     func removeItem(itemCode: Int) throws
-    func buy(itemCode: Int) throws -> Beverage
-    func addBalance(money: Int)
     func showBalance() -> Int
     func showStockDefault() -> String
     func showStock() -> String
     func history() -> String
     func hasMiminumBalance() -> Bool
     func howMany(of beverage: Beverage) -> Int
-    func hotBeverage() -> [ObjectIdentifier: [Beverage]]
-    func discardItems() -> [ObjectIdentifier: [Beverage]]
-    func validItems() -> [ObjectIdentifier: [Beverage]]
-    func possibleToBuy() -> [ObjectIdentifier: [Beverage]]
     func lastPurchasedItem() -> (item: Beverage, index: Int?)
-    func purchaseLog() -> [Beverage] 
+    func purchaseLog() -> [Beverage]
 }
 
 protocol AdminMode {
     func add(inputItem: Beverage)
-    func removeItem(itemCode: Int) throws
     func howMany(of beverage: Beverage) -> Int
-    func lastPurchasedItem() -> (item: Beverage, index: Int?)
     func purchaseLog() -> [Beverage]
 }
 

@@ -109,23 +109,23 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BananaMilk.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="PWs-xi-rZx" customClass="BeverageImageView" customModule="VendingMachineApp" customModuleProvider="target">
-                                <rect key="frame" x="121" y="110" width="140" height="100"/>
+                                <rect key="frame" x="121" y="95" width="140" height="130"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ChocoMilk.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="RpD-bV-zkI" customClass="BeverageImageView" customModule="VendingMachineApp" customModuleProvider="target">
-                                <rect key="frame" x="282" y="109" width="140" height="100"/>
+                                <rect key="frame" x="282" y="94" width="140" height="130"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Coffee.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="hZy-9d-jMe" customClass="BeverageImageView" customModule="VendingMachineApp" customModuleProvider="target">
-                                <rect key="frame" x="445" y="110" width="140" height="100"/>
+                                <rect key="frame" x="445" y="95" width="140" height="130"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="EnergyDrink.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="s8V-Hz-ZHQ" customClass="BeverageImageView" customModule="VendingMachineApp" customModuleProvider="target">
-                                <rect key="frame" x="282" y="375" width="140" height="100"/>
+                                <rect key="frame" x="282" y="375" width="140" height="130"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="SoftDrink.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="EM7-eR-Ulc" customClass="BeverageImageView" customModule="VendingMachineApp" customModuleProvider="target">
-                                <rect key="frame" x="445" y="375" width="140" height="100"/>
+                                <rect key="frame" x="445" y="375" width="140" height="130"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IN8-D5-Y41">
@@ -144,7 +144,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="DolceLatte.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="meI-qP-y0j" customClass="BeverageImageView" customModule="VendingMachineApp" customModuleProvider="target">
-                                <rect key="frame" x="121" y="375" width="140" height="100"/>
+                                <rect key="frame" x="121" y="375" width="140" height="130"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lyn-hO-lIX">
@@ -331,23 +331,23 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BananaMilk.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Tl6-Sm-NdB" customClass="BeverageImageView" customModule="VendingMachineApp" customModuleProvider="target">
-                                <rect key="frame" x="105" y="113" width="140" height="100"/>
+                                <rect key="frame" x="105" y="113" width="140" height="130"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ChocoMilk.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="RMl-7f-Lcl" customClass="BeverageImageView" customModule="VendingMachineApp" customModuleProvider="target">
-                                <rect key="frame" x="266" y="112" width="140" height="100"/>
+                                <rect key="frame" x="266" y="112" width="140" height="130"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Coffee.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="7gY-Oq-rkn" customClass="BeverageImageView" customModule="VendingMachineApp" customModuleProvider="target">
-                                <rect key="frame" x="429" y="113" width="140" height="100"/>
+                                <rect key="frame" x="429" y="113" width="140" height="130"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="EnergyDrink.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="9XK-RK-FoN" customClass="BeverageImageView" customModule="VendingMachineApp" customModuleProvider="target">
-                                <rect key="frame" x="266" y="378" width="140" height="100"/>
+                                <rect key="frame" x="266" y="378" width="140" height="130"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="SoftDrink.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Nqn-wU-rEI" customClass="BeverageImageView" customModule="VendingMachineApp" customModuleProvider="target">
-                                <rect key="frame" x="429" y="378" width="140" height="100"/>
+                                <rect key="frame" x="429" y="378" width="140" height="130"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oml-en-TLv">
@@ -367,7 +367,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="DolceLatte.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="4ff-7r-AaJ" customClass="BeverageImageView" customModule="VendingMachineApp" customModuleProvider="target">
-                                <rect key="frame" x="105" y="378" width="140" height="100"/>
+                                <rect key="frame" x="105" y="378" width="140" height="130"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bpz-Wy-jRc">

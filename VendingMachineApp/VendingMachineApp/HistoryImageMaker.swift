@@ -11,7 +11,7 @@ import UIKit
 
 class HistoryImageMaker {
 
-    let baseY = 575
+    let baseY = 600
     let baseX = 40
     let space = 50
 
@@ -20,7 +20,11 @@ class HistoryImageMaker {
         for order in 0..<purchaseLog.count {
             let historyImageX = baseX + (order * space)
             let itemImage: BeverageImageView = BeverageImageView().getImage(of: purchaseLog[order])
-            itemImage.frame = CGRect(x: historyImageX, y: baseY, width: 140, height: 100)
+            itemImage.clipsToBounds = true
+            itemImage.layer.borderWidth = 5
+            itemImage.layer.borderColor = UIColor.gray.withAlphaComponent(0.3).cgColor
+            itemImage.layer.cornerRadius = 15.0
+            itemImage.frame = CGRect(x: historyImageX, y: baseY, width: 140, height: 130)
             logImages.append(itemImage)
         }
         return logImages
@@ -29,7 +33,11 @@ class HistoryImageMaker {
     func updatePurchasedItemView(_ willPrint: (item: Beverage, index: Int)) -> BeverageImageView {
         let historyImageX = baseX + (willPrint.index * space)
         let itemImage: BeverageImageView = BeverageImageView().getImage(of: willPrint.item)
-        itemImage.frame = CGRect(x: historyImageX, y: baseY, width: 140, height: 100)
+        itemImage.clipsToBounds = true
+        itemImage.layer.borderWidth = 5
+        itemImage.layer.borderColor = UIColor.gray.withAlphaComponent(0.3).cgColor
+        itemImage.layer.cornerRadius = 15.0
+        itemImage.frame = CGRect(x: historyImageX, y: baseY, width: 140, height: 130)
         return itemImage
     }
 

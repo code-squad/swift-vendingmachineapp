@@ -39,7 +39,13 @@ class PieGraphView: UIView {
         return radians
     }
 
-    let cococo = UIColor.red
+    private var radiusRatio: CGFloat {
+        guard self.drawType == .redrawGraph else {
+            return 1.0
+        }
+        return self.changeableRadius / self.radius
+    }
+
     private let degree = 360.0
     private lazy var myFontSize: CGFloat = 23.0
     private lazy var myTextRect = CGSize(width: 130, height: 40)
@@ -124,7 +130,7 @@ class PieGraphView: UIView {
         return angle
     }
 
-    private func makePath(from start: CGFloat, to endpoint: CGFloat, cIndex: Int, radius: CGFloat, colorNumber: Int) -> UIBezierPath {
+    private func makePath(from start: CGFloat, to endpoint: CGFloat, cIndex: Int, radius: CGFloat, colorNumber: Int) {
         let pieColors = PieColors.allValues[colorNumber].colorList
         pieColors[cIndex].setFill()
         let end = start + endpoint
@@ -136,7 +142,6 @@ class PieGraphView: UIView {
         path.addLine(to: centerPoint)
         path.close()
         path.fill()
-        return path
     }
 
     private func makeLabelWithAttributes(of myText: String) -> NSAttributedString {
@@ -149,7 +154,7 @@ class PieGraphView: UIView {
         shadow.shadowBlurRadius = 2
 
         let customAttributes = [NSAttributedStringKey.paragraphStyle: paragraphStyle,
-                                NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: myFontSize),
+                                NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: myFontSize * radiusRatio),
                                 NSAttributedStringKey.foregroundColor: UIColor.white,
                                 NSAttributedStringKey.shadow: shadow
                                 ]
@@ -159,10 +164,10 @@ class PieGraphView: UIView {
         return customText
     }
 
-    private func getOriginOfTextRect(_ radian: CGFloat) -> CGPoint {
-        let halfRadius = self.radius / 2
-        let adjustmentX: CGFloat = 75
-        let adjustmentY: CGFloat = 25
+    private func getOriginOfTextRect(radian: CGFloat, currentRadius: CGFloat) -> CGPoint {
+        let halfRadius = currentRadius / 2
+        let adjustmentX: CGFloat = 75 * radiusRatio
+        let adjustmentY: CGFloat = 25 * radiusRatio
 
         let pointX = (centerPoint.x + (cos(radian) * halfRadius)) - adjustmentX
         let pointY = (centerPoint.y + (sin(radian) * halfRadius)) - adjustmentY
@@ -171,8 +176,12 @@ class PieGraphView: UIView {
     }
 
     private func textRect(of radian: CGFloat) -> CGRect {
-        let myOrigin = self.getOriginOfTextRect(radian)
-        return CGRect(origin: myOrigin, size: self.myTextRect)
+        guard self.drawType == .redrawGraph else {
+            let myOrigin = self.getOriginOfTextRect(radian: radian, currentRadius: self.radius)
+            return CGRect(origin: myOrigin, size: self.myTextRect)
+        }
+            let myOrigin = self.getOriginOfTextRect(radian: radian, currentRadius: self.changeableRadius)
+            return CGRect(origin: myOrigin, size: self.myTextRect)
     }
 
     private func drawBlackCircle(radius: CGFloat) {

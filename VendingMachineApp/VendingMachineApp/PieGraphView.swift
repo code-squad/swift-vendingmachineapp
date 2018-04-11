@@ -113,6 +113,7 @@ class PieGraphView: UIView {
     {
         let pieColors = PieColors.allValues[colorNumber].colorList
         pieColors[colorIndex].setFill()
+        UIColor.white.setStroke()
         let end = start + endpoint
         let path = UIBezierPath(arcCenter: centerPoint,
                                 radius: radius,
@@ -121,7 +122,9 @@ class PieGraphView: UIView {
                                 clockwise: true)
         path.addLine(to: centerPoint)
         path.close()
+        path.lineWidth = 1.0
         path.fill()
+        path.stroke()
     }
 
     private func drawBlackCircle(radius: CGFloat) {
@@ -132,7 +135,7 @@ class PieGraphView: UIView {
                                 startAngle: 0,
                                 endAngle: CGFloat(degree).degreesToRadians,
                                 clockwise: false)
-        path.lineWidth = 5.0
+        path.lineWidth = 3.0
         path.fill()
         path.stroke()
     }

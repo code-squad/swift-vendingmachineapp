@@ -184,29 +184,28 @@ class PieGraphView: UIView {
 
     // MARK: Touch events
 
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        drawType = .blackCircle
-        guard let touch = touches.first else { return }
+    private func drawWith(touch: UITouch) {
         let newLocation = touch.location(in: self)
         newRadius = sqrt(pow((newLocation.x - centerPoint.x), 2) + pow((newLocation.y - centerPoint.y), 2))
         setNeedsDisplay()
+    }
+
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        drawType = .blackCircle
+        guard let touch = touches.first else { return }
+        self.drawWith(touch: touch)
     }
 
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         drawType = .blackCircle
         guard let touch = touches.first else { return }
-        let newLocation = touch.location(in: self)
-        newRadius = sqrt(pow((newLocation.x - centerPoint.x), 2) + pow((newLocation.y - centerPoint.y), 2))
-        setNeedsDisplay()
+        self.drawWith(touch: touch)
     }
 
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         drawType = .redrawGraph
-
         guard let touch = touches.first else { return }
-        let newLocation = touch.location(in: self)
-        newRadius = sqrt(pow((newLocation.x - centerPoint.x), 2) + pow((newLocation.y - centerPoint.y), 2))
-        setNeedsDisplay()
+        self.drawWith(touch: touch)
     }
 
     // MARK: Shake Gestures

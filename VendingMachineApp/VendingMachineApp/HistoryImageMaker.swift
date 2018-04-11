@@ -11,7 +11,7 @@ import UIKit
 
 class HistoryImageMaker {
 
-    let baseY = 600
+    let baseY = 680
     let baseX = 40
     let space = 50
 
@@ -24,7 +24,7 @@ class HistoryImageMaker {
             itemImage.layer.borderWidth = 5
             itemImage.layer.borderColor = UIColor.gray.withAlphaComponent(0.3).cgColor
             itemImage.layer.cornerRadius = 15.0
-            itemImage.frame = CGRect(x: historyImageX, y: baseY, width: 140, height: 130)
+            itemImage.frame = CGRect(x: historyImageX, y: baseY, width: 100, height: 90)
             logImages.append(itemImage)
         }
         return logImages
@@ -37,7 +37,7 @@ class HistoryImageMaker {
         itemImage.layer.borderWidth = 5
         itemImage.layer.borderColor = UIColor.gray.withAlphaComponent(0.3).cgColor
         itemImage.layer.cornerRadius = 15.0
-        itemImage.frame = CGRect(x: historyImageX, y: baseY, width: 140, height: 130)
+        itemImage.frame = CGRect(x: historyImageX, y: baseY, width: 100, height: 90)
         return itemImage
     }
 

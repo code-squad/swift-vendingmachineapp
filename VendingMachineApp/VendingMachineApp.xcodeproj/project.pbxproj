@@ -8,6 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		5E99D7DFC7E2E667F67483C1 /* Pods_VendingMachineApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6839C2B31ABE4FBA069F289C /* Pods_VendingMachineApp.framework */; };
+		730F547820DE2FB900D7E7A4 /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730F547720DE2FB900D7E7A4 /* Beverage.swift */; };
+		730F547A20DE31E100D7E7A4 /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730F547920DE31E100D7E7A4 /* Coffee.swift */; };
+		730F547D20DE68D800D7E7A4 /* Cantata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730F547C20DE68D800D7E7A4 /* Cantata.swift */; };
+		730F547F20DE68DE00D7E7A4 /* TOP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730F547E20DE68DE00D7E7A4 /* TOP.swift */; };
+		730F548120DE68EC00D7E7A4 /* Georgia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730F548020DE68EC00D7E7A4 /* Georgia.swift */; };
+		730F548520DE6B6500D7E7A4 /* DefaultData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730F548420DE6B6500D7E7A4 /* DefaultData.swift */; };
+		730F548920DE75C000D7E7A4 /* Soda.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730F548820DE75C000D7E7A4 /* Soda.swift */; };
+		730F548B20DE764E00D7E7A4 /* Coke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730F548A20DE764E00D7E7A4 /* Coke.swift */; };
+		730F548D20DE76AF00D7E7A4 /* Sprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730F548C20DE76AF00D7E7A4 /* Sprite.swift */; };
+		730F549020DE775300D7E7A4 /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730F548F20DE775300D7E7A4 /* Milk.swift */; };
+		730F549220DE796E00D7E7A4 /* StrawberryMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730F549120DE796E00D7E7A4 /* StrawberryMilk.swift */; };
+		730F549420DE797A00D7E7A4 /* BananaMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730F549320DE797A00D7E7A4 /* BananaMilk.swift */; };
 		73C7C7F020DCEF710077F80E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C7C7EF20DCEF710077F80E /* AppDelegate.swift */; };
 		73C7C7F220DCEF710077F80E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C7C7F120DCEF710077F80E /* ViewController.swift */; };
 		73C7C7F520DCEF710077F80E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73C7C7F320DCEF710077F80E /* Main.storyboard */; };
@@ -18,6 +30,18 @@
 /* Begin PBXFileReference section */
 		0AD7513ACB698638C1A9F724 /* Pods-VendingMachineApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VendingMachineApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-VendingMachineApp/Pods-VendingMachineApp.release.xcconfig"; sourceTree = "<group>"; };
 		6839C2B31ABE4FBA069F289C /* Pods_VendingMachineApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VendingMachineApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		730F547720DE2FB900D7E7A4 /* Beverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beverage.swift; sourceTree = "<group>"; };
+		730F547920DE31E100D7E7A4 /* Coffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
+		730F547C20DE68D800D7E7A4 /* Cantata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cantata.swift; sourceTree = "<group>"; };
+		730F547E20DE68DE00D7E7A4 /* TOP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOP.swift; sourceTree = "<group>"; };
+		730F548020DE68EC00D7E7A4 /* Georgia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Georgia.swift; sourceTree = "<group>"; };
+		730F548420DE6B6500D7E7A4 /* DefaultData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultData.swift; sourceTree = "<group>"; };
+		730F548820DE75C000D7E7A4 /* Soda.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Soda.swift; sourceTree = "<group>"; };
+		730F548A20DE764E00D7E7A4 /* Coke.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coke.swift; sourceTree = "<group>"; };
+		730F548C20DE76AF00D7E7A4 /* Sprite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sprite.swift; sourceTree = "<group>"; };
+		730F548F20DE775300D7E7A4 /* Milk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Milk.swift; sourceTree = "<group>"; };
+		730F549120DE796E00D7E7A4 /* StrawberryMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrawberryMilk.swift; sourceTree = "<group>"; };
+		730F549320DE797A00D7E7A4 /* BananaMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BananaMilk.swift; sourceTree = "<group>"; };
 		73C7C7EC20DCEF710077F80E /* VendingMachineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendingMachineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73C7C7EF20DCEF710077F80E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		73C7C7F120DCEF710077F80E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +73,49 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		730F547620DE2FA500D7E7A4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				730F547720DE2FB900D7E7A4 /* Beverage.swift */,
+				730F548420DE6B6500D7E7A4 /* DefaultData.swift */,
+				730F548720DE75A700D7E7A4 /* Soda */,
+				730F547B20DE688A00D7E7A4 /* Coffee */,
+				730F548E20DE771000D7E7A4 /* Milk */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		730F547B20DE688A00D7E7A4 /* Coffee */ = {
+			isa = PBXGroup;
+			children = (
+				730F547920DE31E100D7E7A4 /* Coffee.swift */,
+				730F547C20DE68D800D7E7A4 /* Cantata.swift */,
+				730F547E20DE68DE00D7E7A4 /* TOP.swift */,
+				730F548020DE68EC00D7E7A4 /* Georgia.swift */,
+			);
+			path = Coffee;
+			sourceTree = "<group>";
+		};
+		730F548720DE75A700D7E7A4 /* Soda */ = {
+			isa = PBXGroup;
+			children = (
+				730F548820DE75C000D7E7A4 /* Soda.swift */,
+				730F548A20DE764E00D7E7A4 /* Coke.swift */,
+				730F548C20DE76AF00D7E7A4 /* Sprite.swift */,
+			);
+			path = Soda;
+			sourceTree = "<group>";
+		};
+		730F548E20DE771000D7E7A4 /* Milk */ = {
+			isa = PBXGroup;
+			children = (
+				730F548F20DE775300D7E7A4 /* Milk.swift */,
+				730F549120DE796E00D7E7A4 /* StrawberryMilk.swift */,
+				730F549320DE797A00D7E7A4 /* BananaMilk.swift */,
+			);
+			path = Milk;
+			sourceTree = "<group>";
+		};
 		73C7C7E320DCEF710077F80E = {
 			isa = PBXGroup;
 			children = (
@@ -70,6 +137,7 @@
 		73C7C7EE20DCEF710077F80E /* VendingMachineApp */ = {
 			isa = PBXGroup;
 			children = (
+				730F547620DE2FA500D7E7A4 /* Model */,
 				73C7C7EF20DCEF710077F80E /* AppDelegate.swift */,
 				73C7C7F120DCEF710077F80E /* ViewController.swift */,
 				73C7C7F320DCEF710077F80E /* Main.storyboard */,
@@ -195,8 +263,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				730F548920DE75C000D7E7A4 /* Soda.swift in Sources */,
+				730F548120DE68EC00D7E7A4 /* Georgia.swift in Sources */,
+				730F548D20DE76AF00D7E7A4 /* Sprite.swift in Sources */,
+				730F547D20DE68D800D7E7A4 /* Cantata.swift in Sources */,
+				730F548B20DE764E00D7E7A4 /* Coke.swift in Sources */,
+				730F547F20DE68DE00D7E7A4 /* TOP.swift in Sources */,
+				730F548520DE6B6500D7E7A4 /* DefaultData.swift in Sources */,
+				730F549420DE797A00D7E7A4 /* BananaMilk.swift in Sources */,
+				730F547820DE2FB900D7E7A4 /* Beverage.swift in Sources */,
 				73C7C7F220DCEF710077F80E /* ViewController.swift in Sources */,
 				73C7C7F020DCEF710077F80E /* AppDelegate.swift in Sources */,
+				730F549020DE775300D7E7A4 /* Milk.swift in Sources */,
+				730F549220DE796E00D7E7A4 /* StrawberryMilk.swift in Sources */,
+				730F547A20DE31E100D7E7A4 /* Coffee.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

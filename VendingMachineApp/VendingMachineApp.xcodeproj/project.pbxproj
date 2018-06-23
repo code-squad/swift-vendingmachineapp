@@ -20,6 +20,7 @@
 		730F549020DE775300D7E7A4 /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730F548F20DE775300D7E7A4 /* Milk.swift */; };
 		730F549220DE796E00D7E7A4 /* StrawberryMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730F549120DE796E00D7E7A4 /* StrawberryMilk.swift */; };
 		730F549420DE797A00D7E7A4 /* BananaMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730F549320DE797A00D7E7A4 /* BananaMilk.swift */; };
+		730F549620DEA3AD00D7E7A4 /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730F549520DEA3AD00D7E7A4 /* Stock.swift */; };
 		73C7C7F020DCEF710077F80E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C7C7EF20DCEF710077F80E /* AppDelegate.swift */; };
 		73C7C7F220DCEF710077F80E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C7C7F120DCEF710077F80E /* ViewController.swift */; };
 		73C7C7F520DCEF710077F80E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73C7C7F320DCEF710077F80E /* Main.storyboard */; };
@@ -42,6 +43,7 @@
 		730F548F20DE775300D7E7A4 /* Milk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Milk.swift; sourceTree = "<group>"; };
 		730F549120DE796E00D7E7A4 /* StrawberryMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrawberryMilk.swift; sourceTree = "<group>"; };
 		730F549320DE797A00D7E7A4 /* BananaMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BananaMilk.swift; sourceTree = "<group>"; };
+		730F549520DEA3AD00D7E7A4 /* Stock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stock.swift; sourceTree = "<group>"; };
 		73C7C7EC20DCEF710077F80E /* VendingMachineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendingMachineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73C7C7EF20DCEF710077F80E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		73C7C7F120DCEF710077F80E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 			children = (
 				730F547720DE2FB900D7E7A4 /* Beverage.swift */,
 				730F548420DE6B6500D7E7A4 /* DefaultData.swift */,
+				730F549520DEA3AD00D7E7A4 /* Stock.swift */,
 				730F548720DE75A700D7E7A4 /* Soda */,
 				730F547B20DE688A00D7E7A4 /* Coffee */,
 				730F548E20DE771000D7E7A4 /* Milk */,
@@ -271,6 +274,7 @@
 				730F547F20DE68DE00D7E7A4 /* TOP.swift in Sources */,
 				730F548520DE6B6500D7E7A4 /* DefaultData.swift in Sources */,
 				730F549420DE797A00D7E7A4 /* BananaMilk.swift in Sources */,
+				730F549620DEA3AD00D7E7A4 /* Stock.swift in Sources */,
 				730F547820DE2FB900D7E7A4 /* Beverage.swift in Sources */,
 				73C7C7F220DCEF710077F80E /* ViewController.swift in Sources */,
 				73C7C7F020DCEF710077F80E /* AppDelegate.swift in Sources */,

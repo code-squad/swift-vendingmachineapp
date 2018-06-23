@@ -12,24 +12,37 @@ class VendingMachineAppUnitTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
     }
     
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testFactory_makeCoke() {
+        XCTAssertEqual(BeverageFactory.makeBeverage(beverageType: Coke.self), Coke())
     }
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    func testFactory_makeSprite() {
+        XCTAssertEqual(BeverageFactory.makeBeverage(beverageType: Sprite.self), Sprite())
     }
     
+    func testFactory_makeCantata() {
+        XCTAssertEqual(BeverageFactory.makeBeverage(beverageType: Cantata.self), Cantata())
+    }
+    
+    func testFactory_makeTOP() {
+        XCTAssertEqual(BeverageFactory.makeBeverage(beverageType: TOP.self), TOP())
+    }
+    
+    func testFactory_makeGeorgia() {
+        XCTAssertEqual(BeverageFactory.makeBeverage(beverageType: Georgia.self), Georgia())
+    }
+    
+    func testFactory_StrawberryMilk() {
+        XCTAssertEqual(BeverageFactory.makeBeverage(beverageType: StrawberryMilk.self), StrawberryMilk())
+    }
+    
+    func testFactory_BananaMilk() {
+        XCTAssertEqual(BeverageFactory.makeBeverage(beverageType: BananaMilk.self), BananaMilk())
+    }
 }

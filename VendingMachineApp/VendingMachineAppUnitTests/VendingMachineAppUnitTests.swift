@@ -62,4 +62,8 @@ class VendingMachineAppUnitTests: XCTestCase {
         XCTAssertEqual(Stock([Coke(),Sprite()]), Stock([Coke(), Sprite()]))
     }
     
+    func testStockManager_init() {
+        XCTAssertEqual(StockManager([:]), StockManager())
+    }
+    
 }

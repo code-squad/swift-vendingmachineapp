@@ -9,7 +9,7 @@
 import Foundation
 
 class TOP: Coffee {
-    override init() {
+    required init() {
         super.init(name: DefaultData.top.name, price: DefaultData.top.price)
     }
 }

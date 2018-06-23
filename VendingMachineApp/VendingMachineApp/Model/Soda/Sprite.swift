@@ -9,7 +9,7 @@
 import Foundation
 
 class Sprite: Soda {
-    override init() {
+    required init() {
         super.init(name: DefaultData.sprite.name, price: DefaultData.sprite.price)
     }
 }

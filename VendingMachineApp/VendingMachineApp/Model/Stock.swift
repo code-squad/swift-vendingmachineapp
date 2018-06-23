@@ -9,6 +9,7 @@
 import Foundation
 
 class Stock {
+    
     var beverages: [Beverage]
     
     init(_ beverages: [Beverage]) {
@@ -17,5 +18,11 @@ class Stock {
     
     convenience init() {
         self.init([Beverage]())
+    }
+}
+
+extension Stock: Equatable {
+    static func == (lhs: Stock, rhs: Stock) -> Bool {
+        return lhs.beverages == rhs.beverages
     }
 }

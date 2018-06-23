@@ -21,12 +21,38 @@
 		730F549220DE796E00D7E7A4 /* StrawberryMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730F549120DE796E00D7E7A4 /* StrawberryMilk.swift */; };
 		730F549420DE797A00D7E7A4 /* BananaMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730F549320DE797A00D7E7A4 /* BananaMilk.swift */; };
 		730F549620DEA3AD00D7E7A4 /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730F549520DEA3AD00D7E7A4 /* Stock.swift */; };
+		730F54A020DEAEF600D7E7A4 /* VendingMachineAppUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730F549F20DEAEF600D7E7A4 /* VendingMachineAppUnitTests.swift */; };
+		730F54A920DEB17900D7E7A4 /* BeverageFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730F54A820DEB17900D7E7A4 /* BeverageFactory.swift */; };
+		730F54AB20DEB3DD00D7E7A4 /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730F547720DE2FB900D7E7A4 /* Beverage.swift */; };
+		730F54AC20DEB3DD00D7E7A4 /* DefaultData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730F548420DE6B6500D7E7A4 /* DefaultData.swift */; };
+		730F54AD20DEB3DD00D7E7A4 /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730F549520DEA3AD00D7E7A4 /* Stock.swift */; };
+		730F54AE20DEB3DD00D7E7A4 /* Soda.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730F548820DE75C000D7E7A4 /* Soda.swift */; };
+		730F54AF20DEB3DD00D7E7A4 /* Coke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730F548A20DE764E00D7E7A4 /* Coke.swift */; };
+		730F54B020DEB3DD00D7E7A4 /* Sprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730F548C20DE76AF00D7E7A4 /* Sprite.swift */; };
+		730F54B120DEB3DD00D7E7A4 /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730F547920DE31E100D7E7A4 /* Coffee.swift */; };
+		730F54B220DEB3DD00D7E7A4 /* Cantata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730F547C20DE68D800D7E7A4 /* Cantata.swift */; };
+		730F54B320DEB3DD00D7E7A4 /* TOP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730F547E20DE68DE00D7E7A4 /* TOP.swift */; };
+		730F54B420DEB3DD00D7E7A4 /* Georgia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730F548020DE68EC00D7E7A4 /* Georgia.swift */; };
+		730F54B520DEB3DD00D7E7A4 /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730F548F20DE775300D7E7A4 /* Milk.swift */; };
+		730F54B620DEB3DD00D7E7A4 /* StrawberryMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730F549120DE796E00D7E7A4 /* StrawberryMilk.swift */; };
+		730F54B720DEB3DD00D7E7A4 /* BananaMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730F549320DE797A00D7E7A4 /* BananaMilk.swift */; };
+		730F54B820DEB3DD00D7E7A4 /* BeverageFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730F54A820DEB17900D7E7A4 /* BeverageFactory.swift */; };
 		73C7C7F020DCEF710077F80E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C7C7EF20DCEF710077F80E /* AppDelegate.swift */; };
 		73C7C7F220DCEF710077F80E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C7C7F120DCEF710077F80E /* ViewController.swift */; };
 		73C7C7F520DCEF710077F80E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73C7C7F320DCEF710077F80E /* Main.storyboard */; };
 		73C7C7F720DCEF720077F80E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73C7C7F620DCEF720077F80E /* Assets.xcassets */; };
 		73C7C7FA20DCEF720077F80E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73C7C7F820DCEF720077F80E /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		730F54A220DEAEF600D7E7A4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 73C7C7E420DCEF710077F80E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 73C7C7EB20DCEF710077F80E;
+			remoteInfo = VendingMachineApp;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		0AD7513ACB698638C1A9F724 /* Pods-VendingMachineApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VendingMachineApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-VendingMachineApp/Pods-VendingMachineApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -44,6 +70,10 @@
 		730F549120DE796E00D7E7A4 /* StrawberryMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrawberryMilk.swift; sourceTree = "<group>"; };
 		730F549320DE797A00D7E7A4 /* BananaMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BananaMilk.swift; sourceTree = "<group>"; };
 		730F549520DEA3AD00D7E7A4 /* Stock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stock.swift; sourceTree = "<group>"; };
+		730F549D20DEAEF600D7E7A4 /* VendingMachineAppUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VendingMachineAppUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		730F549F20DEAEF600D7E7A4 /* VendingMachineAppUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineAppUnitTests.swift; sourceTree = "<group>"; };
+		730F54A120DEAEF600D7E7A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		730F54A820DEB17900D7E7A4 /* BeverageFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageFactory.swift; sourceTree = "<group>"; };
 		73C7C7EC20DCEF710077F80E /* VendingMachineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendingMachineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73C7C7EF20DCEF710077F80E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		73C7C7F120DCEF710077F80E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -55,6 +85,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		730F549A20DEAEF600D7E7A4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		73C7C7E920DCEF710077F80E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -84,6 +121,7 @@
 				730F548720DE75A700D7E7A4 /* Soda */,
 				730F547B20DE688A00D7E7A4 /* Coffee */,
 				730F548E20DE771000D7E7A4 /* Milk */,
+				730F54A820DEB17900D7E7A4 /* BeverageFactory.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -119,10 +157,20 @@
 			path = Milk;
 			sourceTree = "<group>";
 		};
+		730F549E20DEAEF600D7E7A4 /* VendingMachineAppUnitTests */ = {
+			isa = PBXGroup;
+			children = (
+				730F549F20DEAEF600D7E7A4 /* VendingMachineAppUnitTests.swift */,
+				730F54A120DEAEF600D7E7A4 /* Info.plist */,
+			);
+			path = VendingMachineAppUnitTests;
+			sourceTree = "<group>";
+		};
 		73C7C7E320DCEF710077F80E = {
 			isa = PBXGroup;
 			children = (
 				73C7C7EE20DCEF710077F80E /* VendingMachineApp */,
+				730F549E20DEAEF600D7E7A4 /* VendingMachineAppUnitTests */,
 				73C7C7ED20DCEF710077F80E /* Products */,
 				23A69B724842F583BB452D84 /* Pods */,
 				D5F91436A346F8E9593BD0CA /* Frameworks */,
@@ -133,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				73C7C7EC20DCEF710077F80E /* VendingMachineApp.app */,
+				730F549D20DEAEF600D7E7A4 /* VendingMachineAppUnitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -162,6 +211,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		730F549C20DEAEF600D7E7A4 /* VendingMachineAppUnitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 730F54A420DEAEF600D7E7A4 /* Build configuration list for PBXNativeTarget "VendingMachineAppUnitTests" */;
+			buildPhases = (
+				730F549920DEAEF600D7E7A4 /* Sources */,
+				730F549A20DEAEF600D7E7A4 /* Frameworks */,
+				730F549B20DEAEF600D7E7A4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				730F54A320DEAEF600D7E7A4 /* PBXTargetDependency */,
+			);
+			name = VendingMachineAppUnitTests;
+			productName = VendingMachineAppUnitTests;
+			productReference = 730F549D20DEAEF600D7E7A4 /* VendingMachineAppUnitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		73C7C7EB20DCEF710077F80E /* VendingMachineApp */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 73C7C7FE20DCEF720077F80E /* Build configuration list for PBXNativeTarget "VendingMachineApp" */;
@@ -191,6 +258,10 @@
 				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = moon;
 				TargetAttributes = {
+					730F549C20DEAEF600D7E7A4 = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = 73C7C7EB20DCEF710077F80E;
+					};
 					73C7C7EB20DCEF710077F80E = {
 						CreatedOnToolsVersion = 9.4.1;
 					};
@@ -210,11 +281,19 @@
 			projectRoot = "";
 			targets = (
 				73C7C7EB20DCEF710077F80E /* VendingMachineApp */,
+				730F549C20DEAEF600D7E7A4 /* VendingMachineAppUnitTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		730F549B20DEAEF600D7E7A4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		73C7C7EA20DCEF710077F80E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -262,6 +341,28 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		730F549920DEAEF600D7E7A4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				730F54AB20DEB3DD00D7E7A4 /* Beverage.swift in Sources */,
+				730F54AC20DEB3DD00D7E7A4 /* DefaultData.swift in Sources */,
+				730F54AD20DEB3DD00D7E7A4 /* Stock.swift in Sources */,
+				730F54AE20DEB3DD00D7E7A4 /* Soda.swift in Sources */,
+				730F54AF20DEB3DD00D7E7A4 /* Coke.swift in Sources */,
+				730F54B020DEB3DD00D7E7A4 /* Sprite.swift in Sources */,
+				730F54B120DEB3DD00D7E7A4 /* Coffee.swift in Sources */,
+				730F54B220DEB3DD00D7E7A4 /* Cantata.swift in Sources */,
+				730F54B320DEB3DD00D7E7A4 /* TOP.swift in Sources */,
+				730F54B420DEB3DD00D7E7A4 /* Georgia.swift in Sources */,
+				730F54B520DEB3DD00D7E7A4 /* Milk.swift in Sources */,
+				730F54B620DEB3DD00D7E7A4 /* StrawberryMilk.swift in Sources */,
+				730F54B720DEB3DD00D7E7A4 /* BananaMilk.swift in Sources */,
+				730F54B820DEB3DD00D7E7A4 /* BeverageFactory.swift in Sources */,
+				730F54A020DEAEF600D7E7A4 /* VendingMachineAppUnitTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		73C7C7E820DCEF710077F80E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -275,6 +376,7 @@
 				730F548520DE6B6500D7E7A4 /* DefaultData.swift in Sources */,
 				730F549420DE797A00D7E7A4 /* BananaMilk.swift in Sources */,
 				730F549620DEA3AD00D7E7A4 /* Stock.swift in Sources */,
+				730F54A920DEB17900D7E7A4 /* BeverageFactory.swift in Sources */,
 				730F547820DE2FB900D7E7A4 /* Beverage.swift in Sources */,
 				73C7C7F220DCEF710077F80E /* ViewController.swift in Sources */,
 				73C7C7F020DCEF710077F80E /* AppDelegate.swift in Sources */,
@@ -285,6 +387,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		730F54A320DEAEF600D7E7A4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 73C7C7EB20DCEF710077F80E /* VendingMachineApp */;
+			targetProxy = 730F54A220DEAEF600D7E7A4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		73C7C7F320DCEF710077F80E /* Main.storyboard */ = {
@@ -306,6 +416,44 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		730F54A520DEAEF600D7E7A4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = VendingMachineAppUnitTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.VendingMachineAppUnitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VendingMachineApp.app/VendingMachineApp";
+			};
+			name = Debug;
+		};
+		730F54A620DEAEF600D7E7A4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = VendingMachineAppUnitTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.VendingMachineAppUnitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VendingMachineApp.app/VendingMachineApp";
+			};
+			name = Release;
+		};
 		73C7C7FC20DCEF720077F80E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -459,6 +607,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		730F54A420DEAEF600D7E7A4 /* Build configuration list for PBXNativeTarget "VendingMachineAppUnitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				730F54A520DEAEF600D7E7A4 /* Debug */,
+				730F54A620DEAEF600D7E7A4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		73C7C7E720DCEF710077F80E /* Build configuration list for PBXProject "VendingMachineApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -13,7 +13,7 @@ class Milk: Beverage {
         super.init(name: name, price: price)
     }
     
-    override init() {
+    required init() {
         super.init(name: DefaultData.milk.name, price: DefaultData.milk.price)
     }
 }

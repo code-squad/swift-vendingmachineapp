@@ -9,7 +9,7 @@
 import Foundation
 
 class BananaMilk: Milk {
-    override init() {
+    required init() {
         super.init(name: DefaultData.bananaMilk.name, price: DefaultData.bananaMilk.price)
     }
 }

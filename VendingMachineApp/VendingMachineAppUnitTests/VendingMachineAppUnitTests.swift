@@ -45,4 +45,21 @@ class VendingMachineAppUnitTests: XCTestCase {
     func testFactory_BananaMilk() {
         XCTAssertEqual(BeverageFactory.makeBeverage(beverageType: BananaMilk.self), BananaMilk())
     }
+    
+    func testFactory_typeCheck_notEqual() {
+        XCTAssertNotEqual(BeverageFactory.makeBeverage(beverageType: BananaMilk.self), StrawberryMilk())
+    }
+    
+    func testStock_init() {
+        XCTAssertEqual(Stock(), Stock([]))
+    }
+    
+    func testStock_init_hasNotSameBeverages() {
+        XCTAssertNotEqual(Stock([Coke(), Coke(), Sprite()]), Stock([Coke(), Sprite(), Sprite()]))
+    }
+    
+    func testStock_init_hasSameBeverages() {
+        XCTAssertEqual(Stock([Coke(),Sprite()]), Stock([Coke(), Sprite()]))
+    }
+    
 }

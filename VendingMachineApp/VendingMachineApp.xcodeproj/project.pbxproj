@@ -20,12 +20,10 @@
 		730F549020DE775300D7E7A4 /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730F548F20DE775300D7E7A4 /* Milk.swift */; };
 		730F549220DE796E00D7E7A4 /* StrawberryMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730F549120DE796E00D7E7A4 /* StrawberryMilk.swift */; };
 		730F549420DE797A00D7E7A4 /* BananaMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730F549320DE797A00D7E7A4 /* BananaMilk.swift */; };
-		730F549620DEA3AD00D7E7A4 /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730F549520DEA3AD00D7E7A4 /* Stock.swift */; };
 		730F54A020DEAEF600D7E7A4 /* VendingMachineAppUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730F549F20DEAEF600D7E7A4 /* VendingMachineAppUnitTests.swift */; };
 		730F54A920DEB17900D7E7A4 /* BeverageFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730F54A820DEB17900D7E7A4 /* BeverageFactory.swift */; };
 		730F54AB20DEB3DD00D7E7A4 /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730F547720DE2FB900D7E7A4 /* Beverage.swift */; };
 		730F54AC20DEB3DD00D7E7A4 /* DefaultData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730F548420DE6B6500D7E7A4 /* DefaultData.swift */; };
-		730F54AD20DEB3DD00D7E7A4 /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730F549520DEA3AD00D7E7A4 /* Stock.swift */; };
 		730F54AE20DEB3DD00D7E7A4 /* Soda.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730F548820DE75C000D7E7A4 /* Soda.swift */; };
 		730F54AF20DEB3DD00D7E7A4 /* Coke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730F548A20DE764E00D7E7A4 /* Coke.swift */; };
 		730F54B020DEB3DD00D7E7A4 /* Sprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730F548C20DE76AF00D7E7A4 /* Sprite.swift */; };
@@ -39,6 +37,10 @@
 		730F54B820DEB3DD00D7E7A4 /* BeverageFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730F54A820DEB17900D7E7A4 /* BeverageFactory.swift */; };
 		730F54BC20DEBB4A00D7E7A4 /* StockManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730F54BB20DEBB4A00D7E7A4 /* StockManager.swift */; };
 		730F54BD20DEBB4A00D7E7A4 /* StockManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730F54BB20DEBB4A00D7E7A4 /* StockManager.swift */; };
+		730F54BF20DEC33C00D7E7A4 /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730F54BE20DEC33C00D7E7A4 /* VendingMachine.swift */; };
+		730F54C020DEC33C00D7E7A4 /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730F54BE20DEC33C00D7E7A4 /* VendingMachine.swift */; };
+		730F54C220DF894D00D7E7A4 /* MoneyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730F54C120DF894D00D7E7A4 /* MoneyManager.swift */; };
+		730F54C320DF894D00D7E7A4 /* MoneyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730F54C120DF894D00D7E7A4 /* MoneyManager.swift */; };
 		73C7C7F020DCEF710077F80E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C7C7EF20DCEF710077F80E /* AppDelegate.swift */; };
 		73C7C7F220DCEF710077F80E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C7C7F120DCEF710077F80E /* ViewController.swift */; };
 		73C7C7F520DCEF710077F80E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73C7C7F320DCEF710077F80E /* Main.storyboard */; };
@@ -71,12 +73,13 @@
 		730F548F20DE775300D7E7A4 /* Milk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Milk.swift; sourceTree = "<group>"; };
 		730F549120DE796E00D7E7A4 /* StrawberryMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrawberryMilk.swift; sourceTree = "<group>"; };
 		730F549320DE797A00D7E7A4 /* BananaMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BananaMilk.swift; sourceTree = "<group>"; };
-		730F549520DEA3AD00D7E7A4 /* Stock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stock.swift; sourceTree = "<group>"; };
 		730F549D20DEAEF600D7E7A4 /* VendingMachineAppUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VendingMachineAppUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		730F549F20DEAEF600D7E7A4 /* VendingMachineAppUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineAppUnitTests.swift; sourceTree = "<group>"; };
 		730F54A120DEAEF600D7E7A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		730F54A820DEB17900D7E7A4 /* BeverageFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageFactory.swift; sourceTree = "<group>"; };
 		730F54BB20DEBB4A00D7E7A4 /* StockManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockManager.swift; sourceTree = "<group>"; };
+		730F54BE20DEC33C00D7E7A4 /* VendingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachine.swift; sourceTree = "<group>"; };
+		730F54C120DF894D00D7E7A4 /* MoneyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyManager.swift; sourceTree = "<group>"; };
 		73C7C7EC20DCEF710077F80E /* VendingMachineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendingMachineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73C7C7EF20DCEF710077F80E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		73C7C7F120DCEF710077F80E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -120,12 +123,13 @@
 			children = (
 				730F547720DE2FB900D7E7A4 /* Beverage.swift */,
 				730F548420DE6B6500D7E7A4 /* DefaultData.swift */,
-				730F549520DEA3AD00D7E7A4 /* Stock.swift */,
 				730F548720DE75A700D7E7A4 /* Soda */,
 				730F547B20DE688A00D7E7A4 /* Coffee */,
 				730F548E20DE771000D7E7A4 /* Milk */,
 				730F54A820DEB17900D7E7A4 /* BeverageFactory.swift */,
 				730F54BB20DEBB4A00D7E7A4 /* StockManager.swift */,
+				730F54BE20DEC33C00D7E7A4 /* VendingMachine.swift */,
+				730F54C120DF894D00D7E7A4 /* MoneyManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -351,15 +355,16 @@
 			files = (
 				730F54AB20DEB3DD00D7E7A4 /* Beverage.swift in Sources */,
 				730F54AC20DEB3DD00D7E7A4 /* DefaultData.swift in Sources */,
-				730F54AD20DEB3DD00D7E7A4 /* Stock.swift in Sources */,
 				730F54AE20DEB3DD00D7E7A4 /* Soda.swift in Sources */,
 				730F54AF20DEB3DD00D7E7A4 /* Coke.swift in Sources */,
 				730F54B020DEB3DD00D7E7A4 /* Sprite.swift in Sources */,
 				730F54B120DEB3DD00D7E7A4 /* Coffee.swift in Sources */,
 				730F54B220DEB3DD00D7E7A4 /* Cantata.swift in Sources */,
 				730F54B320DEB3DD00D7E7A4 /* TOP.swift in Sources */,
+				730F54C020DEC33C00D7E7A4 /* VendingMachine.swift in Sources */,
 				730F54B420DEB3DD00D7E7A4 /* Georgia.swift in Sources */,
 				730F54B520DEB3DD00D7E7A4 /* Milk.swift in Sources */,
+				730F54C320DF894D00D7E7A4 /* MoneyManager.swift in Sources */,
 				730F54B620DEB3DD00D7E7A4 /* StrawberryMilk.swift in Sources */,
 				730F54BD20DEBB4A00D7E7A4 /* StockManager.swift in Sources */,
 				730F54B720DEB3DD00D7E7A4 /* BananaMilk.swift in Sources */,
@@ -380,15 +385,16 @@
 				730F547F20DE68DE00D7E7A4 /* TOP.swift in Sources */,
 				730F548520DE6B6500D7E7A4 /* DefaultData.swift in Sources */,
 				730F549420DE797A00D7E7A4 /* BananaMilk.swift in Sources */,
-				730F549620DEA3AD00D7E7A4 /* Stock.swift in Sources */,
 				730F54A920DEB17900D7E7A4 /* BeverageFactory.swift in Sources */,
 				730F547820DE2FB900D7E7A4 /* Beverage.swift in Sources */,
 				73C7C7F220DCEF710077F80E /* ViewController.swift in Sources */,
 				73C7C7F020DCEF710077F80E /* AppDelegate.swift in Sources */,
+				730F54C220DF894D00D7E7A4 /* MoneyManager.swift in Sources */,
 				730F549020DE775300D7E7A4 /* Milk.swift in Sources */,
 				730F549220DE796E00D7E7A4 /* StrawberryMilk.swift in Sources */,
 				730F547A20DE31E100D7E7A4 /* Coffee.swift in Sources */,
 				730F54BC20DEBB4A00D7E7A4 /* StockManager.swift in Sources */,
+				730F54BF20DEC33C00D7E7A4 /* VendingMachine.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

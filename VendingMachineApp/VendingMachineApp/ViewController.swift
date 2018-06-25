@@ -10,13 +10,13 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    @IBOutlet var stockImageViews: [UIImageView]!
     var vendingMachine: VendingMachine!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         beverageSetup()
-        printAllStock()
-        
+        setupStockImageViewsImage()
     }
     
     func beverageSetup() {
@@ -25,9 +25,11 @@ class ViewController: UIViewController {
         vendingMachine.addBeverage(Coke.self, 3)
     }
     
-    func printAllStock() {
-        for stock in vendingMachine.readAllStock() {
-            print("\(stock.beverageName)(\(stock.count)개)", terminator: " ")
+    func setupStockImageViewsImage() {
+        for index in self.stockImageViews.indices {
+            let imageName = String(format: "imgsource/%d.png", index)
+            self.stockImageViews[index].image = UIImage(named: imageName)
         }
+        self.stockImageViews.forEach{ $0.contentMode = UIViewContentMode.scaleAspectFit }
     }
 }

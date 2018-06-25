@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 struct DefaultData {
     // Beverage
     static let beverage = (name: "음료수", price: 0)

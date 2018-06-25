@@ -71,10 +71,27 @@ extension Stock: Equatable {
     }
 }
 
-extension Stock: Sequence, IteratorProtocol {
-    typealias Element = Beverage
+extension Stock: Sequence {
+    func makeIterator() -> StockIterator {
+        return StockIterator(self.beverages)
+    }
+}
+
+class StockIterator: IteratorProtocol {
+    var beverages: [Beverage]
+    var index: Int
     
-    func next() -> Element? {
-        return self.beverages.count == 0 ? nil : self.beverages.removeFirst()
+    init(_ beverages: [Beverage]) {
+        self.beverages = beverages
+        index = self.beverages.startIndex
+    }
+    
+    func next() -> Beverage? {
+        if index < self.beverages.endIndex {
+            defer { index = self.beverages.index(after: index) }
+            return self.beverages[index]
+        } else {
+            return nil
+        }
     }
 }

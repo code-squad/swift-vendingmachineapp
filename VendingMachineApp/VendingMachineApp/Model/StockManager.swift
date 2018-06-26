@@ -45,7 +45,7 @@ extension StockManager: Equatable {
     }
 }
 
-class Stock {
+class Stock: IteratorProtocol, Sequence {
     private var beverages: [Beverage]
     
     init(_ beverages: [Beverage]) {
@@ -67,6 +67,17 @@ class Stock {
     func add(_ beverage: Beverage) {
         self.beverages.append(beverage)
     }
+    
+    private var index: Int = 0
+    func next() -> Beverage? {
+        if index < self.beverages.endIndex {
+            defer { index = self.beverages.index(after: index) }
+            return self.beverages[index]
+        } else {
+            self.index = 0
+            return nil
+        }
+    }
 }
 
 extension Stock: Equatable {
@@ -75,27 +86,3 @@ extension Stock: Equatable {
     }
 }
 
-extension Stock: Sequence {
-    func makeIterator() -> StockIterator {
-        return StockIterator(self.beverages)
-    }
-}
-
-class StockIterator: IteratorProtocol {
-    private var beverages: [Beverage]
-    private var index: Int
-    
-    init(_ beverages: [Beverage]) {
-        self.beverages = beverages
-        index = self.beverages.startIndex
-    }
-    
-    func next() -> Beverage? {
-        if index < self.beverages.endIndex {
-            defer { index = self.beverages.index(after: index) }
-            return self.beverages[index]
-        } else {
-            return nil
-        }
-    }
-}

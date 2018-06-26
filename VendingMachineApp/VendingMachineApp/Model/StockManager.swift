@@ -78,8 +78,8 @@ extension Stock: Sequence {
 }
 
 class StockIterator: IteratorProtocol {
-    var beverages: [Beverage]
-    var index: Int
+    private var beverages: [Beverage]
+    private var index: Int
     
     init(_ beverages: [Beverage]) {
         self.beverages = beverages

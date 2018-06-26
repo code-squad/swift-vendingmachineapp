@@ -10,6 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var balanceLabel: UILabel!
     @IBOutlet var stockLabels: [UILabel]!
     @IBOutlet var addStockButtons: [UIButton]!
     @IBOutlet var stockImageViews: [UIImageView]!
@@ -19,6 +20,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         setupBeverageInitStock()
         updateStockLabels()
+        updateBalanceLabel()
         setupStockImageViews()
     }
     
@@ -34,6 +36,10 @@ class ViewController: UIViewController {
         for index in stockLabels.indices {
             self.stockLabels[index].text = String(self.vendingMachine.readStock(index)) + "개"
         }
+    }
+    
+    func updateBalanceLabel() {
+        self.balanceLabel.text = String(format: "%d원", vendingMachine.readBalance())
     }
     
     func setupStockImageViews() {

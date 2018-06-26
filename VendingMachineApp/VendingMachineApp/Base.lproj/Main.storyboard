@@ -128,8 +128,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="잔액" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I99-00-EVN">
-                                <rect key="frame" x="951" y="274" width="38.5" height="26.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="잔액:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I99-00-EVN">
+                                <rect key="frame" x="918.5" y="274" width="44" height="26.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -149,6 +149,12 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D6d-rV-m0h" userLabel="balance lable">
+                                <rect key="frame" x="972.5" y="274.5" width="52.5" height="26.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -163,8 +169,9 @@
                             <constraint firstItem="fIU-zm-yLk" firstAttribute="top" secondItem="NT4-4V-P0c" secondAttribute="bottom" constant="10" id="P5i-TJ-xPS"/>
                             <constraint firstItem="d1J-oQ-slJ" firstAttribute="centerX" secondItem="FQT-Lp-LrY" secondAttribute="centerX" id="TKE-XO-62N"/>
                             <constraint firstItem="NT4-4V-P0c" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="WDu-SB-tnL"/>
+                            <constraint firstItem="D6d-rV-m0h" firstAttribute="leading" secondItem="I99-00-EVN" secondAttribute="trailing" constant="10" id="Xpq-mY-14S"/>
                             <constraint firstItem="nCU-1n-Ec2" firstAttribute="centerX" secondItem="PxF-nG-q6B" secondAttribute="centerX" id="Xxz-6L-nVT"/>
-                            <constraint firstItem="I99-00-EVN" firstAttribute="centerX" secondItem="Lgs-iW-LYj" secondAttribute="centerX" id="b3q-LG-uOc"/>
+                            <constraint firstItem="I99-00-EVN" firstAttribute="centerX" secondItem="Lgs-iW-LYj" secondAttribute="centerX" constant="-30" id="b3q-LG-uOc"/>
                             <constraint firstItem="NT4-4V-P0c" firstAttribute="top" secondItem="FQT-Lp-LrY" secondAttribute="bottom" constant="10" id="bvq-hQ-GaK"/>
                             <constraint firstItem="aDx-W7-f4Z" firstAttribute="top" secondItem="NT4-4V-P0c" secondAttribute="bottom" constant="10" id="dWu-uf-fva"/>
                             <constraint firstItem="Jdz-4s-hHW" firstAttribute="centerX" secondItem="Idz-Dn-O3L" secondAttribute="centerX" id="eD6-4e-CX5"/>
@@ -172,6 +179,7 @@
                             <constraint firstItem="NT4-4V-P0c" firstAttribute="top" secondItem="PxF-nG-q6B" secondAttribute="bottom" constant="10" id="ldc-Ls-cVl"/>
                             <constraint firstItem="wdS-IF-Qqr" firstAttribute="top" secondItem="NT4-4V-P0c" secondAttribute="bottom" constant="10" id="nOc-Zs-jz8"/>
                             <constraint firstItem="wdS-IF-Qqr" firstAttribute="centerX" secondItem="55e-EX-GsN" secondAttribute="centerX" id="oUc-Fu-9br"/>
+                            <constraint firstItem="D6d-rV-m0h" firstAttribute="centerY" secondItem="I99-00-EVN" secondAttribute="centerY" id="qxL-Ld-VM1"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Lgs-iW-LYj" secondAttribute="trailing" constant="46" id="sfe-Gd-131"/>
                             <constraint firstItem="FQT-Lp-LrY" firstAttribute="centerX" secondItem="pN6-rS-pT2" secondAttribute="centerX" id="vBz-eo-K3n"/>
                             <constraint firstItem="PxF-nG-q6B" firstAttribute="centerX" secondItem="ffc-b8-oF1" secondAttribute="centerX" id="vTU-Ay-tTw"/>
@@ -182,6 +190,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="balanceLabel" destination="D6d-rV-m0h" id="4C4-Ll-6kb"/>
                         <outletCollection property="stockImageViews" destination="Rl2-H4-HKI" collectionClass="NSMutableArray" id="sfG-Hb-XyZ"/>
                         <outletCollection property="stockImageViews" destination="pN6-rS-pT2" collectionClass="NSMutableArray" id="H8X-Hf-B0Y"/>
                         <outletCollection property="stockImageViews" destination="Idz-Dn-O3L" collectionClass="NSMutableArray" id="N08-IJ-Ozd"/>

@@ -60,6 +60,10 @@ class VendingMachine: NSObject {
         }
         return self.stockManager.readStock(BeverageType(beverageType))
     }
+    
+    func readBalance() -> Int {
+        return self.moneyManager.readBalance()
+    }
 }
 
 extension Int {

@@ -10,13 +10,14 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    @IBOutlet var addStockButtons: [UIButton]!
     @IBOutlet var stockImageViews: [UIImageView]!
     var vendingMachine: VendingMachine!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         beverageSetup()
-        setupStockImageViewsImage()
+        setupStockImageViews()
     }
     
     func beverageSetup() {
@@ -25,11 +26,19 @@ class ViewController: UIViewController {
         vendingMachine.addBeverage(Coke.self, 3)
     }
     
-    func setupStockImageViewsImage() {
+    func setupStockImageViews() {
         for index in self.stockImageViews.indices {
             let imageName = String(format: "imgsource/%d.png", index)
             self.stockImageViews[index].image = UIImage(named: imageName)
         }
-        self.stockImageViews.forEach{ $0.contentMode = UIViewContentMode.scaleAspectFit }
+        
+        self.stockImageViews.forEach{
+            $0.backgroundColor = UIColor.white
+            $0.layer.borderWidth = 1.0
+            $0.layer.borderColor = UIColor.black.cgColor
+            $0.contentMode = UIViewContentMode.scaleAspectFit
+            $0.layer.cornerRadius = 20
+            $0.layer.masksToBounds = true
+        }
     }
 }

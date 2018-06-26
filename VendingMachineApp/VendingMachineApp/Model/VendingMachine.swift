@@ -64,6 +64,10 @@ class VendingMachine: NSObject {
     func readBalance() -> Int {
         return self.moneyManager.readBalance()
     }
+    
+    func insertMoney(_ price: Int) {
+        self.moneyManager.increaseBalance(price)
+    }
 }
 
 extension Int {

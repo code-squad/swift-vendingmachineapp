@@ -129,28 +129,34 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="잔액:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I99-00-EVN">
-                                <rect key="frame" x="918.5" y="274" width="44" height="26.5"/>
+                                <rect key="frame" x="938" y="274" width="44" height="26.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="Lgs-iW-LYj">
-                                <rect key="frame" x="874" y="189" width="192" height="35"/>
+                                <rect key="frame" x="913" y="189" width="153" height="35"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kRD-Te-7o2">
-                                        <rect key="frame" x="0.0" y="0.0" width="75" height="35"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="55" height="35"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                        <state key="normal" title="잔액추가1"/>
+                                        <state key="normal" title="+1000"/>
+                                        <connections>
+                                            <action selector="insertMoney:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OiE-KF-cFZ"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="acU-ax-9dn">
-                                        <rect key="frame" x="115" y="0.0" width="77" height="35"/>
+                                        <rect key="frame" x="95" y="0.0" width="58" height="35"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                        <state key="normal" title="잔액추가2"/>
+                                        <state key="normal" title="+5000"/>
+                                        <connections>
+                                            <action selector="insertMoney:" destination="BYZ-38-t0r" eventType="touchUpInside" id="F6V-H1-jAA"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D6d-rV-m0h" userLabel="balance lable">
-                                <rect key="frame" x="972.5" y="274.5" width="52.5" height="26.5"/>
+                                <rect key="frame" x="992" y="274.5" width="52.5" height="26.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>

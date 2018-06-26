@@ -46,13 +46,13 @@ class ViewController: UIViewController {
     func setupStockImageViews() {
         self.stockImageViews.indices.forEach {
             let imageName = String(format: "imgsource/%d.png", $0)
-            self.stockImageViews[$0].image = UIImage(named: imageName)
-            self.stockImageViews[$0].backgroundColor = UIColor.white
-            self.stockImageViews[$0].layer.borderWidth = 1.0
-            self.stockImageViews[$0].layer.borderColor = UIColor.black.cgColor
-            self.stockImageViews[$0].contentMode = UIViewContentMode.scaleAspectFit
-            self.stockImageViews[$0].layer.cornerRadius = 20
-            self.stockImageViews[$0].layer.masksToBounds = true
+            stockImageViews[$0].image = UIImage(named: imageName)
+            stockImageViews[$0].backgroundColor = UIColor.white
+            stockImageViews[$0].layer.borderWidth = 1.0
+            stockImageViews[$0].layer.borderColor = UIColor.black.cgColor
+            stockImageViews[$0].contentMode = UIViewContentMode.scaleAspectFit
+            stockImageViews[$0].layer.cornerRadius = 20
+            stockImageViews[$0].layer.masksToBounds = true
         }
     }
 

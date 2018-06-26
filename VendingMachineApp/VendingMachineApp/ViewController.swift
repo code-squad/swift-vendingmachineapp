@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     @IBOutlet var stockLabels: [UILabel]!
     @IBOutlet var addStockButtons: [UIButton]!
     @IBOutlet var stockImageViews: [UIImageView]!
+    
     var vendingMachine: VendingMachine!
     
     override func viewDidLoad() {
@@ -67,5 +68,11 @@ class ViewController: UIViewController {
         }
         vendingMachine.addBeverage(beverageType)
         updateStockLabels()
+    }
+    
+    @IBAction func insertMoney(_ sender: UIButton) {
+        let money: Int = Int(sender.titleLabel?.text ?? "") ?? 0
+        vendingMachine.insertMoney(money)
+        updateBalanceLabel()
     }
 }

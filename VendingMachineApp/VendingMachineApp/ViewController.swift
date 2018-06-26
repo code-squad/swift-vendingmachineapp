@@ -10,20 +10,30 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    @IBOutlet var stockLabels: [UILabel]!
     @IBOutlet var addStockButtons: [UIButton]!
     @IBOutlet var stockImageViews: [UIImageView]!
     var vendingMachine: VendingMachine!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        beverageSetup()
+        setupBeverageInitStock()
+        updateStockLabels()
         setupStockImageViews()
     }
     
-    func beverageSetup() {
-        vendingMachine.addBeverage(StrawberryMilk.self, 2)
-        vendingMachine.addBeverage(BananaMilk.self)
+    func setupBeverageInitStock() {
+        vendingMachine.addBeverage(StrawberryMilk.self, 3)
+        vendingMachine.addBeverage(BananaMilk.self, 2)
         vendingMachine.addBeverage(Coke.self, 3)
+        vendingMachine.addBeverage(TOP.self, 4)
+        vendingMachine.addBeverage(Sprite.self, 2)
+    }
+    
+    func updateStockLabels() {
+        for index in stockLabels.indices {
+            self.stockLabels[index].text = String(self.vendingMachine.readStock(index)) + "개"
+        }
     }
     
     func setupStockImageViews() {
@@ -40,5 +50,16 @@ class ViewController: UIViewController {
             $0.layer.cornerRadius = 20
             $0.layer.masksToBounds = true
         }
+    }
+
+    @IBAction func addStock(_ sender: UIButton) {
+        guard let buttonIndex = self.addStockButtons.firstIndex(of: sender) else {
+            return
+        }
+        guard let beverageType = buttonIndex.beverageType else {
+            return
+        }
+        vendingMachine.addBeverage(beverageType)
+        updateStockLabels()
     }
 }

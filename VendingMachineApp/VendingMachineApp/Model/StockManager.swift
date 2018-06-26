@@ -33,6 +33,10 @@ class StockManager: StockManagable {
             self.stock[beverageType] = Stock([beverage])
         }
     }
+    
+    func readStock(_ beverageType: BeverageType) -> Int {
+        return self.stock[beverageType]?.count ?? 0
+    }
 }
 
 extension StockManager: Equatable {

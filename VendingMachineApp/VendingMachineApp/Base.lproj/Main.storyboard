@@ -62,26 +62,41 @@
                                 <rect key="frame" x="68" y="125" width="44" height="42"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="추가"/>
+                                <connections>
+                                    <action selector="addStock:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3kH-Hj-xrL"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FQT-Lp-LrY" userLabel="banana add button">
                                 <rect key="frame" x="238" y="125" width="44" height="42"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="추가"/>
+                                <connections>
+                                    <action selector="addStock:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LIZ-9a-Xjg"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jdz-4s-hHW" userLabel="coke add button">
                                 <rect key="frame" x="408" y="125" width="44" height="42"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="추가"/>
+                                <connections>
+                                    <action selector="addStock:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6Tr-87-mAG"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PxF-nG-q6B" userLabel="sprite add button">
                                 <rect key="frame" x="578" y="125" width="44" height="42"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="추가"/>
+                                <connections>
+                                    <action selector="addStock:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RS9-iM-FtD"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="55e-EX-GsN" userLabel="top add button">
                                 <rect key="frame" x="748" y="125" width="44" height="42"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="추가"/>
+                                <connections>
+                                    <action selector="addStock:" destination="BYZ-38-t0r" eventType="touchUpInside" id="leo-1D-MZn"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="재고" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fIU-zm-yLk">
                                 <rect key="frame" x="72" y="327" width="36.5" height="25.5"/>
@@ -177,6 +192,11 @@
                         <outletCollection property="addStockButtons" destination="Jdz-4s-hHW" collectionClass="NSMutableArray" id="605-v9-bv0"/>
                         <outletCollection property="addStockButtons" destination="PxF-nG-q6B" collectionClass="NSMutableArray" id="BhB-nN-IIH"/>
                         <outletCollection property="addStockButtons" destination="55e-EX-GsN" collectionClass="NSMutableArray" id="l85-pR-N4E"/>
+                        <outletCollection property="stockLabels" destination="fIU-zm-yLk" collectionClass="NSMutableArray" id="cIv-iC-g2N"/>
+                        <outletCollection property="stockLabels" destination="d1J-oQ-slJ" collectionClass="NSMutableArray" id="ufC-Jq-3WB"/>
+                        <outletCollection property="stockLabels" destination="aDx-W7-f4Z" collectionClass="NSMutableArray" id="Pvy-Fc-bKA"/>
+                        <outletCollection property="stockLabels" destination="nCU-1n-Ec2" collectionClass="NSMutableArray" id="JZr-b1-wZg"/>
+                        <outletCollection property="stockLabels" destination="wdS-IF-Qqr" collectionClass="NSMutableArray" id="qTH-Ej-hoa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

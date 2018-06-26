@@ -11,6 +11,7 @@ import Foundation
 protocol StockManagable {
     var allStock: [Stock] { get }
     func addStock(_ beverage: Beverage)
+    func readStock(_ beverageType: BeverageType) -> Int
 }
 
 protocol MoneyManagable {
@@ -51,5 +52,31 @@ class VendingMachine: NSObject {
     
     func readAllStock() -> [Stock] {
         return self.stockManager.allStock
+    }
+    
+    func readStock(_ index: Int) -> Int {
+        guard let beverageType = index.beverageType else {
+            return 0
+        }
+        return self.stockManager.readStock(BeverageType(beverageType))
+    }
+}
+
+extension Int {
+    var beverageType: Beverage.Type? {
+        switch self {
+        case 0:
+            return StrawberryMilk.self
+        case 1:
+            return BananaMilk.self
+        case 2:
+            return Coke.self
+        case 3:
+            return TOP.self
+        case 4:
+            return Sprite.self
+        default:
+            return nil
+        }
     }
 }

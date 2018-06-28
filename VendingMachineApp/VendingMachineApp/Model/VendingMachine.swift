@@ -39,6 +39,12 @@ class VendingMachine: NSObject {
         return self.sharedVendingMachine
     }
     
+    func readAllStock() -> [Stock] {
+        return self.stockManager.allStock
+    }
+}
+
+extension VendingMachine: AdminAvailable {
     func addBeverage(_ beverageType: Beverage.Type) {
         let beverage = BeverageFactory.makeBeverage(beverageType: beverageType)
         stockManager.addStock(beverage)
@@ -50,17 +56,15 @@ class VendingMachine: NSObject {
         }
     }
     
-    func readAllStock() -> [Stock] {
-        return self.stockManager.allStock
-    }
-    
     func readStock(_ index: Int) -> Int {
         guard let beverageType = index.beverageType else {
             return 0
         }
         return self.stockManager.readStock(BeverageType(beverageType))
     }
-    
+}
+
+extension VendingMachine: UserAvailable {
     func readBalance() -> Int {
         return self.moneyManager.readBalance()
     }

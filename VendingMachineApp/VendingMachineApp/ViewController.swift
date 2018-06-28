@@ -8,17 +8,28 @@
 
 import UIKit
 
+protocol AdminAvailable {
+    func addBeverage(_ beverageType: Beverage.Type)
+    func addBeverage(_ beverageType: Beverage.Type, _ count: Int)
+    func readStock(_ index: Int) -> Int
+}
+
+protocol UserAvailable {
+    func readBalance() -> Int
+    func insertMoney(_ price: Int)
+}
+
 class ViewController: UIViewController {
     
     @IBOutlet weak var balanceLabel: UILabel!
     @IBOutlet var stockLabels: [UILabel]!
     @IBOutlet var addStockButtons: [UIButton]!
     @IBOutlet var stockImageViews: [UIImageView]!
-    
-    var vendingMachine: VendingMachine!
+    weak var appDelegate: AppDelegate!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        appDelegate = UIApplication.shared.delegate as? AppDelegate
         setupBeverageInitStock()
         updateStockLabels()
         updateBalanceLabel()
@@ -26,21 +37,21 @@ class ViewController: UIViewController {
     }
     
     func setupBeverageInitStock() {
-        vendingMachine.addBeverage(StrawberryMilk.self, 3)
-        vendingMachine.addBeverage(BananaMilk.self, 2)
-        vendingMachine.addBeverage(Coke.self, 3)
-        vendingMachine.addBeverage(TOP.self, 4)
-        vendingMachine.addBeverage(Sprite.self, 2)
+        appDelegate.sharedVendingMachine.addBeverage(StrawberryMilk.self, 3)
+        appDelegate.sharedVendingMachine.addBeverage(BananaMilk.self, 2)
+        appDelegate.sharedVendingMachine.addBeverage(Coke.self, 3)
+        appDelegate.sharedVendingMachine.addBeverage(TOP.self, 4)
+        appDelegate.sharedVendingMachine.addBeverage(Sprite.self, 2)
     }
     
     func updateStockLabels() {
         for index in stockLabels.indices {
-            self.stockLabels[index].text = String(self.vendingMachine.readStock(index)) + "개"
+            self.stockLabels[index].text = String(appDelegate.sharedVendingMachine.readStock(index)) + "개"
         }
     }
     
     func updateBalanceLabel() {
-        self.balanceLabel.text = String(format: "%d원", vendingMachine.readBalance())
+        self.balanceLabel.text = String(format: "%d원", appDelegate.sharedVendingMachine.readBalance())
     }
     
     func setupStockImageViews() {
@@ -63,13 +74,13 @@ class ViewController: UIViewController {
         guard let beverageType = buttonIndex.beverageType else {
             return
         }
-        vendingMachine.addBeverage(beverageType)
+        appDelegate.sharedVendingMachine.addBeverage(beverageType)
         updateStockLabels()
     }
     
     @IBAction func insertMoney(_ sender: UIButton) {
         let money: Int = Int(sender.titleLabel?.text ?? "") ?? 0
-        vendingMachine.insertMoney(money)
+        appDelegate.sharedVendingMachine.insertMoney(money)
         updateBalanceLabel()
     }
 }

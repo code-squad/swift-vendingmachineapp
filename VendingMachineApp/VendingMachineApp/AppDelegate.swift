@@ -12,14 +12,15 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var sharedVendingMachine: AdminAvailable & UserAvailable
+    
+    override init() {
+        self.sharedVendingMachine = VendingMachine.shared()
+        super.init()
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
-        let sharedVendingMachine: VendingMachine = VendingMachine.shared()
-        if let viewController = window?.rootViewController as? ViewController {
-            viewController.vendingMachine = sharedVendingMachine
-        }
         return true
     }
 

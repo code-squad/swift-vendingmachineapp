@@ -41,3 +41,12 @@
 * 문서정리
 	- [MVC에 대한 간단한 정리](docs/MVC간단한개념.md)
 	- [clipsToBoduns,maskToBounds](docs/clipsToBounds_maskToBounds.md)
+	
+## Stpe. 3
+* Keywords
+	- NSCopying, NSMutable Copying, 가변 불변
+	- 깊은 복사, 얕은 복사
+	- 깊은 복사 구현방식 - 1. 코어데이터, 2. NSCoding, keyed-archived(객체인코딩)아카이브 클래스
+	- 아카이브, 객체 직렬화, 아카이브
+	- copy on write
+	

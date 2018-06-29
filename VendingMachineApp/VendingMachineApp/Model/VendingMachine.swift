@@ -8,23 +8,11 @@
 
 import Foundation
 
-protocol StockManagable {
-    var allStock: [Stock] { get }
-    func addStock(_ beverage: Beverage)
-    func readStock(_ beverageType: BeverageType) -> Int
-}
-
-protocol MoneyManagable {
-    func readBalance() -> Int
-    func increaseBalance(_ price: Int)
-    func decreaseBalance(_ price: Int)
-}
-
 class VendingMachine: NSObject {
-    private var moneyManager: MoneyManagable
-    private var stockManager: StockManagable
+    private var moneyManager: MoneyManager
+    private var stockManager: StockManager
     
-    private init(_ moneyManager: MoneyManagable, stockManager: StockManagable) {
+    private init(_ moneyManager: MoneyManager, stockManager: StockManager) {
         self.moneyManager = moneyManager
         self.stockManager = stockManager
     }
@@ -42,9 +30,15 @@ class VendingMachine: NSObject {
     func readAllStock() -> [Stock] {
         return self.stockManager.allStock
     }
-}
-
-extension VendingMachine: AdminAvailable {
+    
+    func readBalance() -> Int {
+        return self.moneyManager.readBalance()
+    }
+    
+    func insertMoney(_ price: Int) {
+        self.moneyManager.increaseBalance(price)
+    }
+    
     func addBeverage(_ beverageType: Beverage.Type) {
         let beverage = BeverageFactory.makeBeverage(beverageType: beverageType)
         stockManager.addStock(beverage)
@@ -61,16 +55,6 @@ extension VendingMachine: AdminAvailable {
             return 0
         }
         return self.stockManager.readStock(BeverageType(beverageType))
-    }
-}
-
-extension VendingMachine: UserAvailable {
-    func readBalance() -> Int {
-        return self.moneyManager.readBalance()
-    }
-    
-    func insertMoney(_ price: Int) {
-        self.moneyManager.increaseBalance(price)
     }
 }
 

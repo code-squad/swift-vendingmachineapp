@@ -12,16 +12,10 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var sharedVendingMachine: AdminAvailable & UserAvailable
-    
-    override init() {
-        self.sharedVendingMachine = VendingMachine.shared()
-        super.init()
-    }
+    var sharedVendingMachine = VendingMachine.shared()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        return true
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

@@ -10,7 +10,7 @@ import Foundation
 
 typealias BeverageType = ObjectIdentifier
 
-class StockManager: StockManagable {
+class StockManager {
     private var stock: [BeverageType:Stock]
     
     init(_ stock: [BeverageType:Stock]) {

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class VendingMachine: NSObject {
+class VendingMachine: NSObject, Codable {
     private var moneyManager: MoneyManager
     private var stockManager: StockManager
     

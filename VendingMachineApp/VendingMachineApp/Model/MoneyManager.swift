@@ -8,7 +8,7 @@
 
 import Foundation
 
-class MoneyManager: MoneyManagable {
+class MoneyManager: Codable {
     private var balance: Int = 0
     
     func readBalance() -> Int {

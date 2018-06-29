@@ -10,7 +10,7 @@ import Foundation
 
 typealias BeverageType = ObjectIdentifier
 
-class StockManager {
+class StockManager: Codable {
     private var stock: [BeverageType:Stock]
     
     init(_ stock: [BeverageType:Stock]) {
@@ -37,6 +37,28 @@ class StockManager {
     func readStock(_ beverageType: BeverageType) -> Int {
         return self.stock[beverageType]?.count ?? 0
     }
+    
+    enum CodingKeys: String, CodingKey {
+        case stocks = "stocks"
+    }
+    
+    // Encodable
+    func encode(to encoder: Encoder) throws {
+        var stocks = [Stock]()
+        self.stock.values.forEach { stocks.append($0) }
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(stocks, forKey: .stocks)
+    }
+    
+    // Decodable
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let stocks = try container.decode([Stock].self, forKey: .stocks)
+        let tempStock = stocks.reduce(into: [BeverageType:Stock](), {
+            $0[$1.beverageType] = $1
+        })
+        self.stock = tempStock
+    }
 }
 
 extension StockManager: Equatable {
@@ -45,7 +67,7 @@ extension StockManager: Equatable {
     }
 }
 
-class Stock: IteratorProtocol, Sequence {
+class Stock: IteratorProtocol, Sequence, Codable {
     private var beverages: [Beverage]
     
     init(_ beverages: [Beverage]) {
@@ -62,6 +84,10 @@ class Stock: IteratorProtocol, Sequence {
     
     var beverageName: String {
         return self.beverages.last?.description ?? ""
+    }
+    
+    var beverageType: BeverageType {
+        return BeverageType(type(of: self.beverages.first!))
     }
     
     func add(_ beverage: Beverage) {

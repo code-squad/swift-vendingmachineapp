@@ -13,7 +13,11 @@ class Soda: Beverage {
         super.init(name: name, price: price)
     }
     
-    required init() {
+    override init() {
         super.init(name: DefaultData.soda.name, price: DefaultData.soda.price)
+    }
+    
+    required init(from decoder: Decoder) throws {
+        try super.init(from: decoder)
     }
 }

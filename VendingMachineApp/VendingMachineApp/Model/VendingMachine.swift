@@ -39,40 +39,20 @@ class VendingMachine: NSObject, Codable {
         self.moneyManager.increaseBalance(price)
     }
     
-    func addBeverage(_ beverageType: Beverage.Type) {
-        let beverage = BeverageFactory.makeBeverage(beverageType: beverageType)
+    func addBeverage(_ beverage: Beverage) {
         stockManager.addStock(beverage)
     }
     
-    func addBeverage(_ beverageType: Beverage.Type, _ count: Int) {
+    func addBeverage(_ beverage: Beverage, _ count: Int) {
         for _ in 0..<count {
-            self.addBeverage(beverageType)
+            self.addBeverage(beverage)
         }
     }
     
     func readStock(_ index: Int) -> Int {
-        guard let beverageType = index.beverageType else {
+        guard let menu = Menu.init(rawValue: index) else {
             return 0
         }
-        return self.stockManager.readStock(BeverageType(beverageType))
-    }
-}
-
-extension Int {
-    var beverageType: Beverage.Type? {
-        switch self {
-        case 0:
-            return StrawberryMilk.self
-        case 1:
-            return BananaMilk.self
-        case 2:
-            return Coke.self
-        case 3:
-            return TOP.self
-        case 4:
-            return Sprite.self
-        default:
-            return nil
-        }
+        return self.stockManager.readStock(menu.beverageType)
     }
 }

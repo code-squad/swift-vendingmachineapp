@@ -9,7 +9,11 @@
 import Foundation
 
 class Georgia: Coffee {
-    required init() {
+    override init() {
         super.init(name: DefaultData.georgia.name, price: DefaultData.georgia.price)
+    }
+    
+    required init(from decoder: Decoder) throws {
+        try super.init(from: decoder)
     }
 }

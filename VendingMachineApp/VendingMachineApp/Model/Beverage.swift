@@ -8,7 +8,8 @@
 
 import Foundation
 
-class Beverage: NSObject, Codable {
+class Beverage: CustomStringConvertible, Codable {
+    
     private let name: String
     private let price: Int
     
@@ -17,20 +18,35 @@ class Beverage: NSObject, Codable {
         self.price = price
     }
     
-    override required init() {
-        self.name = DefaultData.beverage.name
-        self.price = DefaultData.beverage.price
+    init() {
+        name = DefaultData.beverage.name
+        price = DefaultData.beverage.price
     }
     
-    override var description: String {
+    var description: String {
         return "\(self.name)"
     }
     
-    override func isEqual(_ object: Any?) -> Bool {
-        if let object = object as? Beverage {
-            return ObjectIdentifier(type(of: self)) == ObjectIdentifier(type(of: object))
-        } else {
-            return false
-        }
+    private enum CodingKeys: String, CodingKey {
+        case name
+        case price
+    }
+
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(name, forKey: .name)
+        try container.encode(price, forKey: .price)
+    }
+
+    required init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        name = try values.decode(String.self, forKey: .name)
+        price = try values.decode(Int.self, forKey: .price)
+    }
+}
+
+extension Beverage: Equatable {
+    static func == (lhs: Beverage, rhs: Beverage) -> Bool {
+        return lhs.name == rhs.name && rhs.price == rhs.price
     }
 }

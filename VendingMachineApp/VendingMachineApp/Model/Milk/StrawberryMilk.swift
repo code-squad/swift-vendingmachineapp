@@ -9,7 +9,11 @@
 import Foundation
 
 class StrawberryMilk: Milk {
-    required init() {
+    override init() {
         super.init(name: DefaultData.strawberryMilk.name, price: DefaultData.strawberryMilk.price)
+    }
+    
+    required init(from decoder: Decoder) throws {
+        try super.init(from: decoder)
     }
 }

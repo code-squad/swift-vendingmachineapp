@@ -9,7 +9,11 @@
 import Foundation
 
 class TOP: Coffee {
-    required init() {
+    override init() {
         super.init(name: DefaultData.top.name, price: DefaultData.top.price)
+    }
+    
+    required init(from decoder: Decoder) throws {
+        try super.init(from: decoder)
     }
 }

@@ -39,7 +39,7 @@ class StockManager: Codable {
     }
     
     enum CodingKeys: String, CodingKey {
-        case stocks = "stocks"
+        case stock
     }
     
     // Encodable
@@ -47,13 +47,14 @@ class StockManager: Codable {
         var stocks = [Stock]()
         self.stock.values.forEach { stocks.append($0) }
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(stocks, forKey: .stocks)
+        try container.encode(stocks, forKey: .stock)
     }
     
     // Decodable
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        let stocks = try container.decode([Stock].self, forKey: .stocks)
+        let stocks = try container.decode([Stock].self, forKey: .stock)
+        
         let tempStock = stocks.reduce(into: [BeverageType:Stock](), {
             $0[$1.beverageType] = $1
         })

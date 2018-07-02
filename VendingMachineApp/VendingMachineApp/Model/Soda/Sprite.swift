@@ -9,7 +9,11 @@
 import Foundation
 
 class Sprite: Soda {
-    required init() {
+    override init() {
         super.init(name: DefaultData.sprite.name, price: DefaultData.sprite.price)
+    }
+    
+    required init(from decoder: Decoder) throws {
+        try super.init(from: decoder)
     }
 }

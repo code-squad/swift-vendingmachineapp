@@ -9,7 +9,11 @@
 import Foundation
 
 class Cantata: Coffee {
-    required init() {
+    override init() {
         super.init(name: DefaultData.cantata.name, price: DefaultData.cantata.price)
+    }
+    
+    required init(from decoder: Decoder) throws {
+        try super.init(from: decoder)
     }
 }

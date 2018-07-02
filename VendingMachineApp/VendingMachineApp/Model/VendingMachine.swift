@@ -21,7 +21,7 @@ class VendingMachine: NSObject, Codable {
         self.init(MoneyManager(), stockManager: StockManager())
     }
     
-    private static let sharedVendingMachine = VendingMachine()
+    private static var sharedVendingMachine = VendingMachine()
     
     class func shared() -> VendingMachine {
         return self.sharedVendingMachine

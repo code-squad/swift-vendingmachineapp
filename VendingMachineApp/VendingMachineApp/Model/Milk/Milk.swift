@@ -9,15 +9,26 @@
 import Foundation
 
 class Milk: Beverage {
-    override init(name: String, price: Int) {
+    private var farmCode: Int
+    
+    init(name: String, price: Int, farmCode: Int) {
+        self.farmCode = farmCode
         super.init(name: name, price: price)
     }
     
-    override init() {
-        super.init(name: DefaultData.milk.name, price: DefaultData.milk.price)
+    convenience init() {
+        self.init(name: DefaultData.milk.name, price: DefaultData.milk.price, farmCode: 100)
     }
     
     required init(from decoder: Decoder) throws {
+        var container = try decoder.unkeyedContainer()
+        self.farmCode = try container.decode(Int.self)
         try super.init(from: decoder)
+    }
+    
+    override func encode(to encoder: Encoder) throws {
+        var container = encoder.unkeyedContainer()
+        try container.encode(farmCode)
+        try super.encode(to: encoder)
     }
 }

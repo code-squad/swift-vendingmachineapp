@@ -1,4 +1,3 @@
-//
 //  StockManager.swift
 //  VendingMachineApp
 //
@@ -10,7 +9,7 @@ import Foundation
 
 typealias BeverageType = ObjectIdentifier
 
-class StockManager: Codable {
+class StockManager: Codable, Equatable {
     private var stock: [BeverageType:Stock]
     
     init(_ stock: [BeverageType:Stock]) {
@@ -38,6 +37,11 @@ class StockManager: Codable {
         return self.stock[beverageType]?.count ?? 0
     }
     
+    // Equtable
+    static func == (lhs: StockManager, rhs: StockManager) -> Bool {
+        return lhs.stock == rhs.stock
+    }
+    
     enum CodingKeys: String, CodingKey {
         case stock
     }
@@ -46,25 +50,17 @@ class StockManager: Codable {
     func encode(to encoder: Encoder) throws {
         var stocks = [Stock]()
         self.stock.values.forEach { stocks.append($0) }
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(stocks, forKey: .stock)
+        var container = encoder.unkeyedContainer()
+        try container.encode(stocks)
+//        try container.encode(stocks, forKey: .stock)
     }
     
     // Decodable
     required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        let stocks = try container.decode([Stock].self, forKey: .stock)
-        
-        let tempStock = stocks.reduce(into: [BeverageType:Stock](), {
-            $0[$1.beverageType] = $1
-        })
-        self.stock = tempStock
-    }
-}
-
-extension StockManager: Equatable {
-    static func == (lhs: StockManager, rhs: StockManager) -> Bool {
-        return lhs.stock == rhs.stock
+        var container = try decoder.unkeyedContainer()
+        let stocks = try container.decode([Stock].self)
+        for stock in stocks {
+        self.stock = [BeverageType:Stock]()
     }
 }
 
@@ -105,6 +101,10 @@ class Stock: IteratorProtocol, Sequence, Codable {
             return nil
         }
     }
+    
+    enum Codingkeys: String, CodingKey {
+        case beverages
+    }
 }
 
 extension Stock: Equatable {
@@ -112,4 +112,3 @@ extension Stock: Equatable {
         return lhs.beverages == rhs.beverages
     }
 }
-

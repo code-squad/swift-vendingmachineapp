@@ -8,20 +8,19 @@
 
 import Foundation
 
-class VendingMachine: NSObject, Codable {
+class VendingMachine: Codable {
     private var moneyManager: MoneyManager
     private var stockManager: StockManager
+    private static var sharedVendingMachine = VendingMachine()
     
-    private init(_ moneyManager: MoneyManager, stockManager: StockManager) {
+    private init(_ moneyManager: MoneyManager, _ stockManager: StockManager) {
         self.moneyManager = moneyManager
         self.stockManager = stockManager
     }
     
-    private override convenience init() {
-        self.init(MoneyManager(), stockManager: StockManager())
+    private convenience init() {
+        self.init(MoneyManager(), StockManager())
     }
-    
-    private static var sharedVendingMachine = VendingMachine()
     
     class func shared() -> VendingMachine {
         return self.sharedVendingMachine

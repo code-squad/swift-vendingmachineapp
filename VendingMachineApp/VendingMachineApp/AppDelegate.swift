@@ -16,6 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        if let loadedVendingMachine = VendingMachineDataManager.loadVendingMachineData() {
+            sharedVendingMachine = loadedVendingMachine
+        }
         return true
     }
 
@@ -27,6 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        VendingMachineDataManager.saveVendingMachineData(sharedVendingMachine)
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {

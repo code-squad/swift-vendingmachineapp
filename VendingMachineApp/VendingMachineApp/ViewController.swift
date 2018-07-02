@@ -8,17 +8,6 @@
 
 import UIKit
 
-protocol AdminAvailable {
-    func addBeverage(_ beverageType: Beverage.Type)
-    func addBeverage(_ beverageType: Beverage.Type, _ count: Int)
-    func readStock(_ index: Int) -> Int
-}
-
-protocol UserAvailable {
-    func readBalance() -> Int
-    func insertMoney(_ price: Int)
-}
-
 class ViewController: UIViewController {
     
     @IBOutlet weak var balanceLabel: UILabel!
@@ -37,11 +26,11 @@ class ViewController: UIViewController {
     }
     
     func setupBeverageInitStock() {
-        appDelegate.sharedVendingMachine.addBeverage(StrawberryMilk.self, 3)
-        appDelegate.sharedVendingMachine.addBeverage(BananaMilk.self, 2)
-        appDelegate.sharedVendingMachine.addBeverage(Coke.self, 3)
-        appDelegate.sharedVendingMachine.addBeverage(TOP.self, 4)
-        appDelegate.sharedVendingMachine.addBeverage(Sprite.self, 2)
+        appDelegate.sharedVendingMachine.addBeverage(StrawberryMilk(), 3)
+        appDelegate.sharedVendingMachine.addBeverage(BananaMilk(), 2)
+        appDelegate.sharedVendingMachine.addBeverage(Coke(), 3)
+        appDelegate.sharedVendingMachine.addBeverage(TOP(), 4)
+        appDelegate.sharedVendingMachine.addBeverage(Sprite(), 2)
     }
     
     func updateStockLabels() {
@@ -68,13 +57,13 @@ class ViewController: UIViewController {
     }
 
     @IBAction func addStock(_ sender: UIButton) {
-        guard let buttonIndex = self.addStockButtons.firstIndex(of: sender) else {
+        guard let buttonIndex = self.addStockButtons.index(of: sender) else {
             return
         }
-        guard let beverageType = buttonIndex.beverageType else {
+        guard let beverage = BeverageFactory.makeBeverage(meunNumber: buttonIndex) else {
             return
         }
-        appDelegate.sharedVendingMachine.addBeverage(beverageType)
+        appDelegate.sharedVendingMachine.addBeverage(beverage)
         updateStockLabels()
     }
     

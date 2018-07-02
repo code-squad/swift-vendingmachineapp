@@ -18,26 +18,25 @@ class Beverage: CustomStringConvertible, Codable {
         self.price = price
     }
     
-    init() {
-        name = DefaultData.beverage.name
-        price = DefaultData.beverage.price
+    convenience init() {
+        self.init(name: DefaultData.beverage.name, price: DefaultData.beverage.price)
     }
     
     var description: String {
         return "\(self.name)"
     }
     
-    private enum CodingKeys: String, CodingKey {
+    enum CodingKeys: String, CodingKey {
         case name
         case price
     }
-
+    
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(name, forKey: .name)
         try container.encode(price, forKey: .price)
     }
-
+    
     required init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         name = try values.decode(String.self, forKey: .name)

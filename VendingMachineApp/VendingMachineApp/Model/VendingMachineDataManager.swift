@@ -10,24 +10,21 @@ import Foundation
 
 class VendingMachineDataManager {
     
-    static private let encodingKey = "machine"
-    static private let saveKey = "savemachine"
+    private static let saveKey = "machine"
     
     static func saveVendingMachineData(_ vendingMachine: VendingMachine) {
-        let archiver = NSKeyedArchiver()
-        do {
-            try archiver.encodeEncodable(vendingMachine, forKey: encodingKey)
-            UserDefaults.standard.set(archiver.encodedData, forKey: saveKey)
-        } catch {
-            fatalError("save data error!!")
+        let encoder = PropertyListEncoder()
+        if let data = try? encoder.encode(vendingMachine) {
+            UserDefaults.standard.set(data, forKey: saveKey)
         }
+        return
     }
     
     static func loadVendingMachineData() -> VendingMachine? {
         guard let data = UserDefaults.standard.data(forKey: saveKey) else {
             return nil
         }
-        let unarchiver = NSKeyedUnarchiver(forReadingWith: data)
-        return unarchiver.decodeDecodable(VendingMachine.self, forKey: encodingKey)
+        let decoder = PropertyListDecoder()
+        return try? decoder.decode(VendingMachine.self, from: data)
     }
 }

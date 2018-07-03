@@ -19,16 +19,4 @@ class TOP: Coffee {
     convenience init() {
         self.init(name: DefaultData.top.name, price: DefaultData.top.price, country: "케냐")
     }
-    
-    required init(from decoder: Decoder) throws {
-        var container = try decoder.unkeyedContainer()
-        self.temperature = try container.decode(Int.self)
-        try super.init(from: decoder)
-    }
-    
-    override func encode(to encoder: Encoder) throws {
-        var container = encoder.unkeyedContainer()
-        try container.encode(temperature)
-        try super.encode(to: encoder)
-    }
 }

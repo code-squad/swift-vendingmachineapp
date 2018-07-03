@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var balance: UILabel!
     @IBOutlet var inventory: [UILabel]!
+    @IBOutlet var beverageImages: [UIImageView]!
     
     private var vendingmachine: Vendingmachine
 
@@ -26,6 +27,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         addBalanceLabel()
         addInventoryLabel()
+        makeRoundImages()
     }
 
     override func didReceiveMemoryWarning() {
@@ -73,6 +75,13 @@ class ViewController: UIViewController {
         }
     }
 
+    private func makeRoundImages() {
+        beverageImages.forEach({
+            $0.layer.cornerRadius = 20
+            $0.layer.masksToBounds = true
+        })
+    }
+    
     private func showInventory() {
         print("=> ", terminator: "")
         let beverage = vendingmachine.makeKindOfBeverage()
@@ -83,6 +92,5 @@ class ViewController: UIViewController {
             }
         }
     }
-
 }
 

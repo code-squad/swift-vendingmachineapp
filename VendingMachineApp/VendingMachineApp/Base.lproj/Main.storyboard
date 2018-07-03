@@ -38,17 +38,8 @@
                                 <rect key="frame" x="761" y="274" width="140" height="120"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DZr-Lw-lyY">
-                                <rect key="frame" x="888" y="291" width="68" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                <state key="normal" title="+1000"/>
-                                <connections>
-                                    <action selector="addMoneyButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MlM-NX-yPC"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mHy-EP-h3h">
-                                <rect key="frame" x="975" y="291" width="71" height="40"/>
+                                <rect key="frame" x="1000" y="291" width="71" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <state key="normal" title="+5000"/>
@@ -143,8 +134,17 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DZr-Lw-lyY">
+                                <rect key="frame" x="910" y="291" width="68" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <state key="normal" title="+1000"/>
+                                <connections>
+                                    <action selector="addMoneyButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MlM-NX-yPC"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
@@ -154,6 +154,11 @@
                         <outletCollection property="inventory" destination="Vg0-fj-OXU" collectionClass="NSMutableArray" id="BQB-i2-1Vl"/>
                         <outletCollection property="inventory" destination="KGO-mt-lhM" collectionClass="NSMutableArray" id="jjK-XK-dcd"/>
                         <outletCollection property="inventory" destination="bOB-uw-Umc" collectionClass="NSMutableArray" id="gFG-hJ-xny"/>
+                        <outletCollection property="beverageImages" destination="02x-DB-6Ia" collectionClass="NSMutableArray" id="4Na-To-ooA"/>
+                        <outletCollection property="beverageImages" destination="I5k-CU-sd0" collectionClass="NSMutableArray" id="b7S-iC-eDm"/>
+                        <outletCollection property="beverageImages" destination="TrP-le-7rs" collectionClass="NSMutableArray" id="yf7-JS-Z1y"/>
+                        <outletCollection property="beverageImages" destination="zK5-62-LUF" collectionClass="NSMutableArray" id="DZk-pO-T07"/>
+                        <outletCollection property="beverageImages" destination="XWR-N5-DaT" collectionClass="NSMutableArray" id="L9r-Nh-LdS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

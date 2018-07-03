@@ -293,6 +293,10 @@
 		D69190AF20E4E65700FE4E57 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					1,
+					2,
+				);
 				LastSwiftUpdateCheck = 0940;
 				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = "김수현";

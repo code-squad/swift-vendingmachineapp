@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UIViewController {
     
     private var vendingmachine: Vendingmachine
+    @IBOutlet weak var balance: UILabel!
     
     let beverages = BeverageFactory().setBeverage()
     
@@ -30,6 +31,25 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    
+    @IBAction func addMoneyButton(_ sender: UIButton) {
+        switch sender.tag {
+        case 0:
+            vendingmachine.addBalance(1000)
+        case 1:
+            vendingmachine.addBalance(5000)
+        default:
+            return
+        }
+        addBalanceLabel()
+    }
+    
+    func addBalanceLabel() {
+        self.balance.text = "\(vendingmachine.checkBalance())원"
+    }
+    
+    
+    
     private func showInventory() {
         print("=> ", terminator: "")
         let beverage = vendingmachine.makeKindOfBeverage()

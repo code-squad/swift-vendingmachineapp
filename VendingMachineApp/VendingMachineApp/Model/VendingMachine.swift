@@ -8,7 +8,7 @@
 
 import Foundation
 
-class VendingMachine: Codable {
+class VendingMachine {
     private var moneyManager: MoneyManager
     private var stockManager: StockManager
     private static var sharedVendingMachine = VendingMachine()

@@ -9,7 +9,7 @@ import Foundation
 
 typealias BeverageType = ObjectIdentifier
 
-class StockManager: Codable, Equatable {
+class StockManager: Equatable {
     private var stock: [BeverageType:Stock]
     
     init(_ stock: [BeverageType:Stock]) {
@@ -41,30 +41,9 @@ class StockManager: Codable, Equatable {
     static func == (lhs: StockManager, rhs: StockManager) -> Bool {
         return lhs.stock == rhs.stock
     }
-    
-    enum CodingKeys: String, CodingKey {
-        case stock
-    }
-    
-    // Encodable
-    func encode(to encoder: Encoder) throws {
-        var stocks = [Stock]()
-        self.stock.values.forEach { stocks.append($0) }
-        var container = encoder.unkeyedContainer()
-        try container.encode(stocks)
-//        try container.encode(stocks, forKey: .stock)
-    }
-    
-    // Decodable
-    required init(from decoder: Decoder) throws {
-        var container = try decoder.unkeyedContainer()
-        let stocks = try container.decode([Stock].self)
-        for stock in stocks {
-        self.stock = [BeverageType:Stock]()
-    }
 }
 
-class Stock: IteratorProtocol, Sequence, Codable {
+class Stock: IteratorProtocol, Sequence {
     private var beverages: [Beverage]
     
     init(_ beverages: [Beverage]) {
@@ -100,10 +79,6 @@ class Stock: IteratorProtocol, Sequence, Codable {
             self.index = 0
             return nil
         }
-    }
-    
-    enum Codingkeys: String, CodingKey {
-        case beverages
     }
 }
 

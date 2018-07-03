@@ -19,16 +19,4 @@ class BananaMilk: Milk {
     convenience init() {
         self.init(name: DefaultData.bananaMilk.name, price: DefaultData.bananaMilk.price, farmCode: 102)
     }
-    
-    required init(from decoder: Decoder) throws {
-        var container = try decoder.unkeyedContainer()
-        self.flavor = try container.decode(String.self)
-        try super.init(from: decoder)
-    }
-    
-    override func encode(to encoder: Encoder) throws {
-        var container = encoder.unkeyedContainer()
-        try container.encode(flavor)
-        try super.encode(to: encoder)
-    }
 }

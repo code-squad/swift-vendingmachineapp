@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Beverage: CustomStringConvertible, Codable {
+class Beverage: CustomStringConvertible {
     
     private let name: String
     private let price: Int
@@ -24,23 +24,6 @@ class Beverage: CustomStringConvertible, Codable {
     
     var description: String {
         return "\(self.name)"
-    }
-    
-    enum CodingKeys: String, CodingKey {
-        case name
-        case price
-    }
-    
-    func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(name, forKey: .name)
-        try container.encode(price, forKey: .price)
-    }
-    
-    required init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self)
-        name = try values.decode(String.self, forKey: .name)
-        price = try values.decode(Int.self, forKey: .price)
     }
 }
 

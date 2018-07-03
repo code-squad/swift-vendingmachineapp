@@ -19,18 +19,18 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         appDelegate = UIApplication.shared.delegate as? AppDelegate
-        setupBeverageInitStock()
+//        setupBeverageInitStock()
         updateStockLabels()
         updateBalanceLabel()
         setupStockImageViews()
     }
     
     func setupBeverageInitStock() {
-        appDelegate.sharedVendingMachine.addBeverage(StrawberryMilk(), 3)
-        appDelegate.sharedVendingMachine.addBeverage(BananaMilk(), 2)
-        appDelegate.sharedVendingMachine.addBeverage(Coke(), 3)
-        appDelegate.sharedVendingMachine.addBeverage(TOP(), 4)
-        appDelegate.sharedVendingMachine.addBeverage(Sprite(), 2)
+        appDelegate.sharedVendingMachine.addBeverage(StrawberryMilk(), 1)
+        appDelegate.sharedVendingMachine.addBeverage(BananaMilk(), 1)
+        appDelegate.sharedVendingMachine.addBeverage(Coke(), 1)
+        appDelegate.sharedVendingMachine.addBeverage(TOP(), 1)
+        appDelegate.sharedVendingMachine.addBeverage(Sprite(), 1)
     }
     
     func updateStockLabels() {

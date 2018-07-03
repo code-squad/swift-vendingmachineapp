@@ -19,16 +19,4 @@ class Soda: Beverage {
     convenience init() {
         self.init(name: DefaultData.soda.name, price: DefaultData.soda.price, calorie: 0)
     }
-    
-    required init(from decoder: Decoder) throws {
-        var container = try decoder.unkeyedContainer()
-        self.calorie = try container.decode(Int.self)
-        try super.init(from: decoder)
-    }
-    
-    override func encode(to encoder: Encoder) throws {
-        var container = encoder.unkeyedContainer()
-        try container.encode(calorie)
-        try super.encode(to: encoder)
-    }
 }

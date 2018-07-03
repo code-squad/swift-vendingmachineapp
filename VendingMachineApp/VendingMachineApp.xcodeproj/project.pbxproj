@@ -174,9 +174,9 @@
 		D69190B920E4E65700FE4E57 /* VendingMachineApp */ = {
 			isa = PBXGroup;
 			children = (
+				D69190ED20E5D24B00FE4E57 /* Beverages */,
 				D691910C20E5D31200FE4E57 /* BeverageFactory.swift */,
 				D691910A20E5D2F800FE4E57 /* Vendingmachine.swift */,
-				D69190ED20E5D24B00FE4E57 /* Beverages */,
 				D69190BA20E4E65800FE4E57 /* AppDelegate.swift */,
 				D69190BC20E4E65800FE4E57 /* ViewController.swift */,
 				D69190BE20E4E65800FE4E57 /* Main.storyboard */,

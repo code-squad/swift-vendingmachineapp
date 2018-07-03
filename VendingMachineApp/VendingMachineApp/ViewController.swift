@@ -10,9 +10,11 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    private var vendingmachine: Vendingmachine
     @IBOutlet weak var balance: UILabel!
+    @IBOutlet var inventory: [UILabel]!
     
+    private var vendingmachine: Vendingmachine
+
     let beverages = BeverageFactory().setBeverage()
     
     required init?(coder aDecoder: NSCoder) {
@@ -22,16 +24,14 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        showInventory()
-        // Do any additional setup after loading the view, typically from a nib.
+        addBalanceLabel()
+        addInventoryLabel()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
-    
     @IBAction func addMoneyButton(_ sender: UIButton) {
         switch sender.tag {
         case 0:
@@ -44,12 +44,35 @@ class ViewController: UIViewController {
         addBalanceLabel()
     }
     
-    func addBalanceLabel() {
+    private func addBalanceLabel() {
         self.balance.text = "\(vendingmachine.checkBalance())원"
     }
-    
-    
-    
+
+    @IBAction func addBeverageButton(_ sender: UIButton) {
+        switch sender.tag {
+        case 0:
+            vendingmachine.addPurchases(StrawberryMilk())
+        case 1:
+            vendingmachine.addPurchases(ChocoMilk())
+        case 2:
+            vendingmachine.addPurchases(Coke())
+        case 3:
+            vendingmachine.addPurchases(Top())
+        case 4:
+            vendingmachine.addPurchases(Sprite())
+        default:
+            return
+        }
+        addInventoryLabel()
+    }
+
+    private func addInventoryLabel() {
+        let beverages = [StrawberryMilk().kind, ChocoMilk().kind, Coke().kind, Top().kind, Sprite().kind]
+        for index in inventory.indices {
+            self.inventory[index].text = String(vendingmachine.countOfInventory(beverages[index])) + "개"
+        }
+    }
+
     private func showInventory() {
         print("=> ", terminator: "")
         let beverage = vendingmachine.makeKindOfBeverage()

@@ -29,14 +29,14 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
     private func showInventory() {
         print("=> ", terminator: "")
-        let kind = vendingmachine.makeKindOfBeverage()
-        for item in kind {
-            let beverage = vendingmachine[item]
-            if let kind = beverage?.map({$0.kind}) {
-                print("\(kind.first ?? "")(\(kind.count)개) ", terminator: "")
+        let beverage = vendingmachine.makeKindOfBeverage()
+        for item in beverage {
+            let beverages = vendingmachine[item]
+            if let kinds = beverages?.map({$0.kind}) {
+                print("\(kinds.first ?? "")(\(kinds.count)개) ", terminator: "")
             }
         }
     }

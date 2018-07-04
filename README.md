@@ -72,5 +72,8 @@
 	1. 코어데이터
 	2. NSCoding, keyed-archived(객체인코딩)아카이브 클래스
 - [UserDefaults](https://developer.apple.com/documentation/foundation/userdefaults?changes=_9)
+- [Archive and Serialization](https://developer.apple.com/documentation/foundation/archives_and_serialization)
+- [Encoding & Decoding Custom type](https://developer.apple.com/documentation/foundation/archives_and_serialization/encoding_and_decoding_custom_types)
 
 ![persistencecheetsheet](images/persistencecheetsheet.png)
+(출처: 코드스쿼드)

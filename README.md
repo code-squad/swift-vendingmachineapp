@@ -29,7 +29,7 @@
 	- 금액을 추가하고 나면 잔액 레이블을 다시 표시한다.
 * 구현화면
 
-![demo_step2](demo_step2.gif)
+![demo_step2](images/demo_step2.gif)
 
 * 학습꺼리
 	- IBOutlet Collection 기능에 대해 학습하고 중복되는 아웃렛을 제거한다.
@@ -43,10 +43,34 @@
 	- [clipsToBoduns,maskToBounds](docs/clipsToBounds_maskToBounds.md)
 	
 ## Stpe. 3
-* Keywords
-	- NSCopying, NSMutable Copying, 가변 불변
-	- 깊은 복사, 얕은 복사
-	- 깊은 복사 구현방식 - 1. 코어데이터, 2. NSCoding, keyed-archived(객체인코딩)아카이브 클래스
-	- 아카이브, 객체 직렬화, 아카이브
-	- copy on write
-	
+* 요구사항
+	- 앱을 다시 실행하면 마지막 재고 상태를 그대로 복원한다.
+	- 앱 실행 이후 마지막 자판기 재고 상태와 잔액 등 VendingMachine 객체의 속성을 앱을 종료하더라도 저장하도록 개선한다.
+	- 저장할 때는 VendingMachine을 아카이브해서 하나의 데이터 값으로 변형한다.
+	- 값을 저장하고 복원하는 데에는 UserDefault 라는 파운데이션 라이브러리를 사용한다.
+	- 복원할 때는 저장된 데이터 값을 언아카이브해서 VendingMachine 객체를 생성한다.
+* 구현화면 (앱을 종료하고 다시 실행해도 이전의 상태를 그대로 불러온다.)
+
+![demo_step3](images/demo_step3.png)
+
+#### 객체그래프 저장을 위해 선택한 방법
+- NSSecureCoding / NSKeyedArchiver / NSKeyedUnarchiver / UserDefaults
+- Codable을 이용하려 했으나 스위프트 버그로 인해 실패
+	- 클래스 타입의 경우 배열 속성에서 하위객체의 타입정보가 사라짐.
+	- [Swift 4 Decodable Loses Subclass Type Information](https://bugs.swift.org/browse/SR-5331)
+- [WWDC 2018에서 발표한 Data You Can Trust 중 NSSecureCoding에 대한 발표영상](https://developer.apple.com/videos/play/wwdc2018/222/)
+
+#### Keywords
+- Swift 4.0 / 4.2
+- Codable, NSCoding
+- NSKeyedArchiver, NSKeyedUnarchiver, encoder, decoder
+- 직렬화와 아카이빙
+- 객체그래프
+- NSCopying, NSMutable Copying, 가변과 불변
+- 깊은 복사와 얕은 복사
+- 깊은 복사를하는 구현방식
+	1. 코어데이터
+	2. NSCoding, keyed-archived(객체인코딩)아카이브 클래스
+- [UserDefaults](https://developer.apple.com/documentation/foundation/userdefaults?changes=_9)
+
+![persistencecheetsheet](images/persistencecheetsheet.png)

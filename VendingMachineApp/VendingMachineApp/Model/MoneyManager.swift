@@ -8,11 +8,20 @@
 
 import Foundation
 
-class MoneyManager: Codable {
-    private var balance: Int = 0
+class MoneyManager: NSObject, NSSecureCoding {
+    private var balance: Int
     
     func readBalance() -> Int {
         return self.balance
+    }
+    
+    private init(_ balance: Int) {
+        self.balance = balance
+    }
+    
+    override init() {
+        self.balance = 0
+        super.init()
     }
     
     func increaseBalance(_ price: Int) {
@@ -21,5 +30,25 @@ class MoneyManager: Codable {
     
     func decreaseBalance(_ price: Int) {
         self.balance -= price
+    }
+
+    // MARK: NSSecureCoding
+    private struct NSCoderKeys {
+        static let balanceKey = "balance"
+    }
+    
+    static var supportsSecureCoding: Bool {
+        return true
+    }
+
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(NSNumber(value: balance), forKey: NSCoderKeys.balanceKey)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        guard let balance = aDecoder.decodeObject(of: NSNumber.self, forKey: NSCoderKeys.balanceKey) else {
+            return nil
+        }
+        self.balance = balance.intValue
     }
 }

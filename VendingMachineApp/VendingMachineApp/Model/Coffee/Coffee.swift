@@ -19,4 +19,21 @@ class Coffee: Beverage {
     convenience init() {
         self.init(name: DefaultData.coffee.name, price: DefaultData.coffee.price, country: "콜롬비아")
     }
+    
+    private struct NSCoderKeys {
+        static let countryKey = "country"
+    }
+    
+    override func encode(with aCoder: NSCoder) {
+        super.encode(with: aCoder)
+        aCoder.encode(country as NSString, forKey: NSCoderKeys.countryKey)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        guard let country = aDecoder.decodeObject(of: NSString.self, forKey: NSCoderKeys.countryKey) else {
+            return nil
+        }
+        self.country = country as String
+        super.init(coder: aDecoder)
+    }
 }

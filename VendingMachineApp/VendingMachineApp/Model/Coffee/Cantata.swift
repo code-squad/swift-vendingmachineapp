@@ -19,4 +19,21 @@ class Cantata: Coffee {
     convenience init() {
         self.init(name: DefaultData.cantata.name, price: DefaultData.cantata.price, country: "브라질")
     }
+    
+    private struct NSCoderKeys {
+        static let temperatureKey = "temperature"
+    }
+    
+    override func encode(with aCoder: NSCoder) {
+        super.encode(with: aCoder)
+        aCoder.encode(NSNumber(value: temperature), forKey: NSCoderKeys.temperatureKey)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        guard let temperature = aDecoder.decodeObject(of: NSNumber.self, forKey: NSCoderKeys.temperatureKey) else {
+            return nil
+        }
+        self.temperature = temperature.intValue
+        super.init(coder: aDecoder)
+    }
 }

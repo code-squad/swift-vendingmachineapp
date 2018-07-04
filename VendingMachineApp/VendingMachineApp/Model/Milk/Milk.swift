@@ -19,4 +19,21 @@ class Milk: Beverage {
     convenience init() {
         self.init(name: DefaultData.milk.name, price: DefaultData.milk.price, farmCode: 100)
     }
+    
+    private struct NSCoderKeys {
+        static let farmCodeKey = "farmCode"
+    }
+    
+    override func encode(with aCoder: NSCoder) {
+        super.encode(with: aCoder)
+        aCoder.encode(NSNumber(value: farmCode), forKey: NSCoderKeys.farmCodeKey)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        guard let farmCode = aDecoder.decodeObject(of: NSNumber.self, forKey: NSCoderKeys.farmCodeKey) else {
+            return nil
+        }
+        self.farmCode = farmCode.intValue
+        super.init(coder: aDecoder)
+    }
 }

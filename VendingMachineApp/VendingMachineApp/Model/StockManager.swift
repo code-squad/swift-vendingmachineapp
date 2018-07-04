@@ -9,14 +9,14 @@ import Foundation
 
 typealias BeverageType = ObjectIdentifier
 
-class StockManager: Equatable {
+class StockManager: NSObject, NSSecureCoding {
     private var stock: [BeverageType:Stock]
     
     init(_ stock: [BeverageType:Stock]) {
         self.stock = stock
     }
     
-    init() {
+    override init() {
         self.stock = [BeverageType:Stock]()
     }
     
@@ -37,21 +37,38 @@ class StockManager: Equatable {
         return self.stock[beverageType]?.count ?? 0
     }
     
-    // Equtable
-    static func == (lhs: StockManager, rhs: StockManager) -> Bool {
-        return lhs.stock == rhs.stock
+    // MARK: NSSecureCoding
+    private struct NSCoderKeys {
+        static let allStock = "allStock"
+    }
+    
+    static var supportsSecureCoding: Bool {
+        return true
+    }
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(allStock, forKey: NSCoderKeys.allStock)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        guard let allStock = aDecoder.decodeObject(forKey: NSCoderKeys.allStock) as? [Stock] else {
+            return nil
+        }
+        self.stock = allStock.reduce(into: [BeverageType:Stock]()){
+            $0[$1.beverageType] = $1
+        }
     }
 }
 
-class Stock: IteratorProtocol, Sequence {
+class Stock: NSObject, IteratorProtocol, Sequence, NSSecureCoding {
     private var beverages: [Beverage]
     
     init(_ beverages: [Beverage]) {
         self.beverages = beverages
     }
     
-    convenience init() {
-        self.init([Beverage]())
+    override init() {
+        self.beverages = [Beverage]()
     }
     
     var count: Int {
@@ -80,10 +97,34 @@ class Stock: IteratorProtocol, Sequence {
             return nil
         }
     }
-}
-
-extension Stock: Equatable {
-    static func == (lhs: Stock, rhs: Stock) -> Bool {
-        return lhs.beverages == rhs.beverages
+    
+    override func isEqual(_ object: Any?) -> Bool {
+        if let beverages = object as? [Beverage] {
+            return beverages == self.beverages
+        } else {
+            return false
+        }
+    }
+    
+    // MARK: NSSecureCoding
+    private struct NSCoderKeys {
+        static let beveragesKey = "beverages"
+    }
+    
+    static var supportsSecureCoding: Bool {
+        return true
+    }
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(beverages, forKey: NSCoderKeys.beveragesKey)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        guard let decoded = aDecoder.decodeObject(of: NSArray.self, forKey: NSCoderKeys.beveragesKey),
+            let beverages = decoded as? [Beverage] else {
+                return nil
+        }
+        self.beverages = beverages
+        super.init()
     }
 }

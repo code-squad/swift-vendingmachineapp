@@ -8,7 +8,8 @@
 
 import Foundation
 
-class VendingMachine {
+class VendingMachine: NSObject, NSSecureCoding {
+    
     private var moneyManager: MoneyManager
     private var stockManager: StockManager
     private static var sharedVendingMachine = VendingMachine()
@@ -18,8 +19,10 @@ class VendingMachine {
         self.stockManager = stockManager
     }
     
-    private convenience init() {
-        self.init(MoneyManager(), StockManager())
+    override init() {
+        self.moneyManager = MoneyManager()
+        self.stockManager = StockManager()
+        super.init()
     }
     
     class func shared() -> VendingMachine {
@@ -53,5 +56,31 @@ class VendingMachine {
             return 0
         }
         return self.stockManager.readStock(menu.beverageType)
+    }
+    
+    // MARK: NSSecureCoding
+    private struct NSCoderKeys {
+        static let moneyManagerKey = "moneyManager"
+        static let stockManagerKey = "stockManager"
+    }
+    
+    static var supportsSecureCoding: Bool {
+        return true
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        guard let moneyManager = aDecoder.decodeObject(of: MoneyManager.self, forKey: NSCoderKeys.moneyManagerKey) else {
+            return nil
+        }
+        guard let stockManager = aDecoder.decodeObject(of: StockManager.self, forKey: NSCoderKeys.stockManagerKey) else {
+            return nil
+        }
+        self.moneyManager = moneyManager
+        self.stockManager = stockManager
+    }
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(moneyManager, forKey: NSCoderKeys.moneyManagerKey)
+        aCoder.encode(stockManager, forKey: NSCoderKeys.stockManagerKey)
     }
 }

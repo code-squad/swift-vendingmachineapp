@@ -19,4 +19,21 @@ class StrawberryMilk: Milk {
     convenience init() {
         self.init(name: DefaultData.strawberryMilk.name, price: DefaultData.strawberryMilk.price, farmCode: 101)
     }
+    
+    private struct NSCoderKeys {
+        static let flavorKey = "flavor"
+    }
+    
+    override func encode(with aCoder: NSCoder) {
+        super.encode(with: aCoder)
+        aCoder.encode(flavor as String, forKey: NSCoderKeys.flavorKey)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        guard let flavor = aDecoder.decodeObject(of: NSString.self, forKey: NSCoderKeys.flavorKey) else {
+            return nil
+        }
+        self.flavor = flavor as String
+        super.init(coder: aDecoder)
+    }
 }

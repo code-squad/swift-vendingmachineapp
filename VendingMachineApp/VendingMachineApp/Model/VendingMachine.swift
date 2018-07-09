@@ -83,3 +83,8 @@ final class VendingMachine: NSObject, NSSecureCoding {
         aCoder.encode(stockManager, forKey: NSCoderKeys.stockManagerKey)
     }
 }
+
+extension Notification.Name {
+    static let didChangeBalance = Notification.Name("didChangeBalance")
+    static let didChangeStock = NSNotification.Name("didChnageStock")
+}

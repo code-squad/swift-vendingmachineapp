@@ -14,33 +14,24 @@ class ViewController: UIViewController {
     @IBOutlet var stockLabels: [UILabel]!
     @IBOutlet var addStockButtons: [UIButton]!
     @IBOutlet var stockImageViews: [UIImageView]!
-    weak var appDelegate: AppDelegate!
+    private var vendingMachine: VendingMachine!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        appDelegate = UIApplication.shared.delegate as? AppDelegate
-//        setupBeverageInitStock()
+        self.vendingMachine = VendingMachine.shared()
         updateStockLabels()
         updateBalanceLabel()
         setupStockImageViews()
     }
     
-    func setupBeverageInitStock() {
-        appDelegate.sharedVendingMachine.addBeverage(StrawberryMilk(), 1)
-        appDelegate.sharedVendingMachine.addBeverage(BananaMilk(), 1)
-        appDelegate.sharedVendingMachine.addBeverage(Coke(), 1)
-        appDelegate.sharedVendingMachine.addBeverage(TOP(), 1)
-        appDelegate.sharedVendingMachine.addBeverage(Sprite(), 1)
-    }
-    
     func updateStockLabels() {
         for index in stockLabels.indices {
-            self.stockLabels[index].text = String(appDelegate.sharedVendingMachine.readStock(index)) + "개"
+            self.stockLabels[index].text = String(self.vendingMachine.readStock(index)) + "개"
         }
     }
     
     func updateBalanceLabel() {
-        self.balanceLabel.text = String(format: "%d원", appDelegate.sharedVendingMachine.readBalance())
+        self.balanceLabel.text = String(format: "%d원", self.vendingMachine.readBalance())
     }
     
     func setupStockImageViews() {
@@ -63,13 +54,13 @@ class ViewController: UIViewController {
         guard let beverage = BeverageFactory.makeBeverage(meunNumber: buttonIndex) else {
             return
         }
-        appDelegate.sharedVendingMachine.addBeverage(beverage)
+        self.vendingMachine.addBeverage(beverage)
         updateStockLabels()
     }
     
     @IBAction func insertMoney(_ sender: UIButton) {
         let money: Int = Int(sender.titleLabel?.text ?? "") ?? 0
-        appDelegate.sharedVendingMachine.insertMoney(money)
+        self.vendingMachine.insertMoney(money)
         updateBalanceLabel()
     }
 }

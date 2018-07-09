@@ -20,6 +20,17 @@ class ViewController: UIViewController {
         updateStockLabels()
         updateBalanceLabel()
         setupStockImageViews()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.didChangeBalance(notification:)), name: .didChangeBalance, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.didChangeStock(notification:)), name: .didChangeStock, object: nil)
+    }
+    
+    @objc private func didChangeBalance(notification: Notification) {
+        self.updateBalanceLabel()
+    }
+    
+    @objc private func didChangeStock(notification: Notification) {
+        self.updateStockLabels()
     }
     
     func updateStockLabels() {

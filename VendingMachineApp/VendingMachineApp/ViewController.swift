@@ -14,11 +14,9 @@ class ViewController: UIViewController {
     @IBOutlet var stockLabels: [UILabel]!
     @IBOutlet var addStockButtons: [UIButton]!
     @IBOutlet var stockImageViews: [UIImageView]!
-    private var vendingMachine: VendingMachine!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.vendingMachine = VendingMachine.shared()
         updateStockLabels()
         updateBalanceLabel()
         setupStockImageViews()
@@ -26,12 +24,12 @@ class ViewController: UIViewController {
     
     func updateStockLabels() {
         for index in stockLabels.indices {
-            self.stockLabels[index].text = String(self.vendingMachine.readStock(index)) + "개"
+            self.stockLabels[index].text = String(VendingMachine.shared().readStock(index)) + "개"
         }
     }
     
     func updateBalanceLabel() {
-        self.balanceLabel.text = String(format: "%d원", self.vendingMachine.readBalance())
+        self.balanceLabel.text = String(format: "%d원", VendingMachine.shared().readBalance())
     }
     
     func setupStockImageViews() {
@@ -54,13 +52,13 @@ class ViewController: UIViewController {
         guard let beverage = BeverageFactory.makeBeverage(meunNumber: buttonIndex) else {
             return
         }
-        self.vendingMachine.addBeverage(beverage)
+        VendingMachine.shared().addBeverage(beverage)
         updateStockLabels()
     }
     
     @IBAction func insertMoney(_ sender: UIButton) {
         let money: Int = Int(sender.titleLabel?.text ?? "") ?? 0
-        self.vendingMachine.insertMoney(money)
+        VendingMachine.shared().insertMoney(money)
         updateBalanceLabel()
     }
 }

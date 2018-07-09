@@ -90,3 +90,24 @@
 	- 싱글톤은 한번만 생성되기 때문에 객체가 메모리를 차지하는 부분에 있어서 이득을 취할 수 있다. 하지만 많은 곳에서 이를 계속 참조하게 될 떼 과부하가 올 수 있다.
 	- 내부적으로 공통으로 사용하는 인스턴스가 하나만 존재하는 객체를 만들기 위해 싱글톤을 적용한다. 클래스의 경우 레퍼런스를 주는 것이기 때문에 사용하는 곳에서 객체의 정보가 변경될 경우 이를 참조하고 있는 다른 곳에서의 싱글톤 객체에 대한 상태가 달라진다. 이는 멀티스레딩 환경이나 참조의 관계를 명확하게 알고 있지 못할 때 원치 않는 결과를 가져올 수 있다.
 	- 싱글톤에 대한 변경사항이 다른 곳에서 필요할 때 클래스의 싱글톤을 사용하면 좋다. 구조체를 사용하여 싱글톤을 생성할 경우 값 타입이므로 항상 복사가 이루어진다. 이 때문에 구조체 싱글톤 객체를 사용하는 곳에서는 항상 구조체 싱글톤의 상태를 다시 가져와야 한다. 하지만 멀티 스레딩 환경에서는 구조체보다 클래스가 안전하다. 
+	
+## Step. 5
+- 요구사항
+	- MVC 패턴에서 Model과 Controller의 직접적인 참조 관계를 끊기 위해서 관찰자(Observer) 패턴을 적용한다.
+	- ViewController는 viewDidLoad에서 Observe를 등록한다.
+	- 음식 재고가 바뀌는 Notification을 받으면 화면에 Label을 업데이트한다.
+	- 추가 버튼을 누르면 해당 음식 재고를 모델에 추가할 때마다 VendingMachine 모델 객체에서는 변화에 대해 NotificationCenter에 post한다.
+- 정리
+	- Notification은 broadcast 시스템!
+	- Default Notification Center를 통한 접근
+	- Notification Observer를 addObserver로 등록 (누가 감시할 것이냐)
+	- Posting Notification : NotificationCenter에 Notification을 보내겠다.
+	- 주요 메서드 : `func post(name aName: NSNotification.Name, object anObject: Any?, userInfo aUserInfo: [AnyHashable : Any]? = nil)`
+		- object를 통해 어떤 객체가 보낼 것인지 (보통 보내는 자신을 self로 보낸다.)
+		- userInfo를 통해 데이터를 함께 전송할 수 있다.
+	- 주요메서드 : `func addObserver(_ observer: Any, selector aSelector: Selector, name aName: NSNotification.Name?, object anObject: Any?)`
+		- object를 통해 '나는 특정 객체에서 오는 Notification만 받을거야'(nil일 경우 객체 상관없이 명시한 Notification을 전부 수신하겠다.'
+	- 느슨한연결(loosed coupled) 구조 : 모델과 컨트롤러가 직접 참조하지 않게!
+		- 왜? 결국은 의존성과 재사용성이다. 내가 함께 일하는 객체가 누군지 알 필요 없이 어떤 인터페이스를 통해 일할지만 정해진다면, 그 객체가 무엇이든 상관없다. 이는 객체를 변경, 재사용하기에도 용이하고 특정 객체를 테스트하기에도 용이하다.
+	
+[NotificationCenter](https://developer.apple.com/documentation/foundation/notificationcenter), [Notification in Swift](https://medium.com/@dmytro.anokhin/notification-in-swift-d47f641282fa), [Notifications and userInfo](https://dev.iachieved.it/iachievedit/notifications-and-userinfo-with-swift-3-0/)

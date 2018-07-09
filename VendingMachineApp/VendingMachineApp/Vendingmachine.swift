@@ -133,24 +133,5 @@ protocol UserVendingmachine {
     subscript(item: String) -> [Beverage]? { get }
 }
 
-extension Int {
-    var beverageKind: String {
-        switch self {
-        case 0:
-            return StrawberryMilk().kind
-        case 1:
-            return ChocoMilk().kind
-        case 2:
-            return Coke().kind
-        case 3:
-            return Top().kind
-        case 4:
-            return Sprite().kind
-        default:
-            return ""
-        }
-    }
-}
-
 
 

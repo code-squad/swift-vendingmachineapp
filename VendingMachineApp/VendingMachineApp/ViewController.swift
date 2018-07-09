@@ -55,11 +55,11 @@ class ViewController: UIViewController {
     @IBAction func addBeverageButtonTouched(_ sender: UIButton) {
         switch sender.tag {
         case 0:
-            vendingmachine.addPurchases(StrawberryMilk())
+            vendingmachine.addPurchases(Coke())
         case 1:
             vendingmachine.addPurchases(ChocoMilk())
         case 2:
-            vendingmachine.addPurchases(Coke())
+            vendingmachine.addPurchases(StrawberryMilk())
         case 3:
             vendingmachine.addPurchases(Top())
         case 4:
@@ -69,10 +69,11 @@ class ViewController: UIViewController {
         }
         updateInventory()
     }
-
+    
     private func updateInventory() {
+        let kinds = vendingmachine.makeKindOfBeverage()
         for index in inventory.indices {
-            inventory[index].text = String(vendingmachine.countOfInventory(index.beverageKind)) + "개"
+            self.inventory[index].text = "\(vendingmachine.countOfInventory(kinds[index]))개"
         }
     }
 

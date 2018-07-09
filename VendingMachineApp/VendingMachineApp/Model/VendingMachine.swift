@@ -8,25 +8,24 @@
 
 import Foundation
 
-class VendingMachine: NSObject, NSSecureCoding {
+final class VendingMachine: NSObject, NSSecureCoding {
     
     private var moneyManager: MoneyManager
     private var stockManager: StockManager
-    private static var sharedVendingMachine = VendingMachine()
+    private static var sharedInstance = VendingMachine()
     
-    private init(_ moneyManager: MoneyManager, _ stockManager: StockManager) {
-        self.moneyManager = moneyManager
-        self.stockManager = stockManager
-    }
-    
-    override init() {
+    private override init() {
         self.moneyManager = MoneyManager()
         self.stockManager = StockManager()
         super.init()
     }
     
     class func shared() -> VendingMachine {
-        return self.sharedVendingMachine
+        return self.sharedInstance
+    }
+    
+    class func loadState(_ vendingMachine: VendingMachine) {
+        sharedInstance = vendingMachine
     }
     
     func readAllStock() -> [Stock] {

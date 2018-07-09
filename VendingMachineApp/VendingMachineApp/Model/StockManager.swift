@@ -10,7 +10,11 @@ import Foundation
 typealias BeverageType = ObjectIdentifier
 
 class StockManager: NSObject, NSSecureCoding {
-    private var stock: [BeverageType:Stock]
+    private var stock: [BeverageType:Stock] {
+        didSet {
+            NotificationCenter.default.post(name: .didChangeStock, object: self)
+        }
+    }
     
     init(_ stock: [BeverageType:Stock]) {
         self.stock = stock
@@ -61,7 +65,11 @@ class StockManager: NSObject, NSSecureCoding {
 }
 
 class Stock: NSObject, IteratorProtocol, Sequence, NSSecureCoding {
-    private var beverages: [Beverage]
+    private var beverages: [Beverage] {
+        didSet {
+            NotificationCenter.default.post(name: .didChangeStock, object: self)
+        }
+    }
     
     init(_ beverages: [Beverage]) {
         self.beverages = beverages

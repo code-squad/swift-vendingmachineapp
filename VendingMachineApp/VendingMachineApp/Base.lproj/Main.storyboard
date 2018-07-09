@@ -44,7 +44,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <state key="normal" title="+5000"/>
                                 <connections>
-                                    <action selector="addMoneyButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fDj-hu-soF"/>
+                                    <action selector="addMoneyButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1lI-oi-36z"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CLK-f7-lBt">
@@ -60,7 +60,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <state key="normal" title="추가"/>
                                 <connections>
-                                    <action selector="addBeverageButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nuj-W3-77C"/>
+                                    <action selector="addBeverageButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Tau-RR-ABW"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LAq-Zf-P6g">
@@ -69,7 +69,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <state key="normal" title="추가"/>
                                 <connections>
-                                    <action selector="addBeverageButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pek-S4-JN8"/>
+                                    <action selector="addBeverageButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ffv-TR-q1N"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pWC-pM-uHQ">
@@ -78,7 +78,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <state key="normal" title="추가"/>
                                 <connections>
-                                    <action selector="addBeverageButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WPH-C1-2La"/>
+                                    <action selector="addBeverageButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PQD-k8-7CS"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l2S-Ii-lfY">
@@ -87,7 +87,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <state key="normal" title="추가"/>
                                 <connections>
-                                    <action selector="addBeverageButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dC9-EE-Bou"/>
+                                    <action selector="addBeverageButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="m2t-kG-lS1"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RgC-IJ-3he">
@@ -96,7 +96,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <state key="normal" title="추가"/>
                                 <connections>
-                                    <action selector="addBeverageButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XKX-Et-JGb"/>
+                                    <action selector="addBeverageButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gBf-zR-ixt"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iyd-Yp-A2b">
@@ -140,7 +140,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <state key="normal" title="+1000"/>
                                 <connections>
-                                    <action selector="addMoneyButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MlM-NX-yPC"/>
+                                    <action selector="addMoneyButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9pW-po-uRE"/>
                                 </connections>
                             </button>
                         </subviews>

@@ -25,8 +25,8 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        addBalanceLabel()
-        addInventoryLabel()
+        updateBalance()
+        updateInventory()
         makeRoundImages()
     }
 
@@ -34,23 +34,25 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
 
-    @IBAction func addMoneyButton(_ sender: UIButton) {
+    @IBAction func addMoneyButtonTouched(_ sender: UIButton) {
+        let onethousand = 1000
+        let fivethousand = 5000
         switch sender.tag {
         case 0:
-            vendingmachine.addBalance(1000)
+            vendingmachine.addBalance(onethousand)
         case 1:
-            vendingmachine.addBalance(5000)
+            vendingmachine.addBalance(fivethousand)
         default:
             return
         }
-        addBalanceLabel()
+        updateBalance()
     }
     
-    private func addBalanceLabel() {
+    private func updateBalance() {
         self.balance.text = "\(vendingmachine.checkBalance())원"
     }
 
-    @IBAction func addBeverageButton(_ sender: UIButton) {
+    @IBAction func addBeverageButtonTouched(_ sender: UIButton) {
         switch sender.tag {
         case 0:
             vendingmachine.addPurchases(StrawberryMilk())
@@ -65,13 +67,12 @@ class ViewController: UIViewController {
         default:
             return
         }
-        addInventoryLabel()
+        updateInventory()
     }
 
-    private func addInventoryLabel() {
-        let beverages = [StrawberryMilk().kind, ChocoMilk().kind, Coke().kind, Top().kind, Sprite().kind]
+    private func updateInventory() {
         for index in inventory.indices {
-            self.inventory[index].text = String(vendingmachine.countOfInventory(beverages[index])) + "개"
+            inventory[index].text = String(vendingmachine.countOfInventory(index.beverageKind)) + "개"
         }
     }
 
@@ -81,16 +82,6 @@ class ViewController: UIViewController {
             $0.layer.masksToBounds = true
         })
     }
-    
-    private func showInventory() {
-        print("=> ", terminator: "")
-        let beverage = vendingmachine.makeKindOfBeverage()
-        for item in beverage {
-            let beverages = vendingmachine[item]
-            if let kinds = beverages?.map({$0.kind}) {
-                print("\(kinds.first ?? "")(\(kinds.count)개) ", terminator: "")
-            }
-        }
-    }
+
 }
 

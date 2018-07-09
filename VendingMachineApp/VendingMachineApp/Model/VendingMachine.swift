@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class VendingMachine: NSObject, NSSecureCoding {
+final class VendingMachine: NSObject, NSSecureCoding, AvailableVendingMachine {
     
     private var moneyManager: MoneyManager
     private var stockManager: StockManager

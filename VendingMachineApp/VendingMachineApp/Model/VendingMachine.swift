@@ -86,5 +86,5 @@ final class VendingMachine: NSObject, NSSecureCoding {
 
 extension Notification.Name {
     static let didChangeBalance = Notification.Name("didChangeBalance")
-    static let didChangeStock = NSNotification.Name("didChnageStock")
+    static let didChangeStock = Notification.Name("didChnageStock")
 }

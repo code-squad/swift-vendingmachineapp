@@ -9,7 +9,11 @@
 import Foundation
 
 class MoneyManager: NSObject, NSSecureCoding {
-    private var balance: Int
+    private var balance: Int {
+        didSet {
+            NotificationCenter.default.post(name: .didChangeBalance, object: self, userInfo: ["balance":balance])
+        }
+    }
     
     func readBalance() -> Int {
         return self.balance

@@ -20,30 +20,36 @@ class ViewController: UIViewController {
         updateStockLabels()
         updateBalanceLabel()
         setupStockImageViews()
-        
+        setupNotification()
+    }
+    
+    private func setupNotification() {
         NotificationCenter.default.addObserver(self, selector: #selector(self.didChangeBalance(notification:)), name: .didChangeBalance, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.didChangeStock(notification:)), name: .didChangeStock, object: nil)
     }
     
     @objc private func didChangeBalance(notification: Notification) {
-        self.updateBalanceLabel()
+        guard let balance = notification.userInfo?["balance"] as? Int else {
+            return
+        }
+        self.balanceLabel.text = String(format: "%d원", balance)
     }
     
     @objc private func didChangeStock(notification: Notification) {
         self.updateStockLabels()
     }
     
-    func updateStockLabels() {
+    private func updateStockLabels() {
         for index in stockLabels.indices {
             self.stockLabels[index].text = String(VendingMachine.shared().readStock(index)) + "개"
         }
     }
     
-    func updateBalanceLabel() {
+    private func updateBalanceLabel() {
         self.balanceLabel.text = String(format: "%d원", VendingMachine.shared().readBalance())
     }
     
-    func setupStockImageViews() {
+    private func setupStockImageViews() {
         self.stockImageViews.indices.forEach {
             let imageName = String(format: "imgsource/%d.png", $0)
             stockImageViews[$0].image = UIImage(named: imageName)
@@ -64,12 +70,10 @@ class ViewController: UIViewController {
             return
         }
         VendingMachine.shared().addBeverage(beverage)
-        updateStockLabels()
     }
     
     @IBAction func insertMoney(_ sender: UIButton) {
         let money: Int = Int(sender.titleLabel?.text ?? "") ?? 0
         VendingMachine.shared().insertMoney(money)
-        updateBalanceLabel()
     }
 }

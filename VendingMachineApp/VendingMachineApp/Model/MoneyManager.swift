@@ -35,6 +35,10 @@ class MoneyManager: NSObject, NSSecureCoding {
     func decreaseBalance(_ price: Int) {
         self.balance -= price
     }
+    
+    func isPurchasable(_ price: Int) -> Bool {
+        return price <= balance
+    }
 
     // MARK: NSSecureCoding
     private struct NSCoderKeys {

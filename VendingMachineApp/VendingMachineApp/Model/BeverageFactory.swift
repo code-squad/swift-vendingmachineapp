@@ -49,4 +49,19 @@ enum Menu: Int {
             return BeverageType(Sprite.self)
         }
     }
+    
+    var price: Int {
+        switch self {
+        case .strawberryMilk:
+            return DefaultData.strawberryMilk.price
+        case .bananaMilk:
+            return DefaultData.bananaMilk.price
+        case .coke:
+            return DefaultData.coke.price
+        case .top:
+            return DefaultData.top.price
+        case .sprite:
+            return DefaultData.sprite.price
+        }
+    }
 }

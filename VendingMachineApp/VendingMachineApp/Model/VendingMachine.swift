@@ -60,8 +60,10 @@ final class VendingMachine: NSObject, NSSecureCoding {
     }
     
     func purchaseBeverage(_ menu: Menu) {
+        guard moneyManager.isPurchasable(menu.price) else { return }
         if let purchased: Beverage = self.stockManager.removeStock(menu.beverageType) {
             self.historyManager.addPurchased(purchased)
+            self.moneyManager.decreaseBalance(purchased.beveragePrice)
         }
     }
     

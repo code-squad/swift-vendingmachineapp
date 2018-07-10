@@ -34,6 +34,10 @@ class Beverage: NSObject, NSCoding {
         }
     }
     
+    var beveragePrice: Int {
+        return self.price
+    }
+    
     // MARK: NSSecureCoding
     private struct NSCoderKeys {
         static let nameKey = "name"

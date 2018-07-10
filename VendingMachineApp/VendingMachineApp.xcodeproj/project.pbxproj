@@ -41,6 +41,7 @@
 		730F54C020DEC33C00D7E7A4 /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730F54BE20DEC33C00D7E7A4 /* VendingMachine.swift */; };
 		730F54C220DF894D00D7E7A4 /* MoneyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730F54C120DF894D00D7E7A4 /* MoneyManager.swift */; };
 		730F54C320DF894D00D7E7A4 /* MoneyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730F54C120DF894D00D7E7A4 /* MoneyManager.swift */; };
+		7331CDD320F4852900DEFB28 /* HistoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7331CDD220F4852900DEFB28 /* HistoryManager.swift */; };
 		7387174520E1485A005ABD7A /* imgsource in Resources */ = {isa = PBXBuildFile; fileRef = 7387174420E1485A005ABD7A /* imgsource */; };
 		7396790320E9E69E009B6C1C /* VendingMachineDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7396790220E9E69E009B6C1C /* VendingMachineDataManager.swift */; };
 		73C7C7F020DCEF710077F80E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C7C7EF20DCEF710077F80E /* AppDelegate.swift */; };
@@ -82,6 +83,7 @@
 		730F54BB20DEBB4A00D7E7A4 /* StockManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockManager.swift; sourceTree = "<group>"; };
 		730F54BE20DEC33C00D7E7A4 /* VendingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachine.swift; sourceTree = "<group>"; };
 		730F54C120DF894D00D7E7A4 /* MoneyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyManager.swift; sourceTree = "<group>"; };
+		7331CDD220F4852900DEFB28 /* HistoryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryManager.swift; sourceTree = "<group>"; };
 		7387174420E1485A005ABD7A /* imgsource */ = {isa = PBXFileReference; lastKnownFileType = folder; path = imgsource; sourceTree = "<group>"; };
 		7396790220E9E69E009B6C1C /* VendingMachineDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineDataManager.swift; sourceTree = "<group>"; };
 		73C7C7EC20DCEF710077F80E /* VendingMachineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendingMachineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -133,6 +135,7 @@
 				730F54A820DEB17900D7E7A4 /* BeverageFactory.swift */,
 				730F54BB20DEBB4A00D7E7A4 /* StockManager.swift */,
 				730F54BE20DEC33C00D7E7A4 /* VendingMachine.swift */,
+				7331CDD220F4852900DEFB28 /* HistoryManager.swift */,
 				7396790220E9E69E009B6C1C /* VendingMachineDataManager.swift */,
 				730F54C120DF894D00D7E7A4 /* MoneyManager.swift */,
 			);
@@ -388,6 +391,7 @@
 				730F548120DE68EC00D7E7A4 /* Georgia.swift in Sources */,
 				730F548D20DE76AF00D7E7A4 /* Sprite.swift in Sources */,
 				730F547D20DE68D800D7E7A4 /* Cantata.swift in Sources */,
+				7331CDD320F4852900DEFB28 /* HistoryManager.swift in Sources */,
 				730F548B20DE764E00D7E7A4 /* Coke.swift in Sources */,
 				730F547F20DE68DE00D7E7A4 /* TOP.swift in Sources */,
 				730F548520DE6B6500D7E7A4 /* DefaultData.swift in Sources */,

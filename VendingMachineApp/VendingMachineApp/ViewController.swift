@@ -54,10 +54,10 @@ class ViewController: UIViewController {
             let imageName = String(format: "imgsource/%d.png", $0)
             stockImageViews[$0].image = UIImage(named: imageName)
             stockImageViews[$0].backgroundColor = UIColor.white
-            stockImageViews[$0].layer.borderWidth = 1.0
+            stockImageViews[$0].layer.borderWidth = 5
             stockImageViews[$0].layer.borderColor = UIColor.black.cgColor
             stockImageViews[$0].contentMode = UIViewContentMode.scaleAspectFit
-            stockImageViews[$0].layer.cornerRadius = 20
+            stockImageViews[$0].layer.cornerRadius = 15
             stockImageViews[$0].layer.masksToBounds = true
         }
     }

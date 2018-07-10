@@ -19,39 +19,15 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateStockLabels()
-        updateBalanceLabel()
         setupStockImageViews()
-        setupNotification()
         setupPriceLabels()
+        setupBalanceLabel()
+        setupPurchasedImage()
+        setupNotification()
+        updateStockLabels()
     }
     
-    private func setupNotification() {
-        NotificationCenter.default.addObserver(self, selector: #selector(self.didChangeBalance(notification:)), name: .didChangeBalance, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.didChangeStock(notification:)), name: .didChangeStock, object: nil)
-    }
-    
-    @objc private func didChangeBalance(notification: Notification) {
-        guard let balance = notification.userInfo?["balance"] as? Int else {
-            return
-        }
-        self.balanceLabel.text = String(format: "%d원", balance)
-    }
-    
-    @objc private func didChangeStock(notification: Notification) {
-        self.updateStockLabels()
-    }
-    
-    private func updateStockLabels() {
-        for index in stockLabels.indices {
-            self.stockLabels[index].text = String(VendingMachine.shared().readStock(index)) + "개"
-        }
-    }
-    
-    private func updateBalanceLabel() {
-        self.balanceLabel.text = String(format: "%d원", VendingMachine.shared().readBalance())
-    }
-    
+    // MARK: Setup
     private func setupStockImageViews() {
         self.stockImageViews.indices.forEach {
             let imageName = String(format: "imgsource/%d.png", $0)
@@ -73,14 +49,64 @@ class ViewController: UIViewController {
             }
         }
     }
-
+    
+    private func setupBalanceLabel() {
+        self.balanceLabel.text = String(format: "%d원", VendingMachine.shared().readBalance())
+    }
+    
+    func setupPurchasedImage() {
+        let historyImageViews = ImageViewFactory.makeImageView(VendingMachine.shared().readHistory())
+        updatePurchasedImage(historyImageViews)
+    }
+    
+    private func setupNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(self.didChangeBalance(notification:)), name: .didChangeBalance, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.didChangeStock(notification:)), name: .didChangeStock, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.didChangeHistory(notification:)), name: .didChangeHistory, object: nil)
+    }
+    
+    // MARK: Observer's selector
+    @objc private func didChangeBalance(notification: Notification) {
+        guard let balance = notification.userInfo?["balance"] as? Int else {
+            return
+        }
+        self.balanceLabel.text = String(format: "%d원", balance)
+    }
+    
+    @objc private func didChangeStock(notification: Notification) {
+        self.updateStockLabels()
+    }
+    
+    @objc private func didChangeHistory(notification: Notification) {
+        guard let purchased = notification.userInfo?["purchased"] as? [Beverage] else {
+            return
+        }
+        let purchasedImageViews = ImageViewFactory.makeImageView(purchased)
+        updatePurchasedImage(purchasedImageViews)
+    }
+    
+    // update method
+    private func updatePurchasedImage(_ purchased: [UIImageView]) {
+        purchased.forEach{
+            $0.layer.borderWidth = 5
+            $0.layer.cornerRadius = 15
+            $0.layer.masksToBounds = true
+            $0.contentMode = .scaleToFill
+            $0.backgroundColor = UIColor.white
+            self.view.addSubview($0)
+        }
+    }
+    
+    private func updateStockLabels() {
+        for index in stockLabels.indices {
+            self.stockLabels[index].text = String(format: "%d개", VendingMachine.shared().readStock(index))
+        }
+    }
+    
+    // MARK: Action method
     @IBAction func addStock(_ sender: UIButton) {
-        guard let buttonIndex = self.addStockButtons.index(of: sender) else {
-            return
-        }
-        guard let beverage = BeverageFactory.makeBeverage(meunNumber: buttonIndex) else {
-            return
-        }
+        guard let buttonIndex = self.addStockButtons.index(of: sender) else { return }
+        guard let beverage = BeverageFactory.makeBeverage(meunNumber: buttonIndex) else { return }
         VendingMachine.shared().addBeverage(beverage)
     }
     
@@ -90,12 +116,8 @@ class ViewController: UIViewController {
     }
     
     @IBAction func purchaseStock(_ sender: UIButton) {
-        guard let buttonIndex = self.purchaseButtons.index(of: sender) else {
-            return
-        }
-        guard let menu = Menu.init(rawValue: buttonIndex) else {
-            return
-        }
+        guard let buttonIndex = self.purchaseButtons.index(of: sender) else { return }
+        guard let menu = Menu.init(rawValue: buttonIndex) else { return }
         VendingMachine.shared().purchaseBeverage(menu)
     }
 }

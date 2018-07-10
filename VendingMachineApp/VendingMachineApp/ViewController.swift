@@ -14,6 +14,8 @@ class ViewController: UIViewController {
     @IBOutlet var stockLabels: [UILabel]!
     @IBOutlet var addStockButtons: [UIButton]!
     @IBOutlet var stockImageViews: [UIImageView]!
+    @IBOutlet var purchaseButtons: [UIButton]!
+    @IBOutlet var priceLabels: [UILabel]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +23,7 @@ class ViewController: UIViewController {
         updateBalanceLabel()
         setupStockImageViews()
         setupNotification()
+        setupPriceLabels()
     }
     
     private func setupNotification() {
@@ -61,6 +64,15 @@ class ViewController: UIViewController {
             stockImageViews[$0].layer.masksToBounds = true
         }
     }
+    
+    private func setupPriceLabels() {
+        for index in priceLabels.indices {
+            if let menu = Menu.init(rawValue: index) {
+                priceLabels[index].text = "\(menu.price)원"
+                priceLabels[index].adjustsFontSizeToFitWidth = true
+            }
+        }
+    }
 
     @IBAction func addStock(_ sender: UIButton) {
         guard let buttonIndex = self.addStockButtons.index(of: sender) else {
@@ -75,5 +87,15 @@ class ViewController: UIViewController {
     @IBAction func insertMoney(_ sender: UIButton) {
         let money: Int = Int(sender.titleLabel?.text ?? "") ?? 0
         VendingMachine.shared().insertMoney(money)
+    }
+    
+    @IBAction func purchaseStock(_ sender: UIButton) {
+        guard let buttonIndex = self.purchaseButtons.index(of: sender) else {
+            return
+        }
+        guard let menu = Menu.init(rawValue: buttonIndex) else {
+            return
+        }
+        VendingMachine.shared().purchaseBeverage(menu)
     }
 }

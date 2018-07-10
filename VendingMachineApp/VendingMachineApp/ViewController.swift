@@ -8,11 +8,6 @@
 
 import UIKit
 
-protocol AvailableVendingMachine {
-    func readStock(_ index: Int) -> Int
-    func readBalance() -> Int
-}
-
 class ViewController: UIViewController {
     
     @IBOutlet weak var balanceLabel: UILabel!
@@ -22,8 +17,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateStockLabels(VendingMachine.shared())
-        updateBalanceLabel(VendingMachine.shared())
+        updateStockLabels()
+        updateBalanceLabel()
         setupStockImageViews()
         setupNotification()
     }
@@ -41,17 +36,17 @@ class ViewController: UIViewController {
     }
     
     @objc private func didChangeStock(notification: Notification) {
-        self.updateStockLabels(VendingMachine.shared())
+        self.updateStockLabels()
     }
     
-    private func updateStockLabels(_ vendingMachine: AvailableVendingMachine) {
+    private func updateStockLabels() {
         for index in stockLabels.indices {
-            self.stockLabels[index].text = String(vendingMachine.readStock(index)) + "개"
+            self.stockLabels[index].text = String(VendingMachine.shared().readStock(index)) + "개"
         }
     }
     
-    private func updateBalanceLabel(_ vendingMachine: AvailableVendingMachine) {
-        self.balanceLabel.text = String(format: "%d원", vendingMachine.readBalance())
+    private func updateBalanceLabel() {
+        self.balanceLabel.text = String(format: "%d원", VendingMachine.shared().readBalance())
     }
     
     private func setupStockImageViews() {

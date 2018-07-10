@@ -111,3 +111,23 @@
 		- 왜? 결국은 의존성과 재사용성이다. 내가 함께 일하는 객체가 누군지 알 필요 없이 어떤 인터페이스를 통해 일할지만 정해진다면, 그 객체가 무엇이든 상관없다. 이는 객체를 변경, 재사용하기에도 용이하고 특정 객체를 테스트하기에도 용이하다.
 	
 [NotificationCenter](https://developer.apple.com/documentation/foundation/notificationcenter), [Notification in Swift](https://medium.com/@dmytro.anokhin/notification-in-swift-d47f641282fa), [Notifications and userInfo](https://dev.iachieved.it/iachievedit/notifications-and-userinfo-with-swift-3-0/)
+
+## Step. 6
+* 요구사항
+	- 구매 목록에 대한 이미지뷰를 동적으로 코드로 View에 추가한다.
+	- 구매 목록도 앱 종료 이후에 저장되도록 개선한다.
+	- NotificationCenter를 활용한 제품 이미지 추가
+- 학습꺼리
+	- 뷰를 코드로 생성해서 추가하는 것과 스토리보드 상에서 미리 생성하는 것의 차이에 대해 학습한다.
+- 정리
+	- 뷰를 코드로 생성할 경우 동적으로 추가할 수 있고 뷰에 대한 좀 더 정밀한 설정을 할 수 있다.
+	- 스토리보드를 사용할 경우 동적인것보단 정적인 뷰에 대한 추가를 수행할 수 있다. 또한 눈으로 뷰를 확인하면서 추가할 수 있다.
+	- 뷰를 코드로 작성할 경우와 스토리보드로 작성할 경우 사용되는 이니셜라이저가 다르다.
+	- MVC패턴을 위한 NotificationCenter 활용
+	- NotificationCenter의 userInfo를 이용한 데이터 전달
+
+![demo_1](images/demo_step6_1.gif)  
+구매이력 추가  
+
+![demo_2](images/demo_step6_2.gif)  
+구매이력 복원  

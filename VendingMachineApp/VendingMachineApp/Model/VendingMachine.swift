@@ -12,11 +12,13 @@ final class VendingMachine: NSObject, NSSecureCoding {
     
     private var moneyManager: MoneyManager
     private var stockManager: StockManager
+    private var historyManager: HistoryManager
     private static var sharedInstance = VendingMachine()
     
     private override init() {
         self.moneyManager = MoneyManager()
         self.stockManager = StockManager()
+        self.historyManager = HistoryManager()
         super.init()
     }
     
@@ -61,6 +63,7 @@ final class VendingMachine: NSObject, NSSecureCoding {
     private struct NSCoderKeys {
         static let moneyManagerKey = "moneyManager"
         static let stockManagerKey = "stockManager"
+        static let historyManagerKey = "historyManager"
     }
     
     static var supportsSecureCoding: Bool {
@@ -74,13 +77,18 @@ final class VendingMachine: NSObject, NSSecureCoding {
         guard let stockManager = aDecoder.decodeObject(of: StockManager.self, forKey: NSCoderKeys.stockManagerKey) else {
             return nil
         }
+        guard let historyManager = aDecoder.decodeObject(of: HistoryManager.self, forKey: NSCoderKeys.historyManagerKey) else {
+            return nil
+        }
         self.moneyManager = moneyManager
         self.stockManager = stockManager
+        self.historyManager = historyManager
     }
     
     func encode(with aCoder: NSCoder) {
         aCoder.encode(moneyManager, forKey: NSCoderKeys.moneyManagerKey)
         aCoder.encode(stockManager, forKey: NSCoderKeys.stockManagerKey)
+        aCoder.encode(historyManager, forKey: NSCoderKeys.historyManagerKey)
     }
 }
 

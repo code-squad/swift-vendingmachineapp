@@ -9,7 +9,11 @@
 import Foundation
 
 class HistoryManager: NSObject, NSSecureCoding {
-    private var purchased: [Beverage]
+    private var purchased: [Beverage] {
+        didSet {
+            NotificationCenter.default.post(name: .didChangeHistory, object: self, userInfo: ["purchased":purchased])
+        }
+    }
     
     override init() {
         self.purchased = []
@@ -18,6 +22,10 @@ class HistoryManager: NSObject, NSSecureCoding {
     
     func addPurchased(_ beverage: Beverage) {
         self.purchased.append(beverage)
+    }
+    
+    func readPurchased() -> [Beverage] {
+        return self.purchased
     }
     
     // MARK: NSSecureCoding

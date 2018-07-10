@@ -67,6 +67,10 @@ final class VendingMachine: NSObject, NSSecureCoding {
         }
     }
     
+    func readHistory() -> [Beverage] {
+        return self.historyManager.readPurchased()
+    }
+    
     // MARK: NSSecureCoding
     private struct NSCoderKeys {
         static let moneyManagerKey = "moneyManager"
@@ -103,4 +107,5 @@ final class VendingMachine: NSObject, NSSecureCoding {
 extension Notification.Name {
     static let didChangeBalance = Notification.Name("didChangeBalance")
     static let didChangeStock = Notification.Name("didChnageStock")
+    static let didChangeHistory = Notification.Name("didChangeHistory")
 }

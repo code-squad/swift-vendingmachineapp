@@ -41,6 +41,13 @@ class StockManager: NSObject, NSSecureCoding {
         return self.stock[beverageType]?.count ?? 0
     }
     
+    func removeStock(_ beverageType: BeverageType) -> Beverage? {
+        guard let stock = self.stock[beverageType] else {
+            return nil
+        }
+        return stock.popBeverage()
+    }
+    
     // MARK: NSSecureCoding
     private struct NSCoderKeys {
         static let allStock = "allStock"
@@ -93,6 +100,10 @@ class Stock: NSObject, IteratorProtocol, Sequence, NSSecureCoding {
     
     func add(_ beverage: Beverage) {
         self.beverages.append(beverage)
+    }
+    
+    func popBeverage() -> Beverage? {
+        return self.beverages.popLast()
     }
     
     private var index: Int = 0

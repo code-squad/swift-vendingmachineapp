@@ -59,6 +59,12 @@ final class VendingMachine: NSObject, NSSecureCoding {
         return self.stockManager.readStock(menu.beverageType)
     }
     
+    func purchaseBeverage(_ menu: Menu) {
+        if let purchased: Beverage = self.stockManager.removeStock(menu.beverageType) {
+            self.historyManager.addPurchased(purchased)
+        }
+    }
+    
     // MARK: NSSecureCoding
     private struct NSCoderKeys {
         static let moneyManagerKey = "moneyManager"

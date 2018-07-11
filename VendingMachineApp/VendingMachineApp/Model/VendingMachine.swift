@@ -64,6 +64,7 @@ final class VendingMachine: NSObject, NSSecureCoding {
         if let purchased: Beverage = self.stockManager.removeStock(menu.beverageType) {
             self.historyManager.addPurchased(purchased)
             self.moneyManager.decreaseBalance(purchased.beveragePrice)
+            NotificationCenter.default.post(name: .didChangeHistory, object: self, userInfo: ["purchased":purchased])
         }
     }
     
@@ -107,5 +108,5 @@ final class VendingMachine: NSObject, NSSecureCoding {
 extension Notification.Name {
     static let didChangeBalance = Notification.Name("didChangeBalance")
     static let didChangeStock = Notification.Name("didChnageStock")
-    static let didChangeHistory = Notification.Name("didChangeHistory")
+    static let didChangeHistory = Notification.Name("didAddHistory")
 }

@@ -19,25 +19,31 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupStockImageViews()
+        setupHistroyImageViews()
         setupPriceLabels()
         setupBalanceLabel()
-        setupPurchasedImage()
         setupNotification()
         updateStockLabels()
     }
     
-    // MARK: Setup
-    private func setupStockImageViews() {
-        self.stockImageViews.indices.forEach {
-            let imageName = String(format: "imgsource/%d.png", $0)
-            stockImageViews[$0].image = UIImage(named: imageName)
-            stockImageViews[$0].backgroundColor = UIColor.white
-            stockImageViews[$0].layer.borderWidth = 5
-            stockImageViews[$0].layer.borderColor = UIColor.black.cgColor
-            stockImageViews[$0].contentMode = UIViewContentMode.scaleAspectFit
-            stockImageViews[$0].layer.cornerRadius = 15
-            stockImageViews[$0].layer.masksToBounds = true
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        stockImageViews.forEach { setupBeverageImageView($0) }
+    }
+
+    // MARK: Setup methods
+    private func setupBeverageImageView(_ imageView: UIImageView) {
+        imageView.backgroundColor = UIColor.white
+        imageView.layer.borderWidth = 5
+        imageView.layer.cornerRadius = 15
+        imageView.layer.masksToBounds = true
+        imageView.frame.size = CGSize(width: 140, height: 100)
+    }
+    
+    private func setupHistroyImageViews() {
+        let beverages: [Beverage] = VendingMachine.shared().readHistory()
+        for (index, beverage) in beverages.enumerated() {
+            updatePurchasedImageView(beverage, index)
         }
     }
     
@@ -54,18 +60,13 @@ class ViewController: UIViewController {
         self.balanceLabel.text = String(format: "%d원", VendingMachine.shared().readBalance())
     }
     
-    func setupPurchasedImage() {
-        let historyImageViews = ImageViewFactory.makeImageView(VendingMachine.shared().readHistory())
-        updatePurchasedImage(historyImageViews)
-    }
-    
     private func setupNotification() {
         NotificationCenter.default.addObserver(self, selector: #selector(self.didChangeBalance(notification:)), name: .didChangeBalance, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.didChangeStock(notification:)), name: .didChangeStock, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.didChangeHistory(notification:)), name: .didChangeHistory, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.didAddHistory(notification:)), name: .didChangeHistory, object: VendingMachine.shared())
     }
     
-    // MARK: Observer's selector
+    // MARK: Observer's selectors
     @objc private func didChangeBalance(notification: Notification) {
         guard let balance = notification.userInfo?["balance"] as? Int else {
             return
@@ -77,24 +78,21 @@ class ViewController: UIViewController {
         self.updateStockLabels()
     }
     
-    @objc private func didChangeHistory(notification: Notification) {
-        guard let purchased = notification.userInfo?["purchased"] as? [Beverage] else {
+    @objc private func didAddHistory(notification: Notification) {
+        guard let purchased = notification.userInfo?["purchased"] as? Beverage else {
             return
         }
-        let purchasedImageViews = ImageViewFactory.makeImageView(purchased)
-        updatePurchasedImage(purchasedImageViews)
+        updatePurchasedImageView(purchased, VendingMachine.shared().readHistory().count - 1)
     }
     
-    // update method
-    private func updatePurchasedImage(_ purchased: [UIImageView]) {
-        purchased.forEach{
-            $0.layer.borderWidth = 5
-            $0.layer.cornerRadius = 15
-            $0.layer.masksToBounds = true
-            $0.contentMode = .scaleToFill
-            $0.backgroundColor = UIColor.white
-            self.view.addSubview($0)
-        }
+    // MARK: Update methods
+    private func updatePurchasedImageView(_ beverage: Beverage, _ multiplier: Int) {
+        let purchased: UIImageView = ImageViewFactory.makeImageView(beverage)
+        setupBeverageImageView(purchased)
+        purchased.contentMode = .scaleToFill
+        purchased.frame.origin.y = 575
+        purchased.frame.origin.x = CGFloat(40 + (multiplier * 50))
+        self.view.addSubview(purchased)
     }
     
     private func updateStockLabels() {
@@ -103,7 +101,7 @@ class ViewController: UIViewController {
         }
     }
     
-    // MARK: Action method
+    // MARK: Action methods
     @IBAction func addStock(_ sender: UIButton) {
         guard let buttonIndex = self.addStockButtons.index(of: sender) else { return }
         guard let beverage = BeverageFactory.makeBeverage(meunNumber: buttonIndex) else { return }

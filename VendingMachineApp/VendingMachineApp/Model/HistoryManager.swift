@@ -9,11 +9,7 @@
 import Foundation
 
 class HistoryManager: NSObject, NSSecureCoding {
-    private var purchased: [Beverage] {
-        didSet {
-            NotificationCenter.default.post(name: .didChangeHistory, object: self, userInfo: ["purchased":purchased])
-        }
-    }
+    private var purchased: [Beverage]
     
     override init() {
         self.purchased = []

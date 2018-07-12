@@ -13,23 +13,17 @@ class ViewController: UIViewController {
     @IBOutlet weak var balance: UILabel!
     @IBOutlet var inventory: [UILabel]!
     @IBOutlet var beverageImages: [UIImageView]!
+    private var vendingmachine: Vendingmachine!
     
-    private var vendingmachine: Vendingmachine
-
-    let beverages = BeverageFactory().setBeverage()
-    
-    required init?(coder aDecoder: NSCoder) {
-        vendingmachine = Vendingmachine(beverages)
-        super.init(coder: aDecoder)
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
+        let appDelegate = UIApplication.shared.delegate as? AppDelegate
+        vendingmachine = appDelegate?.vendingmachine
         updateBalance()
         updateInventory()
         makeRoundImages()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -69,7 +63,7 @@ class ViewController: UIViewController {
         }
         updateInventory()
     }
-    
+
     private func updateInventory() {
         let kinds = vendingmachine.makeKindOfBeverage()
         for index in inventory.indices {

@@ -10,15 +10,17 @@ import Foundation
 
 class Coke: Soda {
     
-    override var kind: String {
-        return "팹시콜라"
-    }
     private let calorie = 5
     
     override init(_ brand: String, _ volume: Int, _ price: Int, _ name: String, _ date: Date) {
         super.init(brand, volume, price, name, date)
+        self.kind = "팹시콜라"
     }
 
+    required init(from decoder: Decoder) throws {
+        try super.init(from: decoder)
+    }
+    
     convenience init() {
         self.init("팹시", 350, 2000, "다이어트콜라", DateUtility.makeToday())
     }

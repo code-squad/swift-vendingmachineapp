@@ -33,6 +33,5 @@ struct BeverageFactory {
     func setBeverage() -> [Beverage] {
         return beverageSet
     }
-    
-    
+
 }

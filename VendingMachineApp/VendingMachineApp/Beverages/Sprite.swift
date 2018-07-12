@@ -9,14 +9,16 @@
 import Foundation
 
 class Sprite: Soda {
-    
-    override var kind: String {
-        return "스프라이트"
-    }
+
     private let calorie = 120
     
     override init(_ brand: String, _ volume: Int, _ price: Int, _ name: String, _ date: Date) {
         super.init(brand, volume, price, name, date)
+        self.kind = "스프라이트"
+    }
+    
+    required init(from decoder: Decoder) throws {
+        try super.init(from: decoder)
     }
     
     convenience init() {

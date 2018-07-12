@@ -8,18 +8,19 @@
 
 import Foundation
 
-class Vendingmachine: AdminVendingmachine, UserVendingmachine {
+class Vendingmachine: AdminVendingmachine, UserVendingmachine, Codable {
 
     private var balance: Int = 0
     private var inventory: [String: [Beverage]] = [:]
     private var purchases: [Beverage] = []
+    static var shareInstance: Vendingmachine?
 
     init(_ beverageSet: [Beverage]) {
         for item in beverageSet {
             addPurchases(item)
         }
     }
-
+    
     subscript(item: String) -> [Beverage]? {
         return self.inventory[item]
     }
@@ -132,6 +133,4 @@ protocol UserVendingmachine {
     func makeKindOfBeverage() -> [String]
     subscript(item: String) -> [Beverage]? { get }
 }
-
-
 

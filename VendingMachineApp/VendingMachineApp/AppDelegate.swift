@@ -13,12 +13,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var vendingmachine: Vendingmachine!
-    var dataStorage = DataStorage()
     private var encodedData: Data!
     let beverages = BeverageFactory().setBeverage()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        guard let decodeData = dataStorage.roadData() else {
+        guard let decodeData = DataStorage.roadData() else {
             vendingmachine = Vendingmachine(beverages)
             return true
         }
@@ -31,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
-        dataStorage.saveData(vendingmachine)
+        DataStorage.saveData(vendingmachine)
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {

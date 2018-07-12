@@ -16,9 +16,13 @@ class Coke: Soda {
         super.init(brand, volume, price, name, date)
         self.kind = "팹시콜라"
     }
+    
+    override func encode(with aCoder: NSCoder) {
+        super.encode(with: aCoder)
+    }
 
-    required init(from decoder: Decoder) throws {
-        try super.init(from: decoder)
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
     }
     
     convenience init() {

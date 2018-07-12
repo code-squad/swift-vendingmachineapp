@@ -15,8 +15,12 @@ class Soda: Beverage {
         self.kind = "소다"
     }
     
-    required init(from decoder: Decoder) throws {
-        try super.init(from: decoder)
+    override func encode(with aCoder: NSCoder) {
+        super.encode(with: aCoder)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
     }
     
     func isLowCalorie() -> Bool {

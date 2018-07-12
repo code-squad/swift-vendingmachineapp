@@ -10,16 +10,17 @@ import Foundation
 
 class DataStorage {
     
-    private let keyProperty: String = "encodedData"
+    private static let keyProperty = "encodedData"
 
-    func roadData() -> Vendingmachine? {
+    static func roadData() -> Vendingmachine? {
         guard let data = UserDefaults.standard.data(forKey: keyProperty) else { return nil }
-        guard let vendingmachine = try? PropertyListDecoder().decode(Vendingmachine.self, from: data) else { return nil }
-        return vendingmachine
+        guard let vendingmachine =  NSKeyedUnarchiver.unarchiveObject(with: data) else { return nil }
+        guard let unarchiveData = vendingmachine as? Vendingmachine else { return nil }
+        return unarchiveData
     }
     
-    func saveData(_ vendingmachine: Vendingmachine) {
-        let encodedData = try? PropertyListEncoder().encode(vendingmachine)
+    static func saveData(_ vendingmachine: Vendingmachine) {
+        let encodedData = NSKeyedArchiver.archivedData(withRootObject: vendingmachine)
         UserDefaults.standard.set(encodedData, forKey: keyProperty)
     }
     

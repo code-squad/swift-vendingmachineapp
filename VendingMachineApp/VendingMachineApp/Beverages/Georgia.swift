@@ -17,8 +17,12 @@ class Georgia: Coffee {
         self.kind = "조지아"
     }
     
-    required init(from decoder: Decoder) throws {
-        try super.init(from: decoder)
+    override func encode(with aCoder: NSCoder) {
+        super.encode(with: aCoder)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
     }
 
     convenience init() {

@@ -6,4 +6,17 @@
 //  Copyright © 2018년 moon. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+protocol StockCheckale {
+    func updateStockLabels()
+    var stockLabels: [UILabel]! { get set }
+}
+
+extension StockCheckale {
+    func updateStockLabels() {
+        for index in stockLabels.indices {
+            self.stockLabels[index].text = String(format: "%d개", VendingMachine.shared().readStock(index))
+        }
+    }
+}

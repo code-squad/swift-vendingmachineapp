@@ -58,46 +58,6 @@
                                     </imageView>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qRg-4h-L26" userLabel="strawberry add button">
-                                <rect key="frame" x="68" y="125" width="44" height="42"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="추가"/>
-                                <connections>
-                                    <action selector="addStock:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3kH-Hj-xrL"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FQT-Lp-LrY" userLabel="banana add button">
-                                <rect key="frame" x="238" y="125" width="44" height="42"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="추가"/>
-                                <connections>
-                                    <action selector="addStock:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LIZ-9a-Xjg"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jdz-4s-hHW" userLabel="coke add button">
-                                <rect key="frame" x="408" y="125" width="44" height="42"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="추가"/>
-                                <connections>
-                                    <action selector="addStock:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6Tr-87-mAG"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PxF-nG-q6B" userLabel="sprite add button">
-                                <rect key="frame" x="578" y="125" width="44" height="42"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="추가"/>
-                                <connections>
-                                    <action selector="addStock:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RS9-iM-FtD"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="55e-EX-GsN" userLabel="top add button">
-                                <rect key="frame" x="748" y="125" width="44" height="42"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="추가"/>
-                                <connections>
-                                    <action selector="addStock:" destination="BYZ-38-t0r" eventType="touchUpInside" id="leo-1D-MZn"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="재고" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fIU-zm-yLk">
                                 <rect key="frame" x="72" y="287" width="36.5" height="25.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
@@ -268,35 +228,25 @@
                         </subviews>
                         <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="fIU-zm-yLk" firstAttribute="centerX" secondItem="qRg-4h-L26" secondAttribute="centerX" id="CK8-FM-Lbr"/>
-                            <constraint firstItem="aDx-W7-f4Z" firstAttribute="centerX" secondItem="Jdz-4s-hHW" secondAttribute="centerX" id="DLl-NS-m6S"/>
-                            <constraint firstItem="Rl2-H4-HKI" firstAttribute="centerX" secondItem="qRg-4h-L26" secondAttribute="centerX" id="ElZ-yd-E0S"/>
-                            <constraint firstItem="NT4-4V-P0c" firstAttribute="top" secondItem="Jdz-4s-hHW" secondAttribute="bottom" constant="10" id="Lvx-Tl-vy4"/>
+                            <constraint firstItem="wdS-IF-Qqr" firstAttribute="centerX" secondItem="7iI-NA-rnJ" secondAttribute="centerX" id="6v1-Gg-AsI"/>
+                            <constraint firstItem="fIU-zm-yLk" firstAttribute="centerX" secondItem="Rl2-H4-HKI" secondAttribute="centerX" id="BPN-8b-PVT"/>
                             <constraint firstItem="d1J-oQ-slJ" firstAttribute="top" secondItem="NT4-4V-P0c" secondAttribute="bottom" constant="10" id="Ngy-Wu-Q2N"/>
-                            <constraint firstItem="NT4-4V-P0c" firstAttribute="top" secondItem="55e-EX-GsN" secondAttribute="bottom" constant="10" id="Nli-dx-sZH"/>
                             <constraint firstItem="I99-00-EVN" firstAttribute="top" secondItem="Lgs-iW-LYj" secondAttribute="bottom" constant="50" id="OOT-Bn-6DZ"/>
-                            <constraint firstItem="NT4-4V-P0c" firstAttribute="top" secondItem="qRg-4h-L26" secondAttribute="bottom" constant="10" id="OyO-to-Sok"/>
                             <constraint firstItem="fIU-zm-yLk" firstAttribute="top" secondItem="NT4-4V-P0c" secondAttribute="bottom" constant="10" id="P5i-TJ-xPS"/>
-                            <constraint firstItem="d1J-oQ-slJ" firstAttribute="centerX" secondItem="FQT-Lp-LrY" secondAttribute="centerX" id="TKE-XO-62N"/>
+                            <constraint firstItem="nCU-1n-Ec2" firstAttribute="centerX" secondItem="ffc-b8-oF1" secondAttribute="centerX" id="Tvi-BC-qYr"/>
                             <constraint firstItem="NT4-4V-P0c" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="WDu-SB-tnL"/>
                             <constraint firstItem="D6d-rV-m0h" firstAttribute="leading" secondItem="I99-00-EVN" secondAttribute="trailing" constant="10" id="Xpq-mY-14S"/>
-                            <constraint firstItem="nCU-1n-Ec2" firstAttribute="centerX" secondItem="PxF-nG-q6B" secondAttribute="centerX" id="Xxz-6L-nVT"/>
                             <constraint firstItem="I99-00-EVN" firstAttribute="centerX" secondItem="Lgs-iW-LYj" secondAttribute="centerX" constant="-30" id="b3q-LG-uOc"/>
-                            <constraint firstItem="NT4-4V-P0c" firstAttribute="top" secondItem="FQT-Lp-LrY" secondAttribute="bottom" constant="10" id="bvq-hQ-GaK"/>
                             <constraint firstItem="aDx-W7-f4Z" firstAttribute="top" secondItem="NT4-4V-P0c" secondAttribute="bottom" constant="10" id="dWu-uf-fva"/>
-                            <constraint firstItem="Jdz-4s-hHW" firstAttribute="centerX" secondItem="Idz-Dn-O3L" secondAttribute="centerX" id="eD6-4e-CX5"/>
                             <constraint firstItem="Lgs-iW-LYj" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="169" id="gbi-1P-HbZ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="D6d-rV-m0h" secondAttribute="trailing" constant="67.5" id="iCQ-RY-6ZM"/>
-                            <constraint firstItem="NT4-4V-P0c" firstAttribute="top" secondItem="PxF-nG-q6B" secondAttribute="bottom" constant="10" id="ldc-Ls-cVl"/>
                             <constraint firstItem="wdS-IF-Qqr" firstAttribute="top" secondItem="NT4-4V-P0c" secondAttribute="bottom" constant="10" id="nOc-Zs-jz8"/>
-                            <constraint firstItem="wdS-IF-Qqr" firstAttribute="centerX" secondItem="55e-EX-GsN" secondAttribute="centerX" id="oUc-Fu-9br"/>
                             <constraint firstItem="D6d-rV-m0h" firstAttribute="centerY" secondItem="I99-00-EVN" secondAttribute="centerY" id="qxL-Ld-VM1"/>
+                            <constraint firstItem="d1J-oQ-slJ" firstAttribute="centerX" secondItem="pN6-rS-pT2" secondAttribute="centerX" id="sKv-fW-wHD"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Lgs-iW-LYj" secondAttribute="trailing" constant="46" id="sfe-Gd-131"/>
-                            <constraint firstItem="FQT-Lp-LrY" firstAttribute="centerX" secondItem="pN6-rS-pT2" secondAttribute="centerX" id="vBz-eo-K3n"/>
-                            <constraint firstItem="PxF-nG-q6B" firstAttribute="centerX" secondItem="ffc-b8-oF1" secondAttribute="centerX" id="vTU-Ay-tTw"/>
                             <constraint firstItem="NT4-4V-P0c" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="157" id="vYX-kN-jBP"/>
-                            <constraint firstItem="55e-EX-GsN" firstAttribute="centerX" secondItem="7iI-NA-rnJ" secondAttribute="centerX" id="w81-6i-Fy0"/>
                             <constraint firstItem="nCU-1n-Ec2" firstAttribute="top" secondItem="NT4-4V-P0c" secondAttribute="bottom" constant="10" id="x63-XI-6K3"/>
+                            <constraint firstItem="aDx-W7-f4Z" firstAttribute="centerX" secondItem="Idz-Dn-O3L" secondAttribute="centerX" id="yg9-xn-dzz"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -307,11 +257,6 @@
                         <outletCollection property="stockImageViews" destination="Idz-Dn-O3L" collectionClass="NSMutableArray" id="N08-IJ-Ozd"/>
                         <outletCollection property="stockImageViews" destination="ffc-b8-oF1" collectionClass="NSMutableArray" id="jaF-k4-34d"/>
                         <outletCollection property="stockImageViews" destination="7iI-NA-rnJ" collectionClass="NSMutableArray" id="gQ8-IB-Aw3"/>
-                        <outletCollection property="addStockButtons" destination="qRg-4h-L26" collectionClass="NSMutableArray" id="oRl-P0-FKq"/>
-                        <outletCollection property="addStockButtons" destination="FQT-Lp-LrY" collectionClass="NSMutableArray" id="WPz-6b-1N7"/>
-                        <outletCollection property="addStockButtons" destination="Jdz-4s-hHW" collectionClass="NSMutableArray" id="605-v9-bv0"/>
-                        <outletCollection property="addStockButtons" destination="PxF-nG-q6B" collectionClass="NSMutableArray" id="BhB-nN-IIH"/>
-                        <outletCollection property="addStockButtons" destination="55e-EX-GsN" collectionClass="NSMutableArray" id="l85-pR-N4E"/>
                         <outletCollection property="stockLabels" destination="fIU-zm-yLk" collectionClass="NSMutableArray" id="cIv-iC-g2N"/>
                         <outletCollection property="stockLabels" destination="d1J-oQ-slJ" collectionClass="NSMutableArray" id="ufC-Jq-3WB"/>
                         <outletCollection property="stockLabels" destination="aDx-W7-f4Z" collectionClass="NSMutableArray" id="Pvy-Fc-bKA"/>
@@ -333,16 +278,173 @@
             </objects>
             <point key="canvasLocation" x="49.640287769784173" y="36.690647482014391"/>
         </scene>
-        <!--View Controller-->
+        <!--Admin View Controller-->
         <scene sceneID="05i-pV-Iwe">
             <objects>
-                <viewController id="bEA-Nt-mqU" sceneMemberID="viewController">
+                <viewController id="bEA-Nt-mqU" customClass="AdminViewController" customModule="VendingMachineApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="m78-Qf-ahM">
                         <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <subviews>
+                            <stackView autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="6Ai-Mq-PJU">
+                                <rect key="frame" x="146" y="367" width="820" height="100"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="0" translatesAutoresizingMaskIntoConstraints="NO" id="bMH-PU-Qz9" userLabel="strawberry Image View">
+                                        <rect key="frame" x="0.0" y="0.0" width="140" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="140" id="TCF-ku-nBZ"/>
+                                            <constraint firstAttribute="height" constant="100" id="baf-13-67u"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="eck-1D-YqU" userLabel="banana Image View">
+                                        <rect key="frame" x="170" y="0.0" width="140" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="140" id="SRu-nn-HUa"/>
+                                            <constraint firstAttribute="height" constant="100" id="l6a-z9-fpx"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2" translatesAutoresizingMaskIntoConstraints="NO" id="mCs-xI-Lde" userLabel="coke Image View">
+                                        <rect key="frame" x="340" y="0.0" width="140" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="0yf-iA-Aha"/>
+                                            <constraint firstAttribute="width" constant="140" id="M9b-kY-dis"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="3" translatesAutoresizingMaskIntoConstraints="NO" id="Roi-0F-WDc" userLabel="sprite Image View">
+                                        <rect key="frame" x="510" y="0.0" width="140" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="140" id="5LJ-7v-qQP"/>
+                                            <constraint firstAttribute="height" constant="100" id="hfW-Lp-Ks5"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="4" translatesAutoresizingMaskIntoConstraints="NO" id="hsA-P0-JdI" userLabel="top Image View">
+                                        <rect key="frame" x="680" y="0.0" width="140" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="140" id="RyF-Sz-42E"/>
+                                            <constraint firstAttribute="height" constant="100" id="n3O-aK-r2s"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Av7-M2-whu" userLabel="strawberry add button">
+                                <rect key="frame" x="194" y="300" width="44" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="추가"/>
+                                <connections>
+                                    <action selector="addStock:" destination="bEA-Nt-mqU" eventType="touchUpInside" id="47J-Hm-fhT"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N25-25-Z3m" userLabel="banana add button">
+                                <rect key="frame" x="364" y="300" width="44" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="추가"/>
+                                <connections>
+                                    <action selector="addStock:" destination="bEA-Nt-mqU" eventType="touchUpInside" id="kTt-mJ-7Gy"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tak-r5-ftk" userLabel="coke add button">
+                                <rect key="frame" x="534" y="300" width="44" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="추가"/>
+                                <connections>
+                                    <action selector="addStock:" destination="bEA-Nt-mqU" eventType="touchUpInside" id="YG4-2g-8VU"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HQu-p4-Jsn" userLabel="sprite add button">
+                                <rect key="frame" x="704" y="300" width="44" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="추가"/>
+                                <connections>
+                                    <action selector="addStock:" destination="bEA-Nt-mqU" eventType="touchUpInside" id="OyV-be-Q45"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YPR-yt-uHh" userLabel="top add button">
+                                <rect key="frame" x="872" y="300" width="44" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="추가"/>
+                                <connections>
+                                    <action selector="addStock:" destination="bEA-Nt-mqU" eventType="touchUpInside" id="Jdj-NT-kyl"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pf0-1V-QyD">
+                                <rect key="frame" x="955" y="80" width="45" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <state key="normal" title="닫기"/>
+                                <connections>
+                                    <action selector="tappedBackButton:" destination="bEA-Nt-mqU" eventType="touchUpInside" id="LUh-uR-PZX"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="딸기우유재고" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e7z-0c-dSs">
+                                <rect key="frame" x="162" y="502" width="109" height="25.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="바나나우유재고" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pqh-Mn-QPi">
+                                <rect key="frame" x="322.5" y="502" width="127.5" height="25.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="티오피재고" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="urv-WQ-O5P">
+                                <rect key="frame" x="681" y="502" width="91" height="25.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="사이다재고" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JId-Km-xhU">
+                                <rect key="frame" x="850.5" y="502" width="91" height="25.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="콜라재고" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xt1-wc-ADv">
+                                <rect key="frame" x="520" y="502" width="73" height="25.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="e7z-0c-dSs" firstAttribute="top" secondItem="6Ai-Mq-PJU" secondAttribute="bottom" constant="35" id="5de-NM-Sbe"/>
+                            <constraint firstItem="Pqh-Mn-QPi" firstAttribute="centerX" secondItem="eck-1D-YqU" secondAttribute="centerX" id="9Kw-3L-Fu6"/>
+                            <constraint firstItem="6Ai-Mq-PJU" firstAttribute="centerY" secondItem="m78-Qf-ahM" secondAttribute="centerY" id="I8P-Cg-Q6l"/>
+                            <constraint firstItem="urv-WQ-O5P" firstAttribute="top" secondItem="6Ai-Mq-PJU" secondAttribute="bottom" constant="35" id="LfQ-0V-Efd"/>
+                            <constraint firstItem="6Ai-Mq-PJU" firstAttribute="centerX" secondItem="m78-Qf-ahM" secondAttribute="centerX" id="OOY-0K-OMx"/>
+                            <constraint firstItem="e7z-0c-dSs" firstAttribute="centerX" secondItem="bMH-PU-Qz9" secondAttribute="centerX" id="P8W-hE-4Se"/>
+                            <constraint firstItem="urv-WQ-O5P" firstAttribute="centerX" secondItem="Roi-0F-WDc" secondAttribute="centerX" id="bv3-d4-k0d"/>
+                            <constraint firstItem="Xt1-wc-ADv" firstAttribute="centerX" secondItem="mCs-xI-Lde" secondAttribute="centerX" id="j3w-Gq-Kof"/>
+                            <constraint firstItem="Pqh-Mn-QPi" firstAttribute="top" secondItem="6Ai-Mq-PJU" secondAttribute="bottom" constant="35" id="lQi-5y-YAd"/>
+                            <constraint firstItem="Xt1-wc-ADv" firstAttribute="top" secondItem="6Ai-Mq-PJU" secondAttribute="bottom" constant="35" id="y7Y-ap-Gwe"/>
+                            <constraint firstItem="JId-Km-xhU" firstAttribute="centerX" secondItem="hsA-P0-JdI" secondAttribute="centerX" id="yJl-pa-p4V"/>
+                            <constraint firstItem="JId-Km-xhU" firstAttribute="top" secondItem="6Ai-Mq-PJU" secondAttribute="bottom" constant="35" id="zAk-NS-uMN"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="AXx-JX-zkg"/>
                     </view>
+                    <connections>
+                        <outletCollection property="stockImageViews" destination="bMH-PU-Qz9" collectionClass="NSMutableArray" id="J9r-4i-qgr"/>
+                        <outletCollection property="stockImageViews" destination="eck-1D-YqU" collectionClass="NSMutableArray" id="Div-o3-0Ft"/>
+                        <outletCollection property="stockImageViews" destination="mCs-xI-Lde" collectionClass="NSMutableArray" id="0aB-sm-LUJ"/>
+                        <outletCollection property="stockImageViews" destination="Roi-0F-WDc" collectionClass="NSMutableArray" id="Xob-Tr-dI7"/>
+                        <outletCollection property="stockImageViews" destination="hsA-P0-JdI" collectionClass="NSMutableArray" id="HBp-Yq-KVU"/>
+                        <outletCollection property="addStockButtons" destination="Av7-M2-whu" collectionClass="NSMutableArray" id="oxY-4Q-xLa"/>
+                        <outletCollection property="stockLabels" destination="e7z-0c-dSs" collectionClass="NSMutableArray" id="Vjz-ag-K5x"/>
+                        <outletCollection property="stockLabels" destination="Pqh-Mn-QPi" collectionClass="NSMutableArray" id="la4-a5-zCF"/>
+                        <outletCollection property="stockLabels" destination="Xt1-wc-ADv" collectionClass="NSMutableArray" id="uAb-7j-gUK"/>
+                        <outletCollection property="stockLabels" destination="urv-WQ-O5P" collectionClass="NSMutableArray" id="4Gg-Ex-UZ6"/>
+                        <outletCollection property="stockLabels" destination="JId-Km-xhU" collectionClass="NSMutableArray" id="LcU-1e-JvU"/>
+                        <outletCollection property="addStockButtons" destination="N25-25-Z3m" collectionClass="NSMutableArray" id="pDX-6N-Va9"/>
+                        <outletCollection property="addStockButtons" destination="Tak-r5-ftk" collectionClass="NSMutableArray" id="n5d-Mm-tui"/>
+                        <outletCollection property="addStockButtons" destination="HQu-p4-Jsn" collectionClass="NSMutableArray" id="QDc-73-159"/>
+                        <outletCollection property="addStockButtons" destination="YPR-yt-uHh" collectionClass="NSMutableArray" id="jYl-z1-qQz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w6V-E1-0ns" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

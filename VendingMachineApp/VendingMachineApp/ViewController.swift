@@ -8,11 +8,10 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, StockCheckale {
     
     @IBOutlet weak var balanceLabel: UILabel!
     @IBOutlet var stockLabels: [UILabel]!
-    @IBOutlet var addStockButtons: [UIButton]!
     @IBOutlet var stockImageViews: [UIImageView]!
     @IBOutlet var purchaseButtons: [UIButton]!
     @IBOutlet var priceLabels: [UILabel]!
@@ -91,19 +90,7 @@ class ViewController: UIViewController {
         self.view.addSubview(purchased)
     }
     
-    private func updateStockLabels() {
-        for index in stockLabels.indices {
-            self.stockLabels[index].text = String(format: "%d개", VendingMachine.shared().readStock(index))
-        }
-    }
-    
     // MARK: Action methods
-    @IBAction func addStock(_ sender: UIButton) {
-        guard let buttonIndex = self.addStockButtons.index(of: sender) else { return }
-        guard let beverage = BeverageFactory.makeBeverage(meunNumber: buttonIndex) else { return }
-        VendingMachine.shared().addBeverage(beverage)
-    }
-    
     @IBAction func insertMoney(_ sender: UIButton) {
         let money: Int = Int(sender.titleLabel?.text ?? "") ?? 0
         VendingMachine.shared().insertMoney(money)

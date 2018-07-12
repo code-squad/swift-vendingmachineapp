@@ -18,11 +18,7 @@ class AdminViewController: UIViewController, StockCheckale {
         super.viewDidLoad()
         updateStockLabels()
         setupNotification()
-        stockImageViews.forEach {
-            $0.backgroundColor = UIColor.white
-            $0.layer.borderWidth  = 5
-            $0.layer.cornerRadius = 15
-        }
+        stockImageViews.forEach { $0.setBeverageImage() }
     }
     
     func setupNotification() {
@@ -43,4 +39,13 @@ class AdminViewController: UIViewController, StockCheckale {
         VendingMachine.shared().addBeverage(beverage)
     }
 
+}
+
+extension UIImageView {
+    func setBeverageImage() {
+        self.backgroundColor = UIColor.white
+        self.layer.borderWidth = 5
+        self.layer.cornerRadius = 15
+        self.layer.masksToBounds = true
+    }
 }

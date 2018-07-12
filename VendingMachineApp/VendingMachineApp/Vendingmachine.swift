@@ -8,19 +8,60 @@
 
 import Foundation
 
-class Vendingmachine: AdminVendingmachine, UserVendingmachine, Codable {
-
+class Vendingmachine: NSObject, AdminVendingmachine, UserVendingmachine, NSSecureCoding {
+    
     private var balance: Int = 0
     private var inventory: [String: [Beverage]] = [:]
     private var purchases: [Beverage] = []
-    static var shareInstance: Vendingmachine?
-
+    
     init(_ beverageSet: [Beverage]) {
+        super.init()
         for item in beverageSet {
             addPurchases(item)
         }
     }
     
+    private struct NSCoderKeys {
+        static let balance = "balance"
+        static let inventory = "inventory"
+        static let purchases = "purchases"
+    }
+    
+    static var supportsSecureCoding: Bool {
+        return true
+    }
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(NSNumber(value: balance), forKey: NSCoderKeys.balance)
+        aCoder.encode(inventory as NSDictionary, forKey: NSCoderKeys.inventory)
+        aCoder.encode(purchases, forKey: NSCoderKeys.purchases)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        guard let balance = aDecoder.decodeObject(of: NSNumber.self, forKey: NSCoderKeys.balance) else {
+            return nil
+        }
+        guard let inventory = aDecoder.decodeObject(of: NSDictionary.self, forKey: NSCoderKeys.inventory) else {
+            return nil
+        }
+        guard let purchases = aDecoder.decodeObject(of: NSArray.self, forKey: NSCoderKeys.purchases) else {
+            return nil
+        }
+        
+        self.balance = balance.intValue
+        for (key, value) in inventory {
+            guard let key = key as? String else { continue }
+            guard let value = value as? [Beverage] else { continue }
+            self.inventory[key] = value
+        }
+        
+        for beverage in purchases {
+            if let beverage = beverage as? Beverage {
+                self.purchases.append(beverage)
+            }
+        }
+    }
+
     subscript(item: String) -> [Beverage]? {
         return self.inventory[item]
     }

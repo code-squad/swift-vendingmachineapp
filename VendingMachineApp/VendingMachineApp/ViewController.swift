@@ -28,10 +28,7 @@ class ViewController: UIViewController, StockCheckale {
 
     // MARK: Setup methods
     private func setupBeverageImageView(_ imageView: UIImageView) {
-        imageView.backgroundColor = UIColor.white
-        imageView.layer.borderWidth = 5
-        imageView.layer.cornerRadius = 15
-        imageView.layer.masksToBounds = true
+        imageView.setBeverageImage()
         imageView.frame.size = CGSize(width: 140, height: 100)
     }
     

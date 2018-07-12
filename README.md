@@ -131,3 +131,21 @@
 
 ![demo_2](images/demo_step6_2.gif)  
 구매이력 복원  
+
+* 피드백 반영 개선사항
+	- 음료이미지들이 Assets에 포함되어 이미지접근 이름 변경
+	- ImageViewFactory의 이미지뷰 생성 메서드가 이미지뷰배열이 아닌 단일 이미지뷰를 생성하여 넘김.
+	- 구매목록 변경 Notification이 HistoryManager에서 VendingMachine의 메서드에서 post하도록 변경
+	- Notification을 받는 ViewController가 VendingMachine.shared() 객체가 보낸 Notification만을 받도록 수정
+	- 이미지뷰가 전체구매이력을 addSubView하는 부분수정
+	- 복원된 구매이력과 새로 구매한 것에 대한 구매이력 이미지 추가에 대한 중복코드 수정
+	
+## Step. 7
+* 요구사항
+	- 새로운 뷰컨트롤러를 추가하고 관리자 화면을 구현한다.
+	- 스토리보드에서 Button을 추가하고, Attributes에서 Type을 Info Light로 설정한다.
+	- 새롭게 추가한 화면을 관리자 모드로 동작하도록 개선한다.
+	- 관리자 화면에 [닫기] 버튼을 추가하고, 버튼을 누르면 dissmiss()를 호출한다.
+	- 재고 추가 버튼은 기존 화면에서 삭제한다.
+	
+![demo_7](images/demo_step7.gif)

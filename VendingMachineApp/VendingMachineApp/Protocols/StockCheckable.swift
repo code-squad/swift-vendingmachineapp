@@ -1,0 +1,9 @@
+//
+//  StockCheckable.swift
+//  VendingMachineApp
+//
+//  Created by moon on 2018. 7. 12..
+//  Copyright © 2018년 moon. All rights reserved.
+//
+
+import Foundation

@@ -19,16 +19,12 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        stockImageViews.forEach { setupBeverageImageView($0) }
         setupHistroyImageViews()
         setupPriceLabels()
         setupBalanceLabel()
         setupNotification()
         updateStockLabels()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        stockImageViews.forEach { setupBeverageImageView($0) }
     }
 
     // MARK: Setup methods

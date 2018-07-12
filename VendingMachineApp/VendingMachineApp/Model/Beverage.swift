@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Beverage: NSObject, NSCoding {
+class Beverage: NSObject, NSSecureCoding {
     
     private let name: String
     private let price: Int

@@ -17,8 +17,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let appDelegate = UIApplication.shared.delegate as? AppDelegate
-        vendingmachine = appDelegate?.vendingmachine
+        vendingmachine = Vendingmachine.sharedInstance()
         updateBalance()
         updateInventory()
         makeRoundImages()

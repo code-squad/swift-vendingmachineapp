@@ -13,11 +13,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var balance: UILabel!
     @IBOutlet var inventory: [UILabel]!
     @IBOutlet var beverageImages: [UIImageView]!
-    private var vendingmachine: Vendingmachine!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        vendingmachine = Vendingmachine.sharedInstance()
+        Vendingmachine.sharedInstance()
         updateBalance()
         updateInventory()
         makeRoundImages()
@@ -32,9 +31,9 @@ class ViewController: UIViewController {
         let fivethousand = 5000
         switch sender.tag {
         case 0:
-            vendingmachine.addBalance(onethousand)
+            Vendingmachine.sharedInstance().addBalance(onethousand)
         case 1:
-            vendingmachine.addBalance(fivethousand)
+            Vendingmachine.sharedInstance().addBalance(fivethousand)
         default:
             return
         }
@@ -42,21 +41,21 @@ class ViewController: UIViewController {
     }
     
     private func updateBalance() {
-        self.balance.text = "\(vendingmachine.checkBalance())원"
+        self.balance.text = "\(Vendingmachine.sharedInstance().checkBalance())원"
     }
 
     @IBAction func addBeverageButtonTouched(_ sender: UIButton) {
         switch sender.tag {
         case 0:
-            vendingmachine.addPurchases(Coke())
+            Vendingmachine.sharedInstance().addPurchases(Coke())
         case 1:
-            vendingmachine.addPurchases(ChocoMilk())
+            Vendingmachine.sharedInstance().addPurchases(ChocoMilk())
         case 2:
-            vendingmachine.addPurchases(StrawberryMilk())
+            Vendingmachine.sharedInstance().addPurchases(StrawberryMilk())
         case 3:
-            vendingmachine.addPurchases(Top())
+            Vendingmachine.sharedInstance().addPurchases(Top())
         case 4:
-            vendingmachine.addPurchases(Sprite())
+            Vendingmachine.sharedInstance().addPurchases(Sprite())
         default:
             return
         }
@@ -64,9 +63,9 @@ class ViewController: UIViewController {
     }
 
     private func updateInventory() {
-        let kinds = vendingmachine.makeKindOfBeverage()
+        let kinds = Vendingmachine.sharedInstance().makeKindOfBeverage()
         for index in inventory.indices {
-            self.inventory[index].text = "\(vendingmachine.countOfInventory(kinds[index]))개"
+            self.inventory[index].text = "\(Vendingmachine.sharedInstance().countOfInventory(kinds[index]))개"
         }
     }
 

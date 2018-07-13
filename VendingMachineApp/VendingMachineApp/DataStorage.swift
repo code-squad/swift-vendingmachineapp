@@ -12,11 +12,11 @@ class DataStorage {
     
     private static let keyProperty = "encodedData"
 
-    static func roadData() -> Vendingmachine? {
+    static func loadData() -> Vendingmachine? {
         guard let data = UserDefaults.standard.data(forKey: keyProperty) else { return nil }
-        guard let vendingmachine =  NSKeyedUnarchiver.unarchiveObject(with: data) else { return nil }
-        guard let unarchiveData = vendingmachine as? Vendingmachine else { return nil }
-        return unarchiveData
+        guard let unarchiveData =  NSKeyedUnarchiver.unarchiveObject(with: data) else { return nil }
+        guard let vendingmachine = unarchiveData as? Vendingmachine else { return nil }
+        return vendingmachine
     }
     
     static func saveData(_ vendingmachine: Vendingmachine) {

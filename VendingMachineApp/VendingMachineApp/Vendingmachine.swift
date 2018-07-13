@@ -9,16 +9,33 @@
 import Foundation
 
 class Vendingmachine: NSObject, AdminVendingmachine, UserVendingmachine, NSSecureCoding {
-    
+
     private var balance: Int = 0
     private var inventory: [String: [Beverage]] = [:]
     private var purchases: [Beverage] = []
+    private static let beverages = [
+        Coke(), Coke(), Coke(),
+        ChocoMilk(), ChocoMilk(), ChocoMilk(),
+        StrawberryMilk(), StrawberryMilk(), StrawberryMilk(),
+        Top(), Top(), Top(),
+        Sprite(), Sprite(), Sprite()
+    ]
     
     init(_ beverageSet: [Beverage]) {
         super.init()
         for item in beverageSet {
             addPurchases(item)
         }
+    }
+    
+    private static var vendingmachineInstance: Vendingmachine = Vendingmachine(beverages)
+    
+    class func sharedInstance() -> Vendingmachine {
+        return self.vendingmachineInstance
+    }
+    
+    class func loadInstance(_ vendingmachine: Vendingmachine) {
+        vendingmachineInstance = vendingmachine
     }
     
     private struct NSCoderKeys {

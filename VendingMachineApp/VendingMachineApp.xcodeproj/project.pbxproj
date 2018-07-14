@@ -43,6 +43,7 @@
 		730F54C320DF894D00D7E7A4 /* MoneyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730F54C120DF894D00D7E7A4 /* MoneyManager.swift */; };
 		7331CDD320F4852900DEFB28 /* HistoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7331CDD220F4852900DEFB28 /* HistoryManager.swift */; };
 		7331CDD720F4AEDF00DEFB28 /* ImageViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7331CDD620F4AEDF00DEFB28 /* ImageViewFactory.swift */; };
+		738812F320F9E8D70068490B /* PieGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738812F220F9E8D70068490B /* PieGraphView.swift */; };
 		7396790320E9E69E009B6C1C /* VendingMachineDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7396790220E9E69E009B6C1C /* VendingMachineDataManager.swift */; };
 		73BCA94920F7122E00FCDCF7 /* AdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BCA94820F7122E00FCDCF7 /* AdminViewController.swift */; };
 		73BCA94C20F724DF00FCDCF7 /* StockCheckable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BCA94B20F724DF00FCDCF7 /* StockCheckable.swift */; };
@@ -87,6 +88,7 @@
 		730F54C120DF894D00D7E7A4 /* MoneyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyManager.swift; sourceTree = "<group>"; };
 		7331CDD220F4852900DEFB28 /* HistoryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryManager.swift; sourceTree = "<group>"; };
 		7331CDD620F4AEDF00DEFB28 /* ImageViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewFactory.swift; sourceTree = "<group>"; };
+		738812F220F9E8D70068490B /* PieGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieGraphView.swift; sourceTree = "<group>"; };
 		7396790220E9E69E009B6C1C /* VendingMachineDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineDataManager.swift; sourceTree = "<group>"; };
 		73BCA94820F7122E00FCDCF7 /* AdminViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminViewController.swift; sourceTree = "<group>"; };
 		73BCA94B20F724DF00FCDCF7 /* StockCheckable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockCheckable.swift; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 				730F547620DE2FA500D7E7A4 /* Model */,
 				73C7C7EF20DCEF710077F80E /* AppDelegate.swift */,
 				73C7C7F120DCEF710077F80E /* ViewController.swift */,
+				738812F220F9E8D70068490B /* PieGraphView.swift */,
 				73C7C7F320DCEF710077F80E /* Main.storyboard */,
 				73BCA94820F7122E00FCDCF7 /* AdminViewController.swift */,
 				73C7C7F620DCEF720077F80E /* Assets.xcassets */,
@@ -416,6 +419,7 @@
 				730F547820DE2FB900D7E7A4 /* Beverage.swift in Sources */,
 				73C7C7F220DCEF710077F80E /* ViewController.swift in Sources */,
 				73C7C7F020DCEF710077F80E /* AppDelegate.swift in Sources */,
+				738812F320F9E8D70068490B /* PieGraphView.swift in Sources */,
 				730F54C220DF894D00D7E7A4 /* MoneyManager.swift in Sources */,
 				730F549020DE775300D7E7A4 /* Milk.swift in Sources */,
 				730F549220DE796E00D7E7A4 /* StrawberryMilk.swift in Sources */,

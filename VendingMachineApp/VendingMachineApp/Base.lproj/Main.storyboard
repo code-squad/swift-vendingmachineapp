@@ -225,6 +225,12 @@
                                     <segue destination="bEA-Nt-mqU" kind="presentation" modalTransitionStyle="flipHorizontal" id="U2K-rR-8tX"/>
                                 </connections>
                             </button>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Yb-Eb-J1P">
+                                <rect key="frame" x="40" y="648" width="1032" height="110"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="110" id="jzr-DS-o5Y"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -236,12 +242,15 @@
                             <constraint firstItem="nCU-1n-Ec2" firstAttribute="centerX" secondItem="ffc-b8-oF1" secondAttribute="centerX" id="Tvi-BC-qYr"/>
                             <constraint firstItem="NT4-4V-P0c" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="WDu-SB-tnL"/>
                             <constraint firstItem="D6d-rV-m0h" firstAttribute="leading" secondItem="I99-00-EVN" secondAttribute="trailing" constant="10" id="Xpq-mY-14S"/>
+                            <constraint firstItem="0Yb-Eb-J1P" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="agV-Qa-ylc"/>
                             <constraint firstItem="I99-00-EVN" firstAttribute="centerX" secondItem="Lgs-iW-LYj" secondAttribute="centerX" constant="-30" id="b3q-LG-uOc"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="0Yb-Eb-J1P" secondAttribute="trailing" constant="40" id="bXX-dE-GRo"/>
                             <constraint firstItem="aDx-W7-f4Z" firstAttribute="top" secondItem="NT4-4V-P0c" secondAttribute="bottom" constant="10" id="dWu-uf-fva"/>
                             <constraint firstItem="Lgs-iW-LYj" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="169" id="gbi-1P-HbZ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="D6d-rV-m0h" secondAttribute="trailing" constant="67.5" id="iCQ-RY-6ZM"/>
                             <constraint firstItem="wdS-IF-Qqr" firstAttribute="top" secondItem="NT4-4V-P0c" secondAttribute="bottom" constant="10" id="nOc-Zs-jz8"/>
                             <constraint firstItem="D6d-rV-m0h" firstAttribute="centerY" secondItem="I99-00-EVN" secondAttribute="centerY" id="qxL-Ld-VM1"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="0Yb-Eb-J1P" secondAttribute="bottom" constant="76" id="r5f-Um-W6a"/>
                             <constraint firstItem="d1J-oQ-slJ" firstAttribute="centerX" secondItem="pN6-rS-pT2" secondAttribute="centerX" id="sKv-fW-wHD"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Lgs-iW-LYj" secondAttribute="trailing" constant="46" id="sfe-Gd-131"/>
                             <constraint firstItem="NT4-4V-P0c" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="157" id="vYX-kN-jBP"/>
@@ -252,6 +261,7 @@
                     </view>
                     <connections>
                         <outlet property="balanceLabel" destination="D6d-rV-m0h" id="4C4-Ll-6kb"/>
+                        <outlet property="purchasedContainer" destination="0Yb-Eb-J1P" id="geb-2v-3Cj"/>
                         <outletCollection property="stockImageViews" destination="Rl2-H4-HKI" collectionClass="NSMutableArray" id="sfG-Hb-XyZ"/>
                         <outletCollection property="stockImageViews" destination="pN6-rS-pT2" collectionClass="NSMutableArray" id="H8X-Hf-B0Y"/>
                         <outletCollection property="stockImageViews" destination="Idz-Dn-O3L" collectionClass="NSMutableArray" id="N08-IJ-Ozd"/>

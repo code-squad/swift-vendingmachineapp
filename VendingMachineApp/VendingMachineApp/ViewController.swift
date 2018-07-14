@@ -10,14 +10,21 @@ import UIKit
 
 class ViewController: UIViewController, StockCheckale {
     
+    private struct BeverageImageSize {
+        static let width: CGFloat = 140
+        static let height: CGFloat = 100
+    }
+    
     @IBOutlet weak var balanceLabel: UILabel!
     @IBOutlet var stockLabels: [UILabel]!
     @IBOutlet var stockImageViews: [UIImageView]!
     @IBOutlet var purchaseButtons: [UIButton]!
     @IBOutlet var priceLabels: [UILabel]!
+    @IBOutlet weak var purchasedContainer: UIScrollView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        purchasedContainer.contentSize.width = BeverageImageSize.width
         stockImageViews.forEach { setupBeverageImageView($0) }
         setupHistroyImageViews()
         setupPriceLabels()
@@ -82,9 +89,9 @@ class ViewController: UIViewController, StockCheckale {
         let purchased: UIImageView = ImageViewFactory.makeImageView(beverage)
         setupBeverageImageView(purchased)
         purchased.contentMode = .scaleToFill
-        purchased.frame.origin.y = 575
-        purchased.frame.origin.x = CGFloat(40 + (multiplier * 50))
-        self.view.addSubview(purchased)
+        self.purchasedContainer.addSubview(purchased)
+        purchased.frame.origin.x = purchasedContainer.frame.origin.x + CGFloat(multiplier * 50)
+        self.purchasedContainer.contentSize.width += 50
     }
     
     // MARK: Action methods

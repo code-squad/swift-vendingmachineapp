@@ -72,6 +72,10 @@ final class VendingMachine: NSObject, NSSecureCoding {
         return self.historyManager.readPurchased()
     }
     
+    func readHistoryCountList() -> [String:Int] {
+        return self.historyManager.readPurchasedCountList()
+    }
+    
     // MARK: NSSecureCoding
     private struct NSCoderKeys {
         static let moneyManagerKey = "moneyManager"

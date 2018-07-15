@@ -444,6 +444,7 @@
                         <viewLayoutGuide key="safeArea" id="AXx-JX-zkg"/>
                     </view>
                     <connections>
+                        <outlet property="pieGraphView" destination="Nrx-4e-1TJ" id="RHD-oV-37O"/>
                         <outletCollection property="stockImageViews" destination="bMH-PU-Qz9" collectionClass="NSMutableArray" id="J9r-4i-qgr"/>
                         <outletCollection property="stockImageViews" destination="eck-1D-YqU" collectionClass="NSMutableArray" id="Div-o3-0Ft"/>
                         <outletCollection property="stockImageViews" destination="mCs-xI-Lde" collectionClass="NSMutableArray" id="0aB-sm-LUJ"/>

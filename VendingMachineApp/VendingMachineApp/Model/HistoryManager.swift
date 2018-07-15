@@ -24,6 +24,14 @@ class HistoryManager: NSObject, NSSecureCoding {
         return self.purchased
     }
     
+    func readPurchasedCountList() -> [String:Int] {
+        var countList = [String:Int]()
+        self.purchased.forEach {
+            countList[$0.description, default: 0] += 1
+        }
+        return countList
+    }
+    
     // MARK: NSSecureCoding
     private struct NSCoderKeys {
         static let purchasedKey = "purhcased"

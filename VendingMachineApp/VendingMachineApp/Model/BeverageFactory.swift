@@ -10,7 +10,7 @@ import Foundation
 
 struct BeverageFactory {
     
-    static func makeBeverage( meunNumber: Int) -> Beverage? {
+    static func makeBeverage(meunNumber: Int) -> Beverage? {
         switch meunNumber {
         case Menu.strawberryMilk.rawValue:
             return StrawberryMilk()

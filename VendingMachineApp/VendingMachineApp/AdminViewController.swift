@@ -22,6 +22,10 @@ class AdminViewController: UIViewController, StockCheckable {
         stockImageViews.forEach { $0.setBeverageImage() }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        
+    }
+    
     func setupNotification() {
         NotificationCenter.default.addObserver(self, selector: #selector(self.didChangeStock(notification:)), name: .didChangeStock, object: nil)
     }

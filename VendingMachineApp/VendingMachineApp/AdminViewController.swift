@@ -8,11 +8,12 @@
 
 import UIKit
 
-class AdminViewController: UIViewController, StockCheckale {
+class AdminViewController: UIViewController, StockCheckable {
 
     @IBOutlet var stockLabels: [UILabel]!
     @IBOutlet var stockImageViews: [UIImageView]!
     @IBOutlet var addStockButtons: [UIButton]!
+    @IBOutlet weak var pieGraphView: PieGraphView!
     
     override func viewDidLoad() {
         super.viewDidLoad()

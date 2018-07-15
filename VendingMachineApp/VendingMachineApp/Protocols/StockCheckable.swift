@@ -8,12 +8,12 @@
 
 import UIKit
 
-protocol StockCheckale {
+protocol StockCheckable {
     func updateStockLabels()
     var stockLabels: [UILabel]! { get set }
 }
 
-extension StockCheckale {
+extension StockCheckable {
     func updateStockLabels() {
         for index in stockLabels.indices {
             self.stockLabels[index].text = String(format: "%d개", VendingMachine.shared().readStock(index))

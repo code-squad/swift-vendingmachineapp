@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, StockCheckale {
+class ViewController: UIViewController, StockCheckable {
     
     private struct BeverageImageSize {
         static let width: CGFloat = 140

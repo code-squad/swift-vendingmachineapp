@@ -10,7 +10,7 @@ import UIKit
 
 class PieGraphView: UIView {
     
-    var dataSource: PieGraphViewDataSource!
+    var dataSource: PieGraphViewDataSource?
     
     private let colors = [UIColor.green, UIColor.orange, UIColor.red, UIColor.purple, UIColor.blue]
     private let lineWidth: CGFloat = 0
@@ -22,6 +22,7 @@ class PieGraphView: UIView {
     }()
 
     private var totalCount: CGFloat {
+        guard let dataSource = self.dataSource else { return 0 }
         return CGFloat(dataSource.countList.values.reduce(0, { $0 + $1}))
     }
     
@@ -34,6 +35,7 @@ class PieGraphView: UIView {
     }
     
     override func draw(_ rect: CGRect) {
+        guard let dataSource = self.dataSource else { return }
         var startAngle: CGFloat = 0
         var endAngle: CGFloat = 0
         

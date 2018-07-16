@@ -18,9 +18,11 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         updateBalance()
         updateInventory()
+        updatePurchaseList()
         makeRoundImages()
         NotificationCenter.default.addObserver(self, selector: #selector(didUpdateBalance(notification:)), name: .didUpdateBalance, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(didUpdateInventory(notification:)), name: .didUpdateInventory, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(didUpdatePurchases(notification:)),name: .didUpdatePurchases, object: nil)
     }
     
     override func didReceiveMemoryWarning() {
@@ -46,6 +48,10 @@ class ViewController: UIViewController {
 
     @objc private func didUpdateBalance(notification: Notification) {
         updateBalance()
+    }
+    
+    @objc private func didUpdatePurchases(notification: Notification) {
+        updatePurchaseList()
     }
 
     private func updateBalance() {
@@ -91,7 +97,6 @@ class ViewController: UIViewController {
         default:
             return
         }
-        updatePurchaseList()
     }
     
     private func updatePurchaseList() {
@@ -104,6 +109,8 @@ class ViewController: UIViewController {
             self.view.addSubview(imageView)
             xValue += 70
         }
+        updateBalance()
+        updateInventory()
     }
     
     private func makePurchaseImage(_ kind: String) -> String {

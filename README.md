@@ -148,3 +148,23 @@ class에 Codable 프로토콜을 적용할경우
 * 클래스 경우 싱글톤 사용시 다른곳에서 사용할때 객체의 정보가 변경되므로 
 사용시 주의해야 한다. 
 * 구조체 경우 싱글톤을 생성할 때 값 복사가 이루어진다. 멀티 스레드 환경에서는 구조체보다는 클래스가 안전하다.
+
+
+## step 5
+### 요구사항
+* MVC 패턴에서 Model과 Controller의 직접적인 참조 관계를 끊기 위해서 관찰자(Observer) 패턴을 적용한다. [NotificationCenter 강의 슬라이드](http://public.codesquad.kr/jk/vendingapp-NotificationCenter.pdf)
+* 관찰자 패턴을 적용해서 재고가 추가될 때마다 화면을 갱신하도록 개선한다.
+
+### 프로그래밍 요구사항
+* ViewController는 viewDidLoad에서 Observe를 등록한다.
+* 음식 재고가 바뀌는 Notification을 받으면 화면에 Label을 업데이트한다.
+* 추가 버튼을 누르면 해당 음식 재고를 모델에 추가할 때마다
+VendingMachine 모델 객체에서는 변화에 대해 NotificationCenter에 post한다.
+* 모든 동작은 이전 단계와 동일하게 동작해야 한다.
+
+### 학습꺼리
+* 다양한 Observer 등록 패턴을 학습한다.
+* 기본적인 MVC 패턴을 활용하기 위해 필요한 핵심 사항을 학습한다. [MVC 강의 슬라이드](http://public.codesquad.kr/jk/vendingapp-mvc.pdf)
+* 모델과 컨트롤러가 직접 참조하지 않고 느슨하게 연결된 (loosed coupled) 구조가 왜 좋은지 토론한다.
+
+iOS Notification은 느슨하게 결합된 방식으로 데이터를 전송하는 방법이다. sender는 receiver를 신경 쓸 필요가 없으며, receiver는 sender를 신경 쓸 필요없이 주어진 일을 하면 된다. 이는 객체가 달라져도 재사용하기에 용이하기 때문에 느슨하게 연결된 구조가 좋다.

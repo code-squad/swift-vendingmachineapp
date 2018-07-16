@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AdminViewController: UIViewController, StockCheckable {
+class AdminViewController: UIViewController, StockCheckable, PieGraphViewDataSource {
 
     @IBOutlet var stockLabels: [UILabel]!
     @IBOutlet var stockImageViews: [UIImageView]!
@@ -20,10 +20,7 @@ class AdminViewController: UIViewController, StockCheckable {
         updateStockLabels()
         setupNotification()
         stockImageViews.forEach { $0.setBeverageImage() }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        pieGraphView.setCountList(VendingMachine.shared().readHistoryCountList())
+        pieGraphView.dataSource = self
     }
     
     func setupNotification() {
@@ -44,6 +41,10 @@ class AdminViewController: UIViewController, StockCheckable {
         VendingMachine.shared().addBeverage(beverage)
     }
 
+    // PieGraphViewDataSource
+    var countList: [String : Int] {
+        return VendingMachine.shared().readHistoryCountList()
+    }
 }
 
 extension UIImageView {
@@ -54,4 +55,3 @@ extension UIImageView {
         self.layer.masksToBounds = true
     }
 }
-

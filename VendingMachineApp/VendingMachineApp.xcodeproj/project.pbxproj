@@ -43,6 +43,7 @@
 		730F54C320DF894D00D7E7A4 /* MoneyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730F54C120DF894D00D7E7A4 /* MoneyManager.swift */; };
 		7331CDD320F4852900DEFB28 /* HistoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7331CDD220F4852900DEFB28 /* HistoryManager.swift */; };
 		7331CDD720F4AEDF00DEFB28 /* ImageViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7331CDD620F4AEDF00DEFB28 /* ImageViewFactory.swift */; };
+		7366628420FC60BC00A598AF /* PieGraphViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7366628320FC60BC00A598AF /* PieGraphViewDataSource.swift */; };
 		738812F320F9E8D70068490B /* PieGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738812F220F9E8D70068490B /* PieGraphView.swift */; };
 		7396790320E9E69E009B6C1C /* VendingMachineDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7396790220E9E69E009B6C1C /* VendingMachineDataManager.swift */; };
 		73BCA94920F7122E00FCDCF7 /* AdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BCA94820F7122E00FCDCF7 /* AdminViewController.swift */; };
@@ -88,6 +89,7 @@
 		730F54C120DF894D00D7E7A4 /* MoneyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyManager.swift; sourceTree = "<group>"; };
 		7331CDD220F4852900DEFB28 /* HistoryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryManager.swift; sourceTree = "<group>"; };
 		7331CDD620F4AEDF00DEFB28 /* ImageViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewFactory.swift; sourceTree = "<group>"; };
+		7366628320FC60BC00A598AF /* PieGraphViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieGraphViewDataSource.swift; sourceTree = "<group>"; };
 		738812F220F9E8D70068490B /* PieGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieGraphView.swift; sourceTree = "<group>"; };
 		7396790220E9E69E009B6C1C /* VendingMachineDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineDataManager.swift; sourceTree = "<group>"; };
 		73BCA94820F7122E00FCDCF7 /* AdminViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminViewController.swift; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 		73BCA94A20F724AC00FCDCF7 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				7366628320FC60BC00A598AF /* PieGraphViewDataSource.swift */,
 				73BCA94B20F724DF00FCDCF7 /* StockCheckable.swift */,
 			);
 			path = Protocols;
@@ -407,6 +410,7 @@
 				730F548920DE75C000D7E7A4 /* Soda.swift in Sources */,
 				730F548120DE68EC00D7E7A4 /* Georgia.swift in Sources */,
 				730F548D20DE76AF00D7E7A4 /* Sprite.swift in Sources */,
+				7366628420FC60BC00A598AF /* PieGraphViewDataSource.swift in Sources */,
 				730F547D20DE68D800D7E7A4 /* Cantata.swift in Sources */,
 				7331CDD720F4AEDF00DEFB28 /* ImageViewFactory.swift in Sources */,
 				7331CDD320F4852900DEFB28 /* HistoryManager.swift in Sources */,

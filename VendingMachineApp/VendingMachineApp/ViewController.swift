@@ -68,13 +68,19 @@ class ViewController: UIViewController {
             return
         }
     }
-
+    
     private func updateInventory() {
         let kinds = Vendingmachine.sharedInstance().makeKindOfBeverage()
         for index in inventory.indices {
             self.inventory[index].text = "\(Vendingmachine.sharedInstance().countOfInventory(kinds[index]))개"
         }
     }
+    
+    @IBAction func PurchaseBeverageButtonTouched(_ sender: UIButton) {
+
+    }
+    
+
 
     private func makeRoundImages() {
         beverageImages.forEach({

@@ -149,3 +149,9 @@
 	- 재고 추가 버튼은 기존 화면에서 삭제한다.
 	
 ![demo_7](images/demo_step7.gif)
+
+## Step. 8
+* Keyword
+	- UIBezierPath, draw와 layout의 4가지 메서드, CoreGraphics, Path, ScrollView, UIView의 상속
+
+![demo_8](images/demo_step8.gif)

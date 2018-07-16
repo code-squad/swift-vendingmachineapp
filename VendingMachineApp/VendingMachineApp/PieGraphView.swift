@@ -9,8 +9,9 @@
 import UIKit
 
 class PieGraphView: UIView {
-
-    private var countList = [String:Int]()
+    
+    var dataSource: PieGraphViewDataSource!
+    
     private let colors = [UIColor.green, UIColor.orange, UIColor.red, UIColor.purple, UIColor.blue]
     private let lineWidth: CGFloat = 0
     private let textShadow: NSShadow = {
@@ -21,7 +22,7 @@ class PieGraphView: UIView {
     }()
 
     private var totalCount: CGFloat {
-        return CGFloat(countList.values.reduce(0, { $0 + $1}))
+        return CGFloat(dataSource.countList.values.reduce(0, { $0 + $1}))
     }
     
     private var centerPoint: CGPoint {
@@ -32,15 +33,11 @@ class PieGraphView: UIView {
         return max(bounds.width, bounds.height) / 2 - lineWidth
     }
     
-    func setCountList(_ countList: [String:Int]) {
-        self.countList = countList
-    }
-    
     override func draw(_ rect: CGRect) {
         var startAngle: CGFloat = 0
         var endAngle: CGFloat = 0
         
-        for (index, count) in countList.enumerated() {
+        for (index, count) in dataSource.countList.enumerated() {
             colors[index].setFill()
             endAngle = startAngle + (2 * .pi * CGFloat(count.value) / totalCount)
             drawPie(startAngle, endAngle)

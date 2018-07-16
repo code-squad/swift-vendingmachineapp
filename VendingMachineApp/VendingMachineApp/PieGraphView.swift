@@ -16,6 +16,21 @@ class PieGraphView: UIView {
     private var isDrawingCircle: Bool = false
     private let lineWidth: CGFloat = 0
     private var dynamicRadius: CGFloat = 0
+    private var centerPoint: CGPoint = CGPoint(x: 0, y: 0)
+    private var radius: CGFloat = 0
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        self.centerPoint = CGPoint(x: bounds.width / 2, y: bounds.height / 2)
+        self.radius = max(bounds.width, bounds.height) / 2 - lineWidth
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        self.centerPoint = CGPoint(x: bounds.width / 2, y: bounds.height / 2)
+        self.radius = max(bounds.width, bounds.height) / 2 - lineWidth
+    }
+    
     private let textShadow: NSShadow = {
         let shadow = NSShadow()
         shadow.shadowColor = UIColor.gray
@@ -26,14 +41,6 @@ class PieGraphView: UIView {
     private var totalCount: CGFloat {
         guard let dataSource = self.dataSource else { return 0 }
         return CGFloat(dataSource.countList.values.reduce(0, { $0 + $1}))
-    }
-    
-    private var centerPoint: CGPoint {
-        return CGPoint(x: bounds.width / 2, y: bounds.height / 2)
-    }
-    
-    private var radius: CGFloat {
-        return max(bounds.width, bounds.height) / 2 - lineWidth
     }
     
     override func draw(_ rect: CGRect) {

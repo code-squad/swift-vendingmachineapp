@@ -17,9 +17,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         Vendingmachine.sharedInstance()
-        updateBalance()
-        updateInventory()
+        updateBalance(Vendingmachine.sharedInstance().checkBalance())
+        updateInventory(Vendingmachine.sharedInstance())
         makeRoundImages()
+        NotificationCenter.default.addObserver(self, selector: #selector(didUpdateBalance(notification:)), name: .didUpdateBalance, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(didUpdateInventory(notification:)), name: .didUpdateInventory, object: nil)
     }
     
     override func didReceiveMemoryWarning() {
@@ -37,10 +39,20 @@ class ViewController: UIViewController {
         default:
             return
         }
-        updateBalance()
     }
     
-    private func updateBalance() {
+    @objc private func didUpdateInventory(notification : Notification) {
+        updateInventory(Vendingmachine.sharedInstance())
+    }
+
+    @objc private func didUpdateBalance(notification: Notification) {
+        guard let balance = notification.userInfo?["balance"] as? Int else {
+            return
+        }
+        updateBalance(balance)
+    }
+
+    private func updateBalance(_ balance: Int) {
         self.balance.text = "\(Vendingmachine.sharedInstance().checkBalance())원"
     }
 
@@ -59,13 +71,12 @@ class ViewController: UIViewController {
         default:
             return
         }
-        updateInventory()
     }
-
-    private func updateInventory() {
+    
+    private func updateInventory(_ vendingmachine: CountKinds) {
         let kinds = Vendingmachine.sharedInstance().makeKindOfBeverage()
         for index in inventory.indices {
-            self.inventory[index].text = "\(Vendingmachine.sharedInstance().countOfInventory(kinds[index]))개"
+            self.inventory[index].text = "\(vendingmachine.countOfInventory(kinds[index]))개"
         }
     }
 

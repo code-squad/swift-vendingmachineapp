@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Vendingmachine: NSObject, AdminVendingmachine, UserVendingmachine, NSSecureCoding {
+class Vendingmachine: NSObject, AdminVendingmachine, UserVendingmachine, NSSecureCoding, CountKinds {
 
     private var balance: Int = 0
     private var inventory: [String: [Beverage]] = [:]
@@ -88,11 +88,13 @@ class Vendingmachine: NSObject, AdminVendingmachine, UserVendingmachine, NSSecur
     //자판기 금액을 원하는 금액만큼 올리는 메소드
     func addBalance(_ inputMoney: Int) {
         self.balance += inputMoney
+        NotificationCenter.default.post(name: .didUpdateBalance, object: balance, userInfo: ["balance": balance])
     }
 
     //특정 상품 인스턴스를 넘겨서 재고를 추가하는 메소드
     func addPurchases(_ beverage: Beverage) {
         self.inventory[beverage.kind, default: []].append(beverage)
+        NotificationCenter.default.post(name: .didUpdateInventory, object: inventory, userInfo: ["Inventroy": inventory])
     }
     
     //현재 금액으로 구매가능한 음료수 목록을 리턴하는 메소드
@@ -190,5 +192,14 @@ protocol UserVendingmachine {
     func makePriceOfBeverage(_ kind: String) -> Int
     func makeKindOfBeverage() -> [String]
     subscript(item: String) -> [Beverage]? { get }
+}
+
+protocol CountKinds {
+    func countOfInventory(_ kind: String) -> Int
+}
+
+extension Notification.Name {
+    static let didUpdateBalance = Notification.Name("didUpdateBalance")
+    static let didUpdateInventory = Notification.Name("didUpdateInventory")
 }
 

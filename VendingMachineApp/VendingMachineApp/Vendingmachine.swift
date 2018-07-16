@@ -109,6 +109,7 @@ class Vendingmachine: NSObject, AdminVendingmachine, UserVendingmachine, NSSecur
         self.purchases.append(beverage)
         let price = beverage.price
         self.balance -= price
+        NotificationCenter.default.post(name: .didUpdatePurchases, object: purchases)
     }
     
     //잔액을 확인하는 메소드
@@ -201,4 +202,5 @@ protocol CountKinds {
 extension Notification.Name {
     static let didUpdateBalance = Notification.Name("didUpdateBalance")
     static let didUpdateInventory = Notification.Name("didUpdateInventory")
+    static let didUpdatePurchases = Notification.Name("didUpdatePurchases")
 }

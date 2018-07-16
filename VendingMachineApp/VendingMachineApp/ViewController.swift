@@ -16,7 +16,6 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        Vendingmachine.sharedInstance()
         updateBalance(Vendingmachine.sharedInstance().checkBalance())
         updateInventory(Vendingmachine.sharedInstance())
         makeRoundImages()
@@ -46,7 +45,7 @@ class ViewController: UIViewController {
     }
 
     @objc private func didUpdateBalance(notification: Notification) {
-        guard let balance = notification.userInfo?["balance"] as? Int else {
+        guard let balance = notification.userInfo?[UserInfo.balance] as? Int else {
             return
         }
         updateBalance(balance)

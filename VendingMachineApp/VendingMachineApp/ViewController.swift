@@ -17,7 +17,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateBalance(Vendingmachine.sharedInstance().checkBalance())
-        updateInventory(Vendingmachine.sharedInstance())
+        updateInventory()
         makeRoundImages()
         NotificationCenter.default.addObserver(self, selector: #selector(didUpdateBalance(notification:)), name: .didUpdateBalance, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(didUpdateInventory(notification:)), name: .didUpdateInventory, object: nil)
@@ -41,7 +41,7 @@ class ViewController: UIViewController {
     }
     
     @objc private func didUpdateInventory(notification : Notification) {
-        updateInventory(Vendingmachine.sharedInstance())
+        updateInventory()
     }
 
     @objc private func didUpdateBalance(notification: Notification) {
@@ -71,11 +71,11 @@ class ViewController: UIViewController {
             return
         }
     }
-    
-    private func updateInventory(_ vendingmachine: CountKinds) {
+
+    private func updateInventory() {
         let kinds = Vendingmachine.sharedInstance().makeKindOfBeverage()
         for index in inventory.indices {
-            self.inventory[index].text = "\(vendingmachine.countOfInventory(kinds[index]))개"
+            self.inventory[index].text = "\(Vendingmachine.sharedInstance().countOfInventory(kinds[index]))개"
         }
     }
 

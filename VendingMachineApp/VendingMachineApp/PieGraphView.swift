@@ -12,7 +12,13 @@ class PieGraphView: UIView {
 
     private var countList = [String:Int]()
     private let colors = [UIColor.green, UIColor.orange, UIColor.red, UIColor.purple, UIColor.blue]
-    private let lineWidth: CGFloat = 2
+    private let lineWidth: CGFloat = 0
+    private let textShadow: NSShadow = {
+        let shadow = NSShadow()
+        shadow.shadowColor = UIColor.gray
+        shadow.shadowBlurRadius = 3
+        return shadow
+    }()
 
     private var totalCount: CGFloat {
         return CGFloat(countList.values.reduce(0, { $0 + $1}))
@@ -38,6 +44,8 @@ class PieGraphView: UIView {
             colors[index].setFill()
             endAngle = startAngle + (2 * .pi * CGFloat(count.value) / totalCount)
             drawPie(startAngle, endAngle)
+            let sectionName = NSString(string: count.key)
+            addSectionText(sectionName, startAngle, endAngle)
             startAngle = endAngle
         }
     }
@@ -53,5 +61,13 @@ class PieGraphView: UIView {
         path.close()
         path.stroke()
         path.fill()
+    }
+    
+    private func addSectionText(_ text: NSString, _ startAngle: CGFloat, _ endAngle: CGFloat) {
+        let textPoint = CGPoint(x: centerPoint.x + radius * 0.6 * cos((endAngle + startAngle) / 2 ) - (text.size(withAttributes: nil).width / 2),
+                                y: centerPoint.y + radius * 0.6 * sin((endAngle + startAngle) / 2))
+        text.draw(at: textPoint, withAttributes: [NSAttributedStringKey.foregroundColor: UIColor.white,
+                                                  NSAttributedStringKey.font: UIFont.systemFont(ofSize: 20),
+                                                  NSAttributedStringKey.shadow: textShadow])
     }
 }

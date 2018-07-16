@@ -155,3 +155,9 @@
 	- UIBezierPath, draw와 layout의 4가지 메서드, CoreGraphics, Path, ScrollView, UIView의 상속
 
 ![demo_8](images/demo_step8.gif)
+
+## step. 9
+* Keyword
+	- TouchEvent, UIResponder, UIControl, ResponderChain, UIBezierPath, Touch관련 메서드
+	
+![demo_9](images/demo_step9.gif)

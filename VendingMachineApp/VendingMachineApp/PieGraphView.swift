@@ -115,6 +115,11 @@ class PieGraphView: UIView {
         isDrawingCircle = false
         setNeedsDisplay()
     }
+    
+    override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
+        dynamicRadius = radius
+        setNeedsDisplay()
+    }
 }
 
 // ^^는 제곱을 하는 사용자 정의 연산자

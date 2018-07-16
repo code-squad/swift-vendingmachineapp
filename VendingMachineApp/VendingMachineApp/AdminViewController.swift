@@ -45,6 +45,12 @@ class AdminViewController: UIViewController, StockCheckable, PieGraphViewDataSou
     var countList: [String : Int] {
         return VendingMachine.shared().readHistoryCountList()
     }
+    
+    override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
+        if motion == .motionShake {
+            pieGraphView.motionEnded(motion, with: event)
+        }
+    }
 }
 
 extension UIImageView {

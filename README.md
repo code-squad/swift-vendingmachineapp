@@ -168,3 +168,47 @@ VendingMachine 모델 객체에서는 변화에 대해 NotificationCenter에 pos
 * 모델과 컨트롤러가 직접 참조하지 않고 느슨하게 연결된 (loosed coupled) 구조가 왜 좋은지 토론한다.
 
 iOS Notification은 느슨하게 결합된 방식으로 데이터를 전송하는 방법이다. sender는 receiver를 신경 쓸 필요가 없으며, receiver는 sender를 신경 쓸 필요없이 주어진 일을 하면 된다. 이는 객체가 달라져도 재사용하기에 용이하기 때문에 느슨하게 연결된 구조가 좋다.
+
+
+## stpe 6
+
+### 요구사항
+* 구매 목록에 대한 제품 이미지뷰를 동적으로 코드로 직접 View에 추가한다.
+* readme.md 파일에 주요 작업 내용(바뀐 화면 이미지, 핵심 기능 설명)과 완성 날짜시간을 기록한다.
+
+```
+구매 버튼을 누르면 
+해당 음료의 이미지가 동적으로 추가된다
+또한 구매버튼을 누르면 재고수량이 줄어들고
+구매한 음료 가격만큼 잔액이 줄어든다
+Notification이 발생하면 
+컨트롤러에서 모델에 있는 값을 가져오고
+뷰에 표시한다.
+앱 종료이후에도 재고와 잔액 구매이미지가 
+저장되도록 개선했다.
+
+```
+
+* 실행하고 새로운 화면을 캡처해서 readme.md 파일에 포함한다.
+
+### 프로그래밍 요구사항
+* 실행이후 구매 목록을 화면 아래 이미지로 추가한다.
+* 구매 목록도 앱 종료이후에 저장되도록 개선한다.
+* 특정 제품을 구매할 때마다 해당 제품 이미지를 추가하도록 구현한다.
+	* NotificationCenter를 활용하자!
+* 특정 시점에 self.view.addSubView() 메서드로 UIImageView를 수동 추가
+* 힌트
+
+```
+ let cardImage : UIImageView = UIImageView(image:imageInstance)
+ cardImage.frame = CGRect(x: x, y: y, width: width, height: height)
+```
+ 
+* 모든 동작은 이전 단계와 동일하게 동작해야 한다.
+
+![step6](images/step6.gif)
+
+### 학습꺼리
+* 뷰를 코드로 생성해서 추가하는 것과 스토리보드 상에서 미리 생성하는 것의 차이에 대해 학습한다.
+* [UIKit의 모든 화면 요소 카타로그](https://developer.apple.com/library/archive/samplecode/UICatalog/Introduction/Intro.html) 샘플을 받아서 소스를 분석한다.
+

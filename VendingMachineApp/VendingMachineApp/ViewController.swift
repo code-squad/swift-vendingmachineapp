@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateBalance(Vendingmachine.sharedInstance().checkBalance())
+        updateBalance()
         updateInventory()
         makeRoundImages()
         NotificationCenter.default.addObserver(self, selector: #selector(didUpdateBalance(notification:)), name: .didUpdateBalance, object: nil)
@@ -45,13 +45,10 @@ class ViewController: UIViewController {
     }
 
     @objc private func didUpdateBalance(notification: Notification) {
-        guard let balance = notification.userInfo?[UserInfo.balance] as? Int else {
-            return
-        }
-        updateBalance(balance)
+        updateBalance()
     }
 
-    private func updateBalance(_ balance: Int) {
+    private func updateBalance() {
         self.balance.text = "\(Vendingmachine.sharedInstance().checkBalance())원"
     }
 

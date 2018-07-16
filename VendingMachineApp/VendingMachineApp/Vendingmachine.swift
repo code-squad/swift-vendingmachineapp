@@ -88,7 +88,7 @@ class Vendingmachine: NSObject, AdminVendingmachine, UserVendingmachine, NSSecur
     //자판기 금액을 원하는 금액만큼 올리는 메소드
     func addBalance(_ inputMoney: Int) {
         self.balance += inputMoney
-        NotificationCenter.default.post(name: .didUpdateBalance, object: balance, userInfo: [UserInfo.balance: balance])
+        NotificationCenter.default.post(name: .didUpdateBalance, object: balance)
     }
 
     //특정 상품 인스턴스를 넘겨서 재고를 추가하는 메소드
@@ -202,8 +202,3 @@ extension Notification.Name {
     static let didUpdateBalance = Notification.Name("didUpdateBalance")
     static let didUpdateInventory = Notification.Name("didUpdateInventory")
 }
-
-enum UserInfo: String {
-    case balance = "Balance"
-}
-

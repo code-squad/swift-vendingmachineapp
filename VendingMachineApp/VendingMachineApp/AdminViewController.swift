@@ -23,7 +23,7 @@ class AdminViewController: UIViewController, StockCheckable {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
+        pieGraphView.setCountList(VendingMachine.shared().readHistoryCountList())
     }
     
     func setupNotification() {
@@ -54,3 +54,4 @@ extension UIImageView {
         self.layer.masksToBounds = true
     }
 }
+

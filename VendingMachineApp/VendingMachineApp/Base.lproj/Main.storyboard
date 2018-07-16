@@ -151,7 +151,7 @@
                                     <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="PurchaseBeverageButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ll6-jK-a3e"/>
+                                    <action selector="purchaseBeverageButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2Qk-1R-VXH"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RnC-dx-UUZ">
@@ -162,7 +162,7 @@
                                     <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="PurchaseBeverageButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jjX-ER-jjB"/>
+                                    <action selector="purchaseBeverageButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ti4-Rx-u8M"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BDL-AX-kRL">
@@ -173,7 +173,7 @@
                                     <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="PurchaseBeverageButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cP1-ON-H5C"/>
+                                    <action selector="purchaseBeverageButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jCx-9i-HiZ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hGI-vR-J8q">
@@ -184,7 +184,7 @@
                                     <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="PurchaseBeverageButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nZO-ua-QdK"/>
+                                    <action selector="purchaseBeverageButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tlp-3a-XOU"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8tH-P3-vZe">
@@ -195,7 +195,7 @@
                                     <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="PurchaseBeverageButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fsT-jj-cr3"/>
+                                    <action selector="purchaseBeverageButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Kbi-H4-4Vd"/>
                                 </connections>
                             </button>
                         </subviews>

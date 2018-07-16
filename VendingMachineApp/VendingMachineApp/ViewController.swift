@@ -76,11 +76,52 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction func PurchaseBeverageButtonTouched(_ sender: UIButton) {
-
+    @IBAction func purchaseBeverageButtonTouched(_ sender: UIButton) {
+        switch sender.tag {
+        case 0:
+            Vendingmachine.sharedInstance().buyBeverage(Coke().kind)
+        case 1:
+            Vendingmachine.sharedInstance().buyBeverage(ChocoMilk().kind)
+        case 2:
+            Vendingmachine.sharedInstance().buyBeverage(StrawberryMilk().kind)
+        case 3:
+            Vendingmachine.sharedInstance().buyBeverage(Top().kind)
+        case 4:
+            Vendingmachine.sharedInstance().buyBeverage(Sprite().kind)
+        default:
+            return
+        }
+        updatePurchaseList()
     }
     
-
+    private func updatePurchaseList() {
+        let purchase = Vendingmachine.sharedInstance().checkPurchases()
+        var xValue = 65
+        for item in purchase {
+            let itemImage = UIImage(named: makePurchaseImage(item.kind))
+            let imageView : UIImageView = UIImageView(image: itemImage)
+            imageView.frame = CGRect(x: xValue, y: 650, width: 140, height: 120)
+            self.view.addSubview(imageView)
+            xValue += 70
+        }
+    }
+    
+    private func makePurchaseImage(_ kind: String) -> String {
+        switch kind {
+        case Coke().kind:
+            return "pepsi"
+        case ChocoMilk().kind:
+            return "chocomilk"
+        case StrawberryMilk().kind:
+            return "strawberrymilk"
+        case Top().kind:
+            return "top"
+        case Sprite().kind:
+            return "hotsix"
+        default:
+            return ""
+        }
+    }
 
     private func makeRoundImages() {
         beverageImages.forEach({

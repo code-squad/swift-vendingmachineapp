@@ -110,6 +110,8 @@ class Vendingmachine: NSObject, AdminVendingmachine, UserVendingmachine, NSSecur
         let price = beverage.price
         self.balance -= price
         NotificationCenter.default.post(name: .didUpdatePurchases, object: purchases)
+        NotificationCenter.default.post(name: .didUpdateBalance, object: balance)
+        NotificationCenter.default.post(name: .didUpdateInventory, object: inventory)
     }
     
     //잔액을 확인하는 메소드

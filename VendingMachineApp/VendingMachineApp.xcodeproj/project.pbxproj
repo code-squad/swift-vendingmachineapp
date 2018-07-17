@@ -11,7 +11,7 @@
 		9750841F9B5334302C12D424 /* Pods_VendingMachineAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4E867B0F3856B14C54C85B5 /* Pods_VendingMachineAppUITests.framework */; };
 		99549C5B2B4712943B931654 /* Pods_VendingMachineAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67937B4C455A9AEBF7A93107 /* Pods_VendingMachineAppTests.framework */; };
 		D69190BB20E4E65800FE4E57 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69190BA20E4E65800FE4E57 /* AppDelegate.swift */; };
-		D69190BD20E4E65800FE4E57 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69190BC20E4E65800FE4E57 /* ViewController.swift */; };
+		D69190BD20E4E65800FE4E57 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69190BC20E4E65800FE4E57 /* UserViewController.swift */; };
 		D69190C020E4E65800FE4E57 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D69190BE20E4E65800FE4E57 /* Main.storyboard */; };
 		D69190C220E4E65900FE4E57 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D69190C120E4E65900FE4E57 /* Assets.xcassets */; };
 		D69190C520E4E65900FE4E57 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D69190C320E4E65900FE4E57 /* LaunchScreen.storyboard */; };
@@ -36,6 +36,7 @@
 		D691910D20E5D31300FE4E57 /* BeverageFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D691910C20E5D31200FE4E57 /* BeverageFactory.swift */; };
 		D691910F20E6095900FE4E57 /* DateUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = D691910E20E6095900FE4E57 /* DateUtility.swift */; };
 		D6E0D9BB20F4943B00A89296 /* DataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E0D9BA20F4943B00A89296 /* DataStorage.swift */; };
+		D6E0DA4820FDBC3600A89296 /* AdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E0DA4720FDBC3600A89296 /* AdminViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,7 +66,7 @@
 		C4E867B0F3856B14C54C85B5 /* Pods_VendingMachineAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VendingMachineAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D69190B720E4E65700FE4E57 /* VendingMachineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendingMachineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D69190BA20E4E65800FE4E57 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D69190BC20E4E65800FE4E57 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D69190BC20E4E65800FE4E57 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		D69190BF20E4E65800FE4E57 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D69190C120E4E65900FE4E57 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D69190C420E4E65900FE4E57 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -95,6 +96,7 @@
 		D691910C20E5D31200FE4E57 /* BeverageFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeverageFactory.swift; sourceTree = "<group>"; };
 		D691910E20E6095900FE4E57 /* DateUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtility.swift; sourceTree = "<group>"; };
 		D6E0D9BA20F4943B00A89296 /* DataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStorage.swift; sourceTree = "<group>"; };
+		D6E0DA4720FDBC3600A89296 /* AdminViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminViewController.swift; sourceTree = "<group>"; };
 		D9490C6204EE2A94BBF5CF3C /* Pods-VendingMachineAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VendingMachineAppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-VendingMachineAppUITests/Pods-VendingMachineAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		E12C3ADD2BB0848D33BA953A /* Pods-VendingMachineApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VendingMachineApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VendingMachineApp/Pods-VendingMachineApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -180,7 +182,8 @@
 				D691910C20E5D31200FE4E57 /* BeverageFactory.swift */,
 				D691910A20E5D2F800FE4E57 /* Vendingmachine.swift */,
 				D69190BA20E4E65800FE4E57 /* AppDelegate.swift */,
-				D69190BC20E4E65800FE4E57 /* ViewController.swift */,
+				D69190BC20E4E65800FE4E57 /* UserViewController.swift */,
+				D6E0DA4720FDBC3600A89296 /* AdminViewController.swift */,
 				D6E0D9BA20F4943B00A89296 /* DataStorage.swift */,
 				D69190BE20E4E65800FE4E57 /* Main.storyboard */,
 				D69190C120E4E65900FE4E57 /* Assets.xcassets */,
@@ -448,7 +451,7 @@
 				D69190FF20E5D24B00FE4E57 /* Coke.swift in Sources */,
 				D691910220E5D24B00FE4E57 /* Soda.swift in Sources */,
 				D6E0D9BB20F4943B00A89296 /* DataStorage.swift in Sources */,
-				D69190BD20E4E65800FE4E57 /* ViewController.swift in Sources */,
+				D69190BD20E4E65800FE4E57 /* UserViewController.swift in Sources */,
 				D691910620E5D24B00FE4E57 /* Fanta.swift in Sources */,
 				D69190FC20E5D24B00FE4E57 /* Beverage.swift in Sources */,
 				D691910020E5D24B00FE4E57 /* Sprite.swift in Sources */,
@@ -458,6 +461,7 @@
 				D691910F20E6095900FE4E57 /* DateUtility.swift in Sources */,
 				D69190BB20E4E65800FE4E57 /* AppDelegate.swift in Sources */,
 				D691910420E5D24B00FE4E57 /* Milk.swift in Sources */,
+				D6E0DA4820FDBC3600A89296 /* AdminViewController.swift in Sources */,
 				D691910320E5D24B00FE4E57 /* Cantata.swift in Sources */,
 				D691910720E5D24B00FE4E57 /* Coffee.swift in Sources */,
 			);

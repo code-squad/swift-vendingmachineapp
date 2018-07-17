@@ -175,7 +175,16 @@ class Vendingmachine: NSObject, AdminVendingmachine, UserVendingmachine, NSSecur
     func removeInventory(_ beverage: String) {
         self.inventory[beverage]?.removeFirst()
     }
-
+    
+    static func removeRepeatedBeverage() -> [Beverage] {
+        var newbeverages: [Beverage] = []
+        for beverage in self.beverages {
+            if !newbeverages.contains(beverage) {
+                newbeverages.append(beverage)
+            }
+        }
+        return newbeverages
+    }
 }
 
 protocol AdminVendingmachine {

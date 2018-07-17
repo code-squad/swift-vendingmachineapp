@@ -84,4 +84,11 @@ class Beverage: NSObject, Validate, NSSecureCoding {
         self.kind = kind as String
 
     }
+
+    override func isEqual(_ object: Any?) -> Bool {
+        guard let object = object as? Beverage else {
+            return false
+        }
+        return self.kind == object.kind
+    }
 }

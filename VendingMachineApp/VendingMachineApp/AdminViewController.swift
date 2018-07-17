@@ -11,7 +11,7 @@ import UIKit
 class AdminViewController: UIViewController {
     
     @IBOutlet var inventoryLabel: [UILabel]!
-
+    @IBOutlet var inventoryButton: [UIButton]!
     override func viewDidLoad() {
         super.viewDidLoad()
         updateInventory()
@@ -31,19 +31,10 @@ class AdminViewController: UIViewController {
     }
     
     @IBAction func addBeverageButtonTouched(_ sender: UIButton) {
-        switch sender.tag {
-        case 0:
-            Vendingmachine.sharedInstance().addPurchases(Coke())
-        case 1:
-            Vendingmachine.sharedInstance().addPurchases(ChocoMilk())
-        case 2:
-            Vendingmachine.sharedInstance().addPurchases(StrawberryMilk())
-        case 3:
-            Vendingmachine.sharedInstance().addPurchases(Top())
-        case 4:
-            Vendingmachine.sharedInstance().addPurchases(Sprite())
-        default:
-            return
+        let inventory = Vendingmachine.removeRepeatedBeverage()
+        
+        if let index = inventoryButton.index(of: sender) {
+            Vendingmachine.sharedInstance().addPurchases(inventory[index])
         }
     }
     

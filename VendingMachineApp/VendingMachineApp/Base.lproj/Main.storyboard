@@ -316,6 +316,11 @@
                         <outletCollection property="inventoryLabel" destination="Arb-nO-QgN" collectionClass="NSMutableArray" id="h9I-nH-6Gs"/>
                         <outletCollection property="inventoryLabel" destination="47O-gs-tU7" collectionClass="NSMutableArray" id="Vze-Fe-MRB"/>
                         <outletCollection property="inventoryLabel" destination="BYa-n7-byk" collectionClass="NSMutableArray" id="R2x-gg-muU"/>
+                        <outletCollection property="inventoryButton" destination="aOH-S8-NKW" collectionClass="NSMutableArray" id="OBQ-5p-5JS"/>
+                        <outletCollection property="inventoryButton" destination="bWf-so-jKP" collectionClass="NSMutableArray" id="d8n-Gn-OQD"/>
+                        <outletCollection property="inventoryButton" destination="n7S-3B-bBn" collectionClass="NSMutableArray" id="91z-Am-WtX"/>
+                        <outletCollection property="inventoryButton" destination="VrZ-NA-eNo" collectionClass="NSMutableArray" id="9ZG-wu-dwf"/>
+                        <outletCollection property="inventoryButton" destination="VOF-s5-uoo" collectionClass="NSMutableArray" id="u5P-t2-UYf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nj5-5F-7hU" userLabel="First Responder" sceneMemberID="firstResponder"/>

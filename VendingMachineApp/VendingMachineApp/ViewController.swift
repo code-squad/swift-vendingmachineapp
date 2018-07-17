@@ -10,9 +10,10 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    @IBOutlet weak var balance: UILabel!
-    @IBOutlet var inventory: [UILabel]!
+    @IBOutlet weak var balanceLabel: UILabel!
+    @IBOutlet var inventoryLabel: [UILabel]!
     @IBOutlet var beverageImages: [UIImageView]!
+    @IBOutlet var purchaseButton: [UIButton]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,10 +53,12 @@ class ViewController: UIViewController {
     
     @objc private func didUpdatePurchases(notification: Notification) {
         updatePurchaseList()
+        updateBalance()
+        updateInventory()
     }
 
     private func updateBalance() {
-        self.balance.text = "\(Vendingmachine.sharedInstance().checkBalance())원"
+        self.balanceLabel.text = "\(Vendingmachine.sharedInstance().checkBalance())원"
     }
 
     @IBAction func addBeverageButtonTouched(_ sender: UIButton) {
@@ -77,28 +80,18 @@ class ViewController: UIViewController {
     
     private func updateInventory() {
         let kinds = Vendingmachine.sharedInstance().makeKindOfBeverage()
-        for index in inventory.indices {
-            self.inventory[index].text = "\(Vendingmachine.sharedInstance().countOfInventory(kinds[index]))개"
+        for index in inventoryLabel.indices {
+            self.inventoryLabel[index].text = "\(Vendingmachine.sharedInstance().countOfInventory(kinds[index]))개"
         }
     }
     
     @IBAction func purchaseBeverageButtonTouched(_ sender: UIButton) {
-        switch sender.tag {
-        case 0:
-            Vendingmachine.sharedInstance().buyBeverage(Coke().kind)
-        case 1:
-            Vendingmachine.sharedInstance().buyBeverage(ChocoMilk().kind)
-        case 2:
-            Vendingmachine.sharedInstance().buyBeverage(StrawberryMilk().kind)
-        case 3:
-            Vendingmachine.sharedInstance().buyBeverage(Top().kind)
-        case 4:
-            Vendingmachine.sharedInstance().buyBeverage(Sprite().kind)
-        default:
-            return
+        let kinds = Vendingmachine.sharedInstance().makeKindOfBeverage()
+        if let index = purchaseButton.index(of: sender) {
+            Vendingmachine.sharedInstance().buyBeverage(kinds[index])
         }
     }
-    
+
     private func updatePurchaseList() {
         let purchase = Vendingmachine.sharedInstance().checkPurchases()
         var xValue = 65
@@ -109,8 +102,6 @@ class ViewController: UIViewController {
             self.view.addSubview(imageView)
             xValue += 70
         }
-        updateBalance()
-        updateInventory()
     }
     
     private func makePurchaseImage(_ kind: String) -> String {

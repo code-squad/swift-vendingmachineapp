@@ -212,3 +212,43 @@ Notification이 발생하면
 * 뷰를 코드로 생성해서 추가하는 것과 스토리보드 상에서 미리 생성하는 것의 차이에 대해 학습한다.
 * [UIKit의 모든 화면 요소 카타로그](https://developer.apple.com/library/archive/samplecode/UICatalog/Introduction/Intro.html) 샘플을 받아서 소스를 분석한다.
 
+
+## step 7
+
+### 요구사항
+* 뷰 좌표시스템부터 Frame과 Bounds에 특성에 대해 학습한다. [뷰 좌표 시스템 강의 슬라이드](http://public.codesquad.kr/jk/vendingapp-coordinate.pdf)
+
+```
+Frame - SuperView의 좌표시스템안에서 View의 위치와 크기를 나타낸다
+상위뷰의 기준으로 위치를 정한다  
+	- UIView 위치나 크기를 결정하는 경우
+Bounds - View의 위치와 크기를 자신만의 좌표시스템 안에서 나타낸다
+상위뷰와 상관없이 자신의 기준으로 위치를 정한다
+	- View내부에 그림을 그릴때(drawRect)
+	- transfomation후, View 크기를 알고 싶을때
+	- 하위 View를 정렬하는 것 같이 내부적으로 변경하는 경우
+```
+
+* 새로운 뷰컨트롤러를 추가하고 관리자 화면을 구현한다.
+* readme.md 파일에 주요 작업 내용(바뀐 화면 이미지, 핵심 기능 설명)과 완성 날짜시간을 기록한다.
+* 실행하고 새로운 화면을 캡처해서 readme.md 파일에 포함한다.
+
+### 프로그래밍 요구사항
+* 스토리보드에서 Button을 추가하고, Attributes에서 Type을 Info Light로 설정한다.
+* 새로운 ViewController를 옆에 추가하고, Button에서 Segue를 연결한다.
+* Segue를 선택하고 Kind를 Present Modally로 지정하고, Transition을 Flip Horizontal로 설정한다.
+* 새롭게 추가한 화면을 관리자 모드로 동작하도록 개선한다.
+	* 이미지와 재고 추가 버튼을 복사해서 관리자 화면으로 복사하고, 동작하도록 코드를 수정한다.
+	* 재고 추가 버튼은 기존 화면에서 삭제한다.
+	* 관리자 화면에 [닫기] 버튼을 추가하고, 버튼을 누르면 dissmiss()를 호출한다.
+* 다른 동작은 이전 단계와 동일하게 동작해야 한다.
+
+![step7](images/step7.gif)
+
+* 학습꺼리
+* 뷰를 코드로 생성해서 추가하는 것과 스토리보드 상에서 미리 생성하는 것의 차이에 대해 학습한다.
+* [UIKit의 모든 화면 요소 카타로그](https://developer.apple.com/library/archive/samplecode/UICatalog/Introduction/Intro.html) 샘플을 받아서 소스를 분석한다.
+
+#### 참고링크
+* [Fram과 Bounds의 차이 1](http://zeddios.tistory.com/203)
+* [Fram과 Bounds의 차이 2](http://zeddios.tistory.com/231)

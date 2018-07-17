@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class UserViewController: UIViewController {
     
     @IBOutlet weak var balanceLabel: UILabel!
     @IBOutlet var inventoryLabel: [UILabel]!
@@ -53,8 +53,6 @@ class ViewController: UIViewController {
     
     @objc private func didUpdatePurchases(notification: Notification) {
         updatePurchaseList()
-        updateBalance()
-        updateInventory()
     }
 
     private func updateBalance() {

@@ -58,23 +58,6 @@ class UserViewController: UIViewController {
     private func updateBalance() {
         self.balanceLabel.text = "\(Vendingmachine.sharedInstance().checkBalance())원"
     }
-
-    @IBAction func addBeverageButtonTouched(_ sender: UIButton) {
-        switch sender.tag {
-        case 0:
-            Vendingmachine.sharedInstance().addPurchases(Coke())
-        case 1:
-            Vendingmachine.sharedInstance().addPurchases(ChocoMilk())
-        case 2:
-            Vendingmachine.sharedInstance().addPurchases(StrawberryMilk())
-        case 3:
-            Vendingmachine.sharedInstance().addPurchases(Top())
-        case 4:
-            Vendingmachine.sharedInstance().addPurchases(Sprite())
-        default:
-            return
-        }
-    }
     
     private func updateInventory() {
         let kinds = Vendingmachine.sharedInstance().makeKindOfBeverage()

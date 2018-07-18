@@ -37,6 +37,7 @@
 		D691910F20E6095900FE4E57 /* DateUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = D691910E20E6095900FE4E57 /* DateUtility.swift */; };
 		D6E0D9BB20F4943B00A89296 /* DataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E0D9BA20F4943B00A89296 /* DataStorage.swift */; };
 		D6E0DA4820FDBC3600A89296 /* AdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E0DA4720FDBC3600A89296 /* AdminViewController.swift */; };
+		D6ECC3F520FF648F00C08485 /* PieGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ECC3F420FF648F00C08485 /* PieGraphView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +98,7 @@
 		D691910E20E6095900FE4E57 /* DateUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtility.swift; sourceTree = "<group>"; };
 		D6E0D9BA20F4943B00A89296 /* DataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStorage.swift; sourceTree = "<group>"; };
 		D6E0DA4720FDBC3600A89296 /* AdminViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminViewController.swift; sourceTree = "<group>"; };
+		D6ECC3F420FF648F00C08485 /* PieGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieGraphView.swift; sourceTree = "<group>"; };
 		D9490C6204EE2A94BBF5CF3C /* Pods-VendingMachineAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VendingMachineAppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-VendingMachineAppUITests/Pods-VendingMachineAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		E12C3ADD2BB0848D33BA953A /* Pods-VendingMachineApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VendingMachineApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VendingMachineApp/Pods-VendingMachineApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -184,6 +186,7 @@
 				D69190BA20E4E65800FE4E57 /* AppDelegate.swift */,
 				D69190BC20E4E65800FE4E57 /* UserViewController.swift */,
 				D6E0DA4720FDBC3600A89296 /* AdminViewController.swift */,
+				D6ECC3F420FF648F00C08485 /* PieGraphView.swift */,
 				D6E0D9BA20F4943B00A89296 /* DataStorage.swift */,
 				D69190BE20E4E65800FE4E57 /* Main.storyboard */,
 				D69190C120E4E65900FE4E57 /* Assets.xcassets */,
@@ -453,6 +456,7 @@
 				D6E0D9BB20F4943B00A89296 /* DataStorage.swift in Sources */,
 				D69190BD20E4E65800FE4E57 /* UserViewController.swift in Sources */,
 				D691910620E5D24B00FE4E57 /* Fanta.swift in Sources */,
+				D6ECC3F520FF648F00C08485 /* PieGraphView.swift in Sources */,
 				D69190FC20E5D24B00FE4E57 /* Beverage.swift in Sources */,
 				D691910020E5D24B00FE4E57 /* Sprite.swift in Sources */,
 				D691910520E5D24B00FE4E57 /* BananaMilk.swift in Sources */,

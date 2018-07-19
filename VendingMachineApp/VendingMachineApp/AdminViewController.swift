@@ -12,10 +12,17 @@ class AdminViewController: UIViewController {
     
     @IBOutlet var inventoryLabel: [UILabel]!
     @IBOutlet var inventoryButton: [UIButton]!
+    @IBOutlet weak var pieGraphView: PieGraphView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         updateInventory()
         NotificationCenter.default.addObserver(self, selector: #selector(didUpdateInventory(notification:)), name: .didUpdateInventory, object: nil)
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        pieGraphView.makePurchasesList(Vendingmachine.sharedInstance().checkPurchases())
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,7 +39,6 @@ class AdminViewController: UIViewController {
     
     @IBAction func addBeverageButtonTouched(_ sender: UIButton) {
         let inventory = Vendingmachine.removeRepeatedBeverage()
-        
         if let index = inventoryButton.index(of: sender) {
             Vendingmachine.sharedInstance().addPurchases(inventory[index])
         }

@@ -22,7 +22,7 @@ class AdminViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        pieGraphView.makePurchasesList(Vendingmachine.sharedInstance().checkPurchases())
+        pieGraphView.getPurchased(Vendingmachine.sharedInstance().makePurchased())
     }
 
     override func didReceiveMemoryWarning() {

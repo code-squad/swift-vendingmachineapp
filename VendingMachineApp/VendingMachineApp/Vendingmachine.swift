@@ -13,6 +13,8 @@ class Vendingmachine: NSObject, AdminVendingmachine, UserVendingmachine, NSSecur
     private var balance: Int = 0
     private var inventory: [String: [Beverage]] = [:]
     private var purchases: [Beverage] = []
+    private var purchased = [String: [Beverage]]()
+    
     private static let beverages = [
         Coke(), Coke(), Coke(),
         ChocoMilk(), ChocoMilk(), ChocoMilk(),
@@ -184,6 +186,22 @@ class Vendingmachine: NSObject, AdminVendingmachine, UserVendingmachine, NSSecur
             }
         }
         return newbeverages
+    }
+    
+    private func makePurchasesList() -> [String:[Beverage]]{
+        for item in self.purchases {
+            purchased[item.kind, default: []].append(item)
+        }
+        return purchased
+    }
+    
+    func makePurchased() -> [String:Int] {
+        makePurchasesList()
+        var purchasedItem: [String:Int] = [:]
+        for (key, value) in self.purchased {
+            purchasedItem[key] = value.count
+        }
+        return purchasedItem
     }
 }
 

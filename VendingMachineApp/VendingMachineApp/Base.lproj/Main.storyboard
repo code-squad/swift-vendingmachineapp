@@ -316,6 +316,7 @@
                         <viewLayoutGuide key="safeArea" id="EAs-Kq-nYN"/>
                     </view>
                     <connections>
+                        <outlet property="pieGraphView" destination="LZE-FU-UEN" id="3yc-zy-w5Q"/>
                         <outletCollection property="inventoryLabel" destination="MJa-IX-Wrp" collectionClass="NSMutableArray" id="FfO-3T-pIc"/>
                         <outletCollection property="inventoryLabel" destination="XlT-fD-tbm" collectionClass="NSMutableArray" id="CqW-Kr-Ack"/>
                         <outletCollection property="inventoryLabel" destination="Arb-nO-QgN" collectionClass="NSMutableArray" id="h9I-nH-6Gs"/>

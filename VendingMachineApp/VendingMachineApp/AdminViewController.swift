@@ -18,11 +18,10 @@ class AdminViewController: UIViewController {
         super.viewDidLoad()
         updateInventory()
         NotificationCenter.default.addObserver(self, selector: #selector(didUpdateInventory(notification:)), name: .didUpdateInventory, object: nil)
-        
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
-        pieGraphView.getPurchased(Vendingmachine.sharedInstance().makePurchased())
+        pieGraphView.getPurchased(Vendingmachine.sharedInstance().makePurchased(Vendingmachine.sharedInstance().makePurchasesList()))
     }
 
     override func didReceiveMemoryWarning() {
@@ -50,4 +49,11 @@ class AdminViewController: UIViewController {
             self.inventoryLabel[index].text = "\(Vendingmachine.sharedInstance().countOfInventory(kinds[index]))개"
         }
     }
+    
+    override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
+        if motion == .motionShake {
+            pieGraphView.motionEnded(motion, with: event)
+        }
+    }
+    
 }

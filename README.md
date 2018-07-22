@@ -273,3 +273,38 @@ Bounds - View의 위치와 크기를 자신만의 좌표시스템 안에서 나�
 ### 학습꺼리
 * 2D 그래프를 그리기 위해 다양한 색상과 배경을 가진 점, 선, 면을 그리는 연습을 해본다.
 * 패스(Path)를 이용해서 한꺼번에 그리는 연습을 해본다.
+
+## step 9
+
+### 선택 요구사항 (학습 일정상 가능한 경우)
+* 터치이벤트를 받아서 처리하는 커스텀 View를 구현한다.
+* 멀티터치 이벤트에 대해 학습한다. [터치 이벤트 강의 슬라이드](http://public.codesquad.kr/jk/vendingapp-multitouch-event.pdf)
+* readme.md 파일에 주요 작업 내용(바뀐 화면 이미지, 핵심 기능 설명)과 완성 날짜시간을 기록한다.
+* 실행하고 새로운 화면을 캡처해서 readme.md 파일에 포함한다.
+
+### 프로그래밍 요구사항
+* PieGraphView 클래스에 다음의 터치 이벤트를 처리하는 핸들러 메서드를 추가한다.
+	* 그래프에 손을 터치하면 (떨어지지않은 상태) 그래프를 지우고 검정색 동그라미 그래프만 그린다.
+	* 그래프에 손을 떨어지지 않은 상태에서 손을 움직일때,
+		* 터치한 점부터 원점에 가까워지면 파이 그래프 크기를 줄이고,
+		* 터치한 점부터 원점에서 멀어지면 파이 그래프 크기를 늘린다.
+	* 그래프에 손을 떨어지면 구매이력 그래프 색상을 바꿔서 바뀐 크기대로 다시 그린다.
+	* 제한된 최대/최소 크기를 지정하고 그 이상 커지거나 작아지지 않도록 한다.
+* 관리자 화면 ViewController에서 Shake 이벤트를 받으면 원래 크기대로 복구한다.
+* 다른 동작은 이전 단계와 동일하게 동작해야 한다.
+
+```
+* 터치 시작
+func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
+
+* 터치 이동
+func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?)
+
+* 터치 종료
+func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?)
+
+* 터치 취소(뷰 사라지기, 전화, 등)
+func touchesCancelled(_ touches: Set<UITouch>?, with event: UIEvent?)
+```
+
+![step9](images/step9.gif)

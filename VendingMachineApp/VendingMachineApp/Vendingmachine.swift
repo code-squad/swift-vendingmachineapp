@@ -188,17 +188,16 @@ class Vendingmachine: NSObject, AdminVendingmachine, UserVendingmachine, NSSecur
         return newbeverages
     }
     
-    private func makePurchasesList() -> [String:[Beverage]]{
+    func makePurchasesList() -> [String:[Beverage]]{
         for item in self.purchases {
             purchased[item.kind, default: []].append(item)
         }
         return purchased
     }
     
-    func makePurchased() -> [String:Int] {
-        makePurchasesList()
+    func makePurchased(_ purchasedList: [String:[Beverage]]) -> [String:Int] {
         var purchasedItem: [String:Int] = [:]
-        for (key, value) in self.purchased {
+        for (key, value) in purchasedList {
             purchasedItem[key] = value.count
         }
         return purchasedItem

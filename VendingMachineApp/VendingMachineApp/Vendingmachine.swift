@@ -196,6 +196,7 @@ class Vendingmachine: NSObject, AdminVendingmachine, UserVendingmachine, NSSecur
     }
     
     func makePurchased(_ purchasedList: [String:[Beverage]]) -> [String:Int] {
+        
         var purchasedItem: [String:Int] = [:]
         for (key, value) in purchasedList {
             purchasedItem[key] = value.count

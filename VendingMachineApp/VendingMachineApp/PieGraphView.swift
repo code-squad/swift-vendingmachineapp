@@ -32,7 +32,7 @@ class PieGraphView: UIView {
         totalCount()
     }
 
-    func totalCount() {
+    private func totalCount() {
         for (_, value) in self.purchased {
             total += CGFloat(value)
         }
@@ -84,21 +84,11 @@ class PieGraphView: UIView {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         isDrawingCircle = true
-        guard let location = touches.first?.location(in: self) else { return }
-        changedRadius = sqrt(pow((location.x - centerPoint.x), 2) + pow((location.y - centerPoint.y), 2))
-        if changedRadius > radius {
-            changedRadius = radius
-        }
-        setNeedsDisplay()
+        touchesEvent(touches)
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        guard let location = touches.first?.location(in: self) else { return }
-        changedRadius = sqrt(pow((location.x - centerPoint.x), 2) + pow((location.y - centerPoint.y), 2))
-        if changedRadius > radius {
-            changedRadius = radius
-        }
-        setNeedsDisplay()
+        touchesEvent(touches)
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -108,6 +98,15 @@ class PieGraphView: UIView {
     
     override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
         changedRadius = radius
+        setNeedsDisplay()
+    }
+    
+    private func touchesEvent(_ touches: Set<UITouch>) {
+        guard let location = touches.first?.location(in: self) else { return }
+        changedRadius = sqrt(pow((location.x - centerPoint.x), 2) + pow((location.y - centerPoint.y), 2))
+        if changedRadius > radius {
+            changedRadius = radius
+        }
         setNeedsDisplay()
     }
 }

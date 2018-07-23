@@ -16,7 +16,7 @@ class PieGraphView: UIView {
     private var total: CGFloat = 0
     private var startAngle: CGFloat = 0
     private var endAngle: CGFloat = 0
-    let half: CGFloat = 2
+    private let half: CGFloat = 2
     private var centerPoint: CGPoint {
         return CGPoint(x: bounds.width / half, y: bounds.height / half)
     }

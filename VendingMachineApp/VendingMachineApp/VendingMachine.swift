@@ -15,11 +15,11 @@ protocol vendinMachineMenu {
 }
 /// 사용자용 메뉴
 protocol VendingMachineUserMenu : vendinMachineMenu {
-    func getUserMainMenu(menu:InputView.UserFirstMenu,orderDetail:OrderDetail,drinkPrice:Int)throws->String
+//    func getUserMainMenu(menu:InputView.UserFirstMenu,orderDetail:OrderDetail,drinkPrice:Int)throws->String
 }
 /// 관리자용 메뉴
 protocol VendingMachineAdminMenu : vendinMachineMenu {
-    func getAdminMainMenu(menu:InputView.AdminFirstMenu,orderDetail:OrderDetail)throws->String
+//    func getAdminMainMenu(menu:InputView.AdminFirstMenu,orderDetail:OrderDetail)throws->String
 }
 
 class VendingMachine : vendinMachineMenu  {
@@ -105,15 +105,15 @@ extension VendingMachine : VendingMachineUserMenu {
         return "\(movedDrinksDetail.drinkName) \(movedDrinksDetail.drinkCount)개를 \(totalOrderPrice)원에 구입하였습니다."
     }
     
-    /// 메인메뉴에서 선택 후 분기
-    func getUserMainMenu(menu: InputView.UserFirstMenu, orderDetail:OrderDetail,drinkPrice:Int) throws -> String{
-        switch menu {
-        case .insertMoney : return plusMoney(money: drinkPrice)
-        case .selectDrink : return try buyDrink(orderDetail:orderDetail)
-        case .quit : throw OutputView.errorMessage.toModeSelect
-        case .none : return OutputView.errorMessage.wrongMenu.description
-        }
-    }
+//    /// 메인메뉴에서 선택 후 분기
+//    func getUserMainMenu(menu: InputView.UserFirstMenu, orderDetail:OrderDetail,drinkPrice:Int) throws -> String{
+//        switch menu {
+//        case .insertMoney : return plusMoney(money: drinkPrice)
+//        case .selectDrink : return try buyDrink(orderDetail:orderDetail)
+//        case .quit : throw OutputView.errorMessage.toModeSelect
+//        case .none : return OutputView.errorMessage.wrongMenu.description
+//        }
+//    }
 }
 
 extension VendingMachine : VendingMachineAdminMenu {
@@ -145,12 +145,12 @@ extension VendingMachine : VendingMachineAdminMenu {
     }
     
     
-    func getAdminMainMenu(menu: InputView.AdminFirstMenu,orderDetail:OrderDetail) throws -> String {
-        switch menu {
-        case .addDrink : return try duplicateDrink(orderDetail:orderDetail)
-        case .removeDrink : return try reduceDrink(orderDetail:orderDetail)
-        case .quit : throw OutputView.errorMessage.toModeSelect
-        case .none : return OutputView.errorMessage.wrongMenu.description
-        }
-    }
+//    func getAdminMainMenu(menu: InputView.AdminFirstMenu,orderDetail:OrderDetail) throws -> String {
+//        switch menu {
+//        case .addDrink : return try duplicateDrink(orderDetail:orderDetail)
+//        case .removeDrink : return try reduceDrink(orderDetail:orderDetail)
+//        case .quit : throw OutputView.errorMessage.toModeSelect
+//        case .none : return OutputView.errorMessage.wrongMenu.description
+//        }
+//    }
 }

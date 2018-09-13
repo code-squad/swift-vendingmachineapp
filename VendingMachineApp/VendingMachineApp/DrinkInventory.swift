@@ -64,7 +64,7 @@ class DrinkInventory {
             }
         }
         // 만약 모든 음료슬롯에 해당 타입이 없다면 잘못된음료 에러 리턴
-        return nil
+        throw OutputView.errorMessage.wrongDrink
     }
     
     /// 전체 재고 출력 함수

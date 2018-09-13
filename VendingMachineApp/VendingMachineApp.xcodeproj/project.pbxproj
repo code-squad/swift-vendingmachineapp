@@ -19,6 +19,7 @@
 		D56712E6214A3F2E00106ECD /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = D56712E1214A3F2E00106ECD /* Drink.swift */; };
 		D56712E7214A3F2E00106ECD /* DrinkSlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = D56712E2214A3F2E00106ECD /* DrinkSlot.swift */; };
 		D56712E8214A3F2E00106ECD /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = D56712E3214A3F2E00106ECD /* VendingMachine.swift */; };
+		D56712EA214A4C9C00106ECD /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D56712E9214A4C9C00106ECD /* OutputView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		D56712E1214A3F2E00106ECD /* Drink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Drink.swift; sourceTree = "<group>"; };
 		D56712E2214A3F2E00106ECD /* DrinkSlot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrinkSlot.swift; sourceTree = "<group>"; };
 		D56712E3214A3F2E00106ECD /* VendingMachine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VendingMachine.swift; sourceTree = "<group>"; };
+		D56712E9214A4C9C00106ECD /* OutputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 				D56712E3214A3F2E00106ECD /* VendingMachine.swift */,
 				D56712B1214A295600106ECD /* AppDelegate.swift */,
 				D56712B3214A295600106ECD /* ViewController.swift */,
+				D56712E9214A4C9C00106ECD /* OutputView.swift */,
 				D56712B5214A295600106ECD /* Main.storyboard */,
 				D56712B8214A295600106ECD /* Assets.xcassets */,
 				D56712BA214A295600106ECD /* LaunchScreen.storyboard */,
@@ -281,6 +284,7 @@
 				D56712E6214A3F2E00106ECD /* Drink.swift in Sources */,
 				D56712B2214A295600106ECD /* AppDelegate.swift in Sources */,
 				D56712E8214A3F2E00106ECD /* VendingMachine.swift in Sources */,
+				D56712EA214A4C9C00106ECD /* OutputView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -86,6 +86,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D54F557A214B7F31000C3DE5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D56712DF214A3F2D00106ECD /* Checker.swift */,
+				D56712E1214A3F2E00106ECD /* Drink.swift */,
+				D56712E2214A3F2E00106ECD /* DrinkSlot.swift */,
+				D56712E0214A3F2E00106ECD /* DrinkInventory.swift */,
+				D56712E3214A3F2E00106ECD /* VendingMachine.swift */,
+				D56712E9214A4C9C00106ECD /* OutputView.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		D56712A5214A295600106ECD = {
 			isa = PBXGroup;
 			children = (
@@ -109,14 +122,9 @@
 		D56712B0214A295600106ECD /* VendingMachineApp */ = {
 			isa = PBXGroup;
 			children = (
-				D56712DF214A3F2D00106ECD /* Checker.swift */,
-				D56712E1214A3F2E00106ECD /* Drink.swift */,
-				D56712E2214A3F2E00106ECD /* DrinkSlot.swift */,
-				D56712E0214A3F2E00106ECD /* DrinkInventory.swift */,
-				D56712E3214A3F2E00106ECD /* VendingMachine.swift */,
+				D54F557A214B7F31000C3DE5 /* Model */,
 				D56712B1214A295600106ECD /* AppDelegate.swift */,
 				D56712B3214A295600106ECD /* ViewController.swift */,
-				D56712E9214A4C9C00106ECD /* OutputView.swift */,
 				D56712B5214A295600106ECD /* Main.storyboard */,
 				D56712B8214A295600106ECD /* Assets.xcassets */,
 				D56712BA214A295600106ECD /* LaunchScreen.storyboard */,

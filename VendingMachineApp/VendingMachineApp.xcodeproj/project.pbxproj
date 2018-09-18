@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D554EE872150D7020048657F /* Drink05.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D554EE812150D7020048657F /* Drink05.jpg */; };
+		D554EE882150D7020048657F /* Drink06.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D554EE822150D7020048657F /* Drink06.jpg */; };
+		D554EE892150D7020048657F /* Drink03.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D554EE832150D7020048657F /* Drink03.jpg */; };
+		D554EE8A2150D7020048657F /* Drink04.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D554EE842150D7020048657F /* Drink04.jpg */; };
+		D554EE8B2150D7020048657F /* Drink01.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D554EE852150D7020048657F /* Drink01.jpg */; };
+		D554EE8C2150D7020048657F /* Drink02.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D554EE862150D7020048657F /* Drink02.jpg */; };
 		D56712B2214A295600106ECD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D56712B1214A295600106ECD /* AppDelegate.swift */; };
 		D56712B4214A295600106ECD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D56712B3214A295600106ECD /* ViewController.swift */; };
 		D56712B7214A295600106ECD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D56712B5214A295600106ECD /* Main.storyboard */; };
@@ -40,6 +46,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D554EE812150D7020048657F /* Drink05.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Drink05.jpg; sourceTree = "<group>"; };
+		D554EE822150D7020048657F /* Drink06.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Drink06.jpg; sourceTree = "<group>"; };
+		D554EE832150D7020048657F /* Drink03.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Drink03.jpg; sourceTree = "<group>"; };
+		D554EE842150D7020048657F /* Drink04.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Drink04.jpg; sourceTree = "<group>"; };
+		D554EE852150D7020048657F /* Drink01.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Drink01.jpg; sourceTree = "<group>"; };
+		D554EE862150D7020048657F /* Drink02.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Drink02.jpg; sourceTree = "<group>"; };
 		D56712AE214A295600106ECD /* VendingMachineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendingMachineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D56712B1214A295600106ECD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D56712B3214A295600106ECD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -89,6 +101,12 @@
 		D54F557A214B7F31000C3DE5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D554EE852150D7020048657F /* Drink01.jpg */,
+				D554EE862150D7020048657F /* Drink02.jpg */,
+				D554EE832150D7020048657F /* Drink03.jpg */,
+				D554EE842150D7020048657F /* Drink04.jpg */,
+				D554EE812150D7020048657F /* Drink05.jpg */,
+				D554EE822150D7020048657F /* Drink06.jpg */,
 				D56712DF214A3F2D00106ECD /* Checker.swift */,
 				D56712E1214A3F2E00106ECD /* Drink.swift */,
 				D56712E2214A3F2E00106ECD /* DrinkSlot.swift */,
@@ -259,8 +277,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				D56712BC214A295600106ECD /* LaunchScreen.storyboard in Resources */,
+				D554EE892150D7020048657F /* Drink03.jpg in Resources */,
 				D56712B9214A295600106ECD /* Assets.xcassets in Resources */,
+				D554EE8B2150D7020048657F /* Drink01.jpg in Resources */,
+				D554EE8C2150D7020048657F /* Drink02.jpg in Resources */,
+				D554EE8A2150D7020048657F /* Drink04.jpg in Resources */,
 				D56712B7214A295600106ECD /* Main.storyboard in Resources */,
+				D554EE882150D7020048657F /* Drink06.jpg in Resources */,
+				D554EE872150D7020048657F /* Drink05.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

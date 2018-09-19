@@ -104,16 +104,6 @@ extension VendingMachine : VendingMachineUserMenu {
         // 완료 메세지 리턴
         return "\(movedDrinksDetail.drinkName) \(movedDrinksDetail.drinkCount)개를 \(totalOrderPrice)원에 구입하였습니다."
     }
-    
-//    /// 메인메뉴에서 선택 후 분기
-//    func getUserMainMenu(menu: InputView.UserFirstMenu, orderDetail:OrderDetail,drinkPrice:Int) throws -> String{
-//        switch menu {
-//        case .insertMoney : return plusMoney(money: drinkPrice)
-//        case .selectDrink : return try buyDrink(orderDetail:orderDetail)
-//        case .quit : throw OutputView.errorMessage.toModeSelect
-//        case .none : return OutputView.errorMessage.wrongMenu.description
-//        }
-//    }
 }
 
 extension VendingMachine : VendingMachineAdminMenu {
@@ -144,13 +134,25 @@ extension VendingMachine : VendingMachineAdminMenu {
         return "\(resultDetail.drinkName) \(resultDetail.drinkCount)개를 추가하였습니다."
     }
     
-    
-//    func getAdminMainMenu(menu: InputView.AdminFirstMenu,orderDetail:OrderDetail) throws -> String {
-//        switch menu {
-//        case .addDrink : return try duplicateDrink(orderDetail:orderDetail)
-//        case .removeDrink : return try reduceDrink(orderDetail:orderDetail)
-//        case .quit : throw OutputView.errorMessage.toModeSelect
-//        case .none : return OutputView.errorMessage.wrongMenu.description
-//        }
-//    }
+    /// 재고가 0이여도 가능한 음료추가함수
+    func addBasicDrink(drinkType:DrinkType)throws{
+        // 추가용 음료변수
+        var basicDrink : Drink?
+        // 음료타입에 따라서 음료 생성
+        switch drinkType {
+        case .chocoMilk : basicDrink = ChocoMilk(brand: "매일", size: 200, price: 800, name: "매일흰우유", manufacturingDateString: "20180919", lowFat: true, lowSugar: false)
+        case .lowSugarChocoMilk : basicDrink = ChocoMilk(brand: "매일", size: 200, price: 1000, name: "매일초코초코", manufacturingDateString: "20180919", lowFat: true, lowSugar: true)
+        case .coke : basicDrink =  Coke(brand: "코카콜라", size: 350, price: 1000, name: "코카콜라", manufacturingDateString: "20180919", usingPET: false, zeroCalorie: false)
+        case .zeroCalorieCoke : basicDrink =  Coke(brand: "코카콜라", size: 350, price: 1200, name: "다이어트콜라", manufacturingDateString: "20180919", usingPET: false, zeroCalorie: true)
+        case .hotTopCoffee : basicDrink = TopCoffee(brand: "매일", size: 200, price: 1500, name: "티오피 커피", manufacturingDateString: "20180919", hot: true, zeroSugar: true)
+        case .energyDrink :  basicDrink = EnergyDrink(brand: "매일", size: 200, price: 20000, name: "핫식스", manufacturingDateString: "20180919", zeroCaffeine: true)
+        case .none : throw OutputView.errorMessage.wrongDrink
+        }
+        // 생성한 음료 검사
+        guard let newDrink = basicDrink else {
+            throw OutputView.errorMessage.wrongDrink
+        }
+        // 음료 추가
+        _ = try addDrink(drink: newDrink)
+    }
 }

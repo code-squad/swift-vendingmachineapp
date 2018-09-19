@@ -24,19 +24,24 @@ class ViewController: UIViewController {
     @IBOutlet weak var drink01View: UIImageView!
     
     @IBOutlet weak var balance: UILabel!
-    
+    /// 잔액추가 함수
     func addBalance(uiButton:UIButton){
         _ = vendingMachine.plusMoney(money: uiButton.tag)
         refreshBalance()
     }
+    /// 잔액추가 버튼 액션
     @IBAction func addBalance5000(_ sender: UIButton) {
         addBalance(uiButton: sender)
     }
     @IBAction func addBalance10000(_ sender: UIButton) {
         addBalance(uiButton: sender)
     }
-    
-    
+    /// 음료 재고들 커렉션
+    @IBOutlet var drinkCounts: [UILabel]!
+    /// 음료재고 컬렉션 최신화 함수
+    func refreshDrinkCounts(){
+        
+    }
     
     
     

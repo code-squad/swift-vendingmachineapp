@@ -7,7 +7,6 @@
 //
 
 import UIKit
-
 class ViewController: UIViewController {
     /// 자판기 잔액표기 갱신 함수
     func refreshBalance(){
@@ -30,37 +29,102 @@ class ViewController: UIViewController {
         refreshBalance()
     }
     /// 잔액추가 버튼 액션
-    @IBAction func addBalance5000(_ sender: UIButton) {
-        addBalance(uiButton: sender)
-    }
-    @IBAction func addBalance10000(_ sender: UIButton) {
+    @IBAction func addBalance(_ sender: UIButton) {
         addBalance(uiButton: sender)
     }
     /// 음료 재고들 커렉션
     @IBOutlet var drinkCounts: [UILabel]!
+    /// 음료재고 컬렉션 초기화 함수
+    func initDrinkCounts(){
+        for counts in drinkCounts {
+            counts.text = "매진됨"
+        }
+    }
+    /// 음료정보를 받아서 태그번호를 리턴
+    func getDrinkTag(storedDrinkDetail:StoredDrinkDetail)throws->Int{
+        switch storedDrinkDetail.drinkType {
+        case .chocoMilk : return 1
+        case .lowSugarChocoMilk : return 2
+        case .coke : return 3
+        case .zeroCalorieCoke : return 4
+        case .hotTopCoffee : return 5
+        case .energyDrink : return 6
+        case .none : throw OutputView.errorMessage.wrongDrink
+        }
+    }
+    /// 음료정보와 태그를 받아서 재고표시를 변경
+    func changeDrinkCount(storedDrinkDetail:StoredDrinkDetail)throws{
+        let drinkTag = try getDrinkTag(storedDrinkDetail: storedDrinkDetail)
+        for drinkCount in drinkCounts {
+            if drinkCount.tag == drinkTag {
+                drinkCount.text = "\(storedDrinkDetail.drinkName) \(storedDrinkDetail.drinkCount) 개"
+            }
+        }
+    }
+    
     /// 음료재고 컬렉션 최신화 함수
-    func refreshDrinkCounts(){
-        
+    func refreshDrinkCounts()throws{
+        let storedDrinksDetail = vendingMachine.getAllAvailableDrinks().storedDrinksDetail
+        initDrinkCounts()
+        for drinkDetil in storedDrinksDetail {
+            try changeDrinkCount(storedDrinkDetail: drinkDetil)
+        }
+    }
+    
+    /// 음료 사진뷰 컬렉션
+    @IBOutlet var drinkImages: [UIImageView]!
+    /// 음료사진들 테두리를 둥글게
+    func setBorderRadius(){
+        for view in drinkImages {
+            view.layer.masksToBounds = true
+            view.layer.cornerRadius = 30
+        }
+    }
+    
+    /// 재고추가 버튼들 컬렉션
+    @IBOutlet var addDrinkButtons: [UIButton]!
+    
+    /// 재고추가버튼액션. 각 재고버튼의 태그값을 기본음료생성 함수에 넣는다
+    @IBAction func addBasicDrink(_ sender: UIButton){
+        do {
+            switch sender.tag {
+            case 1 : try! vendingMachine.addBasicDrink(drinkType: .chocoMilk)
+            case 2 : try! vendingMachine.addBasicDrink(drinkType: .lowSugarChocoMilk)
+            case 3 : try! vendingMachine.addBasicDrink(drinkType: .coke)
+            case 4 : try! vendingMachine.addBasicDrink(drinkType: .zeroCalorieCoke)
+            case 5 : try! vendingMachine.addBasicDrink(drinkType: .hotTopCoffee)
+            case 6 : try! vendingMachine.addBasicDrink(drinkType: .energyDrink)
+            default : throw OutputView.errorMessage.wrongDrink
+            }
+            // 재고를 최신화한다
+            try! refreshDrinkCounts()
+        }
+        catch {
+            let alert = UIAlertController(title: "에러", message: error.localizedDescription, preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default,handler : nil )
+            alert.addAction(okAction)
+            present(alert, animated: true, completion: nil)
+        }
     }
     
     
-    
-    
     override func viewDidLoad() {
-        self.drink01View.layer.masksToBounds = true
-        self.drink01View.layer.cornerRadius = 30
         self.drink01View.image = UIImage(named: "Drink01.jpg")
+        setBorderRadius()
         super.viewDidLoad()
         do {
-            _ = try vendingMachine.addDrink(drink: ChocoMilk(barnd: "서울우유", size: 200, price: 1000, name: "저과당초코우유", manufacturingDateString: "20171009", lowFat: true, lowSugar: true)!)
-            _ = try vendingMachine.addDrink(drink: ChocoMilk(barnd: "서울우유", size: 200, price: 1000, name: "저과당초코우유", manufacturingDateString: "20171009", lowFat: true, lowSugar: true)!)
-            _ = try vendingMachine.addDrink(drink: Coke(barnd: "팹시", size: 350, price: 2000, name: "다이어트콜라", manufacturingDateString: "20171005", usingPET: false, zeroCalorie: true)!)
-            _ = try vendingMachine.addDrink(drink: Coke(barnd: "팹시", size: 350, price: 2000, name: "다이어트콜라", manufacturingDateString: "20171005", usingPET: false, zeroCalorie: true)!)
-            _ = try vendingMachine.addDrink(drink: EnergyDrink(barnd: "핫식스", size: 200, price: 1000, name: "핫식스", manufacturingDateString: "20171012", zeroCaffeine: true)!)
-            _ = try vendingMachine.addDrink(drink: EnergyDrink(barnd: "핫식스", size: 200, price: 1000, name: "핫식스", manufacturingDateString: "20171012", zeroCaffeine: true)!)
+            _ = try vendingMachine.addDrink(drink: ChocoMilk(brand: "서울우유", size: 200, price: 1000, name: "저과당초코우유", manufacturingDateString: "20171009", lowFat: true, lowSugar: true)!)
+            _ = try vendingMachine.addDrink(drink: ChocoMilk(brand: "서울우유", size: 200, price: 1000, name: "저과당초코우유", manufacturingDateString: "20171009", lowFat: true, lowSugar: true)!)
+            _ = try vendingMachine.addDrink(drink: Coke(brand: "팹시", size: 350, price: 2000, name: "다이어트콜라", manufacturingDateString: "20171005", usingPET: false, zeroCalorie: true)!)
+            _ = try vendingMachine.addDrink(drink: Coke(brand: "팹시", size: 350, price: 2000, name: "다이어트콜라", manufacturingDateString: "20171005", usingPET: false, zeroCalorie: true)!)
+            _ = try vendingMachine.addDrink(drink: EnergyDrink(brand: "핫식스", size: 200, price: 1000, name: "핫식스", manufacturingDateString: "20171012", zeroCaffeine: true)!)
+            _ = try vendingMachine.addDrink(drink: EnergyDrink(brand: "핫식스", size: 200, price: 1000, name: "핫식스", manufacturingDateString: "20171012", zeroCaffeine: true)!)
+            // 재고를 프린트로 출력
             print(vendingMachine.getAllAvailableDrinks().getAllDrinkDetails())
-            
-            self.balance.text = "\(vendingMachine.getMoney()) 원"
+            // 잔액 표시
+            refreshBalance()
+            // 음료재고들 수정
+            try refreshDrinkCounts()
             
         }
         catch OutputView.errorMessage.failMakingVendingMachine {
@@ -71,16 +135,16 @@ class ViewController: UIViewController {
         }
         
         
-        // Do any additional setup after loading the view, typically from a nib.
+        // viewDidLoad ends
     }
     
     
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
+    
 }
 

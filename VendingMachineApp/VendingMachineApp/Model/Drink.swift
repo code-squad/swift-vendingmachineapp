@@ -39,8 +39,8 @@ class Drink : CustomStringConvertible {
     let drinkType : DrinkType
     
     // 직접 생성시 생성자. 날자를 문자열로 입력받기 때문에 잘못된형태를 위해 옵셔널 선언
-    init?(barnd:String, size:Int,price:Int, name:String, manufacturingDateString:String,drinkType:DrinkType) {
-        self.brand = barnd
+    init?(brand:String, size:Int,price:Int, name:String, manufacturingDateString:String,drinkType:DrinkType) {
+        self.brand = brand
         self.size = size
         self.price = price
         self.name = name
@@ -52,8 +52,8 @@ class Drink : CustomStringConvertible {
     }
     
     // 복제를 위한 생성자. 생성일자를 Date 로 직접받기 때문에 옵셔널 아님
-    init(barnd:String, size:Int,price:Int, name:String, manufacturingDate:Date,drinkType:DrinkType) {
-        self.brand = barnd
+    init(brand:String, size:Int,price:Int, name:String, manufacturingDate:Date,drinkType:DrinkType) {
+        self.brand = brand
         self.size = size
         self.price = price
         self.name = name
@@ -62,7 +62,7 @@ class Drink : CustomStringConvertible {
     }
     /// 자기복제 함수
     func duplicateSelf()->Drink{
-        return Drink(barnd: self.brand, size: self.size, price: self.price, name: self.name
+        return Drink(brand: self.brand, size: self.size, price: self.price, name: self.name
             , manufacturingDate: self.manufacturingDate, drinkType: self.drinkType)
     }
     /// toString 의 역할
@@ -86,53 +86,53 @@ class Drink : CustomStringConvertible {
 class Milk : Drink {
     fileprivate let lowFat : Bool
     
-    init?(barnd: String, size: Int, price: Int, name: String, manufacturingDateString: String, lowFat: Bool,drinkType:DrinkType) {
+    init?(brand: String, size: Int, price: Int, name: String, manufacturingDateString: String, lowFat: Bool,drinkType:DrinkType) {
         self.lowFat = lowFat
-        super.init(barnd: barnd, size: size, price: price, name: name, manufacturingDateString: manufacturingDateString,drinkType:drinkType)
+        super.init(brand: brand, size: size, price: price, name: name, manufacturingDateString: manufacturingDateString,drinkType:drinkType)
     }
-    init(barnd: String, size: Int, price: Int, name: String, manufacturingDate: Date, lowFat: Bool,drinkType:DrinkType) {
+    init(brand: String, size: Int, price: Int, name: String, manufacturingDate: Date, lowFat: Bool,drinkType:DrinkType) {
         self.lowFat = lowFat
-        super.init(barnd: barnd, size: size, price: price, name: name, manufacturingDate: manufacturingDate,drinkType:drinkType)
+        super.init(brand: brand, size: size, price: price, name: name, manufacturingDate: manufacturingDate,drinkType:drinkType)
     }
     
     override func duplicateSelf() -> Milk {
-        return Milk(barnd: super.brand, size:super.size, price: super.price, name: super.name, manufacturingDate: super.manufacturingDate, lowFat: self.lowFat, drinkType: super.drinkType)
+        return Milk(brand: super.brand, size:super.size, price: super.price, name: super.name, manufacturingDate: super.manufacturingDate, lowFat: self.lowFat, drinkType: super.drinkType)
     }
 }
 
 class ChocoMilk : Milk {
     fileprivate let lowSugar : Bool
     
-    init?(barnd: String, size: Int, price: Int, name: String, manufacturingDateString: String, lowFat: Bool, lowSugar:Bool) {
+    init?(brand: String, size: Int, price: Int, name: String, manufacturingDateString: String, lowFat: Bool, lowSugar:Bool) {
         self.lowSugar = lowSugar
         let drinkType : DrinkType = lowSugar ? .lowSugarChocoMilk : .chocoMilk
-        super.init(barnd: barnd, size: size, price: price, name: name, manufacturingDateString: manufacturingDateString, lowFat: lowFat,drinkType:drinkType)
+        super.init(brand: brand, size: size, price: price, name: name, manufacturingDateString: manufacturingDateString, lowFat: lowFat,drinkType:drinkType)
     }
-    init(barnd: String, size: Int, price: Int, name: String, manufacturingDate: Date, lowFat: Bool, lowSugar:Bool) {
+    init(brand: String, size: Int, price: Int, name: String, manufacturingDate: Date, lowFat: Bool, lowSugar:Bool) {
         self.lowSugar = lowSugar
         let drinkType : DrinkType = lowSugar ? .lowSugarChocoMilk : .chocoMilk
-        super.init(barnd: barnd, size: size, price: price, name: name, manufacturingDate: manufacturingDate, lowFat: lowFat,drinkType:drinkType)
+        super.init(brand: brand, size: size, price: price, name: name, manufacturingDate: manufacturingDate, lowFat: lowFat,drinkType:drinkType)
     }
     
     override func duplicateSelf() -> ChocoMilk {
-        return ChocoMilk(barnd: super.brand, size:super.size, price: super.price, name: super.name, manufacturingDate: super.manufacturingDate, lowFat: super.lowFat, lowSugar: self.lowSugar)
+        return ChocoMilk(brand: super.brand, size:super.size, price: super.price, name: super.name, manufacturingDate: super.manufacturingDate, lowFat: super.lowFat, lowSugar: self.lowSugar)
     }
 }
 
 /// 탄산음료 클래스
 class Soda : Drink {
     fileprivate let usingPET : Bool
-    init?(barnd: String, size: Int, price: Int, name: String, manufacturingDateString: String, usingPET: Bool,drinkType:DrinkType) {
+    init?(brand: String, size: Int, price: Int, name: String, manufacturingDateString: String, usingPET: Bool,drinkType:DrinkType) {
         self.usingPET = usingPET
-        super.init(barnd: barnd, size: size, price: price, name: name, manufacturingDateString: manufacturingDateString,drinkType:drinkType)
+        super.init(brand: brand, size: size, price: price, name: name, manufacturingDateString: manufacturingDateString,drinkType:drinkType)
     }
-    init(barnd: String, size: Int, price: Int, name: String, manufacturingDate: Date, usingPET: Bool,drinkType:DrinkType) {
+    init(brand: String, size: Int, price: Int, name: String, manufacturingDate: Date, usingPET: Bool,drinkType:DrinkType) {
         self.usingPET = usingPET
-        super.init(barnd: barnd, size: size, price: price, name: name, manufacturingDate: manufacturingDate,drinkType:drinkType)
+        super.init(brand: brand, size: size, price: price, name: name, manufacturingDate: manufacturingDate,drinkType:drinkType)
     }
     
     override func duplicateSelf() -> Soda {
-        return Soda(barnd: super.brand, size:super.size, price: super.price, name: super.name, manufacturingDate: super.manufacturingDate, usingPET: self.usingPET, drinkType: super.drinkType)
+        return Soda(brand: super.brand, size:super.size, price: super.price, name: super.name, manufacturingDate: super.manufacturingDate, usingPET: self.usingPET, drinkType: super.drinkType)
     }
 }
 
@@ -140,19 +140,19 @@ class Soda : Drink {
 class Coke : Soda {
     fileprivate let zeroCalorie : Bool
     
-    init?(barnd: String, size: Int, price: Int, name: String, manufacturingDateString: String, usingPET: Bool,zeroCalorie:Bool) {
+    init?(brand: String, size: Int, price: Int, name: String, manufacturingDateString: String, usingPET: Bool,zeroCalorie:Bool) {
         self.zeroCalorie = zeroCalorie
         let drinkType : DrinkType = zeroCalorie ? .zeroCalorieCoke : .coke
-        super.init(barnd: barnd, size: size, price: price, name: name, manufacturingDateString: manufacturingDateString, usingPET: usingPET,drinkType:drinkType)
+        super.init(brand: brand, size: size, price: price, name: name, manufacturingDateString: manufacturingDateString, usingPET: usingPET,drinkType:drinkType)
     }
-    init(barnd: String, size: Int, price: Int, name: String, manufacturingDate: Date, usingPET: Bool,zeroCalorie:Bool) {
+    init(brand: String, size: Int, price: Int, name: String, manufacturingDate: Date, usingPET: Bool,zeroCalorie:Bool) {
         self.zeroCalorie = zeroCalorie
         let drinkType : DrinkType = zeroCalorie ? .zeroCalorieCoke : .coke
-        super.init(barnd: barnd, size: size, price: price, name: name, manufacturingDate: manufacturingDate, usingPET: usingPET, drinkType:drinkType)
+        super.init(brand: brand, size: size, price: price, name: name, manufacturingDate: manufacturingDate, usingPET: usingPET, drinkType:drinkType)
     }
     
     override func duplicateSelf() -> Coke {
-        return Coke(barnd: super.brand, size:super.size, price: super.price, name: super.name, manufacturingDate: super.manufacturingDate, usingPET: super.usingPET,zeroCalorie:self.zeroCalorie)
+        return Coke(brand: super.brand, size:super.size, price: super.price, name: super.name, manufacturingDate: super.manufacturingDate, usingPET: super.usingPET,zeroCalorie:self.zeroCalorie)
     }
 }
 
@@ -160,18 +160,18 @@ class Coke : Soda {
 class Coffee : Drink{
     fileprivate let hot : Bool
     
-    init?(barnd: String, size: Int, price: Int, name: String, manufacturingDateString: String, hot: Bool,drinkType:DrinkType) {
+    init?(brand: String, size: Int, price: Int, name: String, manufacturingDateString: String, hot: Bool,drinkType:DrinkType) {
         self.hot = hot
-        super.init(barnd: barnd, size: size, price: price, name: name, manufacturingDateString: manufacturingDateString,drinkType:drinkType)
+        super.init(brand: brand, size: size, price: price, name: name, manufacturingDateString: manufacturingDateString,drinkType:drinkType)
     }
     
-    init(barnd: String, size: Int, price: Int, name: String, manufacturingDate: Date, hot: Bool,drinkType:DrinkType) {
+    init(brand: String, size: Int, price: Int, name: String, manufacturingDate: Date, hot: Bool,drinkType:DrinkType) {
         self.hot = hot
-        super.init(barnd: barnd, size: size, price: price, name: name, manufacturingDate: manufacturingDate,drinkType:drinkType)
+        super.init(brand: brand, size: size, price: price, name: name, manufacturingDate: manufacturingDate,drinkType:drinkType)
     }
     
     override func duplicateSelf() -> Coffee {
-        return Coffee(barnd: super.brand, size:super.size, price: super.price, name: super.name, manufacturingDate: super.manufacturingDate, hot: self.hot, drinkType: super.drinkType)
+        return Coffee(brand: super.brand, size:super.size, price: super.price, name: super.name, manufacturingDate: super.manufacturingDate, hot: self.hot, drinkType: super.drinkType)
     }
 }
 
@@ -182,13 +182,13 @@ class TopCoffee : Coffee {
     init?(brand: String, size: Int, price: Int, name: String, manufacturingDateString: String,hot: Bool, zeroSugar: Bool) {
         self.zeroSugar = zeroSugar
         let drinkType : DrinkType  = zeroSugar ? .hotTopCoffee : .none
-        super.init(barnd: brand, size: size, price: price, name: name, manufacturingDateString: manufacturingDateString,hot: hot,drinkType:drinkType)
+        super.init(brand: brand, size: size, price: price, name: name, manufacturingDateString: manufacturingDateString,hot: hot,drinkType:drinkType)
     }
     
     init(brand: String, size: Int, price: Int, name: String, manufacturingDate: Date,hot: Bool, zeroSugar: Bool) {
         self.zeroSugar = zeroSugar
         let drinkType : DrinkType  = zeroSugar ? .hotTopCoffee : .none
-        super.init(barnd: brand, size: size, price: price, name: name, manufacturingDate: manufacturingDate,hot: hot,drinkType:drinkType)
+        super.init(brand: brand, size: size, price: price, name: name, manufacturingDate: manufacturingDate,hot: hot,drinkType:drinkType)
     }
     
     override func duplicateSelf() -> TopCoffee {
@@ -200,20 +200,20 @@ class TopCoffee : Coffee {
 class EnergyDrink : Drink {
     fileprivate let zeroCaffeine : Bool
     
-    init?(barnd: String, size: Int, price: Int, name: String, manufacturingDateString: String, zeroCaffeine: Bool) {
+    init?(brand: String, size: Int, price: Int, name: String, manufacturingDateString: String, zeroCaffeine: Bool) {
         self.zeroCaffeine = zeroCaffeine
         let drinkType : DrinkType = zeroCaffeine ? .energyDrink : .none
-        super.init(barnd: barnd, size: size, price: price, name: name, manufacturingDateString: manufacturingDateString, drinkType:drinkType)
+        super.init(brand: brand, size: size, price: price, name: name, manufacturingDateString: manufacturingDateString, drinkType:drinkType)
     }
     
-    init(barnd: String, size: Int, price: Int, name: String, manufacturingDate: Date, zeroCaffeine: Bool) {
+    init(brand: String, size: Int, price: Int, name: String, manufacturingDate: Date, zeroCaffeine: Bool) {
         self.zeroCaffeine = zeroCaffeine
         let drinkType : DrinkType = zeroCaffeine ? .energyDrink : .none
-        super.init(barnd: barnd, size: size, price: price, name: name, manufacturingDate: manufacturingDate, drinkType:drinkType)
+        super.init(brand: brand, size: size, price: price, name: name, manufacturingDate: manufacturingDate, drinkType:drinkType)
     }
     
     override func duplicateSelf()->EnergyDrink{
-        return EnergyDrink(barnd: self.brand, size: self.size, price: self.price, name: self.name, manufacturingDate: self.manufacturingDate, zeroCaffeine:self.zeroCaffeine)
+        return EnergyDrink(brand: self.brand, size: self.size, price: self.price, name: self.name, manufacturingDate: self.manufacturingDate, zeroCaffeine:self.zeroCaffeine)
     }
 }
 

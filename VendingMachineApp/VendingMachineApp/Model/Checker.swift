@@ -18,31 +18,4 @@ struct Checker {
         return number
     }
     
-//    /// 사용자 메뉴 체크함수. 1,2,q 이외에는 닐
-//    static func checkUserFirstMenuInput(input:InputView.UserFirstMenu)throws{
-//        switch input {
-//        case .insertMoney,.selectDrink : return
-//        case .quit : throw OutputView.errorMessage.toModeSelect
-//        default : throw OutputView.errorMessage.wrongMenu
-//        }
-//    }
-//
-//    /// 관리자 메뉴 체크함수. 1,2,q 이외에는 닐
-//    static func checkAdminFirstMenuInput(input:InputView.AdminFirstMenu)throws{
-//        switch input {
-//        case .addDrink,.removeDrink : return
-//        case .quit : throw OutputView.errorMessage.toModeSelect
-//        default : throw OutputView.errorMessage.wrongMenu
-//        }
-//    }
-//
-//    /// 모드선택메뉴 체크함수. 1,2,q 이외에는 닐
-//    static func checkModeSelectMenuInput(input:String)->InputView.ModeSelectMenu{
-//        switch input {
-//        case "1" : return .admin
-//        case "2" : return .user
-//        case "q" : return .quit
-//        default : return .none
-//        }
-//    }
 }

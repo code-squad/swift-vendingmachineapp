@@ -130,9 +130,7 @@ class ViewController: UIViewController {
             _ = try vendingMachine.addDrink(drink: Coke(brand: "팹시", size: 350, price: 2000, name: "다이어트콜라", manufacturingDateString: "20171005", usingPET: false, zeroCalorie: true)!)
             _ = try vendingMachine.addDrink(drink: EnergyDrink(brand: "핫식스", size: 200, price: 1000, name: "핫식스", manufacturingDateString: "20171012", zeroCaffeine: true)!)
             _ = try vendingMachine.addDrink(drink: EnergyDrink(brand: "핫식스", size: 200, price: 1000, name: "핫식스", manufacturingDateString: "20171012", zeroCaffeine: true)!)
-            // 재고를 프린트로 출력
-            print(vendingMachine.getAllAvailableDrinks().getAllDrinkDetails())
-            // 잔액 표시
+            
             refreshBalance()
             // 음료재고들 수정
             try refreshDrinkCounts()

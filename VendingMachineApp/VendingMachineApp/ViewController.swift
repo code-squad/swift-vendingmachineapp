@@ -8,38 +8,72 @@
 
 import UIKit
 class ViewController: UIViewController {
-    /// 자판기 잔액표기 갱신 함수
-    func refreshBalance(){
-        self.balance.text =  "\(vendingMachine.getMoney()) 원"
-    }
-    // 자판기 선언
-    var vendingMachine : VendingMachine
-    // 생성자
-    required init(coder aDecoder: NSCoder) {
-        self.vendingMachine = VendingMachine()
-        super.init(coder: aDecoder)!
-    }
+    
     // 음료1번 이미지뷰
     @IBOutlet weak var drink01View: UIImageView!
     
     @IBOutlet weak var balance: UILabel!
+    
+    /// 잔액추가 버튼 액션
+    @IBAction func addBalance(_ sender: UIButton) {
+        addBalance(uiButton: sender)
+    }
+    
+    /// 음료 재고들 커렉션
+    @IBOutlet var drinkCounts: [UILabel]!
+    
+    /// 음료 사진뷰 컬렉션
+    @IBOutlet var drinkImages: [UIImageView]!
+    
+    /// 재고추가 버튼들 컬렉션
+    @IBOutlet var addDrinkButtons: [UIButton]!
+    
+    /// 재고추가버튼액션. 각 재고버튼의 태그값을 기본음료생성 함수에 넣는다
+    @IBAction func addBasicDrink(_ sender: UIButton){
+        do {
+            switch sender.tag {
+            case 1 : try! vendingMachine.addBasicDrink(drinkType: .chocoMilk)
+            case 2 : try! vendingMachine.addBasicDrink(drinkType: .lowSugarChocoMilk)
+            case 3 : try! vendingMachine.addBasicDrink(drinkType: .coke)
+            case 4 : try! vendingMachine.addBasicDrink(drinkType: .zeroCalorieCoke)
+            case 5 : try! vendingMachine.addBasicDrink(drinkType: .hotTopCoffee)
+            case 6 : try! vendingMachine.addBasicDrink(drinkType: .energyDrink)
+            default : throw OutputView.errorMessage.wrongDrink
+            }
+            // 재고를 최신화한다
+            try! refreshDrinkCounts()
+        }
+        catch {
+            let alert = UIAlertController(title: "에러", message: error.localizedDescription, preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default,handler : nil )
+            alert.addAction(okAction)
+            present(alert, animated: true, completion: nil)
+        }
+    }
+    
     /// 잔액추가 함수
     func addBalance(uiButton:UIButton){
         _ = vendingMachine.plusMoney(money: uiButton.tag)
         refreshBalance()
     }
-    /// 잔액추가 버튼 액션
-    @IBAction func addBalance(_ sender: UIButton) {
-        addBalance(uiButton: sender)
-    }
-    /// 음료 재고들 커렉션
-    @IBOutlet var drinkCounts: [UILabel]!
+    
     /// 음료재고 컬렉션 초기화 함수
     func initDrinkCounts(){
         for counts in drinkCounts {
             counts.text = "매진됨"
         }
     }
+    
+    /// 자판기 잔액표기 갱신 함수
+    func refreshBalance(){
+        self.balance.text =  "\(vendingMachine.getMoney()) 원"
+    }
+    
+    // 자판기 선언
+    var vendingMachine : VendingMachine
+    
+    
+   
     /// 음료정보를 받아서 태그번호를 리턴
     func getDrinkTag(storedDrinkDetail:StoredDrinkDetail)throws->Int{
         switch storedDrinkDetail.drinkType {
@@ -71,8 +105,6 @@ class ViewController: UIViewController {
         }
     }
     
-    /// 음료 사진뷰 컬렉션
-    @IBOutlet var drinkImages: [UIImageView]!
     /// 음료사진들 테두리를 둥글게
     func setBorderRadius(){
         for view in drinkImages {
@@ -81,32 +113,11 @@ class ViewController: UIViewController {
         }
     }
     
-    /// 재고추가 버튼들 컬렉션
-    @IBOutlet var addDrinkButtons: [UIButton]!
-    
-    /// 재고추가버튼액션. 각 재고버튼의 태그값을 기본음료생성 함수에 넣는다
-    @IBAction func addBasicDrink(_ sender: UIButton){
-        do {
-            switch sender.tag {
-            case 1 : try! vendingMachine.addBasicDrink(drinkType: .chocoMilk)
-            case 2 : try! vendingMachine.addBasicDrink(drinkType: .lowSugarChocoMilk)
-            case 3 : try! vendingMachine.addBasicDrink(drinkType: .coke)
-            case 4 : try! vendingMachine.addBasicDrink(drinkType: .zeroCalorieCoke)
-            case 5 : try! vendingMachine.addBasicDrink(drinkType: .hotTopCoffee)
-            case 6 : try! vendingMachine.addBasicDrink(drinkType: .energyDrink)
-            default : throw OutputView.errorMessage.wrongDrink
-            }
-            // 재고를 최신화한다
-            try! refreshDrinkCounts()
-        }
-        catch {
-            let alert = UIAlertController(title: "에러", message: error.localizedDescription, preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default,handler : nil )
-            alert.addAction(okAction)
-            present(alert, animated: true, completion: nil)
-        }
+    // 생성자
+    required init(coder aDecoder: NSCoder) {
+        self.vendingMachine = VendingMachine()
+        super.init(coder: aDecoder)!
     }
-    
     
     override func viewDidLoad() {
         self.drink01View.image = UIImage(named: "Drink01.jpg")

@@ -44,10 +44,7 @@ class ViewController: UIViewController {
             try! refreshDrinkCounts()
         }
         catch {
-            let alert = UIAlertController(title: "에러", message: error.localizedDescription, preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default,handler : nil )
-            alert.addAction(okAction)
-            present(alert, animated: true, completion: nil)
+            makeAlert(title: "에러", message: error.localizedDescription, okTitle: "OK")
         }
     }
     
@@ -119,6 +116,14 @@ class ViewController: UIViewController {
         super.init(coder: aDecoder)!
     }
     
+    /// alert 생성함수
+    func makeAlert(title:String,message:String,okTitle:String){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: okTitle, style: UIAlertActionStyle.default,handler : nil )
+        alert.addAction(okAction)
+        present(alert, animated: true, completion: nil)
+    }
+    
     override func viewDidLoad() {
         self.drink01View.image = UIImage(named: "Drink01.jpg")
         setBorderRadius()
@@ -134,13 +139,10 @@ class ViewController: UIViewController {
             refreshBalance()
             // 음료재고들 수정
             try refreshDrinkCounts()
-            
-        }
-        catch OutputView.errorMessage.failMakingVendingMachine {
-            print("자판기 초기화에 실패했습니다")
         }
         catch {
-            print(error)
+            // 에러메세지 출력
+            makeAlert(title: "에러", message: error.localizedDescription, okTitle: "OK")
         }
         
         

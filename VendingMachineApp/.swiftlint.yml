@@ -1,3 +1,7 @@
+disabled_rules : 
+ - trailing_whitespace
+ - cyclomatic_complexity
+
 line_length :
  - 300 # warning
  - 400 # error

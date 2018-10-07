@@ -38,9 +38,16 @@ class ViewController: UIViewController {
     @IBAction func addGeorgiaCoffeeBtn(_ sender: UIButton) {
         addStock(target: Product.georgiaCoffee)
     }
+    @IBAction func addBalance1000(_ sender: UIButton) {
+        addBalance(cash: CashUnit.thousand)
+    }
+    @IBAction func addBalance5000(_ sender: UIButton) {
+        addBalance(cash: CashUnit.fiveThousand)
+    }
     
     @IBOutlet var beverageStock: [UILabel]!
     @IBOutlet var beverageImages: [UIImageView]!
+    @IBOutlet weak var balance: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,9 +58,14 @@ class ViewController: UIViewController {
     private func refreshStock() {
         if let stockList = vendingMachine.stockList() {
             for index in 0..<stockList.count {
-                beverageStock[index].text = "\(stockList[index].count)개"
+                self.beverageStock[index].text = "\(stockList[index].count)개"
             }
         }
+    }
+    
+    private func refreshBalance() {
+        let balance = vendingMachine.presentBalance()
+        self.balance.text = "\(balance)원"
     }
     
     private func addStock(target: Product) {
@@ -66,6 +78,19 @@ class ViewController: UIViewController {
             print(error)
         }
         refreshStock()
+    }
+    
+    private func addBalance(cash: CashUnit) {
+        let userMode = UserMode(with: vendingMachine)
+        
+        do {
+            _ = try userMode.selectMenu(with: Menu.addBalance, value: cash.rawValue)
+        } catch let error as Errorable {
+            print(error)
+        } catch {
+            print(error)
+        }
+        refreshBalance()
     }
 
 }

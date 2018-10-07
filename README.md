@@ -26,3 +26,19 @@
 
 ### 첨부파일
 ![Step1](CaptureImage/Step1.png)
+
+# Step2
+> 화면 구성 및 버튼과 라벨 기능 활성화
+
+### 작업내용
+1. 재고 초기화 할 때 랜덤 생성이 아닌 전체 생성으로 변경 (수량은 랜덤)
+2. 재고 추가 및 전체 레이블 다시 표기
+3. 잔액 추가 및 레이블 표기
+4. 프린트 대신 에러 메세지 출력하는 레이블 생성
+5. 이미지 모서리 둥글게 만들기 : CALayer 활용 - [CALayer - Core Animation | Apple Developer Documentation](https://developer.apple.com/documentation/quartzcore/calayer)
+
+### 참고 - CALayer
+: 이미지 기반 컨텐츠를 관리하는 객체로서 애니메이션 효과, 계층구조, 모양, 내용 등과 관련한 작업을 할 수 있습니다.
+
+### 첨부파일
+![Step2 Demo](CaptureImage/Step2Demo.mov)

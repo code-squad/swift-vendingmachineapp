@@ -54,6 +54,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         refreshStock()
+        roundEdgeOfImage()
     }
     
     private func refreshStock() {
@@ -96,6 +97,12 @@ class ViewController: UIViewController {
     
     private func outputErrorMessage(error: Errorable) {
         self.statusMessage.text  = error.description
+    }
+    
+    private func roundEdgeOfImage() {
+        for image in self.beverageImages {
+            image.layer.cornerRadius = 10.0
+        }
     }
 
 }

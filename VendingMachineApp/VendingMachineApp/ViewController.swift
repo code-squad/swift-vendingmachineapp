@@ -48,6 +48,7 @@ class ViewController: UIViewController {
     @IBOutlet var beverageStock: [UILabel]!
     @IBOutlet var beverageImages: [UIImageView]!
     @IBOutlet weak var balance: UILabel!
+    @IBOutlet weak var statusMessage: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,9 +74,9 @@ class ViewController: UIViewController {
         do {
             _ = try adminMode.selectMenu(with: MenuAdmin.addStock, target: target.rawValue + 1, amount: 1)
         } catch let error as Errorable {
-            print(error)
+            outputErrorMessage(error: error)
         } catch {
-            print(error)
+            outputErrorMessage(error: error as? Errorable ?? InputError.unknown)
         }
         refreshStock()
     }
@@ -86,11 +87,15 @@ class ViewController: UIViewController {
         do {
             _ = try userMode.selectMenu(with: Menu.addBalance, value: cash.rawValue)
         } catch let error as Errorable {
-            print(error)
+            outputErrorMessage(error: error)
         } catch {
-            print(error)
+            outputErrorMessage(error: error as? Errorable ?? InputError.unknown)
         }
         refreshBalance()
+    }
+    
+    private func outputErrorMessage(error: Errorable) {
+        self.statusMessage.text  = error.description
     }
 
 }

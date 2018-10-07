@@ -91,6 +91,13 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="상태메세지" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2wD-Ag-5KJ">
+                                        <rect key="frame" x="757" y="115" width="300" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
@@ -240,6 +247,7 @@
                     </view>
                     <connections>
                         <outlet property="balance" destination="INk-Pn-7I9" id="eS5-0w-1cV"/>
+                        <outlet property="statusMessage" destination="2wD-Ag-5KJ" id="CHF-h3-0s4"/>
                         <outletCollection property="beverageImages" destination="oNJ-GD-XI0" collectionClass="NSMutableArray" id="1b9-E6-k80"/>
                         <outletCollection property="beverageImages" destination="rD3-60-EkX" collectionClass="NSMutableArray" id="SBT-hK-yd2"/>
                         <outletCollection property="beverageImages" destination="JBD-5q-z6p" collectionClass="NSMutableArray" id="u76-Qf-gL3"/>

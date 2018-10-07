@@ -35,6 +35,11 @@ enum Material {
     case glass
 }
 
+enum CashUnit: Int {
+    case thousand = 1000
+    case fiveThousand = 5000
+}
+
 enum Brand: CustomStringConvertible {
     case maeil
     case seoulMilk

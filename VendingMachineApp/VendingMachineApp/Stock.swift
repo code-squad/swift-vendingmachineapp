@@ -13,7 +13,7 @@ struct Stock {
     public static func prepareStock() -> [[Beverage]] {
         var beverages = [[Beverage]]()
         let numberOfBeverageType = Product.allCases.count
-        for index in 1...numberOfBeverageType {
+        for index in 0..<numberOfBeverageType {
             let numberPerItem = Int.random(in: 1...9)
             let beverage = AddingBeverage.select(target: index, amount: numberPerItem)
             beverages.append(beverage)

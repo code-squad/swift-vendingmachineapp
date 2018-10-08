@@ -9,7 +9,9 @@
 import UIKit
 
 class ViewController: UIViewController {
-    let vendingMachine = VendingMachine(with: Stock.prepareStock())
+    private let vendingMachine = VendingMachine(with: Stock.prepareStock())
+    private lazy var adminMode = AdminMode(with: self.vendingMachine)
+    private lazy var userMode = UserMode(with: self.vendingMachine)
     
     @IBAction func addStrawBerryMilkBtn(_ sender: UIButton) {
         addStock(target: Product.organicStrawberryMilk)
@@ -71,7 +73,6 @@ class ViewController: UIViewController {
     }
     
     private func addStock(target: Product) {
-        let adminMode = AdminMode(with: vendingMachine)
         do {
             _ = try adminMode.selectMenu(with: MenuAdmin.addStock, target: target.rawValue + 1, amount: 1)
         } catch let error as Errorable {
@@ -83,8 +84,6 @@ class ViewController: UIViewController {
     }
     
     private func addBalance(cash: CashUnit) {
-        let userMode = UserMode(with: vendingMachine)
-        
         do {
             _ = try userMode.selectMenu(with: Menu.addBalance, value: cash.rawValue)
         } catch let error as Errorable {

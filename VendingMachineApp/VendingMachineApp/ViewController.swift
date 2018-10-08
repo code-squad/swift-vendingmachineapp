@@ -41,10 +41,10 @@ class ViewController: UIViewController {
         addStock(target: Product.georgiaCoffee)
     }
     @IBAction func addBalance1000(_ sender: UIButton) {
-        addBalance(cash: CashUnit.thousand)
+        controlAddBalance(with: CashUnit.thousand)
     }
     @IBAction func addBalance5000(_ sender: UIButton) {
-        addBalance(cash: CashUnit.fiveThousand)
+        controlAddBalance(with: CashUnit.fiveThousand)
     }
     
     @IBOutlet var beverageStock: [UILabel]!
@@ -73,23 +73,29 @@ class ViewController: UIViewController {
     }
     
     private func addStock(target: Product) {
+        let isAdded = adminMode.selectMenu(with: MenuAdmin.addStock, target: target.rawValue + 1, amount: 1)
+        if isAdded {
+            refreshStock()
+        }
+    }
+    
+    private func controlAddBalance(with cash: CashUnit) {
         do {
-            _ = try adminMode.selectMenu(with: MenuAdmin.addStock, target: target.rawValue + 1, amount: 1)
+            try addBalance(with: cash)
         } catch let error as Errorable {
             outputErrorMessage(error: error)
         } catch {
             outputErrorMessage(error: error as? Errorable ?? InputError.unknown)
         }
-        refreshStock()
     }
     
-    private func addBalance(cash: CashUnit) {
+    private func addBalance(with cash: CashUnit) throws {
         do {
             _ = try userMode.selectMenu(with: Menu.addBalance, value: cash.rawValue)
         } catch let error as Errorable {
-            outputErrorMessage(error: error)
+            throw error
         } catch {
-            outputErrorMessage(error: error as? Errorable ?? InputError.unknown)
+            throw error
         }
         refreshBalance()
     }

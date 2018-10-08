@@ -15,34 +15,34 @@ struct AdminMode {
         self.manageable = manageable
     }
     
-    public func start(type: MenuAdmin, target: Int, amount: Int) throws {
+    public func start(type: MenuAdmin, target: Int, amount: Int) {
         var isContinue = true
         while isContinue {
-            isContinue = try self.selectMenu(with: type, target: target, amount: amount)
+            isContinue = self.selectMenu(with: type, target: target, amount: amount)
         }
     }
     
-    public func selectMenu(with type: MenuAdmin, target: Int, amount: Int) throws -> Bool {
+    public func selectMenu(with type: MenuAdmin, target: Int, amount: Int) -> Bool {
         switch type {
         case .addStock:
             // 재고추가
-            _ = try self.addStock(target: target, amount: amount)
+            _ = self.addStock(target: target, amount: amount)
             return true
         case .deleteStock:
             // 재고삭제
-            _ = try self.deleteStock(target: target, amount: amount)
+            _ = self.deleteStock(target: target, amount: amount)
             return true
         case .exit:
             return false
         }
     }
-    private func addStock(target: Int, amount: Int ) throws -> [Beverage] {
+    private func addStock(target: Int, amount: Int ) -> [Beverage] {
         let beverages = AddingBeverage.select(target: target, amount: amount)
         let addedBeverages = manageable.addStock(with: beverages)
         return addedBeverages
     }
     
-    private func deleteStock(target: Int, amount: Int) throws -> [Beverage] {
+    private func deleteStock(target: Int, amount: Int) -> [Beverage] {
         let removedBeverages = manageable.removeStock(target: target, amount: amount)
         return removedBeverages
     }

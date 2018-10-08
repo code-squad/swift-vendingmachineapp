@@ -45,13 +45,17 @@ class ViewController: UIViewController {
         }
     }
     
+    private func refreshBalance() {
+        let balance = vendingMachine.presentBalance()
+        self.balance.text = self.format(with: balance)
+    }
+    
     private func format(with beverages: [Beverage]) -> String {
         return "\(beverages.count)\(SeveralUnit.count)"
     }
     
-    private func refreshBalance() {
-        let balance = vendingMachine.presentBalance()
-        self.balance.text = "\(balance)\(SeveralUnit.won)"
+    private func format(with balance: Int) -> String {
+        return "\(balance)\(SeveralUnit.won)"
     }
     
     private func addStock(target: Product) {

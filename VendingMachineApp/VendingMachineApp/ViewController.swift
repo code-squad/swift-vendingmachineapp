@@ -40,9 +40,13 @@ class ViewController: UIViewController {
     private func refreshStock() {
         if let stockList = vendingMachine.stockList() {
             for index in 0..<stockList.count {
-                self.beverageStock[index].text = "\(stockList[index].count)\(SeveralUnit.count)"
+                self.beverageStock[index].text = self.format(with: stockList[index])
             }
         }
+    }
+    
+    private func format(with beverages: [Beverage]) -> String {
+        return "\(beverages.count)\(SeveralUnit.count)"
     }
     
     private func refreshBalance() {

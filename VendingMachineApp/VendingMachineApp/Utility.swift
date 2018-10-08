@@ -96,6 +96,35 @@ enum Product: Int, CustomStringConvertible, CaseIterable {
         case .georgiaCoffee:            return "조지아커피"
         }
     }
+    
+    var select: Beverage {
+        let randomDate = Int.random(in: 1...20)
+        let secondsOfDate = -convertSeconds(randomDate)
+        switch self {
+        case Product.organicStrawberryMilk:
+            return StrawberryMilk(dateOfManufacture: Date(timeIntervalSinceNow: secondsOfDate))
+        case Product.seoulChocoMilk:
+            return ChocolateMilk(dateOfManufacture: Date(timeIntervalSinceNow: secondsOfDate))
+        case Product.bananasAreNaturallyWhite:
+            return BananaMilk(dateOfManufacture: Date(timeIntervalSinceNow: secondsOfDate))
+        case Product.dietCoke:
+            return Coke(dateOfManufacture: Date(timeIntervalSinceNow: secondsOfDate))
+        case Product.chilsungCider:
+            return Cider(dateOfManufacture: Date(timeIntervalSinceNow: secondsOfDate))
+        case Product.orangeFanta:
+            return Fanta(dateOfManufacture: Date(timeIntervalSinceNow: secondsOfDate))
+        case Product.topCoffee:
+            return TOP(dateOfManufacture: Date(timeIntervalSinceNow: secondsOfDate))
+        case Product.cantataCoffee:
+            return Cantata(dateOfManufacture: Date(timeIntervalSinceNow: secondsOfDate))
+        case Product.georgiaCoffee:
+            return Georgia(dateOfManufacture: Date(timeIntervalSinceNow: secondsOfDate))
+        }
+    }
+    
+    func convertSeconds(_ date: Int) -> Double {
+        return Double(date * DateUnit.secondsOfOneday)
+    }
 }
 
 struct AddingBeverage {
@@ -113,25 +142,10 @@ struct AddingBeverage {
     private static func addBeverage(with target: Int, amount: Int) -> [Beverage] {
         var beverages = [Beverage]()
         for _ in 1...amount {
-            let randomDate = Int.random(in: 1...20)
-            let secondsOfDate = -convertSeconds(randomDate)
-            switch target {
-            case 0: beverages.append(StrawberryMilk(dateOfManufacture: Date(timeIntervalSinceNow: secondsOfDate)))
-            case 1: beverages.append(ChocolateMilk(dateOfManufacture: Date(timeIntervalSinceNow: secondsOfDate)))
-            case 2: beverages.append(BananaMilk(dateOfManufacture: Date(timeIntervalSinceNow: secondsOfDate)))
-            case 3: beverages.append(Coke(dateOfManufacture: Date(timeIntervalSinceNow: secondsOfDate)))
-            case 4: beverages.append(Cider(dateOfManufacture: Date(timeIntervalSinceNow: secondsOfDate)))
-            case 5: beverages.append(Fanta(dateOfManufacture: Date(timeIntervalSinceNow: secondsOfDate)))
-            case 6: beverages.append(TOP(dateOfManufacture: Date(timeIntervalSinceNow: secondsOfDate)))
-            case 7: beverages.append(Cantata(dateOfManufacture: Date(timeIntervalSinceNow: secondsOfDate)))
-            case 8: beverages.append(Georgia(dateOfManufacture: Date(timeIntervalSinceNow: secondsOfDate)))
-            default: beverages.append(StrawberryMilk(dateOfManufacture: Date(timeIntervalSinceNow: secondsOfDate)))
+            if let beverage = Product(rawValue: target) {
+                beverages.append(beverage.select)
             }
         }
         return beverages
-    }
-    
-    private static func convertSeconds(_ date: Int) -> Double {
-        return Double(date * DateUnit.secondsOfOneday)
     }
 }

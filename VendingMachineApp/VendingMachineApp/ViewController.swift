@@ -62,14 +62,14 @@ class ViewController: UIViewController {
     private func refreshStock() {
         if let stockList = vendingMachine.stockList() {
             for index in 0..<stockList.count {
-                self.beverageStock[index].text = "\(stockList[index].count)개"
+                self.beverageStock[index].text = "\(stockList[index].count)\(SeveralUnit.count)"
             }
         }
     }
     
     private func refreshBalance() {
         let balance = vendingMachine.presentBalance()
-        self.balance.text = "\(balance)원"
+        self.balance.text = "\(balance)\(SeveralUnit.won)"
     }
     
     private func addStock(target: Product) {

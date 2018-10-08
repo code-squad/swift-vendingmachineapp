@@ -40,6 +40,18 @@ enum CashUnit: Int {
     case fiveThousand = 5000
 }
 
+enum SeveralUnit: CustomStringConvertible {
+    case won
+    case count
+    
+    var description: String {
+        switch self {
+        case .won: return "원"
+        case .count: return "개"
+        }
+    }
+}
+
 enum Brand: CustomStringConvertible {
     case maeil
     case seoulMilk

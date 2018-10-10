@@ -1,6 +1,7 @@
 disabled_rules : 
  - trailing_whitespace
  - cyclomatic_complexity
+ - force_cast
 
 line_length :
  - 300 # warning

@@ -25,7 +25,16 @@
 		4719840B2166606400FBD76C /* UserMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4719840A2166606400FBD76C /* UserMode.swift */; };
 		4719840D2166607200FBD76C /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4719840C2166607200FBD76C /* Utility.swift */; };
 		4719840F2166608300FBD76C /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4719840E2166608300FBD76C /* VendingMachine.swift */; };
-		47C9C533216CF4AB00D379C2 /* BeverageImages in Resources */ = {isa = PBXBuildFile; fileRef = 47C9C532216CF4AB00D379C2 /* BeverageImages */; };
+		47B6F9A0216DD8AC0090FA01 /* topCoffee.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 47B6F997216DD8AB0090FA01 /* topCoffee.jpeg */; };
+		47B6F9A1216DD8AC0090FA01 /* georgiaCoffee.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 47B6F998216DD8AB0090FA01 /* georgiaCoffee.jpeg */; };
+		47B6F9A2216DD8AC0090FA01 /* cider.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 47B6F999216DD8AB0090FA01 /* cider.jpeg */; };
+		47B6F9A3216DD8AC0090FA01 /* chocolateMilk.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 47B6F99A216DD8AB0090FA01 /* chocolateMilk.jpeg */; };
+		47B6F9A4216DD8AC0090FA01 /* fanta.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 47B6F99B216DD8AB0090FA01 /* fanta.jpeg */; };
+		47B6F9A5216DD8AC0090FA01 /* bananaMilk.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 47B6F99C216DD8AB0090FA01 /* bananaMilk.jpeg */; };
+		47B6F9A6216DD8AC0090FA01 /* cantataCoffee.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 47B6F99D216DD8AB0090FA01 /* cantataCoffee.jpeg */; };
+		47B6F9A7216DD8AC0090FA01 /* strawberryMilk.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 47B6F99E216DD8AB0090FA01 /* strawberryMilk.jpeg */; };
+		47B6F9A8216DD8AC0090FA01 /* coke.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 47B6F99F216DD8AB0090FA01 /* coke.jpeg */; };
+		47C9C534216CF5D400D379C2 /* Pods_VendingMachineApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C879EB5DB4CB4526F4E0FFD3 /* Pods_VendingMachineApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,7 +58,15 @@
 		4719840A2166606400FBD76C /* UserMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMode.swift; sourceTree = "<group>"; };
 		4719840C2166607200FBD76C /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		4719840E2166608300FBD76C /* VendingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachine.swift; sourceTree = "<group>"; };
-		47C9C532216CF4AB00D379C2 /* BeverageImages */ = {isa = PBXFileReference; lastKnownFileType = folder; path = BeverageImages; sourceTree = "<group>"; };
+		47B6F997216DD8AB0090FA01 /* topCoffee.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = topCoffee.jpeg; sourceTree = "<group>"; };
+		47B6F998216DD8AB0090FA01 /* georgiaCoffee.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = georgiaCoffee.jpeg; sourceTree = "<group>"; };
+		47B6F999216DD8AB0090FA01 /* cider.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cider.jpeg; sourceTree = "<group>"; };
+		47B6F99A216DD8AB0090FA01 /* chocolateMilk.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = chocolateMilk.jpeg; sourceTree = "<group>"; };
+		47B6F99B216DD8AB0090FA01 /* fanta.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = fanta.jpeg; sourceTree = "<group>"; };
+		47B6F99C216DD8AB0090FA01 /* bananaMilk.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bananaMilk.jpeg; sourceTree = "<group>"; };
+		47B6F99D216DD8AB0090FA01 /* cantataCoffee.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cantataCoffee.jpeg; sourceTree = "<group>"; };
+		47B6F99E216DD8AB0090FA01 /* strawberryMilk.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = strawberryMilk.jpeg; sourceTree = "<group>"; };
+		47B6F99F216DD8AB0090FA01 /* coke.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = coke.jpeg; sourceTree = "<group>"; };
 		A36A848CF7B9DC66269298E4 /* Pods-VendingMachineApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VendingMachineApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VendingMachineApp/Pods-VendingMachineApp.debug.xcconfig"; sourceTree = "<group>"; };
 		C879EB5DB4CB4526F4E0FFD3 /* Pods_VendingMachineApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VendingMachineApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F76D1F23FCC66115E1F42DD4 /* Pods-VendingMachineApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VendingMachineApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-VendingMachineApp/Pods-VendingMachineApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -60,6 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				47C9C534216CF5D400D379C2 /* Pods_VendingMachineApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,7 +105,7 @@
 		471983E221665B6100FBD76C /* VendingMachineApp */ = {
 			isa = PBXGroup;
 			children = (
-				47C9C532216CF4AB00D379C2 /* BeverageImages */,
+				47B6F996216DD8AB0090FA01 /* BeverageImages */,
 				471983E321665B6100FBD76C /* AppDelegate.swift */,
 				471983E521665B6100FBD76C /* ViewController.swift */,
 				471983E721665B6100FBD76C /* Main.storyboard */,
@@ -109,6 +127,22 @@
 				471983EF21665B6200FBD76C /* Info.plist */,
 			);
 			path = VendingMachineApp;
+			sourceTree = "<group>";
+		};
+		47B6F996216DD8AB0090FA01 /* BeverageImages */ = {
+			isa = PBXGroup;
+			children = (
+				47B6F997216DD8AB0090FA01 /* topCoffee.jpeg */,
+				47B6F998216DD8AB0090FA01 /* georgiaCoffee.jpeg */,
+				47B6F999216DD8AB0090FA01 /* cider.jpeg */,
+				47B6F99A216DD8AB0090FA01 /* chocolateMilk.jpeg */,
+				47B6F99B216DD8AB0090FA01 /* fanta.jpeg */,
+				47B6F99C216DD8AB0090FA01 /* bananaMilk.jpeg */,
+				47B6F99D216DD8AB0090FA01 /* cantataCoffee.jpeg */,
+				47B6F99E216DD8AB0090FA01 /* strawberryMilk.jpeg */,
+				47B6F99F216DD8AB0090FA01 /* coke.jpeg */,
+			);
+			path = BeverageImages;
 			sourceTree = "<group>";
 		};
 		BC849FE6A9B656ED2F73143C /* Pods */ = {
@@ -188,10 +222,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				47B6F9A4216DD8AC0090FA01 /* fanta.jpeg in Resources */,
 				471983EE21665B6200FBD76C /* LaunchScreen.storyboard in Resources */,
-				47C9C533216CF4AB00D379C2 /* BeverageImages in Resources */,
+				47B6F9A3216DD8AC0090FA01 /* chocolateMilk.jpeg in Resources */,
+				47B6F9A8216DD8AC0090FA01 /* coke.jpeg in Resources */,
+				47B6F9A0216DD8AC0090FA01 /* topCoffee.jpeg in Resources */,
+				47B6F9A6216DD8AC0090FA01 /* cantataCoffee.jpeg in Resources */,
 				471983EB21665B6200FBD76C /* Assets.xcassets in Resources */,
 				471983E921665B6100FBD76C /* Main.storyboard in Resources */,
+				47B6F9A7216DD8AC0090FA01 /* strawberryMilk.jpeg in Resources */,
+				47B6F9A1216DD8AC0090FA01 /* georgiaCoffee.jpeg in Resources */,
+				47B6F9A2216DD8AC0090FA01 /* cider.jpeg in Resources */,
+				47B6F9A5216DD8AC0090FA01 /* bananaMilk.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

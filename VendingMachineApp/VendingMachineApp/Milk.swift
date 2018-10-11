@@ -19,6 +19,16 @@ class Milk: Beverage {
     public func isLowFat() -> Bool {
         return self.fat <= 0.3 ? true : false
     }
+    
+    override func encode(with aCoder: NSCoder) {
+        super.encode(with: aCoder)
+        aCoder.encode(self.fat, forKey: "fat")
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        self.fat = aDecoder.decodeDouble(forKey: "fat")
+        super.init(coder: aDecoder)
+    }
 }
 
 class StrawberryMilk: Milk {
@@ -36,6 +46,20 @@ class StrawberryMilk: Milk {
     
     public func isNoneFlavor() -> Bool {
         return self.flavor == Flavor.none ? true : false
+    }
+    
+    override func encode(with aCoder: NSCoder) {
+        super.encode(with: aCoder)
+        let flavor = self.flavor.rawValue
+        aCoder.encode(flavor, forKey: "flavor")
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        guard let decoderFlavor = aDecoder.decodeObject(forKey: "flavor") as? String, let flavor = Flavor(rawValue: decoderFlavor) else {
+            return nil
+        }
+        self.flavor = flavor
+        super.init(coder: aDecoder)
     }
 }
 
@@ -55,6 +79,16 @@ class ChocolateMilk: Milk {
     public func isLowConcentration() -> Bool {
         return self.concentration <= 0.3 ? true : false
     }
+    
+    override func encode(with aCoder: NSCoder) {
+        super.encode(with: aCoder)
+        aCoder.encode(self.concentration, forKey: "concentration")
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        self.concentration = aDecoder.decodeDouble(forKey: "concentration")
+        super.init(coder: aDecoder)
+    }
 }
 
 class BananaMilk: Milk {
@@ -72,5 +106,19 @@ class BananaMilk: Milk {
     
     public func isWhiteColor() -> Bool {
         return self.color == BananaMilkColor.white ? true : false
+    }
+    
+    override func encode(with aCoder: NSCoder) {
+        super.encode(with: aCoder)
+        let color = self.color.rawValue
+        aCoder.encode(color, forKey: "color")
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        guard let decoderColor = aDecoder.decodeObject(forKey: "color") as? String, let color = BananaMilkColor(rawValue: decoderColor) else {
+            return nil
+        }
+        self.color = color
+        super.init(coder: aDecoder)
     }
 }

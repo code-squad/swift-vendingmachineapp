@@ -8,8 +8,12 @@
 
 import Foundation
 
-class Cash {
-    private var balance = 0
+class Cash: NSObject, NSCoding {
+    private var balance: Int
+    
+    override init() {
+        self.balance = 0
+    }
     
     public func addBalance(with money: Int) {
         self.balance += money
@@ -21,5 +25,13 @@ class Cash {
     
     public func remove(with money: Int) {
         self.balance -= money
+    }
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(self.balance, forKey: "balance")
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        self.balance = aDecoder.decodeInteger(forKey: "balance")
     }
 }

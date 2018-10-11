@@ -42,3 +42,18 @@
 
 ### 첨부파일
 ![Step2 Demo](CaptureImage/Step2Demo.mov)
+
+# Step3
+> UserDefault 와 Arching 을 이용한 데이터 저장
+
+### 작업내용
+1. Custom Object (ex: enum) 은 encode 할 때 String 으로 변환 후 decode 할 때 다시 해당 타입으로 변경
+2. 데이터 저장 위치
+    - 앱 안에서 홈 버튼 두번 클릭해서 끄는 경우 terminate, background 둘다 실행
+    - 바탕 화면에서 끄는 경우 background 만 실행
+    - 따라서 둘 다 포함되는 background 에 저장 함수 추가
+3. 데이터 불러 오기 위치
+    - Foreground & becomeActive 에서 불러 오면 쓰기 함수가 중복되어 불러 와서 그런지 버튼이 동작하지 않음
+    - 따라서 입 처음 실행될 때(application) 쓰기 함수 추가 , 또한 application이 아닌 다른 곳에 적용하면 앱 실행 시 버튼 누르기 전까지는 수량이나 잔돈이 화면에 표시되지 않음
+
+![Step3 Demo](CaptureImage/Step3Demo.mov)

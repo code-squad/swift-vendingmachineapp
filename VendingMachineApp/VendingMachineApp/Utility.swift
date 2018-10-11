@@ -12,24 +12,24 @@ struct DateUnit {
     static let secondsOfOneday = 86400
 }
 
-enum Flavor {
+enum Flavor: String {
     case strong
     case light
     case none
 }
 
-enum BananaMilkColor {
+enum BananaMilkColor: String {
     case white
     case yellow
 }
 
-enum FantaTaste {
+enum FantaTaste: String {
     case orange
     case pineapple
     case grape
 }
 
-enum Material {
+enum Material: String {
     case can
     case plastic
     case glass

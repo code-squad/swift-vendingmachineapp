@@ -10,12 +10,12 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
     var window: UIWindow?
-    let vendingMachine = VendingMachine(with: Stock.prepareStock())
-
+    var vendingMachine: VendingMachine?
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        write()
         return true
     }
 
@@ -27,6 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        save()
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -41,4 +42,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+    func save() {
+        guard let vendingMachineObject = self.vendingMachine else { return }
+        do {
+            let endcodedData: Data = try NSKeyedArchiver.archivedData(withRootObject: vendingMachineObject, requiringSecureCoding: false)
+            UserDefaults.standard.set(endcodedData, forKey: "vendingMachine")
+        } catch let error {
+            print(error)
+        }
+    }
+    
+    func write() {
+        if let loaded: Data = UserDefaults.standard.data(forKey: "vendingMachine") {
+            self.vendingMachine = unarchive(with: loaded)
+        } else {
+            self.vendingMachine = VendingMachine(with: Stock.prepareStock())
+        }
+    }
+    
+    func unarchive(with data: Data) -> VendingMachine? {
+        do {
+            if let vendingMachineData = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? VendingMachine {
+                return vendingMachineData
+            }
+        } catch let error {
+            print(error)
+        }
+        return nil
+    }
 }

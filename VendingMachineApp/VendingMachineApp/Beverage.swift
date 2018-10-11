@@ -8,7 +8,24 @@
 
 import Foundation
 
-class Beverage: NSObject {
+class Beverage: NSObject, NSCoding {
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(self.brand, forKey: "brand")
+        aCoder.encode(self.capacity, forKey: "capacity")
+        aCoder.encode(self.price, forKey: "price")
+        aCoder.encode(self.name, forKey: "name")
+        aCoder.encode(self.dateOfManufacture, forKey: "dateOfManufacture")
+        aCoder.encode(self.manufacturer, forKey: "manufacturer")
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        self.brand = aDecoder.decodeObject(forKey: "brand") as! String
+        self.capacity = aDecoder.decodeInteger(forKey: "capacity")
+        self.price = aDecoder.decodeInteger(forKey: "price")
+        self.name = aDecoder.decodeObject(forKey: "name") as! String
+        self.dateOfManufacture = aDecoder.decodeObject(forKey: "dateOfManufacture") as! Date
+        self.manufacturer = aDecoder.decodeObject(forKey: "manufacturer") as! String
+    }
     
     private var brand: String
     private var capacity: Int

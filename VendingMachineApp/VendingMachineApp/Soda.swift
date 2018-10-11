@@ -19,6 +19,16 @@ class Soda: Beverage {
     public func isLowSodium() -> Bool {
         return self.sodium <= 100 ? true : false
     }
+    
+    override func encode(with aCoder: NSCoder) {
+        super.encode(with: aCoder)
+        aCoder.encode(self.sodium, forKey: "sodium")
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        self.sodium = aDecoder.decodeInteger(forKey: "sodium")
+        super.init(coder: aDecoder)
+    }
 }
 
 class Coke: Soda {
@@ -36,6 +46,16 @@ class Coke: Soda {
     
     public func isLowCalorie() -> Bool {
         return self.calorie <= 100 ? true : false
+    }
+    
+    override func encode(with aCoder: NSCoder) {
+        super.encode(with: aCoder)
+        aCoder.encode(self.calorie, forKey: "calorie")
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        self.calorie = aDecoder.decodeInteger(forKey: "calorie")
+        super.init(coder: aDecoder)
     }
 }
 
@@ -55,6 +75,16 @@ class Cider: Soda {
     public func isNoneTransFat() -> Bool {
         return self.transFat == 0 ? true : false
     }
+    
+    override func encode(with aCoder: NSCoder) {
+        super.encode(with: aCoder)
+        aCoder.encode(self.transFat, forKey: "transFat")
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        self.transFat = aDecoder.decodeInteger(forKey: "transFat")
+        super.init(coder: aDecoder)
+    }
 }
 
 class Fanta: Soda {
@@ -72,5 +102,19 @@ class Fanta: Soda {
     
     public func isOrangeTaste() -> Bool {
         return self.taste == FantaTaste.orange ? true :false
+    }
+    
+    override func encode(with aCoder: NSCoder) {
+        super.encode(with: aCoder)
+        let taste = self.taste.rawValue
+        aCoder.encode(taste, forKey: "taste")
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        guard let decoderTaste = aDecoder.decodeObject(forKey: "taste") as? String, let taste = FantaTaste(rawValue: decoderTaste) else {
+            return nil
+        }
+        self.taste = taste
+        super.init(coder: aDecoder)
     }
 }

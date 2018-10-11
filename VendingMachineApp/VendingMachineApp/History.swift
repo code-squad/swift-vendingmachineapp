@@ -8,8 +8,12 @@
 
 import Foundation
 
-class History {
-    private var beverages = [Beverage]()
+class History: NSObject, NSCoding {
+    private var beverages: [Beverage]
+    
+    override init() {
+        self.beverages = [Beverage]()
+    }
     
     public func add(with beverage: Beverage) {
         self.beverages.append(beverage)
@@ -17,5 +21,13 @@ class History {
     
     public func list() -> [Beverage] {
         return self.beverages
+    }
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(self.beverages, forKey: "beverages")
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        self.beverages = aDecoder.decodeObject(forKey: "beverages") as! [Beverage]
     }
 }

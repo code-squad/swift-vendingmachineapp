@@ -19,6 +19,16 @@ class Coffee: Beverage {
     public func isNoneCaffeine() -> Bool {
         return self.caffeine == 0 ? true : false
     }
+    
+    override func encode(with aCoder: NSCoder) {
+        super.encode(with: aCoder)
+        aCoder.encode(self.caffeine, forKey: "caffeine")
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        self.caffeine = aDecoder.decodeInteger(forKey: "caffeine")
+        super.init(coder: aDecoder)
+    }
 }
 
 class TOP: Coffee {
@@ -36,6 +46,16 @@ class TOP: Coffee {
     
     public func isHot() -> Bool {
         return self.hot
+    }
+    
+    override func encode(with aCoder: NSCoder) {
+        super.encode(with: aCoder)
+        aCoder.encode(self.hot, forKey: "hot")
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        self.hot = aDecoder.decodeBool(forKey: "hot")
+        super.init(coder: aDecoder)
     }
 }
 
@@ -55,6 +75,16 @@ class Cantata: Coffee {
     public func isSugarFree() -> Bool {
         return self.sugarFree
     }
+    
+    override func encode(with aCoder: NSCoder) {
+        super.encode(with: aCoder)
+        aCoder.encode(self.sugarFree, forKey: "sugarFree")
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        self.sugarFree = aDecoder.decodeBool(forKey: "sugarFree")
+        super.init(coder: aDecoder)
+    }
 }
 
 class Georgia: Coffee {
@@ -72,5 +102,21 @@ class Georgia: Coffee {
     
     public func isCan() -> Bool {
         return self.packageMaterial == Material.can ? true : false
+    }
+    
+    override func encode(with aCoder: NSCoder) {
+        super.encode(with: aCoder)
+        
+        let packageMaterial = self.packageMaterial.rawValue
+        aCoder.encode(packageMaterial, forKey: "packageMaterial")
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        guard let decoderPackageMaterial = aDecoder.decodeObject(forKey: "packageMaterial") as? String, let packageMaterial = Material(rawValue: decoderPackageMaterial) else {
+            return nil
+        }
+        self.packageMaterial = packageMaterial
+        
+        super.init(coder: aDecoder)
     }
 }

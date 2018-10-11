@@ -28,13 +28,30 @@ protocol Manageable: Common {
     func removeExpiredBeverage(with expiredBeverages: [[Beverage: Int]]) throws -> [Beverage]
 }
 
-class VendingMachine: Userable, Manageable {
+class VendingMachine: NSObject, NSCoding, Userable, Manageable {
     private var beverages: [[Beverage]]
     private var cash = Cash()
     private var history = History()
     
     init(with beverages: [[Beverage]]) {
         self.beverages = beverages
+    }
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(self.beverages, forKey: "beverages")
+        aCoder.encode(self.cash, forKey: "cash")
+        aCoder.encode(self.history, forKey: "history")
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        // as? 캐스팅 하면 Property 'self.beverages' not initialized at implicitly generated super.init call 에러 발생
+        self.beverages = aDecoder.decodeObject(forKey: "beverages") as! [[Beverage]]
+        if let cash = aDecoder.decodeObject(forKey: "cash") as? Cash {
+            self.cash = cash
+        }
+        if let history = aDecoder.decodeObject(forKey: "history") as? History {
+            self.history = history
+        }
     }
     
     public func stockList() -> [[Beverage]]? {

@@ -8,7 +8,11 @@
 
 import Foundation
 
-class Cash: NSObject, NSCoding {
+class Cash: NSObject, NSSecureCoding {
+    static var supportsSecureCoding: Bool {
+        return true
+    }
+    
     private var balance: Int
     
     override init() {

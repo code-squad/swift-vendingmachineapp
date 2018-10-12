@@ -36,6 +36,11 @@ class ViewController: UIViewController {
         refreshStock()
         refreshBalance()
         roundEdgeOfImage()
+        refreshStatus()
+    }
+    
+    private func refreshStatus() {
+        self.statusMessage.text = self.appDelegate?.vendingMachine?.status
     }
     
     private func refreshStock() {

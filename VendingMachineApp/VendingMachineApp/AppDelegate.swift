@@ -48,7 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let endcodedData: Data = try NSKeyedArchiver.archivedData(withRootObject: vendingMachineObject, requiringSecureCoding: false)
             UserDefaults.standard.set(endcodedData, forKey: "vendingMachine")
         } catch {
-            outputError(with: error)
+            outputError(with: MachineError.failSave)
         }
     }
     
@@ -66,15 +66,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 return vendingMachineData
             }
         } catch {
-            outputError(with: error)
+            outputError(with: MachineError.failWrite)
         }
         return nil
     }
     
-    func outputError(with errorMessage: Error) {
-        let storyboard = UIStoryboard(name: "main", bundle: nil)
-        if let basicView = storyboard.instantiateViewController(withIdentifier: "BasicView") as? ViewController {
-            basicView.statusMessage.text = errorMessage.localizedDescription
-        }
+    func outputError(with error: Errorable) {
+        vendingMachine?.status = error.description
     }
 }

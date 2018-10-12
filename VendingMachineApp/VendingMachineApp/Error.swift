@@ -32,12 +32,16 @@ enum MachineError: Errorable {
     case lackBalance
     case outOfStock
     case outOfExpiredStock
+    case failSave
+    case failWrite
     
     var description: String {
         switch self {
         case .lackBalance: return "잔액이 부족합니다."
         case .outOfStock: return "재고가 없습니다."
         case .outOfExpiredStock: return "유통기한이 지난 재고가 없습니다."
+        case .failSave: return "데이터 저장에 실패하였습니다."
+        case .failWrite: return "데이터 불러오기에 실패하였습니다."
         }
     }
 }

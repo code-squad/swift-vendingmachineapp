@@ -29,6 +29,8 @@ protocol Manageable: Common {
 }
 
 class VendingMachine: NSObject, NSSecureCoding, Userable, Manageable {
+    static let shared = VendingMachine()
+    
     static var supportsSecureCoding: Bool {
         return true
     }
@@ -36,6 +38,10 @@ class VendingMachine: NSObject, NSSecureCoding, Userable, Manageable {
     private var cash = Cash()
     private var history = History()
     public var status = ""
+    
+    convenience override init() {
+        self.init(with: Stock.prepareStock())
+    }
     
     init(with beverages: [[Beverage]]) {
         self.beverages = beverages

@@ -28,7 +28,10 @@ protocol Manageable: Common {
     func removeExpiredBeverage(with expiredBeverages: [[Beverage: Int]]) throws -> [Beverage]
 }
 
-class VendingMachine: NSObject, NSCoding, Userable, Manageable {
+class VendingMachine: NSObject, NSSecureCoding, Userable, Manageable {
+    static var supportsSecureCoding: Bool {
+        return true
+    }
     private var beverages: [[Beverage]]
     private var cash = Cash()
     private var history = History()

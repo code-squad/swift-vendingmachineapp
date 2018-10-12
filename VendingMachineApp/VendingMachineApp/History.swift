@@ -8,7 +8,11 @@
 
 import Foundation
 
-class History: NSObject, NSCoding {
+class History: NSObject, NSSecureCoding {
+    static var supportsSecureCoding: Bool {
+        return true
+    }
+    
     private var beverages: [Beverage]
     
     override init() {

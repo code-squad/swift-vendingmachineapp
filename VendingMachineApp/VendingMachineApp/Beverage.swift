@@ -8,7 +8,11 @@
 
 import Foundation
 
-class Beverage: NSObject, NSCoding {
+class Beverage: NSObject, NSSecureCoding {
+    static var supportsSecureCoding: Bool {
+        return true
+    }
+    
     func encode(with aCoder: NSCoder) {
         aCoder.encode(self.brand, forKey: "brand")
         aCoder.encode(self.capacity, forKey: "capacity")

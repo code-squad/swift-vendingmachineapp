@@ -35,6 +35,7 @@ class VendingMachine: NSObject, NSSecureCoding, Userable, Manageable {
     private var beverages: [[Beverage]]
     private var cash = Cash()
     private var history = History()
+    public var status = ""
     
     init(with beverages: [[Beverage]]) {
         self.beverages = beverages
@@ -44,6 +45,7 @@ class VendingMachine: NSObject, NSSecureCoding, Userable, Manageable {
         aCoder.encode(self.beverages, forKey: "beverages")
         aCoder.encode(self.cash, forKey: "cash")
         aCoder.encode(self.history, forKey: "history")
+        aCoder.encode(self.status, forKey: "status")
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -54,6 +56,9 @@ class VendingMachine: NSObject, NSSecureCoding, Userable, Manageable {
         }
         if let history = aDecoder.decodeObject(forKey: "history") as? History {
             self.history = history
+        }
+        if let status = aDecoder.decodeObject(forKey: "status") as? String {
+            self.status = status
         }
     }
     

@@ -43,6 +43,12 @@ class VendingMachine: NSObject, NSSecureCoding, Userable, Manageable {
         self.init(with: Stock.prepareStock())
     }
     
+    func settingDefault(with vendingMachine: VendingMachine) {
+        self.beverages = vendingMachine.beverages
+        self.cash = vendingMachine.cash
+        self.history = vendingMachine.history
+    }
+    
     init(with beverages: [[Beverage]]) {
         self.beverages = beverages
     }

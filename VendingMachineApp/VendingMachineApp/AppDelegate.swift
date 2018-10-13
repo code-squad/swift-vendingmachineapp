@@ -11,7 +11,6 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
-    var vendingMachine = VendingMachine.shared
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -43,9 +42,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func save() {
-        //        guard let vendingMachineObject = self.vendingMachine else { return }
         do {
-            let endcodedData: Data = try NSKeyedArchiver.archivedData(withRootObject: vendingMachine, requiringSecureCoding: false)
+            let endcodedData: Data = try NSKeyedArchiver.archivedData(withRootObject: VendingMachine.shared, requiringSecureCoding: false)
             UserDefaults.standard.set(endcodedData, forKey: "vendingMachine")
         } catch {
             outputError(with: MachineError.failSave)
@@ -55,10 +53,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func write() {
         if let loaded: Data = UserDefaults.standard.data(forKey: "vendingMachine") {
             if let unarchivedVendingMachine = unarchive(with: loaded) {
-                self.vendingMachine = unarchivedVendingMachine
+                VendingMachine.shared.settingDefault(with: unarchivedVendingMachine)
             }
         } else {
-            self.vendingMachine = VendingMachine(with: Stock.prepareStock())
+            let vendingMachine = VendingMachine(with: Stock.prepareStock())
+            VendingMachine.shared.settingDefault(with: vendingMachine)
         }
     }
     
@@ -74,6 +73,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func outputError(with error: Errorable) {
-        vendingMachine.status = error.description
+        VendingMachine.shared.status = error.description
     }
 }

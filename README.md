@@ -88,3 +88,12 @@
 
 ### 기타사항
 1. 생각보다 구현이 오래 걸린 이유 : 단순히 싱글톤 객체로 변경해놓고 UserDefault의 저장 및 쓰기부분을 변경 및 구현해주지 않아 원하는 방법이 제대로 되지 않았습니다.
+
+### 참고
+ - [싱글턴 패턴 - 위키백과, 우리 모두의 백과사전](https://ko.wikipedia.org/wiki/%EC%8B%B1%EA%B8%80%ED%84%B4_%ED%8C%A8%ED%84%B4)
+ - [싱글톤 패턴(Singleton pattern)을 쓰는 이유와 문제점](http://jeong-pro.tistory.com/86)
+ - [차니의 이야기 :: 블로그](http://faith-developer.tistory.com/68)
+ - [스레드 안전 - 위키백과, 우리 모두의 백과사전](https://ko.wikipedia.org/wiki/%EC%8A%A4%EB%A0%88%EB%93%9C_%EC%95%88%EC%A0%84)
+ - [swift - What's the difference between Struct based and Class based singletons? - Stack Overflow](https://stackoverflow.com/questions/36788169/whats-the-difference-between-struct-based-and-class-based-singletons)
+ - https://swifter.kr/2016/10/03/swift%EC%97%90%EC%84%9C-%EA%B0%84%EB%8B%A8%ED%95%98%EA%B2%8C-%EC%8B%B1%EA%B8%80%ED%86%A4singleton-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0/
+

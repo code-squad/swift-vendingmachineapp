@@ -9,9 +9,9 @@
 import UIKit
 
 class ViewController: UIViewController {
-    weak var appDelegate = UIApplication.shared.delegate as? AppDelegate
-    private lazy var adminMode = AdminMode(with: self.appDelegate?.vendingMachine ?? VendingMachine(with: Stock.prepareStock()))
-    private lazy var userMode = UserMode(with: self.appDelegate?.vendingMachine ?? VendingMachine(with: Stock.prepareStock()))
+    private let vendingMachine = VendingMachine.shared
+    private lazy var adminMode = AdminMode(with: self.vendingMachine)
+    private lazy var userMode = UserMode(with: self.vendingMachine)
     
     @IBAction func addBalance1000(_ sender: UIButton) {
         controlAddBalance(with: CashUnit.thousand)
@@ -40,11 +40,11 @@ class ViewController: UIViewController {
     }
     
     private func refreshStatus() {
-        self.statusMessage.text = self.appDelegate?.vendingMachine.status
+        self.statusMessage.text = self.vendingMachine.status
     }
     
     private func refreshStock() {
-        if let stockList =  appDelegate?.vendingMachine.stockList() {
+        if let stockList =  self.vendingMachine.stockList() {
             for index in 0..<stockList.count {
                 self.beverageStock[index].text = self.format(with: stockList[index])
             }
@@ -52,9 +52,8 @@ class ViewController: UIViewController {
     }
     
     private func refreshBalance() {
-        if let balance = appDelegate?.vendingMachine.presentBalance() {
-            self.balance.text = self.format(with: balance)
-        }
+        let balance = self.vendingMachine.presentBalance()
+        self.balance.text = self.format(with: balance)
     }
     
     private func format(with beverages: [Beverage]) -> String {

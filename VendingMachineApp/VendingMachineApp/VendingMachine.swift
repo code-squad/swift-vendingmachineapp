@@ -39,8 +39,12 @@ class VendingMachine: NSObject, NSSecureCoding, Userable, Manageable {
     private var history = History()
     public var status = ""
     
-    convenience override init() {
+    convenience override private init() {
         self.init(with: Stock.prepareStock())
+    }
+    
+    private init(with beverages: [[Beverage]]) {
+        self.beverages = beverages
     }
     
     func settingDefault(with vendingMachine: VendingMachine) {
@@ -49,9 +53,6 @@ class VendingMachine: NSObject, NSSecureCoding, Userable, Manageable {
         self.history = vendingMachine.history
     }
     
-    init(with beverages: [[Beverage]]) {
-        self.beverages = beverages
-    }
     
     func encode(with aCoder: NSCoder) {
         aCoder.encode(self.beverages, forKey: "beverages")

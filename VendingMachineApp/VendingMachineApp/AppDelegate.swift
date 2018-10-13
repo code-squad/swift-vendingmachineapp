@@ -55,9 +55,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             if let unarchivedVendingMachine = unarchive(with: loaded) {
                 VendingMachine.shared.settingDefault(with: unarchivedVendingMachine)
             }
-        } else {
-            let vendingMachine = VendingMachine(with: Stock.prepareStock())
-            VendingMachine.shared.settingDefault(with: vendingMachine)
         }
     }
     

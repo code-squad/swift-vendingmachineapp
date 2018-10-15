@@ -14,6 +14,7 @@ struct DateUnit {
 
 struct NotificationKey {
     static let addStock = "addStock"
+    static let addBalance = "addBalance"
 }
 
 enum Flavor: String {

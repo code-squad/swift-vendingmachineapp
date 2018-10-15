@@ -9,8 +9,8 @@
 import UIKit
 
 class ViewController: UIViewController {
-    private var adminMode = AdminMode(with: VendingMachine.shared)
-    private var userMode = UserMode(with: VendingMachine.shared)
+    private let adminMode = AdminMode(with: VendingMachine.shared)
+    private let userMode = UserMode(with: VendingMachine.shared)
     
     @IBAction func addBalance1000(_ sender: UIButton) {
         controlAddBalance(with: CashUnit.thousand)

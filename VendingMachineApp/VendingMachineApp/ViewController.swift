@@ -93,7 +93,6 @@ class ViewController: UIViewController {
         } catch {
             throw error
         }
-//        refreshBalance()
     }
     
     private func outputErrorMessage(error: Errorable) {

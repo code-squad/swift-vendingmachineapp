@@ -39,11 +39,6 @@ struct AdminMode {
     private func addStock(target: Int, amount: Int ) -> [Beverage] {
         let beverages = AddingBeverage.select(target: target, amount: amount)
         let addedBeverages = manageable.addStock(with: beverages)
-        
-        // 옵저버 알림
-        let name = Notification.Name(NotificationKey.addStock)
-        NotificationCenter.default.post(name: name, object: nil)
-        
         return addedBeverages
     }
     

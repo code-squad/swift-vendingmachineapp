@@ -27,11 +27,6 @@ struct AdminMode {
         case .addStock:
             // 재고추가
             _ = self.addStock(target: target, amount: amount)
-            
-            // 옵저버 알림
-            let name = Notification.Name(NotificationKey.addStock)
-            NotificationCenter.default.post(name: name, object: nil)
-            
             return true
         case .deleteStock:
             // 재고삭제
@@ -44,6 +39,11 @@ struct AdminMode {
     private func addStock(target: Int, amount: Int ) -> [Beverage] {
         let beverages = AddingBeverage.select(target: target, amount: amount)
         let addedBeverages = manageable.addStock(with: beverages)
+        
+        // 옵저버 알림
+        let name = Notification.Name(NotificationKey.addStock)
+        NotificationCenter.default.post(name: name, object: nil)
+        
         return addedBeverages
     }
     

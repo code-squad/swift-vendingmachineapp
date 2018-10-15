@@ -12,6 +12,10 @@ struct DateUnit {
     static let secondsOfOneday = 86400
 }
 
+struct NotificationKey {
+    static let addStock = "addStock"
+}
+
 enum Flavor: String {
     case strong
     case light

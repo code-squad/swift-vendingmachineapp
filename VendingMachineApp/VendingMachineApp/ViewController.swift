@@ -31,18 +31,26 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // 옵저버 등록
+        createdObservers()
         // Do any additional setup after loading the view, typically from a nib.
         refreshStock()
         refreshBalance()
         roundEdgeOfImage()
         refreshStatus()
+        
+    }
+    
+    // 옵저버 제거
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
     private func refreshStatus() {
         self.statusMessage.text = adminMode.manageable.status
     }
     
-    private func refreshStock() {
+    @objc private func refreshStock() {
         if let stockList =  adminMode.manageable.stockList() {
             for index in 0..<stockList.count {
                 self.beverageStock[index].text = self.format(with: stockList[index])
@@ -64,10 +72,7 @@ class ViewController: UIViewController {
     }
     
     private func addStock(target: Product) {
-        let isAdded = adminMode.selectMenu(with: MenuAdmin.addStock, target: target.rawValue, amount: 1)
-        if isAdded {
-            refreshStock()
-        }
+        _ = adminMode.selectMenu(with: MenuAdmin.addStock, target: target.rawValue, amount: 1)
     }
     
     private func controlAddBalance(with cash: CashUnit) {
@@ -99,5 +104,11 @@ class ViewController: UIViewController {
         for image in self.beverageImages {
             image.layer.cornerRadius = 10.0
         }
+    }
+    
+    private func createdObservers() {
+        // addStock
+        let name = Notification.Name(NotificationKey.addStock)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.refreshStock), name: name, object: nil)
     }
 }

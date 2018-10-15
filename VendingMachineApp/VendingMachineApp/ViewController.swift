@@ -58,7 +58,7 @@ class ViewController: UIViewController {
         }
     }
     
-    private func refreshBalance() {
+    @objc private func refreshBalance() {
         let balance = userMode.userable.presentBalance()
         self.balance.text = self.format(with: balance)
     }
@@ -93,7 +93,7 @@ class ViewController: UIViewController {
         } catch {
             throw error
         }
-        refreshBalance()
+//        refreshBalance()
     }
     
     private func outputErrorMessage(error: Errorable) {
@@ -108,7 +108,10 @@ class ViewController: UIViewController {
     
     private func createdObservers() {
         // addStock
-        let name = Notification.Name(NotificationKey.addStock)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.refreshStock), name: name, object: nil)
+        let nameAddStock = Notification.Name(NotificationKey.addStock)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.refreshStock), name: nameAddStock, object: nil)
+        // addBalance
+        let nameAddBalance = Notification.Name(NotificationKey.addBalance)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.refreshBalance), name: nameAddBalance, object: nil)
     }
 }

@@ -40,6 +40,9 @@ struct UserMode {
     
     private func addBalance(value: Int) {
         userable.addBalance(value: value)
+        // 옵저버 알림
+        let name = Notification.Name(NotificationKey.addBalance)
+        NotificationCenter.default.post(name: name, object: nil)
     }
     
     private func purchaseBeverage(value: Int) throws -> Beverage {

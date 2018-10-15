@@ -94,6 +94,9 @@ class VendingMachine: NSObject, NSSecureCoding, Userable, Manageable {
     
     public func addBalance(value: Int) {
         self.cash.addBalance(with: value)
+        // 옵저버 알림
+        let name = Notification.Name(NotificationKey.addBalance)
+        NotificationCenter.default.post(name: name, object: nil)
     }
     
     public func presentBalance() -> Int {
@@ -113,27 +116,24 @@ class VendingMachine: NSObject, NSSecureCoding, Userable, Manageable {
     
     public func addStock(with addBeverages: [Beverage]) -> [Beverage] {
         /*
-         1. 기존 리스트에 있는 음료
+         기존 리스트에 있는 음료
          self.beverages [[Beverage]] 안에 있는 [Beverage]에 값을 추가 할 수 없어서
          새로운 [Beverage]에 기존 [Beverage] 와 추가되는 [Beverage] 를 합쳐서
          self.beverages[index]의 값을 바꿔주는 형식으로 작성하였습니다.
-         2. 새로운 음료
-         (1)번의 리스트에서 매칭되는 것이 없다면 새로 추가합니다.
          */
-        
-        // 1
+        var newBeverage = [Beverage]()
         for index in 0..<self.beverages.count where self.beverages[index][0].className == addBeverages[0].className {
-            var newBeverage = self.beverages[index]
+            newBeverage = self.beverages[index]
             for addBeverage in addBeverages {
                 newBeverage.append(addBeverage)
             }
             self.beverages[index] = newBeverage
-            return newBeverage
+            
+            // 옵저버 알림
+            let name = Notification.Name(NotificationKey.addStock)
+            NotificationCenter.default.post(name: name, object: nil)
         }
-        
-        // 2
-        self.beverages.append(addBeverages)
-        return addBeverages
+        return newBeverage
     }
     
     public func removeStock(target: Int, amount: Int) -> [Beverage] {

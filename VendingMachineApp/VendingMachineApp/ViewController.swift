@@ -40,11 +40,11 @@ class ViewController: UIViewController {
     }
     
     private func refreshStatus() {
-        self.statusMessage.text = self.vendingMachine.status
+        self.statusMessage.text = adminMode.manageable.status
     }
     
     private func refreshStock() {
-        if let stockList =  self.vendingMachine.stockList() {
+        if let stockList =  adminMode.manageable.stockList() {
             for index in 0..<stockList.count {
                 self.beverageStock[index].text = self.format(with: stockList[index])
             }
@@ -52,7 +52,7 @@ class ViewController: UIViewController {
     }
     
     private func refreshBalance() {
-        let balance = self.vendingMachine.presentBalance()
+        let balance = userMode.userable.presentBalance()
         self.balance.text = self.format(with: balance)
     }
     

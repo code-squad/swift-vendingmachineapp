@@ -21,6 +21,7 @@ protocol Userable: Common {
 }
 
 protocol Manageable: Common {
+    var status: String { get set }
     func addStock(with addBeverages: [Beverage]) -> [Beverage]
     func removeStock(target: Int, amount: Int) -> [Beverage]
     func expiredBeverages() throws -> [[Beverage: Int]]
@@ -52,7 +53,6 @@ class VendingMachine: NSObject, NSSecureCoding, Userable, Manageable {
         self.cash = vendingMachine.cash
         self.history = vendingMachine.history
     }
-    
     
     func encode(with aCoder: NSCoder) {
         aCoder.encode(self.beverages, forKey: "beverages")

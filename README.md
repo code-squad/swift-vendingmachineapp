@@ -97,3 +97,23 @@
  - [swift - What's the difference between Struct based and Class based singletons? - Stack Overflow](https://stackoverflow.com/questions/36788169/whats-the-difference-between-struct-based-and-class-based-singletons)
  - https://swifter.kr/2016/10/03/swift%EC%97%90%EC%84%9C-%EA%B0%84%EB%8B%A8%ED%95%98%EA%B2%8C-%EC%8B%B1%EA%B8%80%ED%86%A4singleton-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0/
 
+# Step5
+> Observer Pattern 사용
+
+### 작업내용
+1. 옵저버 패턴 등록 & 알림 & 제거 구현
+2. 알림과 관련한 `name`은 구조체 사용하여 하드코딩 줄였습니다.
+3. `addStock of VendingMachine` 함수에서 알림을 주려 했으나 실행 시점의 차이로 인해 라벨이 한단계(?)씩 밀리는 현상을 보여 `addStock of AdminMode` 함수에 알림을 추가하였습니다.
+
+### Loose Coupling (느슨한 결합)의 장점
+ - 객체 간의 의존성이 줄어듭니다. 
+ - 유연성과 코드 재사용성이 늘어납니다.
+ - 테스트하기 용이합니다.
+ - 객체의 변경을 할 때 작은 단위로도 변경 가능합니다.
+ - 위에 부분들로 인해 유지보수가 쉬워집니다.
+    
+### 참고
+ - [생각대로 살지 않으면 사는대로 생각한다. :: [C#] 느슨한 결합과 강한 결합 (Loose Coupling VS Tight Coupling )](http://hongjinhyeon.tistory.com/141)
+ - [Loose coupling - Wikipedia](https://en.wikipedia.org/wiki/Loose_coupling)
+ - [LibQA~](http://www.libqa.com/wiki/11)
+ - [결합도(Coupling), 응집도(Cohesion) :: 게으른 엔지니어](http://lazineer.tistory.com/93)

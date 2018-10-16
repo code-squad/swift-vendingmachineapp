@@ -53,11 +53,13 @@ class ViewController: UIViewController {
     
     private func createdObservers() {
         // addStock
-        let nameAddStock = Notification.Name(NotificationKey.addStock)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.refreshStock), name: nameAddStock, object: nil)
+        let nameUpdateStock = Notification.Name(NotificationKey.updateStock)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.refreshStock), name: nameUpdateStock, object: nil)
+
         // addBalance
-        let nameAddBalance = Notification.Name(NotificationKey.addBalance)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.refreshBalance), name: nameAddBalance, object: nil)
+        let nameUpdateBalance = Notification.Name(NotificationKey.updateBalance)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.refreshBalance), name: nameUpdateBalance, object: nil)
+
         // purchaseBeverage
         let namePurchaseBeverage = Notification.Name(NotificationKey.purchaseBeverage)
         NotificationCenter.default.addObserver(self, selector: #selector(self.refreshPurchase(_:)), name: namePurchaseBeverage, object: nil)
@@ -81,6 +83,11 @@ class ViewController: UIViewController {
         self.balance.text = Formatter.format(with: balance)
     }
     
+    @objc private func refreshPurchase(_ notification: Notification) {
+        guard let selectedBeverage = notification.userInfo?["Beverage"] as? Beverage else { return }
+        placeImage(with: selectedBeverage)
+    }
+    
     private func refreshStatus() {
         self.statusMessage.text = adminMode.manageable.status
     }
@@ -91,12 +98,6 @@ class ViewController: UIViewController {
         for purchasedBeverage in historyList {
             placeImage(with: purchasedBeverage)
         }
-    }
-    
-    @objc private func refreshPurchase(_ notification: Notification) {
-        self.refreshStock()
-        self.refreshBalance()
-        self.addPurchaseList(notification)
     }
     
     private func controlAddBalance(with cash: CashUnit) {
@@ -125,11 +126,6 @@ class ViewController: UIViewController {
         } catch {
             outputErrorMessage(error: error as? Errorable ?? InputError.unknown)
         }
-    }
-    
-    private func addPurchaseList(_ notification: Notification) {
-        guard let selectedBeverage = notification.userInfo?["Beverage"] as? Beverage else { return }
-        placeImage(with: selectedBeverage)
     }
     
     private func placeImage(with beverage: Beverage) {

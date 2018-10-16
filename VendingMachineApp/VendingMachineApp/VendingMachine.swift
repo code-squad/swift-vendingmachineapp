@@ -92,17 +92,18 @@ class VendingMachine: NSObject, NSSecureCoding, Userable, Manageable {
         self.beverages = self.beverages.filter({$0.count > 0})
         
         // 옵저버 알림
-        let name = Notification.Name(NotificationKey.purchaseBeverage)
-        NotificationCenter.default.post(name: name, object: nil, userInfo: ["Beverage": beverage])
+        let name = Notification.Name(NotificationKey.updateStock)
+        NotificationCenter.default.post(name: name, object: nil)
+        
+        // 옵저버 알림
+        let historyName = Notification.Name(NotificationKey.purchaseBeverage)
+        NotificationCenter.default.post(name: historyName, object: nil, userInfo: ["Beverage": beverage])
         
         return beverage
     }
     
     public func addBalance(value: Int) {
         self.cash.addBalance(with: value)
-        // 옵저버 알림
-        let name = Notification.Name(NotificationKey.addBalance)
-        NotificationCenter.default.post(name: name, object: nil)
     }
     
     public func presentBalance() -> Int {
@@ -135,7 +136,7 @@ class VendingMachine: NSObject, NSSecureCoding, Userable, Manageable {
             self.beverages[index] = newBeverage
             
             // 옵저버 알림
-            let name = Notification.Name(NotificationKey.addStock)
+            let name = Notification.Name(NotificationKey.updateStock)
             NotificationCenter.default.post(name: name, object: nil)
         }
         return newBeverage
@@ -150,6 +151,10 @@ class VendingMachine: NSObject, NSSecureCoding, Userable, Manageable {
         
         // 2차원 배열에서 빈배열의 경우 없애주기 위한 작업
         self.beverages = self.beverages.filter({$0.count > 0})
+        
+        // 옵저버 알림
+        let name = Notification.Name(NotificationKey.updateStock)
+        NotificationCenter.default.post(name: name, object: nil)
         
         return beverages
     }

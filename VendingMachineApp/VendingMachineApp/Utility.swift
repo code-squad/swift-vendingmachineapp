@@ -13,8 +13,8 @@ struct DateUnit {
 }
 
 struct NotificationKey {
-    static let addStock = "addStock"
-    static let addBalance = "addBalance"
+    static let updateStock = "updateStock"
+    static let updateBalance = "updateBalance"
     static let purchaseBeverage = "purchaseBeverage"
 }
 

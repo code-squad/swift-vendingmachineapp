@@ -24,6 +24,9 @@ class ViewController: UIViewController {
         }
     }
     @IBAction func tappedPurchaseBtn(_ sender: UIButton) {
+        if let selectedBeverage = Product(rawValue: sender.tag) {
+            purchaseBeverage(target: selectedBeverage)
+        }
     }
     
     @IBOutlet var beverageStock: [UILabel]!
@@ -75,6 +78,14 @@ class ViewController: UIViewController {
     
     private func addStock(target: Product) {
         _ = adminMode.selectMenu(with: MenuAdmin.addStock, target: target.rawValue, amount: 1)
+    }
+    
+    private func purchaseBeverage(target: Product) {
+        do {
+            _ = try userMode.selectMenu(with: Menu.purchaseBeverage, value: target.rawValue)
+        } catch {
+            outputErrorMessage(error: error as? Errorable ?? InputError.unknown)
+        }
     }
     
     private func controlAddBalance(with cash: CashUnit) {

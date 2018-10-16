@@ -79,8 +79,7 @@ class VendingMachine: NSObject, NSSecureCoding, Userable, Manageable {
         return self.beverages
     }
     
-    public func remove(target: Int) -> Beverage? {
-        let index = target - 1
+    public func remove(target index: Int) -> Beverage? {
         let beverage = self.beverages[index].removeFirst()
         
         self.cash.remove(with: beverage.beveragePrice())
@@ -88,7 +87,6 @@ class VendingMachine: NSObject, NSSecureCoding, Userable, Manageable {
         
         // 2차원 배열에서 빈배열의 경우 없애주기 위한 작업
         self.beverages = self.beverages.filter({$0.count > 0})
-        
         return beverage
     }
     
@@ -107,9 +105,8 @@ class VendingMachine: NSObject, NSSecureCoding, Userable, Manageable {
         return self.history.list()
     }
     
-    public func isAvailablePurchase(target: Int, balance: Int) throws -> Bool {
+    public func isAvailablePurchase(target index: Int, balance: Int) throws -> Bool {
         guard target <= self.beverages.count else { throw InputError.rangeExceed }
-        let index = target - 1
         let result = beverages[index][0].isAvailablePurchase(with: balance)
         return result
     }

@@ -39,6 +39,9 @@ class VendingMachine: NSObject, NSSecureCoding, Userable, Manageable {
     private var cash = Cash()
     private var history = History()
     public var status = ""
+    public var xValue = 40
+    public var yValue = 657
+    public let maxValue = 1000
     
     convenience override private init() {
         self.init(with: Stock.prepareStock())

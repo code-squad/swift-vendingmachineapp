@@ -9,8 +9,10 @@
 import UIKit
 
 class ViewController: UIViewController {
-    private let adminMode = AdminMode(with: VendingMachine.shared)
-    private let userMode = UserMode(with: VendingMachine.shared)
+    @IBOutlet var beverageStock: [UILabel]!
+    @IBOutlet var beverageImages: [UIImageView]!
+    @IBOutlet weak var balance: UILabel!
+    @IBOutlet weak var statusMessage: UILabel!
     
     @IBAction func addBalance1000(_ sender: UIButton) {
         controlAddBalance(with: CashUnit.thousand)
@@ -29,19 +31,17 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBOutlet var beverageStock: [UILabel]!
-    @IBOutlet var beverageImages: [UIImageView]!
-    @IBOutlet weak var balance: UILabel!
-    @IBOutlet weak var statusMessage: UILabel!
+    private let adminMode = AdminMode(with: VendingMachine.shared)
+    private let userMode = UserMode(with: VendingMachine.shared)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // 옵저버 등록
         createdObservers()
         // Do any additional setup after loading the view, typically from a nib.
+        roundEdgeOfImage()
         refreshStock()
         refreshBalance()
-        roundEdgeOfImage()
         refreshStatus()
         restoreHistory()
     }
@@ -51,8 +51,22 @@ class ViewController: UIViewController {
         NotificationCenter.default.removeObserver(self)
     }
     
-    private func refreshStatus() {
-        self.statusMessage.text = adminMode.manageable.status
+    private func createdObservers() {
+        // addStock
+        let nameAddStock = Notification.Name(NotificationKey.addStock)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.refreshStock), name: nameAddStock, object: nil)
+        // addBalance
+        let nameAddBalance = Notification.Name(NotificationKey.addBalance)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.refreshBalance), name: nameAddBalance, object: nil)
+        // purchaseBeverage
+        let namePurchaseBeverage = Notification.Name(NotificationKey.purchaseBeverage)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.refreshPurchase(_:)), name: namePurchaseBeverage, object: nil)
+    }
+    
+    private func roundEdgeOfImage() {
+        for image in self.beverageImages {
+            image.layer.cornerRadius = 10.0
+        }
     }
     
     @objc private func refreshStock() {
@@ -68,12 +82,39 @@ class ViewController: UIViewController {
         self.balance.text = self.format(with: balance)
     }
     
-    private func format(with beverages: [Beverage]) -> String {
-        return "\(beverages.count)\(SeveralUnit.count)"
+    private func refreshStatus() {
+        self.statusMessage.text = adminMode.manageable.status
     }
     
-    private func format(with balance: Int) -> String {
-        return "\(balance)\(SeveralUnit.won)"
+    private func restoreHistory() {
+        let historyList = VendingMachine.shared.historyList()
+        if historyList.count > 0 {
+            for purchasedBeverage in historyList {
+                placeImage(with: purchasedBeverage)
+            }
+        }
+    }
+    
+    @objc private func refreshPurchase(_ notification: Notification) {
+        self.refreshStock()
+        self.refreshBalance()
+        self.addPurchaseList(notification)
+    }
+    
+    private func controlAddBalance(with cash: CashUnit) {
+        do {
+            try addBalance(with: cash)
+        } catch {
+            outputErrorMessage(error: error as? Errorable ?? InputError.unknown)
+        }
+    }
+    
+    private func addBalance(with cash: CashUnit) throws {
+        do {
+            _ = try userMode.selectMenu(with: Menu.addBalance, value: cash.rawValue)
+        } catch {
+            outputErrorMessage(error: error as? Errorable ?? InputError.unknown)
+        }
     }
     
     private func addStock(target: Product) {
@@ -85,51 +126,6 @@ class ViewController: UIViewController {
             _ = try userMode.selectMenu(with: Menu.purchaseBeverage, value: target.rawValue)
         } catch {
             outputErrorMessage(error: error as? Errorable ?? InputError.unknown)
-        }
-    }
-    
-    private func controlAddBalance(with cash: CashUnit) {
-        do {
-            try addBalance(with: cash)
-        } catch let error as Errorable {
-            outputErrorMessage(error: error)
-        } catch {
-            outputErrorMessage(error: error as? Errorable ?? InputError.unknown)
-        }
-    }
-    
-    private func addBalance(with cash: CashUnit) throws {
-        do {
-            _ = try userMode.selectMenu(with: Menu.addBalance, value: cash.rawValue)
-        } catch let error as Errorable {
-            throw error
-        } catch {
-            throw error
-        }
-    }
-    
-    private func outputErrorMessage(error: Errorable) {
-        self.statusMessage.text  = error.description
-    }
-    
-    private func roundEdgeOfImage() {
-        for image in self.beverageImages {
-            image.layer.cornerRadius = 10.0
-        }
-    }
-    
-    @objc private func refreshPurchase(_ notification: Notification) {
-        self.refreshStock()
-        self.refreshBalance()
-        self.addPurchaseList(notification)
-    }
-    
-    private func restoreHistory() {
-        let historyList = VendingMachine.shared.historyList()
-        if historyList.count > 0 {
-            for purchasedBeverage in historyList {
-                placeImage(with: purchasedBeverage)
-            }
         }
     }
     
@@ -157,15 +153,15 @@ class ViewController: UIViewController {
         }
     }
     
-    private func createdObservers() {
-        // addStock
-        let nameAddStock = Notification.Name(NotificationKey.addStock)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.refreshStock), name: nameAddStock, object: nil)
-        // addBalance
-        let nameAddBalance = Notification.Name(NotificationKey.addBalance)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.refreshBalance), name: nameAddBalance, object: nil)
-        // purchaseBeverage
-        let namePurchaseBeverage = Notification.Name(NotificationKey.purchaseBeverage)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.refreshPurchase(_:)), name: namePurchaseBeverage, object: nil)
+    private func outputErrorMessage(error: Errorable) {
+        self.statusMessage.text  = error.description
+    }
+    
+    private func format(with beverages: [Beverage]) -> String {
+        return "\(beverages.count)\(SeveralUnit.count)"
+    }
+    
+    private func format(with balance: Int) -> String {
+        return "\(balance)\(SeveralUnit.won)"
     }
 }

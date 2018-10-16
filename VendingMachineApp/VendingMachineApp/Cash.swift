@@ -19,6 +19,14 @@ class Cash: NSObject, NSSecureCoding {
         self.balance = 0
     }
     
+    required init?(coder aDecoder: NSCoder) {
+        self.balance = aDecoder.decodeInteger(forKey: "balance")
+    }
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(self.balance, forKey: "balance")
+    }
+    
     public func addBalance(with money: Int) {
         self.balance += money
     }
@@ -29,13 +37,5 @@ class Cash: NSObject, NSSecureCoding {
     
     public func remove(with money: Int) {
         self.balance -= money
-    }
-    
-    func encode(with aCoder: NSCoder) {
-        aCoder.encode(self.balance, forKey: "balance")
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        self.balance = aDecoder.decodeInteger(forKey: "balance")
     }
 }

@@ -16,8 +16,9 @@ class Coffee: Beverage {
         super.init(brand: brand, capacity: capacity, price: price, name: name, dateOfManufacture: dateOfManufacture, manufacturer: manufacturer)
     }
     
-    public func isNoneCaffeine() -> Bool {
-        return self.caffeine == 0 ? true : false
+    required init?(coder aDecoder: NSCoder) {
+        self.caffeine = aDecoder.decodeInteger(forKey: "caffeine")
+        super.init(coder: aDecoder)
     }
     
     override func encode(with aCoder: NSCoder) {
@@ -25,9 +26,8 @@ class Coffee: Beverage {
         aCoder.encode(self.caffeine, forKey: "caffeine")
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        self.caffeine = aDecoder.decodeInteger(forKey: "caffeine")
-        super.init(coder: aDecoder)
+    public func isNoneCaffeine() -> Bool {
+        return self.caffeine == 0 ? true : false
     }
 }
 
@@ -44,8 +44,9 @@ class TOP: Coffee {
         super.init(caffeine: caffeine, brand: brand, capacity: capacity, price: price, name: name, dateOfManufacture: dateOfManufacture, manufacturer: manufacturer)
     }
     
-    public func isHot() -> Bool {
-        return self.hot
+    required init?(coder aDecoder: NSCoder) {
+        self.hot = aDecoder.decodeBool(forKey: "hot")
+        super.init(coder: aDecoder)
     }
     
     override func encode(with aCoder: NSCoder) {
@@ -53,9 +54,8 @@ class TOP: Coffee {
         aCoder.encode(self.hot, forKey: "hot")
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        self.hot = aDecoder.decodeBool(forKey: "hot")
-        super.init(coder: aDecoder)
+    public func isHot() -> Bool {
+        return self.hot
     }
 }
 
@@ -72,8 +72,9 @@ class Cantata: Coffee {
         super.init(caffeine: caffeine, brand: brand, capacity: capacity, price: price, name: name, dateOfManufacture: dateOfManufacture, manufacturer: manufacturer)
     }
     
-    public func isSugarFree() -> Bool {
-        return self.sugarFree
+    required init?(coder aDecoder: NSCoder) {
+        self.sugarFree = aDecoder.decodeBool(forKey: "sugarFree")
+        super.init(coder: aDecoder)
     }
     
     override func encode(with aCoder: NSCoder) {
@@ -81,9 +82,8 @@ class Cantata: Coffee {
         aCoder.encode(self.sugarFree, forKey: "sugarFree")
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        self.sugarFree = aDecoder.decodeBool(forKey: "sugarFree")
-        super.init(coder: aDecoder)
+    public func isSugarFree() -> Bool {
+        return self.sugarFree
     }
 }
 
@@ -100,8 +100,13 @@ class Georgia: Coffee {
         super.init(caffeine: caffeine, brand: brand, capacity: capacity, price: price, name: name, dateOfManufacture: dateOfManufacture, manufacturer: manufacturer)
     }
     
-    public func isCan() -> Bool {
-        return self.packageMaterial == Material.can ? true : false
+    required init?(coder aDecoder: NSCoder) {
+        guard let decoderPackageMaterial = aDecoder.decodeObject(forKey: "packageMaterial") as? String, let packageMaterial = Material(rawValue: decoderPackageMaterial) else {
+            return nil
+        }
+        self.packageMaterial = packageMaterial
+        
+        super.init(coder: aDecoder)
     }
     
     override func encode(with aCoder: NSCoder) {
@@ -111,12 +116,7 @@ class Georgia: Coffee {
         aCoder.encode(packageMaterial, forKey: "packageMaterial")
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        guard let decoderPackageMaterial = aDecoder.decodeObject(forKey: "packageMaterial") as? String, let packageMaterial = Material(rawValue: decoderPackageMaterial) else {
-            return nil
-        }
-        self.packageMaterial = packageMaterial
-        
-        super.init(coder: aDecoder)
+    public func isCan() -> Bool {
+        return self.packageMaterial == Material.can ? true : false
     }
 }

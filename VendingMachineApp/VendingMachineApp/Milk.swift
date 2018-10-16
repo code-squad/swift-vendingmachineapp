@@ -16,8 +16,9 @@ class Milk: Beverage {
         super.init(brand: brand, capacity: capacity, price: price, name: name, dateOfManufacture: dateOfManufacture, manufacturer: manufacturer)
     }
     
-    public func isLowFat() -> Bool {
-        return self.fat <= 0.3 ? true : false
+    required init?(coder aDecoder: NSCoder) {
+        self.fat = aDecoder.decodeDouble(forKey: "fat")
+        super.init(coder: aDecoder)
     }
     
     override func encode(with aCoder: NSCoder) {
@@ -25,9 +26,8 @@ class Milk: Beverage {
         aCoder.encode(self.fat, forKey: "fat")
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        self.fat = aDecoder.decodeDouble(forKey: "fat")
-        super.init(coder: aDecoder)
+    public func isLowFat() -> Bool {
+        return self.fat <= 0.3 ? true : false
     }
 }
 
@@ -44,8 +44,12 @@ class StrawberryMilk: Milk {
         super.init(fat: fat, brand: brand, capacity: capacity, price: price, name: name, dateOfManufacture: dateOfManufacture, manufacturer: manufacturer)
     }
     
-    public func isNoneFlavor() -> Bool {
-        return self.flavor == Flavor.none ? true : false
+    required init?(coder aDecoder: NSCoder) {
+        guard let decoderFlavor = aDecoder.decodeObject(forKey: "flavor") as? String, let flavor = Flavor(rawValue: decoderFlavor) else {
+            return nil
+        }
+        self.flavor = flavor
+        super.init(coder: aDecoder)
     }
     
     override func encode(with aCoder: NSCoder) {
@@ -54,12 +58,8 @@ class StrawberryMilk: Milk {
         aCoder.encode(flavor, forKey: "flavor")
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        guard let decoderFlavor = aDecoder.decodeObject(forKey: "flavor") as? String, let flavor = Flavor(rawValue: decoderFlavor) else {
-            return nil
-        }
-        self.flavor = flavor
-        super.init(coder: aDecoder)
+    public func isNoneFlavor() -> Bool {
+        return self.flavor == Flavor.none ? true : false
     }
 }
 
@@ -76,8 +76,9 @@ class ChocolateMilk: Milk {
         super.init(fat: fat, brand: brand, capacity: capacity, price: price, name: name, dateOfManufacture: dateOfManufacture, manufacturer: manufacturer)
     }
     
-    public func isLowConcentration() -> Bool {
-        return self.concentration <= 0.3 ? true : false
+    required init?(coder aDecoder: NSCoder) {
+        self.concentration = aDecoder.decodeDouble(forKey: "concentration")
+        super.init(coder: aDecoder)
     }
     
     override func encode(with aCoder: NSCoder) {
@@ -85,9 +86,8 @@ class ChocolateMilk: Milk {
         aCoder.encode(self.concentration, forKey: "concentration")
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        self.concentration = aDecoder.decodeDouble(forKey: "concentration")
-        super.init(coder: aDecoder)
+    public func isLowConcentration() -> Bool {
+        return self.concentration <= 0.3 ? true : false
     }
 }
 
@@ -104,8 +104,12 @@ class BananaMilk: Milk {
         super.init(fat: fat, brand: brand, capacity: capacity, price: price, name: name, dateOfManufacture: dateOfManufacture, manufacturer: manufacturer)
     }
     
-    public func isWhiteColor() -> Bool {
-        return self.color == BananaMilkColor.white ? true : false
+    required init?(coder aDecoder: NSCoder) {
+        guard let decoderColor = aDecoder.decodeObject(forKey: "color") as? String, let color = BananaMilkColor(rawValue: decoderColor) else {
+            return nil
+        }
+        self.color = color
+        super.init(coder: aDecoder)
     }
     
     override func encode(with aCoder: NSCoder) {
@@ -114,11 +118,7 @@ class BananaMilk: Milk {
         aCoder.encode(color, forKey: "color")
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        guard let decoderColor = aDecoder.decodeObject(forKey: "color") as? String, let color = BananaMilkColor(rawValue: decoderColor) else {
-            return nil
-        }
-        self.color = color
-        super.init(coder: aDecoder)
+    public func isWhiteColor() -> Bool {
+        return self.color == BananaMilkColor.white ? true : false
     }
 }

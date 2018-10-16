@@ -117,3 +117,15 @@
  - [Loose coupling - Wikipedia](https://en.wikipedia.org/wiki/Loose_coupling)
  - [LibQA~](http://www.libqa.com/wiki/11)
  - [결합도(Coupling), 응집도(Cohesion) :: 게으른 엔지니어](http://lazineer.tistory.com/93)
+
+# Step6
+> 구매목록 뷰 추가
+
+### 작업내용
+1. (Step6) 구매 버튼 추가 & 버튼 클릭하면 구매 목록 뷰에 추가
+2. 구매에 따른 옵저버 푸시 추가 (재고수량 , 잔돈 , 구매목록 뷰 추가)
+3. 구매 목록 화면 추가 수량 넘어가는 경우 다음 줄로 넘기기
+4. NotificationCenter 의 userinfo 를 이용하여 선택된 음료 객체 전달
+5. HistoryList를 이용하여 구매 목록 복원하기
+
+![Step6 Demo](CaptureImage/Step6Demo.mov)

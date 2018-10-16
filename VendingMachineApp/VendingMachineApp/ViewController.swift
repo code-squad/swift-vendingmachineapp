@@ -70,10 +70,9 @@ class ViewController: UIViewController {
     }
     
     @objc private func refreshStock() {
-        if let stockList =  adminMode.manageable.stockList() {
-            for index in 0..<stockList.count {
-                self.beverageStock[index].text = Formatter.format(with: stockList[index])
-            }
+        guard let stockList = adminMode.manageable.stockList() else { return }
+        for index in 0..<stockList.count {
+            self.beverageStock[index].text = Formatter.format(with: stockList[index])
         }
     }
     
@@ -88,10 +87,9 @@ class ViewController: UIViewController {
     
     private func restoreHistory() {
         let historyList = VendingMachine.shared.historyList()
-        if historyList.count > 0 {
-            for purchasedBeverage in historyList {
-                placeImage(with: purchasedBeverage)
-            }
+        guard historyList.count > 0 else { return }
+        for purchasedBeverage in historyList {
+            placeImage(with: purchasedBeverage)
         }
     }
     
@@ -130,9 +128,8 @@ class ViewController: UIViewController {
     }
     
     private func addPurchaseList(_ notification: Notification) {
-        if let selectedBeverage = notification.userInfo?["Beverage"] as? Beverage {
-            placeImage(with: selectedBeverage)
-        }
+        guard let selectedBeverage = notification.userInfo?["Beverage"] as? Beverage else { return }
+        placeImage(with: selectedBeverage)
     }
     
     private func placeImage(with beverage: Beverage) {

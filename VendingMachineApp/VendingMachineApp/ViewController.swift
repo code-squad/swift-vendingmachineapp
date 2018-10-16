@@ -72,14 +72,14 @@ class ViewController: UIViewController {
     @objc private func refreshStock() {
         if let stockList =  adminMode.manageable.stockList() {
             for index in 0..<stockList.count {
-                self.beverageStock[index].text = self.format(with: stockList[index])
+                self.beverageStock[index].text = Formatter.format(with: stockList[index])
             }
         }
     }
     
     @objc private func refreshBalance() {
         let balance = userMode.userable.presentBalance()
-        self.balance.text = self.format(with: balance)
+        self.balance.text = Formatter.format(with: balance)
     }
     
     private func refreshStatus() {
@@ -155,13 +155,5 @@ class ViewController: UIViewController {
     
     private func outputErrorMessage(error: Errorable) {
         self.statusMessage.text  = error.description
-    }
-    
-    private func format(with beverages: [Beverage]) -> String {
-        return "\(beverages.count)\(SeveralUnit.count)"
-    }
-    
-    private func format(with balance: Int) -> String {
-        return "\(balance)\(SeveralUnit.won)"
     }
 }

@@ -87,6 +87,11 @@ class VendingMachine: NSObject, NSSecureCoding, Userable, Manageable {
         
         // 2차원 배열에서 빈배열의 경우 없애주기 위한 작업
         self.beverages = self.beverages.filter({$0.count > 0})
+        
+        // 옵저버 알림
+        let name = Notification.Name(NotificationKey.purchaseBeverage)
+        NotificationCenter.default.post(name: name, object: nil)
+        
         return beverage
     }
     
@@ -106,7 +111,7 @@ class VendingMachine: NSObject, NSSecureCoding, Userable, Manageable {
     }
     
     public func isAvailablePurchase(target index: Int, balance: Int) throws -> Bool {
-        guard target <= self.beverages.count else { throw InputError.rangeExceed }
+        guard index <= self.beverages.count else { throw InputError.rangeExceed }
         let result = beverages[index][0].isAvailablePurchase(with: balance)
         return result
     }

@@ -118,6 +118,12 @@ class ViewController: UIViewController {
         }
     }
     
+    @objc private func refreshPurchase() {
+        self.refreshStock()
+        self.refreshBalance()
+        // 구매목록 추가
+    }
+    
     private func createdObservers() {
         // addStock
         let nameAddStock = Notification.Name(NotificationKey.addStock)
@@ -125,5 +131,8 @@ class ViewController: UIViewController {
         // addBalance
         let nameAddBalance = Notification.Name(NotificationKey.addBalance)
         NotificationCenter.default.addObserver(self, selector: #selector(self.refreshBalance), name: nameAddBalance, object: nil)
+        // purchaseBeverage
+        let namePurchaseBeverage = Notification.Name(NotificationKey.purchaseBeverage)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.refreshPurchase), name: namePurchaseBeverage, object: nil)
     }
 }

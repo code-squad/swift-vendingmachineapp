@@ -127,10 +127,20 @@ class ViewController: UIViewController {
     private func addPurchaseList(_ notification: Notification) {
         if let selectedBeverage = notification.userInfo?["Beverage"] as? Beverage {
             let beverageJPEG = selectedBeverage.className + ".jpeg"
+            print("beverageJPEG : \(beverageJPEG)")
             let imageInstance = UIImage(named: beverageJPEG)
             let cardImage = UIImageView(image: imageInstance)
-            cardImage.frame = CGRect(x: 40, y: 657, width: 100, height: 100)
+            let xValue = VendingMachine.shared.xValue
+            let yValue = VendingMachine.shared.yValue
+            cardImage.frame = CGRect(x: xValue, y: yValue, width: 100, height: 100)
             self.view.addSubview(cardImage)
+            // 간격 추가
+            VendingMachine.shared.xValue += 50
+            // 끝까지 가는 경우 다음줄
+            if VendingMachine.shared.xValue >= VendingMachine.shared.maxValue {
+                VendingMachine.shared.yValue += 50
+                VendingMachine.shared.xValue = 40
+            }
         }
     }
     

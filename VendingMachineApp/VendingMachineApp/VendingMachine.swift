@@ -90,7 +90,7 @@ class VendingMachine: NSObject, NSSecureCoding, Userable, Manageable {
         
         // 옵저버 알림
         let name = Notification.Name(NotificationKey.purchaseBeverage)
-        NotificationCenter.default.post(name: name, object: nil)
+        NotificationCenter.default.post(name: name, object: nil, userInfo: ["Beverage": beverage])
         
         return beverage
     }

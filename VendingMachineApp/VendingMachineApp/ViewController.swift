@@ -118,10 +118,20 @@ class ViewController: UIViewController {
         }
     }
     
-    @objc private func refreshPurchase() {
+    @objc private func refreshPurchase(_ notification: Notification) {
         self.refreshStock()
         self.refreshBalance()
-        // 구매목록 추가
+        self.addPurchaseList(notification)
+    }
+    
+    private func addPurchaseList(_ notification: Notification) {
+        if let selectedBeverage = notification.userInfo?["Beverage"] as? Beverage {
+            let beverageJPEG = selectedBeverage.className + ".jpeg"
+            let imageInstance = UIImage(named: beverageJPEG)
+            let cardImage = UIImageView(image: imageInstance)
+            cardImage.frame = CGRect(x: 40, y: 657, width: 100, height: 100)
+            self.view.addSubview(cardImage)
+        }
     }
     
     private func createdObservers() {
@@ -133,6 +143,6 @@ class ViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(self.refreshBalance), name: nameAddBalance, object: nil)
         // purchaseBeverage
         let namePurchaseBeverage = Notification.Name(NotificationKey.purchaseBeverage)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.refreshPurchase), name: namePurchaseBeverage, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.refreshPurchase(_:)), name: namePurchaseBeverage, object: nil)
     }
 }

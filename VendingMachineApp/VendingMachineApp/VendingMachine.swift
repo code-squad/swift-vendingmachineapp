@@ -162,10 +162,9 @@ class VendingMachine: NSObject, NSSecureCoding, Userable, Manageable {
         var expiredBeverages = [[Beverage: Int]]()
         var addIndex = 0
         for index in 0..<stockList.count {
-            if let beverages = expiredBeverage(with: stockList[index]) {
-                expiredBeverages.append(beverages)
-                addIndex += 1
-            }
+            guard let beverages = expiredBeverage(with: stockList[index]) else { continue }
+            expiredBeverages.append(beverages)
+            addIndex += 1
         }
         
         guard expiredBeverages.count > 0 else { throw MachineError.outOfExpiredStock }
@@ -176,9 +175,8 @@ class VendingMachine: NSObject, NSSecureCoding, Userable, Manageable {
         let today = Date(timeIntervalSinceNow: 0)
         var expiredBeverages = [Beverage: Int]()
         for index in 0..<beverages.count {
-            if beverages[index].isExpirationDate(with: today) {
-                expiredBeverages.updateValue(index, forKey: beverages[index])
-            }
+            guard beverages[index].isExpirationDate(with: today) else { continue }
+            expiredBeverages.updateValue(index, forKey: beverages[index])
         }
         return expiredBeverages.count == 0 ? nil : expiredBeverages
     }
@@ -201,18 +199,16 @@ class VendingMachine: NSObject, NSSecureCoding, Userable, Manageable {
             for stockIndex in 0..<stockList.count {
                 let expiredBeverageName = expiredBeverages[expiredIndex].map({ $0.key.beverageName() })[0]
                 let stockBeverageName = stockList[stockIndex][0].beverageName()
-                if expiredBeverageName == stockBeverageName {
-                    var removeIndexList = [Int]()
-                    for expiredBeverage in expiredBeverages[expiredIndex] {
-                        let removeIndex = expiredBeverage.value
-                        removeIndexList.append(removeIndex)
-                    }
-                    for removeIndex in removeIndexList.sorted(by: >) {
-                        let beverage = stockList[stockIndex].remove(at: removeIndex)
-                        removedExpiredBeverages.append(beverage)
-                    }
+                guard expiredBeverageName == stockBeverageName else { continue }
+                var removeIndexList = [Int]()
+                for expiredBeverage in expiredBeverages[expiredIndex] {
+                    let removeIndex = expiredBeverage.value
+                    removeIndexList.append(removeIndex)
                 }
-                
+                for removeIndex in removeIndexList.sorted(by: >) {
+                    let beverage = stockList[stockIndex].remove(at: removeIndex)
+                    removedExpiredBeverages.append(beverage)
+                }
             }
         }
         

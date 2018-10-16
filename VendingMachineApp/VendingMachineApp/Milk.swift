@@ -34,14 +34,13 @@ class Milk: Beverage {
 class StrawberryMilk: Milk {
     private var flavor: Flavor // 향 (풍미)
     
-    init(dateOfManufacture: Date) {
-        self.flavor = Flavor.light
-        super.init(fat: 0.2, brand: Brand.maeil.description, capacity: 125, price: 1200, name: Product.organicStrawberryMilk.description, dateOfManufacture: dateOfManufacture, manufacturer: Brand.maeil.description)
-    }
-    
     init(flavor: Flavor, fat: Double, brand: String, capacity: Int, price: Int, name: String, dateOfManufacture: Date, manufacturer: String) {
         self.flavor = flavor
         super.init(fat: fat, brand: brand, capacity: capacity, price: price, name: name, dateOfManufacture: dateOfManufacture, manufacturer: manufacturer)
+    }
+    
+    convenience init(dateOfManufacture: Date) {
+        self.init(flavor: Flavor.light, fat: 0.2, brand: Brand.maeil.description, capacity: 125, price: 1200, name: Product.organicStrawberryMilk.description, dateOfManufacture: dateOfManufacture, manufacturer: Brand.maeil.description)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -66,14 +65,13 @@ class StrawberryMilk: Milk {
 class ChocolateMilk: Milk {
     private var concentration: Double // 농도 (%)
     
-    init(dateOfManufacture: Date) {
-        self.concentration = 0.1
-        super.init(fat: 0.7, brand: Brand.seoulMilk.description, capacity: 200, price: 900, name: Product.seoulChocoMilk.description, dateOfManufacture: dateOfManufacture, manufacturer: Brand.seoulMilk.description)
-    }
-    
     init(concentration: Double, fat: Double, brand: String, capacity: Int, price: Int, name: String, dateOfManufacture: Date, manufacturer: String) {
         self.concentration = concentration
         super.init(fat: fat, brand: brand, capacity: capacity, price: price, name: name, dateOfManufacture: dateOfManufacture, manufacturer: manufacturer)
+    }
+    
+    convenience init(dateOfManufacture: Date) {
+        self.init(concentration: 0.1, fat: 0.7, brand: Brand.seoulMilk.description, capacity: 200, price: 900, name: Product.seoulChocoMilk.description, dateOfManufacture: dateOfManufacture, manufacturer: Brand.seoulMilk.description)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -94,14 +92,13 @@ class ChocolateMilk: Milk {
 class BananaMilk: Milk {
     private var color: BananaMilkColor // 색상 (yellow , light yellow , white , etc..)
     
-    init(dateOfManufacture: Date) {
-        self.color = BananaMilkColor.white
-        super.init(fat: 0.4, brand: Brand.maeil.description, capacity: 240, price: 1500, name: Product.bananasAreNaturallyWhite.description, dateOfManufacture: dateOfManufacture, manufacturer: Brand.maeil.description)
-    }
-    
     init(color: BananaMilkColor, fat: Double, brand: String, capacity: Int, price: Int, name: String, dateOfManufacture: Date, manufacturer: String) {
         self.color = color
         super.init(fat: fat, brand: brand, capacity: capacity, price: price, name: name, dateOfManufacture: dateOfManufacture, manufacturer: manufacturer)
+    }
+    
+    convenience init(dateOfManufacture: Date) {
+        self.init(color: BananaMilkColor.white, fat: 0.4, brand: Brand.maeil.description, capacity: 240, price: 1500, name: Product.bananasAreNaturallyWhite.description, dateOfManufacture: dateOfManufacture, manufacturer: Brand.maeil.description)
     }
     
     required init?(coder aDecoder: NSCoder) {

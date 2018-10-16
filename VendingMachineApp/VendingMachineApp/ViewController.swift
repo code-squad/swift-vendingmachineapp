@@ -127,7 +127,6 @@ class ViewController: UIViewController {
     private func addPurchaseList(_ notification: Notification) {
         if let selectedBeverage = notification.userInfo?["Beverage"] as? Beverage {
             let beverageJPEG = selectedBeverage.className + ".jpeg"
-            print("beverageJPEG : \(beverageJPEG)")
             let imageInstance = UIImage(named: beverageJPEG)
             let cardImage = UIImageView(image: imageInstance)
             let xValue = VendingMachine.shared.xValue

@@ -23,6 +23,8 @@ class ViewController: UIViewController {
             addStock(target: selectedBeverage)
         }
     }
+    @IBAction func tappedPurchaseBtn(_ sender: UIButton) {
+    }
     
     @IBOutlet var beverageStock: [UILabel]!
     @IBOutlet var beverageImages: [UIImageView]!

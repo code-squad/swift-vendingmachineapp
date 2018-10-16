@@ -29,6 +29,10 @@ class Cash: NSObject, NSSecureCoding {
     
     public func addBalance(with money: Int) {
         self.balance += money
+        
+        // 옵저버 알림
+        let name = Notification.Name(NotificationKey.updateBalance)
+        NotificationCenter.default.post(name: name, object: nil)
     }
     
     public func presentBalance() -> Int {
@@ -37,5 +41,9 @@ class Cash: NSObject, NSSecureCoding {
     
     public func remove(with money: Int) {
         self.balance -= money
+        
+        // 옵저버 알림
+        let name = Notification.Name(NotificationKey.updateBalance)
+        NotificationCenter.default.post(name: name, object: nil)
     }
 }

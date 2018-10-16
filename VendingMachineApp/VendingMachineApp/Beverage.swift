@@ -13,22 +13,13 @@ class Beverage: NSObject, NSSecureCoding {
         return true
     }
     
-    func encode(with aCoder: NSCoder) {
-        aCoder.encode(self.brand, forKey: "brand")
-        aCoder.encode(self.capacity, forKey: "capacity")
-        aCoder.encode(self.price, forKey: "price")
-        aCoder.encode(self.name, forKey: "name")
-        aCoder.encode(self.dateOfManufacture, forKey: "dateOfManufacture")
-        aCoder.encode(self.manufacturer, forKey: "manufacturer")
+    // 클래스명 출력
+    var className: String {
+        return String(describing: type(of: self))
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        self.brand = aDecoder.decodeObject(forKey: "brand") as! String
-        self.capacity = aDecoder.decodeInteger(forKey: "capacity")
-        self.price = aDecoder.decodeInteger(forKey: "price")
-        self.name = aDecoder.decodeObject(forKey: "name") as! String
-        self.dateOfManufacture = aDecoder.decodeObject(forKey: "dateOfManufacture") as! Date
-        self.manufacturer = aDecoder.decodeObject(forKey: "manufacturer") as! String
+    override var description: String {
+        return "\(self.name) \(self.price)원"
     }
     
     private var brand: String
@@ -47,23 +38,30 @@ class Beverage: NSObject, NSSecureCoding {
         self.manufacturer = manufacturer
     }
     
-    override var description: String {
-        return "\(self.name) \(self.price)원"
+    required init?(coder aDecoder: NSCoder) {
+        self.brand = aDecoder.decodeObject(forKey: "brand") as! String
+        self.capacity = aDecoder.decodeInteger(forKey: "capacity")
+        self.price = aDecoder.decodeInteger(forKey: "price")
+        self.name = aDecoder.decodeObject(forKey: "name") as! String
+        self.dateOfManufacture = aDecoder.decodeObject(forKey: "dateOfManufacture") as! Date
+        self.manufacturer = aDecoder.decodeObject(forKey: "manufacturer") as! String
     }
     
-    // 클래스명 출력
-    var className: String {
-        return String(describing: type(of: self))
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(self.brand, forKey: "brand")
+        aCoder.encode(self.capacity, forKey: "capacity")
+        aCoder.encode(self.price, forKey: "price")
+        aCoder.encode(self.name, forKey: "name")
+        aCoder.encode(self.dateOfManufacture, forKey: "dateOfManufacture")
+        aCoder.encode(self.manufacturer, forKey: "manufacturer")
     }
     
-    private func convertDate(_ time: Double) -> Double {
-        return Double(time / Double(DateUnit.secondsOfOneday))
+    public func beveragePrice() -> Int {
+        return self.price
     }
     
-    // 유통기한은 모든 제품 14일 기준
-    public func isExpirationDate(with date: Date) -> Bool {
-        let betweenDate = convertDate(date.timeIntervalSince(self.dateOfManufacture))
-        return betweenDate >= 14 ? true : false
+    public func beverageName() -> String {
+        return self.name
     }
     
     // 대용량 음료 확인
@@ -76,12 +74,14 @@ class Beverage: NSObject, NSSecureCoding {
         return balance >= self.price ? true : false
     }
     
-    public func beveragePrice() -> Int {
-        return self.price
+    // 유통기한은 모든 제품 14일 기준
+    public func isExpirationDate(with date: Date) -> Bool {
+        let betweenDate = convertDate(date.timeIntervalSince(self.dateOfManufacture))
+        return betweenDate >= 14 ? true : false
     }
     
-    public func beverageName() -> String {
-        return self.name
+    private func convertDate(_ time: Double) -> Double {
+        return Double(time / Double(DateUnit.secondsOfOneday))
     }
 }
 

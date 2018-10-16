@@ -18,7 +18,6 @@ struct Stock {
             let beverage = AddingBeverage.select(target: index, amount: numberPerItem)
             beverages.append(beverage)
         }
-        
         return beverages
     }
 }

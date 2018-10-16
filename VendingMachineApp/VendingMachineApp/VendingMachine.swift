@@ -51,19 +51,6 @@ class VendingMachine: NSObject, NSSecureCoding, Userable, Manageable {
         self.beverages = beverages
     }
     
-    func settingDefault(with vendingMachine: VendingMachine) {
-        self.beverages = vendingMachine.beverages
-        self.cash = vendingMachine.cash
-        self.history = vendingMachine.history
-    }
-    
-    func encode(with aCoder: NSCoder) {
-        aCoder.encode(self.beverages, forKey: "beverages")
-        aCoder.encode(self.cash, forKey: "cash")
-        aCoder.encode(self.history, forKey: "history")
-        aCoder.encode(self.status, forKey: "status")
-    }
-    
     required init?(coder aDecoder: NSCoder) {
         // as? 캐스팅 하면 Property 'self.beverages' not initialized at implicitly generated super.init call 에러 발생
         self.beverages = aDecoder.decodeObject(forKey: "beverages") as! [[Beverage]]
@@ -76,6 +63,19 @@ class VendingMachine: NSObject, NSSecureCoding, Userable, Manageable {
         if let status = aDecoder.decodeObject(forKey: "status") as? String {
             self.status = status
         }
+    }
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(self.beverages, forKey: "beverages")
+        aCoder.encode(self.cash, forKey: "cash")
+        aCoder.encode(self.history, forKey: "history")
+        aCoder.encode(self.status, forKey: "status")
+    }
+    
+    func settingDefault(with vendingMachine: VendingMachine) {
+        self.beverages = vendingMachine.beverages
+        self.cash = vendingMachine.cash
+        self.history = vendingMachine.history
     }
     
     public func stockList() -> [[Beverage]]? {

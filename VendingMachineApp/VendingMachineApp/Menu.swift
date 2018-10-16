@@ -8,6 +8,29 @@
 
 import Foundation
 
+enum Mode: Int, CaseIterable, CustomStringConvertible {
+    case admin
+    case user
+    case exit
+    
+    var description: String {
+        switch self {
+        case .admin: return "관리자모드"
+        case .user: return "사용자모드"
+        case .exit: return "종료"
+        }
+    }
+    
+    public static func select(with type: Int ) throws -> Mode {
+        switch type {
+        case 1: return Mode.admin
+        case 2: return Mode.user
+        case 3: return Mode.exit
+        default: throw InputError.rangeExceed
+        }
+    }
+}
+
 enum Menu: Int, CaseIterable, CustomStringConvertible {
     case addBalance
     case purchaseBeverage
@@ -29,29 +52,6 @@ enum Menu: Int, CaseIterable, CustomStringConvertible {
         case 2: return Menu.purchaseBeverage
         case 3: return Menu.historyList
         case 4: return Menu.exit
-        default: throw InputError.rangeExceed
-        }
-    }
-}
-
-enum Mode: Int, CaseIterable, CustomStringConvertible {
-    case admin
-    case user
-    case exit
-    
-    var description: String {
-        switch self {
-        case .admin: return "관리자모드"
-        case .user: return "사용자모드"
-        case .exit: return "종료"
-        }
-    }
-    
-    public static func select(with type: Int ) throws -> Mode {
-        switch type {
-        case 1: return Mode.admin
-        case 2: return Mode.user
-        case 3: return Mode.exit
         default: throw InputError.rangeExceed
         }
     }

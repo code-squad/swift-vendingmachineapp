@@ -19,19 +19,19 @@ class History: NSObject, NSSecureCoding {
         self.beverages = [Beverage]()
     }
     
-    public func add(with beverage: Beverage) {
-        self.beverages.append(beverage)
-    }
-    
-    public func list() -> [Beverage] {
-        return self.beverages
+    required init?(coder aDecoder: NSCoder) {
+        self.beverages = aDecoder.decodeObject(forKey: "beverages") as! [Beverage]
     }
     
     func encode(with aCoder: NSCoder) {
         aCoder.encode(self.beverages, forKey: "beverages")
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        self.beverages = aDecoder.decodeObject(forKey: "beverages") as! [Beverage]
+    public func add(with beverage: Beverage) {
+        self.beverages.append(beverage)
+    }
+    
+    public func list() -> [Beverage] {
+        return self.beverages
     }
 }

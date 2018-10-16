@@ -43,7 +43,7 @@ class ViewController: UIViewController {
         refreshBalance()
         roundEdgeOfImage()
         refreshStatus()
-        
+        restoreHistory()
     }
     
     // 옵저버 제거
@@ -124,22 +124,36 @@ class ViewController: UIViewController {
         self.addPurchaseList(notification)
     }
     
+    private func restoreHistory() {
+        let historyList = VendingMachine.shared.historyList()
+        if historyList.count > 0 {
+            for purchasedBeverage in historyList {
+                placeImage(with: purchasedBeverage)
+            }
+        }
+    }
+    
     private func addPurchaseList(_ notification: Notification) {
         if let selectedBeverage = notification.userInfo?["Beverage"] as? Beverage {
-            let beverageJPEG = selectedBeverage.className + ".jpeg"
-            let imageInstance = UIImage(named: beverageJPEG)
-            let cardImage = UIImageView(image: imageInstance)
-            let xValue = VendingMachine.shared.xValue
-            let yValue = VendingMachine.shared.yValue
-            cardImage.frame = CGRect(x: xValue, y: yValue, width: 100, height: 100)
-            self.view.addSubview(cardImage)
-            // 간격 추가
-            VendingMachine.shared.xValue += 50
-            // 끝까지 가는 경우 다음줄
-            if VendingMachine.shared.xValue >= VendingMachine.shared.maxValue {
-                VendingMachine.shared.yValue += 50
-                VendingMachine.shared.xValue = 40
-            }
+            placeImage(with: selectedBeverage)
+        }
+    }
+    
+    private func placeImage(with beverage: Beverage) {
+        let beverageJPEG = beverage.className + ".jpeg"
+        let imageInstance = UIImage(named: beverageJPEG)
+        let cardImage = UIImageView(image: imageInstance)
+        let xValue = VendingMachine.shared.xValue
+        let yValue = VendingMachine.shared.yValue
+        cardImage.frame = CGRect(x: xValue, y: yValue, width: 100, height: 100)
+        
+        self.view.addSubview(cardImage)
+        // 간격 추가
+        VendingMachine.shared.xValue += 50
+        // 끝까지 가는 경우 다음줄
+        if VendingMachine.shared.xValue >= VendingMachine.shared.maxValue {
+            VendingMachine.shared.yValue += 50
+            VendingMachine.shared.xValue = 40
         }
     }
     

@@ -9,25 +9,13 @@
 import UIKit
 
 class ViewController: UIViewController {
+    private let adminMode = AdminMode(with: VendingMachine.shared)
+    private let userMode = UserMode(with: VendingMachine.shared)
+    
     @IBOutlet var beverageStock: [UILabel]!
     @IBOutlet var beverageImages: [UIImageView]!
     @IBOutlet weak var balance: UILabel!
     @IBOutlet weak var statusMessage: UILabel!
-    
-    @IBAction func addBalance1000(_ sender: UIButton) {
-        controlAddBalance(with: CashUnit.thousand)
-    }
-    @IBAction func addBalance5000(_ sender: UIButton) {
-        controlAddBalance(with: CashUnit.fiveThousand)
-    }
-    @IBAction func tappedPurchaseBtn(_ sender: UIButton) {
-        if let selectedBeverage = Product(rawValue: sender.tag) {
-            purchaseBeverage(target: selectedBeverage)
-        }
-    }
-    
-    private let adminMode = AdminMode(with: VendingMachine.shared)
-    private let userMode = UserMode(with: VendingMachine.shared)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -92,6 +80,18 @@ class ViewController: UIViewController {
         guard historyList.count > 0 else { return }
         for purchasedBeverage in historyList {
             placeImage(with: purchasedBeverage)
+        }
+    }
+    
+    @IBAction func addBalance1000(_ sender: UIButton) {
+        controlAddBalance(with: CashUnit.thousand)
+    }
+    @IBAction func addBalance5000(_ sender: UIButton) {
+        controlAddBalance(with: CashUnit.fiveThousand)
+    }
+    @IBAction func tappedPurchaseBtn(_ sender: UIButton) {
+        if let selectedBeverage = Product(rawValue: sender.tag) {
+            purchaseBeverage(target: selectedBeverage)
         }
     }
     

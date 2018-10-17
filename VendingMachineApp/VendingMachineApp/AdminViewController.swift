@@ -9,18 +9,10 @@
 import UIKit
 
 class AdminViewController: UIViewController {
+    private let adminMode = AdminMode(with: VendingMachine.shared)
+    
     @IBOutlet var beverageStock: [UILabel]!
     @IBOutlet var beverageImages: [UIImageView]!
-    @IBAction func closeBtn(_ sender: UIButton) {
-        self.dismiss(animated: true, completion: nil)
-    }
-    @IBAction func tappedAddBeverageBtn(_ sender: UIButton) {
-        if let selectedBeverage = Product(rawValue: sender.tag) {
-            addStock(target: selectedBeverage)
-        }
-    }
-    
-    private let adminMode = AdminMode(with: VendingMachine.shared)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +37,16 @@ class AdminViewController: UIViewController {
         guard let stockList = adminMode.manageable.stockList() else { return }
         for index in 0..<stockList.count {
             self.beverageStock[index].text = Formatter.format(with: stockList[index])
+        }
+    }
+    
+    @IBAction func closeBtn(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func tappedAddBeverageBtn(_ sender: UIButton) {
+        if let selectedBeverage = Product(rawValue: sender.tag) {
+            addStock(target: selectedBeverage)
         }
     }
     

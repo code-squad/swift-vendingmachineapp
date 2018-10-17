@@ -7,10 +7,12 @@
 //
 
 import Foundation
+import UIKit
 
 protocol Common {
     func stockList() -> [[Beverage]]?
     func removeStock(target: Int) -> Beverage?
+    func roundEdgeOfImage(with imageViews: [UIImageView]) -> [UIImageView]
 }
 
 protocol Userable: Common {
@@ -214,5 +216,12 @@ class VendingMachine: NSObject, NSSecureCoding, Userable, Manageable {
     }
     public func restoreX(with xValue: Int) {
         self.xValue = xValue
+    }
+    
+    public func roundEdgeOfImage(with imageViews: [UIImageView]) -> [UIImageView] {
+        for image in imageViews {
+            image.layer.cornerRadius = 10.0
+        }
+        return imageViews
     }
 }

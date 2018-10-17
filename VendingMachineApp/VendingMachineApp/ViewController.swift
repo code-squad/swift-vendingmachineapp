@@ -20,11 +20,6 @@ class ViewController: UIViewController {
     @IBAction func addBalance5000(_ sender: UIButton) {
         controlAddBalance(with: CashUnit.fiveThousand)
     }
-    @IBAction func tappedAddBeverageBtn(_ sender: UIButton) {
-        if let selectedBeverage = Product(rawValue: sender.tag) {
-            addStock(target: selectedBeverage)
-        }
-    }
     @IBAction func tappedPurchaseBtn(_ sender: UIButton) {
         if let selectedBeverage = Product(rawValue: sender.tag) {
             purchaseBeverage(target: selectedBeverage)
@@ -114,10 +109,6 @@ class ViewController: UIViewController {
         } catch {
             outputErrorMessage(error: error as? Errorable ?? InputError.unknown)
         }
-    }
-    
-    private func addStock(target: Product) {
-        _ = adminMode.selectMenu(with: MenuAdmin.addStock, target: target.rawValue, amount: 1)
     }
     
     private func purchaseBeverage(target: Product) {

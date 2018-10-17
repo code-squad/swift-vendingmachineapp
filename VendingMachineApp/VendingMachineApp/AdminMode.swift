@@ -42,8 +42,8 @@ struct AdminMode {
         return addedBeverages
     }
     
-    private func deleteStock(target: Int, amount: Int) -> [Beverage] {
-        let removedBeverages = manageable.removeStock(target: target, amount: amount)
+    private func deleteStock(target: Int, amount: Int) -> Beverage? {
+        let removedBeverages = manageable.removeStock(target: target)
         return removedBeverages
     }
     

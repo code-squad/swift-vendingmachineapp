@@ -10,10 +10,10 @@ import Foundation
 
 protocol Common {
     func stockList() -> [[Beverage]]?
+    func removeStock(target: Int) -> Beverage?
 }
 
 protocol Userable: Common {
-    func remove(target: Int) -> Beverage?
     func addBalance(value: Int)
     func presentBalance() -> Int
     func historyList() -> [Beverage]
@@ -23,7 +23,6 @@ protocol Userable: Common {
 protocol Manageable: Common {
     var status: String { get set }
     func addStock(with addBeverages: [Beverage]) -> [Beverage]
-    func removeStock(target: Int, amount: Int) -> [Beverage]
     func expiredBeverages() throws -> [[Beverage: Int]]
     func expiredBeverage(with beverages: [Beverage]) -> [Beverage: Int]?
     func removeExpiredBeverage(with expiredBeverages: [[Beverage: Int]]) throws -> [Beverage]
@@ -82,7 +81,7 @@ class VendingMachine: NSObject, NSSecureCoding, Userable, Manageable {
         return self.beverages
     }
     
-    public func remove(target index: Int) -> Beverage? {
+    public func removeStock(target index: Int) -> Beverage? {
         let beverage = self.beverages[index].removeFirst()
         
         self.cash.remove(with: beverage.beveragePrice())
@@ -92,12 +91,8 @@ class VendingMachine: NSObject, NSSecureCoding, Userable, Manageable {
         self.beverages = self.beverages.filter({$0.count > 0})
         
         // 옵저버 알림
-        let name = Notification.Name(NotificationKey.updateStock)
-        NotificationCenter.default.post(name: name, object: nil)
-        
-        // 옵저버 알림
-        let historyName = Notification.Name(NotificationKey.purchaseBeverage)
-        NotificationCenter.default.post(name: historyName, object: nil, userInfo: ["Beverage": beverage])
+        let name = Notification.Name(NotificationKey.purchaseBeverage)
+        NotificationCenter.default.post(name: name, object: nil, userInfo: ["Beverage": beverage])
         
         return beverage
     }
@@ -140,23 +135,6 @@ class VendingMachine: NSObject, NSSecureCoding, Userable, Manageable {
             NotificationCenter.default.post(name: name, object: nil)
         }
         return newBeverage
-    }
-    
-    public func removeStock(target: Int, amount: Int) -> [Beverage] {
-        let index = target - 1
-        var beverages = [Beverage]()
-        for _ in 1...amount {
-            beverages.append(self.beverages[index].removeFirst())
-        }
-        
-        // 2차원 배열에서 빈배열의 경우 없애주기 위한 작업
-        self.beverages = self.beverages.filter({$0.count > 0})
-        
-        // 옵저버 알림
-        let name = Notification.Name(NotificationKey.updateStock)
-        NotificationCenter.default.post(name: name, object: nil)
-        
-        return beverages
     }
     
     public func expiredBeverages() throws -> [[Beverage: Int]] {

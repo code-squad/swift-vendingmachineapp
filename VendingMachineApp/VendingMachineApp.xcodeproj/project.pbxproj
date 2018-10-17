@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		471983E421665B6100FBD76C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471983E321665B6100FBD76C /* AppDelegate.swift */; };
-		471983E621665B6100FBD76C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471983E521665B6100FBD76C /* ViewController.swift */; };
+		471983E621665B6100FBD76C /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471983E521665B6100FBD76C /* UserViewController.swift */; };
 		471983E921665B6100FBD76C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 471983E721665B6100FBD76C /* Main.storyboard */; };
 		471983EB21665B6200FBD76C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 471983EA21665B6200FBD76C /* Assets.xcassets */; };
 		471983EE21665B6200FBD76C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 471983EC21665B6200FBD76C /* LaunchScreen.storyboard */; };
@@ -42,7 +42,7 @@
 /* Begin PBXFileReference section */
 		471983E021665B6100FBD76C /* VendingMachineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendingMachineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		471983E321665B6100FBD76C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		471983E521665B6100FBD76C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		471983E521665B6100FBD76C /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		471983E821665B6100FBD76C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		471983EA21665B6200FBD76C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		471983ED21665B6200FBD76C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -112,7 +112,7 @@
 				47B6F996216DD8AB0090FA01 /* BeverageImages */,
 				471983E321665B6100FBD76C /* AppDelegate.swift */,
 				47CD4D5B21771A08002B94B2 /* AdminViewController.swift */,
-				471983E521665B6100FBD76C /* ViewController.swift */,
+				471983E521665B6100FBD76C /* UserViewController.swift */,
 				471983E721665B6100FBD76C /* Main.storyboard */,
 				471983F621665FC100FBD76C /* AdminMode.swift */,
 				476B46A82175D01B004768F7 /* Formatter.swift */,
@@ -293,7 +293,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4719840D2166607200FBD76C /* Utility.swift in Sources */,
-				471983E621665B6100FBD76C /* ViewController.swift in Sources */,
+				471983E621665B6100FBD76C /* UserViewController.swift in Sources */,
 				47CD4D5C21771A08002B94B2 /* AdminViewController.swift in Sources */,
 				471983F721665FC100FBD76C /* AdminMode.swift in Sources */,
 				471984092166605800FBD76C /* Stock.swift in Sources */,

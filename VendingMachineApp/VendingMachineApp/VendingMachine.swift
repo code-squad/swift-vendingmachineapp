@@ -14,6 +14,13 @@ protocol Common {
 }
 
 protocol Userable: Common {
+    var status: String { get set }
+    var xValue: Int { get }
+    var yValue: Int { get }
+    var maxValue: Int { get }
+    func increaseX(with xValue: Int)
+    func increaseY(with yValue: Int)
+    func restoreX(with xValue: Int)
     func addBalance(value: Int)
     func presentBalance() -> Int
     func historyList() -> [Beverage]
@@ -21,7 +28,6 @@ protocol Userable: Common {
 }
 
 protocol Manageable: Common {
-    var status: String { get set }
     func addStock(with addBeverages: [Beverage]) -> [Beverage]
     func expiredBeverages() throws -> [[Beverage: Int]]
     func expiredBeverage(with beverages: [Beverage]) -> [Beverage: Int]?
@@ -198,5 +204,15 @@ class VendingMachine: NSObject, NSSecureCoding, Userable, Manageable {
         self.beverages = stockList
         
         return removedExpiredBeverages
+    }
+    
+    public func increaseX(with xValue: Int) {
+        self.xValue += xValue
+    }
+    public func increaseY(with yValue: Int) {
+        self.yValue += yValue
+    }
+    public func restoreX(with xValue: Int) {
+        self.xValue = xValue
     }
 }

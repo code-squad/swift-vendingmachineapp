@@ -8,9 +8,8 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-    private let adminMode = AdminMode(with: VendingMachine.shared)
-    private let userMode = UserMode(with: VendingMachine.shared)
+class UserViewController: UIViewController {
+    private var userMode = UserMode(with: VendingMachine.shared)
     
     @IBOutlet var beverageStock: [UILabel]!
     @IBOutlet var beverageImages: [UIImageView]!
@@ -55,7 +54,7 @@ class ViewController: UIViewController {
     }
     
     @objc private func refreshStock() {
-        guard let stockList = adminMode.manageable.stockList() else { return }
+        guard let stockList = userMode.userable.stockList() else { return }
         for index in 0..<stockList.count {
             self.beverageStock[index].text = Formatter.format(with: stockList[index])
         }
@@ -72,11 +71,11 @@ class ViewController: UIViewController {
     }
     
     private func refreshStatus() {
-        self.statusMessage.text = adminMode.manageable.status
+        self.statusMessage.text = userMode.userable.status
     }
     
     private func restoreHistory() {
-        let historyList = VendingMachine.shared.historyList()
+        let historyList = userMode.userable.historyList()
         guard historyList.count > 0 else { return }
         for purchasedBeverage in historyList {
             placeImage(with: purchasedBeverage)
@@ -123,17 +122,17 @@ class ViewController: UIViewController {
         let beverageJPEG = beverage.className + ".jpeg"
         let imageInstance = UIImage(named: beverageJPEG)
         let cardImage = UIImageView(image: imageInstance)
-        let xValue = VendingMachine.shared.xValue
-        let yValue = VendingMachine.shared.yValue
+        let xValue = userMode.userable.xValue
+        let yValue = userMode.userable.yValue
         cardImage.frame = CGRect(x: xValue, y: yValue, width: 100, height: 100)
         
         self.view.addSubview(cardImage)
         // 간격 추가
-        VendingMachine.shared.xValue += 50
+        userMode.userable.increaseX(with: 50)
         // 끝까지 가는 경우 다음줄
-        if VendingMachine.shared.xValue >= VendingMachine.shared.maxValue {
-            VendingMachine.shared.yValue += 50
-            VendingMachine.shared.xValue = 40
+        if userMode.userable.xValue >= userMode.userable.maxValue {
+            userMode.userable.increaseY(with: 50)
+            userMode.userable.restoreX(with: 40)
         }
     }
     

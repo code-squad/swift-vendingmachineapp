@@ -122,10 +122,39 @@
 > 구매목록 뷰 추가
 
 ### 작업내용
-1. (Step6) 구매 버튼 추가 & 버튼 클릭하면 구매 목록 뷰에 추가
+1. 구매 버튼 추가 & 버튼 클릭하면 구매 목록 뷰에 추가
 2. 구매에 따른 옵저버 푸시 추가 (재고수량 , 잔돈 , 구매목록 뷰 추가)
 3. 구매 목록 화면 추가 수량 넘어가는 경우 다음 줄로 넘기기
 4. NotificationCenter 의 userinfo 를 이용하여 선택된 음료 객체 전달
 5. HistoryList를 이용하여 구매 목록 복원하기
 
 ![Step6 Demo](CaptureImage/Step6Demo.mov)
+
+# Step7
+> 관리자 화면 추가
+
+### 작업내용
+1. 관리자 화면 추가
+2. 구매 관련 삭제 in 기본 화면
+
+### 공부내용
+ - Common
+    - CGRect 을 기본으로 구성되어 있으며 좌표의 기준이 다릅니다.
+    
+ - Frame
+    - superView 를 기준으로 좌표값을 계산해서 위치 변경 가능 및 크기 조절 (subView와 같이 위치 이동)
+
+ - Bounds
+    - ScrollView 에서 사용
+    - superView 와 상관없이 좌표를 +- 해주면 현재 좌표(0,0)을 기준으로 이동합니다.
+    - 예시) 아이패드, 아이폰보다 큰 화면, 그림이 존재하고 좌표를 조정하면 큰 화면, 그림을 기준으로 좌표값을 계산해 이동합니다.
+
+### 참고
+ - [frame - UIView | Apple Developer Documentation](https://developer.apple.com/documentation/uikit/uiview/1622621-frame)
+ - [bounds - UIView | Apple Developer Documentation](https://developer.apple.com/documentation/uikit/uiview/1622580-bounds)
+ - [iOS ) Frame과 Bounds의 차이 (1/2)](https://zeddios.tistory.com/203)
+ - [iOS ) Frame과 Bounds의 차이 (2/2)](https://zeddios.tistory.com/231)
+ - [Cocoa: What's the difference between the frame and the bounds? - Stack Overflow](https://stackoverflow.com/questions/1210047/cocoa-whats-the-difference-between-the-frame-and-the-bounds)
+
+
+![Step7 Demo](CaptureImage/Step7Demo.gif)

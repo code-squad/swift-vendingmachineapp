@@ -45,7 +45,7 @@ struct UserMode {
     private func purchaseBeverage(value: Int) throws -> Beverage {
         let isBalanceRemain = try userable.isAvailablePurchase(target: value, balance: userable.presentBalance())
         guard isBalanceRemain else { throw MachineError.lackBalance }
-        guard let beverage = userable.remove(target: value) else { throw MachineError.outOfStock }
+        guard let beverage = userable.removeStock(target: value) else { throw MachineError.outOfStock }
         return beverage
     }
     

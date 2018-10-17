@@ -29,6 +29,9 @@ class History: NSObject, NSSecureCoding {
     
     public func add(with beverage: Beverage) {
         self.beverages.append(beverage)
+        // 옵저버 알림
+        let name = Notification.Name(NotificationKey.purchaseBeverage)
+        NotificationCenter.default.post(name: name, object: nil, userInfo: ["Beverage": beverage])
     }
     
     public func list() -> [Beverage] {

@@ -86,7 +86,6 @@ class ViewController: UIViewController {
     @objc private func refreshPurchase(_ notification: Notification) {
         guard let selectedBeverage = notification.userInfo?["Beverage"] as? Beverage else { return }
         placeImage(with: selectedBeverage)
-        refreshStock()
     }
     
     private func refreshStatus() {

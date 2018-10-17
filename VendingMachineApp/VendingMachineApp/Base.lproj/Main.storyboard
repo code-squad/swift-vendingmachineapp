@@ -213,30 +213,6 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TvJ-OV-WYw">
-                                <rect key="frame" x="145" y="93" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="추가"/>
-                                <connections>
-                                    <action selector="tappedAddBeverageBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5yH-a4-yKo"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W5c-ja-Z2I">
-                                <rect key="frame" x="353" y="93" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="추가"/>
-                                <connections>
-                                    <action selector="tappedAddBeverageBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NkN-67-7W9"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qBZ-xC-rkL">
-                                <rect key="frame" x="556" y="93" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="추가"/>
-                                <connections>
-                                    <action selector="tappedAddBeverageBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ra9-tW-quY"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kno-Y3-d8M">
                                 <rect key="frame" x="895" y="166" width="44" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -260,30 +236,6 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
-                            <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KJ6-8u-J7T">
-                                <rect key="frame" x="145" y="268" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="추가"/>
-                                <connections>
-                                    <action selector="tappedAddBeverageBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QiX-L4-npw"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ELG-SY-pBI">
-                                <rect key="frame" x="353" y="268" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="추가"/>
-                                <connections>
-                                    <action selector="tappedAddBeverageBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LIn-qb-Iij"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="73H-fN-2na">
-                                <rect key="frame" x="556" y="268" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="추가"/>
-                                <connections>
-                                    <action selector="tappedAddBeverageBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZPg-jn-ADI"/>
-                                </connections>
-                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TOP.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="5Xx-2y-Ysz">
                                 <rect key="frame" x="90" y="481" width="140" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -299,30 +251,6 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
-                            <button opaque="NO" tag="6" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JkH-ob-9w5">
-                                <rect key="frame" x="145" y="443" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="추가"/>
-                                <connections>
-                                    <action selector="tappedAddBeverageBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uUU-Y9-qh0"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" tag="7" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BSe-Ig-x0M">
-                                <rect key="frame" x="353" y="443" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="추가"/>
-                                <connections>
-                                    <action selector="tappedAddBeverageBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rAF-nJ-SSX"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" tag="8" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sww-TE-p3z">
-                                <rect key="frame" x="556" y="443" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="추가"/>
-                                <connections>
-                                    <action selector="tappedAddBeverageBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aCg-8Y-MgZ"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="잔액 : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OCH-Ft-TnE">
                                 <rect key="frame" x="896" y="239" width="43" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -410,7 +338,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="추가"/>
                                         <connections>
-                                            <action selector="tappedAddStockBtn:" destination="fJp-xr-bXw" eventType="touchUpInside" id="dP9-hn-QUs"/>
+                                            <action selector="tappedAddBeverageBtn:" destination="fJp-xr-bXw" eventType="touchUpInside" id="dP9-hn-QUs"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vaI-lI-Fzp">
@@ -418,7 +346,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="추가"/>
                                         <connections>
-                                            <action selector="tappedAddStockBtn:" destination="fJp-xr-bXw" eventType="touchUpInside" id="Ye8-Yc-xtB"/>
+                                            <action selector="tappedAddBeverageBtn:" destination="fJp-xr-bXw" eventType="touchUpInside" id="Ye8-Yc-xtB"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fL7-gu-tQm">
@@ -426,7 +354,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="추가"/>
                                         <connections>
-                                            <action selector="tappedAddStockBtn:" destination="fJp-xr-bXw" eventType="touchUpInside" id="yrP-vR-YKm"/>
+                                            <action selector="tappedAddBeverageBtn:" destination="fJp-xr-bXw" eventType="touchUpInside" id="yrP-vR-YKm"/>
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Coke.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="XvL-DT-lKz">
@@ -449,7 +377,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="추가"/>
                                         <connections>
-                                            <action selector="tappedAddStockBtn:" destination="fJp-xr-bXw" eventType="touchUpInside" id="bYS-zn-CM7"/>
+                                            <action selector="tappedAddBeverageBtn:" destination="fJp-xr-bXw" eventType="touchUpInside" id="bYS-zn-CM7"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pdv-RF-p9J">
@@ -457,7 +385,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="추가"/>
                                         <connections>
-                                            <action selector="tappedAddStockBtn:" destination="fJp-xr-bXw" eventType="touchUpInside" id="5Tt-nJ-tN9"/>
+                                            <action selector="tappedAddBeverageBtn:" destination="fJp-xr-bXw" eventType="touchUpInside" id="5Tt-nJ-tN9"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kER-FT-Jn1">
@@ -465,7 +393,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="추가"/>
                                         <connections>
-                                            <action selector="tappedAddStockBtn:" destination="fJp-xr-bXw" eventType="touchUpInside" id="nUS-mD-IEe"/>
+                                            <action selector="tappedAddBeverageBtn:" destination="fJp-xr-bXw" eventType="touchUpInside" id="nUS-mD-IEe"/>
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TOP.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="wOK-rK-r2h">
@@ -488,7 +416,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="추가"/>
                                         <connections>
-                                            <action selector="tappedAddStockBtn:" destination="fJp-xr-bXw" eventType="touchUpInside" id="KNu-a8-y4G"/>
+                                            <action selector="tappedAddBeverageBtn:" destination="fJp-xr-bXw" eventType="touchUpInside" id="KNu-a8-y4G"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="7" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kyy-AR-wdr">
@@ -496,7 +424,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="추가"/>
                                         <connections>
-                                            <action selector="tappedAddStockBtn:" destination="fJp-xr-bXw" eventType="touchUpInside" id="QMA-AC-25b"/>
+                                            <action selector="tappedAddBeverageBtn:" destination="fJp-xr-bXw" eventType="touchUpInside" id="QMA-AC-25b"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="8" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ng2-ed-cFf">
@@ -504,7 +432,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="추가"/>
                                         <connections>
-                                            <action selector="tappedAddStockBtn:" destination="fJp-xr-bXw" eventType="touchUpInside" id="iT6-eB-98P"/>
+                                            <action selector="tappedAddBeverageBtn:" destination="fJp-xr-bXw" eventType="touchUpInside" id="iT6-eB-98P"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0개" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gcd-af-uQh">

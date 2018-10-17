@@ -14,7 +14,7 @@ class AdminViewController: UIViewController {
     @IBAction func closeBtn(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }
-    @IBAction func tappedAddStockBtn(_ sender: UIButton) {
+    @IBAction func tappedAddBeverageBtn(_ sender: UIButton) {
         if let selectedBeverage = Product(rawValue: sender.tag) {
             addStock(target: selectedBeverage)
         }

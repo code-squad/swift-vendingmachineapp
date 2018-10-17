@@ -8,6 +8,18 @@
 
 import Foundation
 
+protocol Operable {
+    func createdObservers()
+    func roundEdgeOfImage()
+    func refreshStock()
+}
+
+protocol UserOperable: Operable {
+    func refreshBalance()
+    func refreshStatus()
+    func restoreHistory()
+}
+
 struct DateUnit {
     static let secondsOfOneday = 86400
 }

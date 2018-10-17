@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UserViewController: UIViewController {
+class UserViewController: UIViewController, UserOperable {
     private var userMode = UserMode(with: VendingMachine.shared)
     
     @IBOutlet var beverageStock: [UILabel]!
@@ -20,7 +20,6 @@ class UserViewController: UIViewController {
         super.viewDidLoad()
         // 옵저버 등록
         createdObservers()
-        // Do any additional setup after loading the view, typically from a nib.
         roundEdgeOfImage()
         refreshStock()
         refreshBalance()
@@ -33,7 +32,7 @@ class UserViewController: UIViewController {
         NotificationCenter.default.removeObserver(self)
     }
     
-    private func createdObservers() {
+    func createdObservers() {
         // addStock
         let nameUpdateStock = Notification.Name(NotificationKey.updateStock)
         NotificationCenter.default.addObserver(self, selector: #selector(self.refreshStock), name: nameUpdateStock, object: nil)
@@ -47,34 +46,34 @@ class UserViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(self.refreshPurchase(_:)), name: namePurchaseBeverage, object: nil)
     }
     
-    private func roundEdgeOfImage() {
+    func roundEdgeOfImage() {
         for image in self.beverageImages {
             image.layer.cornerRadius = 10.0
         }
     }
     
-    @objc private func refreshStock() {
+    @objc func refreshStock() {
         guard let stockList = userMode.userable.stockList() else { return }
         for index in 0..<stockList.count {
             self.beverageStock[index].text = Formatter.format(with: stockList[index])
         }
     }
     
-    @objc private func refreshBalance() {
+    @objc func refreshBalance() {
         let balance = userMode.userable.presentBalance()
         self.balance.text = Formatter.format(with: balance)
     }
     
-    @objc private func refreshPurchase(_ notification: Notification) {
+    @objc func refreshPurchase(_ notification: Notification) {
         guard let selectedBeverage = notification.userInfo?["Beverage"] as? Beverage else { return }
         placeImage(with: selectedBeverage)
     }
     
-    private func refreshStatus() {
+    func refreshStatus() {
         self.statusMessage.text = userMode.userable.status
     }
     
-    private func restoreHistory() {
+    func restoreHistory() {
         let historyList = userMode.userable.historyList()
         guard historyList.count > 0 else { return }
         for purchasedBeverage in historyList {

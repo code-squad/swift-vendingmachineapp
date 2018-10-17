@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AdminViewController: UIViewController {
+class AdminViewController: UIViewController, Operable {
     private let adminMode = AdminMode(with: VendingMachine.shared)
     
     @IBOutlet var beverageStock: [UILabel]!
@@ -21,19 +21,19 @@ class AdminViewController: UIViewController {
         refreshStock()
     }
     
-    private func createdObservers() {
+    func createdObservers() {
         // addStock
         let nameUpdateStock = Notification.Name(NotificationKey.updateStock)
         NotificationCenter.default.addObserver(self, selector: #selector(self.refreshStock), name: nameUpdateStock, object: nil)
     }
     
-    private func roundEdgeOfImage() {
+    func roundEdgeOfImage() {
         for image in self.beverageImages {
             image.layer.cornerRadius = 10.0
         }
     }
     
-    @objc private func refreshStock() {
+    @objc func refreshStock() {
         guard let stockList = adminMode.manageable.stockList() else { return }
         for index in 0..<stockList.count {
             self.beverageStock[index].text = Formatter.format(with: stockList[index])

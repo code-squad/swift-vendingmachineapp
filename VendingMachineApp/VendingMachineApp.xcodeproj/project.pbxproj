@@ -36,6 +36,7 @@
 		47B6F9A7216DD8AC0090FA01 /* StrawberryMilk.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 47B6F99E216DD8AB0090FA01 /* StrawberryMilk.jpeg */; };
 		47B6F9A8216DD8AC0090FA01 /* Coke.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 47B6F99F216DD8AB0090FA01 /* Coke.jpeg */; };
 		47C9C534216CF5D400D379C2 /* Pods_VendingMachineApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C879EB5DB4CB4526F4E0FFD3 /* Pods_VendingMachineApp.framework */; };
+		47CD4D5C21771A08002B94B2 /* AdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47CD4D5B21771A08002B94B2 /* AdminViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +70,7 @@
 		47B6F99D216DD8AB0090FA01 /* Cantata.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Cantata.jpeg; sourceTree = "<group>"; };
 		47B6F99E216DD8AB0090FA01 /* StrawberryMilk.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = StrawberryMilk.jpeg; sourceTree = "<group>"; };
 		47B6F99F216DD8AB0090FA01 /* Coke.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Coke.jpeg; sourceTree = "<group>"; };
+		47CD4D5B21771A08002B94B2 /* AdminViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminViewController.swift; sourceTree = "<group>"; };
 		A36A848CF7B9DC66269298E4 /* Pods-VendingMachineApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VendingMachineApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VendingMachineApp/Pods-VendingMachineApp.debug.xcconfig"; sourceTree = "<group>"; };
 		C879EB5DB4CB4526F4E0FFD3 /* Pods_VendingMachineApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VendingMachineApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F76D1F23FCC66115E1F42DD4 /* Pods-VendingMachineApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VendingMachineApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-VendingMachineApp/Pods-VendingMachineApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 			children = (
 				47B6F996216DD8AB0090FA01 /* BeverageImages */,
 				471983E321665B6100FBD76C /* AppDelegate.swift */,
+				47CD4D5B21771A08002B94B2 /* AdminViewController.swift */,
 				471983E521665B6100FBD76C /* ViewController.swift */,
 				471983E721665B6100FBD76C /* Main.storyboard */,
 				471983F621665FC100FBD76C /* AdminMode.swift */,
@@ -291,6 +294,7 @@
 			files = (
 				4719840D2166607200FBD76C /* Utility.swift in Sources */,
 				471983E621665B6100FBD76C /* ViewController.swift in Sources */,
+				47CD4D5C21771A08002B94B2 /* AdminViewController.swift in Sources */,
 				471983F721665FC100FBD76C /* AdminMode.swift in Sources */,
 				471984092166605800FBD76C /* Stock.swift in Sources */,
 				471984012166601A00FBD76C /* History.swift in Sources */,

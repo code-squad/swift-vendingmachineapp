@@ -91,8 +91,8 @@ class VendingMachine: NSObject, NSSecureCoding, Userable, Manageable {
         self.beverages = self.beverages.filter({$0.count > 0})
         
         // 옵저버 알림
-        let name = Notification.Name(NotificationKey.purchaseBeverage)
-        NotificationCenter.default.post(name: name, object: nil, userInfo: ["Beverage": beverage])
+        let name = Notification.Name(NotificationKey.updateStock)
+        NotificationCenter.default.post(name: name, object: nil)
         
         return beverage
     }

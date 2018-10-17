@@ -28,9 +28,7 @@ class AdminViewController: UIViewController, Operable {
     }
     
     func roundEdgeOfImage() {
-        for image in self.beverageImages {
-            image.layer.cornerRadius = 10.0
-        }
+        self.beverageImages = adminMode.manageable.roundEdgeOfImage(with: self.beverageImages)
     }
     
     @objc func refreshStock() {

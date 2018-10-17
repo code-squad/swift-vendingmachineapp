@@ -47,9 +47,7 @@ class UserViewController: UIViewController, UserOperable {
     }
     
     func roundEdgeOfImage() {
-        for image in self.beverageImages {
-            image.layer.cornerRadius = 10.0
-        }
+        self.beverageImages = userMode.userable.roundEdgeOfImage(with: self.beverageImages)
     }
     
     @objc func refreshStock() {

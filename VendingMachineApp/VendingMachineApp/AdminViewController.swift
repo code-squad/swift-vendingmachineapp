@@ -17,7 +17,6 @@ class AdminViewController: UIViewController, Operable {
     override func viewDidLoad() {
         super.viewDidLoad()
         createdObservers()
-        roundEdgeOfImage()
         refreshStock()
     }
     
@@ -25,10 +24,6 @@ class AdminViewController: UIViewController, Operable {
         // addStock
         let nameUpdateStock = Notification.Name(NotificationKey.updateStock)
         NotificationCenter.default.addObserver(self, selector: #selector(self.refreshStock), name: nameUpdateStock, object: nil)
-    }
-    
-    func roundEdgeOfImage() {
-        self.beverageImages = adminMode.manageable.roundEdgeOfImage(with: self.beverageImages)
     }
     
     @objc func refreshStock() {

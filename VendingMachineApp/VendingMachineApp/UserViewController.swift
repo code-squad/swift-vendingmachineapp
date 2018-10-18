@@ -20,7 +20,6 @@ class UserViewController: UIViewController, UserOperable {
         super.viewDidLoad()
         // 옵저버 등록
         createdObservers()
-        roundEdgeOfImage()
         refreshStock()
         refreshBalance()
         refreshStatus()
@@ -44,10 +43,6 @@ class UserViewController: UIViewController, UserOperable {
         // purchaseBeverage
         let namePurchaseBeverage = Notification.Name(NotificationKey.purchaseBeverage)
         NotificationCenter.default.addObserver(self, selector: #selector(self.refreshPurchase(_:)), name: namePurchaseBeverage, object: nil)
-    }
-    
-    func roundEdgeOfImage() {
-        self.beverageImages = userMode.userable.roundEdgeOfImage(with: self.beverageImages)
     }
     
     @objc func refreshStock() {

@@ -198,17 +198,17 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="StrawberryMilk.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="oNJ-GD-XI0">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="StrawberryMilk.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="oNJ-GD-XI0" customClass="RoundedImageView" customModule="VendingMachineApp" customModuleProvider="target">
                                 <rect key="frame" x="90" y="131" width="140" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ChocolateMilk.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="rD3-60-EkX">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ChocolateMilk.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="rD3-60-EkX" customClass="RoundedImageView" customModule="VendingMachineApp" customModuleProvider="target">
                                 <rect key="frame" x="298" y="131" width="140" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BananaMilk.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="JBD-5q-z6p">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BananaMilk.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="JBD-5q-z6p" customClass="RoundedImageView" customModule="VendingMachineApp" customModuleProvider="target">
                                 <rect key="frame" x="501" y="131" width="140" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -221,32 +221,32 @@
                                     <action selector="addBalance1000:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6Ux-nn-Oe7"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Coke.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="w9j-g3-ypn">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Coke.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="w9j-g3-ypn" customClass="RoundedImageView" customModule="VendingMachineApp" customModuleProvider="target">
                                 <rect key="frame" x="90" y="306" width="140" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Cider.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="hwO-DD-rNC">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Cider.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="hwO-DD-rNC" customClass="RoundedImageView" customModule="VendingMachineApp" customModuleProvider="target">
                                 <rect key="frame" x="298" y="306" width="140" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Fanta.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="gvy-4N-heR">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Fanta.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="gvy-4N-heR" customClass="RoundedImageView" customModule="VendingMachineApp" customModuleProvider="target">
                                 <rect key="frame" x="501" y="306" width="140" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TOP.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="5Xx-2y-Ysz">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TOP.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="5Xx-2y-Ysz" customClass="RoundedImageView" customModule="VendingMachineApp" customModuleProvider="target">
                                 <rect key="frame" x="90" y="481" width="140" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Cantata.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="laR-2x-P7t">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Cantata.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="laR-2x-P7t" customClass="RoundedImageView" customModule="VendingMachineApp" customModuleProvider="target">
                                 <rect key="frame" x="298" y="481" width="140" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Georgia.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="9jE-9x-EpZ">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Georgia.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="9jE-9x-EpZ" customClass="RoundedImageView" customModule="VendingMachineApp" customModuleProvider="target">
                                 <rect key="frame" x="501" y="481" width="140" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -318,17 +318,17 @@
                                             <action selector="closeBtn:" destination="fJp-xr-bXw" eventType="touchUpInside" id="aw0-iV-vef"/>
                                         </connections>
                                     </button>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="StrawberryMilk.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="ZWb-aP-Fae">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="StrawberryMilk.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="ZWb-aP-Fae" customClass="RoundedImageView" customModule="VendingMachineApp" customModuleProvider="target">
                                         <rect key="frame" x="153" y="159" width="140" height="100"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ChocolateMilk.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="5WB-0Y-Vbv">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ChocolateMilk.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="5WB-0Y-Vbv" customClass="RoundedImageView" customModule="VendingMachineApp" customModuleProvider="target">
                                         <rect key="frame" x="361" y="159" width="140" height="100"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BananaMilk.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="crU-0G-AJC">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BananaMilk.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="crU-0G-AJC" customClass="RoundedImageView" customModule="VendingMachineApp" customModuleProvider="target">
                                         <rect key="frame" x="564" y="159" width="140" height="100"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -357,17 +357,17 @@
                                             <action selector="tappedAddBeverageBtn:" destination="fJp-xr-bXw" eventType="touchUpInside" id="yrP-vR-YKm"/>
                                         </connections>
                                     </button>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Coke.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="XvL-DT-lKz">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Coke.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="XvL-DT-lKz" customClass="RoundedImageView" customModule="VendingMachineApp" customModuleProvider="target">
                                         <rect key="frame" x="153" y="368" width="140" height="100"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Cider.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="Wg0-s3-dUQ">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Cider.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="Wg0-s3-dUQ" customClass="RoundedImageView" customModule="VendingMachineApp" customModuleProvider="target">
                                         <rect key="frame" x="361" y="368" width="140" height="100"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Fanta.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="x0a-Jg-7kL">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Fanta.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="x0a-Jg-7kL" customClass="RoundedImageView" customModule="VendingMachineApp" customModuleProvider="target">
                                         <rect key="frame" x="564" y="368" width="140" height="100"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -396,17 +396,17 @@
                                             <action selector="tappedAddBeverageBtn:" destination="fJp-xr-bXw" eventType="touchUpInside" id="nUS-mD-IEe"/>
                                         </connections>
                                     </button>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TOP.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="wOK-rK-r2h">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TOP.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="wOK-rK-r2h" customClass="RoundedImageView" customModule="VendingMachineApp" customModuleProvider="target">
                                         <rect key="frame" x="153" y="570" width="140" height="100"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Cantata.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="JKq-fO-2vW">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Cantata.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="JKq-fO-2vW" customClass="RoundedImageView" customModule="VendingMachineApp" customModuleProvider="target">
                                         <rect key="frame" x="361" y="570" width="140" height="100"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Georgia.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="hJN-Eo-Zgy">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Georgia.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="hJN-Eo-Zgy" customClass="RoundedImageView" customModule="VendingMachineApp" customModuleProvider="target">
                                         <rect key="frame" x="564" y="570" width="140" height="100"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

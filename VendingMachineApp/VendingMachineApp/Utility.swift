@@ -10,7 +10,6 @@ import Foundation
 
 protocol Operable {
     func createdObservers()
-    func roundEdgeOfImage()
     func refreshStock()
 }
 

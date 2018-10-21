@@ -11,6 +11,7 @@ import Foundation
 protocol Common {
     func stockList() -> [[Beverage]]?
     func removeStock(target: Int) -> Beverage?
+    func historyList() -> [Beverage]
 }
 
 protocol Userable: Common {
@@ -23,7 +24,6 @@ protocol Userable: Common {
     func restoreX(with xValue: Int)
     func addBalance(value: Int)
     func presentBalance() -> Int
-    func historyList() -> [Beverage]
     func isAvailablePurchase(target: Int, balance: Int) throws -> Bool
 }
 

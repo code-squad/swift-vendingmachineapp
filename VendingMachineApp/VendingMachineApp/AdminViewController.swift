@@ -13,11 +13,16 @@ class AdminViewController: UIViewController, Operable {
     
     @IBOutlet var beverageStock: [UILabel]!
     @IBOutlet var beverageImages: [UIImageView]!
+    @IBOutlet weak var pieChartView: PieGraphView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         createdObservers()
         refreshStock()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        pieChartView.sorted(with: adminMode.manageable.historyList())
     }
     
     func createdObservers() {

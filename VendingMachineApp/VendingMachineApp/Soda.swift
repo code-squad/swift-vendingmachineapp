@@ -11,9 +11,9 @@ import Foundation
 class Soda: Beverage {
     private var sodium: Int // 나트륨함량 (mg)
     
-    init(sodium: Int, brand: String, capacity: Int, price: Int, name: String, dateOfManufacture: Date, manufacturer: String) {
+    init(sodium: Int, identifier: Int, brand: String, capacity: Int, price: Int, name: String, dateOfManufacture: Date, manufacturer: String) {
         self.sodium = sodium
-        super.init(brand: brand, capacity: capacity, price: price, name: name, dateOfManufacture: dateOfManufacture, manufacturer: manufacturer)
+        super.init(identifier: identifier, brand: brand, capacity: capacity, price: price, name: name, dateOfManufacture: dateOfManufacture, manufacturer: manufacturer)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -34,13 +34,13 @@ class Soda: Beverage {
 class Coke: Soda {
     private var calorie: Int // 칼로리 (kcal)
     
-    init(calorie: Int, sodium: Int, brand: String, capacity: Int, price: Int, name: String, dateOfManufacture: Date, manufacturer: String) {
+    init(calorie: Int, sodium: Int, identifier: Int, brand: String, capacity: Int, price: Int, name: String, dateOfManufacture: Date, manufacturer: String) {
         self.calorie = calorie
-        super.init(sodium: sodium, brand: brand, capacity: capacity, price: price, name: name, dateOfManufacture: dateOfManufacture, manufacturer: manufacturer)
+        super.init(sodium: sodium, identifier: identifier, brand: brand, capacity: capacity, price: price, name: name, dateOfManufacture: dateOfManufacture, manufacturer: manufacturer)
     }
     
     convenience init(dateOfManufacture: Date) {
-        self.init(calorie: 90, sodium: 200, brand: Brand.pepsi.description, capacity: 350, price: 1500, name: Product.dietCoke.description, dateOfManufacture: dateOfManufacture, manufacturer: Brand.pepsi.description)
+        self.init(calorie: 90, sodium: 200, identifier: 101, brand: Brand.pepsi.description, capacity: 350, price: 1500, name: Product.dietCoke.description, dateOfManufacture: dateOfManufacture, manufacturer: Brand.pepsi.description)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -61,13 +61,13 @@ class Coke: Soda {
 class Cider: Soda {
     private var transFat: Int // 트랜스지방 (g)
     
-    init(transFat: Int, sodium: Int, brand: String, capacity: Int, price: Int, name: String, dateOfManufacture: Date, manufacturer: String) {
+    init(transFat: Int, sodium: Int, identifier: Int, brand: String, capacity: Int, price: Int, name: String, dateOfManufacture: Date, manufacturer: String) {
         self.transFat = transFat
-        super.init(sodium: sodium, brand: brand, capacity: capacity, price: price, name: name, dateOfManufacture: dateOfManufacture, manufacturer: manufacturer)
+        super.init(sodium: sodium, identifier: identifier, brand: brand, capacity: capacity, price: price, name: name, dateOfManufacture: dateOfManufacture, manufacturer: manufacturer)
     }
     
     convenience init(dateOfManufacture: Date) {
-        self.init(transFat: 0, sodium: 300, brand: Brand.lotteChilsung.description, capacity: 140, price: 1100, name: Product.chilsungCider.description, dateOfManufacture: dateOfManufacture, manufacturer: Brand.lotteChilsung.description)
+        self.init(transFat: 0, sodium: 300, identifier: 102, brand: Brand.lotteChilsung.description, capacity: 140, price: 1100, name: Product.chilsungCider.description, dateOfManufacture: dateOfManufacture, manufacturer: Brand.lotteChilsung.description)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -88,13 +88,13 @@ class Cider: Soda {
 class Fanta: Soda {
     private var taste: FantaTaste // 색상 (pineapple , orange , grape , etc..)
     
-    init(taste: FantaTaste, sodium: Int, brand: String, capacity: Int, price: Int, name: String, dateOfManufacture: Date, manufacturer: String) {
+    init(taste: FantaTaste, sodium: Int, identifier: Int, brand: String, capacity: Int, price: Int, name: String, dateOfManufacture: Date, manufacturer: String) {
         self.taste = taste
-        super.init(sodium: sodium, brand: brand, capacity: capacity, price: price, name: name, dateOfManufacture: dateOfManufacture, manufacturer: manufacturer)
+        super.init(sodium: sodium, identifier: identifier, brand: brand, capacity: capacity, price: price, name: name, dateOfManufacture: dateOfManufacture, manufacturer: manufacturer)
     }
     
     convenience init(dateOfManufacture: Date) {
-        self.init(taste: FantaTaste.orange, sodium: 100, brand: Brand.cocacola.description, capacity: 355, price: 900, name: Product.orangeFanta.description, dateOfManufacture: dateOfManufacture, manufacturer: Brand.cocacola.description)
+        self.init(taste: FantaTaste.orange, sodium: 100, identifier: 103, brand: Brand.cocacola.description, capacity: 355, price: 900, name: Product.orangeFanta.description, dateOfManufacture: dateOfManufacture, manufacturer: Brand.cocacola.description)
     }
     
     required init?(coder aDecoder: NSCoder) {

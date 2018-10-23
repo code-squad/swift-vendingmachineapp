@@ -50,7 +50,7 @@ class PieGraphView: UIView {
             index += 1
             path.addLine(to: center)
             path.fill()
-            let label = Label(name: beverage.key,
+            let label = Label(name: beverage.key.beverageName(),
                               startAngle: startAngle,
                               endAngle: endAngle,
                               radius: radius)
@@ -61,14 +61,14 @@ class PieGraphView: UIView {
         setNeedsDisplay()
     }
     
-    private func combineElements(with purchasedList: [Beverage]) -> [String: Int] {
-        var beverages = [String: Int]()
+    private func combineElements(with purchasedList: [Beverage]) -> [Beverage: Int] {
+        var beverages = [Beverage: Int]()
         for beverage in purchasedList {
-            if let beverageCount = beverages[beverage.beverageName()] {
-                beverages.updateValue(beverageCount + 1, forKey: beverage.beverageName())
+            if let beverageCount = beverages[beverage] {
+                beverages.updateValue(beverageCount + 1, forKey: beverage)
                 continue
             }
-            beverages.updateValue(1, forKey: beverage.beverageName())
+            beverages.updateValue(1, forKey: beverage)
         }
         return beverages
     }

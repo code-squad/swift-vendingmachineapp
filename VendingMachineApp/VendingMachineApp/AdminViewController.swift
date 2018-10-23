@@ -21,10 +21,6 @@ class AdminViewController: UIViewController, Operable {
         refreshStock()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        pieChartView.sorted(with: adminMode.manageable.historyList())
-    }
-    
     func createdObservers() {
         // addStock
         let nameUpdateStock = Notification.Name(NotificationKey.updateStock)

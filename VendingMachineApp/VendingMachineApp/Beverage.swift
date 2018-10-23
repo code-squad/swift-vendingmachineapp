@@ -22,6 +22,7 @@ class Beverage: NSObject, NSSecureCoding {
         return "\(self.name) \(self.price)원"
     }
     
+    private var identifier: Int
     private var brand: String
     private var capacity: Int
     private var price: Int
@@ -29,7 +30,8 @@ class Beverage: NSObject, NSSecureCoding {
     private var dateOfManufacture: Date
     private var manufacturer: String
     
-    init(brand: String, capacity: Int, price: Int, name: String, dateOfManufacture: Date, manufacturer: String) {
+    init(identifier: Int, brand: String, capacity: Int, price: Int, name: String, dateOfManufacture: Date, manufacturer: String) {
+        self.identifier = identifier
         self.brand = brand
         self.capacity = capacity
         self.price = price
@@ -39,6 +41,7 @@ class Beverage: NSObject, NSSecureCoding {
     }
     
     required init?(coder aDecoder: NSCoder) {
+        self.identifier = aDecoder.decodeInteger(forKey: "identifier")
         self.brand = aDecoder.decodeObject(forKey: "brand") as! String
         self.capacity = aDecoder.decodeInteger(forKey: "capacity")
         self.price = aDecoder.decodeInteger(forKey: "price")
@@ -48,6 +51,7 @@ class Beverage: NSObject, NSSecureCoding {
     }
     
     func encode(with aCoder: NSCoder) {
+        aCoder.encode(self.identifier, forKey: "identifier")
         aCoder.encode(self.brand, forKey: "brand")
         aCoder.encode(self.capacity, forKey: "capacity")
         aCoder.encode(self.price, forKey: "price")
@@ -93,5 +97,19 @@ extension Date {
         dateFormatter.dateFormat = "yyyyMMdd"
         let date = dateFormatter.string(from: self)
         return date
+    }
+}
+
+extension Beverage {
+    override var hash: Int {
+        return self.identifier
+    }
+    
+    override func isEqual(_ object: Any?) -> Bool {
+        if let other = object as? Beverage {
+            return self.className == other.className
+        } else {
+            return false
+        }
     }
 }

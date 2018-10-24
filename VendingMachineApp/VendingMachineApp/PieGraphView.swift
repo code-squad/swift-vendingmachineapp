@@ -60,7 +60,6 @@ class PieGraphView: UIView {
             
             startAngle = endAngle
         }
-        setNeedsDisplay()
     }
     
     private func addTextLabel(with info: Label) {

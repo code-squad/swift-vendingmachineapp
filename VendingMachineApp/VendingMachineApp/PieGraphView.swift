@@ -32,7 +32,7 @@ class PieGraphView: UIView {
     
     override func draw(_ rect: CGRect) {
         guard let historyDataSource = self.historyDataSource else { return }
-        let beverages = setData(with: historyDataSource)
+        let beverages = historyDataSource.list()
         
         let radius = min(self.frame.size.width, self.frame.size.height) * 0.5
         let center = CGPoint(x: self.frame.size.width * 0.5, y: self.frame.size.height * 0.5)
@@ -61,18 +61,6 @@ class PieGraphView: UIView {
             startAngle = endAngle
         }
         setNeedsDisplay()
-    }
-    
-    func setData(with historyData: HistoryDataSource) -> [Beverage: Int] {
-        var beverages = [Beverage: Int]()
-        for beverage in historyData.list() {
-            if let beverageCount = beverages[beverage] {
-                beverages.updateValue(beverageCount + 1, forKey: beverage)
-                continue
-            }
-            beverages.updateValue(1, forKey: beverage)
-        }
-        return beverages
     }
     
     private func addTextLabel(with info: Label) {

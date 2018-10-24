@@ -37,4 +37,16 @@ class History: NSObject, NSSecureCoding {
     public func list() -> [Beverage] {
         return self.beverages
     }
+    
+    public func groupList() -> [Beverage: Int] {
+        var beverages = [Beverage: Int]()
+        for beverage in self.beverages {
+            if let beverageCount = beverages[beverage] {
+                beverages.updateValue(beverageCount + 1, forKey: beverage)
+                continue
+            }
+            beverages.updateValue(1, forKey: beverage)
+        }
+        return beverages
+    }
 }

@@ -51,7 +51,7 @@ class AdminViewController: UIViewController, Operable {
 }
 
 extension AdminViewController: HistoryDataSource {
-    func list() -> [Beverage] {
-        return adminMode.manageable.historyList()
+    func list() -> [Beverage: Int] {
+        return adminMode.manageable.historyGroupList()
     }
 }

@@ -48,9 +48,3 @@ struct AdminMode {
     }
     
 }
-
-extension AdminMode: HistoryDataSource {
-    func list() -> [Beverage] {
-        return manageable.historyList()
-    }
-}

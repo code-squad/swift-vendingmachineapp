@@ -17,40 +17,48 @@ class PieGraphView: UIView {
         let radius: CGFloat
     }
     
+    public var historyDataSource: HistoryDataSource?
     private var beverages = [Beverage: Int]()
-    var historyDataSource: HistoryDataSource?
+    private var isBasicCircle = true
+    private var radius = CGFloat(0)
+    private var rectCenterPoint = CGPoint(x: 0, y: 0)
+    private var startAngle = CGFloat(0)
+    private var colorIndex = 0
 
     private let colors: [UIColor] = [.red, .orange, .blue, .green, .yellow, .brown, .purple, .magenta, .gray]
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        radius = min(self.frame.size.width, self.frame.size.height) * 0.5
+        rectCenterPoint = CGPoint(x: self.frame.size.width * 0.5, y: self.frame.size.height * 0.5)
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        radius = min(self.frame.size.width, self.frame.size.height) * 0.5
+        rectCenterPoint = CGPoint(x: self.frame.size.width * 0.5, y: self.frame.size.height * 0.5)
     }
     
     override func draw(_ rect: CGRect) {
         guard let historyDataSource = self.historyDataSource else { return }
         let beverages = historyDataSource.list()
-        
-        let radius = min(self.frame.size.width, self.frame.size.height) * 0.5
-        let center = CGPoint(x: self.frame.size.width * 0.5, y: self.frame.size.height * 0.5)
         let beveragesValue = beverages.reduce(0, {$0 + $1.value})
         
-        var startAngle = CGFloat(0)
-        var index = 0
+        guard isBasicCircle else {
+            drawBlackCircle()
+            return
+        }
         
         for beverage in beverages {
             let endAngle = startAngle + 2 * .pi * (CGFloat(beverage.value) / CGFloat(beveragesValue))
-            let path = UIBezierPath(arcCenter: center,
+            let path = UIBezierPath(arcCenter: rectCenterPoint,
                                     radius: radius,
                                     startAngle: startAngle,
                                     endAngle: endAngle,
                                     clockwise: true)
-            colors[index].setFill()
-            index += 1
-            path.addLine(to: center)
+            colors[colorIndex].setFill()
+            colorIndex += 1
+            path.addLine(to: rectCenterPoint)
             path.fill()
             let label = Label(name: beverage.key.beverageName(),
                               startAngle: startAngle,
@@ -60,6 +68,16 @@ class PieGraphView: UIView {
             
             startAngle = endAngle
         }
+    }
+    
+    private func drawBlackCircle() {
+        let path = UIBezierPath(arcCenter: rectCenterPoint,
+                                radius: radius,
+                                startAngle: 0,
+                                endAngle: 360,
+                                clockwise: true)
+        UIColor.black.setFill()
+        path.fill()
     }
     
     private func addTextLabel(with info: Label) {
@@ -97,6 +115,18 @@ class PieGraphView: UIView {
         
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        isBasicCircle = false
+        setNeedsDisplay()
+    }
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        isBasicCircle = true
+        setNeedsDisplay()
+    }
 }
 
 extension CGFloat {

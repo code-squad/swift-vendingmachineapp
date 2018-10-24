@@ -19,6 +19,10 @@ protocol UserOperable: Operable {
     func restoreHistory()
 }
 
+protocol HistoryDataSource {
+    func list() -> [Beverage]
+}
+
 struct DateUnit {
     static let secondsOfOneday = 86400
 }

@@ -17,7 +17,8 @@ class PieGraphView: UIView {
         let radius: CGFloat
     }
     
-    private let adminMode = AdminMode(with: VendingMachine.shared)
+    private var beverages = [Beverage: Int]()
+
     private let colors: [UIColor] = [.red, .orange, .blue, .green, .yellow, .brown, .purple, .magenta, .gray]
     
     override init(frame: CGRect) {
@@ -28,10 +29,19 @@ class PieGraphView: UIView {
         super.init(coder: aDecoder)
     }
     
+    func setData(with historyData: HistoryDataSource) {
+        var beverages = [Beverage: Int]()
+        for beverage in historyData.list() {
+            if let beverageCount = beverages[beverage] {
+                beverages.updateValue(beverageCount + 1, forKey: beverage)
+                continue
+            }
+            beverages.updateValue(1, forKey: beverage)
+        }
+        self.beverages = beverages
+    }
+    
     override func draw(_ rect: CGRect) {
-        let purchasedList = adminMode.manageable.historyList()
-        let beverages = combineElements(with: purchasedList)
-        
         let radius = min(self.frame.size.width, self.frame.size.height) * 0.5
         let center = CGPoint(x: self.frame.size.width * 0.5, y: self.frame.size.height * 0.5)
         let beveragesValue = beverages.reduce(0, {$0 + $1.value})
@@ -59,18 +69,6 @@ class PieGraphView: UIView {
             startAngle = endAngle
         }
         setNeedsDisplay()
-    }
-    
-    private func combineElements(with purchasedList: [Beverage]) -> [Beverage: Int] {
-        var beverages = [Beverage: Int]()
-        for beverage in purchasedList {
-            if let beverageCount = beverages[beverage] {
-                beverages.updateValue(beverageCount + 1, forKey: beverage)
-                continue
-            }
-            beverages.updateValue(1, forKey: beverage)
-        }
-        return beverages
     }
     
     private func addTextLabel(with info: Label) {

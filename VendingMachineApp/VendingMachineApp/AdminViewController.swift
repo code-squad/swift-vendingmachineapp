@@ -21,6 +21,10 @@ class AdminViewController: UIViewController, Operable {
         refreshStock()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        pieChartView.setData(with: adminMode)
+    }
+    
     func createdObservers() {
         // addStock
         let nameUpdateStock = Notification.Name(NotificationKey.updateStock)

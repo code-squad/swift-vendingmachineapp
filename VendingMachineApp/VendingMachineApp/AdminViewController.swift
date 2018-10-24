@@ -19,10 +19,7 @@ class AdminViewController: UIViewController, Operable {
         super.viewDidLoad()
         createdObservers()
         refreshStock()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        pieChartView.setData(with: adminMode)
+        pieChartView.historyDataSource = self
     }
     
     func createdObservers() {
@@ -50,5 +47,11 @@ class AdminViewController: UIViewController, Operable {
     
     private func addStock(target: Product) {
         _ = adminMode.selectMenu(with: MenuAdmin.addStock, target: target.rawValue, amount: 1)
+    }
+}
+
+extension AdminViewController: HistoryDataSource {
+    func list() -> [Beverage] {
+        return adminMode.manageable.historyList()
     }
 }

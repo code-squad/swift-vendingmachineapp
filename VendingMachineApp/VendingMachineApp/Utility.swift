@@ -20,7 +20,7 @@ protocol UserOperable: Operable {
 }
 
 protocol HistoryDataSource {
-    func list() -> [Beverage]
+    func list() -> [Beverage: Int]
 }
 
 struct DateUnit {

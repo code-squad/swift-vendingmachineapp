@@ -32,6 +32,7 @@ protocol Manageable: Common {
     func expiredBeverages() throws -> [[Beverage: Int]]
     func expiredBeverage(with beverages: [Beverage]) -> [Beverage: Int]?
     func removeExpiredBeverage(with expiredBeverages: [[Beverage: Int]]) throws -> [Beverage]
+    func historyGroupList() -> [Beverage: Int]
 }
 
 class VendingMachine: NSObject, NSSecureCoding, Userable, Manageable {
@@ -113,6 +114,10 @@ class VendingMachine: NSObject, NSSecureCoding, Userable, Manageable {
     
     public func historyList() -> [Beverage] {
         return self.history.list()
+    }
+    
+    public func historyGroupList() -> [Beverage: Int] {
+        return self.history.groupList()
     }
     
     public func isAvailablePurchase(target index: Int, balance: Int) throws -> Bool {

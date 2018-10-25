@@ -134,9 +134,15 @@ class PieGraphView: UIView {
     }
     
     private func distance(_ lhs: CGPoint, _ rhs: CGPoint) -> CGFloat {
+        let minRadius = min(self.frame.size.width, self.frame.size.height) * 0.25
+        let maxRadius = min(self.frame.size.width, self.frame.size.height) * 0.5
         let xDist = lhs.x - rhs.x
         let yDist = lhs.y - rhs.y
-        return CGFloat(sqrt(xDist * xDist + yDist * yDist))
+        
+        var changedRadius = sqrt(xDist * xDist + yDist * yDist)
+        changedRadius = minRadius > changedRadius ? minRadius : changedRadius
+        changedRadius = maxRadius < changedRadius ? maxRadius : changedRadius
+        return CGFloat(changedRadius)
     }
 }
 

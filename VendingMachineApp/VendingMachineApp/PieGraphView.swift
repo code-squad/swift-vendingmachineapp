@@ -17,7 +17,7 @@ class PieGraphView: UIView {
         let radius: CGFloat
     }
     
-    public var historyDataSource: HistoryDataSource?
+    private var historyDataSource: HistoryDataSource?
     private var isDefalutCircle = true
     private var radius = CGFloat(0)
     private var startAngle = CGFloat(0)
@@ -35,6 +35,10 @@ class PieGraphView: UIView {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         defaultRadius()
+    }
+    
+    public func setDataSource(with viewController: AdminViewController) {
+        historyDataSource = viewController
     }
     
     private func defaultRadius() {

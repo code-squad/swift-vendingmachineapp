@@ -19,7 +19,7 @@ class AdminViewController: UIViewController, Operable {
         super.viewDidLoad()
         createdObservers()
         refreshStock()
-        pieChartView.historyDataSource = self
+        pieChartView.setDataSource(with: self)
     }
     
     func createdObservers() {

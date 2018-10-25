@@ -158,3 +158,35 @@
 
 
 ![Step7 Demo](CaptureImage/Step7Demo.gif)
+
+# Step8
+> PieGraph 생성
+### 작업내용
+1. 구매목록 그래프 구현
+2. 라벨이 해당 범위의 중앙에 오도록 좌표 계산
+3. Hashable 프로토콜을 따르는 hash 에서 사용하기 위해 음료 객체 별로 classname.hash 리턴
+4. Dictionary 비교값을 String(beverageName)이 아닌 Beverage 객체로 하고 싶었지만 Hashable 이 중복된다는 이유로 프로토콜을 따를 수 없었으며 값 비교가 되지 않았지만 다음과 같이 해결하였습니다. -> `override isEqual 와 hash 를 정의하여 해결`
+5. `PieGraphView` 에서 구매내역을 직접 저장하지 않고 그릴 때마다 `HistoryDataSource` 프로토콜을 이용해 값을 가져올 수 있도록 수정 (값을 복사해서 저장해놓는다면 좋지 않음, DIP of SOILD) 
+6. `PieGraphView` 에서 사용하는 데이터가공을 뷰에서 하지 않고 `History` 객체 안에서 직접 한 이후에 전달 받을 수 있도록 로직 수정 (즉, 뷰에서는 뷰그리는 역할만 하며 객체에서 받는 것으로 함)
+
+### 참고
+- [View and Window Architecture](https://developer.apple.com/library/archive/documentation/WindowsViews/Conceptual/ViewPG_iPhoneOS/WindowsandViews/WindowsandViews.html#//apple_ref/doc/uid/TP40009503-CH2-SW9)
+- [iOS Drawing Concepts](https://developer.apple.com/library/archive/documentation/2DDrawing/Conceptual/DrawingPrintingiOS/GraphicsDrawingOverview/GraphicsDrawingOverview.html#//apple_ref/doc/uid/TP40010156-CH14-SW1)
+- [iOS ) View/레이아웃 업데이트 관련 메소드](https://zeddios.tistory.com/359)
+- [GitHub - hamishknight/Pie-Chart-View: A simple UIView subclass that creates a pie chart](https://github.com/hamishknight/Pie-Chart-View)
+![Step8 Demo](CaptureImage/Step8Demo.gif)
+
+# Step9
+> 그래프에 대한 터치 이벤트
+
+### 작업내용
+1. 터치이벤트 추가
+    - 터치했을 때
+    - 터치하고 움직일 때
+    - 터치하고 난 이후
+    - 기기 흔들 때
+    
+### 참고
+ - [UIResponder - UIKit \| Apple Developer Documentation](https://developer.apple.com/documentation/uikit/uiresponder)
+
+![Step9 Demo](CaptureImage/Step9Demo.gif)

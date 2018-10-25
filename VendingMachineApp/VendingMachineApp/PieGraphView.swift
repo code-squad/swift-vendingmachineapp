@@ -137,6 +137,12 @@ class PieGraphView: UIView {
         setNeedsDisplay()
     }
     
+    func motionShake() {
+        radius = min(self.frame.size.width, self.frame.size.height) * 0.5
+        fontSize = radius * 0.1
+        setNeedsDisplay()
+    }
+    
     private func distance(_ lhs: CGPoint, _ rhs: CGPoint) -> CGFloat {
         let minRadius = min(self.frame.size.width, self.frame.size.height) * 0.25
         let maxRadius = min(self.frame.size.width, self.frame.size.height) * 0.5

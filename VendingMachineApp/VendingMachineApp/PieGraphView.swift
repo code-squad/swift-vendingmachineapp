@@ -19,26 +19,38 @@ class PieGraphView: UIView {
     
     public var historyDataSource: HistoryDataSource?
     private var beverages = [Beverage: Int]()
-    private var isBasicCircle = true
+    private var isDefalutCircle = true
     private var radius = CGFloat(0)
-    private var rectCenterPoint = CGPoint(x: 0, y: 0)
     private var startAngle = CGFloat(0)
     private var colorIndex = 0
     private var fontSize = CGFloat(0)
+    lazy private var rectCenterPoint = CGPoint(x: self.frame.size.width * 0.5, y: self.frame.size.height * 0.5)
 
     private let colors: [UIColor] = [.red, .orange, .blue, .green, .yellow, .brown, .purple, .magenta, .gray]
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        radius = min(self.frame.size.width, self.frame.size.height) * 0.5
-        rectCenterPoint = CGPoint(x: self.frame.size.width * 0.5, y: self.frame.size.height * 0.5)
-        fontSize = radius * 0.1
+        defaultRadius()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        radius = min(self.frame.size.width, self.frame.size.height) * 0.5
-        rectCenterPoint = CGPoint(x: self.frame.size.width * 0.5, y: self.frame.size.height * 0.5)
+        defaultRadius()
+    }
+    
+    private func defaultRadius() {
+        let diameter = min(self.frame.size.width, self.frame.size.height)
+        calculateRadius(with: diameter)
+    }
+    
+    private func calculateRadius(with size: CGFloat) {
+        let minRadius = min(self.frame.size.width, self.frame.size.height) * 0.25
+        let maxRadius = min(self.frame.size.width, self.frame.size.height) * 0.5
+        var changedRadius = size * 0.5
+        changedRadius = minRadius > changedRadius ? minRadius : changedRadius
+        changedRadius = maxRadius < changedRadius ? maxRadius : changedRadius
+        
+        radius = changedRadius
         fontSize = radius * 0.1
     }
     
@@ -48,7 +60,7 @@ class PieGraphView: UIView {
         let beveragesValue = beverages.reduce(0, {$0 + $1.value})
         colorIndex = 0
         
-        guard isBasicCircle else {
+        guard isDefalutCircle else {
             drawBlackCircle()
             return
         }
@@ -120,38 +132,36 @@ class PieGraphView: UIView {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        isBasicCircle = false
+        defalutCircle(to: false)
         setNeedsDisplay()
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let touch = touches.first else { return }
         let touchPoint = touch.location(in: self)
-        radius = distance(touchPoint, rectCenterPoint)
-        fontSize = radius * 0.1
+        let diameter = distance(touchPoint, rectCenterPoint)
+        calculateRadius(with: diameter)
         setNeedsDisplay()
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        isBasicCircle = true
+        defalutCircle(to: true)
         setNeedsDisplay()
     }
     
     func motionShake() {
-        radius = min(self.frame.size.width, self.frame.size.height) * 0.5
-        fontSize = radius * 0.1
+        defaultRadius()
         setNeedsDisplay()
     }
     
+    private func defalutCircle(to circle: Bool) {
+        isDefalutCircle = circle
+    }
+    
     private func distance(_ lhs: CGPoint, _ rhs: CGPoint) -> CGFloat {
-        let minRadius = min(self.frame.size.width, self.frame.size.height) * 0.25
-        let maxRadius = min(self.frame.size.width, self.frame.size.height) * 0.5
         let xDist = lhs.x - rhs.x
         let yDist = lhs.y - rhs.y
-        
-        var changedRadius = sqrt(xDist * xDist + yDist * yDist)
-        changedRadius = minRadius > changedRadius ? minRadius : changedRadius
-        changedRadius = maxRadius < changedRadius ? maxRadius : changedRadius
+        let changedRadius = sqrt(xDist * xDist + yDist * yDist) * 2
         return CGFloat(changedRadius)
     }
 }

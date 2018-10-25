@@ -24,6 +24,7 @@ class PieGraphView: UIView {
     private var rectCenterPoint = CGPoint(x: 0, y: 0)
     private var startAngle = CGFloat(0)
     private var colorIndex = 0
+    private var fontSize = CGFloat(0)
 
     private let colors: [UIColor] = [.red, .orange, .blue, .green, .yellow, .brown, .purple, .magenta, .gray]
     
@@ -31,12 +32,14 @@ class PieGraphView: UIView {
         super.init(frame: frame)
         radius = min(self.frame.size.width, self.frame.size.height) * 0.5
         rectCenterPoint = CGPoint(x: self.frame.size.width * 0.5, y: self.frame.size.height * 0.5)
+        fontSize = radius * 0.1
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         radius = min(self.frame.size.width, self.frame.size.height) * 0.5
         rectCenterPoint = CGPoint(x: self.frame.size.width * 0.5, y: self.frame.size.height * 0.5)
+        fontSize = radius * 0.1
     }
     
     override func draw(_ rect: CGRect) {
@@ -86,7 +89,7 @@ class PieGraphView: UIView {
         let textToRender = info.name as NSString
         // 텍스트 설정값
         let textAttributes: [NSAttributedString.Key: Any] = [
-            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 15,
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: fontSize,
                                                            weight: UIFont.Weight.bold),
             NSAttributedString.Key.foregroundColor: UIColor.white]
         
@@ -125,6 +128,7 @@ class PieGraphView: UIView {
         guard let touch = touches.first else { return }
         let touchPoint = touch.location(in: self)
         radius = distance(touchPoint, rectCenterPoint)
+        fontSize = radius * 0.1
         setNeedsDisplay()
     }
     

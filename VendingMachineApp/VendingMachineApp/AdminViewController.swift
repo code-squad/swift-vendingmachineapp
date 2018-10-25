@@ -48,6 +48,11 @@ class AdminViewController: UIViewController, Operable {
     private func addStock(target: Product) {
         _ = adminMode.selectMenu(with: MenuAdmin.addStock, target: target.rawValue, amount: 1)
     }
+    
+    override func motionBegan(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+        guard motion == .motionShake else { return }
+        pieChartView.motionShake()
+    }
 }
 
 extension AdminViewController: HistoryDataSource {

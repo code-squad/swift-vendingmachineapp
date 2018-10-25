@@ -43,6 +43,7 @@ class PieGraphView: UIView {
         guard let historyDataSource = self.historyDataSource else { return }
         let beverages = historyDataSource.list()
         let beveragesValue = beverages.reduce(0, {$0 + $1.value})
+        colorIndex = 0
         
         guard isBasicCircle else {
             drawBlackCircle()
@@ -121,11 +122,21 @@ class PieGraphView: UIView {
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard let touch = touches.first else { return }
+        let touchPoint = touch.location(in: self)
+        radius = distance(touchPoint, rectCenterPoint)
+        setNeedsDisplay()
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         isBasicCircle = true
         setNeedsDisplay()
+    }
+    
+    private func distance(_ lhs: CGPoint, _ rhs: CGPoint) -> CGFloat {
+        let xDist = lhs.x - rhs.x
+        let yDist = lhs.y - rhs.y
+        return CGFloat(sqrt(xDist * xDist + yDist * yDist))
     }
 }
 

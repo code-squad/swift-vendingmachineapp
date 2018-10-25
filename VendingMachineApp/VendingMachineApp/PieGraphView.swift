@@ -18,7 +18,6 @@ class PieGraphView: UIView {
     }
     
     public var historyDataSource: HistoryDataSource?
-    private var beverages = [Beverage: Int]()
     private var isDefalutCircle = true
     private var radius = CGFloat(0)
     private var startAngle = CGFloat(0)

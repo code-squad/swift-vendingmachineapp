@@ -1,3 +1,17 @@
+# 단계별 구현 내용 및 실행 화면
+
+**2단계 MVC 패턴**
+
+- 현 단계에서 불필요한 코드 삭제
+- `UICollectionView`와 커스텀 `UICollectionViewCell`을 사용하여 `BeverageCell`을 구현 및 표시
+- `BeverageCell`의 `추가` 버튼을 누르면 노티피케이션이 포스트되고 `ViewController`에서 이를 옵저빙 하여 음료를 추가하고 컬렉션 뷰를 리로드 
+
+*실행화면*
+
+![vendingmachineapp-step2](/Users/dongkun/Desktop/CodeSquad/swift-vendingmachineapp/images/vendingmachineapp-step2.png)
+
+
+
 # 진행 방법
 
 - 음료수 자판기 iOS 앱에 요구사항을 파악한다.

@@ -19,7 +19,7 @@ class Beverage: NSObject {
     }
     
     override var description: String {
-        return "\(self.identifier) - \(brand), \(volume)ml, \(price)원, \(name), \(date.readable)"
+        return "\(self.className) - \(brand), \(volume)ml, \(price)원, \(name), \(date.readable)"
     }
     
     init(brand: String, volume: Int, price: Int, name: String, date: Date) {

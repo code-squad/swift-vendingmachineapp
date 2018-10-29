@@ -7,6 +7,7 @@
 //
 
 import Foundation
+
 protocol VendingMachineDelegate: class {
     var bundles: Bundles { get }
 }
@@ -21,6 +22,11 @@ protocol VendingMachineUserDelegate: VendingMachineDelegate {
     var remain: Int { get }
     func deposit(_ money: Int)
     func buy(at index: Int) throws -> (Beverage, Int)
+}
+
+protocol VendingMachineHandlerDelegate: class {
+    associatedtype Menu
+    func handle(_ menu: Menu, value: Int) throws -> Comment?
 }
 
 class VendingMachine {

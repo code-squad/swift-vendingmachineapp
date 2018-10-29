@@ -9,14 +9,56 @@
 import UIKit
 
 class ViewController: UIViewController {
-    private var vendingMachine = VendingMachine(Stocks(WareHouse.generateBeverages(3)))
+    private var vendingMachine = VendingMachine(Stocks(WareHouse.generateBeverages(10)))
+    private let inset: CGFloat = 20
+    private let spacing: CGFloat = 20
+    private let itemsOnRow = 4
+    
+    @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+}
+
+extension ViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BeverageCell.reusableIdentifier, for: indexPath) as? BeverageCell else {
+            return UICollectionViewCell()
+        }
         
-        let beverages = vendingMachine.bundles.display { "\($0)) \($1) \($2)개" }
+        cell.setup(bundle: vendingMachine.bundles[indexPath.item])
         
-        print(beverages)
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return vendingMachine.bundles.count
+    }
+}
+
+extension ViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: inset, bottom: 0, right: inset)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return spacing
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return spacing
+    }
+    
+    override func size(forChildContentContainer container: UIContentContainer, withParentContainerSize parentSize: CGSize) -> CGSize {
+        let collectionViewWidth: CGFloat = collectionView.frame.width
+        let insetSpacing = inset * 2
+        let itemSpacing = spacing * CGFloat((itemsOnRow - 1))
+
+        let width = (collectionViewWidth - insetSpacing - itemSpacing) / CGFloat((itemsOnRow - 1))
+        let height = width * 1.2
+        
+        return CGSize(width: width, height: height)
     }
 }
 

@@ -90,14 +90,13 @@
 		3EF290362186B5B100BF0804 /* VendingMachineApp */ = {
 			isa = PBXGroup;
 			children = (
+				3EF2906D2186B65A00BF0804 /* Model */,
+				3EF290722186B95D00BF0804 /* View */,
+				3EF290712186B95100BF0804 /* Controllers */,
 				3EF290702186B6DE00BF0804 /* Utility */,
 				3EF2906F2186B6C100BF0804 /* Error */,
 				3EF2906E2186B6A800BF0804 /* Extensions */,
-				3EF2906D2186B65A00BF0804 /* Model */,
-				3EF2904C2186B65400BF0804 /* VendingMachine.swift */,
 				3EF290372186B5B100BF0804 /* AppDelegate.swift */,
-				3EF290392186B5B100BF0804 /* ViewController.swift */,
-				3EF2903B2186B5B100BF0804 /* Main.storyboard */,
 				3EF2903E2186B5B200BF0804 /* Assets.xcassets */,
 				3EF290402186B5B200BF0804 /* LaunchScreen.storyboard */,
 				3EF290432186B5B200BF0804 /* Info.plist */,
@@ -141,6 +140,7 @@
 		3EF290702186B6DE00BF0804 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				3EF2904C2186B65400BF0804 /* VendingMachine.swift */,
 				3EF290512186B65400BF0804 /* Menu.swift */,
 				3EF2904F2186B65400BF0804 /* Manager.swift */,
 				3EF290502186B65400BF0804 /* User.swift */,
@@ -148,6 +148,30 @@
 				3EF2904A2186B65300BF0804 /* WareHouse.swift */,
 			);
 			path = Utility;
+			sourceTree = "<group>";
+		};
+		3EF290712186B95100BF0804 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3EF290392186B5B100BF0804 /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		3EF290722186B95D00BF0804 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3EF290732186B9FB00BF0804 /* Storyboards */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3EF290732186B9FB00BF0804 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				3EF2903B2186B5B100BF0804 /* Main.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -396,7 +420,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.dk.VendingMachineApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -414,7 +438,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.dk.VendingMachineApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};

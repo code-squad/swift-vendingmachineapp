@@ -73,6 +73,10 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="VjQ-cj-hhH"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="dva-OP-DpR"/>
+                                </connections>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HQ0-gm-EJf">
                                 <rect key="frame" x="889.5" y="167" width="222.5" height="667"/>
@@ -123,6 +127,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="R8K-gI-TV0" id="6AN-JJ-SHe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

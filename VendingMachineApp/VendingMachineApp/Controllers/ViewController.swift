@@ -14,12 +14,14 @@ protocol VendingMachineHandlerDelegate: class {
 }
 
 class ViewController: UIViewController {
-
+    private var vendingMachine = VendingMachine(Stocks(WareHouse.generateBeverages(3)))
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        let beverages = vendingMachine.bundles.display { "\($0)) \($1) \($2)개" }
+        
+        print(beverages)
     }
-
-
 }
 

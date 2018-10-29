@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="ipad10_5" orientation="portrait">
+    <device id="ipad10_5" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -14,14 +14,119 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="VendingMachineApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="R8K-gI-TV0">
+                                <rect key="frame" x="0.0" y="167" width="889.5" height="667"/>
+                                <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Oaw-hO-r1m">
+                                    <size key="itemSize" width="173" height="218"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="40" minY="0.0" maxX="40" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="BeverageCell" id="vwQ-1k-hnT" customClass="BeverageCell" customModule="VendingMachineApp" customModuleProvider="target">
+                                        <rect key="frame" x="40" y="0.0" width="173" height="218"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="173" height="218"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T5r-jg-maY">
+                                                    <rect key="frame" x="0.0" y="0.0" width="173" height="30"/>
+                                                    <state key="normal" title="추가"/>
+                                                    <connections>
+                                                        <action selector="addButtonDidTapped:" destination="vwQ-1k-hnT" eventType="touchUpInside" id="kyE-wf-iTG"/>
+                                                    </connections>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1개" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M2F-cY-kh7">
+                                                    <rect key="frame" x="0.0" y="193" width="173" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uBL-tq-Ezc">
+                                                    <rect key="frame" x="0.0" y="45" width="173" height="144"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="uBL-tq-Ezc" secondAttribute="height" multiplier="1.2:1" id="Gjt-LX-07l"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                        </view>
+                                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="uBL-tq-Ezc" firstAttribute="leading" secondItem="vwQ-1k-hnT" secondAttribute="leading" id="1fS-ly-4l2"/>
+                                            <constraint firstAttribute="trailing" secondItem="M2F-cY-kh7" secondAttribute="trailing" id="1sR-A1-dDk"/>
+                                            <constraint firstItem="T5r-jg-maY" firstAttribute="top" secondItem="vwQ-1k-hnT" secondAttribute="top" id="2Sk-WY-sFg"/>
+                                            <constraint firstAttribute="bottom" secondItem="M2F-cY-kh7" secondAttribute="bottom" constant="4" id="Cny-60-I9g"/>
+                                            <constraint firstItem="M2F-cY-kh7" firstAttribute="leading" secondItem="vwQ-1k-hnT" secondAttribute="leading" id="OrE-qG-6wQ"/>
+                                            <constraint firstAttribute="trailing" secondItem="T5r-jg-maY" secondAttribute="trailing" id="jOx-sH-9wW"/>
+                                            <constraint firstAttribute="trailing" secondItem="uBL-tq-Ezc" secondAttribute="trailing" id="pkw-lh-8dY"/>
+                                            <constraint firstItem="M2F-cY-kh7" firstAttribute="top" secondItem="uBL-tq-Ezc" secondAttribute="bottom" constant="4" id="q3C-gG-Mzx"/>
+                                            <constraint firstItem="T5r-jg-maY" firstAttribute="leading" secondItem="vwQ-1k-hnT" secondAttribute="leading" id="wFn-yD-aRe"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="countLabel" destination="M2F-cY-kh7" id="Ss3-WT-BqQ"/>
+                                            <outlet property="imageView" destination="uBL-tq-Ezc" id="evB-QC-a5w"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HQ0-gm-EJf">
+                                <rect key="frame" x="889.5" y="167" width="222.5" height="667"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="N3a-ch-iiX">
+                                        <rect key="frame" x="0.0" y="0.0" width="222.5" height="90.5"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="45" translatesAutoresizingMaskIntoConstraints="NO" id="k6Z-MB-jIc">
+                                                <rect key="frame" x="42" y="0.0" width="139" height="30"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iit-VP-lqn">
+                                                        <rect key="frame" x="0.0" y="0.0" width="47" height="30"/>
+                                                        <state key="normal" title="+1000"/>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UPG-6K-dQW">
+                                                        <rect key="frame" x="92" y="0.0" width="47" height="30"/>
+                                                        <state key="normal" title="+5000"/>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="잔액 : 5000원" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xsU-1h-Bn3">
+                                                <rect key="frame" x="62" y="70" width="99" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="N3a-ch-iiX" secondAttribute="trailing" id="1mY-L9-LGV"/>
+                                    <constraint firstItem="N3a-ch-iiX" firstAttribute="leading" secondItem="HQ0-gm-EJf" secondAttribute="leading" id="Dv6-H3-hqr"/>
+                                    <constraint firstItem="N3a-ch-iiX" firstAttribute="top" secondItem="HQ0-gm-EJf" secondAttribute="top" id="Pgd-Px-wpy"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="HQ0-gm-EJf" firstAttribute="height" secondItem="R8K-gI-TV0" secondAttribute="height" id="2fW-kw-cuz"/>
+                            <constraint firstItem="HQ0-gm-EJf" firstAttribute="leading" secondItem="R8K-gI-TV0" secondAttribute="trailing" id="3LB-Gk-8RR"/>
+                            <constraint firstItem="HQ0-gm-EJf" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="GBc-8L-6RH"/>
+                            <constraint firstItem="R8K-gI-TV0" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.8" id="H75-2f-JPs"/>
+                            <constraint firstItem="R8K-gI-TV0" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="SG8-oj-7RI"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="HQ0-gm-EJf" secondAttribute="bottom" id="TFL-dR-prX"/>
+                            <constraint firstItem="R8K-gI-TV0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="hOa-MW-p6a"/>
+                            <constraint firstItem="R8K-gI-TV0" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.8" id="iFw-fe-dO1"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="138.66906474820144" y="104.31654676258994"/>
         </scene>
     </scenes>
 </document>

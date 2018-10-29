@@ -18,6 +18,14 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(handleBeverageAdded), name: VendingMachineNotification.didAdd.name, object: nil)
+    }
+    
+    @objc func handleBeverageAdded(_ notification: Notification) {
+        guard let className = notification.object as? String else { return }
+        let beverage = WareHouse.generateBeverage(by: className)
+        vendingMachine.add(beverage)
+        collectionView.reloadData()
     }
 }
 

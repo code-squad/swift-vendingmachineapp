@@ -9,26 +9,42 @@
 import UIKit
 
 class BeverageCell: UICollectionViewCell {
+    //MARK: Properties
+    private var bundle: Bundle?
+    
+    //MARK: Outlets
+    @IBOutlet weak var countLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView! {
         didSet {
-            imageView.layer.cornerRadius = imageView.frame.height * 0.1
-            imageView.layer.masksToBounds = true
+            setImageViewRound()
         }
     }
-    @IBOutlet weak var countLabel: UILabel!
-    private var bundle: Bundle!
     
+    //MARK: Life Cycle
     override func awakeFromNib() {
         super.awakeFromNib()
     }
     
-    func setup(bundle: Bundle) {
-        self.bundle = bundle
-        self.imageView.image = UIImage(named: bundle.beverage.className)
-        self.countLabel.text = "\(bundle.count)개"
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        setup()
     }
     
+    //MARK: Setup
+    func setup(bundle: Bundle? = nil ) {
+        self.bundle = bundle
+        self.imageView.image = UIImage(named: bundle?.beverage.className ?? "")
+        self.countLabel.text = "\(bundle?.count ?? 0)개"
+    }
+    
+    private func setImageViewRound() {
+        imageView.layer.cornerRadius = imageView.frame.height * 0.1
+        imageView.layer.masksToBounds = true
+    }
+    
+    //MARK: Actions
     @IBAction func addButtonDidTapped(_ sender: Any) {
+        guard let bundle = bundle else { return }
         NotificationCenter.default.post(name: VendingMachineNotification.didAdd.name, object: bundle.beverage.className)
     }
 }

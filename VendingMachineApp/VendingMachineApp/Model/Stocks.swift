@@ -11,7 +11,7 @@ import Foundation
 class Stocks {
     private var list: [Beverage]
     var bundles: Bundles {
-        let bundles = Dictionary(grouping: list, by: { $0.identifier }).values.map { $0 }
+        let bundles = Dictionary(grouping: list, by: { $0.className }).values.map { $0 }
         return Bundles(bundles.map {Bundle(list: $0)})
     }
     

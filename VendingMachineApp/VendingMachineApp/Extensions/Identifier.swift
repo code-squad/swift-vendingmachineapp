@@ -9,7 +9,11 @@
 import Foundation
 
 extension NSObject {
-    var identifier: String {
+    var className: String {
         return String(describing: type(of: self))
+    }
+    
+    static var reusableIdentifier: String {
+        return String(describing: self)
     }
 }

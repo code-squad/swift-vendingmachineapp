@@ -25,6 +25,11 @@ enum BeverageType: String, CaseIterable, CustomStringConvertible {
             return "바닐라아포가토"
         }
     }
+    
+    var className: String {
+        return self.beverage.className
+    }
+    
     var beverage: Beverage {
         let date = Date(timeIntervalSinceNow: Date.convert(weeks: -Int.random(in: 1...3)))
         switch self {
@@ -61,6 +66,9 @@ class WareHouse {
         return items
     }
     
+    static func generateBeverage(by className: String) -> Beverage {
+        return BeverageType.allCases.filter { $0.className == className }.first!.beverage
+    }
     static func generateBeverages(_ count: Int) -> [Beverage] {
         var beverages: [Beverage] = []
         for _ in 0..<count {

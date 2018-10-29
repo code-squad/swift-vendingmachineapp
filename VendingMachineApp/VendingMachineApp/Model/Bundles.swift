@@ -10,6 +10,11 @@ import Foundation
 
 class Bundles {
     private var bundles: [Bundle]
+    
+    subscript(index: Int) -> Bundle {
+        return bundles[index]
+    }
+    
     var count: Int {
         return bundles.count
     }

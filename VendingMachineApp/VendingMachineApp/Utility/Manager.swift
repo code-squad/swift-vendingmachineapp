@@ -34,21 +34,6 @@ extension Manager: VendingMachineHandlerDelegate {
     typealias Menu = ManagerMenu
     
     func handle(_ menu: ManagerMenu, value: Int = 0) throws -> Comment? {
-        switch menu {
-        case .add:
-            return nil
-//            print(WareHouse.items, terminator: "")
-//            let (type, count) = try InputView.read(type: BeverageType.self)
-//            addStock(beverage: type.beverage, count: count)
-//            return .add(type.beverage, count)
-        case .remove:
-            return nil
-//            OutputView.display(with: Comment.list(bundles, hasPrice: true))
-//            let index: Int = try InputView.read()
-//            let beverage = try removeStock(at: index)
-//            return .remove(beverage)
-        case .exit:
-            return nil
-        }
+        return nil
     }
 }

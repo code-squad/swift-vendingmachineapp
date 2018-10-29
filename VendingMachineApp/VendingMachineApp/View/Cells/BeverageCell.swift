@@ -9,13 +9,25 @@
 import UIKit
 
 class BeverageCell: UICollectionViewCell {
-    @IBOutlet weak var imageView: UIImageView!
-    
+    @IBOutlet weak var imageView: UIImageView! {
+        didSet {
+            imageView.layer.cornerRadius = imageView.frame.height * 0.1
+            imageView.layer.masksToBounds = true
+        }
+    }
     @IBOutlet weak var countLabel: UILabel!
+    private var bundle: Bundle!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        
     }
+    
+    func setup(bundle: Bundle) {
+        self.bundle = bundle
+        self.imageView.image = UIImage(named: bundle.beverage.className)
+        self.countLabel.text = "\(bundle.count)개"
+    }
+    
     @IBAction func addButtonDidTapped(_ sender: Any) {
     }
 }

@@ -55,6 +55,7 @@ class ViewController: UIViewController {
     }
 }
 
+//MARK:- UICollectionViewDataSource
 extension ViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BeverageCell.reusableIdentifier, for: indexPath) as? BeverageCell else {
@@ -71,6 +72,7 @@ extension ViewController: UICollectionViewDataSource {
     }
 }
 
+//MARK:- UICollectionViewDelegateFlowLayout
 extension ViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: inset, bottom: 0, right: inset)
@@ -84,12 +86,13 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
         return spacing
     }
     
-    override func size(forChildContentContainer container: UIContentContainer, withParentContainerSize parentSize: CGSize) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
         let collectionViewWidth: CGFloat = collectionView.frame.width
         let insetSpacing = inset * 2
-        let itemSpacing = spacing * CGFloat((itemsOnRow - 1))
-
-        let width = (collectionViewWidth - insetSpacing - itemSpacing) / CGFloat((itemsOnRow - 1))
+        let itemSpacing = spacing * CGFloat(itemsOnRow)
+        
+        let width = (collectionViewWidth - insetSpacing - itemSpacing) / CGFloat(itemsOnRow)
         let height = width * 1.2
         
         return CGSize(width: width, height: height)

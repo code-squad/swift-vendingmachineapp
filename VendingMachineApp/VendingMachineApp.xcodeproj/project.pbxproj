@@ -31,6 +31,7 @@
 		3EF2906B2186B65500BF0804 /* Stocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF290592186B65500BF0804 /* Stocks.swift */; };
 		3EF2906C2186B65500BF0804 /* Bundles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF2905A2186B65500BF0804 /* Bundles.swift */; };
 		3EF290782186C91100BF0804 /* BeverageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF290772186C91100BF0804 /* BeverageCell.swift */; };
+		3EF2907C2186FE9200BF0804 /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF2907B2186FE9200BF0804 /* NotificationName.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 		3EF290592186B65500BF0804 /* Stocks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stocks.swift; sourceTree = "<group>"; };
 		3EF2905A2186B65500BF0804 /* Bundles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bundles.swift; sourceTree = "<group>"; };
 		3EF290772186C91100BF0804 /* BeverageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageCell.swift; sourceTree = "<group>"; };
+		3EF2907B2186FE9200BF0804 /* NotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationName.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +128,7 @@
 			children = (
 				3EF290492186B65300BF0804 /* DateExtension.swift */,
 				3EF2904E2186B65400BF0804 /* Identifier.swift */,
+				3EF2907B2186FE9200BF0804 /* NotificationName.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -257,6 +260,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3EF290782186C91100BF0804 /* BeverageCell.swift in Sources */,
+				3EF2907C2186FE9200BF0804 /* NotificationName.swift in Sources */,
 				3EF2903A2186B5B100BF0804 /* ViewController.swift in Sources */,
 				3EF2905F2186B65500BF0804 /* InputError.swift in Sources */,
 				3EF2905C2186B65500BF0804 /* WareHouse.swift in Sources */,

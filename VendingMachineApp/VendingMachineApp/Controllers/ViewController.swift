@@ -8,11 +8,6 @@
 
 import UIKit
 
-protocol VendingMachineHandlerDelegate: class {
-    associatedtype Menu
-    func handle(_ menu: Menu, value: Int) throws -> Comment?
-}
-
 class ViewController: UIViewController {
     private var vendingMachine = VendingMachine(Stocks(WareHouse.generateBeverages(3)))
     

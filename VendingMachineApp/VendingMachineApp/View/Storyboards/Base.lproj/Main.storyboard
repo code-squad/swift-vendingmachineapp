@@ -90,10 +90,16 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iit-VP-lqn">
                                                         <rect key="frame" x="0.0" y="0.0" width="47" height="30"/>
                                                         <state key="normal" title="+1000"/>
+                                                        <connections>
+                                                            <action selector="oneThousandDidTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MBw-Jz-6CY"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UPG-6K-dQW">
                                                         <rect key="frame" x="92" y="0.0" width="47" height="30"/>
                                                         <state key="normal" title="+5000"/>
+                                                        <connections>
+                                                            <action selector="fiveThousandDidTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="d6q-rP-eU0"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -128,6 +134,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="accountLabel" destination="xsU-1h-Bn3" id="xPA-p7-zHG"/>
                         <outlet property="collectionView" destination="R8K-gI-TV0" id="6AN-JJ-SHe"/>
                     </connections>
                 </viewController>

@@ -29,5 +29,6 @@ class BeverageCell: UICollectionViewCell {
     }
     
     @IBAction func addButtonDidTapped(_ sender: Any) {
+        NotificationCenter.default.post(name: VendingMachineNotification.didAdd.name, object: bundle.beverage.className)
     }
 }

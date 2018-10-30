@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3E4F5FAB2187EFB20020B08E /* ReusableIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4F5FAA2187EFB20020B08E /* ReusableIdentifier.swift */; };
+		3E4F5FAD21880B380020B08E /* DepositType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4F5FAC21880B380020B08E /* DepositType.swift */; };
 		3EF290382186B5B100BF0804 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF290372186B5B100BF0804 /* AppDelegate.swift */; };
 		3EF2903A2186B5B100BF0804 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF290392186B5B100BF0804 /* ViewController.swift */; };
 		3EF2903D2186B5B100BF0804 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EF2903B2186B5B100BF0804 /* Main.storyboard */; };
@@ -36,6 +37,7 @@
 
 /* Begin PBXFileReference section */
 		3E4F5FAA2187EFB20020B08E /* ReusableIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableIdentifier.swift; sourceTree = "<group>"; };
+		3E4F5FAC21880B380020B08E /* DepositType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepositType.swift; sourceTree = "<group>"; };
 		3EF290342186B5B100BF0804 /* VendingMachineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendingMachineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EF290372186B5B100BF0804 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3EF290392186B5B100BF0804 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 				3EF290502186B65400BF0804 /* User.swift */,
 				3EF290532186B65400BF0804 /* Comment.swift */,
 				3EF2904A2186B65300BF0804 /* WareHouse.swift */,
+				3E4F5FAC21880B380020B08E /* DepositType.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 				3EF290632186B65500BF0804 /* Menu.swift in Sources */,
 				3EF2906C2186B65500BF0804 /* BeverageBundles.swift in Sources */,
 				3EF290662186B65500BF0804 /* Beverage.swift in Sources */,
+				3E4F5FAD21880B380020B08E /* DepositType.swift in Sources */,
 				3EF290642186B65500BF0804 /* Alcohol.swift in Sources */,
 				3EF2905D2186B65500BF0804 /* Coffee.swift in Sources */,
 				3EF290652186B65500BF0804 /* Comment.swift in Sources */,

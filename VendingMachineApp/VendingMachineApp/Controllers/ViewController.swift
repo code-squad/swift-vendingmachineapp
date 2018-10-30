@@ -32,8 +32,8 @@ class ViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(handleBeverageAdded), name: VendingMachineNotification.didAdd.name, object: nil)
     }
     
-    private func setupVendingMachineAccount(with money: Int? = nil) {
-        let money: Int = money ?? 0
+    private func setupVendingMachineAccount(with money: DepositType.Thousand? = nil) {
+        let money: Int = money?.value ?? 0
         vendingMachine.deposit(money)
         accountLabel.text = "금액 \(vendingMachine.remain)원"
     }
@@ -47,11 +47,11 @@ class ViewController: UIViewController {
     }
     
     @IBAction func oneThousandDidTapped(_ sender: Any) {
-        setupVendingMachineAccount(with: 1000)
+        setupVendingMachineAccount(with: .one)
         
     }
     @IBAction func fiveThousandDidTapped(_ sender: Any) {
-        setupVendingMachineAccount(with: 5000)
+        setupVendingMachineAccount(with: .five)
     }
 }
 

@@ -63,9 +63,6 @@ extension ViewController: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return UICollectionViewCell() }
-        
-        
         let bundle = appDelegate.vendingMachine.bundles[indexPath.item]
         
         cell.setup { (imageView, label) in

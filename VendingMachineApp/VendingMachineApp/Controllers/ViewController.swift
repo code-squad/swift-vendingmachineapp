@@ -58,7 +58,7 @@ class ViewController: UIViewController {
 //MARK:- UICollectionViewDataSource
 extension ViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BeverageCell.reusableIdentifier, for: indexPath) as? BeverageCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BeverageCell.reuseIdentifier, for: indexPath) as? BeverageCell else {
             return UICollectionViewCell()
         }
         

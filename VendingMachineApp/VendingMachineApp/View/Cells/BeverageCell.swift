@@ -9,9 +9,6 @@
 import UIKit
 
 class BeverageCell: UICollectionViewCell {
-    //MARK: Properties
-    private var bundle: BeverageBundle?
-    
     //MARK: Outlets
     @IBOutlet weak var countLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView! {
@@ -20,6 +17,8 @@ class BeverageCell: UICollectionViewCell {
         }
     }
     
+    var addButtonDidTapped: (() -> ())?
+    
     //MARK: Life Cycle
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,14 +26,13 @@ class BeverageCell: UICollectionViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        setup()
+        countLabel.text = nil
+        imageView.image = nil
     }
     
     //MARK: Setup
-    func setup(bundle: BeverageBundle? = nil ) {
-        self.bundle = bundle
-        self.imageView.image = UIImage(named: bundle?.beverage.className ?? "")
-        self.countLabel.text = "\(bundle?.count ?? 0)개"
+    func setup(_ handler: (UIImageView, UILabel) -> ()) {
+        handler(self.imageView, self.countLabel)
     }
     
     private func setImageViewRound() {
@@ -44,7 +42,6 @@ class BeverageCell: UICollectionViewCell {
     
     //MARK: Actions
     @IBAction func addButtonDidTapped(_ sender: Any) {
-        guard let bundle = bundle else { return }
-        NotificationCenter.default.post(name: VendingMachineNotification.didAdd.name, object: bundle.beverage.className)
+        addButtonDidTapped?()
     }
 }

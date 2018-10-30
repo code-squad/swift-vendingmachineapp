@@ -62,7 +62,16 @@ extension ViewController: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         
-        cell.setup(bundle: vendingMachine.bundles[indexPath.item])
+        let bundle = vendingMachine.bundles[indexPath.item]
+        
+        cell.setup { (imageView, label) in
+            imageView.image = UIImage(named: bundle.beverage.className)
+            label.text = "\(bundle.count)개"
+        }
+        
+        cell.addButtonDidTapped = {
+            NotificationCenter.default.post(name: VendingMachineNotification.didAdd.name, object: bundle.beverage.className)
+        }
         
         return cell
     }

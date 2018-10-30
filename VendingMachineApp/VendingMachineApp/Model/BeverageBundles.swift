@@ -8,10 +8,10 @@
 
 import Foundation
 
-class Bundles {
-    private var bundles: [Bundle]
+class BeverageBundles {
+    private var bundles: [BeverageBundle]
     
-    subscript(index: Int) -> Bundle {
+    subscript(index: Int) -> BeverageBundle {
         return bundles[index]
     }
     
@@ -19,7 +19,7 @@ class Bundles {
         return bundles.count
     }
     
-    init(_ bundles: [Bundle]) {
+    init(_ bundles: [BeverageBundle]) {
         self.bundles = bundles
     }
     

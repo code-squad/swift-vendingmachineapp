@@ -10,7 +10,7 @@ import Foundation
 
 class User {
     private weak var machine: VendingMachineUserDelegate!
-    var bundles: Bundles {
+    var bundles: BeverageBundles {
         return machine.bundles
     }
     var remain: Int {

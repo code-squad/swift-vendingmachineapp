@@ -10,12 +10,12 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    var vendingMachine: VendingMachine!
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        load()
         return true
     }
 
@@ -25,8 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
-        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        save()
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -40,7 +39,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+    
+    private func save() {
+        guard let vendingMachine = vendingMachine else { return }
+        guard let data = try? NSKeyedArchiver.archivedData(withRootObject: vendingMachine, requiringSecureCoding: false) else { return }
+        UserDefaults.standard.set(data, forKey: "vendingMachine")
+    }
+    
+    private func load() {
+        guard let data = UserDefaults.standard.object(forKey: "vendingMachine") as? Data else {
+            vendingMachine = VendingMachine(Stocks(WareHouse.generateBeverages(10)))
+            return
+        }
+        guard let vendingMachine = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? VendingMachine else {
+            self.vendingMachine = VendingMachine(Stocks(WareHouse.generateBeverages(10)))
+            return
+        }
+        guard let machine = vendingMachine else {
+            self.vendingMachine = VendingMachine(Stocks(WareHouse.generateBeverages(10)))
+            return
+        }
 
-
+        self.vendingMachine = machine
+    }
 }
 

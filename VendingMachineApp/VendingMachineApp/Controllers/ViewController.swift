@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-    private var vendingMachine = VendingMachine(Stocks(WareHouse.generateBeverages(10)))
+    private let appDelegate = UIApplication.shared.delegate as! AppDelegate
     private let inset: CGFloat = 20
     private let spacing: CGFloat = 20
     private let itemsOnRow = 4
@@ -33,16 +33,17 @@ class ViewController: UIViewController {
     }
     
     private func setupVendingMachineAccount(with money: DepositType.Thousand? = nil) {
-        let money: Int = money?.value ?? 0
-        vendingMachine.deposit(money)
-        accountLabel.text = "금액 \(vendingMachine.remain)원"
+        if let money = money {
+            appDelegate.vendingMachine.deposit(money.value)
+        }
+        accountLabel.text = "금액 \(appDelegate.vendingMachine.remain)원"
     }
     
     //MARK: Actions
     @objc func handleBeverageAdded(_ notification: Notification) {
         guard let className = notification.object as? String else { return }
         let beverage = WareHouse.generateBeverage(by: className)
-        vendingMachine.add(beverage)
+        appDelegate.vendingMachine.add(beverage)
         collectionView.reloadData()
     }
     
@@ -62,7 +63,10 @@ extension ViewController: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         
-        let bundle = vendingMachine.bundles[indexPath.item]
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return UICollectionViewCell() }
+        
+        
+        let bundle = appDelegate.vendingMachine.bundles[indexPath.item]
         
         cell.setup { (imageView, label) in
             imageView.image = UIImage(named: bundle.beverage.className)
@@ -77,7 +81,9 @@ extension ViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return vendingMachine.bundles.count
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return 0 }
+        
+        return appDelegate.vendingMachine.bundles.count
     }
 }
 

@@ -10,9 +10,9 @@ import Foundation
 
 class Stocks {
     private var list: [Beverage]
-    var bundles: Bundles {
+    var bundles: BeverageBundles {
         let bundles = Dictionary(grouping: list, by: { $0.className }).values.map { $0 }
-        return Bundles(bundles.map {Bundle(list: $0)})
+        return BeverageBundles(bundles.map {BeverageBundle(list: $0)})
     }
     
     var expired: [Beverage] {

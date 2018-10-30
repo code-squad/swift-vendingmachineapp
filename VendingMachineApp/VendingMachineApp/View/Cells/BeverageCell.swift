@@ -10,7 +10,7 @@ import UIKit
 
 class BeverageCell: UICollectionViewCell {
     //MARK: Properties
-    private var bundle: Bundle?
+    private var bundle: BeverageBundle?
     
     //MARK: Outlets
     @IBOutlet weak var countLabel: UILabel!
@@ -31,7 +31,7 @@ class BeverageCell: UICollectionViewCell {
     }
     
     //MARK: Setup
-    func setup(bundle: Bundle? = nil ) {
+    func setup(bundle: BeverageBundle? = nil ) {
         self.bundle = bundle
         self.imageView.image = UIImage(named: bundle?.beverage.className ?? "")
         self.countLabel.text = "\(bundle?.count ?? 0)개"

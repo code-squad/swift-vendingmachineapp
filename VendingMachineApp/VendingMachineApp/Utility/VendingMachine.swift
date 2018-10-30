@@ -9,7 +9,7 @@
 import Foundation
 
 protocol VendingMachineDelegate: class {
-    var bundles: Bundles { get }
+    var bundles: BeverageBundles { get }
 }
 
 protocol VendingMachineManagerDelegate: VendingMachineDelegate {
@@ -45,7 +45,7 @@ class VendingMachine {
 }
 
 extension VendingMachine: VendingMachineDelegate {
-    var bundles: Bundles {
+    var bundles: BeverageBundles {
         return stocks.bundles
     }
 }

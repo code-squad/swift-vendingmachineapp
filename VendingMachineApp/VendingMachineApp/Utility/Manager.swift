@@ -10,7 +10,7 @@ import Foundation
 
 class Manager {
     private weak var machine: VendingMachineManagerDelegate!
-    var bundles: Bundles {
+    var bundles: BeverageBundles {
         return machine.bundles
     }
     

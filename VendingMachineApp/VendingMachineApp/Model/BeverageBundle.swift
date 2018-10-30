@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Bundle {
+class BeverageBundle {
     private var list: [Beverage]
     
     var beverage: Beverage {

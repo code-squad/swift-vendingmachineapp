@@ -35,7 +35,7 @@ enum Comment: CustomStringConvertible {
     }
     case buy(beverage: Beverage, price: Int)
     case introdution(account: Int)
-    case list(Bundles, hasPrice: Bool)
+    case list(BeverageBundles, hasPrice: Bool)
     case history(history: History)
     case add(Beverage, Int)
     case remove(Beverage)

@@ -14,6 +14,16 @@ class Alcohol: Beverage {
         return alcohol == 0
     }
     
+    override func encode(with aCoder: NSCoder) {
+        super.encode(with: aCoder)
+        aCoder.encode(alcohol, forKey: "alcohol")
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        alcohol = aDecoder.decodeDouble(forKey: "alcohol")
+        super.init(coder: aDecoder)
+    }
+    
     init(alcohol: Double, brand: String, volume: Int, price: Int, name: String, date: Date) {
         self.alcohol = alcohol
         super.init(brand: brand, volume: volume, price: price, name: name, date: date)
@@ -27,6 +37,16 @@ class Beer: Alcohol {
     }
     var bitterness: Double {
         return malt * 100 / 1.23 // 임의식
+    }
+    
+    override func encode(with aCoder: NSCoder) {
+        super.encode(with: aCoder)
+        aCoder.encode(malt, forKey: "malt")
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        malt = aDecoder.decodeDouble(forKey: "malt")
+        super.init(coder: aDecoder)
     }
     
     init(malt: Double, alcohol: Double, brand: String, volume: Int, price: Int, name: String, date: Date) {
@@ -43,11 +63,22 @@ class RiceWine: Alcohol {
     var isSeoulRiceWine: Bool {
         return area == .seoul
     }
-    enum Area {
+    enum Area: String {
         case seoul
         case busan
         case jeju
         case gwangju
+    }
+    
+    override func encode(with aCoder: NSCoder) {
+        super.encode(with: aCoder)
+        aCoder.encode(area.rawValue, forKey: "area")
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        let rawValue = aDecoder.decodeObject(forKey: "area") as! String
+        area = Area(rawValue: rawValue)!
+        super.init(coder: aDecoder)
     }
     
     init(area: Area, alcohol: Double, brand: String, volume: Int, price: Int, name: String, date: Date) {

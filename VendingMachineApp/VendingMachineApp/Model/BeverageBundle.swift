@@ -8,7 +8,19 @@
 
 import Foundation
 
-class BeverageBundle {
+class BeverageBundle: NSObject, NSSecureCoding {
+    static var supportsSecureCoding: Bool {
+        return true
+    }
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(list, forKey: "list")
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        list = aDecoder.decodeObject(forKey: "list") as! [Beverage]
+    }
+    
     private var list: [Beverage]
     
     var beverage: Beverage {

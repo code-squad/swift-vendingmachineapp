@@ -8,7 +8,19 @@
 
 import Foundation
 
-class Stocks {
+class Stocks: NSObject, NSSecureCoding {
+    static var supportsSecureCoding: Bool {
+        return true
+    }
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(list, forKey: "list")
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        list = aDecoder.decodeObject(forKey: "list") as! [Beverage]
+    }
+    
     private var list: [Beverage]
     var bundles: BeverageBundles {
         let bundles = Dictionary(grouping: list, by: { $0.className }).values.map { $0 }

@@ -8,7 +8,28 @@
 
 import Foundation
 
-class Beverage: NSObject {
+class Beverage: NSObject, NSSecureCoding {
+    static var supportsSecureCoding: Bool {
+        return true
+    }
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(brand, forKey: "brand")
+        aCoder.encode(volume, forKey: "volume")
+        aCoder.encode(price, forKey: "price")
+        aCoder.encode(name, forKey: "name")
+        aCoder.encode(date, forKey: "date")
+        
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        self.brand = aDecoder.decodeObject(forKey: "brand") as! String
+        self.volume = aDecoder.decodeInteger(forKey: "volume")
+        self.price = aDecoder.decodeInteger(forKey: "price")
+        self.name = aDecoder.decodeObject(forKey: "name") as! String
+        self.date = aDecoder.decodeObject(forKey: "date") as! Date
+    }
+    
     private var brand: String
     private var volume: Int
     private var price: Int

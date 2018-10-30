@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E4F5FAB2187EFB20020B08E /* ReusableIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4F5FAA2187EFB20020B08E /* ReusableIdentifier.swift */; };
 		3EF290382186B5B100BF0804 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF290372186B5B100BF0804 /* AppDelegate.swift */; };
 		3EF2903A2186B5B100BF0804 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF290392186B5B100BF0804 /* ViewController.swift */; };
 		3EF2903D2186B5B100BF0804 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EF2903B2186B5B100BF0804 /* Main.storyboard */; };
@@ -17,7 +18,6 @@
 		3EF2905D2186B65500BF0804 /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF2904B2186B65300BF0804 /* Coffee.swift */; };
 		3EF2905E2186B65500BF0804 /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF2904C2186B65400BF0804 /* VendingMachine.swift */; };
 		3EF2905F2186B65500BF0804 /* InputError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF2904D2186B65400BF0804 /* InputError.swift */; };
-		3EF290602186B65500BF0804 /* Identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF2904E2186B65400BF0804 /* Identifier.swift */; };
 		3EF290612186B65500BF0804 /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF2904F2186B65400BF0804 /* Manager.swift */; };
 		3EF290622186B65500BF0804 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF290502186B65400BF0804 /* User.swift */; };
 		3EF290632186B65500BF0804 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF290512186B65400BF0804 /* Menu.swift */; };
@@ -35,6 +35,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3E4F5FAA2187EFB20020B08E /* ReusableIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableIdentifier.swift; sourceTree = "<group>"; };
 		3EF290342186B5B100BF0804 /* VendingMachineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendingMachineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EF290372186B5B100BF0804 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3EF290392186B5B100BF0804 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,7 +48,6 @@
 		3EF2904B2186B65300BF0804 /* Coffee.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
 		3EF2904C2186B65400BF0804 /* VendingMachine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VendingMachine.swift; sourceTree = "<group>"; };
 		3EF2904D2186B65400BF0804 /* InputError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputError.swift; sourceTree = "<group>"; };
-		3EF2904E2186B65400BF0804 /* Identifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Identifier.swift; sourceTree = "<group>"; };
 		3EF2904F2186B65400BF0804 /* Manager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Manager.swift; sourceTree = "<group>"; };
 		3EF290502186B65400BF0804 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		3EF290512186B65400BF0804 /* Menu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
@@ -127,8 +127,8 @@
 			isa = PBXGroup;
 			children = (
 				3EF290492186B65300BF0804 /* DateExtension.swift */,
-				3EF2904E2186B65400BF0804 /* Identifier.swift */,
 				3EF2907B2186FE9200BF0804 /* NotificationName.swift */,
+				3E4F5FAA2187EFB20020B08E /* ReusableIdentifier.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -276,10 +276,10 @@
 				3EF2905D2186B65500BF0804 /* Coffee.swift in Sources */,
 				3EF290652186B65500BF0804 /* Comment.swift in Sources */,
 				3EF290682186B65500BF0804 /* History.swift in Sources */,
-				3EF290602186B65500BF0804 /* Identifier.swift in Sources */,
 				3EF290612186B65500BF0804 /* Manager.swift in Sources */,
 				3EF290622186B65500BF0804 /* User.swift in Sources */,
 				3EF290672186B65500BF0804 /* Bundle.swift in Sources */,
+				3E4F5FAB2187EFB20020B08E /* ReusableIdentifier.swift in Sources */,
 				3EF2905E2186B65500BF0804 /* VendingMachine.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

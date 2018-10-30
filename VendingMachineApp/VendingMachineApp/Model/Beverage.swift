@@ -17,6 +17,9 @@ class Beverage: NSObject {
     var expire: Date {
         return date
     }
+    var className: String {
+        return String(describing: type(of: self))
+    }
     
     override var description: String {
         return "\(self.className) - \(brand), \(volume)ml, \(price)원, \(name), \(date.readable)"

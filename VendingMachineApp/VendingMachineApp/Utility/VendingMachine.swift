@@ -29,7 +29,23 @@ protocol VendingMachineHandlerDelegate: class {
     func handle(_ menu: Menu, value: Int) throws -> Comment?
 }
 
-class VendingMachine {
+class VendingMachine: NSObject, NSSecureCoding {
+    static var supportsSecureCoding: Bool {
+        return true
+    }
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(stocks, forKey: "stocks")
+        aCoder.encode(account, forKey: "account")
+        aCoder.encode(history, forKey: "history")
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        stocks = aDecoder.decodeObject(forKey: "stocks") as! Stocks
+        account = aDecoder.decodeInteger(forKey: "account")
+        history = aDecoder.decodeObject(forKey: "history") as! [History]
+    }
+    
     private var stocks: Stocks
     private var account: Int = 0
     private var history: [History] = []

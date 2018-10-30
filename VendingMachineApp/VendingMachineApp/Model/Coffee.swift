@@ -14,6 +14,17 @@ class Coffee: Beverage {
         return caffeine < 0.1
     }
     
+    override func encode(with aCoder: NSCoder) {
+        super.encode(with: aCoder)
+        aCoder.encode(caffeine, forKey: "caffeine")
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        caffeine = aDecoder.decodeDouble(forKey: "caffeine")
+        super.init(coder: aDecoder)
+    }
+    
+    
     init(caffeine: Double, brand: String, volume: Int, price: Int, name: String, date: Date) {
         self.caffeine = caffeine
         super.init(brand: brand, volume: volume, price: price, name: name, date: date)
@@ -30,10 +41,23 @@ class Latte: Coffee {
         return self.art != .none
     }
     
-    enum Art {
+    enum Art: String {
         case flower
         case heart
         case none
+    }
+    
+    override func encode(with aCoder: NSCoder) {
+        super.encode(with: aCoder)
+        aCoder.encode(milk, forKey: "milk")
+        aCoder.encode(art.rawValue, forKey: "art")
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        milk = aDecoder.decodeDouble(forKey: "milk")
+        let rawValue = aDecoder.decodeObject(forKey: "art") as! String
+        art = Art(rawValue: rawValue)!
+        super.init(coder: aDecoder)
     }
     
     init(milk: Double, art: Art, caffeine: Double, brand: String, volume: Int, price: Int, name: String, date: Date) {
@@ -49,10 +73,21 @@ class Affogato: Coffee {
         return Date(timeInterval: Date.convert(weeks: 2), since: super.expire)
     }
     
-    enum Flavor {
+    enum Flavor: String {
         case vanilla
         case chocolate
         case caramel
+    }
+    
+    override func encode(with aCoder: NSCoder) {
+        super.encode(with: aCoder)
+        aCoder.encode(iceCream.rawValue, forKey: "iceCream")
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        let rawValue = aDecoder.decodeObject(forKey: "iceCream") as! String
+        iceCream = Flavor(rawValue: rawValue)!
+        super.init(coder: aDecoder)
     }
     
     init(iceCream: Flavor, caffeine: Double, brand: String, volume: Int, price: Int, name: String, date: Date) {

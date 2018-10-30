@@ -8,26 +8,26 @@
 
 import Foundation
 
-class History: CustomStringConvertible {
-    typealias PurchaseHistory = (beverage: Beverage, date: Date)
-    
-    private var list: [PurchaseHistory] = []
-    var description: String {
-        var result = ""
-        list.forEach {
-            result += "상품 : \($0.beverage) / 구매날짜: \($0.date.readable)\n"
-        }
-        return result
-    }
-    var isEmpty: Bool {
-        return list.isEmpty
+class History: NSObject, NSSecureCoding {
+    static var supportsSecureCoding: Bool {
+        return true
     }
     
-    func hasHistory(of beverage: Beverage) -> Bool {
-        return list.contains(where: {$0.beverage.isEqual(to: beverage)})
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(beverage, forKey: "beverage")
+        aCoder.encode(date, forKey: "date")
     }
     
-    func append(_ history: Beverage) {
-        list.append((history, Date()))
+    required init?(coder aDecoder: NSCoder) {
+        beverage = aDecoder.decodeObject(forKey: "beverage") as! Beverage
+        date = aDecoder.decodeObject(forKey: "date") as! Date
+    }
+    
+    private var beverage: Beverage
+    private var date: Date
+    
+    init(beverage: Beverage, date: Date) {
+        self.beverage = beverage
+        self.date = date
     }
 }

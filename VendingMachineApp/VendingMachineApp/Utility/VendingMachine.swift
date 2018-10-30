@@ -18,7 +18,7 @@ protocol VendingMachineManagerDelegate: VendingMachineDelegate {
 }
 
 protocol VendingMachineUserDelegate: VendingMachineDelegate {
-    var userHistory: History { get }
+    var userHistory: [History] { get }
     var remain: Int { get }
     func deposit(_ money: Int)
     func buy(at index: Int) throws -> (Beverage, Int)
@@ -32,7 +32,7 @@ protocol VendingMachineHandlerDelegate: class {
 class VendingMachine {
     private var stocks: Stocks
     private var account: Int = 0
-    private var history = History()
+    private var history: [History] = []
     
     init(_ stocks: Stocks) {
         self.stocks = stocks
@@ -63,7 +63,7 @@ extension VendingMachine: VendingMachineManagerDelegate {
 }
 
 extension VendingMachine: VendingMachineUserDelegate {
-    var userHistory: History {
+    var userHistory: [History] {
         return history
     }
     var remain: Int {
@@ -77,7 +77,7 @@ extension VendingMachine: VendingMachineUserDelegate {
         let beverage = try bundles.get(at: index)
         let price = try stocks.buy(at: beverage, account)
         account -= price
-        history.append(beverage)
+        history.append(History(beverage: beverage, date: Date()))
         return (beverage, price)
     }
 }

@@ -10,7 +10,7 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    var vendingMachine: VendingMachine!
+    var vendingMachine: VendingMachine?
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             try load()
         }catch {
             vendingMachine = VendingMachine(Stocks(WareHouse.generateBeverages(10)))
-            vendingMachine.set(.failToLoad)
+            vendingMachine?.set(.failToLoad)
         }
         
         return true
@@ -35,7 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             try save()
         }catch {
             vendingMachine = VendingMachine(Stocks(WareHouse.generateBeverages(10)))
-            vendingMachine.set(.failToSave)
+            vendingMachine?.set(.failToSave)
         }
     }
 

@@ -10,7 +10,17 @@
 
 ![vendingmachineapp-step2](/Users/dongkun/Desktop/CodeSquad/swift-vendingmachineapp/images/vendingmachineapp-step2.png)
 
+**3단계 앱 생명주기와 객체 저장**
 
+- 서브클래스의 타입을 유지하기 위해 `NSSecureCoding` 프로토콜과 `NSKeyedArchiver`, `NSKeyedUnArchiver`를  사용하여 데이터 아카이빙
+
+- `UserDefaults`를 이용해 데이터 저장
+- `applicationDidEnterBackground(_:)` 에서 데이터 저장, `application(_:,didFinishLaunchingWithOptions:)`에서 데이터 불러오기
+  - `applicationDidBecomeActive(_:)`는 앱 생명주기상 뷰가 모드 불러와진 후에 동작.
+
+*실행화면*
+
+![vendingmachineapp-step3](/Users/dongkun/Desktop/CodeSquad/swift-vendingmachineapp/images/vendingmachineapp-step3.png)
 
 # 진행 방법
 

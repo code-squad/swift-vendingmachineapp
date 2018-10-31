@@ -31,12 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
-        do {
-            try save()
-        }catch {
-            vendingMachine = VendingMachine(Stocks(WareHouse.generateBeverages(10)))
-            vendingMachine?.set(.failToSave)
-        }
+        try? save()
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {

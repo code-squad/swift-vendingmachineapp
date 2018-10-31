@@ -9,30 +9,28 @@
 import Foundation
 
 class BeverageBundles: NSObject, NSSecureCoding {
+    private var bundles: [BeverageBundle]
+    subscript(index: Int) -> BeverageBundle {
+        return bundles[index]
+    }
+    var count: Int {
+        return bundles.count
+    }
+    
     static var supportsSecureCoding: Bool {
         return true
     }
     
-    func encode(with aCoder: NSCoder) {
-        aCoder.encode(bundles, forKey: "bundles")
+    init(_ bundles: [BeverageBundle]) {
+        self.bundles = bundles
     }
     
     required init?(coder aDecoder: NSCoder) {
         bundles = aDecoder.decodeObject(forKey: "bundles") as! [BeverageBundle]
     }
     
-    private var bundles: [BeverageBundle]
-    
-    subscript(index: Int) -> BeverageBundle {
-        return bundles[index]
-    }
-    
-    var count: Int {
-        return bundles.count
-    }
-    
-    init(_ bundles: [BeverageBundle]) {
-        self.bundles = bundles
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(bundles, forKey: "bundles")
     }
     
     func get(at index: Int) throws -> Beverage {

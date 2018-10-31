@@ -21,7 +21,6 @@
 		3EF2905F2186B65500BF0804 /* InputError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF2904D2186B65400BF0804 /* InputError.swift */; };
 		3EF290612186B65500BF0804 /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF2904F2186B65400BF0804 /* Manager.swift */; };
 		3EF290622186B65500BF0804 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF290502186B65400BF0804 /* User.swift */; };
-		3EF290632186B65500BF0804 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF290512186B65400BF0804 /* Menu.swift */; };
 		3EF290642186B65500BF0804 /* Alcohol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF290522186B65400BF0804 /* Alcohol.swift */; };
 		3EF290652186B65500BF0804 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF290532186B65400BF0804 /* Comment.swift */; };
 		3EF290662186B65500BF0804 /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF290542186B65400BF0804 /* Beverage.swift */; };
@@ -52,7 +51,6 @@
 		3EF2904D2186B65400BF0804 /* InputError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputError.swift; sourceTree = "<group>"; };
 		3EF2904F2186B65400BF0804 /* Manager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Manager.swift; sourceTree = "<group>"; };
 		3EF290502186B65400BF0804 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		3EF290512186B65400BF0804 /* Menu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		3EF290522186B65400BF0804 /* Alcohol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alcohol.swift; sourceTree = "<group>"; };
 		3EF290532186B65400BF0804 /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		3EF290542186B65400BF0804 /* Beverage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Beverage.swift; sourceTree = "<group>"; };
@@ -148,7 +146,6 @@
 			isa = PBXGroup;
 			children = (
 				3EF2904C2186B65400BF0804 /* VendingMachine.swift */,
-				3EF290512186B65400BF0804 /* Menu.swift */,
 				3EF2904F2186B65400BF0804 /* Manager.swift */,
 				3EF290502186B65400BF0804 /* User.swift */,
 				3EF290532186B65400BF0804 /* Comment.swift */,
@@ -272,7 +269,6 @@
 				3EF290692186B65500BF0804 /* Milk.swift in Sources */,
 				3EF290382186B5B100BF0804 /* AppDelegate.swift in Sources */,
 				3EF2906A2186B65500BF0804 /* VendingMachineError.swift in Sources */,
-				3EF290632186B65500BF0804 /* Menu.swift in Sources */,
 				3EF2906C2186B65500BF0804 /* BeverageBundles.swift in Sources */,
 				3EF290662186B65500BF0804 /* Beverage.swift in Sources */,
 				3E4F5FAD21880B380020B08E /* DepositType.swift in Sources */,

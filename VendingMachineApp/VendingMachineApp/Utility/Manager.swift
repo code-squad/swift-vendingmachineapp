@@ -29,11 +29,3 @@ class Manager {
         return beverage
     }
 }
-
-extension Manager: VendingMachineHandlerDelegate {
-    typealias Menu = ManagerMenu
-    
-    func handle(_ menu: ManagerMenu, value: Int = 0) throws -> Comment? {
-        return nil
-    }
-}

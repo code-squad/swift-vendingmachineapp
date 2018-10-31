@@ -31,26 +31,3 @@ class User {
         machine.deposit(money)
     }
 }
-
-extension User: VendingMachineHandlerDelegate {
-    typealias Menu = UserMenu
-    
-    func handle(_ menu: UserMenu, value: Int) throws -> Comment? {
-        switch menu {
-        case .deposit:
-            // OutputView 처리
-            try deposit(value)
-            return .introdution(account: value)
-        case .purchase:
-            // OutputView 처리
-            let (beverage, price) = try buy(at: value)
-            return .buy(beverage: beverage, price: price)
-        case .history:
-            let history = machine.userHistory
-            return .history(history: history)
-        case .exit:
-            return nil
-        }
-    }
-    
-}

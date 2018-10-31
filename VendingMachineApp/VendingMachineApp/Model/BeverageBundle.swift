@@ -9,19 +9,10 @@
 import Foundation
 
 class BeverageBundle: NSObject, NSSecureCoding {
+    private var list: [Beverage]
     static var supportsSecureCoding: Bool {
         return true
     }
-    
-    func encode(with aCoder: NSCoder) {
-        aCoder.encode(list, forKey: "list")
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        list = aDecoder.decodeObject(forKey: "list") as! [Beverage]
-    }
-    
-    private var list: [Beverage]
     
     var beverage: Beverage {
         return list.first!
@@ -33,6 +24,14 @@ class BeverageBundle: NSObject, NSSecureCoding {
     
     init(list: [Beverage]) {
         self.list = list
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        list = aDecoder.decodeObject(forKey: "list") as! [Beverage]
+    }
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(list, forKey: "list")
     }
     
     func contains(_ beverage: Beverage) -> Bool {

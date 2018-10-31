@@ -9,13 +9,15 @@
 import Foundation
 
 class History: NSObject, NSSecureCoding {
+    private var beverage: Beverage
+    private var date: Date
     static var supportsSecureCoding: Bool {
         return true
     }
     
-    func encode(with aCoder: NSCoder) {
-        aCoder.encode(beverage, forKey: "beverage")
-        aCoder.encode(date, forKey: "date")
+    init(beverage: Beverage, date: Date) {
+        self.beverage = beverage
+        self.date = date
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -23,11 +25,9 @@ class History: NSObject, NSSecureCoding {
         date = aDecoder.decodeObject(forKey: "date") as! Date
     }
     
-    private var beverage: Beverage
-    private var date: Date
-    
-    init(beverage: Beverage, date: Date) {
-        self.beverage = beverage
-        self.date = date
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(beverage, forKey: "beverage")
+        aCoder.encode(date, forKey: "date")
     }
+
 }

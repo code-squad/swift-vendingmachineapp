@@ -24,20 +24,15 @@ protocol VendingMachineUserDelegate: VendingMachineDelegate {
     func buy(at index: Int) throws -> (Beverage, Int)
 }
 
-protocol VendingMachineHandlerDelegate: class {
-    associatedtype Menu
-    func handle(_ menu: Menu, value: Int) throws -> Comment?
-}
-
 class VendingMachine: NSObject, NSSecureCoding {
+    private var stocks: Stocks
+    private var account: Int = 0
+    private var history: [History] = []
     static var supportsSecureCoding: Bool {
         return true
     }
-    
-    func encode(with aCoder: NSCoder) {
-        aCoder.encode(stocks, forKey: "stocks")
-        aCoder.encode(account, forKey: "account")
-        aCoder.encode(history, forKey: "history")
+    init(_ stocks: Stocks) {
+        self.stocks = stocks
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -46,12 +41,10 @@ class VendingMachine: NSObject, NSSecureCoding {
         history = aDecoder.decodeObject(forKey: "history") as! [History]
     }
     
-    private var stocks: Stocks
-    private var account: Int = 0
-    private var history: [History] = []
-    
-    init(_ stocks: Stocks) {
-        self.stocks = stocks
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(stocks, forKey: "stocks")
+        aCoder.encode(account, forKey: "account")
+        aCoder.encode(history, forKey: "history")
     }
     
     // 현재 잔액으로 구매할 수 있는 음료 목록

@@ -14,9 +14,9 @@ class Alcohol: Beverage {
         return alcohol == 0
     }
     
-    override func encode(with aCoder: NSCoder) {
-        super.encode(with: aCoder)
-        aCoder.encode(alcohol, forKey: "alcohol")
+    init(alcohol: Double, brand: String, volume: Int, price: Int, name: String, date: Date) {
+        self.alcohol = alcohol
+        super.init(brand: brand, volume: volume, price: price, name: name, date: date)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -24,9 +24,9 @@ class Alcohol: Beverage {
         super.init(coder: aDecoder)
     }
     
-    init(alcohol: Double, brand: String, volume: Int, price: Int, name: String, date: Date) {
-        self.alcohol = alcohol
-        super.init(brand: brand, volume: volume, price: price, name: name, date: date)
+    override func encode(with aCoder: NSCoder) {
+        super.encode(with: aCoder)
+        aCoder.encode(alcohol, forKey: "alcohol")
     }
 }
 
@@ -39,9 +39,9 @@ class Beer: Alcohol {
         return malt * 100 / 1.23 // 임의식
     }
     
-    override func encode(with aCoder: NSCoder) {
-        super.encode(with: aCoder)
-        aCoder.encode(malt, forKey: "malt")
+    init(malt: Double, alcohol: Double, brand: String, volume: Int, price: Int, name: String, date: Date) {
+        self.malt = malt
+        super.init(alcohol: alcohol, brand: brand, volume: volume, price: price, name: name, date: date)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -49,9 +49,9 @@ class Beer: Alcohol {
         super.init(coder: aDecoder)
     }
     
-    init(malt: Double, alcohol: Double, brand: String, volume: Int, price: Int, name: String, date: Date) {
-        self.malt = malt
-        super.init(alcohol: alcohol, brand: brand, volume: volume, price: price, name: name, date: date)
+    override func encode(with aCoder: NSCoder) {
+        super.encode(with: aCoder)
+        aCoder.encode(malt, forKey: "malt")
     }
 }
 
@@ -70,9 +70,9 @@ class RiceWine: Alcohol {
         case gwangju
     }
     
-    override func encode(with aCoder: NSCoder) {
-        super.encode(with: aCoder)
-        aCoder.encode(area.rawValue, forKey: "area")
+    init(area: Area, alcohol: Double, brand: String, volume: Int, price: Int, name: String, date: Date) {
+        self.area = area
+        super.init(alcohol: alcohol, brand: brand, volume: volume, price: price, name: name, date: date)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -81,8 +81,8 @@ class RiceWine: Alcohol {
         super.init(coder: aDecoder)
     }
     
-    init(area: Area, alcohol: Double, brand: String, volume: Int, price: Int, name: String, date: Date) {
-        self.area = area
-        super.init(alcohol: alcohol, brand: brand, volume: volume, price: price, name: name, date: date)
+    override func encode(with aCoder: NSCoder) {
+        super.encode(with: aCoder)
+        aCoder.encode(area.rawValue, forKey: "area")
     }
 }

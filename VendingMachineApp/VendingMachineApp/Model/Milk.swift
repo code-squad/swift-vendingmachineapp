@@ -18,10 +18,10 @@ class Milk: Beverage {
         return fat < 0.2
     }
     
-    override func encode(with aCoder: NSCoder) {
-        super.encode(with: aCoder)
-        aCoder.encode(fat, forKey: "fat")
-        aCoder.encode(code, forKey: "code")
+    init(fat: Double, code: String, brand: String, volume: Int, price: Int, name: String, date: Date) {
+        self.fat = fat
+        self.code = code
+        super.init(brand: brand, volume: volume, price: price, name: name, date: date)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -30,10 +30,10 @@ class Milk: Beverage {
         super.init(coder: aDecoder)
     }
     
-    init(fat: Double, code: String, brand: String, volume: Int, price: Int, name: String, date: Date) {
-        self.fat = fat
-        self.code = code
-        super.init(brand: brand, volume: volume, price: price, name: name, date: date)
+    override func encode(with aCoder: NSCoder) {
+        super.encode(with: aCoder)
+        aCoder.encode(fat, forKey: "fat")
+        aCoder.encode(code, forKey: "code")
     }
 }
 
@@ -45,9 +45,9 @@ class FruitMilk: Milk {
         case melon
     }
     
-    override func encode(with aCoder: NSCoder) {
-        super.encode(with: aCoder)
-        aCoder.encode(fruit.rawValue, forKey: "fruit")
+    init(fruit: Fruit, fat: Double, code: String, brand: String, volume: Int, price: Int, name: String, date: Date) {
+        self.fruit = fruit
+        super.init(fat: fat, code: code, brand: brand, volume: volume, price: price, name: name, date: date)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -56,18 +56,18 @@ class FruitMilk: Milk {
         super.init(coder: aDecoder)
     }
     
-    init(fruit: Fruit, fat: Double, code: String, brand: String, volume: Int, price: Int, name: String, date: Date) {
-        self.fruit = fruit
-        super.init(fat: fat, code: code, brand: brand, volume: volume, price: price, name: name, date: date)
+    override func encode(with aCoder: NSCoder) {
+        super.encode(with: aCoder)
+        aCoder.encode(fruit.rawValue, forKey: "fruit")
     }
 }
 
 class ChocolateMilk: Milk {
     private var chocolate: Double // 초콜릿 함량
     
-    override func encode(with aCoder: NSCoder) {
-        super.encode(with: aCoder)
-        aCoder.encode(chocolate, forKey: "chocolate")
+    init(chocolate: Double, fat: Double, code: String, brand: String, volume: Int, price: Int, name: String, date: Date) {
+        self.chocolate = chocolate
+        super.init(fat: fat, code: code, brand: brand, volume: volume, price: price, name: name, date: date)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -75,8 +75,8 @@ class ChocolateMilk: Milk {
         super.init(coder: aDecoder)
     }
     
-    init(chocolate: Double, fat: Double, code: String, brand: String, volume: Int, price: Int, name: String, date: Date) {
-        self.chocolate = chocolate
-        super.init(fat: fat, code: code, brand: brand, volume: volume, price: price, name: name, date: date)
+    override func encode(with aCoder: NSCoder) {
+        super.encode(with: aCoder)
+        aCoder.encode(chocolate, forKey: "chocolate")
     }
 }

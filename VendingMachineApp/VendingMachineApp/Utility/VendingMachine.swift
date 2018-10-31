@@ -28,8 +28,13 @@ class VendingMachine: NSObject, NSSecureCoding {
     private var stocks: Stocks
     private var account: Int = 0
     private var history: [History] = []
+    private var dataStateError: DataManageError?
     static var supportsSecureCoding: Bool {
         return true
+    }
+    var dataState: String? {
+        guard let dataStateError = dataStateError else { return nil }
+        return "\(dataStateError)"
     }
     init(_ stocks: Stocks) {
         self.stocks = stocks
@@ -50,6 +55,10 @@ class VendingMachine: NSObject, NSSecureCoding {
     // 현재 잔액으로 구매할 수 있는 음료 목록
     func availables(with money: Int) -> [Beverage] {
         return stocks.availables(with: money)
+    }
+    
+    func set(_ dataStateError: DataManageError) {
+        self.dataStateError = dataStateError
     }
 }
 

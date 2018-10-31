@@ -15,7 +15,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        load()
+        do {
+            try load()
+        }catch {
+            vendingMachine = VendingMachine(Stocks(WareHouse.generateBeverages(10)))
+            vendingMachine.set(.failToLoad)
+        }
+        
         return true
     }
 
@@ -25,7 +31,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
-        save()
+        do {
+            try save()
+        }catch {
+            vendingMachine = VendingMachine(Stocks(WareHouse.generateBeverages(10)))
+            vendingMachine.set(.failToSave)
+        }
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -40,27 +51,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     
-    private func save() {
+    private func save() throws {
         guard let vendingMachine = vendingMachine else { return }
-        guard let data = try? NSKeyedArchiver.archivedData(withRootObject: vendingMachine, requiringSecureCoding: false) else { return }
+        let data = try NSKeyedArchiver.archivedData(withRootObject: vendingMachine, requiringSecureCoding: false)
         UserDefaults.standard.set(data, forKey: "vendingMachine")
     }
     
-    private func load() {
+    private func load() throws {
         guard let data = UserDefaults.standard.object(forKey: "vendingMachine") as? Data else {
-            vendingMachine = VendingMachine(Stocks(WareHouse.generateBeverages(10)))
-            return
+            throw DataManageError.failToLoad
         }
-        guard let vendingMachine = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? VendingMachine else {
-            self.vendingMachine = VendingMachine(Stocks(WareHouse.generateBeverages(10)))
-            return
+        
+        guard let vendingMachine = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? VendingMachine else {
+            throw DataManageError.failToLoad
         }
-        guard let machine = vendingMachine else {
-            self.vendingMachine = VendingMachine(Stocks(WareHouse.generateBeverages(10)))
-            return
-        }
-
-        self.vendingMachine = machine
+        
+        self.vendingMachine = vendingMachine
     }
+    
+    
 }
 

@@ -86,9 +86,7 @@ extension ViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return 0 }
-        
-        return appDelegate.vendingMachine?.bundles.count ?? 0
+        return appDelegate?.vendingMachine?.bundles.count ?? 0
     }
 }
 

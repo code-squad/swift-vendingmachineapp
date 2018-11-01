@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-    private let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    private weak var appDelegate = UIApplication.shared.delegate as? AppDelegate
     private let inset: CGFloat = 20
     private let spacing: CGFloat = 20
     private let itemsOnRow = 4
@@ -24,7 +24,7 @@ class ViewController: UIViewController {
     }
     
     private func showAlert() {
-        guard let description = appDelegate.vendingMachine?.dataState else { return }
+        guard let description = appDelegate?.vendingMachine?.dataState else { return }
         let alert = UIAlertController(title: "Error", message: description, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         present(alert, animated: true, completion: nil)
@@ -42,16 +42,16 @@ class ViewController: UIViewController {
     
     private func setupVendingMachineAccount(with money: DepositType.Thousand? = nil) {
         if let money = money {
-            appDelegate.vendingMachine?.deposit(money.value)
+            appDelegate?.vendingMachine?.deposit(money.value)
         }
-        accountLabel.text = "금액 \(appDelegate.vendingMachine?.remain ?? 0)원"
+        accountLabel.text = "금액 \(appDelegate?.vendingMachine?.remain ?? 0)원"
     }
     
     //MARK: Actions
     @objc func handleBeverageAdded(_ notification: Notification) {
         guard let className = notification.object as? String else { return }
         let beverage = WareHouse.generateBeverage(by: className)
-        appDelegate.vendingMachine?.add(beverage)
+        appDelegate?.vendingMachine?.add(beverage)
         collectionView.reloadData()
     }
     
@@ -71,7 +71,7 @@ extension ViewController: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         
-        let bundle = appDelegate.vendingMachine?.bundles[indexPath.item]
+        let bundle = appDelegate?.vendingMachine?.bundles[indexPath.item]
         
         cell.setup { (imageView, label) in
             imageView.image = UIImage(named: bundle?.beverage.className ?? "")

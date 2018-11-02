@@ -36,7 +36,7 @@ class VendingMachine: NSObject, NSSecureCoding {
         guard let dataStateError = dataStateError else { return nil }
         return "\(dataStateError)"
     }
-    static var shared: VendingMachine = {
+    static let shared: VendingMachine = {
         do {
             return try DataManager.load()
         } catch {

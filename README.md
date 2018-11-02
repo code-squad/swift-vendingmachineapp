@@ -22,6 +22,19 @@
 
 ![vendingmachineapp-step3](/Users/dongkun/Desktop/CodeSquad/swift-vendingmachineapp/images/vendingmachineapp-step3.png)
 
+**4단계 싱글톤 모델**
+
+*AppDelegate에 변수를 선언하면 하여 사용했을 때의 장단점에 대해 고민해보았습니다. 가장 먼저 든 생각은 뷰가 모두 불러오기 전 데이터가 세팅이 되기 때문에 뷰 컨트롤러에서 뷰를 모두 로드하고 데이터를 로드하는 것보다 보다 빠르게 데이터에 접근할 수 있을 것이라는 생각을 하였습니다. 하지만 AppDelegate에 선언한 변수에 대한 접근이 제가 했던 실수와 같이 Retain Cycle을 만들게 될 가능성과 변수 하나에 접근하기 위한 어떤 객체에서도 AppDelegate에 접근한다는 것이 부담스럽다는 생각을 하였습니다. AppDelegate에 선언해줄 변수는 앱 런칭 후 뷰들이 불러오기 전 해주어야할 행위들을 위한 변수만을 선언하는것이 낫다는 생각을 하였습니다.*
+
+- 처음에는 `VendingMachine` 객체 안에서 데이터를 저장하고 불러오는 로직을 위치시켰으나 후에는 이 로직을 `DataManager` 객체에게 위임하여 진행하였습니다.
+- `static let`에 블록을 할당하여 해당 블록안에서 데이터를 불러오고 실패한다면 새 객체를 할당해주었습니다. 
+
+*실행화면*
+
+![vendingmachineapp-step4](/Users/dongkun/Desktop/CodeSquad/swift-vendingmachineapp/images/vendingmachineapp-step4.png)
+
+
+
 # 진행 방법
 
 - 음료수 자판기 iOS 앱에 요구사항을 파악한다.

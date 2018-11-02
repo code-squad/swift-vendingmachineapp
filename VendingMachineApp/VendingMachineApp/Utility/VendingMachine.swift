@@ -36,7 +36,17 @@ class VendingMachine: NSObject, NSSecureCoding {
         guard let dataStateError = dataStateError else { return nil }
         return "\(dataStateError)"
     }
-    init(_ stocks: Stocks) {
+    static var shared: VendingMachine = {
+        do {
+            return try DataManager.load()
+        } catch {
+            let newVendingMachine = VendingMachine(Stocks(WareHouse.generateBeverages(10)))
+            newVendingMachine.set(.failToLoad)
+            return newVendingMachine
+        }
+    }()
+    
+    private init(_ stocks: Stocks) {
         self.stocks = stocks
     }
     

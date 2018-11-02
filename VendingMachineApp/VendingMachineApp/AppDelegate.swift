@@ -10,17 +10,9 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    var vendingMachine: VendingMachine?
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
-        do {
-            try load()
-        }catch {
-            vendingMachine = VendingMachine(Stocks(WareHouse.generateBeverages(10)))
-            vendingMachine?.set(.failToLoad)
-        }
         
         return true
     }
@@ -31,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
-        try? save()
+        try? DataManager.save()
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -45,25 +37,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-    
-    private func save() throws {
-        guard let vendingMachine = vendingMachine else { return }
-        let data = try NSKeyedArchiver.archivedData(withRootObject: vendingMachine, requiringSecureCoding: false)
-        UserDefaults.standard.set(data, forKey: "vendingMachine")
-    }
-    
-    private func load() throws {
-        guard let data = UserDefaults.standard.object(forKey: "vendingMachine") as? Data else {
-            throw DataManageError.failToLoad
-        }
-        
-        guard let vendingMachine = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? VendingMachine else {
-            throw DataManageError.failToLoad
-        }
-        
-        self.vendingMachine = vendingMachine
-    }
-    
     
 }
 

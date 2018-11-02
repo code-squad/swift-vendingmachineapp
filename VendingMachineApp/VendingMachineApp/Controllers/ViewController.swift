@@ -12,9 +12,15 @@ class ViewController: UIViewController {
     private let inset: CGFloat = 20
     private let spacing: CGFloat = 20
     private let itemsOnRow = 4
+    weak var vendingMachine: VendingMachineDataSource?
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var accountLabel: UILabel!
+    
+    required init?(coder aDecoder: NSCoder) {
+        self.vendingMachine = VendingMachine.shared // Injection
+        super.init(coder: aDecoder)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +29,7 @@ class ViewController: UIViewController {
     }
     
     private func showAlert() {
-        guard let description = VendingMachine.shared.dataState else { return }
+        guard let description = vendingMachine?.dataState else { return }
         let alert = UIAlertController(title: "Error", message: description, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         present(alert, animated: true, completion: nil)
@@ -41,7 +47,7 @@ class ViewController: UIViewController {
     
     private func setupVendingMachineAccount(with money: DepositType.Thousand? = nil) {
         if let money = money {
-            VendingMachine.shared.deposit(money.value)
+            vendingMachine?.deposit(money.value)
         }
         accountLabel.text = "금액 \(VendingMachine.shared.remain)원"
     }
@@ -50,7 +56,7 @@ class ViewController: UIViewController {
     @objc func handleBeverageAdded(_ notification: Notification) {
         guard let className = notification.object as? String else { return }
         let beverage = WareHouse.generateBeverage(by: className)
-        VendingMachine.shared.add(beverage)
+        vendingMachine?.add(beverage)
         collectionView.reloadData()
     }
     
@@ -70,22 +76,22 @@ extension ViewController: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         
-        let bundle = VendingMachine.shared.bundles[indexPath.item]
+        let bundle = vendingMachine?.bundles[indexPath.item] // Dependency
         
         cell.setup { (imageView, label) in
-            imageView.image = UIImage(named: bundle.beverage.className)
-            label.text = "\(bundle.count)개"
+            imageView.image = UIImage(named: bundle?.beverage.className ?? "")
+            label.text = "\(bundle?.count ?? 0)개"
         }
         
         cell.addButtonDidTapped = {
-            NotificationCenter.default.post(name: VendingMachineNotification.didAdd.name, object: bundle.beverage.className)
+            NotificationCenter.default.post(name: VendingMachineNotification.didAdd.name, object: bundle?.beverage.className ?? "")
         }
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return VendingMachine.shared.bundles.count
+        return vendingMachine?.bundles.count ?? 0
     }
 }
 

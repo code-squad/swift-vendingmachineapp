@@ -49,7 +49,7 @@ class ViewController: UIViewController {
         if let money = money {
             vendingMachine?.deposit(money.value)
         }
-        accountLabel.text = "금액 \(VendingMachine.shared.remain)원"
+        accountLabel.text = "금액 \(vendingMachine?.remain ?? 0)원"
     }
     
     //MARK: Actions

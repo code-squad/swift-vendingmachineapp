@@ -8,19 +8,20 @@
 
 import Foundation
 
-protocol VendingMachineDelegate: class {
+protocol VendingMachineDataSource: class {
     var bundles: BeverageBundles { get }
+    var dataState: String? { get }
+    var remain: Int { get }
+    func deposit(_ money: Int)
+    func add(_ beverage: Beverage)
 }
 
-protocol VendingMachineManagerDelegate: VendingMachineDelegate {
-    func add(_ beverage: Beverage)
+protocol VendingMachineManagerDelegate: VendingMachineDataSource {
     func remove(at index: Int) throws -> Beverage
 }
 
-protocol VendingMachineUserDelegate: VendingMachineDelegate {
+protocol VendingMachineUserDelegate: VendingMachineDataSource {
     var userHistory: [History] { get }
-    var remain: Int { get }
-    func deposit(_ money: Int)
     func buy(at index: Int) throws -> (Beverage, Int)
 }
 
@@ -31,10 +32,6 @@ class VendingMachine: NSObject, NSSecureCoding {
     private var dataStateError: DataManageError?
     static var supportsSecureCoding: Bool {
         return true
-    }
-    var dataState: String? {
-        guard let dataStateError = dataStateError else { return nil }
-        return "\(dataStateError)"
     }
     static let shared: VendingMachine = {
         do {
@@ -72,16 +69,26 @@ class VendingMachine: NSObject, NSSecureCoding {
     }
 }
 
-extension VendingMachine: VendingMachineDelegate {
+extension VendingMachine: VendingMachineDataSource {
     var bundles: BeverageBundles {
         return stocks.bundles
+    }
+    var dataState: String? {
+        guard let dataStateError = dataStateError else { return nil }
+        return "\(dataStateError)"
+    }
+    var remain: Int {
+        return account
+    }
+    func deposit(_ money: Int) {
+        account += money
+    }
+    func add(_ beverage: Beverage) {
+        stocks.append(beverage)
     }
 }
 
 extension VendingMachine: VendingMachineManagerDelegate {
-    func add(_ beverage: Beverage) {
-        stocks.append(beverage)
-    }
     
     func remove(at index: Int) throws -> Beverage {
         let beverage = try bundles.get(at: index)
@@ -93,12 +100,6 @@ extension VendingMachine: VendingMachineManagerDelegate {
 extension VendingMachine: VendingMachineUserDelegate {
     var userHistory: [History] {
         return history
-    }
-    var remain: Int {
-        return account
-    }
-    func deposit(_ money: Int) {
-        account += money
     }
     // 음료수 구매 메소드
     func buy(at index: Int) throws -> (Beverage, Int) {

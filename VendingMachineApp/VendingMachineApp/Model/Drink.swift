@@ -30,7 +30,7 @@ extension String{
 }
 
 /// 모든 음료수의 수퍼클래스
-class Drink : CustomStringConvertible {
+class Drink : NSObject, NSCoding {
     fileprivate let brand : String
     fileprivate let size : Int
     fileprivate let price : Int
@@ -60,13 +60,34 @@ class Drink : CustomStringConvertible {
         self.drinkType = drinkType
         self.manufacturingDate = manufacturingDate
     }
+    
+    /// 디코더
+    required init?(coder aDecoder: NSCoder) {
+        self.brand = aDecoder.decodeObject(forKey: "brand") as! String
+        self.size = aDecoder.decodeInteger(forKey: "size")
+        self.price = aDecoder.decodeInteger(forKey: "price")
+        self.name = aDecoder.decodeObject(forKey: "name") as! String
+        self.drinkType = DrinkType.returnSelf(rawValue: aDecoder.decodeInteger(forKey: "drinkType"))
+        self.manufacturingDate = aDecoder.decodeObject(forKey: "manufacturingDate") as! Date
+    }
+    
+    /// 인코더
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(brand, forKey: "brand")
+        aCoder.encode(size, forKey: "size")
+        aCoder.encode(price, forKey: "price")
+        aCoder.encode(name, forKey: "name")
+        aCoder.encode(drinkType.rawValue, forKey: "drinkType")
+        aCoder.encode(manufacturingDate, forKey: "manufacturingDate")
+    }
+    
     /// 자기복제 함수
     func duplicateSelf()->Drink{
         return Drink(brand: self.brand, size: self.size, price: self.price, name: self.name
             , manufacturingDate: self.manufacturingDate, drinkType: self.drinkType)
     }
     /// toString 의 역할
-    var description : String  {
+    override var description : String  {
         // 생성자에서 dateFormat 옵셔널 검사가 완료 됬으므로 여기선 강제 래핑
         return ("\(String(describing: type(of: self))) - \(brand), \(size)ml, \(price)원, \(brand), \(manufacturingDate.toString())")
     }
@@ -95,6 +116,18 @@ class Milk : Drink {
         super.init(brand: brand, size: size, price: price, name: name, manufacturingDate: manufacturingDate,drinkType:drinkType)
     }
     
+    /// 디코더
+    required init?(coder aDecoder: NSCoder) {
+        self.lowFat = aDecoder.decodeBool(forKey: "lowFat")
+        super.init(coder: aDecoder)
+    }
+    
+    /// 인코더
+    override func encode(with aCoder: NSCoder) {
+        aCoder.encode(lowFat, forKey: "lowFat")
+        super.encode(with: aCoder)
+    }
+    
     override func duplicateSelf() -> Milk {
         return Milk(brand: super.brand, size:super.size, price: super.price, name: super.name, manufacturingDate: super.manufacturingDate, lowFat: self.lowFat, drinkType: super.drinkType)
     }
@@ -114,6 +147,18 @@ class ChocoMilk : Milk {
         super.init(brand: brand, size: size, price: price, name: name, manufacturingDate: manufacturingDate, lowFat: lowFat,drinkType:drinkType)
     }
     
+    /// 디코더
+    required init?(coder aDecoder: NSCoder) {
+        self.lowSugar = aDecoder.decodeBool(forKey: "lowSugar")
+        super.init(coder: aDecoder)
+    }
+    
+    /// 인코더
+    override func encode(with aCoder: NSCoder) {
+        aCoder.encode(lowSugar, forKey: "lowSugar")
+        super.encode(with: aCoder)
+    }
+    
     override func duplicateSelf() -> ChocoMilk {
         return ChocoMilk(brand: super.brand, size:super.size, price: super.price, name: super.name, manufacturingDate: super.manufacturingDate, lowFat: super.lowFat, lowSugar: self.lowSugar)
     }
@@ -129,6 +174,18 @@ class Soda : Drink {
     init(brand: String, size: Int, price: Int, name: String, manufacturingDate: Date, usingPET: Bool,drinkType:DrinkType) {
         self.usingPET = usingPET
         super.init(brand: brand, size: size, price: price, name: name, manufacturingDate: manufacturingDate,drinkType:drinkType)
+    }
+    
+    /// 디코더
+    required init?(coder aDecoder: NSCoder) {
+        self.usingPET = aDecoder.decodeBool(forKey: "usingPET")
+        super.init(coder: aDecoder)
+    }
+    
+    /// 인코더
+    override func encode(with aCoder: NSCoder) {
+        aCoder.encode(usingPET, forKey: "usingPET")
+        super.encode(with: aCoder)
     }
     
     override func duplicateSelf() -> Soda {
@@ -151,6 +208,18 @@ class Coke : Soda {
         super.init(brand: brand, size: size, price: price, name: name, manufacturingDate: manufacturingDate, usingPET: usingPET, drinkType:drinkType)
     }
     
+    /// 디코더
+    required init?(coder aDecoder: NSCoder) {
+        self.zeroCalorie = aDecoder.decodeBool(forKey: "zeroCalorie")
+        super.init(coder: aDecoder)
+    }
+    
+    /// 인코더
+    override func encode(with aCoder: NSCoder) {
+        aCoder.encode(zeroCalorie, forKey: "zeroCalorie")
+        super.encode(with: aCoder)
+    }
+    
     override func duplicateSelf() -> Coke {
         return Coke(brand: super.brand, size:super.size, price: super.price, name: super.name, manufacturingDate: super.manufacturingDate, usingPET: super.usingPET,zeroCalorie:self.zeroCalorie)
     }
@@ -168,6 +237,18 @@ class Coffee : Drink{
     init(brand: String, size: Int, price: Int, name: String, manufacturingDate: Date, hot: Bool,drinkType:DrinkType) {
         self.hot = hot
         super.init(brand: brand, size: size, price: price, name: name, manufacturingDate: manufacturingDate,drinkType:drinkType)
+    }
+    
+    /// 디코더
+    required init?(coder aDecoder: NSCoder) {
+        self.hot = aDecoder.decodeBool(forKey: "hot")
+        super.init(coder: aDecoder)
+    }
+    
+    /// 인코더
+    override func encode(with aCoder: NSCoder) {
+        aCoder.encode(hot, forKey: "hot")
+        super.encode(with: aCoder)
     }
     
     override func duplicateSelf() -> Coffee {
@@ -191,6 +272,18 @@ class TopCoffee : Coffee {
         super.init(brand: brand, size: size, price: price, name: name, manufacturingDate: manufacturingDate,hot: hot,drinkType:drinkType)
     }
     
+    /// 디코더
+    required init?(coder aDecoder: NSCoder) {
+        self.zeroSugar = aDecoder.decodeBool(forKey: "zeroSugar")
+        super.init(coder: aDecoder)
+    }
+    
+    /// 인코더
+    override func encode(with aCoder: NSCoder) {
+        aCoder.encode(zeroSugar, forKey: "zeroSugar")
+        super.encode(with: aCoder)
+    }
+    
     override func duplicateSelf() -> TopCoffee {
         return TopCoffee(brand: super.brand, size:super.size, price: super.price, name: super.name, manufacturingDate: super.manufacturingDate, hot: super.hot, zeroSugar: self.zeroSugar)
     }
@@ -210,6 +303,17 @@ class EnergyDrink : Drink {
         self.zeroCaffeine = zeroCaffeine
         let drinkType : DrinkType = zeroCaffeine ? .energyDrink : .none
         super.init(brand: brand, size: size, price: price, name: name, manufacturingDate: manufacturingDate, drinkType:drinkType)
+    }
+    /// 디코더
+    required init?(coder aDecoder: NSCoder) {
+        self.zeroCaffeine = aDecoder.decodeBool(forKey: "zeroCaffeine")
+        super.init(coder: aDecoder)
+    }
+    
+    /// 인코더
+    override func encode(with aCoder: NSCoder) {
+        aCoder.encode(zeroCaffeine, forKey: "zeroCaffeine")
+        super.encode(with: aCoder)
     }
     
     override func duplicateSelf()->EnergyDrink{

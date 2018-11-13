@@ -8,6 +8,8 @@
 
 import Foundation
 
+import os.log
+
 /// 주문된 음료 창고에 관련된 기능들
 protocol OrderedDrinkInventory {
     func addInventory(undefinedDrink:Drink)->StoredDrinkDetail?
@@ -15,9 +17,11 @@ protocol OrderedDrinkInventory {
 }
 
 /// 음료배열을 여러개 가지는 음료창고
-class DrinkInventory {
+class DrinkInventory : NSObject, NSCoding {
+    /// 슬롯들을 모아놓는 변수 선언
+    var drinkSlots : [DrinkSlot<Drink>] = []
     /// init
-    init(){
+    override init(){
         self.drinkSlots.append(DrinkSlot(drinkType: DrinkType.chocoMilk))
         self.drinkSlots.append(DrinkSlot(drinkType: DrinkType.lowSugarChocoMilk))
         self.drinkSlots.append(DrinkSlot(drinkType: DrinkType.coke))
@@ -26,8 +30,16 @@ class DrinkInventory {
         self.drinkSlots.append(DrinkSlot(drinkType: DrinkType.energyDrink))
     }
     
-    /// 슬롯들을 모아놓는 변수 선언
-    var drinkSlots : [DrinkSlot<Drink>] = []
+    /// 디코더
+    required init?(coder aDecoder: NSCoder) {
+        self.drinkSlots = aDecoder.decodeObject(forKey: "drinkSlots") as! [DrinkSlot<Drink>]
+    }
+    
+    /// 인코더
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(drinkSlots, forKey: "drinkSlots")
+    }
+    
     
     /// 음료객체를 받아서 재고정보로 출력
     func getDrinkDetail(drink: Drink)-> StoredDrinkDetail?{

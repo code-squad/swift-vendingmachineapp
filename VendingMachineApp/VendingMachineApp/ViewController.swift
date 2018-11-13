@@ -48,7 +48,16 @@ class ViewController: UIViewController {
         }
     }
     
-    /// 잔액추가 함수
+    // 자판기 선언
+    var vendingMachine : VendingMachine
+    
+    // 생성자
+    required init(coder aDecoder: NSCoder) {
+        self.vendingMachine = VendingMachine()
+        super.init(coder: aDecoder)!
+    }
+    
+    /// 잔액추가 버튼액션
     func addBalance(uiButton:UIButton){
         _ = vendingMachine.plusMoney(money: uiButton.tag)
         refreshBalance()
@@ -65,11 +74,6 @@ class ViewController: UIViewController {
     func refreshBalance(){
         self.balance.text =  "\(vendingMachine.getMoney()) 원"
     }
-    
-    // 자판기 선언
-    var vendingMachine : VendingMachine
-    
-    
    
     /// 음료정보를 받아서 태그번호를 리턴
     func getDrinkTag(storedDrinkDetail:StoredDrinkDetail)throws->Int{
@@ -110,11 +114,6 @@ class ViewController: UIViewController {
         }
     }
     
-    // 생성자
-    required init(coder aDecoder: NSCoder) {
-        self.vendingMachine = VendingMachine()
-        super.init(coder: aDecoder)!
-    }
     
     /// alert 생성함수
     func makeAlert(title:String,message:String,okTitle:String){

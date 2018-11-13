@@ -10,19 +10,31 @@ import Foundation
 
 
 /// 음료 종류
-enum DrinkType{
+enum DrinkType : Int, Codable{
     case
-     lowSugarChocoMilk
-    ,chocoMilk
-    ,coke
-    ,zeroCalorieCoke
-    ,hotTopCoffee
-    ,energyDrink
-    ,none
+    lowSugarChocoMilk = 1
+    ,chocoMilk = 2
+    ,zeroCalorieCoke = 3
+    ,coke = 4
+    ,hotTopCoffee = 5
+    ,energyDrink = 6
+    ,none = 0
+    
+    static func returnSelf(rawValue : Int)->DrinkType{
+        switch rawValue {
+        case 1 : return .lowSugarChocoMilk
+        case 2 : return .chocoMilk
+        case 3 : return .zeroCalorieCoke
+        case 4 : return .coke
+        case 5 : return .hotTopCoffee
+        case 6 : return .energyDrink
+        default : return .none
+        }
+    }
 }
 
 /// 음료 한종류를 가지고 있는 객체
-class DrinkSlot<T:Drink> {
+class DrinkSlot<T:Drink> : NSObject, NSCoding {
     // 음료배열을 가진다
     private var drinks:[T]=[]
     
@@ -32,6 +44,20 @@ class DrinkSlot<T:Drink> {
     init(drinkType:DrinkType){
         self.drinkType = drinkType
     }
+    
+    
+    /// 디코더
+    required init?(coder aDecoder: NSCoder) {
+        self.drinks = aDecoder.decodeObject(forKey: "drinks") as! [T]
+        self.drinkType = aDecoder.decodeObject(forKey: "drinkType") as! DrinkType
+    }
+    
+    /// 인코더
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(drinks, forKey: "drinks")
+        aCoder.encode(drinkType, forKey: "drinkType")
+    }
+    
     
     /// 음료 추가
     func addDrink(drink:T)throws{

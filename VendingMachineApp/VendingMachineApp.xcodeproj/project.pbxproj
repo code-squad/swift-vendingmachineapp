@@ -26,6 +26,7 @@
 		D56712E7214A3F2E00106ECD /* DrinkSlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = D56712E2214A3F2E00106ECD /* DrinkSlot.swift */; };
 		D56712E8214A3F2E00106ECD /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = D56712E3214A3F2E00106ECD /* VendingMachine.swift */; };
 		D56712EA214A4C9C00106ECD /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D56712E9214A4C9C00106ECD /* OutputView.swift */; };
+		D575AC08219EBBC10018C62E /* VendingMachineDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D575AC07219EBBC10018C62E /* VendingMachineDataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		D56712E2214A3F2E00106ECD /* DrinkSlot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrinkSlot.swift; sourceTree = "<group>"; };
 		D56712E3214A3F2E00106ECD /* VendingMachine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VendingMachine.swift; sourceTree = "<group>"; };
 		D56712E9214A4C9C00106ECD /* OutputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
+		D575AC07219EBBC10018C62E /* VendingMachineDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineDataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 				D56712E2214A3F2E00106ECD /* DrinkSlot.swift */,
 				D56712E0214A3F2E00106ECD /* DrinkInventory.swift */,
 				D56712E3214A3F2E00106ECD /* VendingMachine.swift */,
+				D575AC07219EBBC10018C62E /* VendingMachineDataManager.swift */,
 				D56712E9214A4C9C00106ECD /* OutputView.swift */,
 			);
 			path = Model;
@@ -315,6 +318,7 @@
 				D56712E4214A3F2E00106ECD /* Checker.swift in Sources */,
 				D56712E6214A3F2E00106ECD /* Drink.swift in Sources */,
 				D56712B2214A295600106ECD /* AppDelegate.swift in Sources */,
+				D575AC08219EBBC10018C62E /* VendingMachineDataManager.swift in Sources */,
 				D56712E8214A3F2E00106ECD /* VendingMachine.swift in Sources */,
 				D56712EA214A4C9C00106ECD /* OutputView.swift in Sources */,
 			);

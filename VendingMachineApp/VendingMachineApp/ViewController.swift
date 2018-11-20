@@ -48,16 +48,10 @@ class ViewController: UIViewController {
         }
     }
     
-    
     weak var appDelegate: AppDelegate!
-    
-    
-    // 자판기 선언
-//    var vendingMachine : VendingMachine
     
     // 생성자
     required init(coder aDecoder: NSCoder) {
-//        self.vendingMachine = appDelegate.sharedVendingMachine
         super.init(coder: aDecoder)!
     }
     

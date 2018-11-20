@@ -45,17 +45,16 @@ class DrinkSlot<T:Drink> : NSObject, NSCoding {
         self.drinkType = drinkType
     }
     
-    
     /// 디코더
     required init?(coder aDecoder: NSCoder) {
         self.drinks = aDecoder.decodeObject(forKey: "drinks") as! [T]
-        self.drinkType = aDecoder.decodeObject(forKey: "drinkType") as! DrinkType
+        self.drinkType = DrinkType.returnSelf(rawValue: aDecoder.decodeInteger(forKey: "drinkType"))
     }
     
     /// 인코더
     func encode(with aCoder: NSCoder) {
         aCoder.encode(drinks, forKey: "drinks")
-        aCoder.encode(drinkType, forKey: "drinkType")
+        aCoder.encode(drinkType.rawValue, forKey: "drinkType")
     }
     
     

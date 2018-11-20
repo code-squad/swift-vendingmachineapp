@@ -11,15 +11,15 @@ import UIKit
 
 class VendingMachineDataManager {
     
-    private static let vendinMachine_01 = "vendingMachineData_01"
+    private static let dataKey = "dataKey"
     
     static func saveVendingMachineData(_ vendingMachine: VendingMachine) {
         let vendingMachineData = NSKeyedArchiver.archivedData(withRootObject: vendingMachine)
-        UserDefaults.standard.set(vendingMachineData, forKey: vendinMachine_01)
+        UserDefaults.standard.set(vendingMachineData, forKey: dataKey)
     }
     
     static func loadVendingMachineData() -> VendingMachine? {
-        guard let loaded: Data = UserDefaults.standard.data(forKey: vendinMachine_01) else { return nil }
+        guard let loaded: Data = UserDefaults.standard.data(forKey: dataKey) else { return nil }
         guard let vendingMachineData = NSKeyedUnarchiver.unarchiveObject(with: loaded) else { return nil }
         guard let vendingMachine = vendingMachineData as? VendingMachine else { return nil }
         return vendingMachine

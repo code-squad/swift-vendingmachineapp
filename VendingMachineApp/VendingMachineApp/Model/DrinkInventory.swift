@@ -64,7 +64,7 @@ class DrinkInventory : NSObject, NSCoding {
     }
     
     /// 음료수 객체를 받아서 추가
-    func addInventory(undefinedDrink:Drink)throws->StoredDrinkDetail?{
+    func addDrink(undefinedDrink:Drink)throws->StoredDrinkDetail?{
         // 음료슬롯 전부를 체크한다
         for drinkSlot in drinkSlots {
             // 음료슬롯의 음료타입이 맞으면

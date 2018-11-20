@@ -22,19 +22,27 @@ protocol VendingMachineAdminMenu : vendinMachineMenu {
     //    func getAdminMainMenu(menu:InputView.AdminFirstMenu,orderDetail:OrderDetail)throws->String
 }
 
-class VendingMachine : vendinMachineMenu  {
+class VendingMachine : NSObject, vendinMachineMenu, NSCoding  {
     /// 자판기에 들어있는 금액
     private var insertedMoney = 0
     
     /// 재고창고
-    private var drinkInventory : DrinkInventory
+    private var drinkInventory = DrinkInventory()
     
     /// 주문한 음료수가 쌓이는 곳
     private var orderedDrinks = DrinkInventory()
     
+    /// 싱글톤 패턴을 위한 객체
+    private static var sharedVendingMachine = VendingMachine()
+    
+    /// 싱글톤 객체 리턴
+    class func shared() -> VendingMachine {
+        return self.sharedVendingMachine
+    }
+    
     /// 생성자
-    init(){
-        drinkInventory = DrinkInventory()
+    override init(){
+        super.init()
     }
     
     /// 디코더

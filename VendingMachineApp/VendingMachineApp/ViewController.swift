@@ -114,7 +114,6 @@ class ViewController: UIViewController {
         }
     }
     
-    
     /// alert 생성함수
     func makeAlert(title:String,message:String,okTitle:String){
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -128,24 +127,28 @@ class ViewController: UIViewController {
         setBorderRadius()
         super.viewDidLoad()
         do {
-            _ = try vendingMachine.addDrink(drink: ChocoMilk(brand: "서울우유", size: 200, price: 1000, name: "저과당초코우유", manufacturingDateString: "20171009", lowFat: true, lowSugar: true)!)
-            _ = try vendingMachine.addDrink(drink: ChocoMilk(brand: "서울우유", size: 200, price: 1000, name: "저과당초코우유", manufacturingDateString: "20171009", lowFat: true, lowSugar: true)!)
-            _ = try vendingMachine.addDrink(drink: Coke(brand: "팹시", size: 350, price: 2000, name: "다이어트콜라", manufacturingDateString: "20171005", usingPET: false, zeroCalorie: true)!)
-            _ = try vendingMachine.addDrink(drink: Coke(brand: "팹시", size: 350, price: 2000, name: "다이어트콜라", manufacturingDateString: "20171005", usingPET: false, zeroCalorie: true)!)
-            _ = try vendingMachine.addDrink(drink: EnergyDrink(brand: "핫식스", size: 200, price: 1000, name: "핫식스", manufacturingDateString: "20171012", zeroCaffeine: true)!)
-            _ = try vendingMachine.addDrink(drink: EnergyDrink(brand: "핫식스", size: 200, price: 1000, name: "핫식스", manufacturingDateString: "20171012", zeroCaffeine: true)!)
+//            _ = try vendingMachine.addDrink(drink: ChocoMilk(brand: "서울우유", size: 200, price: 1000, name: "저과당초코우유", manufacturingDateString: "20171009", lowFat: true, lowSugar: true)!)
+//            _ = try vendingMachine.addDrink(drink: ChocoMilk(brand: "서울우유", size: 200, price: 1000, name: "저과당초코우유", manufacturingDateString: "20171009", lowFat: true, lowSugar: true)!)
+//            _ = try vendingMachine.addDrink(drink: Coke(brand: "팹시", size: 350, price: 2000, name: "다이어트콜라", manufacturingDateString: "20171005", usingPET: false, zeroCalorie: true)!)
+//            _ = try vendingMachine.addDrink(drink: Coke(brand: "팹시", size: 350, price: 2000, name: "다이어트콜라", manufacturingDateString: "20171005", usingPET: false, zeroCalorie: true)!)
+//            _ = try vendingMachine.addDrink(drink: EnergyDrink(brand: "핫식스", size: 200, price: 1000, name: "핫식스", manufacturingDateString: "20171012", zeroCaffeine: true)!)
+//            _ = try vendingMachine.addDrink(drink: EnergyDrink(brand: "핫식스", size: 200, price: 1000, name: "핫식스", manufacturingDateString: "20171012", zeroCaffeine: true)!)
+        
+            try vendingMachine.addBasicDrinkSet()
             
             refreshBalance()
             // 음료재고들 수정
             try refreshDrinkCounts()
+        
+//
         }
         catch {
             // 에러메세지 출력
             makeAlert(title: "에러", message: error.localizedDescription, okTitle: "OK")
         }
         
-        
         // viewDidLoad ends
+        
     }
     
     

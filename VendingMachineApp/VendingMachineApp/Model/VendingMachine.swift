@@ -13,14 +13,6 @@ protocol vendinMachineMenu {
     func getAllAvailableDrinks()->InventoryDetail
     func addDrink(drink:Drink)throws->StoredDrinkDetail?
 }
-/// 사용자용 메뉴
-protocol VendingMachineUserMenu : vendinMachineMenu {
-    //    func getUserMainMenu(menu:InputView.UserFirstMenu,orderDetail:OrderDetail,drinkPrice:Int)throws->String
-}
-/// 관리자용 메뉴
-protocol VendingMachineAdminMenu : vendinMachineMenu {
-    //    func getAdminMainMenu(menu:InputView.AdminFirstMenu,orderDetail:OrderDetail)throws->String
-}
 
 class VendingMachine : NSObject, vendinMachineMenu, NSCoding  {
     /// 자판기에 들어있는 금액
@@ -109,7 +101,8 @@ class VendingMachine : NSObject, vendinMachineMenu, NSCoding  {
     
 }
 
-extension VendingMachine : VendingMachineUserMenu {
+// 사용자 모드용 기능
+extension VendingMachine {
     /// 음료주문 기능
     func orderDrinks(orderDetail:OrderDetail)throws->StoredDrinkDetail{
         // 음료타입과 개수를 받아서 해당 음료를 재고에서 빼낸다
@@ -135,7 +128,8 @@ extension VendingMachine : VendingMachineUserMenu {
     }
 }
 
-extension VendingMachine : VendingMachineAdminMenu {
+// 관리자 모드용 기능
+extension VendingMachine {
     /// 음료 다수 제거 기능
     func removeDrinks(orderDetail:OrderDetail)throws->StoredDrinkDetail?{
         // 음료타입과 개수를 받아서 해당 음료를 리스트로 옮긴다

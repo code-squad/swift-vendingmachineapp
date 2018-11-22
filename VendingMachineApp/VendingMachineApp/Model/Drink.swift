@@ -29,6 +29,30 @@ extension String{
     }
 }
 
+/// 음료 종류
+enum DrinkType : Int, Codable{
+    case
+    lowSugarChocoMilk = 1
+    ,chocoMilk = 2
+    ,zeroCalorieCoke = 3
+    ,coke = 4
+    ,hotTopCoffee = 5
+    ,energyDrink = 6
+    ,none = 0
+    
+    static func returnSelf(rawValue : Int)->DrinkType{
+        switch rawValue {
+        case 1 : return .lowSugarChocoMilk
+        case 2 : return .chocoMilk
+        case 3 : return .zeroCalorieCoke
+        case 4 : return .coke
+        case 5 : return .hotTopCoffee
+        case 6 : return .energyDrink
+        default : return .none
+        }
+    }
+}
+
 /// 모든 음료수의 수퍼클래스
 class Drink : NSObject, NSCoding {
     fileprivate let brand : String

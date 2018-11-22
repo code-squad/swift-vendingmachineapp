@@ -8,31 +8,6 @@
 
 import Foundation
 
-
-/// 음료 종류
-enum DrinkType : Int, Codable{
-    case
-    lowSugarChocoMilk = 1
-    ,chocoMilk = 2
-    ,zeroCalorieCoke = 3
-    ,coke = 4
-    ,hotTopCoffee = 5
-    ,energyDrink = 6
-    ,none = 0
-    
-    static func returnSelf(rawValue : Int)->DrinkType{
-        switch rawValue {
-        case 1 : return .lowSugarChocoMilk
-        case 2 : return .chocoMilk
-        case 3 : return .zeroCalorieCoke
-        case 4 : return .coke
-        case 5 : return .hotTopCoffee
-        case 6 : return .energyDrink
-        default : return .none
-        }
-    }
-}
-
 /// 음료 한종류를 가지고 있는 객체
 class DrinkSlot<T:Drink> : NSObject, NSCoding {
     // 음료배열을 가진다

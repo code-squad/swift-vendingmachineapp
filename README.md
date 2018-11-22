@@ -94,7 +94,14 @@
 
 # 자판기 앱 step 3.
 
-.
+![](VendingmachineApp_step3_running.gif)
+
+- 앱 생명주기 학슴 - AppDelegate
+- Encoding,Decoding 학습
+- UserDefault 사용
+
+
+. 
 
 .
 

@@ -39,18 +39,6 @@ enum DrinkType : Int, Codable{
     ,hotTopCoffee = 5
     ,energyDrink = 6
     ,none = 0
-    
-    static func returnSelf(rawValue : Int)->DrinkType{
-        switch rawValue {
-        case 1 : return .lowSugarChocoMilk
-        case 2 : return .chocoMilk
-        case 3 : return .zeroCalorieCoke
-        case 4 : return .coke
-        case 5 : return .hotTopCoffee
-        case 6 : return .energyDrink
-        default : return .none
-        }
-    }
 }
 
 /// 모든 음료수의 수퍼클래스
@@ -91,7 +79,7 @@ class Drink : NSObject, NSCoding {
         self.size = aDecoder.decodeInteger(forKey: "size")
         self.price = aDecoder.decodeInteger(forKey: "price")
         self.name = aDecoder.decodeObject(forKey: "name") as! String
-        self.drinkType = DrinkType.returnSelf(rawValue: aDecoder.decodeInteger(forKey: "drinkType"))
+        self.drinkType = DrinkType(rawValue: aDecoder.decodeInteger(forKey: "drinkType")) ?? DrinkType.none
         self.manufacturingDate = aDecoder.decodeObject(forKey: "manufacturingDate") as! Date
     }
     

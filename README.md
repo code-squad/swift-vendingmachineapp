@@ -90,8 +90,6 @@
 - 재고추가,잔액추가 기능 연결
 - 예외처리 부분 alert 으로 변경
 
--
-
 # 자판기 앱 step 3.
 
 ![](VendingmachineApp_step3_running.gif)
@@ -99,6 +97,10 @@
 - 앱 생명주기 학슴 - AppDelegate
 - Encoding,Decoding 학습
 - UserDefault 사용
+
+# 자판기 앱 step 4.
+
+- 자판기 개개체 singleton pattern 적용
 
 
 . 

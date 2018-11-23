@@ -72,16 +72,12 @@ class ViewController: UIViewController {
    
     /// 음료정보를 받아서 태그번호를 리턴
     func getDrinkTag(storedDrinkDetail:StoredDrinkDetail)throws->Int{
-        switch storedDrinkDetail.drinkType {
-        case .chocoMilk : return 1
-        case .lowSugarChocoMilk : return 2
-        case .coke : return 3
-        case .zeroCalorieCoke : return 4
-        case .hotTopCoffee : return 5
-        case .energyDrink : return 6
-        case .none : throw OutputView.errorMessage.wrongDrink
+        if storedDrinkDetail.drinkType.rawValue == 0 {
+            throw OutputView.errorMessage.wrongDrink
         }
+        return storedDrinkDetail.drinkType.rawValue
     }
+    
     /// 음료정보와 태그를 받아서 재고표시를 변경
     func changeDrinkCount(storedDrinkDetail:StoredDrinkDetail)throws{
         let drinkTag = try getDrinkTag(storedDrinkDetail: storedDrinkDetail)

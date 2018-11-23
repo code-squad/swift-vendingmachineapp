@@ -179,5 +179,7 @@ extension VendingMachine {
         }
         // 음료 추가
         _ = try addDrink(drink: newDrink)
-    }    
+        // 음료 추가가 완료 되었다는 노티를 보낸다
+         NotificationCenter.default.post(name: .drinkCountChanged, object: nil)
+    }
 }

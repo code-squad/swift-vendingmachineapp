@@ -162,7 +162,7 @@ extension VendingMachine {
     /// 재고가 0이여도 가능한 음료추가함수
     func addBasicDrink(drinkTypeNumber:Int)throws{
         // 들어온 정수를 음료타입으로 치환 시도
-        guard let drinkType = DrinkType.init(rawValue: drinkTypeNumber) else {
+        guard let drinkType = DrinkType(rawValue: drinkTypeNumber) else {
             throw OutputView.errorMessage.wrongDrink
         }
         // 추가용 음료변수

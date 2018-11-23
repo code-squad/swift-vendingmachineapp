@@ -46,7 +46,6 @@
 #### 음료슬롯
 
 - 변수 : 음료의 배열
-
 - 함수 : 음료정보 객체 리턴 - 가지고있는 음료의 이름,가격,타입,개수
 
 -
@@ -90,6 +89,8 @@
 - 재고추가,잔액추가 기능 연결
 - 예외처리 부분 alert 으로 변경
 
+-
+
 # 자판기 앱 step 3.
 
 ![](VendingmachineApp_step3_running.gif)
@@ -98,33 +99,19 @@
 - Encoding,Decoding 학습
 - UserDefault 사용
 
+-
+
 # 자판기 앱 step 4.
 
-- 자판기 개개체 singleton pattern 적용
+- 자판기 객체 singleton pattern 적용
 
+-
 
-. 
+# 자판기 앱 step 5.
 
-.
-
-.
-
-.
-
-.
-
-.
-
-.
-
-.
-
-.
-
-.
-
-.
-
-.
-
-.
+- 화면상에 나타나는 변화는 없음
+- Notification 을 Observer 패턴으로 적용
+- 음료추가 함수에 직접 연결되어 있던 재고체크 함수를 제거
+- 음료 추가시 noti 를 보냄
+- 음료추가 noti 를 체크하는 Observer 추가
+- 음료추가 noti 가 오면 재고체크 함수를 실행

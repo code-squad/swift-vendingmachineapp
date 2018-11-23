@@ -6,6 +6,13 @@
 //  Copyright © 2018년 Drake. All rights reserved.
 //
 
+
+/// nottification 이름을 미리 지정
+extension Notification.Name {
+    // 음료 재고 변화시
+    static let drinkCountChanged = Notification.Name("drinkCountChanged")
+}
+
 import UIKit
 class ViewController: UIViewController {
     
@@ -40,8 +47,6 @@ class ViewController: UIViewController {
             case 6 : try! appDelegate.sharedVendingMachine.addBasicDrink(drinkType: .energyDrink)
             default : throw OutputView.errorMessage.wrongDrink
             }
-            // 재고를 최신화한다
-            try! refreshDrinkCounts()
         }
         catch {
             makeAlert(title: "에러", message: error.localizedDescription, okTitle: "OK")
@@ -96,11 +101,17 @@ class ViewController: UIViewController {
     }
     
     /// 음료재고 컬렉션 최신화 함수
-    func refreshDrinkCounts()throws{
+    func refreshDrinkCounts(){
         let storedDrinksDetail = appDelegate.sharedVendingMachine.getAllAvailableDrinks().storedDrinksDetail
         initDrinkCounts()
         for drinkDetil in storedDrinksDetail {
-            try changeDrinkCount(storedDrinkDetail: drinkDetil)
+            do {
+                 try changeDrinkCount(storedDrinkDetail: drinkDetil)
+            }
+            catch {
+                // 에러메세지 출력
+                makeAlert(title: "에러", message: error.localizedDescription, okTitle: "OK")
+            }
         }
     }
     
@@ -120,22 +131,29 @@ class ViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
+
+    
+    /// 재고가 추가됬다는 노티가 들어오면 실행됨
+    @objc func drinkCountChanged(notification: NSNotification) {
+        refreshDrinkCounts()
+    }
+    
     override func viewDidLoad() {
+        // 노티를 보는 옵저버. 노티가 발생하면 해당 함수를 실행한다
+        NotificationCenter.default.addObserver(self, selector: #selector(self.drinkCountChanged(notification:)), name: .drinkCountChanged , object: nil)
+        
         super.viewDidLoad()
+        
         self.drink01View.image = UIImage(named: "Drink01.jpg")
+        
         setBorderRadius()
+        
         appDelegate = UIApplication.shared.delegate as? AppDelegate
         
-        do {
-            // 자판기 금액 최신화
-            refreshBalance()
-            // 음료재고 최신화
-            try refreshDrinkCounts()
-        }
-        catch {
-            // 에러메세지 출력
-            makeAlert(title: "에러", message: error.localizedDescription, okTitle: "OK")
-        }
+        // 자판기 금액 최신화
+        refreshBalance()
+        // 음료 재고 최신화
+        refreshDrinkCounts()
         
         // viewDidLoad ends
     }
@@ -143,5 +161,8 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    // notification 생성
+    
 }
 

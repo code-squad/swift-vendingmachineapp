@@ -160,7 +160,11 @@ extension VendingMachine {
     }
     
     /// 재고가 0이여도 가능한 음료추가함수
-    func addBasicDrink(drinkType:DrinkType)throws{
+    func addBasicDrink(drinkTypeNumber:Int)throws{
+        // 들어온 정수를 음료타입으로 치환 시도
+        guard let drinkType = DrinkType.init(rawValue: drinkTypeNumber) else {
+            throw OutputView.errorMessage.wrongDrink
+        }
         // 추가용 음료변수
         var basicDrink : Drink?
         // 음료타입에 따라서 음료 생성
@@ -180,6 +184,6 @@ extension VendingMachine {
         // 음료 추가
         _ = try addDrink(drink: newDrink)
         // 음료 추가가 완료 되었다는 노티를 보낸다
-         NotificationCenter.default.post(name: .drinkCountChanged, object: nil)
+        NotificationCenter.default.post(name: .drinkCountChanged, object: nil)
     }
 }

@@ -23,7 +23,7 @@ class DrinkSlot<T:Drink> : NSObject, NSCoding {
     /// 디코더
     required init?(coder aDecoder: NSCoder) {
         self.drinks = aDecoder.decodeObject(forKey: "drinks") as! [T]
-        self.drinkType = DrinkType.returnSelf(rawValue: aDecoder.decodeInteger(forKey: "drinkType"))
+        self.drinkType = DrinkType(rawValue: aDecoder.decodeInteger(forKey: "drinkType")) ?? DrinkType.none
     }
     
     /// 인코더

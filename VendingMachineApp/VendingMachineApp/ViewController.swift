@@ -139,10 +139,10 @@ class ViewController: UIViewController {
     }
     
     override func viewDidLoad() {
+        super.viewDidLoad()
+        
         // 노티를 보는 옵저버. 노티가 발생하면 해당 함수를 실행한다
         NotificationCenter.default.addObserver(self, selector: #selector(self.drinkCountChanged(notification:)), name: .drinkCountChanged , object: nil)
-        
-        super.viewDidLoad()
         
         self.drink01View.image = UIImage(named: "Drink01.jpg")
         

@@ -36,17 +36,9 @@ class ViewController: UIViewController {
     @IBOutlet var addDrinkButtons: [UIButton]!
     
     /// 재고추가버튼액션. 각 재고버튼의 태그값을 기본음료생성 함수에 넣는다
-    @IBAction func addBasicDrink(_ sender: UIButton){
+    @IBAction func addBasicDrink(_ sender: UIButton){        
         do {
-            switch sender.tag {
-            case 1 : try! appDelegate.sharedVendingMachine.addBasicDrink(drinkType: .chocoMilk)
-            case 2 : try! appDelegate.sharedVendingMachine.addBasicDrink(drinkType: .lowSugarChocoMilk)
-            case 3 : try! appDelegate.sharedVendingMachine.addBasicDrink(drinkType: .coke)
-            case 4 : try! appDelegate.sharedVendingMachine.addBasicDrink(drinkType: .zeroCalorieCoke)
-            case 5 : try! appDelegate.sharedVendingMachine.addBasicDrink(drinkType: .hotTopCoffee)
-            case 6 : try! appDelegate.sharedVendingMachine.addBasicDrink(drinkType: .energyDrink)
-            default : throw OutputView.errorMessage.wrongDrink
-            }
+            try appDelegate.sharedVendingMachine.addBasicDrink(drinkTypeNumber: sender.tag)
         }
         catch {
             makeAlert(title: "에러", message: error.localizedDescription, okTitle: "OK")

@@ -32,10 +32,10 @@ extension String{
 /// 음료 종류
 enum DrinkType : Int, Codable{
     case
-    lowSugarChocoMilk = 1
-    ,chocoMilk = 2
-    ,zeroCalorieCoke = 3
-    ,coke = 4
+    chocoMilk = 1
+    ,lowSugarChocoMilk = 2
+    ,coke = 3
+    ,zeroCalorieCoke = 4
     ,hotTopCoffee = 5
     ,energyDrink = 6
     ,none = 0

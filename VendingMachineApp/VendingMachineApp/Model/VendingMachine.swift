@@ -179,30 +179,5 @@ extension VendingMachine {
         }
         // 음료 추가
         _ = try addDrink(drink: newDrink)
-    }
-    
-    /// 자판기 생성용 기본 음료들 추가함수
-    func addBasicDrinkSet()throws{
-        try addBasicDrink(drinkType: DrinkType.chocoMilk)
-        try addBasicDrink(drinkType: DrinkType.lowSugarChocoMilk)
-        try addBasicDrink(drinkType: DrinkType.lowSugarChocoMilk)
-        try addBasicDrink(drinkType: DrinkType.coke)
-        try addBasicDrink(drinkType: DrinkType.coke)
-        try addBasicDrink(drinkType: DrinkType.coke)
-        try addBasicDrink(drinkType: DrinkType.zeroCalorieCoke)
-        try addBasicDrink(drinkType: DrinkType.zeroCalorieCoke)
-        try addBasicDrink(drinkType: DrinkType.zeroCalorieCoke)
-        try addBasicDrink(drinkType: DrinkType.zeroCalorieCoke)
-        try addBasicDrink(drinkType: DrinkType.hotTopCoffee)
-        try addBasicDrink(drinkType: DrinkType.hotTopCoffee)
-        try addBasicDrink(drinkType: DrinkType.hotTopCoffee)
-        try addBasicDrink(drinkType: DrinkType.hotTopCoffee)
-        try addBasicDrink(drinkType: DrinkType.hotTopCoffee)
-        try addBasicDrink(drinkType: DrinkType.energyDrink)
-        try addBasicDrink(drinkType: DrinkType.energyDrink)
-        try addBasicDrink(drinkType: DrinkType.energyDrink)
-        try addBasicDrink(drinkType: DrinkType.energyDrink)
-        try addBasicDrink(drinkType: DrinkType.energyDrink)
-        try addBasicDrink(drinkType: DrinkType.energyDrink)
-    }
+    }    
 }

@@ -72,20 +72,22 @@ class ViewController: UIViewController {
    
     /// 음료정보를 받아서 태그번호를 리턴
     func getDrinkTag(storedDrinkDetail:StoredDrinkDetail)throws->Int{
+        // 음료타입의 기본값이 0 이면 에러처리
         if storedDrinkDetail.drinkType.rawValue == 0 {
             throw OutputView.errorMessage.wrongDrink
         }
+        // 0 이 아니라면 음료타입 값 리턴
         return storedDrinkDetail.drinkType.rawValue
     }
     
     /// 음료정보와 태그를 받아서 재고표시를 변경
     func changeDrinkCount(storedDrinkDetail:StoredDrinkDetail)throws{
+        // 음료정보에서 음료타입 기본값을 추출
         let drinkTag = try getDrinkTag(storedDrinkDetail: storedDrinkDetail)
-        for drinkCount in drinkCounts {
-            if drinkCount.tag == drinkTag {
-                drinkCount.text = "\(storedDrinkDetail.drinkName) \(storedDrinkDetail.drinkCount) 개"
-            }
-        }
+        // 기본값 -1 해서 인덱스로 해당 음료에 연결된 label 추출
+        let drinkCount = drinkCounts[drinkTag-1]
+        // label 값 수정
+        drinkCount.text = "\(storedDrinkDetail.drinkName) \(storedDrinkDetail.drinkCount) 개"
     }
     
     /// 음료재고 컬렉션 최신화 함수
@@ -131,9 +133,9 @@ class ViewController: UIViewController {
         
         // 노티를 보는 옵저버. 노티가 발생하면 해당 함수를 실행한다
         NotificationCenter.default.addObserver(self, selector: #selector(self.drinkCountChanged(notification:)), name: .drinkCountChanged , object: nil)
-        
+        // 코드로 사진 변경
         self.drink01View.image = UIImage(named: "Drink01.jpg")
-        
+        // 사진 테두리 둥글게 수정
         setBorderRadius()
         
         appDelegate = UIApplication.shared.delegate as? AppDelegate
@@ -145,12 +147,10 @@ class ViewController: UIViewController {
         
         // viewDidLoad ends
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    // notification 생성
-    
 }
 

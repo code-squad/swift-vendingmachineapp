@@ -18,28 +18,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Ol-QF-kU7">
+                            <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" tag="11" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Drink01.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="3Ol-QF-kU7">
                                 <rect key="frame" x="80" y="90" width="200" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <rect key="contentStretch" x="1" y="0.0" width="1" height="1"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Drink02.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="VNS-j7-VvO">
+                            <imageView userInteractionEnabled="NO" tag="12" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Drink02.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="VNS-j7-VvO">
                                 <rect key="frame" x="361" y="90" width="200" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" tag="3" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Drink03.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="e5o-9Q-Skv">
+                            <imageView userInteractionEnabled="NO" tag="13" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Drink03.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="e5o-9Q-Skv">
                                 <rect key="frame" x="623" y="90" width="200" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" tag="4" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Drink04.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="1hY-fj-w4k">
+                            <imageView userInteractionEnabled="NO" tag="14" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Drink04.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="1hY-fj-w4k">
                                 <rect key="frame" x="80" y="413" width="200" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" tag="5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Drink05.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Gmp-2W-dda">
+                            <imageView userInteractionEnabled="NO" tag="15" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Drink05.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Gmp-2W-dda">
                                 <rect key="frame" x="361" y="413" width="200" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" tag="6" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Drink06.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="nPk-rd-QNu">
+                            <imageView userInteractionEnabled="NO" tag="16" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Drink06.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="nPk-rd-QNu">
                                 <rect key="frame" x="623" y="413" width="200" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -207,6 +207,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Drink01.jpg" width="300" height="300"/>
         <image name="Drink02.jpg" width="300" height="300"/>
         <image name="Drink03.jpg" width="650" height="650"/>
         <image name="Drink04.jpg" width="300" height="300"/>

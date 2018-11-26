@@ -181,18 +181,18 @@
                     <connections>
                         <outlet property="balance" destination="AIz-m4-xeS" id="2NM-eQ-bAV"/>
                         <outlet property="drink01View" destination="3Ol-QF-kU7" id="kb8-A0-bCa"/>
-                        <outletCollection property="drinkCounts" destination="KTU-i3-Xm0" collectionClass="NSMutableArray" id="gtZ-uf-dGe"/>
-                        <outletCollection property="drinkCounts" destination="6K7-mP-euR" collectionClass="NSMutableArray" id="NCu-J7-2rA"/>
-                        <outletCollection property="drinkCounts" destination="f15-Dz-cku" collectionClass="NSMutableArray" id="dAQ-t3-mAh"/>
-                        <outletCollection property="drinkCounts" destination="PC2-Ck-rBu" collectionClass="NSMutableArray" id="Trg-so-VvB"/>
-                        <outletCollection property="drinkCounts" destination="aIz-xg-rng" collectionClass="NSMutableArray" id="iOY-sl-M00"/>
-                        <outletCollection property="drinkCounts" destination="fwE-tP-hpR" collectionClass="NSMutableArray" id="Oi7-B4-pKv"/>
-                        <outletCollection property="drinkImages" destination="3Ol-QF-kU7" collectionClass="NSMutableArray" id="nbv-kH-ctk"/>
-                        <outletCollection property="drinkImages" destination="VNS-j7-VvO" collectionClass="NSMutableArray" id="o0q-Yj-Tdq"/>
-                        <outletCollection property="drinkImages" destination="e5o-9Q-Skv" collectionClass="NSMutableArray" id="VWn-0g-Y26"/>
-                        <outletCollection property="drinkImages" destination="1hY-fj-w4k" collectionClass="NSMutableArray" id="0F8-QC-5p3"/>
-                        <outletCollection property="drinkImages" destination="Gmp-2W-dda" collectionClass="NSMutableArray" id="9pf-R0-OzQ"/>
-                        <outletCollection property="drinkImages" destination="nPk-rd-QNu" collectionClass="NSMutableArray" id="qCd-Ab-olI"/>
+                        <outletCollection property="drinkCountLabels" destination="KTU-i3-Xm0" collectionClass="NSMutableArray" id="gtZ-uf-dGe"/>
+                        <outletCollection property="drinkCountLabels" destination="6K7-mP-euR" collectionClass="NSMutableArray" id="NCu-J7-2rA"/>
+                        <outletCollection property="drinkCountLabels" destination="f15-Dz-cku" collectionClass="NSMutableArray" id="dAQ-t3-mAh"/>
+                        <outletCollection property="drinkCountLabels" destination="PC2-Ck-rBu" collectionClass="NSMutableArray" id="Trg-so-VvB"/>
+                        <outletCollection property="drinkCountLabels" destination="aIz-xg-rng" collectionClass="NSMutableArray" id="iOY-sl-M00"/>
+                        <outletCollection property="drinkCountLabels" destination="fwE-tP-hpR" collectionClass="NSMutableArray" id="Oi7-B4-pKv"/>
+                        <outletCollection property="drinkImageLabels" destination="3Ol-QF-kU7" collectionClass="NSMutableArray" id="nbv-kH-ctk"/>
+                        <outletCollection property="drinkImageLabels" destination="VNS-j7-VvO" collectionClass="NSMutableArray" id="o0q-Yj-Tdq"/>
+                        <outletCollection property="drinkImageLabels" destination="e5o-9Q-Skv" collectionClass="NSMutableArray" id="VWn-0g-Y26"/>
+                        <outletCollection property="drinkImageLabels" destination="1hY-fj-w4k" collectionClass="NSMutableArray" id="0F8-QC-5p3"/>
+                        <outletCollection property="drinkImageLabels" destination="Gmp-2W-dda" collectionClass="NSMutableArray" id="9pf-R0-OzQ"/>
+                        <outletCollection property="drinkImageLabels" destination="nPk-rd-QNu" collectionClass="NSMutableArray" id="qCd-Ab-olI"/>
                         <outletCollection property="addDrinkButtons" destination="HKH-ie-2LJ" collectionClass="NSMutableArray" id="esX-hW-fhp"/>
                         <outletCollection property="addDrinkButtons" destination="QTw-3y-pCg" collectionClass="NSMutableArray" id="oc2-hQ-N6J"/>
                         <outletCollection property="addDrinkButtons" destination="bG7-em-Pma" collectionClass="NSMutableArray" id="2eP-TU-Izl"/>

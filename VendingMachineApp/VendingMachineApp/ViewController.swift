@@ -27,10 +27,10 @@ class ViewController: UIViewController {
     }
     
     /// 음료 재고들 커렉션
-    @IBOutlet var drinkCounts: [UILabel]!
+    @IBOutlet var drinkCountLabels: [UILabel]!
     
     /// 음료 사진뷰 컬렉션
-    @IBOutlet var drinkImages: [UIImageView]!
+    @IBOutlet var drinkImageLabels: [UIImageView]!
     
     /// 재고추가 버튼들 컬렉션
     @IBOutlet var addDrinkButtons: [UIButton]!
@@ -60,7 +60,7 @@ class ViewController: UIViewController {
     
     /// 음료재고 컬렉션 초기화 함수
     func initDrinkCounts(){
-        for counts in drinkCounts {
+        for counts in drinkCountLabels {
             counts.text = "매진됨"
         }
     }
@@ -111,7 +111,7 @@ class ViewController: UIViewController {
     
     /// 음료사진들 테두리를 둥글게
     func setBorderRadius(){
-        for view in drinkImages {
+        for view in drinkImageLabels {
             view.layer.masksToBounds = true
             view.layer.cornerRadius = 30
         }

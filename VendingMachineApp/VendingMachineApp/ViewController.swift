@@ -84,16 +84,20 @@ class ViewController: UIViewController {
     func changeDrinkCount(storedDrinkDetail:StoredDrinkDetail)throws{
         // 음료정보에서 음료타입 기본값을 추출
         let drinkTag = try getDrinkTag(storedDrinkDetail: storedDrinkDetail)
-        // 기본값 -1 해서 인덱스로 해당 음료에 연결된 label 추출
-        let drinkCount = drinkCounts[drinkTag-1]
-        // label 값 수정
-        drinkCount.text = "\(storedDrinkDetail.drinkName) \(storedDrinkDetail.drinkCount) 개"
+        // 음료에 연결된 label 추출
+        if let drinkCount : UILabel = self.view.viewWithTag(drinkTag) as? UILabel {
+            // label 값 수정
+            drinkCount.text = "\(storedDrinkDetail.drinkName) \(storedDrinkDetail.drinkCount) 개"
+        } else {
+            // 초기화 실패시 메세지 출력
+            makeAlert(title: "에러", message: "재고 초기화 실패 : "+storedDrinkDetail.drinkName, okTitle: "OK")
+        }
     }
+    
     
     /// 음료재고 컬렉션 최신화 함수
     func refreshDrinkCounts(){
         let storedDrinksDetail = appDelegate.sharedVendingMachine.getAllAvailableDrinks().storedDrinksDetail
-        initDrinkCounts()
         for drinkDetil in storedDrinksDetail {
             do {
                  try changeDrinkCount(storedDrinkDetail: drinkDetil)
@@ -121,8 +125,6 @@ class ViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
-
-    
     /// 재고가 추가됬다는 노티가 들어오면 실행됨
     @objc func drinkCountChanged(notification: NSNotification) {
         refreshDrinkCounts()
@@ -130,11 +132,11 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // 음료재고를 초기화 한다
+        initDrinkCounts()
         
         // 노티를 보는 옵저버. 노티가 발생하면 해당 함수를 실행한다
         NotificationCenter.default.addObserver(self, selector: #selector(self.drinkCountChanged(notification:)), name: .drinkCountChanged , object: nil)
-        // 코드로 사진 변경
-        self.drink01View.image = UIImage(named: "Drink01.jpg")
         // 사진 테두리 둥글게 수정
         setBorderRadius()
         

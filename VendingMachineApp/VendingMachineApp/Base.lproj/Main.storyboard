@@ -167,6 +167,9 @@
                                 <state key="normal" title="구매">
                                     <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="buyDrink:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PB4-Lp-3zU"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="22" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9VR-Kr-MHu">
                                 <rect key="frame" x="394" y="149" width="46" height="30"/>
@@ -174,6 +177,9 @@
                                 <state key="normal" title="구매">
                                     <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="buyDrink:" destination="BYZ-38-t0r" eventType="touchUpInside" id="c1E-zn-1zU"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="23" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yln-wa-Dg2">
                                 <rect key="frame" x="653" y="149" width="46" height="30"/>
@@ -181,6 +187,9 @@
                                 <state key="normal" title="구매">
                                     <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="buyDrink:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JrN-7t-rjn"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="24" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CY0-If-Vbz">
                                 <rect key="frame" x="108" y="324" width="46" height="30"/>
@@ -188,6 +197,9 @@
                                 <state key="normal" title="구매">
                                     <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="buyDrink:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3Dq-Ko-hZ1"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="25" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H1J-Ht-pDe">
                                 <rect key="frame" x="394" y="324" width="46" height="30"/>
@@ -195,6 +207,9 @@
                                 <state key="normal" title="구매">
                                     <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="buyDrink:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9b9-WC-MUc"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="26" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BhH-ij-FIo">
                                 <rect key="frame" x="653" y="324" width="46" height="30"/>
@@ -202,6 +217,9 @@
                                 <state key="normal" title="구매">
                                     <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="buyDrink:" destination="BYZ-38-t0r" eventType="touchUpInside" id="COG-Mj-LQA"/>
+                                </connections>
                             </button>
                             <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" tag="11" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Drink01.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="3Ol-QF-kU7">
                                 <rect key="frame" x="46" y="12" width="140" height="100"/>
@@ -241,6 +259,12 @@
                         <outletCollection property="addDrinkButtons" destination="keZ-21-ElG" collectionClass="NSMutableArray" id="0i7-eI-8Jf"/>
                         <outletCollection property="addDrinkButtons" destination="otS-L2-04D" collectionClass="NSMutableArray" id="Xf2-5P-x1x"/>
                         <outletCollection property="addDrinkButtons" destination="ckP-lw-jnN" collectionClass="NSMutableArray" id="8DX-he-39E"/>
+                        <outletCollection property="buyDrinkButtons" destination="mIp-su-Vrn" collectionClass="NSMutableArray" id="Ptk-j0-kPc"/>
+                        <outletCollection property="buyDrinkButtons" destination="9VR-Kr-MHu" collectionClass="NSMutableArray" id="w7f-JX-bfp"/>
+                        <outletCollection property="buyDrinkButtons" destination="yln-wa-Dg2" collectionClass="NSMutableArray" id="Ps7-hq-qP7"/>
+                        <outletCollection property="buyDrinkButtons" destination="CY0-If-Vbz" collectionClass="NSMutableArray" id="xvs-zt-82L"/>
+                        <outletCollection property="buyDrinkButtons" destination="H1J-Ht-pDe" collectionClass="NSMutableArray" id="ne4-0e-0gZ"/>
+                        <outletCollection property="buyDrinkButtons" destination="BhH-ij-FIo" collectionClass="NSMutableArray" id="Qh0-IN-48c"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

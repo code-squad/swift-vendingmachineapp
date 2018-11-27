@@ -47,11 +47,10 @@ class ViewController: UIViewController {
     
     weak var appDelegate: AppDelegate!
     
-    // 생성자
-    required init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)!
-    }
+    // 자판기 객체를 받기위한 변수화
+    var vendingMachine : VendingMachine?
     
+
     /// 잔액추가 버튼액션
     func addBalance(uiButton:UIButton){
         _ = appDelegate.sharedVendingMachine.plusMoney(money: uiButton.tag)

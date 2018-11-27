@@ -33,7 +33,7 @@ class VendingMachine : NSObject, vendinMachineMenu, NSCoding  {
     }
     
     /// 생성자
-    override init(){
+    override private init(){
         super.init()
     }
     

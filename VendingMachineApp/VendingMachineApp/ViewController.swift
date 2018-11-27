@@ -38,7 +38,7 @@ class ViewController: UIViewController {
     /// 재고추가버튼액션. 각 재고버튼의 태그값을 기본음료생성 함수에 넣는다
     @IBAction func addBasicDrink(_ sender: UIButton){        
         do {
-            try appDelegate.sharedVendingMachine.addBasicDrink(drinkTypeNumber: sender.tag)
+            try vendingMachine.addBasicDrink(drinkTypeNumber: sender.tag)
         }
         catch {
             makeAlert(title: "에러", message: error.localizedDescription, okTitle: "OK")
@@ -48,12 +48,12 @@ class ViewController: UIViewController {
     weak var appDelegate: AppDelegate!
     
     // 자판기 객체를 받기위한 변수화
-    var vendingMachine : VendingMachine?
+    var vendingMachine : VendingMachine!
     
 
     /// 잔액추가 버튼액션
     func addBalance(uiButton:UIButton){
-        _ = appDelegate.sharedVendingMachine.plusMoney(money: uiButton.tag)
+        _ = vendingMachine.plusMoney(money: uiButton.tag)
         refreshBalance()
     }
     
@@ -66,7 +66,7 @@ class ViewController: UIViewController {
     
     /// 자판기 잔액표기 갱신 함수
     func refreshBalance(){
-        self.balance.text =  "\(appDelegate.sharedVendingMachine.getMoney()) 원"
+        self.balance.text =  "\(vendingMachine.getMoney()) 원"
     }
    
     /// 음료정보를 받아서 태그번호를 리턴
@@ -96,7 +96,7 @@ class ViewController: UIViewController {
     
     /// 음료재고 컬렉션 최신화 함수
     func refreshDrinkCounts(){
-        let storedDrinksDetail = appDelegate.sharedVendingMachine.getAllAvailableDrinks().storedDrinksDetail
+        let storedDrinksDetail = vendingMachine.getAllAvailableDrinks().storedDrinksDetail
         for drinkDetil in storedDrinksDetail {
             do {
                  try changeDrinkCount(storedDrinkDetail: drinkDetil)
@@ -131,15 +131,19 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // 자판기 의존성 주입
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        self.vendingMachine = appDelegate.sharedVendingMachine
+        
         // 음료재고를 초기화 한다
         initDrinkCounts()
         
         // 노티를 보는 옵저버. 노티가 발생하면 해당 함수를 실행한다
         NotificationCenter.default.addObserver(self, selector: #selector(self.drinkCountChanged(notification:)), name: .drinkCountChanged , object: nil)
+        
         // 사진 테두리 둥글게 수정
         setBorderRadius()
-        
-        appDelegate = UIApplication.shared.delegate as? AppDelegate
         
         // 자판기 금액 최신화
         refreshBalance()

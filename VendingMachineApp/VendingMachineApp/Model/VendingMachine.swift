@@ -126,6 +126,20 @@ extension VendingMachine {
         // 완료 메세지 리턴
         return "\(movedDrinksDetail.drinkName) \(movedDrinksDetail.drinkCount)개를 \(totalOrderPrice)원에 구입하였습니다."
     }
+    
+    /// 음료태그로 음료를 구매하는 기능
+    func buyDrink(drinkTag:Int)throws->String{
+        // 음료태그와 음료타입이 매칭되는지 체크
+        guard let orderdDrinkType : DrinkType = DrinkType(rawValue: drinkTag) else {
+            throw OutputView.errorMessage.wrongDrink
+        }
+        // 음료타입으로 주문서 작성. 수량은 1개
+        let orderDetail = OrderDetail(drinkType: orderdDrinkType, drinkCount: 1)
+        
+        //주문서로 음료 주문
+        return try buyDrink(orderDetail: orderDetail)        
+    }
+    
 }
 
 // 관리자 모드용 기능

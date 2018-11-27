@@ -111,7 +111,7 @@ class DrinkSlot<T:Drink> : NSObject, NSCoding {
     
     /// 음료슬롯을 받아서 전부 추가
     func addDrinkSlot(drinkSlot:DrinkSlot<T>)throws->StoredDrinkDetail{
-        // 옮겨진 음료들의 정보를 담는 음료정보 변수
+        // 옮겨질 음료들의 정보를 담는 음료정보 변수
         guard let result = drinkSlot.getDrinkDetail() else {
             // 0개면 에러
             throw OutputView.errorMessage.notEnoughDrink

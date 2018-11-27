@@ -54,6 +54,8 @@ class VendingMachine : NSObject, vendinMachineMenu, NSCoding  {
     /// 금액 추가 함수
     func plusMoney(money:Int)->String{
         self.insertedMoney += money
+        // 잔액변동 노티를 보낸다
+        NotificationCenter.default.post(name: .balanceChanged, object: nil)
         return "\(money)원을 추가하였습니다."
     }
     
@@ -64,6 +66,8 @@ class VendingMachine : NSObject, vendinMachineMenu, NSCoding  {
             throw OutputView.errorMessage.notEnoughMoney
         }
         self.insertedMoney = resultMoney
+        // 잔액변동 노티를 보낸다
+        NotificationCenter.default.post(name: .balanceChanged, object: nil)        
     }
     
     /// 금액 출력 함수

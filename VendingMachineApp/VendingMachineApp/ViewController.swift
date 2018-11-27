@@ -113,6 +113,7 @@ class ViewController: UIViewController {
         for view in drinkImageLabels {
             view.layer.masksToBounds = true
             view.layer.cornerRadius = 15
+            view.layer.borderWidth = 5
         }
     }
     

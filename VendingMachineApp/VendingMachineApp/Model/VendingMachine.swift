@@ -121,7 +121,7 @@ extension VendingMachine {
         try self.minusMoney(money: totalOrderPrice)
         
         // 인벤토리->주문내역 으로 음료 이동. 이동된 음료의 정보 저장
-        let movedDrinksDetail = try orderedDrinks.addDrinks(drinks: drinkInventory.popDrinks(orderDetail: orderDetail))
+        let movedDrinksDetail = try orderDrinks(orderDetail: orderDetail)
         
         // 완료 메세지 리턴
         return "\(movedDrinksDetail.drinkName) \(movedDrinksDetail.drinkCount)개를 \(totalOrderPrice)원에 구입하였습니다."

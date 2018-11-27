@@ -112,7 +112,7 @@ class ViewController: UIViewController {
     func setBorderRadius(){
         for view in drinkImageLabels {
             view.layer.masksToBounds = true
-            view.layer.cornerRadius = 30
+            view.layer.cornerRadius = 15
         }
     }
     

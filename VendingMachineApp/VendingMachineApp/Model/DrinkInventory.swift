@@ -127,7 +127,7 @@ class DrinkInventory : NSObject, NSCoding {
             // 음료슬롯의 음료타입이 맞으면
             if drinkSlot.drinkType == drinks.drinkType {
                 // 구입가능여부확인 함수를 리턴
-                return try drinkSlot.addDrinkSlot(drinkSlot: drinkSlot)
+                return try drinkSlot.addDrinkSlot(drinkSlot: drinks)
             }
         }
         // 맞는 타입이 없으면

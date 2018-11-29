@@ -11,6 +11,8 @@
 extension Notification.Name {
     // 음료 재고 변화시
     static let drinkCountChanged = Notification.Name("drinkCountChanged")
+    static let balanceChanged = Notification.Name("balanceChanged")
+    static let orderDrink = Notification.Name("orderDrink")
 }
 
 import UIKit
@@ -45,7 +47,22 @@ class ViewController: UIViewController {
         }
     }
     
-    weak var appDelegate: AppDelegate!
+    /// 음료구매 버튼들
+    @IBOutlet var buyDrinkButtons: [UIButton]!
+    /// 음료구매버튼 액션
+    @IBAction func buyDrink(_ sender: UIButton) {
+        do {
+            _ = try vendingMachine.buyDrink(drinkTag: sender.tag-20)
+        }
+        catch let error as OutputView.errorMessage {
+            makeAlert(title: "에러", message: error.description, okTitle: "OK")
+        }
+        catch {
+            makeAlert(title: "에러", message: error.localizedDescription, okTitle: "OK")
+        }
+    }
+    
+    
     
     // 자판기 객체를 받기위한 변수화
     var vendingMachine : VendingMachine!
@@ -95,7 +112,9 @@ class ViewController: UIViewController {
     
     
     /// 음료재고 컬렉션 최신화 함수
-    func refreshDrinkCounts(){
+    func refreshDrinkCounts(){        
+        // 재고표시 초기화를 진행
+        initDrinkCounts()
         let storedDrinksDetail = vendingMachine.getAllAvailableDrinks().storedDrinksDetail
         for drinkDetil in storedDrinksDetail {
             do {
@@ -129,7 +148,42 @@ class ViewController: UIViewController {
     @objc func drinkCountChanged(notification: NSNotification) {
         refreshDrinkCounts()
     }
+    /// 잔액변동 노티가 들어오면 실행됨
+    @objc func balanceChanged(notification: NSNotification) {
+        refreshBalance()
+    }
+    /// 음료주문 노티가 들어오면 실행됨
+    @objc func orderedDrinkCountChanged(notification: NSNotification) {
+        refreshOrderedDrink()
+    }
     
+    /// 주문된음료 최신화 함수
+    func refreshOrderedDrink(){
+        // 주문된 음료 재고 변수
+        var drinkCount = 0
+        
+        // 음료사진 파일명 용 함수
+        func fileNameFrom(drinkTag:Int)->String{
+            return "Drink0"+String(drinkTag)+".jpg"
+        }
+        
+        // 주문된 음료의 사진을 뷰로 생성
+        for drinkTag in vendingMachine.allOderedDrinksTag() {
+            // 음료에 맞는 사진 연결
+            let fileName = fileNameFrom(drinkTag: drinkTag)
+            let drinkImage = UIImage.init(named:fileName )!
+            // 음료 개수에 맞는 위치 설정
+            let cardImage : UIImageView = UIImageView(image:drinkImage)
+            cardImage.frame = CGRect(x: 40*drinkCount, y: 575, width: 140, height: 100)
+            // 음료사진 추가
+            self.view.addSubview(cardImage)
+            // 음료 카운트 추가
+            drinkCount += 1
+        }
+    }
+    
+    
+    /// viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -141,7 +195,12 @@ class ViewController: UIViewController {
         initDrinkCounts()
         
         // 노티를 보는 옵저버. 노티가 발생하면 해당 함수를 실행한다
+        // 음료 재고 변동 옵저버
         NotificationCenter.default.addObserver(self, selector: #selector(self.drinkCountChanged(notification:)), name: .drinkCountChanged , object: nil)
+        // 금액변동 옵저버
+        NotificationCenter.default.addObserver(self, selector: #selector(self.balanceChanged(notification:)), name: .balanceChanged , object: nil)
+        // 음료주문 옵저버
+        NotificationCenter.default.addObserver(self, selector: #selector(self.orderedDrinkCountChanged(notification:)), name: .orderDrink , object: nil)
         
         // 사진 테두리 둥글게 수정
         setBorderRadius()
@@ -150,6 +209,9 @@ class ViewController: UIViewController {
         refreshBalance()
         // 음료 재고 최신화
         refreshDrinkCounts()
+        
+        // 주문된음료 사진 최신화
+        refreshOrderedDrink()
         
         // viewDidLoad ends
     }

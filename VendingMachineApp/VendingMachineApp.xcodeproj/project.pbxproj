@@ -27,6 +27,7 @@
 		D56712E8214A3F2E00106ECD /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = D56712E3214A3F2E00106ECD /* VendingMachine.swift */; };
 		D56712EA214A4C9C00106ECD /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D56712E9214A4C9C00106ECD /* OutputView.swift */; };
 		D575AC08219EBBC10018C62E /* VendingMachineDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D575AC07219EBBC10018C62E /* VendingMachineDataManager.swift */; };
+		D5D5CA0521AF908A00CF338B /* OrderedDrinkSlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D5CA0421AF908A00CF338B /* OrderedDrinkSlot.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		D56712E3214A3F2E00106ECD /* VendingMachine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VendingMachine.swift; sourceTree = "<group>"; };
 		D56712E9214A4C9C00106ECD /* OutputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
 		D575AC07219EBBC10018C62E /* VendingMachineDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineDataManager.swift; sourceTree = "<group>"; };
+		D5D5CA0421AF908A00CF338B /* OrderedDrinkSlot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderedDrinkSlot.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 				D56712E3214A3F2E00106ECD /* VendingMachine.swift */,
 				D575AC07219EBBC10018C62E /* VendingMachineDataManager.swift */,
 				D56712E9214A4C9C00106ECD /* OutputView.swift */,
+				D5D5CA0421AF908A00CF338B /* OrderedDrinkSlot.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -312,6 +315,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5D5CA0521AF908A00CF338B /* OrderedDrinkSlot.swift in Sources */,
 				D56712E7214A3F2E00106ECD /* DrinkSlot.swift in Sources */,
 				D56712B4214A295600106ECD /* ViewController.swift in Sources */,
 				D56712E5214A3F2E00106ECD /* DrinkInventory.swift in Sources */,

@@ -43,7 +43,7 @@ class OrderedDrinkSlot : NSObject, NSCoding {
     }
     
     /// 추가된 음료 전체 태그값 리턴
-    func AllOderedDrinksTag()->[Int]{
+    func allOderedDrinksTag()->[Int]{
         // 결과 저장용 변수
         var result : [Int] = []
         // 주문된 음료가 없으면 바로 리턴

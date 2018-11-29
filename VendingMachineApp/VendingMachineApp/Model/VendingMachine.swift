@@ -22,7 +22,7 @@ class VendingMachine : NSObject, vendinMachineMenu, NSCoding  {
     private var drinkInventory = DrinkInventory()
     
     /// 주문한 음료수가 쌓이는 곳
-    private var orderedDrinks = DrinkInventory()
+    private var orderedDrinks = OrderedDrinkSlot()
     
     /// 싱글톤 패턴을 위한 객체
     private static var sharedVendingMachine = VendingMachine()
@@ -41,7 +41,7 @@ class VendingMachine : NSObject, vendinMachineMenu, NSCoding  {
     required init?(coder aDecoder: NSCoder) {
         self.insertedMoney = aDecoder.decodeInteger(forKey: "insertedMoney")
         self.drinkInventory = aDecoder.decodeObject(forKey: "drinkInventory") as! DrinkInventory
-        self.orderedDrinks = aDecoder.decodeObject(forKey: "orderedDrinks") as! DrinkInventory
+        self.orderedDrinks = aDecoder.decodeObject(forKey: "orderedDrinks") as! OrderedDrinkSlot
     }
 
     /// 인코더
@@ -76,8 +76,8 @@ class VendingMachine : NSObject, vendinMachineMenu, NSCoding  {
     }
     
     /// 주문한 음료수 전체 내용 리턴
-    func getAllOrderdDrink()->String{
-        return orderedDrinks.getTotalDrinkDetail().getAllDrinkDetails()
+    func getAllOrderdDrink()->[Int]{
+        return orderedDrinks.AllOderedDrinksTag()
     }
     
     /// 재고 추가
@@ -112,9 +112,9 @@ extension VendingMachine {
         // 음료타입과 개수를 받아서 해당 음료를 재고에서 빼낸다
         let movedDrinks = try drinkInventory.popDrinks(orderDetail: orderDetail)
         // 이동된 음료를 주문리스트에 넣고 옮겨진 음료정보를 기록한다
-        let movedDrinksDetail : StoredDrinkDetail = try self.orderedDrinks.addDrinks(drinks: movedDrinks)
+        self.orderedDrinks.addOrderedDrink(drinkSlot: movedDrinks)
         // 옮겨진 음료정보를 리턴한다
-        return movedDrinksDetail
+        return movedDrinks.getDrinkDetail()!
     }
     
     /// 유저가 음료 선택 시 진행 순서

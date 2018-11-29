@@ -12,6 +12,11 @@ class OrderedDrinkSlot : NSObject, NSCoding {
     /// 주문받은 음료를 배열에 포함
     private var orderedDrinks : [Drink] = []
     
+    /// 기본 생성자에 특별한 인자는 필요없음
+    override init(){
+        super.init()
+    }
+    
     /// 디코더
     required init?(coder aDecoder: NSCoder) {
         self.orderedDrinks = aDecoder.decodeObject(forKey: "orderedDrinks") as! [Drink]
@@ -28,7 +33,7 @@ class OrderedDrinkSlot : NSObject, NSCoding {
     }
     
     /// 추가된 음료 전체 태그값 리턴
-    func AllOderedDrinksTag()throws->[Int]{
+    func AllOderedDrinksTag()->[Int]{
         // 결과 저장용 변수
         var result : [Int] = []
         // 주문된 음료가 없으면 바로 리턴

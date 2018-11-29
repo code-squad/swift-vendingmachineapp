@@ -208,4 +208,9 @@ extension VendingMachine {
         // 음료재고변동 노티를 보낸다
         NotificationCenter.default.post(name: .drinkCountChanged, object: nil)
     }
+    
+    // 주문된 음료태그 리턴
+    func allOderedDrinksTag ()->[Int]{
+        return orderedDrinks.allOderedDrinksTag()
+    }
 }

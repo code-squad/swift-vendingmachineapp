@@ -77,7 +77,7 @@ class VendingMachine : NSObject, vendinMachineMenu, NSCoding  {
     
     /// 주문한 음료수 전체 내용 리턴
     func getAllOrderdDrink()->[Int]{
-        return orderedDrinks.allOderedDrinksTag()
+        return orderedDrinks.allOrderedDrinksTag()
     }
     
     /// 재고 추가
@@ -217,6 +217,6 @@ extension VendingMachine {
     
     // 주문된 음료태그 리턴
     func allOderedDrinksTag ()->[Int]{
-        return orderedDrinks.allOderedDrinksTag()
+        return orderedDrinks.allOrderedDrinksTag()
     }
 }

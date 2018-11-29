@@ -27,9 +27,19 @@ class OrderedDrinkSlot : NSObject, NSCoding {
         aCoder.encode(orderedDrinks, forKey: "orderedDrinks")
     }
     
-    /// 음료 추가
+    /// 음료 1개 추가
     func addOrderedDrink(drink: Drink){
         orderedDrinks.append(drink)
+    }
+    
+    /// 음료 슬롯으로 추가
+    func addOrderedDrink(drinkSlot:DrinkSlot<Drink>){
+        // 음료 슬롯을 받아서 배열화 한다
+        let allDrink = drinkSlot.popAllDrink()
+        // 받은 음료들을 주문목록에 추가한다
+        for drink in allDrink {
+            addOrderedDrink(drink: drink)
+        }
     }
     
     /// 추가된 음료 전체 태그값 리턴

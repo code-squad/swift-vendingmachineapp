@@ -12,7 +12,6 @@ extension Notification.Name {
     // 음료 재고 변화시
     static let drinkCountChanged = Notification.Name("drinkCountChanged")
     static let balanceChanged = Notification.Name("balanceChanged")
-    static let orderDrink = Notification.Name("orderDrink")
 }
 
 import UIKit
@@ -199,8 +198,6 @@ class ViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(self.drinkCountChanged(notification:)), name: .drinkCountChanged , object: nil)
         // 금액변동 옵저버
         NotificationCenter.default.addObserver(self, selector: #selector(self.balanceChanged(notification:)), name: .balanceChanged , object: nil)
-        // 음료주문 옵저버
-        NotificationCenter.default.addObserver(self, selector: #selector(self.orderedDrinkCountChanged(notification:)), name: .orderDrink , object: nil)
         
         // 사진 테두리 둥글게 수정
         setBorderRadius()

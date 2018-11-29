@@ -77,7 +77,7 @@ class VendingMachine : NSObject, vendinMachineMenu, NSCoding  {
     
     /// 주문한 음료수 전체 내용 리턴
     func getAllOrderdDrink()->[Int]{
-        return orderedDrinks.AllOderedDrinksTag()
+        return orderedDrinks.allOderedDrinksTag()
     }
     
     /// 재고 추가
@@ -111,10 +111,14 @@ extension VendingMachine {
     func orderDrinks(orderDetail:OrderDetail)throws->StoredDrinkDetail{
         // 음료타입과 개수를 받아서 해당 음료를 재고에서 빼낸다
         let movedDrinks = try drinkInventory.popDrinks(orderDetail: orderDetail)
+        // 옮겨진 음료의 정보를 저장한다
+        guard let movedDrinksDetail : StoredDrinkDetail = movedDrinks.getDrinkDetail() else {
+            throw OutputView.errorMessage.notEnoughDrink
+        }
         // 이동된 음료를 주문리스트에 넣고 옮겨진 음료정보를 기록한다
         self.orderedDrinks.addOrderedDrink(drinkSlot: movedDrinks)
         // 옮겨진 음료정보를 리턴한다
-        return movedDrinks.getDrinkDetail()!
+        return movedDrinksDetail
     }
     
     /// 유저가 음료 선택 시 진행 순서
@@ -145,6 +149,8 @@ extension VendingMachine {
         
         // 음료재고변동 노티를 보낸다
         NotificationCenter.default.post(name: .drinkCountChanged, object: nil)
+        // 음료재고변동 노티를 보낸다
+        NotificationCenter.default.post(name: .orderDrink, object: nil)
         return result
     }
     

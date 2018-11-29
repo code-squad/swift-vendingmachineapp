@@ -149,8 +149,6 @@ extension VendingMachine {
         
         // 음료재고변동 노티를 보낸다
         NotificationCenter.default.post(name: .drinkCountChanged, object: nil)
-        // 음료재고변동 노티를 보낸다
-        NotificationCenter.default.post(name: .orderDrink, object: nil)
         return result
     }
     

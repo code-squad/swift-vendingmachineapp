@@ -115,10 +115,10 @@
 				D56712E1214A3F2E00106ECD /* Drink.swift */,
 				D56712E2214A3F2E00106ECD /* DrinkSlot.swift */,
 				D56712E0214A3F2E00106ECD /* DrinkInventory.swift */,
+				D5D5CA0421AF908A00CF338B /* OrderedDrinkSlot.swift */,
 				D56712E3214A3F2E00106ECD /* VendingMachine.swift */,
 				D575AC07219EBBC10018C62E /* VendingMachineDataManager.swift */,
 				D56712E9214A4C9C00106ECD /* OutputView.swift */,
-				D5D5CA0421AF908A00CF338B /* OrderedDrinkSlot.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";

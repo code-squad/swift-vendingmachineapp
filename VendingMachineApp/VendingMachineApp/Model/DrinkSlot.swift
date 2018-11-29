@@ -128,6 +128,14 @@ class DrinkSlot<T:Drink> : NSObject, NSCoding {
         // 옴기는 과정이 완료되면 결과정보 리턴
         return result
     }
+    
+    /// 모든 음료를 음료배열로 리턴한다
+    func popAllDrink()->[T]{
+        // 리턴용 변수
+        let result = self.drinks
+        self.drinks = []
+        return result
+    }
 }
 
 

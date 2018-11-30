@@ -143,7 +143,7 @@ class ViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
-    /// 재고가 추가됬다는 노티가 들어오면 실행됨
+    /// 재고가 변경됬다는 노티가 들어오면 실행됨
     @objc func drinkCountChanged(notification: NSNotification) {
         refreshDrinkCounts()
     }
@@ -151,33 +151,35 @@ class ViewController: UIViewController {
     @objc func balanceChanged(notification: NSNotification) {
         refreshBalance()
     }
-    /// 음료주문 노티가 들어오면 실행됨
-    @objc func orderedDrinkCountChanged(notification: NSNotification) {
-        refreshOrderedDrink()
+    
+    
+    // 주문된 음료 재고 변수
+    var orderedDrinkCount = 0
+    
+    /// 음료태그를 받아서 해당 음료의 사진을 주문음료리스트에 추가
+    fileprivate func addNewOrderedDrinkPic(drinkTag:Int){
+        // 음료에 맞는 사진 연결
+        let fileName = fileNameFrom(drinkTag: drinkTag)
+        let drinkImage = UIImage.init(named:fileName )!
+        // 음료 개수에 맞는 위치 설정
+        let cardImage : UIImageView = UIImageView(image:drinkImage)
+        cardImage.frame = CGRect(x: 40*orderedDrinkCount, y: 575, width: 140, height: 100)
+        // 음료사진 추가
+        self.view.addSubview(cardImage)
+        // 음료 카운트 추가
+        orderedDrinkCount += 1
+    }
+    
+    // 음료사진 파일명 용 함수
+    func fileNameFrom(drinkTag:Int)->String{
+        return "Drink0"+String(drinkTag)+".jpg"
     }
     
     /// 주문된음료 최신화 함수
     func refreshOrderedDrink(){
-        // 주문된 음료 재고 변수
-        var drinkCount = 0
-        
-        // 음료사진 파일명 용 함수
-        func fileNameFrom(drinkTag:Int)->String{
-            return "Drink0"+String(drinkTag)+".jpg"
-        }
-        
         // 주문된 음료의 사진을 뷰로 생성
         for drinkTag in vendingMachine.allOderedDrinksTag() {
-            // 음료에 맞는 사진 연결
-            let fileName = fileNameFrom(drinkTag: drinkTag)
-            let drinkImage = UIImage.init(named:fileName )!
-            // 음료 개수에 맞는 위치 설정
-            let cardImage : UIImageView = UIImageView(image:drinkImage)
-            cardImage.frame = CGRect(x: 40*drinkCount, y: 575, width: 140, height: 100)
-            // 음료사진 추가
-            self.view.addSubview(cardImage)
-            // 음료 카운트 추가
-            drinkCount += 1
+            addNewOrderedDrinkPic(drinkTag:drinkTag)
         }
     }
     

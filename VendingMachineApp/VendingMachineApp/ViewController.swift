@@ -52,8 +52,12 @@ class ViewController: UIViewController {
     @IBOutlet var buyDrinkButtons: [UIButton]!
     /// 음료구매버튼 액션
     @IBAction func buyDrink(_ sender: UIButton) {
+        // 음료태그를 받아서 음료를 주문한다
         do {
-            _ = try vendingMachine.buyDrink(drinkTag: sender.tag-20)
+            // 받은 태그를 음료타입으로 변환
+            let drinkType = try drinkTypeFrom(drinkTag: drinkOrderActionTag(tag: sender.tag))
+            // 음료태그로 음료주문
+            _ = try vendingMachine.buyDrink(drinkType: drinkType)
         }
         catch let error as OutputView.errorMessage {
             makeAlert(title: "에러", message: error.description, okTitle: "OK")
@@ -63,12 +67,26 @@ class ViewController: UIViewController {
         }
     }
     
-    
-    
     // 자판기 객체를 받기위한 변수화
     var vendingMachine : VendingMachine!
     
-
+    /// 음료재고,사진,주문버튼 의 태그 규칙
+    func drinkPicTag(tag:Int)->Int{
+        return tag - 10
+    }
+    func drinkOrderActionTag(tag:Int)->Int{
+        return tag - 20
+    }
+    
+    /// 음료태그를 음료타입으로 변환해서 리턴
+    func drinkTypeFrom(drinkTag:Int)throws->DrinkType{
+        let drinkType : DrinkType? = DrinkType(rawValue: drinkTag)
+        if drinkType == nil || drinkType == DrinkType.none {
+            throw OutputView.errorMessage.wrongDrink
+        }
+        return drinkType!
+    }
+    
     /// 잔액추가 버튼액션
     func addBalance(uiButton:UIButton){
         _ = vendingMachine.plusMoney(money: uiButton.tag)

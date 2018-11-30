@@ -145,13 +145,9 @@ extension VendingMachine {
     }
     
     /// 음료태그로 음료를 구매하는 기능
-    func buyDrink(drinkTag:Int)throws->String{
-        // 음료태그와 음료타입이 매칭되는지 체크
-        guard let orderdDrinkType : DrinkType = DrinkType(rawValue: drinkTag) else {
-            throw OutputView.errorMessage.wrongDrink
-        }
+    func buyDrink(drinkType:DrinkType)throws->String{
         // 음료타입으로 주문서 작성. 수량은 1개
-        let orderDetail = OrderDetail(drinkType: orderdDrinkType, drinkCount: 1)
+        let orderDetail = OrderDetail(drinkType: drinkType, drinkCount: 1)
         
         //주문서로 음료 주문
         let result = try buyDrink(orderDetail: orderDetail)

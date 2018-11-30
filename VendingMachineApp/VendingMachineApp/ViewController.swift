@@ -12,6 +12,7 @@ extension Notification.Name {
     // 음료 재고 변화시
     static let afterAddDrink = Notification.Name("afterAddDrink")
     static let balanceChanged = Notification.Name("balanceChanged")
+    static let afterOrderDrink = Notification.Name("afterOrderDrink")
 }
 
 import UIKit
@@ -143,7 +144,7 @@ class ViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
-    /// 재고가 변경됬다는 노티가 들어오면 실행됨
+    /// 재고가 추가됬다는 노티가 들어오면 실행됨
     @objc func afterAddDrink(notification: NSNotification) {
         refreshDrinkCounts()
     }
@@ -151,13 +152,18 @@ class ViewController: UIViewController {
     @objc func balanceChanged(notification: NSNotification) {
         refreshBalance()
     }
+    /// 음료구매 노티가 들어오면 실행됨
+    @objc func afterOrderDrink(notification: NSNotification) {
+        refreshDrinkCounts()
+        addNewOrderedDrinkPic()
+    }
     
     
     // 주문된 음료 재고 변수
     var orderedDrinkCount = 0
     
     /// 음료태그를 받아서 해당 음료의 사진을 주문음료리스트에 추가
-    fileprivate func addNewOrderedDrinkPic(drinkTag:Int){
+    fileprivate func addOrderedDrinkPic(drinkTag:Int){
         // 음료에 맞는 사진 연결
         let fileName = fileNameFrom(drinkTag: drinkTag)
         let drinkImage = UIImage.init(named:fileName )!
@@ -175,14 +181,21 @@ class ViewController: UIViewController {
         return "Drink0"+String(drinkTag)+".jpg"
     }
     
-    /// 주문된음료 최신화 함수
+    /// 주문된음료 초기 최신화 함수
     func refreshOrderedDrink(){
         // 주문된 음료의 사진을 뷰로 생성
         for drinkTag in vendingMachine.allOderedDrinksTag() {
-            addNewOrderedDrinkPic(drinkTag:drinkTag)
+            addOrderedDrinkPic(drinkTag:drinkTag)
         }
     }
     
+    /// 주문된 음료 추가시
+    func addNewOrderedDrinkPic(){
+        guard let lastDrinkTag = vendingMachine.allOderedDrinksTag().last else {
+            return ()
+        }
+        addOrderedDrinkPic(drinkTag: lastDrinkTag)
+    }
     
     /// viewDidLoad
     override func viewDidLoad() {
@@ -200,6 +213,9 @@ class ViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(self.afterAddDrink(notification:)), name: .afterAddDrink , object: nil)
         // 금액변동 옵저버
         NotificationCenter.default.addObserver(self, selector: #selector(self.balanceChanged(notification:)), name: .balanceChanged , object: nil)
+        // 금액변동 옵저버
+        NotificationCenter.default.addObserver(self, selector: #selector(self.afterOrderDrink(notification:)), name: .afterOrderDrink , object: nil)
+        
         
         // 사진 테두리 둥글게 수정
         setBorderRadius()

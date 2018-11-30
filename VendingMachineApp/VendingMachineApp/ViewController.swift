@@ -11,8 +11,9 @@
 extension Notification.Name {
     // 음료 재고 변화시
     static let afterAddDrink = Notification.Name("afterAddDrink")
+    static let afterPopDrink = Notification.Name("afterPopDrink")
     static let balanceChanged = Notification.Name("balanceChanged")
-    static let afterOrderDrink = Notification.Name("afterOrderDrink")
+    static let afterAddOrderedDrinkList = Notification.Name("afterAddOrderedDrinkList")
 }
 
 import UIKit
@@ -148,13 +149,16 @@ class ViewController: UIViewController {
     @objc func afterAddDrink(notification: NSNotification) {
         refreshDrinkCounts()
     }
+    /// 재고가 추가됬다는 노티가 들어오면 실행됨
+    @objc func afterPopDrink(notification: NSNotification) {
+        refreshDrinkCounts()
+    }
     /// 잔액변동 노티가 들어오면 실행됨
     @objc func balanceChanged(notification: NSNotification) {
         refreshBalance()
     }
-    /// 음료구매 노티가 들어오면 실행됨
-    @objc func afterOrderDrink(notification: NSNotification) {
-        refreshDrinkCounts()
+    /// 주문한음료 추가완료 노티가 들어오면 실행됨
+    @objc func afterAddOrderedDrinkList(notification: NSNotification) {
         addNewOrderedDrinkPic()
     }
     
@@ -209,12 +213,14 @@ class ViewController: UIViewController {
         initDrinkCounts()
         
         // 노티를 보는 옵저버. 노티가 발생하면 해당 함수를 실행한다
-        // 음료 재고 변동 옵저버
+        // 음료 재고 추가 옵저버
         NotificationCenter.default.addObserver(self, selector: #selector(self.afterAddDrink(notification:)), name: .afterAddDrink , object: nil)
+        // 음료 재고 제거 옵저버
+        NotificationCenter.default.addObserver(self, selector: #selector(self.afterPopDrink(notification:)), name: .afterPopDrink , object: nil)
         // 금액변동 옵저버
         NotificationCenter.default.addObserver(self, selector: #selector(self.balanceChanged(notification:)), name: .balanceChanged , object: nil)
         // 금액변동 옵저버
-        NotificationCenter.default.addObserver(self, selector: #selector(self.afterOrderDrink(notification:)), name: .afterOrderDrink , object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.afterAddOrderedDrinkList(notification:)), name: .afterAddOrderedDrinkList , object: nil)
         
         
         // 사진 테두리 둥글게 수정

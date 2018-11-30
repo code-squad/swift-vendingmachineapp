@@ -111,12 +111,21 @@ extension VendingMachine {
     func orderDrinks(orderDetail:OrderDetail)throws->StoredDrinkDetail{
         // 음료타입과 개수를 받아서 해당 음료를 재고에서 빼낸다
         let movedDrinks = try drinkInventory.popDrinks(orderDetail: orderDetail)
+        
+        // 음료재고 제거 노티를 보낸다
+        NotificationCenter.default.post(name: .afterPopDrink, object: nil)
+        
         // 옮겨진 음료의 정보를 저장한다
         guard let movedDrinksDetail : StoredDrinkDetail = movedDrinks.getDrinkDetail() else {
             throw OutputView.errorMessage.notEnoughDrink
         }
+        
         // 이동된 음료를 주문리스트에 넣고 옮겨진 음료정보를 기록한다
         self.orderedDrinks.addOrderedDrink(drinkSlot: movedDrinks)
+        
+        // 주문된음료 추가 노티를 보낸다
+        NotificationCenter.default.post(name: .afterAddOrderedDrinkList, object: nil)
+        
         // 옮겨진 음료정보를 리턴한다
         return movedDrinksDetail
     }
@@ -146,9 +155,6 @@ extension VendingMachine {
         
         //주문서로 음료 주문
         let result = try buyDrink(orderDetail: orderDetail)
-        
-        // 음료재고변동 노티를 보낸다
-        NotificationCenter.default.post(name: .afterOrderDrink, object: nil)
         return result
     }
     

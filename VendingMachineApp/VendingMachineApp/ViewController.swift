@@ -10,7 +10,7 @@
 /// nottification 이름을 미리 지정
 extension Notification.Name {
     // 음료 재고 변화시
-    static let drinkCountChanged = Notification.Name("drinkCountChanged")
+    static let afterAddDrink = Notification.Name("afterAddDrink")
     static let balanceChanged = Notification.Name("balanceChanged")
 }
 
@@ -144,7 +144,7 @@ class ViewController: UIViewController {
     }
     
     /// 재고가 변경됬다는 노티가 들어오면 실행됨
-    @objc func drinkCountChanged(notification: NSNotification) {
+    @objc func afterAddDrink(notification: NSNotification) {
         refreshDrinkCounts()
     }
     /// 잔액변동 노티가 들어오면 실행됨
@@ -197,7 +197,7 @@ class ViewController: UIViewController {
         
         // 노티를 보는 옵저버. 노티가 발생하면 해당 함수를 실행한다
         // 음료 재고 변동 옵저버
-        NotificationCenter.default.addObserver(self, selector: #selector(self.drinkCountChanged(notification:)), name: .drinkCountChanged , object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.afterAddDrink(notification:)), name: .afterAddDrink , object: nil)
         // 금액변동 옵저버
         NotificationCenter.default.addObserver(self, selector: #selector(self.balanceChanged(notification:)), name: .balanceChanged , object: nil)
         

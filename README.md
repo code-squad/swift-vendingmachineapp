@@ -120,7 +120,7 @@
 -
 
 # 자판기 앱 step 6.
-![](VendingmachineApp_step3_running.gif)
+![](VendingmachineApp_step6_20181131.gif)
 
 - 구매목록을 이미지로 추가
 - 구매할때마다 notification 에 연결되어 추가됨
@@ -129,3 +129,8 @@
 -
 
 # 자판기 앱 step 7.
+![](VendingmachineApp_step7_20181201.gif)
+
+- 기존 화면에서 관리자 모드 버튼 추가 : 관리자 화면과 연결
+- 관리자 화면 추가 : 이전 화면의 모든 기능 추가
+- 기존 화면에서 구매버튼 제거

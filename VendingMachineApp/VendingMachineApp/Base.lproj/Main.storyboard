@@ -93,54 +93,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HKH-ie-2LJ">
-                                <rect key="frame" x="46" y="149" width="54" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="재고추가"/>
-                                <connections>
-                                    <action selector="addBasicDrink:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Umf-Hm-4r1"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QTw-3y-pCg">
-                                <rect key="frame" x="327" y="149" width="59" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="재고추가"/>
-                                <connections>
-                                    <action selector="addBasicDrink:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ick-oH-VYg"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bG7-em-Pma">
-                                <rect key="frame" x="589" y="149" width="56" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="재고추가"/>
-                                <connections>
-                                    <action selector="addBasicDrink:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qMe-jC-XE2"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ckP-lw-jnN">
-                                <rect key="frame" x="46" y="324" width="67" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="재고추가"/>
-                                <connections>
-                                    <action selector="addBasicDrink:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qVC-sH-Mme"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="keZ-21-ElG">
-                                <rect key="frame" x="327" y="324" width="59" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="재고추가"/>
-                                <connections>
-                                    <action selector="addBasicDrink:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qjV-G9-U9p"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" tag="6" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="otS-L2-04D">
-                                <rect key="frame" x="589" y="324" width="56" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="재고추가"/>
-                                <connections>
-                                    <action selector="addBasicDrink:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qGc-iv-Yw0"/>
-                                </connections>
-                            </button>
                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Prm-Fq-rlb">
                                 <rect key="frame" x="849" y="217" width="54" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -261,12 +213,6 @@
                         <outletCollection property="drinkImageLabels" destination="1hY-fj-w4k" collectionClass="NSMutableArray" id="0F8-QC-5p3"/>
                         <outletCollection property="drinkImageLabels" destination="Gmp-2W-dda" collectionClass="NSMutableArray" id="9pf-R0-OzQ"/>
                         <outletCollection property="drinkImageLabels" destination="nPk-rd-QNu" collectionClass="NSMutableArray" id="qCd-Ab-olI"/>
-                        <outletCollection property="addDrinkButtons" destination="HKH-ie-2LJ" collectionClass="NSMutableArray" id="esX-hW-fhp"/>
-                        <outletCollection property="addDrinkButtons" destination="QTw-3y-pCg" collectionClass="NSMutableArray" id="oc2-hQ-N6J"/>
-                        <outletCollection property="addDrinkButtons" destination="bG7-em-Pma" collectionClass="NSMutableArray" id="2eP-TU-Izl"/>
-                        <outletCollection property="addDrinkButtons" destination="keZ-21-ElG" collectionClass="NSMutableArray" id="0i7-eI-8Jf"/>
-                        <outletCollection property="addDrinkButtons" destination="otS-L2-04D" collectionClass="NSMutableArray" id="Xf2-5P-x1x"/>
-                        <outletCollection property="addDrinkButtons" destination="ckP-lw-jnN" collectionClass="NSMutableArray" id="8DX-he-39E"/>
                         <outletCollection property="buyDrinkButtons" destination="mIp-su-Vrn" collectionClass="NSMutableArray" id="Ptk-j0-kPc"/>
                         <outletCollection property="buyDrinkButtons" destination="9VR-Kr-MHu" collectionClass="NSMutableArray" id="w7f-JX-bfp"/>
                         <outletCollection property="buyDrinkButtons" destination="yln-wa-Dg2" collectionClass="NSMutableArray" id="Ps7-hq-qP7"/>

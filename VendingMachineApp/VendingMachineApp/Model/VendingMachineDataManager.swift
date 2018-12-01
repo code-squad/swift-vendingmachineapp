@@ -10,7 +10,7 @@ import Foundation
 
 class VendingMachineDataManager {
     
-    private static let dataKey = "dataKey2"
+    private static let dataKey = "dataKey"
     
     static func saveVendingMachineData(_ vendingMachine: VendingMachine) {
         let vendingMachineData = NSKeyedArchiver.archivedData(withRootObject: vendingMachine)

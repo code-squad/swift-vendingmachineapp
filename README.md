@@ -120,3 +120,12 @@
 -
 
 # 자판기 앱 step 6.
+![](VendingmachineApp_step3_running.gif)
+
+- 구매목록을 이미지로 추가
+- 구매할때마다 notification 에 연결되어 추가됨
+- UIImageView 로 구현
+
+-
+
+# 자판기 앱 step 7.

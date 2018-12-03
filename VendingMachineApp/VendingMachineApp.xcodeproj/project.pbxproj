@@ -29,6 +29,7 @@
 		D575AC08219EBBC10018C62E /* VendingMachineDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D575AC07219EBBC10018C62E /* VendingMachineDataManager.swift */; };
 		D5D5CA0521AF908A00CF338B /* OrderedDrinkSlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D5CA0421AF908A00CF338B /* OrderedDrinkSlot.swift */; };
 		D5F1F32221B291DE0005BD4F /* ManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F1F32121B291DE0005BD4F /* ManagerViewController.swift */; };
+		D5F1F32421B5167B0005BD4F /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F1F32321B5167B0005BD4F /* ImageManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,7 @@
 		D575AC07219EBBC10018C62E /* VendingMachineDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineDataManager.swift; sourceTree = "<group>"; };
 		D5D5CA0421AF908A00CF338B /* OrderedDrinkSlot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderedDrinkSlot.swift; sourceTree = "<group>"; };
 		D5F1F32121B291DE0005BD4F /* ManagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerViewController.swift; sourceTree = "<group>"; };
+		D5F1F32321B5167B0005BD4F /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 				D56712E3214A3F2E00106ECD /* VendingMachine.swift */,
 				D575AC07219EBBC10018C62E /* VendingMachineDataManager.swift */,
 				D56712E9214A4C9C00106ECD /* OutputView.swift */,
+				D5F1F32321B5167B0005BD4F /* ImageManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -321,6 +324,7 @@
 				D5D5CA0521AF908A00CF338B /* OrderedDrinkSlot.swift in Sources */,
 				D56712E7214A3F2E00106ECD /* DrinkSlot.swift in Sources */,
 				D56712B4214A295600106ECD /* ViewController.swift in Sources */,
+				D5F1F32421B5167B0005BD4F /* ImageManager.swift in Sources */,
 				D56712E5214A3F2E00106ECD /* DrinkInventory.swift in Sources */,
 				D56712E4214A3F2E00106ECD /* Checker.swift in Sources */,
 				D56712E6214A3F2E00106ECD /* Drink.swift in Sources */,

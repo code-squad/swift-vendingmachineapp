@@ -24,11 +24,6 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var balance: UILabel!
     
-    /// 잔액추가 버튼 액션
-    @IBAction func addBalance(_ sender: UIButton) {
-        addBalance(uiButton: sender)
-    }
-    
     /// 음료 재고들 커렉션
     @IBOutlet var drinkCountLabels: [UILabel]!
     
@@ -37,19 +32,70 @@ class ViewController: UIViewController {
     
     /// 재고추가 버튼들 컬렉션
     @IBOutlet var addDrinkButtons: [UIButton]!
-    
-    /// 재고추가버튼액션. 각 재고버튼의 태그값을 기본음료생성 함수에 넣는다
-    @IBAction func addBasicDrink(_ sender: UIButton){        
-        do {
-            try vendingMachine.addBasicDrink(drinkTypeNumber: sender.tag)
-        }
-        catch {
-            makeAlert(title: "에러", message: error.localizedDescription, okTitle: "OK")
-        }
-    }
-    
+    ㅇㅍㄴ
     /// 음료구매 버튼들
     @IBOutlet var buyDrinkButtons: [UIButton]!
+    
+    
+    /// 재고가 추가됬다는 노티가 들어오면 실행됨
+    @objc func afterAddDrink(notification: NSNotification) {
+        refreshDrinkCounts()
+    }
+    /// 재고가 추가됬다는 노티가 들어오면 실행됨
+    @objc func afterPopDrink(notification: NSNotification) {
+        refreshDrinkCounts()
+    }
+    /// 잔액변동 노티가 들어오면 실행됨
+    @objc func balanceChanged(notification: NSNotification) {
+        refreshBalance()
+    }
+    /// 주문한음료 추가완료 노티가 들어오면 실행됨
+    @objc func afterAddOrderedDrinkList(notification: NSNotification) {
+        addNewOrderedDrinkPic()
+    }
+    
+    
+    /// viewDidLoad
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // 자판기 의존성 주입
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        self.vendingMachine = appDelegate.sharedVendingMachine
+        
+        // 음료재고를 초기화 한다
+        initDrinkCounts()
+        
+        // 노티를 보는 옵저버. 노티가 발생하면 해당 함수를 실행한다
+        // 음료 재고 추가 옵저버
+        NotificationCenter.default.addObserver(self, selector: #selector(self.afterAddDrink(notification:)), name: .afterAddDrink , object: nil)
+        // 음료 재고 제거 옵저버
+        NotificationCenter.default.addObserver(self, selector: #selector(self.afterPopDrink(notification:)), name: .afterPopDrink , object: nil)
+        // 금액변동 옵저버
+        NotificationCenter.default.addObserver(self, selector: #selector(self.balanceChanged(notification:)), name: .balanceChanged , object: nil)
+        // 금액변동 옵저버
+        NotificationCenter.default.addObserver(self, selector: #selector(self.afterAddOrderedDrinkList(notification:)), name: .afterAddOrderedDrinkList , object: nil)
+        
+        
+        // 사진 테두리 둥글게 수정
+        setBorderRadius()
+        
+        // 자판기 금액 최신화
+        refreshBalance()
+        // 음료 재고 최신화
+        refreshDrinkCounts()
+        
+        // 주문된음료 사진 최신화
+        refreshOrderedDrink()
+        
+        // viewDidLoad ends
+    }
+    
+    /// 잔액추가 버튼 액션
+    @IBAction func addBalance(_ sender: UIButton) {
+        addBalance(uiButton: sender)
+    }
+    
     /// 음료구매버튼 액션
     @IBAction func buyDrink(_ sender: UIButton) {
         // 음료태그를 받아서 음료를 주문한다
@@ -163,23 +209,6 @@ class ViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
-    /// 재고가 추가됬다는 노티가 들어오면 실행됨
-    @objc func afterAddDrink(notification: NSNotification) {
-        refreshDrinkCounts()
-    }
-    /// 재고가 추가됬다는 노티가 들어오면 실행됨
-    @objc func afterPopDrink(notification: NSNotification) {
-        refreshDrinkCounts()
-    }
-    /// 잔액변동 노티가 들어오면 실행됨
-    @objc func balanceChanged(notification: NSNotification) {
-        refreshBalance()
-    }
-    /// 주문한음료 추가완료 노티가 들어오면 실행됨
-    @objc func afterAddOrderedDrinkList(notification: NSNotification) {
-        addNewOrderedDrinkPic()
-    }
-    
     
     // 주문된 음료 재고 변수
     var orderedDrinkCount = 0
@@ -217,42 +246,6 @@ class ViewController: UIViewController {
             return ()
         }
         addOrderedDrinkPic(drinkTag: lastDrinkTag)
-    }
-    
-    /// viewDidLoad
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // 자판기 의존성 주입
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        self.vendingMachine = appDelegate.sharedVendingMachine
-        
-        // 음료재고를 초기화 한다
-        initDrinkCounts()
-        
-        // 노티를 보는 옵저버. 노티가 발생하면 해당 함수를 실행한다
-        // 음료 재고 추가 옵저버
-        NotificationCenter.default.addObserver(self, selector: #selector(self.afterAddDrink(notification:)), name: .afterAddDrink , object: nil)
-        // 음료 재고 제거 옵저버
-        NotificationCenter.default.addObserver(self, selector: #selector(self.afterPopDrink(notification:)), name: .afterPopDrink , object: nil)
-        // 금액변동 옵저버
-        NotificationCenter.default.addObserver(self, selector: #selector(self.balanceChanged(notification:)), name: .balanceChanged , object: nil)
-        // 금액변동 옵저버
-        NotificationCenter.default.addObserver(self, selector: #selector(self.afterAddOrderedDrinkList(notification:)), name: .afterAddOrderedDrinkList , object: nil)
-        
-        
-        // 사진 테두리 둥글게 수정
-        setBorderRadius()
-        
-        // 자판기 금액 최신화
-        refreshBalance()
-        // 음료 재고 최신화
-        refreshDrinkCounts()
-        
-        // 주문된음료 사진 최신화
-        refreshOrderedDrink()
-        
-        // viewDidLoad ends
     }
     
     override func didReceiveMemoryWarning() {

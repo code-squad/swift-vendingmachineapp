@@ -18,6 +18,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" tag="11" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Drink01.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="3Ol-QF-kU7">
+                                <rect key="frame" x="46" y="12" width="140" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <rect key="contentStretch" x="1" y="0.0" width="1" height="1"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" tag="12" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Drink02.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="VNS-j7-VvO">
+                                <rect key="frame" x="327" y="12" width="140" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" tag="13" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Drink03.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="e5o-9Q-Skv">
+                                <rect key="frame" x="589" y="12" width="140" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <imageView userInteractionEnabled="NO" tag="14" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Drink04.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="1hY-fj-w4k">
                                 <rect key="frame" x="46" y="187" width="140" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -173,19 +186,6 @@
                                     <action selector="buyDrink:" destination="BYZ-38-t0r" eventType="touchUpInside" id="COG-Mj-LQA"/>
                                 </connections>
                             </button>
-                            <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" tag="11" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Drink01.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="3Ol-QF-kU7">
-                                <rect key="frame" x="46" y="12" width="140" height="100"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <rect key="contentStretch" x="1" y="0.0" width="1" height="1"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" tag="12" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Drink02.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="VNS-j7-VvO">
-                                <rect key="frame" x="327" y="12" width="140" height="100"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" tag="13" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Drink03.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="e5o-9Q-Skv">
-                                <rect key="frame" x="589" y="12" width="140" height="100"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nJC-B4-bKX">
                                 <rect key="frame" x="849" y="20" width="83" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -200,7 +200,6 @@
                     </view>
                     <connections>
                         <outlet property="balance" destination="AIz-m4-xeS" id="2NM-eQ-bAV"/>
-                        <outlet property="drink01View" destination="3Ol-QF-kU7" id="kb8-A0-bCa"/>
                         <outletCollection property="drinkCountLabels" destination="KTU-i3-Xm0" collectionClass="NSMutableArray" id="gtZ-uf-dGe"/>
                         <outletCollection property="drinkCountLabels" destination="6K7-mP-euR" collectionClass="NSMutableArray" id="NCu-J7-2rA"/>
                         <outletCollection property="drinkCountLabels" destination="f15-Dz-cku" collectionClass="NSMutableArray" id="dAQ-t3-mAh"/>

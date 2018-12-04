@@ -29,6 +29,7 @@
 		D5D5CA0521AF908A00CF338B /* OrderedDrinkSlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D5CA0421AF908A00CF338B /* OrderedDrinkSlot.swift */; };
 		D5F1F32221B291DE0005BD4F /* ManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F1F32121B291DE0005BD4F /* ManagerViewController.swift */; };
 		D5F1F32421B5167B0005BD4F /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F1F32321B5167B0005BD4F /* ImageManager.swift */; };
+		D5F1F32921B65AA60005BD4F /* Drink01.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D5F1F32821B657D90005BD4F /* Drink01.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,7 +78,7 @@
 		D5D5CA0421AF908A00CF338B /* OrderedDrinkSlot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderedDrinkSlot.swift; sourceTree = "<group>"; };
 		D5F1F32121B291DE0005BD4F /* ManagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerViewController.swift; sourceTree = "<group>"; };
 		D5F1F32321B5167B0005BD4F /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
-		D5F1F32521B62AA90005BD4F /* Drink01.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Drink01.jpg; path = "/Users/yoda/swift/ios_lv3/swift-vendingmachineapp/VendingMachineApp/VendingMachineApp/Model/Drink01.jpg"; sourceTree = "<absolute>"; };
+		D5F1F32821B657D90005BD4F /* Drink01.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Drink01.jpg; path = "/Users/yoda/swift/ios_lv3/swift-vendingmachineapp/VendingMachineApp/VendingMachineApp/Model/Drink01.jpg"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,7 +109,7 @@
 		D54F557A214B7F31000C3DE5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				D5F1F32521B62AA90005BD4F /* Drink01.jpg */,
+				D5F1F32821B657D90005BD4F /* Drink01.jpg */,
 				D554EE862150D7020048657F /* Drink02.jpg */,
 				D554EE832150D7020048657F /* Drink03.jpg */,
 				D554EE842150D7020048657F /* Drink04.jpg */,
@@ -294,6 +295,7 @@
 				D554EE8A2150D7020048657F /* Drink04.jpg in Resources */,
 				D56712B7214A295600106ECD /* Main.storyboard in Resources */,
 				D554EE882150D7020048657F /* Drink06.jpg in Resources */,
+				D5F1F32921B65AA60005BD4F /* Drink01.jpg in Resources */,
 				D554EE872150D7020048657F /* Drink05.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -31,9 +31,9 @@ class ManagerViewController: UIViewController {
     @IBOutlet var addDrinkButtons: [UIButton]!
     
     /// 재고추가버튼액션. 각 재고버튼의 태그값을 기본음료생성 함수에 넣는다
-    @IBAction func addBasicDrink(_ sender: UIButton){
+    @IBAction func addBasicDrink(_ sender: UIButton) {
         do {
-            try vendingMachine.addBasicDrink(drinkTypeNumber: sender.tag)
+            try VendingMachine.shared().addBasicDrink(drinkTypeNumber: sender.tag)
         }
         catch {
             makeAlert(title: "에러", message: error.localizedDescription, okTitle: "OK")
@@ -49,7 +49,7 @@ class ManagerViewController: UIViewController {
             // 받은 태그를 음료타입으로 변환
             let drinkType = try drinkTypeFrom(drinkTag: drinkOrderActionTag(tag: sender.tag))
             // 음료태그로 음료주문
-            _ = try vendingMachine.buyDrink(drinkType: drinkType)
+            _ = try VendingMachine.shared().buyDrink(drinkType: drinkType)
         }
         catch let error as OutputView.errorMessage {
             makeAlert(title: "에러", message: error.description, okTitle: "OK")
@@ -59,19 +59,16 @@ class ManagerViewController: UIViewController {
         }
     }
     
-    // 자판기 객체를 받기위한 변수화
-    var vendingMachine : VendingMachine!
-    
     /// 음료재고,사진,주문버튼 의 태그 규칙
-    func drinkPicTag(tag:Int)->Int{
+    func drinkPicTag(tag: Int) -> Int {
         return tag - 10
     }
-    func drinkOrderActionTag(tag:Int)->Int{
+    func drinkOrderActionTag(tag: Int) -> Int {
         return tag - 20
     }
     
     /// 음료태그를 음료타입으로 변환해서 리턴
-    func drinkTypeFrom(drinkTag:Int)throws->DrinkType{
+    func drinkTypeFrom(drinkTag: Int) throws -> DrinkType {
         let drinkType : DrinkType? = DrinkType(rawValue: drinkTag)
         if drinkType == nil || drinkType == DrinkType.none {
             throw OutputView.errorMessage.wrongDrink
@@ -80,25 +77,25 @@ class ManagerViewController: UIViewController {
     }
     
     /// 잔액추가 버튼액션
-    func addBalance(uiButton:UIButton){
-        _ = vendingMachine.plusMoney(money: uiButton.tag)
+    func addBalance(uiButton: UIButton) {
+        _ = VendingMachine.shared().plusMoney(money: uiButton.tag)
         refreshBalance()
     }
     
     /// 음료재고 컬렉션 초기화 함수
-    func initDrinkCounts(){
+    func initDrinkCounts() {
         for counts in drinkCountLabels {
             counts.text = "매진됨"
         }
     }
     
     /// 자판기 잔액표기 갱신 함수
-    func refreshBalance(){
-        self.balance.text =  "\(vendingMachine.getMoney()) 원"
+    func refreshBalance() {
+        self.balance.text =  "\(VendingMachine.shared().getMoney()) 원"
     }
     
     /// 음료정보를 받아서 태그번호를 리턴
-    func getDrinkTag(storedDrinkDetail:StoredDrinkDetail)throws->Int{
+    func getDrinkTag(storedDrinkDetail: StoredDrinkDetail) throws -> Int {
         // 음료타입의 기본값이 0 이면 에러처리
         if storedDrinkDetail.drinkType.rawValue == 0 {
             throw OutputView.errorMessage.wrongDrink
@@ -108,7 +105,7 @@ class ManagerViewController: UIViewController {
     }
     
     /// 음료정보와 태그를 받아서 재고표시를 변경
-    func changeDrinkCount(storedDrinkDetail:StoredDrinkDetail)throws{
+    func changeDrinkCount(storedDrinkDetail: StoredDrinkDetail) throws {
         // 음료정보에서 음료타입 기본값을 추출
         let drinkTag = try getDrinkTag(storedDrinkDetail: storedDrinkDetail)
         // 음료에 연결된 label 추출
@@ -123,10 +120,10 @@ class ManagerViewController: UIViewController {
     
     
     /// 음료재고 컬렉션 최신화 함수
-    func refreshDrinkCounts(){
+    func refreshDrinkCounts() {
         // 재고표시 초기화를 진행
         initDrinkCounts()
-        let storedDrinksDetail = vendingMachine.getAllAvailableDrinks().storedDrinksDetail
+        let storedDrinksDetail = VendingMachine.shared().getAllAvailableDrinks().storedDrinksDetail
         for drinkDetil in storedDrinksDetail {
             do {
                 try changeDrinkCount(storedDrinkDetail: drinkDetil)
@@ -139,7 +136,7 @@ class ManagerViewController: UIViewController {
     }
     
     /// 음료사진들 테두리를 둥글게
-    func setBorderRadius(){
+    func setBorderRadius() {
         for view in drinkImageLabels {
             view.layer.masksToBounds = true
             view.layer.cornerRadius = 15
@@ -148,7 +145,7 @@ class ManagerViewController: UIViewController {
     }
     
     /// alert 생성함수
-    func makeAlert(title:String,message:String,okTitle:String){
+    func makeAlert(title:String,message: String, okTitle: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: okTitle, style: UIAlertActionStyle.default,handler : nil )
         alert.addAction(okAction)
@@ -177,12 +174,11 @@ class ManagerViewController: UIViewController {
     var orderedDrinkCount = 0
     
     /// 음료태그를 받아서 해당 음료의 사진을 주문음료리스트에 추가
-    fileprivate func addOrderedDrinkPic(drinkTag:Int){
+    private func addOrderedDrinkPic(drinkTag: Int) {
         // 음료에 맞는 사진 연결
-        let fileName = fileNameFrom(drinkTag: drinkTag)
-        let drinkImage = UIImage.init(named:fileName )!
+        let drinkImage = makeUIImage(drinkTag: drinkTag)
         // 음료 개수에 맞는 위치 설정
-        let cardImage : UIImageView = UIImageView(image:drinkImage)
+        let cardImage : UIImageView = UIImageView(image: drinkImage)
         cardImage.frame = CGRect(x: 40*orderedDrinkCount, y: 575, width: 140, height: 100)
         // 음료사진 추가
         self.view.addSubview(cardImage)
@@ -190,22 +186,26 @@ class ManagerViewController: UIViewController {
         orderedDrinkCount += 1
     }
     
-    // 음료사진 파일명 용 함수
-    func fileNameFrom(drinkTag:Int)->String{
-        return "Drink0"+String(drinkTag)+".jpg"
+    /// 파일명을 받아서 UIImage 를 리턴. 없으면 공백리턴
+    private func makeUIImage(drinkTag: Int) ->UIImage {
+        let drinkImage = ImageManager.makeFileNameFrom(drinkTag: drinkTag)
+        guard let result = UIImage.init(named: drinkImage) else {
+            return UIImage.init()
+        }
+        return result
     }
     
     /// 주문된음료 초기 최신화 함수
-    func refreshOrderedDrink(){
+    func refreshOrderedDrink() {
         // 주문된 음료의 사진을 뷰로 생성
-        for drinkTag in vendingMachine.allOderedDrinksTag() {
+        for drinkTag in VendingMachine.shared().allOderedDrinksTag() {
             addOrderedDrinkPic(drinkTag:drinkTag)
         }
     }
     
     /// 주문된 음료 추가시
-    func addNewOrderedDrinkPic(){
-        guard let lastDrinkTag = vendingMachine.allOderedDrinksTag().last else {
+    func addNewOrderedDrinkPic() {
+        guard let lastDrinkTag = VendingMachine.shared().allOderedDrinksTag().last else {
             return ()
         }
         addOrderedDrinkPic(drinkTag: lastDrinkTag)
@@ -214,10 +214,6 @@ class ManagerViewController: UIViewController {
     /// viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // 자판기 의존성 주입
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        self.vendingMachine = appDelegate.sharedVendingMachine
         
         // 음료재고를 초기화 한다
         initDrinkCounts()

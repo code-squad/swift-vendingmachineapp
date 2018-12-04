@@ -219,7 +219,7 @@ class ViewController: UIViewController {
     }
     
     /// 파일명을 받아서 UIImage 를 리턴. 없으면 공백리턴
-    private func makeUIImage(drinkTag: Int) - >UIImage {
+    private func makeUIImage(drinkTag: Int) ->UIImage {
         let drinkImage = ImageManager.makeFileNameFrom(drinkTag: drinkTag)
         guard let result = UIImage.init(named: drinkImage) else {
             return UIImage.init()

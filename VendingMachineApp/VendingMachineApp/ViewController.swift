@@ -206,10 +206,9 @@ class ViewController: UIViewController {
     var orderedDrinkCount = 0
     
     /// 음료태그를 받아서 해당 음료의 사진을 주문음료리스트에 추가
-    fileprivate func addOrderedDrinkPic(drinkTag:Int){
+    private func addOrderedDrinkPic(drinkTag:Int){
         // 음료에 맞는 사진 연결
-        let fileName = fileNameFrom(drinkTag: drinkTag)
-        let drinkImage = UIImage.init(named:fileName )!
+        let drinkImage = makeUIImage(drinkTag: drinkTag)
         // 음료 개수에 맞는 위치 설정
         let cardImage : UIImageView = UIImageView(image:drinkImage)
         cardImage.frame = CGRect(x: 40*orderedDrinkCount, y: 575, width: 140, height: 100)
@@ -219,9 +218,13 @@ class ViewController: UIViewController {
         orderedDrinkCount += 1
     }
     
-    // 음료사진 파일명 용 함수
-    func fileNameFrom(drinkTag:Int)->String{
-        return "Drink0"+String(drinkTag)+".jpg"
+    /// 파일명을 받아서 UIImage 를 리턴. 없으면 공백리턴
+    private func makeUIImage(drinkTag: Int)->UIImage{
+        let drinkImage = ImageManager.makeFileNameFrom(drinkTag: drinkTag)
+        guard let result = UIImage.init(named: drinkImage) else {
+            return UIImage.init()
+        }
+        return result
     }
     
     /// 주문된음료 초기 최신화 함수

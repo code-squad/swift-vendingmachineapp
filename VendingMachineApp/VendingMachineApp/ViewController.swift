@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import os
 
 /// nottification 이름을 미리 지정
 extension Notification.Name {
@@ -101,10 +102,10 @@ class ViewController: UIViewController {
             _ = try VendingMachine.shared().buyDrink(drinkType: drinkType)
         }
         catch let error as OutputView.errorMessage {
-            makeAlert(title: "에러", message: error.description, okTitle: "OK")
+            os_log("%@", error.description)
         }
         catch {
-            makeAlert(title: "에러", message: error.localizedDescription, okTitle: "OK")
+            os_log("%@", error.localizedDescription)
         }
     }
     
@@ -163,7 +164,7 @@ class ViewController: UIViewController {
             drinkCount.text = "\(storedDrinkDetail.drinkName) \(storedDrinkDetail.drinkCount) 개"
         } else {
             // 초기화 실패시 메세지 출력
-            makeAlert(title: "에러", message: "재고 초기화 실패 : "+storedDrinkDetail.drinkName, okTitle: "OK")
+            os_log("%@", "재고 초기화 실패 : "+storedDrinkDetail.drinkName)
         }
     }
     
@@ -179,7 +180,7 @@ class ViewController: UIViewController {
             }
             catch {
                 // 에러메세지 출력
-                makeAlert(title: "에러", message: error.localizedDescription, okTitle: "OK")
+                os_log("%@", error.localizedDescription)
             }
         }
     }
@@ -191,16 +192,7 @@ class ViewController: UIViewController {
             view.layer.cornerRadius = 15
             view.layer.borderWidth = 5
         }
-    }
-    
-    /// alert 생성함수
-    func makeAlert(title: String, message:String ,okTitle: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: okTitle, style: UIAlertActionStyle.default,handler : nil )
-        alert.addAction(okAction)
-        present(alert, animated: true, completion: nil)
-    }
-    
+    }    
     
     // 주문된 음료 재고 변수
     private var orderedDrinkCount = 0

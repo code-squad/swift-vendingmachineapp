@@ -7,13 +7,14 @@
 //
 
 import UIKit
+import os
 
 class ManagerViewController: UIViewController {
     /// 첫 화면으로 돌아감
     @IBAction func dismiss(_ sender: UIButton) {
         self.presentingViewController?.dismiss(animated: true)
     }
-    
+
     @IBOutlet weak var balance: UILabel!
     
     /// 잔액추가 버튼 액션
@@ -36,7 +37,7 @@ class ManagerViewController: UIViewController {
             try VendingMachine.shared().addBasicDrink(drinkTypeNumber: sender.tag)
         }
         catch {
-            makeAlert(title: "에러", message: error.localizedDescription, okTitle: "OK")
+            os_log( "%@", error.localizedDescription)
         }
     }
     
@@ -52,10 +53,10 @@ class ManagerViewController: UIViewController {
             _ = try VendingMachine.shared().buyDrink(drinkType: drinkType)
         }
         catch let error as OutputView.errorMessage {
-            makeAlert(title: "에러", message: error.description, okTitle: "OK")
+            os_log("%@", error.description)
         }
         catch {
-            makeAlert(title: "에러", message: error.localizedDescription, okTitle: "OK")
+            os_log("%@", error.localizedDescription)
         }
     }
     
@@ -113,8 +114,7 @@ class ManagerViewController: UIViewController {
             // label 값 수정
             drinkCount.text = "\(storedDrinkDetail.drinkName) \(storedDrinkDetail.drinkCount) 개"
         } else {
-            // 초기화 실패시 메세지 출력
-            makeAlert(title: "에러", message: "재고 초기화 실패 : "+storedDrinkDetail.drinkName, okTitle: "OK")
+            os_log("%@", "재고 초기화 실패 : "+storedDrinkDetail.drinkName)
         }
     }
     
@@ -129,8 +129,7 @@ class ManagerViewController: UIViewController {
                 try changeDrinkCount(storedDrinkDetail: drinkDetil)
             }
             catch {
-                // 에러메세지 출력
-                makeAlert(title: "에러", message: error.localizedDescription, okTitle: "OK")
+                os_log("%@", error.localizedDescription)
             }
         }
     }
@@ -142,14 +141,6 @@ class ManagerViewController: UIViewController {
             view.layer.cornerRadius = 15
             view.layer.borderWidth = 5
         }
-    }
-    
-    /// alert 생성함수
-    func makeAlert(title:String,message: String, okTitle: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: okTitle, style: UIAlertActionStyle.default,handler : nil )
-        alert.addAction(okAction)
-        present(alert, animated: true, completion: nil)
     }
     
     /// 재고가 추가됬다는 노티가 들어오면 실행됨

@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/yoda/swift/ios_lv3/swift-vendingmachineapp/VendingMachineApp/VendingMachineApp/Model/Drink01.jpg">
+   </FileRef>
+   <FileRef
       location = "self:VendingMachineApp.xcodeproj">
    </FileRef>
 </Workspace>

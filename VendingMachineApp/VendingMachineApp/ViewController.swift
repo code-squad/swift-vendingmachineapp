@@ -109,15 +109,15 @@ class ViewController: UIViewController {
     }
     
     /// 음료재고,사진,주문버튼 의 태그 규칙
-    func drinkPicTag(tag:Int)->Int{
+    func drinkPicTag(tag: Int) -> Int{
         return tag - 10
     }
-    func drinkOrderActionTag(tag:Int)->Int{
+    func drinkOrderActionTag(tag: Int) -> Int{
         return tag - 20
     }
     
     /// 음료태그를 음료타입으로 변환해서 리턴
-    func drinkTypeFrom(drinkTag:Int)throws->DrinkType{
+    func drinkTypeFrom(drinkTag: Int) throws -> DrinkType {
         let drinkType : DrinkType? = DrinkType(rawValue: drinkTag)
         if drinkType == nil || drinkType == DrinkType.none {
             throw OutputView.errorMessage.wrongDrink
@@ -126,7 +126,7 @@ class ViewController: UIViewController {
     }
     
     /// 잔액추가 버튼액션
-    func addBalance(uiButton:UIButton){
+    func addBalance(uiButton: UIButton) {
         _ = VendingMachine.shared().plusMoney(money: uiButton.tag)
         refreshBalance()
     }
@@ -144,7 +144,7 @@ class ViewController: UIViewController {
     }
    
     /// 음료정보를 받아서 태그번호를 리턴
-    func getDrinkTag(storedDrinkDetail:StoredDrinkDetail)throws->Int{
+    func getDrinkTag(storedDrinkDetail: StoredDrinkDetail) throws -> Int{
         // 음료타입의 기본값이 0 이면 에러처리
         if storedDrinkDetail.drinkType.rawValue == 0 {
             throw OutputView.errorMessage.wrongDrink
@@ -154,7 +154,7 @@ class ViewController: UIViewController {
     }
     
     /// 음료정보와 태그를 받아서 재고표시를 변경
-    func changeDrinkCount(storedDrinkDetail:StoredDrinkDetail)throws{
+    func changeDrinkCount(storedDrinkDetail: StoredDrinkDetail) throws {
         // 음료정보에서 음료타입 기본값을 추출
         let drinkTag = try getDrinkTag(storedDrinkDetail: storedDrinkDetail)
         // 음료에 연결된 label 추출
@@ -169,7 +169,7 @@ class ViewController: UIViewController {
     
     
     /// 음료재고 컬렉션 최신화 함수
-    func refreshDrinkCounts(){        
+    func refreshDrinkCounts() {
         // 재고표시 초기화를 진행
         initDrinkCounts()
         let storedDrinksDetail = VendingMachine.shared().getAllAvailableDrinks().storedDrinksDetail
@@ -194,7 +194,7 @@ class ViewController: UIViewController {
     }
     
     /// alert 생성함수
-    func makeAlert(title:String,message:String,okTitle:String){
+    func makeAlert(title: String, message:String ,okTitle: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: okTitle, style: UIAlertActionStyle.default,handler : nil )
         alert.addAction(okAction)
@@ -206,11 +206,11 @@ class ViewController: UIViewController {
     private var orderedDrinkCount = 0
     
     /// 음료태그를 받아서 해당 음료의 사진을 주문음료리스트에 추가
-    private func addOrderedDrinkPic(drinkTag:Int){
+    private func addOrderedDrinkPic(drinkTag: Int) {
         // 음료에 맞는 사진 연결
         let drinkImage = makeUIImage(drinkTag: drinkTag)
         // 음료 개수에 맞는 위치 설정
-        let cardImage : UIImageView = UIImageView(image:drinkImage)
+        let cardImage : UIImageView = UIImageView(image: drinkImage)
         cardImage.frame = CGRect(x: 40*orderedDrinkCount, y: 575, width: 140, height: 100)
         // 음료사진 추가
         self.view.addSubview(cardImage)
@@ -219,7 +219,7 @@ class ViewController: UIViewController {
     }
     
     /// 파일명을 받아서 UIImage 를 리턴. 없으면 공백리턴
-    private func makeUIImage(drinkTag: Int)->UIImage{
+    private func makeUIImage(drinkTag: Int) - >UIImage {
         let drinkImage = ImageManager.makeFileNameFrom(drinkTag: drinkTag)
         guard let result = UIImage.init(named: drinkImage) else {
             return UIImage.init()
@@ -228,15 +228,15 @@ class ViewController: UIViewController {
     }
     
     /// 주문된음료 초기 최신화 함수
-    func refreshOrderedDrink(){
+    func refreshOrderedDrink() {
         // 주문된 음료의 사진을 뷰로 생성
         for drinkTag in VendingMachine.shared().allOderedDrinksTag() {
-            addOrderedDrinkPic(drinkTag:drinkTag)
+            addOrderedDrinkPic(drinkTag: drinkTag)
         }
     }
     
     /// 주문된 음료 추가시
-    func addNewOrderedDrinkPic(){
+    func addNewOrderedDrinkPic() {
         guard let lastDrinkTag = VendingMachine.shared().allOderedDrinksTag().last else {
             return ()
         }

@@ -8,8 +8,6 @@
 
 import Foundation
 
-import os.log
-
 /// 주문된 음료 창고에 관련된 기능들
 protocol OrderedDrinkInventory {
     func addInventory(undefinedDrink:Drink)->StoredDrinkDetail?
@@ -29,7 +27,6 @@ class DrinkInventory : NSObject, NSCoding {
         self.drinkSlots.append(DrinkSlot(drinkType: DrinkType.hotTopCoffee))
         self.drinkSlots.append(DrinkSlot(drinkType: DrinkType.energyDrink))
     }
-    
     /// 디코더
     required init?(coder aDecoder: NSCoder) {
         self.drinkSlots = aDecoder.decodeObject(forKey: "drinkSlots") as! [DrinkSlot<Drink>]

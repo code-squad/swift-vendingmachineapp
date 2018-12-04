@@ -203,7 +203,7 @@ class ViewController: UIViewController {
     
     
     // 주문된 음료 재고 변수
-    var orderedDrinkCount = 0
+    private var orderedDrinkCount = 0
     
     /// 음료태그를 받아서 해당 음료의 사진을 주문음료리스트에 추가
     private func addOrderedDrinkPic(drinkTag:Int){

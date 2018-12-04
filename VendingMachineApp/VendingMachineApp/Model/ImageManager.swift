@@ -7,3 +7,10 @@
 //
 
 import Foundation
+
+struct ImageManager {
+    /// 음료사진 파일명 출력용 함수
+    static func makeFileNameFrom(drinkTag : Int) -> String {
+        return "Drink0"+String(drinkTag)+".jpg"
+    }
+}

@@ -6,6 +6,7 @@
 //  Copyright © 2018년 Drake. All rights reserved.
 //
 
+import UIKit
 
 /// nottification 이름을 미리 지정
 extension Notification.Name {
@@ -16,7 +17,6 @@ extension Notification.Name {
     static let afterAddOrderedDrinkList = Notification.Name("afterAddOrderedDrinkList")
 }
 
-import UIKit
 class ViewController: UIViewController {
     
     // 음료1번 이미지뷰

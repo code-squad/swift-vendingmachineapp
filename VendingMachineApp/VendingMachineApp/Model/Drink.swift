@@ -341,11 +341,19 @@ struct StoredDrinkDetail {
     var drinkCount : Int
     let drinkType : DrinkType
     
+    // 음료가 있을경우 생성자
     init(drink:Drink,drinkCount: Int){
         self.drinkName = drink.name
         self.drinkPrice = drink.price
         self.drinkCount = drinkCount
         self.drinkType = drink.drinkType
+    }
+    // 음료가 없을경우 생성자
+    init(drinkType: DrinkType){
+        self.drinkName = "매진됨"
+        self.drinkPrice = 0
+        self.drinkCount = 0
+        self.drinkType = drinkType
     }
     
     func isEnoughDrink(orderCount:Int)->Bool{

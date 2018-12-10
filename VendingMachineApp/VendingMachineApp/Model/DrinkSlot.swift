@@ -51,7 +51,8 @@ class DrinkSlot<T:Drink> : NSObject, NSCoding {
             return inventoryDetail
         } // 없을경우
         else {
-            return nil
+            let inventoryDetail = StoredDrinkDetail(drinkType: drinkType)
+            return inventoryDetail
         }
     }
     

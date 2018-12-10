@@ -73,15 +73,8 @@ class ManagerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // 노티를 보는 옵저버. 노티가 발생하면 해당 함수를 실행한다
-        // 음료 재고 추가 옵저버
-        NotificationCenter.default.addObserver(self, selector: #selector(self.afterAddDrink(notification:)), name: .afterAddDrink , object: nil)
-        // 음료 재고 제거 옵저버
-        NotificationCenter.default.addObserver(self, selector: #selector(self.afterPopDrink(notification:)), name: .afterPopDrink , object: nil)
-        // 금액변동 옵저버
-        NotificationCenter.default.addObserver(self, selector: #selector(self.balanceChanged(notification:)), name: .balanceChanged , object: nil)
-        // 금액변동 옵저버
-        NotificationCenter.default.addObserver(self, selector: #selector(self.afterAddOrderedDrinkList(notification:)), name: .afterAddOrderedDrinkList , object: nil)
+        // 노티 옵저버 생성
+        makeNotificationObserver()
         
         // 자판기객체 생성
         self.vendingMachine = VendingMachine.shared()
@@ -104,6 +97,21 @@ class ManagerViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
+    /// 노티 생성 함수
+    func makeNotificationObserver(){
+        // 노티를 보는 옵저버. 노티가 발생하면 해당 함수를 실행한다
+        // 음료 재고 추가 옵저버
+        NotificationCenter.default.addObserver(self, selector: #selector(self.afterAddDrink(notification:)), name: .afterAddDrink , object: nil)
+        // 음료 재고 제거 옵저버
+        NotificationCenter.default.addObserver(self, selector: #selector(self.afterPopDrink(notification:)), name: .afterPopDrink , object: nil)
+        // 금액변동 옵저버
+        NotificationCenter.default.addObserver(self, selector: #selector(self.balanceChanged(notification:)), name: .balanceChanged , object: nil)
+        // 금액변동 옵저버
+        NotificationCenter.default.addObserver(self, selector: #selector(self.afterAddOrderedDrinkList(notification:)), name: .afterAddOrderedDrinkList , object: nil)
+    }
+    
     
     // 자판기객체 선언
     var vendingMachine : VendingMachine!

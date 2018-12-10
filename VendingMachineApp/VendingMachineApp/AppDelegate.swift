@@ -20,8 +20,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
 
-    var sharedVendingMachine : VendingMachine = VendingMachine.shared()
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         return true
     }
@@ -42,7 +40,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         VendingMachineDataManager.saveVendingMachineData(VendingMachine.shared())
     }
-
-
 }
 

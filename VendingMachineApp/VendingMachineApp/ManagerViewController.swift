@@ -115,7 +115,6 @@ class ManagerViewController: UIViewController {
     /// 잔액추가 버튼액션
     func addBalance(uiButton: UIButton) {
         _ = VendingMachine.shared().plusMoney(money: uiButton.tag)
-        refreshBalance()
     }
     
     /// 자판기 잔액표기 갱신 함수

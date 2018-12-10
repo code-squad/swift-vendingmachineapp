@@ -110,7 +110,7 @@ class DrinkInventory : NSObject, NSCoding {
             // 음료슬롯의 음료타입이 맞으면
             if drinkSlot.drinkType == drinkType {
                 // 재고는 있는지 확인
-                if drinkSlot.getDrinkDetail() == nil {
+                if drinkSlot.getDrinkDetail()?.drinkCount == 0 {
                     throw OutputView.errorMessage.notEnoughDrink
                 }
                 // 구입가능여부확인 함수를 리턴

@@ -60,6 +60,41 @@ class ManagerViewController: UIViewController {
         }
     }
     
+    
+    /// viewDidLoad
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // 노티를 보는 옵저버. 노티가 발생하면 해당 함수를 실행한다
+        // 음료 재고 추가 옵저버
+        NotificationCenter.default.addObserver(self, selector: #selector(self.afterAddDrink(notification:)), name: .afterAddDrink , object: nil)
+        // 음료 재고 제거 옵저버
+        NotificationCenter.default.addObserver(self, selector: #selector(self.afterPopDrink(notification:)), name: .afterPopDrink , object: nil)
+        // 금액변동 옵저버
+        NotificationCenter.default.addObserver(self, selector: #selector(self.balanceChanged(notification:)), name: .balanceChanged , object: nil)
+        // 금액변동 옵저버
+        NotificationCenter.default.addObserver(self, selector: #selector(self.afterAddOrderedDrinkList(notification:)), name: .afterAddOrderedDrinkList , object: nil)
+        
+        
+        // 사진 테두리 둥글게 수정
+        setBorderRadius()
+        
+        // 자판기 금액 최신화
+        refreshBalance()
+        // 음료 재고 최신화
+        refreshDrinkCounts()
+        
+        // 주문된음료 사진 최신화
+        refreshOrderedDrink()
+        
+        // viewDidLoad ends
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
     /// 음료재고,사진,주문버튼 의 태그 규칙
     func drinkPicTag(tag: Int) -> Int {
         return tag - 10
@@ -81,13 +116,6 @@ class ManagerViewController: UIViewController {
     func addBalance(uiButton: UIButton) {
         _ = VendingMachine.shared().plusMoney(money: uiButton.tag)
         refreshBalance()
-    }
-    
-    /// 음료재고 컬렉션 초기화 함수
-    func initDrinkCounts() {
-        for counts in drinkCountLabels {
-            counts.text = "매진됨"
-        }
     }
     
     /// 자판기 잔액표기 갱신 함수
@@ -121,8 +149,6 @@ class ManagerViewController: UIViewController {
     
     /// 음료재고 컬렉션 최신화 함수
     func refreshDrinkCounts() {
-        // 재고표시 초기화를 진행
-        initDrinkCounts()
         let storedDrinksDetail = VendingMachine.shared().getAllAvailableDrinks().storedDrinksDetail
         for drinkDetil in storedDrinksDetail {
             do {
@@ -202,40 +228,4 @@ class ManagerViewController: UIViewController {
         addOrderedDrinkPic(drinkTag: lastDrinkTag)
     }
     
-    /// viewDidLoad
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // 음료재고를 초기화 한다
-        initDrinkCounts()
-        
-        // 노티를 보는 옵저버. 노티가 발생하면 해당 함수를 실행한다
-        // 음료 재고 추가 옵저버
-        NotificationCenter.default.addObserver(self, selector: #selector(self.afterAddDrink(notification:)), name: .afterAddDrink , object: nil)
-        // 음료 재고 제거 옵저버
-        NotificationCenter.default.addObserver(self, selector: #selector(self.afterPopDrink(notification:)), name: .afterPopDrink , object: nil)
-        // 금액변동 옵저버
-        NotificationCenter.default.addObserver(self, selector: #selector(self.balanceChanged(notification:)), name: .balanceChanged , object: nil)
-        // 금액변동 옵저버
-        NotificationCenter.default.addObserver(self, selector: #selector(self.afterAddOrderedDrinkList(notification:)), name: .afterAddOrderedDrinkList , object: nil)
-        
-        
-        // 사진 테두리 둥글게 수정
-        setBorderRadius()
-        
-        // 자판기 금액 최신화
-        refreshBalance()
-        // 음료 재고 최신화
-        refreshDrinkCounts()
-        
-        // 주문된음료 사진 최신화
-        refreshOrderedDrink()
-        
-        // viewDidLoad ends
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
 }

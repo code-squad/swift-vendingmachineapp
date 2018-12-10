@@ -32,6 +32,11 @@ class VendingMachine : NSObject, vendinMachineMenu, NSCoding  {
         return self.sharedVendingMachine
     }
     
+    /// 싱글톤 객체를 교체하는 함수
+    class func loadVendingMachine(savedVendingMachine: VendingMachine){
+        self.sharedVendingMachine = savedVendingMachine
+    }
+    
     /// 생성자
     override private init(){
         super.init()

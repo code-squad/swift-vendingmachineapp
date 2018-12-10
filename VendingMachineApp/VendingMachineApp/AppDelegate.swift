@@ -11,15 +11,23 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+//    override init() {
+//        // 싱글톤 객체를 생성한다
+//        sharedVendingMachine = VendingMachine.shared()
+//    }
+    
     var window: UIWindow?
 
-    var sharedVendingMachine = VendingMachine.shared()
+    var sharedVendingMachine : VendingMachine = VendingMachine.shared()
+        //VendingMachine.shared()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-            
+        
+        // 저장된 자판기가 있을경우 객체를 교체한다
         if let loadedVendingMachine = VendingMachineDataManager.loadVendingMachineData() {
-            sharedVendingMachine = loadedVendingMachine
+            VendingMachine.loadVendingMachine(savedVendingMachine: loadedVendingMachine)
         }
+        
         return true
     }
 

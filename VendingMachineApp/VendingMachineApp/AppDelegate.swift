@@ -16,11 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var sharedVendingMachine = VendingMachine.shared()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
             
         if let loadedVendingMachine = VendingMachineDataManager.loadVendingMachineData() {
             sharedVendingMachine = loadedVendingMachine
-        }        
+        }
         return true
     }
 

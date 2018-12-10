@@ -95,7 +95,7 @@ class ViewController: UIViewController {
             // 받은 태그를 음료타입으로 변환
             let drinkType = try drinkTypeFrom(drinkTag: drinkOrderActionTag(tag: sender.tag))
             // 음료태그로 음료주문
-            _ = try vendingMachine.buyDrink(drinkType: drinkType)
+            try vendingMachine.buyDrink(drinkType: drinkType)
         }
         catch let error as OutputView.errorMessage {
             os_log("%@", error.description)
@@ -124,7 +124,7 @@ class ViewController: UIViewController {
     
     /// 잔액추가 버튼액션
     func addBalance(uiButton: UIButton) {
-        _ = vendingMachine.plusMoney(money: uiButton.tag)
+        vendingMachine.plusMoney(money: uiButton.tag)
     }
     
     /// 자판기 잔액표기 갱신 함수

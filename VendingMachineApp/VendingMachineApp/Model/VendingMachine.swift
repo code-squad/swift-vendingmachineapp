@@ -57,11 +57,10 @@ class VendingMachine : NSObject, vendinMachineMenu, NSCoding  {
     }
     
     /// 금액 추가 함수
-    func plusMoney(money:Int)->String{
+    func plusMoney(money:Int){
         self.insertedMoney += money
         // 잔액변동 노티를 보낸다
         NotificationCenter.default.post(name: .balanceChanged, object: nil)
-        return "\(money)원을 추가하였습니다."
     }
     
     /// 금액 사용 함수
@@ -136,27 +135,23 @@ extension VendingMachine {
     }
     
     /// 유저가 음료 선택 시 진행 순서
-    func buyDrink(orderDetail:OrderDetail) throws ->String {
+    func buyDrink(orderDetail:OrderDetail) throws {
         // 총 주문금액 변수계산. 잔액이 부족하면 에러
         let totalOrderPrice = try drinkInventory.calculatePrice(orderCount: orderDetail.drinkCount, balance: self.getMoney(), drinkType: orderDetail.drinkType)
         // 금액 사용
         try self.minusMoney(money: totalOrderPrice)
         
         // 인벤토리->주문내역 으로 음료 이동. 이동된 음료의 정보 저장
-        let movedDrinksDetail = try orderDrinks(orderDetail: orderDetail)
-        
-        // 완료 메세지 리턴
-        return "\(movedDrinksDetail.drinkName) \(movedDrinksDetail.drinkCount)개를 \(totalOrderPrice)원에 구입하였습니다."
+        _ = try orderDrinks(orderDetail: orderDetail)
     }
     
     /// 음료태그로 음료를 구매하는 기능
-    func buyDrink(drinkType:DrinkType)throws->String{
+    func buyDrink(drinkType:DrinkType) throws{
         // 음료타입으로 주문서 작성. 수량은 1개
         let orderDetail = OrderDetail(drinkType: drinkType, drinkCount: 1)
         
         //주문서로 음료 주문
-        let result = try buyDrink(orderDetail: orderDetail)
-        return result
+        let _ = try buyDrink(orderDetail: orderDetail)
     }
     
 }
@@ -164,7 +159,7 @@ extension VendingMachine {
 // 관리자 모드용 기능
 extension VendingMachine {
     /// 음료 다수 제거 기능
-    func removeDrinks(orderDetail:OrderDetail)throws->StoredDrinkDetail?{
+    func removeDrinks(orderDetail:OrderDetail) throws -> StoredDrinkDetail?{
         // 음료타입과 개수를 받아서 해당 음료를 리스트로 옮긴다
         let movedDrinks = try drinkInventory.popDrinks(orderDetail: orderDetail)
         
@@ -173,23 +168,17 @@ extension VendingMachine {
     }
     
     /// 관리자가 음료 제거 선택 시 진행 순서
-    func reduceDrink(orderDetail:OrderDetail) throws ->String {
+    func reduceDrink(orderDetail:OrderDetail) throws {
         // 음료 제거. 제거된 음료의 정보 저장
-        guard let movedDrinkDetail = try removeDrinks(orderDetail: orderDetail) else {
+        guard let _ = try removeDrinks(orderDetail: orderDetail) else {
             throw OutputView.errorMessage.notEnoughDrink
         }
-        
-        // 완료 메세지 리턴
-        return "\(movedDrinkDetail.drinkName) \(movedDrinkDetail.drinkCount)개를 제거하였습니다."
     }
     
     /// 관리자가 음료 추가 선택시
-    func duplicateDrink(orderDetail:OrderDetail) throws->String{
+    func duplicateDrink(orderDetail:OrderDetail) throws {
         // 음료 추가.
-        let resultDetail = try drinkInventory.addDrinkSelfDuplicate(orderDetail: orderDetail)
-        
-        // 완료 메세지 리턴
-        return "\(resultDetail.drinkName) \(resultDetail.drinkCount)개를 추가하였습니다."
+        _ = try drinkInventory.addDrinkSelfDuplicate(orderDetail: orderDetail)
     }
     
     /// 재고가 0이여도 가능한 음료추가함수

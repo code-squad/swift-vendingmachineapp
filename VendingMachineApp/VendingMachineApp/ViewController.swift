@@ -29,14 +29,7 @@ class ViewController: UIViewController {
     @IBOutlet var drinkCountLabels: [UILabel]!
     
     /// 음료 사진뷰 컬렉션
-    @IBOutlet var drinkImageLabels: [UIImageView]!
-    
-    /// 재고추가 버튼들 컬렉션
-    @IBOutlet var addDrinkButtons: [UIButton]!
-    
-    /// 음료구매 버튼들
-    @IBOutlet var buyDrinkButtons: [UIButton]!
-    
+    @IBOutlet var drinkImageLabels: [UIImageView]!    
     
     /// 재고가 추가됬다는 노티가 들어오면 실행됨
     @objc func afterAddDrink(notification: NSNotification) {

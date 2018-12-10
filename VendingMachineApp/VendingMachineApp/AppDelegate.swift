@@ -11,23 +11,18 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-//    override init() {
-//        // 싱글톤 객체를 생성한다
-//        sharedVendingMachine = VendingMachine.shared()
-//    }
-    
-    var window: UIWindow?
-
-    var sharedVendingMachine : VendingMachine = VendingMachine.shared()
-        //VendingMachine.shared()
-
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        
+    override init() {
         // 저장된 자판기가 있을경우 객체를 교체한다
         if let loadedVendingMachine = VendingMachineDataManager.loadVendingMachineData() {
             VendingMachine.loadVendingMachine(savedVendingMachine: loadedVendingMachine)
         }
-        
+    }
+    
+    var window: UIWindow?
+
+    var sharedVendingMachine : VendingMachine = VendingMachine.shared()
+
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         return true
     }
 
@@ -35,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
-        VendingMachineDataManager.saveVendingMachineData(sharedVendingMachine)
+        VendingMachineDataManager.saveVendingMachineData(VendingMachine.shared())
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -45,7 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
-        VendingMachineDataManager.saveVendingMachineData(sharedVendingMachine)
+        VendingMachineDataManager.saveVendingMachineData(VendingMachine.shared())
     }
 
 

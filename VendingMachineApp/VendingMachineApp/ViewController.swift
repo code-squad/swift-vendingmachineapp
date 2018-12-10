@@ -85,7 +85,19 @@ class ViewController: UIViewController {
     
     /// 잔액추가 버튼 액션
     @IBAction func addBalance(_ sender: UIButton) {
-        addBalance(uiButton: sender)
+        do {
+            // 태그를 금액으로 변환한다
+            let money = try plusMoneyActionTag(tag: sender.tag)
+            // 변환 성공하면 추가
+            self.vendingMachine.plusMoney(money: money)
+        }
+        // 실패시
+        catch let error as OutputView.errorMessage {
+            os_log("%@", error.description)
+        }
+        catch {
+            os_log("%@", error.localizedDescription)
+        }
     }
     
     /// 음료구매버튼 액션
@@ -107,11 +119,23 @@ class ViewController: UIViewController {
     
     /// 음료재고,사진,주문버튼 의 태그 규칙
     func drinkPicTag(tag: Int) -> Int{
+        // 음료사진은 11번 부터 시작됨
         return tag - 10
     }
     func drinkOrderActionTag(tag: Int) -> Int{
+        // 음료액션은 21번 부터 시작됨
         return tag - 20
     }
+    func plusMoneyActionTag(tag: Int) throws -> Int{
+        // 잔액추가버튼튼 31번 부터 시작됨
+        // 5000, 10000 존재
+        switch tag {
+            case 31 : return 5000
+            case 32 : return 10000
+            default : throw OutputView.errorMessage.wrongMoney
+        }
+    }
+    
     
     /// 음료태그를 음료타입으로 변환해서 리턴
     func drinkTypeFrom(drinkTag: Int) throws -> DrinkType {
@@ -120,11 +144,6 @@ class ViewController: UIViewController {
             throw OutputView.errorMessage.wrongDrink
         }
         return drinkType!
-    }
-    
-    /// 잔액추가 버튼액션
-    func addBalance(uiButton: UIButton) {
-        vendingMachine.plusMoney(money: uiButton.tag)
     }
     
     /// 자판기 잔액표기 갱신 함수

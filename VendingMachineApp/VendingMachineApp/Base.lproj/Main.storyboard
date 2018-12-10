@@ -110,14 +110,14 @@
                                 <rect key="frame" x="849" y="217" width="54" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <button opaque="NO" tag="5000" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PB5-Qg-0UZ">
+                                    <button opaque="NO" tag="31" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PB5-Qg-0UZ">
                                         <rect key="frame" x="0.0" y="0.0" width="54" height="30"/>
                                         <state key="normal" title="+5000"/>
                                         <connections>
                                             <action selector="addBalance:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fLD-lT-ghG"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="10000" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RVg-oB-Hh4">
+                                    <button opaque="NO" tag="32" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RVg-oB-Hh4">
                                         <rect key="frame" x="0.0" y="30" width="54" height="30"/>
                                         <state key="normal" title="+10000"/>
                                         <connections>
@@ -353,14 +353,14 @@
                                 <rect key="frame" x="823" y="225" width="54" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <button opaque="NO" tag="5000" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="haq-KG-bu4">
+                                    <button opaque="NO" tag="31" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="haq-KG-bu4">
                                         <rect key="frame" x="0.0" y="0.0" width="54" height="30"/>
                                         <state key="normal" title="+5000"/>
                                         <connections>
                                             <action selector="addBalance:" destination="9Mu-6j-hJt" eventType="touchUpInside" id="k08-Un-w5c"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="10000" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pMj-1i-Xw4">
+                                    <button opaque="NO" tag="32" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pMj-1i-Xw4">
                                         <rect key="frame" x="0.0" y="30" width="54" height="30"/>
                                         <state key="normal" title="+10000"/>
                                         <connections>

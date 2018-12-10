@@ -212,12 +212,6 @@
                         <outletCollection property="drinkImageLabels" destination="1hY-fj-w4k" collectionClass="NSMutableArray" id="0F8-QC-5p3"/>
                         <outletCollection property="drinkImageLabels" destination="Gmp-2W-dda" collectionClass="NSMutableArray" id="9pf-R0-OzQ"/>
                         <outletCollection property="drinkImageLabels" destination="nPk-rd-QNu" collectionClass="NSMutableArray" id="qCd-Ab-olI"/>
-                        <outletCollection property="buyDrinkButtons" destination="mIp-su-Vrn" collectionClass="NSMutableArray" id="Ptk-j0-kPc"/>
-                        <outletCollection property="buyDrinkButtons" destination="9VR-Kr-MHu" collectionClass="NSMutableArray" id="w7f-JX-bfp"/>
-                        <outletCollection property="buyDrinkButtons" destination="yln-wa-Dg2" collectionClass="NSMutableArray" id="Ps7-hq-qP7"/>
-                        <outletCollection property="buyDrinkButtons" destination="CY0-If-Vbz" collectionClass="NSMutableArray" id="xvs-zt-82L"/>
-                        <outletCollection property="buyDrinkButtons" destination="H1J-Ht-pDe" collectionClass="NSMutableArray" id="ne4-0e-0gZ"/>
-                        <outletCollection property="buyDrinkButtons" destination="BhH-ij-FIo" collectionClass="NSMutableArray" id="Qh0-IN-48c"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -321,7 +315,6 @@
                                 <state key="normal" title="재고추가"/>
                                 <connections>
                                     <action selector="addBasicDrink:" destination="9Mu-6j-hJt" eventType="touchUpInside" id="5IF-CU-WJ8"/>
-                                    <action selector="addBasicDrink:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7v0-lB-Kcl"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NFy-3i-Vja">

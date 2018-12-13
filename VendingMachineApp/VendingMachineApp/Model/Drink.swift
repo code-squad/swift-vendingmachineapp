@@ -113,6 +113,10 @@ class Drink : NSObject, NSCoding {
             throw OutputView.errorMessage.notEnoughMoney
         }
     }
+    
+    func getName() -> String {
+        return self.name
+    }
 }
 
 /// 우유 클래스

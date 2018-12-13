@@ -30,6 +30,7 @@
 		D5F1F32221B291DE0005BD4F /* ManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F1F32121B291DE0005BD4F /* ManagerViewController.swift */; };
 		D5F1F32421B5167B0005BD4F /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F1F32321B5167B0005BD4F /* ImageManager.swift */; };
 		D5F1F32921B65AA60005BD4F /* Drink01.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D5F1F32821B657D90005BD4F /* Drink01.jpg */; };
+		D5F1F32B21BF59100005BD4F /* PieGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F1F32A21BF59100005BD4F /* PieGraphView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		D5F1F32121B291DE0005BD4F /* ManagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerViewController.swift; sourceTree = "<group>"; };
 		D5F1F32321B5167B0005BD4F /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
 		D5F1F32821B657D90005BD4F /* Drink01.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Drink01.jpg; path = "/Users/yoda/swift/ios_lv3/swift-vendingmachineapp/VendingMachineApp/VendingMachineApp/Model/Drink01.jpg"; sourceTree = "<absolute>"; };
+		D5F1F32A21BF59100005BD4F /* PieGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieGraphView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +156,7 @@
 				D54F557A214B7F31000C3DE5 /* Model */,
 				D56712B3214A295600106ECD /* ViewController.swift */,
 				D5F1F32121B291DE0005BD4F /* ManagerViewController.swift */,
+				D5F1F32A21BF59100005BD4F /* PieGraphView.swift */,
 				D56712B1214A295600106ECD /* AppDelegate.swift */,
 				D56712B5214A295600106ECD /* Main.storyboard */,
 				D56712B8214A295600106ECD /* Assets.xcassets */,
@@ -326,6 +329,7 @@
 				D56712B4214A295600106ECD /* ViewController.swift in Sources */,
 				D5F1F32421B5167B0005BD4F /* ImageManager.swift in Sources */,
 				D56712E5214A3F2E00106ECD /* DrinkInventory.swift in Sources */,
+				D5F1F32B21BF59100005BD4F /* PieGraphView.swift in Sources */,
 				D56712E4214A3F2E00106ECD /* Checker.swift in Sources */,
 				D56712E6214A3F2E00106ECD /* Drink.swift in Sources */,
 				D56712B2214A295600106ECD /* AppDelegate.swift in Sources */,

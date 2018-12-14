@@ -14,12 +14,7 @@ protocol vendinMachineMenu {
     func addDrink(drink:Drink)throws->StoredDrinkDetail?
 }
 
-class VendingMachine : NSObject, vendinMachineMenu, NSCoding, PieInfo  {
-    /// 파이그래프를 위한 변수
-    var pieInfo: DrinkPieInfo {
-        return orderedDrinks.pieInfo
-    }
-    
+class VendingMachine : NSObject, vendinMachineMenu, NSCoding  {
     
     /// 자판기에 들어있는 금액
     private var insertedMoney = 0
@@ -115,7 +110,7 @@ class VendingMachine : NSObject, vendinMachineMenu, NSCoding, PieInfo  {
     
     /// 파이차트를 위한 객체를 리턴한다
     func allOrderedDrinkPieInfo() -> DrinkPieInfo {
-        return self.orderedDrinks.allOrderedDrinkPieInfo()
+        return self.orderedDrinks.getPieInfo
     }
     
 }
@@ -226,47 +221,3 @@ extension VendingMachine {
     }
 }
 
-protocol PieInfo {
-    var pieInfo : DrinkPieInfo { get }
-}
-
-
-/// 구매된 음료수 원그래프를 위한 정보구조체
-struct DrinkNameInfo {
-    var drinkName : String
-    let drinkType : DrinkType
-    var drinkCount : Int
-    
-    init(drink: Drink) {
-        self.drinkName = drink.getName()
-        self.drinkType = drink.drinkType
-        self.drinkCount = 1
-    }
-}
-
-struct DrinkPieInfo {
-    var drinkNameInfos : [DrinkNameInfo] = []
-    
-    func allDrinkCount() -> Int {
-        var allCount = 0
-        for info in drinkNameInfos {
-            allCount += info.drinkCount
-        }
-        return allCount
-    }
-    
-    /// 음료를 받아서 정보를 추가
-    mutating func addDrinkNameInfo(drink:Drink){
-        for x in 0..<drinkNameInfos.count {
-            // 기존 음료타입과 추가타입이 같으면
-            if drinkNameInfos[x].drinkType == drink.drinkType {
-                // 이름을 변경하고 카운트를 올린다
-                drinkNameInfos[x].drinkName = drink.getName()
-                drinkNameInfos[x].drinkCount += 1
-                return ()
-            }
-        }
-        // 같은 타입이 없다면 새로 추가한다
-        drinkNameInfos.append(DrinkNameInfo(drink: drink))
-    }
-}

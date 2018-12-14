@@ -9,7 +9,7 @@
 import UIKit
 import os
 
-class ManagerViewController: UIViewController {
+class ManagerViewController: UIViewController, PieInfo {
     /// 원그래프 선언
     @IBOutlet weak var pieGraphView: PieGraphView!
     
@@ -262,8 +262,11 @@ class ManagerViewController: UIViewController {
     
     /// 음료 주문시 파이차트 갱신
     func refreshPieChart(){
-        pieGraphView.setOrderedDrinkList(pieInfo: vendingMachine)
+        pieGraphView.setOrderedDrinkList(pieInfo: self)
     }
     
-    
+    /// 파이정보 프로토콜 준수
+    func getPieInfo() -> DrinkPieInfo {
+        return vendingMachine.getPieInfo()
+    }
 }

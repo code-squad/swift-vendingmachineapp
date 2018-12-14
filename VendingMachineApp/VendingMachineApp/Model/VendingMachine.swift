@@ -109,8 +109,8 @@ class VendingMachine : NSObject, vendinMachineMenu, NSCoding  {
     }
     
     /// 파이차트를 위한 객체를 리턴한다
-    func allOrderedDrinkPieInfo() -> DrinkPieInfo {
-        return self.orderedDrinks.getPieInfo
+    func getPieInfo() -> DrinkPieInfo {
+        return self.orderedDrinks.getPieInfo()
     }
     
 }

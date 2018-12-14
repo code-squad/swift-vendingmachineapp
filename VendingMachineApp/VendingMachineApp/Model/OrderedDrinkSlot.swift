@@ -67,7 +67,7 @@ class OrderedDrinkSlot : NSObject, NSCoding {
 
 
 protocol PieInfo {
-    var pieInfo : DrinkPieInfo { get }
+    func getPieInfo() -> DrinkPieInfo 
 }
 
 

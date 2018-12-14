@@ -37,6 +37,7 @@ class PieGraphView: UIView {
     }
     
     override func draw(_ rect: CGRect) {
+        super.draw(rect)
         // 센터 위치
         let center = CGPoint(x: bounds.width / 2, y: bounds.height / 2)
         
@@ -87,15 +88,15 @@ extension PieGraphView {
     
     /// 글자를 받아서 CGrect에 맞는 길이를 리턴
     func getPointX(text: String) -> CGFloat {
-        return CGFloat(text.count * 10) // 10
+        return CGFloat(text.count * 10)
     }
     func getPointY(text: String) -> CGFloat {
-        return CGFloat(text.count + 15) // 30
+        return CGFloat(text.count + 15)
     }
     
     /// 포인트와 글자를 받아서 위치변경된 origin 을 리턴
     func adjustOrigin(point: CGPoint, text: String) -> CGPoint {
-        // 가로위치는 + 글자수*10, 세로위치는 글자수 관계없이 +10
+        // 가로위치는 - 글자수 * 10, 세로위치는 글자수 관계없이 - 10
         return CGPoint(x: point.x - getPointX(text: text), y: point.y - getPointY(text: text))
     }
     
@@ -105,7 +106,7 @@ extension PieGraphView {
         return result
     }
     
-    
+    /// 센터,반지름,시작각,끝각,음료이름 을 받아서 중간각의 중간에 음료이름을 출력
     func drawDrinkName(center: CGPoint, length: CGFloat, angleA: CGFloat, angleB: CGFloat, text: String){
         // 시작점과 끝점의 중간각을 구한다
         let midAngle = getMid(angleA: angleA, angleB: angleB)
@@ -116,14 +117,17 @@ extension PieGraphView {
         // 문자에 알맞는 rect 생성
         let frame = getFrame(point: point, text: text)
         
+        // 음료이름을 NSString 으로 변환
+        let drinkName = text as NSString
         
-        let label = UILabel()
-        label.frame = frame
-        label.textAlignment = .center
-        label.text = text
-        label.textColor = UIColor.white
-        label.isHidden = false
-        label.drawText(in: frame)
+        // 문자 속성 설정
+        let textAttributes: [NSAttributedStringKey: Any] = [
+            NSAttributedStringKey.font: UIFont.systemFont(ofSize: length / 5,
+                                                           weight: UIFont.Weight.bold),
+            NSAttributedStringKey.foregroundColor: UIColor.white
+        ]
+        
+        drinkName.draw(in: frame, withAttributes: textAttributes)
         
     }
 }

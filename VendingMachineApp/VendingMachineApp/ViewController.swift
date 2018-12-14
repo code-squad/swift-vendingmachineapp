@@ -35,7 +35,7 @@ class ViewController: UIViewController {
     @objc func afterAddDrink(notification: NSNotification) {
         refreshDrinkCounts()
     }
-    /// 재고가 추가됬다는 노티가 들어오면 실행됨
+    /// 재고가 구매됬다는 노티가 들어오면 실행됨
     @objc func afterPopDrink(notification: NSNotification) {
         refreshDrinkCounts()
     }
@@ -47,7 +47,6 @@ class ViewController: UIViewController {
     @objc func afterAddOrderedDrinkList(notification: NSNotification) {
         addNewOrderedDrinkPic()
     }
-    
     
     /// viewDidLoad
     override func viewDidLoad() {

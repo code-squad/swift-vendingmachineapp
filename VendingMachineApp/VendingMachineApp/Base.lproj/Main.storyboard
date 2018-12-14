@@ -147,8 +147,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="23" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yln-wa-Dg2">
-                                <rect key="frame" x="653" y="149" width="46" height="30"/>
+                                <rect key="frame" x="654" y="149" width="40" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" title="구매">
                                     <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -450,12 +451,18 @@
                                     <action selector="dismiss:" destination="9Mu-6j-hJt" eventType="touchUpInside" id="xdE-82-tYD"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dds-QI-KYU" customClass="PieGraphView" customModule="VendingMachineApp" customModuleProvider="target">
+                                <rect key="frame" x="312" y="370" width="400" height="400"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="fAZ-81-uG8"/>
                     </view>
                     <connections>
                         <outlet property="balance" destination="XFc-X5-M8l" id="NiH-Xc-asp"/>
+                        <outlet property="pieGraphView" destination="dds-QI-KYU" id="Exz-5n-E4M"/>
                         <outletCollection property="drinkCountLabels" destination="RaI-Ha-2KA" collectionClass="NSMutableArray" id="DdU-ef-Thw"/>
                         <outletCollection property="drinkCountLabels" destination="18s-Xx-jBJ" collectionClass="NSMutableArray" id="s6L-wt-Gj0"/>
                         <outletCollection property="drinkCountLabels" destination="UO6-Qi-3it" collectionClass="NSMutableArray" id="Q3G-ug-5fm"/>

@@ -11,7 +11,7 @@ import Foundation
 class OrderedDrinkSlot : NSObject, NSCoding {
     /// 주문받은 음료를 배열에 포함
     private var orderedDrinks : [Drink] = []
-    private(set) var pieInfo = DrinkPieInfo()
+    private var pieInfo = DrinkPieInfo()
     
     /// 기본 생성자에 특별한 인자는 필요없음
     override init(){
@@ -59,12 +59,54 @@ class OrderedDrinkSlot : NSObject, NSCoding {
         return result
     }
     
-    func allOrderedDrinkPieInfo() -> DrinkPieInfo {
-        var result = DrinkPieInfo()
-        for drink in orderedDrinks {
-            result.addDrinkNameInfo(drink: drink)
-        }
-        return result
+    // 파이정보객체 리턴
+    func getPieInfo() -> DrinkPieInfo {
+        return self.pieInfo
     }
 }
 
+
+protocol PieInfo {
+    var pieInfo : DrinkPieInfo { get }
+}
+
+
+/// 구매된 음료수 원그래프를 위한 정보구조체
+struct DrinkNameInfo {
+    var drinkName : String
+    let drinkType : DrinkType
+    var drinkCount : Int
+    
+    init(drink: Drink) {
+        self.drinkName = drink.getName()
+        self.drinkType = drink.drinkType
+        self.drinkCount = 1
+    }
+}
+
+struct DrinkPieInfo {
+    var drinkNameInfos : [DrinkNameInfo] = []
+    
+    func allDrinkCount() -> Int {
+        var allCount = 0
+        for info in drinkNameInfos {
+            allCount += info.drinkCount
+        }
+        return allCount
+    }
+    
+    /// 음료를 받아서 정보를 추가
+    mutating func addDrinkNameInfo(drink:Drink){
+        for x in 0..<drinkNameInfos.count {
+            // 기존 음료타입과 추가타입이 같으면
+            if drinkNameInfos[x].drinkType == drink.drinkType {
+                // 이름을 변경하고 카운트를 올린다
+                drinkNameInfos[x].drinkName = drink.getName()
+                drinkNameInfos[x].drinkCount += 1
+                return ()
+            }
+        }
+        // 같은 타입이 없다면 새로 추가한다
+        drinkNameInfos.append(DrinkNameInfo(drink: drink))
+    }
+}

@@ -13,10 +13,10 @@ class PieGraphView: UIView {
 
     private let colors: [UIColor] = [.red, .orange, .blue, .green, .yellow, .brown, .purple, .magenta, .gray]
     
-    private var drinkPieInfo = DrinkPieInfo()
+    private var pieInfo : DrinkPieInfo?
     
-    func setOrderedDrinkList(drinkPieInfo: DrinkPieInfo){
-        self.drinkPieInfo = drinkPieInfo
+    func setOrderedDrinkList(pieInfo: PieInfo){
+        self.pieInfo = pieInfo.pieInfo
         setNeedsDisplay()
     }
     /// 파이 그리기
@@ -47,13 +47,15 @@ class PieGraphView: UIView {
         // 시작점
         var startAngle: CGFloat = 0
         
+        guard let pieInfo = self.pieInfo else { return }
+        
         // 파이를 나누는 기준
-        let totalCount : CGFloat = CGFloat(drinkPieInfo.allDrinkCount())
+        let totalCount : CGFloat = CGFloat(pieInfo.allDrinkCount())
         
         // 뒷배경을 그린다
         drawBackCircle(center: center, radius: radius)
         
-        for drinkNameInfo in drinkPieInfo.drinkNameInfos{
+        for drinkNameInfo in pieInfo.drinkNameInfos{
             // 해당 음료 개수 CGFloat 변환
             let drinkCount = CGFloat(drinkNameInfo.drinkCount)
             let lineColor = colors[drinkNameInfo.drinkType.rawValue]

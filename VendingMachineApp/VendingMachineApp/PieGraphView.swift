@@ -121,7 +121,7 @@ extension PieGraphView {
         label.frame = frame
         label.textAlignment = .center
         label.text = text
-        label.textColor = UIColor.black
+        label.textColor = UIColor.white
         label.isHidden = false
         label.drawText(in: frame)
         

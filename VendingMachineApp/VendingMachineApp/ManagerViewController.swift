@@ -262,7 +262,7 @@ class ManagerViewController: UIViewController {
     
     /// 음료 주문시 파이차트 갱신
     func refreshPieChart(){
-        pieGraphView.setOrderedDrinkList(drinkPieInfo: vendingMachine.allOrderedDrinkPieInfo())
+        pieGraphView.setOrderedDrinkList(pieInfo: vendingMachine)
     }
     
     

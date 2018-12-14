@@ -16,7 +16,7 @@ class PieGraphView: UIView {
     private var pieInfo : DrinkPieInfo?
     
     func setOrderedDrinkList(pieInfo: PieInfo){
-        self.pieInfo = pieInfo.pieInfo
+        self.pieInfo = pieInfo.getPieInfo()
         setNeedsDisplay()
     }
     /// 파이 그리기

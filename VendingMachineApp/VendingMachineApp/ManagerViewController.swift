@@ -10,6 +10,9 @@ import UIKit
 import os
 
 class ManagerViewController: UIViewController {
+    /// 원그래프 선언
+    @IBOutlet weak var pieGraphView: PieGraphView!
+    
     /// 첫 화면으로 돌아감
     @IBAction func dismiss(_ sender: UIButton) {
         self.presentingViewController?.dismiss(animated: true)
@@ -69,6 +72,11 @@ class ManagerViewController: UIViewController {
         }
     }
     
+    
+    override func viewWillAppear(_ animated: Bool) {
+        refreshPieChart()
+    }
+    
     /// viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -90,7 +98,6 @@ class ManagerViewController: UIViewController {
         // 주문된음료 사진 최신화
         refreshOrderedDrink()
         
-        // viewDidLoad ends
     }
     
     override func didReceiveMemoryWarning() {
@@ -251,5 +258,12 @@ class ManagerViewController: UIViewController {
         }
         addOrderedDrinkPic(drinkTag: lastDrinkTag)
     }
+    
+    
+    /// 음료 주문시 파이차트 갱신
+    func refreshPieChart(){
+        pieGraphView.setOrderedDrinkList(drinkPieInfo: vendingMachine.allOrderedDrinkPieInfo())
+    }
+    
     
 }

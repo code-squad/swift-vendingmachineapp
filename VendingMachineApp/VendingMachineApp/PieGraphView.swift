@@ -35,12 +35,6 @@ class PieGraphView: UIView {
     /// panGesture 이벤트 포인트 위치
     private var panGtesturingPoint : CGPoint = CGPoint()
     
-    /// 이벤트 포인트 설정
-    func setPanGesturingPoint(point: CGPoint){
-        self.panGtesturingPoint = point
-        setNeedsDisplay()
-    }
-    
     func setOrderedDrinkList(pieInfo: PieInfo){
         self.pieInfo = pieInfo.getPieInfo()
         setNeedsDisplay()
@@ -163,9 +157,16 @@ extension PieGraphView {
     
     /// 클릭한 위치의 반지름을 가진 검은 원그래프 생성
     func drawBlackCircleFrom(centerPoint: CGPoint ,point: CGPoint){
-        let radius = CGPointDistance(from: centerPoint, to: point)
+        // 포인트와 중심점 의 거리 계산
+        var radius = CGPointDistance(from: centerPoint, to: point)
+        // 뷰 반지름 계산
+        let myRadius = getRadius(bounds: bounds)
+        // 포인트 거리가 뷰 반지름보다 크면
+        if radius > myRadius {
+            // 뷰 반지름으로 변경
+            radius = myRadius
+        }
         drawBlackCircle(center: centerPoint, radius: radius)
-        setNeedsDisplay()
     }
     
     /// 두 점 사이의 거리를 계산. 제곱되어 나옴
@@ -182,5 +183,10 @@ extension PieGraphView {
         drawPie(center: center, radius: radius, startAngle: 0, endAngle: 2.0 * .pi,lineColor: UIColor.black)
     }
     
+    /// 이벤트 포인트 설정
+    func setPanGesturingPoint(point: CGPoint){
+        self.panGtesturingPoint = point
+        setNeedsDisplay()
+    }
 }
 

@@ -22,8 +22,9 @@ class PieGraphView: UIView {
         self.pieInfo = pieInfo.getPieInfo()
         setNeedsDisplay()
     }
+    
     /// 파이 그리기
-    func drawPieGraph(center: CGPoint,radius: CGFloat,startAngle: CGFloat, endAngle: CGFloat, lineColor: UIColor){
+    func drawPie(center: CGPoint,radius: CGFloat,startAngle: CGFloat, endAngle: CGFloat, lineColor: UIColor){
         // 원을 그리는데 기준점이 반지름의 절반
         let path = UIBezierPath(arcCenter: center, radius: radius / 2, startAngle: startAngle, endAngle: endAngle, clockwise: true)
         
@@ -34,10 +35,7 @@ class PieGraphView: UIView {
     }
     
     
-    /// 배경원 색칠
-    func drawBackCircle(center: CGPoint,radius: CGFloat){
-        drawPieGraph(center: center, radius: radius, startAngle: 0, endAngle: 2.0 * .pi,lineColor: UIColor.black)
-    }
+    
     
     /// 중심점 구하는 함수
     func getCenter(bounds: CGRect) -> CGPoint {
@@ -72,7 +70,7 @@ class PieGraphView: UIView {
             // 파이 각도 = 360도(2pi) / 모든 음료 개수 * 해당 음료 개수
             let endAngle : CGFloat = CGFloat.pi * 2.0 / totalCount * drinkCount + startAngle
             // 파이를 그린다
-            drawPieGraph(center: center, radius: radius, startAngle: startAngle, endAngle: endAngle, lineColor: lineColor)
+            drawPie(center: center, radius: radius, startAngle: startAngle, endAngle: endAngle, lineColor: lineColor)
             // 음료이름을 그린다
             drawDrinkName(center: center, length: radius / 2, angleA: startAngle, angleB: endAngle, text: drinkNameInfo.drinkName)
             
@@ -152,12 +150,18 @@ extension PieGraphView {
 
 /// 제스처 출력용 확장
 extension PieGraphView {
+    /// 배경원 색칠
+    func drawBackCircle(center: CGPoint,radius: CGFloat){
+        drawPie(center: center, radius: radius, startAngle: 0, endAngle: 2.0 * .pi,lineColor: UIColor.black)
+    }
+    
     /// 클릭한 위치의 반지름을 가진 검은 원그래프 생성
     func drawBlackCircle(point: CGPoint){
         let radius = CGPointDistance(from: center, to: point)
-        drawPieGraph(center: center, radius: radius, startAngle: 0, endAngle: 2.0 * .pi,lineColor: UIColor.black)
+        drawPie(center: center, radius: radius, startAngle: 0, endAngle: 2.0 * .pi,lineColor: UIColor.black)
         setNeedsDisplay()
     }
+    
     /// 두 점 사이의 거리를 계산. 제곱되어 나옴
     func CGPointDistanceSquared(from: CGPoint, to: CGPoint) -> CGFloat {
         return (from.x - to.x) * (from.x - to.x) + (from.y - to.y) * (from.y - to.y)

@@ -166,6 +166,6 @@
 
 
 ### 적용사항 
-- UIPanGesture 를 사용해서 드래그 이벤트 구현
+- NSPanGestureRecognizer 를 사용해서 드래그 이벤트 구현
 - Model <> viewContoroller <> view 간의 관계 유지 
 - Model 데이터를 view 로 직접 건네주지 않고 인터페이스를 이용

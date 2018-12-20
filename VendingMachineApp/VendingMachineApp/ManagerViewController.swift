@@ -300,13 +300,8 @@ class ManagerViewController: UIViewController, PieInfo {
         return vendingMachine.getPieInfo()
     }
     
-    
-    
-    /// 점계산
-    func calBetween(center: CGPoint, point: CGPoint) -> CGRect {
-        let x = center.x > point.x ? center.x - point.x : point.x - center.x
-        let y = center.y > point.y ? center.y - point.y : point.y - center.y
-        
-        return CGRect(origin: CGPoint(x: x, y: y), size: CGSize(width: x * 2, height: y * 2))
+    override func motionBegan(_ motion: UIEventSubtype, with event: UIEvent?) {
+        super.motionBegan(motion, with: event)
+        pieGraphView.resetRaduis()
     }
 }

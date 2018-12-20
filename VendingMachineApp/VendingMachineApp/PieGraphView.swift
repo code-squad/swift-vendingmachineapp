@@ -203,5 +203,11 @@ extension PieGraphView {
         self.panGtesturingPoint = point
         setNeedsDisplay()
     }
+    
+    /// 원 지름 초기화
+    func resetRaduis(){
+        self.radius = nil
+        setNeedsDisplay()
+    }
 }
 

@@ -15,12 +15,15 @@ class PieGraphView: UIView {
     
     private var pieInfo : DrinkPieInfo?
     
+    /// panGesture 이벤트 중인지 체크
+    private var isPanGesturing = false
+    
     func setOrderedDrinkList(pieInfo: PieInfo){
         self.pieInfo = pieInfo.getPieInfo()
         setNeedsDisplay()
     }
     /// 파이 그리기
-    func drawPie(center: CGPoint,radius: CGFloat,startAngle: CGFloat, endAngle: CGFloat, lineColor: UIColor){
+    func drawPieGraph(center: CGPoint,radius: CGFloat,startAngle: CGFloat, endAngle: CGFloat, lineColor: UIColor){
         // 원을 그리는데 기준점이 반지름의 절반
         let path = UIBezierPath(arcCenter: center, radius: radius / 2, startAngle: startAngle, endAngle: endAngle, clockwise: true)
         
@@ -33,16 +36,26 @@ class PieGraphView: UIView {
     
     /// 배경원 색칠
     func drawBackCircle(center: CGPoint,radius: CGFloat){
-        drawPie(center: center, radius: radius, startAngle: 0, endAngle: 2.0 * .pi,lineColor: UIColor.black)
+        drawPieGraph(center: center, radius: radius, startAngle: 0, endAngle: 2.0 * .pi,lineColor: UIColor.black)
     }
     
-    override func draw(_ rect: CGRect) {
-        super.draw(rect)
+    /// 중심점 구하는 함수
+    func getCenter(bounds: CGRect) -> CGPoint {
+        return CGPoint(x: bounds.width / 2, y: bounds.height / 2)
+    }
+    /// 반지름 계싼
+    func getRadius(bounds: CGRect) -> CGFloat {
+        return min(bounds.size.width, bounds.size.height) / 2
+    }
+    
+    /// 파이그래프 전체를 그리는 함수
+    func drawPieGraph(_ rect: CGRect){
+        
         // 센터 위치
-        let center = CGPoint(x: bounds.width / 2, y: bounds.height / 2)
+        let center = getCenter(bounds: rect)
         
         // 반지름
-        let radius: CGFloat = min(bounds.size.width, bounds.size.height) / 2
+        let radius: CGFloat = getRadius(bounds: rect)
         
         // 시작점
         var startAngle: CGFloat = 0
@@ -51,10 +64,6 @@ class PieGraphView: UIView {
         
         // 파이를 나누는 기준
         let totalCount : CGFloat = CGFloat(pieInfo.allDrinkCount())
-        
-        // 뒷배경을 그린다
-        drawBackCircle(center: center, radius: radius)
-        
         for drinkNameInfo in pieInfo.drinkNameInfos{
             // 해당 음료 개수 CGFloat 변환
             let drinkCount = CGFloat(drinkNameInfo.drinkCount)
@@ -63,12 +72,20 @@ class PieGraphView: UIView {
             // 파이 각도 = 360도(2pi) / 모든 음료 개수 * 해당 음료 개수
             let endAngle : CGFloat = CGFloat.pi * 2.0 / totalCount * drinkCount + startAngle
             // 파이를 그린다
-            drawPie(center: center, radius: radius, startAngle: startAngle, endAngle: endAngle, lineColor: lineColor)
+            drawPieGraph(center: center, radius: radius, startAngle: startAngle, endAngle: endAngle, lineColor: lineColor)
             // 음료이름을 그린다
             drawDrinkName(center: center, length: radius / 2, angleA: startAngle, angleB: endAngle, text: drinkNameInfo.drinkName)
             
             startAngle = endAngle
         }
+    }
+    
+    override func draw(_ rect: CGRect) {
+        super.draw(rect)
+        
+        drawPieGraph(rect)
+        
+        
     }
     
     
@@ -130,6 +147,31 @@ extension PieGraphView {
         ]
         
         drinkName.draw(in: frame, withAttributes: textAttributes)
-        
     }
 }
+
+/// 제스처 출력용 확장
+extension PieGraphView {
+    /// 클릭한 위치의 반지름을 가진 검은 원그래프 생성
+    func drawBlackCircle(point: CGPoint){
+        let radius = CGPointDistance(from: center, to: point)
+        drawPieGraph(center: center, radius: radius, startAngle: 0, endAngle: 2.0 * .pi,lineColor: UIColor.black)
+        setNeedsDisplay()
+    }
+    /// 두 점 사이의 거리를 계산. 제곱되어 나옴
+    func CGPointDistanceSquared(from: CGPoint, to: CGPoint) -> CGFloat {
+        return (from.x - to.x) * (from.x - to.x) + (from.y - to.y) * (from.y - to.y)
+    }
+    /// 제곱된 거리값을 루트해줌
+    func CGPointDistance(from: CGPoint, to: CGPoint) -> CGFloat {
+        return sqrt(CGPointDistanceSquared(from: from, to: to))
+    }
+    
+    /// 가장 메인 그리기 함수
+    func drawPie(){
+        
+    }
+    
+    
+}
+

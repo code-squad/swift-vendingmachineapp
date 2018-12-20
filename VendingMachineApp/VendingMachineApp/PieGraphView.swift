@@ -10,13 +10,26 @@ import UIKit
 
 //@IBDesignable
 class PieGraphView: UIView {
+    
+    
+    override func draw(_ rect: CGRect) {
+        super.draw(rect)
+        
+        if isPanGesturing {
+            drawB
+            return()
+        }
+        drawPieGraph(rect)
+        
+        
+    }
 
     private let colors: [UIColor] = [.red, .orange, .blue, .green, .yellow, .brown, .purple, .magenta, .gray]
     
     private var pieInfo : DrinkPieInfo?
     
     /// panGesture 이벤트 중인지 체크
-    private var isPanGesturing = false
+    var isPanGesturing = false
     
     func setOrderedDrinkList(pieInfo: PieInfo){
         self.pieInfo = pieInfo.getPieInfo()
@@ -24,7 +37,7 @@ class PieGraphView: UIView {
     }
     
     /// 파이 그리기
-    func drawPie(center: CGPoint,radius: CGFloat,startAngle: CGFloat, endAngle: CGFloat, lineColor: UIColor){
+    private func drawPie(center: CGPoint,radius: CGFloat,startAngle: CGFloat, endAngle: CGFloat, lineColor: UIColor){
         // 원을 그리는데 기준점이 반지름의 절반
         let path = UIBezierPath(arcCenter: center, radius: radius / 2, startAngle: startAngle, endAngle: endAngle, clockwise: true)
         
@@ -35,19 +48,17 @@ class PieGraphView: UIView {
     }
     
     
-    
-    
     /// 중심점 구하는 함수
-    func getCenter(bounds: CGRect) -> CGPoint {
+    private func getCenter(bounds: CGRect) -> CGPoint {
         return CGPoint(x: bounds.width / 2, y: bounds.height / 2)
     }
     /// 반지름 계싼
-    func getRadius(bounds: CGRect) -> CGFloat {
+    private func getRadius(bounds: CGRect) -> CGFloat {
         return min(bounds.size.width, bounds.size.height) / 2
     }
     
     /// 파이그래프 전체를 그리는 함수
-    func drawPieGraph(_ rect: CGRect){
+    private func drawPieGraph(_ rect: CGRect){
         
         // 센터 위치
         let center = getCenter(bounds: rect)
@@ -78,14 +89,6 @@ class PieGraphView: UIView {
         }
     }
     
-    override func draw(_ rect: CGRect) {
-        super.draw(rect)
-        
-        drawPieGraph(rect)
-        
-        
-    }
-    
     
     // end of line
 }
@@ -93,32 +96,32 @@ class PieGraphView: UIView {
 /// 텍스트 출력용 확장
 extension PieGraphView {
     /// 길이와 각도를 받아서 끝점의 포인터를 리턴
-    func getPoint(center: CGPoint,length: CGFloat, angle: CGFloat) -> CGPoint {
+    private func getPoint(center: CGPoint,length: CGFloat, angle: CGFloat) -> CGPoint {
         return CGPoint(x: center.x + length * cos(angle), y: center.y + length * sin(angle)
         )
     }
     
     /// 두 각도의 중간값을 리턴
-    func getMid(angleA: CGFloat, angleB: CGFloat) -> CGFloat {
+    private func getMid(angleA: CGFloat, angleB: CGFloat) -> CGFloat {
         return (angleA + angleB) / 2
     }
     
     /// 글자를 받아서 CGrect에 맞는 길이를 리턴
-    func getPointX(text: String) -> CGFloat {
+    private func getPointX(text: String) -> CGFloat {
         return CGFloat(text.count * 10)
     }
-    func getPointY(text: String) -> CGFloat {
+    private func getPointY(text: String) -> CGFloat {
         return CGFloat(text.count + 15)
     }
     
     /// 포인트와 글자를 받아서 위치변경된 origin 을 리턴
-    func adjustOrigin(point: CGPoint, text: String) -> CGPoint {
+    private func adjustOrigin(point: CGPoint, text: String) -> CGPoint {
         // 가로위치는 - 글자수 * 10, 세로위치는 글자수 관계없이 - 10
         return CGPoint(x: point.x - getPointX(text: text), y: point.y - getPointY(text: text))
     }
     
     /// 포인트와 글자를 받아서 GCRect 를 리턴
-    func getFrame(point: CGPoint, text: String) -> CGRect {
+    private func getFrame(point: CGPoint, text: String) -> CGRect {
         let result =  CGRect(origin: point, size: CGSize(width: getPointX(text: text) * 2, height: getPointY(text: text) * 2))
         return result
     }
@@ -150,32 +153,28 @@ extension PieGraphView {
 
 /// 제스처 출력용 확장
 extension PieGraphView {
-    /// 배경원 색칠
-    func drawBackCircle(center: CGPoint,radius: CGFloat){
-        drawPie(center: center, radius: radius, startAngle: 0, endAngle: 2.0 * .pi,lineColor: UIColor.black)
-    }
     
     /// 클릭한 위치의 반지름을 가진 검은 원그래프 생성
-    func drawBlackCircle(point: CGPoint){
+    func drawBlackCircleFrom(point: CGPoint){
         let radius = CGPointDistance(from: center, to: point)
         drawBackCircle(center: point, radius: radius)
         setNeedsDisplay()
     }
     
     /// 두 점 사이의 거리를 계산. 제곱되어 나옴
-    func CGPointDistanceSquared(from: CGPoint, to: CGPoint) -> CGFloat {
+    private func CGPointDistanceSquared(from: CGPoint, to: CGPoint) -> CGFloat {
         return (from.x - to.x) * (from.x - to.x) + (from.y - to.y) * (from.y - to.y)
     }
     /// 제곱된 거리값을 루트해줌
-    func CGPointDistance(from: CGPoint, to: CGPoint) -> CGFloat {
+    private func CGPointDistance(from: CGPoint, to: CGPoint) -> CGFloat {
         return sqrt(CGPointDistanceSquared(from: from, to: to))
     }
     
-    /// 가장 메인 그리기 함수
-    func drawPie(){
-        
-    }
     
+    /// 센터와 길이를 받아서 검은색 원 그리기
+    private func drawBlackCircle(center: CGPoint,radius: CGFloat){
+        drawPie(center: center, radius: radius, startAngle: 0, endAngle: 2.0 * .pi,lineColor: UIColor.black)
+    }
     
 }
 

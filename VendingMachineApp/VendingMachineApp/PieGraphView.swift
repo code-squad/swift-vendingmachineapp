@@ -158,7 +158,7 @@ extension PieGraphView {
     /// 클릭한 위치의 반지름을 가진 검은 원그래프 생성
     func drawBlackCircle(point: CGPoint){
         let radius = CGPointDistance(from: center, to: point)
-        drawPie(center: center, radius: radius, startAngle: 0, endAngle: 2.0 * .pi,lineColor: UIColor.black)
+        drawBackCircle(center: point, radius: radius)
         setNeedsDisplay()
     }
     

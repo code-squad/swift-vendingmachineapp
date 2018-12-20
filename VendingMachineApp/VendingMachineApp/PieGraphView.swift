@@ -16,12 +16,13 @@ class PieGraphView: UIView {
         super.draw(rect)
         
         if isPanGesturing {
-            drawB
+            drawBlackCircleFrom(point: panGtesturingPoint)
             return()
         }
         drawPieGraph(rect)
         
         
+        // end of draw(:)
     }
 
     private let colors: [UIColor] = [.red, .orange, .blue, .green, .yellow, .brown, .purple, .magenta, .gray]
@@ -30,6 +31,9 @@ class PieGraphView: UIView {
     
     /// panGesture 이벤트 중인지 체크
     var isPanGesturing = false
+    
+    /// panGesture 이벤트 포인트 위치
+    var panGtesturingPoint : CGPoint = CGPoint()
     
     func setOrderedDrinkList(pieInfo: PieInfo){
         self.pieInfo = pieInfo.getPieInfo()
@@ -88,9 +92,6 @@ class PieGraphView: UIView {
             startAngle = endAngle
         }
     }
-    
-    
-    // end of line
 }
 
 /// 텍스트 출력용 확장
@@ -157,7 +158,7 @@ extension PieGraphView {
     /// 클릭한 위치의 반지름을 가진 검은 원그래프 생성
     func drawBlackCircleFrom(point: CGPoint){
         let radius = CGPointDistance(from: center, to: point)
-        drawBackCircle(center: point, radius: radius)
+        drawBlackCircle(center: point, radius: radius)
         setNeedsDisplay()
     }
     
@@ -169,7 +170,6 @@ extension PieGraphView {
     private func CGPointDistance(from: CGPoint, to: CGPoint) -> CGFloat {
         return sqrt(CGPointDistanceSquared(from: from, to: to))
     }
-    
     
     /// 센터와 길이를 받아서 검은색 원 그리기
     private func drawBlackCircle(center: CGPoint,radius: CGFloat){

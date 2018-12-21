@@ -25,6 +25,9 @@ class PieGraphView: UIView {
     /// 그리고 있는 원의 지름
     var radius : CGFloat? = nil
     
+    var startPoint = CGPoint()
+    
+    
     override func draw(_ rect: CGRect) {
         super.draw(rect)
         
@@ -37,20 +40,18 @@ class PieGraphView: UIView {
         // 입력받은 지름으로 원그래프 그림
         drawPieGraph(rect, radius: radius)
         
-        
         // end of draw(:)
     }
     
     /// panGesture 상태를 받아서 저장
-    func checkGesture(event: UIPanGestureRecognizer){
-        if event.state == .began {
+    func checkGesture(state: UIGestureRecognizerState){
+        if state == .began {
             self.isPanGesturing = true
         }
-        else if event.state == .ended {
+        else if state == .ended {
             self.isPanGesturing = false
         }
     }
-    
     
     func setOrderedDrinkList(pieInfo: PieInfo){
         self.pieInfo = pieInfo.getPieInfo()
@@ -67,7 +68,6 @@ class PieGraphView: UIView {
         lineColor.setStroke()
         path.stroke()
     }
-    
     
     /// 중심점 구하는 함수
     func getCenter(bounds: CGRect) -> CGPoint {
@@ -117,6 +117,26 @@ class PieGraphView: UIView {
             startAngle = endAngle
         }
     }
+    
+    /// 파이그래프에 드래그 제스처의 포인트들을 보낸다
+    @IBAction func pieGraphPanGesture(_ sender: UIPanGestureRecognizer) {
+        
+        // 이벤트 동안의 움직임이 저장됨
+        let translation = sender.translation(in: self)
+        
+        checkGesture(state: sender.state)
+        
+        // 이벤트가 시작되면 위치를 저장한다
+        if sender.state == UIGestureRecognizerState.began {
+            startPoint = sender.location(in: self)
+        }
+        
+        // 드래그 중의 위치
+        let movedPoint = CGPoint(x: startPoint.x + translation.x, y: startPoint.y + translation.y)
+        // 드래그 중인 위치를 넘긴다
+        setPanGesturingPoint(point: movedPoint)
+    }
+    
 }
 
 /// 텍스트 출력용 확장
@@ -220,5 +240,7 @@ extension PieGraphView {
         self.radius = nil
         setNeedsDisplay()
     }
+    
+    
 }
 

@@ -71,28 +71,6 @@ class ManagerViewController: UIViewController, PieInfo {
             os_log("%@", error.localizedDescription)
         }
     }
-    // 이벤트 시작점
-    var startPoint : CGPoint!
-    
-    /// 파이그래프에 드래그 제스처의 포인트들을 보낸다
-    @IBAction func pieGraphPanGesture(_ sender: UIPanGestureRecognizer) {
-        // 이벤트 동안의 움직임이 저장됨
-        let translation = sender.translation(in: self.pieGraphView)
-        
-        guard let view = sender.view as? PieGraphView else { return }
-        // 이벤트를 넘겨서 상태를 받게한다
-        view.checkGesture(event: sender)
-        
-//         이벤트가 시작되면 위치를 저장한다
-        if sender.state == UIGestureRecognizerState.began {
-            startPoint = sender.location(in: view)
-        }
-        
-        // 드래그 중의 위치
-        let movedPoint = CGPoint(x: startPoint.x + translation.x, y: startPoint.y + translation.y)
-        // 드래그 중인 위치를 넘긴다
-        view.setPanGesturingPoint(point: movedPoint)
-    }
     
     
     override func viewWillAppear(_ animated: Bool) {

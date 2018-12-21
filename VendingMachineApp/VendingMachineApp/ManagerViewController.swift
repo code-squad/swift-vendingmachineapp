@@ -86,22 +86,12 @@ class ManagerViewController: UIViewController, PieInfo {
 //         이벤트가 시작되면 위치를 저장한다
         if sender.state == UIGestureRecognizerState.began {
             startPoint = sender.location(in: view)
-            // 이벤트 시작 플래그 온
-//            view.isPanGesturing = true
         }
         
         // 드래그 중의 위치
         let movedPoint = CGPoint(x: startPoint.x + translation.x, y: startPoint.y + translation.y)
         // 드래그 중인 위치를 넘긴다
         view.setPanGesturingPoint(point: movedPoint)
-        
-        
-        // 이벤트 종료시
-//        if sender.state == .ended || sender.state == .cancelled
-//        {
-//            // 이벤트 끝
-//            view.isPanGesturing = false
-//        }
     }
     
     

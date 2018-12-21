@@ -33,7 +33,17 @@ class PieGraphView: UIView {
     private var pieInfo : DrinkPieInfo?
     
     /// panGesture 이벤트 중인지 체크
-    var isPanGesturing = false
+    private var isPanGesturing = false
+    
+    /// panGesture 상태를 받아서 저장
+    func checkGesture(event: UIPanGestureRecognizer){
+        if event.state == .began {
+            self.isPanGesturing = true
+        }
+        else if event.state == .ended {
+            self.isPanGesturing = false
+        }
+    }
     
     /// panGesture 이벤트 포인트 위치
     private var panGtesturingPoint : CGPoint = CGPoint()

@@ -80,11 +80,14 @@ class ManagerViewController: UIViewController, PieInfo {
         let translation = sender.translation(in: self.pieGraphView)
         
         guard let view = sender.view as? PieGraphView else { return }
-        // 이벤트가 시작되면 위치를 저장한다
+        // 이벤트를 넘겨서 상태를 받게한다
+        view.checkGesture(event: sender)
+        
+//         이벤트가 시작되면 위치를 저장한다
         if sender.state == UIGestureRecognizerState.began {
             startPoint = sender.location(in: view)
             // 이벤트 시작 플래그 온
-            view.isPanGesturing = true
+//            view.isPanGesturing = true
         }
         
         // 드래그 중의 위치
@@ -94,11 +97,11 @@ class ManagerViewController: UIViewController, PieInfo {
         
         
         // 이벤트 종료시
-        if sender.state == .ended || sender.state == .cancelled
-        {
-            // 이벤트 끝
-            view.isPanGesturing = false
-        }
+//        if sender.state == .ended || sender.state == .cancelled
+//        {
+//            // 이벤트 끝
+//            view.isPanGesturing = false
+//        }
     }
     
     

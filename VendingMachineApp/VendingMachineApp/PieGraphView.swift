@@ -11,6 +11,19 @@ import UIKit
 //@IBDesignable
 class PieGraphView: UIView {
     
+    private let colors: [UIColor] = [.red, .orange, .blue, .green, .yellow, .brown, .purple, .magenta, .gray]
+    
+    private var pieInfo : DrinkPieInfo?
+    
+    /// panGesture 이벤트 중인지 체크
+    private var isPanGesturing = false
+    
+    
+    /// panGesture 이벤트 포인트 위치
+    private var panGtesturingPoint : CGPoint = CGPoint()
+    
+    /// 그리고 있는 원의 지름
+    var radius : CGFloat? = nil
     
     override func draw(_ rect: CGRect) {
         super.draw(rect)
@@ -27,13 +40,6 @@ class PieGraphView: UIView {
         
         // end of draw(:)
     }
-
-    private let colors: [UIColor] = [.red, .orange, .blue, .green, .yellow, .brown, .purple, .magenta, .gray]
-    
-    private var pieInfo : DrinkPieInfo?
-    
-    /// panGesture 이벤트 중인지 체크
-    private var isPanGesturing = false
     
     /// panGesture 상태를 받아서 저장
     func checkGesture(event: UIPanGestureRecognizer){
@@ -45,11 +51,6 @@ class PieGraphView: UIView {
         }
     }
     
-    /// panGesture 이벤트 포인트 위치
-    private var panGtesturingPoint : CGPoint = CGPoint()
-    
-    /// 그리고 있는 원의 지름
-    var radius : CGFloat? = nil
     
     func setOrderedDrinkList(pieInfo: PieInfo){
         self.pieInfo = pieInfo.getPieInfo()

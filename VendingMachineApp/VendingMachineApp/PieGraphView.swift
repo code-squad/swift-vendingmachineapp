@@ -23,9 +23,9 @@ class PieGraphView: UIView {
     private var panGtesturingPoint : CGPoint = CGPoint()
     
     /// 그리고 있는 원의 지름
-    var radius : CGFloat? = nil
+    private var radius : CGFloat? = nil
     
-    var startPoint = CGPoint()
+    private var startPoint = CGPoint()
     
     
     override func draw(_ rect: CGRect) {
@@ -44,7 +44,7 @@ class PieGraphView: UIView {
     }
     
     /// panGesture 상태를 받아서 저장
-    func checkGesture(state: UIGestureRecognizerState){
+    private func checkGesture(state: UIGestureRecognizerState){
         if state == .began {
             self.isPanGesturing = true
         }
@@ -70,7 +70,7 @@ class PieGraphView: UIView {
     }
     
     /// 중심점 구하는 함수
-    func getCenter(bounds: CGRect) -> CGPoint {
+    private func getCenter(bounds: CGRect) -> CGPoint {
         return CGPoint(x: bounds.width / 2, y: bounds.height / 2)
     }
     /// 반지름 계산
@@ -173,7 +173,7 @@ extension PieGraphView {
     }
     
     /// 센터,반지름,시작각,끝각,음료이름 을 받아서 중간각의 중간에 음료이름을 출력
-    func drawDrinkName(center: CGPoint, length: CGFloat, angleA: CGFloat, angleB: CGFloat, text: String){
+    private func drawDrinkName(center: CGPoint, length: CGFloat, angleA: CGFloat, angleB: CGFloat, text: String){
         // 시작점과 끝점의 중간각을 구한다
         let midAngle = getMid(angleA: angleA, angleB: angleB)
         // 반지름 길이와 각도로 파이의 끝 포인트를 구한다
@@ -201,7 +201,7 @@ extension PieGraphView {
 extension PieGraphView {
     
     /// 클릭한 위치의 반지름을 가진 검은 원그래프 생성
-    func drawBlackCircleFrom(centerPoint: CGPoint ,point: CGPoint) -> CGFloat {
+    private func drawBlackCircleFrom(centerPoint: CGPoint ,point: CGPoint) -> CGFloat {
         // 포인트와 중심점 의 거리 계산
         var radius = CGPointDistance(from: centerPoint, to: point)
         // 뷰 반지름 계산
@@ -230,7 +230,7 @@ extension PieGraphView {
     }
     
     /// 이벤트 포인트 설정
-    func setPanGesturingPoint(point: CGPoint){
+    private func setPanGesturingPoint(point: CGPoint){
         self.panGtesturingPoint = point
         setNeedsDisplay()
     }

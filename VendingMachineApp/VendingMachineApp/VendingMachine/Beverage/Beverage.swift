@@ -36,7 +36,7 @@ class Beverage: NSObject {
         return "\(name) \(price)원"
     }
 
-    override var className: String {
+    var className: String {
         return String(describing: type(of: self))
     }
 

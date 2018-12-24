@@ -160,7 +160,7 @@ extension VendingMachine: PrintableForManager {
 
 }
 
-enum VendingMachineError: Error, MessagePrintable {
+enum VendingMachineError: Error {
     case outOfStock
     case notExistPack
     case cannotRemove

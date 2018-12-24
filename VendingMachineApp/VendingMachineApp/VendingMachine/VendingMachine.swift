@@ -146,15 +146,14 @@ extension VendingMachine: PrintableForManager {
 
     func showListOfAll(with show: (String, Int, Bool) -> Void) {
         let list = inventory.getListOfAll()
-        for (index, type) in beverageTypes.enumerated() {
-            let index = index + 1
+        for type in beverageTypes {
             guard let pack = inventory.packOf(type: type) else { continue }
             if inventory.hasNoBeverage(of: type) {
-                show("\(index). \(pack.title)", 0, false)
+                show("\(pack.title)", 0, false)
                 continue
             }
             guard let quantity = list[pack] else { continue }
-            show("\(index). \(pack.title)", quantity, true)
+            show("\(pack.title)", quantity, true)
         }
     }
 

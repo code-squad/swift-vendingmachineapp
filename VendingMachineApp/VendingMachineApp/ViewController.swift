@@ -10,12 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     private var vendingMachine: VendingMachine
-    @IBOutlet weak var quantityOfStrawberryMilk: UILabel!
-    @IBOutlet weak var quantityOfChocolateMilk: UILabel!
-    @IBOutlet weak var quantityOfSprite: UILabel!
-    @IBOutlet weak var quantityOfPepsi: UILabel!
-    @IBOutlet weak var quantityOfGeorgia: UILabel!
-    @IBOutlet weak var quantityOfCantata: UILabel!
+    @IBOutlet var quantities: [UILabel]!
     @IBOutlet weak var balance: UILabel!
     
     required init?(coder aDecoder: NSCoder) {
@@ -25,20 +20,20 @@ class ViewController: UIViewController {
         super.init(coder: aDecoder)
     }
 
-    private func showBeverages() {
-        let beverages = [Sprite(), Sprite(), Sprite(),
-                         StrawberryMilk(), StrawberryMilk(),
-                         Cantata(), Cantata()]
-        beverages.forEach { vendingMachine.add(beverage: $0) }
-        let form = { (name: String, stock: Int, check: Bool) in
-            print("\(check ? "✅" : "🚫") \(name)(\(stock)개)")
+    private func showQuantities() {
+        for (index, quantity) in quantities.enumerated() {
+            if let count = vendingMachine.count(beverage: index) {
+                quantity.text = "\(count)개"
+                continue
+            }
+            quantity.text = "0개"
         }
-        vendingMachine.showListOfAll(with: form)
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        showBeverages()
+        vendingMachine.add(beverage: Sprite())
+        showQuantities()
         vendingMachine.showBalance(with: balanceForm(money:))
     }
 

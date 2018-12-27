@@ -32,6 +32,12 @@
 		A3E1B35D21D0712C00B35A96 /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E1B35021D0712C00B35A96 /* Coffee.swift */; };
 		A3E1B35E21D0712C00B35A96 /* BeveragePackage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E1B35121D0712C00B35A96 /* BeveragePackage.swift */; };
 		A3E1B35F21D0712C00B35A96 /* BeverageGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E1B35221D0712C00B35A96 /* BeverageGroup.swift */; };
+		A3E1B36721D469FB00B35A96 /* StrawberryMilk.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A3E1B36121D469FB00B35A96 /* StrawberryMilk.jpg */; };
+		A3E1B36821D469FB00B35A96 /* Georgia.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = A3E1B36221D469FB00B35A96 /* Georgia.jpeg */; };
+		A3E1B36921D469FB00B35A96 /* ChocolateMilk.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A3E1B36321D469FB00B35A96 /* ChocolateMilk.jpg */; };
+		A3E1B36A21D469FB00B35A96 /* Cantata.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A3E1B36421D469FB00B35A96 /* Cantata.jpg */; };
+		A3E1B36B21D469FB00B35A96 /* Pepsi.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A3E1B36521D469FB00B35A96 /* Pepsi.jpg */; };
+		A3E1B36C21D469FB00B35A96 /* Sprite.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A3E1B36621D469FB00B35A96 /* Sprite.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +89,12 @@
 		A3E1B35021D0712C00B35A96 /* Coffee.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
 		A3E1B35121D0712C00B35A96 /* BeveragePackage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeveragePackage.swift; sourceTree = "<group>"; };
 		A3E1B35221D0712C00B35A96 /* BeverageGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeverageGroup.swift; sourceTree = "<group>"; };
+		A3E1B36121D469FB00B35A96 /* StrawberryMilk.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = StrawberryMilk.jpg; sourceTree = "<group>"; };
+		A3E1B36221D469FB00B35A96 /* Georgia.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Georgia.jpeg; sourceTree = "<group>"; };
+		A3E1B36321D469FB00B35A96 /* ChocolateMilk.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ChocolateMilk.jpg; sourceTree = "<group>"; };
+		A3E1B36421D469FB00B35A96 /* Cantata.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Cantata.jpg; sourceTree = "<group>"; };
+		A3E1B36521D469FB00B35A96 /* Pepsi.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Pepsi.jpg; sourceTree = "<group>"; };
+		A3E1B36621D469FB00B35A96 /* Sprite.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Sprite.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +190,7 @@
 		A3E1B34221D0712C00B35A96 /* Beverage */ = {
 			isa = PBXGroup;
 			children = (
+				A3E1B36021D469FB00B35A96 /* images */,
 				A3E1B34321D0712C00B35A96 /* Beverage.swift */,
 				A3E1B34C21D0712C00B35A96 /* BeverageCategory.swift */,
 				A3E1B35121D0712C00B35A96 /* BeveragePackage.swift */,
@@ -217,6 +230,19 @@
 				A3E1B35021D0712C00B35A96 /* Coffee.swift */,
 			);
 			path = Coffee;
+			sourceTree = "<group>";
+		};
+		A3E1B36021D469FB00B35A96 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				A3E1B36121D469FB00B35A96 /* StrawberryMilk.jpg */,
+				A3E1B36221D469FB00B35A96 /* Georgia.jpeg */,
+				A3E1B36321D469FB00B35A96 /* ChocolateMilk.jpg */,
+				A3E1B36421D469FB00B35A96 /* Cantata.jpg */,
+				A3E1B36521D469FB00B35A96 /* Pepsi.jpg */,
+				A3E1B36621D469FB00B35A96 /* Sprite.jpg */,
+			);
+			path = images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -324,8 +350,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				A3E1B2F421CFE07C00B35A96 /* LaunchScreen.storyboard in Resources */,
+				A3E1B36B21D469FB00B35A96 /* Pepsi.jpg in Resources */,
+				A3E1B36921D469FB00B35A96 /* ChocolateMilk.jpg in Resources */,
 				A3E1B2F121CFE07C00B35A96 /* Assets.xcassets in Resources */,
+				A3E1B36C21D469FB00B35A96 /* Sprite.jpg in Resources */,
+				A3E1B36A21D469FB00B35A96 /* Cantata.jpg in Resources */,
 				A3E1B2EF21CFE07A00B35A96 /* Main.storyboard in Resources */,
+				A3E1B36721D469FB00B35A96 /* StrawberryMilk.jpg in Resources */,
+				A3E1B36821D469FB00B35A96 /* Georgia.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

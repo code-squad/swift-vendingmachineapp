@@ -18,11 +18,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="StrawberryMilk.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="TqM-HC-csK">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ChocolateMilk.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="TqM-HC-csK">
                                 <rect key="frame" x="37" y="124" width="130" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ChocolateMilk.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="emj-ib-Sl4">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="StrawberryMilk.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="emj-ib-Sl4">
                                 <rect key="frame" x="187" y="124" width="130" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -34,11 +34,11 @@
                                 <rect key="frame" x="487" y="124" width="130" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Georgia.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="PgS-Gn-K3p">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Cantata.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="PgS-Gn-K3p">
                                 <rect key="frame" x="637" y="124" width="130" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Cantata.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="LeM-fs-Lpc">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Georgia.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="LeM-fs-Lpc">
                                 <rect key="frame" x="787" y="124" width="130" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -143,12 +143,12 @@
                     </view>
                     <connections>
                         <outlet property="balance" destination="07q-vr-3Fk" id="e7r-y9-uy0"/>
-                        <outlet property="quantityOfCantata" destination="kPc-jd-T7V" id="HV5-wg-zvk"/>
-                        <outlet property="quantityOfChocolateMilk" destination="UDH-3S-KoH" id="H1N-6p-ENl"/>
-                        <outlet property="quantityOfGeorgia" destination="gCm-6h-9yG" id="1l7-YT-Nk8"/>
-                        <outlet property="quantityOfPepsi" destination="l0C-Yn-9e8" id="qMr-7K-tLN"/>
-                        <outlet property="quantityOfSprite" destination="UKg-GL-C7A" id="gZK-qn-KAh"/>
-                        <outlet property="quantityOfStrawberryMilk" destination="RHe-eF-tTF" id="maB-Mg-CVD"/>
+                        <outletCollection property="quantities" destination="RHe-eF-tTF" collectionClass="NSMutableArray" id="Sqr-Ve-GgP"/>
+                        <outletCollection property="quantities" destination="UDH-3S-KoH" collectionClass="NSMutableArray" id="np5-uP-nZI"/>
+                        <outletCollection property="quantities" destination="UKg-GL-C7A" collectionClass="NSMutableArray" id="hbP-8b-MT2"/>
+                        <outletCollection property="quantities" destination="l0C-Yn-9e8" collectionClass="NSMutableArray" id="GJz-XI-bRn"/>
+                        <outletCollection property="quantities" destination="gCm-6h-9yG" collectionClass="NSMutableArray" id="Upn-A4-o66"/>
+                        <outletCollection property="quantities" destination="kPc-jd-T7V" collectionClass="NSMutableArray" id="gkC-kS-phc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

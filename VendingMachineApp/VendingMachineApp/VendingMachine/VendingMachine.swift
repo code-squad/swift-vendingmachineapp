@@ -55,6 +55,12 @@ struct VendingMachine {
         return self.history == theOther
     }
 
+    func count(beverage index: Int) -> Int? {
+        let type = beverageTypes[index]
+        guard let pack = inventory.packOf(type: type) else { return nil }
+        return pack.count
+    }
+
 }
 
 extension VendingMachine: Consumer {

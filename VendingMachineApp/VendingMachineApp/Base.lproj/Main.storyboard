@@ -115,17 +115,23 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lxs-bf-WIx">
-                                <rect key="frame" x="990" y="143" width="44" height="30"/>
+                                <rect key="frame" x="954" y="166" width="44" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="+1000"/>
+                                <connections>
+                                    <action selector="insertOneThousand:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PMt-06-ZaE"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VOv-Ej-Zuj">
-                                <rect key="frame" x="989" y="184" width="47" height="30"/>
+                                <rect key="frame" x="1028" y="166" width="47" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="+5000"/>
+                                <connections>
+                                    <action selector="insertFiveThousands:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sjJ-GS-mux"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="잔액" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="07q-vr-3Fk">
-                                <rect key="frame" x="991" y="236" width="30" height="21"/>
+                                <rect key="frame" x="954" y="218" width="121" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -135,9 +141,19 @@
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="balance" destination="07q-vr-3Fk" id="e7r-y9-uy0"/>
+                        <outlet property="quantityOfCantata" destination="kPc-jd-T7V" id="HV5-wg-zvk"/>
+                        <outlet property="quantityOfChocolateMilk" destination="UDH-3S-KoH" id="H1N-6p-ENl"/>
+                        <outlet property="quantityOfGeorgia" destination="gCm-6h-9yG" id="1l7-YT-Nk8"/>
+                        <outlet property="quantityOfPepsi" destination="l0C-Yn-9e8" id="qMr-7K-tLN"/>
+                        <outlet property="quantityOfSprite" destination="UKg-GL-C7A" id="gZK-qn-KAh"/>
+                        <outlet property="quantityOfStrawberryMilk" destination="RHe-eF-tTF" id="maB-Mg-CVD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="69.60431654676259" y="23.741007194244606"/>
         </scene>
     </scenes>
     <resources>

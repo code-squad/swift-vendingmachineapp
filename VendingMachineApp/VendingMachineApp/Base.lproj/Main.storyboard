@@ -46,31 +46,49 @@
                                 <rect key="frame" x="87" y="86" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="추가"/>
+                                <connections>
+                                    <action selector="addBeverage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="shd-tS-qZP"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uex-rP-8OG">
+                            <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uex-rP-8OG">
                                 <rect key="frame" x="687" y="86" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="추가"/>
+                                <connections>
+                                    <action selector="addBeverage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wrA-nI-gHA"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Us-0E-Ua4">
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Us-0E-Ua4">
                                 <rect key="frame" x="537" y="86" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="추가"/>
+                                <connections>
+                                    <action selector="addBeverage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yH8-83-IeS"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t84-1Q-dZv">
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t84-1Q-dZv">
                                 <rect key="frame" x="237" y="86" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="추가"/>
+                                <connections>
+                                    <action selector="addBeverage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cvE-oL-4bJ"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XmG-73-scn">
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XmG-73-scn">
                                 <rect key="frame" x="387" y="86" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="추가"/>
+                                <connections>
+                                    <action selector="addBeverage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="M5O-fd-Iob"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="09U-Ss-jLf">
+                            <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="09U-Ss-jLf">
                                 <rect key="frame" x="837" y="86" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="추가"/>
+                                <connections>
+                                    <action selector="addBeverage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kf7-Ga-KL3"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UDH-3S-KoH">
                                 <rect key="frame" x="231" y="282" width="42" height="21"/>
@@ -143,12 +161,12 @@
                     </view>
                     <connections>
                         <outlet property="balance" destination="07q-vr-3Fk" id="e7r-y9-uy0"/>
-                        <outletCollection property="quantities" destination="RHe-eF-tTF" collectionClass="NSMutableArray" id="Sqr-Ve-GgP"/>
-                        <outletCollection property="quantities" destination="UDH-3S-KoH" collectionClass="NSMutableArray" id="np5-uP-nZI"/>
-                        <outletCollection property="quantities" destination="UKg-GL-C7A" collectionClass="NSMutableArray" id="hbP-8b-MT2"/>
-                        <outletCollection property="quantities" destination="l0C-Yn-9e8" collectionClass="NSMutableArray" id="GJz-XI-bRn"/>
-                        <outletCollection property="quantities" destination="gCm-6h-9yG" collectionClass="NSMutableArray" id="Upn-A4-o66"/>
-                        <outletCollection property="quantities" destination="kPc-jd-T7V" collectionClass="NSMutableArray" id="gkC-kS-phc"/>
+                        <outletCollection property="beverageLabels" destination="RHe-eF-tTF" collectionClass="NSMutableArray" id="Sqr-Ve-GgP"/>
+                        <outletCollection property="beverageLabels" destination="UDH-3S-KoH" collectionClass="NSMutableArray" id="np5-uP-nZI"/>
+                        <outletCollection property="beverageLabels" destination="UKg-GL-C7A" collectionClass="NSMutableArray" id="hbP-8b-MT2"/>
+                        <outletCollection property="beverageLabels" destination="l0C-Yn-9e8" collectionClass="NSMutableArray" id="GJz-XI-bRn"/>
+                        <outletCollection property="beverageLabels" destination="gCm-6h-9yG" collectionClass="NSMutableArray" id="Upn-A4-o66"/>
+                        <outletCollection property="beverageLabels" destination="kPc-jd-T7V" collectionClass="NSMutableArray" id="gkC-kS-phc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

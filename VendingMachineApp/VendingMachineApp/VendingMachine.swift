@@ -56,13 +56,13 @@ struct VendingMachine: VendingMachineManagerFunction, VendingMachineUserFunction
         return product.pay(pay: pay)
     }
 
-    func checkBalance() -> String {
+    func readBalance() -> String {
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
         return formatter.string(from: self.balance as NSNumber) ?? ""
     }
 
-    func checkInventory() -> [String: Int] {
+    func inventory() -> [String: Int] {
         var inventoryStatus: [String: Int] = [:]
 
         for (_, products) in self.products {

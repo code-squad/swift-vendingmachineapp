@@ -17,7 +17,7 @@ class ViewController: UIViewController {
         vendingMachine.add(product: CocaCola())
         vendingMachine.add(product: CocaColaZero())
         vendingMachine.add(product: StarbucksDoubleShot())
-        let inventory = vendingMachine.checkInventory()
+        let inventory = vendingMachine.inventory()
         for (product, count) in inventory {
             print("\(product)(\(count)개)")
         }

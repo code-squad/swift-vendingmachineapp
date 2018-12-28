@@ -8,11 +8,10 @@
 
 import Foundation
 
-protocol VendingMachineUserFunction {
+protocol VendingMachineUserFunction: ReadableInventory {
     mutating func insert(money: Int)
     func buyableProductList() -> [String: BeverageInfo]
     mutating func buy(productName: String) -> Beverage?
     func readBalance() -> String
-    func inventory() -> [String: Int]
     func hotProducts() -> [String]
 }

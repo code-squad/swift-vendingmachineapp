@@ -32,6 +32,7 @@
 		7DE2CB7A21D4B920004EC966 /* LactoseFreeMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE2CB6121D4B920004EC966 /* LactoseFreeMilk.swift */; };
 		7DE2CB7B21D4B920004EC966 /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE2CB6221D4B920004EC966 /* Milk.swift */; };
 		7DE2CB7C21D4B920004EC966 /* MandarineMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE2CB6321D4B920004EC966 /* MandarineMilk.swift */; };
+		7DE2CB7F21D5FD85004EC966 /* ReadableInventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE2CB7E21D5FD85004EC966 /* ReadableInventory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,7 @@
 		7DE2CB6121D4B920004EC966 /* LactoseFreeMilk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LactoseFreeMilk.swift; sourceTree = "<group>"; };
 		7DE2CB6221D4B920004EC966 /* Milk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Milk.swift; sourceTree = "<group>"; };
 		7DE2CB6321D4B920004EC966 /* MandarineMilk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MandarineMilk.swift; sourceTree = "<group>"; };
+		7DE2CB7E21D5FD85004EC966 /* ReadableInventory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadableInventory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				7DE2CB5821D4B920004EC966 /* VariousTemperatures.swift */,
+				7DE2CB7E21D5FD85004EC966 /* ReadableInventory.swift */,
 				7DE2CB5921D4B920004EC966 /* VendingMachineUserFunction.swift */,
 				7DE2CB5A21D4B920004EC966 /* VendingMachineManagerFunction.swift */,
 			);
@@ -261,6 +264,7 @@
 				7DE2CB7A21D4B920004EC966 /* LactoseFreeMilk.swift in Sources */,
 				7DE2CB7321D4B920004EC966 /* BeverageInfo.swift in Sources */,
 				7DE2CB3421D4B82E004EC966 /* ViewController.swift in Sources */,
+				7DE2CB7F21D5FD85004EC966 /* ReadableInventory.swift in Sources */,
 				7DE2CB6521D4B920004EC966 /* ValidChecker.swift in Sources */,
 				7DE2CB6921D4B920004EC966 /* VendingMachineInput.swift in Sources */,
 				7DE2CB7821D4B920004EC966 /* ExtensionDate.swift in Sources */,

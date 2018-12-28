@@ -1,10 +1,11 @@
 # 자판기 앱
 
 1. <a href="#1-시작하기---아이패드-앱">시작하기 - 아이패드 앱</a>
+2. <a href="#2-MVC-패턴">MVC 패턴</a>
 
 <br>
 
-## 1. 시작하기 - 아이패드앱
+## 1. 시작하기 - 아이패드 앱
 
 ### 추가내용
 
@@ -50,3 +51,57 @@ iOS 앱의 `main` 함수는 직접 작성하지 않고, Xcode에서 만들어줍
 ![event_draw_cycle_a_2x](./images/step1/event_draw_cycle_a_2x.png)
 
 <a href="https://developer.apple.com/library/archive/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/TheAppLifeCycle/TheAppLifeCycle.html#//apple_ref/doc/uid/TP40007072-CH2-SW1">이미지 출처</a>
+
+<br>
+
+## 2. MVC 패턴
+
+### 추가내용
+
+- `IBOutlet Collection` 으로 음료의 이미지 뷰와 이미지 레이블을 배열로 묶었습니다. 배열의 순서는  `VendingMachine`  의 `beverageTypes` 배열 순서와 동일하게 담았습니다.
+- 아래의 `IBAction` 을 추가하여 각 음료 위의 모든 추가 버튼과 연결해주었습니다. `sender` 는 `UIButton` 으로 지정해주고, 각 버튼 `tag: Int` 에 위의 배열 인덱스와 동일한 값을 할당해주었습니다. 
+
+```swift
+@IBAction func addBeverage(_ sender: UIButton) {
+    let selected = sender.tag
+    guard vendingMachine.add(beverage: selected) else { return }
+    showQuantities()
+}
+```
+
+- 잔액 추가 버튼에 `IBAction`  으로 각각의 금액을 `VendingMachine.insert()` 하도록 추가했습니다.
+- 음료 추가 및 금액 추가, 이 두 `IBAction` 실행 후 재고 및 잔액 레이블에 반영되도록 추가했습니다.
+
+<br>
+
+### 실행결과
+
+> 2018.12.27 18:10
+
+![Dec-27-2018](./images/step2/Dec-27-2018.gif)
+
+<br>
+
+### 추가학습
+
+음료 이미지 뷰의 모서리를 둥글게 처리했습니다.
+
+```swift
+@IBOutlet var beverageImages: [UIImageView]!
+
+private func roundImageViews() {
+    for image in beverageImages {
+        image.layer.cornerRadius = 15
+        image.layer.masksToBounds = true
+    }
+}
+```
+
+layer의 아래 프로퍼티 값을 조정하여 모서리를 조정했습니다. `cornerRadius` 는 0.0이 디폴트 값이며, 값이 클 수록 모서리가 둥그렇게 처리됩니다. 
+
+```swift
+var cornerRadius: CGFloat { get set }
+var masksToBounds: Bool { get set }
+```
+
+위의 `masksToBounds` 와 동일한 프로퍼티로 `UIView` 의 `var clipsToBounds: Bool { get set }` 가 있습니다. 

@@ -47,4 +47,21 @@ class Beverage: CustomStringConvertible {
     func pay(pay: (Int) -> Int) -> Int {
         return pay(self.price)
     }
+    
+    static func produce(addableBeverage: AddableBeverage) -> Beverage {
+        switch addableBeverage {
+        case .mandarineMilk:
+            return MandarineMilk()
+        case .lactoseFreeMilk:
+            return LactoseFreeMilk()
+        case .starbucksDoubleShot:
+            return StarbucksDoubleShot()
+        case .topTheBlack:
+            return TOPTheBlack()
+        case .cocaCola:
+            return CocaCola()
+        case .cocaColaZero:
+            return CocaColaZero()
+        }
+    }
 }

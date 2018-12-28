@@ -24,16 +24,13 @@
 		7DE2CB6D21D4B920004EC966 /* AddableBeverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE2CB5021D4B91F004EC966 /* AddableBeverage.swift */; };
 		7DE2CB6E21D4B920004EC966 /* VendingMachineMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE2CB5121D4B91F004EC966 /* VendingMachineMode.swift */; };
 		7DE2CB6F21D4B920004EC966 /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE2CB5221D4B91F004EC966 /* VendingMachine.swift */; };
-		7DE2CB7021D4B920004EC966 /* VendingMachineManagerMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE2CB5321D4B91F004EC966 /* VendingMachineManagerMode.swift */; };
 		7DE2CB7121D4B920004EC966 /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE2CB5421D4B91F004EC966 /* Beverage.swift */; };
-		7DE2CB7221D4B920004EC966 /* VendingMachineUserMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE2CB5521D4B920004EC966 /* VendingMachineUserMode.swift */; };
 		7DE2CB7321D4B920004EC966 /* BeverageInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE2CB5621D4B920004EC966 /* BeverageInfo.swift */; };
 		7DE2CB7421D4B920004EC966 /* VariousTemperatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE2CB5821D4B920004EC966 /* VariousTemperatures.swift */; };
 		7DE2CB7521D4B920004EC966 /* VendingMachineUserFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE2CB5921D4B920004EC966 /* VendingMachineUserFunction.swift */; };
 		7DE2CB7621D4B920004EC966 /* VendingMachineManagerFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE2CB5A21D4B920004EC966 /* VendingMachineManagerFunction.swift */; };
 		7DE2CB7721D4B920004EC966 /* VendingMachineInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE2CB5B21D4B920004EC966 /* VendingMachineInfo.swift */; };
 		7DE2CB7821D4B920004EC966 /* ExtensionDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE2CB5D21D4B920004EC966 /* ExtensionDate.swift */; };
-		7DE2CB7921D4B920004EC966 /* BeverageFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE2CB5F21D4B920004EC966 /* BeverageFactory.swift */; };
 		7DE2CB7A21D4B920004EC966 /* LactoseFreeMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE2CB6121D4B920004EC966 /* LactoseFreeMilk.swift */; };
 		7DE2CB7B21D4B920004EC966 /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE2CB6221D4B920004EC966 /* Milk.swift */; };
 		7DE2CB7C21D4B920004EC966 /* MandarineMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE2CB6321D4B920004EC966 /* MandarineMilk.swift */; };
@@ -59,16 +56,13 @@
 		7DE2CB5021D4B91F004EC966 /* AddableBeverage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddableBeverage.swift; sourceTree = "<group>"; };
 		7DE2CB5121D4B91F004EC966 /* VendingMachineMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VendingMachineMode.swift; sourceTree = "<group>"; };
 		7DE2CB5221D4B91F004EC966 /* VendingMachine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VendingMachine.swift; sourceTree = "<group>"; };
-		7DE2CB5321D4B91F004EC966 /* VendingMachineManagerMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VendingMachineManagerMode.swift; sourceTree = "<group>"; };
 		7DE2CB5421D4B91F004EC966 /* Beverage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Beverage.swift; sourceTree = "<group>"; };
-		7DE2CB5521D4B920004EC966 /* VendingMachineUserMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VendingMachineUserMode.swift; sourceTree = "<group>"; };
 		7DE2CB5621D4B920004EC966 /* BeverageInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeverageInfo.swift; sourceTree = "<group>"; };
 		7DE2CB5821D4B920004EC966 /* VariousTemperatures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VariousTemperatures.swift; sourceTree = "<group>"; };
 		7DE2CB5921D4B920004EC966 /* VendingMachineUserFunction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VendingMachineUserFunction.swift; sourceTree = "<group>"; };
 		7DE2CB5A21D4B920004EC966 /* VendingMachineManagerFunction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VendingMachineManagerFunction.swift; sourceTree = "<group>"; };
 		7DE2CB5B21D4B920004EC966 /* VendingMachineInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VendingMachineInfo.swift; sourceTree = "<group>"; };
 		7DE2CB5D21D4B920004EC966 /* ExtensionDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionDate.swift; sourceTree = "<group>"; };
-		7DE2CB5F21D4B920004EC966 /* BeverageFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeverageFactory.swift; sourceTree = "<group>"; };
 		7DE2CB6121D4B920004EC966 /* LactoseFreeMilk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LactoseFreeMilk.swift; sourceTree = "<group>"; };
 		7DE2CB6221D4B920004EC966 /* Milk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Milk.swift; sourceTree = "<group>"; };
 		7DE2CB6321D4B920004EC966 /* MandarineMilk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MandarineMilk.swift; sourceTree = "<group>"; };
@@ -109,16 +103,13 @@
 				7DE2CB5621D4B920004EC966 /* BeverageInfo.swift */,
 				7DE2CB4621D4B91F004EC966 /* CarbonatedDrink */,
 				7DE2CB4B21D4B91F004EC966 /* Coffees */,
+				7DE2CB6021D4B920004EC966 /* Milks */,
 				7DE2CB4F21D4B91F004EC966 /* Enum */,
 				7DE2CB5C21D4B920004EC966 /* Extension */,
-				7DE2CB5E21D4B920004EC966 /* Factory */,
 				7DE2CB4321D4B91F004EC966 /* Helper */,
-				7DE2CB6021D4B920004EC966 /* Milks */,
 				7DE2CB5721D4B920004EC966 /* Protocol */,
 				7DE2CB5221D4B91F004EC966 /* VendingMachine.swift */,
 				7DE2CB4A21D4B91F004EC966 /* VendingMachineInput.swift */,
-				7DE2CB5321D4B91F004EC966 /* VendingMachineManagerMode.swift */,
-				7DE2CB5521D4B920004EC966 /* VendingMachineUserMode.swift */,
 				7DE2CB3321D4B82E004EC966 /* ViewController.swift */,
 				7DE2CB3521D4B82E004EC966 /* Main.storyboard */,
 				7DE2CB3821D4B82F004EC966 /* Assets.xcassets */,
@@ -183,14 +174,6 @@
 				7DE2CB5D21D4B920004EC966 /* ExtensionDate.swift */,
 			);
 			path = Extension;
-			sourceTree = "<group>";
-		};
-		7DE2CB5E21D4B920004EC966 /* Factory */ = {
-			isa = PBXGroup;
-			children = (
-				7DE2CB5F21D4B920004EC966 /* BeverageFactory.swift */,
-			);
-			path = Factory;
 			sourceTree = "<group>";
 		};
 		7DE2CB6021D4B920004EC966 /* Milks */ = {
@@ -276,9 +259,7 @@
 			files = (
 				7DE2CB7521D4B920004EC966 /* VendingMachineUserFunction.swift in Sources */,
 				7DE2CB7C21D4B920004EC966 /* MandarineMilk.swift in Sources */,
-				7DE2CB7921D4B920004EC966 /* BeverageFactory.swift in Sources */,
 				7DE2CB6A21D4B920004EC966 /* StarbucksDoubleShot.swift in Sources */,
-				7DE2CB7021D4B920004EC966 /* VendingMachineManagerMode.swift in Sources */,
 				7DE2CB6621D4B920004EC966 /* CocaColaZero.swift in Sources */,
 				7DE2CB7421D4B920004EC966 /* VariousTemperatures.swift in Sources */,
 				7DE2CB6D21D4B920004EC966 /* AddableBeverage.swift in Sources */,
@@ -296,7 +277,6 @@
 				7DE2CB7621D4B920004EC966 /* VendingMachineManagerFunction.swift in Sources */,
 				7DE2CB6721D4B920004EC966 /* CocaCola.swift in Sources */,
 				7DE2CB7B21D4B920004EC966 /* Milk.swift in Sources */,
-				7DE2CB7221D4B920004EC966 /* VendingMachineUserMode.swift in Sources */,
 				7DE2CB3221D4B82E004EC966 /* AppDelegate.swift in Sources */,
 				7DE2CB6E21D4B920004EC966 /* VendingMachineMode.swift in Sources */,
 				7DE2CB6B21D4B920004EC966 /* Coffee.swift in Sources */,

@@ -8,8 +8,7 @@
 
 import Foundation
 
-protocol VendingMachineManagerFunction {
-    func inventory() -> [String: Int]
+protocol VendingMachineManagerFunction: ReadableInventory {
     func expiredProducts() -> [Beverage]
     mutating func add(product: Beverage)
     mutating func removeExpiredProducts()

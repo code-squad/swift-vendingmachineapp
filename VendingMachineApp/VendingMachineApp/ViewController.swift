@@ -13,10 +13,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        vendingMachine.add(product: CocaCola())
-        vendingMachine.add(product: CocaCola())
-        vendingMachine.add(product: CocaColaZero())
-        vendingMachine.add(product: StarbucksDoubleShot())
+        vendingMachine.add(product: Beverage.produce(addableBeverage: .cocaCola))
+        vendingMachine.add(product: Beverage.produce(addableBeverage: .cocaCola))
+        vendingMachine.add(product: Beverage.produce(addableBeverage: .cocaColaZero))
+        vendingMachine.add(product: Beverage.produce(addableBeverage: .starbucksDoubleShot))
         let inventory = vendingMachine.inventory()
         for (product, count) in inventory {
             print("\(product)(\(count)개)")

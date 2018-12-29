@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7DA03A1821D73057002355CA /* coke.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DA03A1721D73057002355CA /* coke.png */; };
+		7DA03A1E21D73079002355CA /* lactofree.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DA03A1921D73078002355CA /* lactofree.png */; };
+		7DA03A1F21D73079002355CA /* starbucks.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DA03A1A21D73078002355CA /* starbucks.png */; };
+		7DA03A2021D73079002355CA /* mandarine.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DA03A1B21D73078002355CA /* mandarine.png */; };
+		7DA03A2121D73079002355CA /* cokezero.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DA03A1C21D73079002355CA /* cokezero.png */; };
+		7DA03A2221D73079002355CA /* top.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DA03A1D21D73079002355CA /* top.png */; };
 		7DE2CB3221D4B82E004EC966 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE2CB3121D4B82E004EC966 /* AppDelegate.swift */; };
 		7DE2CB3421D4B82E004EC966 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE2CB3321D4B82E004EC966 /* ViewController.swift */; };
 		7DE2CB3721D4B82E004EC966 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DE2CB3521D4B82E004EC966 /* Main.storyboard */; };
@@ -36,6 +42,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7DA03A1721D73057002355CA /* coke.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = coke.png; path = ../../../../Downloads/coke.png; sourceTree = "<group>"; };
+		7DA03A1921D73078002355CA /* lactofree.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lactofree.png; sourceTree = "<group>"; };
+		7DA03A1A21D73078002355CA /* starbucks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = starbucks.png; sourceTree = "<group>"; };
+		7DA03A1B21D73078002355CA /* mandarine.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mandarine.png; sourceTree = "<group>"; };
+		7DA03A1C21D73079002355CA /* cokezero.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cokezero.png; path = ../../../../Downloads/cokezero.png; sourceTree = "<group>"; };
+		7DA03A1D21D73079002355CA /* top.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = top.png; sourceTree = "<group>"; };
 		7DE2CB2E21D4B82E004EC966 /* VendingMachineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendingMachineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DE2CB3121D4B82E004EC966 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7DE2CB3321D4B82E004EC966 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -108,6 +120,12 @@
 				7DE2CB5721D4B920004EC966 /* Protocol */,
 				7DE2CB5221D4B91F004EC966 /* VendingMachine.swift */,
 				7DE2CB4A21D4B91F004EC966 /* VendingMachineInput.swift */,
+				7DA03A1C21D73079002355CA /* cokezero.png */,
+				7DA03A1921D73078002355CA /* lactofree.png */,
+				7DA03A1B21D73078002355CA /* mandarine.png */,
+				7DA03A1A21D73078002355CA /* starbucks.png */,
+				7DA03A1D21D73079002355CA /* top.png */,
+				7DA03A1721D73057002355CA /* coke.png */,
 				7DE2CB3321D4B82E004EC966 /* ViewController.swift */,
 				7DE2CB3521D4B82E004EC966 /* Main.storyboard */,
 				7DE2CB3821D4B82F004EC966 /* Assets.xcassets */,
@@ -242,8 +260,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				7DE2CB3C21D4B82F004EC966 /* LaunchScreen.storyboard in Resources */,
+				7DA03A2121D73079002355CA /* cokezero.png in Resources */,
+				7DA03A1821D73057002355CA /* coke.png in Resources */,
+				7DA03A1F21D73079002355CA /* starbucks.png in Resources */,
 				7DE2CB3921D4B82F004EC966 /* Assets.xcassets in Resources */,
+				7DA03A2021D73079002355CA /* mandarine.png in Resources */,
+				7DA03A2221D73079002355CA /* top.png in Resources */,
 				7DE2CB3721D4B82E004EC966 /* Main.storyboard in Resources */,
+				7DA03A1E21D73079002355CA /* lactofree.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

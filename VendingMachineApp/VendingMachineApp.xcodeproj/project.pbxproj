@@ -13,6 +13,7 @@
 		7DA03A2C21D7348C002355CA /* cocacola.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DA03A2621D7348B002355CA /* cocacola.png */; };
 		7DA03A2D21D7348C002355CA /* cocacolazero.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DA03A2721D7348C002355CA /* cocacolazero.png */; };
 		7DA03A2E21D7348C002355CA /* mandarinemilk.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DA03A2821D7348C002355CA /* mandarinemilk.png */; };
+		7DA03A3621D9F480002355CA /* BuyableProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA03A3521D9F480002355CA /* BuyableProduct.swift */; };
 		7DE2CB3221D4B82E004EC966 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE2CB3121D4B82E004EC966 /* AppDelegate.swift */; };
 		7DE2CB3421D4B82E004EC966 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE2CB3321D4B82E004EC966 /* ViewController.swift */; };
 		7DE2CB3721D4B82E004EC966 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DE2CB3521D4B82E004EC966 /* Main.storyboard */; };
@@ -48,6 +49,7 @@
 		7DA03A2621D7348B002355CA /* cocacola.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cocacola.png; sourceTree = "<group>"; };
 		7DA03A2721D7348C002355CA /* cocacolazero.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cocacolazero.png; sourceTree = "<group>"; };
 		7DA03A2821D7348C002355CA /* mandarinemilk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mandarinemilk.png; sourceTree = "<group>"; };
+		7DA03A3521D9F480002355CA /* BuyableProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyableProduct.swift; sourceTree = "<group>"; };
 		7DE2CB2E21D4B82E004EC966 /* VendingMachineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendingMachineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DE2CB3121D4B82E004EC966 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7DE2CB3321D4B82E004EC966 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 				7DE2CB7E21D5FD85004EC966 /* ReadableInventory.swift */,
 				7DE2CB5921D4B920004EC966 /* VendingMachineUserFunction.swift */,
 				7DE2CB5A21D4B920004EC966 /* VendingMachineManagerFunction.swift */,
+				7DA03A3521D9F480002355CA /* BuyableProduct.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -282,6 +285,7 @@
 				7DE2CB7C21D4B920004EC966 /* MandarineMilk.swift in Sources */,
 				7DE2CB6A21D4B920004EC966 /* StarbucksDoubleShot.swift in Sources */,
 				7DE2CB6621D4B920004EC966 /* CocaColaZero.swift in Sources */,
+				7DA03A3621D9F480002355CA /* BuyableProduct.swift in Sources */,
 				7DE2CB7421D4B920004EC966 /* VariousTemperatures.swift in Sources */,
 				7DE2CB6D21D4B920004EC966 /* AddableBeverage.swift in Sources */,
 				7DE2CB6C21D4B920004EC966 /* TOPTheBlack.swift in Sources */,

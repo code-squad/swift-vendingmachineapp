@@ -17,7 +17,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         for productImageView in productImageViews {
-            productImageView.layer.cornerRadius = 50
+            productImageView.layer.cornerRadius = productImageView.frame.height / 2
         }
         balanceLabel.text = "잔액 : \(vendingMachine.readBalance())"
     }

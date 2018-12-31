@@ -26,7 +26,6 @@
 		7DE2CB6A21D4B920004EC966 /* StarbucksDoubleShot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE2CB4C21D4B91F004EC966 /* StarbucksDoubleShot.swift */; };
 		7DE2CB6B21D4B920004EC966 /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE2CB4D21D4B91F004EC966 /* Coffee.swift */; };
 		7DE2CB6C21D4B920004EC966 /* TOPTheBlack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE2CB4E21D4B91F004EC966 /* TOPTheBlack.swift */; };
-		7DE2CB6E21D4B920004EC966 /* VendingMachineMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE2CB5121D4B91F004EC966 /* VendingMachineMode.swift */; };
 		7DE2CB6F21D4B920004EC966 /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE2CB5221D4B91F004EC966 /* VendingMachine.swift */; };
 		7DE2CB7121D4B920004EC966 /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE2CB5421D4B91F004EC966 /* Beverage.swift */; };
 		7DE2CB7421D4B920004EC966 /* VariousTemperatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE2CB5821D4B920004EC966 /* VariousTemperatures.swift */; };
@@ -61,7 +60,6 @@
 		7DE2CB4C21D4B91F004EC966 /* StarbucksDoubleShot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarbucksDoubleShot.swift; sourceTree = "<group>"; };
 		7DE2CB4D21D4B91F004EC966 /* Coffee.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
 		7DE2CB4E21D4B91F004EC966 /* TOPTheBlack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TOPTheBlack.swift; sourceTree = "<group>"; };
-		7DE2CB5121D4B91F004EC966 /* VendingMachineMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VendingMachineMode.swift; sourceTree = "<group>"; };
 		7DE2CB5221D4B91F004EC966 /* VendingMachine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VendingMachine.swift; sourceTree = "<group>"; };
 		7DE2CB5421D4B91F004EC966 /* Beverage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Beverage.swift; sourceTree = "<group>"; };
 		7DE2CB5821D4B920004EC966 /* VariousTemperatures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VariousTemperatures.swift; sourceTree = "<group>"; };
@@ -109,7 +107,6 @@
 				7DE2CB4621D4B91F004EC966 /* CarbonatedDrink */,
 				7DE2CB4B21D4B91F004EC966 /* Coffees */,
 				7DE2CB6021D4B920004EC966 /* Milks */,
-				7DE2CB4F21D4B91F004EC966 /* Enum */,
 				7DE2CB5C21D4B920004EC966 /* Extension */,
 				7DE2CB4321D4B91F004EC966 /* Helper */,
 				7DE2CB5721D4B920004EC966 /* Protocol */,
@@ -140,9 +137,9 @@
 		7DE2CB4621D4B91F004EC966 /* CarbonatedDrink */ = {
 			isa = PBXGroup;
 			children = (
+				7DE2CB4921D4B91F004EC966 /* CarbonatedDrink.swift */,
 				7DE2CB4721D4B91F004EC966 /* CocaColaZero.swift */,
 				7DE2CB4821D4B91F004EC966 /* CocaCola.swift */,
-				7DE2CB4921D4B91F004EC966 /* CarbonatedDrink.swift */,
 			);
 			path = CarbonatedDrink;
 			sourceTree = "<group>";
@@ -150,19 +147,11 @@
 		7DE2CB4B21D4B91F004EC966 /* Coffees */ = {
 			isa = PBXGroup;
 			children = (
-				7DE2CB4C21D4B91F004EC966 /* StarbucksDoubleShot.swift */,
 				7DE2CB4D21D4B91F004EC966 /* Coffee.swift */,
+				7DE2CB4C21D4B91F004EC966 /* StarbucksDoubleShot.swift */,
 				7DE2CB4E21D4B91F004EC966 /* TOPTheBlack.swift */,
 			);
 			path = Coffees;
-			sourceTree = "<group>";
-		};
-		7DE2CB4F21D4B91F004EC966 /* Enum */ = {
-			isa = PBXGroup;
-			children = (
-				7DE2CB5121D4B91F004EC966 /* VendingMachineMode.swift */,
-			);
-			path = Enum;
 			sourceTree = "<group>";
 		};
 		7DE2CB5721D4B920004EC966 /* Protocol */ = {
@@ -188,8 +177,8 @@
 		7DE2CB6021D4B920004EC966 /* Milks */ = {
 			isa = PBXGroup;
 			children = (
-				7DE2CB6121D4B920004EC966 /* LactoseFreeMilk.swift */,
 				7DE2CB6221D4B920004EC966 /* Milk.swift */,
+				7DE2CB6121D4B920004EC966 /* LactoseFreeMilk.swift */,
 				7DE2CB6321D4B920004EC966 /* MandarineMilk.swift */,
 			);
 			path = Milks;
@@ -290,7 +279,6 @@
 				7DE2CB6721D4B920004EC966 /* CocaCola.swift in Sources */,
 				7DE2CB7B21D4B920004EC966 /* Milk.swift in Sources */,
 				7DE2CB3221D4B82E004EC966 /* AppDelegate.swift in Sources */,
-				7DE2CB6E21D4B920004EC966 /* VendingMachineMode.swift in Sources */,
 				7DE2CB6B21D4B920004EC966 /* Coffee.swift in Sources */,
 				7DE2CB6F21D4B920004EC966 /* VendingMachine.swift in Sources */,
 			);

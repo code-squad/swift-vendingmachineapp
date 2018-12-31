@@ -48,7 +48,7 @@ class Beverage: CustomStringConvertible {
         return pay(self.price)
     }
     
-    static func produce<T>(product: AddableBeverage) -> Beverage {
-        
+    static func produce<T>(product: T.Type) -> T where T: Beverage, T: Product {
+        return T.init()
     }
 }

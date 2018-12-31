@@ -40,5 +40,16 @@ class ViewController: UIViewController {
         
         vendingMachine.add(product: beverage)
     }
+    @IBAction func tapInsertMoneyButton(_ sender: UIButton) {
+        switch sender.restorationIdentifier {
+        case "1000Won":
+            vendingMachine.insert(money: 1000)
+        case "5000Won":
+            vendingMachine.insert(money: 5000)
+        default:
+            return
+        }
+        balanceLabel.text = "잔액 : \(vendingMachine.readBalance())"
+    }
 }
 

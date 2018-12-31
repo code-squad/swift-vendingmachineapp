@@ -23,7 +23,6 @@
 		7DE2CB6621D4B920004EC966 /* CocaColaZero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE2CB4721D4B91F004EC966 /* CocaColaZero.swift */; };
 		7DE2CB6721D4B920004EC966 /* CocaCola.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE2CB4821D4B91F004EC966 /* CocaCola.swift */; };
 		7DE2CB6821D4B920004EC966 /* CarbonatedDrink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE2CB4921D4B91F004EC966 /* CarbonatedDrink.swift */; };
-		7DE2CB6921D4B920004EC966 /* VendingMachineInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE2CB4A21D4B91F004EC966 /* VendingMachineInput.swift */; };
 		7DE2CB6A21D4B920004EC966 /* StarbucksDoubleShot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE2CB4C21D4B91F004EC966 /* StarbucksDoubleShot.swift */; };
 		7DE2CB6B21D4B920004EC966 /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE2CB4D21D4B91F004EC966 /* Coffee.swift */; };
 		7DE2CB6C21D4B920004EC966 /* TOPTheBlack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE2CB4E21D4B91F004EC966 /* TOPTheBlack.swift */; };
@@ -60,7 +59,6 @@
 		7DE2CB4721D4B91F004EC966 /* CocaColaZero.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CocaColaZero.swift; sourceTree = "<group>"; };
 		7DE2CB4821D4B91F004EC966 /* CocaCola.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CocaCola.swift; sourceTree = "<group>"; };
 		7DE2CB4921D4B91F004EC966 /* CarbonatedDrink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarbonatedDrink.swift; sourceTree = "<group>"; };
-		7DE2CB4A21D4B91F004EC966 /* VendingMachineInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VendingMachineInput.swift; sourceTree = "<group>"; };
 		7DE2CB4C21D4B91F004EC966 /* StarbucksDoubleShot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarbucksDoubleShot.swift; sourceTree = "<group>"; };
 		7DE2CB4D21D4B91F004EC966 /* Coffee.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
 		7DE2CB4E21D4B91F004EC966 /* TOPTheBlack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TOPTheBlack.swift; sourceTree = "<group>"; };
@@ -119,7 +117,6 @@
 				7DE2CB4321D4B91F004EC966 /* Helper */,
 				7DE2CB5721D4B920004EC966 /* Protocol */,
 				7DE2CB5221D4B91F004EC966 /* VendingMachine.swift */,
-				7DE2CB4A21D4B91F004EC966 /* VendingMachineInput.swift */,
 				7DE2CB3321D4B82E004EC966 /* ViewController.swift */,
 				7DE2CB3521D4B82E004EC966 /* Main.storyboard */,
 				7DE2CB3821D4B82F004EC966 /* Assets.xcassets */,
@@ -290,7 +287,6 @@
 				7DE2CB3421D4B82E004EC966 /* ViewController.swift in Sources */,
 				7DE2CB7F21D5FD85004EC966 /* ReadableInventory.swift in Sources */,
 				7DE2CB6521D4B920004EC966 /* ValidChecker.swift in Sources */,
-				7DE2CB6921D4B920004EC966 /* VendingMachineInput.swift in Sources */,
 				7DE2CB7821D4B920004EC966 /* ExtensionDate.swift in Sources */,
 				7DE2CB6821D4B920004EC966 /* CarbonatedDrink.swift in Sources */,
 				7DE2CB7121D4B920004EC966 /* Beverage.swift in Sources */,

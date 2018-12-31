@@ -15,7 +15,7 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
 
-    @IBAction func tapAddBeverage(_ sender: UIButton) {
+    @IBAction func tapAddBeverageButton(_ sender: UIButton) {
         let beverage: Beverage
         
         switch sender.restorationIdentifier {

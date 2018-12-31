@@ -10,9 +10,12 @@ import UIKit
 
 class ViewController: UIViewController {
     var vendingMachine: VendingMachine = VendingMachine()
+    @IBOutlet weak var balanceLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        balanceLabel.text = "잔액 : \(vendingMachine.readBalance())"
     }
 
     @IBAction func tapAddBeverageButton(_ sender: UIButton) {

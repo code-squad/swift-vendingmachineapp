@@ -8,8 +8,8 @@
 
 import Foundation
 
-class StarbucksDoubleShot: Coffee {
-    init() {
+class StarbucksDoubleShot: Coffee, BuyableProduct {
+    required init() {
         super.init(hasMilk: true,
                    isHot: true,
                    brand: "동서식품",

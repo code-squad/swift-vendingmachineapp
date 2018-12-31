@@ -8,8 +8,8 @@
 
 import Foundation
 
-class CocaColaZero: CarbonatedDrink {
-    init() {
+class CocaColaZero: CarbonatedDrink, BuyableProduct {
+    required init() {
         super.init(calorie: 0,
                    brand: "코카콜라",
                    size: 185,

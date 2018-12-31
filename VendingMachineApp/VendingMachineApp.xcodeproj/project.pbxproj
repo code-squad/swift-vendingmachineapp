@@ -29,7 +29,6 @@
 		7DE2CB6E21D4B920004EC966 /* VendingMachineMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE2CB5121D4B91F004EC966 /* VendingMachineMode.swift */; };
 		7DE2CB6F21D4B920004EC966 /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE2CB5221D4B91F004EC966 /* VendingMachine.swift */; };
 		7DE2CB7121D4B920004EC966 /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE2CB5421D4B91F004EC966 /* Beverage.swift */; };
-		7DE2CB7321D4B920004EC966 /* BeverageInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE2CB5621D4B920004EC966 /* BeverageInfo.swift */; };
 		7DE2CB7421D4B920004EC966 /* VariousTemperatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE2CB5821D4B920004EC966 /* VariousTemperatures.swift */; };
 		7DE2CB7521D4B920004EC966 /* VendingMachineUserFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE2CB5921D4B920004EC966 /* VendingMachineUserFunction.swift */; };
 		7DE2CB7621D4B920004EC966 /* VendingMachineManagerFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE2CB5A21D4B920004EC966 /* VendingMachineManagerFunction.swift */; };
@@ -65,7 +64,6 @@
 		7DE2CB5121D4B91F004EC966 /* VendingMachineMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VendingMachineMode.swift; sourceTree = "<group>"; };
 		7DE2CB5221D4B91F004EC966 /* VendingMachine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VendingMachine.swift; sourceTree = "<group>"; };
 		7DE2CB5421D4B91F004EC966 /* Beverage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Beverage.swift; sourceTree = "<group>"; };
-		7DE2CB5621D4B920004EC966 /* BeverageInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeverageInfo.swift; sourceTree = "<group>"; };
 		7DE2CB5821D4B920004EC966 /* VariousTemperatures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VariousTemperatures.swift; sourceTree = "<group>"; };
 		7DE2CB5921D4B920004EC966 /* VendingMachineUserFunction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VendingMachineUserFunction.swift; sourceTree = "<group>"; };
 		7DE2CB5A21D4B920004EC966 /* VendingMachineManagerFunction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VendingMachineManagerFunction.swift; sourceTree = "<group>"; };
@@ -108,7 +106,6 @@
 			children = (
 				7DE2CB3121D4B82E004EC966 /* AppDelegate.swift */,
 				7DE2CB5421D4B91F004EC966 /* Beverage.swift */,
-				7DE2CB5621D4B920004EC966 /* BeverageInfo.swift */,
 				7DE2CB4621D4B91F004EC966 /* CarbonatedDrink */,
 				7DE2CB4B21D4B91F004EC966 /* Coffees */,
 				7DE2CB6021D4B920004EC966 /* Milks */,
@@ -283,7 +280,6 @@
 				7DE2CB7421D4B920004EC966 /* VariousTemperatures.swift in Sources */,
 				7DE2CB6C21D4B920004EC966 /* TOPTheBlack.swift in Sources */,
 				7DE2CB7A21D4B920004EC966 /* LactoseFreeMilk.swift in Sources */,
-				7DE2CB7321D4B920004EC966 /* BeverageInfo.swift in Sources */,
 				7DE2CB3421D4B82E004EC966 /* ViewController.swift in Sources */,
 				7DE2CB7F21D5FD85004EC966 /* ReadableInventory.swift in Sources */,
 				7DE2CB6521D4B920004EC966 /* ValidChecker.swift in Sources */,

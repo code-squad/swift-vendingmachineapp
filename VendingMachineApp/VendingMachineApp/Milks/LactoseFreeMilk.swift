@@ -8,8 +8,8 @@
 
 import Foundation
 
-class LactoseFreeMilk: Milk {
-    init() {
+class LactoseFreeMilk: Milk, BuyableProduct {
+    required init() {
         super.init(lactose: 0,
                    brand: "매일유업",
                    size: 190,

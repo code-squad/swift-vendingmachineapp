@@ -8,8 +8,8 @@
 
 import Foundation
 
-class MandarineMilk: Milk {
-    init() {
+class MandarineMilk: Milk, BuyableProduct {
+    required init() {
         super.init(lactose: 27,
                    brand: "빙그레",
                    size: 240,

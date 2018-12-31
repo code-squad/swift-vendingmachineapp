@@ -8,8 +8,8 @@
 
 import Foundation
 
-class TOPTheBlack: Coffee {
-    init() {
+class TOPTheBlack: Coffee, BuyableProduct {
+    required init() {
         super.init(hasMilk: false,
                    isHot: false,
                    brand: "맥심",

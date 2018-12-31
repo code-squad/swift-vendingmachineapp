@@ -61,7 +61,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <state key="normal" title="추가"/>
                                                 <connections>
-                                                    <action selector="tapAddBeverage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qjp-V6-OAH"/>
+                                                    <action selector="tapAddBeverageButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qjp-V6-OAH"/>
                                                 </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mandarinemilk.png" translatesAutoresizingMaskIntoConstraints="NO" id="IeE-75-6vC">
@@ -90,7 +90,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <state key="normal" title="추가"/>
                                                 <connections>
-                                                    <action selector="tapAddBeverage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="f61-4d-mPr"/>
+                                                    <action selector="tapAddBeverageButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="f61-4d-mPr"/>
                                                 </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lactofreemilk.png" translatesAutoresizingMaskIntoConstraints="NO" id="0cz-HD-hke">
@@ -119,7 +119,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <state key="normal" title="추가"/>
                                                 <connections>
-                                                    <action selector="tapAddBeverage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Sba-x9-Qfq"/>
+                                                    <action selector="tapAddBeverageButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Sba-x9-Qfq"/>
                                                 </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sbuck.png" translatesAutoresizingMaskIntoConstraints="NO" id="E8Q-66-6B1">
@@ -148,7 +148,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <state key="normal" title="추가"/>
                                                 <connections>
-                                                    <action selector="tapAddBeverage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QQy-a0-doL"/>
+                                                    <action selector="tapAddBeverageButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QQy-a0-doL"/>
                                                 </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="topblack.png" translatesAutoresizingMaskIntoConstraints="NO" id="bNy-2z-xh1">
@@ -177,7 +177,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <state key="normal" title="추가"/>
                                                 <connections>
-                                                    <action selector="tapAddBeverage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="b6Q-Us-CBp"/>
+                                                    <action selector="tapAddBeverageButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="b6Q-Us-CBp"/>
                                                 </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cocacola.png" translatesAutoresizingMaskIntoConstraints="NO" id="420-bq-gjc">
@@ -206,7 +206,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <state key="normal" title="추가"/>
                                                 <connections>
-                                                    <action selector="tapAddBeverage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="16X-dF-3i0"/>
+                                                    <action selector="tapAddBeverageButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="16X-dF-3i0"/>
                                                 </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cocacolazero.png" translatesAutoresizingMaskIntoConstraints="NO" id="Js1-0U-vry">

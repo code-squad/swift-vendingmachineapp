@@ -24,19 +24,6 @@ struct VendingMachine: VendingMachineManagerFunction, VendingMachineUserFunction
         self.products["\(type(of: product))"]?.append(product)
     }
 
-    func buyableProductList() -> [String: BeverageInfo] {
-        var buyableProducts: [String: BeverageInfo] = [:]
-        for (key, products) in self.products {
-            guard !products.isEmpty else {continue}
-            guard products[0].isBuyable(money: self.balance) else {continue}
-            let beverageInfo = { (name: String, price: Int) -> BeverageInfo in
-                return BeverageInfo.init(name: name, price: price, beverageCount: products.count)
-            }
-            buyableProducts[key] = products[0].beverageInfo(makeInfo: beverageInfo)
-        }
-        return buyableProducts
-    }
-
     mutating func buy(productName: String) -> Beverage? {
         let product = self.products[productName]?.popLast()
         if self.products[productName]?.count == 0 {

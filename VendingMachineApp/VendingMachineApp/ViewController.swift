@@ -11,10 +11,14 @@ import UIKit
 class ViewController: UIViewController {
     var vendingMachine: VendingMachine = VendingMachine()
     @IBOutlet weak var balanceLabel: UILabel!
-    
+    @IBOutlet var productImageViews: [UIImageView]!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        for productImageView in productImageViews {
+            productImageView.layer.cornerRadius = 50
+        }
         balanceLabel.text = "잔액 : \(vendingMachine.readBalance())"
     }
 
@@ -40,6 +44,7 @@ class ViewController: UIViewController {
         
         vendingMachine.add(product: beverage)
     }
+
     @IBAction func tapInsertMoneyButton(_ sender: UIButton) {
         switch sender.restorationIdentifier {
         case "1000Won":

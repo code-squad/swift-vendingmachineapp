@@ -56,10 +56,13 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="RoP-wX-jgp">
                                         <rect key="frame" x="0.0" y="0.0" width="130" height="261.5"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o8K-2m-20t">
+                                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="mandarineMilk" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o8K-2m-20t">
                                                 <rect key="frame" x="47.5" y="0.0" width="35" height="36"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <state key="normal" title="추가"/>
+                                                <connections>
+                                                    <action selector="tapAddBeverage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qjp-V6-OAH"/>
+                                                </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mandarinemilk.png" translatesAutoresizingMaskIntoConstraints="NO" id="IeE-75-6vC">
                                                 <rect key="frame" x="0.0" y="46" width="130" height="180"/>
@@ -82,10 +85,13 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="oMv-Lz-8GB">
                                         <rect key="frame" x="143" y="0.0" width="130" height="261.5"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AXy-Pd-Gmu">
+                                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="lactoseFreeMilk" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AXy-Pd-Gmu">
                                                 <rect key="frame" x="47.5" y="0.0" width="35" height="36"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <state key="normal" title="추가"/>
+                                                <connections>
+                                                    <action selector="tapAddBeverage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="f61-4d-mPr"/>
+                                                </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lactofreemilk.png" translatesAutoresizingMaskIntoConstraints="NO" id="0cz-HD-hke">
                                                 <rect key="frame" x="0.0" y="46" width="130" height="180"/>
@@ -108,10 +114,13 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="gFX-lt-2HX">
                                         <rect key="frame" x="286" y="0.0" width="130" height="261.5"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lvn-Xh-Y05">
+                                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="starbucksDoubleShot" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lvn-Xh-Y05">
                                                 <rect key="frame" x="47.5" y="0.0" width="35" height="36"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <state key="normal" title="추가"/>
+                                                <connections>
+                                                    <action selector="tapAddBeverage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Sba-x9-Qfq"/>
+                                                </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sbuck.png" translatesAutoresizingMaskIntoConstraints="NO" id="E8Q-66-6B1">
                                                 <rect key="frame" x="0.0" y="46" width="130" height="180"/>
@@ -134,10 +143,13 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="GSB-2y-FYZ">
                                         <rect key="frame" x="429" y="0.0" width="130" height="261.5"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tn8-qe-Qtz">
+                                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="topTheBlack" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tn8-qe-Qtz">
                                                 <rect key="frame" x="47.5" y="0.0" width="35" height="36"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <state key="normal" title="추가"/>
+                                                <connections>
+                                                    <action selector="tapAddBeverage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QQy-a0-doL"/>
+                                                </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="topblack.png" translatesAutoresizingMaskIntoConstraints="NO" id="bNy-2z-xh1">
                                                 <rect key="frame" x="0.0" y="46" width="130" height="180"/>
@@ -160,10 +172,13 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="EAB-80-2wk">
                                         <rect key="frame" x="572" y="0.0" width="130" height="261.5"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Vs-3L-fFH">
+                                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="cocaCola" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Vs-3L-fFH">
                                                 <rect key="frame" x="47.5" y="0.0" width="35" height="36"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <state key="normal" title="추가"/>
+                                                <connections>
+                                                    <action selector="tapAddBeverage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="b6Q-Us-CBp"/>
+                                                </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cocacola.png" translatesAutoresizingMaskIntoConstraints="NO" id="420-bq-gjc">
                                                 <rect key="frame" x="0.0" y="46" width="130" height="180"/>
@@ -186,10 +201,13 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="I8n-cf-wvQ">
                                         <rect key="frame" x="715" y="0.0" width="130" height="261.5"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4mD-hj-iDn">
+                                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="cocaColaZero" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4mD-hj-iDn">
                                                 <rect key="frame" x="47.5" y="0.0" width="35" height="36"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <state key="normal" title="추가"/>
+                                                <connections>
+                                                    <action selector="tapAddBeverage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="16X-dF-3i0"/>
+                                                </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cocacolazero.png" translatesAutoresizingMaskIntoConstraints="NO" id="Js1-0U-vry">
                                                 <rect key="frame" x="0.0" y="46" width="130" height="180"/>

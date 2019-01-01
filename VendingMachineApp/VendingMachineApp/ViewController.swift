@@ -12,7 +12,8 @@ class ViewController: UIViewController {
     var vendingMachine: VendingMachine = VendingMachine()
     @IBOutlet weak var balanceLabel: UILabel!
     @IBOutlet var productImageViews: [UIImageView]!
-
+    @IBOutlet var numberOfProductLabels: [UILabel]!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -20,29 +21,43 @@ class ViewController: UIViewController {
             productImageView.layer.cornerRadius = productImageView.frame.height / 2
         }
         balanceLabel.text = "잔액 : \(vendingMachine.readBalance())"
+        updateNumberOfProductLabels()
     }
 
+    private func updateNumberOfProductLabels() {
+        let numberOfProducts = vendingMachine.inventory()
+        for numberOfProductLabel in numberOfProductLabels {
+            guard let id = numberOfProductLabel.restorationIdentifier else {continue}
+            guard let numberOfProduct = numberOfProducts[id] else {
+                numberOfProductLabel.text = "0개"
+                continue
+            }
+            numberOfProductLabel.text = "\(numberOfProduct)개"
+        }
+    }
+    
     @IBAction func tapAddBeverageButton(_ sender: UIButton) {
         let beverage: Beverage
         
         switch sender.restorationIdentifier {
-        case "mandarineMilk":
+        case "mandarineMilkAddButton":
             beverage = Beverage.produce(product: MandarineMilk.self)
-        case "lactoseFreeMilk":
+        case "lactoseFreeMilkAddButton":
             beverage = Beverage.produce(product: LactoseFreeMilk.self)
-        case "starbucksDoubleShot":
+        case "starbucksDoubleShotAddButton":
             beverage = Beverage.produce(product: StarbucksDoubleShot.self)
-        case "topTheBlack":
+        case "topTheBlackAddButton":
             beverage = Beverage.produce(product: TOPTheBlack.self)
-        case "cocaCola":
+        case "cocaColaAddButton":
             beverage = Beverage.produce(product: CocaCola.self)
-        case "cocaColaZero":
+        case "cocaColaZeroAddButton":
             beverage = Beverage.produce(product: CocaColaZero.self)
         default:
             return
         }
         
         vendingMachine.add(product: beverage)
+        updateNumberOfProductLabels()
     }
 
     @IBAction func tapInsertMoneyButton(_ sender: UIButton) {

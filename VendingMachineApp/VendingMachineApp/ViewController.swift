@@ -25,40 +25,39 @@ class ViewController: UIViewController {
     }
 
     private func updateNumberOfProductLabels() {
-        let numberOfProducts = vendingMachine.inventory()
         for numberOfProductLabel in numberOfProductLabels {
-            guard let id = numberOfProductLabel.restorationIdentifier else {continue}
-            guard let numberOfProduct = numberOfProducts[id] else {
-                numberOfProductLabel.text = "0개"
-                continue
-            }
+            guard let tag = numberOfProductLabel.superview?.tag else {continue}
+            let numberOfProduct = vendingMachine.numberOf(tag: tag)
             numberOfProductLabel.text = "\(numberOfProduct)개"
         }
     }
     
     @IBAction func tapAddBeverageButton(_ sender: UIButton) {
-        let beverage: Beverage
         guard let tag = sender.superview?.tag else {return}
         
         switch tag {
         case 1:
-            beverage = Beverage.produce(product: MandarineMilk.self)
+            addBeverage(of: MandarineMilk.self)
         case 2:
-            beverage = Beverage.produce(product: LactoseFreeMilk.self)
+            addBeverage(of: LactoseFreeMilk.self)
         case 3:
-            beverage = Beverage.produce(product: StarbucksDoubleShot.self)
+            addBeverage(of: StarbucksDoubleShot.self)
         case 4:
-            beverage = Beverage.produce(product: TOPTheBlack.self)
+            addBeverage(of: TOPTheBlack.self)
         case 5:
-            beverage = Beverage.produce(product: CocaCola.self)
+            addBeverage(of: CocaCola.self)
         case 6:
-            beverage = Beverage.produce(product: CocaColaZero.self)
+            addBeverage(of: CocaColaZero.self)
         default:
             return
         }
-        
-        vendingMachine.add(product: beverage)
+
         updateNumberOfProductLabels()
+    }
+    
+    private func addBeverage<T>(of Type: T.Type) where T: Beverage, T: Product {
+        let beverage = Beverage.produce(product: Type)
+        vendingMachine.add(product: beverage)
     }
 
     @IBAction func tapInsertMoneyButton(_ sender: UIButton) {

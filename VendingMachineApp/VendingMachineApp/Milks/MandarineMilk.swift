@@ -9,6 +9,8 @@
 import Foundation
 
 class MandarineMilk: Milk, Product {
+    let tag: Int = 1
+    
     required init() {
         super.init(lactose: 27,
                    brand: "빙그레",

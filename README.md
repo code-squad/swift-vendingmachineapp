@@ -114,41 +114,41 @@ var masksToBounds: Bool { get set }
 
 - bottom
 
-![스크린샷 2019-01-02 오후 5.38.59](/Users/yxxjy/Desktop/스크린샷 2019-01-02 오후 5.38.59.png)
+![bottom](./images/step2/contentmode/bottom.png)
 
 - bottomLeft
 
-![스크린샷 2019-01-02 오후 5.39.31](/Users/yxxjy/Desktop/스크린샷 2019-01-02 오후 5.39.31.png)
+![bottom-left](./images/step2/contentmode/bottom-left.png)
 
 - bottomRight
 
-![스크린샷 2019-01-02 오후 5.40.44](/Users/yxxjy/Desktop/스크린샷 2019-01-02 오후 5.40.44.png)
+![bottom-right](./images/step2/contentmode/bottom-right.png)
 
 - top
 
-![스크린샷 2019-01-02 오후 5.44.43](/Users/yxxjy/Desktop/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202019-01-02%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%205.44.43.png)
+![top](./images/step2/contentmode/top.png)
 
 - topLeft
 
-![스크린샷 2019-01-02 오후 5.45.19](/Users/yxxjy/Desktop/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202019-01-02%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%205.45.19.png)
+![top-left](./images/step2/contentmode/top-left.png)
 
 - topRight
 
-![스크린샷 2019-01-02 오후 5.45.41](/Users/yxxjy/Desktop/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202019-01-02%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%205.45.41.png)
+![top-right](./images/step2/contentmode/top-right.png)
 
 
 
 - center
 
-![스크린샷 2019-01-02 오후 5.41.06](/Users/yxxjy/Desktop/스크린샷 2019-01-02 오후 5.41.06.png)
+![center](./images/step2/contentmode/center.png)
 
 - left
 
-![스크린샷 2019-01-02 오후 5.41.29](/Users/yxxjy/Desktop/스크린샷 2019-01-02 오후 5.41.29.png)
+![left](./images/step2/contentmode/left.png)
 
 - right
 
-![스크린샷 2019-01-02 오후 5.42.27](/Users/yxxjy/Desktop/스크린샷 2019-01-02 오후 5.42.27.png)
+![right](./images/step2/contentmode/right.png)
 
 <br>
 
@@ -158,21 +158,21 @@ var masksToBounds: Bool { get set }
   - `setNeedsDisplay()` 메소드를 통해 뷰의 경계가 바뀌었을 때 다시 보여줄 수 있습니다.
   - **뷰의 컨텐츠나 모양이 변경될 수 있는 경우**에만 사용합니다.
 
-![스크린샷 2019-01-02 오후 5.42.03](/Users/yxxjy/Desktop/스크린샷 2019-01-02 오후 5.42.03.png)
+![redraw](./images/step2/contentmode/redraw.png)
 
 - scaleAspectFill
   - 뷰의 사이즈에 맞도록 조정합니다. 뷰의 경계를 모두 채우기 위해, **컨텐츠의 부분이 잘리는 경우**도 있습니다.
 
-![스크린샷 2019-01-02 오후 5.42.58](/Users/yxxjy/Desktop/스크린샷 2019-01-02 오후 5.42.58.png)
+![scale-aspect-fill](./images/step2/contentmode/scale-aspect-fill.png)
 
 - scaleAspectFit
   - 뷰의 사이즈에 맞도록 컨텐츠를 조정합니다. 컨텐츠 측면 비율은 유지합니다. **뷰의 경계의 나머지 부분이 그대로 보여지기때문에** 모서리가 둥그렇게 보이지 않습니다.
 
-![스크린샷 2019-01-02 오후 5.43.28](/Users/yxxjy/Desktop/스크린샷 2019-01-02 오후 5.43.28.png)
+![scale-aspect-fit](./images/step2/contentmode/scale-aspect-fit.png)
 
 - scaleToFill 
   - `ContentMode` 의 **default** 값입니다.
   - 필요한 경우에 뷰의 사이즈에 맞도록 컨텐츠의 측면 비율이 조정됩니다.
 
-![스크린샷 2019-01-02 오후 5.44.14](/Users/yxxjy/Desktop/스크린샷 2019-01-02 오후 5.44.14.png)
+![scale-to-fill](./images/step2/contentmode/scale-to-fill.png)
 

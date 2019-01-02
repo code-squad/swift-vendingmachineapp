@@ -25,15 +25,20 @@ class ViewController: UIViewController {
     }
 
     private func updateNumberOfProductLabels() {
-        let numberOfProducts = vendingMachine.inventory()
         for numberOfProductLabel in numberOfProductLabels {
-            guard let id = numberOfProductLabel.restorationIdentifier else {continue}
-            guard let numberOfProduct = numberOfProducts[id] else {
-                numberOfProductLabel.text = "0개"
-                continue
-            }
-            numberOfProductLabel.text = "\(numberOfProduct)개"
+            let numberOfBeverage = mapping(tag: numberOfProductLabel.superview?.tag ?? 0)
+            numberOfProductLabel.text = "\(numberOfBeverage)개"
         }
+    }
+    
+    private func mapping(tag: Int) -> Int {
+        let numberOfProducts = vendingMachine.inventory()
+        for beverage in Mapper.allCases {
+            if beverage.rawValue == tag {
+                return numberOfProducts[beverage.beverageName()] ?? 0
+            }
+        }
+        return 0
     }
     
     @IBAction func tapAddBeverageButton(_ sender: UIButton) {

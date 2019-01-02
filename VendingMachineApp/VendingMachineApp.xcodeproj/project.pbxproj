@@ -15,6 +15,7 @@
 		7DA03A2E21D7348C002355CA /* mandarinemilk.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DA03A2821D7348C002355CA /* mandarinemilk.png */; };
 		7DA03A3621D9F480002355CA /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA03A3521D9F480002355CA /* Product.swift */; };
 		7DA03A3921DC7E03002355CA /* Money.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA03A3821DC7E03002355CA /* Money.swift */; };
+		7DA03A3B21DCB9B5002355CA /* Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA03A3A21DCB9B5002355CA /* Mapper.swift */; };
 		7DE2CB3221D4B82E004EC966 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE2CB3121D4B82E004EC966 /* AppDelegate.swift */; };
 		7DE2CB3421D4B82E004EC966 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE2CB3321D4B82E004EC966 /* ViewController.swift */; };
 		7DE2CB3721D4B82E004EC966 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DE2CB3521D4B82E004EC966 /* Main.storyboard */; };
@@ -48,6 +49,7 @@
 		7DA03A2821D7348C002355CA /* mandarinemilk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mandarinemilk.png; sourceTree = "<group>"; };
 		7DA03A3521D9F480002355CA /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		7DA03A3821DC7E03002355CA /* Money.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Money.swift; sourceTree = "<group>"; };
+		7DA03A3A21DCB9B5002355CA /* Mapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mapper.swift; sourceTree = "<group>"; };
 		7DE2CB2E21D4B82E004EC966 /* VendingMachineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendingMachineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DE2CB3121D4B82E004EC966 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7DE2CB3321D4B82E004EC966 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				7DA03A3821DC7E03002355CA /* Money.swift */,
+				7DA03A3A21DCB9B5002355CA /* Mapper.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 				7DE2CB7C21D4B920004EC966 /* MandarineMilk.swift in Sources */,
 				7DE2CB6A21D4B920004EC966 /* StarbucksDoubleShot.swift in Sources */,
 				7DE2CB6621D4B920004EC966 /* CocaColaZero.swift in Sources */,
+				7DA03A3B21DCB9B5002355CA /* Mapper.swift in Sources */,
 				7DA03A3621D9F480002355CA /* Product.swift in Sources */,
 				7DE2CB7421D4B920004EC966 /* VariousTemperatures.swift in Sources */,
 				7DE2CB6C21D4B920004EC966 /* TOPTheBlack.swift in Sources */,

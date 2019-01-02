@@ -49,6 +49,6 @@ class Beverage: CustomStringConvertible {
     }
     
     static func produce<T>(product: T.Type) -> T where T: Beverage, T: Product {
-        return T.init()
+        return product.init()
     }
 }

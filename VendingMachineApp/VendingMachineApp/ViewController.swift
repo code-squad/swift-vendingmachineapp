@@ -38,23 +38,25 @@ class ViewController: UIViewController {
     
     @IBAction func tapAddBeverageButton(_ sender: UIButton) {
         let beverage: Beverage
+        guard let tag = sender.superview?.tag else {return}
         
-        switch sender.restorationIdentifier {
-        case "mandarineMilkAddButton":
+        switch tag {
+        case 1:
             beverage = Beverage.produce(product: MandarineMilk.self)
-        case "lactoseFreeMilkAddButton":
+        case 2:
             beverage = Beverage.produce(product: LactoseFreeMilk.self)
-        case "starbucksDoubleShotAddButton":
+        case 3:
             beverage = Beverage.produce(product: StarbucksDoubleShot.self)
-        case "topTheBlackAddButton":
+        case 4:
             beverage = Beverage.produce(product: TOPTheBlack.self)
-        case "cocaColaAddButton":
+        case 5:
             beverage = Beverage.produce(product: CocaCola.self)
-        case "cocaColaZeroAddButton":
+        case 6:
             beverage = Beverage.produce(product: CocaColaZero.self)
         default:
             return
         }
+        
         vendingMachine.add(product: beverage)
         updateNumberOfProductLabels()
     }

@@ -55,7 +55,6 @@ class ViewController: UIViewController {
         default:
             return
         }
-        
         vendingMachine.add(product: beverage)
         updateNumberOfProductLabels()
     }

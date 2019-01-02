@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A3040F4421DCC24700B9A831 /* BeverageSubCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3040F4321DCC24700B9A831 /* BeverageSubCategory.swift */; };
 		A3E1B2EA21CFE07A00B35A96 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E1B2E921CFE07A00B35A96 /* AppDelegate.swift */; };
 		A3E1B2EC21CFE07A00B35A96 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E1B2EB21CFE07A00B35A96 /* ViewController.swift */; };
 		A3E1B2EF21CFE07A00B35A96 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3E1B2ED21CFE07A00B35A96 /* Main.storyboard */; };
@@ -58,6 +59,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A3040F4321DCC24700B9A831 /* BeverageSubCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageSubCategory.swift; sourceTree = "<group>"; };
 		A3E1B2E621CFE07900B35A96 /* VendingMachineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendingMachineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3E1B2E921CFE07A00B35A96 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A3E1B2EB21CFE07A00B35A96 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 				A3E1B36021D469FB00B35A96 /* images */,
 				A3E1B34321D0712C00B35A96 /* Beverage.swift */,
 				A3E1B34C21D0712C00B35A96 /* BeverageCategory.swift */,
+				A3040F4321DCC24700B9A831 /* BeverageSubCategory.swift */,
 				A3E1B35121D0712C00B35A96 /* BeveragePackage.swift */,
 				A3E1B35221D0712C00B35A96 /* BeverageGroup.swift */,
 				A3E1B34421D0712C00B35A96 /* Milk */,
@@ -391,6 +394,7 @@
 				A3E1B35521D0712C00B35A96 /* Milk.swift in Sources */,
 				A3E1B35B21D0712C00B35A96 /* Georgia.swift in Sources */,
 				A3E1B33B21D06F2000B35A96 /* Inventory.swift in Sources */,
+				A3040F4421DCC24700B9A831 /* BeverageSubCategory.swift in Sources */,
 				A3E1B35E21D0712C00B35A96 /* BeveragePackage.swift in Sources */,
 				A3E1B33A21D06F2000B35A96 /* Pack.swift in Sources */,
 				A3E1B35821D0712C00B35A96 /* SoftDrink.swift in Sources */,

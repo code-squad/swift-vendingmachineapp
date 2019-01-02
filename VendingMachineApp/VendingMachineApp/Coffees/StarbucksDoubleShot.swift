@@ -9,8 +9,6 @@
 import Foundation
 
 class StarbucksDoubleShot: Coffee, Product {
-    let tag: Int = 3
-    
     required init() {
         super.init(hasMilk: true,
                    isHot: true,

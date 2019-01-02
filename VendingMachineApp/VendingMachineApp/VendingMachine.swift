@@ -8,26 +8,26 @@
 
 import Foundation
 
-struct VendingMachine {
+struct VendingMachine: VendingMachineManagerFunction, VendingMachineUserFunction {
     private var balance: Int = 0
-    private var products: [Int: [Beverage]] = [:]
+    private var products: [String: [Beverage]] = [:]
     private var historyOfPurchase: [Beverage] = []
 
     mutating func insert(money: Money) {
         self.balance += money.rawValue
     }
 
-    mutating func add<T>(product: T) where T: Beverage, T: Product {
-        if self.products[product.tag] == nil {
-            self.products[product.tag] = []
+    mutating func add(product: Beverage) {
+        if self.products["\(type(of: product))"] == nil {
+            self.products["\(type(of: product))"] = []
         }
-        self.products[product.tag]?.append(product)
+        self.products["\(type(of: product))"]?.append(product)
     }
 
-    mutating func buy(tag: Int) -> Beverage? {
-        let product = self.products[tag]?.popLast()
-        if self.products[tag]?.count == 0 {
-            self.products[tag] = nil
+    mutating func buy(productName: String) -> Beverage? {
+        let product = self.products[productName]?.popLast()
+        if self.products[productName]?.count == 0 {
+            self.products[productName] = nil
         }
         if let product = product {
             self.historyOfPurchase.append(product)
@@ -49,8 +49,19 @@ struct VendingMachine {
         return formatter.string(from: self.balance as NSNumber) ?? ""
     }
 
-    func numberOf(tag: Int) -> Int {
-        return products[tag]?.count ?? 0
+    func inventory() -> [String: Int] {
+        var inventoryStatus: [String: Int] = [:]
+
+        for (_, products) in self.products {
+            guard !products.isEmpty else {continue}
+            let name = { (name: String) -> String in
+                return name
+            }
+            let beverageName = products[0].name(read: name)
+            inventoryStatus[beverageName] = products.count
+        }
+
+        return inventoryStatus
     }
 
     func expiredProducts() -> [Beverage] {
@@ -75,5 +86,13 @@ struct VendingMachine {
             })
         }
         return hotProducts
+    }
+
+    mutating func removeExpiredProducts() {
+        var newProducts: [String: [Beverage]] = [:]
+        for (key, products) in products {
+            newProducts[key] = products.filter {$0.isExpiryDateOut()}
+        }
+        self.products = newProducts
     }
 }

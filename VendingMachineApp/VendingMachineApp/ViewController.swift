@@ -32,7 +32,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         roundImageViews()
         showQuantities()
-        vendingMachine.showBalance(with: balanceForm(money:))
+        vendingMachine.showBalance(with: balanceForm)
     }
 
     private func showQuantities() {
@@ -62,7 +62,7 @@ class ViewController: UIViewController {
 
     private func insert(money: Money) {
         guard vendingMachine.insert(money: money.rawValue) else { return }
-        vendingMachine.showBalance(with: balanceForm(money:))
+        vendingMachine.showBalance(with: balanceForm)
     }
 
     @IBAction func insertOneThousand(_ sender: Any) {

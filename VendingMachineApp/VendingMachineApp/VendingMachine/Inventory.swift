@@ -15,12 +15,12 @@ class Inventory {
         self.list = list
     }
 
-    func hasNoBeverage(of beverage: BeverageGroup.Type) -> Bool {
+    func hasNoBeverage(of beverage: Beverage.Type) -> Bool {
         let beverageType = ObjectIdentifier(beverage)
         return list.contains(where: { $0.key == beverageType && $0.value.isEmpty() })
     }
 
-    func packOf(type beverage: BeverageGroup.Type) -> Pack? {
+    func packOf(type beverage: Beverage.Type) -> Pack? {
         let beverageType = ObjectIdentifier(beverage)
         guard let pack = list[beverageType] else { return nil }
         return pack

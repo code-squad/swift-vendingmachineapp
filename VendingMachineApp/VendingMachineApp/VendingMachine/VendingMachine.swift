@@ -23,7 +23,7 @@ protocol PrintableForConsumer {
 
 protocol Manager {
     func add(beverage: Beverage)
-    func add(beverage: Int) -> Bool
+    func add(beverage: BeverageSubCategory) -> Bool
     func remove(beverage: Int) -> Beverage?
     func removeExpiredBeverages() -> [Beverage]
 }
@@ -38,8 +38,6 @@ struct VendingMachine {
     private var balance: Int
     private var inventory: Inventory
     private var history: History
-    private let beverageTypes = [ChocolateMilk.self, StrawberryMilk.self,
-                                 Sprite.self, Pepsi.self, Cantata.self, Georgia.self]
 
     init(beginningBalance: Int = 0, initialInventory: Inventory) {
         self.balance = beginningBalance
@@ -56,7 +54,7 @@ struct VendingMachine {
     }
 
     func count(beverage index: Int) -> Int? {
-        let type = beverageTypes[index]
+        guard let type = BeverageSubCategory(rawValue: index)?.type else { return nil }
         guard let pack = inventory.packOf(type: type) else { return nil }
         return pack.count
     }
@@ -120,13 +118,6 @@ extension VendingMachine: Manager {
         inventory.add(beverage: beverage)
     }
 
-    func add(beverage number: Int) -> Bool {
-        guard number < beverageTypes.count else { return false }
-        let newBeverage = beverageTypes[number].init()
-        inventory.add(beverage: newBeverage)
-        return true
-    }
-
     func add(beverage: BeverageSubCategory) -> Bool {
         let newBeverage = beverage.type.init()
         inventory.add(beverage: newBeverage)
@@ -134,8 +125,8 @@ extension VendingMachine: Manager {
     }
 
     func remove(beverage number: Int) -> Beverage? {
-        guard number < beverageTypes.count else { return nil }
-        guard let pack = inventory.packOf(type: beverageTypes[number]) else { return nil }
+        guard let type = BeverageSubCategory(rawValue: number)?.type else { return nil }
+        guard let pack = inventory.packOf(type: type) else { return nil }
         guard let beverage = inventory.remove(selected: pack) else { return nil }
         return beverage
     }
@@ -158,7 +149,8 @@ extension VendingMachine: PrintableForManager {
 
     func showListOfAll(with show: (String, Int, Bool) -> Void) {
         let list = inventory.getListOfAll()
-        for type in beverageTypes {
+        for beverage in BeverageSubCategory.allCases {
+            let type = beverage.type
             guard let pack = inventory.packOf(type: type) else { continue }
             if inventory.hasNoBeverage(of: type) {
                 show("\(pack.title)", 0, false)

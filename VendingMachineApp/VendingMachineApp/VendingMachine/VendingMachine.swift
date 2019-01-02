@@ -127,6 +127,12 @@ extension VendingMachine: Manager {
         return true
     }
 
+    func add(beverage: BeverageSubCategory) -> Bool {
+        let newBeverage = beverage.type.init()
+        inventory.add(beverage: newBeverage)
+        return true
+    }
+
     func remove(beverage number: Int) -> Beverage? {
         guard number < beverageTypes.count else { return nil }
         guard let pack = inventory.packOf(type: beverageTypes[number]) else { return nil }

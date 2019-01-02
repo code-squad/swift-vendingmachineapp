@@ -62,8 +62,15 @@ class ViewController: UIViewController {
     }
 
     @IBAction func tapInsertMoneyButton(_ sender: UIButton) {
-        let money = sender.tag
-        vendingMachine.insert(money: money)
+        switch sender.tag {
+        case 1:
+            vendingMachine.insert(money: .thousand)
+        case 2:
+            vendingMachine.insert(money: .fiveThousand)
+        default:
+            return
+        }
+        
         balanceLabel.text = "잔액 : \(vendingMachine.readBalance())"
     }
 }

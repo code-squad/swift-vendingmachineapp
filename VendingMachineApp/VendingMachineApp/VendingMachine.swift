@@ -13,8 +13,8 @@ struct VendingMachine: VendingMachineManagerFunction, VendingMachineUserFunction
     private var products: [String: [Beverage]] = [:]
     private var historyOfPurchase: [Beverage] = []
 
-    mutating func insert(money: Int) {
-        self.balance += money
+    mutating func insert(money: Money) {
+        self.balance += money.rawValue
     }
 
     mutating func add(product: Beverage) {

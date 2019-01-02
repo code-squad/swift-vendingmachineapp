@@ -9,7 +9,7 @@
 import Foundation
 
 protocol VendingMachineUserFunction: ReadableInventory {
-    mutating func insert(money: Int)
+    mutating func insert(money: Money)
     mutating func buy(productName: String) -> Beverage?
     func readBalance() -> String
     func hotProducts() -> [String]

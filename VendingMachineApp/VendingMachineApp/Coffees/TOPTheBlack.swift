@@ -9,8 +9,6 @@
 import Foundation
 
 class TOPTheBlack: Coffee, Product {
-    let tag: Int = 4
-    
     required init() {
         super.init(hasMilk: false,
                    isHot: false,

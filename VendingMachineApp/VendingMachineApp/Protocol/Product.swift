@@ -9,6 +9,5 @@
 import Foundation
 
 protocol Product {
-    var tag: Int {get}
     init()
 }

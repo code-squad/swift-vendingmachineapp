@@ -9,8 +9,6 @@
 import Foundation
 
 class LactoseFreeMilk: Milk, Product {
-    let tag: Int = 2
-    
     required init() {
         super.init(lactose: 0,
                    brand: "매일유업",

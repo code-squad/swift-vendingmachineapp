@@ -9,8 +9,6 @@
 import Foundation
 
 class CocaColaZero: CarbonatedDrink, Product {
-    let tag: Int = 6
-    
     required init() {
         super.init(calorie: 0,
                    brand: "코카콜라",

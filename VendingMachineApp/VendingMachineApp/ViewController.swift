@@ -55,22 +55,17 @@ class ViewController: UIViewController {
         self.balance.text = "잔액: \(money)원"
     }
 
-    private enum Money: Int {
-        case oneThousand = 1000
-        case fiveThousands = 5000
-    }
-
     private func insert(money: Money) {
-        guard vendingMachine.insert(money: money.rawValue) else { return }
+        guard vendingMachine.insert(money: money) else { return }
         vendingMachine.showBalance(with: balanceForm)
     }
 
     @IBAction func insertOneThousand(_ sender: Any) {
-        insert(money: .oneThousand)
+        insert(money: Money(unit: .oneThousand))
     }
 
     @IBAction func insertFiveThousands(_ sender: Any) {
-        insert(money: .fiveThousands)
+        insert(money: Money(unit: .fiveThousands))
     }
 
 }

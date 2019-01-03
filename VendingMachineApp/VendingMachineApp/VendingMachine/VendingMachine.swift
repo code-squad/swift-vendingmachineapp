@@ -10,7 +10,7 @@ import Foundation
 
 protocol Consumer {
     func isEmpty() -> Bool
-    mutating func insert(money: Int) -> Bool
+    mutating func insert(money: Money) -> Bool
     func getListBuyable() -> [Pack]
     mutating func buy(beverage: Pack) -> Beverage?
 }
@@ -35,12 +35,12 @@ protocol PrintableForManager {
 }
 
 struct VendingMachine {
-    private var balance: Int
+    private var balance: Money
     private var inventory: Inventory
     private var history: History
 
-    init(beginningBalance: Int = 0, initialInventory: Inventory) {
-        self.balance = beginningBalance
+    init(initialBalance: Money = Money(), initialInventory: Inventory) {
+        self.balance = initialBalance
         self.inventory = initialInventory
         self.history = History()
     }
@@ -67,9 +67,9 @@ extension VendingMachine: Consumer {
         return inventory.isEmpty()
     }
 
-    mutating func insert(money: Int) -> Bool {
-        guard money > 0 else { return false }
-        balance += money
+    mutating func insert(money: Money) -> Bool {
+        guard money.isPositive() else { return false }
+        balance = balance + money
         return true
     }
 
@@ -79,7 +79,7 @@ extension VendingMachine: Consumer {
 
     mutating func buy(beverage pack: Pack) -> Beverage? {
         guard let beverage = inventory.remove(selected: pack) else { return nil }
-        balance = beverage.subtractPrice(from: balance)
+        balance.deductedPrice(of: beverage)
         history.update(purchase: beverage)
         return beverage
     }
@@ -88,8 +88,8 @@ extension VendingMachine: Consumer {
 
 extension VendingMachine: PrintableForConsumer {
 
-    func showBalance(with show: (Int) -> Void) {
-        show(balance)
+    func showBalance(with form: (Int) -> Void) {
+        balance.show(with: form)
     }
 
     func showListOfBuyable(with show: (Bool, Int, String) -> Void) {

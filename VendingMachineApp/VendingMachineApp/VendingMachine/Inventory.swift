@@ -44,8 +44,8 @@ class Inventory {
         return listOfAll
     }
 
-    func getListBuyable(with money: Int) -> [Pack] {
-        return list.values.filter { $0.isBuyable(with: money) }
+    func getListBuyable(with money: Money) -> [Pack] {
+        return list.values.filter { money.isEnoughToBuy(pack: $0) }
     }
 
     func getListOfHotBeverages() -> [Pack] {

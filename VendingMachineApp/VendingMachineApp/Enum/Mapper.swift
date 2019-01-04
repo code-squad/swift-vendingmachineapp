@@ -8,28 +8,15 @@
 
 import Foundation
 
-enum Mapper: Int, CaseIterable {
-    case mandarineMilk = 1
-    case lactoseFreeMilk = 2
-    case starbucksDoubleShot = 3
-    case topTheBlack = 4
-    case cocaCola = 5
-    case cocaColaZero = 6
+struct Mapper {
+    static private let map: [Int: String] = [1: "\(type(of:MandarineMilk()))",
+        2: "\(type(of: LactoseFreeMilk()))",
+        3: "\(type(of: StarbucksDoubleShot()))",
+        4: "\(type(of: TOPTheBlack()))",
+        5: "\(type(of: CocaCola()))",
+        6: "\(type(of: CocaColaZero()))",]
     
-    func beverageName() -> String {
-        switch self {
-        case .mandarineMilk:
-            return "귤맛우유"
-        case .lactoseFreeMilk:
-            return "소화가잘되는우유"
-        case .starbucksDoubleShot:
-            return "스타벅스더블샷에스프레소&크림"
-        case .topTheBlack:
-            return "맥심티오피더블랙"
-        case .cocaCola:
-            return "코카콜라"
-        case .cocaColaZero:
-            return "코카콜라제로"
-        }
+    static func mapping(tag: Int) -> String? {
+        return map[tag]
     }
 }

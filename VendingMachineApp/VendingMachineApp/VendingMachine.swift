@@ -63,6 +63,10 @@ struct VendingMachine: VendingMachineManagerFunction, VendingMachineUserFunction
 
         return inventoryStatus
     }
+    
+    func number(of product: String) -> Int {
+        return products[product]?.count ?? 0
+    }
 
     func expiredProducts() -> [Beverage] {
         var expiredProducts: [Beverage] = []

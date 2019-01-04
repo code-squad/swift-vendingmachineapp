@@ -26,19 +26,9 @@ class ViewController: UIViewController {
 
     private func updateNumberOfProductLabels() {
         for numberOfProductLabel in numberOfProductLabels {
-            let numberOfBeverage = mapping(tag: numberOfProductLabel.superview?.tag ?? 0)
-            numberOfProductLabel.text = "\(numberOfBeverage)개"
+            guard let productName = Mapper.mapping(tag: numberOfProductLabel.superview?.tag ?? 0) else {return}
+            numberOfProductLabel.text = "\(vendingMachine.number(of: productName))개"
         }
-    }
-    
-    private func mapping(tag: Int) -> Int {
-        let numberOfProducts = vendingMachine.inventory()
-        for beverage in Mapper.allCases {
-            if beverage.rawValue == tag {
-                return numberOfProducts[beverage.beverageName()] ?? 0
-            }
-        }
-        return 0
     }
     
     @IBAction func tapAddBeverageButton(_ sender: UIButton) {

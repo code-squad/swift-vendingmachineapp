@@ -9,16 +9,21 @@
 import UIKit
 
 class ViewController: UIViewController {
-    private var vendingMachine: VendingMachine
+    private var appDelegate: AppDelegate?
     @IBOutlet var beverageImages: [UIImageView]!
     @IBOutlet var beverageLabels: [UILabel]!
     @IBOutlet weak var balance: UILabel!
 
     required init?(coder aDecoder: NSCoder) {
+        self.appDelegate = UIApplication.shared.delegate as? AppDelegate
+        super.init(coder: aDecoder)
+        setVendingMachine()
+    }
+
+    private func setVendingMachine() {
         let emptyList = [ObjectIdentifier: Pack]()
         let inventory = Inventory(list: emptyList)
-        self.vendingMachine = VendingMachine(initialInventory: inventory)
-        super.init(coder: aDecoder)
+        appDelegate?.vendingMachine = VendingMachine(initialInventory: inventory)
     }
 
     private func roundImageViews() {
@@ -32,12 +37,12 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         roundImageViews()
         showQuantities()
-        vendingMachine.showBalance(with: balanceForm)
+        appDelegate?.vendingMachine?.showBalance(with: balanceForm)
     }
 
     private func showQuantities() {
         for (index, quantity) in beverageLabels.enumerated() {
-            if let count = vendingMachine.count(beverage: index) {
+            if let count =  appDelegate?.vendingMachine?.count(beverage: index) {
                 quantity.text = "\(count)개"
                 continue
             }
@@ -47,7 +52,7 @@ class ViewController: UIViewController {
 
     @IBAction func addBeverage(_ sender: UIButton) {
         guard let beverage = BeverageSubCategory(rawValue: sender.tag) else { return }
-        guard vendingMachine.add(beverage: beverage) else { return }
+        guard appDelegate?.vendingMachine?.add(beverage: beverage) ?? false else { return }
         showQuantities()
     }
 
@@ -56,8 +61,8 @@ class ViewController: UIViewController {
     }
 
     private func insert(money: Money) {
-        guard vendingMachine.insert(money: money) else { return }
-        vendingMachine.showBalance(with: balanceForm)
+        guard appDelegate?.vendingMachine?.insert(money: money) ?? false else { return }
+        appDelegate?.vendingMachine?.showBalance(with: balanceForm)
     }
 
     @IBAction func insertOneThousand(_ sender: Any) {

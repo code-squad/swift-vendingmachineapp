@@ -26,34 +26,37 @@ class ViewController: UIViewController {
 
     private func updateNumberOfProductLabels() {
         for numberOfProductLabel in numberOfProductLabels {
-            guard let productName = Mapper.mapping(tag: numberOfProductLabel.superview?.tag ?? 0) else {return}
-            numberOfProductLabel.text = "\(vendingMachine.number(of: productName))개"
+            let tag = numberOfProductLabel.superview?.tag ?? 0
+            numberOfProductLabel.text = "\(vendingMachine.number(of: tag))개"
         }
     }
     
     @IBAction func tapAddBeverageButton(_ sender: UIButton) {
-        let beverage: Beverage
         guard let tag = sender.superview?.tag else {return}
         
         switch tag {
         case 1:
-            beverage = Beverage.produce(product: MandarineMilk.self)
+            add(productType: MandarineMilk.self)
         case 2:
-            beverage = Beverage.produce(product: LactoseFreeMilk.self)
+            add(productType: LactoseFreeMilk.self)
         case 3:
-            beverage = Beverage.produce(product: StarbucksDoubleShot.self)
+            add(productType: StarbucksDoubleShot.self)
         case 4:
-            beverage = Beverage.produce(product: TOPTheBlack.self)
+            add(productType: TOPTheBlack.self)
         case 5:
-            beverage = Beverage.produce(product: CocaCola.self)
+            add(productType: CocaCola.self)
         case 6:
-            beverage = Beverage.produce(product: CocaColaZero.self)
+            add(productType: CocaColaZero.self)
         default:
             return
         }
         
-        vendingMachine.add(product: beverage)
         updateNumberOfProductLabels()
+    }
+    
+    private func add<T>(productType: T.Type) where T: Beverage, T: Product {
+        let beverage = Beverage.produce(product: productType)
+        vendingMachine.add(product: beverage)
     }
 
     @IBAction func tapInsertMoneyButton(_ sender: UIButton) {

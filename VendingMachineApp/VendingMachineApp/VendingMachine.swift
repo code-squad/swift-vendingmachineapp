@@ -8,26 +8,27 @@
 
 import Foundation
 
-struct VendingMachine: VendingMachineManagerFunction, VendingMachineUserFunction {
+struct VendingMachine {
     private var balance: Int = 0
-    private var products: [String: [Beverage]] = [:]
+    private var products: [Int: [Beverage]] = [:]
     private var historyOfPurchase: [Beverage] = []
 
     mutating func insert(money: Money) {
         self.balance += money.rawValue
     }
 
-    mutating func add(product: Beverage) {
-        if self.products["\(type(of: product))"] == nil {
-            self.products["\(type(of: product))"] = []
+    mutating func add<T>(product: T) where T: Beverage, T: Product {
+        let tag = Mapper.mapping(productName: "\(type(of: product))")
+        if self.products[tag] == nil {
+            self.products[tag] = []
         }
-        self.products["\(type(of: product))"]?.append(product)
+        self.products[tag]?.append(product)
     }
 
-    mutating func buy(productName: String) -> Beverage? {
-        let product = self.products[productName]?.popLast()
-        if self.products[productName]?.count == 0 {
-            self.products[productName] = nil
+    mutating func buy(tag: Int) -> Beverage? {
+        let product = self.products[tag]?.popLast()
+        if self.products[tag]?.count == 0 {
+            self.products[tag] = nil
         }
         if let product = product {
             self.historyOfPurchase.append(product)
@@ -64,8 +65,8 @@ struct VendingMachine: VendingMachineManagerFunction, VendingMachineUserFunction
         return inventoryStatus
     }
     
-    func number(of product: String) -> Int {
-        return products[product]?.count ?? 0
+    func number(of tag: Int) -> Int {
+        return products[tag]?.count ?? 0
     }
 
     func expiredProducts() -> [Beverage] {
@@ -90,13 +91,5 @@ struct VendingMachine: VendingMachineManagerFunction, VendingMachineUserFunction
             })
         }
         return hotProducts
-    }
-
-    mutating func removeExpiredProducts() {
-        var newProducts: [String: [Beverage]] = [:]
-        for (key, products) in products {
-            newProducts[key] = products.filter {$0.isExpiryDateOut()}
-        }
-        self.products = newProducts
     }
 }

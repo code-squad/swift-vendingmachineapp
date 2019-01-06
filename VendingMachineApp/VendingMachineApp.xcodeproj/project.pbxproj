@@ -108,7 +108,8 @@
 			isa = PBXGroup;
 			children = (
 				7DE2CB3121D4B82E004EC966 /* AppDelegate.swift */,
-				7DE2CB5421D4B91F004EC966 /* Beverage.swift */,
+				7DE2CB3321D4B82E004EC966 /* ViewController.swift */,
+				7DE2CB3521D4B82E004EC966 /* Main.storyboard */,
 				7DE2CB4621D4B91F004EC966 /* CarbonatedDrink */,
 				7DE2CB4B21D4B91F004EC966 /* Coffees */,
 				7DE2CB6021D4B920004EC966 /* Milks */,
@@ -116,8 +117,7 @@
 				7DE2CB5721D4B920004EC966 /* Protocol */,
 				7DA03A3721DC7DEA002355CA /* Enum */,
 				7DE2CB5221D4B91F004EC966 /* VendingMachine.swift */,
-				7DE2CB3321D4B82E004EC966 /* ViewController.swift */,
-				7DE2CB3521D4B82E004EC966 /* Main.storyboard */,
+				7DE2CB5421D4B91F004EC966 /* Beverage.swift */,
 				7DE2CB3821D4B82F004EC966 /* Assets.xcassets */,
 				7DE2CB3A21D4B82F004EC966 /* LaunchScreen.storyboard */,
 				7DE2CB3D21D4B82F004EC966 /* Info.plist */,

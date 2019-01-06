@@ -9,7 +9,6 @@
 import UIKit
 
 class ViewController: UIViewController {
-    var vendingMachine: VendingMachine = VendingMachine()
     @IBOutlet weak var balanceLabel: UILabel!
     @IBOutlet var productImageViews: [UIImageView]!
     @IBOutlet var numberOfProductLabels: [UILabel]!

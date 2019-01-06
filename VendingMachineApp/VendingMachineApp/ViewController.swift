@@ -9,6 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController {
+    private var vendingMachine: VendingMachine!
     @IBOutlet weak var balanceLabel: UILabel!
     @IBOutlet var productImageViews: [UIImageView]!
     @IBOutlet var numberOfProductLabels: [UILabel]!
@@ -16,6 +17,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        guard let appDelegate: AppDelegate = UIApplication.shared.delegate as? AppDelegate else {return}
+        vendingMachine = appDelegate.vendingMachine
+        
         for productImageView in productImageViews {
             productImageView.layer.cornerRadius = productImageView.frame.height / 2
         }

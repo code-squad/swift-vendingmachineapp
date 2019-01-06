@@ -8,16 +8,16 @@
 
 import Foundation
 
-struct VendingMachine {
+class VendingMachine {
     private var balance: Int = 0
     private var products: [Int: [Beverage]] = [:]
     private var historyOfPurchase: [Beverage] = []
 
-    mutating func insert(money: Money) {
+    func insert(money: Money) {
         self.balance += money.rawValue
     }
 
-    mutating func add<T>(product: T) where T: Beverage, T: Product {
+    func add<T>(product: T) where T: Beverage, T: Product {
         let tag = Mapper.mapping(productName: "\(type(of: product))")
         if self.products[tag] == nil {
             self.products[tag] = []
@@ -25,7 +25,7 @@ struct VendingMachine {
         self.products[tag]?.append(product)
     }
 
-    mutating func buy(tag: Int) -> Beverage? {
+    func buy(tag: Int) -> Beverage? {
         let product = self.products[tag]?.popLast()
         if self.products[tag]?.count == 0 {
             self.products[tag] = nil

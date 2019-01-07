@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-    private var appDelegate: AppDelegate?
+    private weak var appDelegate: AppDelegate?
     @IBOutlet var beverageImages: [UIImageView]!
     @IBOutlet var beverageLabels: [UILabel]!
     @IBOutlet weak var balance: UILabel!

@@ -13,15 +13,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var vendingMachine: VendingMachine?
     var window: UIWindow?
 
+    private func loadVendingMachine() {
+        guard let data = UserDefaults.standard.object(forKey: "vendingMachine") as? Data else { return }
+        let decoder = PropertyListDecoder()
+        vendingMachine = try? decoder.decode(VendingMachine.self, from: data)
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        loadVendingMachine()
         return true
     }
 
+    private func archiveVendingMachine() {
+        let encoder = PropertyListEncoder()
+        let vendingMachineEncoded = try? encoder.encode(vendingMachine)
+        UserDefaults.standard.set(vendingMachineEncoded, forKey:"vendingMachine")
+    }
+
     func applicationWillResignActive(_ application: UIApplication) {
-        // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-        // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
+        archiveVendingMachine()
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {

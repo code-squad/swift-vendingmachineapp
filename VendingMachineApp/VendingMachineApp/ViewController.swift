@@ -17,13 +17,6 @@ class ViewController: UIViewController {
     required init?(coder aDecoder: NSCoder) {
         self.appDelegate = UIApplication.shared.delegate as? AppDelegate
         super.init(coder: aDecoder)
-        setVendingMachine()
-    }
-
-    private func setVendingMachine() {
-        let emptyList = [ObjectIdentifier: Pack]()
-        let inventory = Inventory(list: emptyList)
-        appDelegate?.vendingMachine = VendingMachine(initialInventory: inventory)
     }
 
     private func roundImageViews() {

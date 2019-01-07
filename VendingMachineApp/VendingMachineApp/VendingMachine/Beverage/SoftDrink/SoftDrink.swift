@@ -35,18 +35,26 @@ class SoftDrink: BeverageGroup {
             package: .plastic)
     }
 
-    enum CodingKeys: String, CodingKey {
-        case package
-    }
-    
-    required init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self)
-        package = try values.decode(BeveragePackage.self, forKey: .package)
-        try super.init(from: decoder)
-    }
-
     override var group: BeverageCategory {
         return .softDrink
+    }
+
+    /* MARK: NSSecureCoding*/
+    enum Keys: String {
+        case package = "package"
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        guard let packageNumber = aDecoder
+            .decodeObject(of: NSNumber.self, forKey: Keys.package.rawValue) else { return nil }
+        guard let package = BeveragePackage(rawValue: packageNumber) else { return nil }
+        self.package = package
+        super.init(coder: aDecoder)
+    }
+
+    override func encode(with aCoder: NSCoder) {
+        super.encode(with: aCoder)
+        aCoder.encode(NSNumber(value: package.rawValue), forKey: "package")
     }
 
 }

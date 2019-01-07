@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Beverage: NSObject, Codable {
+class Beverage: NSObject {
     private let brand: String
     private let name: String
     private let volume: Int
@@ -52,12 +52,51 @@ class Beverage: NSObject, Codable {
         return balance - price
     }
 
-}
-
-extension Beverage {
-
     func showPurchase(with show: (String, Int) -> Void) {
         show(name, price)
+    }
+
+    /* MARK: NSSecrueCoding */
+    required init?(coder aDecoder: NSCoder) {
+        guard let brand = aDecoder
+            .decodeObject(of: NSString.self, forKey: Keys.brand.rawValue) as String? else { return nil }
+        guard let name = aDecoder
+            .decodeObject(of: NSString.self, forKey: Keys.name.rawValue) as String? else { return nil }
+        guard let volume = aDecoder
+            .decodeObject(of: NSNumber.self, forKey: Keys.volume.rawValue) else { return nil }
+        guard let price = aDecoder
+            .decodeObject(of: NSNumber.self , forKey: Keys.price.rawValue) else { return nil }
+        guard let dateOfManufacture = aDecoder
+            .decodeObject(of: NSDate.self, forKey: Keys.dateOfManufacture.rawValue) as Date? else { return nil }
+        self.brand = brand
+        self.name = name
+        self.volume = volume.intValue
+        self.price = price.intValue
+        self.dateOfManufacture = dateOfManufacture
+    }
+
+}
+
+extension Beverage: NSSecureCoding {
+
+    enum Keys: String {
+        case brand = "brand"
+        case name = "name"
+        case volume = "volume"
+        case price = "price"
+        case dateOfManufacture = "dateOfManufacture"
+    }
+
+    static var supportsSecureCoding: Bool {
+        return true
+    }
+
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(brand as NSString, forKey: Keys.brand.rawValue)
+        aCoder.encode(name as NSString, forKey: Keys.name.rawValue)
+        aCoder.encode(NSNumber(value: volume), forKey: Keys.volume.rawValue)
+        aCoder.encode(NSNumber(value: price), forKey: Keys.price.rawValue)
+        aCoder.encode(dateOfManufacture as NSDate, forKey: Keys.dateOfManufacture.rawValue)
     }
 
 }

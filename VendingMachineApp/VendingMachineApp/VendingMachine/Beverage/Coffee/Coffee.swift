@@ -35,22 +35,27 @@ class Coffee: BeverageGroup {
             ice: true)
     }
 
-    enum CodingKeys: String, CodingKey {
-        case ice
-    }
-
-    required init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self)
-        ice = try values.decode(Bool.self, forKey: .ice)
-        try super.init(from: decoder)
-    }
-
     override var group: BeverageCategory {
         return .coffee
     }
 
     func isHot() -> Bool {
         return !ice
+    }
+
+    /* MARK: NSSecureCoding */
+    enum Keys: String {
+        case ice = "ice"
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        ice = aDecoder.decodeBool(forKey: Keys.ice.rawValue)
+        super.init(coder: aDecoder)
+    }
+
+    override func encode(with aCoder: NSCoder) {
+        super.encode(with: aCoder)
+        aCoder.encode(ice, forKey: Keys.ice.rawValue)
     }
 
 }

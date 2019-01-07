@@ -13,30 +13,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var vendingMachine: VendingMachine?
     var window: UIWindow?
 
-    private func loadVendingMachine() {
-        guard let data = UserDefaults.standard.object(forKey: "vendingMachine") as? Data else { return }
-        let decoder = PropertyListDecoder()
-        vendingMachine = try? decoder.decode(VendingMachine.self, from: data)
-    }
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        loadVendingMachine()
+        do {
+            try vendingMachine = VendingMachineArchiver.load()
+        } catch {
+            vendingMachine = VendingMachineArchiver.setDefaultVendingMachine()
+        }
         return true
     }
 
-    private func archiveVendingMachine() {
-        let encoder = PropertyListEncoder()
-        let vendingMachineEncoded = try? encoder.encode(vendingMachine)
-        UserDefaults.standard.set(vendingMachineEncoded, forKey:"vendingMachine")
-    }
-
-    func applicationWillResignActive(_ application: UIApplication) {
-        archiveVendingMachine()
-    }
+    func applicationWillResignActive(_ application: UIApplication) {}
 
     func applicationDidEnterBackground(_ application: UIApplication) {
-        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        VendingMachineArchiver.archive(vendingMachine: vendingMachine)
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -48,9 +37,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
-        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+        VendingMachineArchiver.archive(vendingMachine: vendingMachine)
     }
-
 
 }
 
+struct VendingMachineArchiver {
+
+    enum ArchivingError: Error {
+        case noData
+        case notLoaded
+    }
+
+    static func archive(vendingMachine: VendingMachine?) {
+        guard let vendingMachine = vendingMachine else { return }
+        let vendingMachineEncoded = try? NSKeyedArchiver.archivedData(
+            withRootObject: vendingMachine,
+            requiringSecureCoding: false)
+        UserDefaults.standard.set(vendingMachineEncoded, forKey:"vendingMachine")
+    }
+
+    static func load() throws -> VendingMachine {
+        guard let data = UserDefaults.standard.data(forKey: "vendingMachine") else { throw ArchivingError.noData }
+        guard let vendingMachine = try NSKeyedUnarchiver
+            .unarchivedObject(ofClass: VendingMachine.self, from: data) else { throw ArchivingError.notLoaded }
+        return vendingMachine
+    }
+
+    static func setDefaultVendingMachine() -> VendingMachine {
+        let money = Money()
+        let inventory = Inventory(list: [ObjectIdentifier: Pack]())
+        return VendingMachine.init(initialBalance: money, initialInventory: inventory)
+    }
+
+}

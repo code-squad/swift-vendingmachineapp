@@ -47,7 +47,7 @@ class SoftDrink: BeverageGroup {
     required init?(coder aDecoder: NSCoder) {
         guard let packageNumber = aDecoder
             .decodeObject(of: NSNumber.self, forKey: Keys.package.rawValue) else { return nil }
-        guard let package = BeveragePackage(rawValue: packageNumber) else { return nil }
+        guard let package = BeveragePackage(rawValue: packageNumber.intValue) else { return nil }
         self.package = package
         super.init(coder: aDecoder)
     }

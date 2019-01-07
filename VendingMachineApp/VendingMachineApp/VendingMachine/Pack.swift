@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Pack: NSObject {
+class Pack: NSObject, Codable {
     private var beverages: [Beverage]
     private(set) var title: String
 
@@ -19,6 +19,11 @@ class Pack: NSObject {
             return
         }
         self.title = ""
+    }
+
+    var identifier: ObjectIdentifier? {
+        guard let one = beverages.first else { return nil }
+        return ObjectIdentifier(type(of: one))
     }
 
     func add(beverage: Beverage) {

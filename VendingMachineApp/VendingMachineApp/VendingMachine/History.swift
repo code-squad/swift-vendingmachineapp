@@ -8,7 +8,7 @@
 
 import Foundation
 
-class History {
+class History: Codable {
     private var purchases: [Beverage]
 
     init(purchases: [Beverage]) {

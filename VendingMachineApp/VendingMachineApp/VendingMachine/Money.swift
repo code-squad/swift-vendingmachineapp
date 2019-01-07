@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Money {
+struct Money: Codable {
     private var balance: Int
 
     enum Unit: Int {

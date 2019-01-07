@@ -34,7 +34,7 @@ protocol PrintableForManager {
     func showHistory(with: (Int, String) -> Void)
 }
 
-struct VendingMachine {
+struct VendingMachine: Codable {
     private var balance: Money
     private var inventory: Inventory
     private var history: History

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Beverage: NSObject {
+class Beverage: NSObject, Codable {
     private let brand: String
     private let name: String
     private let volume: Int

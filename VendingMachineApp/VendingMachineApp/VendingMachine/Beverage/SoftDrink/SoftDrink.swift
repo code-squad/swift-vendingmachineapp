@@ -35,6 +35,16 @@ class SoftDrink: BeverageGroup {
             package: .plastic)
     }
 
+    enum CodingKeys: String, CodingKey {
+        case package
+    }
+    
+    required init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        package = try values.decode(BeveragePackage.self, forKey: .package)
+        try super.init(from: decoder)
+    }
+
     override var group: BeverageCategory {
         return .softDrink
     }

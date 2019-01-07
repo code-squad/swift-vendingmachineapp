@@ -35,6 +35,16 @@ class Coffee: BeverageGroup {
             ice: true)
     }
 
+    enum CodingKeys: String, CodingKey {
+        case ice
+    }
+
+    required init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        ice = try values.decode(Bool.self, forKey: .ice)
+        try super.init(from: decoder)
+    }
+
     override var group: BeverageCategory {
         return .coffee
     }

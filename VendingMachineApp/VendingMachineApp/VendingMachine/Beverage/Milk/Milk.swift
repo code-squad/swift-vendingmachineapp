@@ -11,7 +11,7 @@ import Foundation
 class Milk: BeverageGroup {
     private let flavor: String?
     private let package: BeveragePackage
-    private let useByDate: Double = 10
+    private var useByDate: Double = 10
     private let expirationDate: Date
 
     init(brand: String,
@@ -54,6 +54,22 @@ class Milk: BeverageGroup {
                   dateOfManufacture: Date.subtractingDaysFromNow(by: 5),
                   flavor: nil,
                   package: BeveragePackage.paper)
+    }
+
+    enum CodingKeys: String, CodingKey {
+        case flavor
+        case package
+        case useByDate
+        case expirationDate
+    }
+    
+    required init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        flavor = try values.decode(String.self, forKey: .flavor)
+        package = try values.decode(BeveragePackage.self, forKey: .package)
+        useByDate = try values.decode(Double.self, forKey: .useByDate)
+        expirationDate = try values.decode(Date.self, forKey: .expirationDate)
+        try super.init(from: decoder)
     }
 
     override var group: BeverageCategory {

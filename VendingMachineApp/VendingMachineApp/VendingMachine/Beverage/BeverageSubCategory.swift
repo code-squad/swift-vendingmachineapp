@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum BeverageSubCategory: Int, CaseIterable{
+enum BeverageSubCategory: Int, CaseIterable, Codable{
     case chocolateMilk = 0, strawberryMilk
     case sprite, pepsi
     case cantata, georgia

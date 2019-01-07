@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Pack: NSObject, Codable {
+class Pack: NSObject {
     private var beverages: [Beverage]
     private(set) var title: String
 
@@ -72,6 +72,34 @@ class Pack: NSObject, Codable {
             expiredBeverages.append(milk)
         }
         return expiredBeverages
+    }
+
+    /* MARK: NSSecureCoding */
+    required init?(coder aDecoder: NSCoder) {
+        guard let beverages = aDecoder
+            .decodeObject(forKey: Keys.beverages.rawValue) as? [Beverage] else { return nil }
+        guard let title = aDecoder
+            .decodeObject(of: NSString.self, forKey: Keys.title.rawValue) as String? else { return nil }
+        self.beverages = beverages
+        self.title = title
+    }
+
+}
+
+extension Pack: NSSecureCoding {
+
+    enum Keys: String {
+        case beverages = "beverages"
+        case title = "title"
+    }
+
+    static var supportsSecureCoding: Bool {
+        return true
+    }
+
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(beverages, forKey: Keys.beverages.rawValue)
+        aCoder.encode(title as NSString, forKey: Keys.beverages.rawValue)
     }
 
 }

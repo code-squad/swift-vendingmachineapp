@@ -34,7 +34,7 @@ protocol PrintableForManager {
     func showHistory(with: (Int, String) -> Void)
 }
 
-struct VendingMachine: Codable {
+class VendingMachine: NSObject {
     private var balance: Money
     private var inventory: Inventory
     private var history: History
@@ -59,6 +59,39 @@ struct VendingMachine: Codable {
         return pack.count
     }
 
+    /* MARK: NSSecureCoding */
+    required init?(coder aDecoder: NSCoder) {
+        guard let balance = aDecoder
+            .decodeObject(forKey: Keys.balance.rawValue) as? Money else { return nil }
+        guard let inventory = aDecoder
+            .decodeObject(forKey: Keys.inventory.rawValue) as? Inventory else { return nil }
+        guard let history = aDecoder
+            .decodeObject(forKey: Keys.history.rawValue) as? History else { return nil }
+        self.balance = balance
+        self.inventory = inventory
+        self.history = history
+    }
+
+}
+
+extension VendingMachine: NSSecureCoding {
+
+    enum Keys: String {
+        case balance = "balance"
+        case inventory = "inventory"
+        case history = "history"
+    }
+
+    static var supportsSecureCoding: Bool {
+        return true
+    }
+
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(balance, forKey: Keys.balance.rawValue)
+        aCoder.encode(inventory, forKey: Keys.inventory.rawValue)
+        aCoder.encode(history, forKey: Keys.history.rawValue)
+    }
+
 }
 
 extension VendingMachine: Consumer {
@@ -67,7 +100,7 @@ extension VendingMachine: Consumer {
         return inventory.isEmpty()
     }
 
-    mutating func insert(money: Money) -> Bool {
+    func insert(money: Money) -> Bool {
         guard money.isPositive() else { return false }
         balance = balance + money
         return true
@@ -77,7 +110,7 @@ extension VendingMachine: Consumer {
         return inventory.getListBuyable(with: balance)
     }
 
-    mutating func buy(beverage pack: Pack) -> Beverage? {
+    func buy(beverage pack: Pack) -> Beverage? {
         guard let beverage = inventory.remove(selected: pack) else { return nil }
         balance.deductedPrice(of: beverage)
         history.update(purchase: beverage)

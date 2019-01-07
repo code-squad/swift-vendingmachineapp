@@ -8,35 +8,11 @@
 
 import Foundation
 
-class Inventory: Codable {
+class Inventory: NSObject {
     private var list: [ObjectIdentifier: Pack]
 
     init(list: [ObjectIdentifier: Pack]) {
         self.list = list
-    }
-
-    enum CodingKeys: String, CodingKey {
-        case packs
-    }
-
-    required init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self)
-        let packs = try values.decode([Pack].self, forKey: .packs) as [Pack]
-        var listDecoded = [ObjectIdentifier: Pack]()
-        for pack in packs {
-            guard let identifier = pack.identifier else { continue }
-            listDecoded[identifier] = pack
-        }
-        list = listDecoded
-    }
-
-    func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(packs, forKey: .packs)
-    }
-
-    var packs: [Pack] {
-        return list.values.map { $0 }
     }
 
     func hasNoBeverage(of beverage: Beverage.Type) -> Bool {
@@ -101,6 +77,34 @@ class Inventory: Codable {
             guard item.value.isEmpty() else { return false }
         }
         return true
+    }
+
+    /* MARK: NSSecureCoding*/
+    required init?(coder aDecoder: NSCoder) {
+        guard let packs = aDecoder.decodeObject(forKey: Keys.packs.rawValue) as? [Pack] else { return nil }
+        var list = [ObjectIdentifier: Pack]()
+        for pack in packs {
+            guard let identifier = pack.identifier else { continue }
+            list[identifier] = pack
+        }
+        self.list = list
+    }
+
+}
+
+extension Inventory: NSSecureCoding {
+
+    enum Keys: String {
+        case packs = "packs"
+    }
+
+    static var supportsSecureCoding: Bool {
+        return true
+    }
+
+    func encode(with aCoder: NSCoder) {
+        let packs = list.values.map { $0 }
+        aCoder.encode(packs, forKey: Keys.packs.rawValue)
     }
 
 }

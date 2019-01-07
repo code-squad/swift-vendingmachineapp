@@ -8,8 +8,8 @@
 
 import Foundation
 
-enum BeveragePackage {
-    case paper
+enum BeveragePackage: Int, Codable {
+    case paper = 0
     case plastic
     case can
 }

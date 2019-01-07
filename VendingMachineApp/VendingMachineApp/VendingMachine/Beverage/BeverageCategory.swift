@@ -8,8 +8,8 @@
 
 import Foundation
 
-enum BeverageCategory {
-    case milk
+enum BeverageCategory: Int, Codable {
+    case milk = 0
     case softDrink
     case coffee
     case etc

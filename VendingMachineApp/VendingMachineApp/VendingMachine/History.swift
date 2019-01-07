@@ -8,14 +8,14 @@
 
 import Foundation
 
-class History: Codable {
+class History: NSObject {
     private var purchases: [Beverage]
 
     init(purchases: [Beverage]) {
         self.purchases = purchases
     }
 
-    convenience init() {
+    convenience override init() {
         self.init(purchases: [])
     }
 
@@ -33,12 +33,31 @@ class History: Codable {
         }
     }
 
-}
-
-extension History: Equatable {
-
     static func == (lhs: History, rhs: History) -> Bool {
         return lhs.purchases == rhs.purchases
+    }
+
+    /* MARK: NSSecureCoding */
+    required init?(coder aDecoder: NSCoder) {
+        guard let purchases = aDecoder
+            .decodeObject(forKey: Keys.purchases.rawValue) as? [Beverage] else { return nil }
+        self.purchases = purchases
+    }
+
+}
+
+extension History: NSSecureCoding {
+
+    enum Keys: String {
+        case purchases = "purchases"
+    }
+
+    static var supportsSecureCoding: Bool {
+        return true
+    }
+
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(purchases, forKey: Keys.purchases.rawValue)
     }
 
 }

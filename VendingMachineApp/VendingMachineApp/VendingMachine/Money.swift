@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Money: Codable {
+class Money: NSObject {
     private var balance: Int
 
     enum Unit: Int {
@@ -33,7 +33,7 @@ struct Money: Codable {
         return Money(initialBalance: sum)
     }
 
-    mutating func deductedPrice(of beverage: Beverage) {
+    func deductedPrice(of beverage: Beverage) {
         balance = beverage.subtractPrice(from: balance)
     }
 
@@ -43,6 +43,29 @@ struct Money: Codable {
 
     func isEnoughToBuy(pack: Pack) -> Bool {
         return pack.isBuyable(with: balance)
+    }
+
+    /* MARK: NSSecureCoding */
+    required init?(coder aDecoder: NSCoder) {
+        guard let balance = aDecoder
+            .decodeObject(of: NSNumber.self, forKey: Keys.balance.rawValue) else { return nil }
+        self.balance = balance.intValue
+    }
+
+}
+
+extension Money: NSSecureCoding {
+
+    enum Keys: String {
+        case balance = "balance"
+    }
+
+    static var supportsSecureCoding: Bool {
+        return true
+    }
+
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(NSNumber(value: balance), forKey: Keys.balance.rawValue)
     }
 
 }

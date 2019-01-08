@@ -81,7 +81,7 @@ class Inventory: NSObject {
 
     /* MARK: NSSecureCoding*/
     required init?(coder aDecoder: NSCoder) {
-        guard let packs = aDecoder.decodeObject(of: [Pack.self], forKey: Keys.packs.rawValue) as? [Pack] else { return nil }
+        guard let packs = aDecoder.decodeObject(forKey: Keys.packs.rawValue) as? [Pack] else { return nil }
         var list = [ObjectIdentifier: Pack]()
         for pack in packs {
             guard let identifier = pack.identifier else { continue }

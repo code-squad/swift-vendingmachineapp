@@ -28,6 +28,7 @@ class StrawberryMilk: Milk {
                      volume: Int,
                      price: Int,
                      dateOfManufacture: Date,
+                     useByDate: Double,
                      package: BeveragePackage) {
         self.init(brand: brand,
                   name: name,
@@ -35,6 +36,7 @@ class StrawberryMilk: Milk {
                   price: price,
                   dateOfManufacture: dateOfManufacture,
                   flavor: "딸기",
+                  useByDate: useByDate,
                   package: package)
     }
 

@@ -99,7 +99,7 @@ extension Pack: NSSecureCoding {
 
     func encode(with aCoder: NSCoder) {
         aCoder.encode(beverages, forKey: Keys.beverages.rawValue)
-        aCoder.encode(title as NSString, forKey: Keys.beverages.rawValue)
+        aCoder.encode(title as NSString, forKey: Keys.title.rawValue)
     }
 
 }

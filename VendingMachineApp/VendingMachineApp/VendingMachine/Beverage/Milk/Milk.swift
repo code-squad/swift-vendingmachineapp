@@ -96,7 +96,7 @@ class Milk: BeverageGroup {
         aCoder.encode(flavor as NSString?, forKey: Keys.flavor.rawValue)
         aCoder.encode(NSNumber(value: package.rawValue), forKey: Keys.package.rawValue)
         aCoder.encode(NSNumber(value: useByDate), forKey: Keys.useByDate.rawValue)
-        aCoder.encode(expirationDate as NSDate, forKey: Keys.useByDate.rawValue)
+        aCoder.encode(expirationDate as NSDate, forKey: Keys.expirationDate.rawValue)
     }
 
 }

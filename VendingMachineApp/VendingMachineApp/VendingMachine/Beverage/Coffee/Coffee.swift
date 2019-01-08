@@ -44,7 +44,7 @@ class Coffee: BeverageGroup {
     }
 
     /* MARK: NSSecureCoding */
-    enum Keys: String {
+    private enum Keys: String {
         case ice = "ice"
     }
 

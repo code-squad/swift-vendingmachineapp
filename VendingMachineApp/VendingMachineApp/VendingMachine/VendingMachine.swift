@@ -60,13 +60,20 @@ class VendingMachine: NSObject {
     }
 
     /* MARK: NSSecureCoding */
+    private struct Default {
+        static let balance = Money()
+        private static let emptyList = [ObjectIdentifier: Pack]()
+        static let inventory = Inventory(list: emptyList)
+        static let history = History()
+    }
+
     required init?(coder aDecoder: NSCoder) {
-        guard let balance = aDecoder
-            .decodeObject(of: Money.self, forKey: Keys.balance.rawValue) else { return nil }
-        guard let inventory = aDecoder
-            .decodeObject(of: Inventory.self, forKey: Keys.inventory.rawValue) else { return nil }
-        guard let history = aDecoder
-            .decodeObject(of: History.self, forKey: Keys.history.rawValue) else { return nil }
+        let balance = aDecoder
+            .decodeObject(of: Money.self, forKey: Keys.balance.rawValue) ?? Default.balance
+        let inventory = aDecoder
+            .decodeObject(of: Inventory.self, forKey: Keys.inventory.rawValue) ?? Default.inventory
+        let history = aDecoder
+            .decodeObject(of: History.self, forKey: Keys.history.rawValue) ?? Default.history
         self.balance = balance
         self.inventory = inventory
         self.history = history

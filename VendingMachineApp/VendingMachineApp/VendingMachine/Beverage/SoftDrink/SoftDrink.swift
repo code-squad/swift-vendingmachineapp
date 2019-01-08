@@ -40,14 +40,19 @@ class SoftDrink: BeverageGroup {
     }
 
     /* MARK: NSSecureCoding*/
-    enum Keys: String {
+    private struct Default {
+        static let package: BeveragePackage = .plastic
+        static let packageNumber: NSNumber = package.rawValue as NSNumber
+    }
+
+    private enum Keys: String {
         case package = "package"
     }
 
     required init?(coder aDecoder: NSCoder) {
-        guard let packageNumber = aDecoder
-            .decodeObject(of: NSNumber.self, forKey: Keys.package.rawValue) else { return nil }
-        guard let package = BeveragePackage(rawValue: packageNumber.intValue) else { return nil }
+        let packageNumber = aDecoder
+            .decodeObject(of: NSNumber.self, forKey: Keys.package.rawValue) ?? Default.packageNumber
+        let package = BeveragePackage(rawValue: packageNumber.intValue) ?? Default.package
         self.package = package
         super.init(coder: aDecoder)
     }

@@ -38,9 +38,13 @@ class History: NSObject {
     }
 
     /* MARK: NSSecureCoding */
+    private struct Default {
+        static let purchases = [Beverage]()
+    }
+
     required init?(coder aDecoder: NSCoder) {
-        guard let purchases = aDecoder
-            .decodeObject(forKey: Keys.purchases.rawValue) as? [Beverage] else { return nil }
+        let purchases = aDecoder
+            .decodeObject(forKey: Keys.purchases.rawValue) as? [Beverage] ?? Default.purchases
         self.purchases = purchases
     }
 
@@ -48,7 +52,7 @@ class History: NSObject {
 
 extension History: NSSecureCoding {
 
-    enum Keys: String {
+    private enum Keys: String {
         case purchases = "purchases"
     }
 

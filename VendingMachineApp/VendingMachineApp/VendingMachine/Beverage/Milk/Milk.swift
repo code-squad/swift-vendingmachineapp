@@ -11,7 +11,7 @@ import Foundation
 class Milk: BeverageGroup {
     private let flavor: String?
     private let package: BeveragePackage
-    private var useByDate: Double = 10
+    private let useByDate: Double
     private let expirationDate: Date
 
     init(brand: String,
@@ -20,9 +20,11 @@ class Milk: BeverageGroup {
          price: Int,
          dateOfManufacture: Date,
          flavor: String? = nil,
+         useByDate: Double,
          package: BeveragePackage) {
         self.flavor = flavor
         self.package = package
+        self.useByDate = useByDate
         self.expirationDate = dateOfManufacture.addingDayInterval(useByDate)
         super.init(brand: brand,
                    name: name,
@@ -43,6 +45,7 @@ class Milk: BeverageGroup {
                   price: price,
                   dateOfManufacture: dateOfManufacture,
                   flavor: flavor,
+                  useByDate: 10,
                   package: BeveragePackage.paper)
     }
 
@@ -53,6 +56,7 @@ class Milk: BeverageGroup {
                   price: 1000,
                   dateOfManufacture: Date.subtractingDaysFromNow(by: 5),
                   flavor: nil,
+                  useByDate: 10,
                   package: BeveragePackage.paper)
     }
 

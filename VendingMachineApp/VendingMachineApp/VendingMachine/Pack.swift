@@ -77,7 +77,7 @@ class Pack: NSObject {
     /* MARK: NSSecureCoding */
     required init?(coder aDecoder: NSCoder) {
         guard let beverages = aDecoder
-            .decodeObject(forKey: Keys.beverages.rawValue) as? [Beverage] else { return nil }
+            .decodeObject(of: [Beverage.self], forKey: Keys.beverages.rawValue) as? [Beverage] else { return nil }
         guard let title = aDecoder
             .decodeObject(of: NSString.self, forKey: Keys.title.rawValue) as String? else { return nil }
         self.beverages = beverages

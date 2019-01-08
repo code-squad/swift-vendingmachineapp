@@ -62,11 +62,11 @@ class VendingMachine: NSObject {
     /* MARK: NSSecureCoding */
     required init?(coder aDecoder: NSCoder) {
         guard let balance = aDecoder
-            .decodeObject(forKey: Keys.balance.rawValue) as? Money else { return nil }
+            .decodeObject(of: Money.self, forKey: Keys.balance.rawValue) else { return nil }
         guard let inventory = aDecoder
-            .decodeObject(forKey: Keys.inventory.rawValue) as? Inventory else { return nil }
+            .decodeObject(of: Inventory.self, forKey: Keys.inventory.rawValue) else { return nil }
         guard let history = aDecoder
-            .decodeObject(forKey: Keys.history.rawValue) as? History else { return nil }
+            .decodeObject(of: History.self, forKey: Keys.history.rawValue) else { return nil }
         self.balance = balance
         self.inventory = inventory
         self.history = history

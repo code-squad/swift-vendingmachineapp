@@ -59,20 +59,20 @@ class Beverage: NSObject {
     /* MARK: NSSecrueCoding */
     required init?(coder aDecoder: NSCoder) {
         guard let brand = aDecoder
-            .decodeObject(of: NSString.self, forKey: Keys.brand.rawValue) as String? else { return nil }
+            .decodeObject(of: NSString.self, forKey: Keys.brand.rawValue) else { return nil }
         guard let name = aDecoder
-            .decodeObject(of: NSString.self, forKey: Keys.name.rawValue) as String? else { return nil }
+            .decodeObject(of: NSString.self, forKey: Keys.name.rawValue) else { return nil }
         guard let volume = aDecoder
             .decodeObject(of: NSNumber.self, forKey: Keys.volume.rawValue) else { return nil }
         guard let price = aDecoder
             .decodeObject(of: NSNumber.self , forKey: Keys.price.rawValue) else { return nil }
         guard let dateOfManufacture = aDecoder
-            .decodeObject(of: NSDate.self, forKey: Keys.dateOfManufacture.rawValue) as Date? else { return nil }
-        self.brand = brand
-        self.name = name
+            .decodeObject(of: NSDate.self, forKey: Keys.dateOfManufacture.rawValue) else { return nil }
+        self.brand = brand as String
+        self.name = name as String
         self.volume = volume.intValue
         self.price = price.intValue
-        self.dateOfManufacture = dateOfManufacture
+        self.dateOfManufacture = dateOfManufacture as Date
     }
 
 }

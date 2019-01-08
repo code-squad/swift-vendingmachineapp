@@ -83,11 +83,11 @@ class Milk: BeverageGroup {
         guard let useByDate = aDecoder
             .decodeObject(of: NSNumber.self, forKey: Keys.useByDate.rawValue) else { return nil }
         guard let expirationDate = aDecoder
-            .decodeObject(of: NSDate.self, forKey: Keys.expirationDate.rawValue) as Date? else { return nil }
+            .decodeObject(of: NSDate.self, forKey: Keys.expirationDate.rawValue) else { return nil }
         guard let package = BeveragePackage(rawValue: packageNumber.intValue) else { return nil }
         self.package = package
         self.useByDate = useByDate.doubleValue
-        self.expirationDate = expirationDate
+        self.expirationDate = expirationDate as Date
         super.init(coder: aDecoder)
     }
 

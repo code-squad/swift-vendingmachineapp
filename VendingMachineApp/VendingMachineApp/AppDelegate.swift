@@ -60,7 +60,7 @@ struct VendingMachineArchiver {
     static func load() throws -> VendingMachine {
         guard let data = UserDefaults.standard.data(forKey: "vendingMachine") else { throw ArchivingError.noData }
         guard let vendingMachine = try NSKeyedUnarchiver
-            .unarchivedObject(ofClass: VendingMachine.self, from: data) else { throw ArchivingError.notLoaded }
+            .unarchiveTopLevelObjectWithData(data) as? VendingMachine else { throw ArchivingError.notLoaded }
         return vendingMachine
     }
 

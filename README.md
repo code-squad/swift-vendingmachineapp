@@ -2,6 +2,7 @@
 
 1. <a href="#1-시작하기---아이패드-앱">시작하기 - 아이패드 앱</a>
 2. <a href="#2-MVC-패턴">MVC 패턴</a>
+3. <a href="#3-앱-생명주기와-객체-저장">앱 생명주기와 객체 저장</a>
 
 <br>
 
@@ -175,4 +176,125 @@ var masksToBounds: Bool { get set }
   - 필요한 경우에 뷰의 사이즈에 맞도록 컨텐츠의 측면 비율이 조정됩니다.
 
 ![scale-to-fill](./images/step2/contentmode/scale-to-fill.png)
+
+<br>
+
+## 3. 앱 생명주기와 객체 저장
+
+### 추가내용
+
+1. `ViewController` 내에 있던 `VendingMachine` 변수를 `AppDelegate` 로 옮겼습니다.
+
+   ```swift
+   class ViewController: UIViewController {
+   	private weak var appDelegate: AppDelegate?
+       ...
+       
+       required init?(coder aDecoder: NSCoder) {
+           self.appDelegate = UIApplication.shared.delegate as? AppDelegate
+           ...
+       }
+       ...
+   }
+   ```
+
+   `AppDelegate` 로 옮긴 `VendingMachine` 의 변수를 `ViewController` 에서 접근하기 위해, 위 처럼 **`AppDelegate?`** 변수를 선언하고 `UIApplication.shared.delegate` 인스턴스로 초기화해주었습니다.
+
+   - UIApplication
+     - `class var shared: UIApplication` : 앱 인스턴스를 반환합니다.
+     - `var delegate: UIApplicationDelegate?` : 앱 인스턴스의 델리게이트 객체
+
+   ```swift
+   override func viewDidLoad() {
+       ...
+       appDelegate?.vendingMachine?.showBalance(with: balanceForm)
+   }
+   ```
+
+   뷰 컨트롤러에서 위와 같이 `VendingMachine` 변수에 접근합니다.
+
+<br>
+
+2. 앱 종료 및 시작 시점에 콜백 함수에서  `VendingMachine` 을 아카이브/언아카이브하여, 앱이 다시 시작되더라도 자판기의 잔액 및 음료 재고 정보 등이 그대로 유지되도록 추가했습니다.
+
+   **Archives and Serialization** <a href="https://developer.apple.com/documentation/foundation/archives_and_serialization">참고</a>
+
+   - First Steps
+
+     `VendingMachine` 객체 정보를 저장하기 위해, 내부에 포함된 구조체 및 클래스 객체가 모두 encodable and decodable 하도록 만들어주어야합니다.  
+
+     - Codable
+
+       구조체는 `NSCoding` 프로토콜을 채택할 수 없기때문에, 처음에는 모든 객체가 `Codable` 프로토콜을 채택하도록 구현했습니다. 하지만 여러차례 시도에도, 이 프로토콜로는 객체 내부에 포함된 하위 객체의 정보까지 저장하는데 실패하여... 결국, 아래의 `NSCoding` 으로 변경하여 적용했습니다.
+
+     - NSSecureCoding
+
+       모든 객체를 클래스로 변경하고,  `NSCoding` 을 상속받은 `NSSecureCoding` 프로토콜을 채택하도록 수정했습니다. 각각의 객체 내부에 아래의 프로퍼티와 메소드를 구현해주었습니다. 
+
+       ```swift
+       static var supportsSecureCoding: Bool
+       func encode(with aCoder: NSCoder) {}
+       required init?(coder aDecoder: NSCoder) {}
+       ```
+
+       추가로 문자열인 키 값을 저장하고 있는` enum Keys` 도 각각 추가해주었습니다.
+
+       > **힘들었던 점**
+       >
+       > 인코딩 과정에서 자꾸 `NSKeyedArchiver warning: replacing existing value for key '\(encodingKey)'; probable duplication of encoding keys in class hierarchy` 에러가 발생하여 헤맸습니다. 스위프트 깃허브에서 <a href="https://github.com/apple/swift-corelibs-foundation/blob/master/Foundation/NSKeyedArchiver.swift#L424">해당 로그가 호출되는 부분</a>을 찾아보니, 인코딩 키 값이 이미 딕셔너리에 존재하는 키 값일 때 나타나는 에러였습니다. 모든 코드를 샅샅히 확인한 결과, `enum` 으로 키 값을 케이스별로 선언한 후, 하드 코딩 되어있던 키 값을 고치는 과정에서 두 번 중복하여 입력한 부분이 있었습니다. 작은 실수로 오랜 시간을 헤맸지만, `NSKeyedArchiver` 구현부를 확인하면서 더 자세히 들여다볼 수 있게해준 경험이었습니다.
+
+   - Keyed Archivers
+
+     `NSCoder` 의 하위 클래스로, 아카이브 시에 클래스 정보와 인스턴스 변수를 모두 저장합니다.
+
+     - NSKeyedArchiver
+
+       `withRootObject` 아규먼트도 전달된 루트 객체가 담고있는 object graph를 인코딩하여 `Data` 로 리턴합니다.
+
+       ```swift
+       let vendingMachineEncoded = try? NSKeyedArchiver.archivedData(
+                   withRootObject: vendingMachine,
+                   requiringSecureCoding: false)
+       ```
+
+     - NSKeyedUnarchiver
+
+       위의 `NSKeyedArchiver` 로 인코딩되었던 `Data` 를 전달받아 디코딩하여 담고있던 object graph를 리턴합니다. 위 루트 객체로 전달해주었던 객체로 타입캐스팅이 필요합니다.
+
+       ```swift
+       let vendingMachine = try NSKeyedUnarchiver
+                   .unarchiveTopLevelObjectWithData(data) as? VendingMachine
+       ```
+
+   <br>
+
+   **UserDefaults**
+
+   유저의 디폴트 데이터베이스로, 키-밸류 쌍으로 값을 저장합니다.
+
+   - `class var standard: UserDefaults` : 해당 클래스 객체의 인스턴스에 접근할 수 있는 변수입니다.
+
+   - Setting & Getting Default values
+
+     ```swift
+     // NSKeyedArchiver로 아카이브한 data: Data를 저장하기
+     UserDefaults.standard.set(data, forKey:"vendingMachine")
+     
+     // NSKeyedUnarchiver로 언아카이브할 data: Data를 가져오기
+     let data = UserDefaults.standard.data(forKey: "vendingMachine")
+     ```
+
+<br>
+
+### 실행화면
+
+> 2019.01.08 11:50
+
+잔액 및 음료재고가 비어있는 초기상태에서 음료 추가/ 잔액 보충 액션을 취한 후의 실행화면입니다. 앱 종료 후 재시작에도 기존 자판기 데이터가 그대로 복원되어 실행되었습니다.
+
+![Jan-08-2019(2)](./images/step3/Jan-08-2019(2).gif)
+
+<br>
+
+### 추가학습
 

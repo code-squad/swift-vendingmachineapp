@@ -75,11 +75,16 @@ class Pack: NSObject {
     }
 
     /* MARK: NSSecureCoding */
+    private struct Default {
+        static let beverages = [Beverage]()
+        static let title: NSString = ""
+    }
+
     required init?(coder aDecoder: NSCoder) {
-        guard let beverages = aDecoder
-            .decodeObject(forKey: Keys.beverages.rawValue) as? [Beverage] else { return nil }
-        guard let title = aDecoder
-            .decodeObject(of: NSString.self, forKey: Keys.title.rawValue) else { return nil }
+        let beverages = aDecoder
+            .decodeObject(forKey: Keys.beverages.rawValue) as? [Beverage] ?? Default.beverages
+        let title = aDecoder
+            .decodeObject(of: NSString.self, forKey: Keys.title.rawValue) ?? Default.title
         self.beverages = beverages
         self.title = title as String
     }
@@ -88,7 +93,7 @@ class Pack: NSObject {
 
 extension Pack: NSSecureCoding {
 
-    enum Keys: String {
+    private enum Keys: String {
         case beverages = "beverages"
         case title = "title"
     }

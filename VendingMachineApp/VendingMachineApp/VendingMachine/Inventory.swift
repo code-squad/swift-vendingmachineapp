@@ -80,8 +80,12 @@ class Inventory: NSObject {
     }
 
     /* MARK: NSSecureCoding*/
+    private struct Default {
+        static let packs = [Pack]()
+    }
+
     required init?(coder aDecoder: NSCoder) {
-        guard let packs = aDecoder.decodeObject(forKey: Keys.packs.rawValue) as? [Pack] else { return nil }
+        let packs = aDecoder.decodeObject(forKey: Keys.packs.rawValue) as? [Pack] ?? Default.packs
         var list = [ObjectIdentifier: Pack]()
         for pack in packs {
             guard let identifier = pack.identifier else { continue }
@@ -94,7 +98,7 @@ class Inventory: NSObject {
 
 extension Inventory: NSSecureCoding {
 
-    enum Keys: String {
+    private enum Keys: String {
         case packs = "packs"
     }
 

@@ -46,9 +46,13 @@ class Money: NSObject {
     }
 
     /* MARK: NSSecureCoding */
+    private struct Defualt {
+        static let balance: NSNumber = 0
+    }
+
     required init?(coder aDecoder: NSCoder) {
-        guard let balance = aDecoder
-            .decodeObject(of: NSNumber.self, forKey: Keys.balance.rawValue) else { return nil }
+        let balance = aDecoder
+            .decodeObject(of: NSNumber.self, forKey: Keys.balance.rawValue) ?? Defualt.balance
         self.balance = balance.intValue
     }
 
@@ -56,7 +60,7 @@ class Money: NSObject {
 
 extension Money: NSSecureCoding {
 
-    enum Keys: String {
+    private enum Keys: String {
         case balance = "balance"
     }
 

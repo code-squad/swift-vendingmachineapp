@@ -57,17 +57,25 @@ class Beverage: NSObject {
     }
 
     /* MARK: NSSecrueCoding */
+    private struct Default {
+        static let brand: NSString = "노브랜드"
+        static let name: NSString = "물"
+        static let volume: NSNumber = 500
+        static let price: NSNumber = 800
+        static let dateOfManufacture: NSDate = Date.subtractingDaysFromNow(by: 30) as NSDate
+    }
+
     required init?(coder aDecoder: NSCoder) {
-        guard let brand = aDecoder
-            .decodeObject(of: NSString.self, forKey: Keys.brand.rawValue) else { return nil }
-        guard let name = aDecoder
-            .decodeObject(of: NSString.self, forKey: Keys.name.rawValue) else { return nil }
-        guard let volume = aDecoder
-            .decodeObject(of: NSNumber.self, forKey: Keys.volume.rawValue) else { return nil }
-        guard let price = aDecoder
-            .decodeObject(of: NSNumber.self , forKey: Keys.price.rawValue) else { return nil }
-        guard let dateOfManufacture = aDecoder
-            .decodeObject(of: NSDate.self, forKey: Keys.dateOfManufacture.rawValue) else { return nil }
+        let brand = aDecoder
+            .decodeObject(of: NSString.self, forKey: Keys.brand.rawValue) ?? Default.brand
+        let name = aDecoder
+            .decodeObject(of: NSString.self, forKey: Keys.name.rawValue) ?? Default.name
+        let volume = aDecoder
+            .decodeObject(of: NSNumber.self, forKey: Keys.volume.rawValue) ?? Default.volume
+        let price = aDecoder
+            .decodeObject(of: NSNumber.self , forKey: Keys.price.rawValue) ?? Default.price
+        let dateOfManufacture = aDecoder
+            .decodeObject(of: NSDate.self, forKey: Keys.dateOfManufacture.rawValue) ?? Default.dateOfManufacture
         self.brand = brand as String
         self.name = name as String
         self.volume = volume.intValue
@@ -79,7 +87,7 @@ class Beverage: NSObject {
 
 extension Beverage: NSSecureCoding {
 
-    enum Keys: String {
+    private enum Keys: String {
         case brand = "brand"
         case name = "name"
         case volume = "volume"

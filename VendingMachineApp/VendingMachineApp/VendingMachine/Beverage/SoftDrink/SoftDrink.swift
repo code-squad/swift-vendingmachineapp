@@ -59,7 +59,7 @@ class SoftDrink: BeverageGroup {
 
     override func encode(with aCoder: NSCoder) {
         super.encode(with: aCoder)
-        aCoder.encode(NSNumber(value: package.rawValue), forKey: "package")
+        aCoder.encode(NSNumber(value: package.rawValue), forKey: Keys.package.rawValue)
     }
 
 }

@@ -8,18 +8,6 @@
 
 import Foundation
 
-typealias intPrintable = (Int) -> Void
-
-protocol VendingMachineDataSource: class {
-    func showBalance(with: intPrintable)
-    func count(beverage index: Int) -> Int
-}
-
-protocol VendingMachineDelegate: VendingMachineDataSource {
-    func add(beverage: BeverageSubCategory)
-    func insert(money: Money) -> Bool
-}
-
 protocol Consumer {
     func isEmpty() -> Bool
     func insert(money: Money) -> Bool
@@ -59,6 +47,17 @@ class VendingMachine: NSObject {
         } catch {
             return VendingMachine()
         }
+    }
+
+    func count(beverage index: Int) -> Int {
+        let nothing = 0
+        guard let type = BeverageSubCategory(rawValue: index)?.type else { return nothing }
+        guard let pack = inventory.packOf(type: type) else { return nothing }
+        return pack.count
+    }
+
+    func showBalance(with form: (Int) -> Void) {
+        balance.show(with: form)
     }
 
     /* MARK: NSSecureCoding */
@@ -103,40 +102,16 @@ extension VendingMachine: NSSecureCoding {
 
 }
 
-extension VendingMachine: VendingMachineDataSource {
+extension VendingMachine: Consumer {
 
-    func count(beverage index: Int) -> Int {
-        let nothing = 0
-        guard let type = BeverageSubCategory(rawValue: index)?.type else { return nothing }
-        guard let pack = inventory.packOf(type: type) else { return nothing }
-        return pack.count
-    }
-
-    func showBalance(with form: (Int) -> Void) {
-        balance.show(with: form)
-    }
-
-}
-
-extension VendingMachine: VendingMachineDelegate {
-
-    func add(beverage: BeverageSubCategory) {
-        let newBeverage = beverage.type.init()
-        inventory.add(beverage: newBeverage)
+    func isEmpty() -> Bool {
+        return inventory.isEmpty()
     }
 
     func insert(money: Money) -> Bool {
         guard money.isPositive() else { return false }
         balance = balance + money
         return true
-    }
-
-}
-
-extension VendingMachine: Consumer {
-
-    func isEmpty() -> Bool {
-        return inventory.isEmpty()
     }
 
     func getListBuyable() -> [Pack] {
@@ -156,6 +131,11 @@ extension VendingMachine: Manager {
 
     func add(beverage: Beverage) {
         inventory.add(beverage: beverage)
+    }
+
+    func add(beverage: BeverageSubCategory) {
+        let newBeverage = beverage.type.init()
+        inventory.add(beverage: newBeverage)
     }
 
     func remove(beverage number: Int) -> Beverage? {

@@ -35,7 +35,7 @@ protocol Manager {
 }
 
 class VendingMachine: NSObject {
-    static let shared: VendingMachine = vendingMachieLoaded()
+    static let shared: VendingMachine = vendingMachineLoaded()
 
     private var balance: Money
     private var inventory: Inventory

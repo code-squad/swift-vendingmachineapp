@@ -16,7 +16,7 @@ protocol VendingMachineDataSource: class {
 }
 
 protocol VendingMachineDelegate: VendingMachineDataSource {
-    func add(beverage: BeverageSubCategory) -> Bool
+    func add(beverage: BeverageSubCategory)
     func insert(money: Money) -> Bool
 }
 
@@ -29,7 +29,7 @@ protocol Consumer {
 
 protocol Manager {
     func add(beverage: Beverage)
-    func add(beverage: BeverageSubCategory) -> Bool
+    func add(beverage: BeverageSubCategory)
     func remove(beverage: Int) -> Beverage?
     func removeExpiredBeverages() -> [Beverage]
 }
@@ -120,10 +120,9 @@ extension VendingMachine: VendingMachineDataSource {
 
 extension VendingMachine: VendingMachineDelegate {
 
-    func add(beverage: BeverageSubCategory) -> Bool {
+    func add(beverage: BeverageSubCategory) {
         let newBeverage = beverage.type.init()
         inventory.add(beverage: newBeverage)
-        return true
     }
 
     func insert(money: Money) -> Bool {

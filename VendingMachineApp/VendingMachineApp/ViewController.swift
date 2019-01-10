@@ -16,19 +16,18 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        guard let appDelegate: AppDelegate = UIApplication.shared.delegate as? AppDelegate else {return}
-
         for productImageView in productImageViews {
             productImageView.layer.cornerRadius = productImageView.frame.height / 2
         }
+        guard let appDelegate: AppDelegate = UIApplication.shared.delegate as? AppDelegate else {return}
         balanceLabel.text = "잔액 : \(appDelegate.vendingMachine.readBalance())"
         updateNumberOfProductLabels()
     }
 
     private func updateNumberOfProductLabels() {
+        guard let appDelegate: AppDelegate = UIApplication.shared.delegate as? AppDelegate else {return}
         for numberOfProductLabel in numberOfProductLabels {
             let tag = numberOfProductLabel.superview?.tag ?? 0
-            guard let appDelegate: AppDelegate = UIApplication.shared.delegate as? AppDelegate else {return}
             numberOfProductLabel.text = "\(appDelegate.vendingMachine.number(of: tag))개"
         }
     }
@@ -76,4 +75,3 @@ class ViewController: UIViewController {
         balanceLabel.text = "잔액 : \(appDelegate.vendingMachine.readBalance())"
     }
 }
-

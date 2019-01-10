@@ -8,7 +8,20 @@
 
 import Foundation
 
-class Beverage: CustomStringConvertible {
+class Beverage: CustomStringConvertible, NSCoding {
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(brand, forKey: "brand")
+        aCoder.encode(size, forKey: "size")
+        aCoder.encode(price, forKey: "price")
+        aCoder.encode(name, forKey: "name")
+        aCoder.encode(openDate, forKey: "openDate")
+        aCoder.encode(expiryDate, forKey: "expiryDate")
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        <#code#>
+    }
+    
     var description: String {
         return "\(type(of: self))-\(self.brand),\(self.size)ml,\(self.price)원,\(self.name),\(self.openDate.toString())"
     }

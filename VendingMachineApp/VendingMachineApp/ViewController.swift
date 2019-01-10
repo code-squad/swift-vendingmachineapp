@@ -9,7 +9,6 @@
 import UIKit
 
 class ViewController: UIViewController {
-    private var vendingMachine: VendingMachine!
     @IBOutlet weak var balanceLabel: UILabel!
     @IBOutlet var productImageViews: [UIImageView]!
     @IBOutlet var numberOfProductLabels: [UILabel]!
@@ -18,19 +17,19 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         guard let appDelegate: AppDelegate = UIApplication.shared.delegate as? AppDelegate else {return}
-        vendingMachine = appDelegate.vendingMachine
-        
+
         for productImageView in productImageViews {
             productImageView.layer.cornerRadius = productImageView.frame.height / 2
         }
-        balanceLabel.text = "잔액 : \(vendingMachine.readBalance())"
+        balanceLabel.text = "잔액 : \(appDelegate.vendingMachine.readBalance())"
         updateNumberOfProductLabels()
     }
 
     private func updateNumberOfProductLabels() {
         for numberOfProductLabel in numberOfProductLabels {
             let tag = numberOfProductLabel.superview?.tag ?? 0
-            numberOfProductLabel.text = "\(vendingMachine.number(of: tag))개"
+            guard let appDelegate: AppDelegate = UIApplication.shared.delegate as? AppDelegate else {return}
+            numberOfProductLabel.text = "\(appDelegate.vendingMachine.number(of: tag))개"
         }
     }
     
@@ -59,20 +58,22 @@ class ViewController: UIViewController {
     
     private func add<T>(productType: T.Type) where T: Beverage, T: Product {
         let beverage = Beverage.produce(product: productType)
-        vendingMachine.add(product: beverage)
+        guard let appDelegate: AppDelegate = UIApplication.shared.delegate as? AppDelegate else {return}
+        appDelegate.vendingMachine.add(product: beverage)
     }
 
     @IBAction func tapInsertMoneyButton(_ sender: UIButton) {
+        guard let appDelegate: AppDelegate = UIApplication.shared.delegate as? AppDelegate else {return}
         switch sender.tag {
         case 1:
-            vendingMachine.insert(money: .thousand)
+            appDelegate.vendingMachine.insert(money: .thousand)
         case 2:
-            vendingMachine.insert(money: .fiveThousand)
+            appDelegate.vendingMachine.insert(money: .fiveThousand)
         default:
             return
         }
         
-        balanceLabel.text = "잔액 : \(vendingMachine.readBalance())"
+        balanceLabel.text = "잔액 : \(appDelegate.vendingMachine.readBalance())"
     }
 }
 

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7D0B51A421E6F22600BAA862 /* BeverageArchiveKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0B51A321E6F22600BAA862 /* BeverageArchiveKey.swift */; };
+		7D0B51A621E737DF00BAA862 /* VendingMachineArchiveKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0B51A521E737DF00BAA862 /* VendingMachineArchiveKey.swift */; };
 		7DA03A2921D7348C002355CA /* lactofreemilk.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DA03A2321D7348B002355CA /* lactofreemilk.png */; };
 		7DA03A2A21D7348C002355CA /* topblack.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DA03A2421D7348B002355CA /* topblack.png */; };
 		7DA03A2B21D7348C002355CA /* sbuck.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DA03A2521D7348B002355CA /* sbuck.png */; };
@@ -39,6 +40,7 @@
 
 /* Begin PBXFileReference section */
 		7D0B51A321E6F22600BAA862 /* BeverageArchiveKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageArchiveKey.swift; sourceTree = "<group>"; };
+		7D0B51A521E737DF00BAA862 /* VendingMachineArchiveKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineArchiveKey.swift; sourceTree = "<group>"; };
 		7DA03A2321D7348B002355CA /* lactofreemilk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lactofreemilk.png; sourceTree = "<group>"; };
 		7DA03A2421D7348B002355CA /* topblack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = topblack.png; sourceTree = "<group>"; };
 		7DA03A2521D7348B002355CA /* sbuck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sbuck.png; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				7DE2CB5221D4B91F004EC966 /* VendingMachine.swift */,
 				7DE2CB5421D4B91F004EC966 /* Beverage.swift */,
 				7D0B51A321E6F22600BAA862 /* BeverageArchiveKey.swift */,
+				7D0B51A521E737DF00BAA862 /* VendingMachineArchiveKey.swift */,
 				7DE2CB3821D4B82F004EC966 /* Assets.xcassets */,
 				7DE2CB3A21D4B82F004EC966 /* LaunchScreen.storyboard */,
 				7DE2CB3D21D4B82F004EC966 /* Info.plist */,
@@ -274,6 +277,7 @@
 				7DE2CB7121D4B920004EC966 /* Beverage.swift in Sources */,
 				7DE2CB6721D4B920004EC966 /* CocaCola.swift in Sources */,
 				7DE2CB7B21D4B920004EC966 /* Milk.swift in Sources */,
+				7D0B51A621E737DF00BAA862 /* VendingMachineArchiveKey.swift in Sources */,
 				7DE2CB3221D4B82E004EC966 /* AppDelegate.swift in Sources */,
 				7DE2CB6B21D4B920004EC966 /* Coffee.swift in Sources */,
 				7DE2CB6F21D4B920004EC966 /* VendingMachine.swift in Sources */,

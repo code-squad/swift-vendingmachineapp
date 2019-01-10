@@ -85,7 +85,7 @@ class Inventory: NSObject {
     }
 
     required init?(coder aDecoder: NSCoder) {
-        let packs = aDecoder.decodeObject(forKey: Keys.packs.rawValue) as? [Pack] ?? Default.packs
+        let packs = aDecoder.decodeObject(forKey: Keys.packs) as? [Pack] ?? Default.packs
         var list = [ObjectIdentifier: Pack]()
         for pack in packs {
             guard let identifier = pack.identifier else { continue }
@@ -98,8 +98,8 @@ class Inventory: NSObject {
 
 extension Inventory: NSSecureCoding {
 
-    private enum Keys: String {
-        case packs = "packs"
+    private enum Keys {
+        static let packs = "packs"
     }
 
     static var supportsSecureCoding: Bool {
@@ -108,7 +108,7 @@ extension Inventory: NSSecureCoding {
 
     func encode(with aCoder: NSCoder) {
         let packs = list.values.map { $0 }
-        aCoder.encode(packs, forKey: Keys.packs.rawValue)
+        aCoder.encode(packs, forKey: Keys.packs)
     }
 
 }

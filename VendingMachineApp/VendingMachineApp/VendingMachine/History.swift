@@ -44,7 +44,7 @@ class History: NSObject {
 
     required init?(coder aDecoder: NSCoder) {
         let purchases = aDecoder
-            .decodeObject(forKey: Keys.purchases.rawValue) as? [Beverage] ?? Default.purchases
+            .decodeObject(forKey: Keys.purchases) as? [Beverage] ?? Default.purchases
         self.purchases = purchases
     }
 
@@ -52,8 +52,8 @@ class History: NSObject {
 
 extension History: NSSecureCoding {
 
-    private enum Keys: String {
-        case purchases = "purchases"
+    private enum Keys {
+        static let purchases = "purchases"
     }
 
     static var supportsSecureCoding: Bool {
@@ -61,7 +61,7 @@ extension History: NSSecureCoding {
     }
 
     func encode(with aCoder: NSCoder) {
-        aCoder.encode(purchases, forKey: Keys.purchases.rawValue)
+        aCoder.encode(purchases, forKey: Keys.purchases)
     }
 
 }

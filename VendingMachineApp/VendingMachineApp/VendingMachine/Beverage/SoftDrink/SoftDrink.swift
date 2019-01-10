@@ -45,13 +45,13 @@ class SoftDrink: BeverageGroup {
         static let packageNumber: NSNumber = package.rawValue as NSNumber
     }
 
-    private enum Keys: String {
-        case package = "package"
+    private enum Key {
+        static let package = "package"
     }
 
     required init?(coder aDecoder: NSCoder) {
         let packageNumber = aDecoder
-            .decodeObject(of: NSNumber.self, forKey: Keys.package.rawValue) ?? Default.packageNumber
+            .decodeObject(of: NSNumber.self, forKey: Key.package) ?? Default.packageNumber
         let package = BeveragePackage(rawValue: packageNumber.intValue) ?? Default.package
         self.package = package
         super.init(coder: aDecoder)
@@ -59,7 +59,7 @@ class SoftDrink: BeverageGroup {
 
     override func encode(with aCoder: NSCoder) {
         super.encode(with: aCoder)
-        aCoder.encode(NSNumber(value: package.rawValue), forKey: Keys.package.rawValue)
+        aCoder.encode(NSNumber(value: package.rawValue), forKey: Key.package)
     }
 
 }

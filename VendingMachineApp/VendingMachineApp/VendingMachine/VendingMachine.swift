@@ -8,6 +8,18 @@
 
 import Foundation
 
+typealias intPrintable = (Int) -> Void
+
+protocol VendingMachineDataSource: class {
+    func showBalance(with: intPrintable)
+    func count(beverage index: Int) -> Int?
+}
+
+protocol VendingMachineDelegate: VendingMachineDataSource {
+    func add(beverage: BeverageSubCategory) -> Bool
+    func insert(money: Money) -> Bool
+}
+
 protocol Consumer {
     func isEmpty() -> Bool
     func insert(money: Money) -> Bool
@@ -15,23 +27,11 @@ protocol Consumer {
     func buy(beverage: Pack) -> Beverage?
 }
 
-protocol PrintableForConsumer {
-    func showBalance(with: (Int) -> Void)
-    func showListOfAllMarked(with: (String, Int, Bool) -> Void)
-    func showListOfBuyable(with: (Bool, Int, String) -> Void)
-}
-
 protocol Manager {
     func add(beverage: Beverage)
     func add(beverage: BeverageSubCategory) -> Bool
     func remove(beverage: Int) -> Beverage?
     func removeExpiredBeverages() -> [Beverage]
-}
-
-protocol PrintableForManager {
-    func showListOfAll(with: (String, Int, Bool) -> Void)
-    func hasHistory() -> Bool
-    func showHistory(with: (Int, String) -> Void)
 }
 
 class VendingMachine: NSObject {
@@ -59,20 +59,6 @@ class VendingMachine: NSObject {
         } catch {
             return VendingMachine()
         }
-    }
-
-    func getListOfHotBeverages() -> [Pack] {
-        return inventory.getListOfHotBeverages()
-    }
-
-    func hasEqualHistory(with theOther: History) -> Bool {
-        return self.history == theOther
-    }
-
-    func count(beverage index: Int) -> Int? {
-        guard let type = BeverageSubCategory(rawValue: index)?.type else { return nil }
-        guard let pack = inventory.packOf(type: type) else { return nil }
-        return pack.count
     }
 
     /* MARK: NSSecureCoding */
@@ -117,16 +103,40 @@ extension VendingMachine: NSSecureCoding {
 
 }
 
-extension VendingMachine: Consumer {
+extension VendingMachine: VendingMachineDataSource {
 
-    func isEmpty() -> Bool {
-        return inventory.isEmpty()
+    func count(beverage index: Int) -> Int? {
+        guard let type = BeverageSubCategory(rawValue: index)?.type else { return nil }
+        guard let pack = inventory.packOf(type: type) else { return nil }
+        return pack.count
+    }
+
+    func showBalance(with form: (Int) -> Void) {
+        balance.show(with: form)
+    }
+
+}
+
+extension VendingMachine: VendingMachineDelegate {
+
+    func add(beverage: BeverageSubCategory) -> Bool {
+        let newBeverage = beverage.type.init()
+        inventory.add(beverage: newBeverage)
+        return true
     }
 
     func insert(money: Money) -> Bool {
         guard money.isPositive() else { return false }
         balance = balance + money
         return true
+    }
+
+}
+
+extension VendingMachine: Consumer {
+
+    func isEmpty() -> Bool {
+        return inventory.isEmpty()
     }
 
     func getListBuyable() -> [Pack] {
@@ -142,42 +152,10 @@ extension VendingMachine: Consumer {
 
 }
 
-extension VendingMachine: PrintableForConsumer {
-
-    func showBalance(with form: (Int) -> Void) {
-        balance.show(with: form)
-    }
-
-    func showListOfBuyable(with show: (Bool, Int, String) -> Void) {
-        let listBuyable = getListBuyable()
-        for (index, packBuyable) in listBuyable.enumerated() {
-            let number = index + 1
-            let last = (number == listBuyable.count)
-            show(last, number, packBuyable.description)
-        }
-    }
-
-    func showListOfAllMarked(with show: (String, Int, Bool) -> Void) {
-        let list = inventory.getListOfAll()
-        let listBuyable = getListBuyable()
-        for pack in list {
-            let buyable = listBuyable.contains(pack.key)
-            show(pack.key.description, pack.value, buyable)
-        }
-    }
-
-}
-
 extension VendingMachine: Manager {
 
     func add(beverage: Beverage) {
         inventory.add(beverage: beverage)
-    }
-
-    func add(beverage: BeverageSubCategory) -> Bool {
-        let newBeverage = beverage.type.init()
-        inventory.add(beverage: newBeverage)
-        return true
     }
 
     func remove(beverage number: Int) -> Beverage? {
@@ -189,32 +167,6 @@ extension VendingMachine: Manager {
 
     func removeExpiredBeverages() -> [Beverage] {
         return inventory.removeExpiredBeverages()
-    }
-
-}
-
-extension VendingMachine: PrintableForManager {
-
-    func hasHistory() -> Bool {
-        return !history.isEmpty()
-    }
-
-    func showHistory(with show: (Int, String) -> Void) {
-        history.showList(with: show)
-    }
-
-    func showListOfAll(with show: (String, Int, Bool) -> Void) {
-        let list = inventory.getListOfAll()
-        for beverage in BeverageSubCategory.allCases {
-            let type = beverage.type
-            guard let pack = inventory.packOf(type: type) else { continue }
-            if inventory.hasNoBeverage(of: type) {
-                show("\(pack.title)", 0, false)
-                continue
-            }
-            guard let quantity = list[pack] else { continue }
-            show("\(pack.title)", quantity, true)
-        }
     }
 
 }

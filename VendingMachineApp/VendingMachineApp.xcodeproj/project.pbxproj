@@ -184,11 +184,11 @@
 		A3E1B33521D06F1F00B35A96 /* VendingMachine */ = {
 			isa = PBXGroup;
 			children = (
-				A3040F4521DDA0D400B9A831 /* Money.swift */,
-				A3E1B33621D06F1F00B35A96 /* Pack.swift */,
-				A3E1B33721D06F1F00B35A96 /* Inventory.swift */,
 				A3E1B33821D06F1F00B35A96 /* VendingMachine.swift */,
+				A3040F4521DDA0D400B9A831 /* Money.swift */,
+				A3E1B33721D06F1F00B35A96 /* Inventory.swift */,
 				A3E1B33921D06F1F00B35A96 /* History.swift */,
+				A3E1B33621D06F1F00B35A96 /* Pack.swift */,
 				A3E1B34021D06F3900B35A96 /* Date.swift */,
 				A3E1B34221D0712C00B35A96 /* Beverage */,
 			);
@@ -200,10 +200,10 @@
 			children = (
 				A3E1B36021D469FB00B35A96 /* images */,
 				A3E1B34321D0712C00B35A96 /* Beverage.swift */,
+				A3E1B35221D0712C00B35A96 /* BeverageGroup.swift */,
 				A3E1B34C21D0712C00B35A96 /* BeverageCategory.swift */,
 				A3040F4321DCC24700B9A831 /* BeverageSubCategory.swift */,
 				A3E1B35121D0712C00B35A96 /* BeveragePackage.swift */,
-				A3E1B35221D0712C00B35A96 /* BeverageGroup.swift */,
 				A3E1B34421D0712C00B35A96 /* Milk */,
 				A3E1B34821D0712C00B35A96 /* SoftDrink */,
 				A3E1B34D21D0712C00B35A96 /* Coffee */,

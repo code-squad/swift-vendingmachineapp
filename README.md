@@ -308,9 +308,9 @@ var masksToBounds: Bool { get set }
 - `static` 프로퍼티를 추가해 `VendingMachine` 인스턴스를 선언해주었습니다.
 
    ```swift
-  class VendingMachine {
+    class VendingMachine {
       static let shared: VendingMachine = vendingMachineLoaded()
-  
+    
       private static let vendingMachieLoaded = { () -> VendingMachine in
           do {
               return try VendingMachineArchiver.load()
@@ -319,7 +319,7 @@ var masksToBounds: Bool { get set }
           }
       }
       ...
-  }
+    }
    ```
 
 <br>
@@ -362,7 +362,7 @@ var masksToBounds: Bool { get set }
 - 장점
   - 해당 클래스의 인스턴스가 꼭 하나만 존재해야하는 경우에 사용합니다.
   - 최초 한 번만 생성한 인스턴스 하나를 사용하기 때문에 고정된 메모리 영역만 사용하므로 메모리 낭비를 방지할 수 있습니다. 또한, 두 번째 호출부터는 객체 로딩 시간이 현저하게 줄어 성능이 향상됩니다.
-  - 생성된 클래스 인스턴스는 전역에서 사용할 수 있다. (하지만, 이것이 싱글톤을 사용하는 주목적이 되면 안된다고 합니다.)
+  - 생성된 클래스 인스턴스는 전역에서 사용할 수 있습니다. (하지만, 이것이 싱글톤을 사용하는 주목적이 되면 안된다고 합니다.)
 
 - 단점
   - 테스트가 어렵습니다. 객체 인스턴스가 하나만 존재하므로, 단위별로 객체를 생성하고 테스트할 수 없습니다. `setUp()` `tearDown()` 함수에서 싱글톤 객체의 생성 및 소멸을 일일이 구현해주어야합니다.

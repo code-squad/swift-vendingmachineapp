@@ -53,7 +53,7 @@ class VendingMachine: NSObject {
         self.init(initialInventory: inventory)
     }
 
-    private static let vendingMachieLoaded = { () -> VendingMachine in
+    private static let vendingMachineLoaded = { () -> VendingMachine in
         do {
             return try VendingMachineArchiver.load()
         } catch {

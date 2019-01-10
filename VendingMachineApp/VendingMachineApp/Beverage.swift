@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Beverage: CustomStringConvertible, NSCoding {
+class Beverage: NSObject, NSCoding {
     func encode(with aCoder: NSCoder) {
         aCoder.encode(brand, forKey: BeverageArchiveKey.brand)
         aCoder.encode(size, forKey: BeverageArchiveKey.size)
@@ -23,10 +23,6 @@ class Beverage: CustomStringConvertible, NSCoding {
         price = aDecoder.decodeInteger(forKey: BeverageArchiveKey.price)
         name = aDecoder.decodeObject(forKey: BeverageArchiveKey.name) as! String
         expiryDate = aDecoder.decodeObject(forKey: BeverageArchiveKey.expiryDate) as! Date
-    }
-    
-    var description: String {
-        return "\(type(of: self))-\(self.brand),\(self.size)ml,\(self.price)원,\(self.name),\(self.openDate.toString())"
     }
 
     private let brand: String

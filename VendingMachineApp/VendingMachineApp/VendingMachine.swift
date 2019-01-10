@@ -10,11 +10,16 @@ import Foundation
 
 class VendingMachine: NSObject, NSCoding {
     func encode(with aCoder: NSCoder) {
-        aCoder.encode(balance, forKey: <#T##String#>)
+        aCoder.encode(balance, forKey: VendingMachineArchiveKey.balance)
+        aCoder.encode(products, forKey: VendingMachineArchiveKey.products)
+        aCoder.encode(historyOfPurchase, forKey: VendingMachineArchiveKey.historyOfPurchase)
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        <#code#>
+    required convenience init?(coder aDecoder: NSCoder) {
+        self.init()
+        balance = aDecoder.decodeInteger(forKey: VendingMachineArchiveKey.balance)
+        products = aDecoder.decodeObject(forKey: VendingMachineArchiveKey.products) as! [Int: [Beverage]]
+        historyOfPurchase = aDecoder.decodeObject(forKey: VendingMachineArchiveKey.historyOfPurchase) as! [Beverage]
     }
     
     private var balance: Int = 0

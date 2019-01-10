@@ -42,7 +42,8 @@ class ViewController: UIViewController {
 
     @IBAction func addBeverage(_ sender: UIButton) {
         guard let beverage = BeverageSubCategory(rawValue: sender.tag) else { return }
-        guard vendingMachine?.add(beverage: beverage) ?? false else { return }
+        guard let vendingMachine = vendingMachine else { return }
+        vendingMachine.add(beverage: beverage)
         showQuantities()
     }
 

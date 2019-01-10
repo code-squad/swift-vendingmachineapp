@@ -10,9 +10,9 @@ import Foundation
 
 protocol Consumer {
     func isEmpty() -> Bool
-    mutating func insert(money: Money) -> Bool
+    func insert(money: Money) -> Bool
     func getListBuyable() -> [Pack]
-    mutating func buy(beverage: Pack) -> Beverage?
+    func buy(beverage: Pack) -> Beverage?
 }
 
 protocol PrintableForConsumer {
@@ -35,14 +35,30 @@ protocol PrintableForManager {
 }
 
 class VendingMachine: NSObject {
+    static let shared: VendingMachine = vendingMachieLoaded()
+
     private var balance: Money
     private var inventory: Inventory
     private var history: History
 
-    init(initialBalance: Money = Money(), initialInventory: Inventory) {
+    private init(initialBalance: Money = Money(), initialInventory: Inventory) {
         self.balance = initialBalance
         self.inventory = initialInventory
         self.history = History()
+    }
+
+    private convenience override init() {
+        let emptyList = [ObjectIdentifier: Pack]()
+        let inventory = Inventory(list: emptyList)
+        self.init(initialInventory: inventory)
+    }
+
+    private static let vendingMachieLoaded = { () -> VendingMachine in
+        do {
+            return try VendingMachineArchiver.load()
+        } catch {
+            return VendingMachine()
+        }
     }
 
     func getListOfHotBeverages() -> [Pack] {

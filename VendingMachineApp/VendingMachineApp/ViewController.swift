@@ -9,13 +9,13 @@
 import UIKit
 
 class ViewController: UIViewController {
-    private weak var appDelegate: AppDelegate?
+    private weak var vendingMachine: VendingMachine?
     @IBOutlet var beverageImages: [UIImageView]!
     @IBOutlet var beverageLabels: [UILabel]!
     @IBOutlet weak var balance: UILabel!
 
     required init?(coder aDecoder: NSCoder) {
-        self.appDelegate = UIApplication.shared.delegate as? AppDelegate
+        self.vendingMachine = VendingMachine.shared
         super.init(coder: aDecoder)
     }
 
@@ -30,12 +30,12 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         roundImageViews()
         showQuantities()
-        appDelegate?.vendingMachine?.showBalance(with: balanceForm)
+        vendingMachine?.showBalance(with: balanceForm)
     }
 
     private func showQuantities() {
         for (index, quantity) in beverageLabels.enumerated() {
-            if let count =  appDelegate?.vendingMachine?.count(beverage: index) {
+            if let count =  vendingMachine?.count(beverage: index) {
                 quantity.text = "\(count)개"
                 continue
             }
@@ -45,7 +45,7 @@ class ViewController: UIViewController {
 
     @IBAction func addBeverage(_ sender: UIButton) {
         guard let beverage = BeverageSubCategory(rawValue: sender.tag) else { return }
-        guard appDelegate?.vendingMachine?.add(beverage: beverage) ?? false else { return }
+        guard vendingMachine?.add(beverage: beverage) ?? false else { return }
         showQuantities()
     }
 
@@ -54,8 +54,8 @@ class ViewController: UIViewController {
     }
 
     private func insert(money: Money) {
-        guard appDelegate?.vendingMachine?.insert(money: money) ?? false else { return }
-        appDelegate?.vendingMachine?.showBalance(with: balanceForm)
+        guard vendingMachine?.insert(money: money) ?? false else { return }
+        vendingMachine?.showBalance(with: balanceForm)
     }
 
     @IBAction func insertOneThousand(_ sender: Any) {

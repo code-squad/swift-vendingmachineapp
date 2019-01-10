@@ -10,22 +10,16 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    var vendingMachine: VendingMachine?
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        do {
-            try vendingMachine = VendingMachineArchiver.load()
-        } catch {
-            vendingMachine = VendingMachineArchiver.setDefault()
-        }
         return true
     }
 
     func applicationWillResignActive(_ application: UIApplication) {}
 
     func applicationDidEnterBackground(_ application: UIApplication) {
-        VendingMachineArchiver.archive(vendingMachine: vendingMachine)
+        VendingMachineArchiver.archive()
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -37,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
-        VendingMachineArchiver.archive(vendingMachine: vendingMachine)
+        VendingMachineArchiver.archive()
     }
 
 }

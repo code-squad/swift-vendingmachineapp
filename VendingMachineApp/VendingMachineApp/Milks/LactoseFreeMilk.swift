@@ -17,4 +17,8 @@ class LactoseFreeMilk: Milk, Product {
                    name: "소화가잘되는우유",
                    expiryDate: 5)
     }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
 }

@@ -18,4 +18,8 @@ class TOPTheBlack: Coffee, Product {
                    name: "맥심티오피더블랙",
                    expiryDate: 143)
     }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
 }

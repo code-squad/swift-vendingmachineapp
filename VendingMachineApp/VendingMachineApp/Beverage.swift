@@ -10,16 +10,19 @@ import Foundation
 
 class Beverage: CustomStringConvertible, NSCoding {
     func encode(with aCoder: NSCoder) {
-        aCoder.encode(brand, forKey: "brand")
-        aCoder.encode(size, forKey: "size")
-        aCoder.encode(price, forKey: "price")
-        aCoder.encode(name, forKey: "name")
-        aCoder.encode(openDate, forKey: "openDate")
-        aCoder.encode(expiryDate, forKey: "expiryDate")
+        aCoder.encode(brand, forKey: BeverageArchiveKey.brand)
+        aCoder.encode(size, forKey: BeverageArchiveKey.size)
+        aCoder.encode(price, forKey: BeverageArchiveKey.price)
+        aCoder.encode(name, forKey: BeverageArchiveKey.name)
+        aCoder.encode(expiryDate, forKey: BeverageArchiveKey.expiryDate)
     }
     
     required init?(coder aDecoder: NSCoder) {
-        <#code#>
+        brand = aDecoder.decodeObject(forKey: BeverageArchiveKey.brand) as! String
+        size = aDecoder.decodeInteger(forKey: BeverageArchiveKey.size)
+        price = aDecoder.decodeInteger(forKey: BeverageArchiveKey.price)
+        name = aDecoder.decodeObject(forKey: BeverageArchiveKey.name) as! String
+        expiryDate = aDecoder.decodeObject(forKey: BeverageArchiveKey.expiryDate) as! Date
     }
     
     var description: String {

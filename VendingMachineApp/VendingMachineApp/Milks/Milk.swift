@@ -15,7 +15,17 @@ class Milk: Beverage {
         self.lactose = lactose
         super.init(brand: brand, size: size, price: price, name: name, expiryDate: expiryDate)
     }
-
+    
+    override func encode(with aCoder: NSCoder) {
+        aCoder.encode(lactose, forKey: BeverageArchiveKey.lactose)
+        super.encode(with: aCoder)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        lactose = aDecoder.decodeInteger(forKey: BeverageArchiveKey.lactose)
+        super.init(coder: aDecoder)
+    }
+    
     func hasLactose() -> Bool {
         return self.lactose > 0
     }

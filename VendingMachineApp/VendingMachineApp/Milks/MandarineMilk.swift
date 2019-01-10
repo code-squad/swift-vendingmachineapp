@@ -17,4 +17,8 @@ class MandarineMilk: Milk, Product {
                    name: "귤맛우유",
                    expiryDate: 7)
     }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
 }

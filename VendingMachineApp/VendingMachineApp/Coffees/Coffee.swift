@@ -17,4 +17,16 @@ class Coffee: Beverage, VariousTemperatures {
         self.isHot = isHot
         super.init(brand: brand, size: size, price: price, name: name, expiryDate: expiryDate)
     }
+    
+    override func encode(with aCoder: NSCoder) {
+        aCoder.encode(hasMilk, forKey: BeverageArchiveKey.hasMilk)
+        aCoder.encode(isHot, forKey: BeverageArchiveKey.isHot)
+        super.encode(with: aCoder)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        hasMilk = aDecoder.decodeBool(forKey: BeverageArchiveKey.hasMilk)
+        isHot = aDecoder.decodeBool(forKey: BeverageArchiveKey.isHot)
+        super.init(coder: aDecoder)
+    }
 }

@@ -15,7 +15,17 @@ class CarbonatedDrink: Beverage {
         self.calorie = calorie
         super.init(brand: brand, size: size, price: price, name: name, expiryDate: expiryDate)
     }
-
+    
+    override func encode(with aCoder: NSCoder) {
+        aCoder.encode(calorie, forKey: BeverageArchiveKey.calorie)
+        super.encode(with: aCoder)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        calorie = aDecoder.decodeInteger(forKey: BeverageArchiveKey.calorie)
+        super.init(coder: aDecoder)
+    }
+    
     func isLowCalorie() -> Bool {
         return self.calorie < 10
     }

@@ -16,4 +16,14 @@ struct BeverageArchiveKey {
     static let name: String = "name"
     static let openDate: String = "openDate"
     static let expiryDate: String = "expiryDate"
+    
+    //MARK: - Milk
+    static let lactose: String = "lactose"
+    
+    //MARK: - Coffee
+    static let hasMilk: String = "hasMilk"
+    static let isHot: String = "isHot"
+    
+    //MARK: - CarbonatedDrink
+    static let calorie: String = "calorie"
 }

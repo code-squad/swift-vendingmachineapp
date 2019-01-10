@@ -12,7 +12,7 @@ typealias intPrintable = (Int) -> Void
 
 protocol VendingMachineDataSource: class {
     func showBalance(with: intPrintable)
-    func count(beverage index: Int) -> Int?
+    func count(beverage index: Int) -> Int
 }
 
 protocol VendingMachineDelegate: VendingMachineDataSource {
@@ -105,9 +105,10 @@ extension VendingMachine: NSSecureCoding {
 
 extension VendingMachine: VendingMachineDataSource {
 
-    func count(beverage index: Int) -> Int? {
-        guard let type = BeverageSubCategory(rawValue: index)?.type else { return nil }
-        guard let pack = inventory.packOf(type: type) else { return nil }
+    func count(beverage index: Int) -> Int {
+        let nothing = 0
+        guard let type = BeverageSubCategory(rawValue: index)?.type else { return nothing }
+        guard let pack = inventory.packOf(type: type) else { return nothing }
         return pack.count
     }
 

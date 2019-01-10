@@ -35,11 +35,8 @@ class ViewController: UIViewController {
 
     private func showQuantities() {
         for (index, quantity) in beverageLabels.enumerated() {
-            if let count =  vendingMachine?.count(beverage: index) {
-                quantity.text = "\(count)개"
-                continue
-            }
-            quantity.text = "0개"
+            let count =  vendingMachine?.count(beverage: index)
+            quantity.text = "\(count ?? 0)개"
         }
     }
 

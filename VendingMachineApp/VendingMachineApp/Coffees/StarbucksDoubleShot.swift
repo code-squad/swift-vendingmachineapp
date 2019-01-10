@@ -18,4 +18,8 @@ class StarbucksDoubleShot: Coffee, Product {
                    name: "스타벅스더블샷에스프레소&크림",
                    expiryDate: 41)
     }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
 }

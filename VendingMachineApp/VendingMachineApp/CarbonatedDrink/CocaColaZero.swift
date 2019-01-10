@@ -17,4 +17,8 @@ class CocaColaZero: CarbonatedDrink, Product {
                    name: "코카콜라제로",
                    expiryDate: 290)
     }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
 }

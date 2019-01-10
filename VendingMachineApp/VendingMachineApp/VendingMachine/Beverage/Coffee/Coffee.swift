@@ -44,18 +44,18 @@ class Coffee: BeverageGroup {
     }
 
     /* MARK: NSSecureCoding */
-    private enum Keys: String {
-        case ice = "ice"
+    private enum Key {
+        static let ice = "ice"
     }
 
     required init?(coder aDecoder: NSCoder) {
-        ice = aDecoder.decodeBool(forKey: Keys.ice.rawValue)
+        ice = aDecoder.decodeBool(forKey: Key.ice)
         super.init(coder: aDecoder)
     }
 
     override func encode(with aCoder: NSCoder) {
         super.encode(with: aCoder)
-        aCoder.encode(ice, forKey: Keys.ice.rawValue)
+        aCoder.encode(ice, forKey: Key.ice)
     }
 
 }

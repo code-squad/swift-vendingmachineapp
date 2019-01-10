@@ -82,9 +82,9 @@ class Pack: NSObject {
 
     required init?(coder aDecoder: NSCoder) {
         let beverages = aDecoder
-            .decodeObject(forKey: Keys.beverages.rawValue) as? [Beverage] ?? Default.beverages
+            .decodeObject(forKey: Key.beverages) as? [Beverage] ?? Default.beverages
         let title = aDecoder
-            .decodeObject(of: NSString.self, forKey: Keys.title.rawValue) ?? Default.title
+            .decodeObject(of: NSString.self, forKey: Key.title) ?? Default.title
         self.beverages = beverages
         self.title = title as String
     }
@@ -93,9 +93,9 @@ class Pack: NSObject {
 
 extension Pack: NSSecureCoding {
 
-    private enum Keys: String {
-        case beverages = "beverages"
-        case title = "title"
+    private enum Key {
+        static let beverages = "beverages"
+        static let title = "title"
     }
 
     static var supportsSecureCoding: Bool {
@@ -103,8 +103,8 @@ extension Pack: NSSecureCoding {
     }
 
     func encode(with aCoder: NSCoder) {
-        aCoder.encode(beverages, forKey: Keys.beverages.rawValue)
-        aCoder.encode(title as NSString, forKey: Keys.title.rawValue)
+        aCoder.encode(beverages, forKey: Key.beverages)
+        aCoder.encode(title as NSString, forKey: Key.title)
     }
 
 }

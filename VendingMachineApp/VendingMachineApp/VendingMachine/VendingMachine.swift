@@ -71,11 +71,11 @@ class VendingMachine: NSObject {
 
     required init?(coder aDecoder: NSCoder) {
         let balance = aDecoder
-            .decodeObject(of: Money.self, forKey: Keys.balance.rawValue) ?? Default.balance
+            .decodeObject(of: Money.self, forKey: Key.balance) ?? Default.balance
         let inventory = aDecoder
-            .decodeObject(of: Inventory.self, forKey: Keys.inventory.rawValue) ?? Default.inventory
+            .decodeObject(of: Inventory.self, forKey: Key.inventory) ?? Default.inventory
         let history = aDecoder
-            .decodeObject(of: History.self, forKey: Keys.history.rawValue) ?? Default.history
+            .decodeObject(of: History.self, forKey: Key.history) ?? Default.history
         self.balance = balance
         self.inventory = inventory
         self.history = history
@@ -85,10 +85,10 @@ class VendingMachine: NSObject {
 
 extension VendingMachine: NSSecureCoding {
 
-    enum Keys: String {
-        case balance = "balance"
-        case inventory = "inventory"
-        case history = "history"
+    private enum Key {
+        static let balance = "balance"
+        static let inventory = "inventory"
+        static let history = "history"
     }
 
     static var supportsSecureCoding: Bool {
@@ -96,9 +96,9 @@ extension VendingMachine: NSSecureCoding {
     }
 
     func encode(with aCoder: NSCoder) {
-        aCoder.encode(balance, forKey: Keys.balance.rawValue)
-        aCoder.encode(inventory, forKey: Keys.inventory.rawValue)
-        aCoder.encode(history, forKey: Keys.history.rawValue)
+        aCoder.encode(balance, forKey: Key.balance)
+        aCoder.encode(inventory, forKey: Key.inventory)
+        aCoder.encode(history, forKey: Key.history)
     }
 
 }

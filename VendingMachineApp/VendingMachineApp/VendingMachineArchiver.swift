@@ -15,8 +15,8 @@ struct VendingMachineArchiver {
         case notLoaded
     }
 
-    private enum Keys: String {
-        case vendingMachine = "vendingMachine"
+    private enum Key {
+        static let vendingMachine = "vendingMachine"
     }
 
     static func archive() {
@@ -24,11 +24,11 @@ struct VendingMachineArchiver {
         let vendingMachineEncoded = try? NSKeyedArchiver.archivedData(
             withRootObject: vendingMachine,
             requiringSecureCoding: false)
-        UserDefaults.standard.set(vendingMachineEncoded, forKey:Keys.vendingMachine.rawValue)
+        UserDefaults.standard.set(vendingMachineEncoded, forKey:Key.vendingMachine)
     }
 
     static func load() throws -> VendingMachine {
-        guard let data = UserDefaults.standard.data(forKey: Keys.vendingMachine.rawValue) else { throw ArchivingError.noData }
+        guard let data = UserDefaults.standard.data(forKey: Key.vendingMachine) else { throw ArchivingError.noData }
         guard let vendingMachine = try NSKeyedUnarchiver
             .unarchiveTopLevelObjectWithData(data) as? VendingMachine else { throw ArchivingError.notLoaded }
         return vendingMachine

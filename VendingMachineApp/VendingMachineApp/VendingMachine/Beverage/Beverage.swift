@@ -67,15 +67,15 @@ class Beverage: NSObject {
 
     required init?(coder aDecoder: NSCoder) {
         let brand = aDecoder
-            .decodeObject(of: NSString.self, forKey: Keys.brand.rawValue) ?? Default.brand
+            .decodeObject(of: NSString.self, forKey: Key.brand) ?? Default.brand
         let name = aDecoder
-            .decodeObject(of: NSString.self, forKey: Keys.name.rawValue) ?? Default.name
+            .decodeObject(of: NSString.self, forKey: Key.name) ?? Default.name
         let volume = aDecoder
-            .decodeObject(of: NSNumber.self, forKey: Keys.volume.rawValue) ?? Default.volume
+            .decodeObject(of: NSNumber.self, forKey: Key.volume) ?? Default.volume
         let price = aDecoder
-            .decodeObject(of: NSNumber.self , forKey: Keys.price.rawValue) ?? Default.price
+            .decodeObject(of: NSNumber.self , forKey: Key.price) ?? Default.price
         let dateOfManufacture = aDecoder
-            .decodeObject(of: NSDate.self, forKey: Keys.dateOfManufacture.rawValue) ?? Default.dateOfManufacture
+            .decodeObject(of: NSDate.self, forKey: Key.dateOfManufacture) ?? Default.dateOfManufacture
         self.brand = brand as String
         self.name = name as String
         self.volume = volume.intValue
@@ -87,12 +87,12 @@ class Beverage: NSObject {
 
 extension Beverage: NSSecureCoding {
 
-    private enum Keys: String {
-        case brand = "brand"
-        case name = "name"
-        case volume = "volume"
-        case price = "price"
-        case dateOfManufacture = "dateOfManufacture"
+    private enum Key {
+        static let brand = "brand"
+        static let name = "name"
+        static let volume = "volume"
+        static let price = "price"
+        static let dateOfManufacture = "dateOfManufacture"
     }
 
     static var supportsSecureCoding: Bool {
@@ -100,11 +100,11 @@ extension Beverage: NSSecureCoding {
     }
 
     func encode(with aCoder: NSCoder) {
-        aCoder.encode(brand as NSString, forKey: Keys.brand.rawValue)
-        aCoder.encode(name as NSString, forKey: Keys.name.rawValue)
-        aCoder.encode(NSNumber(value: volume), forKey: Keys.volume.rawValue)
-        aCoder.encode(NSNumber(value: price), forKey: Keys.price.rawValue)
-        aCoder.encode(dateOfManufacture as NSDate, forKey: Keys.dateOfManufacture.rawValue)
+        aCoder.encode(brand as NSString, forKey: Key.brand)
+        aCoder.encode(name as NSString, forKey: Key.name)
+        aCoder.encode(NSNumber(value: volume), forKey: Key.volume)
+        aCoder.encode(NSNumber(value: price), forKey: Key.price)
+        aCoder.encode(dateOfManufacture as NSDate, forKey: Key.dateOfManufacture)
     }
 
 }

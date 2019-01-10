@@ -81,23 +81,23 @@ class Milk: BeverageGroup {
         static let expirationDate: NSDate = Date.subtractingDaysFromNow(by: 5) as NSDate
     }
 
-    private enum Keys: String {
-        case flavor = "flavor"
-        case package = "package"
-        case useByDate = "useByDate"
-        case expirationDate = "expirationDate"
+    private enum Key {
+        static let flavor = "flavor"
+        static let package = "package"
+        static let useByDate = "useByDate"
+        static let expirationDate = "expirationDate"
     }
 
     required init?(coder aDecoder: NSCoder) {
         let flavor = aDecoder
-            .decodeObject(of: NSString.self, forKey: Keys.flavor.rawValue) ?? Default.flavor
+            .decodeObject(of: NSString.self, forKey: Key.flavor) ?? Default.flavor
         let packageNumber = aDecoder
-            .decodeObject(of: NSNumber.self, forKey: Keys.package.rawValue) ?? Default.packageNumber
+            .decodeObject(of: NSNumber.self, forKey: Key.package) ?? Default.packageNumber
         let package = BeveragePackage(rawValue: packageNumber.intValue) ?? Default.package
         let useByDate = aDecoder
-            .decodeObject(of: NSNumber.self, forKey: Keys.useByDate.rawValue) ?? Default.useByDate
+            .decodeObject(of: NSNumber.self, forKey: Key.useByDate) ?? Default.useByDate
         let expirationDate = aDecoder
-            .decodeObject(of: NSDate.self, forKey: Keys.expirationDate.rawValue) ?? Default.expirationDate
+            .decodeObject(of: NSDate.self, forKey: Key.expirationDate) ?? Default.expirationDate
         self.flavor = flavor as String?
         self.package = package
         self.useByDate = useByDate.doubleValue
@@ -107,10 +107,10 @@ class Milk: BeverageGroup {
 
     override func encode(with aCoder: NSCoder) {
         super.encode(with: aCoder)
-        aCoder.encode(flavor as NSString?, forKey: Keys.flavor.rawValue)
-        aCoder.encode(NSNumber(value: package.rawValue), forKey: Keys.package.rawValue)
-        aCoder.encode(NSNumber(value: useByDate), forKey: Keys.useByDate.rawValue)
-        aCoder.encode(expirationDate as NSDate, forKey: Keys.expirationDate.rawValue)
+        aCoder.encode(flavor as NSString?, forKey: Key.flavor)
+        aCoder.encode(NSNumber(value: package.rawValue), forKey: Key.package)
+        aCoder.encode(NSNumber(value: useByDate), forKey: Key.useByDate)
+        aCoder.encode(expirationDate as NSDate, forKey: Key.expirationDate)
     }
 
 }

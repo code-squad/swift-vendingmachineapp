@@ -60,6 +60,11 @@ class VendingMachine: NSObject {
         balance.show(with: form)
     }
 
+    private func postNotification(name: Notification.Name) {
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.post(name: name, object: self)
+    }
+
     /* MARK: NSSecureCoding */
     private struct Default {
         static let balance = Money()
@@ -111,6 +116,7 @@ extension VendingMachine: Consumer {
     func insert(money: Money) -> Bool {
         guard money.isPositive() else { return false }
         balance = balance + money
+        postNotification(name: .didInsertMoney)
         return true
     }
 
@@ -136,6 +142,7 @@ extension VendingMachine: Manager {
     func add(beverage: BeverageSubCategory) {
         let newBeverage = beverage.type.init()
         inventory.add(beverage: newBeverage)
+        postNotification(name: .didAddBeverage)
     }
 
     func remove(beverage number: Int) -> Beverage? {
@@ -166,4 +173,9 @@ enum VendingMachineError: Error {
             return "더 이상 재고가 없습니다."
         }
     }
+}
+
+extension NSNotification.Name {
+    static let didAddBeverage = Notification.Name("didAddBeverage")
+    static let didInsertMoney = Notification.Name("didInsertMoney")
 }

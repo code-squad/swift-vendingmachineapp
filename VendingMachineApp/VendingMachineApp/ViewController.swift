@@ -27,12 +27,10 @@ class ViewController: UIViewController {
     }
 
     private func registerAsObserver() {
-        NotificationCenter.default.addObserver(
-            self, selector: #selector(showQuantities),
-            name: .didAddBeverage, object: vendingMachine)
-        NotificationCenter.default.addObserver(
-            self, selector: #selector(showBalance),
-            name: .didInsertMoney, object: vendingMachine)
+        NotificationCenter.default.addObserver(self, selector: #selector(showQuantities),
+                                               name: .didAddBeverage, object: vendingMachine)
+        NotificationCenter.default.addObserver(self, selector: #selector(showBalance),
+                                               name: .didInsertMoney, object: vendingMachine)
     }
 
     @objc private func showQuantities() {

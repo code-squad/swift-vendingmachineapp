@@ -53,36 +53,20 @@ class VendingMachine: NSObject, NSCoding {
         return boughtProduct
     }
     
+    func number(of tag: Int) -> Int {
+        return products.number(of: tag)
+    }
+    
     func inventory() -> [String: Int] {
         return products.inventory()
     }
-    
-    func number(of tag: Int) -> Int {
-        return products[tag]?.count ?? 0
-    }
 
     func expiredProducts() -> [Beverage] {
-        var expiredProducts: [Beverage] = []
-
-        for (_, products) in self.products {
-            expiredProducts.append(contentsOf: products.filter {$0.isExpiryDateOut()})
-        }
-
-        return expiredProducts
+        return products.expiredProducts()
     }
 
     func hotProducts() -> [String] {
-        var hotProducts: [String] = []
-
-        for (_, products) in self.products {
-            guard !products.isEmpty else {continue}
-            guard let variousTemperaturesBeverage = products[0] as? VariousTemperatures else {continue}
-            guard variousTemperaturesBeverage.isHot else {continue}
-            hotProducts.append(products[0].name { (name: String) -> String in
-                return name
-            })
-        }
-        return hotProducts
+        return products.hotProducts()
     }
     
     //MARK: - Get Properties Method

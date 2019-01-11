@@ -15,6 +15,12 @@ class Balance {
         self.balance += money.rawValue
     }
     
+    func readBalance() -> String {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        return formatter.string(from: self.balance as NSNumber) ?? ""
+    }
+    
     func pay(beverage: Beverage) {
         let pay: (Int, Int) -> Int = { (price: Int, balance: Int) -> Int in
                 return balance - price

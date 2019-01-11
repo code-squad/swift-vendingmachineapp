@@ -4,6 +4,7 @@
 2. <a href="#2-MVC-패턴">MVC 패턴</a>
 3. <a href="#3-앱-생명주기와-객체-저장">앱 생명주기와 객체 저장</a>
 4. <a href="#4-싱글톤-모델">싱글톤 모델</a>
+5. <a href="#5-관찰자(Observer)-패턴">관찰자(Observer) 패턴</a>
 
 <br>
 
@@ -20,7 +21,7 @@
 
 ### 실행결과
 
-> 2018.12.24 11:00
+> 완성일자: 2018.12.24 11:00
 
 ```swift
 ✅ 언니몰래먹는딸기우유(2개)
@@ -78,7 +79,7 @@ iOS 앱의 `main` 함수는 직접 작성하지 않고, Xcode에서 만들어줍
 
 ### 실행결과
 
-> 2018.12.27 18:10
+> 완성일자: 2018.12.27 18:10
 
 ![Dec-27-2018](./images/step2/Dec-27-2018.gif)
 
@@ -289,7 +290,7 @@ var masksToBounds: Bool { get set }
 
 ### 실행화면
 
-> 2019.01.08 11:50
+> 완성일자: 2019.01.08 11:50
 
 잔액 및 음료재고가 비어있는 초기상태에서 음료 추가/ 잔액 보충 액션을 취한 후의 실행화면입니다. 앱 종료 후 재시작에도 기존 자판기 데이터가 그대로 복원되어 실행되었습니다.
 
@@ -349,7 +350,7 @@ var masksToBounds: Bool { get set }
 
 ### 실행화면
 
-> 2019.01.10 14:20
+> 완성일자: 2019.01.10 14:20
 
 위 3단계 실행화면과 같아 첨부는 생략했습니다.
 
@@ -367,3 +368,98 @@ var masksToBounds: Bool { get set }
 - 단점
   - 테스트가 어렵습니다. 객체 인스턴스가 하나만 존재하므로, 단위별로 객체를 생성하고 테스트할 수 없습니다. `setUp()` `tearDown()` 함수에서 싱글톤 객체의 생성 및 소멸을 일일이 구현해주어야합니다.
   - 싱글톤 객체 인스턴스가 다른 클래스 인스턴스와 상호작용하는 부분이 많아지면, 결합도(Coupling)가 높아져 수정하기 어려워집니다. (SOLID의 Open-Closed Principle 위배)
+
+<br>
+
+## 5. 관찰자(Observer) 패턴
+
+### 추가내용
+
+##### 1. Notification 추가
+
+ `음료추가` 와 `잔액추가` 액션을 `Notification` 으로 등록했습니다.
+
+- `Notification.Name` 을 extension하여 두 액션을 `Notification` 으로 추가했습니다.
+
+  ```swift
+  extension NSNotification.Name {
+      static let didAddBeverage = Notification.Name("didAddBeverage")
+      static let didInsertMoney = Notification.Name("didInsertMoney")
+  }
+  ```
+
+- 각 액션이 일어나는 메소드에서 해당 `Notification ` 을 `NotificationCenter` 로 post해주었습니다.
+
+  ```swift
+  NotificationCenter.default.post(name: .didInsertMoney, object: self)
+  ```
+
+<br>
+
+##### 2. Observer 추가
+
+- `ViewController` 가 위 두 가지 `Notification` 을 지켜보도록 `Observer` 로 등록해주었습니다.
+
+  ```swift
+  NotificationCenter.default.addObserver(self, 
+                                         selector: #selector(showBalance),
+                                         name: .didInsertMoney, 
+                                         object: vendingMachine)
+  ```
+
+- `selector` 에 해당하는 메소드 선언부 앞 쪽에 **@objc** 를 추가해주었습니다.
+
+  `selector` 는 Objective-C의 메소드를 선택하여 실행할 때 사용하고, **#selector()** 키워드로 호출합니다. 아래 `showQuantities()` 메소드가 Objective-C 메소드라는 것을 나타내주기 위해 아래와 같이 추가해줍니다.
+
+  ```swift
+  @objc private func showQuantities() {
+      ...
+  }
+  ```
+
+<br>
+
+### 실행화면
+
+> 완성일자: 2019.01.11 13:00
+
+위 3, 4단계 실행화면과 같아 첨부는 생략했습니다.
+
+<br>
+
+### 추가학습
+
+#### 두 가지 Observer 등록 패턴
+
+- `addObserver(_:selector:name:object:)` [자세히보기](https://developer.apple.com/documentation/foundation/notificationcenter/1415360-addobserver)
+
+  위에서 사용한 메소드로, **observer** 역할을 할 객체와 `notification`을 받은 후에 실행할 **selector**를  지정해줍니다. 알림받을  `notification` 의 종류와 `sender` 역할의 객체를 추가로 지정해줄 수 있습니다.
+
+  ```swift
+  func addObserver(_ observer: Any, 
+          selector aSelector: Selector, 
+              name aName: NSNotification.Name?, 
+            object anObject: Any?)
+  ```
+
+- `addObserver(forName:object:queue:using:)` [자세히보기](https://developer.apple.com/documentation/foundation/notificationcenter/1411723-addobserver)
+
+  이 메소드는 위와 다르게 리턴값이 있습니다. `NSObjectProtocol` 객체를 리턴해주며, 이 객체가 **observer** 로 등록된 객체입니다. 메소드 외부에서나 매개변수로 받는 `block` 내부에서 **removeObserver()**로 해제해줄 수 있습니다.
+
+  ```swift
+  func addObserver(forName name: NSNotification.Name?, 
+            object obj: Any?, 
+             queue: OperationQueue?, 
+             using block: @escaping (Notification) -> Void) -> NSObjectProtocol
+  ```
+
+<br>
+
+#### Observer 패턴과 MVC 구조
+
+아래 이미지는 Observer 패턴을 활용한 MVC 구조를 나타냅니다. Observer 패턴으로 Model과 Controller 가 **Loose Coupled(느슨하게 결합된)** 관계를 유지하게되면, 각각에서 변경사항이 생기더라도 서로에게 큰 영향을 미치지않고 상호작용할 수 있다는 장점이 있습니다.
+
+![observer-pattern](./images/step5/observer-pattern.png)
+
+[이미지출처](https://codesquad.kr/)
+

@@ -37,11 +37,7 @@ class VendingMachine: NSObject, NSCoding {
 
     //MARK: Products
     func add<T>(product: T) where T: Beverage, T: Product {
-        let tag = Mapper.mapping(product: product)
-        if self.products[tag] == nil {
-            self.products[tag] = []
-        }
-        self.products[tag]?.append(product)
+        products.add(product: product)
     }
 
     func buy(tag: Int) -> Beverage? {

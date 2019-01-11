@@ -30,13 +30,16 @@ class ViewController: UIViewController {
         NotificationCenter.default.addObserver(
             self, selector: #selector(showQuantities),
             name: .didAddBeverage, object: vendingMachine)
+        NotificationCenter.default.addObserver(
+            self, selector: #selector(showBalance),
+            name: .didInsertMoney, object: vendingMachine)
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         roundImageViews()
         showQuantities()
-        vendingMachine?.showBalance(with: balanceForm)
+        showBalance()
         registerAsObserver()
     }
 
@@ -53,21 +56,16 @@ class ViewController: UIViewController {
         vendingMachine.add(beverage: beverage)
     }
 
-    private func balanceForm(money: Int) {
-        self.balance.text = "잔액: \(money)원"
-    }
-
-    private func insert(money: Money) {
-        guard vendingMachine?.insert(money: money) ?? false else { return }
+    @objc private func showBalance() {
+        let balanceForm = { (money: Int) -> Void in
+            self.balance.text = "잔액: \(money)원"
+        }
         vendingMachine?.showBalance(with: balanceForm)
     }
 
-    @IBAction func insertOneThousand(_ sender: Any) {
-        insert(money: Money(unit: .oneThousand))
-    }
-
-    @IBAction func insertFiveThousands(_ sender: Any) {
-        insert(money: Money(unit: .fiveThousands))
+    @IBAction func insertMoney(_ sender: UIButton) {
+        guard let unit = Money.Unit(rawValue: sender.tag) else { return }
+        guard vendingMachine?.insert(money: Money(unit: unit)) ?? false else { return }
     }
 
 }

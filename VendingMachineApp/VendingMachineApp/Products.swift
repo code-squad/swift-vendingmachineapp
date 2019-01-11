@@ -8,7 +8,16 @@
 
 import Foundation
 
-class Products {
+class Products: NSObject, NSCoding {
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(products, forKey: ProductsArchiveKey.products)
+    }
+    
+    required convenience init?(coder aDecoder: NSCoder) {
+        self.init()
+        products = aDecoder.decodeObject(forKey: ProductsArchiveKey.products) as! [Int: [Beverage]]
+    }
+    
     //MARK: - Properties
     private var products: [Int: [Beverage]] = [:]
     

@@ -32,7 +32,11 @@ class VendingMachine: NSObject, NSCoding {
     //MARK: - Methods
     //MARK: Balance
     func insert(money: Money) {
-        self.balance.insert(money: money)
+        balance.insert(money: money)
+    }
+    
+    func readBalance() -> String {
+        return balance.readBalance()
     }
 
     //MARK: Products
@@ -48,13 +52,7 @@ class VendingMachine: NSObject, NSCoding {
         historyOfPurchase.add(beverage: boughtProduct)
         return boughtProduct
     }
-
-    func readBalance() -> String {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .decimal
-        return formatter.string(from: self.balance as NSNumber) ?? ""
-    }
-
+    
     func inventory() -> [String: Int] {
         var inventoryStatus: [String: Int] = [:]
 

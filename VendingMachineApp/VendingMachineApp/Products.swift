@@ -9,8 +9,10 @@
 import Foundation
 
 class Products {
+    //MARK: - Properties
     private var products: [Int: [Beverage]] = [:]
     
+    //MARK: - Methods
     func add<T>(product: T) where T: Beverage, T: Product {
         let tag = Mapper.mapping(product: product)
         if self.products[tag] == nil {
@@ -24,18 +26,7 @@ class Products {
         if self.products[tag]?.count == 0 {
             self.products[tag] = nil
         }
-        if let product = product {
-            self.historyOfPurchase.append(product)
-            self.balance = pay(product: product)
-        }
         return product
-    }
-    
-    private func pay(product: Beverage) -> Int {
-        let pay: (Int) -> Int = { (price: Int) -> Int in
-            return self.balance - price
-        }
-        return product.pay(pay: pay)
     }
     
     func readBalance() -> String {

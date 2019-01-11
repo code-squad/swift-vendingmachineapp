@@ -56,8 +56,8 @@ class Beverage: NSObject, NSCoding {
         return self.expiryDate > Date()
     }
 
-    func pay(pay: (Int) -> Int) -> Int {
-        return pay(self.price)
+    func pay(balance: Int, pay: (Int, Int) -> Int) -> Int {
+        return pay(balance, price)
     }
     
     static func produce<T>(product: T.Type) -> T where T: Beverage, T: Product {

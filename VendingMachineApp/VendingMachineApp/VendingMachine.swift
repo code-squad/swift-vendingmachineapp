@@ -19,7 +19,7 @@ class VendingMachine: NSObject, NSCoding {
     
     required convenience init?(coder aDecoder: NSCoder) {
         self.init()
-        balance = aDecoder.decodeInteger(forKey: VendingMachineArchiveKey.balance) as! Balance
+        balance = aDecoder.decodeObject(forKey: VendingMachineArchiveKey.balance) as! Balance
         products = aDecoder.decodeObject(forKey: VendingMachineArchiveKey.products) as! Product
         historyOfPurchase = aDecoder.decodeObject(forKey: VendingMachineArchiveKey.historyOfPurchase) as! HistoryOfPurchase
     }

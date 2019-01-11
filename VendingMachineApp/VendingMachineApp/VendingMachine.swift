@@ -9,6 +9,8 @@
 import Foundation
 
 class VendingMachine: NSObject, NSCoding {
+    
+    //MARK: - encode, decode
     func encode(with aCoder: NSCoder) {
         aCoder.encode(balance, forKey: VendingMachineArchiveKey.balance)
         aCoder.encode(products, forKey: VendingMachineArchiveKey.products)
@@ -22,14 +24,18 @@ class VendingMachine: NSObject, NSCoding {
         historyOfPurchase = aDecoder.decodeObject(forKey: VendingMachineArchiveKey.historyOfPurchase) as! [Beverage]
     }
     
-    private var balance: Int = 0
+    //MARK: - Properties
+    private var balance: Balance = Balance()
     private var products: [Int: [Beverage]] = [:]
     private var historyOfPurchase: [Beverage] = []
 
+    //MARK: - Methods
+    //MARK: Balance
     func insert(money: Money) {
-        self.balance += money.rawValue
+        self.balance.insert(money: money)
     }
 
+    //MARK: Products
     func add<T>(product: T) where T: Beverage, T: Product {
         let tag = Mapper.mapping(product: product)
         if self.products[tag] == nil {
@@ -106,6 +112,7 @@ class VendingMachine: NSObject, NSCoding {
         return hotProducts
     }
     
+    //MARK: - Get Properties Method
     func property(of vendingMachine: VendingMachine) {
         self.balance = vendingMachine.balance
         self.products = vendingMachine.products

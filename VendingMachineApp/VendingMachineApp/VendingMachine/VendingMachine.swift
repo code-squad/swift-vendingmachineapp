@@ -16,7 +16,6 @@ protocol Consumer {
 }
 
 protocol Manager {
-    func add(beverage: Beverage)
     func add(beverage: BeverageSubCategory)
     func remove(beverage: Int) -> Beverage?
     func removeExpiredBeverages() -> [Beverage]
@@ -134,10 +133,6 @@ extension VendingMachine: Consumer {
 }
 
 extension VendingMachine: Manager {
-
-    func add(beverage: Beverage) {
-        inventory.add(beverage: beverage)
-    }
 
     func add(beverage: BeverageSubCategory) {
         let newBeverage = beverage.type.init()

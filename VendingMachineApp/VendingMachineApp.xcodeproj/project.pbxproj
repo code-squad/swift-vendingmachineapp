@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7D0254F321E8C00200E5960A /* Balance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0254F221E8C00200E5960A /* Balance.swift */; };
 		7D0B51A421E6F22600BAA862 /* BeverageArchiveKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0B51A321E6F22600BAA862 /* BeverageArchiveKey.swift */; };
 		7D0B51A621E737DF00BAA862 /* VendingMachineArchiveKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0B51A521E737DF00BAA862 /* VendingMachineArchiveKey.swift */; };
 		7DA03A2921D7348C002355CA /* lactofreemilk.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DA03A2321D7348B002355CA /* lactofreemilk.png */; };
@@ -39,6 +40,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7D0254F221E8C00200E5960A /* Balance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Balance.swift; sourceTree = "<group>"; };
 		7D0B51A321E6F22600BAA862 /* BeverageArchiveKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageArchiveKey.swift; sourceTree = "<group>"; };
 		7D0B51A521E737DF00BAA862 /* VendingMachineArchiveKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineArchiveKey.swift; sourceTree = "<group>"; };
 		7DA03A2321D7348B002355CA /* lactofreemilk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lactofreemilk.png; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				7DE2CB5721D4B920004EC966 /* Protocol */,
 				7DA03A3721DC7DEA002355CA /* Enum */,
 				7DE2CB5221D4B91F004EC966 /* VendingMachine.swift */,
+				7D0254F221E8C00200E5960A /* Balance.swift */,
 				7DE2CB5421D4B91F004EC966 /* Beverage.swift */,
 				7D0B51A321E6F22600BAA862 /* BeverageArchiveKey.swift */,
 				7D0B51A521E737DF00BAA862 /* VendingMachineArchiveKey.swift */,
@@ -280,6 +283,7 @@
 				7D0B51A621E737DF00BAA862 /* VendingMachineArchiveKey.swift in Sources */,
 				7DE2CB3221D4B82E004EC966 /* AppDelegate.swift in Sources */,
 				7DE2CB6B21D4B920004EC966 /* Coffee.swift in Sources */,
+				7D0254F321E8C00200E5960A /* Balance.swift in Sources */,
 				7DE2CB6F21D4B920004EC966 /* VendingMachine.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

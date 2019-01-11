@@ -105,4 +105,10 @@ class VendingMachine: NSObject, NSCoding {
         }
         return hotProducts
     }
+    
+    func property(of vendingMachine: VendingMachine) {
+        self.balance = vendingMachine.balance
+        self.products = vendingMachine.products
+        self.historyOfPurchase = vendingMachine.historyOfPurchase
+    }
 }

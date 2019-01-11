@@ -8,7 +8,16 @@
 
 import Foundation
 
-class Balance {
+class Balance: NSObject, NSCoding {
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(balance, forKey: BalanceArchiveKey.balance)
+    }
+    
+    required convenience init?(coder aDecoder: NSCoder) {
+        self.init()
+        balance = aDecoder.decodeInteger(forKey: BalanceArchiveKey.balance)
+    }
+    
     private var balance: Int = 0
     
     func insert(money: Money) {

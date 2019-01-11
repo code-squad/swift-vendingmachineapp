@@ -19,6 +19,14 @@ class ViewController: UIViewController {
         super.init(coder: aDecoder)
     }
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        roundImageViews()
+        registerAsObserver()
+        showQuantities()
+        showBalance()
+    }
+
     private func roundImageViews() {
         for image in beverageImages {
             image.layer.cornerRadius = 15
@@ -35,14 +43,6 @@ class ViewController: UIViewController {
             name: .didInsertMoney, object: vendingMachine)
     }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        roundImageViews()
-        showQuantities()
-        showBalance()
-        registerAsObserver()
-    }
-
     @objc private func showQuantities() {
         for (index, quantity) in beverageLabels.enumerated() {
             let count =  vendingMachine?.count(beverage: index)
@@ -50,17 +50,17 @@ class ViewController: UIViewController {
         }
     }
 
-    @IBAction func addBeverage(_ sender: UIButton) {
-        guard let beverage = BeverageSubCategory(rawValue: sender.tag) else { return }
-        guard let vendingMachine = vendingMachine else { return }
-        vendingMachine.add(beverage: beverage)
-    }
-
     @objc private func showBalance() {
         let balanceForm = { (money: Int) -> Void in
             self.balance.text = "잔액: \(money)원"
         }
         vendingMachine?.showBalance(with: balanceForm)
+    }
+
+    @IBAction func addBeverage(_ sender: UIButton) {
+        guard let beverage = BeverageSubCategory(rawValue: sender.tag) else { return }
+        guard let vendingMachine = vendingMachine else { return }
+        vendingMachine.add(beverage: beverage)
     }
 
     @IBAction func insertMoney(_ sender: UIButton) {

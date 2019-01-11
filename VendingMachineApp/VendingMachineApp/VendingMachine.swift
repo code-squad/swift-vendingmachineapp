@@ -26,8 +26,8 @@ class VendingMachine: NSObject, NSCoding {
     
     //MARK: - Properties
     private var balance: Balance = Balance()
-    private var products: [Int: [Beverage]] = [:]
-    private var historyOfPurchase: [Beverage] = []
+    private var products: Products = Products()
+    private var historyOfPurchase: HistoryOfPurchase = HistoryOfPurchase()
 
     //MARK: - Methods
     //MARK: Balance

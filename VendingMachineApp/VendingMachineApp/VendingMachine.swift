@@ -19,9 +19,9 @@ class VendingMachine: NSObject, NSCoding {
     
     required convenience init?(coder aDecoder: NSCoder) {
         self.init()
-        balance = aDecoder.decodeInteger(forKey: VendingMachineArchiveKey.balance)
-        products = aDecoder.decodeObject(forKey: VendingMachineArchiveKey.products) as! [Int: [Beverage]]
-        historyOfPurchase = aDecoder.decodeObject(forKey: VendingMachineArchiveKey.historyOfPurchase) as! [Beverage]
+        balance = aDecoder.decodeInteger(forKey: VendingMachineArchiveKey.balance) as! Balance
+        products = aDecoder.decodeObject(forKey: VendingMachineArchiveKey.products) as! Product
+        historyOfPurchase = aDecoder.decodeObject(forKey: VendingMachineArchiveKey.historyOfPurchase) as! HistoryOfPurchase
     }
     
     //MARK: - Properties

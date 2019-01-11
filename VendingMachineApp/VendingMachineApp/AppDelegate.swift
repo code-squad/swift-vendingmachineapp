@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         if let data = UserDefaults.standard.object(forKey: vendingMachineArchiveKey) as? Data {
             guard let vendingMachine = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as! VendingMachine else {return true}
-            self.vendingMachine = vendingMachine
+            self.vendingMachine.property(of: vendingMachine)
         }
         return true
     }

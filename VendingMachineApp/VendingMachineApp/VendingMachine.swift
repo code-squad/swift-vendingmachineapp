@@ -54,18 +54,7 @@ class VendingMachine: NSObject, NSCoding {
     }
     
     func inventory() -> [String: Int] {
-        var inventoryStatus: [String: Int] = [:]
-
-        for (_, products) in self.products {
-            guard !products.isEmpty else {continue}
-            let name = { (name: String) -> String in
-                return name
-            }
-            let beverageName = products[0].name(read: name)
-            inventoryStatus[beverageName] = products.count
-        }
-
-        return inventoryStatus
+        return products.inventory()
     }
     
     func number(of tag: Int) -> Int {

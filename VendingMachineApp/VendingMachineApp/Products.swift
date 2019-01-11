@@ -28,13 +28,7 @@ class Products {
         }
         return product
     }
-    
-    func readBalance() -> String {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .decimal
-        return formatter.string(from: self.balance as NSNumber) ?? ""
-    }
-    
+
     func inventory() -> [String: Int] {
         var inventoryStatus: [String: Int] = [:]
         

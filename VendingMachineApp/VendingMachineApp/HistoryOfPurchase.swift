@@ -10,11 +10,12 @@ import Foundation
 
 class HistoryOfPurchase: NSObject, NSCoding {
     func encode(with aCoder: NSCoder) {
-        aCoder.encode(<#T##object: Any?##Any?#>, forKey: <#T##String#>)
+        aCoder.encode(historyOfPurchase, forKey: HistoryOfPurchaseArchiveKey.historyOfPurchase)
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        <#code#>
+    required convenience init?(coder aDecoder: NSCoder) {
+        self.init()
+        historyOfPurchase = aDecoder.decodeObject(forKey: HistoryOfPurchaseArchiveKey.historyOfPurchase) as! [Beverage]
     }
     
     private var historyOfPurchase: [Beverage] = []

@@ -60,8 +60,7 @@ class VendingMachine: NSObject {
     }
 
     private func postNotification(name: Notification.Name) {
-        let notificationCenter = NotificationCenter.default
-        notificationCenter.post(name: name, object: self)
+        NotificationCenter.default.post(name: name, object: self)
     }
 
     /* MARK: NSSecureCoding */

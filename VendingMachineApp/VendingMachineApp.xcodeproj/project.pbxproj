@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7D0254F321E8C00200E5960A /* Balance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0254F221E8C00200E5960A /* Balance.swift */; };
 		7D0254F521E8C20E00E5960A /* Products.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0254F421E8C20E00E5960A /* Products.swift */; };
+		7D0254F721E8C26000E5960A /* HistoryOfPurchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0254F621E8C26000E5960A /* HistoryOfPurchase.swift */; };
 		7D0B51A421E6F22600BAA862 /* BeverageArchiveKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0B51A321E6F22600BAA862 /* BeverageArchiveKey.swift */; };
 		7D0B51A621E737DF00BAA862 /* VendingMachineArchiveKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0B51A521E737DF00BAA862 /* VendingMachineArchiveKey.swift */; };
 		7DA03A2921D7348C002355CA /* lactofreemilk.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DA03A2321D7348B002355CA /* lactofreemilk.png */; };
@@ -43,6 +44,7 @@
 /* Begin PBXFileReference section */
 		7D0254F221E8C00200E5960A /* Balance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Balance.swift; sourceTree = "<group>"; };
 		7D0254F421E8C20E00E5960A /* Products.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Products.swift; sourceTree = "<group>"; };
+		7D0254F621E8C26000E5960A /* HistoryOfPurchase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryOfPurchase.swift; sourceTree = "<group>"; };
 		7D0B51A321E6F22600BAA862 /* BeverageArchiveKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageArchiveKey.swift; sourceTree = "<group>"; };
 		7D0B51A521E737DF00BAA862 /* VendingMachineArchiveKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineArchiveKey.swift; sourceTree = "<group>"; };
 		7DA03A2321D7348B002355CA /* lactofreemilk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lactofreemilk.png; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 				7DE2CB5721D4B920004EC966 /* Protocol */,
 				7DA03A3721DC7DEA002355CA /* Enum */,
 				7DE2CB5221D4B91F004EC966 /* VendingMachine.swift */,
+				7D0254F621E8C26000E5960A /* HistoryOfPurchase.swift */,
 				7D0254F421E8C20E00E5960A /* Products.swift */,
 				7D0254F221E8C00200E5960A /* Balance.swift */,
 				7DE2CB5421D4B91F004EC966 /* Beverage.swift */,
@@ -282,6 +285,7 @@
 				7DE2CB7821D4B920004EC966 /* ExtensionDate.swift in Sources */,
 				7DE2CB6821D4B920004EC966 /* CarbonatedDrink.swift in Sources */,
 				7DE2CB7121D4B920004EC966 /* Beverage.swift in Sources */,
+				7D0254F721E8C26000E5960A /* HistoryOfPurchase.swift in Sources */,
 				7DE2CB6721D4B920004EC966 /* CocaCola.swift in Sources */,
 				7DE2CB7B21D4B920004EC966 /* Milk.swift in Sources */,
 				7D0B51A621E737DF00BAA862 /* VendingMachineArchiveKey.swift in Sources */,

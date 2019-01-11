@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     private weak var vendingMachine: VendingMachine?
-    @IBOutlet var beverageImages: [UIImageView]!
+    @IBOutlet var beverageImages: [RoundedCornersImageView]!
     @IBOutlet var beverageLabels: [UILabel]!
     @IBOutlet weak var balance: UILabel!
 
@@ -21,17 +21,9 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        roundImageViews()
         registerAsObserver()
         showQuantities()
         showBalance()
-    }
-
-    private func roundImageViews() {
-        for image in beverageImages {
-            image.layer.cornerRadius = 15
-            image.layer.masksToBounds = true
-        }
     }
 
     private func registerAsObserver() {

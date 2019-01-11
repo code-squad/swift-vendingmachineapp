@@ -18,27 +18,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ChocolateMilk.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="TqM-HC-csK">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ChocolateMilk.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="TqM-HC-csK" customClass="RoundedCornersImageView" customModule="VendingMachineApp" customModuleProvider="target">
                                 <rect key="frame" x="37" y="124" width="130" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="StrawberryMilk.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="emj-ib-Sl4">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="StrawberryMilk.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="emj-ib-Sl4" customClass="RoundedCornersImageView" customModule="VendingMachineApp" customModuleProvider="target">
                                 <rect key="frame" x="187" y="124" width="130" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Sprite.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="wgl-x7-OLU">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Sprite.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="wgl-x7-OLU" customClass="RoundedCornersImageView" customModule="VendingMachineApp" customModuleProvider="target">
                                 <rect key="frame" x="337" y="124" width="130" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Pepsi.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="6WP-Qx-Y01">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Pepsi.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="6WP-Qx-Y01" customClass="RoundedCornersImageView" customModule="VendingMachineApp" customModuleProvider="target">
                                 <rect key="frame" x="487" y="124" width="130" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Cantata.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="PgS-Gn-K3p">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Cantata.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="PgS-Gn-K3p" customClass="RoundedCornersImageView" customModule="VendingMachineApp" customModuleProvider="target">
                                 <rect key="frame" x="637" y="124" width="130" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Georgia.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="LeM-fs-Lpc">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Georgia.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="LeM-fs-Lpc" customClass="RoundedCornersImageView" customModule="VendingMachineApp" customModuleProvider="target">
                                 <rect key="frame" x="787" y="124" width="130" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>

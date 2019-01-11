@@ -10,6 +10,7 @@
 		A3040F4421DCC24700B9A831 /* BeverageSubCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3040F4321DCC24700B9A831 /* BeverageSubCategory.swift */; };
 		A3040F4621DDA0D400B9A831 /* Money.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3040F4521DDA0D400B9A831 /* Money.swift */; };
 		A3040F4821E448DB00B9A831 /* VendingMachineArchiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3040F4721E448DB00B9A831 /* VendingMachineArchiver.swift */; };
+		A3040F4B21E84E6D00B9A831 /* RoundedCornersImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3040F4A21E84E6D00B9A831 /* RoundedCornersImageView.swift */; };
 		A3E1B2EA21CFE07A00B35A96 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E1B2E921CFE07A00B35A96 /* AppDelegate.swift */; };
 		A3E1B2EC21CFE07A00B35A96 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E1B2EB21CFE07A00B35A96 /* ViewController.swift */; };
 		A3E1B2EF21CFE07A00B35A96 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3E1B2ED21CFE07A00B35A96 /* Main.storyboard */; };
@@ -64,6 +65,7 @@
 		A3040F4321DCC24700B9A831 /* BeverageSubCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageSubCategory.swift; sourceTree = "<group>"; };
 		A3040F4521DDA0D400B9A831 /* Money.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Money.swift; sourceTree = "<group>"; };
 		A3040F4721E448DB00B9A831 /* VendingMachineArchiver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineArchiver.swift; sourceTree = "<group>"; };
+		A3040F4A21E84E6D00B9A831 /* RoundedCornersImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCornersImageView.swift; sourceTree = "<group>"; };
 		A3E1B2E621CFE07900B35A96 /* VendingMachineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendingMachineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3E1B2E921CFE07A00B35A96 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A3E1B2EB21CFE07A00B35A96 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -128,6 +130,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A3040F4921E84DAA00B9A831 /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				A3040F4A21E84E6D00B9A831 /* RoundedCornersImageView.swift */,
+			);
+			path = CustomView;
+			sourceTree = "<group>";
+		};
 		A3E1B2DD21CFE07900B35A96 = {
 			isa = PBXGroup;
 			children = (
@@ -151,9 +161,9 @@
 		A3E1B2E821CFE07900B35A96 /* VendingMachineApp */ = {
 			isa = PBXGroup;
 			children = (
+				A3040F4921E84DAA00B9A831 /* CustomView */,
 				A3E1B33521D06F1F00B35A96 /* VendingMachine */,
 				A3E1B2E921CFE07A00B35A96 /* AppDelegate.swift */,
-				A3040F4721E448DB00B9A831 /* VendingMachineArchiver.swift */,
 				A3E1B2EB21CFE07A00B35A96 /* ViewController.swift */,
 				A3E1B2ED21CFE07A00B35A96 /* Main.storyboard */,
 				A3E1B2F021CFE07C00B35A96 /* Assets.xcassets */,
@@ -185,6 +195,7 @@
 			isa = PBXGroup;
 			children = (
 				A3E1B33821D06F1F00B35A96 /* VendingMachine.swift */,
+				A3040F4721E448DB00B9A831 /* VendingMachineArchiver.swift */,
 				A3040F4521DDA0D400B9A831 /* Money.swift */,
 				A3E1B33721D06F1F00B35A96 /* Inventory.swift */,
 				A3E1B33921D06F1F00B35A96 /* History.swift */,
@@ -394,6 +405,7 @@
 				A3E1B33D21D06F2000B35A96 /* History.swift in Sources */,
 				A3E1B35421D0712C00B35A96 /* StrawberryMilk.swift in Sources */,
 				A3E1B2EC21CFE07A00B35A96 /* ViewController.swift in Sources */,
+				A3040F4B21E84E6D00B9A831 /* RoundedCornersImageView.swift in Sources */,
 				A3E1B35321D0712C00B35A96 /* Beverage.swift in Sources */,
 				A3E1B35A21D0712C00B35A96 /* BeverageCategory.swift in Sources */,
 				A3E1B35D21D0712C00B35A96 /* Coffee.swift in Sources */,

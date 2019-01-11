@@ -26,14 +26,21 @@ class ViewController: UIViewController {
         }
     }
 
+    private func registerAsObserver() {
+        NotificationCenter.default.addObserver(
+            self, selector: #selector(showQuantities),
+            name: .didAddBeverage, object: vendingMachine)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         roundImageViews()
         showQuantities()
         vendingMachine?.showBalance(with: balanceForm)
+        registerAsObserver()
     }
 
-    private func showQuantities() {
+    @objc private func showQuantities() {
         for (index, quantity) in beverageLabels.enumerated() {
             let count =  vendingMachine?.count(beverage: index)
             quantity.text = "\(count ?? 0)개"
@@ -44,7 +51,6 @@ class ViewController: UIViewController {
         guard let beverage = BeverageSubCategory(rawValue: sender.tag) else { return }
         guard let vendingMachine = vendingMachine else { return }
         vendingMachine.add(beverage: beverage)
-        showQuantities()
     }
 
     private func balanceForm(money: Int) {

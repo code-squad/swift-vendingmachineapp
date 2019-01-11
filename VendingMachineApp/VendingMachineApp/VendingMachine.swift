@@ -31,7 +31,7 @@ class VendingMachine: NSObject, NSCoding {
     }
 
     func add<T>(product: T) where T: Beverage, T: Product {
-        let tag = Mapper.mapping(productName: "\(type(of: product))")
+        let tag = Mapper.mapping(product: product)
         if self.products[tag] == nil {
             self.products[tag] = []
         }

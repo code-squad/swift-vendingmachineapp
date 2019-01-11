@@ -9,14 +9,14 @@
 import Foundation
 
 struct Mapper {
-    static private let map: [String: Int] = [MandarineMilk.typeString(): 1,
-                                             LactoseFreeMilk.typeString(): 2,
-                                             StarbucksDoubleShot.typeString(): 3,
-                                             TOPTheBlack.typeString(): 4,
-                                             CocaCola.typeString(): 5,
-                                             CocaColaZero.typeString(): 6]
+    static private let map: [ObjectIdentifier: Int] = [ObjectIdentifier(MandarineMilk.self): 1,
+                                               ObjectIdentifier(LactoseFreeMilk.self): 2,
+                                               ObjectIdentifier(StarbucksDoubleShot.self): 3,
+                                               ObjectIdentifier(TOPTheBlack.self): 4,
+                                               ObjectIdentifier(CocaCola.self): 5,
+                                               ObjectIdentifier(CocaColaZero.self): 6]
     
-    static func mapping(productName: String) -> Int {
-        return map[productName] ?? 0
+    static func mapping(product: Beverage) -> Int {
+        return map[ObjectIdentifier(type(of: product))] ?? 0
     }
 }

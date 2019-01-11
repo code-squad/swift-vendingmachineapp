@@ -59,6 +59,10 @@ class VendingMachine: NSObject {
         balance.show(with: form)
     }
 
+    func willAppear() {
+        postNotification(name: .vendingMachineWillAppear)
+    }
+
     private func postNotification(name: Notification.Name) {
         NotificationCenter.default.post(name: name, object: self)
     }
@@ -170,6 +174,7 @@ enum VendingMachineError: Error {
 }
 
 extension NSNotification.Name {
+    static let vendingMachineWillAppear = Notification.Name("vendingMachineWillAppear")
     static let didAddBeverage = Notification.Name("didAddBeverage")
     static let didInsertMoney = Notification.Name("didInsertMoney")
 }

@@ -22,15 +22,17 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         registerAsObserver()
-        showQuantities()
-        showBalance()
+        vendingMachine?.willAppear()
     }
 
     private func registerAsObserver() {
-        NotificationCenter.default.addObserver(self, selector: #selector(showQuantities),
-                                               name: .didAddBeverage, object: vendingMachine)
-        NotificationCenter.default.addObserver(self, selector: #selector(showBalance),
-                                               name: .didInsertMoney, object: vendingMachine)
+        let center = NotificationCenter.default
+        center.addObserver(self, selector: #selector(showQuantities), name: .didAddBeverage, object: vendingMachine)
+        center.addObserver(self, selector: #selector(showBalance), name: .didInsertMoney, object: vendingMachine)
+        var token: NSObjectProtocol?
+        token = center.addObserver(forName: .vendingMachineWillAppear, object: vendingMachine, queue: nil) { _ in
+            self.showQuantities(); self.showBalance()
+            center.removeObserver(token as Any, name: .vendingMachineWillAppear, object: self.vendingMachine) }
     }
 
     @objc private func showQuantities() {
@@ -59,4 +61,3 @@ class ViewController: UIViewController {
     }
 
 }
-

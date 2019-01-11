@@ -41,22 +41,12 @@ class VendingMachine: NSObject, NSCoding {
     }
 
     func buy(tag: Int) -> Beverage? {
-        let product = self.products[tag]?.popLast()
-        if self.products[tag]?.count == 0 {
-            self.products[tag] = nil
+        guard let boughtProduct = products.buy(tag: tag) else {
+            return nil
         }
-        if let product = product {
-            self.historyOfPurchase.append(product)
-            self.balance = pay(product: product)
-        }
-        return product
-    }
-
-    private func pay(product: Beverage) -> Int {
-        let pay: (Int) -> Int = { (price: Int) -> Int in
-            return self.balance - price
-        }
-        return product.pay(pay: pay)
+        balance.pay(beverage: boughtProduct)
+        historyOfPurchase.add(beverage: boughtProduct)
+        return boughtProduct
     }
 
     func readBalance() -> String {

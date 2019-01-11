@@ -11,5 +11,7 @@ import Foundation
 class HistoryOfPurchase {
     private var historyOfPurchase: [Beverage] = []
     
-    
+    func add(beverage: Beverage) {
+        historyOfPurchase.append(beverage)
+    }
 }

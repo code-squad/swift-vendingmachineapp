@@ -5,6 +5,7 @@
 3. <a href="#3-앱-생명주기와-객체-저장">앱 생명주기와 객체 저장</a>
 4. <a href="#4-싱글톤-모델">싱글톤 모델</a>
 5. <a href="#5-관찰자(Observer)-패턴">관찰자(Observer) 패턴</a>
+6. <a href="#6-구매목록-View-코드">구매목록 View 코드</a>
 
 <br>
 
@@ -463,3 +464,59 @@ var masksToBounds: Bool { get set }
 
 [이미지출처](https://codesquad.kr/)
 
+<br>
+
+## 6. 구매목록 View 코드
+
+### 추가내용
+
+##### 1. `구매` 버튼 추가
+
+기존의 `추가` 버튼과 마찬가지로, `UIButton.tag` 값을 활용하여 해당 음료를 구매하는 기능을 추가했습니다.
+
+<br>
+
+##### 2. `NotificationCenter` 를 활용한 구매 이력 이미지뷰 추가
+
+음료 구매 시, 해당하는 이미지뷰를 하단에 차례로 추가하여 구매 이력을 보이도록 구현했습니다. `History.update(purchase: Beverage)` 메소드를 호출하여 구매 이력이 업데이트되는 동시에 `didBuyBeverage` 노피티케이션을 `post` 합니다. 이 때, 구매한 음료 객체의 `className` 과 해당 음료가 `History.purchases` 배열에서 위치하는 `index` 값을 **[AnyHashable: Any]** 딕셔너리에 저장하여 `userInfo` 파라미터로 담아 `post` 합니다.
+
+뷰 컨트롤러는 이 노티피케이션을 전달받으면, 아래의 `selector` 메소드를 호출합니다. 위에서 구매한 음료정보를 담아 보내준  `userInfo` 로부터 `name` 과 `index` 값을 꺼내어 새로운 `RoundedCornersImageView` 를 생성하고 위치를 조정합니다.
+
+마지막으로 현재 루트 뷰에 `addSubview()` 하여, 루트 뷰의 `[subviews]` 에 추가합니다. 이 서브 뷰 배열에 추가되면, 기존의 서브 뷰 요소보다 더 위쪽에 나타나게됩니다. 
+
+ ```swift
+@objc private func showPurchase(_ notification: Notification) {
+    guard let name = notification.userInfo?["name"] as? String else { return }
+    guard let index = notification.userInfo?["index"] as? Int else { return }
+    let image = UIImage(named: "\(name).jpg")
+    let imageView = RoundedCornersImageView(image: image)
+    imageView.relocate(to: index)
+    self.view.addSubview(imageView)
+}
+ ```
+
+<br>
+
+##### 3. 앱 실행 시, 이전 구매 이력 복원
+
+`UserDefaults` 에 저장했던 자판기 객체를 언아카이브하여 내부 프로퍼티인 `History` 객체 또한 복원됩니다.   `History.willAppear()` 메소드 호출 시, 복원한 `purchases` 음료 배열를 이터레이트하면서 `didBuyBeverage` 노티피케이션을 포스트합니다.
+
+<br>
+
+### 실행화면
+
+> 완성일자: 2019.01.14 20:09
+
+음료 구매 시, 해당 음료의 이미지 뷰가 하단에 새로 추가됩니다. 재고가 없거나 잔액이 부족할 시에는 시행되지 않습니다.
+
+![Jan-14-2019(2)](./images/step6/Jan-14-2019(2).gif)
+
+앱을 종료하고 재실행했을 때, 이전의 구매이력을 나타내는 이미지 뷰가 복원됩니다.
+
+![Jan-15-2019(3)](./images/step6/Jan-15-2019(3).gif)
+
+<br>
+
+### 추가학습
+
+<br>

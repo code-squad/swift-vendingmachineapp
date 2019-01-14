@@ -24,11 +24,21 @@ class VendingMachine: NSObject, NSCoding {
         historyOfPurchase = aDecoder.decodeObject(forKey: VendingMachineArchiveKey.historyOfPurchase) as! HistoryOfPurchase
     }
     
+    override init() {
+        self.balance = Balance()
+        self.products = Products()
+        self.historyOfPurchase = HistoryOfPurchase()
+    }
+    
     //MARK: - Properties
-    private var balance: Balance = Balance()
-    private var products: Products = Products()
-    private var historyOfPurchase: HistoryOfPurchase = HistoryOfPurchase()
+    //MARK: Private
+    private var balance: Balance
+    private var products: Products
+    private var historyOfPurchase: HistoryOfPurchase
 
+    //MARK: Type Properties
+    static let sharedInstance = VendingMachine()
+    
     //MARK: - Methods
     //MARK: Balance
     func insert(money: Money) {

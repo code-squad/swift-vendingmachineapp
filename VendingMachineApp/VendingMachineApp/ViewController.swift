@@ -27,8 +27,8 @@ class ViewController: UIViewController {
 
     private func registerAsObserver() {
         let center = NotificationCenter.default
-        center.addObserver(self, selector: #selector(showQuantities), name: .inventoryDataChanged, object: vendingMachine)
-        center.addObserver(self, selector: #selector(showBalance), name: .moneyDataChanged, object: vendingMachine)
+        center.addObserver(self, selector: #selector(showQuantities), name: .inventoryDataChanged, object: nil)
+        center.addObserver(self, selector: #selector(showBalance), name: .moneyDataChanged, object: nil)
         center.addObserver(self, selector: #selector(showPurchase(_:)), name: .didBuyBeverage, object: nil)
     }
 

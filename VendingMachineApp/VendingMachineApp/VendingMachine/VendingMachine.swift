@@ -59,8 +59,8 @@ class VendingMachine: NSObject {
     }
 
     func willAppear() {
-        postNotification(name: .inventoryDataChanged)
-        postNotification(name: .moneyDataChanged)
+        balance.willAppear()
+        inventory.willAppear()
         history.willAppear()
     }
 
@@ -118,8 +118,7 @@ extension VendingMachine: Consumer {
 
     func insert(money: Money) -> Bool {
         guard money.isPositive() else { return false }
-        balance = balance + money
-        postNotification(name: .moneyDataChanged)
+        balance.increased(by: money)
         return true
     }
 
@@ -129,8 +128,6 @@ extension VendingMachine: Consumer {
         guard let beverage = inventory.remove(selected: pack) else { return nil }
         balance.deductedPrice(of: beverage)
         history.update(purchase: beverage)
-        postNotification(name: .inventoryDataChanged)
-        postNotification(name: .moneyDataChanged)
         return beverage
     }
 
@@ -141,7 +138,6 @@ extension VendingMachine: Manager {
     func add(beverage: BeverageSubCategory) {
         let newBeverage = beverage.type.init()
         inventory.add(beverage: newBeverage)
-        postNotification(name: .inventoryDataChanged)
     }
 
     func remove(beverage number: Int) -> Beverage? {
@@ -175,7 +171,6 @@ enum VendingMachineError: Error {
 }
 
 extension NSNotification.Name {
-    static let vendingMachineWillAppear = Notification.Name("vendingMachineWillAppear")
     static let inventoryDataChanged = Notification.Name("inventoryDataChanged")
     static let moneyDataChanged = Notification.Name("moneyDataChanged")
     static let didBuyBeverage = Notification.Name("didBuyBeverage")

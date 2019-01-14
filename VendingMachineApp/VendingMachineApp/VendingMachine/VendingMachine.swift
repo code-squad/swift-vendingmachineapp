@@ -59,7 +59,8 @@ class VendingMachine: NSObject {
     }
 
     func willAppear() {
-        postNotification(name: .vendingMachineWillAppear)
+        postNotification(name: .inventoryDataChanged)
+        postNotification(name: .moneyDataChanged)
     }
 
     private func postNotification(name: Notification.Name, userInfo: [AnyHashable: Any]? = nil) {

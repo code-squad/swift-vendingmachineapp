@@ -82,3 +82,7 @@ extension History: NSSecureCoding {
     }
 
 }
+
+extension NSNotification.Name {
+    static let didBuyBeverage = Notification.Name("didBuyBeverage")
+}

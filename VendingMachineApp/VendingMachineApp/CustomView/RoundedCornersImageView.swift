@@ -26,10 +26,10 @@ class RoundedCornersImageView: UIImageView {
 
     func relocate(to index: Int) {
         let maxCount = 15, firstLine = 500, width = 130, height = 150
-        let newLine = index > maxCount ? true : false
-        let count = newLine ? index - maxCount : index
+        let newLine = index >= maxCount ? true : false
+        let index = newLine ? index - maxCount : index
         let line = newLine ? (firstLine + height) : firstLine
-        self.frame = CGRect(x: 37+(count-1)*60, y: line, width: width, height: height)
+        self.frame = CGRect(x: 37+index*60, y: line, width: width, height: height)
     }
 
 }

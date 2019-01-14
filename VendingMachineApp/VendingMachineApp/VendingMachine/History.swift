@@ -23,8 +23,21 @@ class History: NSObject {
         return purchases.count
     }
 
+    private func postNotificationOfPurchase(userInfo: [AnyHashable: Any]?) {
+        NotificationCenter.default.post(name: .didBuyBeverage, object: self, userInfo: userInfo)
+    }
+
+    func willAppear() {
+        for (index, purchase) in purchases.enumerated() {
+            let userInfo: [AnyHashable: Any] = ["name": purchase.className, "index": index]
+            postNotificationOfPurchase(userInfo: userInfo)
+        }
+    }
+
     func update(purchase beverage: Beverage) {
         purchases.append(beverage)
+        let userInfo: [AnyHashable: Any] = ["name": beverage.className, "index": purchases.endIndex]
+        postNotificationOfPurchase(userInfo: userInfo)
     }
 
     func isEmpty() -> Bool {

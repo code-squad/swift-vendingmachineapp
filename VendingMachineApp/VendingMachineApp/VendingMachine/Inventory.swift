@@ -15,11 +15,6 @@ class Inventory: NSObject {
         self.list = list
     }
 
-    func hasNoBeverage(of beverage: Beverage.Type) -> Bool {
-        let beverageType = ObjectIdentifier(beverage)
-        return list.contains(where: { $0.key == beverageType && $0.value.isEmpty() })
-    }
-
     func packOf(type beverage: Beverage.Type) -> Pack? {
         let beverageType = ObjectIdentifier(beverage)
         guard let pack = list[beverageType] else { return nil }
@@ -42,19 +37,6 @@ class Inventory: NSObject {
         }
         list[beverageType] = Pack(beverages: [beverage])
         postNotificationOfDataChanged()
-    }
-
-    func getListOfAll() -> [Pack: Int] {
-        var listOfAll: [Pack: Int] = [:]
-        for pack in list.values {
-            if pack.isEmpty() { continue }
-            listOfAll[pack] = pack.count
-        }
-        return listOfAll
-    }
-
-    func getListBuyable(with money: Money) -> [Pack] {
-        return list.values.filter { money.isEnoughToBuy(pack: $0) }
     }
 
     func getListOfHotBeverages() -> [Pack] {

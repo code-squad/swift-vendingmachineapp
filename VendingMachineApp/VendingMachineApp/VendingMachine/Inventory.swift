@@ -33,9 +33,9 @@ class Inventory: NSObject {
         let beverageType = ObjectIdentifier(type(of: beverage))
         if let pack = list[beverageType] {
             pack.add(beverage: beverage)
-            return
+        } else {
+            list[beverageType] = Pack(beverages: [beverage])
         }
-        list[beverageType] = Pack(beverages: [beverage])
         postNotificationOfDataChanged()
     }
 

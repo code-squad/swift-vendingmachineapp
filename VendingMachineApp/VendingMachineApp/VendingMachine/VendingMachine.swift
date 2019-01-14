@@ -64,10 +64,6 @@ class VendingMachine: NSObject {
         history.willAppear()
     }
 
-    private func postNotification(name: Notification.Name) {
-        NotificationCenter.default.post(name: name, object: self)
-    }
-
     /* MARK: NSSecureCoding */
     private struct Default {
         static let balance = Money()

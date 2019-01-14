@@ -127,7 +127,7 @@ extension VendingMachine: Consumer {
         guard let beverage = inventory.remove(selected: pack) else { return nil }
         balance.deductedPrice(of: beverage)
         history.update(purchase: beverage)
-        let userInfo: [AnyHashable: Any] = ["name": beverage.className, "count": history.count]
+        let userInfo: [AnyHashable: Any] = ["name": beverage.className, "index": history.count]
         postNotification(name: .didBuyBeverage, userInfo: userInfo)
         return beverage
     }

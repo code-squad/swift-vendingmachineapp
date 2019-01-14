@@ -36,7 +36,8 @@ class History: NSObject {
 
     func update(purchase beverage: Beverage) {
         purchases.append(beverage)
-        let userInfo: [AnyHashable: Any] = ["name": beverage.className, "index": purchases.endIndex]
+        let index = purchases.firstIndex(of: beverage) ?? (purchases.count-1)
+        let userInfo: [AnyHashable: Any] = ["name": beverage.className, "index": index]
         postNotificationOfPurchase(userInfo: userInfo)
     }
 

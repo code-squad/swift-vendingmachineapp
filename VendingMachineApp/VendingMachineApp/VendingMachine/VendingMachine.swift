@@ -62,8 +62,8 @@ class VendingMachine: NSObject {
         postNotification(name: .vendingMachineWillAppear)
     }
 
-    private func postNotification(name: Notification.Name) {
-        NotificationCenter.default.post(name: name, object: self)
+    private func postNotification(name: Notification.Name, userInfo: [AnyHashable: Any]? = nil) {
+        NotificationCenter.default.post(name: name, object: self, userInfo: userInfo)
     }
 
     /* MARK: NSSecureCoding */
@@ -127,6 +127,8 @@ extension VendingMachine: Consumer {
         guard let beverage = inventory.remove(selected: pack) else { return nil }
         balance.deductedPrice(of: beverage)
         history.update(purchase: beverage)
+        let userInfo: [AnyHashable: Any] = ["name": beverage.className, "count": history.count]
+        postNotification(name: .didBuyBeverage, userInfo: userInfo)
         return beverage
     }
 
@@ -174,4 +176,5 @@ extension NSNotification.Name {
     static let vendingMachineWillAppear = Notification.Name("vendingMachineWillAppear")
     static let didAddBeverage = Notification.Name("didAddBeverage")
     static let didInsertMoney = Notification.Name("didInsertMoney")
+    static let didBuyBeverage = Notification.Name("didBuyBeverage")
 }

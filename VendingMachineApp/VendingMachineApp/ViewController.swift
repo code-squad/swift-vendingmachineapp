@@ -59,6 +59,8 @@ class ViewController: UIViewController {
         guard let beverage = BeverageSubCategory(rawValue: sender.tag) else { return }
         guard let vendingMachine = vendingMachine else { return }
         guard vendingMachine.buy(beverage: beverage) != nil else { return }
+        self.showQuantities()
+        self.showBalance()
     }
 
     @IBAction func insertMoney(_ sender: UIButton) {

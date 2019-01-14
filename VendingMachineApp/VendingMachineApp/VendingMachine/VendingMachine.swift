@@ -123,6 +123,7 @@ extension VendingMachine: Consumer {
 
     func buy(beverage: BeverageSubCategory) -> Beverage? {
         guard let pack = inventory.packOf(type: beverage.type) else { return nil }
+        guard balance.isEnoughToBuy(pack: pack) else { return nil }
         guard let beverage = inventory.remove(selected: pack) else { return nil }
         balance.deductedPrice(of: beverage)
         history.update(purchase: beverage)

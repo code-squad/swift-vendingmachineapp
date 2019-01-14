@@ -19,6 +19,10 @@ class History: NSObject {
         self.init(purchases: [])
     }
 
+    var count: Int {
+        return purchases.count
+    }
+
     func update(purchase beverage: Beverage) {
         purchases.append(beverage)
     }

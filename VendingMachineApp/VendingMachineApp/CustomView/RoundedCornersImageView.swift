@@ -10,6 +10,10 @@ import UIKit
 
 class RoundedCornersImageView: UIImageView {
 
+    override init(image: UIImage?) {
+        super.init(image: image)
+    }
+
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         roundCorners()

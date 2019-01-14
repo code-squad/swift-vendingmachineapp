@@ -11,8 +11,7 @@ import Foundation
 protocol Consumer {
     func isEmpty() -> Bool
     func insert(money: Money) -> Bool
-    func getListBuyable() -> [Pack]
-    func buy(beverage: Pack) -> Beverage?
+    func buy(beverage: BeverageSubCategory) -> Beverage?
 }
 
 protocol Manager {
@@ -122,11 +121,8 @@ extension VendingMachine: Consumer {
         return true
     }
 
-    func getListBuyable() -> [Pack] {
-        return inventory.getListBuyable(with: balance)
-    }
-
-    func buy(beverage pack: Pack) -> Beverage? {
+    func buy(beverage: BeverageSubCategory) -> Beverage? {
+        guard let pack = inventory.packOf(type: beverage.type) else { return nil }
         guard let beverage = inventory.remove(selected: pack) else { return nil }
         balance.deductedPrice(of: beverage)
         history.update(purchase: beverage)

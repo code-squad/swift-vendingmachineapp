@@ -38,7 +38,7 @@
                                 <rect key="frame" x="637" y="124" width="130" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Georgia.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="LeM-fs-Lpc" customClass="RoundedCornersImageView" customModule="VendingMachineApp" customModuleProvider="target">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Georgia.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="LeM-fs-Lpc" customClass="RoundedCornersImageView" customModule="VendingMachineApp" customModuleProvider="target">
                                 <rect key="frame" x="787" y="124" width="130" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -231,7 +231,7 @@
     <resources>
         <image name="Cantata.jpg" width="500" height="500"/>
         <image name="ChocolateMilk.jpg" width="370" height="370"/>
-        <image name="Georgia.jpeg" width="600" height="600"/>
+        <image name="Georgia.jpg" width="600" height="600"/>
         <image name="Pepsi.jpg" width="370" height="370"/>
         <image name="Sprite.jpg" width="500" height="500"/>
         <image name="StrawberryMilk.jpg" width="305" height="305"/>

@@ -27,8 +27,8 @@ class ViewController: UIViewController {
 
     private func registerAsObserver() {
         let center = NotificationCenter.default
-        center.addObserver(self, selector: #selector(showQuantities), name: .didAddBeverage, object: vendingMachine)
-        center.addObserver(self, selector: #selector(showBalance), name: .didInsertMoney, object: vendingMachine)
+        center.addObserver(self, selector: #selector(showQuantities), name: .inventoryDataChanged, object: vendingMachine)
+        center.addObserver(self, selector: #selector(showBalance), name: .moneyDataChanged, object: vendingMachine)
         center.addObserver(self, selector: #selector(showPurchase(_:)), name: .didBuyBeverage, object: vendingMachine)
         var token: NSObjectProtocol?
         token = center.addObserver(forName: .vendingMachineWillAppear, object: vendingMachine, queue: nil) { _ in
@@ -69,8 +69,6 @@ class ViewController: UIViewController {
         guard let beverage = BeverageSubCategory(rawValue: sender.tag) else { return }
         guard let vendingMachine = vendingMachine else { return }
         guard vendingMachine.buy(beverage: beverage) != nil else { return }
-        self.showQuantities()
-        self.showBalance()
     }
 
     @IBAction func insertMoney(_ sender: UIButton) {

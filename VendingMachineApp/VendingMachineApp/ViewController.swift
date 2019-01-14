@@ -30,10 +30,6 @@ class ViewController: UIViewController {
         center.addObserver(self, selector: #selector(showQuantities), name: .inventoryDataChanged, object: vendingMachine)
         center.addObserver(self, selector: #selector(showBalance), name: .moneyDataChanged, object: vendingMachine)
         center.addObserver(self, selector: #selector(showPurchase(_:)), name: .didBuyBeverage, object: vendingMachine)
-        var token: NSObjectProtocol?
-        token = center.addObserver(forName: .vendingMachineWillAppear, object: vendingMachine, queue: nil) { _ in
-            self.showQuantities(); self.showBalance()
-            center.removeObserver(token as Any, name: .vendingMachineWillAppear, object: self.vendingMachine) }
     }
 
     @objc private func showQuantities() {

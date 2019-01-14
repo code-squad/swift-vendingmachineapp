@@ -82,3 +82,7 @@ extension Money: NSSecureCoding {
     }
 
 }
+
+extension NSNotification.Name {
+    static let moneyDataChanged = Notification.Name("moneyDataChanged")
+}

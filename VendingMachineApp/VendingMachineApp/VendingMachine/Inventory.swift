@@ -123,3 +123,7 @@ extension Inventory: NSSecureCoding {
     }
 
 }
+
+extension NSNotification.Name {
+    static let inventoryDataChanged = Notification.Name("inventoryDataChanged")
+}

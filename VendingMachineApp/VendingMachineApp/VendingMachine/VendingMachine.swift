@@ -169,9 +169,3 @@ enum VendingMachineError: Error {
         }
     }
 }
-
-extension NSNotification.Name {
-    static let inventoryDataChanged = Notification.Name("inventoryDataChanged")
-    static let moneyDataChanged = Notification.Name("moneyDataChanged")
-    static let didBuyBeverage = Notification.Name("didBuyBeverage")
-}

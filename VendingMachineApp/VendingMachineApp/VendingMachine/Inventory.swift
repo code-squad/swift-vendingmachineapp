@@ -26,6 +26,14 @@ class Inventory: NSObject {
         return pack
     }
 
+    func willAppear() {
+        postNotificationOfDataChanged()
+    }
+
+    private func postNotificationOfDataChanged() {
+        NotificationCenter.default.post(name: .inventoryDataChanged, object: self)
+    }
+
     func add(beverage: Beverage) {
         let beverageType = ObjectIdentifier(type(of: beverage))
         if let pack = list[beverageType] {
@@ -33,6 +41,7 @@ class Inventory: NSObject {
             return
         }
         list[beverageType] = Pack(beverages: [beverage])
+        postNotificationOfDataChanged()
     }
 
     func getListOfAll() -> [Pack: Int] {
@@ -69,7 +78,9 @@ class Inventory: NSObject {
 
     func remove(selected pack: Pack) -> Beverage? {
         guard let identifier = findIdentifier(of: pack) else { return nil }
-        return list[identifier]?.removeOne()
+        guard let removed = list[identifier]?.removeOne() else { return nil }
+        postNotificationOfDataChanged()
+        return removed
     }
 
     func isEmpty() -> Bool {

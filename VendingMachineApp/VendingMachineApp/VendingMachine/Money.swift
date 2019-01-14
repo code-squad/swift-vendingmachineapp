@@ -28,13 +28,22 @@ class Money: NSObject {
         return balance > 0
     }
 
-    static func +(_ lhs: Money, _ rhs: Money) -> Money {
-        let sum = lhs.balance + rhs.balance
-        return Money(initialBalance: sum)
+    func willAppear() {
+        postNotificationOfBalanceChanged()
+    }
+
+    private func postNotificationOfBalanceChanged() {
+        NotificationCenter.default.post(name: .moneyDataChanged, object: self)
+    }
+
+    func increased(by money: Money) {
+        self.balance += money.balance
+        postNotificationOfBalanceChanged()
     }
 
     func deductedPrice(of beverage: Beverage) {
         balance = beverage.subtractPrice(from: balance)
+        postNotificationOfBalanceChanged()
     }
 
     func show(with show: (Int) -> Void) {

@@ -45,8 +45,8 @@ class VendingMachine: NSObject, NSCoding {
         balance.insert(money: money)
     }
     
-    func readBalance() -> String {
-        return balance.readBalance()
+    func updateBalance(update: (String) -> Void) {
+        balance.updateBalance(update: update)
     }
 
     //MARK: Products
@@ -63,8 +63,8 @@ class VendingMachine: NSObject, NSCoding {
         return boughtProduct
     }
     
-    func number(of tag: Int) -> Int {
-        return products.number(of: tag)
+    func updateNumber(of tag: Int, update: (Int) -> Void) {
+        products.updateNumber(of: tag, update: update)
     }
     
     func inventory() -> [String: Int] {

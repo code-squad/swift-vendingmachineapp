@@ -53,8 +53,8 @@ class Products: NSObject, NSCoding {
         return inventoryStatus
     }
     
-    func number(of tag: Int) -> Int {
-        return products[tag]?.count ?? 0
+    func updateNumber(of tag: Int, update: (Int) -> Void) {
+        update(products[tag]?.count ?? 0)
     }
     
     func expiredProducts() -> [Beverage] {

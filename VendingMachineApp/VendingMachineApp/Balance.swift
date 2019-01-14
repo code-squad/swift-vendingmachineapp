@@ -24,10 +24,10 @@ class Balance: NSObject, NSCoding {
         self.balance += money.rawValue
     }
     
-    func readBalance() -> String {
+    func updateBalance(update: (String) -> Void) {
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
-        return formatter.string(from: self.balance as NSNumber) ?? ""
+        update(formatter.string(from: self.balance as NSNumber) ?? "")
     }
     
     func pay(beverage: Beverage) {

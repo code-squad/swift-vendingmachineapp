@@ -9,9 +9,16 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    //MARK: - Properties
+    //MARK: IBOutlet
+    
     @IBOutlet weak var balanceLabel: UILabel!
     @IBOutlet var productImageViews: [UIImageView]!
     @IBOutlet var numberOfProductLabels: [UILabel]!
+    
+    //MARK: - Methods
+    //MARK: Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,17 +26,33 @@ class ViewController: UIViewController {
         for productImageView in productImageViews {
             productImageView.layer.cornerRadius = productImageView.frame.height / 2
         }
-        
-        balanceLabel.text = "잔액 : \(VendingMachine.sharedInstance.readBalance())"
-        updateNumberOfProductLabels()
+        updateLabels()
     }
-
-    private func updateNumberOfProductLabels() {
+    
+    //MARK: Private
+    
+    private func updateLabels() {
+        
+        let updateBalanceLabel: (String) -> Void = { (balance: String) -> Void in
+            self.balanceLabel.text = "잔액 : \(balance)"
+        }
+        VendingMachine.sharedInstance.updateBalance(update: updateBalanceLabel)
+        
         for numberOfProductLabel in numberOfProductLabels {
             let tag = numberOfProductLabel.superview?.tag ?? 0
-            numberOfProductLabel.text = "\(VendingMachine.sharedInstance.number(of: tag))개"
+            let updateNumberOfProductLabel: (Int) -> Void = { (numberOfProduct: Int) -> Void in
+                numberOfProductLabel.text = "\(numberOfProduct)개"
+            }
+            VendingMachine.sharedInstance.updateNumber(of: tag, update: updateNumberOfProductLabel)
         }
     }
+    
+    private func add<T>(productType: T.Type) where T: Beverage, T: Product {
+        let beverage = Beverage.produce(product: productType)
+        VendingMachine.sharedInstance.add(product: beverage)
+    }
+    
+    //MARK: IBAction
     
     @IBAction func tapAddBeverageButton(_ sender: UIButton) {
         guard let tag = sender.superview?.tag else {return}
@@ -51,14 +74,9 @@ class ViewController: UIViewController {
             return
         }
         
-        updateNumberOfProductLabels()
+        self.updateLabels()
     }
     
-    private func add<T>(productType: T.Type) where T: Beverage, T: Product {
-        let beverage = Beverage.produce(product: productType)
-        VendingMachine.sharedInstance.add(product: beverage)
-    }
-
     @IBAction func tapInsertMoneyButton(_ sender: UIButton) {
         switch sender.tag {
         case 1:
@@ -69,6 +87,6 @@ class ViewController: UIViewController {
             return
         }
         
-        balanceLabel.text = "잔액 : \(VendingMachine.sharedInstance.readBalance())"
+        updateLabels()
     }
 }

@@ -16,9 +16,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
         if let data = UserDefaults.standard.object(forKey: vendingMachineArchiveKey) as? Data {
-            guard let vendingMachine = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as! VendingMachine else {return true}
+            guard let vendingMachine = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as! VendingMachine else {
+                return true
+            }
             VendingMachine.sharedInstance.property(of: vendingMachine)
         }
         return true

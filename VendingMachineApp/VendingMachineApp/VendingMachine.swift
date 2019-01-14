@@ -24,7 +24,7 @@ class VendingMachine: NSObject, NSCoding {
         historyOfPurchase = aDecoder.decodeObject(forKey: VendingMachineArchiveKey.historyOfPurchase) as! HistoryOfPurchase
     }
     
-    override init() {
+    override private init() {
         self.balance = Balance()
         self.products = Products()
         self.historyOfPurchase = HistoryOfPurchase()

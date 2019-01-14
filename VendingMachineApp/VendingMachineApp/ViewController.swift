@@ -12,7 +12,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var balanceLabel: UILabel!
     @IBOutlet var productImageViews: [UIImageView]!
     @IBOutlet var numberOfProductLabels: [UILabel]!
-    private var vendingMachine: VendingMachine!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,17 +20,14 @@ class ViewController: UIViewController {
             productImageView.layer.cornerRadius = productImageView.frame.height / 2
         }
         
-        guard let appDelegate: AppDelegate = UIApplication.shared.delegate as? AppDelegate else {return}
-        vendingMachine = appDelegate.vendingMachine
-        
-        balanceLabel.text = "잔액 : \(vendingMachine.readBalance())"
+        balanceLabel.text = "잔액 : \(VendingMachine.sharedInstance.readBalance())"
         updateNumberOfProductLabels()
     }
 
     private func updateNumberOfProductLabels() {
         for numberOfProductLabel in numberOfProductLabels {
             let tag = numberOfProductLabel.superview?.tag ?? 0
-            numberOfProductLabel.text = "\(vendingMachine.number(of: tag))개"
+            numberOfProductLabel.text = "\(VendingMachine.sharedInstance.number(of: tag))개"
         }
     }
     
@@ -60,19 +56,19 @@ class ViewController: UIViewController {
     
     private func add<T>(productType: T.Type) where T: Beverage, T: Product {
         let beverage = Beverage.produce(product: productType)
-        vendingMachine.add(product: beverage)
+        VendingMachine.sharedInstance.add(product: beverage)
     }
 
     @IBAction func tapInsertMoneyButton(_ sender: UIButton) {
         switch sender.tag {
         case 1:
-            vendingMachine.insert(money: .thousand)
+            VendingMachine.sharedInstance.insert(money: .thousand)
         case 2:
-            vendingMachine.insert(money: .fiveThousand)
+            VendingMachine.sharedInstance.insert(money: .fiveThousand)
         default:
             return
         }
         
-        balanceLabel.text = "잔액 : \(vendingMachine.readBalance())"
+        balanceLabel.text = "잔액 : \(VendingMachine.sharedInstance.readBalance())"
     }
 }

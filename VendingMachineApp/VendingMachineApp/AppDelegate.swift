@@ -14,13 +14,12 @@ let vendingMachineArchiveKey: String = "vendingMachineArchiveKey"
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var vendingMachine: VendingMachine = VendingMachine()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         if let data = UserDefaults.standard.object(forKey: vendingMachineArchiveKey) as? Data {
             guard let vendingMachine = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as! VendingMachine else {return true}
-            self.vendingMachine.property(of: vendingMachine)
+            VendingMachine.sharedInstance.property(of: vendingMachine)
         }
         return true
     }
@@ -33,7 +32,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-        if let data = try? NSKeyedArchiver.archivedData(withRootObject: vendingMachine, requiringSecureCoding: false) {
+        if let data = try? NSKeyedArchiver.archivedData(withRootObject: VendingMachine.sharedInstance,
+                                                        requiringSecureCoding: false) {
             UserDefaults.standard.set(data, forKey: vendingMachineArchiveKey)
         }
     }

@@ -29,6 +29,7 @@ class ViewController: UIViewController {
         let center = NotificationCenter.default
         center.addObserver(self, selector: #selector(showQuantities), name: .didAddBeverage, object: vendingMachine)
         center.addObserver(self, selector: #selector(showBalance), name: .didInsertMoney, object: vendingMachine)
+        center.addObserver(self, selector: #selector(showPurchase(_:)), name: .didBuyBeverage, object: vendingMachine)
         var token: NSObjectProtocol?
         token = center.addObserver(forName: .vendingMachineWillAppear, object: vendingMachine, queue: nil) { _ in
             self.showQuantities(); self.showBalance()
@@ -47,6 +48,15 @@ class ViewController: UIViewController {
             self.balance.text = "잔액: \(money)원"
         }
         vendingMachine?.showBalance(with: balanceForm)
+    }
+
+    @objc private func showPurchase(_ notification: Notification) {
+        guard let name = notification.userInfo?["name"] as? String else { return }
+        guard let count = notification.userInfo?["count"] as? Int else { return }
+        let image = UIImage(named: "\(name).jpg")
+        let imageView = RoundedCornersImageView(image: image)
+        imageView.frame = CGRect(x: 37+count*60, y: 500, width: 130, height: 150)
+        self.view.addSubview(imageView)
     }
 
     @IBAction func addBeverage(_ sender: UIButton) {

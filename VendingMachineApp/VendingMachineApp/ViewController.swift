@@ -9,19 +9,20 @@
 import UIKit
 
 class ViewController: UIViewController {
-    private weak var vendingMachine: VendingMachine?
     @IBOutlet var beverageImages: [RoundedCornersImageView]!
     @IBOutlet var beverageLabels: [UILabel]!
     @IBOutlet weak var balance: UILabel!
 
-    func set(vendingMachine: VendingMachine) {
-        self.vendingMachine = vendingMachine
-    }
+    private weak var vendingMachine: VendingMachine?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         registerAsObserver()
         vendingMachine?.willAppear()
+    }
+
+    func set(vendingMachine: VendingMachine) {
+        self.vendingMachine = vendingMachine
     }
 
     private func registerAsObserver() {

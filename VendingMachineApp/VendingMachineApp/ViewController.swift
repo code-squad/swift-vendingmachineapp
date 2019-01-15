@@ -9,10 +9,12 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    var machine: VendingMachine = VendingMachine()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        OutputView.printStock(of: machine)
     }
 
 

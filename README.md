@@ -1,57 +1,52 @@
-# 진행 방법
+## VendingMachineApp 정리
 
-- 음료수 자판기 iOS 앱에 요구사항을 파악한다.
-- 요구사항에 대한 구현을 완료한 후 자신의 github 아이디에 해당하는 브랜치에 Pull Request(이하 PR)를 통해 코드 리뷰 요청을 한다.
-- 코드 리뷰 피드백에 대한 개선 작업을 하고 다시 PUSH한다.
-- 모든 피드백을 완료하면 다음 단계를 도전하고 앞의 과정을 반복한다.
+#### Step 1
 
-# 코드 리뷰 과정
-> 저장소 브랜치에 자신의 github 아이디에 해당하는 브랜치가 존재해야 한다.
->
-> 자신의 github 아이디에 해당하는 브랜치가 있는지 확인한다.
 
-1. 자신의 github 아이디에 해당하는 브랜치가 없는 경우 브랜치 생성 요청 채널을 통해 브랜치 생성을 요청한다.
-프로젝트를 자신의 계정으로 fork한다. 저장소 우측 상단의 fork 버튼을 활용한다.
+**Device Orientation(화면 지원)**
+ 
+ 일반적으로 설정을 위한 방법이 두 가지 존재한다. 첫 번째는 코드로 구현하는 것이고 두 번째는 프로젝트 설정에서 항목을 설정하는 것이다.
+ 
+   이번 Step1에서는 프로젝트 설정에서 `Device Orientation` 항목을 설정해주었다.
+   1. 프로젝트 일반(General)에서 `Device Orientation`항목을 체크해준다.
+   2. 4가지 옵션이 존재한다.
+   * Portrait : 기본 모드이다. 기기가 손에 들려있을 때, 홈 버튼이 제일 아랫쪽으로 위치하는 화면모드이다.
+   * PortraitUpsideDown : 위의 모드와는 반대되는 모드이다. 홈 버튼이 제일 윗쪽에 위치하는 모드이다.
+   * LandscapeLeft : 기기가 들려있고 홈 버튼이 제일 오른쪽에 위치한다. 흔히 동영상을 볼 때 사용한다.
+   * LandscapeRight: 위의 모드와 반대되는 모드이다. 홈 버튼이 제일 왼쪽에 위치한다.
+   
+   
+**IOS 프로젝트 템플릿 구조**
 
-2. fork한 프로젝트를 자신의 컴퓨터로 clone한다.
+ * App Lifecycle
+  앱 생명주기는 홈 버튼을 눌렀을 때, 전화가 왔을 때와 같이 앱이 화면상에서 보이지 않는 상태, 화면에 실행되고 있는 상태들을 정의한 것이다. 제대로 된 앱을 만들기 이해서는 다양한 상황에서 작동하기 위해 앱 생명주기에 대한 이해가 중요하다.
+   앱 생명주기를 이해하기 위해 먼저 Swift 앱을 실행했을 때, 실행되는 상황을 보겠다.
+   - UIApplication 객체 생성 (싱글톤 객체 - 앱에 하나만 존재)
+   - @UIApplicationMain 어노테이션이 있는 클래스를 찾아 AppDelegate 객체를 생성
+   - Main Event Loop을 실행
+   
+    AppDelegate 객체는 UIApplication 객체로부터 메세지를 받았을 때, 해당 상황에서 실행될 함수들을 정의한다. 프로젝트를 생성할 때, 자동으로 AppDelegate.swift 파일이 생성된다. 이 파일이 AppDelegate 객체가 된다. 이 파일을 열어보면 클래스 선언부에 @UIApplicationMain 어노테이션이 붙어있는 것을 알 수 있다. AppDelegate.swift 파일에는 앱의 상태에 따라 실행되는 함수들이 정의되어 있다. 일반적으로 5개의 상태로 구분된다.
+    
 ```
-git clone https://github.com/{본인_아이디}/{저장소 아이디}
-ex) https://github.com/godrm/swift-vendingmachineapp
+Not Running : 앱이 실행되지 않은 상태
+Inactive : 앱이 실행중인 상태 그러나 아무런 이벤트를 받지 않는 상태
+Active : 앱이 실행중이며 이벤트가 발생한 상태
+Background : 앱이 백그라운드에 있는 상태 그러나 실행되는 코드가 있는 상태
+Suspend : 앱이 백그라운드에 있고 실행되는 코드가 없는 상태
+```
+    
+ AppDelegate.swift에는 아래와 같이 앱의 상태에 따라 실행되는 delegate 함수들이 정의되어 있다. 그렇기 때문에 앱의 특정 상태에서 동작하는 로직을 구현 할 수 있다.
+```
+application(_:didFinishLaunching:) - 앱이 처음 시작될 때 실행
+applicationWillResignActive: - 앱이 active 에서 inactive로 이동될 때 실행
+applicationDidEnterBackground: - 앱이 background 상태일 때 실행 
+applicationWillEnterForeground: - 앱이 background에서 foreground로 이동 될때 실행
+applicationDidBecomeActive: - 앱이 active상태가 되어 실행 중일 때
+applicationWillTerminate: - 앱이 종료될 때 실행
 ```
 
-3. clone한 프로젝트 이동
-```
-cd {저장소 아이디}
-ex) cd swift-vendingmachineapp
-```
-
-4. 본인 아이디로 브랜치를 만들기 위한 checkout
-```
-git checkout -t origin/본인_아이디
-ex) git checkout -t origin/godrm
-```
-
-5. commit
-```
-git status //확인
-git rm 파일명 //삭제된 파일
-git add 파일명(or * 모두) // 추가/변경 파일
-git commit -m "메세지" // 커밋
-```
-
-6. 본인 원격 저장소에 올리기
-```
-git push origin 본인_아이디
-ex) git push origin godrm
-```
-
-7. pull request
-8. pull request는 github 서비스에서 진행할 수 있다.
-9. pull request는 반드시 original 저장소의 브랜치와 fork한 자신의 저장소 브랜치 이름이 같아야 하며, 브랜치 이름은 자신의 github 아이디여야 한다.
-10. code review 및 push
-11. pull request를 통해 피드백을 받는다.
-12. 코드 리뷰 피드백에 대한 개선 작업을 하고 다시 PUSH한다.
-
-## 앞의 코드 리뷰 과정은 [영상 보기](https://www.youtube.com/watch?v=ZSZoaG0PqLg) 를 통해 참고 가능
-
-## 실습 중 모든 질문은 슬랙 채널에서...
+    
+   
+   
+   
+ 

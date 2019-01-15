@@ -47,32 +47,12 @@ class ViewController: UIViewController {
         }
     }
     
-    private func add<T>(productType: T.Type) where T: Beverage, T: Product {
-        let beverage = Beverage.produce(product: productType)
-        VendingMachine.sharedInstance.add(product: beverage)
-    }
-    
     //MARK: IBAction
     
     @IBAction func tapAddBeverageButton(_ sender: UIButton) {
         guard let tag = sender.superview?.tag else {return}
         
-        switch tag {
-        case 1:
-            add(productType: MandarineMilk.self)
-        case 2:
-            add(productType: LactoseFreeMilk.self)
-        case 3:
-            add(productType: StarbucksDoubleShot.self)
-        case 4:
-            add(productType: TOPTheBlack.self)
-        case 5:
-            add(productType: CocaCola.self)
-        case 6:
-            add(productType: CocaColaZero.self)
-        default:
-            return
-        }
+        VendingMachine.sharedInstance.add(tag: tag)
         
         self.updateLabels()
     }

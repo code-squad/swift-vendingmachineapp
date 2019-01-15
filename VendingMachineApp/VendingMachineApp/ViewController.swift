@@ -14,7 +14,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        OutputView.printStock(of: machine)
+        let printer: PrintableMachingState = machine
+        printer.machineStateInManagerMode { stock in
+            print(stock.currentStockState())
+        }
+        
     }
 
 

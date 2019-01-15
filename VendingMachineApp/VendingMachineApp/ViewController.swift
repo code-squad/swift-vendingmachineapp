@@ -14,9 +14,8 @@ class ViewController: UIViewController {
     @IBOutlet var beverageLabels: [UILabel]!
     @IBOutlet weak var balance: UILabel!
 
-    required init?(coder aDecoder: NSCoder) {
-        self.vendingMachine = VendingMachine.shared
-        super.init(coder: aDecoder)
+    func set(vendingMachine: VendingMachine) {
+        self.vendingMachine = vendingMachine
     }
 
     override func viewDidLoad() {

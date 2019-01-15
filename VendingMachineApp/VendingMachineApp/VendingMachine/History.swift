@@ -29,7 +29,8 @@ class History: NSObject {
 
     func willAppear() {
         for (index, purchase) in purchases.enumerated() {
-            let userInfo: [AnyHashable: Any] = ["name": purchase.className, "index": index]
+            let userInfo: [AnyHashable: Any] = [Notification.InfoKey.nameOfPurchase: purchase.className,
+                                                Notification.InfoKey.indexOfPurchase: index]
             postNotificationOfPurchase(userInfo: userInfo)
         }
     }
@@ -37,7 +38,8 @@ class History: NSObject {
     func update(purchase beverage: Beverage) {
         purchases.append(beverage)
         let index = purchases.firstIndex(of: beverage) ?? (purchases.count-1)
-        let userInfo: [AnyHashable: Any] = ["name": beverage.className, "index": index]
+        let userInfo: [AnyHashable: Any] = [Notification.InfoKey.nameOfPurchase: beverage.className,
+                                            Notification.InfoKey.indexOfPurchase: index]
         postNotificationOfPurchase(userInfo: userInfo)
     }
 
@@ -86,4 +88,11 @@ extension History: NSSecureCoding {
 
 extension Notification.Name {
     static let didBuyBeverage = Notification.Name("didBuyBeverage")
+}
+
+extension Notification {
+    struct InfoKey {
+        static let nameOfPurchase = "nameOfPurchase"
+        static let indexOfPurchase = "indexOfPurchase"
+    }
 }

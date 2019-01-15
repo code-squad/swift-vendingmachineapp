@@ -33,7 +33,7 @@ class ViewController: UIViewController {
     
     private func updateLabels() {
         
-        let updateBalanceLabel: (String) -> Void = { (balance: String) -> Void in
+        let updateBalanceLabel: (String) -> Void = { [unowned self] (balance: String) -> Void in
             self.balanceLabel.text = "잔액 : \(balance)"
         }
         VendingMachine.sharedInstance.updateBalance(update: updateBalanceLabel)

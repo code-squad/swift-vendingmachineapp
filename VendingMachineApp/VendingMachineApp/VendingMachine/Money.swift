@@ -83,6 +83,6 @@ extension Money: NSSecureCoding {
 
 }
 
-extension NSNotification.Name {
+extension Notification.Name {
     static let moneyDataChanged = Notification.Name("moneyDataChanged")
 }

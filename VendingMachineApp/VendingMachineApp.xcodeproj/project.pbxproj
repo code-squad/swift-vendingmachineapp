@@ -31,6 +31,7 @@
 		9DF2158721ED842400DD27BD /* Fanta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF2157421ED842400DD27BD /* Fanta.swift */; };
 		9DF2158821ED842400DD27BD /* Cola.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF2157521ED842400DD27BD /* Cola.swift */; };
 		9DF2158921ED842400DD27BD /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF2157621ED842400DD27BD /* Coffee.swift */; };
+		9DF2158B21ED858F00DD27BD /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF2158A21ED858F00DD27BD /* OutputView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 		9DF2157421ED842400DD27BD /* Fanta.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fanta.swift; sourceTree = "<group>"; };
 		9DF2157521ED842400DD27BD /* Cola.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cola.swift; sourceTree = "<group>"; };
 		9DF2157621ED842400DD27BD /* Coffee.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
+		9DF2158A21ED858F00DD27BD /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 		9DF2154321ED82E400DD27BD = {
 			isa = PBXGroup;
 			children = (
+				9DF2158A21ED858F00DD27BD /* OutputView.swift */,
 				9DF2154E21ED82E400DD27BD /* VendingMachineApp */,
 				9DF2154D21ED82E400DD27BD /* Products */,
 			);
@@ -222,6 +225,7 @@
 				9DF2157A21ED842400DD27BD /* Menu.swift in Sources */,
 				9DF2158121ED842400DD27BD /* Beverage.swift in Sources */,
 				9DF2158421ED842400DD27BD /* Milk.swift in Sources */,
+				9DF2158B21ED858F00DD27BD /* OutputView.swift in Sources */,
 				9DF2155221ED82E400DD27BD /* ViewController.swift in Sources */,
 				9DF2155021ED82E400DD27BD /* AppDelegate.swift in Sources */,
 				9DF2158621ED842400DD27BD /* BananaMilk.swift in Sources */,

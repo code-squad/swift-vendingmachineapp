@@ -60,7 +60,7 @@ class Beverage: NSObject, NSCoding {
         return pay(balance, price)
     }
     
-    static func produce<T>(product: T.Type) -> T where T: Beverage, T: Product {
+    static func produce(product: BeverageProduct.Type) -> BeverageProduct {
         return product.init()
     }
 }

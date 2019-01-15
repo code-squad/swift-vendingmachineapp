@@ -50,8 +50,8 @@ class VendingMachine: NSObject, NSCoding {
     }
 
     //MARK: Products
-    func add<T>(product: T) where T: Beverage, T: Product {
-        products.add(product: product)
+    func add(tag: Int) {
+        products.add(tag: tag)
     }
 
     func buy(tag: Int) -> Beverage? {

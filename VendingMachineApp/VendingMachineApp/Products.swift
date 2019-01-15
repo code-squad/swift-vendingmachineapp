@@ -22,11 +22,15 @@ class Products: NSObject, NSCoding {
     private var products: [Int: [Beverage]] = [:]
     
     //MARK: - Methods
-    func add<T>(product: T) where T: Beverage, T: Product {
-        let tag = Mapper.mapping(product: product)
+    func add(tag: Int) {
+        
+        guard let productType = Mapper.map[tag] else { return }
+        let product = Beverage.produce(product: productType)
+        
         if self.products[tag] == nil {
             self.products[tag] = []
         }
+        
         self.products[tag]?.append(product)
     }
     

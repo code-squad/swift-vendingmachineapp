@@ -19,6 +19,15 @@ class RoundedCornersImageView: UIImageView {
         roundCorners()
     }
 
+    enum ImageFileFormat: String {
+        case jpg = "jpg"
+    }
+
+    convenience init(imageName: String, fileFormat: ImageFileFormat) {
+        let image = UIImage(named: "\(imageName).\(fileFormat.rawValue)")
+        self.init(image: image)
+    }
+
     private func roundCorners() {
         self.layer.cornerRadius = 15
         self.layer.masksToBounds = true

@@ -50,12 +50,12 @@ class VendingMachine: NSObject, NSCoding {
     }
 
     //MARK: Products
-    func add(tag: Int) {
-        products.add(tag: tag)
+    func add(product: BeverageProduct) {
+        products.add(product: product)
     }
 
-    func buy(tag: Int) -> Beverage? {
-        guard let boughtProduct = products.buy(tag: tag) else {
+    func buy(productType: BeverageProduct.Type) -> BeverageProduct? {
+        guard let boughtProduct = products.buy(productType: productType) else {
             return nil
         }
         balance.pay(beverage: boughtProduct)
@@ -63,8 +63,8 @@ class VendingMachine: NSObject, NSCoding {
         return boughtProduct
     }
     
-    func updateNumber(of tag: Int, update: (Int) -> Void) {
-        products.updateNumber(of: tag, update: update)
+    func updateNumber(of beverageType: BeverageProduct.Type, update: (Int) -> Void) {
+        products.updateNumber(of: beverageType, update: update)
     }
     
     func inventory() -> [String: Int] {

@@ -40,19 +40,24 @@ class ViewController: UIViewController {
         
         for numberOfProductLabel in numberOfProductLabels {
             let tag = numberOfProductLabel.superview?.tag ?? 0
+            guard let beverageType = Mapper.map[tag] else { return }
+            
             let updateNumberOfProductLabel: (Int) -> Void = { (numberOfProduct: Int) -> Void in
                 numberOfProductLabel.text = "\(numberOfProduct)개"
             }
-            VendingMachine.sharedInstance.updateNumber(of: tag, update: updateNumberOfProductLabel)
+            VendingMachine.sharedInstance.updateNumber(of: beverageType, update: updateNumberOfProductLabel)
         }
     }
     
     //MARK: IBAction
     
     @IBAction func tapAddBeverageButton(_ sender: UIButton) {
-        guard let tag = sender.superview?.tag else {return}
+        guard let tag = sender.superview?.tag else { return }
+        guard let beverageType = Mapper.map[tag] else { return }
         
-        VendingMachine.sharedInstance.add(tag: tag)
+        let product = Beverage.produce(product: beverageType)
+        
+        VendingMachine.sharedInstance.add(product: product)
         
         self.updateLabels()
     }

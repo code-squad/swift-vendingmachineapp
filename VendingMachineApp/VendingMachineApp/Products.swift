@@ -15,30 +15,30 @@ class Products: NSObject, NSCoding {
     
     required convenience init?(coder aDecoder: NSCoder) {
         self.init()
-        products = aDecoder.decodeObject(forKey: ProductsArchiveKey.products) as! [Int: [Beverage]]
+        products = aDecoder.decodeObject(forKey: ProductsArchiveKey.products) as! [String: [BeverageProduct]]
     }
     
     //MARK: - Properties
-    private var products: [Int: [Beverage]] = [:]
+    private var products: [String: [BeverageProduct]] = [:]
     
     //MARK: - Methods
-    func add(tag: Int) {
-        
-        guard let productType = Mapper.map[tag] else { return }
-        let product = Beverage.produce(product: productType)
-        
-        if self.products[tag] == nil {
-            self.products[tag] = []
+    func add(product: BeverageProduct) {
+
+        if self.products[product.productType()] == nil {
+            self.products[product.productType()] = []
         }
         
-        self.products[tag]?.append(product)
+        self.products[product.productType()]?.append(product)
     }
     
-    func buy(tag: Int) -> Beverage? {
-        let product = self.products[tag]?.popLast()
-        if self.products[tag]?.count == 0 {
-            self.products[tag] = nil
+    func buy(productType: BeverageProduct.Type) -> BeverageProduct? {
+        
+        let product = self.products["\(productType)"]?.popLast()
+        
+        if self.products["\(productType)"]?.count == 0 {
+            self.products["\(productType)"] = nil
         }
+        
         return product
     }
 
@@ -57,8 +57,8 @@ class Products: NSObject, NSCoding {
         return inventoryStatus
     }
     
-    func updateNumber(of tag: Int, update: (Int) -> Void) {
-        update(products[tag]?.count ?? 0)
+    func updateNumber(of beverageType: BeverageProduct.Type, update: (Int) -> Void) {
+        update(products["\(beverageType)"]?.count ?? 0)
     }
     
     func expiredProducts() -> [Beverage] {

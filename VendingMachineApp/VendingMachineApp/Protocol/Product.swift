@@ -11,3 +11,9 @@ import Foundation
 protocol Product {
     init()
 }
+
+extension Product {
+    func productType() -> String {
+        return "\(type(of: self))"
+    }
+}

@@ -25,8 +25,13 @@ class Inventory: NSObject {
         postNotificationOfDataChanged()
     }
 
-    private func postNotificationOfDataChanged() {
-        NotificationCenter.default.post(name: .inventoryDataChanged, object: self)
+    private func postNotificationOfDataChanged(userInfo: [AnyHashable: Any]? = nil) {
+        NotificationCenter.default.post(name: .inventoryDataChanged, object: self, userInfo: userInfo)
+    }
+
+    func postDataChanged(index: Int) {
+        let userInfo = [Notification.InfoKey.indexOfBeverage: index]
+        postNotificationOfDataChanged(userInfo: userInfo)
     }
 
     func add(beverage: Beverage) {
@@ -36,7 +41,6 @@ class Inventory: NSObject {
         } else {
             list[beverageType] = Pack(beverages: [beverage])
         }
-        postNotificationOfDataChanged()
     }
 
     func getListOfHotBeverages() -> [Pack] {
@@ -61,7 +65,6 @@ class Inventory: NSObject {
     func remove(selected pack: Pack) -> Beverage? {
         guard let identifier = findIdentifier(of: pack) else { return nil }
         guard let removed = list[identifier]?.removeOne() else { return nil }
-        postNotificationOfDataChanged()
         return removed
     }
 
@@ -108,4 +111,8 @@ extension Inventory: NSSecureCoding {
 
 extension Notification.Name {
     static let inventoryDataChanged = Notification.Name("inventoryDataChanged")
+}
+
+extension Notification.InfoKey {
+    static let indexOfBeverage = "indexOfBeverage"
 }

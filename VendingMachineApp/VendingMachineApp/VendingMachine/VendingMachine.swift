@@ -121,10 +121,11 @@ extension VendingMachine: Consumer {
     func buy(beverage: BeverageSubCategory) -> Beverage? {
         guard let pack = inventory.packOf(type: beverage.type) else { return nil }
         guard balance.isEnoughToBuy(pack: pack) else { return nil }
-        guard let beverage = inventory.remove(selected: pack) else { return nil }
-        balance.deductedPrice(of: beverage)
-        history.update(purchase: beverage)
-        return beverage
+        guard let purchase = inventory.remove(selected: pack) else { return nil }
+        inventory.postDataChanged(index: beverage.rawValue)
+        balance.deductedPrice(of: purchase)
+        history.update(purchase: purchase)
+        return purchase
     }
 
 }
@@ -134,6 +135,7 @@ extension VendingMachine: Manager {
     func add(beverage: BeverageSubCategory) {
         let newBeverage = beverage.type.init()
         inventory.add(beverage: newBeverage)
+        inventory.postDataChanged(index: beverage.rawValue)
     }
 
     func remove(beverage number: Int) -> Beverage? {

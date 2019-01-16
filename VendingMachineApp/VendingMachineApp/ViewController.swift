@@ -30,15 +30,23 @@ class ViewController: UIViewController {
 
     private func registerAsObserver() {
         let center = NotificationCenter.default
-        center.addObserver(self, selector: #selector(showQuantities), name: .inventoryDataChanged, object: nil)
+        center.addObserver(self, selector: #selector(showQuantities(_:)), name: .inventoryDataChanged, object: nil)
         center.addObserver(self, selector: #selector(showBalance), name: .moneyDataChanged, object: nil)
         center.addObserver(self, selector: #selector(showPurchase(_:)), name: .didBuyBeverage, object: nil)
     }
 
-    @objc private func showQuantities() {
-        for (index, quantity) in beverageLabels.enumerated() {
-            let count =  vendingMachine?.count(beverage: index)
-            quantity.text = "\(count ?? 0)개"
+    private func updateQuantityLabel(of index: Int) {
+        let count =  vendingMachine?.count(beverage: index)
+        beverageLabels[index].text = "\(count ?? 0)개"
+    }
+
+    @objc private func showQuantities(_ notification: Notification) {
+        if let index = notification.userInfo?[Notification.InfoKey.indexOfBeverage] as? Int {
+            updateQuantityLabel(of: index)
+            return
+        }
+        for index in beverageLabels.indices {
+            updateQuantityLabel(of: index)
         }
     }
 

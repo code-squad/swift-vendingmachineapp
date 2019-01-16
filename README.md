@@ -45,8 +45,27 @@ applicationDidBecomeActive: - 앱이 active상태가 되어 실행 중일 때
 applicationWillTerminate: - 앱이 종료될 때 실행
 ```
 
+
+#### Step 2
     
-   
-   
+    
+**UIImageView 추가하기**
+    
+UIImageView에 그림을 추가하기 위해 두 가지 방법이 존재한다. 
+1. 첫 번째 방법은 프로젝트 폴더에 `.png`파일이나 `.jpg`파일을 넣어준다.  그 후 UIImageView를 클릭 후 오른쪽 상단의 메뉴 중 4번째를 선택하여 Image 옵션에서 넣고싶은 사진 파일을 선택해준다.
+2. 두 번째 방법은 `Assets.xcassets` 폴더에 들어가서 오른쪽 마우스를 클릭하여 `Import`를 선택 후 원하는 이미지들을 넣어준다. 이렇게 하면 프로젝트에서 이미지파일에 접근이 가능하게 된다. 이후는 아까 위의 우측상단의 메뉴로 들어가서 설정해준다. 여기서 코드로 설정하는 방법도 존재한다.
+```
+@IBOutlet weak var bananaMilkImage: UIImageView?
+    
+override func viewDidLoad() {
+    super.viewDidLoad()
+    // Do any additional setup after loading the view, typically from a nib.
+    bananaMilkImage?.image = UIImage(named: "바나나우유.png")
+    
+    // 이 코드로 UIImageView의 속성도 조절할 수 있다.
+    bananaMilkImage?.layer.cornerRadius = 30
+    bananaMilkImage?.clipsToBounds = true
+}
+```
    
  

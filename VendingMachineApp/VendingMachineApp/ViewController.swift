@@ -18,9 +18,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         registerAsObserver()
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
         vendingMachine?.willAppear()
     }
 

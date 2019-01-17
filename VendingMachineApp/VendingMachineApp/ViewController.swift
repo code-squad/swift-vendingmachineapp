@@ -26,7 +26,10 @@ class ViewController: UIViewController {
         for productImageView in productImageViews {
             productImageView.layer.cornerRadius = productImageView.frame.height / 2
         }
+        
         updateLabels()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(updateNumberOfProductLabel(_:)), name: Notification.Name.didChangeNumberOfProduct, object: nil)
     }
     
     //MARK: Private
@@ -47,6 +50,10 @@ class ViewController: UIViewController {
             }
             VendingMachine.sharedInstance.updateNumber(of: beverageType, update: updateNumberOfProductLabel)
         }
+    }
+    
+    @objc private func updateNumberOfProductLabel(_ noti: Notification) {
+        
     }
     
     //MARK: IBAction

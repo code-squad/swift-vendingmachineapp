@@ -13,6 +13,7 @@
 		7D0B51A421E6F22600BAA862 /* BeverageArchiveKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0B51A321E6F22600BAA862 /* BeverageArchiveKey.swift */; };
 		7D0B51A621E737DF00BAA862 /* VendingMachineArchiveKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0B51A521E737DF00BAA862 /* VendingMachineArchiveKey.swift */; };
 		7D0C596221EDABB80089E9F1 /* Typealias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0C596121EDABB80089E9F1 /* Typealias.swift */; };
+		7D0C598721F040E40089E9F1 /* ExtensionNotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0C598621F040E40089E9F1 /* ExtensionNotificationName.swift */; };
 		7DA03A2921D7348C002355CA /* lactofreemilk.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DA03A2321D7348B002355CA /* lactofreemilk.png */; };
 		7DA03A2A21D7348C002355CA /* topblack.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DA03A2421D7348B002355CA /* topblack.png */; };
 		7DA03A2B21D7348C002355CA /* sbuck.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DA03A2521D7348B002355CA /* sbuck.png */; };
@@ -49,6 +50,7 @@
 		7D0B51A321E6F22600BAA862 /* BeverageArchiveKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageArchiveKey.swift; sourceTree = "<group>"; };
 		7D0B51A521E737DF00BAA862 /* VendingMachineArchiveKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineArchiveKey.swift; sourceTree = "<group>"; };
 		7D0C596121EDABB80089E9F1 /* Typealias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typealias.swift; sourceTree = "<group>"; };
+		7D0C598621F040E40089E9F1 /* ExtensionNotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionNotificationName.swift; sourceTree = "<group>"; };
 		7DA03A2321D7348B002355CA /* lactofreemilk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lactofreemilk.png; sourceTree = "<group>"; };
 		7DA03A2421D7348B002355CA /* topblack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = topblack.png; sourceTree = "<group>"; };
 		7DA03A2521D7348B002355CA /* sbuck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sbuck.png; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				7DE2CB5D21D4B920004EC966 /* ExtensionDate.swift */,
+				7D0C598621F040E40089E9F1 /* ExtensionNotificationName.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -287,6 +290,7 @@
 				7DA03A3921DC7E03002355CA /* Money.swift in Sources */,
 				7DE2CB7821D4B920004EC966 /* ExtensionDate.swift in Sources */,
 				7DE2CB6821D4B920004EC966 /* CarbonatedDrink.swift in Sources */,
+				7D0C598721F040E40089E9F1 /* ExtensionNotificationName.swift in Sources */,
 				7DE2CB7121D4B920004EC966 /* Beverage.swift in Sources */,
 				7D0254F721E8C26000E5960A /* HistoryOfPurchase.swift in Sources */,
 				7DE2CB6721D4B920004EC966 /* CocaCola.swift in Sources */,

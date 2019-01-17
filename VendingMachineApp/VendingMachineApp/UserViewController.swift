@@ -8,12 +8,12 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class UserViewController: UIViewController {
     @IBOutlet var beverageImages: [RoundedCornersImageView]!
     @IBOutlet var beverageLabels: [UILabel]!
     @IBOutlet weak var balance: UILabel!
 
-    private weak var vendingMachine: VendingMachine?
+    private weak var vendingMachine: UserMode?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +21,7 @@ class ViewController: UIViewController {
         vendingMachine?.willAppear()
     }
 
-    func set(vendingMachine: VendingMachine) {
+    func set(vendingMachine: UserMode?) {
         self.vendingMachine = vendingMachine
     }
 
@@ -75,7 +75,7 @@ class ViewController: UIViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let adminViewController = segue.destination as? AdminViewController else { return }
-        guard let vendingMachine = vendingMachine else { return }
+        guard let vendingMachine = vendingMachine as? VendingMachine else { return }
         adminViewController.set(vendingMachine: vendingMachine)
     }
 

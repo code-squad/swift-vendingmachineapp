@@ -24,7 +24,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <state key="normal" title="추가"/>
                                 <connections>
-                                    <action selector="addBananaStock:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hD5-3f-7Es"/>
+                                    <action selector="addStock:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vNm-Dm-h2x"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iAt-OM-4eS" userLabel="초코 추가">
@@ -33,7 +33,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <state key="normal" title="추가"/>
                                 <connections>
-                                    <action selector="addChocoStock:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WPe-Gk-4tp"/>
+                                    <action selector="addStock:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4RC-xh-BgX"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qqk-kM-4cm" userLabel="콜라 추가">
@@ -42,7 +42,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <state key="normal" title="추가"/>
                                 <connections>
-                                    <action selector="addColaStock:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Zhq-Fs-Lwa"/>
+                                    <action selector="addStock:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vys-AA-I1q"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Waq-if-Gyt" userLabel="환타 추가">
@@ -51,7 +51,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <state key="normal" title="추가"/>
                                 <connections>
-                                    <action selector="addFantaStock:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DAM-ay-8Bj"/>
+                                    <action selector="addStock:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YmF-LS-JgY"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dOk-xG-A4z" userLabel="칸타타 추가">
@@ -60,7 +60,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <state key="normal" title="추가"/>
                                 <connections>
-                                    <action selector="addCantataStock:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BPd-zU-DX0"/>
+                                    <action selector="addStock:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5rN-a2-yZ7"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="90j-1G-aAY" userLabel="TOP 추가">
@@ -69,7 +69,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <state key="normal" title="추가"/>
                                 <connections>
-                                    <action selector="addTOPStock:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Aat-qc-tbu"/>
+                                    <action selector="addStock:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7c7-Ie-Dsp"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="바나나우유" translatesAutoresizingMaskIntoConstraints="NO" id="np7-Uy-aIa">
@@ -108,7 +108,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <state key="normal" title="+1000"/>
                                 <connections>
-                                    <action selector="insertThousandCoin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lu8-8t-cot"/>
+                                    <action selector="insertCoin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dgB-I2-O7b"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gMq-gx-Kmi">
@@ -117,7 +117,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="+5000"/>
                                 <connections>
-                                    <action selector="insertFiveThousandCoin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZCu-nK-X4S"/>
+                                    <action selector="insertCoin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fY5-gE-cin"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1MC-sw-dYW">
@@ -187,6 +187,14 @@
                         <outletCollection property="drinkLabels" destination="PCc-OU-QnX" collectionClass="NSMutableArray" id="ccO-km-8CM"/>
                         <outletCollection property="drinkLabels" destination="pGM-AA-Ll9" collectionClass="NSMutableArray" id="gDn-gU-6xR"/>
                         <outletCollection property="drinkLabels" destination="WN6-cV-fzE" collectionClass="NSMutableArray" id="lOH-bh-UbF"/>
+                        <outletCollection property="addButtons" destination="XNs-JG-GoJ" collectionClass="NSMutableArray" id="RsT-eZ-Xr4"/>
+                        <outletCollection property="addButtons" destination="iAt-OM-4eS" collectionClass="NSMutableArray" id="UK7-gX-1ec"/>
+                        <outletCollection property="addButtons" destination="qqk-kM-4cm" collectionClass="NSMutableArray" id="ubb-mJ-xAU"/>
+                        <outletCollection property="addButtons" destination="Waq-if-Gyt" collectionClass="NSMutableArray" id="svS-FU-cGc"/>
+                        <outletCollection property="addButtons" destination="dOk-xG-A4z" collectionClass="NSMutableArray" id="gZn-CF-seu"/>
+                        <outletCollection property="addButtons" destination="90j-1G-aAY" collectionClass="NSMutableArray" id="zVE-oL-1UF"/>
+                        <outletCollection property="insertButtons" destination="urP-9v-fmq" collectionClass="NSMutableArray" id="mZY-jl-8es"/>
+                        <outletCollection property="insertButtons" destination="gMq-gx-Kmi" collectionClass="NSMutableArray" id="J3u-En-azA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

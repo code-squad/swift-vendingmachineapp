@@ -20,6 +20,8 @@ class ViewController: UIViewController {
 
     @IBOutlet var drinkImages: [UIImageView]!
     @IBOutlet var drinkLabels: [UILabel]!
+    @IBOutlet var addButtons: [UIButton]!
+    @IBOutlet var insertButtons: [UIButton]!
     @IBOutlet weak var currentCoin: UILabel!
     
     override func viewDidLoad() {
@@ -28,6 +30,8 @@ class ViewController: UIViewController {
         currentCoin.text = "잔액 : " + machine.currentCoinState() + "원"
         initialImage()
         initialLabel()
+        initialAddButtonTag()
+        initialInserButtonTag()
     }
     
     private func initialImage() {
@@ -43,37 +47,38 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction func addBananaStock(_ sender: Any) {
-        let bananaMilkMenu = 1
-        setLabel(of: bananaMilkMenu)
+    private func initialAddButtonTag() {
+        var tag = 1
+        for button in addButtons {
+            button.tag = tag
+            tag += 1
+        }
     }
     
-    @IBAction func addChocoStock(_ sender: Any) {
-        let chocoMilkMenu = 2
-        setLabel(of: chocoMilkMenu)
+    private func initialInserButtonTag() {
+        var tag = 1
+        for button in insertButtons {
+            button.tag = tag
+            tag += 1
+        }
     }
     
-    @IBAction func addColaStock(_ sender: Any) {
-        let colaMenu = 3
-        setLabel(of: colaMenu)
+    @IBAction func addStock(_ sender: Any) {
+        let menu: DrinkCategory
+        guard let button = sender as? UIButton else { return }
+        switch button.tag {
+        case 1: menu = DrinkCategory.bananaMilk
+        case 2: menu = DrinkCategory.chocoMilk
+        case 3: menu = DrinkCategory.cola
+        case 4: menu = DrinkCategory.fanta
+        case 5: menu = DrinkCategory.cantata
+        case 6: menu = DrinkCategory.top
+        default: return
+        }
+        addEachDrink(of: menu.rawValue)
     }
     
-    @IBAction func addFantaStock(_ sender: Any) {
-        let fantaMenu = 4
-        setLabel(of: fantaMenu)
-    }
-    
-    @IBAction func addCantataStock(_ sender: Any) {
-        let cantataMenu = 5
-        setLabel(of: cantataMenu)
-    }
-    
-    @IBAction func addTOPStock(_ sender: Any) {
-        let topMenu = 6
-        setLabel(of: topMenu)
-    }
-    
-    private func setLabel(of menu: Int) {
+    private func addEachDrink(of menu: Int) {
         let managerMode: ManageableMode = machine
         if managerMode.isAbleToAdd(menu: menu) == .success {
             machine.addStock(menu: menu)
@@ -81,14 +86,14 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction func insertThousandCoin(_ sender: Any) {
-        setInserState(coin: 1000)
+    @IBAction func insertCoin(_ sender: Any) {
+        guard let button = sender as? UIButton else { return }
+        switch button.tag {
+        case 1: setInserState(coin: 1000)
+        case 2: setInserState(coin: 5000)
+        default: return
+        }
     }
-    
-    @IBAction func insertFiveThousandCoin(_ sender: Any) {
-        setInserState(coin: 5000)
-    }
-    
     private func setInserState(coin: Int) {
         let userMode: UserAvailableMode = machine
         userMode.insert(coin: coin)

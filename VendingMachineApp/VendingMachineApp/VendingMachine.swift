@@ -67,18 +67,6 @@ class VendingMachine: NSObject, NSCoding {
         products.updateNumber(of: beverageType, update: update)
     }
     
-    func inventory() -> [String: Int] {
-        return products.inventory()
-    }
-
-    func expiredProducts() -> [Beverage] {
-        return products.expiredProducts()
-    }
-
-    func hotProducts() -> [String] {
-        return products.hotProducts()
-    }
-    
     //MARK: - Get Properties Method
     func property(of vendingMachine: VendingMachine) {
         self.balance = vendingMachine.balance

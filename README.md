@@ -6,6 +6,7 @@
 4. <a href="#4-싱글톤-모델">싱글톤 모델</a>
 5. <a href="#5-관찰자(Observer)-패턴">관찰자(Observer) 패턴</a>
 6. <a href="#6-구매목록-View-코드">구매목록 View 코드</a>
+7. <a href="#7-Frame과-Bounds">Frame과 Bounds</a>
 
 <br>
 
@@ -517,6 +518,46 @@ var masksToBounds: Bool { get set }
 
 <br>
 
-### 추가학습
+## 7. Frame과 Bounds
+
+### 추가내용
+
+##### 1. `AdminViewController` 추가
+
+자판기 앱을 사용자모드와 관리자모드로 구분하여 사용하고자, 기존 뷰 컨트롤러는 `UserViewController` 로 명명하고 `AdminViewController` 라는 새로운 뷰 컨트롤러를 추가했습니다. `UserViewController` 에 `Info Light` 타입의 버튼을 추가하고, 추가한 뷰 컨트롤러로 Segue를 연결했습니다.
+
+각 뷰 컨트롤러의 `vendingMachine` 프로퍼티의 타입을 각각 `UserMode` , `AdminMode` 로 변경해주었습니다. Segue 전에 호출되는 `prepare()` 메소드에서 `AdminMode` 로 타입캐스팅한 자판기 객체의 인스턴스를 넘겨주도록 추가했습니다.
+
+```swift
+class UserViewController: UIViewController {
+    private weak var vendingMachine: UserMode?
+    ...
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let adminViewController = segue.destination as? AdminViewController else { return }
+        guard let vendingMachine = vendingMachine as? AdminMode else { return }
+        adminViewController.set(vendingMachine: vendingMachine)
+    }
+}
+
+class AdminViewController: UIViewController {
+    private weak var vendingMachine: AdminMode?
+    ...
+}
+```
+
+또한, `AdminViewController` 에 `닫기` 버튼을 추가하고 클릭 시 해당 뷰 컨트롤러를 `dismiss()` 를 호출하도록 추가했습니다.
 
 <br>
+
+##### 2. 재고 추가 기능 이동
+
+기존 `ViewController` 에 `음료구매`/`잔액추가` 기능과 같이 있던 `음료추가` 기능을 `AdminViewController` 로 이동해주었습니다. 특정 동작 후 업데이트 되어야할 레이블이 재고 레이블밖에 없으므로, `inventoryDataChanged` 노티피케이션의 관찰자 역할만 추가해주었습니다.
+
+<br>
+
+### 실행화면
+
+> 완성일자: 2019.01.17 18:08
+
+![Jan-17-2019](./images/step7/Jan-17-2019.gif)

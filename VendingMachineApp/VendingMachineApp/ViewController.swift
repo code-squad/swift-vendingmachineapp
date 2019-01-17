@@ -29,7 +29,7 @@ class ViewController: UIViewController {
         
         updateLabels()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(updateNumberOfProductLabel(_:)), name: Notification.Name.didChangeNumberOfProduct, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateNumberOfProductLabel(_:)), name: .didChangeNumberOfProduct, object: nil)
     }
     
     //MARK: Private

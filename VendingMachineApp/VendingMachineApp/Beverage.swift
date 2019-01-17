@@ -40,22 +40,6 @@ class Beverage: NSObject, NSCoding {
         self.expiryDate = self.openDate + Double(expiryDate * 86400)
     }
 
-    func isBuyable(money: Int) -> Bool {
-        return self.price <= money
-    }
-
-    func beverageInfo<T>(makeInfo: (String, Int) -> T) -> T {
-        return makeInfo(self.name, self.price)
-    }
-
-    func name(read: (String) -> String) -> String {
-        return read(self.name)
-    }
-
-    func isExpiryDateOut() -> Bool {
-        return self.expiryDate > Date()
-    }
-
     func pay(balance: Int, pay: (Int, Int) -> Int) -> Int {
         return pay(balance, price)
     }

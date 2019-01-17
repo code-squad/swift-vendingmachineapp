@@ -30,16 +30,12 @@ class TOP: Coffee {
                   topKind: .sweetAmericano)
     }
     
-    func isAmericano() -> Bool {
-        return topKind == .sweetAmericano
-    }
-    
-    func isLatte() -> Bool {
-        return topKind == .latte
-    }
-    
-    func isBlack() -> Bool {
-        return topKind == .black
+    func isKind(with kind: TOPKind) -> Bool {
+        switch kind {
+        case .sweetAmericano: return self.topKind == .sweetAmericano
+        case .latte: return self.topKind == .latte
+        case .black: return self.topKind == .black
+        }
     }
     
     override func convertToStringBeverage() -> String {

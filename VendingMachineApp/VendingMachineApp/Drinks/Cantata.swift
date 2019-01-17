@@ -30,14 +30,6 @@ class Cantata: Coffee {
                   material: .plastic)
     }
     
-    func isCanPacking() -> Bool {
-        return packingMaterial == .cans
-    }
-    
-    func isPlasticPacking() -> Bool {
-        return packingMaterial == .plastic
-    }
-    
     func isPacking(with pack: PackingMaterial) -> Bool {
         switch pack {
         case .cans:

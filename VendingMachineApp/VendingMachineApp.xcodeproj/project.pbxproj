@@ -14,7 +14,7 @@
 		A3040F4D21EC58C500B9A831 /* Georgia.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A3040F4C21EC58C500B9A831 /* Georgia.jpg */; };
 		A3C9671421F04933001E6F08 /* AdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C9671321F04933001E6F08 /* AdminViewController.swift */; };
 		A3E1B2EA21CFE07A00B35A96 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E1B2E921CFE07A00B35A96 /* AppDelegate.swift */; };
-		A3E1B2EC21CFE07A00B35A96 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E1B2EB21CFE07A00B35A96 /* ViewController.swift */; };
+		A3E1B2EC21CFE07A00B35A96 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E1B2EB21CFE07A00B35A96 /* UserViewController.swift */; };
 		A3E1B2EF21CFE07A00B35A96 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3E1B2ED21CFE07A00B35A96 /* Main.storyboard */; };
 		A3E1B2F121CFE07C00B35A96 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3E1B2F021CFE07C00B35A96 /* Assets.xcassets */; };
 		A3E1B2F421CFE07C00B35A96 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3E1B2F221CFE07C00B35A96 /* LaunchScreen.storyboard */; };
@@ -71,7 +71,7 @@
 		A3C9671321F04933001E6F08 /* AdminViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminViewController.swift; sourceTree = "<group>"; };
 		A3E1B2E621CFE07900B35A96 /* VendingMachineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendingMachineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3E1B2E921CFE07A00B35A96 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A3E1B2EB21CFE07A00B35A96 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A3E1B2EB21CFE07A00B35A96 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		A3E1B2EE21CFE07A00B35A96 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A3E1B2F021CFE07C00B35A96 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A3E1B2F321CFE07C00B35A96 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -166,7 +166,7 @@
 				A3040F4921E84DAA00B9A831 /* CustomView */,
 				A3E1B33521D06F1F00B35A96 /* VendingMachine */,
 				A3E1B2E921CFE07A00B35A96 /* AppDelegate.swift */,
-				A3E1B2EB21CFE07A00B35A96 /* ViewController.swift */,
+				A3E1B2EB21CFE07A00B35A96 /* UserViewController.swift */,
 				A3C9671321F04933001E6F08 /* AdminViewController.swift */,
 				A3E1B2ED21CFE07A00B35A96 /* Main.storyboard */,
 				A3E1B2F021CFE07C00B35A96 /* Assets.xcassets */,
@@ -407,7 +407,7 @@
 			files = (
 				A3E1B33D21D06F2000B35A96 /* History.swift in Sources */,
 				A3E1B35421D0712C00B35A96 /* StrawberryMilk.swift in Sources */,
-				A3E1B2EC21CFE07A00B35A96 /* ViewController.swift in Sources */,
+				A3E1B2EC21CFE07A00B35A96 /* UserViewController.swift in Sources */,
 				A3040F4B21E84E6D00B9A831 /* RoundedCornersImageView.swift in Sources */,
 				A3E1B35321D0712C00B35A96 /* Beverage.swift in Sources */,
 				A3E1B35A21D0712C00B35A96 /* BeverageCategory.swift in Sources */,

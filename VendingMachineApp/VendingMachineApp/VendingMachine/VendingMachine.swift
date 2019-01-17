@@ -8,13 +8,18 @@
 
 import Foundation
 
-protocol Consumer {
-    func isEmpty() -> Bool
+protocol CommonMode {
+    func count(beverage index: Int) -> Int
+}
+
+protocol UserMode: class, CommonMode {
+    func willAppear()
+    func showBalance(with form: (Int) -> Void)
     func insert(money: Money) -> Bool
     func buy(beverage: BeverageSubCategory) -> Beverage?
 }
 
-protocol Manager {
+protocol AdminMode: class, CommonMode {
     func add(beverage: BeverageSubCategory)
     func remove(beverage: Int) -> Beverage?
     func removeExpiredBeverages() -> [Beverage]
@@ -45,17 +50,6 @@ class VendingMachine: NSObject {
         } catch {
             return VendingMachine()
         }
-    }
-
-    func count(beverage index: Int) -> Int {
-        let nothing = 0
-        guard let type = BeverageSubCategory(rawValue: index)?.type else { return nothing }
-        guard let pack = inventory.packOf(type: type) else { return nothing }
-        return pack.count
-    }
-
-    func showBalance(with form: (Int) -> Void) {
-        balance.show(with: form)
     }
 
     func willAppear() {
@@ -106,10 +100,10 @@ extension VendingMachine: NSSecureCoding {
 
 }
 
-extension VendingMachine: Consumer {
+extension VendingMachine: UserMode {
 
-    func isEmpty() -> Bool {
-        return inventory.isEmpty()
+    func showBalance(with form: (Int) -> Void) {
+        balance.show(with: form)
     }
 
     func insert(money: Money) -> Bool {
@@ -130,7 +124,18 @@ extension VendingMachine: Consumer {
 
 }
 
-extension VendingMachine: Manager {
+extension VendingMachine: CommonMode {
+
+    func count(beverage index: Int) -> Int {
+        let nothing = 0
+        guard let type = BeverageSubCategory(rawValue: index)?.type else { return nothing }
+        guard let pack = inventory.packOf(type: type) else { return nothing }
+        return pack.count
+    }
+
+}
+
+extension VendingMachine: AdminMode {
 
     func add(beverage: BeverageSubCategory) {
         let newBeverage = beverage.type.init()

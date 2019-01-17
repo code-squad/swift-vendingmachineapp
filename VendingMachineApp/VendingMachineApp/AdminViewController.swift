@@ -17,9 +17,6 @@ class AdminViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         registerAsObserver()
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
         updateAllQuantityLabels()
     }
 
@@ -55,6 +52,10 @@ class AdminViewController: UIViewController {
         guard let beverage = BeverageSubCategory(rawValue: sender.tag) else { return }
         guard let vendingMachine = vendingMachine else { return }
         vendingMachine.add(beverage: beverage)
+    }
+
+    @IBAction func closeButtonTouched(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
 
 }

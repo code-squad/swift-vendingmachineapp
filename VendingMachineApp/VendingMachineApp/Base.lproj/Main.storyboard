@@ -314,6 +314,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YFq-re-TEh">
+                                <rect key="frame" x="1008" y="55" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="닫기"/>
+                                <connections>
+                                    <action selector="closeButtonTouched:" destination="Qyu-07-8h8" eventType="touchUpInside" id="peC-Ql-txt"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="t8D-gs-kO6"/>
@@ -330,7 +338,6 @@
                         <outletCollection property="beverageLabels" destination="43e-dP-n1n" collectionClass="NSMutableArray" id="mfR-d6-JaU"/>
                         <outletCollection property="beverageLabels" destination="dmB-2E-6Tu" collectionClass="NSMutableArray" id="QUr-3J-jMK"/>
                         <outletCollection property="beverageLabels" destination="YT8-7T-vIL" collectionClass="NSMutableArray" id="9NU-Yv-kaw"/>
-                        <outletCollection property="beverageLabels" destination="YT8-7T-vIL" collectionClass="NSMutableArray" id="r3N-gL-1TZ"/>
                         <outletCollection property="beverageLabels" destination="MP5-Ht-AHl" collectionClass="NSMutableArray" id="zCq-lk-uMd"/>
                     </connections>
                 </viewController>

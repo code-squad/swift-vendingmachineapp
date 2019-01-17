@@ -10,39 +10,39 @@ import Foundation
 
 class Products: NSObject, NSCoding {
     func encode(with aCoder: NSCoder) {
-        aCoder.encode(products, forKey: ProductsArchiveKey.products)
+        aCoder.encode(productLines, forKey: ProductsArchiveKey.products)
     }
     
     required convenience init?(coder aDecoder: NSCoder) {
         self.init()
-        products = aDecoder.decodeObject(forKey: ProductsArchiveKey.products) as! [String: [BeverageProduct]]
+        productLines = aDecoder.decodeObject(forKey: ProductsArchiveKey.products) as! [String: [BeverageProduct]]
     }
     
     //MARK: - Properties
-    private var products: [String: [BeverageProduct]] = [:]
+    private var productLines: [String: [BeverageProduct]] = [:]
     
     //MARK: - Methods
     func add(product: BeverageProduct) {
 
-        if self.products[product.productType()] == nil {
-            self.products[product.productType()] = []
+        if self.productLines[product.productType()] == nil {
+            self.productLines[product.productType()] = []
         }
         
-        self.products[product.productType()]?.append(product)
+        self.productLines[product.productType()]?.append(product)
     }
     
     func buy(productType: BeverageProduct.Type) -> BeverageProduct? {
         
-        let product = self.products["\(productType)"]?.popLast()
+        let product = self.productLines["\(productType)"]?.popLast()
         
-        if self.products["\(productType)"]?.count == 0 {
-            self.products["\(productType)"] = nil
+        if self.productLines["\(productType)"]?.count == 0 {
+            self.productLines["\(productType)"] = nil
         }
         
         return product
     }
     
     func updateNumber(of beverageType: BeverageProduct.Type, update: (Int) -> Void) {
-        update(products["\(beverageType)"]?.count ?? 0)
+        update(productLines["\(beverageType)"]?.count ?? 0)
     }
 }

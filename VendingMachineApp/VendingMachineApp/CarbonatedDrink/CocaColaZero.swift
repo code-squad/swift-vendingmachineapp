@@ -9,6 +9,7 @@
 import Foundation
 
 class CocaColaZero: CarbonatedDrink, Product {
+    
     required init() {
         super.init(calorie: 0,
                    brand: "코카콜라",

@@ -9,16 +9,28 @@
 import Foundation
 
 class HistoryOfPurchase: NSObject, NSCoding {
+    
+    //MARK: - Keys
+    
+    private let historyOfPurchaseKey: String = "historyOfPurchase"
+    
+    //MARK: Encode, Decode
+    
     func encode(with aCoder: NSCoder) {
-        aCoder.encode(historyOfPurchase, forKey: HistoryOfPurchaseArchiveKey.historyOfPurchase)
+        aCoder.encode(historyOfPurchase, forKey: self.historyOfPurchaseKey)
     }
     
     required convenience init?(coder aDecoder: NSCoder) {
         self.init()
-        historyOfPurchase = aDecoder.decodeObject(forKey: HistoryOfPurchaseArchiveKey.historyOfPurchase) as! [Beverage]
+        historyOfPurchase = aDecoder.decodeObject(forKey: self.historyOfPurchaseKey) as! [Beverage]
     }
     
+    //MARK: - Properties
+    //MARK: Private
+    
     private var historyOfPurchase: [Beverage] = []
+    
+    //MARK: - Methods
     
     func add(beverage: Beverage) {
         historyOfPurchase.append(beverage)

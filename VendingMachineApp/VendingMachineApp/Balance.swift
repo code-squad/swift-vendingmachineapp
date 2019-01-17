@@ -9,16 +9,36 @@
 import Foundation
 
 class Balance: NSObject, NSCoding {
+    
+    //MARK: - Keys
+    
+    private let balanceKey: String = "balance"
+    
+    //MARK: Encode, Decode
+    
     func encode(with aCoder: NSCoder) {
-        aCoder.encode(balance, forKey: BalanceArchiveKey.balance)
+        aCoder.encode(balance, forKey: self.balanceKey)
     }
     
     required convenience init?(coder aDecoder: NSCoder) {
         self.init()
-        balance = aDecoder.decodeInteger(forKey: BalanceArchiveKey.balance)
+        balance = aDecoder.decodeInteger(forKey: self.balanceKey)
     }
     
-    private var balance: Int = 0
+    //MARK: - Properties
+    //MARK: Private
+    
+    private var balance: Int = 0 {
+        didSet {
+            let formatter = NumberFormatter()
+            formatter.numberStyle = .decimal
+            guard let info = formatter.string(from: self.balance as NSNumber) else { return }
+            let userInfo = [UserInfoKey.balance: info]
+            NotificationCenter.default.post(name: .didChangeBalance, object: nil, userInfo: userInfo)
+        }
+    }
+    
+    //MARK: - Methods
     
     func insert(money: Money) {
         self.balance += money.rawValue

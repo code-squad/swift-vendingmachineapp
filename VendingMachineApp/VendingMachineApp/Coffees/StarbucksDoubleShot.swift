@@ -9,6 +9,7 @@
 import Foundation
 
 class StarbucksDoubleShot: Coffee, Product {
+    
     required init() {
         super.init(hasMilk: true,
                    isHot: true,

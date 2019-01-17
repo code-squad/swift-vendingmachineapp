@@ -9,6 +9,7 @@
 import Foundation
 
 class TOPTheBlack: Coffee, Product {
+    
     required init() {
         super.init(hasMilk: false,
                    isHot: false,

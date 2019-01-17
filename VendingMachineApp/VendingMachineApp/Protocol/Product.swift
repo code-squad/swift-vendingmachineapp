@@ -13,6 +13,7 @@ protocol Product {
 }
 
 extension Product {
+    
     func productType() -> String {
         return "\(type(of: self))"
     }

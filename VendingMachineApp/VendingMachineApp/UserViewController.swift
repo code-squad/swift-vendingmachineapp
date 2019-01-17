@@ -75,7 +75,7 @@ class UserViewController: UIViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let adminViewController = segue.destination as? AdminViewController else { return }
-        guard let vendingMachine = vendingMachine as? VendingMachine else { return }
+        guard let vendingMachine = vendingMachine as? AdminMode else { return }
         adminViewController.set(vendingMachine: vendingMachine)
     }
 

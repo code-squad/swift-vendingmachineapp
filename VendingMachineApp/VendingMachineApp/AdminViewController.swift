@@ -12,7 +12,7 @@ class AdminViewController: UIViewController {
     @IBOutlet var beverageImages: [RoundedCornersImageView]!
     @IBOutlet var beverageLabels: [UILabel]!
 
-    private weak var vendingMachine: VendingMachine?
+    private weak var vendingMachine: AdminMode?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +20,7 @@ class AdminViewController: UIViewController {
         updateAllQuantityLabels()
     }
 
-    func set(vendingMachine: VendingMachine) {
+    func set(vendingMachine: AdminMode?) {
         self.vendingMachine = vendingMachine
     }
 

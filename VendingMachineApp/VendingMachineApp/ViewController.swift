@@ -16,6 +16,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var balanceLabel: UILabel!
     @IBOutlet var productImageViews: [UIImageView]!
     @IBOutlet var numberOfProductLabels: [UILabel]!
+    private var tag = 0
     
     //MARK: - Methods
     //MARK: Life Cycle
@@ -27,22 +28,43 @@ class ViewController: UIViewController {
             productImageView.layer.cornerRadius = productImageView.frame.height / 2
         }
         
-        updateLabels()
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(updateNumberOfProductLabel(_:)),
+                                               name: .didChangeNumberOfProduct,
+                                               object: nil)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(updateNumberOfProductLabel(_:)), name: .didChangeNumberOfProduct, object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(updateBalanceLabel(_:)),
+                                               name: .didChangeBalance,
+                                               object: nil)
+        
+        updateLabels()
     }
     
     //MARK: Private
     
+    @objc private func updateNumberOfProductLabel(_ noti: Notification) {
+        guard let userInfo = noti.userInfo else { return }
+        guard let numberOfProduct = userInfo[UserInfoKey.numberOfProduct] as? Int else { return }
+        let numberOfProductLabel = self.numberOfProductLabels.filter() { $0.tag == self.tag }
+        numberOfProductLabel.first?.text = "\(numberOfProduct)개"
+    }
+    
+    @objc private func updateBalanceLabel(_ noti: Notification) {
+        guard let userInfo = noti.userInfo else { return }
+        guard let balance = userInfo[UserInfoKey.balance] as? String else { return }
+        self.balanceLabel.text = "잔액 : \(balance)원"
+    }
+    
     private func updateLabels() {
         
         let updateBalanceLabel: (String) -> Void = { [unowned self] (balance: String) -> Void in
-            self.balanceLabel.text = "잔액 : \(balance)"
+            self.balanceLabel.text = "잔액 : \(balance)원"
         }
         VendingMachine.sharedInstance.updateBalance(update: updateBalanceLabel)
         
         for numberOfProductLabel in numberOfProductLabels {
-            let tag = numberOfProductLabel.superview?.tag ?? 0
+            let tag = numberOfProductLabel.tag
             guard let beverageType = Mapper.map[tag] else { return }
             
             let updateNumberOfProductLabel: (Int) -> Void = { (numberOfProduct: Int) -> Void in
@@ -52,21 +74,15 @@ class ViewController: UIViewController {
         }
     }
     
-    @objc private func updateNumberOfProductLabel(_ noti: Notification) {
-        
-    }
-    
     //MARK: IBAction
     
     @IBAction func tapAddBeverageButton(_ sender: UIButton) {
-        guard let tag = sender.superview?.tag else { return }
+        let tag = sender.tag
         guard let beverageType = Mapper.map[tag] else { return }
         
         let product = Beverage.produce(product: beverageType)
-        
+        self.tag = tag
         VendingMachine.sharedInstance.add(product: product)
-        
-        self.updateLabels()
     }
     
     @IBAction func tapInsertMoneyButton(_ sender: UIButton) {
@@ -78,7 +94,5 @@ class ViewController: UIViewController {
         default:
             return
         }
-        
-        updateLabels()
     }
 }

@@ -10,19 +10,39 @@ import Foundation
 
 class VendingMachine: NSObject, NSCoding {
     
-    //MARK: - encode, decode
+    //MARK: - Keys
+    
+    private let balanceKey: String = "balance"
+    private let productsKey: String = "products"
+    private let historyOfPurchaseKey: String = "historyOfPurchase"
+    
+    //MARK: Encode, Decode
+    
     func encode(with aCoder: NSCoder) {
-        aCoder.encode(balance, forKey: VendingMachineArchiveKey.balance)
-        aCoder.encode(products, forKey: VendingMachineArchiveKey.products)
-        aCoder.encode(historyOfPurchase, forKey: VendingMachineArchiveKey.historyOfPurchase)
+        aCoder.encode(balance, forKey: self.balanceKey)
+        aCoder.encode(products, forKey: self.productsKey)
+        aCoder.encode(historyOfPurchase, forKey: self.historyOfPurchaseKey)
     }
     
     required convenience init?(coder aDecoder: NSCoder) {
         self.init()
-        balance = aDecoder.decodeObject(forKey: VendingMachineArchiveKey.balance) as! Balance
-        products = aDecoder.decodeObject(forKey: VendingMachineArchiveKey.products) as! Products
-        historyOfPurchase = aDecoder.decodeObject(forKey: VendingMachineArchiveKey.historyOfPurchase) as! HistoryOfPurchase
+        balance = aDecoder.decodeObject(forKey: self.balanceKey) as! Balance
+        products = aDecoder.decodeObject(forKey: self.productsKey) as! Products
+        historyOfPurchase = aDecoder.decodeObject(forKey: self.historyOfPurchaseKey) as! HistoryOfPurchase
     }
+    
+    //MARK: - Properties
+    //MARK: Private
+    
+    private var balance: Balance
+    private var products: Products
+    private var historyOfPurchase: HistoryOfPurchase
+
+    //MARK: Type
+    
+    static let sharedInstance = VendingMachine()
+    
+    //MARK: Initialize
     
     override private init() {
         self.balance = Balance()
@@ -30,17 +50,9 @@ class VendingMachine: NSObject, NSCoding {
         self.historyOfPurchase = HistoryOfPurchase()
     }
     
-    //MARK: - Properties
-    //MARK: Private
-    private var balance: Balance
-    private var products: Products
-    private var historyOfPurchase: HistoryOfPurchase
-
-    //MARK: Type Properties
-    static let sharedInstance = VendingMachine()
-    
     //MARK: - Methods
     //MARK: Balance
+    
     func insert(money: Money) {
         balance.insert(money: money)
     }
@@ -50,6 +62,7 @@ class VendingMachine: NSObject, NSCoding {
     }
 
     //MARK: Products
+    
     func add(product: BeverageProduct) {
         products.add(product: product)
     }
@@ -68,6 +81,7 @@ class VendingMachine: NSObject, NSCoding {
     }
     
     //MARK: - Get Properties Method
+    
     func property(of vendingMachine: VendingMachine) {
         self.balance = vendingMachine.balance
         self.products = vendingMachine.products

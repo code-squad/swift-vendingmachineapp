@@ -9,6 +9,7 @@
 import Foundation
 
 enum Money: Int {
+    
     case thousand = 1000
     case fiveThousand = 5000
 }

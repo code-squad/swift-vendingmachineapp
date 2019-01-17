@@ -62,12 +62,6 @@ class ViewController: UIViewController {
         self.view.addSubview(imageView)
     }
 
-    @IBAction func addBeverage(_ sender: UIButton) {
-        guard let beverage = BeverageSubCategory(rawValue: sender.tag) else { return }
-        guard let vendingMachine = vendingMachine else { return }
-        vendingMachine.add(beverage: beverage)
-    }
-
     @IBAction func buyBeverage(_ sender: UIButton) {
         guard let beverage = BeverageSubCategory(rawValue: sender.tag) else { return }
         guard let vendingMachine = vendingMachine else { return }
@@ -77,6 +71,12 @@ class ViewController: UIViewController {
     @IBAction func insertMoney(_ sender: UIButton) {
         guard let unit = Money.Unit(rawValue: sender.tag) else { return }
         guard vendingMachine?.insert(money: Money(unit: unit)) ?? false else { return }
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let adminViewController = segue.destination as? AdminViewController else { return }
+        guard let vendingMachine = vendingMachine else { return }
+        adminViewController.set(vendingMachine: vendingMachine)
     }
 
 }

@@ -9,22 +9,52 @@
 import UIKit
 
 class AdminViewController: UIViewController {
+    @IBOutlet var beverageImages: [RoundedCornersImageView]!
+    @IBOutlet var beverageLabels: [UILabel]!
+
+    private weak var vendingMachine: VendingMachine?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        registerAsObserver()
     }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewWillAppear(_ animated: Bool) {
+        updateAllQuantityLabels()
     }
-    */
+
+    func set(vendingMachine: VendingMachine) {
+        self.vendingMachine = vendingMachine
+    }
+
+    private func registerAsObserver() {
+        let center = NotificationCenter.default
+        center.addObserver(self, selector: #selector(showQuantities(_:)), name: .inventoryDataChanged, object: nil)
+    }
+
+    private func updateOneQuantityLabel(of index: Int) {
+        let count =  vendingMachine?.count(beverage: index)
+        beverageLabels[index].text = "\(count ?? 0)개"
+    }
+
+    private func updateAllQuantityLabels() {
+        for index in beverageLabels.indices {
+            updateOneQuantityLabel(of: index)
+        }
+    }
+
+    @objc private func showQuantities(_ notification: Notification) {
+        if let index = notification.userInfo?[Notification.InfoKey.indexOfBeverage] as? Int {
+            updateOneQuantityLabel(of: index)
+            return
+        }
+        updateAllQuantityLabels()
+    }
+
+    @IBAction func addBeverage(_ sender: UIButton) {
+        guard let beverage = BeverageSubCategory(rawValue: sender.tag) else { return }
+        guard let vendingMachine = vendingMachine else { return }
+        vendingMachine.add(beverage: beverage)
+    }
 
 }

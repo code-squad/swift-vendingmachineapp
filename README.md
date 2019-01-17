@@ -67,5 +67,31 @@ override func viewDidLoad() {
     bananaMilkImage?.clipsToBounds = true
 }
 ```
+
+**IBOutletCollection 활용**
+
+ 비슷한 역할을 하는 `IBOutlet`끼리 묶어서 배열로 관리하는 `IBOutletCollection`타입을 활용할 수 있다. 기존에 `IBOutlet`을 사용하기 위해서는 `Ctrl + Drag`로 열결 후 `IBOutlet`을 선택하여 UI 요소들과 코드를 연결하였다. `IBOutletColletcion`도 역시 방법은 위와 동일하나 이후 만들어진 Colletcion 타입에 요소들을 추가하기 위해서는 추가할 요소위에 `Ctrl + Drag`로 추가하고 싶은 `IBOutletColletion`타입 위에 드래그해서 놓으면 된다. 그렇게하면 배열을 통해 UI요소들을 관리할 수 있다.
+ 
+ 
+ **비슷한 동작을 하는 버튼들을 하나의 IBAction으로 묶어주기**
+ 
+ 기존에 `UIButton`을 IBAction으로 하나하나 연결했던 것과는 다르게 이 경우에는 Button들을 `IBOutlet`으로 선언해준다. 그 후 비슷한 동작을 하는 버튼들에 대해서 하나의 `IBAction`을 선언하고 버튼들이 레퍼런싱 할 수 있도록 묶어준다. 밑의 코드를 참조해보면 된다.
+ 
+```
+@IBOutlet var image: UIImageView!
+
+@IBOutlet var redButton: UIButton!
+@IBOutlet var yellowButton: UIButton!
+@IBOutlet var blueButton: UIButton!
+
+@IBAction func changeColor(_ sender: Any) {
+    switch sender {
+    case redButton: image.backgroundColor = UIColor.red
+    case yellowButton: image.backgroundColor = UIColor.yellow
+    case blueButton: image.backgroundColor = UIColor.blue
+    case defualt: return
+    }
+}
+```
    
  

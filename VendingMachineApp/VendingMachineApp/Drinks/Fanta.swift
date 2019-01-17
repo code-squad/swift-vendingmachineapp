@@ -29,12 +29,11 @@ class Fanta: CarbonatedDrink {
                   fantaFlavor: .orange)
     }
     
-    func isIncludeGrape() -> Bool {
-        return fantaFlavor == .grape
-    }
-    
-    func isIncludeOrange() -> Bool {
-        return fantaFlavor == .orange
+    func isFlavor(with flavor: FantaFlavor) -> Bool {
+        switch flavor {
+        case .grape: return self.fantaFlavor == .grape
+        case .orange: return self.fantaFlavor == .orange
+        }
     }
     
     override func convertToStringBeverage() -> String {

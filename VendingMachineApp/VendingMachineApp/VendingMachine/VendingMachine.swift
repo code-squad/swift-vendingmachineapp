@@ -100,6 +100,17 @@ extension VendingMachine: NSSecureCoding {
 
 }
 
+extension VendingMachine: CommonMode {
+    
+    func count(beverage index: Int) -> Int {
+        let nothing = 0
+        guard let type = BeverageSubCategory(rawValue: index)?.type else { return nothing }
+        guard let pack = inventory.packOf(type: type) else { return nothing }
+        return pack.count
+    }
+    
+}
+
 extension VendingMachine: UserMode {
 
     func showBalance(with form: (Int) -> Void) {
@@ -120,17 +131,6 @@ extension VendingMachine: UserMode {
         balance.deductedPrice(of: purchase)
         history.update(purchase: purchase)
         return purchase
-    }
-
-}
-
-extension VendingMachine: CommonMode {
-
-    func count(beverage index: Int) -> Int {
-        let nothing = 0
-        guard let type = BeverageSubCategory(rawValue: index)?.type else { return nothing }
-        guard let pack = inventory.packOf(type: type) else { return nothing }
-        return pack.count
     }
 
 }

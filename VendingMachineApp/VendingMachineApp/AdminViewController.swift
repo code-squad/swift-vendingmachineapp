@@ -48,7 +48,7 @@ class AdminViewController: UIViewController {
         updateAllQuantityLabels()
     }
 
-    @IBAction func addBeverage(_ sender: UIButton) {
+    @IBAction func addBeverageButtonTouched(_ sender: UIButton) {
         guard let beverage = BeverageSubCategory(rawValue: sender.tag) else { return }
         guard let vendingMachine = vendingMachine else { return }
         vendingMachine.add(beverage: beverage)

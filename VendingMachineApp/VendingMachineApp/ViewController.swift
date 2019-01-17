@@ -8,6 +8,13 @@
 
 import UIKit
 
+extension UIImageView {
+    func setCornerRadius() {
+        self.layer.cornerRadius = 30
+        self.clipsToBounds = true
+    }
+}
+
 class ViewController: UIViewController {
     var machine: VendingMachine = VendingMachine()
 
@@ -24,10 +31,7 @@ class ViewController: UIViewController {
     }
     
     private func initialImage() {
-        for image in drinkImages {
-            image.layer.cornerRadius = 30
-            image.clipsToBounds = true
-        }
+        for image in drinkImages { image.setCornerRadius() }
     }
     
     private func initialLabel() {
@@ -78,14 +82,16 @@ class ViewController: UIViewController {
     }
     
     @IBAction func insertThousandCoin(_ sender: Any) {
-        let userMode: UserAvailableMode = machine
-        userMode.insert(coin: 1000)
-        currentCoin.text = "잔액 : " + machine.currentCoinState() + "원"
+        setInserState(coin: 1000)
     }
     
     @IBAction func insertFiveThousandCoin(_ sender: Any) {
+        setInserState(coin: 5000)
+    }
+    
+    private func setInserState(coin: Int) {
         let userMode: UserAvailableMode = machine
-        userMode.insert(coin: 5000)
+        userMode.insert(coin: coin)
         currentCoin.text = "잔액 : " + machine.currentCoinState() + "원"
     }
 }

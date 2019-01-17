@@ -38,6 +38,15 @@ class Cantata: Coffee {
         return packingMaterial == .plastic
     }
     
+    func isPacking(with pack: PackingMaterial) -> Bool {
+        switch pack {
+        case .cans:
+            return self.packingMaterial == .cans
+        case .plastic:
+            return self.packingMaterial == .plastic
+        }
+    }
+    
     override func convertToStringBeverage() -> String {
         return "\(type(of: self))"
     }

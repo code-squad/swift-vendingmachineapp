@@ -29,8 +29,8 @@ class Inventory: NSObject {
         NotificationCenter.default.post(name: .inventoryDataChanged, object: self, userInfo: userInfo)
     }
 
-    func postDataChanged(index: Int) {
-        let userInfo = [Notification.InfoKey.numberValueOfBeverage: index]
+    func postChange(of beverage: BeverageSubCategory) {
+        let userInfo = [Notification.InfoKey.beverageQuantityChanged: beverage]
         postNotificationOfDataChanged(userInfo: userInfo)
     }
 
@@ -114,5 +114,5 @@ extension Notification.Name {
 }
 
 extension Notification.InfoKey {
-    static let numberValueOfBeverage = "numberValueOfBeverage"
+    static let beverageQuantityChanged = "beverageQuantityChanged"
 }

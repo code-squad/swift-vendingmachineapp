@@ -29,20 +29,21 @@ class AdminViewController: UIViewController {
         center.addObserver(self, selector: #selector(showQuantities(_:)), name: .inventoryDataChanged, object: nil)
     }
 
-    private func updateOneQuantityLabel(of index: Int) {
+    private func updateOneQuantityLabel(at index: Int) {
         let count =  vendingMachine?.count(beverage: index)
         beverageLabels[index].text = "\(count ?? 0)개"
     }
 
     private func updateAllQuantityLabels() {
         for index in beverageLabels.indices {
-            updateOneQuantityLabel(of: index)
+            updateOneQuantityLabel(at: index)
         }
     }
 
     @objc private func showQuantities(_ notification: Notification) {
-        if let index = notification.userInfo?[Notification.InfoKey.numberValueOfBeverage] as? Int {
-            updateOneQuantityLabel(of: index)
+        if let beverage = notification.userInfo?[Notification.InfoKey.beverageQuantityChanged] as? BeverageSubCategory {
+            let index = beverage.rawValue
+            updateOneQuantityLabel(at: index)
             return
         }
         updateAllQuantityLabels()

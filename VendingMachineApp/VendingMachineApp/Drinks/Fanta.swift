@@ -30,10 +30,7 @@ class Fanta: CarbonatedDrink {
     }
     
     func isFlavor(with flavor: FantaFlavor) -> Bool {
-        switch flavor {
-        case .grape: return self.fantaFlavor == .grape
-        case .orange: return self.fantaFlavor == .orange
-        }
+        return self.fantaFlavor == flavor
     }
     
     override func convertToStringBeverage() -> String {

@@ -23,10 +23,6 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        for productImageView in productImageViews {
-            productImageView.layer.cornerRadius = productImageView.frame.height / 2
-        }
         
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(updateNumberOfProductLabel(_:)),
@@ -44,6 +40,7 @@ class ViewController: UIViewController {
     //MARK: Private
     
     @objc private func updateNumberOfProductLabel(_ noti: Notification) {
+        
         guard let userInfo = noti.userInfo else { return }
         guard let numberOfProduct = userInfo[UserInfoKey.numberOfProduct] as? Int else { return }
         let numberOfProductLabel = self.numberOfProductLabels.filter() { $0.tag == self.tag }
@@ -51,6 +48,7 @@ class ViewController: UIViewController {
     }
     
     @objc private func updateBalanceLabel(_ noti: Notification) {
+        
         guard let userInfo = noti.userInfo else { return }
         guard let balance = userInfo[UserInfoKey.balance] as? Int else { return }
         self.balanceLabel.text = "잔액 : \(balance)원"

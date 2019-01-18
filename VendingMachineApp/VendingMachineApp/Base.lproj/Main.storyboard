@@ -70,9 +70,8 @@
                                                     <action selector="tapAddBeverageButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qjp-V6-OAH"/>
                                                 </connections>
                                             </button>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mandarinemilk.png" translatesAutoresizingMaskIntoConstraints="NO" id="IeE-75-6vC">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mandarinemilk.png" translatesAutoresizingMaskIntoConstraints="NO" id="IeE-75-6vC" customClass="ProductImageView" customModule="VendingMachineApp" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="46" width="130" height="180"/>
-                                                <color key="backgroundColor" red="0.99953407049999998" green="0.98835557699999999" blue="0.47265523669999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="130" id="gPG-gU-d0s"/>
                                                     <constraint firstAttribute="height" constant="180" id="k0T-qt-xTa"/>
@@ -100,9 +99,8 @@
                                                     <action selector="tapAddBeverageButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="f61-4d-mPr"/>
                                                 </connections>
                                             </button>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lactofreemilk.png" translatesAutoresizingMaskIntoConstraints="NO" id="0cz-HD-hke">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lactofreemilk.png" translatesAutoresizingMaskIntoConstraints="NO" id="0cz-HD-hke" customClass="ProductImageView" customModule="VendingMachineApp" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="46" width="130" height="180"/>
-                                                <color key="backgroundColor" red="0.99953407049999998" green="0.98835557699999999" blue="0.47265523669999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="180" id="NH8-Me-LlM"/>
                                                     <constraint firstAttribute="width" constant="130" id="kAV-s0-05K"/>
@@ -130,9 +128,8 @@
                                                     <action selector="tapAddBeverageButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Sba-x9-Qfq"/>
                                                 </connections>
                                             </button>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sbuck.png" translatesAutoresizingMaskIntoConstraints="NO" id="E8Q-66-6B1">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sbuck.png" translatesAutoresizingMaskIntoConstraints="NO" id="E8Q-66-6B1" customClass="ProductImageView" customModule="VendingMachineApp" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="46" width="130" height="180"/>
-                                                <color key="backgroundColor" red="0.99953407049999998" green="0.98835557699999999" blue="0.47265523669999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="130" id="C1h-CN-fBZ"/>
                                                     <constraint firstAttribute="height" constant="180" id="rYu-Jq-8cy"/>
@@ -160,9 +157,8 @@
                                                     <action selector="tapAddBeverageButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QQy-a0-doL"/>
                                                 </connections>
                                             </button>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="topblack.png" translatesAutoresizingMaskIntoConstraints="NO" id="bNy-2z-xh1">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="topblack.png" translatesAutoresizingMaskIntoConstraints="NO" id="bNy-2z-xh1" customClass="ProductImageView" customModule="VendingMachineApp" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="46" width="130" height="180"/>
-                                                <color key="backgroundColor" red="0.99953407049999998" green="0.98835557699999999" blue="0.47265523669999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="130" id="Abr-Fd-SQa"/>
                                                     <constraint firstAttribute="height" constant="180" id="MAJ-t6-zYu"/>
@@ -190,9 +186,8 @@
                                                     <action selector="tapAddBeverageButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="b6Q-Us-CBp"/>
                                                 </connections>
                                             </button>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cocacola.png" translatesAutoresizingMaskIntoConstraints="NO" id="420-bq-gjc">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cocacola.png" translatesAutoresizingMaskIntoConstraints="NO" id="420-bq-gjc" customClass="ProductImageView" customModule="VendingMachineApp" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="46" width="130" height="180"/>
-                                                <color key="backgroundColor" red="0.99953407049999998" green="0.98835557699999999" blue="0.47265523669999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="180" id="WDq-q8-4Gb"/>
                                                     <constraint firstAttribute="width" constant="130" id="ZFA-DT-9Wr"/>
@@ -220,9 +215,8 @@
                                                     <action selector="tapAddBeverageButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="16X-dF-3i0"/>
                                                 </connections>
                                             </button>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cocacolazero.png" translatesAutoresizingMaskIntoConstraints="NO" id="Js1-0U-vry">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cocacolazero.png" translatesAutoresizingMaskIntoConstraints="NO" id="Js1-0U-vry" customClass="ProductImageView" customModule="VendingMachineApp" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="46" width="130" height="180"/>
-                                                <color key="backgroundColor" red="0.99953407049999998" green="0.98835557699999999" blue="0.47265523669999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="130" id="hhj-d9-G6i"/>
                                                     <constraint firstAttribute="height" constant="180" id="zDB-1s-Tm7"/>

@@ -30,10 +30,7 @@ class Balance: NSObject, NSCoding {
     
     private var balance: Int = 0 {
         didSet {
-            let formatter = NumberFormatter()
-            formatter.numberStyle = .decimal
-            guard let info = formatter.string(from: self.balance as NSNumber) else { return }
-            let userInfo = [UserInfoKey.balance: info]
+            let userInfo = [UserInfoKey.balance: self.balance]
             NotificationCenter.default.post(name: .didChangeBalance, object: nil, userInfo: userInfo)
         }
     }

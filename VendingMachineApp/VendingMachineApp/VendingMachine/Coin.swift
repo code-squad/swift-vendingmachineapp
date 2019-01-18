@@ -8,22 +8,30 @@
 
 import Foundation
 
-class Coin {
-    private var coin: Int = 0
+class Coin: NSObject, NSCoding {
+    private var coins: Int = 0
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(coins, forKey: "coins")
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        self.coins = aDecoder.decodeInteger(forKey: "coins")
+    }
     
     func add(_ coin: Int) {
-        self.coin += coin
+        self.coins += coin
     }
     
     func minus(_ coin: Int) {
-        self.coin -= coin
+        self.coins -= coin
     }
     
     func isEnoughToBuy(of price: Int) -> Bool {
-        return coin >= price
+        return coins >= price
     }
     
     func convertToString() -> String {
-        return "\(coin)"
+        return "\(coins)"
     }
 }

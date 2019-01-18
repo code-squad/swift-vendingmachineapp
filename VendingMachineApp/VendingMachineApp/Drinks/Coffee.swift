@@ -16,6 +16,15 @@ class Coffee: Beverage {
         super.init(name: name, volume: volume, price: price, brand: brand, date: date)
     }
     
+    required init?(coder aDecoder: NSCoder) {
+        self.caffeineAmount = aDecoder.decodeDouble(forKey: "caffeineAmount")
+    }
+    
+    override func encode(with aCoder: NSCoder) {
+        super.encode(with: aCoder)
+        aCoder.encode(caffeineAmount, forKey: "caffeineAmount")
+    }
+    
     func howMuchCaffeineAmount() -> Double {
         return caffeineAmount
     }

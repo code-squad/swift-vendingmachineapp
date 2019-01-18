@@ -8,13 +8,21 @@
 
 import Foundation
 
-class Stock {
+class Stock: NSObject, NSCoding {
     private var stocks: [String: [Beverage]] = [:]
     // 재고칸 초기화
-    init() {
+    override init() {
         for category in DrinkCategory.allCases {
             stocks[category.convertToKey()] = []
         }
+    }
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(stocks, forKey: "stocks")
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        self.stocks = aDecoder.decodeObject(forKey: "stocks") as? [String: [Beverage]] ?? [:]
     }
     
     func add(_ drink: Beverage) {

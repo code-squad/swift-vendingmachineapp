@@ -8,8 +8,17 @@
 
 import Foundation
 
-class PurchaseHistory {
+class PurchaseHistory: NSObject, NSCoding {
+    
     private var history: [Beverage] = []
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(history, forKey: "history")
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        self.history = aDecoder.decodeObject(forKey: "history") as? [Beverage] ?? []
+    }
     
     func addHistory(of drink: Beverage) {
         history.append(drink)

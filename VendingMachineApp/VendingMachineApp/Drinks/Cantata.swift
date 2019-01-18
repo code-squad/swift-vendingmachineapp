@@ -30,6 +30,16 @@ class Cantata: Coffee {
                   material: .plastic)
     }
     
+    required init?(coder aDecoder: NSCoder) {
+        self.packingMaterial = aDecoder.decodeObject(forKey: "packingMaterial") as! PackingMaterial
+        super.init(coder: aDecoder)
+    }
+    
+    override func encode(with aCoder: NSCoder) {
+        super.encode(with: aCoder)
+        aCoder.encode(packingMaterial, forKey: "packingMaterial")
+    }
+    
     func isPacking(with pack: PackingMaterial) -> Bool {
         return self.packingMaterial == pack
     }

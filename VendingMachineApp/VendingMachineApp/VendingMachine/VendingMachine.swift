@@ -33,18 +33,30 @@ protocol PrintableMachingState {
     func machineStateInManagerMode(form: (Stock) -> Void)
 }
 
-class VendingMachine {
+class VendingMachine: NSObject, NSCoding {
     private var coin: Coin = Coin()
     private var stock: Stock = Stock()
     private var purchaseHistory: PurchaseHistory = PurchaseHistory()
     
-    init() {
+    override init() {
         stock.add(BananaMilk())
         stock.add(BananaMilk())
         stock.add(ChocoMilk())
         stock.add(Cola())
         stock.add(Cola())
         stock.add(Cola())
+    }
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(self.coin, forKey: "coin")
+        aCoder.encode(self.stock, forKey: "stock")
+        aCoder.encode(self.purchaseHistory, forKey: "purchaseHistory")
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        self.coin = aDecoder.decodeObject(forKey: "coin") as? Coin ?? Coin()
+        self.stock = aDecoder.decodeObject(forKey: "stock") as? Stock ?? Stock()
+        self.purchaseHistory = aDecoder.decodeObject(forKey: "purchaseHistory") as? PurchaseHistory ?? PurchaseHistory()
     }
     
     private func canBuy(_ price: Int) -> Bool {
@@ -131,3 +143,5 @@ extension VendingMachine: AvailableCommonMachineFunction {
         return coin.convertToString()
     }
 }
+
+

@@ -29,6 +29,16 @@ class Fanta: CarbonatedDrink {
                   fantaFlavor: .orange)
     }
     
+    required init?(coder aDecoder: NSCoder) {
+        self.fantaFlavor = aDecoder.decodeObject(forKey: "fantaFlavor")
+        super.init(coder: aDecoder)
+    }
+    
+    override func encode(with aCoder: NSCoder) {
+        super.encode(with: aCoder)
+        aCoder.encode(fantaFlavor, forKey: "fantaFlavor")
+    }
+    
     func isFlavor(with flavor: FantaFlavor) -> Bool {
         return self.fantaFlavor == flavor
     }

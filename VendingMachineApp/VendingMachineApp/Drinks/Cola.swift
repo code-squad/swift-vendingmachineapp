@@ -25,6 +25,16 @@ class Cola: CarbonatedDrink {
                   sugarAmount: 0.9)
     }
     
+    required init?(coder aDecoder: NSCoder) {
+        self.sugarAmount = aDecoder.decodeDouble(forKey: "sugarAmount")
+        super.init(coder: aDecoder)
+    }
+    
+    override func encode(with aCoder: NSCoder) {
+        super.encode(with: aCoder)
+        aCoder.encode(sugarAmount, forKey: "sugarAmount")
+    }
+    
     func isHighSugarAmount() -> Bool {
         return sugarAmount > 1.0
     }

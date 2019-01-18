@@ -94,4 +94,16 @@ override func viewDidLoad() {
 }
 ```
    
+   
+   #### Step 3
+   
+   
+   **AppDelegate.swift 역할**
+   
+   1. AppDelegate 클래스를 정의한다 - app delegate <--> AppDelegate는 다르다. app delegate는 인스턴스이고 AppDelegate는 레퍼런스이다. 즉 app delegate가 앱의 객체이다.
+   2. entry point와 앱의 입력 이벤트를 전달하는 `run loop`를 생성한다. 밑의 그림을 보면 알 수 있듯이 `@UIApplicationMain` 어노테이션이 있는 클래스를 호출하고 AppDelegate 클래스를 delegate 클래스에 전달한다.
+   ![firstScreen](./1.png)
+   
+ 
+ **Delegate를 이용한 ViewController간 Data 전달**
  

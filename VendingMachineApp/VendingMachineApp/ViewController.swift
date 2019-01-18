@@ -15,8 +15,9 @@ extension UIImageView {
     }
 }
 
+
 class ViewController: UIViewController {
-    var machine: VendingMachine = VendingMachine()
+    var machine: VendingMachine?
 
     @IBOutlet var drinkImages: [UIImageView]!
     @IBOutlet var drinkLabels: [UILabel]!
@@ -27,7 +28,12 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        currentCoin.text = "잔액 : " + machine.currentCoinState() + "원"
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        machine = appDelegate.machine
+        
+        if let state = machine?.currentCoinState() {
+            currentCoin.text = "잔약 : " + state + "원"
+        }
         initialImage()
         initialLabel()
         initialAddButtonTag()
@@ -39,11 +45,13 @@ class ViewController: UIViewController {
     }
     
     private func initialLabel() {
-        let machine: AvailableCommonMachineFunction = self.machine
+        let machine: AvailableCommonMachineFunction? = self.machine
         var eachMenuNumber = 1
         for label in drinkLabels {
-            label.text = "\(machine.getEachStockCount(menu: eachMenuNumber))개"
-            eachMenuNumber += 1
+            if let stockCount = machine?.getEachStockCount(menu: eachMenuNumber) {
+                label.text = "\(stockCount)개"
+                eachMenuNumber += 1
+            }
         }
     }
     
@@ -79,10 +87,10 @@ class ViewController: UIViewController {
     }
     
     private func addEachDrink(of menu: Int) {
-        let managerMode: ManageableMode = machine
-        if managerMode.isAbleToAdd(menu: menu) == .success {
-            machine.addStock(menu: menu)
-            drinkLabels[menu-1].text = "\(machine.getEachStockCount(menu: menu))개"
+        let managerMode: ManageableMode? = machine
+        if managerMode?.isAbleToAdd(menu: menu) == .success {
+            machine?.addStock(menu: menu)
+            drinkLabels[menu-1].text = "\(machine?.getEachStockCount(menu: menu) ?? 0)개"
         }
     }
     
@@ -94,10 +102,11 @@ class ViewController: UIViewController {
         default: return
         }
     }
+    
     private func setInserState(coin: Int) {
-        let userMode: UserAvailableMode = machine
-        userMode.insert(coin: coin)
-        currentCoin.text = "잔액 : " + machine.currentCoinState() + "원"
+        let userMode: UserAvailableMode? = machine
+        userMode?.insert(coin: coin)
+        if let coinState = machine?.currentCoinState() { currentCoin.text = "잔액 : " + coinState + "원" }
     }
 }
 

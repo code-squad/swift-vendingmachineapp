@@ -31,7 +31,7 @@ class TOP: Coffee {
     }
     
     func isKind(with kind: TOPKind) -> Bool {
-        return self.topKind = kind
+        return self.topKind == kind
     }
     
     override func convertToStringBeverage() -> String {

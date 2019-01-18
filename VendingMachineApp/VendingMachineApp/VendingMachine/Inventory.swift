@@ -30,7 +30,7 @@ class Inventory: NSObject {
     }
 
     func postDataChanged(index: Int) {
-        let userInfo = [Notification.InfoKey.indexOfBeverage: index]
+        let userInfo = [Notification.InfoKey.numberValueOfBeverage: index]
         postNotificationOfDataChanged(userInfo: userInfo)
     }
 
@@ -114,5 +114,5 @@ extension Notification.Name {
 }
 
 extension Notification.InfoKey {
-    static let indexOfBeverage = "indexOfBeverage"
+    static let numberValueOfBeverage = "numberValueOfBeverage"
 }

@@ -41,7 +41,7 @@ class AdminViewController: UIViewController {
     }
 
     @objc private func showQuantities(_ notification: Notification) {
-        if let index = notification.userInfo?[Notification.InfoKey.indexOfBeverage] as? Int {
+        if let index = notification.userInfo?[Notification.InfoKey.numberValueOfBeverage] as? Int {
             updateOneQuantityLabel(of: index)
             return
         }

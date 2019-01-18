@@ -25,6 +25,16 @@ class BananaMilk: Milk {
                   bananaAmount: 1.1)
     }
     
+    required init?(coder aDecoder: NSCoder) {
+        self.bananaJuiceAmount = aDecoder.decodeDouble(forKey: "bananaJuiceAmount")
+        super.init(coder: aDecoder)
+    }
+    
+    override func encode(with aCoder: NSCoder) {
+        super.encode(with: aCoder)
+        aCoder.encode(bananaJuiceAmount, forKey: "bananaJuiceAmount")
+    }
+    
     func isHighJuiceAmount() -> Bool {
         return bananaJuiceAmount > 1.0
     }

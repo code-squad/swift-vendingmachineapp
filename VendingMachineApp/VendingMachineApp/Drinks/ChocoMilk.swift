@@ -25,6 +25,16 @@ class ChocoMilk: Milk {
                   cocoaAmount: 1.3)
     }
     
+    required init?(coder aDecoder: NSCoder) {
+        self.cocoaPowderAmount = aDecoder.decodeDouble(forKey: "cocoaPowderAmount")
+        super.init(coder: aDecoder)
+    }
+    
+    override func encode(with aCoder: NSCoder) {
+        super.encode(with: aCoder)
+        aCoder.encode(cocoaPowderAmount, forKey: "cocoaPowderAmount")
+    }
+    
     func isHighPowderAmount() -> Bool {
         return cocoaPowderAmount > 1.0
     }

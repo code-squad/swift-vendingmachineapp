@@ -105,5 +105,20 @@ override func viewDidLoad() {
    ![firstScreen](./1.png)
    
  
- **Delegate를 이용한 ViewController간 Data 전달**
+ **AppDelegate 변수 ViewController에서 접근**
+```
+// AppDelegate.swift 내 변수
+var objcet: Object = Object
+
+// ViewController 내 함수
+let appDelegate = UIApplication.shared.delegate as? AppDelegate
+let controllerObject = appDelegate.object
+
+// UIApplication의 Delegate가 AppDelegate이다. 즉 앱이 실행될 때 UIApplication이 실행되면서 class AppDelegate를 Delegate로 지정한다.
+
+```
+
+**UserDefault 파운데이션**
+ 
+ 
  

@@ -16,6 +16,16 @@ class CarbonatedDrink: Beverage {
         super.init(name: name, volume: volume, price: price, brand: brand, date: date)
     }
     
+    required init?(coder aDecoder: NSCoder) {
+        self.isZeroCalorie = aDecoder.decodeBool(forKey: "isZeroCalorie")
+        super.init(coder: aDecoder)
+    }
+    
+    override func encode(with aCoder: NSCoder) {
+        super.encode(with: aCoder)
+        aCoder.encode(isZeroCalorie, forKey: "isZeroCalorie")
+    }
+    
     func isZeroCalorieDrink() -> Bool {
         return isZeroCalorie
     }

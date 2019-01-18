@@ -17,6 +17,16 @@ class Milk: Beverage {
         super.init(name: name, volume: volume, price: price, brand: brand, date: date)
     }
     
+    required init?(coder aDecoder: NSCoder) {
+        self.isHighFat = aDecoder.decodeBool(forKey: "isHighFat")
+        super.init(coder: aDecoder)
+    }
+    
+    override func encode(with aCoder: NSCoder) {
+        super.encode(with: aCoder)
+        aCoder.encode(isHighFat, forKey: "isHighFat")
+    }
+    
     func isHighFatMilk() -> Bool {
         return isHighFat
     }

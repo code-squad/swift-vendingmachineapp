@@ -30,6 +30,16 @@ class TOP: Coffee {
                   topKind: .sweetAmericano)
     }
     
+    required init?(coder aDecoder: NSCoder) {
+        self.topKind = aDecoder.decodeObject(forKey: "topKind") as! TOPKind
+        super.init(coder: aDecoder)
+    }
+    
+    override func encode(with aCoder: NSCoder) {
+        super.encode(with: aCoder)
+        aCoder.encode(topKind, forKey: "topKind")
+    }
+
     func isKind(with kind: TOPKind) -> Bool {
         return self.topKind == kind
     }

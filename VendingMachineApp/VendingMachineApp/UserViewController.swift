@@ -38,7 +38,8 @@ class UserViewController: UIViewController {
     }
 
     @objc private func showQuantities(_ notification: Notification) {
-        if let index = notification.userInfo?[Notification.InfoKey.numberValueOfBeverage] as? Int {
+        if let beverage = notification.userInfo?[Notification.InfoKey.beverageQuantityChanged] as? BeverageSubCategory {
+            let index = beverage.rawValue
             updateQuantityLabel(of: index)
             return
         }

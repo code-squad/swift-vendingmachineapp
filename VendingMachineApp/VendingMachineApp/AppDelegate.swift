@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         let viewController = window?.rootViewController as? UserViewController
-        viewController?.set(vendingMachine: VendingMachine.shared as? UserMode)
+        viewController?.set(vendingMachine: VendingMachine.shared)
         return true
     }
 

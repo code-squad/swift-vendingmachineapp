@@ -32,7 +32,7 @@ class Products: NSObject, NSCoding {
     
     //MARK: - Methods
     
-    func add(product: BeverageProduct) {
+    func add(product: Beverage) {
 
         if self.productLines[product.productType()] == nil {
             self.productLines[product.productType()] = ProductLine()
@@ -41,7 +41,7 @@ class Products: NSObject, NSCoding {
         self.productLines[product.productType()]?.add(product)
     }
     
-    func buy(productType: BeverageProduct.Type) -> BeverageProduct? {
+    func buy(productType: Beverage.Type) -> Beverage? {
         
         guard let productLine = self.productLines["\(productType)"] else { return nil }
         guard let product = productLine.buy() else { return nil }
@@ -53,7 +53,7 @@ class Products: NSObject, NSCoding {
         return product
     }
     
-    func updateNumber(of beverageType: BeverageProduct.Type, update: (Int) -> Void) {
+    func updateNumber(of beverageType: Beverage.Type, update: (Int) -> Void) {
         productLines["\(beverageType)"]?.updateNumberLabel(update) ?? update(0)
     }
 }

@@ -9,6 +9,7 @@
 import Foundation
 
 extension Dictionary where Value: Equatable {
+    
     func key(for value: Value) -> Key? {
         return first { $0.value == value }?.key
     }

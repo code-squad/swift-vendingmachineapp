@@ -76,7 +76,7 @@ class ViewController: UIViewController {
     
     @IBAction func tapAddBeverageButton(_ sender: UIButton) {
         let tag = sender.tag
-        guard let beverageType = Mapper.map[tag] else { return }
+        guard let beverageType = Mapper.map[tag] as? BeverageProduct.Type else { return }
         
         let product = Beverage.produce(product: beverageType)
         self.tag = tag

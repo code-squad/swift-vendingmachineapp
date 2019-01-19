@@ -10,10 +10,10 @@ import Foundation
 
 struct Mapper {
     
-    static let map: [Int: BeverageProduct.Type] = [1: MandarineMilk.self,
-                                                   2: LactoseFreeMilk.self,
-                                                   3: StarbucksDoubleShot.self,
-                                                   4: TOPTheBlack.self,
-                                                   5: CocaCola.self,
-                                                   6: CocaColaZero.self,]
+    static let map: [Int: Beverage.Type] = [1: MandarineMilk.self,
+                                            2: LactoseFreeMilk.self,
+                                            3: StarbucksDoubleShot.self,
+                                            4: TOPTheBlack.self,
+                                            5: CocaCola.self,
+                                            6: CocaColaZero.self,]
 }

@@ -63,7 +63,7 @@ class ViewController: UIViewController {
         
         for numberOfProductLabel in numberOfProductLabels {
             let tag = numberOfProductLabel.tag
-            guard let beverageType = Mapper.map[tag] else { return }
+            guard let beverageType = Mapper.shared.Mapping(by: tag) else { return }
             
             let updateNumberOfProductLabel: (Int) -> Void = { (numberOfProduct: Int) -> Void in
                 numberOfProductLabel.text = "\(numberOfProduct)개"
@@ -76,7 +76,7 @@ class ViewController: UIViewController {
     
     @IBAction func tapAddBeverageButton(_ sender: UIButton) {
         let tag = sender.tag
-        guard let beverageType = Mapper.map[tag] as? BeverageProduct.Type else { return }
+        guard let beverageType = Mapper.shared.Mapping(by: tag) as? BeverageProduct.Type else { return }
         
         let product = Beverage.produce(product: beverageType)
 

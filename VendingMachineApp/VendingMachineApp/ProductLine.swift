@@ -32,9 +32,9 @@ class ProductLine: NSObject, NSCoding {
     private var productLine: [Beverage] = [] {
         didSet {
             guard productLine.count != 0 else { return }
-            
+            guard let labelToUpdate = Mapper.shared.Mapping(by: type(of: productLine[0])) else { return }
             let userInfo: [String: Int] = [UserInfoKey.numberOfProduct: productLine.count,
-                                           UserInfoKey.labelToUpdate: Mapper.key(for: productLine[0]),]
+                                           UserInfoKey.labelToUpdate: labelToUpdate,]
             
             NotificationCenter.default.post(name: .didChangeNumberOfProduct, object: nil, userInfo: userInfo)
         }

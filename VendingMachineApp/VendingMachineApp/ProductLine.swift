@@ -23,13 +23,13 @@ class ProductLine: NSObject, NSCoding {
     required convenience init?(coder aDecoder: NSCoder) {
         
         self.init()
-        self.productLine = aDecoder.decodeObject(forKey: productLineKey) as! [BeverageProduct]
+        self.productLine = aDecoder.decodeObject(forKey: productLineKey) as! [Beverage]
     }
     
     //MARK: - Properties
     //MARK: Private
     
-    private var productLine: [BeverageProduct] = [] {
+    private var productLine: [Beverage] = [] {
         didSet {
             guard productLine.count != 0 else { return }
             
@@ -42,11 +42,11 @@ class ProductLine: NSObject, NSCoding {
     //MARK: - Methods
     //MARK: Private
     
-    func add(_ beverage: BeverageProduct) {
+    func add(_ beverage: Beverage) {
         self.productLine.append(beverage)
     }
     
-    func buy() -> BeverageProduct? {
+    func buy() -> Beverage? {
         return self.productLine.popLast()
     }
     

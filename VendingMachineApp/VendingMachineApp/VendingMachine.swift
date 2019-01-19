@@ -63,11 +63,11 @@ class VendingMachine: NSObject, NSCoding {
 
     //MARK: Products
     
-    func add(product: BeverageProduct) {
+    func add(product: Beverage) {
         products.add(product: product)
     }
 
-    func buy(productType: BeverageProduct.Type) -> BeverageProduct? {
+    func buy(productType: Beverage.Type) -> Beverage? {
         guard let boughtProduct = products.buy(productType: productType) else {
             return nil
         }
@@ -76,7 +76,7 @@ class VendingMachine: NSObject, NSCoding {
         return boughtProduct
     }
     
-    func updateNumber(of beverageType: BeverageProduct.Type, update: (Int) -> Void) {
+    func updateNumber(of beverageType: Beverage.Type, update: (Int) -> Void) {
         products.updateNumber(of: beverageType, update: update)
     }
     

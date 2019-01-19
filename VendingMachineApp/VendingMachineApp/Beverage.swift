@@ -64,7 +64,7 @@ class Beverage: NSObject, NSCoding {
     
     //MARK: Static
     
-    static func produce(product: BeverageProduct.Type) -> BeverageProduct {
-        return product.init()
+    static func produce(product: BeverageProduct.Type) -> Beverage {
+        return product.init() as Beverage
     }
 }

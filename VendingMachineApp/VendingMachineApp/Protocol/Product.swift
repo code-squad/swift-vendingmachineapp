@@ -12,7 +12,7 @@ protocol Product {
     init()
 }
 
-extension Product {
+extension Beverage {
     
     func productType() -> String {
         return "\(type(of: self))"

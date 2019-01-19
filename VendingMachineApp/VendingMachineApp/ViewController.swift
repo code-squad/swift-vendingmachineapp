@@ -16,7 +16,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var balanceLabel: UILabel!
     @IBOutlet var productImageViews: [UIImageView]!
     @IBOutlet var numberOfProductLabels: [UILabel]!
-    private var tag = 0
     
     //MARK: - Methods
     //MARK: Life Cycle
@@ -43,8 +42,9 @@ class ViewController: UIViewController {
         
         guard let userInfo = noti.userInfo else { return }
         guard let numberOfProduct = userInfo[UserInfoKey.numberOfProduct] as? Int else { return }
-        let numberOfProductLabel = self.numberOfProductLabels.filter() { $0.tag == self.tag }
-        numberOfProductLabel.first?.text = "\(numberOfProduct)개"
+        guard let labelToUpdate = userInfo[UserInfoKey.labelToUpdate] as? Int else { return }
+        
+        numberOfProductLabels[labelToUpdate - 1].text = "\(numberOfProduct)개"
     }
     
     @objc private func updateBalanceLabel(_ noti: Notification) {
@@ -79,7 +79,7 @@ class ViewController: UIViewController {
         guard let beverageType = Mapper.map[tag] as? BeverageProduct.Type else { return }
         
         let product = Beverage.produce(product: beverageType)
-        self.tag = tag
+
         VendingMachine.sharedInstance.add(product: product)
     }
     

@@ -33,7 +33,8 @@ class ProductLine: NSObject, NSCoding {
         didSet {
             guard productLine.count != 0 else { return }
             
-            let userInfo: [String: Int] = [UserInfoKey.numberOfProduct: productLine.count]
+            let userInfo: [String: Int] = [UserInfoKey.numberOfProduct: productLine.count,
+                                           UserInfoKey.labelToUpdate: Mapper.key(for: productLine[0]),]
             
             NotificationCenter.default.post(name: .didChangeNumberOfProduct, object: nil, userInfo: userInfo)
         }

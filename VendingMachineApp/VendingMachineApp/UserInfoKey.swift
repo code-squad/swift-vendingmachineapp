@@ -9,6 +9,8 @@
 import Foundation
 
 struct UserInfoKey {
+    
     static let balance = "balance"
     static let numberOfProduct = "numberOfProduct"
+    static let labelToUpdate = "labelToUpdate"
 }

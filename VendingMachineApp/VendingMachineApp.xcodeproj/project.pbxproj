@@ -15,7 +15,7 @@
 		7D0C598921F052F50089E9F1 /* ProductLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0C598821F052F50089E9F1 /* ProductLine.swift */; };
 		7D0C598D21F0746D0089E9F1 /* UserInfoKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0C598C21F0746D0089E9F1 /* UserInfoKey.swift */; };
 		7D30B85321F17E5200FCFDC2 /* ProductImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D30B85221F17E5200FCFDC2 /* ProductImageView.swift */; };
-		7D30B85521F1B47500FCFDC2 /* ExtensionDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D30B85421F1B47500FCFDC2 /* ExtensionDictionary.swift */; };
+		7D4398A921F3080B002F0E25 /* ExtensionBeverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4398A821F3080B002F0E25 /* ExtensionBeverage.swift */; };
 		7DA03A2921D7348C002355CA /* lactofreemilk.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DA03A2321D7348B002355CA /* lactofreemilk.png */; };
 		7DA03A2A21D7348C002355CA /* topblack.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DA03A2421D7348B002355CA /* topblack.png */; };
 		7DA03A2B21D7348C002355CA /* sbuck.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DA03A2521D7348B002355CA /* sbuck.png */; };
@@ -53,7 +53,7 @@
 		7D0C598821F052F50089E9F1 /* ProductLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductLine.swift; sourceTree = "<group>"; };
 		7D0C598C21F0746D0089E9F1 /* UserInfoKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoKey.swift; sourceTree = "<group>"; };
 		7D30B85221F17E5200FCFDC2 /* ProductImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductImageView.swift; sourceTree = "<group>"; };
-		7D30B85421F1B47500FCFDC2 /* ExtensionDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDictionary.swift; sourceTree = "<group>"; };
+		7D4398A821F3080B002F0E25 /* ExtensionBeverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionBeverage.swift; sourceTree = "<group>"; };
 		7DA03A2321D7348B002355CA /* lactofreemilk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lactofreemilk.png; sourceTree = "<group>"; };
 		7DA03A2421D7348B002355CA /* topblack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = topblack.png; sourceTree = "<group>"; };
 		7DA03A2521D7348B002355CA /* sbuck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sbuck.png; sourceTree = "<group>"; };
@@ -186,7 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				7DE2CB5D21D4B920004EC966 /* ExtensionDate.swift */,
-				7D30B85421F1B47500FCFDC2 /* ExtensionDictionary.swift */,
+				7D4398A821F3080B002F0E25 /* ExtensionBeverage.swift */,
 				7D0C598621F040E40089E9F1 /* ExtensionNotificationName.swift */,
 			);
 			path = Extension;
@@ -284,12 +284,12 @@
 				7DE2CB6A21D4B920004EC966 /* StarbucksDoubleShot.swift in Sources */,
 				7DE2CB6621D4B920004EC966 /* CocaColaZero.swift in Sources */,
 				7DA03A3B21DCB9B5002355CA /* Mapper.swift in Sources */,
-				7D30B85521F1B47500FCFDC2 /* ExtensionDictionary.swift in Sources */,
 				7DA03A3621D9F480002355CA /* Product.swift in Sources */,
 				7DE2CB6C21D4B920004EC966 /* TOPTheBlack.swift in Sources */,
 				7D30B85321F17E5200FCFDC2 /* ProductImageView.swift in Sources */,
 				7DE2CB7A21D4B920004EC966 /* LactoseFreeMilk.swift in Sources */,
 				7DE2CB3421D4B82E004EC966 /* ViewController.swift in Sources */,
+				7D4398A921F3080B002F0E25 /* ExtensionBeverage.swift in Sources */,
 				7D0C598921F052F50089E9F1 /* ProductLine.swift in Sources */,
 				7DA03A3921DC7E03002355CA /* Money.swift in Sources */,
 				7DE2CB7821D4B920004EC966 /* ExtensionDate.swift in Sources */,

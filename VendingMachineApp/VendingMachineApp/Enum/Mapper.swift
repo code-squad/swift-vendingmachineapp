@@ -16,4 +16,8 @@ struct Mapper {
                                             4: TOPTheBlack.self,
                                             5: CocaCola.self,
                                             6: CocaColaZero.self,]
+    
+    static func key(for value: Beverage) -> Int {
+        return map.first{ $0.value == type(of:value) }?.key ?? 0
+    }
 }

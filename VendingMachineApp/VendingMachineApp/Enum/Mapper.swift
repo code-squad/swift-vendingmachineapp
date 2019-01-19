@@ -10,14 +10,46 @@ import Foundation
 
 struct Mapper {
     
-    static let map: [Int: Beverage.Type] = [1: MandarineMilk.self,
-                                            2: LactoseFreeMilk.self,
-                                            3: StarbucksDoubleShot.self,
-                                            4: TOPTheBlack.self,
-                                            5: CocaCola.self,
-                                            6: CocaColaZero.self,]
+    //MARK: - Properties
+    //MARK: Singleton Object
     
-    static func key(for value: Beverage) -> Int {
-        return map.first{ $0.value == type(of:value) }?.key ?? 0
+    static let shared = Mapper()
+    
+    //MARK: Private
+    
+    private let map: [Int: Beverage.Type]
+    private let reverseMap: [ObjectIdentifier: Int]
+
+    //MARK: Initialization
+    
+    private init() {
+        
+        var map: [Int: Beverage.Type] = [:]
+        var reverseMap: [ObjectIdentifier: Int] = [:]
+        let tag = 1...Int.max
+        let BeverageTypes: [Beverage.Type] = [MandarineMilk.self,
+                                              LactoseFreeMilk.self,
+                                              StarbucksDoubleShot.self,
+                                              TOPTheBlack.self,
+                                              CocaCola.self,
+                                              CocaColaZero.self,]
+        
+        for (tag, beverageType) in zip(tag, BeverageTypes) {
+            map[tag] = beverageType
+            reverseMap[ObjectIdentifier(beverageType)] = tag
+        }
+        
+        self.map = map
+        self.reverseMap = reverseMap
+    }
+    
+    //MARK: - Methods
+    
+    func Mapping(by tag: Int) -> Beverage.Type? {
+        return map[tag]
+    }
+    
+    func Mapping(by beverageType: Beverage.Type) -> Int? {
+        return reverseMap[ObjectIdentifier(beverageType)]
     }
 }

@@ -12,6 +12,7 @@ class RoundedCornersImageView: UIImageView {
 
     override init(image: UIImage?) {
         super.init(image: image)
+        self.contentMode = .scaleAspectFit
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -40,11 +41,6 @@ class RoundedCornersImageView: UIImageView {
         let index = newLine ? index - maxCount : index
         let line = newLine ? (firstLine + height) : firstLine
         self.frame = CGRect(x: 147+index*60, y: line, width: width, height: height)
-    }
-
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        self.contentMode = .scaleAspectFit
     }
 
 }

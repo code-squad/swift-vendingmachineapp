@@ -58,7 +58,7 @@ class UserViewController: UIViewController {
     @objc private func showPurchase(_ notification: Notification) {
         guard let name = notification.userInfo?[Notification.InfoKey.nameOfPurchase] as? String else { return }
         guard let index = notification.userInfo?[Notification.InfoKey.indexOfPurchase] as? Int else { return }
-        let imageView = RoundedCornersImageView(imageName: name, fileFormat: .jpg)
+        let imageView = RoundedCornersImageView(imageName: name, fileFormat: .png)
         imageView.relocate(to: index)
         self.view.addSubview(imageView)
     }

@@ -46,6 +46,16 @@ class PieGraphView: UIView {
         path.fill()
     }
 
+    private func drawLabel(text: NSString, startAngle: CGFloat, endAngle: CGFloat) {
+        let fontSize = CGFloat(15)
+        let angle = startAngle + (endAngle - startAngle).half
+        let movingUp = fontSize.half
+        let movingLeft = text.size(withAttributes: nil).width.half
+        let point = CGPoint(x: centerOfPie.x + radiusOfPie * 0.65 * cos(angle) - movingLeft,
+                            y: centerOfPie.y + radiusOfPie * 0.65 * sin(angle) - movingUp)
+        text.draw(at: point, withAttributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: fontSize)])
+    }
+
     override func draw(_ rect: CGRect) {
         updateHistory()
         var currentAngle: CGFloat = 0
@@ -54,6 +64,7 @@ class PieGraphView: UIView {
             let angle = purchase.value.convertedToAnglesInCircle(total: purchases.count)
             let endAngle = currentAngle + angle
             drawAPieceOfPie(startAngle: currentAngle, endAngle: endAngle)
+            drawLabel(text: purchase.key as NSString, startAngle: currentAngle, endAngle: endAngle)
             currentAngle = endAngle
         }
     }

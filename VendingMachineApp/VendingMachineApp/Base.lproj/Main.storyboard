@@ -88,6 +88,9 @@
                                                 <state key="normal" title="구매">
                                                     <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="tapBuyBeverageButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KzX-lp-rev"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -123,6 +126,9 @@
                                                 <state key="normal" title="구매">
                                                     <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="tapBuyBeverageButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IvA-s9-XDL"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -158,6 +164,9 @@
                                                 <state key="normal" title="구매">
                                                     <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="tapBuyBeverageButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ib2-Cy-qw8"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -193,6 +202,9 @@
                                                 <state key="normal" title="구매">
                                                     <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="tapBuyBeverageButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dtw-mh-Ipj"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -228,6 +240,9 @@
                                                 <state key="normal" title="구매">
                                                     <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="tapBuyBeverageButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1Zb-xJ-xdg"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -263,6 +278,9 @@
                                                 <state key="normal" title="구매">
                                                     <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="tapBuyBeverageButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="q6F-Ts-VTh"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>

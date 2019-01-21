@@ -11,7 +11,7 @@ import UIKit
 class PieGraphView: UIView {
     private var purchases: [Beverage] = []
     private let palette: [UIColor] = [UIColor(red:0.02, green:0.05, blue:0.17, alpha:1.0),
-                                      UIColor(red:0.79, green:0.88, blue:0.88, alpha:1.0),
+                                      UIColor(red:0.59, green:0.88, blue:0.88, alpha:1.0),
                                       UIColor(red:0.14, green:0.69, blue:0.70, alpha:1.0),
                                       UIColor(red:0.04, green:0.42, blue:0.45, alpha:1.0),
                                       UIColor(red:0.31, green:0.78, blue:0.80, alpha:1.0),
@@ -47,13 +47,14 @@ class PieGraphView: UIView {
     }
 
     private func drawLabel(text: NSString, startAngle: CGFloat, endAngle: CGFloat) {
-        let fontSize = CGFloat(15)
+        let fontSize = CGFloat(20)
         let angle = startAngle + (endAngle - startAngle).half
         let movingUp = fontSize.half
-        let movingLeft = text.size(withAttributes: nil).width.half
+        let movingLeft = text.size(withAttributes: nil).width * 0.75
         let point = CGPoint(x: centerOfPie.x + radiusOfPie * 0.65 * cos(angle) - movingLeft,
                             y: centerOfPie.y + radiusOfPie * 0.65 * sin(angle) - movingUp)
-        text.draw(at: point, withAttributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: fontSize)])
+        text.draw(at: point, withAttributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: fontSize),
+                                              NSAttributedString.Key.foregroundColor: UIColor.white])
     }
 
     override func draw(_ rect: CGRect) {

@@ -118,7 +118,57 @@ let controllerObject = appDelegate.object
 
 ```
 
-**UserDefault 파운데이션**
+
+**Archiver**
+
+ `Archiver`란? (애플 개발문서에 나와있는 정의)
+![secondScreen](./2.png)
+ Archiver을 사용해 정보를 저장하기 위해서는 저장할 데이터 타입에 두 가지 선언이 꼭 필요하다. `NSCoding`, `NSObject` 두 프로토콜을 구현하여야 한다.
+ 
+ - `NSCoding` Protocol
+  인스턴스를 Encoding, Decoding하기 위해선 `NSCoding`을 구현하여야한다. 구현하기 위해서 필요한 두 가지 메소드가 있다.
+ 1. `init?(coder aDecoder: NSCoder)` - Decode를 위해 구현하는 메소드 --> UnArchiver
+ ```
+ required init?(coder aDecoder: NSCoder) {
+    self.name = aDecoder.decodeObject(forKey: "name") as! String
+    self.brand = aDecoder.decodeObject(forKey: "brand") as! String
+    self.volume = aDecoder.decodeInteger(forKey: "volume")
+}
+```
+ 2. `func encode(with aCoder: NSCoder)` - Encode를 위해 구현하는 메소드 --> Archiver
+ ```
+ func encode(with aCoder: NSCoder) {
+     aCoder.encode(name, forKey: "name")
+     aCoder.encode(brand, forKey: "brand")
+     aCoder.encode(volume, forKey: "volume")
+}
+ ```
+ - `NSObject` Protocol
+ Objective-C 클래스의 최상위 클래스이다. 이 프로토콜을 구현함으로서 Objective-C 객체처럼 행동할 수 있는 능력(?)이 생긴다. Archive하기 위해서는 필요하다.
+
+
+**UserDefault Class**
+
+`UserDefault Class`란? (애플 개발문서에 나와있는 정의)
+![thirdScreen](./3.png)
+
+ `UserDefault` 객체를 사용하면 App에서 사용하는 유저의 Default database에 접근하여 값을 읽어오거나 저장할 수 있다. 단 값을 저장할 때, 모든 타입이 가능한 것은 아니다. 공식문서에 명시된 바로는 `NSData`, `NSString`, `NSNumber`, `NSDate`, `NSArray`, `NSDictionary`등이 있다. 이 외의 타입을 저장하기를 원하면 먼저 `Archive`하여 `NSData`형식으로 만들어야한다.
+ 
+ 이번 App에서는 `Vendingmachine`을  저장해야하기 때문에 먼저 Archive한 후 `UserDefault` 클래스로 데이터베이스에 저장하였다.
+ ```
+ let data = try? NSKeyedArchiver.archivedData(withRootObject: vendingMachine, requiringSecureCoding: false)
+ UserDefaults.standard.set(data, forKey: "vendingMachine")
+ // 저장 코드
+ 
+ if let data = UserDefaults.standard.data(forKey: "vendingMachine") {
+    let vendingMachine = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data)
+    return vendingMachine as? VendingMachine
+ }
+ // 불러오는 코드
+ ```
+ 
+ 
+
  
  
  

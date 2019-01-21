@@ -25,6 +25,7 @@
 		7DA03A3621D9F480002355CA /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA03A3521D9F480002355CA /* Product.swift */; };
 		7DA03A3921DC7E03002355CA /* Money.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA03A3821DC7E03002355CA /* Money.swift */; };
 		7DA03A3B21DCB9B5002355CA /* Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA03A3A21DCB9B5002355CA /* Mapper.swift */; };
+		7DB9EC5F21F5742500EEDA56 /* HistoryOfPurchaseUIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB9EC5E21F5742500EEDA56 /* HistoryOfPurchaseUIImageView.swift */; };
 		7DE2CB3221D4B82E004EC966 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE2CB3121D4B82E004EC966 /* AppDelegate.swift */; };
 		7DE2CB3421D4B82E004EC966 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE2CB3321D4B82E004EC966 /* ViewController.swift */; };
 		7DE2CB3721D4B82E004EC966 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DE2CB3521D4B82E004EC966 /* Main.storyboard */; };
@@ -63,6 +64,7 @@
 		7DA03A3521D9F480002355CA /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		7DA03A3821DC7E03002355CA /* Money.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Money.swift; sourceTree = "<group>"; };
 		7DA03A3A21DCB9B5002355CA /* Mapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mapper.swift; sourceTree = "<group>"; };
+		7DB9EC5E21F5742500EEDA56 /* HistoryOfPurchaseUIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryOfPurchaseUIImageView.swift; sourceTree = "<group>"; };
 		7DE2CB2E21D4B82E004EC966 /* VendingMachineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendingMachineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DE2CB3121D4B82E004EC966 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7DE2CB3321D4B82E004EC966 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 				7DA03A3721DC7DEA002355CA /* Enum */,
 				7DE2CB5221D4B91F004EC966 /* VendingMachine.swift */,
 				7D30B85221F17E5200FCFDC2 /* ProductImageView.swift */,
+				7DB9EC5E21F5742500EEDA56 /* HistoryOfPurchaseUIImageView.swift */,
 				7D0254F621E8C26000E5960A /* HistoryOfPurchase.swift */,
 				7D0254F421E8C20E00E5960A /* Products.swift */,
 				7D0C598821F052F50089E9F1 /* ProductLine.swift */,
@@ -298,6 +301,7 @@
 				7DE2CB7121D4B920004EC966 /* Beverage.swift in Sources */,
 				7D0254F721E8C26000E5960A /* HistoryOfPurchase.swift in Sources */,
 				7DE2CB6721D4B920004EC966 /* CocaCola.swift in Sources */,
+				7DB9EC5F21F5742500EEDA56 /* HistoryOfPurchaseUIImageView.swift in Sources */,
 				7DE2CB7B21D4B920004EC966 /* Milk.swift in Sources */,
 				7DE2CB3221D4B82E004EC966 /* AppDelegate.swift in Sources */,
 				7DE2CB6B21D4B920004EC966 /* Coffee.swift in Sources */,

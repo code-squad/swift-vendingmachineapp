@@ -8,11 +8,12 @@
 
 import Foundation
 
+let productLineKey: String = "productLine"
+let beverageTypeKey: String = "beverageType"
+
 class ProductLine: NSObject, NSCoding {
     
     //MARK: Keys
-    
-    private let productLineKey: String = "productLine"
     
     //MARK: - encode,decode
     
@@ -21,18 +22,23 @@ class ProductLine: NSObject, NSCoding {
     }
     
     required convenience init?(coder aDecoder: NSCoder) {
-        
-        self.init()
-        self.productLine = aDecoder.decodeObject(forKey: productLineKey) as! [Beverage]
+        let productLine = aDecoder.decodeObject(forKey: productLineKey) as! [Beverage]
+        self.init(beverageType: type(of:productLine[0]))
+        self.productLine = productLine
+    }
+    
+    init(beverageType: Beverage.Type) {
+        self.beverageType = beverageType
     }
     
     //MARK: - Properties
     //MARK: Private
     
+    private let beverageType: Beverage.Type
     private var productLine: [Beverage] = [] {
         didSet {
-            guard productLine.count != 0 else { return }
-            guard let labelToUpdate = Mapper.shared.mapping(by: type(of: productLine[0])) else { return }
+            
+            guard let labelToUpdate = Mapper.shared.mapping(by: self.beverageType) else { return }
             let userInfo: [String: Int] = [UserInfoKey.numberOfProduct: productLine.count,
                                            UserInfoKey.labelToUpdate: labelToUpdate,]
             
@@ -41,7 +47,6 @@ class ProductLine: NSObject, NSCoding {
     }
     
     //MARK: - Methods
-    //MARK: Private
     
     func add(_ beverage: Beverage) {
         self.productLine.append(beverage)

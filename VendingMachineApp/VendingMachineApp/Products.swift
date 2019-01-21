@@ -35,7 +35,7 @@ class Products: NSObject, NSCoding {
     func add(product: Beverage) {
 
         if self.productLines[product.productType()] == nil {
-            self.productLines[product.productType()] = ProductLine()
+            self.productLines[product.productType()] = ProductLine(beverageType: type(of: product))
         }
         
         self.productLines[product.productType()]?.add(product)

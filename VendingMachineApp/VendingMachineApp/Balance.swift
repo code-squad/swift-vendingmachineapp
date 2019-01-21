@@ -48,7 +48,7 @@ class Balance: NSObject, NSCoding {
     }
     
     func pay(beverage: Beverage) {
-        let pay: (Int, Int) -> Int = { (price: Int, balance: Int) -> Int in
+        let pay: (Int, Int) -> Int = { (balance: Int, price: Int) -> Int in
                 return balance - price
         }
         balance = beverage.pay(balance: balance, pay: pay)

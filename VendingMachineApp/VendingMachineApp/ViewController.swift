@@ -125,4 +125,9 @@ class ViewController: UIViewController {
             return
         }
     }
+    @IBAction func tapBuyBeverageButton(_ sender: UIButton) {
+        
+    }
+    
+    
 }

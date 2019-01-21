@@ -31,9 +31,6 @@ class ViewController: UIViewController {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         machine = appDelegate.machine
         
-        if let state = machine?.currentCoinState() {
-            currentCoin.text = "잔약 : " + state + "원"
-        }
         initialImage()
         initialLabel()
         initialAddButtonTag()
@@ -53,6 +50,11 @@ class ViewController: UIViewController {
                 eachMenuNumber += 1
             }
         }
+        setCoinLabel()
+    }
+    
+    private func setCoinLabel() {
+        if let cointState = machine?.currentCoinState() { currentCoin.text = "잔액 : " + cointState + "원" }
     }
     
     private func initialAddButtonTag() {
@@ -97,16 +99,16 @@ class ViewController: UIViewController {
     @IBAction func insertCoin(_ sender: Any) {
         guard let button = sender as? UIButton else { return }
         switch button.tag {
-        case 1: setInserState(coin: 1000)
-        case 2: setInserState(coin: 5000)
+        case 1: insertEach(coin: 1000)
+        case 2: insertEach(coin: 5000)
         default: return
         }
     }
     
-    private func setInserState(coin: Int) {
+    private func insertEach(coin: Int) {
         let userMode: UserAvailableMode? = machine
         userMode?.insert(coin: coin)
-        if let coinState = machine?.currentCoinState() { currentCoin.text = "잔액 : " + coinState + "원" }
+        setCoinLabel()
     }
 }
 

@@ -67,12 +67,23 @@ class ViewController: UIViewController {
         
         guard let userInfo = noti.userInfo else { return }
         guard let product = userInfo[UserInfoKey.recentPurchaseProduct] as? Beverage else { return }
-        let makeProductImage = { (name: String) -> UIImage? in
-            return UIImage(named: "\(type(of: product)).png")
-        }
+        guard let productImage = UIImage(named: "\(type(of: product)).png") else { return }
+        let productImageView = UIImageView(image: productImage)
+        productImageView.frame = imageViewFrame()()
         
+        self.view.addSubview(productImageView)
     }
     
+    private func imageViewFrame() -> () -> CGRect {
+        
+        var XCordinate: CGFloat = 40
+        
+        func incrementer() -> CGRect {
+            XCordinate += 50
+            return CGRect(x: XCordinate, y: 575, width: 140, height: 100)
+        }
+        return incrementer
+    }
     
     
     private func updateLabels() {

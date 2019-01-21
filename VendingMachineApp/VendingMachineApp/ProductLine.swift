@@ -9,11 +9,8 @@
 import Foundation
 
 let productLineKey: String = "productLine"
-let beverageTypeKey: String = "beverageType"
 
 class ProductLine: NSObject, NSCoding {
-    
-    //MARK: Keys
     
     //MARK: - encode,decode
     

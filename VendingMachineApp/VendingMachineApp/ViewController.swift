@@ -105,7 +105,8 @@ class ViewController: UIViewController {
     
     private func addBeverageImageView(_ product: Beverage) {
         
-        guard let productImage = UIImage(named: "\(type(of: product)).png") else { return }
+        guard let imageName = Mapper.shared.imageMapping(by: type(of: product)) else { return }
+        guard let productImage = UIImage(named: imageName) else { return }
         let productImageView = UIImageView(image: productImage)
         productImageView.frame = CGRect(x: 40 + self.historyViewInterval,
                                         y: 575,

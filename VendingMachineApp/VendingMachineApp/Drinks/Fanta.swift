@@ -7,9 +7,8 @@
 //
 
 import Foundation
-enum FantaFlavor {
-    case grape
-    case orange
+enum FantaFlavor: Int {
+    case grape = 1, orange
 }
 
 class Fanta: CarbonatedDrink {
@@ -30,13 +29,13 @@ class Fanta: CarbonatedDrink {
     }
     
     required init?(coder aDecoder: NSCoder) {
-        self.fantaFlavor = aDecoder.decodeObject(forKey: "fantaFlavor")
+        self.fantaFlavor = FantaFlavor.init(rawValue: aDecoder.decodeInteger(forKey: "fantaFlavor")) ?? .grape
         super.init(coder: aDecoder)
     }
     
     override func encode(with aCoder: NSCoder) {
         super.encode(with: aCoder)
-        aCoder.encode(fantaFlavor, forKey: "fantaFlavor")
+        aCoder.encode(fantaFlavor.rawValue, forKey: "fantaFlavor")
     }
     
     func isFlavor(with flavor: FantaFlavor) -> Bool {

@@ -7,10 +7,8 @@
 //
 
 import Foundation
-enum TOPKind {
-    case sweetAmericano
-    case latte
-    case black
+enum TOPKind: Int {
+    case sweetAmericano = 1, latte, black
 }
 
 class TOP: Coffee {
@@ -31,13 +29,13 @@ class TOP: Coffee {
     }
     
     required init?(coder aDecoder: NSCoder) {
-        self.topKind = aDecoder.decodeObject(forKey: "topKind") as! TOPKind
+        self.topKind = TOPKind.init(rawValue: aDecoder.decodeInteger(forKey: "topKind")) ?? .latte
         super.init(coder: aDecoder)
     }
     
     override func encode(with aCoder: NSCoder) {
         super.encode(with: aCoder)
-        aCoder.encode(topKind, forKey: "topKind")
+        aCoder.encode(topKind.rawValue, forKey: "topKind")
     }
 
     func isKind(with kind: TOPKind) -> Bool {

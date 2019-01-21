@@ -69,8 +69,7 @@ class VendingMachine: NSObject, NSCoding {
 
     func buy(productType: Beverage.Type) -> Beverage? {
         
-        guard let isBuyable = products.isBuyable(productType),
-        balance.isBuyable(isBuyable) else { return nil }
+        guard self.products.isBuyable(productType, balance: self.balance) else { return nil }
         guard let boughtProduct = products.buy(productType: productType) else { return nil }
         balance.pay(beverage: boughtProduct)
         historyOfPurchase.add(beverage: boughtProduct)

@@ -61,9 +61,9 @@ class ProductLine: NSObject, NSCoding {
         update(productLine.count)
     }
     
-    func isBuyable() -> ((Int) -> Bool)? {
+    func isBuyable(balance: Balance) -> Bool {
         
-        guard let beverage = productLine.first else { return nil }
-        return beverage.isBuyable()
+        guard let beverage = productLine.first else { return false }
+        return beverage.isBuyable(balance: balance)
     }
 }

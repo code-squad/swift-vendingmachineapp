@@ -30,8 +30,11 @@ class HistoryOfPurchase: NSObject, NSCoding {
     
     private var historyOfPurchase: [Beverage] = [] {
         didSet {
-            let userInfo = 
-            NotificationCenter.default.post(name: .didChangeHistoryOfPurchase, object: nil, userInfo: <#T##[AnyHashable : Any]?#>)
+            
+            guard let recentPurchaseProduct = historyOfPurchase.last else { return }
+            let userInfo: [String: Beverage] = [UserInfoKey.recentPurchaseProduct: recentPurchaseProduct]
+            
+            NotificationCenter.default.post(name: .didChangeHistoryOfPurchase, object: nil, userInfo: userInfo)
         }
     }
     

@@ -16,10 +16,9 @@ class PieGraphView: UIView {
                                       UIColor(red:0.04, green:0.42, blue:0.45, alpha:1.0),
                                       UIColor(red:0.31, green:0.78, blue:0.80, alpha:1.0),
                                       UIColor(red:0.63, green:0.78, blue:0.75, alpha:1.0)]
-    var historyDataSource: HistoryDataSource?
 
-    private func updateHistory() {
-        guard let beverages = historyDataSource?.update(from: purchases.count) else { return }
+    func update(from historyDataSource: HistoryDataSource) {
+        guard let beverages = historyDataSource.update(from: purchases.count) else { return }
         beverages.forEach { purchases.append($0) }
     }
 
@@ -58,7 +57,6 @@ class PieGraphView: UIView {
     }
 
     override func draw(_ rect: CGRect) {
-        updateHistory()
         var currentAngle: CGFloat = 0
         for (index, purchase) in classifiedPurchase.enumerated() {
             palette[index].setFill()

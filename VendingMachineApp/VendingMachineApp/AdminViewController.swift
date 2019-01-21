@@ -19,7 +19,11 @@ class AdminViewController: UIViewController {
         super.viewDidLoad()
         registerAsObserver()
         updateAllQuantityLabels()
-        purchasePieGraph.historyDataSource = self
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        purchasePieGraph.update(from: self)
     }
 
     func set(vendingMachine: AdminMode?) {

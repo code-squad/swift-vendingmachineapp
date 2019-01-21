@@ -126,8 +126,8 @@ class ViewController: UIViewController {
         }
     }
     @IBAction func tapBuyBeverageButton(_ sender: UIButton) {
-        
+        let tag = sender.tag
+        guard let productType = Mapper.shared.mapping(by: tag) else { return }
+        let _ = VendingMachine.sharedInstance.buy(productType: productType)
     }
-    
-    
 }

@@ -53,7 +53,7 @@ class Products: NSObject, NSCoding {
         return product
     }
     
-    func isBuyable(_ productType: Beverage.Type, balance: Balance) -> Bool {
+    func isBuyable(_ productType: Beverage.Type, balance: Money) -> Bool {
         
         guard let productLine = self.productLines["\(productType)"] else { return false }
         return productLine.isBuyable(balance: balance)

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Balance: NSObject, NSCoding {
+class Money: NSObject, NSCoding {
     
     //MARK: - Keys
     
@@ -37,7 +37,7 @@ class Balance: NSObject, NSCoding {
     
     //MARK: - Methods
     
-    func insert(money: Money) {
+    func insert(money: MoneyUnit) {
         self.balance += money.rawValue
     }
     

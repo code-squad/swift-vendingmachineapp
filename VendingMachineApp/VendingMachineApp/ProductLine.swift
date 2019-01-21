@@ -62,7 +62,7 @@ class ProductLine: NSObject, NSCoding {
         update(productLine.count)
     }
     
-    func isBuyable(balance: Balance) -> Bool {
+    func isBuyable(balance: Money) -> Bool {
         
         guard let beverage = productLine.first else { return false }
         return beverage.isBuyable(balance: balance)

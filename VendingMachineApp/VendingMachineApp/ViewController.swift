@@ -60,7 +60,7 @@ class ViewController: UIViewController {
     @objc private func updateBalanceLabel(_ noti: Notification) {
         
         guard let userInfo = noti.userInfo else { return }
-        guard let balance = userInfo[UserInfoKey.balance] as? Balance else { return }
+        guard let balance = userInfo[UserInfoKey.balance] as? Money else { return }
         
         let updateBalanceLabel = { [unowned self] (balance: Int) -> Void in
             self.balanceLabel.text = "잔액 : \(balance)원"

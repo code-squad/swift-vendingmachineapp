@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum Money: Int {
+enum MoneyUnit: Int {
     
     case thousand = 1000
     case fiveThousand = 5000

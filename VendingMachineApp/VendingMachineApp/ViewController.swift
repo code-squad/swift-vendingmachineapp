@@ -33,6 +33,11 @@ class ViewController: UIViewController {
                                                name: .didChangeBalance,
                                                object: nil)
         
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(addHistoryOfPurchaseImageView(_:)),
+                                               name: .didChangeHistoryOfPurchase,
+                                               object: nil)
+        
         updateLabels()
     }
     
@@ -56,6 +61,10 @@ class ViewController: UIViewController {
             self.balanceLabel.text = "잔액 : \(balance)원"
         }
         balance.updateBalanceLabel(update: updateBalanceLabel)
+    }
+    
+    @objc private func addHistoryOfPurchaseImageView(_ noti: Notification) {
+        
     }
     
     private func updateLabels() {

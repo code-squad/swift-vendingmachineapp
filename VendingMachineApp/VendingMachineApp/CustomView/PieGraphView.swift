@@ -41,7 +41,6 @@ class PieGraphView: UIView {
                                 endAngle: endAngle,
                                 clockwise: true)
         path.addLine(to: centerOfPie)
-        path.close()
         path.fill()
     }
 

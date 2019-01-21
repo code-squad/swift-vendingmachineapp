@@ -92,6 +92,15 @@ class ViewController: UIViewController {
         }
     }
     
+    private func addHistoryOfPurchaseImageViews() {
+        let addHistoryOfPurchaseImageViews = { [unowned self] (historyOfPurchase: [Beverage]) -> Void in
+            for beverage in historyOfPurchase {
+                self.addBeverageImageView(beverage)
+            }
+        }
+        
+    }
+    
     private func addBeverageImageView(_ product: Beverage) {
         
         guard let productImage = UIImage(named: "\(type(of: product)).png") else { return }

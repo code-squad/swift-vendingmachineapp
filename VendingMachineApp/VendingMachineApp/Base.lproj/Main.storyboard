@@ -56,11 +56,11 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="Qlu-Bz-Tpw">
-                                <rect key="frame" x="45" y="187" width="845" height="261.5"/>
+                                <rect key="frame" x="45" y="187" width="845" height="301.5"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="RoP-wX-jgp">
-                                        <rect key="frame" x="0.0" y="0.0" width="130" height="261.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="130" height="301.5"/>
                                         <subviews>
                                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o8K-2m-20t">
                                                 <rect key="frame" x="47.5" y="0.0" width="35" height="36"/>
@@ -83,13 +83,19 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y2u-7T-sI6">
+                                                <rect key="frame" x="50" y="271.5" width="30" height="30"/>
+                                                <state key="normal" title="구매">
+                                                    <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                            </button>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="IeE-75-6vC" firstAttribute="top" secondItem="o8K-2m-20t" secondAttribute="bottom" constant="10" id="Cru-Ln-YJu"/>
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="oMv-Lz-8GB">
-                                        <rect key="frame" x="143" y="0.0" width="130" height="261.5"/>
+                                        <rect key="frame" x="143" y="0.0" width="130" height="301.5"/>
                                         <subviews>
                                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AXy-Pd-Gmu">
                                                 <rect key="frame" x="47.5" y="0.0" width="35" height="36"/>
@@ -112,13 +118,19 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TjM-o4-kYL">
+                                                <rect key="frame" x="50" y="271.5" width="30" height="30"/>
+                                                <state key="normal" title="구매">
+                                                    <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                            </button>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="0cz-HD-hke" firstAttribute="top" secondItem="AXy-Pd-Gmu" secondAttribute="bottom" constant="10" id="BRN-93-b15"/>
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="gFX-lt-2HX">
-                                        <rect key="frame" x="286" y="0.0" width="130" height="261.5"/>
+                                        <rect key="frame" x="286" y="0.0" width="130" height="301.5"/>
                                         <subviews>
                                             <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lvn-Xh-Y05">
                                                 <rect key="frame" x="47.5" y="0.0" width="35" height="36"/>
@@ -141,13 +153,19 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EQu-BR-5Ga">
+                                                <rect key="frame" x="50" y="271.5" width="30" height="30"/>
+                                                <state key="normal" title="구매">
+                                                    <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                            </button>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="E8Q-66-6B1" firstAttribute="top" secondItem="Lvn-Xh-Y05" secondAttribute="bottom" constant="10" id="7cA-Zb-wD7"/>
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="GSB-2y-FYZ">
-                                        <rect key="frame" x="429" y="0.0" width="130" height="261.5"/>
+                                        <rect key="frame" x="429" y="0.0" width="130" height="301.5"/>
                                         <subviews>
                                             <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tn8-qe-Qtz">
                                                 <rect key="frame" x="47.5" y="0.0" width="35" height="36"/>
@@ -170,13 +188,19 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sbv-eA-1js">
+                                                <rect key="frame" x="50" y="271.5" width="30" height="30"/>
+                                                <state key="normal" title="구매">
+                                                    <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                            </button>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="bNy-2z-xh1" firstAttribute="top" secondItem="tn8-qe-Qtz" secondAttribute="bottom" constant="10" id="Qge-9x-UOw"/>
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="EAB-80-2wk">
-                                        <rect key="frame" x="572" y="0.0" width="130" height="261.5"/>
+                                        <rect key="frame" x="572" y="0.0" width="130" height="301.5"/>
                                         <subviews>
                                             <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Vs-3L-fFH">
                                                 <rect key="frame" x="47.5" y="0.0" width="35" height="36"/>
@@ -199,13 +223,19 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QWO-DL-NhJ">
+                                                <rect key="frame" x="50" y="271.5" width="30" height="30"/>
+                                                <state key="normal" title="구매">
+                                                    <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                            </button>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="420-bq-gjc" firstAttribute="top" secondItem="1Vs-3L-fFH" secondAttribute="bottom" constant="10" id="eOD-Lu-FJM"/>
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="I8n-cf-wvQ">
-                                        <rect key="frame" x="715" y="0.0" width="130" height="261.5"/>
+                                        <rect key="frame" x="715" y="0.0" width="130" height="301.5"/>
                                         <subviews>
                                             <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4mD-hj-iDn">
                                                 <rect key="frame" x="47.5" y="0.0" width="35" height="36"/>
@@ -228,6 +258,12 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7r1-Qr-AOr">
+                                                <rect key="frame" x="50" y="271.5" width="30" height="30"/>
+                                                <state key="normal" title="구매">
+                                                    <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                            </button>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="Js1-0U-vry" firstAttribute="top" secondItem="4mD-hj-iDn" secondAttribute="bottom" constant="10" id="Bzh-b6-R2p"/>

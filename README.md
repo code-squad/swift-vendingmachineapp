@@ -7,6 +7,7 @@
 5. <a href="#5-관찰자(Observer)-패턴">관찰자(Observer) 패턴</a>
 6. <a href="#6-구매목록-View-코드">구매목록 View 코드</a>
 7. <a href="#7-Frame과-Bounds">Frame과 Bounds</a>
+8. <a href="#8-코어-그래픽스(Core-Graphics)">코어 그래픽스(Core Graphics)</a>
 
 <br>
 
@@ -561,3 +562,104 @@ class AdminViewController: UIViewController {
 > 완성일자: 2019.01.17 18:08
 
 ![Jan-17-2019](./images/step7/Jan-17-2019.gif)
+
+<br>
+
+## 8. 코어 그래픽스(Core Graphics)
+
+### 추가내용
+
+##### 1. PieGraphView 커스텀 뷰와 HistoryDataSource 추가
+
+`UIVIew` 를 상속받는 `PieGraphView` 를 생성했습니다. `purchases: [Beverage]` 프로퍼티를 가지고 있습니다. 이 프로퍼티는 `VendingMachine` 객체의 데이터가  `AdminViewController` 를 통해 전달되어 업데이트 됩니다. 
+
+이 업데이트 기능을 가진 데이터소스 프로토콜 `HistoryDataSrouce` 를 생성했습니다. 어드민 뷰 컨트롤러가 `viewWillAppear()` 될 때마다, 아래의 메소드로 새로 발생한 구매 이력을 업데이트 시켜줍니다.
+
+```swift
+extension AdminViewController: HistoryDataSource {
+    ...
+    @IBOutlet weak var purchasePieGraph: PieGraphView!
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        purchasePieGraph.update(from: self)
+    }
+	...
+    
+    func update(from updatePoint: Int) -> ArraySlice<Beverage>? {
+        return vendingMachine?.updateHistory(from: updatePoint)
+    }
+
+}
+```
+
+<br>
+
+##### 2. 관리자 화면에 파이 그래프 그리기
+
+뷰 프로퍼티가 업데이트 될 때마다 호출되는 `draw()` 메소드를 `override` 하여 파이그래프를 그려줍니다.
+
+`[Beverage]` 에서 음료 갯수를 종류 별로 카운트한 `[String: Int]` 딕셔너리를 만듭니다. 이 딕셔너리를 이터레이트 하면서, 전체 구매이력에서의 비율로 그려줄 호의 각도 `angle` 을 계산합니다. `currentAngle` 에서부터 `endAngle` 까지 호를 나타내는 `UIBezierPath` 를 만들어 그려주고, `center` 까지 선도 그어 파이그래프 모양을 만들어줍니다.
+
+```swift
+override func draw(_ rect: CGRect) {
+    var currentAngle: CGFloat = 0
+    for (index, purchase) in classifiedPurchase.enumerated() {
+        palette[index].setFill()
+        let angle = purchase.value.convertedToAnglesInCircle(total: purchases.count)
+        let endAngle = currentAngle + angle
+        drawAPieceOfPie(startAngle: currentAngle, endAngle: endAngle)
+        drawLabel(text: purchase.key as NSString, startAngle: currentAngle, endAngle: endAngle)
+        currentAngle = endAngle
+    }
+}
+```
+
+<br>
+
+##### 3. 사용자 화면 배경 이미지 뷰 추가
+
+[Tayasui Sketches](https://itunes.apple.com/us/app/tayasui-sketches/id641900855#?platform=ipad) 앱에서 아이패드와 애플펜슬을 활용해 자판기 이미지를 만들어주었습니다. 이 이미지로 `UserViewController Scene` 에 새로운 이미지 뷰를 추가해주고, 스토리보드로 다른 뷰보다 상위 뷰로 위치하도록 뷰 계층을 수정했습니다.
+
+<br>
+
+### 실행화면
+
+> 완성일자: 2019.01.21 18:24
+
+![Jan-21-2019](./images/step8/Jan-21-2019.gif)
+
+<br>
+
+### 추가학습
+
+#### UIView의 frame과 bounds
+
+[frame](https://developer.apple.com/documentation/uikit/uiview/1622621-frame) 과 [bounds](https://developer.apple.com/documentation/uikit/uiview/1622580-bounds)  는 모두 `CGRect` 타입이며 뷰의 위치와 사이즈 정보를 다루지만, **다른 좌표 시스템**을 기준으로 하는 차이점이 있습니다.
+
+- **frame** : 자신의 수퍼 뷰 좌표 시스템을 기준으로 합니다. 따라서, 해당 뷰를 수퍼 뷰 기준으로 어디에 위치할 것인지와 사이즈를 결정할 때 사용합니다.
+- **bounds** : 자기 자신의 뷰 좌표 시스템을 기준으로 합니다. 디폴트 사이즈 값은 **frame** 의 사이즈 값과 동일합니다. 
+
+<br>
+
+#### UIBezierPath
+
+직선이나 곡선으로 이루어진 **path**를 커스텀 뷰에 그려주는 클래스입니다. 파이 그래프를 그려주기 위해 사용한 생성자입니다. 원점과 반지름 그리고 그려줄 호의 시작 각도, 끝 각도를 활용해 호를 가진 path를 리턴해줍니다. 
+
+![angles](./images/step8/angles.jpg)
+
+[이미지 출처](https://developer.apple.com/documentation/uikit/uibezierpath/1624358-init)
+
+```swift
+UIBezierPath(arcCenter: CGPoint,
+             radius: CGFloat,
+             startAngle: CGFloat,
+             endAngle: CGFloat,
+             clockwise: Bool)
+```
+
+메소드가 호출되고 난 후의 `current point` 는 그려준 호의  `endAngle` 에 위치하는 포인트입니다. 
+
+- `addLine(to: CGPoint)` : 따라서, 위 path에 이 메소드를 호출해주면 현재 포인트에서 파라미터로 넘겨주는 포인트까지 선이 그려집니다.
+-  `fill()` : 이 메소드를 호출하는 path가 감싸고 있는 영역을 현재 지정된 컬러로 채워줍니다.
+  - `UIColor.setFill()` : 해당 컬러를 fill color로 지정해줍니다.

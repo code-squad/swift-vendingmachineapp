@@ -8,12 +8,12 @@
 
 import Foundation
 
-protocol AvailableCommonMachineFunction {
-    func getEachStockCount(menu: Int) -> Int
-    func currentCoinState() -> String
+protocol DrawAbleView {
+    func setDrinkLabel(_ menu: Int, view: ViewController)
+    func setCoinLabel(view: ViewController)
 }
 
-protocol UserAvailableMode: AvailableCommonMachineFunction {
+protocol UserAvailableMode: DrawAbleView {
     func isAbleToInsert(coin: Int) -> State
     func isAbleToPick(menu: Int) -> State
     func pick(menu: Int) -> Beverage
@@ -21,7 +21,7 @@ protocol UserAvailableMode: AvailableCommonMachineFunction {
     func getPurchaseListInsertedCoin() -> [String]
 }
 
-protocol ManageableMode: AvailableCommonMachineFunction {
+protocol ManageableMode: DrawAbleView {
     func isAbleToAdd(menu: Int) -> State
     func isAbleToRemove(menu: Int) -> State
     func addStock(menu: Int)
@@ -134,13 +134,13 @@ extension VendingMachine: UserAvailableMode {
     }
 }
 
-extension VendingMachine: AvailableCommonMachineFunction {
-    func getEachStockCount(menu: Int) -> Int {
-        return stock.eachStockCount(menu)
+extension VendingMachine: DrawAbleView {
+    func setDrinkLabel(_ menu: Int, view: ViewController) {
+        view.drinkLabels[menu-1].text = "\(stock.eachStockCount(menu))개"
     }
     
-    func currentCoinState() -> String {
-        return coin.convertToString()
+    func setCoinLabel(view: ViewController) {
+        view.currentCoin.text = "잔액 : \(coin.convertToString())원"
     }
 }
 

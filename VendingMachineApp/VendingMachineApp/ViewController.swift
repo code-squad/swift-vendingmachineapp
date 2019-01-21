@@ -18,7 +18,7 @@ extension UIImageView {
 
 class ViewController: UIViewController {
     var machine: VendingMachine?
-
+    
     @IBOutlet var drinkImages: [UIImageView]!
     @IBOutlet var drinkLabels: [UILabel]!
     @IBOutlet var addButtons: [UIButton]!
@@ -42,19 +42,12 @@ class ViewController: UIViewController {
     }
     
     private func initialLabel() {
-        let machine: AvailableCommonMachineFunction? = self.machine
-        var eachMenuNumber = 1
-        for label in drinkLabels {
-            if let stockCount = machine?.getEachStockCount(menu: eachMenuNumber) {
-                label.text = "\(stockCount)개"
-                eachMenuNumber += 1
-            }
+        let menuCount = 6
+        let machine: DrawAbleView? = self.machine
+        for menu in 1...menuCount {
+            machine?.setDrinkLabel(menu, view: self)
         }
-        setCoinLabel()
-    }
-    
-    private func setCoinLabel() {
-        if let cointState = machine?.currentCoinState() { currentCoin.text = "잔액 : " + cointState + "원" }
+        machine?.setCoinLabel(view: self)
     }
     
     private func initialAddButtonTag() {
@@ -91,8 +84,8 @@ class ViewController: UIViewController {
     private func addEachDrink(of menu: Int) {
         let managerMode: ManageableMode? = machine
         if managerMode?.isAbleToAdd(menu: menu) == .success {
-            machine?.addStock(menu: menu)
-            drinkLabels[menu-1].text = "\(machine?.getEachStockCount(menu: menu) ?? 0)개"
+            managerMode?.addStock(menu: menu)
+            managerMode?.setDrinkLabel(menu, view: self)
         }
     }
     
@@ -108,9 +101,10 @@ class ViewController: UIViewController {
     private func insertEach(coin: Int) {
         let userMode: UserAvailableMode? = machine
         userMode?.insert(coin: coin)
-        setCoinLabel()
+        userMode?.setCoinLabel(view: self)
     }
 }
+
 
 
 

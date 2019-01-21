@@ -65,7 +65,15 @@ class ViewController: UIViewController {
     
     @objc private func addHistoryOfPurchaseImageView(_ noti: Notification) {
         
+        guard let userInfo = noti.userInfo else { return }
+        guard let product = userInfo[UserInfoKey.recentPurchaseProduct] as? Beverage else { return }
+        let makeProductImage = { (name: String) -> UIImage? in
+            return UIImage(named: "\(type(of: product)).png")
+        }
+        
     }
+    
+    
     
     private func updateLabels() {
         

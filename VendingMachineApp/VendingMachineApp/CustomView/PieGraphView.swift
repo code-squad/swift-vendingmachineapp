@@ -9,13 +9,14 @@
 import UIKit
 
 class PieGraphView: UIView {
+    private var purchases: [Beverage] = []
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    var countOfPurchase: Int {
+        return purchases.count
     }
-    */
+
+    func updated(with beverages: ArraySlice<Beverage>) {
+        beverages.forEach { purchases.append($0) }
+    }
 
 }

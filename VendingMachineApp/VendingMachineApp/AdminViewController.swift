@@ -11,6 +11,7 @@ import UIKit
 class AdminViewController: UIViewController {
     @IBOutlet var beverageImages: [RoundedCornersImageView]!
     @IBOutlet var beverageLabels: [UILabel]!
+    @IBOutlet weak var purchasePieGraph: PieGraphView!
 
     private weak var vendingMachine: AdminMode?
 
@@ -18,6 +19,11 @@ class AdminViewController: UIViewController {
         super.viewDidLoad()
         registerAsObserver()
         updateAllQuantityLabels()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        vendingMachine?.updateHistory(to: purchasePieGraph)
     }
 
     func set(vendingMachine: AdminMode?) {

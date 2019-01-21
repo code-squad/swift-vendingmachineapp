@@ -58,7 +58,7 @@ class Balance: NSObject, NSCoding {
         update(self.balance)
     }
     
-    func isBuyable(_ isBuyable: (Int) -> Bool) -> Bool {
-        return isBuyable(balance)
+    func isBuyable(_ price: Int) -> Bool {
+        return balance > price
     }
 }

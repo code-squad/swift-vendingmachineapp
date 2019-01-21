@@ -62,11 +62,8 @@ class Beverage: NSObject, NSCoding {
         return pay(balance, price)
     }
     
-    func isBuyable() -> (Int) -> Bool {
-        let isBuyable = { [unowned self] (balance: Int) -> Bool in
-            return balance > self.price
-        }
-        return isBuyable
+    func isBuyable(balance: Balance) -> Bool {
+        return balance.isBuyable(self.price)
     }
     
     //MARK: Static

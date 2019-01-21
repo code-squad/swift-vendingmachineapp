@@ -62,7 +62,7 @@ class Beverage: NSObject, NSCoding {
         return pay(balance, price)
     }
     
-    func isBuyable(balance: Balance) -> Bool {
+    func isBuyable(balance: Money) -> Bool {
         return balance.isBuyable(self.price)
     }
     

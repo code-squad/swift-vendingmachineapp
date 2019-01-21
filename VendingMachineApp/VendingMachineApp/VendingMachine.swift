@@ -26,7 +26,7 @@ class VendingMachine: NSObject, NSCoding {
     
     required convenience init?(coder aDecoder: NSCoder) {
         self.init()
-        balance = aDecoder.decodeObject(forKey: self.balanceKey) as! Balance
+        balance = aDecoder.decodeObject(forKey: self.balanceKey) as! Money
         products = aDecoder.decodeObject(forKey: self.productsKey) as! Products
         historyOfPurchase = aDecoder.decodeObject(forKey: self.historyOfPurchaseKey) as! HistoryOfPurchase
     }
@@ -34,7 +34,7 @@ class VendingMachine: NSObject, NSCoding {
     //MARK: - Properties
     //MARK: Private
     
-    private var balance: Balance
+    private var balance: Money
     private var products: Products
     private var historyOfPurchase: HistoryOfPurchase
 
@@ -45,7 +45,7 @@ class VendingMachine: NSObject, NSCoding {
     //MARK: Initialize
     
     override private init() {
-        self.balance = Balance()
+        self.balance = Money()
         self.products = Products()
         self.historyOfPurchase = HistoryOfPurchase()
     }
@@ -53,7 +53,7 @@ class VendingMachine: NSObject, NSCoding {
     //MARK: - Methods
     //MARK: Balance
     
-    func insert(money: Money) {
+    func insert(money: MoneyUnit) {
         balance.insert(money: money)
     }
     

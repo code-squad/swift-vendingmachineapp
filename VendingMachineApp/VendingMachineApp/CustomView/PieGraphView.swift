@@ -27,11 +27,11 @@ class PieGraphView: UIView {
     override func draw(_ rect: CGRect) {
         let center = CGPoint(x: self.frame.width / 2, y: self.frame.height / 2)
         let radius = self.frame.width / 2
+        let total = purchases.count
         var colorIndex = 0
-        let angleInCircle = { (count: Int) in 2 * .pi * (CGFloat(count) / CGFloat(self.purchases.count)) }
         var currentAngle: CGFloat = 0
         for purchase in classifiedPurchase {
-            let angle = angleInCircle(purchase.value)
+            let angle = purchase.value.convertedToAnglesInCircle(total: total)
             let endAngle = currentAngle + angle
             let path = UIBezierPath(arcCenter: center,
                                     radius: radius,
@@ -44,6 +44,14 @@ class PieGraphView: UIView {
             path.addLine(to: center)
             path.fill()
         }
+    }
+
+}
+
+extension Int {
+
+    func convertedToAnglesInCircle(total: Int) -> CGFloat {
+        return 2 * .pi * ( CGFloat(self) / CGFloat(total) )
     }
 
 }

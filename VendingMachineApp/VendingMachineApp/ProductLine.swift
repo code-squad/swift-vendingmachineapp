@@ -20,7 +20,8 @@ class ProductLine: NSObject, NSCoding {
     
     required convenience init?(coder aDecoder: NSCoder) {
         let productLine = aDecoder.decodeObject(forKey: productLineKey) as! [Beverage]
-        self.init(beverageType: type(of:productLine[0]))
+        guard let beverageType = type(of:productLine.first) as? Beverage.Type else { return nil }
+        self.init(beverageType: beverageType)
         self.productLine = productLine
     }
     

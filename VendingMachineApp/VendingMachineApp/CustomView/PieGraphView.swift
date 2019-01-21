@@ -29,25 +29,33 @@ class PieGraphView: UIView {
         return purchases.reduce(into: [:]) { $0[$1.title, default: 0] += 1 }
     }
 
+    private var centerOfPie: CGPoint {
+        return CGPoint(x: bounds.midX, y: bounds.midY)
+    }
+
+    private var radiusOfPie: CGFloat {
+        return bounds.width.half
+    }
+
+    private func drawAPieceOfPie(startAngle: CGFloat, endAngle: CGFloat) {
+        let path = UIBezierPath(arcCenter: centerOfPie,
+                                radius: radiusOfPie,
+                                startAngle: startAngle,
+                                endAngle: endAngle,
+                                clockwise: true)
+        path.addLine(to: centerOfPie)
+        path.close()
+        path.fill()
+    }
+
     override func draw(_ rect: CGRect) {
-        let center = CGPoint(x: self.frame.width / 2, y: self.frame.height / 2)
-        let radius = self.frame.width / 2
-        let total = purchases.count
-        var colorIndex = 0
         var currentAngle: CGFloat = 0
-        for purchase in classifiedPurchase {
-            let angle = purchase.value.convertedToAnglesInCircle(total: total)
+        for (index, purchase) in classifiedPurchase.enumerated() {
+            palette[index].setFill()
+            let angle = purchase.value.convertedToAnglesInCircle(total: purchases.count)
             let endAngle = currentAngle + angle
-            let path = UIBezierPath(arcCenter: center,
-                                    radius: radius,
-                                    startAngle: currentAngle,
-                                    endAngle: endAngle,
-                                    clockwise: true)
+            drawAPieceOfPie(startAngle: currentAngle, endAngle: endAngle)
             currentAngle = endAngle
-            palette[colorIndex].setFill()
-            colorIndex += 1
-            path.addLine(to: center)
-            path.fill()
         }
     }
 
@@ -57,6 +65,14 @@ extension Int {
 
     func convertedToAnglesInCircle(total: Int) -> CGFloat {
         return 2 * .pi * ( CGFloat(self) / CGFloat(total) )
+    }
+
+}
+
+extension CGFloat {
+
+    var half: CGFloat {
+        return self * 0.5
     }
 
 }

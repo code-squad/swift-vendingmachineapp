@@ -19,7 +19,13 @@ struct Mapper {
     
     private let map: [Int: Beverage.Type]
     private let reverseMap: [ObjectIdentifier: Int]
-
+    private let imageMap: [ObjectIdentifier: String] = [ObjectIdentifier(MandarineMilk.self): "CocaCola.png",
+                                                        ObjectIdentifier(LactoseFreeMilk.self): "LactoseFreeMilk.png",
+                                                        ObjectIdentifier(StarbucksDoubleShot.self): "StarbucksDoubleShot.png",
+                                                        ObjectIdentifier(TOPTheBlack.self): "TOPTheBlack.png",
+                                                        ObjectIdentifier(CocaCola.self): "CocaCola.png",
+                                                        ObjectIdentifier(CocaColaZero.self): "CocaColaZero.png",]
+    
     //MARK: Initialization
     
     private init() {
@@ -51,5 +57,9 @@ struct Mapper {
     
     func mapping(by beverageType: Beverage.Type) -> Int? {
         return reverseMap[ObjectIdentifier(beverageType)]
+    }
+    
+    func imageMapping(by beverageType: Beverage.Type) -> String? {
+        return imageMap[ObjectIdentifier(beverageType)]
     }
 }

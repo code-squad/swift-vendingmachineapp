@@ -10,7 +10,12 @@ import UIKit
 
 class PieGraphView: UIView {
     private var purchases: [Beverage] = []
-    private let palette: [UIColor] = [.green, .red, .blue, .yellow, .gray, .purple]
+    private let palette: [UIColor] = [UIColor(red:0.02, green:0.05, blue:0.17, alpha:1.0),
+                                      UIColor(red:0.79, green:0.88, blue:0.88, alpha:1.0),
+                                      UIColor(red:0.14, green:0.69, blue:0.70, alpha:1.0),
+                                      UIColor(red:0.04, green:0.42, blue:0.45, alpha:1.0),
+                                      UIColor(red:0.31, green:0.78, blue:0.80, alpha:1.0),
+                                      UIColor(red:0.63, green:0.78, blue:0.75, alpha:1.0)]
 
     var countOfPurchase: Int {
         return purchases.count

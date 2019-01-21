@@ -23,6 +23,7 @@ protocol AdminMode: class, CommonMode {
     func add(beverage: BeverageSubCategory)
     func remove(beverage: Int) -> Beverage?
     func removeExpiredBeverages() -> [Beverage]
+    func updateHistory(to graph: PieGraphView)
 }
 
 class VendingMachine: NSObject {
@@ -152,6 +153,10 @@ extension VendingMachine: AdminMode {
 
     func removeExpiredBeverages() -> [Beverage] {
         return inventory.removeExpiredBeverages()
+    }
+
+    func updateHistory(to graph: PieGraphView) {
+        history.update(to: graph)
     }
 
 }

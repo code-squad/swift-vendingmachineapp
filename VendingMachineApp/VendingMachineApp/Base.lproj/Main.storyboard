@@ -348,6 +348,7 @@
                         <viewLayoutGuide key="safeArea" id="t8D-gs-kO6"/>
                     </view>
                     <connections>
+                        <outlet property="purchasePieGraph" destination="ZSA-PK-qpb" id="D58-Hi-GJh"/>
                         <outletCollection property="beverageImages" destination="1SR-As-0mf" collectionClass="NSMutableArray" id="cxq-fB-D3C"/>
                         <outletCollection property="beverageImages" destination="01M-Da-ce5" collectionClass="NSMutableArray" id="Mfs-S9-cNK"/>
                         <outletCollection property="beverageImages" destination="9cF-qp-st3" collectionClass="NSMutableArray" id="lJQ-2x-8hU"/>

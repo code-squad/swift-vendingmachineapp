@@ -12,23 +12,33 @@ class Money: NSObject, NSCoding {
     
     //MARK: - Keys
     
-    private let balanceKey: String = "balance"
+    private let moneyKey: String = "money"
     
     //MARK: Encode, Decode
     
     func encode(with aCoder: NSCoder) {
-        aCoder.encode(balance, forKey: self.balanceKey)
+        aCoder.encode(money, forKey: self.moneyKey)
     }
     
     required convenience init?(coder aDecoder: NSCoder) {
-        self.init()
-        balance = aDecoder.decodeInteger(forKey: self.balanceKey)
+        self.init(money: 0)
+        money = aDecoder.decodeInteger(forKey: self.moneyKey)
+    }
+    
+    //MARK: Initialization
+    
+    init(money: Int) {
+        self.money = money
+    }
+    
+    override init() {
+        self.money = 0
     }
     
     //MARK: - Properties
     //MARK: Private
     
-    private var balance: Int = 0 {
+    private var money: Int {
         didSet {
             let userInfo = [UserInfoKey.balance: self]
             NotificationCenter.default.post(name: .didChangeBalance, object: nil, userInfo: userInfo)
@@ -38,27 +48,31 @@ class Money: NSObject, NSCoding {
     //MARK: - Methods
     
     func insert(money: MoneyUnit) {
-        self.balance += money.rawValue
+        self.money += money.rawValue
     }
     
     func updateBalance(update: (String) -> Void) {
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
-        update(formatter.string(from: self.balance as NSNumber) ?? "")
+        update(formatter.string(from: self.money as NSNumber) ?? "")
     }
     
-    func pay(beverage: Beverage) {
-        let pay: (Int, Int) -> Int = { (balance: Int, price: Int) -> Int in
-                return balance - price
-        }
-        balance = beverage.pay(balance: balance, pay: pay)
+    func pay(price: Money) {
+        self.money = self.money - price.money
     }
     
     func updateBalanceLabel(update: (Int) -> Void) {
-        update(self.balance)
+        update(self.money)
     }
     
     func isBuyable(_ price: Int) -> Bool {
-        return balance > price
+        return money > price
+    }
+}
+
+extension Money {
+    
+    static func >(lhs: Money, rhs: Money) -> Bool {
+        return lhs.money > rhs.money
     }
 }

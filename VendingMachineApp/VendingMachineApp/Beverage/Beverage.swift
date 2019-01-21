@@ -31,7 +31,7 @@ class Beverage: NSObject, NSCoding {
     required init?(coder aDecoder: NSCoder) {
         brand = aDecoder.decodeObject(forKey: self.brandKey) as! String
         size = aDecoder.decodeInteger(forKey: self.sizeKey)
-        price = aDecoder.decodeInteger(forKey: self.priceKey)
+        price = aDecoder.decodeObject(forKey: self.priceKey) as! Money
         name = aDecoder.decodeObject(forKey: self.nameKey) as! String
         expiryDate = aDecoder.decodeObject(forKey: self.expiryDateKey) as! Date
     }
@@ -41,7 +41,7 @@ class Beverage: NSObject, NSCoding {
 
     private let brand: String
     private let size: Int
-    private let price: Int
+    private let price: Money
     private let name: String
     private let openDate: Date = Date()
     private let expiryDate: Date
@@ -51,19 +51,19 @@ class Beverage: NSObject, NSCoding {
     init(brand: String, size: Int, price: Int, name: String, expiryDate: Int) {
         self.brand = brand
         self.size = size
-        self.price = price
+        self.price = Money(money: price)
         self.name = name
         self.expiryDate = self.openDate + Double(expiryDate * 86400)
     }
 
     //MARK: - Methods
     
-    func pay(balance: Int, pay: (Int, Int) -> Int) -> Int {
-        return pay(balance, price)
+    func pay(balance: Money) {
+        balance.pay(price: self.price)
     }
     
     func isBuyable(balance: Money) -> Bool {
-        return balance.isBuyable(self.price)
+        return balance > self.price
     }
     
     //MARK: Static

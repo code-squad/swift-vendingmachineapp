@@ -30,9 +30,7 @@ class HistoryOfPurchase: NSObject, NSCoding {
     
     private var historyOfPurchase: [Beverage] = [] {
         didSet {
-            let image = { (imageName: String) -> UIImage? in
-                return UIImage(named: "\(imageName).png")
-            }
+            NotificationCenter.default.post(name: <#T##NSNotification.Name#>, object: <#T##Any?#>, userInfo: <#T##[AnyHashable : Any]?#>)
         }
     }
     

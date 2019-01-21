@@ -12,4 +12,5 @@ extension Notification.Name {
     
     static let didChangeNumberOfProduct = Notification.Name("didChangeNumberOfProduct")
     static let didChangeBalance = Notification.Name("didChangeBalance")
+    static let didChangeHistoryOfPurchase = Notification.Name("didChangeHistoryOfPurchase")
 }

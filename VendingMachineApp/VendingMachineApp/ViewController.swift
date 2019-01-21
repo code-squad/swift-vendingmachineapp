@@ -43,7 +43,7 @@ class ViewController: UIViewController {
                                                object: nil)
         
         updateLabels()
-        addHistoryOfPurchaseImageViews()
+        showHistorys()
     }
     
     //MARK: Private
@@ -72,7 +72,7 @@ class ViewController: UIViewController {
         
         guard let userInfo = noti.userInfo else { return }
         guard let product = userInfo[UserInfoKey.recentPurchaseProduct] as? Beverage else { return }
-        addBeverageImageView(product)
+        showHistory(product)
     }
     
     private func updateLabels() {
@@ -93,17 +93,17 @@ class ViewController: UIViewController {
         }
     }
     
-    private func addHistoryOfPurchaseImageViews() {
+    private func showHistorys() {
         
-        let addHistoryOfPurchaseImageViews = { [unowned self] (historyOfPurchase: [Beverage]) -> Void in
+        let showHistory = { [unowned self] (historyOfPurchase: [Beverage]) -> Void in
             for beverage in historyOfPurchase {
-                self.addBeverageImageView(beverage)
+                self.showHistory(beverage)
             }
         }
-        VendingMachine.sharedInstance.addHistoryOfPurchaseImageViews(addHistoryOfPurchaseImageViews)
+        VendingMachine.sharedInstance.showHistory(showHistory)
     }
     
-    private func addBeverageImageView(_ product: Beverage) {
+    private func showHistory(_ product: Beverage) {
         
         guard let imageName = Mapper.shared.imageMapping(by: type(of: product)) else { return }
         guard let productImage = UIImage(named: imageName) else { return }

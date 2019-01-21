@@ -43,11 +43,11 @@ class ViewController: UIViewController {
     
     private func initialLabel() {
         let menuCount = 6
-        let machine: DrawAbleView? = self.machine
+        let machine: CommonAvailableMachine? = self.machine
         for menu in 1...menuCount {
-            machine?.setDrinkLabel(menu, view: self)
+            machine?.markDrinkLabel(menu, view: self)
         }
-        machine?.setCoinLabel(view: self)
+        machine?.markCoinLabel(view: self)
     }
     
     private func initialAddButtonTag() {
@@ -85,7 +85,7 @@ class ViewController: UIViewController {
         let managerMode: ManageableMode? = machine
         if managerMode?.isAbleToAdd(menu: menu) == .success {
             managerMode?.addStock(menu: menu)
-            managerMode?.setDrinkLabel(menu, view: self)
+            managerMode?.markDrinkLabel(menu, view: self)
         }
     }
     
@@ -101,7 +101,22 @@ class ViewController: UIViewController {
     private func insertEach(coin: Int) {
         let userMode: UserAvailableMode? = machine
         userMode?.insert(coin: coin)
-        userMode?.setCoinLabel(view: self)
+        userMode?.markCoinLabel(view: self)
+    }
+}
+
+protocol DrawableView {
+    func setDrinkLabel(menu: Int, form: (UILabel) -> Void)
+    func setCoinLabel(form: (UILabel) -> Void)
+}
+
+extension ViewController: DrawableView {
+    func setDrinkLabel(menu: Int, form: (UILabel) -> Void) {
+        form(drinkLabels[menu-1])
+    }
+    
+    func setCoinLabel(form: (UILabel) -> Void) {
+        form(currentCoin)
     }
 }
 

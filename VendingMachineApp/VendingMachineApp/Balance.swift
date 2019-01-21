@@ -57,4 +57,8 @@ class Balance: NSObject, NSCoding {
     func updateBalanceLabel(update: (Int) -> Void) {
         update(self.balance)
     }
+    
+    func isBuyable(_ isBuyable: (Int) -> Bool) -> Bool {
+        return isBuyable(balance)
+    }
 }

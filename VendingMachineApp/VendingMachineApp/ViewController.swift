@@ -71,16 +71,7 @@ class ViewController: UIViewController {
         
         guard let userInfo = noti.userInfo else { return }
         guard let product = userInfo[UserInfoKey.recentPurchaseProduct] as? Beverage else { return }
-        guard let productImage = UIImage(named: "\(type(of: product)).png") else { return }
-        let productImageView = UIImageView(image: productImage)
-        productImageView.frame = CGRect(x: 40 + self.historyViewInterval,
-                                        y: 575,
-                                        width: 140,
-                                        height: 100)
-        self.historyViewInterval += 50
-        productImageView.contentMode = .scaleAspectFit
-        
-        self.view.addSubview(productImageView)
+        addBeverageImageView(product)
     }
     
     private func updateLabels() {
@@ -99,6 +90,20 @@ class ViewController: UIViewController {
             }
             VendingMachine.sharedInstance.updateNumber(of: beverageType, update: updateNumberOfProductLabel)
         }
+    }
+    
+    private func addBeverageImageView(_ product: Beverage) {
+        
+        guard let productImage = UIImage(named: "\(type(of: product)).png") else { return }
+        let productImageView = UIImageView(image: productImage)
+        productImageView.frame = CGRect(x: 40 + self.historyViewInterval,
+                                        y: 575,
+                                        width: 140,
+                                        height: 100)
+        self.historyViewInterval += 50
+        productImageView.contentMode = .scaleAspectFit
+        
+        self.view.addSubview(productImageView)
     }
     
     //MARK: IBAction
@@ -122,7 +127,9 @@ class ViewController: UIViewController {
             return
         }
     }
+    
     @IBAction func tapBuyBeverageButton(_ sender: UIButton) {
+        
         let tag = sender.tag
         guard let productType = Mapper.shared.mapping(by: tag) else { return }
         let _ = VendingMachine.sharedInstance.buy(productType: productType)

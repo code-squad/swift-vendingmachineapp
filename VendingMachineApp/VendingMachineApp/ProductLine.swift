@@ -58,4 +58,10 @@ class ProductLine: NSObject, NSCoding {
     func updateNumberLabel(_ update: (Int) -> Void) {
         update(productLine.count)
     }
+    
+    func isBuyable() -> ((Int) -> Bool)? {
+        
+        guard let beverage = productLine.first else { return nil }
+        return beverage.isBuyable()
+    }
 }

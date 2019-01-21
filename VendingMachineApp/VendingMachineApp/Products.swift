@@ -53,6 +53,12 @@ class Products: NSObject, NSCoding {
         return product
     }
     
+    func isBuyable(_ productType: Beverage.Type) -> ((Int) -> Bool)? {
+        
+        guard let productLine = self.productLines["\(productType)"] else { return nil }
+        return productLine.isBuyable()
+    }
+    
     func updateNumber(of beverageType: Beverage.Type, update: (Int) -> Void) {
         productLines["\(beverageType)"]?.updateNumberLabel(update) ?? update(0)
     }

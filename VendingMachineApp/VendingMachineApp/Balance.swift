@@ -30,7 +30,7 @@ class Balance: NSObject, NSCoding {
     
     private var balance: Int = 0 {
         didSet {
-            let userInfo = [UserInfoKey.balance: self.balance]
+            let userInfo = [UserInfoKey.balance: self]
             NotificationCenter.default.post(name: .didChangeBalance, object: nil, userInfo: userInfo)
         }
     }
@@ -52,5 +52,9 @@ class Balance: NSObject, NSCoding {
                 return balance - price
         }
         balance = beverage.pay(balance: balance, pay: pay)
+    }
+    
+    func updateBalanceLabel(update: (Int) -> Void) {
+        update(self.balance)
     }
 }

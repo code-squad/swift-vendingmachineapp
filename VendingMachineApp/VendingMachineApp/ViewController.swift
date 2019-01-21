@@ -28,22 +28,22 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         NotificationCenter.default.addObserver(self,
-                                               selector: #selector(updateNumberOfProductLabel(_:)),
+                                               selector: #selector(updateNumberOfProductLabel),
                                                name: .didChangeNumberOfProduct,
                                                object: nil)
         
         NotificationCenter.default.addObserver(self,
-                                               selector: #selector(updateBalanceLabel(_:)),
+                                               selector: #selector(updateBalanceLabel),
                                                name: .didChangeBalance,
                                                object: nil)
         
         NotificationCenter.default.addObserver(self,
-                                               selector: #selector(addHistoryOfPurchaseImageView(_:)),
+                                               selector: #selector(addRecentHistoryImageView),
                                                name: .didChangeHistoryOfPurchase,
                                                object: nil)
         
         updateLabels()
-        showHistorys()
+        addOldHistoryImageViews()
     }
     
     //MARK: Private
@@ -68,11 +68,11 @@ class ViewController: UIViewController {
         balance.updateBalanceLabel(update: updateBalanceLabel)
     }
     
-    @objc private func addHistoryOfPurchaseImageView(_ noti: Notification) {
+    @objc private func addRecentHistoryImageView(_ noti: Notification) {
         
         guard let userInfo = noti.userInfo else { return }
         guard let product = userInfo[UserInfoKey.recentPurchaseProduct] as? Beverage else { return }
-        showHistory(product)
+        addHistoryImageView(product)
     }
     
     private func updateLabels() {
@@ -93,17 +93,17 @@ class ViewController: UIViewController {
         }
     }
     
-    private func showHistorys() {
+    private func addOldHistoryImageViews() {
         
-        let showHistory = { [unowned self] (historyOfPurchase: [Beverage]) -> Void in
+        let addHistoryImageViews = { [unowned self] (historyOfPurchase: [Beverage]) -> Void in
             for beverage in historyOfPurchase {
-                self.showHistory(beverage)
+                self.addHistoryImageView(beverage)
             }
         }
-        VendingMachine.sharedInstance.showHistory(showHistory)
+        VendingMachine.sharedInstance.process(addHistoryImageViews)
     }
     
-    private func showHistory(_ product: Beverage) {
+    private func addHistoryImageView(_ product: Beverage) {
         
         guard let imageName = Mapper.shared.imageMapping(by: type(of: product)) else { return }
         guard let productImage = UIImage(named: imageName) else { return }

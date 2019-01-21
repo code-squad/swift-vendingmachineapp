@@ -44,7 +44,7 @@ class HistoryOfPurchase: NSObject, NSCoding {
         historyOfPurchase.append(beverage)
     }
     
-    func showHistory(_ show: ([Beverage]) -> Void) {
-        show(self.historyOfPurchase)
+    func process(_ addHistoryImageViews: ([Beverage]) -> Void) {
+        addHistoryImageViews(self.historyOfPurchase)
     }
 }

@@ -45,11 +45,11 @@ struct Mapper {
     
     //MARK: - Methods
     
-    func Mapping(by tag: Int) -> Beverage.Type? {
+    func mapping(by tag: Int) -> Beverage.Type? {
         return map[tag]
     }
     
-    func Mapping(by beverageType: Beverage.Type) -> Int? {
+    func mapping(by beverageType: Beverage.Type) -> Int? {
         return reverseMap[ObjectIdentifier(beverageType)]
     }
 }

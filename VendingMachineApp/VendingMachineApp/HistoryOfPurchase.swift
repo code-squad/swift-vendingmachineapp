@@ -6,7 +6,7 @@
 //  Copyright © 2019 hngfu. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class HistoryOfPurchase: NSObject, NSCoding {
     
@@ -28,7 +28,13 @@ class HistoryOfPurchase: NSObject, NSCoding {
     //MARK: - Properties
     //MARK: Private
     
-    private var historyOfPurchase: [Beverage] = []
+    private var historyOfPurchase: [Beverage] = [] {
+        didSet {
+            let image = { (imageName: String) -> UIImage? in
+                return UIImage(named: "\(imageName).png")
+            }
+        }
+    }
     
     //MARK: - Methods
     

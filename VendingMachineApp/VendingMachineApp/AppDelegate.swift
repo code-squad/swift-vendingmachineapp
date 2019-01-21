@@ -16,14 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        if let machine: VendingMachine = DataSetter.load() {
-            print(machine)
-            print("loadData")
-            self.machine = machine
-        } else {
-            print("Create New VendingMachine")
-            machine = VendingMachine()
-        }
+        if let machine: VendingMachine = DataSetter.load() { self.machine = machine }
+        else { machine = VendingMachine() }
         return true
     }
 

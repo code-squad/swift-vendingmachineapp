@@ -43,10 +43,9 @@ class History: NSObject {
         postNotificationOfPurchase(userInfo: userInfo)
     }
 
-    func update(to graph: PieGraphView) {
-        let nextUpdatePoint = graph.countOfPurchase
-        let beverages = purchases[nextUpdatePoint...]
-        graph.updated(with: beverages)
+    func update(from updatePoint: Int) -> ArraySlice<Beverage> {
+        let beverages = purchases[updatePoint...]
+        return beverages
     }
 
     func isEmpty() -> Bool {

@@ -19,11 +19,7 @@ class AdminViewController: UIViewController {
         super.viewDidLoad()
         registerAsObserver()
         updateAllQuantityLabels()
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        vendingMachine?.updateHistory(to: purchasePieGraph)
+        purchasePieGraph.historyDataSource = self
     }
 
     func set(vendingMachine: AdminMode?) {
@@ -63,6 +59,18 @@ class AdminViewController: UIViewController {
 
     @IBAction func closeButtonTouched(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
+    }
+
+}
+
+protocol HistoryDataSource {
+    func update(from updatePoint: Int) -> ArraySlice<Beverage>?
+}
+
+extension AdminViewController: HistoryDataSource {
+
+    func update(from updatePoint: Int) -> ArraySlice<Beverage>? {
+        return vendingMachine?.updateHistory(from: updatePoint)
     }
 
 }

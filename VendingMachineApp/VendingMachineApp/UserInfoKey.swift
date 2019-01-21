@@ -13,4 +13,5 @@ struct UserInfoKey {
     static let balance = "balance"
     static let numberOfProduct = "numberOfProduct"
     static let labelToUpdate = "labelToUpdate"
+    static let recentPurchaseProduct = "recentPurchaseProduct"
 }

@@ -17,6 +17,10 @@ class ViewController: UIViewController {
     @IBOutlet var productImageViews: [UIImageView]!
     @IBOutlet var numberOfProductLabels: [UILabel]!
     
+    //MARK: Private
+    
+    private var historyViewInterval: CGFloat = 0
+    
     //MARK: - Methods
     //MARK: Life Cycle
     
@@ -68,9 +72,15 @@ class ViewController: UIViewController {
         guard let userInfo = noti.userInfo else { return }
         guard let product = userInfo[UserInfoKey.recentPurchaseProduct] as? Beverage else { return }
         guard let productImage = UIImage(named: "\(type(of: product)).png") else { return }
-//        let productImageView = 
-//        
-//        self.view.addSubview(productImageView)
+        let productImageView = UIImageView(image: productImage)
+        productImageView.frame = CGRect(x: 40 + self.historyViewInterval,
+                                        y: 575,
+                                        width: 140,
+                                        height: 100)
+        self.historyViewInterval += 50
+        productImageView.contentMode = .scaleAspectFit
+        
+        self.view.addSubview(productImageView)
     }
     
     private func updateLabels() {

@@ -80,6 +80,12 @@ class VendingMachine: NSObject, NSCoding {
         products.updateNumber(of: beverageType, update: update)
     }
     
+    //MARK: HistoryOfPurchase
+    
+    func addHistoryOfPurchaseImageViews(_ addHistoryOfPurchaseImageViews: ([Beverage]) -> Void) {
+        self.historyOfPurchase.addHistoryOfPurchaseImageViews(addHistoryOfPurchaseImageViews)
+    }
+    
     //MARK: - Get Properties Method
     
     func property(of vendingMachine: VendingMachine) {

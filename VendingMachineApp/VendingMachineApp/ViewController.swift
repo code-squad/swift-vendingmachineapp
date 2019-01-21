@@ -43,6 +43,7 @@ class ViewController: UIViewController {
                                                object: nil)
         
         updateLabels()
+        addHistoryOfPurchaseImageViews()
     }
     
     //MARK: Private
@@ -93,12 +94,13 @@ class ViewController: UIViewController {
     }
     
     private func addHistoryOfPurchaseImageViews() {
+        
         let addHistoryOfPurchaseImageViews = { [unowned self] (historyOfPurchase: [Beverage]) -> Void in
             for beverage in historyOfPurchase {
                 self.addBeverageImageView(beverage)
             }
         }
-        
+        VendingMachine.sharedInstance.addHistoryOfPurchaseImageViews(addHistoryOfPurchaseImageViews)
     }
     
     private func addBeverageImageView(_ product: Beverage) {

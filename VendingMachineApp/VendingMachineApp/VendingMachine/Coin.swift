@@ -9,14 +9,18 @@
 import Foundation
 
 class Coin: NSObject, NSCoding {
-    private var coins: Int = 0
+    private var coins: Int
     
-    func encode(with aCoder: NSCoder) {
-        aCoder.encode(coins, forKey: "coins")
+    override init() {
+        coins = 0
     }
     
     required init?(coder aDecoder: NSCoder) {
         self.coins = aDecoder.decodeInteger(forKey: "coins")
+    }
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(coins, forKey: "coins")
     }
     
     func add(_ coin: Int) {

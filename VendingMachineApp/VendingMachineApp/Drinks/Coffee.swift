@@ -18,6 +18,7 @@ class Coffee: Beverage {
     
     required init?(coder aDecoder: NSCoder) {
         self.caffeineAmount = aDecoder.decodeDouble(forKey: "caffeineAmount")
+        super.init(coder: aDecoder)
     }
     
     override func encode(with aCoder: NSCoder) {

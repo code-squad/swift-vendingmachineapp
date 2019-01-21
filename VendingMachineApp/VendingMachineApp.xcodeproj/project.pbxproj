@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9D03A80D21F1DA6200644C59 /* DataSetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D03A80C21F1DA6200644C59 /* DataSetter.swift */; };
 		9DF2155021ED82E400DD27BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF2154F21ED82E400DD27BD /* AppDelegate.swift */; };
 		9DF2155221ED82E400DD27BD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF2155121ED82E400DD27BD /* ViewController.swift */; };
 		9DF2155521ED82E400DD27BD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DF2155321ED82E400DD27BD /* Main.storyboard */; };
@@ -34,6 +35,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9D03A80C21F1DA6200644C59 /* DataSetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSetter.swift; sourceTree = "<group>"; };
 		9DF2154C21ED82E400DD27BD /* VendingMachineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendingMachineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DF2154F21ED82E400DD27BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9DF2155121ED82E400DD27BD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -93,8 +95,9 @@
 			isa = PBXGroup;
 			children = (
 				9DF2168021EEF11100DD27BD /* DateFormat.swift */,
-				9DF2167621EEF09F00DD27BD /* VendingMachine */,
+				9D03A80C21F1DA6200644C59 /* DataSetter.swift */,
 				9DF2166D21EEF04900DD27BD /* Enum */,
+				9DF2167621EEF09F00DD27BD /* VendingMachine */,
 				9DF2165821EEEF6000DD27BD /* Drinks */,
 				9DF2154F21ED82E400DD27BD /* AppDelegate.swift */,
 				9DF2155121ED82E400DD27BD /* ViewController.swift */,
@@ -228,6 +231,7 @@
 				9DF2167321EEF06700DD27BD /* State.swift in Sources */,
 				9DF2166C21EEEFCB00DD27BD /* TOP.swift in Sources */,
 				9DF2165C21EEEF7000DD27BD /* Milk.swift in Sources */,
+				9D03A80D21F1DA6200644C59 /* DataSetter.swift in Sources */,
 				9DF2166A21EEEFC400DD27BD /* Cantata.swift in Sources */,
 				9DF2167121EEF05F00DD27BD /* Mode.swift in Sources */,
 				9DF2167521EEF07500DD27BD /* Menu.swift in Sources */,

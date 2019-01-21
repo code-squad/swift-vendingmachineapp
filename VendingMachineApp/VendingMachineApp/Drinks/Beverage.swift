@@ -43,10 +43,3 @@ class Beverage: NSObject, NSCoding {
         return ""
     }
 }
-
-//extension Beverage: CustomStringConvertible {
-//    var description: String {
-//        let datePrint = DateFormat.set().string(from: self.menufactureOfDate)
-//        return "\(type(of: self)) - \(name), \(volume)ml, \(price)원, \(brand), \(datePrint)"
-//    }
-//}

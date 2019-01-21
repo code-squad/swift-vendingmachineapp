@@ -16,7 +16,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        machine = VendingMachine()
+        if let machine: VendingMachine = DataSetter.load() {
+            print(machine)
+            print("loadData")
+            self.machine = machine
+        } else {
+            print("Create New VendingMachine")
+            machine = VendingMachine()
+        }
         return true
     }
 
@@ -40,6 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+        DataSetter.save(vendingMachine: machine!)
     }
 
 

@@ -8,9 +8,8 @@
 
 import Foundation
 
-enum PackingMaterial {
-    case cans
-    case plastic
+enum PackingMaterial: Int {
+    case cans = 1, plastic
 }
 
 class Cantata: Coffee {
@@ -31,13 +30,13 @@ class Cantata: Coffee {
     }
     
     required init?(coder aDecoder: NSCoder) {
-        self.packingMaterial = aDecoder.decodeObject(forKey: "packingMaterial") as! PackingMaterial
+        self.packingMaterial = PackingMaterial.init(rawValue: aDecoder.decodeInteger(forKey: "packingMaterial")) ?? .cans
         super.init(coder: aDecoder)
     }
     
     override func encode(with aCoder: NSCoder) {
         super.encode(with: aCoder)
-        aCoder.encode(packingMaterial, forKey: "packingMaterial")
+        aCoder.encode(packingMaterial.rawValue, forKey: "packingMaterial")
     }
     
     func isPacking(with pack: PackingMaterial) -> Bool {

@@ -21,3 +21,7 @@ scope가 넓은게 가장 큰 단점.
 scope가 넓어져 객체간 결합도가 높아진다.
 
 인스턴스가 하나만 존재하기 때문에 테스트가 힘들다.
+
+### 구매목록 View 코드(step-06)
+
+![step-06 실행화면](https://user-images.githubusercontent.com/38850628/51460251-44ee0a80-1d9e-11e9-8d61-e31563f944c9.gif)

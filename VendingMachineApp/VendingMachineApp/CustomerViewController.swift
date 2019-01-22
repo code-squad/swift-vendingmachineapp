@@ -100,7 +100,7 @@ class CustomerViewController: UIViewController {
                 self.addHistoryImageView(beverage)
             }
         }
-        VendingMachine.shared.perform(addHistoryImageViews)
+        VendingMachine.shared.performByHistory(addHistoryImageViews)
     }
     
     private func addHistoryImageView(_ product: Beverage) {

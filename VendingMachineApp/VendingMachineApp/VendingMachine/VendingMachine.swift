@@ -9,8 +9,8 @@
 import Foundation
 
 protocol CommonAvailableMachine {
-    func markDrinkLabel(_ menu: Int, view: DrawableView)
-    func markCoinLabel(view: DrawableView)
+    func markDrinkLabel(_ menu: Int, form: (Int) -> Void)
+    func markCoinLabel(form: (Int) -> Void)
 }
 
 protocol UserAvailableMode: CommonAvailableMachine {
@@ -137,16 +137,12 @@ extension VendingMachine: UserAvailableMode {
 }
 
 extension VendingMachine: CommonAvailableMachine {
-    func markDrinkLabel(_ menu: Int, view: DrawableView) {
-        view.setDrinkLabel(menu: menu) { label in
-            label.text = "\(stock.eachStockCount(menu))개"
-        }
+    func markDrinkLabel(_ menu: Int, form: (Int) -> Void) {
+        form(stock.eachStockCount(menu))
     }
     
-    func markCoinLabel(view: DrawableView) {
-        view.setCoinLabel { coinLabel in
-            coinLabel.text = "잔액 : \(coin.convertToString())원"
-        }
+    func markCoinLabel(form: (Int) -> Void) {
+        form(coin.get())
     }
 }
 

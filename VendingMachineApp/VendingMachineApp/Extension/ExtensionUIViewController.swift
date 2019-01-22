@@ -1,5 +1,5 @@
 //
-//  ExtensionArray.swift
+//  ExtensionUIViewController.swift
 //  VendingMachineApp
 //
 //  Created by 조재흥 on 19. 1. 22..
@@ -8,11 +8,11 @@
 
 import UIKit
 
-extension Array where Element: UILabel {
+extension UIViewController {
     
-    func updateStockLabels() {
+    func update(stockLabels: [UILabel]) {
         
-        for stockLabel in self {
+        for stockLabel in stockLabels {
             let tag = stockLabel.tag
             guard let beverageType = Mapper.shared.mapping(by: tag) else { return }
             

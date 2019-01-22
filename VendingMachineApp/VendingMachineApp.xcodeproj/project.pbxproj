@@ -17,7 +17,7 @@
 		7D30B85321F17E5200FCFDC2 /* ProductImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D30B85221F17E5200FCFDC2 /* ProductImageView.swift */; };
 		7D4398A921F3080B002F0E25 /* ExtensionBeverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4398A821F3080B002F0E25 /* ExtensionBeverage.swift */; };
 		7D5CBAB821F6B68300C51C7F /* ManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5CBAB721F6B68300C51C7F /* ManagerViewController.swift */; };
-		7D5CBABC21F711DD00C51C7F /* ExtensionArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5CBABB21F711DD00C51C7F /* ExtensionArray.swift */; };
+		7D5CBABC21F711DD00C51C7F /* ExtensionUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5CBABB21F711DD00C51C7F /* ExtensionUIViewController.swift */; };
 		7DA03A2921D7348C002355CA /* LactoseFreeMilk.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DA03A2321D7348B002355CA /* LactoseFreeMilk.png */; };
 		7DA03A2A21D7348C002355CA /* TOPTheBlack.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DA03A2421D7348B002355CA /* TOPTheBlack.png */; };
 		7DA03A2B21D7348C002355CA /* StarbucksDoubleShot.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DA03A2521D7348B002355CA /* StarbucksDoubleShot.png */; };
@@ -57,7 +57,7 @@
 		7D30B85221F17E5200FCFDC2 /* ProductImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductImageView.swift; sourceTree = "<group>"; };
 		7D4398A821F3080B002F0E25 /* ExtensionBeverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionBeverage.swift; sourceTree = "<group>"; };
 		7D5CBAB721F6B68300C51C7F /* ManagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerViewController.swift; sourceTree = "<group>"; };
-		7D5CBABB21F711DD00C51C7F /* ExtensionArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionArray.swift; sourceTree = "<group>"; };
+		7D5CBABB21F711DD00C51C7F /* ExtensionUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUIViewController.swift; sourceTree = "<group>"; };
 		7DA03A2321D7348B002355CA /* LactoseFreeMilk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LactoseFreeMilk.png; sourceTree = "<group>"; };
 		7DA03A2421D7348B002355CA /* TOPTheBlack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TOPTheBlack.png; sourceTree = "<group>"; };
 		7DA03A2521D7348B002355CA /* StarbucksDoubleShot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StarbucksDoubleShot.png; sourceTree = "<group>"; };
@@ -217,7 +217,7 @@
 				7DE2CB5D21D4B920004EC966 /* ExtensionDate.swift */,
 				7D4398A821F3080B002F0E25 /* ExtensionBeverage.swift */,
 				7D0C598621F040E40089E9F1 /* ExtensionNotificationName.swift */,
-				7D5CBABB21F711DD00C51C7F /* ExtensionArray.swift */,
+				7D5CBABB21F711DD00C51C7F /* ExtensionUIViewController.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -328,7 +328,7 @@
 				7D0C598721F040E40089E9F1 /* ExtensionNotificationName.swift in Sources */,
 				7DE2CB7121D4B920004EC966 /* Beverage.swift in Sources */,
 				7D0254F721E8C26000E5960A /* HistoryOfPurchase.swift in Sources */,
-				7D5CBABC21F711DD00C51C7F /* ExtensionArray.swift in Sources */,
+				7D5CBABC21F711DD00C51C7F /* ExtensionUIViewController.swift in Sources */,
 				7DE2CB6721D4B920004EC966 /* CocaCola.swift in Sources */,
 				7DE2CB7B21D4B920004EC966 /* Milk.swift in Sources */,
 				7DE2CB3221D4B82E004EC966 /* AppDelegate.swift in Sources */,

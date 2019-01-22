@@ -55,36 +55,20 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="Qlu-Bz-Tpw">
-                                <rect key="frame" x="45" y="187" width="845" height="307.5"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YSK-ms-h6d">
+                                <rect key="frame" x="1058" y="52" width="22" height="22"/>
+                                <connections>
+                                    <segue destination="oWw-Ed-3hC" kind="presentation" modalTransitionStyle="flipHorizontal" id="Jhn-M2-3Ww"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="Qlu-Bz-Tpw">
+                                <rect key="frame" x="32" y="170" width="845" height="257.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="RoP-wX-jgp">
-                                        <rect key="frame" x="0.0" y="0.0" width="130" height="307.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="130" height="257.5"/>
                                         <subviews>
-                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o8K-2m-20t">
-                                                <rect key="frame" x="47.5" y="0.0" width="35" height="36"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                <state key="normal" title="추가"/>
-                                                <connections>
-                                                    <action selector="tapAddBeverageButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qjp-V6-OAH"/>
-                                                </connections>
-                                            </button>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MandarineMilk.png" translatesAutoresizingMaskIntoConstraints="NO" id="IeE-75-6vC" customClass="ProductImageView" customModule="VendingMachineApp" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="46" width="130" height="180"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="130" id="gPG-gU-d0s"/>
-                                                    <constraint firstAttribute="height" constant="180" id="k0T-qt-xTa"/>
-                                                </constraints>
-                                            </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L6e-aK-9y1">
-                                                <rect key="frame" x="56" y="236" width="18.5" height="25.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y2u-7T-sI6">
-                                                <rect key="frame" x="47.5" y="271.5" width="35" height="36"/>
+                                                <rect key="frame" x="47.5" y="0.0" width="35" height="36"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <state key="normal" title="구매">
                                                     <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -93,37 +77,26 @@
                                                     <action selector="tapBuyBeverageButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KzX-lp-rev"/>
                                                 </connections>
                                             </button>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstItem="IeE-75-6vC" firstAttribute="top" secondItem="o8K-2m-20t" secondAttribute="bottom" constant="10" id="Cru-Ln-YJu"/>
-                                        </constraints>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="oMv-Lz-8GB">
-                                        <rect key="frame" x="143" y="0.0" width="130" height="307.5"/>
-                                        <subviews>
-                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AXy-Pd-Gmu">
-                                                <rect key="frame" x="47.5" y="0.0" width="35" height="36"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                <state key="normal" title="추가"/>
-                                                <connections>
-                                                    <action selector="tapAddBeverageButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="f61-4d-mPr"/>
-                                                </connections>
-                                            </button>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LactoseFreeMilk.png" translatesAutoresizingMaskIntoConstraints="NO" id="0cz-HD-hke" customClass="ProductImageView" customModule="VendingMachineApp" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="46" width="130" height="180"/>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MandarineMilk.png" translatesAutoresizingMaskIntoConstraints="NO" id="IeE-75-6vC" customClass="ProductImageView" customModule="VendingMachineApp" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="44" width="130" height="180"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="180" id="NH8-Me-LlM"/>
-                                                    <constraint firstAttribute="width" constant="130" id="kAV-s0-05K"/>
+                                                    <constraint firstAttribute="width" constant="130" id="gPG-gU-d0s"/>
+                                                    <constraint firstAttribute="height" constant="180" id="k0T-qt-xTa"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5bO-MZ-deu">
-                                                <rect key="frame" x="56" y="236" width="18.5" height="25.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L6e-aK-9y1">
+                                                <rect key="frame" x="56" y="232" width="18.5" height="25.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="oMv-Lz-8GB">
+                                        <rect key="frame" x="143" y="0.0" width="130" height="257.5"/>
+                                        <subviews>
                                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TjM-o4-kYL">
-                                                <rect key="frame" x="47.5" y="271.5" width="35" height="36"/>
+                                                <rect key="frame" x="47.5" y="0.0" width="35" height="36"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <state key="normal" title="구매">
                                                     <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -132,37 +105,26 @@
                                                     <action selector="tapBuyBeverageButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IvA-s9-XDL"/>
                                                 </connections>
                                             </button>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstItem="0cz-HD-hke" firstAttribute="top" secondItem="AXy-Pd-Gmu" secondAttribute="bottom" constant="10" id="BRN-93-b15"/>
-                                        </constraints>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="gFX-lt-2HX">
-                                        <rect key="frame" x="286" y="0.0" width="130" height="307.5"/>
-                                        <subviews>
-                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lvn-Xh-Y05">
-                                                <rect key="frame" x="47.5" y="0.0" width="35" height="36"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                <state key="normal" title="추가"/>
-                                                <connections>
-                                                    <action selector="tapAddBeverageButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Sba-x9-Qfq"/>
-                                                </connections>
-                                            </button>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="StarbucksDoubleShot.png" translatesAutoresizingMaskIntoConstraints="NO" id="E8Q-66-6B1" customClass="ProductImageView" customModule="VendingMachineApp" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="46" width="130" height="180"/>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LactoseFreeMilk.png" translatesAutoresizingMaskIntoConstraints="NO" id="0cz-HD-hke" customClass="ProductImageView" customModule="VendingMachineApp" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="44" width="130" height="180"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="130" id="C1h-CN-fBZ"/>
-                                                    <constraint firstAttribute="height" constant="180" id="rYu-Jq-8cy"/>
+                                                    <constraint firstAttribute="height" constant="180" id="NH8-Me-LlM"/>
+                                                    <constraint firstAttribute="width" constant="130" id="kAV-s0-05K"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Kz-32-cHI">
-                                                <rect key="frame" x="56" y="236" width="18.5" height="25.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5bO-MZ-deu">
+                                                <rect key="frame" x="56" y="232" width="18.5" height="25.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="gFX-lt-2HX">
+                                        <rect key="frame" x="286" y="0.0" width="130" height="257.5"/>
+                                        <subviews>
                                             <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EQu-BR-5Ga">
-                                                <rect key="frame" x="47.5" y="271.5" width="35" height="36"/>
+                                                <rect key="frame" x="47.5" y="0.0" width="35" height="36"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <state key="normal" title="구매">
                                                     <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -171,37 +133,26 @@
                                                     <action selector="tapBuyBeverageButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ib2-Cy-qw8"/>
                                                 </connections>
                                             </button>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstItem="E8Q-66-6B1" firstAttribute="top" secondItem="Lvn-Xh-Y05" secondAttribute="bottom" constant="10" id="7cA-Zb-wD7"/>
-                                        </constraints>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="GSB-2y-FYZ">
-                                        <rect key="frame" x="429" y="0.0" width="130" height="307.5"/>
-                                        <subviews>
-                                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tn8-qe-Qtz">
-                                                <rect key="frame" x="47.5" y="0.0" width="35" height="36"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                <state key="normal" title="추가"/>
-                                                <connections>
-                                                    <action selector="tapAddBeverageButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QQy-a0-doL"/>
-                                                </connections>
-                                            </button>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TOPTheBlack.png" translatesAutoresizingMaskIntoConstraints="NO" id="bNy-2z-xh1" customClass="ProductImageView" customModule="VendingMachineApp" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="46" width="130" height="180"/>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="StarbucksDoubleShot.png" translatesAutoresizingMaskIntoConstraints="NO" id="E8Q-66-6B1" customClass="ProductImageView" customModule="VendingMachineApp" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="44" width="130" height="180"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="130" id="Abr-Fd-SQa"/>
-                                                    <constraint firstAttribute="height" constant="180" id="MAJ-t6-zYu"/>
+                                                    <constraint firstAttribute="width" constant="130" id="C1h-CN-fBZ"/>
+                                                    <constraint firstAttribute="height" constant="180" id="rYu-Jq-8cy"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" tag="4" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oVs-K7-zQE">
-                                                <rect key="frame" x="56" y="236" width="18.5" height="25.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Kz-32-cHI">
+                                                <rect key="frame" x="56" y="232" width="18.5" height="25.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="GSB-2y-FYZ">
+                                        <rect key="frame" x="429" y="0.0" width="130" height="257.5"/>
+                                        <subviews>
                                             <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sbv-eA-1js">
-                                                <rect key="frame" x="47.5" y="271.5" width="35" height="36"/>
+                                                <rect key="frame" x="47.5" y="0.0" width="35" height="36"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <state key="normal" title="구매">
                                                     <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -210,37 +161,26 @@
                                                     <action selector="tapBuyBeverageButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dtw-mh-Ipj"/>
                                                 </connections>
                                             </button>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstItem="bNy-2z-xh1" firstAttribute="top" secondItem="tn8-qe-Qtz" secondAttribute="bottom" constant="10" id="Qge-9x-UOw"/>
-                                        </constraints>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="EAB-80-2wk">
-                                        <rect key="frame" x="572" y="0.0" width="130" height="307.5"/>
-                                        <subviews>
-                                            <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Vs-3L-fFH">
-                                                <rect key="frame" x="47.5" y="0.0" width="35" height="36"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                <state key="normal" title="추가"/>
-                                                <connections>
-                                                    <action selector="tapAddBeverageButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="b6Q-Us-CBp"/>
-                                                </connections>
-                                            </button>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CocaCola.png" translatesAutoresizingMaskIntoConstraints="NO" id="420-bq-gjc" customClass="ProductImageView" customModule="VendingMachineApp" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="46" width="130" height="180"/>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TOPTheBlack.png" translatesAutoresizingMaskIntoConstraints="NO" id="bNy-2z-xh1" customClass="ProductImageView" customModule="VendingMachineApp" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="44" width="130" height="180"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="180" id="WDq-q8-4Gb"/>
-                                                    <constraint firstAttribute="width" constant="130" id="ZFA-DT-9Wr"/>
+                                                    <constraint firstAttribute="width" constant="130" id="Abr-Fd-SQa"/>
+                                                    <constraint firstAttribute="height" constant="180" id="MAJ-t6-zYu"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" tag="5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hzy-Sn-JET">
-                                                <rect key="frame" x="56" y="236" width="18.5" height="25.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" tag="4" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oVs-K7-zQE">
+                                                <rect key="frame" x="56" y="232" width="18.5" height="25.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="EAB-80-2wk">
+                                        <rect key="frame" x="572" y="0.0" width="130" height="257.5"/>
+                                        <subviews>
                                             <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QWO-DL-NhJ">
-                                                <rect key="frame" x="47.5" y="271.5" width="35" height="36"/>
+                                                <rect key="frame" x="47.5" y="0.0" width="35" height="36"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <state key="normal" title="구매">
                                                     <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -249,37 +189,26 @@
                                                     <action selector="tapBuyBeverageButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1Zb-xJ-xdg"/>
                                                 </connections>
                                             </button>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstItem="420-bq-gjc" firstAttribute="top" secondItem="1Vs-3L-fFH" secondAttribute="bottom" constant="10" id="eOD-Lu-FJM"/>
-                                        </constraints>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="I8n-cf-wvQ">
-                                        <rect key="frame" x="715" y="0.0" width="130" height="307.5"/>
-                                        <subviews>
-                                            <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4mD-hj-iDn">
-                                                <rect key="frame" x="47.5" y="0.0" width="35" height="36"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                <state key="normal" title="추가"/>
-                                                <connections>
-                                                    <action selector="tapAddBeverageButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="16X-dF-3i0"/>
-                                                </connections>
-                                            </button>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CocaColaZero.png" translatesAutoresizingMaskIntoConstraints="NO" id="Js1-0U-vry" customClass="ProductImageView" customModule="VendingMachineApp" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="46" width="130" height="180"/>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CocaCola.png" translatesAutoresizingMaskIntoConstraints="NO" id="420-bq-gjc" customClass="ProductImageView" customModule="VendingMachineApp" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="44" width="130" height="180"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="130" id="hhj-d9-G6i"/>
-                                                    <constraint firstAttribute="height" constant="180" id="zDB-1s-Tm7"/>
+                                                    <constraint firstAttribute="height" constant="180" id="WDq-q8-4Gb"/>
+                                                    <constraint firstAttribute="width" constant="130" id="ZFA-DT-9Wr"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" tag="6" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wf2-i3-bFo">
-                                                <rect key="frame" x="56" y="236" width="18.5" height="25.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" tag="5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hzy-Sn-JET">
+                                                <rect key="frame" x="56" y="232" width="18.5" height="25.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="I8n-cf-wvQ">
+                                        <rect key="frame" x="715" y="0.0" width="130" height="257.5"/>
+                                        <subviews>
                                             <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7r1-Qr-AOr">
-                                                <rect key="frame" x="47.5" y="271.5" width="35" height="36"/>
+                                                <rect key="frame" x="47.5" y="0.0" width="35" height="36"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <state key="normal" title="구매">
                                                     <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -288,23 +217,29 @@
                                                     <action selector="tapBuyBeverageButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="q6F-Ts-VTh"/>
                                                 </connections>
                                             </button>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CocaColaZero.png" translatesAutoresizingMaskIntoConstraints="NO" id="Js1-0U-vry" customClass="ProductImageView" customModule="VendingMachineApp" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="44" width="130" height="180"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="130" id="hhj-d9-G6i"/>
+                                                    <constraint firstAttribute="height" constant="180" id="zDB-1s-Tm7"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" tag="6" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wf2-i3-bFo">
+                                                <rect key="frame" x="56" y="232" width="18.5" height="25.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
-                                        <constraints>
-                                            <constraint firstItem="Js1-0U-vry" firstAttribute="top" secondItem="4mD-hj-iDn" secondAttribute="bottom" constant="10" id="Bzh-b6-R2p"/>
-                                        </constraints>
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YSK-ms-h6d">
-                                <rect key="frame" x="1058" y="52" width="22" height="22"/>
-                                <connections>
-                                    <segue destination="oWw-Ed-3hC" kind="presentation" modalTransitionStyle="flipHorizontal" id="Jhn-M2-3Ww"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="Qlu-Bz-Tpw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="8ue-fn-WsV"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="YSK-ms-h6d" secondAttribute="trailing" constant="32" id="A6G-S7-yBS"/>
+                            <constraint firstItem="Qlu-Bz-Tpw" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="150" id="OrN-ih-JBS"/>
                             <constraint firstItem="YSK-ms-h6d" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="32" id="U8s-qa-Y3j"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -345,10 +280,173 @@
                                     <action selector="tapCloseButton:" destination="oWw-Ed-3hC" eventType="touchUpInside" id="gH2-Rj-4SJ"/>
                                 </connections>
                             </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="Sx7-me-F9F">
+                                <rect key="frame" x="32" y="170" width="845" height="261.5"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Z1Z-YD-e1d">
+                                        <rect key="frame" x="0.0" y="0.0" width="130" height="261.5"/>
+                                        <subviews>
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l2f-yv-fIY">
+                                                <rect key="frame" x="47.5" y="0.0" width="35" height="36"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <state key="normal" title="추가"/>
+                                            </button>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MandarineMilk.png" translatesAutoresizingMaskIntoConstraints="NO" id="OL3-Do-Dv5" customClass="ProductImageView" customModule="VendingMachineApp" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="46" width="130" height="180"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="130" id="YPU-Md-DzP"/>
+                                                    <constraint firstAttribute="height" constant="180" id="sKg-QV-xyU"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rCo-C5-Xjm">
+                                                <rect key="frame" x="56" y="236" width="18.5" height="25.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="OL3-Do-Dv5" firstAttribute="top" secondItem="l2f-yv-fIY" secondAttribute="bottom" constant="10" id="ehJ-SW-ElB"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="quS-oL-yMT">
+                                        <rect key="frame" x="143" y="0.0" width="130" height="261.5"/>
+                                        <subviews>
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NEN-hJ-HGX">
+                                                <rect key="frame" x="47.5" y="0.0" width="35" height="36"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <state key="normal" title="추가"/>
+                                            </button>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LactoseFreeMilk.png" translatesAutoresizingMaskIntoConstraints="NO" id="f1U-je-Rw7" customClass="ProductImageView" customModule="VendingMachineApp" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="46" width="130" height="180"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="130" id="LdS-uA-8ZT"/>
+                                                    <constraint firstAttribute="height" constant="180" id="VTU-kS-Mfg"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x52-kR-tGk">
+                                                <rect key="frame" x="56" y="236" width="18.5" height="25.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="f1U-je-Rw7" firstAttribute="top" secondItem="NEN-hJ-HGX" secondAttribute="bottom" constant="10" id="xpk-T7-dHh"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Tf9-18-osH">
+                                        <rect key="frame" x="286" y="0.0" width="130" height="261.5"/>
+                                        <subviews>
+                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="759-mE-WYs">
+                                                <rect key="frame" x="47.5" y="0.0" width="35" height="36"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <state key="normal" title="추가"/>
+                                            </button>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="StarbucksDoubleShot.png" translatesAutoresizingMaskIntoConstraints="NO" id="Jzv-h2-xGH" customClass="ProductImageView" customModule="VendingMachineApp" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="46" width="130" height="180"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="180" id="dw5-na-YIl"/>
+                                                    <constraint firstAttribute="width" constant="130" id="k4M-Ht-8ZN"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bd3-2j-x9I">
+                                                <rect key="frame" x="56" y="236" width="18.5" height="25.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="Jzv-h2-xGH" firstAttribute="top" secondItem="759-mE-WYs" secondAttribute="bottom" constant="10" id="0yY-Dl-D9f"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="EST-lT-XmR">
+                                        <rect key="frame" x="429" y="0.0" width="130" height="261.5"/>
+                                        <subviews>
+                                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7qz-pc-pBo">
+                                                <rect key="frame" x="47.5" y="0.0" width="35" height="36"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <state key="normal" title="추가"/>
+                                            </button>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TOPTheBlack.png" translatesAutoresizingMaskIntoConstraints="NO" id="wRX-oh-lxM" customClass="ProductImageView" customModule="VendingMachineApp" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="46" width="130" height="180"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="180" id="adv-Kg-Q7d"/>
+                                                    <constraint firstAttribute="width" constant="130" id="xFv-De-Zly"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" tag="4" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pdo-N8-S7r">
+                                                <rect key="frame" x="56" y="236" width="18.5" height="25.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="wRX-oh-lxM" firstAttribute="top" secondItem="7qz-pc-pBo" secondAttribute="bottom" constant="10" id="QOd-Zj-Iy9"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="QG4-rn-7YY">
+                                        <rect key="frame" x="572" y="0.0" width="130" height="261.5"/>
+                                        <subviews>
+                                            <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mcn-QV-bJu">
+                                                <rect key="frame" x="47.5" y="0.0" width="35" height="36"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <state key="normal" title="추가"/>
+                                            </button>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CocaCola.png" translatesAutoresizingMaskIntoConstraints="NO" id="NUv-dJ-VM6" customClass="ProductImageView" customModule="VendingMachineApp" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="46" width="130" height="180"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="130" id="eOo-dt-Ich"/>
+                                                    <constraint firstAttribute="height" constant="180" id="wwR-CK-Ugi"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" tag="5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bb8-WO-WOk">
+                                                <rect key="frame" x="56" y="236" width="18.5" height="25.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="NUv-dJ-VM6" firstAttribute="top" secondItem="mcn-QV-bJu" secondAttribute="bottom" constant="10" id="sGP-Kf-iOi"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="bPl-0X-jVU">
+                                        <rect key="frame" x="715" y="0.0" width="130" height="261.5"/>
+                                        <subviews>
+                                            <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b82-b4-wCv">
+                                                <rect key="frame" x="47.5" y="0.0" width="35" height="36"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <state key="normal" title="추가"/>
+                                            </button>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CocaColaZero.png" translatesAutoresizingMaskIntoConstraints="NO" id="0X9-zg-cpk" customClass="ProductImageView" customModule="VendingMachineApp" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="46" width="130" height="180"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="130" id="K1P-oN-tm0"/>
+                                                    <constraint firstAttribute="height" constant="180" id="hOo-WQ-fRA"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" tag="6" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bsm-K9-bFL">
+                                                <rect key="frame" x="56" y="236" width="18.5" height="25.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="0X9-zg-cpk" firstAttribute="top" secondItem="b82-b4-wCv" secondAttribute="bottom" constant="10" id="7Dy-qo-4NZ"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="Sx7-me-F9F" firstAttribute="top" secondItem="Q4h-eE-4zK" secondAttribute="top" constant="150" id="0fm-A3-bfk"/>
                             <constraint firstItem="Q4h-eE-4zK" firstAttribute="trailing" secondItem="ASN-2R-yTY" secondAttribute="trailing" constant="32" id="AVT-Vl-GGH"/>
+                            <constraint firstItem="Sx7-me-F9F" firstAttribute="leading" secondItem="Q4h-eE-4zK" secondAttribute="leading" constant="32" id="FiQ-cs-VFE"/>
                             <constraint firstItem="ASN-2R-yTY" firstAttribute="top" secondItem="Q4h-eE-4zK" secondAttribute="top" constant="32" id="sNa-yX-2tn"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Q4h-eE-4zK"/>

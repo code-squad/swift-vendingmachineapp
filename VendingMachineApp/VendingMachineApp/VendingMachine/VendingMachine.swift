@@ -82,8 +82,8 @@ class VendingMachine: NSObject, NSCoding {
     
     //MARK: HistoryOfPurchase
     
-    func process(_ addHistoryImageViews: ([Beverage]) -> Void) {
-        self.historyOfPurchase.process(addHistoryImageViews)
+    func perform(_ addHistoryImageViews: ([Beverage]) -> Void) {
+        self.historyOfPurchase.perform(addHistoryImageViews)
     }
     
     //MARK: - Get Properties Method

@@ -100,7 +100,7 @@ class ViewController: UIViewController {
                 self.addHistoryImageView(beverage)
             }
         }
-        VendingMachine.sharedInstance.process(addHistoryImageViews)
+        VendingMachine.sharedInstance.perform(addHistoryImageViews)
     }
     
     private func addHistoryImageView(_ product: Beverage) {

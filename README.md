@@ -25,3 +25,7 @@ scope가 넓어져 객체간 결합도가 높아진다.
 ### 구매목록 View 코드(step-06)
 
 ![step-06 실행화면](https://user-images.githubusercontent.com/38850628/51460251-44ee0a80-1d9e-11e9-8d61-e31563f944c9.gif)
+
+### Frame과 Bounds(step-07)
+
+![step-07 실행화면](https://user-images.githubusercontent.com/38850628/51515717-1df40f00-1e58-11e9-87ee-bd5e0e191c2a.gif)

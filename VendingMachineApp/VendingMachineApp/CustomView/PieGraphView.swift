@@ -16,6 +16,7 @@ class PieGraphView: UIView {
                                       UIColor(red:0.31, green:0.78, blue:0.80, alpha:1.0),
                                       UIColor(red:0.63, green:0.78, blue:0.75, alpha:1.0)]
     var historyDataSource: HistoryDataSource?
+    private var touched: Bool = false
 
     private var centerOfPie: CGPoint {
         return CGPoint(x: bounds.midX, y: bounds.midY)
@@ -46,8 +47,7 @@ class PieGraphView: UIView {
                                               NSAttributedString.Key.foregroundColor: UIColor.white])
     }
 
-    override func draw(_ rect: CGRect) {
-        super.draw(rect)
+    private func drawPieGraph() {
         guard let classifiedPurchase = historyDataSource?.classifiedPurchase else { return }
         let total = classifiedPurchase.values.reduce(0) { $0 + $1 }
         var currentAngle: CGFloat = 0
@@ -59,6 +59,32 @@ class PieGraphView: UIView {
             drawLabel(text: purchase.key as NSString, startAngle: currentAngle, endAngle: endAngle)
             currentAngle = endAngle
         }
+    }
+
+    private func drawDefaultCircle() {
+        UIColor.black.setFill()
+        drawAPieceOfPie(startAngle: 0, endAngle: .pi*2)
+    }
+
+    override func draw(_ rect: CGRect) {
+        super.draw(rect)
+        if touched {
+            drawDefaultCircle()
+        } else {
+            drawPieGraph()
+        }
+    }
+
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        touched = true
+        setNeedsDisplay()
+    }
+
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesEnded(touches, with: event)
+        touched = false
+        setNeedsDisplay()
     }
 
 }

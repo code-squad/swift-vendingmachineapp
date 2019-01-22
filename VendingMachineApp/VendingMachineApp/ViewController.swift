@@ -15,6 +15,10 @@ extension UIImageView {
     }
 }
 
+extension NSNotification.Name {
+    static let updateDrinkLabel = NSNotification.Name(rawValue: "updateDrinkLabel")
+    static let updateCoinLabel = NSNotification.Name(rawValue: "updateCoinLabel")
+}
 
 class ViewController: UIViewController {    
     @IBOutlet var drinkImages: [UIImageView]!
@@ -26,10 +30,28 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        NotificationCenter.default.addObserver(self, selector: #selector(updateDrinkLabel), name: .updateDrinkLabel, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateCoinLabel), name: .updateCoinLabel, object: nil)
         initialImage()
         initialLabel()
         initialAddButtonTag()
         initialInserButtonTag()
+    }
+    
+    @objc func updateDrinkLabel() {
+        let commonMode: CommonAvailableMachine = VendingMachine.sharedInstance
+        for menu in DrinkCategory.allCases {
+            commonMode.markDrinkLabel(menu.rawValue) { drinkCounts in
+                self.drinkLabels[menu.rawValue-1].text = "\(drinkCounts)개"
+            }
+        }
+    }
+    
+    @objc func updateCoinLabel() {
+        let commonMode: CommonAvailableMachine = VendingMachine.sharedInstance
+        commonMode.markCoinLabel { coin in
+            self.currentCoin.text = "잔액 : \(coin)원"
+        }
     }
     
     private func initialImage() {
@@ -78,15 +100,13 @@ class ViewController: UIViewController {
         default: return
         }
         addEachDrink(of: menu.rawValue)
+        NotificationCenter.default.post(name: .updateDrinkLabel, object: nil)
     }
     
     private func addEachDrink(of menu: Int) {
         let managerMode: ManageableMode = VendingMachine.sharedInstance
         if managerMode.isAbleToAdd(menu: menu) == .success {
             managerMode.addStock(menu: menu)
-            managerMode.markDrinkLabel(menu) { drinkCounts in
-                self.drinkLabels[menu-1].text = "\(drinkCounts)개"
-            }
         }
     }
     
@@ -104,13 +124,13 @@ class ViewController: UIViewController {
         default: return
         }
         insertEach(coin.rawValue)
+        NotificationCenter.default.post(name: .updateCoinLabel, object: nil)
     }
     
     private func insertEach(_ coin: Int) {
         let userMode: UserAvailableMode = VendingMachine.sharedInstance
         userMode.insert(coin: coin)
-        userMode.markCoinLabel { coin in
-            self.currentCoin.text = "잔액 : \(coin)원"
-        }
     }
 }
+
+

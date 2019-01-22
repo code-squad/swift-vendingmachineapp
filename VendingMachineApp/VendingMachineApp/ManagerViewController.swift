@@ -33,4 +33,13 @@ class ManagerViewController: UIViewController {
     @IBAction func tapCloseButton(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }
+    
+    @IBAction func tapAddBeverageButton(_ sender: UIButton) {
+        let tag = sender.tag
+        guard let beverageType = Mapper.shared.mapping(by: tag) as? BeverageProduct.Type else { return }
+        
+        let product = Beverage.produce(product: beverageType)
+        
+        VendingMachine.sharedInstance.add(product: product)
+    }
 }

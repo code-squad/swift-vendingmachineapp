@@ -43,7 +43,8 @@ class History: NSObject {
         postNotificationOfPurchase(userInfo: userInfo)
     }
 
-    func update(from updatePoint: Int) -> ArraySlice<Beverage> {
+    func update(from updatePoint: Int) -> ArraySlice<Beverage>? {
+        guard updatePoint < purchases.count else { return nil }
         let beverages = purchases[updatePoint...]
         return beverages
     }

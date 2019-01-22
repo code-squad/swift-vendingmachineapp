@@ -15,10 +15,27 @@ class ManagerViewController: UIViewController {
     
     @IBOutlet var stockLabels: [UILabel]!
     
+    //MARK: - Methods
+    //MARK: Life Cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(updateNumberOfProductLabel),
+                                               name: .didChangeNumberOfProduct,
+                                               object: nil)
+    }
+    
+    //MARK: Pirvate
+    
+    @objc private func updateNumberOfProductLabel(_ noti: Notification) {
+        
+        guard let userInfo = noti.userInfo else { return }
+        guard let numberOfProduct = userInfo[UserInfoKey.numberOfProduct] as? Int else { return }
+        guard let labelToUpdate = userInfo[UserInfoKey.labelToUpdate] as? Int else { return }
+        
+        stockLabels[labelToUpdate - 1].text = "\(numberOfProduct)개"
     }
     
 
@@ -31,8 +48,7 @@ class ManagerViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
-    //MARK: - Methods
+    
     //MARK: IBAction
     
     @IBAction func tapCloseButton(_ sender: UIButton) {

@@ -57,6 +57,6 @@ class ManagerViewController: UIViewController {
         
         let product = Beverage.produce(product: beverageType)
         
-        VendingMachine.sharedInstance.add(product: product)
+        VendingMachine.shared.add(product: product)
     }
 }

@@ -40,7 +40,7 @@ class VendingMachine: NSObject, NSCoding {
 
     //MARK: Type
     
-    static let sharedInstance = VendingMachine()
+    static let shared = VendingMachine()
     
     //MARK: Initialize
     

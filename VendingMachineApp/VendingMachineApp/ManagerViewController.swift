@@ -25,7 +25,8 @@ class ManagerViewController: UIViewController {
                                                selector: #selector(updateNumberOfProductLabel),
                                                name: .didChangeNumberOfProduct,
                                                object: nil)
-        updateStockLabels()
+
+        stockLabels.updateStockLabels()
     }
     
     //MARK: Pirvate
@@ -37,19 +38,6 @@ class ManagerViewController: UIViewController {
         guard let labelToUpdate = userInfo[UserInfoKey.labelToUpdate] as? Int else { return }
         
         stockLabels[labelToUpdate - 1].text = "\(numberOfProduct)개"
-    }
-    
-    private func updateStockLabels() {
-        
-        for stockLabel in stockLabels {
-            let tag = stockLabel.tag
-            guard let beverageType = Mapper.shared.mapping(by: tag) else { return }
-            
-            let updateStockLabel: (Int) -> Void = { (numberOfProduct: Int) -> Void in
-                stockLabel.text = "\(numberOfProduct)개"
-            }
-            VendingMachine.shared.updateNumber(of: beverageType, update: updateStockLabel)
-        }
     }
     
     //MARK: IBAction

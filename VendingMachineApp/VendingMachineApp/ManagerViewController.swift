@@ -26,7 +26,7 @@ class ManagerViewController: UIViewController {
                                                name: .didChangeNumberOfProduct,
                                                object: nil)
 
-        stockLabels.updateStockLabels()
+        update(stockLabels: stockLabels)
     }
     
     //MARK: Pirvate

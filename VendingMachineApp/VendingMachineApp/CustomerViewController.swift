@@ -82,7 +82,7 @@ class CustomerViewController: UIViewController {
         }
         VendingMachine.shared.updateBalance(update: updateBalanceLabel)
         
-        self.stockLabels.updateStockLabels()
+        update(stockLabels: stockLabels)
     }
     
     private func addOldHistoryImageViews() {

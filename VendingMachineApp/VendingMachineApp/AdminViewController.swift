@@ -86,4 +86,11 @@ extension AdminViewController: HistoryDataSource {
         return purchases.reduce(into: [:]) { $0[$1.title, default: 0] += 1 }
     }
 
+    override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+        super.motionEnded(motion, with: event)
+        if motion == .motionShake {
+            purchasePieGraph.setDefaultRadius()
+        }
+    }
+
 }

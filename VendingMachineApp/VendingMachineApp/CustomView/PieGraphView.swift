@@ -22,6 +22,11 @@ class PieGraphView: UIView {
         return CGPoint(x: bounds.midX, y: bounds.midY)
     }
 
+    func setDefaultRadius() {
+        radiusOfPie = 200
+        setNeedsDisplay()
+    }
+
     private func drawAPieceOfPie(startAngle: CGFloat, endAngle: CGFloat) {
         let path = UIBezierPath(arcCenter: centerOfPie,
                                 radius: radiusOfPie,

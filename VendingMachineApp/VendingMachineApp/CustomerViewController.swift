@@ -80,7 +80,7 @@ class CustomerViewController: UIViewController {
         let updateBalanceLabel: (String) -> Void = { [unowned self] (balance: String) -> Void in
             self.balanceLabel.text = "잔액 : \(balance)원"
         }
-        VendingMachine.sharedInstance.updateBalance(update: updateBalanceLabel)
+        VendingMachine.shared.updateBalance(update: updateBalanceLabel)
         
         for numberOfProductLabel in numberOfProductLabels {
             let tag = numberOfProductLabel.tag
@@ -89,7 +89,7 @@ class CustomerViewController: UIViewController {
             let updateNumberOfProductLabel: (Int) -> Void = { (numberOfProduct: Int) -> Void in
                 numberOfProductLabel.text = "\(numberOfProduct)개"
             }
-            VendingMachine.sharedInstance.updateNumber(of: beverageType, update: updateNumberOfProductLabel)
+            VendingMachine.shared.updateNumber(of: beverageType, update: updateNumberOfProductLabel)
         }
     }
     
@@ -100,7 +100,7 @@ class CustomerViewController: UIViewController {
                 self.addHistoryImageView(beverage)
             }
         }
-        VendingMachine.sharedInstance.perform(addHistoryImageViews)
+        VendingMachine.shared.perform(addHistoryImageViews)
     }
     
     private func addHistoryImageView(_ product: Beverage) {
@@ -123,9 +123,9 @@ class CustomerViewController: UIViewController {
     @IBAction func tapInsertMoneyButton(_ sender: UIButton) {
         switch sender.tag {
         case 1:
-            VendingMachine.sharedInstance.insert(money: .thousand)
+            VendingMachine.shared.insert(money: .thousand)
         case 2:
-            VendingMachine.sharedInstance.insert(money: .fiveThousand)
+            VendingMachine.shared.insert(money: .fiveThousand)
         default:
             return
         }
@@ -135,7 +135,7 @@ class CustomerViewController: UIViewController {
         
         let tag = sender.tag
         guard let productType = Mapper.shared.mapping(by: tag) else { return }
-        let _ = VendingMachine.sharedInstance.buy(productType: productType)
+        let _ = VendingMachine.shared.buy(productType: productType)
     }
     
     //MARK: - Navigation

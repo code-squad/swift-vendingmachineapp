@@ -17,13 +17,9 @@ class PieGraphView: UIView {
                                       UIColor(red:0.63, green:0.78, blue:0.75, alpha:1.0)]
     var historyDataSource: HistoryDataSource?
     private var touched: Bool = false
-
+    private var radiusOfPie: CGFloat = 200
     private var centerOfPie: CGPoint {
         return CGPoint(x: bounds.midX, y: bounds.midY)
-    }
-
-    private var radiusOfPie: CGFloat {
-        return bounds.width.half
     }
 
     private func drawAPieceOfPie(startAngle: CGFloat, endAngle: CGFloat) {
@@ -51,8 +47,9 @@ class PieGraphView: UIView {
         guard let classifiedPurchase = historyDataSource?.classifiedPurchase else { return }
         let total = classifiedPurchase.values.reduce(0) { $0 + $1 }
         var currentAngle: CGFloat = 0
+        let randomPalette = palette.shuffled()
         for (index, purchase) in classifiedPurchase.enumerated() {
-            palette[index].setFill()
+            randomPalette[index].setFill()
             let angle = purchase.value.convertedToAnglesInCircle(total: total)
             let endAngle = currentAngle + angle
             drawAPieceOfPie(startAngle: currentAngle, endAngle: endAngle)
@@ -81,8 +78,30 @@ class PieGraphView: UIView {
         setNeedsDisplay()
     }
 
+    private func resizeRadius(by point: CGPoint) -> Bool {
+        let distance = point.distance(from: centerOfPie)
+        if 50 < distance && distance < 200 {
+            radiusOfPie = distance
+            return true
+        }
+        return false
+    }
+
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesMoved(touches, with: event)
+        guard let point = touches.first?.location(in: self) else { return }
+        guard resizeRadius(by: point) else { return }
+        setNeedsDisplay()
+    }
+
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesEnded(touches, with: event)
+        touched = false
+        setNeedsDisplay()
+    }
+
+    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesCancelled(touches, with: event)
         touched = false
         setNeedsDisplay()
     }
@@ -101,6 +120,14 @@ extension CGFloat {
 
     var half: CGFloat {
         return self * 0.5
+    }
+
+}
+
+extension CGPoint {
+
+    func distance(from point: CGPoint) -> CGFloat {
+        return sqrt(pow((self.x - point.x), 2) + pow((self.y - point.y), 2))
     }
 
 }

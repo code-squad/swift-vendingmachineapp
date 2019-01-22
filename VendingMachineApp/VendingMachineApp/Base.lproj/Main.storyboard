@@ -469,6 +469,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Q4h-eE-4zK"/>
                     </view>
+                    <connections>
+                        <outletCollection property="stockLabels" destination="rCo-C5-Xjm" collectionClass="NSMutableArray" id="cIS-PK-LwI"/>
+                        <outletCollection property="stockLabels" destination="x52-kR-tGk" collectionClass="NSMutableArray" id="xFi-c0-xZB"/>
+                        <outletCollection property="stockLabels" destination="bd3-2j-x9I" collectionClass="NSMutableArray" id="miz-SA-ziB"/>
+                        <outletCollection property="stockLabels" destination="pdo-N8-S7r" collectionClass="NSMutableArray" id="yq1-Na-XhI"/>
+                        <outletCollection property="stockLabels" destination="Bb8-WO-WOk" collectionClass="NSMutableArray" id="twU-Bu-g7u"/>
+                        <outletCollection property="stockLabels" destination="Bsm-K9-bFL" collectionClass="NSMutableArray" id="QPe-Qz-vrw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GCW-EN-I5C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

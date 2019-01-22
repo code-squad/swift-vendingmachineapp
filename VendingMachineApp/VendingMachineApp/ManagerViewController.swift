@@ -10,6 +10,11 @@ import UIKit
 
 class ManagerViewController: UIViewController {
 
+    //MARK: - Properties
+    //MARK: IBOutlet
+    
+    @IBOutlet var stockLabels: [UILabel]!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

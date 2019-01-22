@@ -64,10 +64,6 @@ class Money: NSObject, NSCoding {
     func updateBalanceLabel(update: (Int) -> Void) {
         update(self.money)
     }
-    
-    func isBuyable(_ price: Int) -> Bool {
-        return money > price
-    }
 }
 
 extension Money {

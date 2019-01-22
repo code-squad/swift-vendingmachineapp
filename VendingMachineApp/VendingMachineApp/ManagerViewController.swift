@@ -11,6 +11,9 @@ import UIKit
 class ManagerViewController: UIViewController {
 
     //MARK: - Properties
+    
+    var stockInfo: [String?]?
+    
     //MARK: IBOutlet
     
     @IBOutlet var stockLabels: [UILabel]!
@@ -25,6 +28,10 @@ class ManagerViewController: UIViewController {
                                                selector: #selector(updateNumberOfProductLabel),
                                                name: .didChangeNumberOfProduct,
                                                object: nil)
+        
+        for index in stockLabels.startIndex..<stockLabels.endIndex {
+            stockLabels[index].text = stockInfo?[index]
+        }
     }
     
     //MARK: Pirvate
@@ -37,17 +44,6 @@ class ManagerViewController: UIViewController {
         
         stockLabels[labelToUpdate - 1].text = "\(numberOfProduct)개"
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
     //MARK: IBAction
     

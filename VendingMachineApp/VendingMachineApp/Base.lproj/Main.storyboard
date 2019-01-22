@@ -58,7 +58,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YSK-ms-h6d">
                                 <rect key="frame" x="1058" y="52" width="22" height="22"/>
                                 <connections>
-                                    <segue destination="oWw-Ed-3hC" kind="presentation" modalTransitionStyle="flipHorizontal" id="Jhn-M2-3Ww"/>
+                                    <segue destination="oWw-Ed-3hC" kind="presentation" identifier="ManagerViewController" modalTransitionStyle="flipHorizontal" id="Jhn-M2-3Ww"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="Qlu-Bz-Tpw">

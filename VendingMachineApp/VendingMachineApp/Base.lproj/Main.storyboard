@@ -295,8 +295,15 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YSK-ms-h6d">
+                                <rect key="frame" x="1058" y="52" width="22" height="22"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="YSK-ms-h6d" secondAttribute="trailing" constant="32" id="A6G-S7-yBS"/>
+                            <constraint firstItem="YSK-ms-h6d" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="32" id="U8s-qa-Y3j"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>

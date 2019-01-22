@@ -34,17 +34,19 @@ protocol PrintableMachingState {
 }
 
 class VendingMachine: NSObject, NSCoding {
+    static let sharedInstance = VendingMachine()
+    
     private var coin: Coin = Coin()
     private var stock: Stock = Stock()
     private var purchaseHistory: PurchaseHistory = PurchaseHistory()
     
-    override init() {
-        stock.add(BananaMilk())
-        stock.add(BananaMilk())
-        stock.add(ChocoMilk())
-        stock.add(Cola())
-        stock.add(Cola())
-        stock.add(Cola())
+    func set(instance: VendingMachine) {
+        VendingMachine.sharedInstance.stock = instance.stock
+        VendingMachine.sharedInstance.coin = instance.coin
+        VendingMachine.sharedInstance.purchaseHistory = instance.purchaseHistory
+    }
+    
+    private override init() {
     }
     
     func encode(with aCoder: NSCoder) {
@@ -142,7 +144,7 @@ extension VendingMachine: CommonAvailableMachine {
     }
     
     func markCoinLabel(view: DrawableView) {
-        view.setcodd { coinLabel in
+        view.setCoinLabel { coinLabel in
             coinLabel.text = "잔액 : \(coin.convertToString())원"
         }
     }

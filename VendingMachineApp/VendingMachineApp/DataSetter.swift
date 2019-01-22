@@ -9,17 +9,16 @@
 import Foundation
 
 struct DataSetter {
-    static func save(vendingMachine: VendingMachine) {
-        let data = try? NSKeyedArchiver.archivedData(withRootObject: vendingMachine, requiringSecureCoding: false)
+    static func save() {
+        let data = try? NSKeyedArchiver.archivedData(withRootObject: VendingMachine.sharedInstance, requiringSecureCoding: false)
         UserDefaults.standard.set(data, forKey: "vendingMachine")
     }
     
-    static func load() -> VendingMachine? {
+    static func load() {
         if let data = UserDefaults.standard.data(forKey: "vendingMachine") {
             let vendingMachine = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data)
-            return vendingMachine as? VendingMachine
-        } else {
-            return nil
+            guard let machine = vendingMachine as? VendingMachine else { return }
+            VendingMachine.sharedInstance.set(instance: machine)
         }
     }
 }

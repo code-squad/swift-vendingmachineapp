@@ -1,6 +1,6 @@
 ## VendingMachineApp 정리
 
-#### Step 1
+### Step 1
 
 
 **Device Orientation(화면 지원)**
@@ -46,7 +46,7 @@ applicationWillTerminate: - 앱이 종료될 때 실행
 ```
 
 
-#### Step 2
+### Step 2
     
     
 **UIImageView 추가하기**
@@ -95,7 +95,7 @@ override func viewDidLoad() {
 ```
    
    
-   #### Step 3
+   ### Step 3
    
    
    **AppDelegate.swift 역할**
@@ -168,7 +168,46 @@ let controllerObject = appDelegate.object
  ```
  
  
+ ### Step 4
+ 
+ 
+ **싱글톤 패턴**
+ - 매번 똑같은 하나의 인스턴스만을 반환하도록 하는 클래스 설계 방식이다.
+ 
+ 싱글톤 패턴은 프로그램 내에서 단 하나의 인스턴스로만 클래스를 관리하고 사용할 수 있다. 그러나 생성되고 나면 프로그램 종료시까지 항상 메모리에 올라가있으므로 적절하게 사용하여야한다.
+ 
+  `Object-c`에서는 `Dispatch_once_t`를 사용하여 싱글톤 패턴을 구현하였다.
+  
+  `Dispatch_once_t` - App 라이프 사이클에서 단 한번만 실행되도록 보장해 주는 것을 뜻한다. Thread Safe를 보장받을 수 있다.
+  
+  `Thread Safe` - 여러 스레드로부터 동시 접근이 있을 수 있는데, 이 상황에서 함수의 결과가 올바르게 나오는 것을 말한다.
+  
+  Swift 4 싱글톤
+  ```
+  class SingleTon {
+    // sharedInstance 변수를 통해서만 접근 가능
+    static let sharedInstance = SingleTon()
 
- 
- 
- 
+    // 외부에서 생성 금지
+    private init() {
+    }
+  }
+  
+  
+  // 별도의 초기화가 필요한 경우
+  class SingleTon {
+    // sharedInstance 변수를 통해서만 접근 가능
+    static let sharedInstance: SingleTon = {
+        let instance = SingleTon()
+        ...
+        return instance
+    }()
+      
+    // 외부에서 생성 금지
+    private init() {
+    }
+  }
+  
+  
+ ```
+  

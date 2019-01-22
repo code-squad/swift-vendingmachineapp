@@ -17,7 +17,7 @@ extension UIImageView {
 
 
 class ViewController: UIViewController {
-    var machine: VendingMachine?
+//    var machine: VendingMachine?
     
     @IBOutlet var drinkImages: [UIImageView]!
     @IBOutlet var drinkLabels: [UILabel]!
@@ -28,8 +28,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        machine = appDelegate.machine
+//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//        machine = appDelegate.machine
         
         initialImage()
         initialLabel()
@@ -43,11 +43,11 @@ class ViewController: UIViewController {
     
     private func initialLabel() {
         let menuCount = 6
-        let machine: CommonAvailableMachine? = self.machine
+        let machine: CommonAvailableMachine = VendingMachine.sharedInstance
         for menu in 1...menuCount {
-            machine?.markDrinkLabel(menu, view: self)
+            machine.markDrinkLabel(menu, view: self)
         }
-        machine?.markCoinLabel(view: self)
+        machine.markCoinLabel(view: self)
     }
     
     private func initialAddButtonTag() {
@@ -82,26 +82,28 @@ class ViewController: UIViewController {
     }
     
     private func addEachDrink(of menu: Int) {
-        let managerMode: ManageableMode? = machine
-        if managerMode?.isAbleToAdd(menu: menu) == .success {
-            managerMode?.addStock(menu: menu)
-            managerMode?.markDrinkLabel(menu, view: self)
+        let managerMode: ManageableMode = VendingMachine.sharedInstance
+        if managerMode.isAbleToAdd(menu: menu) == .success {
+            managerMode.addStock(menu: menu)
+            managerMode.markDrinkLabel(menu, view: self)
         }
     }
     
     @IBAction func insertCoin(_ sender: Any) {
+        let coin: Int
         guard let button = sender as? UIButton else { return }
         switch button.tag {
-        case 1: insertEach(coin: 1000)
-        case 2: insertEach(coin: 5000)
+        case 1: coin = 1000
+        case 2: coin = 5000
         default: return
         }
+        insertEach(coin)
     }
     
-    private func insertEach(coin: Int) {
-        let userMode: UserAvailableMode? = machine
-        userMode?.insert(coin: coin)
-        userMode?.markCoinLabel(view: self)
+    private func insertEach(_ coin: Int) {
+        let userMode: UserAvailableMode = VendingMachine.sharedInstance
+        userMode.insert(coin: coin)
+        userMode.markCoinLabel(view: self)
     }
 }
 

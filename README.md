@@ -7,7 +7,8 @@
 5. <a href="#5-관찰자(Observer)-패턴">관찰자(Observer) 패턴</a>
 6. <a href="#6-구매목록-View-코드">구매목록 View 코드</a>
 7. <a href="#7-Frame과-Bounds">Frame과 Bounds</a>
-8. <a href="#8-코어-그래픽스(Core-Graphics)">코어 그래픽스(Core Graphics)</a>
+8. <a href="#8-코어-그래픽스core-graphics">코어 그래픽스(Core Graphics)</a>
+9. <a href="#9-마무리하기---터치이벤트">마무리하기 - 터치이벤트</a>
 
 <br>
 
@@ -663,3 +664,69 @@ UIBezierPath(arcCenter: CGPoint,
 - `addLine(to: CGPoint)` : 따라서, 위 path에 이 메소드를 호출해주면 현재 포인트에서 파라미터로 넘겨주는 포인트까지 선이 그려집니다.
 -  `fill()` : 이 메소드를 호출하는 path가 감싸고 있는 영역을 현재 지정된 컬러로 채워줍니다.
   - `UIColor.setFill()` : 해당 컬러를 fill color로 지정해줍니다.
+
+<br>
+
+## 9. 마무리하기 - 터치이벤트
+
+### 추가내용
+
+##### 1. 파이그래프에 터치이벤트 추가
+
+`PieGraphView` 에 아래 요구사항의 터치이벤트를 구현했습니다.
+
+- 그래프를 터치하면 검정색 동그라미 그래프가 그려지도록.
+- 그래프를 터치한 상태로 손가락을 움직일 때, 그 방향으로 그래프 사이즈가 재조정되도록.
+- 그래프에서 손가락을 떼면, 현재 사이즈로 그래프 색상이 바뀌어서 구매이력 그래프가 다시 그려지도록.
+- 그래프 사이즈가 제한한 최대/최소 범위를 벗어나지않도록
+
+```swift
+class PieGraphView: UIView {
+    private var touched: Bool = false
+    ...
+    override func draw(_ rect: CGRect) {
+        super.draw(rect)
+        if touched {
+            drawDefaultCircle()
+        } else {
+            drawPieGraph()
+        }
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) { ... }
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) { ... }
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) { ... }
+    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) { ... }
+    ...
+}
+```
+
+`PieGraphView` 에 터치 이벤트 메소드를 오버라이드하고, 각각의 동작 이후 **draw(rect:)** 메소드를 직접 호출하지 않고  **setNeedsDisplay()** 메소드를 호출해주었습니다. 
+
+`draw(rect:)` 메소드는 절대 직접 호출하여 사용하지 않고, [setNeedsDisplay()](https://developer.apple.com/documentation/uikit/uiview/1622437-setneedsdisplay) 메소드를 통해 호출되도록 구현해야합니다. [Swift docs 참고](https://developer.apple.com/documentation/uikit/uiview/1622529-draw)
+
+<br>
+
+##### 2. shake 모션 이벤트 추가
+
+- shake 모션이 일어나면, 기존 그래프의 사이즈로 복구하도록.
+
+해당 요구사항은 `AdminViewController` 에서 아래의 메소드를 오버라이드하여 구현했습니다.
+
+```swift
+override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+    super.motionEnded(motion, with: event)
+    if motion == .motionShake {
+        ...
+    }
+}
+```
+
+<br>
+
+### 실행화면
+
+> 완성일자: 2019.01.22 17:24
+
+![Jan-22-2019](./images/step9/Jan-22-2019.gif)
+

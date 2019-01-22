@@ -11,9 +11,6 @@ import UIKit
 class ManagerViewController: UIViewController {
 
     //MARK: - Properties
-    
-    var stockInfo: [String?]?
-    
     //MARK: IBOutlet
     
     @IBOutlet var stockLabels: [UILabel]!
@@ -28,10 +25,7 @@ class ManagerViewController: UIViewController {
                                                selector: #selector(updateNumberOfProductLabel),
                                                name: .didChangeNumberOfProduct,
                                                object: nil)
-        
-        for index in stockLabels.startIndex..<stockLabels.endIndex {
-            stockLabels[index].text = stockInfo?[index]
-        }
+
     }
     
     //MARK: Pirvate

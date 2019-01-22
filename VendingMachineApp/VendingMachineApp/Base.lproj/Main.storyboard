@@ -252,12 +252,12 @@
                         <outletCollection property="productImageViews" destination="bNy-2z-xh1" collectionClass="NSMutableArray" id="Yhv-Hn-tmr"/>
                         <outletCollection property="productImageViews" destination="420-bq-gjc" collectionClass="NSMutableArray" id="7jW-3i-x2A"/>
                         <outletCollection property="productImageViews" destination="Js1-0U-vry" collectionClass="NSMutableArray" id="Bem-3x-N3q"/>
-                        <outletCollection property="numberOfProductLabels" destination="L6e-aK-9y1" collectionClass="NSMutableArray" id="kbk-Yw-wGN"/>
-                        <outletCollection property="numberOfProductLabels" destination="5bO-MZ-deu" collectionClass="NSMutableArray" id="C8d-Vx-mQV"/>
-                        <outletCollection property="numberOfProductLabels" destination="8Kz-32-cHI" collectionClass="NSMutableArray" id="8sw-ce-b2F"/>
-                        <outletCollection property="numberOfProductLabels" destination="oVs-K7-zQE" collectionClass="NSMutableArray" id="V8f-g5-heA"/>
-                        <outletCollection property="numberOfProductLabels" destination="Hzy-Sn-JET" collectionClass="NSMutableArray" id="qPH-su-oYd"/>
-                        <outletCollection property="numberOfProductLabels" destination="wf2-i3-bFo" collectionClass="NSMutableArray" id="wb9-Ml-TnL"/>
+                        <outletCollection property="stockLabels" destination="L6e-aK-9y1" collectionClass="NSMutableArray" id="kbk-Yw-wGN"/>
+                        <outletCollection property="stockLabels" destination="5bO-MZ-deu" collectionClass="NSMutableArray" id="C8d-Vx-mQV"/>
+                        <outletCollection property="stockLabels" destination="8Kz-32-cHI" collectionClass="NSMutableArray" id="8sw-ce-b2F"/>
+                        <outletCollection property="stockLabels" destination="oVs-K7-zQE" collectionClass="NSMutableArray" id="V8f-g5-heA"/>
+                        <outletCollection property="stockLabels" destination="Hzy-Sn-JET" collectionClass="NSMutableArray" id="qPH-su-oYd"/>
+                        <outletCollection property="stockLabels" destination="wf2-i3-bFo" collectionClass="NSMutableArray" id="wb9-Ml-TnL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

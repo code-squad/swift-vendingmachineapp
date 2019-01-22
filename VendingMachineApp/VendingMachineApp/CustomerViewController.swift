@@ -15,7 +15,7 @@ class CustomerViewController: UIViewController {
     
     @IBOutlet weak var balanceLabel: UILabel!
     @IBOutlet var productImageViews: [UIImageView]!
-    @IBOutlet var numberOfProductLabels: [UILabel]!
+    @IBOutlet var stockLabels: [UILabel]!
     
     //MARK: Private
     
@@ -54,7 +54,7 @@ class CustomerViewController: UIViewController {
         guard let numberOfProduct = userInfo[UserInfoKey.numberOfProduct] as? Int else { return }
         guard let labelToUpdate = userInfo[UserInfoKey.labelToUpdate] as? Int else { return }
         
-        numberOfProductLabels[labelToUpdate - 1].text = "\(numberOfProduct)개"
+        stockLabels[labelToUpdate - 1].text = "\(numberOfProduct)개"
     }
     
     @objc private func updateBalanceLabel(_ noti: Notification) {
@@ -82,15 +82,7 @@ class CustomerViewController: UIViewController {
         }
         VendingMachine.shared.updateBalance(update: updateBalanceLabel)
         
-        for numberOfProductLabel in numberOfProductLabels {
-            let tag = numberOfProductLabel.tag
-            guard let beverageType = Mapper.shared.mapping(by: tag) else { return }
-            
-            let updateNumberOfProductLabel: (Int) -> Void = { (numberOfProduct: Int) -> Void in
-                numberOfProductLabel.text = "\(numberOfProduct)개"
-            }
-            VendingMachine.shared.updateNumber(of: beverageType, update: updateNumberOfProductLabel)
-        }
+        self.stockLabels.updateStockLabels()
     }
     
     private func addOldHistoryImageViews() {

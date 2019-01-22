@@ -27,12 +27,8 @@ class Money: NSObject, NSCoding {
     
     //MARK: Initialization
     
-    init(money: Int) {
+    init(money: Int = 0) {
         self.money = money
-    }
-    
-    override init() {
-        self.money = 0
     }
     
     //MARK: - Properties

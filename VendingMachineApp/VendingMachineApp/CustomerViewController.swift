@@ -137,4 +137,21 @@ class CustomerViewController: UIViewController {
         guard let productType = Mapper.shared.mapping(by: tag) else { return }
         let _ = VendingMachine.sharedInstance.buy(productType: productType)
     }
+    
+    //MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "ManagerViewController" {
+            let managerViewController = segue.destination as! ManagerViewController
+            var stockLabelTexts: [String?] = []
+
+            for index in self.numberOfProductLabels.startIndex..<self.numberOfProductLabels.endIndex {
+                let customerLabelText = self.numberOfProductLabels[index].text
+                stockLabelTexts.append(customerLabelText)
+            }
+            
+            managerViewController.stockInfo = stockLabelTexts
+        }
+    }
 }

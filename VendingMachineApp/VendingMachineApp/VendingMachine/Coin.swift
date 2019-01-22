@@ -35,7 +35,7 @@ class Coin: NSObject, NSCoding {
         return coins >= price
     }
     
-    func convertToString() -> String {
-        return "\(coins)"
+    func get() -> Int {
+        return coins
     }
 }

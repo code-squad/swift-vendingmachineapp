@@ -40,9 +40,13 @@ class ViewController: UIViewController {
         let menuCount = 6
         let machine: CommonAvailableMachine = VendingMachine.sharedInstance
         for menu in 1...menuCount {
-            machine.markDrinkLabel(menu, view: self)
+            machine.markDrinkLabel(menu) { drinkCounts in
+                self.drinkLabels[menu-1].text = "\(drinkCounts)개"
+            }
         }
-        machine.markCoinLabel(view: self)
+        machine.markCoinLabel { coin in
+            self.currentCoin.text = "잔액 : \(coin)원"
+        }
     }
     
     private func initialAddButtonTag() {
@@ -80,7 +84,9 @@ class ViewController: UIViewController {
         let managerMode: ManageableMode = VendingMachine.sharedInstance
         if managerMode.isAbleToAdd(menu: menu) == .success {
             managerMode.addStock(menu: menu)
-            managerMode.markDrinkLabel(menu, view: self)
+            managerMode.markDrinkLabel(menu) { drinkCounts in
+                self.drinkLabels[menu-1].text = "\(drinkCounts)개"
+            }
         }
     }
     
@@ -103,26 +109,8 @@ class ViewController: UIViewController {
     private func insertEach(_ coin: Int) {
         let userMode: UserAvailableMode = VendingMachine.sharedInstance
         userMode.insert(coin: coin)
-        userMode.markCoinLabel(view: self)
+        userMode.markCoinLabel { coin in
+            self.currentCoin.text = "잔액 : \(coin)원"
+        }
     }
 }
-
-protocol DrawableView {
-    func setDrinkLabel(menu: Int, form: (UILabel) -> Void)
-    func setCoinLabel(form: (UILabel) -> Void)
-}
-
-extension ViewController: DrawableView {
-    func setDrinkLabel(menu: Int, form: (UILabel) -> Void) {
-        form(drinkLabels[menu-1])
-    }
-    
-    func setCoinLabel(form: (UILabel) -> Void) {
-        form(currentCoin)
-    }
-}
-
-
-
-
-

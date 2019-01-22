@@ -23,7 +23,7 @@ protocol AdminMode: class, CommonMode {
     func add(beverage: BeverageSubCategory)
     func remove(beverage: Int) -> Beverage?
     func removeExpiredBeverages() -> [Beverage]
-    func updateHistory(from updatePoint: Int) -> ArraySlice<Beverage>
+    func updateHistory(from updatePoint: Int) -> ArraySlice<Beverage>?
 }
 
 class VendingMachine: NSObject {
@@ -155,7 +155,7 @@ extension VendingMachine: AdminMode {
         return inventory.removeExpiredBeverages()
     }
 
-    func updateHistory(from updatePoint: Int) -> ArraySlice<Beverage> {
+    func updateHistory(from updatePoint: Int) -> ArraySlice<Beverage>? {
         return history.update(from: updatePoint)
     }
 

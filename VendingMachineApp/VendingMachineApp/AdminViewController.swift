@@ -14,16 +14,18 @@ class AdminViewController: UIViewController {
     @IBOutlet weak var purchasePieGraph: PieGraphView!
 
     private weak var vendingMachine: AdminMode?
+    private var purchases: [Beverage] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         registerAsObserver()
         updateAllQuantityLabels()
+        purchasePieGraph.historyDataSource = self
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        purchasePieGraph.update(from: self)
+        updateHistoryOfPurchase()
     }
 
     func set(vendingMachine: AdminMode?) {
@@ -68,13 +70,20 @@ class AdminViewController: UIViewController {
 }
 
 protocol HistoryDataSource {
-    func update(from updatePoint: Int) -> ArraySlice<Beverage>?
+    var classifiedPurchase: [String: Int] { get }
 }
 
 extension AdminViewController: HistoryDataSource {
 
-    func update(from updatePoint: Int) -> ArraySlice<Beverage>? {
-        return vendingMachine?.updateHistory(from: updatePoint)
+    private func updateHistoryOfPurchase() {
+        let updatePoint = purchases.count
+        guard let beverages = vendingMachine?.updateHistory(from: updatePoint) else { return }
+        beverages.forEach { purchases.append($0) }
+        purchasePieGraph.setNeedsDisplay()
+    }
+
+    var classifiedPurchase: [String: Int] {
+        return purchases.reduce(into: [:]) { $0[$1.title, default: 0] += 1 }
     }
 
 }

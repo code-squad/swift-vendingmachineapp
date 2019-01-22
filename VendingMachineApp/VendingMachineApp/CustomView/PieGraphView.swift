@@ -9,22 +9,13 @@
 import UIKit
 
 class PieGraphView: UIView {
-    private var purchases: [Beverage] = []
     private let palette: [UIColor] = [UIColor(red:0.02, green:0.05, blue:0.17, alpha:1.0),
                                       UIColor(red:0.59, green:0.88, blue:0.88, alpha:1.0),
                                       UIColor(red:0.14, green:0.69, blue:0.70, alpha:1.0),
                                       UIColor(red:0.04, green:0.42, blue:0.45, alpha:1.0),
                                       UIColor(red:0.31, green:0.78, blue:0.80, alpha:1.0),
                                       UIColor(red:0.63, green:0.78, blue:0.75, alpha:1.0)]
-
-    func update(from historyDataSource: HistoryDataSource) {
-        guard let beverages = historyDataSource.update(from: purchases.count) else { return }
-        beverages.forEach { purchases.append($0) }
-    }
-
-    private var classifiedPurchase: [String: Int] {
-        return purchases.reduce(into: [:]) { $0[$1.title, default: 0] += 1 }
-    }
+    var historyDataSource: HistoryDataSource?
 
     private var centerOfPie: CGPoint {
         return CGPoint(x: bounds.midX, y: bounds.midY)
@@ -57,10 +48,12 @@ class PieGraphView: UIView {
 
     override func draw(_ rect: CGRect) {
         super.draw(rect)
+        guard let classifiedPurchase = historyDataSource?.classifiedPurchase else { return }
+        let total = classifiedPurchase.values.reduce(0) { $0 + $1 }
         var currentAngle: CGFloat = 0
         for (index, purchase) in classifiedPurchase.enumerated() {
             palette[index].setFill()
-            let angle = purchase.value.convertedToAnglesInCircle(total: purchases.count)
+            let angle = purchase.value.convertedToAnglesInCircle(total: total)
             let endAngle = currentAngle + angle
             drawAPieceOfPie(startAngle: currentAngle, endAngle: endAngle)
             drawLabel(text: purchase.key as NSString, startAngle: currentAngle, endAngle: endAngle)

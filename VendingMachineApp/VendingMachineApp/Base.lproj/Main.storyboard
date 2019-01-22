@@ -290,6 +290,9 @@
                                                 <rect key="frame" x="47.5" y="0.0" width="35" height="36"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <state key="normal" title="추가"/>
+                                                <connections>
+                                                    <action selector="tapAddBeverageButton:" destination="oWw-Ed-3hC" eventType="touchUpInside" id="AUr-PD-iS7"/>
+                                                </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MandarineMilk.png" translatesAutoresizingMaskIntoConstraints="NO" id="OL3-Do-Dv5" customClass="ProductImageView" customModule="VendingMachineApp" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="46" width="130" height="180"/>
@@ -316,6 +319,9 @@
                                                 <rect key="frame" x="47.5" y="0.0" width="35" height="36"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <state key="normal" title="추가"/>
+                                                <connections>
+                                                    <action selector="tapAddBeverageButton:" destination="oWw-Ed-3hC" eventType="touchUpInside" id="csW-nM-Yzs"/>
+                                                </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LactoseFreeMilk.png" translatesAutoresizingMaskIntoConstraints="NO" id="f1U-je-Rw7" customClass="ProductImageView" customModule="VendingMachineApp" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="46" width="130" height="180"/>
@@ -342,6 +348,9 @@
                                                 <rect key="frame" x="47.5" y="0.0" width="35" height="36"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <state key="normal" title="추가"/>
+                                                <connections>
+                                                    <action selector="tapAddBeverageButton:" destination="oWw-Ed-3hC" eventType="touchUpInside" id="rDy-WA-ofg"/>
+                                                </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="StarbucksDoubleShot.png" translatesAutoresizingMaskIntoConstraints="NO" id="Jzv-h2-xGH" customClass="ProductImageView" customModule="VendingMachineApp" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="46" width="130" height="180"/>
@@ -368,6 +377,9 @@
                                                 <rect key="frame" x="47.5" y="0.0" width="35" height="36"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <state key="normal" title="추가"/>
+                                                <connections>
+                                                    <action selector="tapAddBeverageButton:" destination="oWw-Ed-3hC" eventType="touchUpInside" id="8Ys-bN-EcU"/>
+                                                </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TOPTheBlack.png" translatesAutoresizingMaskIntoConstraints="NO" id="wRX-oh-lxM" customClass="ProductImageView" customModule="VendingMachineApp" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="46" width="130" height="180"/>
@@ -394,6 +406,9 @@
                                                 <rect key="frame" x="47.5" y="0.0" width="35" height="36"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <state key="normal" title="추가"/>
+                                                <connections>
+                                                    <action selector="tapAddBeverageButton:" destination="oWw-Ed-3hC" eventType="touchUpInside" id="l1C-Jv-zgS"/>
+                                                </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CocaCola.png" translatesAutoresizingMaskIntoConstraints="NO" id="NUv-dJ-VM6" customClass="ProductImageView" customModule="VendingMachineApp" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="46" width="130" height="180"/>
@@ -420,6 +435,9 @@
                                                 <rect key="frame" x="47.5" y="0.0" width="35" height="36"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <state key="normal" title="추가"/>
+                                                <connections>
+                                                    <action selector="tapAddBeverageButton:" destination="oWw-Ed-3hC" eventType="touchUpInside" id="tH7-Re-vQh"/>
+                                                </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CocaColaZero.png" translatesAutoresizingMaskIntoConstraints="NO" id="0X9-zg-cpk" customClass="ProductImageView" customModule="VendingMachineApp" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="46" width="130" height="180"/>

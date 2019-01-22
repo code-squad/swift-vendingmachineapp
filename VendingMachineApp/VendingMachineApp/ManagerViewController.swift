@@ -27,6 +27,9 @@ class ManagerViewController: UIViewController {
     }
     */
 
+    //MARK: - Methods
+    //MARK: IBAction
+    
     @IBAction func tapCloseButton(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }

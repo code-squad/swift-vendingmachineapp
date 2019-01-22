@@ -16,9 +16,7 @@ extension UIImageView {
 }
 
 
-class ViewController: UIViewController {
-//    var machine: VendingMachine?
-    
+class ViewController: UIViewController {    
     @IBOutlet var drinkImages: [UIImageView]!
     @IBOutlet var drinkLabels: [UILabel]!
     @IBOutlet var addButtons: [UIButton]!
@@ -28,9 +26,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-//        machine = appDelegate.machine
-        
         initialImage()
         initialLabel()
         initialAddButtonTag()
@@ -90,14 +85,19 @@ class ViewController: UIViewController {
     }
     
     @IBAction func insertCoin(_ sender: Any) {
-        let coin: Int
+        enum InsertCoin: Int {
+            case oneThousand = 1000
+            case fiveThousand = 5000
+        }
+        
+        let coin: InsertCoin
         guard let button = sender as? UIButton else { return }
         switch button.tag {
-        case 1: coin = 1000
-        case 2: coin = 5000
+        case 1: coin = .oneThousand
+        case 2: coin = .fiveThousand
         default: return
         }
-        insertEach(coin)
+        insertEach(coin.rawValue)
     }
     
     private func insertEach(_ coin: Int) {

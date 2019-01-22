@@ -16,6 +16,7 @@
 		7D0C598D21F0746D0089E9F1 /* UserInfoKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0C598C21F0746D0089E9F1 /* UserInfoKey.swift */; };
 		7D30B85321F17E5200FCFDC2 /* ProductImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D30B85221F17E5200FCFDC2 /* ProductImageView.swift */; };
 		7D4398A921F3080B002F0E25 /* ExtensionBeverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4398A821F3080B002F0E25 /* ExtensionBeverage.swift */; };
+		7D5CBAB821F6B68300C51C7F /* ManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5CBAB721F6B68300C51C7F /* ManagerViewController.swift */; };
 		7DA03A2921D7348C002355CA /* LactoseFreeMilk.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DA03A2321D7348B002355CA /* LactoseFreeMilk.png */; };
 		7DA03A2A21D7348C002355CA /* TOPTheBlack.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DA03A2421D7348B002355CA /* TOPTheBlack.png */; };
 		7DA03A2B21D7348C002355CA /* StarbucksDoubleShot.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DA03A2521D7348B002355CA /* StarbucksDoubleShot.png */; };
@@ -54,6 +55,7 @@
 		7D0C598C21F0746D0089E9F1 /* UserInfoKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoKey.swift; sourceTree = "<group>"; };
 		7D30B85221F17E5200FCFDC2 /* ProductImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductImageView.swift; sourceTree = "<group>"; };
 		7D4398A821F3080B002F0E25 /* ExtensionBeverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionBeverage.swift; sourceTree = "<group>"; };
+		7D5CBAB721F6B68300C51C7F /* ManagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerViewController.swift; sourceTree = "<group>"; };
 		7DA03A2321D7348B002355CA /* LactoseFreeMilk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LactoseFreeMilk.png; sourceTree = "<group>"; };
 		7DA03A2421D7348B002355CA /* TOPTheBlack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TOPTheBlack.png; sourceTree = "<group>"; };
 		7DA03A2521D7348B002355CA /* StarbucksDoubleShot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StarbucksDoubleShot.png; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 				7DE2CB3121D4B82E004EC966 /* AppDelegate.swift */,
 				7DE2CB3321D4B82E004EC966 /* ViewController.swift */,
 				7DE2CB3521D4B82E004EC966 /* Main.storyboard */,
+				7D5CBAB721F6B68300C51C7F /* ManagerViewController.swift */,
 				7D5CBAB421F6295900C51C7F /* Beverage */,
 				7DE2CB5C21D4B920004EC966 /* Extension */,
 				7DE2CB5721D4B920004EC966 /* Protocol */,
@@ -315,6 +318,7 @@
 				7DE2CB3421D4B82E004EC966 /* ViewController.swift in Sources */,
 				7D4398A921F3080B002F0E25 /* ExtensionBeverage.swift in Sources */,
 				7D0C598921F052F50089E9F1 /* ProductLine.swift in Sources */,
+				7D5CBAB821F6B68300C51C7F /* ManagerViewController.swift in Sources */,
 				7DA03A3921DC7E03002355CA /* MoneyUnit.swift in Sources */,
 				7DE2CB7821D4B920004EC966 /* ExtensionDate.swift in Sources */,
 				7DE2CB6821D4B920004EC966 /* CarbonatedDrink.swift in Sources */,

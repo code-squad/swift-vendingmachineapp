@@ -298,7 +298,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YSK-ms-h6d">
                                 <rect key="frame" x="1058" y="52" width="22" height="22"/>
                                 <connections>
-                                    <segue destination="oWw-Ed-3hC" kind="presentation" id="Jhn-M2-3Ww"/>
+                                    <segue destination="oWw-Ed-3hC" kind="presentation" modalTransitionStyle="flipHorizontal" id="Jhn-M2-3Ww"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -328,10 +328,10 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
-        <!--View Controller-->
+        <!--Manager View Controller-->
         <scene sceneID="kKJ-LK-VCf">
             <objects>
-                <viewController id="oWw-Ed-3hC" sceneMemberID="viewController">
+                <viewController id="oWw-Ed-3hC" customClass="ManagerViewController" customModule="VendingMachineApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kUG-CH-lGv">
                         <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -341,7 +341,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GCW-EN-I5C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="826" y="135"/>
+            <point key="canvasLocation" x="771" y="31"/>
         </scene>
     </scenes>
     <resources>

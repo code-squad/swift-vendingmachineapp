@@ -56,6 +56,7 @@ class PieGraphView: UIView {
     }
 
     override func draw(_ rect: CGRect) {
+        super.draw(rect)
         var currentAngle: CGFloat = 0
         for (index, purchase) in classifiedPurchase.enumerated() {
             palette[index].setFill()

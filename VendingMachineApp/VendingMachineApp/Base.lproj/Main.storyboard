@@ -18,43 +18,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" alignment="center" spacing="75" translatesAutoresizingMaskIntoConstraints="NO" id="xAd-T0-B8w">
-                                <rect key="frame" x="923" y="250" width="154" height="135"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="33" translatesAutoresizingMaskIntoConstraints="NO" id="jp3-dx-qay">
-                                        <rect key="frame" x="0.0" y="0.0" width="154" height="36"/>
-                                        <subviews>
-                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FS3-UC-uaG">
-                                                <rect key="frame" x="0.0" y="0.0" width="59" height="36"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                <state key="normal" title="+1000">
-                                                    <color key="titleColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="tapInsertMoneyButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qga-E5-hDZ"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="auk-2l-uRJ">
-                                                <rect key="frame" x="92" y="0.0" width="62" height="36"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                <state key="normal" title="+5000">
-                                                    <color key="titleColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="tapInsertMoneyButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="G1r-xQ-G9n"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="잔액:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JSp-Kd-qxR">
-                                        <rect key="frame" x="57" y="111" width="40.5" height="24"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                            </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YSK-ms-h6d">
                                 <rect key="frame" x="1058" y="52" width="22" height="22"/>
                                 <connections>
@@ -62,7 +25,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="Qlu-Bz-Tpw">
-                                <rect key="frame" x="32" y="170" width="845" height="257.5"/>
+                                <rect key="frame" x="32" y="120" width="845" height="257.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="RoP-wX-jgp">
                                         <rect key="frame" x="0.0" y="0.0" width="130" height="257.5"/>
@@ -234,12 +197,49 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" alignment="center" spacing="75" translatesAutoresizingMaskIntoConstraints="NO" id="xAd-T0-B8w">
+                                <rect key="frame" x="926" y="181" width="154" height="135"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="33" translatesAutoresizingMaskIntoConstraints="NO" id="jp3-dx-qay">
+                                        <rect key="frame" x="0.0" y="0.0" width="154" height="36"/>
+                                        <subviews>
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FS3-UC-uaG">
+                                                <rect key="frame" x="0.0" y="0.0" width="59" height="36"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <state key="normal" title="+1000">
+                                                    <color key="titleColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="tapInsertMoneyButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qga-E5-hDZ"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="auk-2l-uRJ">
+                                                <rect key="frame" x="92" y="0.0" width="62" height="36"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <state key="normal" title="+5000">
+                                                    <color key="titleColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="tapInsertMoneyButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="G1r-xQ-G9n"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="잔액:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JSp-Kd-qxR">
+                                        <rect key="frame" x="57" y="111" width="40.5" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Qlu-Bz-Tpw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="8ue-fn-WsV"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="YSK-ms-h6d" secondAttribute="trailing" constant="32" id="A6G-S7-yBS"/>
-                            <constraint firstItem="Qlu-Bz-Tpw" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="150" id="OrN-ih-JBS"/>
+                            <constraint firstItem="Qlu-Bz-Tpw" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="OrN-ih-JBS"/>
                             <constraint firstItem="YSK-ms-h6d" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="32" id="U8s-qa-Y3j"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -281,7 +281,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="Sx7-me-F9F">
-                                <rect key="frame" x="32" y="170" width="845" height="261.5"/>
+                                <rect key="frame" x="32" y="120" width="845" height="261.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Z1Z-YD-e1d">
                                         <rect key="frame" x="0.0" y="0.0" width="130" height="261.5"/>
@@ -467,7 +467,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Sx7-me-F9F" firstAttribute="top" secondItem="Q4h-eE-4zK" secondAttribute="top" constant="150" id="0fm-A3-bfk"/>
+                            <constraint firstItem="Sx7-me-F9F" firstAttribute="top" secondItem="Q4h-eE-4zK" secondAttribute="top" constant="100" id="0fm-A3-bfk"/>
                             <constraint firstItem="Q4h-eE-4zK" firstAttribute="trailing" secondItem="ASN-2R-yTY" secondAttribute="trailing" constant="32" id="AVT-Vl-GGH"/>
                             <constraint firstItem="Sx7-me-F9F" firstAttribute="leading" secondItem="Q4h-eE-4zK" secondAttribute="leading" constant="32" id="FiQ-cs-VFE"/>
                             <constraint firstItem="ASN-2R-yTY" firstAttribute="top" secondItem="Q4h-eE-4zK" secondAttribute="top" constant="32" id="sNa-yX-2tn"/>

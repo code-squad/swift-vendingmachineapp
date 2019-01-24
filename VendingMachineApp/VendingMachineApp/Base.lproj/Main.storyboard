@@ -148,43 +148,58 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CIk-df-zzu">
-                                <rect key="frame" x="128" y="361" width="50" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CIk-df-zzu" userLabel="바나나 구입">
+                                <rect key="frame" x="128" y="355" width="50" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="구매">
                                     <color key="titleColor" red="1" green="0.19850522840000001" blue="0.14487927019999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
+                                <connections>
+                                    <action selector="buyDrink:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3KB-J7-8d4"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tFQ-Pj-hpP">
-                                <rect key="frame" x="275" y="361" width="50" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tFQ-Pj-hpP" userLabel="초코 구입">
+                                <rect key="frame" x="275" y="355" width="50" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="구매">
                                     <color key="titleColor" red="1" green="0.19850522840000001" blue="0.14487927019999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
+                                <connections>
+                                    <action selector="buyDrink:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yXE-3D-nIb"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5YI-ka-aq7">
-                                <rect key="frame" x="421" y="361" width="50" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5YI-ka-aq7" userLabel="콜라 구입">
+                                <rect key="frame" x="421" y="355" width="50" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="구매">
                                     <color key="titleColor" red="1" green="0.19850522840000001" blue="0.14487927019999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
+                                <connections>
+                                    <action selector="buyDrink:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wuE-ii-0HG"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rxz-KU-hf3">
-                                <rect key="frame" x="568" y="361" width="50" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rxz-KU-hf3" userLabel="환타 구입">
+                                <rect key="frame" x="568" y="355" width="50" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="구매">
                                     <color key="titleColor" red="1" green="0.19850522840000001" blue="0.14487927019999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
+                                <connections>
+                                    <action selector="buyDrink:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ih2-sr-ZuT"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eiH-kP-fNa">
-                                <rect key="frame" x="715" y="361" width="50" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eiH-kP-fNa" userLabel="칸타타 구입">
+                                <rect key="frame" x="715" y="355" width="50" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="구매">
                                     <color key="titleColor" red="1" green="0.19850522840000001" blue="0.14487927019999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
+                                <connections>
+                                    <action selector="buyDrink:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AWC-Ej-73a"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="90j-1G-aAY" userLabel="TOP 추가">
-                                <rect key="frame" x="108" y="399" width="90" height="50"/>
+                                <rect key="frame" x="108" y="393" width="90" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <state key="normal" title="추가"/>
@@ -193,23 +208,26 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TOP" translatesAutoresizingMaskIntoConstraints="NO" id="ph8-HQ-BJq">
-                                <rect key="frame" x="87" y="457" width="133" height="128"/>
+                                <rect key="frame" x="87" y="451" width="133" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WN6-cV-fzE" userLabel="TOP Label">
-                                <rect key="frame" x="132" y="584" width="42" height="21"/>
+                                <rect key="frame" x="132" y="578" width="42" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P8w-C6-qPx">
-                                <rect key="frame" x="128" y="613" width="50" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P8w-C6-qPx" userLabel="TOP 구입">
+                                <rect key="frame" x="128" y="607" width="50" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="구매">
                                     <color key="titleColor" red="1" green="0.19850522840000001" blue="0.14487927019999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
+                                <connections>
+                                    <action selector="buyDrink:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2wm-e1-j4u"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.90115192720919324" green="0.95468206679192724" blue="0.95834682642487046" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -237,6 +255,12 @@
                         <outletCollection property="addButtons" destination="90j-1G-aAY" collectionClass="NSMutableArray" id="zVE-oL-1UF"/>
                         <outletCollection property="insertButtons" destination="urP-9v-fmq" collectionClass="NSMutableArray" id="mZY-jl-8es"/>
                         <outletCollection property="insertButtons" destination="gMq-gx-Kmi" collectionClass="NSMutableArray" id="J3u-En-azA"/>
+                        <outletCollection property="buyButtons" destination="CIk-df-zzu" collectionClass="NSMutableArray" id="J6Z-Le-fsZ"/>
+                        <outletCollection property="buyButtons" destination="tFQ-Pj-hpP" collectionClass="NSMutableArray" id="T4K-jr-Yid"/>
+                        <outletCollection property="buyButtons" destination="5YI-ka-aq7" collectionClass="NSMutableArray" id="wgs-Ef-79D"/>
+                        <outletCollection property="buyButtons" destination="rxz-KU-hf3" collectionClass="NSMutableArray" id="hef-bF-E3t"/>
+                        <outletCollection property="buyButtons" destination="eiH-kP-fNa" collectionClass="NSMutableArray" id="7CX-Pc-eiu"/>
+                        <outletCollection property="buyButtons" destination="P8w-C6-qPx" collectionClass="NSMutableArray" id="SkV-y6-ymd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -25,6 +25,7 @@ class ViewController: UIViewController {
     @IBOutlet var drinkLabels: [UILabel]!
     @IBOutlet var addButtons: [UIButton]!
     @IBOutlet var insertButtons: [UIButton]!
+    @IBOutlet var buyButtons: [UIButton]!
     @IBOutlet weak var currentCoin: UILabel!
     
     override func viewDidLoad() {
@@ -35,6 +36,7 @@ class ViewController: UIViewController {
         initialImage()
         initialLabel()
         initialAddButtonTag()
+        initialBuyButtonTag()
         initialInserButtonTag()
     }
     
@@ -87,6 +89,14 @@ class ViewController: UIViewController {
         }
     }
     
+    private func initialBuyButtonTag() {
+        var tag = 1
+        for button in buyButtons {
+            button.tag = tag
+            tag += 1
+        }
+    }
+    
     @IBAction func addStock(_ sender: Any) {
         let menu: DrinkCategory
         guard let button = sender as? UIButton else { return }
@@ -128,6 +138,9 @@ class ViewController: UIViewController {
     private func insertEach(_ coin: Int) {
         let userMode: UserAvailableMode = VendingMachine.sharedInstance
         userMode.insert(coin: coin)
+    }
+    
+    @IBAction func buyDrink(_ sender: Any) {
     }
 }
 

@@ -218,8 +218,61 @@ let controllerObject = appDelegate.object
   **관찰자 패턴(Observer Pattern)**
   - 객체의 상태 변화를 관찰하는 관찰자들을 두고, 옵저버들이 객체의 상태 변화를 관찰하여 상태 변화가 있을 때마다 `메소드`를 통해 객체가 직접 관찰자들에게 통지하도록하는 **디자인 패턴**이다.
   
-  - `MVC 패턴`에서 자주 사용한다. `MVC 패턴`에서 모델과 뷰 사이를 느슨히 연결하기 위해 사용한다. 보통 모델에서 일어나는 변화를 통보받아 ViewController에서 작동시킨다.
+  - `MVC 패턴`에서 자주 사용한다. `MVC 패턴`에서 모델과 뷰 사이(꼭 모델과 뷰 사이가 아니더라도 객체와 객체의 관계)를 느슨히 연결하기 위해 사용한다. 보통 모델에서 일어나는 변화를 통보받아 ViewController에서 작동시킨다.
   ![fourthScreen](./4.png)
+  
+  
+  동작원리
+  * 특정 객체가 `NotificationCenter`에 `post`되어 있는 이벤트를 발생시키면 등록된 `Observer`들이 이벤트에 대한 동작들을 한다.
+  
+  사용법
+  1. 이벤트를 발생시킬 객체를 `NotificationCenter`에 등록해준다. 즉 `Post`해준다. 코드를 보면 `VendingMachine`객체에서 add라는 이벤트가 일어나면 `.stockChanged`란 Notification을 `NotificationCenter`에 보내겠다는 의미이다.
+  ```
+  extension NSNotification.Name {
+    static let stockChanged = NSNotification.Name(rawValue: "stockChanged")
+    static let coinChanged = NSNotification.Name(rawValue: "coinChanged")
+  }
+  
+  class VendingMachine {
+    func add() {
+        NotificationCenter.default.post(name: .stockChanged, object: nil)
+    }
+    
+    func minus() {
+        NotificationCenter.default.post(name: .coinChanged, object: nil)
+    }
+  }
+  ```
+  
+  2. 이벤트가 발생했을 때, 행동할 취해줄 객체를 `Observer`로 등록해준다. `ViewController`을 `Observer`로 등록 후 name 부분에 해당하는 `Notification`이 왔을 때 `selector`에 해당하는 행동을 취하겠다는 의미이다. 여기서 `selector`은 Obj-c에서 사용되는 것이기 때문에 @objc로 선언해주어야한다.
+  ```
+  class ViewController: UIViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(updateDrinkLabel), name: .stockChanged, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateCoinLabel), name: .coinChanged, object: nil)
+    }
+    
+    @objc func updateDrinkLabel() {
+        let commonMode: CommonAvailableMachine = VendingMachine.sharedInstance
+        for menu in DrinkCategory.allCases {
+            commonMode.markDrinkLabel(menu.rawValue) { drinkCounts in
+            self.drinkLabels[menu.rawValue-1].text = "\(drinkCounts)개"
+            }
+        }
+    }
+    
+    @objc func updateCoinLabel() {
+        let commonMode: CommonAvailableMachine = VendingMachine.sharedInstance
+        commonMode.markCoinLabel { coin in
+            self.currentCoin.text = "잔액 : \(coin)원"
+        }
+    }
+  }
+ ```
+ 
+ 3. 이제 `stockChanged`, `coinChanged`에 대한 노티가 발생 시 `옵저버`로 등록된 객체에서 `selector`에 대한 행동을 수행하게 된다.
+  
   
   
   

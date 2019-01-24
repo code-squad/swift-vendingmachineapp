@@ -100,7 +100,7 @@ extension VendingMachine: ManageableMode {
     func addStock(menu: Int) {
         guard let drink = DrinkCategory(rawValue: menu) else { return }
         stock.add(drink.createDrinkByMenu())
-        NotificationCenter.default.post(name: .updateDrinkLabel, object: nil)
+        NotificationCenter.default.post(name: .stockChanged, object: nil)
     }
     
     func removeDrink(_ menu: Int) -> Beverage {
@@ -129,8 +129,8 @@ extension VendingMachine: UserAvailableMode {
     }
     
     func insert(coin: Int) {
-        NotificationCenter.default.post(name: .updateCoinLabel, object: nil)
         self.coin.add(coin)
+        NotificationCenter.default.post(name: .coinChanged, object: nil)
     }
     
     func getPurchaseListInsertedCoin() -> [String] {

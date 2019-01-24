@@ -9,13 +9,21 @@
 import UIKit
 
 class PieGraphView: UIView {
-
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    
+    private var historyOfPurchase: HistoryOfPurchase? {
+        didSet {
+            
+        }
     }
-    */
 
+    override func draw(_ rect: CGRect) {
+        let path = UIBezierPath(arcCenter: CGPoint(x: bounds.midX, y: bounds.midY),
+                                radius: bounds.width / 2,
+                                startAngle: 0,
+                                endAngle: .pi * 2,
+                                clockwise: true)
+        
+        UIColor.green.setFill()
+        path.fill()
+    }
 }

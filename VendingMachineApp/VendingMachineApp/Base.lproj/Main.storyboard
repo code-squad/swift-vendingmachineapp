@@ -475,6 +475,7 @@
                         <viewLayoutGuide key="safeArea" id="Q4h-eE-4zK"/>
                     </view>
                     <connections>
+                        <outlet property="historyOfPurchaseView" destination="i5w-Ae-WGk" id="NPj-tN-oRb"/>
                         <outletCollection property="stockLabels" destination="rCo-C5-Xjm" collectionClass="NSMutableArray" id="cIS-PK-LwI"/>
                         <outletCollection property="stockLabels" destination="x52-kR-tGk" collectionClass="NSMutableArray" id="xFi-c0-xZB"/>
                         <outletCollection property="stockLabels" destination="bd3-2j-x9I" collectionClass="NSMutableArray" id="miz-SA-ziB"/>

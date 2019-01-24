@@ -47,4 +47,15 @@ class HistoryOfPurchase: NSObject, NSCoding {
     func performByHistory(_ addHistoryImageViews: ([Beverage]) -> Void) {
         addHistoryImageViews(self.historyOfPurchase)
     }
+    
+    func makePurchaseInfo() -> [String: CGFloat] {
+        
+        var purchaseInfo: [String: CGFloat] = [:]
+        
+        for beverage in historyOfPurchase {
+            
+        }
+        
+        return purchaseInfo
+    }
 }

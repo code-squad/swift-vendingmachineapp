@@ -16,8 +16,8 @@ extension UIImageView {
 }
 
 extension NSNotification.Name {
-    static let updateDrinkLabel = NSNotification.Name(rawValue: "updateDrinkLabel")
-    static let updateCoinLabel = NSNotification.Name(rawValue: "updateCoinLabel")
+    static let stockChanged = NSNotification.Name(rawValue: "stockChanged")
+    static let coinChanged = NSNotification.Name(rawValue: "coinChanged")
 }
 
 class ViewController: UIViewController {    
@@ -30,8 +30,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        NotificationCenter.default.addObserver(self, selector: #selector(updateDrinkLabel), name: .updateDrinkLabel, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(updateCoinLabel), name: .updateCoinLabel, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateDrinkLabel), name: .stockChanged, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateCoinLabel), name: .coinChanged, object: nil)
         initialImage()
         initialLabel()
         initialAddButtonTag()

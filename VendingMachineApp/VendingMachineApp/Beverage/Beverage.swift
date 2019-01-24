@@ -72,3 +72,7 @@ class Beverage: NSObject, NSCoding {
         return product.init() as Beverage
     }
 }
+
+extension Beverage {
+    
+}

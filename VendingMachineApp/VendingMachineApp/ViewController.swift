@@ -98,17 +98,8 @@ class ViewController: UIViewController {
     }
     
     @IBAction func addStock(_ sender: Any) {
-        let menu: DrinkCategory
         guard let button = sender as? UIButton else { return }
-        switch button.tag {
-        case 1: menu = DrinkCategory.bananaMilk
-        case 2: menu = DrinkCategory.chocoMilk
-        case 3: menu = DrinkCategory.cola
-        case 4: menu = DrinkCategory.fanta
-        case 5: menu = DrinkCategory.cantata
-        case 6: menu = DrinkCategory.top
-        default: return
-        }
+        guard let menu = DrinkCategory(rawValue: button.tag) else { return }
         addEachDrink(of: menu.rawValue)
     }
     
@@ -141,6 +132,18 @@ class ViewController: UIViewController {
     }
     
     @IBAction func buyDrink(_ sender: Any) {
+        let userMode: UserAvailableMode = VendingMachine.sharedInstance
+        guard let button = sender as? UIButton else { return }
+        guard let menu = DrinkCategory(rawValue: button.tag) else { return }
+        let buyState = userMode.isAbleToPick(menu: menu.rawValue)
+        if buyState == .success {
+            userMode.pick(menu: menu.rawValue)
+        } else {
+            let warningMessage = UIAlertController(title: "실패", message: buyState.convertString(), preferredStyle: .alert)
+            let cancelWindow = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+            warningMessage.addAction(cancelWindow)
+            present(warningMessage, animated: true, completion: nil)
+        }
     }
 }
 

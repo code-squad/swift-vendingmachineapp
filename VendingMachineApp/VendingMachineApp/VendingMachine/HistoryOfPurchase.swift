@@ -48,12 +48,12 @@ class HistoryOfPurchase: NSObject, NSCoding {
         addHistoryImageViews(self.historyOfPurchase)
     }
     
-    func makePurchaseInfo() -> [String: CGFloat] {
+    func makePurchaseInfo() -> PurchaseInfo {
         
-        var purchaseInfo: [String: CGFloat] = [:]
+        var purchaseInfo = PurchaseInfo()
         
         for beverage in historyOfPurchase {
-            
+            purchaseInfo.count(name: "\(beverage)")
         }
         
         return purchaseInfo

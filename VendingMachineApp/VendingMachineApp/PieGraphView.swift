@@ -8,22 +8,41 @@
 
 import UIKit
 
+@IBDesignable
 class PieGraphView: UIView {
     
-    private var historyOfPurchase: HistoryOfPurchase? {
-        didSet {
-            
+    //MARK: - Properties
+    
+    private var purchaseInfo: [String: CGFloat] = ["가": 1, "나": 2, "다": 3, "라": 4, "마": 5, "사": 6,]
+    private var colors: [UIColor] = [.black, .green, .orange, .red, .purple, .blue,]
+    
+    //MARK: - Methods
+    
+    override func draw(_ rect: CGRect) {
+        
+        let countOfAll = purchaseInfo.values.reduce(0) {$0 + $1}
+        var startAngle: CGFloat = 0
+        
+        for (_, count) in purchaseInfo {
+            let endAngle = startAngle + (count / countOfAll)  * .pi * 2
+            let path = makePath(startAngle: startAngle, endAngle: endAngle)
+            startAngle = endAngle
+            colors.popLast()?.setFill()
+            path.fill()
         }
     }
-
-    override func draw(_ rect: CGRect) {
-        let path = UIBezierPath(arcCenter: CGPoint(x: bounds.midX, y: bounds.midY),
-                                radius: bounds.width / 2,
-                                startAngle: 0,
-                                endAngle: .pi * 2,
-                                clockwise: true)
+    
+    private func makePath(startAngle: CGFloat, endAngle: CGFloat) -> UIBezierPath {
         
-        UIColor.green.setFill()
-        path.fill()
+        let path = UIBezierPath()
+        path.move(to: CGPoint(x: bounds.midX, y: bounds.midY))
+        path.addArc(withCenter: CGPoint(x: bounds.midX, y: bounds.midY),
+                    radius: bounds.width / 2,
+                    startAngle: startAngle,
+                    endAngle: endAngle,
+                    clockwise: true)
+        path.close()
+        
+        return path
     }
 }

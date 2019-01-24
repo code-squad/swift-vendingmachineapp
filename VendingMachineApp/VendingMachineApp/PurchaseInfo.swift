@@ -13,7 +13,7 @@ struct PurchaseInfo {
     //MARK: - Properties
     //MARK: Private
     
-    private var purchaseInfo: [String: CGFloat]
+    private var purchaseInfo: [String: CGFloat] = [:]
     
     //MARK: - Methods
     

@@ -6,7 +6,7 @@
 //  Copyright © 2018 JK. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class Beverage: NSObject, NSCoding {
     
@@ -71,8 +71,4 @@ class Beverage: NSObject, NSCoding {
     static func produce(product: BeverageProduct.Type) -> Beverage {
         return product.init() as Beverage
     }
-}
-
-extension Beverage {
-    
 }

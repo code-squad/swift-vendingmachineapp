@@ -14,7 +14,6 @@ protocol CommonAvailableMachine {
 }
 
 protocol UserAvailableMode: CommonAvailableMachine {
-    func isAbleToInsert(coin: Int) -> State
     func isAbleToPick(menu: Int) -> State
     func pick(menu: Int) -> Beverage
     func insert(coin: Int)
@@ -109,11 +108,6 @@ extension VendingMachine: ManageableMode {
 }
 
 extension VendingMachine: UserAvailableMode {
-    func isAbleToInsert(coin: Int) -> State {
-        if coin < 0 { return .negative }
-        return .success
-    }
-    
     func isAbleToPick(menu: Int) -> State {
         guard stock.isExist(menu) else { return .notExist }
         guard !stock.isEmptyStock(menu) else { return .notEnough }
@@ -125,6 +119,8 @@ extension VendingMachine: UserAvailableMode {
         let picked = stock.pickOneDrink(menu: menu)
         purchaseHistory.addHistory(of: picked)
         coin.minus(stock.getPrice(menu: menu))
+        NotificationCenter.default.post(name: .stockChanged, object: nil)
+        NotificationCenter.default.post(name: .coinChanged, object: nil)
         return picked
     }
     

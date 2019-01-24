@@ -27,6 +27,7 @@ class ManagerViewController: UIViewController {
                                                name: .didChangeNumberOfProduct,
                                                object: nil)
 
+        
         update(stockLabels: stockLabels)
     }
     

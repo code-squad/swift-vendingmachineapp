@@ -13,7 +13,7 @@ class PieGraphView: UIView {
     
     //MARK: - Properties
     
-    private var purchaseInfo: [String: CGFloat] = ["가": 1, "나": 2, "다": 3, "라": 4, "마": 5, "사": 6,]
+    private var purchaseInfo: [String: CGFloat] = [:]
     private var colors: [UIColor] = [.black, .gray, .orange, .red, .purple, .blue,]
     
     //MARK: - Methods
@@ -32,6 +32,11 @@ class PieGraphView: UIView {
             startAngle += angleFromStartToEnd
             addSubview(label)
         }
+    }
+    
+    func purchaseInfo(_ purchaseInfo: [String: CGFloat]) {
+        self.purchaseInfo = purchaseInfo
+        
     }
     
     //MARK: Private

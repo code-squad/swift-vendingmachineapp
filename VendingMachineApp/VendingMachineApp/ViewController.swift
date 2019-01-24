@@ -100,7 +100,6 @@ class ViewController: UIViewController {
         default: return
         }
         addEachDrink(of: menu.rawValue)
-        NotificationCenter.default.post(name: .updateDrinkLabel, object: nil)
     }
     
     private func addEachDrink(of menu: Int) {
@@ -124,7 +123,6 @@ class ViewController: UIViewController {
         default: return
         }
         insertEach(coin.rawValue)
-        NotificationCenter.default.post(name: .updateCoinLabel, object: nil)
     }
     
     private func insertEach(_ coin: Int) {

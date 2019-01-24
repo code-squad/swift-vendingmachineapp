@@ -14,6 +14,7 @@ class ManagerViewController: UIViewController {
     //MARK: IBOutlet
     
     @IBOutlet var stockLabels: [UILabel]!
+    @IBOutlet weak var historyOfPurchaseView: PieGraphView!
     
     //MARK: - Methods
     //MARK: Life Cycle

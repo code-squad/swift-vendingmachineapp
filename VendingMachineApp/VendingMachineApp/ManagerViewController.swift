@@ -8,9 +8,12 @@
 
 import UIKit
 
-class ManagerViewController: UIViewController {
+class ManagerViewController: UIViewController, PieGraphDataSource {
 
     //MARK: - Properties
+    
+    var historyOfPurchase: [String : Int] = [:]
+    
     //MARK: IBOutlet
     
     @IBOutlet var stockLabels: [UILabel]!
@@ -26,9 +29,8 @@ class ManagerViewController: UIViewController {
                                                selector: #selector(updateNumberOfProductLabel),
                                                name: .didChangeNumberOfProduct,
                                                object: nil)
-
-        let purchaseInfo = VendingMachine.shared.purchaseInfo()
-        historyOfPurchaseView.purchaseInfo(purchaseInfo)
+        historyOfPurchaseView.dataSource = self
+        historyOfPurchase = VendingMachine.shared.purchaseInfo()
         update(stockLabels: stockLabels)
     }
     

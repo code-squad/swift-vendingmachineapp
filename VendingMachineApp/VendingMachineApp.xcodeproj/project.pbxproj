@@ -19,6 +19,7 @@
 		7D5CBAB821F6B68300C51C7F /* ManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5CBAB721F6B68300C51C7F /* ManagerViewController.swift */; };
 		7D5CBABC21F711DD00C51C7F /* ExtensionUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5CBABB21F711DD00C51C7F /* ExtensionUIViewController.swift */; };
 		7D5CBABE21F86ABE00C51C7F /* PieGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5CBABD21F86ABE00C51C7F /* PieGraphView.swift */; };
+		7D9256B421FAF45E00B28CE2 /* PieGraphDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9256B321FAF45E00B28CE2 /* PieGraphDataSource.swift */; };
 		7DA03A2921D7348C002355CA /* LactoseFreeMilk.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DA03A2321D7348B002355CA /* LactoseFreeMilk.png */; };
 		7DA03A2A21D7348C002355CA /* TOPTheBlack.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DA03A2421D7348B002355CA /* TOPTheBlack.png */; };
 		7DA03A2B21D7348C002355CA /* StarbucksDoubleShot.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DA03A2521D7348B002355CA /* StarbucksDoubleShot.png */; };
@@ -60,6 +61,7 @@
 		7D5CBAB721F6B68300C51C7F /* ManagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerViewController.swift; sourceTree = "<group>"; };
 		7D5CBABB21F711DD00C51C7F /* ExtensionUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUIViewController.swift; sourceTree = "<group>"; };
 		7D5CBABD21F86ABE00C51C7F /* PieGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieGraphView.swift; sourceTree = "<group>"; };
+		7D9256B321FAF45E00B28CE2 /* PieGraphDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieGraphDataSource.swift; sourceTree = "<group>"; };
 		7DA03A2321D7348B002355CA /* LactoseFreeMilk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LactoseFreeMilk.png; sourceTree = "<group>"; };
 		7DA03A2421D7348B002355CA /* TOPTheBlack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TOPTheBlack.png; sourceTree = "<group>"; };
 		7DA03A2521D7348B002355CA /* StarbucksDoubleShot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StarbucksDoubleShot.png; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 				7D30B85221F17E5200FCFDC2 /* ProductImageView.swift */,
 				7D5CBABD21F86ABE00C51C7F /* PieGraphView.swift */,
 				7D0C596121EDABB80089E9F1 /* Typealias.swift */,
+				7D9256B321FAF45E00B28CE2 /* PieGraphDataSource.swift */,
 				7D0C598C21F0746D0089E9F1 /* UserInfoKey.swift */,
 				7DE2CB3821D4B82F004EC966 /* Assets.xcassets */,
 				7DE2CB3A21D4B82F004EC966 /* LaunchScreen.storyboard */,
@@ -322,6 +325,7 @@
 				7D30B85321F17E5200FCFDC2 /* ProductImageView.swift in Sources */,
 				7DE2CB7A21D4B920004EC966 /* LactoseFreeMilk.swift in Sources */,
 				7DE2CB3421D4B82E004EC966 /* CustomerViewController.swift in Sources */,
+				7D9256B421FAF45E00B28CE2 /* PieGraphDataSource.swift in Sources */,
 				7D4398A921F3080B002F0E25 /* ExtensionBeverage.swift in Sources */,
 				7D5CBABE21F86ABE00C51C7F /* PieGraphView.swift in Sources */,
 				7D0C598921F052F50089E9F1 /* ProductLine.swift in Sources */,

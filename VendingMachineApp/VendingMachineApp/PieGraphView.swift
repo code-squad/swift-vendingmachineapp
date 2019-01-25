@@ -13,17 +13,17 @@ class PieGraphView: UIView {
     
     //MARK: - Properties
     
-    private var purchaseInfo: [String: Int] = [:]
-    private var colors: [UIColor] = [.black, .gray, .orange, .red, .purple, .blue,]
+    var dataSource: PieGraphDataSource?
     
     //MARK: - Methods
     
     override func draw(_ rect: CGRect) {
-        
-        let countOfAll = purchaseInfo.values.reduce(0) {$0 + $1}
+        guard let dataSource = self.dataSource else { return }
+        var colors: [UIColor] = [.black, .gray, .orange, .red, .purple, .blue,]
+        let countOfAll = dataSource.historyOfPurchase.values.reduce(0) {$0 + $1}
         var startAngle: CGFloat = 0
         
-        for (name, count) in purchaseInfo {
+        for (name, count) in dataSource.historyOfPurchase {
             let angleFromStartToEnd = CGFloat(count) / CGFloat(countOfAll)  * .pi * 2
             let path = makePath(startAngle: startAngle, angleFromStartToEnd: angleFromStartToEnd)
             colors.popLast()?.setFill()
@@ -33,11 +33,7 @@ class PieGraphView: UIView {
             addSubview(label)
         }
     }
-    
-    func purchaseInfo(_ purchaseInfo: [String: Int]) {
-        self.purchaseInfo = purchaseInfo
-    }
-    
+
     //MARK: Private
     
     private func makePath(startAngle: CGFloat, angleFromStartToEnd: CGFloat) -> UIBezierPath {

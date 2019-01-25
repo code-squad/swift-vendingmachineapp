@@ -60,7 +60,18 @@ class ViewController: UIViewController {
     }
     
     @objc func updatePurchaseHistory() {
-        
+        let commonMode: CommonAvailableMachine = VendingMachine.sharedInstance
+        commonMode.markPurchasedHistory { history in
+            var initialX = 40
+            let initialY = 575
+            var eachImage: UIImageView
+            for each in history {
+                eachImage = UIImageView(image: UIImage(named: each.convertToImageName()))
+                eachImage.frame = CGRect(x: initialX, y: initialY, width: 140, height: 100)
+                initialX += 50
+                self.view.addSubview(eachImage)
+            }
+        }
     }
     
     private func initialImage() {

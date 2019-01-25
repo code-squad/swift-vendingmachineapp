@@ -39,7 +39,7 @@ class ChocoMilk: Milk {
         return cocoaPowderAmount > 1.0
     }
     
-    override func convertToStringBeverage() -> String {
-        return "\(type(of: self))"
+    override func convertToImageName() -> String {
+        return "초코우유"
     }
 }

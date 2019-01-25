@@ -42,7 +42,7 @@ class Fanta: CarbonatedDrink {
         return self.fantaFlavor == flavor
     }
     
-    override func convertToStringBeverage() -> String {
-        return "\(type(of: self))"
+    override func convertToImageName() -> String {
+        return "환타"
     }
 }

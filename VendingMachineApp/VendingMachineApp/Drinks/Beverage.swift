@@ -39,7 +39,7 @@ class Beverage: NSObject, NSCoding {
         self.menufactureOfDate = aDecoder.decodeObject(forKey: "menufactureOfDate") as? Date ?? Date()
     }
     
-    func convertToStringBeverage() -> String {
+    func convertToImageName() -> String {
         return ""
     }
 }

@@ -27,10 +27,7 @@ class ManagerViewController: UIViewController {
                                                name: .didChangeNumberOfProduct,
                                                object: nil)
         
-        let connectDataSource = { [unowned self] (dataSource: PieGraphDataSource) -> Void in
-            self.historyOfPurchaseView.dataSource = dataSource
-        }
-        VendingMachine.shared.performByHistory(connectDataSource)
+        historyOfPurchaseView.dataSource = VendingMachine.shared
         update(stockLabels: stockLabels)
     }
     

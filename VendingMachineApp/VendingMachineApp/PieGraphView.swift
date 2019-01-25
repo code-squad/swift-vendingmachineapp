@@ -36,7 +36,6 @@ class PieGraphView: UIView {
     
     func purchaseInfo(_ purchaseInfo: [String: CGFloat]) {
         self.purchaseInfo = purchaseInfo
-        
     }
     
     //MARK: Private
@@ -61,7 +60,7 @@ class PieGraphView: UIView {
         label.text = name
         label.textAlignment = .center
         label.textColor = UIColor.white
-        label.frame.size = CGSize(width: 20, height: 20)
+        label.sizeToFit()
         
         let path = UIBezierPath(arcCenter: CGPoint(x: bounds.midX, y: bounds.midY),
                                 radius: bounds.width / 2,

@@ -27,7 +27,8 @@ class ManagerViewController: UIViewController {
                                                name: .didChangeNumberOfProduct,
                                                object: nil)
 
-        
+        let purchaseInfo = VendingMachine.shared.purchaseInfo()
+        historyOfPurchaseView.purchaseInfo(purchaseInfo)
         update(stockLabels: stockLabels)
     }
     

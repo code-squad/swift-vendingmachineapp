@@ -12,7 +12,6 @@ extension UIImageView {
     func setCornerRadius() {
         self.layer.cornerRadius = 15
         self.clipsToBounds = true
-        self.layer.borderWidth = 5
     }
 }
 
@@ -77,6 +76,7 @@ class ViewController: UIViewController {
     
     private func initialImage() {
         for image in drinkImages { image.setCornerRadius() }
+        for image in drinkImages { image.layer.borderWidth = 5 }
     }
     
     private func initialLabel() {

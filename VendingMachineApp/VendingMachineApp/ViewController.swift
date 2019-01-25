@@ -119,14 +119,12 @@ class ViewController: UIViewController {
     @IBAction func addStock(_ sender: Any) {
         guard let button = sender as? UIButton else { return }
         guard let menu = DrinkCategory(rawValue: button.tag) else { return }
-        addEachDrink(of: menu.rawValue)
+        addEachDrink(of: menu)
     }
     
-    private func addEachDrink(of menu: Int) {
+    private func addEachDrink(of menu: DrinkCategory) {
         let managerMode: ManageableMode = VendingMachine.sharedInstance
-        if managerMode.isAbleToAdd(menu: menu) == .success {
-            managerMode.addStock(menu: menu)
-        }
+        managerMode.addStock(menu: menu)
     }
     
     @IBAction func insertCoin(_ sender: Any) {
@@ -154,9 +152,9 @@ class ViewController: UIViewController {
         let userMode: UserAvailableMode = VendingMachine.sharedInstance
         guard let button = sender as? UIButton else { return }
         guard let menu = DrinkCategory(rawValue: button.tag) else { return }
-        let buyState = userMode.isAbleToPick(menu: menu.rawValue)
+        let buyState = userMode.isAbleToPick(menu: menu)
         if buyState == .success {
-            userMode.pick(menu: menu.rawValue)
+            userMode.pick(menu: menu)
         } else {
             let warningMessage = UIAlertController(title: "실패", message: buyState.convertString(), preferredStyle: .alert)
             let cancelWindow = UIAlertAction(title: "확인", style: .cancel, handler: nil)

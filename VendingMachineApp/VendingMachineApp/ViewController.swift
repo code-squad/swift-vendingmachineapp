@@ -68,6 +68,7 @@ class ViewController: UIViewController {
             for each in history {
                 eachImage = UIImageView(image: UIImage(named: each.convertToImageName()))
                 eachImage.frame = CGRect(x: initialX, y: initialY, width: 140, height: 100)
+                eachImage.contentMode = .scaleAspectFit
                 initialX += 50
                 self.view.addSubview(eachImage)
             }

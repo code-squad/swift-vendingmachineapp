@@ -66,6 +66,14 @@ class Beverage: NSObject, NSCoding {
         return balance > self.price
     }
     
+    func increaseEqualName(_ purchaseInfo: inout [String: CGFloat]) {
+        
+        if purchaseInfo["\(name)"] == nil {
+            purchaseInfo["\(name)"] = 0
+        }
+        purchaseInfo["\(name)"]? += 1
+    }
+    
     //MARK: Static
     
     static func produce(product: BeverageProduct.Type) -> Beverage {

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class HistoryOfPurchase: NSObject, NSCoding, PieGraphDataSource {
+class HistoryOfPurchase: NSObject, NSCoding {
     
     //MARK: - Keys
     

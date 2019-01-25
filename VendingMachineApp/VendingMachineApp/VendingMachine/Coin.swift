@@ -35,7 +35,7 @@ class Coin: NSObject, NSCoding {
         return coins >= price
     }
     
-    func get() -> Int {
-        return coins
+    func get(form: (Int) -> Void) {
+        form(coins)
     }
 }

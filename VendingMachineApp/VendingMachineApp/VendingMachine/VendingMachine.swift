@@ -137,11 +137,11 @@ extension VendingMachine: CommonAvailableMachine {
     }
     
     func markCoinLabel(form: (Int) -> Void) {
-        form(coin.get())
+        coin.get(form: form)
     }
     
     func markPurchasedHistory(form: ([Beverage]) -> Void) {
-        form(purchaseHistory.get())
+        purchaseHistory.get(form: form)
     }
 }
 

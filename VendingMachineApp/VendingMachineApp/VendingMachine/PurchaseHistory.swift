@@ -28,7 +28,7 @@ class PurchaseHistory: NSObject, NSCoding {
         history.append(drink)
     }
     
-    func get() -> [Beverage] {
-        return history
+    func get(form: ([Beverage]) -> Void) {
+        form(history)
     }
 }

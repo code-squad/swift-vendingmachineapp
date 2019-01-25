@@ -10,6 +10,6 @@ import Foundation
 
 protocol PieGraphDataSource {
     
-    var historyOfPurchase: [String: Int] {get set}
+    func purchaseInfo() -> [String: Int]
     
 }

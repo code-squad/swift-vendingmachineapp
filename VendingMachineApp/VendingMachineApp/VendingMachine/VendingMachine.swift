@@ -90,6 +90,10 @@ class VendingMachine: NSObject, NSCoding {
         return historyOfPurchase.purchaseInfo()
     }
     
+    func performByHistory(_ connectDataSource: (PieGraphDataSource) -> Void) {
+        connectDataSource(self.historyOfPurchase)
+    }
+    
     //MARK: - Get Properties Method
     
     func property(of vendingMachine: VendingMachine) {

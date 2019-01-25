@@ -11,12 +11,12 @@ import Foundation
 protocol CommonAvailableMachine {
     func markDrinkLabel(_ menu: Int, form: (Int) -> Void)
     func markCoinLabel(form: (Int) -> Void)
-    func markPurchasedHistory()
+    func markPurchasedHistory(form: ([Beverage]) -> Void)
 }
 
 protocol UserAvailableMode: CommonAvailableMachine {
     func isAbleToPick(menu: Int) -> State
-    func pick(menu: Int) -> Beverage
+    func pick(menu: Int)
     func insert(coin: Int)
     func getCanPurchaseListInsertedCoin() -> [String]
 }
@@ -69,10 +69,6 @@ class VendingMachine: NSObject, NSCoding {
         let todayDate: Date = Date()
         return stock.searchExpirationList(to: todayDate)
     }
-    
-    func getPuchaseHistory() -> [String] {
-        return purchaseHistory.convertToStrngHistory()
-    }
 }
 
 extension VendingMachine: PrintableMachingState {
@@ -116,14 +112,13 @@ extension VendingMachine: UserAvailableMode {
         return .success
     }
     
-    func pick(menu: Int) -> Beverage {
+    func pick(menu: Int) {
         let picked = stock.pickOneDrink(menu: menu)
         purchaseHistory.addHistory(of: picked)
         coin.minus(stock.getPrice(menu: menu))
         NotificationCenter.default.post(name: .stockChanged, object: nil)
         NotificationCenter.default.post(name: .coinChanged, object: nil)
         NotificationCenter.default.post(name: .historyChanged, object: nil)
-        return picked
     }
     
     func insert(coin: Int) {
@@ -145,8 +140,8 @@ extension VendingMachine: CommonAvailableMachine {
         form(coin.get())
     }
     
-    func markPurchasedHistory() {
-        
+    func markPurchasedHistory(form: ([Beverage]) -> Void) {
+        form(purchaseHistory.get())
     }
 }
 

@@ -42,7 +42,7 @@ class TOP: Coffee {
         return self.topKind == kind
     }
     
-    override func convertToStringBeverage() -> String {
-        return "\(type(of: self))"
+    override func convertToImageName() -> String {
+        return "TOP"
     }
 }

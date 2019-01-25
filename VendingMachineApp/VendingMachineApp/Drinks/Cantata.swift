@@ -43,7 +43,7 @@ class Cantata: Coffee {
         return self.packingMaterial == pack
     }
     
-    override func convertToStringBeverage() -> String {
-        return "\(type(of: self))"
+    override func convertToImageName() -> String {
+        return "칸타타"
     }
 }

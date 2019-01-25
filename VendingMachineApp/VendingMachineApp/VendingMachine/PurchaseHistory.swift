@@ -28,7 +28,7 @@ class PurchaseHistory: NSObject, NSCoding {
         history.append(drink)
     }
     
-    func convertToStrngHistory() -> [String] {
-        return history.map { $0.convertToStringBeverage() }
+    func get() -> [Beverage] {
+        return history
     }
 }

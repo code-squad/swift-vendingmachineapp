@@ -39,7 +39,7 @@ class Cola: CarbonatedDrink {
         return sugarAmount > 1.0
     }
     
-    override func convertToStringBeverage() -> String {
-        return "\(type(of: self))"
+    override func convertToImageName() -> String {
+        return "콜라"
     }
 }

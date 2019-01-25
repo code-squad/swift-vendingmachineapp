@@ -36,6 +36,7 @@ class ViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(updateCoinLabel), name: .coinChanged, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(updatePurchaseHistory), name: .historyChanged, object: nil)
         initialImage()
+        initialPuschaseImage()
         initialLabel()
         initialAddButtonTag()
         initialBuyButtonTag()
@@ -61,24 +62,35 @@ class ViewController: UIViewController {
     @objc func updatePurchaseHistory() {
         let commonMode: CommonAvailableMachine = VendingMachine.sharedInstance
         commonMode.markPurchasedHistory { history in
-            var initialX = 40
+            let initialX = 40
             let initialY = 575
-            var tempImage: UIImageView
-            var historyImages: [UIImageView] = []
-            for each in history {
-                tempImage = UIImageView(image: UIImage(named: each.convertToImageName()))
-                tempImage.frame = CGRect(x: initialX, y: initialY, width: 140, height: 100)
-                tempImage.contentMode = .scaleAspectFit
-                initialX += 50
-                historyImages.append(tempImage)
-            }
-            for image in historyImages { self.view.addSubview(image) }
+            var buyDrinkImage: UIImageView
+            buyDrinkImage = UIImageView(image: UIImage(named: history[history.count-1].convertToImageName()))
+            buyDrinkImage.frame = CGRect(x: initialX + (history.count-1)*50, y: initialY, width: 140, height: 100)
+            buyDrinkImage.contentMode = .scaleAspectFit
+            self.view.addSubview(buyDrinkImage)
         }
     }
     
     private func initialImage() {
         for image in drinkImages { image.setCornerRadius() }
         for image in drinkImages { image.layer.borderWidth = 5 }
+    }
+    
+    private func initialPuschaseImage() {
+        let commonMode: CommonAvailableMachine = VendingMachine.sharedInstance
+        commonMode.markPurchasedHistory { history in
+            var initialX = 40
+            let initialY = 575
+            var tempImage: UIImageView
+            for each in history {
+                tempImage = UIImageView(image: UIImage(named: each.convertToImageName()))
+                tempImage.frame = CGRect(x: initialX, y: initialY, width: 140, height: 100)
+                tempImage.contentMode = .scaleAspectFit
+                initialX += 50
+                self.view.addSubview(tempImage)
+            }
+        }
     }
     
     private func initialLabel() {

@@ -15,17 +15,16 @@ protocol CommonAvailableMachine {
 }
 
 protocol UserAvailableMode: CommonAvailableMachine {
-    func isAbleToPick(menu: Int) -> State
-    func pick(menu: Int)
+    func isAbleToPick(menu: DrinkCategory) -> State
+    func pick(menu: DrinkCategory)
     func insert(coin: Int)
     func getCanPurchaseListInsertedCoin() -> [String]
 }
 
 protocol ManageableMode: CommonAvailableMachine {
-    func isAbleToAdd(menu: Int) -> State
-    func isAbleToRemove(menu: Int) -> State
-    func addStock(menu: Int)
-    func removeDrink(_ menu: Int) -> Beverage
+    func isAbleToRemove(menu: DrinkCategory) -> State
+    func addStock(menu: DrinkCategory)
+    func removeDrink(_ menu: DrinkCategory) -> Beverage
 }
 
 protocol PrintableMachingState {
@@ -82,40 +81,32 @@ extension VendingMachine: PrintableMachingState {
 }
 
 extension VendingMachine: ManageableMode {
-    func isAbleToAdd(menu: Int) -> State {
-        guard stock.isExist(menu) else { return .notExist }
-        return .success
-    }
-    
-    func isAbleToRemove(menu: Int) -> State {
-        guard stock.isExist(menu) else { return .notExist }
+    func isAbleToRemove(menu: DrinkCategory) -> State {
         guard !stock.isEmptyStock(menu) else { return .notEnough }
         return .success
     }
     
-    func addStock(menu: Int) {
-        guard let drink = DrinkCategory(rawValue: menu) else { return }
-        stock.add(drink.createDrinkByMenu())
+    func addStock(menu: DrinkCategory) {
+        stock.add(menu.createDrinkByMenu())
         NotificationCenter.default.post(name: .stockChanged, object: nil)
     }
     
-    func removeDrink(_ menu: Int) -> Beverage {
-        return stock.pickOneDrink(menu: menu)
+    func removeDrink(_ menu: DrinkCategory) -> Beverage {
+        return stock.pickOneDrink(menu)
     }
 }
 
 extension VendingMachine: UserAvailableMode {
-    func isAbleToPick(menu: Int) -> State {
-        guard stock.isExist(menu) else { return .notExist }
+    func isAbleToPick(menu: DrinkCategory) -> State {
         guard !stock.isEmptyStock(menu) else { return .notEnough }
-        guard canBuy(stock.getPrice(menu: menu)) else { return .fail }
+        guard canBuy(stock.getPrice(menu)) else { return .fail }
         return .success
     }
     
-    func pick(menu: Int) {
-        let picked = stock.pickOneDrink(menu: menu)
+    func pick(menu: DrinkCategory) {
+        let picked = stock.pickOneDrink(menu)
         purchaseHistory.addHistory(of: picked)
-        coin.minus(stock.getPrice(menu: menu))
+        coin.minus(stock.getPrice(menu))
         NotificationCenter.default.post(name: .stockChanged, object: nil)
         NotificationCenter.default.post(name: .coinChanged, object: nil)
         NotificationCenter.default.post(name: .historyChanged, object: nil)

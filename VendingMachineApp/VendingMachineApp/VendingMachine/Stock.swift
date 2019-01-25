@@ -29,12 +29,8 @@ class Stock: NSObject, NSCoding {
         guard (stocks["\(type(of: drink))"]?.append(drink)) != nil else { return }
     }
     
-    func isExist(_ menu: Int) -> Bool {
-        return  menu > 0 && menu <= stocks.count
-    }
-    
-    func isEmptyStock(_ menu: Int) -> Bool {
-        return stocks[selectBy(menu)]?.isEmpty ?? true
+    func isEmptyStock(_ menu: DrinkCategory) -> Bool {
+        return stocks[menu.convertToKey()]?.isEmpty ?? true
     }
     
     private func selectBy(_ menu: Int) -> String {
@@ -42,13 +38,12 @@ class Stock: NSObject, NSCoding {
         return category.convertToKey()
     }
     
-    func getPrice(menu: Int) -> Int {
-        guard let price = DrinkCategory(rawValue: menu) else { return 0 }
-        return price.getPriceEachCategory()
+    func getPrice(_ menu: DrinkCategory) -> Int {
+        return menu.getPriceEachCategory()
     }
     
-    func pickOneDrink(menu: Int) -> Beverage {
-        return stocks[selectBy(menu)]!.remove(at: 0)
+    func pickOneDrink(_ menu: DrinkCategory) -> Beverage {
+        return stocks[menu.convertToKey()]!.remove(at: 0)
     }
     
     func getPurchaseList(with coin: Coin) -> [String] {

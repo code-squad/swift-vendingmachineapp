@@ -29,3 +29,8 @@ scope가 넓어져 객체간 결합도가 높아진다.
 ### Frame과 Bounds(step-07)
 
 ![step-07 실행화면](https://user-images.githubusercontent.com/38850628/51515717-1df40f00-1e58-11e9-87ee-bd5e0e191c2a.gif)
+
+
+### 코어 그래픽스(step-08)
+
+![step-08 실행화면](https://user-images.githubusercontent.com/38850628/51721361-d1e1de00-2094-11e9-800d-b20da1028394.gif)

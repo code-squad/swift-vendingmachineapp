@@ -10,14 +10,16 @@ import UIKit
 
 extension UIImageView {
     func setCornerRadius() {
-        self.layer.cornerRadius = 30
+        self.layer.cornerRadius = 15
         self.clipsToBounds = true
+        self.layer.borderWidth = 5
     }
 }
 
 extension NSNotification.Name {
     static let stockChanged = NSNotification.Name(rawValue: "stockChanged")
     static let coinChanged = NSNotification.Name(rawValue: "coinChanged")
+    static let historyChanged = NSNotification.Name(rawValue: "historyChanged")
 }
 
 class ViewController: UIViewController {    
@@ -33,6 +35,7 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         NotificationCenter.default.addObserver(self, selector: #selector(updateDrinkLabel), name: .stockChanged, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(updateCoinLabel), name: .coinChanged, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updatePurchaseHistory), name: .historyChanged, object: nil)
         initialImage()
         initialLabel()
         initialAddButtonTag()
@@ -54,6 +57,10 @@ class ViewController: UIViewController {
         commonMode.markCoinLabel { coin in
             self.currentCoin.text = "잔액 : \(coin)원"
         }
+    }
+    
+    @objc func updatePurchaseHistory() {
+        
     }
     
     private func initialImage() {

@@ -11,13 +11,14 @@ import Foundation
 protocol CommonAvailableMachine {
     func markDrinkLabel(_ menu: Int, form: (Int) -> Void)
     func markCoinLabel(form: (Int) -> Void)
+    func markPurchasedHistory()
 }
 
 protocol UserAvailableMode: CommonAvailableMachine {
     func isAbleToPick(menu: Int) -> State
     func pick(menu: Int) -> Beverage
     func insert(coin: Int)
-    func getPurchaseListInsertedCoin() -> [String]
+    func getCanPurchaseListInsertedCoin() -> [String]
 }
 
 protocol ManageableMode: CommonAvailableMachine {
@@ -121,6 +122,7 @@ extension VendingMachine: UserAvailableMode {
         coin.minus(stock.getPrice(menu: menu))
         NotificationCenter.default.post(name: .stockChanged, object: nil)
         NotificationCenter.default.post(name: .coinChanged, object: nil)
+        NotificationCenter.default.post(name: .historyChanged, object: nil)
         return picked
     }
     
@@ -129,7 +131,7 @@ extension VendingMachine: UserAvailableMode {
         NotificationCenter.default.post(name: .coinChanged, object: nil)
     }
     
-    func getPurchaseListInsertedCoin() -> [String] {
+    func getCanPurchaseListInsertedCoin() -> [String] {
         return stock.getPurchaseList(with: coin)
     }
 }
@@ -141,6 +143,10 @@ extension VendingMachine: CommonAvailableMachine {
     
     func markCoinLabel(form: (Int) -> Void) {
         form(coin.get())
+    }
+    
+    func markPurchasedHistory() {
+        
     }
 }
 

@@ -6,7 +6,7 @@
 //  Copyright © 2018 JK. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 class Beverage: NSObject, NSCoding {
     
@@ -66,7 +66,7 @@ class Beverage: NSObject, NSCoding {
         return balance > self.price
     }
     
-    func increaseEqualName(_ purchaseInfo: inout [String: CGFloat]) {
+    func increaseEqualName(_ purchaseInfo: inout [String: Int]) {
         
         if purchaseInfo["\(name)"] == nil {
             purchaseInfo["\(name)"] = 0

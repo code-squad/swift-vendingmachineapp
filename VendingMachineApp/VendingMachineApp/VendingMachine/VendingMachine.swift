@@ -6,7 +6,7 @@
 //  Copyright © 2018 JK. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 class VendingMachine: NSObject, NSCoding {
     
@@ -86,7 +86,7 @@ class VendingMachine: NSObject, NSCoding {
         self.historyOfPurchase.performByHistory(addHistoryImageViews)
     }
     
-    func purchaseInfo() -> [String: CGFloat] {
+    func purchaseInfo() -> [String: Int] {
         return historyOfPurchase.purchaseInfo()
     }
     

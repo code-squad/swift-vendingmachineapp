@@ -13,7 +13,7 @@ class PieGraphView: UIView {
     
     //MARK: - Properties
     
-    private var purchaseInfo: [String: CGFloat] = [:]
+    private var purchaseInfo: [String: Int] = [:]
     private var colors: [UIColor] = [.black, .gray, .orange, .red, .purple, .blue,]
     
     //MARK: - Methods
@@ -24,7 +24,7 @@ class PieGraphView: UIView {
         var startAngle: CGFloat = 0
         
         for (name, count) in purchaseInfo {
-            let angleFromStartToEnd = (count / countOfAll)  * .pi * 2
+            let angleFromStartToEnd = CGFloat(count) / CGFloat(countOfAll)  * .pi * 2
             let path = makePath(startAngle: startAngle, angleFromStartToEnd: angleFromStartToEnd)
             colors.popLast()?.setFill()
             path.fill()
@@ -34,7 +34,7 @@ class PieGraphView: UIView {
         }
     }
     
-    func purchaseInfo(_ purchaseInfo: [String: CGFloat]) {
+    func purchaseInfo(_ purchaseInfo: [String: Int]) {
         self.purchaseInfo = purchaseInfo
     }
     

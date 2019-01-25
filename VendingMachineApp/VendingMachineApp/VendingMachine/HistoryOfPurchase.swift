@@ -6,7 +6,7 @@
 //  Copyright © 2019 hngfu. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 class HistoryOfPurchase: NSObject, NSCoding {
     
@@ -48,9 +48,9 @@ class HistoryOfPurchase: NSObject, NSCoding {
         addHistoryImageViews(self.historyOfPurchase)
     }
     
-    func purchaseInfo() -> [String: CGFloat] {
+    func purchaseInfo() -> [String: Int] {
         
-        var purchaseInfo = [String: CGFloat]()
+        var purchaseInfo = [String: Int]()
         
         for beverage in historyOfPurchase {
             beverage.increaseEqualName(&purchaseInfo)

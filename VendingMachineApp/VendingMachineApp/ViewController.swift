@@ -63,14 +63,16 @@ class ViewController: UIViewController {
         commonMode.markPurchasedHistory { history in
             var initialX = 40
             let initialY = 575
-            var eachImage: UIImageView
+            var tempImage: UIImageView
+            var historyImages: [UIImageView] = []
             for each in history {
-                eachImage = UIImageView(image: UIImage(named: each.convertToImageName()))
-                eachImage.frame = CGRect(x: initialX, y: initialY, width: 140, height: 100)
-                eachImage.contentMode = .scaleAspectFit
+                tempImage = UIImageView(image: UIImage(named: each.convertToImageName()))
+                tempImage.frame = CGRect(x: initialX, y: initialY, width: 140, height: 100)
+                tempImage.contentMode = .scaleAspectFit
                 initialX += 50
-                self.view.addSubview(eachImage)
+                historyImages.append(tempImage)
             }
+            for image in historyImages { self.view.addSubview(image) }
         }
     }
     

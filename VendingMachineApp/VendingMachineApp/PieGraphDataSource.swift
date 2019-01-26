@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol PieGraphDataSource: class {
+protocol PieGraphDataSource: AnyObject {
     
     func purchaseInfo() -> [String: Int]
     

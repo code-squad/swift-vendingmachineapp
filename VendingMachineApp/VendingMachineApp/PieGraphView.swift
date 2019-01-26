@@ -13,7 +13,7 @@ class PieGraphView: UIView {
     
     //MARK: - Properties
     
-    var dataSource: PieGraphDataSource?
+    weak var dataSource: PieGraphDataSource?
     
     //MARK: - Methods
     

@@ -23,6 +23,10 @@ class PieGraphView: UIView {
     //MARK: - Methods
     
     override func draw(_ rect: CGRect) {
+        
+        for subview in self.subviews {
+            subview.removeFromSuperview()
+        }
         if isSizeChainging {
             let path = makePath(startAngle: 0, angleFromStartToEnd: .pi * 2)
             UIColor.black.setFill()
@@ -32,7 +36,11 @@ class PieGraphView: UIView {
         }
     }
     
-    //MARK: Private
+    override var canBecomeFirstResponder: Bool {
+        return true
+    }
+    
+//    MARK: Private
     
     private func makePieGraph() {
         guard let dataSource = self.dataSource else { return }
@@ -90,13 +98,10 @@ class PieGraphView: UIView {
     }
     
     //MARK: Touches
-
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         self.isSizeChainging = true
-        for subview in self.subviews {
-            subview.removeFromSuperview()
-        }
         setNeedsDisplay()
     }
     
@@ -116,5 +121,14 @@ class PieGraphView: UIView {
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.isSizeChainging = false
         setNeedsDisplay()
+    }
+    
+    override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+        
+        if motion == .motionShake {
+            self.isSizeChainging = false
+            self.radiusReductionAmount = 0
+            setNeedsDisplay()
+        }
     }
 }

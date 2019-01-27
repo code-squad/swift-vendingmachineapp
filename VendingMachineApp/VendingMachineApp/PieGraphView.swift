@@ -112,4 +112,9 @@ class PieGraphView: UIView {
         }
         setNeedsDisplay()
     }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.isSizeChainging = false
+        setNeedsDisplay()
+    }
 }

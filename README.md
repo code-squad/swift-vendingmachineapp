@@ -34,3 +34,7 @@ scope가 넓어져 객체간 결합도가 높아진다.
 ### 코어 그래픽스(step-08)
 
 ![step-08 실행화면](https://user-images.githubusercontent.com/38850628/51721361-d1e1de00-2094-11e9-800d-b20da1028394.gif)
+
+### 마무리하기(step-09)
+
+![step-09 실행화면](https://user-images.githubusercontent.com/38850628/51798488-752e2100-2256-11e9-9971-e89a463989c8.gif)

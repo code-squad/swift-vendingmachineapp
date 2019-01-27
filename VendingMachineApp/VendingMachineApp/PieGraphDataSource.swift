@@ -12,4 +12,5 @@ protocol PieGraphDataSource: AnyObject {
     
     func purchaseInfo() -> [String: Int]
     
+    func numberOfHistory() -> Int
 }

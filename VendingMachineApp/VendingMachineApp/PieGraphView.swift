@@ -102,6 +102,14 @@ class PieGraphView: UIView {
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         
- 
+        guard let location = touches.first?.location(in: self) else { return }
+        let x = location.x - bounds.midX
+        let y = location.y - bounds.midY
+        let distance = hypot(x, y)
+        let radiusReductionAmount = bounds.width / 2 - distance
+        if radiusReductionAmount > 0 && radiusReductionAmount < 100 {
+            self.radiusReductionAmount = radiusReductionAmount
+        }
+        setNeedsDisplay()
     }
 }

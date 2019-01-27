@@ -21,7 +21,7 @@ class PieGraphView: UIView {
         guard let dataSource = self.dataSource else { return }
         let historyOfPurchase = dataSource.purchaseInfo()
         var colors: [UIColor] = [.black, .gray, .orange, .red, .purple, .blue,]
-        let countOfAll = historyOfPurchase.values.reduce(0) {$0 + $1}
+        let countOfAll = dataSource.numberOfHistory()
         var startAngle: CGFloat = 0
         
         for (name, count) in historyOfPurchase {

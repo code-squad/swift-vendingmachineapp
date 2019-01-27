@@ -58,4 +58,8 @@ class HistoryOfPurchase: NSObject, NSCoding {
         
         return purchaseInfo
     }
+    
+    func numberOfhistory() -> Int {
+        return historyOfPurchase.count
+    }
 }

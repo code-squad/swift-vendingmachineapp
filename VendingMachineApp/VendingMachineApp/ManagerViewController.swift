@@ -21,7 +21,7 @@ class ManagerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        historyOfPurchaseView.becomeFirstResponder()
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(updateNumberOfProductLabel),
                                                name: .didChangeNumberOfProduct,

@@ -18,6 +18,7 @@ class PieGraphView: UIView {
     //MARK: Private
     
     private var isSizeChainging: Bool = false
+    private var radiusReductionAmount: CGFloat = 0
     
     //MARK: - Methods
     
@@ -56,7 +57,7 @@ class PieGraphView: UIView {
         let path = UIBezierPath()
         path.move(to: CGPoint(x: bounds.midX, y: bounds.midY))
         path.addArc(withCenter: CGPoint(x: bounds.midX, y: bounds.midY),
-                    radius: bounds.width / 2,
+                    radius: bounds.width / 2 - self.radiusReductionAmount,
                     startAngle: startAngle,
                     endAngle: startAngle + angleFromStartToEnd,
                     clockwise: true)
@@ -74,7 +75,7 @@ class PieGraphView: UIView {
         label.sizeToFit()
         
         let path = UIBezierPath(arcCenter: CGPoint(x: bounds.midX, y: bounds.midY),
-                                radius: bounds.width / 2,
+                                radius: bounds.width / 2 - self.radiusReductionAmount,
                                 startAngle: startAngle,
                                 endAngle: startAngle + angleFromStartToEnd,
                                 clockwise: true)
@@ -87,12 +88,20 @@ class PieGraphView: UIView {
         
         return label
     }
+    
+    //MARK: Touches
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
         self.isSizeChainging = true
         for subview in self.subviews {
             subview.removeFromSuperview()
         }
         setNeedsDisplay()
+    }
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+ 
     }
 }

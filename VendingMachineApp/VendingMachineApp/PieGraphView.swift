@@ -15,12 +15,22 @@ class PieGraphView: UIView {
     
     weak var dataSource: PieGraphDataSource?
     
+    //MARK: Private
+    
+    private var isSizeChainging: Bool = false
+    
     //MARK: - Methods
     
     override func draw(_ rect: CGRect) {
-        makePieGraph()
+        if isSizeChainging {
+            let path = makePath(startAngle: 0, angleFromStartToEnd: .pi * 2)
+            UIColor.black.setFill()
+            path.fill()
+        } else {
+            makePieGraph()
+        }
     }
-
+    
     //MARK: Private
     
     private func makePieGraph() {
@@ -76,5 +86,13 @@ class PieGraphView: UIView {
         label.center = position
         
         return label
+    }
+
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.isSizeChainging = true
+        for subview in self.subviews {
+            subview.removeFromSuperview()
+        }
+        setNeedsDisplay()
     }
 }

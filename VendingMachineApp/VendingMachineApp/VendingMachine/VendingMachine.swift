@@ -90,10 +90,6 @@ class VendingMachine: NSObject, NSCoding, PieGraphDataSource {
         return historyOfPurchase.purchaseInfo()
     }
     
-    func performByHistory() -> [String: Int] {
-        return historyOfPurchase.purchaseInfo()
-    }
-    
     //MARK: - Get Properties Method
     
     func property(of vendingMachine: VendingMachine) {

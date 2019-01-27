@@ -68,10 +68,7 @@ class Beverage: NSObject, NSCoding {
     
     func increaseEqualName(_ purchaseInfo: inout [String: Int]) {
         
-        if purchaseInfo["\(name)"] == nil {
-            purchaseInfo["\(name)"] = 0
-        }
-        purchaseInfo["\(name)"]? += 1
+        purchaseInfo["\(name)", default: 0] += 1
     }
     
     //MARK: Static

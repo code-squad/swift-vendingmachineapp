@@ -18,6 +18,12 @@ class PieGraphView: UIView {
     //MARK: - Methods
     
     override func draw(_ rect: CGRect) {
+        makePieGraph()
+    }
+
+    //MARK: Private
+    
+    private func makePieGraph() {
         guard let dataSource = self.dataSource else { return }
         let historyOfPurchase = dataSource.purchaseInfo()
         var colors: [UIColor] = [.black, .gray, .orange, .red, .purple, .blue,]
@@ -34,8 +40,6 @@ class PieGraphView: UIView {
             addSubview(label)
         }
     }
-
-    //MARK: Private
     
     private func makePath(startAngle: CGFloat, angleFromStartToEnd: CGFloat) -> UIBezierPath {
         

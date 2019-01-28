@@ -30,7 +30,11 @@ class PieGraphView: UIView {
             UIColor.black.setFill()
             path.fill()
         } else {
-            makePieGraph()
+            guard let dataSource = dataSource else { return }
+            let drawPieGraph = { [unowned self] (purchaseInfo: [String: Int]) -> Void in
+                self.makePieGraph(purchaseInfo)
+            }
+            dataSource.performByInfo(drawPieGraph)
         }
     }
     
@@ -40,14 +44,12 @@ class PieGraphView: UIView {
     
 //    MARK: Private
     
-    private func makePieGraph() {
-        guard let dataSource = self.dataSource else { return }
-        let historyOfPurchase = dataSource.purchaseInfo()
+    private func makePieGraph(_ purchaseInfo: [String: Int]) {
         var colors: [UIColor] = [.black, .gray, .orange, .red, .purple, .blue,]
-        let countOfAll = dataSource.numberOfHistory()
+        let countOfAll = purchaseInfo.values.reduce(0) { $0 + $1 }
         var startAngle: CGFloat = 0
         
-        for (name, count) in historyOfPurchase {
+        for (name, count) in purchaseInfo {
             let angleFromStartToEnd = CGFloat(count) / CGFloat(countOfAll)  * .pi * 2
             let path = makePath(startAngle: startAngle, angleFromStartToEnd: angleFromStartToEnd)
             colors.popLast()?.setFill()

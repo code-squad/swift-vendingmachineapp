@@ -86,12 +86,8 @@ class VendingMachine: NSObject, NSCoding, PieGraphDataSource {
         self.historyOfPurchase.performByHistory(addHistoryImageViews)
     }
     
-    func purchaseInfo() -> [String: Int] {
-        return historyOfPurchase.purchaseInfo()
-    }
-    
-    func numberOfHistory() -> Int {
-        return historyOfPurchase.numberOfhistory()
+    func performByInfo(_ drawPieGraph: ([String: Int]) -> Void) {
+        return historyOfPurchase.performByInfo(drawPieGraph)
     }
     
     //MARK: - Get Properties Method

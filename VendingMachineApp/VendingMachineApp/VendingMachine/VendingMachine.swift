@@ -9,7 +9,7 @@
 import Foundation
 
 protocol CommonAvailableMachine {
-    func markDrinkLabel(_ menu: Int, form: (Int) -> Void)
+    func markDrinkLabel(_ menu: DrinkCategory, form: (Int) -> Void)
     func markCoinLabel(form: (Int) -> Void)
     func markPurchasedHistory(form: ([Beverage]) -> Void)
 }
@@ -123,8 +123,8 @@ extension VendingMachine: UserAvailableMode {
 }
 
 extension VendingMachine: CommonAvailableMachine {
-    func markDrinkLabel(_ menu: Int, form: (Int) -> Void) {
-        form(stock.eachStockCount(menu))
+    func markDrinkLabel(_ menu: DrinkCategory, form: (Int) -> Void) {
+        form(stock.eachStockCount(menu.rawValue))
     }
     
     func markCoinLabel(form: (Int) -> Void) {

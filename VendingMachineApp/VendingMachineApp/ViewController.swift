@@ -24,7 +24,6 @@ extension NSNotification.Name {
 class ViewController: UIViewController {    
     @IBOutlet var drinkImages: [UIImageView]!
     @IBOutlet var drinkLabels: [UILabel]!
-    @IBOutlet var addButtons: [UIButton]!
     @IBOutlet var insertButtons: [UIButton]!
     @IBOutlet var buyButtons: [UIButton]!
     @IBOutlet weak var currentCoin: UILabel!
@@ -38,7 +37,6 @@ class ViewController: UIViewController {
         initialImage()
         initialPuschaseImage()
         initialLabel()
-        initialAddButtonTag()
         initialBuyButtonTag()
         initialInserButtonTag()
     }
@@ -46,7 +44,7 @@ class ViewController: UIViewController {
     @objc func updateDrinkLabel() {
         let commonMode: CommonAvailableMachine = VendingMachine.sharedInstance
         for menu in DrinkCategory.allCases {
-            commonMode.markDrinkLabel(menu.rawValue) { drinkCounts in
+            commonMode.markDrinkLabel(menu) { drinkCounts in
                 self.drinkLabels[menu.rawValue-1].text = "\(drinkCounts)개"
             }
         }
@@ -94,23 +92,14 @@ class ViewController: UIViewController {
     }
     
     private func initialLabel() {
-        let menuCount = 6
         let machine: CommonAvailableMachine = VendingMachine.sharedInstance
-        for menu in 1...menuCount {
+        for menu in DrinkCategory.allCases {
             machine.markDrinkLabel(menu) { drinkCounts in
-                self.drinkLabels[menu-1].text = "\(drinkCounts)개"
+                self.drinkLabels[menu.rawValue-1].text = "\(drinkCounts)개"
             }
         }
         machine.markCoinLabel { coin in
             self.currentCoin.text = "잔액 : \(coin)원"
-        }
-    }
-    
-    private func initialAddButtonTag() {
-        var tag = 1
-        for button in addButtons {
-            button.tag = tag
-            tag += 1
         }
     }
     
@@ -128,17 +117,6 @@ class ViewController: UIViewController {
             button.tag = tag
             tag += 1
         }
-    }
-    
-    @IBAction func addStock(_ sender: Any) {
-        guard let button = sender as? UIButton else { return }
-        guard let menu = DrinkCategory(rawValue: button.tag) else { return }
-        addEachDrink(of: menu)
-    }
-    
-    private func addEachDrink(of menu: DrinkCategory) {
-        let managerMode: ManageableMode = VendingMachine.sharedInstance
-        managerMode.addStock(menu: menu)
     }
     
     @IBAction func insertCoin(_ sender: Any) {

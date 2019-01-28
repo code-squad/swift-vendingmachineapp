@@ -63,7 +63,7 @@ class ViewController: UIViewController {
         let commonMode: CommonAvailableMachine = VendingMachine.sharedInstance
         commonMode.markPurchasedHistory { history in
             let initialX = 40
-            let initialY = 575
+            let initialY = 630
             var buyDrinkImage: UIImageView
             buyDrinkImage = UIImageView(image: UIImage(named: history[history.count-1].convertToImageName()))
             buyDrinkImage.frame = CGRect(x: initialX + (history.count-1)*50, y: initialY, width: 140, height: 100)
@@ -81,7 +81,7 @@ class ViewController: UIViewController {
         let commonMode: CommonAvailableMachine = VendingMachine.sharedInstance
         commonMode.markPurchasedHistory { history in
             var initialX = 40
-            let initialY = 575
+            let initialY = 630
             var tempImage: UIImageView
             for each in history {
                 tempImage = UIImageView(image: UIImage(named: each.convertToImageName()))

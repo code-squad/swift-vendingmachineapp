@@ -60,35 +60,34 @@ class ViewController: UIViewController {
     @objc func updatePurchaseHistory() {
         let commonMode: CommonAvailableMachine = VendingMachine.sharedInstance
         commonMode.markPurchasedHistory { history in
-            let initialX = 40
-            let initialY = 630
-            var buyDrinkImage: UIImageView
-            buyDrinkImage = UIImageView(image: UIImage(named: history[history.count-1].convertToImageName()))
-            buyDrinkImage.frame = CGRect(x: initialX + (history.count-1)*50, y: initialY, width: 140, height: 100)
-            buyDrinkImage.contentMode = .scaleAspectFit
-            self.view.addSubview(buyDrinkImage)
+            let purchasedView = createPurchasedDrinkView(drink: history[history.count-1], index: history.count-1)
+            self.view.addSubview(purchasedView)
         }
-    }
-    
-    private func initialImage() {
-        for image in drinkImages { image.setCornerRadius() }
-        for image in drinkImages { image.layer.borderWidth = 5 }
     }
     
     private func initialPuschaseImage() {
         let commonMode: CommonAvailableMachine = VendingMachine.sharedInstance
         commonMode.markPurchasedHistory { history in
-            var initialX = 40
-            let initialY = 630
-            var tempImage: UIImageView
-            for each in history {
-                tempImage = UIImageView(image: UIImage(named: each.convertToImageName()))
-                tempImage.frame = CGRect(x: initialX, y: initialY, width: 140, height: 100)
-                tempImage.contentMode = .scaleAspectFit
-                initialX += 50
-                self.view.addSubview(tempImage)
+            var purchasedView: UIImageView
+            for index in 0..<history.count {
+                purchasedView = createPurchasedDrinkView(drink: history[index], index: index)
+                self.view.addSubview(purchasedView)
             }
         }
+    }
+    
+    private func createPurchasedDrinkView(drink: Beverage, index: Int) -> UIImageView {
+        let initialX = 40
+        let initialY = 630
+        let tempImage = UIImageView(image: UIImage(named: drink.convertToImageName()))
+        tempImage.frame = CGRect(x: initialX + index*50, y: initialY, width: 140, height: 100)
+        tempImage.contentMode = .scaleAspectFit
+        return tempImage
+    }
+    
+    private func initialImage() {
+        for image in drinkImages { image.setCornerRadius() }
+        for image in drinkImages { image.layer.borderWidth = 5 }
     }
     
     private func initialLabel() {

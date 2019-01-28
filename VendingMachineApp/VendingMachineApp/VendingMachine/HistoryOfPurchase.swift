@@ -44,18 +44,7 @@ class HistoryOfPurchase: NSObject, NSCoding {
         historyOfPurchase.append(beverage)
     }
     
-    func performByHistory(_ addHistoryImageViews: ([Beverage]) -> Void) {
-        addHistoryImageViews(self.historyOfPurchase)
-    }
-    
-    func performByInfo(_ drawPieGraph: ([String: Int]) -> Void) {
-        
-        var purchaseInfo = [String: Int]()
-        
-        for beverage in historyOfPurchase {
-            beverage.increaseEqualName(&purchaseInfo)
-        }
-        
-        drawPieGraph(purchaseInfo)
+    func performByHistory(_ performBy: ([Beverage]) -> Void) {
+        performBy(self.historyOfPurchase)
     }
 }

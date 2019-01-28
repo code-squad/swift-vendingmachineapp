@@ -24,9 +24,7 @@ class PieGraphView: UIView {
     
     override func draw(_ rect: CGRect) {
         
-        for subview in self.subviews {
-            subview.removeFromSuperview()
-        }
+        super.draw(rect)
         if isSizeChainging {
             let path = makePath(startAngle: 0, angleFromStartToEnd: .pi * 2)
             UIColor.black.setFill()
@@ -54,9 +52,8 @@ class PieGraphView: UIView {
             let path = makePath(startAngle: startAngle, angleFromStartToEnd: angleFromStartToEnd)
             colors.popLast()?.setFill()
             path.fill()
-            let label = makeLabel(name: name, startAngle: startAngle, angleFromStartToEnd: angleFromStartToEnd / 2)
+            drawText(name: name, startAngle: startAngle, angleFromStartToEnd: angleFromStartToEnd / 2)
             startAngle += angleFromStartToEnd
-            addSubview(label)
         }
     }
     
@@ -74,13 +71,7 @@ class PieGraphView: UIView {
         return path
     }
     
-    private func makeLabel(name: String, startAngle: CGFloat, angleFromStartToEnd: CGFloat) -> UILabel {
-        
-        let label = UILabel()
-        label.text = name
-        label.textAlignment = .center
-        label.textColor = UIColor.white
-        label.sizeToFit()
+    private func drawText(name: String, startAngle: CGFloat, angleFromStartToEnd: CGFloat) {
         
         let path = UIBezierPath(arcCenter: CGPoint(x: bounds.midX, y: bounds.midY),
                                 radius: bounds.width / 2 - self.radiusReductionAmount,
@@ -91,10 +82,13 @@ class PieGraphView: UIView {
         let x = (path.currentPoint.x - bounds.midX) / 2 + bounds.midX
         let y = (path.currentPoint.y - bounds.midY) / 2 + bounds.midY
         
-        let position = CGPoint(x: x, y: y)
-        label.center = position
-        
-        return label
+        let fontSize: CGFloat = 16
+        let pointToCetnerText = CGPoint(x: x - CGFloat(name.count) * (fontSize / 2),
+                                        y: y - fontSize / 2)
+        let text = name as NSString
+        text.draw(at: pointToCetnerText,
+                  withAttributes: [.font: UIFont.systemFont(ofSize: fontSize),
+                                   .foregroundColor: UIColor.green])
     }
     
     //MARK: Touches

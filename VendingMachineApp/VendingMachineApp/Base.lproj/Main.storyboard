@@ -18,51 +18,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XNs-JG-GoJ" userLabel="바나나 추가">
-                                <rect key="frame" x="108" y="139" width="90" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <state key="normal" title="추가"/>
-                                <connections>
-                                    <action selector="addStock:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vNm-Dm-h2x"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iAt-OM-4eS" userLabel="초코 추가">
-                                <rect key="frame" x="255" y="139" width="90" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <state key="normal" title="추가"/>
-                                <connections>
-                                    <action selector="addStock:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4RC-xh-BgX"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qqk-kM-4cm" userLabel="콜라 추가">
-                                <rect key="frame" x="401" y="139" width="90" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <state key="normal" title="추가"/>
-                                <connections>
-                                    <action selector="addStock:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vys-AA-I1q"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Waq-if-Gyt" userLabel="환타 추가">
-                                <rect key="frame" x="548" y="139" width="90" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <state key="normal" title="추가"/>
-                                <connections>
-                                    <action selector="addStock:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YmF-LS-JgY"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dOk-xG-A4z" userLabel="칸타타 추가">
-                                <rect key="frame" x="695" y="139" width="90" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <state key="normal" title="추가"/>
-                                <connections>
-                                    <action selector="addStock:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5rN-a2-yZ7"/>
-                                </connections>
-                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="바나나우유" translatesAutoresizingMaskIntoConstraints="NO" id="np7-Uy-aIa">
                                 <rect key="frame" x="87" y="197" width="140" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -198,15 +153,6 @@
                                     <action selector="buyDrink:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AWC-Ej-73a"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="90j-1G-aAY" userLabel="TOP 추가">
-                                <rect key="frame" x="108" y="372" width="90" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <state key="normal" title="추가"/>
-                                <connections>
-                                    <action selector="addStock:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7c7-Ie-Dsp"/>
-                                </connections>
-                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TOP" translatesAutoresizingMaskIntoConstraints="NO" id="ph8-HQ-BJq">
                                 <rect key="frame" x="87" y="430" width="140" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -257,12 +203,6 @@
                         <outletCollection property="drinkLabels" destination="PCc-OU-QnX" collectionClass="NSMutableArray" id="ccO-km-8CM"/>
                         <outletCollection property="drinkLabels" destination="pGM-AA-Ll9" collectionClass="NSMutableArray" id="gDn-gU-6xR"/>
                         <outletCollection property="drinkLabels" destination="WN6-cV-fzE" collectionClass="NSMutableArray" id="lOH-bh-UbF"/>
-                        <outletCollection property="addButtons" destination="XNs-JG-GoJ" collectionClass="NSMutableArray" id="RsT-eZ-Xr4"/>
-                        <outletCollection property="addButtons" destination="iAt-OM-4eS" collectionClass="NSMutableArray" id="UK7-gX-1ec"/>
-                        <outletCollection property="addButtons" destination="qqk-kM-4cm" collectionClass="NSMutableArray" id="ubb-mJ-xAU"/>
-                        <outletCollection property="addButtons" destination="Waq-if-Gyt" collectionClass="NSMutableArray" id="svS-FU-cGc"/>
-                        <outletCollection property="addButtons" destination="dOk-xG-A4z" collectionClass="NSMutableArray" id="gZn-CF-seu"/>
-                        <outletCollection property="addButtons" destination="90j-1G-aAY" collectionClass="NSMutableArray" id="zVE-oL-1UF"/>
                         <outletCollection property="insertButtons" destination="urP-9v-fmq" collectionClass="NSMutableArray" id="mZY-jl-8es"/>
                         <outletCollection property="insertButtons" destination="gMq-gx-Kmi" collectionClass="NSMutableArray" id="J3u-En-azA"/>
                         <outletCollection property="buyButtons" destination="CIk-df-zzu" collectionClass="NSMutableArray" id="J6Z-Le-fsZ"/>
@@ -293,10 +233,150 @@
                                     <action selector="exit:" destination="I5T-X4-Fyp" eventType="touchUpInside" id="dcf-62-XU2"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y9y-8v-YrU" userLabel="바나나 추가">
+                                <rect key="frame" x="108" y="139" width="90" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal" title="추가"/>
+                                <connections>
+                                    <action selector="addStocks:" destination="I5T-X4-Fyp" eventType="touchUpInside" id="xdA-wC-6Aa"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wku-Dh-lIW" userLabel="초코 추가">
+                                <rect key="frame" x="255" y="139" width="90" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal" title="추가"/>
+                                <connections>
+                                    <action selector="addStocks:" destination="I5T-X4-Fyp" eventType="touchUpInside" id="MVi-eX-TNU"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FPj-uA-0JF" userLabel="콜라 추가">
+                                <rect key="frame" x="401" y="139" width="90" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal" title="추가"/>
+                                <connections>
+                                    <action selector="addStocks:" destination="I5T-X4-Fyp" eventType="touchUpInside" id="n33-ix-bwu"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="28Q-c0-N94" userLabel="환타 추가">
+                                <rect key="frame" x="548" y="139" width="90" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal" title="추가"/>
+                                <connections>
+                                    <action selector="addStocks:" destination="I5T-X4-Fyp" eventType="touchUpInside" id="HXy-Pv-MDV"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="64g-yg-cpE" userLabel="칸타타 추가">
+                                <rect key="frame" x="695" y="139" width="90" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal" title="추가"/>
+                                <connections>
+                                    <action selector="addStocks:" destination="I5T-X4-Fyp" eventType="touchUpInside" id="Bed-Cz-fpG"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="바나나우유" translatesAutoresizingMaskIntoConstraints="NO" id="axS-pl-pZa">
+                                <rect key="frame" x="87" y="197" width="140" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="초코우유" translatesAutoresizingMaskIntoConstraints="NO" id="wmG-ew-J1I">
+                                <rect key="frame" x="234" y="197" width="140" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="콜라" translatesAutoresizingMaskIntoConstraints="NO" id="9Kk-no-6y9">
+                                <rect key="frame" x="380" y="197" width="140" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="환타" translatesAutoresizingMaskIntoConstraints="NO" id="Pix-jK-Ly6">
+                                <rect key="frame" x="527" y="197" width="140" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="칸타타" translatesAutoresizingMaskIntoConstraints="NO" id="J3z-Ks-PNU">
+                                <rect key="frame" x="674" y="197" width="140" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sW5-yP-wxw" userLabel="TOP 추가">
+                                <rect key="frame" x="108" y="372" width="90" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal" title="추가"/>
+                                <connections>
+                                    <action selector="addStocks:" destination="I5T-X4-Fyp" eventType="touchUpInside" id="QXi-Na-t2B"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TOP" translatesAutoresizingMaskIntoConstraints="NO" id="zxc-5r-asq">
+                                <rect key="frame" x="87" y="430" width="140" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NiV-bv-EHr" userLabel="Banana Label">
+                                <rect key="frame" x="136" y="305" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Goj-5r-HB4" userLabel="Cantata Label">
+                                <rect key="frame" x="723" y="305" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7nc-ft-iRe" userLabel="Choco Label">
+                                <rect key="frame" x="283" y="305" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jIt-bB-WFs" userLabel="Cola Label">
+                                <rect key="frame" x="429" y="305" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GL0-oT-PsY" userLabel="Fanta Label">
+                                <rect key="frame" x="576" y="305" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AuR-f9-fKR" userLabel="TOP Label">
+                                <rect key="frame" x="136" y="538" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.90152311325073242" green="0.95270198583602905" blue="0.96081060171127319" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <viewLayoutGuide key="safeArea" id="S98-Oo-gNV"/>
                     </view>
+                    <connections>
+                        <outletCollection property="addButtons" destination="y9y-8v-YrU" collectionClass="NSMutableArray" id="3AJ-9b-4Op"/>
+                        <outletCollection property="addButtons" destination="wku-Dh-lIW" collectionClass="NSMutableArray" id="aXu-b5-UwV"/>
+                        <outletCollection property="addButtons" destination="FPj-uA-0JF" collectionClass="NSMutableArray" id="vzD-b7-IZ7"/>
+                        <outletCollection property="addButtons" destination="28Q-c0-N94" collectionClass="NSMutableArray" id="cX6-RM-Nad"/>
+                        <outletCollection property="addButtons" destination="64g-yg-cpE" collectionClass="NSMutableArray" id="HE3-b9-cTW"/>
+                        <outletCollection property="addButtons" destination="sW5-yP-wxw" collectionClass="NSMutableArray" id="Mp1-fY-cHz"/>
+                        <outletCollection property="drinkLabels" destination="NiV-bv-EHr" collectionClass="NSMutableArray" id="DhL-qr-C1W"/>
+                        <outletCollection property="drinkLabels" destination="7nc-ft-iRe" collectionClass="NSMutableArray" id="yqx-ge-ewS"/>
+                        <outletCollection property="drinkLabels" destination="jIt-bB-WFs" collectionClass="NSMutableArray" id="0ag-cu-Me7"/>
+                        <outletCollection property="drinkLabels" destination="GL0-oT-PsY" collectionClass="NSMutableArray" id="ePJ-C3-kNg"/>
+                        <outletCollection property="drinkLabels" destination="Goj-5r-HB4" collectionClass="NSMutableArray" id="utt-G6-dnT"/>
+                        <outletCollection property="drinkLabels" destination="AuR-f9-fKR" collectionClass="NSMutableArray" id="PGw-7o-HSj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="niq-N5-65K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

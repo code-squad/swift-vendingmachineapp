@@ -10,7 +10,5 @@ import Foundation
 
 protocol PieGraphDataSource: AnyObject {
     
-    func purchaseInfo() -> [String: Int]
-    
-    func numberOfHistory() -> Int
+    func performByInfo(_: ([String: Int]) -> Void)
 }

@@ -48,7 +48,7 @@ class HistoryOfPurchase: NSObject, NSCoding {
         addHistoryImageViews(self.historyOfPurchase)
     }
     
-    func purchaseInfo() -> [String: Int] {
+    func performByInfo(_ drawPieGraph: ([String: Int]) -> Void) {
         
         var purchaseInfo = [String: Int]()
         
@@ -56,10 +56,6 @@ class HistoryOfPurchase: NSObject, NSCoding {
             beverage.increaseEqualName(&purchaseInfo)
         }
         
-        return purchaseInfo
-    }
-    
-    func numberOfhistory() -> Int {
-        return historyOfPurchase.count
+        drawPieGraph(purchaseInfo)
     }
 }

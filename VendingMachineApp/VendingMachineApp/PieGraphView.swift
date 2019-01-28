@@ -31,10 +31,10 @@ class PieGraphView: UIView {
             path.fill()
         } else {
             guard let dataSource = dataSource else { return }
-            let drawPieGraph = { [unowned self] (purchaseInfo: [String: Int]) -> Void in
-                self.makePieGraph(purchaseInfo)
+            let drawPieGraph = { [unowned self] (purchaseInfo: [Beverage]) -> Void in
+                self.drawPieGraph(purchaseInfo)
             }
-            dataSource.performByInfo(drawPieGraph)
+            dataSource.performByHistory(drawPieGraph)
         }
     }
     
@@ -44,7 +44,13 @@ class PieGraphView: UIView {
     
 //    MARK: Private
     
-    private func makePieGraph(_ purchaseInfo: [String: Int]) {
+    private func drawPieGraph(_ historyOfPurchase: [Beverage]) {
+        var purchaseInfo = [String: Int]()
+        
+        for beverage in historyOfPurchase {
+            beverage.increaseEqualName(&purchaseInfo)
+        }
+        
         var colors: [UIColor] = [.black, .gray, .orange, .red, .purple, .blue,]
         let countOfAll = purchaseInfo.values.reduce(0) { $0 + $1 }
         var startAngle: CGFloat = 0

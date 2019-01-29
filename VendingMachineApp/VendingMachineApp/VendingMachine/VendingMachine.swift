@@ -10,8 +10,6 @@ import Foundation
 
 protocol CommonAvailableMachine {
     func markDrinkLabel(_ menu: DrinkCategory, form: (Int) -> Void)
-    func markCoinLabel(form: (Int) -> Void)
-    func markPurchasedHistory(form: ([Beverage]) -> Void)
 }
 
 protocol UserAvailableMode: CommonAvailableMachine {
@@ -19,6 +17,8 @@ protocol UserAvailableMode: CommonAvailableMachine {
     func pick(menu: DrinkCategory)
     func insert(coin: Int)
     func getCanPurchaseListInsertedCoin() -> [String]
+    func markCoinLabel(form: (Int) -> Void)
+    func markPurchasedHistory(form: ([Beverage]) -> Void)
 }
 
 protocol ManageableMode: CommonAvailableMachine {
@@ -120,12 +120,6 @@ extension VendingMachine: UserAvailableMode {
     func getCanPurchaseListInsertedCoin() -> [String] {
         return stock.getPurchaseList(with: coin)
     }
-}
-
-extension VendingMachine: CommonAvailableMachine {
-    func markDrinkLabel(_ menu: DrinkCategory, form: (Int) -> Void) {
-        form(stock.eachStockCount(menu.rawValue))
-    }
     
     func markCoinLabel(form: (Int) -> Void) {
         coin.get(form: form)
@@ -136,4 +130,8 @@ extension VendingMachine: CommonAvailableMachine {
     }
 }
 
-
+extension VendingMachine: CommonAvailableMachine {
+    func markDrinkLabel(_ menu: DrinkCategory, form: (Int) -> Void) {
+        form(stock.eachStockCount(menu.rawValue))
+    }
+}

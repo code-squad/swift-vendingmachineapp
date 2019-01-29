@@ -51,14 +51,14 @@ class ViewController: UIViewController {
     }
     
     @objc func updateCoinLabel() {
-        let commonMode: CommonAvailableMachine = VendingMachine.sharedInstance
-        commonMode.markCoinLabel { coin in
+        let userMode: UserAvailableMode = VendingMachine.sharedInstance
+        userMode.markCoinLabel { coin in
             self.currentCoin.text = "잔액 : \(coin)원"
         }
     }
     
     @objc func updatePurchaseHistory() {
-        let commonMode: CommonAvailableMachine = VendingMachine.sharedInstance
+        let commonMode: UserAvailableMode = VendingMachine.sharedInstance
         commonMode.markPurchasedHistory { history in
             let purchasedView = createPurchasedDrinkView(drink: history[history.count-1], index: history.count-1)
             self.view.addSubview(purchasedView)
@@ -66,8 +66,8 @@ class ViewController: UIViewController {
     }
     
     private func initialPuschaseImage() {
-        let commonMode: CommonAvailableMachine = VendingMachine.sharedInstance
-        commonMode.markPurchasedHistory { history in
+        let userMode: UserAvailableMode = VendingMachine.sharedInstance
+        userMode.markPurchasedHistory { history in
             var purchasedView: UIImageView
             for index in 0..<history.count {
                 purchasedView = createPurchasedDrinkView(drink: history[index], index: index)

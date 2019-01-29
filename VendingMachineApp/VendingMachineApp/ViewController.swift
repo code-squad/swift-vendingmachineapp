@@ -42,32 +42,32 @@ class ViewController: UIViewController {
     }
     
     @objc func updateDrinkLabel() {
-        let commonMode: CommonAvailableMachine = VendingMachine.sharedInstance
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         for menu in DrinkCategory.allCases {
-            commonMode.markDrinkLabel(menu) { drinkCounts in
+            appDelegate.commonMode?.markDrinkLabel(menu) { drinkCounts in
                 self.drinkLabels[menu.rawValue-1].text = "\(drinkCounts)개"
             }
         }
     }
     
     @objc func updateCoinLabel() {
-        let userMode: UserAvailableMode = VendingMachine.sharedInstance
-        userMode.markCoinLabel { coin in
-            self.currentCoin.text = "잔액 : \(coin)원"
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        appDelegate.userMode?.markCoinLabel { coin in
+            self.currentCoin.text = "잔액: \(coin)원"
         }
     }
     
     @objc func updatePurchaseHistory() {
-        let commonMode: UserAvailableMode = VendingMachine.sharedInstance
-        commonMode.markPurchasedHistory { history in
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        appDelegate.userMode?.markPurchasedHistory { history in
             let purchasedView = createPurchasedDrinkView(drink: history[history.count-1], index: history.count-1)
             self.view.addSubview(purchasedView)
         }
     }
     
     private func initialPuschaseImage() {
-        let userMode: UserAvailableMode = VendingMachine.sharedInstance
-        userMode.markPurchasedHistory { history in
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        appDelegate.userMode?.markPurchasedHistory { history in
             var purchasedView: UIImageView
             for index in 0..<history.count {
                 purchasedView = createPurchasedDrinkView(drink: history[index], index: index)
@@ -91,14 +91,15 @@ class ViewController: UIViewController {
     }
     
     private func initialLabel() {
-        let machine: CommonAvailableMachine = VendingMachine.sharedInstance
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        
         for menu in DrinkCategory.allCases {
-            machine.markDrinkLabel(menu) { drinkCounts in
+            appDelegate.userMode?.markDrinkLabel(menu) { drinkCounts in
                 self.drinkLabels[menu.rawValue-1].text = "\(drinkCounts)개"
             }
         }
-        machine.markCoinLabel { coin in
-            self.currentCoin.text = "잔액 : \(coin)원"
+        appDelegate.userMode?.markCoinLabel { coin in
+            self.currentCoin.text = "잔약 : \(coin)원"
         }
     }
     
@@ -135,19 +136,20 @@ class ViewController: UIViewController {
     }
     
     private func insertEach(_ coin: Int) {
-        let userMode: UserAvailableMode = VendingMachine.sharedInstance
-        userMode.insert(coin: coin)
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        appDelegate.userMode?.insert(coin: coin)
     }
     
     @IBAction func buyDrink(_ sender: Any) {
-        let userMode: UserAvailableMode = VendingMachine.sharedInstance
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        
         guard let button = sender as? UIButton else { return }
         guard let menu = DrinkCategory(rawValue: button.tag) else { return }
-        let buyState = userMode.isAbleToPick(menu: menu)
+        let buyState = appDelegate.userMode?.isAbleToPick(menu: menu)
         if buyState == .success {
-            userMode.pick(menu: menu)
+            appDelegate.userMode?.pick(menu: menu)
         } else {
-            let warningMessage = UIAlertController(title: "실패", message: buyState.convertString(), preferredStyle: .alert)
+            let warningMessage = UIAlertController(title: "실패", message: buyState?.convertString(), preferredStyle: .alert)
             let cancelWindow = UIAlertAction(title: "확인", style: .cancel, handler: nil)
             warningMessage.addAction(cancelWindow)
             present(warningMessage, animated: true, completion: nil)

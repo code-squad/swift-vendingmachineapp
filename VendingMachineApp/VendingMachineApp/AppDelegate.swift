@@ -11,10 +11,16 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
+    var userMode: UserAvailableMode?
+    var managerMode: ManageableMode?
+    var commonMode: CommonAvailableMachine?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         DataSetter.load()
+        userMode = VendingMachine.sharedInstance
+        managerMode = VendingMachine.sharedInstance
+        commonMode = VendingMachine.sharedInstance
         return true
     }
 
@@ -39,6 +45,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+        userMode = nil
+        managerMode = nil
+        commonMode = nil
     }
 
 

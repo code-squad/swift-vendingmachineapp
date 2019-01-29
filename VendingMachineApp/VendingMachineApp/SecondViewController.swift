@@ -21,9 +21,9 @@ class SecondViewController: UIViewController {
     }
     
     @objc func updateDrinkLabel() {
-        let commonMode: CommonAvailableMachine = VendingMachine.sharedInstance
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         for menu in DrinkCategory.allCases {
-            commonMode.markDrinkLabel(menu) { drinkCounts in
+            appDelegate.managerMode?.markDrinkLabel(menu) { drinkCounts in
                 self.drinkLabels[menu.rawValue-1].text = "\(drinkCounts)개"
             }
         }
@@ -38,9 +38,9 @@ class SecondViewController: UIViewController {
     }
     
     private func initialLabel() {
-        let machine: CommonAvailableMachine = VendingMachine.sharedInstance
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         for menu in DrinkCategory.allCases {
-            machine.markDrinkLabel(menu) { drinkCounts in
+            appDelegate.managerMode?.markDrinkLabel(menu) { drinkCounts in
                 self.drinkLabels[menu.rawValue-1].text = "\(drinkCounts)개"
             }
         }
@@ -53,8 +53,8 @@ class SecondViewController: UIViewController {
     }
     
     private func addEachDrink(of menu: DrinkCategory) {
-        let managerMode: ManageableMode = VendingMachine.sharedInstance
-        managerMode.addStock(menu: menu)
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        appDelegate.managerMode?.addStock(menu: menu)
     }
     
     @IBAction func exit(_ sender: Any) {

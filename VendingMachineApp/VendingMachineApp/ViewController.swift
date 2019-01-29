@@ -21,7 +21,9 @@ extension NSNotification.Name {
     static let historyChanged = NSNotification.Name(rawValue: "historyChanged")
 }
 
-class ViewController: UIViewController {    
+class ViewController: UIViewController {
+    var userMode: UserAvailableMode?
+    
     @IBOutlet var drinkImages: [UIImageView]!
     @IBOutlet var drinkLabels: [UILabel]!
     @IBOutlet var insertButtons: [UIButton]!
@@ -41,33 +43,33 @@ class ViewController: UIViewController {
         initialInserButtonTag()
     }
     
+    func set(vending: VendingMachine) {
+        userMode = vending
+    }
+    
     @objc func updateDrinkLabel() {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         for menu in DrinkCategory.allCases {
-            appDelegate.commonMode?.markDrinkLabel(menu) { drinkCounts in
+            userMode?.markDrinkLabel(menu) { drinkCounts in
                 self.drinkLabels[menu.rawValue-1].text = "\(drinkCounts)개"
             }
         }
     }
     
     @objc func updateCoinLabel() {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-        appDelegate.userMode?.markCoinLabel { coin in
+        userMode?.markCoinLabel { coin in
             self.currentCoin.text = "잔액: \(coin)원"
         }
     }
     
     @objc func updatePurchaseHistory() {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-        appDelegate.userMode?.markPurchasedHistory { history in
+        userMode?.markPurchasedHistory { history in
             let purchasedView = createPurchasedDrinkView(drink: history[history.count-1], index: history.count-1)
             self.view.addSubview(purchasedView)
         }
     }
     
     private func initialPuschaseImage() {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-        appDelegate.userMode?.markPurchasedHistory { history in
+        userMode?.markPurchasedHistory { history in
             var purchasedView: UIImageView
             for index in 0..<history.count {
                 purchasedView = createPurchasedDrinkView(drink: history[index], index: index)
@@ -91,14 +93,12 @@ class ViewController: UIViewController {
     }
     
     private func initialLabel() {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-        
         for menu in DrinkCategory.allCases {
-            appDelegate.userMode?.markDrinkLabel(menu) { drinkCounts in
+            userMode?.markDrinkLabel(menu) { drinkCounts in
                 self.drinkLabels[menu.rawValue-1].text = "\(drinkCounts)개"
             }
         }
-        appDelegate.userMode?.markCoinLabel { coin in
+        userMode?.markCoinLabel { coin in
             self.currentCoin.text = "잔약 : \(coin)원"
         }
     }
@@ -136,23 +136,27 @@ class ViewController: UIViewController {
     }
     
     private func insertEach(_ coin: Int) {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-        appDelegate.userMode?.insert(coin: coin)
+        userMode?.insert(coin: coin)
     }
     
     @IBAction func buyDrink(_ sender: Any) {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-        
         guard let button = sender as? UIButton else { return }
         guard let menu = DrinkCategory(rawValue: button.tag) else { return }
-        let buyState = appDelegate.userMode?.isAbleToPick(menu: menu)
+        let buyState = userMode?.isAbleToPick(menu: menu)
         if buyState == .success {
-            appDelegate.userMode?.pick(menu: menu)
+            userMode?.pick(menu: menu)
         } else {
             let warningMessage = UIAlertController(title: "실패", message: buyState?.convertString(), preferredStyle: .alert)
             let cancelWindow = UIAlertAction(title: "확인", style: .cancel, handler: nil)
             warningMessage.addAction(cancelWindow)
             present(warningMessage, animated: true, completion: nil)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "Translation" {
+            let managerViewController = segue.destination as? SecondViewController
+            managerViewController?.set(vending: userMode as! VendingMachine)
         }
     }
 }

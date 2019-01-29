@@ -182,7 +182,7 @@
                                     <color key="titleColor" red="1" green="0.12454810390676252" blue="0.081998088733169161" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
-                                    <segue destination="I5T-X4-Fyp" kind="presentation" modalTransitionStyle="flipHorizontal" id="BcE-hM-0TA"/>
+                                    <segue destination="I5T-X4-Fyp" kind="presentation" identifier="Translation" modalTransitionStyle="flipHorizontal" id="BcE-hM-0TA"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -220,7 +220,7 @@
         <!--Second View Controller-->
         <scene sceneID="L0i-6c-Pe3">
             <objects>
-                <viewController id="I5T-X4-Fyp" customClass="SecondViewController" customModule="VendingMachineApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="managerViewController" id="I5T-X4-Fyp" customClass="SecondViewController" customModule="VendingMachineApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Gzn-aG-pNz">
                         <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

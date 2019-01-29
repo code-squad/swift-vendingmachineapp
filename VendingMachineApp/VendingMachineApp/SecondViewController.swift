@@ -9,6 +9,8 @@
 import UIKit
 
 class SecondViewController: UIViewController {
+    var managerMode: ManageableMode?
+    
     @IBOutlet var addButtons: [UIButton]!
     @IBOutlet var drinkLabels: [UILabel]!
     
@@ -20,10 +22,13 @@ class SecondViewController: UIViewController {
         initialLabel()
     }
     
+    func set(vending: VendingMachine) {
+        managerMode = vending
+    }
+    
     @objc func updateDrinkLabel() {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         for menu in DrinkCategory.allCases {
-            appDelegate.managerMode?.markDrinkLabel(menu) { drinkCounts in
+            managerMode?.markDrinkLabel(menu) { drinkCounts in
                 self.drinkLabels[menu.rawValue-1].text = "\(drinkCounts)개"
             }
         }
@@ -38,9 +43,8 @@ class SecondViewController: UIViewController {
     }
     
     private func initialLabel() {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         for menu in DrinkCategory.allCases {
-            appDelegate.managerMode?.markDrinkLabel(menu) { drinkCounts in
+            managerMode?.markDrinkLabel(menu) { drinkCounts in
                 self.drinkLabels[menu.rawValue-1].text = "\(drinkCounts)개"
             }
         }
@@ -53,11 +57,11 @@ class SecondViewController: UIViewController {
     }
     
     private func addEachDrink(of menu: DrinkCategory) {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-        appDelegate.managerMode?.addStock(menu: menu)
+        managerMode?.addStock(menu: menu)
     }
     
     @IBAction func exit(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
 }
+

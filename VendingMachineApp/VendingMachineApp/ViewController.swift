@@ -43,7 +43,7 @@ class ViewController: UIViewController {
         initialInserButtonTag()
     }
     
-    func set(vending: VendingMachine) {
+    func set(vending: UserAvailableMode) {
         userMode = vending
     }
     

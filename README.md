@@ -294,3 +294,23 @@ let controllerObject = appDelegate.object
   ![seven](./7.png) ![eight](./8.png)
   - 왼쪽 그림은 원래 위치의 그림이고, 오른쪽 그림은 SubView의 위치를 바꾼 것이다. (subView.bounds.origin.x = 60, subView.bounds.origin.y = 50)
   - 예상했던 것과는 다르게 파란색 화면이 움직인 것을 확인할 수 있다. 즉 `Bounds`는  자신 만의 좌표시스템 내에서 움직이기 때문에, SubView 위치가 내려가면서 파란화면이 왼쪽으로 이동한 것처럼 보이는 것이다.
+  
+  
+  **Segue로 데이터 전달하기**
+  
+  1. 우선 데이터 전달을 위해서 두 `ViewController`사이에 있는 `Segue`의 `Identifier` 설정을 우선하여야한다.
+  ![nine](./9.png)
+  
+  2. Sender `ViewController`에서 그림과 같은 `prepare()`메소드를 오버라이딩하여 구현한다. 
+  그림에서 segue.destination이란 Receiver 뷰컨트롤러를 의미한다.
+  ![ten](./10.png)
+  
+  
+  **AppDelegate에서 ViewController로 데이터 전달**
+  
+  1. `ViewController`의 `Identifier` 설정을 해준다.
+  ![eleven](./11.png)
+  
+  2. `AppDelegate` 내 다음과 같은 코드를 구현한다.
+  ![twelven](./12.png)
+  

@@ -22,7 +22,7 @@ class SecondViewController: UIViewController {
         initialLabel()
     }
     
-    func set(vending: VendingMachine) {
+    func set(vending: ManageableMode) {
         managerMode = vending
     }
     

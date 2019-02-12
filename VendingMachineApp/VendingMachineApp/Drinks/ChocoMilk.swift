@@ -42,4 +42,8 @@ class ChocoMilk: Milk {
     override func convertToImageName() -> String {
         return "초코우유"
     }
+    
+    override func convertToKey() -> String {
+        return "\(type(of: ChocoMilk()))"
+    }
 }

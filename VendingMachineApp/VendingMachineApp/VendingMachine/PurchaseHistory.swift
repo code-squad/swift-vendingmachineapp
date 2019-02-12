@@ -31,4 +31,8 @@ class PurchaseHistory: NSObject, NSCoding {
     func get(form: ([Beverage]) -> Void) {
         form(history)
     }
+    
+    func getHistory() -> [Beverage] {
+        return history
+    }
 }

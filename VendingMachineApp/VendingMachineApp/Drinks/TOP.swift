@@ -45,4 +45,8 @@ class TOP: Coffee {
     override func convertToImageName() -> String {
         return "TOP"
     }
+    
+    override func convertToKey() -> String {
+        return "\(type(of: TOP()))"
+    }
 }

@@ -32,7 +32,7 @@ class PurchaseHistory: NSObject, NSCoding {
         form(history)
     }
     
-    func getHistory() -> [Beverage] {
-        return history
+    func accessHistory(_ form: ([Beverage]) -> [String: Int]) -> [String: Int] {
+        return form(history)
     }
 }

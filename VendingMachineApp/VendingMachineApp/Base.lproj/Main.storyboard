@@ -369,6 +369,7 @@
                         <viewLayoutGuide key="safeArea" id="S98-Oo-gNV"/>
                     </view>
                     <connections>
+                        <outlet property="pieGraphView" destination="LKX-Si-vug" id="bhZ-pG-AkC"/>
                         <outletCollection property="addButtons" destination="y9y-8v-YrU" collectionClass="NSMutableArray" id="3AJ-9b-4Op"/>
                         <outletCollection property="addButtons" destination="wku-Dh-lIW" collectionClass="NSMutableArray" id="aXu-b5-UwV"/>
                         <outletCollection property="addButtons" destination="FPj-uA-0JF" collectionClass="NSMutableArray" id="vzD-b7-IZ7"/>

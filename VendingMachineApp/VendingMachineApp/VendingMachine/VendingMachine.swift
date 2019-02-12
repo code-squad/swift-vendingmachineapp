@@ -68,6 +68,10 @@ class VendingMachine: NSObject, NSCoding {
         let todayDate: Date = Date()
         return stock.searchExpirationList(to: todayDate)
     }
+    
+    func purchaseDrink(form: ([Beverage]) -> Void) {
+        form(purchaseHistory.getHistory())
+    }
 }
 
 extension VendingMachine: PrintableMachingState {

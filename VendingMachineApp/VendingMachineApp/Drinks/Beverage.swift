@@ -42,4 +42,8 @@ class Beverage: NSObject, NSCoding {
     func convertToImageName() -> String {
         return ""
     }
+    
+    func convertToKey() -> String {
+        return ""
+    }
 }

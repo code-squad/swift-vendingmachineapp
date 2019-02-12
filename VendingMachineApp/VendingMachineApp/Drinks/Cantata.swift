@@ -46,4 +46,8 @@ class Cantata: Coffee {
     override func convertToImageName() -> String {
         return "칸타타"
     }
+    
+    override func convertToKey() -> String {
+        return "\(type(of: Cantata()))"
+    }
 }

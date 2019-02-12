@@ -298,7 +298,7 @@ let controllerObject = appDelegate.object
   
   **Segue로 데이터 전달하기**
   
-  1. 우선 데이터 전달을 위해서 두 `ViewController`사이에 있는 `Segue`의 `Identifier` 설정을 우선하여야한다.
+  1. 우선 데이터 전달을 위해서 두 `ViewController`사이에 있는 `Segue`의 `Identifier` 설정을 우선 하여야한다.
   ![nine](./9.png)
   
   2. Sender `ViewController`에서 그림과 같은 `prepare()`메소드를 오버라이딩하여 구현한다. 
@@ -313,4 +313,14 @@ let controllerObject = appDelegate.object
   
   2. `AppDelegate` 내 다음과 같은 코드를 구현한다.
   ![twelven](./12.png)
+  
+  
+  
+  ### Step8
+  
+  
+  **Core Graphics API**
+  
+  
+  
   

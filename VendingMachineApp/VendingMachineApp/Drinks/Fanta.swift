@@ -45,4 +45,8 @@ class Fanta: CarbonatedDrink {
     override func convertToImageName() -> String {
         return "환타"
     }
+    
+    override func convertToKey() -> String {
+        return "\(type(of: Fanta()))"
+    }
 }

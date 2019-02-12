@@ -13,6 +13,7 @@ class SecondViewController: UIViewController {
     
     @IBOutlet var addButtons: [UIButton]!
     @IBOutlet var drinkLabels: [UILabel]!
+    @IBOutlet weak var pieGraphView: PieGraphView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +21,15 @@ class SecondViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(updateDrinkLabel), name: .stockChanged, object: nil)
         initialAddButtonTag()
         initialLabel()
+        pieGraphView.set(count: managerMode?.countPurchased { history in
+                var dictionary: [String: Int] = [:]
+                for drinkKind in DrinkCategory.allCases { dictionary[drinkKind.convertToKey()] = 0 }
+                for eachHistory in history {
+                    guard let count = dictionary[eachHistory.convertToKey()] else { return [:] }
+                    dictionary.updateValue(count + 1, forKey: eachHistory.convertToKey())
+                }
+                return dictionary
+            } ?? [:])
     }
     
     func set(vending: ManageableMode) {

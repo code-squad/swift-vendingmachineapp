@@ -25,6 +25,7 @@ protocol ManageableMode: CommonAvailableMachine {
     func isAbleToRemove(menu: DrinkCategory) -> State
     func addStock(menu: DrinkCategory)
     func removeDrink(_ menu: DrinkCategory) -> Beverage
+    func countPurchased(form: ([Beverage]) -> [String: Int]) -> [String: Int]
 }
 
 protocol PrintableMachingState {
@@ -68,10 +69,6 @@ class VendingMachine: NSObject, NSCoding {
         let todayDate: Date = Date()
         return stock.searchExpirationList(to: todayDate)
     }
-    
-    func purchaseDrink(form: ([Beverage]) -> Void) {
-        form(purchaseHistory.getHistory())
-    }
 }
 
 extension VendingMachine: PrintableMachingState {
@@ -97,6 +94,10 @@ extension VendingMachine: ManageableMode {
     
     func removeDrink(_ menu: DrinkCategory) -> Beverage {
         return stock.pickOneDrink(menu)
+    }
+
+    func countPurchased(form: ([Beverage]) -> [String: Int]) -> [String: Int] {
+        return purchaseHistory.accessHistory(form)
     }
 }
 

@@ -8,6 +8,27 @@
 
 import Foundation
 
+protocol DataSet {
+    var countOfEachPurchasedDrink: [String: Int] { get }
+}
+
+extension VendingMachine: DataSet {
+    var countOfEachPurchasedDrink: [String : Int] {
+        get {
+            return purchaseHistory.accessHistory { history in
+                var dictionary: [String: Int] = [:]
+                for drinkKind in DrinkCategory.allCases { dictionary[drinkKind.convertToKey()] = 0 }
+                for eachHistory in history {
+                    guard let count = dictionary[eachHistory.convertToKey()] else { return [:] }
+                    dictionary.updateValue(count + 1, forKey: eachHistory.convertToKey())
+                }
+                return dictionary
+            }
+        }
+    }
+    
+}
+
 protocol CommonAvailableMachine {
     func markDrinkLabel(_ menu: DrinkCategory, form: (Int) -> Void)
 }

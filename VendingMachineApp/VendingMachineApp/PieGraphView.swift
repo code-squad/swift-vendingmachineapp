@@ -9,31 +9,35 @@
 import UIKit
 
 class PieGraphView: UIView {
-    private(set) var countOfPurchasedEachDrink: [String: Int] = [:]
-
-    func set(count: [String: Int]) {
-        countOfPurchasedEachDrink = count
+    var data: DataSet?
+    
+    func set(data: DataSet?) {
+        self.data = data
     }
-
+    
     override func draw(_ rect: CGRect) {
         let ctx = UIGraphicsGetCurrentContext()
         let radius = min(frame.size.width, frame.size.height) * 0.5
         let viewCenter = CGPoint(x: frame.size.width * 0.5, y: frame.size.height * 0.5)
+        
+
+        guard let data = self.data else { return }
         var valueCount: Int {
             var count = 0
-            for (_, value) in countOfPurchasedEachDrink { count += value }
+            for (_, value) in data.countOfEachPurchasedDrink { count += value }
             return count
         }
         
         drawPieGraph(ctx: ctx, radius: radius, viewCenter: viewCenter, valueCount: valueCount)
     }
-
+    
     private func drawPieGraph(ctx: CGContext?, radius: CGFloat, viewCenter: CGPoint, valueCount: Int) {
         var startAngle = -CGFloat.pi * 0.5
         var colorRedValue: CGFloat = 0
         var colorBlueValue: CGFloat = 1
         
-        for(key, value) in countOfPurchasedEachDrink {
+        guard let data = self.data else { return }
+        for(key, value) in data.countOfEachPurchasedDrink {
             ctx?.setFillColor(UIColor(red: colorRedValue, green: 0, blue: colorBlueValue, alpha: 1.0).cgColor)
             
             let endAngle = startAngle + 2 * .pi * (CGFloat(value) / CGFloat(valueCount))

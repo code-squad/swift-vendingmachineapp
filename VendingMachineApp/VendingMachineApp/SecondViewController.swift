@@ -30,6 +30,7 @@ class SecondViewController: UIViewController {
                 }
                 return dictionary
             } ?? [:])
+        pieGraphView.setNeedsDisplay()
     }
     
     func set(vending: ManageableMode) {

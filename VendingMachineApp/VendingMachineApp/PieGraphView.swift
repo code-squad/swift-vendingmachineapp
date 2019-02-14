@@ -67,10 +67,9 @@ class PieGraphView: UIView {
                 ctx?.addArc(center: viewCenter, radius: radius, startAngle: startAngle, endAngle: endAngle, clockwise: false)
                 ctx?.fillPath()
                 
-                if value != 0 { drawLabel(text: key as NSString, startAngle: startAngle, endAngle: endAngle) }
+                if value != 0 { drawLabel(text: key as NSString, startAngle: startAngle, endAngle: endAngle, radius: radius) }
                 
                 startAngle = endAngle
-                
                 colorRedValue += 0.2
                 colorBlueValue -= 0.2
             }
@@ -82,12 +81,12 @@ class PieGraphView: UIView {
         }
     }
     
-    private func drawLabel(text: NSString, startAngle: CGFloat, endAngle: CGFloat) {
+    private func drawLabel(text: NSString, startAngle: CGFloat, endAngle: CGFloat, radius: CGFloat) {
         let fontSize = CGFloat(15)
         let moveLeft = CGFloat(text.length) * fontSize * 0.27
         let angle = startAngle + (endAngle - startAngle) * 0.5
-        let point = CGPoint(x: frame.size.width / 2 + (min(frame.size.width, frame.size.height) * 0.5 * cos(angle)) * 0.5 - moveLeft,
-                            y: frame.size.height / 2 + (min(frame.size.width, frame.size.height) * 0.5 * sin(angle)) * 0.5 - fontSize)
+        let point = CGPoint(x: frame.size.width / 2 + (radius * cos(angle)) * 0.5 - moveLeft,
+                            y: frame.size.height / 2 + (radius * sin(angle)) * 0.5 - fontSize)
         text.draw(at: point, withAttributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: fontSize),
                                               NSAttributedString.Key.foregroundColor: UIColor.white])
     }
@@ -104,19 +103,16 @@ class PieGraphView: UIView {
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let pastTouchPoint = self.pastTouchPoint else { return }
         guard let currentTouchPoint = touches.first else { return }
+        guard let currentRadius = self.radius else { return }
         guard let viewCenter = self.viewCenter else { return }
-        
-        print("이전점 : \(pastTouchPoint), 이후점 : \(currentTouchPoint.location(in: self))")
         
         // 원점으로 더 가까워질 경우
         if pow(pastTouchPoint.x - viewCenter.x, 2) + pow(pastTouchPoint.y - viewCenter.y, 2) > pow(currentTouchPoint.location(in: self).x - viewCenter.x, 2) + pow(currentTouchPoint.location(in: self).y - viewCenter.y, 2) {
-            guard let currentRadius = self.radius else { return }
-            self.radius = currentRadius - CGFloat(1)
+            if currentRadius >= 10 { self.radius = currentRadius - CGFloat(1) }
         } else if pow(pastTouchPoint.x - viewCenter.x, 2) + pow(pastTouchPoint.y - viewCenter.y, 2) < pow(currentTouchPoint.location(in: self).x - viewCenter.x, 2) + pow(currentTouchPoint.location(in: self).y - viewCenter.y, 2) {
-            guard let currentRadius = self.radius else { return }
-            self.radius = currentRadius + CGFloat(1)
+            if currentRadius <= 200 { self.radius = currentRadius + CGFloat(1) }
         }
-        self.pastTouchPoint = currentTouchPoint.location(in: self)
+        self.pastTouchPoint = currentTouchPoint.location(in: self)  // 다음 비교를 위해 현재 위치 저장
         setNeedsDisplay()
     }
     

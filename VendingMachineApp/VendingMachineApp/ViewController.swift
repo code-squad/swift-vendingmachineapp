@@ -12,8 +12,6 @@ class ViewController: UIViewController {
     
     private var vendingMachine: VendingMachine
     
-    // 'required' initializer 'init(coder:)' must be provided by subclass of 'UIViewController'
-    
     required init?(coder: NSCoder) {
         self.vendingMachine = VendingMachine(list: Inventory(list: [ObjectIdentifier: Packages]()))
         super.init(coder: coder)
@@ -38,9 +36,6 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         showBeverageList()
     }
-
-
 }

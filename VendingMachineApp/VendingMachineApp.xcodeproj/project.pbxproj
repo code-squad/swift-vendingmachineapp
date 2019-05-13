@@ -33,6 +33,11 @@
 		F3056AE222817D54004EEAA0 /* Soda.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3056ACB22817D53004EEAA0 /* Soda.swift */; };
 		F3056AE322817D54004EEAA0 /* CocaCola.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3056ACC22817D53004EEAA0 /* CocaCola.swift */; };
 		F3056AE422817D54004EEAA0 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3056ACD22817D54004EEAA0 /* Date.swift */; };
+		F3056B5C22899693004EEAA0 /* Coca.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F3056B5922899693004EEAA0 /* Coca.jpg */; };
+		F3056B5D22899693004EEAA0 /* Banana.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F3056B5A22899693004EEAA0 /* Banana.jpg */; };
+		F3056B5E22899693004EEAA0 /* Choco.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F3056B5B22899693004EEAA0 /* Choco.jpg */; };
+		F3056B60228996E8004EEAA0 /* Cantata.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = F3056B5F228996E8004EEAA0 /* Cantata.jpeg */; };
+		F3056B6222899743004EEAA0 /* Starbucks.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F3056B6122899743004EEAA0 /* Starbucks.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +69,11 @@
 		F3056ACB22817D53004EEAA0 /* Soda.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Soda.swift; sourceTree = "<group>"; };
 		F3056ACC22817D53004EEAA0 /* CocaCola.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CocaCola.swift; sourceTree = "<group>"; };
 		F3056ACD22817D54004EEAA0 /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		F3056B5922899693004EEAA0 /* Coca.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Coca.jpg; sourceTree = "<group>"; };
+		F3056B5A22899693004EEAA0 /* Banana.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Banana.jpg; sourceTree = "<group>"; };
+		F3056B5B22899693004EEAA0 /* Choco.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Choco.jpg; sourceTree = "<group>"; };
+		F3056B5F228996E8004EEAA0 /* Cantata.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Cantata.jpeg; sourceTree = "<group>"; };
+		F3056B6122899743004EEAA0 /* Starbucks.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Starbucks.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +106,7 @@
 		F3056A9F228178BB004EEAA0 /* VendingMachineApp */ = {
 			isa = PBXGroup;
 			children = (
+				F3056B5822899677004EEAA0 /* img */,
 				F3056AE622817DA6004EEAA0 /* Mode */,
 				F3056AA0228178BB004EEAA0 /* AppDelegate.swift */,
 				F3056AA2228178BB004EEAA0 /* ViewController.swift */,
@@ -183,6 +194,18 @@
 			path = VendingMachine;
 			sourceTree = "<group>";
 		};
+		F3056B5822899677004EEAA0 /* img */ = {
+			isa = PBXGroup;
+			children = (
+				F3056B5A22899693004EEAA0 /* Banana.jpg */,
+				F3056B5F228996E8004EEAA0 /* Cantata.jpeg */,
+				F3056B5B22899693004EEAA0 /* Choco.jpg */,
+				F3056B6122899743004EEAA0 /* Starbucks.jpg */,
+				F3056B5922899693004EEAA0 /* Coca.jpg */,
+			);
+			path = img;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -242,7 +265,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3056AAB228178BE004EEAA0 /* LaunchScreen.storyboard in Resources */,
+				F3056B5C22899693004EEAA0 /* Coca.jpg in Resources */,
+				F3056B60228996E8004EEAA0 /* Cantata.jpeg in Resources */,
+				F3056B5D22899693004EEAA0 /* Banana.jpg in Resources */,
 				F3056AA8228178BE004EEAA0 /* Assets.xcassets in Resources */,
+				F3056B5E22899693004EEAA0 /* Choco.jpg in Resources */,
+				F3056B6222899743004EEAA0 /* Starbucks.jpg in Resources */,
 				F3056AA6228178BB004EEAA0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

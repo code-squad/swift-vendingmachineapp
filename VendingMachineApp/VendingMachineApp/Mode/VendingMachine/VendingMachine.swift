@@ -31,6 +31,11 @@ struct VendingMachine {
     func hasEqualHistory(with theOther: History) -> Bool {
         return self.history == theOther
     }
+    
+    func count(beverage: Int) -> Int? {
+        guard let pack = list.find(type: beverageTypes[beverage]) else { return nil }
+        return pack.count
+    }
 
 }
 

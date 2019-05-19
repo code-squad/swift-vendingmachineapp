@@ -10,32 +10,68 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    // MARK: - private variable
     private var vendingMachine: VendingMachine
     
+    // MARK: - @IBOutlet
+    @IBOutlet var beverageImageView: [UIImageView]!
+    @IBOutlet var beverageLabel: [UILabel]!
+    @IBOutlet weak var list: UILabel!
+    
+    // MARK: - init
     required init?(coder: NSCoder) {
         self.vendingMachine = VendingMachine(list: Inventory(list: [ObjectIdentifier: Packages]()))
         super.init(coder: coder)
     }
     
-    private func showBeverageList() {
-        let beverages = [Sprite(), Sprite(), Sprite(), CocaCola(),
-                         CocaCola(), CocaCola(),CocaCola(),
-                         ChocolateMilk(), ChocolateMilk(),
-                         BananaMilk(), BananaMilk(),
-                         CantataCoffee(), CantataCoffee(), CantataCoffee(),
-                         StarbucksCoffee(), StarbucksCoffee()]
-        
-        beverages.forEach { beverage in vendingMachine.add(beverage: beverage) }
-        
-        let form = { (name: String, goods: Int, mark: Bool)
-            in
-            print("\(mark ? "✅" : "🚫") \(name)(\(goods)개)")
+    // MARK: - function
+    private func roundImageView() {
+        for imgView in beverageImageView {
+            imgView.layer.borderColor = UIColor.gray.cgColor
+            imgView.layer.borderWidth = 2
+            imgView.layer.cornerRadius = 10
+            
         }
-        vendingMachine.showListOfAll(list: form)
     }
-
+    
+    private func showQuantity() {
+        for (index, count) in beverageLabel.enumerated() {
+            if let number = vendingMachine.count(beverage: index) {
+                count.text = "\(number)개"
+                continue
+            }
+            count.text = "0개"
+        }
+    }
+    
+    private func moneyFormat(money: Int) {
+        self.list.text = "\(money.commaRepresentation)"
+    }
+    
+    // MARK: - @IBAction
+    @IBAction func addBeverage(_ sender: UIButton) {
+        let beverage = sender.tag
+        guard vendingMachine.add(beverage: beverage) else { return }
+        showQuantity()
+    }
+    
+    @IBAction func inputOneThousandMoney(_ sender: Any) {
+        guard vendingMachine.isPut(cash: 1000) else { return }
+        vendingMachine.showList(show: moneyFormat)
+    }
+    
+    @IBAction func inputfiveThousandMoney(_ sender: Any) {
+        guard vendingMachine.isPut(cash: 5000) else { return }
+        vendingMachine.showList(show: moneyFormat)
+    }
+    
+    // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        showBeverageList()
+        
+        roundImageView()
+        showQuantity()
+        vendingMachine.showList(show: moneyFormat)
     }
+
 }

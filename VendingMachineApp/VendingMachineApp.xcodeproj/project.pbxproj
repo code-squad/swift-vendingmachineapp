@@ -18,7 +18,6 @@
 		F3056AD122817D54004EEAA0 /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3056AB622817D53004EEAA0 /* Coffee.swift */; };
 		F3056AD222817D54004EEAA0 /* StarbucksCoffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3056AB722817D53004EEAA0 /* StarbucksCoffee.swift */; };
 		F3056AD322817D54004EEAA0 /* MenuScript.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3056AB922817D53004EEAA0 /* MenuScript.swift */; };
-		F3056AD422817D54004EEAA0 /* performable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3056ABA22817D53004EEAA0 /* performable.swift */; };
 		F3056AD622817D54004EEAA0 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3056ABC22817D53004EEAA0 /* Menu.swift */; };
 		F3056AD822817D54004EEAA0 /* ExpirationPeriod.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3056ABE22817D53004EEAA0 /* ExpirationPeriod.swift */; };
 		F3056AD922817D54004EEAA0 /* Inventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3056ABF22817D53004EEAA0 /* Inventory.swift */; };
@@ -54,7 +53,6 @@
 		F3056AB622817D53004EEAA0 /* Coffee.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
 		F3056AB722817D53004EEAA0 /* StarbucksCoffee.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarbucksCoffee.swift; sourceTree = "<group>"; };
 		F3056AB922817D53004EEAA0 /* MenuScript.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuScript.swift; sourceTree = "<group>"; };
-		F3056ABA22817D53004EEAA0 /* performable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = performable.swift; sourceTree = "<group>"; };
 		F3056ABC22817D53004EEAA0 /* Menu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		F3056ABE22817D53004EEAA0 /* ExpirationPeriod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpirationPeriod.swift; sourceTree = "<group>"; };
 		F3056ABF22817D53004EEAA0 /* Inventory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Inventory.swift; sourceTree = "<group>"; };
@@ -132,7 +130,6 @@
 			isa = PBXGroup;
 			children = (
 				F3056AB922817D53004EEAA0 /* MenuScript.swift */,
-				F3056ABA22817D53004EEAA0 /* performable.swift */,
 				F3056ABC22817D53004EEAA0 /* Menu.swift */,
 			);
 			path = View;
@@ -304,7 +301,6 @@
 				F3056ADE22817D54004EEAA0 /* Beverage.swift in Sources */,
 				F3056AD222817D54004EEAA0 /* StarbucksCoffee.swift in Sources */,
 				F3056AE322817D54004EEAA0 /* CocaCola.swift in Sources */,
-				F3056AD422817D54004EEAA0 /* performable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

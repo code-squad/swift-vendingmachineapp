@@ -33,3 +33,16 @@ class Money {
         return money
     }
 }
+
+extension Int {
+    // , 를 위해 구현
+    private static var commaFormatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        return formatter
+    }()
+    
+    var commaRepresentation: String {
+        return Int.commaFormatter.string(from: NSNumber(value: self)) ?? ""
+    }
+}

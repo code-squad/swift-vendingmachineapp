@@ -37,6 +37,7 @@
 		F3056B5E22899693004EEAA0 /* Choco.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F3056B5B22899693004EEAA0 /* Choco.jpg */; };
 		F3056B60228996E8004EEAA0 /* Cantata.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = F3056B5F228996E8004EEAA0 /* Cantata.jpeg */; };
 		F3056B6222899743004EEAA0 /* Starbucks.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F3056B6122899743004EEAA0 /* Starbucks.jpg */; };
+		F36EFFF422928D3400471E19 /* RoundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36EFFF322928D3400471E19 /* RoundImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +73,7 @@
 		F3056B5B22899693004EEAA0 /* Choco.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Choco.jpg; sourceTree = "<group>"; };
 		F3056B5F228996E8004EEAA0 /* Cantata.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Cantata.jpeg; sourceTree = "<group>"; };
 		F3056B6122899743004EEAA0 /* Starbucks.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Starbucks.jpg; sourceTree = "<group>"; };
+		F36EFFF322928D3400471E19 /* RoundImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +133,7 @@
 			children = (
 				F3056AB922817D53004EEAA0 /* MenuScript.swift */,
 				F3056ABC22817D53004EEAA0 /* Menu.swift */,
+				F36EFFF322928D3400471E19 /* RoundImageView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 				F3056ADD22817D54004EEAA0 /* BananaMilk.swift in Sources */,
 				F3056ADF22817D54004EEAA0 /* Money.swift in Sources */,
 				F3056AA1228178BB004EEAA0 /* AppDelegate.swift in Sources */,
+				F36EFFF422928D3400471E19 /* RoundImageView.swift in Sources */,
 				F3056AE022817D54004EEAA0 /* Packages.swift in Sources */,
 				F3056AE222817D54004EEAA0 /* Soda.swift in Sources */,
 				F3056ADC22817D54004EEAA0 /* ChocolateMilk.swift in Sources */,

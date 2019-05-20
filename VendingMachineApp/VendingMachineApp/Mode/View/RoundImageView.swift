@@ -10,11 +10,14 @@ import UIKit
 
 class RoundImageView: UIImageView{
     
-    static func makeRound(index: [UIImageView]) {
-        for num in index {
-            num.layer.borderColor = UIColor.gray.cgColor
-            num.layer.borderWidth = 2
-            num.layer.cornerRadius = 10
-        }
+    var roundImageView: UIImageView!
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        
+        self.layer.borderColor = UIColor.gray.cgColor
+        self.layer.borderWidth = 2
+        self.layer.cornerRadius = 10
     }
+    
 }

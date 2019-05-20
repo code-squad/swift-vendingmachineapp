@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     private var vendingMachine: VendingMachine
     
     // MARK: - @IBOutlet
-    @IBOutlet var beverageImageView: [UIImageView]!
+    @IBOutlet var beverageImageView: RoundImageView!
     @IBOutlet var beverageLabel: [UILabel]!
     @IBOutlet weak var list: UILabel!
     
@@ -25,9 +25,6 @@ class ViewController: UIViewController {
     }
     
     // MARK: - function
-    private func changImageView() {
-        RoundImageView.makeRound(index: beverageImageView)
-    }
     
     private func showQuantity() {
         for (index, count) in beverageLabel.enumerated() {
@@ -64,7 +61,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        changImageView()
         showQuantity()
         vendingMachine.showList(show: moneyFormat)
     }

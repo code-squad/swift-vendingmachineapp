@@ -26,12 +26,7 @@ class ViewController: UIViewController {
     
     // MARK: - function
     private func changImageView() {
-        for imgView in beverageImageView {
-            imgView.layer.borderColor = UIColor.gray.cgColor
-            imgView.layer.borderWidth = 2
-            imgView.layer.cornerRadius = 10
-
-        }
+        RoundImageView.makeRound(index: beverageImageView)
     }
     
     private func showQuantity() {

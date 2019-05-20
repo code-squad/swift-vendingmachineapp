@@ -177,11 +177,11 @@
                         <outletCollection property="beverageLabel" destination="4hp-Hx-GZB" collectionClass="NSMutableArray" id="izv-qU-Zv0"/>
                         <outletCollection property="beverageLabel" destination="NjQ-4h-ixS" collectionClass="NSMutableArray" id="YIb-Oc-ajS"/>
                         <outletCollection property="beverageLabel" destination="FcY-Cj-hfU" collectionClass="NSMutableArray" id="khS-xL-DY5"/>
-                        <outletCollection property="beverageImageView" destination="Fmh-Rb-ko8" collectionClass="NSMutableArray" id="tY8-6U-WNu"/>
                         <outletCollection property="beverageImageView" destination="5A8-DU-lQC" collectionClass="NSMutableArray" id="0Kl-Ub-H5u"/>
                         <outletCollection property="beverageImageView" destination="oQW-r2-bic" collectionClass="NSMutableArray" id="f5g-KM-UL2"/>
                         <outletCollection property="beverageImageView" destination="vfv-xC-gSB" collectionClass="NSMutableArray" id="F5L-l3-5rN"/>
                         <outletCollection property="beverageImageView" destination="hLg-Nj-Fdu" collectionClass="NSMutableArray" id="eB7-zA-b7V"/>
+                        <outletCollection property="beverageImageView" destination="Fmh-Rb-ko8" collectionClass="NSMutableArray" id="yua-9L-4Z2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

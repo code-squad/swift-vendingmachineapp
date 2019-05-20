@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RoundImageView: UIViewController{
+class RoundImageView: UIImageView{
     
     static func makeRound(index: [UIImageView]) {
         for num in index {

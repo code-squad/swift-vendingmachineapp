@@ -25,12 +25,12 @@ class ViewController: UIViewController {
     }
     
     // MARK: - function
-    private func roundImageView() {
+    private func changImageView() {
         for imgView in beverageImageView {
             imgView.layer.borderColor = UIColor.gray.cgColor
             imgView.layer.borderWidth = 2
             imgView.layer.cornerRadius = 10
-            
+
         }
     }
     
@@ -55,13 +55,13 @@ class ViewController: UIViewController {
         showQuantity()
     }
     
-    @IBAction func inputOneThousandMoney(_ sender: Any) {
-        guard vendingMachine.isPut(cash: 1000) else { return }
-        vendingMachine.showList(show: moneyFormat)
-    }
-    
-    @IBAction func inputfiveThousandMoney(_ sender: Any) {
-        guard vendingMachine.isPut(cash: 5000) else { return }
+    @IBAction func inputMoney(_ sender: UIButton) {
+        switch sender.tag {
+        case 0: vendingMachine.isPut(cash: AvailableMoney.oneThousand.value)
+        case 1: vendingMachine.isPut(cash: AvailableMoney.fiveThousands.value)
+        default:
+            return
+        }
         vendingMachine.showList(show: moneyFormat)
     }
     
@@ -69,9 +69,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        roundImageView()
+        changImageView()
         showQuantity()
         vendingMachine.showList(show: moneyFormat)
     }
+    
+    
 
 }

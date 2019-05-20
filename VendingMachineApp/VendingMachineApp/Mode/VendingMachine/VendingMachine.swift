@@ -11,6 +11,22 @@ import Foundation
 typealias BuyableResultPrintClosure = (Bool, Int, String) -> Void
 typealias AllListResultPrintClosure = (String, Int, Bool) -> Void
 
+// MARK: - enum
+enum AvailableMoney: Int, CaseIterable {
+    case defaultValue = 0, oneThousand ,fiveThousands
+    
+    var value: Int {
+        switch self {
+        case .defaultValue:
+            return 0
+        case .oneThousand:
+            return 1000
+        case .fiveThousands:
+            return 5000
+        }
+    }
+}
+
 struct VendingMachine {
     private var money: Money
     private var list: Inventory

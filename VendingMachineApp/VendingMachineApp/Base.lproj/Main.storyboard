@@ -92,23 +92,23 @@
                                     <action selector="inputMoney:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OSx-ie-fvQ"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Banana.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Fmh-Rb-ko8">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Banana.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Fmh-Rb-ko8" customClass="RoundImageView" customModule="VendingMachineApp" customModuleProvider="target">
                                 <rect key="frame" x="45" y="168" width="127" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Cantata.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="5A8-DU-lQC">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Cantata.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="5A8-DU-lQC" customClass="RoundImageView" customModule="VendingMachineApp" customModuleProvider="target">
                                 <rect key="frame" x="198" y="168" width="127" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Coca.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="oQW-r2-bic">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Coca.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="oQW-r2-bic" customClass="RoundImageView" customModule="VendingMachineApp" customModuleProvider="target">
                                 <rect key="frame" x="364" y="168" width="127" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Choco.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="vfv-xC-gSB">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Choco.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="vfv-xC-gSB" customClass="RoundImageView" customModule="VendingMachineApp" customModuleProvider="target">
                                 <rect key="frame" x="515" y="168" width="127" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Starbucks.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="hLg-Nj-Fdu">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Starbucks.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="hLg-Nj-Fdu" customClass="RoundImageView" customModule="VendingMachineApp" customModuleProvider="target">
                                 <rect key="frame" x="667" y="168" width="127" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>

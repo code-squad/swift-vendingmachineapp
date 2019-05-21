@@ -27,13 +27,19 @@
 - 학습내용 정리
     - UIImageView 에서 이미지를 표시할 때 사각형 코너를 둥글게하도록 변경
 
+    > UIImageView 상속을 해서 RoundImageView 를 만들었다.
+
     ```swift
-    private func roundImageView() {
-        for imgView in beverageImageView {
-        	imgView.layer.borderColor = UIColor.gray.cgColor
-        	imgView.layer.borderWidth = 2
-        	imgView.layer.cornerRadius = 10
+    class RoundImageView: UIImageView{
+        
+        required init?(coder: NSCoder) {
+            super.init(coder: coder)
+            
+            self.layer.borderColor = UIColor.gray.cgColor
+            self.layer.borderWidth = 2
+            self.layer.cornerRadius = 10
         }
+        
     }
     ```
 

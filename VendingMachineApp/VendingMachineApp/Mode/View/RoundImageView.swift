@@ -10,8 +10,6 @@ import UIKit
 
 class RoundImageView: UIImageView{
     
-    var roundImageView: UIImageView!
-    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         

@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     private var vendingMachine: VendingMachine
     
     // MARK: - @IBOutlet
-    @IBOutlet var beverageImageView: RoundImageView!
+    @IBOutlet var beverageImageView: [RoundImageView]!
     @IBOutlet var beverageLabel: [UILabel]!
     @IBOutlet weak var list: UILabel!
     
@@ -25,7 +25,6 @@ class ViewController: UIViewController {
     }
     
     // MARK: - function
-    
     private func showQuantity() {
         for (index, count) in beverageLabel.enumerated() {
             if let number = vendingMachine.count(beverage: index) {
@@ -64,7 +63,5 @@ class ViewController: UIViewController {
         showQuantity()
         vendingMachine.showList(show: moneyFormat)
     }
-    
-    
 
 }

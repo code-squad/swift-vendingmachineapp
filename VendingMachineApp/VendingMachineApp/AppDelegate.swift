@@ -10,7 +10,7 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    var vendingMachine: VendingMachine?
     var window: UIWindow?
 
 
@@ -43,4 +43,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 }
-

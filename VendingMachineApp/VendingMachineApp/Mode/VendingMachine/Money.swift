@@ -8,13 +8,13 @@
 
 import Foundation
 
-class Money {
+class Money: NSObject {
     private var money: Int
 
-    init(money: Int) {
+    init(money: Int = 0) {
         self.money = money
     }
-
+    
     func addMoney(put: Int) -> Bool {
         guard put > 0 else { return false }
         self.money += put
@@ -32,6 +32,13 @@ class Money {
     func showMoney() -> Int {
         return money
     }
+
+    // MARK: - NSCoding
+    required init?(coder aDecoder: NSCoder) {
+        let money = aDecoder
+            .decodeObject(of: NSNumber.self, forKey: "money") ?? 0
+        self.money = money.intValue
+    }
 }
 
 extension Int {
@@ -44,5 +51,11 @@ extension Int {
     
     var commaRepresentation: String {
         return Int.commaFormatter.string(from: NSNumber(value: self)) ?? ""
+    }
+}
+
+extension Money: NSCoding {
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(NSNumber(value: money), forKey: "money")
     }
 }

@@ -17,6 +17,11 @@ class Packages: NSObject {
         self.beverage = beverages
         self.title = ""
     }
+    
+    var pickID: ObjectIdentifier? {
+        guard let pick = beverage.first else { return nil }
+        return ObjectIdentifier(type(of: pick))
+    }
 
     func add(beverage: Beverage) {
         self.beverage.append(beverage)
@@ -64,4 +69,22 @@ class Packages: NSObject {
         return beverage.removeFirst()
     }
 
+    // MARK: - NSCoding
+    required init?(coder aDecoder: NSCoder) {
+        let beverage = aDecoder
+            .decodeObject(forKey: "beverage") as? [Beverage] ?? [Beverage]()
+        let title = aDecoder
+            .decodeObject(of: NSString.self, forKey: "title") ?? ""
+        self.beverage = beverage
+        self.title = title as String
+    }
+}
+
+extension Packages: NSCoding {
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(beverage, forKey: "beverage")
+        aCoder.encode(title as NSString, forKey: "title")
+    }
+    
 }

@@ -27,7 +27,7 @@ enum AvailableMoney: Int, CaseIterable {
     }
 }
 
-struct VendingMachine {
+class VendingMachine: NSObject {
     private var money: Money
     private var list: Inventory
     private var history: History
@@ -51,6 +51,30 @@ struct VendingMachine {
     func count(beverage: Int) -> Int? {
         guard let pack = list.find(type: beverageTypes[beverage]) else { return nil }
         return pack.count
+    }
+    
+    // MARK: - NSCoding
+    
+    required init?(coder aDecoder: NSCoder) {
+        let money = aDecoder
+            .decodeObject(of: Money.self, forKey: "money") ?? Money()
+        let inventory = aDecoder
+            .decodeObject(of: Inventory.self, forKey: "inventory") ?? Inventory(list: [ObjectIdentifier: Packages]())
+        let history = aDecoder
+            .decodeObject(of: History.self, forKey: "history") ?? History()
+        self.money = money
+        self.list = inventory
+        self.history = history
+    }
+    
+}
+
+extension VendingMachine: NSCoding {
+ 
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(money, forKey: "money")
+        aCoder.encode(list, forKey: "inventory")
+        aCoder.encode(history, forKey: "history")
     }
     
 }
@@ -112,7 +136,7 @@ extension VendingMachine: Customer {
         return list.buyAvailableList(money: money)
     }
 
-    mutating func buyBeverage(package: Packages) -> Beverage? {
+    func buyBeverage(package: Packages) -> Beverage? {
         guard let beverage = list.remove(beverage: package) else { return nil }
         beverage.subtract(pay: money)
         history.add(purchase: beverage)

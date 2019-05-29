@@ -62,6 +62,6 @@ class ViewController: UIViewController {
         
         showQuantity()
         vendingMachine.showList(show: moneyFormat)
-    }
 
+    }
 }

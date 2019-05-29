@@ -44,7 +44,7 @@ class Coffee: Beverage {
             expiryPeriod: ExpirationPeriod(endDay: 0)
         )
     }
-
+    
     func same(_ number: Int) -> Bool {
         return self.caffeine == number
     }
@@ -53,4 +53,22 @@ class Coffee: Beverage {
         if hot == true { return hot }
         return false
     }
+    
+    // MARK: - NSCoding
+    required init?(coder aDecoder: NSCoder) {
+        
+        let caffeine = aDecoder.decodeObject(of: NSNumber.self, forKey: "caffeine") ?? 0
+        hot = aDecoder.decodeBool(forKey: "hot")
+        self.caffeine = caffeine.intValue
+        
+        super.init(coder: aDecoder)
+    }
+    
+    override func encode(with aCoder: NSCoder) {
+        super.encode(with: aCoder)
+        aCoder.encode(NSNumber(value: caffeine!), forKey: "caffeine")
+        aCoder.encode(hot, forKey: "hot")
+    }
+
 }
+

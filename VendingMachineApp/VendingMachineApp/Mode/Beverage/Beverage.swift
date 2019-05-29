@@ -77,5 +77,36 @@ class Beverage: NSObject {
     func showPurchase(with show: (String, Int) -> Void) {
         show(name, price)
     }
+    
+    // MARK: - NSCoding
+    required init?(coder aDecoder: NSCoder) {
+        
+        let brand = aDecoder.decodeObject(of: NSString.self, forKey: "brand") ?? ""
+        let volume = aDecoder.decodeObject(of: NSNumber.self, forKey: "volume") ?? 0
+        let price = aDecoder.decodeObject(of: NSNumber.self, forKey: "price") ?? 0
+        let name = aDecoder.decodeObject(of: NSString.self, forKey: "name") ?? ""
+        let manufacturedDate = aDecoder.decodeObject(of: NSDate.self, forKey: "manufacturedDate") ?? Date() as NSDate
+        let expiryPeriod = aDecoder.decodeObject(of: NSNumber.self, forKey: "expiryPeriod") ?? 0
 
+        self.brand = brand as String
+        self.volume = volume.intValue
+        self.price = price.intValue
+        self.name = name as String
+        self.manufacturedDate = manufacturedDate as Date
+        self.expiryPeriod = ExpirationPeriod(endDay: expiryPeriod.intValue)
+    }
+
+}
+
+extension Beverage: NSCoding {
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(brand as NSString, forKey: "brand")
+        aCoder.encode(NSNumber(value: volume), forKey: "volume")
+        aCoder.encode(NSNumber(value: price), forKey: "price")
+        aCoder.encode(name as NSString, forKey: "name")
+        aCoder.encode(manufacturedDate as NSDate, forKey: "manufacturedDate")
+        aCoder.encode(NSNumber(value: expiryPeriod.endDateSecond()) , forKey: "expiryPeriod")
+    }
+    
 }

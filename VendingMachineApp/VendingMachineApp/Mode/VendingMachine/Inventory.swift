@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Inventory {
+class Inventory: NSObject {
 
     private var list: [ObjectIdentifier: Packages]
 
@@ -79,5 +79,25 @@ class Inventory {
         }
         return true
     }
-
+    
+    // MARK: - NSCoding
+    required init?(coder aDecoder: NSCoder) {
+        let product = aDecoder.decodeObject(forKey: "product") as? [Packages] ?? [Packages]()
+        var list = [ObjectIdentifier: Packages]()
+        for data in product {
+            guard let pickID = data.pickID else { continue }
+            list[pickID] = data
+        }
+        self.list = list
+    }
 }
+
+extension Inventory: NSCoding {
+    
+    func encode(with aCoder: NSCoder) {
+        let goods = list.values.map { $0 }
+        aCoder.encode(goods, forKey: "product")
+    }
+    
+}
+

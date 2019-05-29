@@ -49,4 +49,14 @@ class Soda: Beverage {
         return false
     }
 
+    // MARK: - NSCoding
+    required init?(coder aDecoder: NSCoder) {
+        suger = aDecoder.decodeBool(forKey: "suger")
+        super.init(coder: aDecoder)
+    }
+    
+    override func encode(with aCoder: NSCoder) {
+        super.encode(with: aCoder)
+        aCoder.encode(suger, forKey: "suger")
+    }
 }

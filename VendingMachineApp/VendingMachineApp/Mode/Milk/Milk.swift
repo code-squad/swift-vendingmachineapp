@@ -45,4 +45,21 @@ class Milk: Beverage {
     func same(_ number: MilkGrade) -> Bool {
         return self.milkGrade == number
     }
+    
+    // MARK: - NSCoding
+    required init?(coder aDecoder: NSCoder) {
+        
+        let milkGradeNumber = aDecoder
+            .decodeObject(of: NSNumber.self, forKey: "milkGrade") ?? 0
+        let milkGrade = MilkGrade(rawValue: milkGradeNumber.intValue) ?? MilkGrade.init(rawValue: 0)
+        
+        self.milkGrade = milkGrade
+        
+        super.init(coder: aDecoder)
+    }
+    
+    override func encode(with aCoder: NSCoder) {
+        super.encode(with: aCoder)
+        aCoder.encode(NSNumber(value: milkGrade.hashValue), forKey: "milkGrade")
+    }
 }

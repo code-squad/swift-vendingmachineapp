@@ -52,7 +52,7 @@ struct VendingMachine {
         guard let pack = list.find(type: beverageTypes[beverage]) else { return nil }
         return pack.count
     }
-
+    
 }
 
 // MARK: - Protocol Manager

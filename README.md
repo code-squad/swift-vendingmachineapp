@@ -14,6 +14,7 @@
 <br />
 - 학습내용 정리
     - [UIApplicationMain 과 UIApplication 학습](https://github.com/conyconydev/conyconydev.github.io/blob/master/_posts/ios/2019-05-09-UIApplicationMain.md)
+    - [iOS 앱을 구성하는 핵심 객체들과 iOS 메인 런루프 동작 이해]()
 
 
 
@@ -29,25 +30,42 @@
 
     > UIImageView 상속을 해서 RoundImageView 를 만들었다.
 
-    ```swift
-    class RoundImageView: UIImageView{
-        
-        required init?(coder: NSCoder) {
-            super.init(coder: coder)
-            
-            self.layer.borderColor = UIColor.gray.cgColor
-            self.layer.borderWidth = 2
-            self.layer.cornerRadius = 10
-        }
-        
-    }
-    ```
 
+```swift
+class RoundImageView: UIImageView{
     
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        
+        self.layer.borderColor = UIColor.gray.cgColor
+        self.layer.borderWidth = 2
+        self.layer.cornerRadius = 10
+    }
+    
+}
+```
 
-    * 여러가지 방법이 있었는데 borderColor를 넣을 수 있는 방법을 선택
-      	clipsToBounds, masksToBounds 
+​    
+
+* [UIImageView학습 하면서 내용 정리](https://github.com/conyconydev/conyconydev.github.io/blob/master/_posts/ios/2019-05-18-UIImageView.md)
+* [MVC 학습 하면서 내용 정리](https://github.com/conyconydev/conyconydev.github.io/blob/master/_posts/ios/2019-05-19-MVC.md)
+* [IBOutletCollection 활용 학습 하면서 내용 정리](https://github.com/conyconydev/conyconydev.github.io/blob/master/_posts/ios/2019-05-22-IBOutlet.md)
+
+* 여러가지 방법이 있었는데, borderColor를 넣을 수 있는 방법을 선택
+
+- masksToBounds, clipsToBounds 두 개의 프로퍼티 기능이 비슷하다.
+
+- 차이점 : 
+
+  - 불러오는 곳이 다르다.
+
+    ( View.layer.masksToBounds , View.clipsToBounds )
+
+  - 뷰를 기준으로 뷰 밖에 있는 내용이 짤리게 된다. , 뷰의 테두리가 기준
+  
+  
 
 
-​             
+## step3. 앱 생명주기와 객체 저장
 
+- 

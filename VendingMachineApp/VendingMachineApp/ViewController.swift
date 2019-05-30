@@ -11,7 +11,8 @@ import UIKit
 class ViewController: UIViewController {
     
     // MARK: - private variable
-    private var vendingMachine: VendingMachine
+    private weak var appDelegate: AppDelegate?
+    //private var vendingMachine: VendingMachine
     
     // MARK: - @IBOutlet
     @IBOutlet var beverageImageView: [RoundImageView]!
@@ -20,14 +21,14 @@ class ViewController: UIViewController {
     
     // MARK: - init
     required init?(coder: NSCoder) {
-        self.vendingMachine = VendingMachine(list: Inventory(list: [ObjectIdentifier: Packages]()))
+        self.appDelegate = UIApplication.shared.delegate as? AppDelegate
         super.init(coder: coder)
     }
     
     // MARK: - function
     private func showQuantity() {
         for (index, count) in beverageLabel.enumerated() {
-            if let number = vendingMachine.count(beverage: index) {
+            if let number = appDelegate?.vendingMachine?.count(beverage: index) {
                 count.text = "\(number)개"
                 continue
             }
@@ -42,18 +43,18 @@ class ViewController: UIViewController {
     // MARK: - @IBAction
     @IBAction func addBeverage(_ sender: UIButton) {
         let beverage = sender.tag
-        guard vendingMachine.add(beverage: beverage) else { return }
+        guard appDelegate?.vendingMachine?.add(beverage: beverage) ?? false else { return }
         showQuantity()
     }
     
     @IBAction func inputMoney(_ sender: UIButton) {
         switch sender.tag {
-        case 0: vendingMachine.isPut(cash: AvailableMoney.oneThousand.value)
-        case 1: vendingMachine.isPut(cash: AvailableMoney.fiveThousands.value)
+        case 0: appDelegate?.vendingMachine?.isPut(cash: AvailableMoney.oneThousand.value)
+        case 1: appDelegate?.vendingMachine?.isPut(cash: AvailableMoney.fiveThousands.value)
         default:
             return
         }
-        vendingMachine.showList(show: moneyFormat)
+        appDelegate?.vendingMachine?.showList(show: moneyFormat)
     }
     
     // MARK: - viewDidLoad
@@ -61,7 +62,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         showQuantity()
-        vendingMachine.showList(show: moneyFormat)
+        appDelegate?.vendingMachine?.showList(show: moneyFormat)
 
     }
 }

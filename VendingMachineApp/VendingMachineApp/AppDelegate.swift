@@ -15,7 +15,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        do {
+            try vendingMachine = AppDelegate.load()
+        } catch {
+            vendingMachine = AppDelegate.setVM()
+        }
 
         return true
     }
@@ -28,6 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        AppDelegate.archive(vendingMachine: vendingMachine)
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -40,6 +45,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+        AppDelegate.archive(vendingMachine: vendingMachine)
+    }
+    
+    // MARK: - func
+    enum loadError: Error {
+        case noData
+        case noLoad
+    }
+    
+    static func archive(vendingMachine: VendingMachine?) {
+        guard let vendingMachine = vendingMachine else { return }
+        let vendingMachineEncoded = try? NSKeyedArchiver.archivedData(
+            withRootObject: vendingMachine,
+            requiringSecureCoding: false)
+        UserDefaults.standard.set(vendingMachineEncoded, forKey:"vendingMachine")
+    }
+    
+    static func load() throws -> VendingMachine {
+        guard let data = UserDefaults.standard.data(forKey: "vendingMachine") else { throw loadError.noData }
+        guard let vendingMachine = try NSKeyedUnarchiver
+            .unarchiveTopLevelObjectWithData(data) as? VendingMachine else { throw loadError.noLoad }
+        return vendingMachine
+    }
+    
+    static func setVM() -> VendingMachine {
+        return VendingMachine.init(list: Inventory(list: [ObjectIdentifier: Packages]()))
     }
     
 }

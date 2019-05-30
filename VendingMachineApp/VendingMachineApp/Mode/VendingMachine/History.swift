@@ -29,7 +29,6 @@ class History: NSObject {
     }
     
     // MARK: - NSCoding
-    
     required init?(coder aDecoder: NSCoder) {
         let purchases = aDecoder
             .decodeObject(forKey: "purchases") as? [Beverage] ?? [Beverage]()

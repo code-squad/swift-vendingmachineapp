@@ -54,7 +54,6 @@ class VendingMachine: NSObject {
     }
     
     // MARK: - NSCoding
-    
     required init?(coder aDecoder: NSCoder) {
         let money = aDecoder
             .decodeObject(of: Money.self, forKey: "money") ?? Money()

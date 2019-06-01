@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         do {
             try vendingMachine = AppDelegate.load()
         } catch {
-            vendingMachine = AppDelegate.setVM()
+            vendingMachine = AppDelegate.set()
         }
 
         return true
@@ -49,11 +49,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     // MARK: - func
-    enum loadError: Error {
-        case noData
-        case noLoad
-    }
-    
     static func archive(vendingMachine: VendingMachine?) {
         guard let vendingMachine = vendingMachine else { return }
         let vendingMachineEncoded = try? NSKeyedArchiver.archivedData(
@@ -62,14 +57,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UserDefaults.standard.set(vendingMachineEncoded, forKey:"vendingMachine")
     }
     
+    enum Archive: Error {
+        case noData
+        case noLoad
+    }
+    
     static func load() throws -> VendingMachine {
-        guard let data = UserDefaults.standard.data(forKey: "vendingMachine") else { throw loadError.noData }
+        guard let data = UserDefaults.standard.data(forKey: "vendingMachine") else { throw Archive.noData }
         guard let vendingMachine = try NSKeyedUnarchiver
-            .unarchiveTopLevelObjectWithData(data) as? VendingMachine else { throw loadError.noLoad }
+            .unarchiveTopLevelObjectWithData(data) as? VendingMachine else { throw Archive.noLoad }
         return vendingMachine
     }
     
-    static func setVM() -> VendingMachine {
+    static func set() -> VendingMachine {
         return VendingMachine.init(list: Inventory(list: [ObjectIdentifier: Packages]()))
     }
     

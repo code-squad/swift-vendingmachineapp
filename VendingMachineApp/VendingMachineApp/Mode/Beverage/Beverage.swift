@@ -106,7 +106,7 @@ extension Beverage: NSCoding {
         aCoder.encode(NSNumber(value: price), forKey: "price")
         aCoder.encode(name as NSString, forKey: "name")
         aCoder.encode(manufacturedDate as NSDate, forKey: "manufacturedDate")
-        aCoder.encode(NSNumber(value: expiryPeriod.endDateSecond()) , forKey: "expiryPeriod")
+        aCoder.encode(NSNumber(value: expiryPeriod.getterInt()) , forKey: "expiryPeriod")
     }
     
 }

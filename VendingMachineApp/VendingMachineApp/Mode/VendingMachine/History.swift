@@ -9,7 +9,7 @@
 import Foundation
 
 //이력, 내역
-class History: NSObject {
+class History: NSObject, Codable {
     private var purchases: [Beverage]
 
     init(purchases: [Beverage]) {
@@ -28,19 +28,20 @@ class History: NSObject {
         return lhs.purchases == rhs.purchases
     }
     
-    // MARK: - NSCoding
-    required init?(coder aDecoder: NSCoder) {
-        let purchases = aDecoder
-            .decodeObject(forKey: "purchases") as? [Beverage] ?? [Beverage]()
-        self.purchases = purchases
+    // MARK: - Codable
+    enum HistoryCodingKeys : String, CodingKey{
+        case purchases
+    }
+    
+    init(form decoder: Decoder) throws {
+        let value = try decoder.container(keyedBy: HistoryCodingKeys.self)
+        purchases = try value.decode([Beverage].self, forKey: .purchases)
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: HistoryCodingKeys.self)
+        try container.encode(purchases, forKey: .purchases)
     }
     
 }
 
-extension History: NSCoding {
-    
-    func encode(with aCoder: NSCoder) {
-        aCoder.encode(purchases, forKey: "purchases")
-    }
-    
-}

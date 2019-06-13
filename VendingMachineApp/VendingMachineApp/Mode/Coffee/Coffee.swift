@@ -54,21 +54,30 @@ class Coffee: Beverage {
         return false
     }
     
-    // MARK: - NSCoding
-    required init?(coder aDecoder: NSCoder) {
-        
-        let caffeine = aDecoder.decodeObject(of: NSNumber.self, forKey: "caffeine") ?? 0
-        hot = aDecoder.decodeBool(forKey: "hot")
-        self.caffeine = caffeine.intValue
-        
-        super.init(coder: aDecoder)
+    // MARK: - Codable
+    // enum
+    enum CoffeeCodingKey : String, CodingKey{
+        case caffeine
+        case hot
     }
     
-    override func encode(with aCoder: NSCoder) {
-        super.encode(with: aCoder)
-        aCoder.encode(NSNumber(value: caffeine!), forKey: "caffeine")
-        aCoder.encode(hot, forKey: "hot")
+    override init(form decoder: Decoder) throws {
+        let value = try decoder.container(keyedBy: CoffeeCodingKey.self)
+        caffeine = try value.decode(Int.self, forKey: .caffeine)
+        hot = try value.decode(Bool.self, forKey: .hot)
+        try super.init(form: decoder)
     }
-
+    
+    required init(from decoder: Decoder) throws {
+        fatalError("init(from:) has not been implemented")
+    }
+    
+    override func encode(to encoder: Encoder) throws {
+        //try super.encode(to: encoder)
+        var container = encoder.container(keyedBy: CoffeeCodingKey.self)
+        try container.encode(caffeine, forKey: .caffeine)
+        try container.encode(hot, forKey: .hot)
+    }
+    
 }
 

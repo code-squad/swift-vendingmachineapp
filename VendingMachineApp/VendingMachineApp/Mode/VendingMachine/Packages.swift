@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Packages: NSObject {
+class Packages: NSObject , Codable{
 
     private var beverage: [Beverage]
     private(set) var title: String
@@ -69,22 +69,19 @@ class Packages: NSObject {
         return beverage.removeFirst()
     }
 
-    // MARK: - NSCoding
-    required init?(coder aDecoder: NSCoder) {
-        let beverage = aDecoder
-            .decodeObject(forKey: "beverage") as? [Beverage] ?? [Beverage]()
-        let title = aDecoder
-            .decodeObject(of: NSString.self, forKey: "title") ?? ""
-        self.beverage = beverage
-        self.title = title as String
+    // MARK: - Codable
+    enum PackagesCodingKeys : String, CodingKey{
+        case beverages
+    }
+    
+    init(form decoder: Decoder) throws {
+        let value = try decoder.container(keyedBy: PackagesCodingKeys.self)
+        beverage = try value.decode([Beverage].self, forKey: .beverages)
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: PackagesCodingKeys.self)
+        try container.encode(beverage, forKey: .beverages)
     }
 }
 
-extension Packages: NSCoding {
-    
-    func encode(with aCoder: NSCoder) {
-        aCoder.encode(beverage, forKey: "beverage")
-        aCoder.encode(title as NSString, forKey: "title")
-    }
-    
-}

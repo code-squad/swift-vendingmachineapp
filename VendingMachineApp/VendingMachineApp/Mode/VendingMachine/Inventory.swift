@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Inventory: NSObject {
+class Inventory: Codable {
 
     private var list: [ObjectIdentifier: Packages]
 
@@ -80,24 +80,21 @@ class Inventory: NSObject {
         return true
     }
     
-    // MARK: - NSCoding
-    required init?(coder aDecoder: NSCoder) {
-        let product = aDecoder.decodeObject(forKey: "product") as? [Packages] ?? [Packages]()
-        var list = [ObjectIdentifier: Packages]()
-        for data in product {
-            guard let pickID = data.pickID else { continue }
-            list[pickID] = data
-        }
-        self.list = list
+    // MARK: - Codable
+    // enum
+    enum InventoryCodingKey : String, CodingKey{
+        case list
     }
-}
-
-extension Inventory: NSCoding {
     
-    func encode(with aCoder: NSCoder) {
-        let goods = list.values.map { $0 }
-        aCoder.encode(goods, forKey: "product")
+    init(form decoder: Decoder) throws {
+        let value = try decoder.container(keyedBy: InventoryCodingKey.self)
+        //ObjectIdentifier 때문에 .... 일단은 보류!
+        list = try value.decode([ObjectIdentifier: Packages].self, forKey: .list)
+    }
+
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: InventoryCodingKey.self)
+        try container.encode(list, forKey: .list)
     }
     
 }
-

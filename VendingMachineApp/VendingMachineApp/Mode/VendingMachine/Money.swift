@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Money: NSObject {
+class Money: NSObject, Codable{
     private var money: Int
 
     init(money: Int = 0) {
@@ -33,12 +33,21 @@ class Money: NSObject {
         return money
     }
 
-    // MARK: - NSCoding
-    required init?(coder aDecoder: NSCoder) {
-        let money = aDecoder
-            .decodeObject(of: NSNumber.self, forKey: "money") ?? 0
-        self.money = money.intValue
+    // MARK: - Codable
+    enum MoneyCodingKeys : String, CodingKey{
+        case money
     }
+    
+    init(form decoder: Decoder) throws {
+        let value = try decoder.container(keyedBy: MoneyCodingKeys.self)
+        money = try value.decode(Int.self, forKey: .money)
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: MoneyCodingKeys.self)
+        try container.encode(money, forKey: .money)
+    }
+    
 }
 
 extension Int {
@@ -51,11 +60,5 @@ extension Int {
     
     var commaRepresentation: String {
         return Int.commaFormatter.string(from: NSNumber(value: self)) ?? ""
-    }
-}
-
-extension Money: NSCoding {
-    func encode(with aCoder: NSCoder) {
-        aCoder.encode(NSNumber(value: money), forKey: "money")
     }
 }

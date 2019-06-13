@@ -48,15 +48,24 @@ class Soda: Beverage {
         if suger == true { return true }
         return false
     }
-
-    // MARK: - NSCoding
-    required init?(coder aDecoder: NSCoder) {
-        suger = aDecoder.decodeBool(forKey: "suger")
-        super.init(coder: aDecoder)
+    
+    // MARK: - Codable
+    enum SodaCodingKeys : String, CodingKey{
+        case suger
     }
     
-    override func encode(with aCoder: NSCoder) {
-        super.encode(with: aCoder)
-        aCoder.encode(suger, forKey: "suger")
+    override init(form decoder: Decoder) throws {
+        let value = try decoder.container(keyedBy: SodaCodingKeys.self)
+        suger = try value.decode(Bool.self, forKey: .suger)
+        try super.init(form: decoder)
+    }
+    
+    required init(from decoder: Decoder) throws {
+        fatalError("init(from:) has not been implemented")
+    }
+    
+    override func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: SodaCodingKeys.self)
+        try container.encode(suger, forKey: .suger)
     }
 }

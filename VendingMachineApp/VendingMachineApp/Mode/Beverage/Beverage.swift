@@ -9,7 +9,7 @@ import Foundation
 
 typealias ResultGoods = (String, Int) -> Void
 
-class Beverage: NSObject {
+class Beverage: NSObject, Codable {
 
     private let brand: String
     private let volume: Int
@@ -78,35 +78,34 @@ class Beverage: NSObject {
         show(name, price)
     }
     
-    // MARK: - NSCoding
-    required init?(coder aDecoder: NSCoder) {
+    // MARK: - Codable
+    enum CodingKeys : String, CodingKey{
+        case brand
+        case volume
+        case price
+        case name
+        case manufacturedDate
+        case expiryPeriod
+    }
+    
+    init(form decoder: Decoder) throws {
+        let value = try decoder.container(keyedBy: CodingKeys.self)
+        brand = try value.decode(String.self, forKey: .brand)
+        volume = try value.decode(Int.self, forKey: .volume)
+        price = try value.decode(Int.self, forKey: .price)
+        name = try value.decode(String.self, forKey: .name)
+        manufacturedDate = try value.decode(Date.self, forKey: .manufacturedDate)
+        expiryPeriod = try value.decode(ExpirationPeriod.self, forKey: .expiryPeriod)
         
-        let brand = aDecoder.decodeObject(of: NSString.self, forKey: "brand") ?? ""
-        let volume = aDecoder.decodeObject(of: NSNumber.self, forKey: "volume") ?? 0
-        let price = aDecoder.decodeObject(of: NSNumber.self, forKey: "price") ?? 0
-        let name = aDecoder.decodeObject(of: NSString.self, forKey: "name") ?? ""
-        let manufacturedDate = aDecoder.decodeObject(of: NSDate.self, forKey: "manufacturedDate") ?? Date() as NSDate
-        let expiryPeriod = aDecoder.decodeObject(of: NSNumber.self, forKey: "expiryPeriod") ?? 0
-
-        self.brand = brand as String
-        self.volume = volume.intValue
-        self.price = price.intValue
-        self.name = name as String
-        self.manufacturedDate = manufacturedDate as Date
-        self.expiryPeriod = ExpirationPeriod(endDay: expiryPeriod.intValue)
     }
 
-}
-
-extension Beverage: NSCoding {
-    
-    func encode(with aCoder: NSCoder) {
-        aCoder.encode(brand as NSString, forKey: "brand")
-        aCoder.encode(NSNumber(value: volume), forKey: "volume")
-        aCoder.encode(NSNumber(value: price), forKey: "price")
-        aCoder.encode(name as NSString, forKey: "name")
-        aCoder.encode(manufacturedDate as NSDate, forKey: "manufacturedDate")
-        aCoder.encode(NSNumber(value: expiryPeriod.getterInt()) , forKey: "expiryPeriod")
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(brand, forKey: .brand)
+        try container.encode(volume, forKey: .volume)
+        try container.encode(price, forKey: .price)
+        try container.encode(name, forKey: .name)
+        try container.encode(manufacturedDate, forKey: .manufacturedDate)
+        try container.encode(expiryPeriod, forKey: .expiryPeriod)
     }
-    
 }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ExpirationPeriod:  NSObject{
+class ExpirationPeriod:  NSObject, Codable{
     private let endDay: Int
 
     init(endDay: Int) {
@@ -24,18 +24,19 @@ class ExpirationPeriod:  NSObject{
         return self.endDay
     }
     
-    // MARK: - NSCoding
-    required init?(coder aDecoder: NSCoder) {
-        let endDay = aDecoder
-            .decodeObject(of: NSNumber.self, forKey: "endDay") ?? 0
-        self.endDay = endDay.intValue
+    // MARK: - Codable
+    // enum
+    enum ExpirationCodingKeys : String, CodingKey{
+        case endDay
     }
     
-}
-
-extension ExpirationPeriod: NSCoding {
-    func encode(with aCoder: NSCoder) {
-        aCoder.encode(NSNumber(value: endDay), forKey: "endDay")
+    init(form decoder: Decoder) throws {
+        let value = try decoder.container(keyedBy: ExpirationCodingKeys.self)
+        endDay = try value.decode(Int.self, forKey: .endDay)
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: ExpirationCodingKeys.self)
+        try container.encode(endDay, forKey: .endDay)
     }
 }
-

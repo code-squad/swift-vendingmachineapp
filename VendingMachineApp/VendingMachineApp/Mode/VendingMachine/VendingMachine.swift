@@ -27,7 +27,7 @@ enum AvailableMoney: Int, CaseIterable {
     }
 }
 
-class VendingMachine: NSObject {
+class VendingMachine: NSObject, Codable {
     private var money: Money
     private var list: Inventory
     private var history: History
@@ -53,27 +53,25 @@ class VendingMachine: NSObject {
         return pack.count
     }
     
-    // MARK: - NSCoding
-    required init?(coder aDecoder: NSCoder) {
-        let money = aDecoder
-            .decodeObject(of: Money.self, forKey: "money") ?? Money()
-        let inventory = aDecoder
-            .decodeObject(of: Inventory.self, forKey: "inventory") ?? Inventory(list: [ObjectIdentifier: Packages]())
-        let history = aDecoder
-            .decodeObject(of: History.self, forKey: "history") ?? History()
-        self.money = money
-        self.list = inventory
-        self.history = history
+    // MARK: - Codable
+    enum VendingMachineCodingKey: String, CodingKey{
+        case money
+        case list
+        case history
     }
     
-}
-
-extension VendingMachine: NSCoding {
- 
-    func encode(with aCoder: NSCoder) {
-        aCoder.encode(money, forKey: "money")
-        aCoder.encode(list, forKey: "inventory")
-        aCoder.encode(history, forKey: "history")
+     init(form decoder: Decoder) throws {
+        let value = try decoder.container(keyedBy: VendingMachineCodingKey.self)
+        money = try value.decode(Money.self, forKey: .money)
+        list = try value.decode(Inventory.self, forKey: .list)
+        history = try value.decode(History.self, forKey: .history)
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: VendingMachineCodingKey.self)
+        try container.encode(money, forKey: .money)
+        try container.encode(list, forKey: .list)
+        try container.encode(history, forKey: .history)
     }
     
 }

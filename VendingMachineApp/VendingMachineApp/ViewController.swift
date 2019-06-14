@@ -20,10 +20,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var list: UILabel!
     
     // MARK: - init
-    required init?(coder: NSCoder) {
-        self.appDelegate = UIApplication.shared.delegate as? AppDelegate
-        super.init(coder: coder)
-    }
+//    init(form decoder: Codable) throws {
+//        self.appDelegate = UIApplication.shared.delegate as? AppDelegate
+//    }
     
     // MARK: - function
     private func showQuantity() {

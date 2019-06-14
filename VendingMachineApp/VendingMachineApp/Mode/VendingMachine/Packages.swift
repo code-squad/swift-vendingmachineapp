@@ -72,16 +72,19 @@ class Packages: NSObject , Codable{
     // MARK: - Codable
     enum PackagesCodingKeys : String, CodingKey{
         case beverages
+        case title
     }
     
     init(form decoder: Decoder) throws {
         let value = try decoder.container(keyedBy: PackagesCodingKeys.self)
         beverage = try value.decode([Beverage].self, forKey: .beverages)
+        title = try value.decode(String.self, forKey: .title)
     }
     
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: PackagesCodingKeys.self)
         try container.encode(beverage, forKey: .beverages)
+        try container.encode(title, forKey: .title)
     }
 }
 

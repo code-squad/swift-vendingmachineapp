@@ -10,14 +10,14 @@ import Foundation
 
 class Inventory: Codable {
 
-    private var list: [ObjectIdentifier: Packages]
+    private var list: [KeyId: Packages]
 
-    init(list: [ObjectIdentifier: Packages]) {
+    init(list: [KeyId: Packages]) {
         self.list = list
     }
 
     func add(beverage: Beverage) {
-        let beverageType = ObjectIdentifier(type(of: beverage))
+        let beverageType = KeyId(type(of: beverage))
         if let package = list[beverageType] {
             package.add(beverage: beverage)
             return
@@ -50,7 +50,7 @@ class Inventory: Codable {
         return goBadGoods
     }
 
-    private func findObjectIdentifier(package: Packages) -> ObjectIdentifier? {
+    private func findObjectIdentifier(package: Packages) -> KeyId? {
         for pack in list where pack.value == package {
             return pack.key
         }
@@ -58,13 +58,13 @@ class Inventory: Codable {
     }
 
     func find(type: Beverage.Type) -> Packages? {
-        let beverageType = ObjectIdentifier(type)
+        let beverageType = KeyId(type)
         guard let package = list[beverageType] else { return nil }
         return package
     }
 
     func haveNot(beverage: Beverage.Type) -> Bool {
-        let beverageType = ObjectIdentifier(beverage)
+        let beverageType = KeyId(beverage)
         return list.contains(where: { $0.key == beverageType && $0.value.isEmpty() })
     }
 
@@ -88,8 +88,8 @@ class Inventory: Codable {
     
     init(form decoder: Decoder) throws {
         let value = try decoder.container(keyedBy: InventoryCodingKey.self)
-        //ObjectIdentifier 때문에 .... 일단은 보류!
-        list = try value.decode([ObjectIdentifier: Packages].self, forKey: .list)
+
+        list = try value.decode([KeyId: Packages].self, forKey: .list)
     }
 
     func encode(to encoder: Encoder) throws {
@@ -98,3 +98,31 @@ class Inventory: Codable {
     }
     
 }
+
+class KeyId: Hashable, Codable {
+    
+    let string: String
+    
+    init(_ x: Any.Type){
+        self.string = "\(x)"
+    }
+    
+    static func == (lhs: KeyId, rhs: KeyId) -> Bool {
+        return ObjectIdentifier(lhs) == ObjectIdentifier(rhs)
+    }
+    
+    func hash(into hasher: inout Hasher){
+        hasher.combine(ObjectIdentifier(self).hashValue)
+    }
+    
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.singleValueContainer()
+        string = try container.decode(String.self)
+    }
+
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.singleValueContainer()
+        try container.encode(string)
+    }
+}
+

@@ -27,7 +27,7 @@ enum AvailableMoney: Int, CaseIterable {
     }
 }
 
-class VendingMachine: NSObject, Codable {
+class VendingMachine: NSObject, Encodable {
     private var money: Money
     private var list: Inventory
     private var history: History

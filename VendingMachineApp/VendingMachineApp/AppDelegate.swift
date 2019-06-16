@@ -55,9 +55,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         guard let vendingMachine = try NSKeyedUnarchiver
             .unarchiveTopLevelObjectWithData(data) as? VendingMachine else { throw Archive.noLoad }
- 
-//        let defaults = UserDefaults.standard
-//        defaults.set(VendingMachine.self, forKey: "VendingMachine")
         
             return vendingMachine
     }

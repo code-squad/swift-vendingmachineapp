@@ -18,9 +18,9 @@ class Packages: NSObject , Codable{
         self.title = ""
     }
     
-    var pickID: ObjectIdentifier? {
+    var pickID: KeyId? {
         guard let pick = beverage.first else { return nil }
-        return ObjectIdentifier(type(of: pick))
+        return KeyId(type(of: pick))
     }
 
     func add(beverage: Beverage) {

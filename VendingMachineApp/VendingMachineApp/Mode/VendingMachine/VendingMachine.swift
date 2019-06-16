@@ -31,8 +31,8 @@ class VendingMachine: NSObject, Encodable {
     private var money: Money
     private var list: Inventory
     private var history: History
-    private let beverageTypes = [ChocolateMilk.self, BananaMilk.self, Sprite.self,
-                                 CocaCola.self, CantataCoffee.self, StarbucksCoffee.self ]
+    private let beverageTypes = [BananaMilk.self, CantataCoffee.self,
+                                 CocaCola.self, ChocolateMilk.self, StarbucksCoffee.self ]
 
     init(startMoney: Int = 0, list: Inventory) {
         self.money = Money(money: startMoney)

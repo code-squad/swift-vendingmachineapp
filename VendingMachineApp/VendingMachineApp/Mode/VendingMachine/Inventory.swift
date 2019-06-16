@@ -22,6 +22,7 @@ class Inventory: Codable {
             package.add(beverage: beverage)
             return
         }
+        
         list[beverageType] = Packages(beverages: [beverage])
     }
 
@@ -81,7 +82,6 @@ class Inventory: Codable {
     }
     
     // MARK: - Codable
-    // enum
     enum InventoryCodingKey : String, CodingKey{
         case list
     }
@@ -98,12 +98,12 @@ class Inventory: Codable {
     }
     
 }
-
+// MARK: - Class KeyId : ObjectIdentifier가 Hashable, Codable을 따르기 위해
 class KeyId: Hashable, Codable {
     
     let string: String
     
-    init(_ x: Any.Type){
+    init(_ x: Any){
         self.string = "\(x)"
     }
     
@@ -115,6 +115,7 @@ class KeyId: Hashable, Codable {
         hasher.combine(ObjectIdentifier(self).hashValue)
     }
     
+    //MARK: - Codable
     required init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
         string = try container.decode(String.self)

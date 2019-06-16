@@ -11,18 +11,14 @@ import UIKit
 class ViewController: UIViewController {
     
     // MARK: - private variable
-    private weak var appDelegate: AppDelegate?
+    private weak var appDelegate: AppDelegate? = UIApplication.shared.delegate as! AppDelegate
     //private var vendingMachine: VendingMachine
     
     // MARK: - @IBOutlet
     @IBOutlet var beverageImageView: [RoundImageView]!
     @IBOutlet var beverageLabel: [UILabel]!
     @IBOutlet weak var list: UILabel!
-    
-    // MARK: - init
-//    init(form decoder: Codable) throws {
-//        self.appDelegate = UIApplication.shared.delegate as? AppDelegate
-//    }
+
     
     // MARK: - function
     private func showQuantity() {
@@ -43,6 +39,7 @@ class ViewController: UIViewController {
     @IBAction func addBeverage(_ sender: UIButton) {
         let beverage = sender.tag
         guard appDelegate?.vendingMachine?.add(beverage: beverage) ?? false else { return }
+        
         showQuantity()
     }
     

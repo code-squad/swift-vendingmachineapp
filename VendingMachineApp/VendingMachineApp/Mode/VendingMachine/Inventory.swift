@@ -82,7 +82,7 @@ class Inventory: Codable {
     }
     
     // MARK: - Codable
-    enum InventoryCodingKey : String, CodingKey{
+    enum InventoryCodingKey: String, CodingKey{
         case list
     }
     
@@ -107,12 +107,13 @@ class KeyId: Hashable, Codable {
         self.string = "\(x)"
     }
     
+    
     static func == (lhs: KeyId, rhs: KeyId) -> Bool {
-        return ObjectIdentifier(lhs) == ObjectIdentifier(rhs)
+        return lhs.string == rhs.string
     }
     
     func hash(into hasher: inout Hasher){
-        hasher.combine(ObjectIdentifier(self).hashValue)
+        hasher.combine(self.string)
     }
     
     //MARK: - Codable

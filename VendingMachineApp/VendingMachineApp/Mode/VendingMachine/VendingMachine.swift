@@ -27,17 +27,17 @@ enum AvailableMoney: Int, CaseIterable {
     }
 }
 
-class VendingMachine: NSObject, Encodable {
+// beverageType이 Codable 하게 만들어야해서 삭제해버림
+class VendingMachine: NSObject, Codable {
     private var money: Money
     private var list: Inventory
     private var history: History
-    private let beverageTypes = [BananaMilk.self, CantataCoffee.self,
-                                 CocaCola.self, ChocolateMilk.self, StarbucksCoffee.self ]
-
+    
     init(startMoney: Int = 0, list: Inventory) {
         self.money = Money(money: startMoney)
         self.list = list
         self.history = History()
+        
     }
 
     func buyAvailableHotBeverages() -> [Packages] {
@@ -49,6 +49,9 @@ class VendingMachine: NSObject, Encodable {
     }
     
     func count(beverage: Int) -> Int? {
+        let beverageTypes = [BananaMilk.self, CantataCoffee.self,
+                             CocaCola.self, ChocolateMilk.self, StarbucksCoffee.self]
+        
         guard let pack = list.find(type: beverageTypes[beverage]) else { return nil }
         return pack.count
     }
@@ -60,7 +63,7 @@ class VendingMachine: NSObject, Encodable {
         case history
     }
     
-     init(form decoder: Decoder) throws {
+    init(form decoder: Decoder) throws {
         let value = try decoder.container(keyedBy: VendingMachineCodingKey.self)
         money = try value.decode(Money.self, forKey: .money)
         list = try value.decode(Inventory.self, forKey: .list)
@@ -96,6 +99,9 @@ extension VendingMachine: Manager {
     }
 
     func add(beverage: Int) -> Bool {
+        let beverageTypes = [BananaMilk.self, CantataCoffee.self,
+                             CocaCola.self, ChocolateMilk.self, StarbucksCoffee.self]
+        
         guard beverage < beverageTypes.count else { return false }
         let newGoods = beverageTypes[beverage].init()
         list.add(beverage: newGoods)
@@ -103,6 +109,9 @@ extension VendingMachine: Manager {
     }
 
     func remove(beverage: Int) -> Beverage? {
+        let beverageTypes = [BananaMilk.self, CantataCoffee.self,
+                             CocaCola.self, ChocolateMilk.self, StarbucksCoffee.self]
+        
         guard beverage < beverageTypes.count else { return nil }
         guard let goods = list.find(type: beverageTypes[beverage]) else { return nil }
         guard let beverage = list.remove(beverage: goods) else { return nil }
@@ -183,6 +192,8 @@ protocol VendingMachineShowManager {
 extension VendingMachine: VendingMachineShowManager {
 
     func showListOfAllManager(list show: AllListResultPrintClosure) {
+        let beverageTypes = [BananaMilk.self, CantataCoffee.self,
+                             CocaCola.self, ChocolateMilk.self, StarbucksCoffee.self]
         let aFullList = list.getListOfAll()
 
         for (number, value) in beverageTypes.enumerated() {

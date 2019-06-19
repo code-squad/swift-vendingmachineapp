@@ -39,10 +39,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     static func archive(vendingMachine: VendingMachine?) {
-        guard let vendingMachine = vendingMachine else { return }
-        let vendingMachineEncoded = try? PropertyListEncoder().encode(vendingMachine)
-        let success = try? NSKeyedArchiver.archivedData(withRootObject: vendingMachineEncoded, requiringSecureCoding: false)
-        UserDefaults.standard.set(success, forKey:"VendingMachine")
+//        UserDefaults.standard.set(try? PropertyListEncoder().encode(vendingMachine), forKey:"VendingMachine")
+
+        let encoder = JSONEncoder()
+        UserDefaults.standard.set(try? encoder.encode(vendingMachine),forKey: "VendingMachine")
+        
     }
     
     enum Archive: Error {
@@ -50,13 +51,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         case noLoad
     }
     
-    static func load() throws -> VendingMachine {
-        guard let data = UserDefaults.standard.data(forKey: "VendingMachine") else { throw Archive.noData }
-        
-        guard let vendingMachine = try NSKeyedUnarchiver
-            .unarchiveTopLevelObjectWithData(data) as? VendingMachine else { throw Archive.noLoad }
-        
-            return vendingMachine
+    static func load() throws -> VendingMachine? {
+        guard let data = UserDefaults.standard.data(forKey: "VendingMachine") else {
+            throw Archive.noData }
+//        let vendingMachine = try PropertyListDecoder().decode(VendingMachine.self, from: data)
+
+        let decoder = JSONDecoder()
+        let vendingMachine = try decoder.decode(VendingMachine.self, from: data)
+
+        return vendingMachine
+
     }
 
     static func set() -> VendingMachine {
@@ -64,3 +68,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
 }
+

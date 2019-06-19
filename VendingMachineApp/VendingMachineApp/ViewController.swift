@@ -12,7 +12,6 @@ class ViewController: UIViewController {
     
     // MARK: - private variable
     private weak var appDelegate: AppDelegate? = UIApplication.shared.delegate as! AppDelegate
-    //private var vendingMachine: VendingMachine
     
     // MARK: - @IBOutlet
     @IBOutlet var beverageImageView: [RoundImageView]!

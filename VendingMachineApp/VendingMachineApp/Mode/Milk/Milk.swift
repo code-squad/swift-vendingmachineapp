@@ -45,24 +45,25 @@ class Milk: Beverage {
     func same(_ number: MilkGrade) -> Bool {
         return self.milkGrade == number
     }
-    
-    // MARK: - Codable
-    // enum
+
+    // MARK: - NSSecureCoding
     enum MilkCodingKey : String, CodingKey{
         case milkGrade
     }
     
-    override init(form decoder: Decoder) throws {
-        let value = try decoder.container(keyedBy: MilkCodingKey.self)
-        milkGrade = try value.decode(MilkGrade.self, forKey: .milkGrade)
-        try super.init(form: decoder)
+    required init?(coder aDecoder: NSCoder) {
+        
+        let milkGradeNumber = aDecoder
+            .decodeObject(of: NSNumber.self, forKey: MilkCodingKey.milkGrade.rawValue) ?? 0
+        let milkGrade = MilkGrade(rawValue: milkGradeNumber.intValue) ?? MilkGrade.init(rawValue: 0)
+        
+        self.milkGrade = milkGrade
+        
+        super.init(coder: aDecoder)
     }
     
-    required init(from decoder: Decoder) throws {
-        fatalError("init(from:) has not been implemented")
-    }
-    
-    override func encode(to encoder: Encoder) throws {
-        try super.encode(to: encoder)
+    override func encode(with aCoder: NSCoder) {
+        super.encode(with: aCoder)
+        aCoder.encode(NSNumber(value: milkGrade.hashValue), forKey: MilkCodingKey.milkGrade.rawValue)
     }
 }

@@ -8,16 +8,16 @@
 
 import Foundation
 
-class Inventory: Codable {
+class Inventory: NSObject {
 
-    private var list: [KeyId: Packages]
+    private var list: [ObjectIdentifier: Packages]
 
-    init(list: [KeyId: Packages]) {
+    init(list: [ObjectIdentifier: Packages]) {
         self.list = list
     }
 
     func add(beverage: Beverage) {
-        let beverageType = KeyId(type(of: beverage))
+        let beverageType = ObjectIdentifier(type(of: beverage))
         if let package = list[beverageType] {
             package.add(beverage: beverage)
             return
@@ -51,7 +51,7 @@ class Inventory: Codable {
         return goBadGoods
     }
 
-    private func findObjectIdentifier(package: Packages) -> KeyId? {
+    private func findObjectIdentifier(package: Packages) -> ObjectIdentifier? {
         for pack in list where pack.value == package {
             return pack.key
         }
@@ -59,13 +59,13 @@ class Inventory: Codable {
     }
 
     func find(type: Beverage.Type) -> Packages? {
-        let beverageType = KeyId(type)
+        let beverageType = ObjectIdentifier(type)
         guard let package = list[beverageType] else { return nil }
         return package
     }
 
     func haveNot(beverage: Beverage.Type) -> Bool {
-        let beverageType = KeyId(beverage)
+        let beverageType = ObjectIdentifier(beverage)
         return list.contains(where: { $0.key == beverageType && $0.value.isEmpty() })
     }
 
@@ -81,50 +81,30 @@ class Inventory: Codable {
         return true
     }
     
-    // MARK: - Codable
+    // MARK: - NSSecureCoding
     enum InventoryCodingKey: String, CodingKey{
         case list
     }
     
-    init(form decoder: Decoder) throws {
-        let value = try decoder.container(keyedBy: InventoryCodingKey.self)
-
-        list = try value.decode([KeyId: Packages].self, forKey: .list)
-    }
-
-    func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: InventoryCodingKey.self)
-        try container.encode(list, forKey: .list)
+    required init?(coder aDecoder: NSCoder) {
+        let product = aDecoder.decodeObject(forKey: InventoryCodingKey.list.rawValue) as? [Packages] ?? [Packages]()
+        var list = [ObjectIdentifier: Packages]()
+        for data in product {
+            guard let pickID = data.pickID else { continue }
+            list[pickID] = data
+        }
+        self.list = list
     }
     
 }
-// MARK: - Class KeyId : ObjectIdentifier가 Hashable, Codable을 따르기 위해
-class KeyId: Hashable, Codable {
-    
-    let string: String
-    
-    init(_ x: Any){
-        self.string = "\(x)"
-    }
-    
-    
-    static func == (lhs: KeyId, rhs: KeyId) -> Bool {
-        return lhs.string == rhs.string
-    }
-    
-    func hash(into hasher: inout Hasher){
-        hasher.combine(self.string)
-    }
-    
-    //MARK: - Codable
-    required init(from decoder: Decoder) throws {
-        let container = try decoder.singleValueContainer()
-        string = try container.decode(String.self)
-    }
 
-    func encode(to encoder: Encoder) throws {
-        var container = encoder.singleValueContainer()
-        try container.encode(string)
+extension Inventory: NSSecureCoding {
+    static var supportsSecureCoding: Bool {
+        return true
+    }
+    
+    func encode(with aCoder: NSCoder) {
+        let goods = list.values.map { $0 }
+        aCoder.encode(goods, forKey: InventoryCodingKey.list.rawValue)
     }
 }
-

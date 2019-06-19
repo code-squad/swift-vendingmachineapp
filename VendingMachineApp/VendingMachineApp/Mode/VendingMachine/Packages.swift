@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Packages: NSObject , Codable{
+class Packages: NSObject {
 
     private var beverage: [Beverage]
     private(set) var title: String
@@ -18,9 +18,9 @@ class Packages: NSObject , Codable{
         self.title = ""
     }
     
-    var pickID: KeyId? {
+    var pickID: ObjectIdentifier? {
         guard let pick = beverage.first else { return nil }
-        return KeyId(type(of: pick))
+        return ObjectIdentifier(type(of: pick))
     }
 
     func add(beverage: Beverage) {
@@ -69,22 +69,30 @@ class Packages: NSObject , Codable{
         return beverage.removeFirst()
     }
 
-    // MARK: - Codable
+    // MARK: - NSSecureCoding
     enum PackagesCodingKeys : String, CodingKey{
         case beverages
         case title
     }
     
-    init(form decoder: Decoder) throws {
-        let value = try decoder.container(keyedBy: PackagesCodingKeys.self)
-        beverage = try value.decode([Beverage].self, forKey: .beverages)
-        title = try value.decode(String.self, forKey: .title)
+    required init?(coder aDecoder: NSCoder) {
+        let beverage = aDecoder
+            .decodeObject(forKey: PackagesCodingKeys.beverages.rawValue) as? [Beverage] ?? [Beverage]()
+        let title = aDecoder
+            .decodeObject(of: NSString.self, forKey: PackagesCodingKeys.title.rawValue) ?? ""
+        self.beverage = beverage
+        self.title = title as String
     }
     
-    func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: PackagesCodingKeys.self)
-        try container.encode(beverage, forKey: .beverages)
-        try container.encode(title, forKey: .title)
-    }
 }
 
+extension Packages: NSSecureCoding {
+    static var supportsSecureCoding: Bool {
+        return true
+    }
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(beverage, forKey: PackagesCodingKeys.beverages.rawValue)
+        aCoder.encode(title as NSString, forKey: PackagesCodingKeys.title.rawValue)
+    }
+}

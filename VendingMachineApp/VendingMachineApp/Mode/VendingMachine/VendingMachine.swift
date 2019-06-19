@@ -27,11 +27,12 @@ enum AvailableMoney: Int, CaseIterable {
     }
 }
 
-// beverageType이 Codable 하게 만들어야해서 삭제해버림
-class VendingMachine: NSObject, Codable {
+class VendingMachine: NSObject {
     private var money: Money
     private var list: Inventory
     private var history: History
+    let beverageTypes = [BananaMilk.self, CantataCoffee.self,
+                         CocaCola.self, ChocolateMilk.self, StarbucksCoffee.self]
     
     init(startMoney: Int = 0, list: Inventory) {
         self.money = Money(money: startMoney)
@@ -49,34 +50,41 @@ class VendingMachine: NSObject, Codable {
     }
     
     func count(beverage: Int) -> Int? {
-        let beverageTypes = [BananaMilk.self, CantataCoffee.self,
-                             CocaCola.self, ChocolateMilk.self, StarbucksCoffee.self]
-        
         guard let pack = list.find(type: beverageTypes[beverage]) else { return nil }
         return pack.count
     }
     
-    // MARK: - Codable
+    // MARK: - NSSecureCoding
     enum VendingMachineCodingKey: String, CodingKey{
         case money
         case list
         case history
     }
     
-    init(form decoder: Decoder) throws {
-        let value = try decoder.container(keyedBy: VendingMachineCodingKey.self)
-        money = try value.decode(Money.self, forKey: .money)
-        list = try value.decode(Inventory.self, forKey: .list)
-        history = try value.decode(History.self, forKey: .history)
+    required init?(coder aDecoder: NSCoder) {
+        let money = aDecoder
+            .decodeObject(of: Money.self, forKey: VendingMachineCodingKey.money.rawValue) ?? Money()
+        let inventory = aDecoder
+            .decodeObject(of: Inventory.self, forKey: VendingMachineCodingKey.list.rawValue) ?? Inventory(list: [ObjectIdentifier: Packages]())
+        let history = aDecoder
+            .decodeObject(of: History.self, forKey: VendingMachineCodingKey.history.rawValue) ?? History()
+        self.money = money
+        self.list = inventory
+        self.history = history
     }
     
-    func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: VendingMachineCodingKey.self)
-        try container.encode(money, forKey: .money)
-        try container.encode(list, forKey: .list)
-        try container.encode(history, forKey: .history)
+}
+
+extension VendingMachine: NSSecureCoding {
+    static var supportsSecureCoding: Bool {
+        return true
     }
-    
+
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(money, forKey: VendingMachineCodingKey.money.rawValue)
+        aCoder.encode(list, forKey: VendingMachineCodingKey.list.rawValue)
+        aCoder.encode(history, forKey: VendingMachineCodingKey.history.rawValue)
+    }
 }
 
 // MARK: - Protocol Manager
@@ -99,9 +107,6 @@ extension VendingMachine: Manager {
     }
 
     func add(beverage: Int) -> Bool {
-        let beverageTypes = [BananaMilk.self, CantataCoffee.self,
-                             CocaCola.self, ChocolateMilk.self, StarbucksCoffee.self]
-        
         guard beverage < beverageTypes.count else { return false }
         let newGoods = beverageTypes[beverage].init()
         list.add(beverage: newGoods)
@@ -109,9 +114,6 @@ extension VendingMachine: Manager {
     }
 
     func remove(beverage: Int) -> Beverage? {
-        let beverageTypes = [BananaMilk.self, CantataCoffee.self,
-                             CocaCola.self, ChocolateMilk.self, StarbucksCoffee.self]
-        
         guard beverage < beverageTypes.count else { return nil }
         guard let goods = list.find(type: beverageTypes[beverage]) else { return nil }
         guard let beverage = list.remove(beverage: goods) else { return nil }
@@ -192,8 +194,6 @@ protocol VendingMachineShowManager {
 extension VendingMachine: VendingMachineShowManager {
 
     func showListOfAllManager(list show: AllListResultPrintClosure) {
-        let beverageTypes = [BananaMilk.self, CantataCoffee.self,
-                             CocaCola.self, ChocolateMilk.self, StarbucksCoffee.self]
         let aFullList = list.getListOfAll()
 
         for (number, value) in beverageTypes.enumerated() {

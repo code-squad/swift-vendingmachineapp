@@ -39,32 +39,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     static func archive(vendingMachine: VendingMachine?) {
-//        UserDefaults.standard.set(try? PropertyListEncoder().encode(vendingMachine), forKey:"VendingMachine")
-
-        let encoder = JSONEncoder()
-        UserDefaults.standard.set(try? encoder.encode(vendingMachine),forKey: "VendingMachine")
+        guard let vendingMachine = vendingMachine else { return }
+        let vendingMachineEncoded = try? NSKeyedArchiver.archivedData(
+            withRootObject: vendingMachine,
+            requiringSecureCoding: false)
+        UserDefaults.standard.set(vendingMachineEncoded, forKey:"vendingMachine")
         
     }
     
-    enum Archive: Error {
+    enum loadError: Error {
         case noData
         case noLoad
     }
     
     static func load() throws -> VendingMachine? {
-        guard let data = UserDefaults.standard.data(forKey: "VendingMachine") else {
-            throw Archive.noData }
-//        let vendingMachine = try PropertyListDecoder().decode(VendingMachine.self, from: data)
-
-        let decoder = JSONDecoder()
-        let vendingMachine = try decoder.decode(VendingMachine.self, from: data)
-
+        guard let data = UserDefaults.standard.data(forKey: "vendingMachine") else { throw loadError.noData }
+        guard let vendingMachine = try NSKeyedUnarchiver
+            .unarchiveTopLevelObjectWithData(data) as? VendingMachine else { throw loadError.noLoad }
         return vendingMachine
-
     }
 
     static func set() -> VendingMachine {
-        return VendingMachine.init(list: Inventory(list: [KeyId: Packages]()))
+        return VendingMachine.init(list: Inventory(list: [ObjectIdentifier: Packages]()))
     }
     
 }

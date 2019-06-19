@@ -9,7 +9,7 @@
 import Foundation
 
 //이력, 내역
-class History: NSObject, Codable {
+class History: NSObject{
     private var purchases: [Beverage]
 
     init(purchases: [Beverage]) {
@@ -27,21 +27,26 @@ class History: NSObject, Codable {
     static func == (lhs: History, rhs: History) -> Bool {
         return lhs.purchases == rhs.purchases
     }
-    
-    // MARK: - Codable
+  
+    // MARK: - NSSecureCoding
     enum HistoryCodingKeys : String, CodingKey{
         case purchases
     }
-    
-    init(form decoder: Decoder) throws {
-        let value = try decoder.container(keyedBy: HistoryCodingKeys.self)
-        purchases = try value.decode([Beverage].self, forKey: .purchases)
-    }
-    
-    func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: HistoryCodingKeys.self)
-        try container.encode(purchases, forKey: .purchases)
+
+    required init?(coder aDecoder: NSCoder) {
+        let purchases = aDecoder
+            .decodeObject(forKey: HistoryCodingKeys.purchases.rawValue) as? [Beverage] ?? [Beverage]()
+        self.purchases = purchases
     }
     
 }
 
+extension History: NSSecureCoding {
+    static var supportsSecureCoding: Bool {
+        return true
+    }
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(purchases, forKey: HistoryCodingKeys.purchases.rawValue)
+    }
+}

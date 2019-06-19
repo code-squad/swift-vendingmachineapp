@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ExpirationPeriod:  NSObject, Codable{
+class ExpirationPeriod:  NSObject{
     private let endDay: Int
 
     init(endDay: Int) {
@@ -24,19 +24,25 @@ class ExpirationPeriod:  NSObject, Codable{
         return self.endDay
     }
     
-    // MARK: - Codable
-    // enum
+    // MARK: - NSSecureCoding
     enum ExpirationCodingKeys : String, CodingKey{
         case endDay
     }
     
-    init(form decoder: Decoder) throws {
-        let value = try decoder.container(keyedBy: ExpirationCodingKeys.self)
-        endDay = try value.decode(Int.self, forKey: .endDay)
+    required init?(coder aDecoder: NSCoder) {
+        let endDay = aDecoder
+            .decodeObject(of: NSNumber.self, forKey: ExpirationCodingKeys.endDay.rawValue) ?? 0
+        self.endDay = endDay.intValue
+    }
+
+}
+
+extension ExpirationPeriod: NSSecureCoding {
+    static var supportsSecureCoding: Bool {
+        return true
     }
     
-    func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: ExpirationCodingKeys.self)
-        try container.encode(endDay, forKey: .endDay)
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(NSNumber(value: endDay), forKey: ExpirationCodingKeys.endDay.rawValue)
     }
 }

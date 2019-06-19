@@ -49,23 +49,19 @@ class Soda: Beverage {
         return false
     }
     
-    // MARK: - Codable
+    // MARK: - NSSecureCoding
     enum SodaCodingKeys : String, CodingKey{
         case suger
     }
     
-    override init(form decoder: Decoder) throws {
-        let value = try decoder.container(keyedBy: SodaCodingKeys.self)
-        suger = try value.decode(Bool.self, forKey: .suger)
-        try super.init(form: decoder)
+    required init?(coder aDecoder: NSCoder) {
+        suger = aDecoder.decodeBool(forKey: SodaCodingKeys.suger.rawValue)
+        super.init(coder: aDecoder)
     }
     
-    required init(from decoder: Decoder) throws {
-        fatalError("init(from:) has not been implemented")
+    override func encode(with aCoder: NSCoder) {
+        super.encode(with: aCoder)
+        aCoder.encode(suger, forKey: SodaCodingKeys.suger.rawValue)
     }
     
-    override func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: SodaCodingKeys.self)
-        try container.encode(suger, forKey: .suger)
-    }
 }

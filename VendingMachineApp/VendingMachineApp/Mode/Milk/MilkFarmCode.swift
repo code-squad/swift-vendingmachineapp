@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum MilkGrade: Int, Codable {
+enum MilkGrade: Int {
     case AMilkGrade = 0
     case BMilkGrade
     case CMilkGrade

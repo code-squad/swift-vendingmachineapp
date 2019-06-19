@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Money: NSObject, Codable{
+class Money: NSObject{
     private var money: Int
 
     init(money: Int = 0) {
@@ -33,21 +33,27 @@ class Money: NSObject, Codable{
         return money
     }
 
-    // MARK: - Codable
+    // MARK: - NSSecureCoding
     enum MoneyCodingKeys : String, CodingKey{
         case money
     }
     
-    init(form decoder: Decoder) throws {
-        let value = try decoder.container(keyedBy: MoneyCodingKeys.self)
-        money = try value.decode(Int.self, forKey: .money)
+    required init?(coder aDecoder: NSCoder) {
+        let money = aDecoder
+            .decodeObject(of: NSNumber.self, forKey: MoneyCodingKeys.money.rawValue) ?? 0
+        self.money = money.intValue
     }
     
-    func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: MoneyCodingKeys.self)
-        try container.encode(money, forKey: .money)
+}
+
+extension Money: NSSecureCoding {
+    static var supportsSecureCoding: Bool {
+        return true
     }
     
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(NSNumber(value: money), forKey: MoneyCodingKeys.money.rawValue)
+    }
 }
 
 extension Int {

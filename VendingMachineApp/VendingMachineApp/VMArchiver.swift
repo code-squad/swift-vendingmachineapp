@@ -27,7 +27,7 @@ class VMArchiver {
         
     }
     
-    static func load() throws -> VendingMachine? {
+    static func load() throws -> VendingMachine {
         guard let data = UserDefaults.standard.data(forKey: "vendingMachine") else { throw loadError.noData }
         guard let vendingMachine = try NSKeyedUnarchiver
             .unarchiveTopLevelObjectWithData(data) as? VendingMachine else { throw loadError.noLoad }

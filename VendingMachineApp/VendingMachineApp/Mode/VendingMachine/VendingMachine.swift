@@ -52,9 +52,9 @@ class VendingMachine: NSObject {
     // MARK: private static func
     private static func vmAchine() -> VendingMachine {
         do {
-            return try VMArchiver.load()
+            return try VendingMachineArchiver.load()
         } catch {
-            return VMArchiver.set()
+            return VendingMachineArchiver.set()
         }
     }
     

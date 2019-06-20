@@ -111,12 +111,12 @@
 				F3056B5822899677004EEAA0 /* img */,
 				F3056AE622817DA6004EEAA0 /* Mode */,
 				F3056AA0228178BB004EEAA0 /* AppDelegate.swift */,
+				F3E33C7E22BB683200DDE3A9 /* VMArchiver.swift */,
 				F3056AA2228178BB004EEAA0 /* ViewController.swift */,
 				F3056AA4228178BB004EEAA0 /* Main.storyboard */,
 				F3056AA7228178BE004EEAA0 /* Assets.xcassets */,
 				F3056AA9228178BE004EEAA0 /* LaunchScreen.storyboard */,
 				F3056AAC228178BE004EEAA0 /* Info.plist */,
-				F3E33C7E22BB683200DDE3A9 /* VMArchiver.swift */,
 			);
 			path = VendingMachineApp;
 			sourceTree = "<group>";

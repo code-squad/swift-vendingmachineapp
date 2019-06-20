@@ -29,19 +29,36 @@ enum AvailableMoney: Int, CaseIterable {
 
 class VendingMachine: NSObject {
     
+    // MARK: - static variable
+    static let shared: VendingMachine = vmAchine()
+    
+    // MARK: - private variable
     private var money: Money
     private var list: Inventory
     private var history: History
+    
+    // MARK: - variable
     let beverageTypes = [BananaMilk.self, CantataCoffee.self,
                          CocaCola.self, ChocolateMilk.self, StarbucksCoffee.self]
     
+    // MARK: - init
     init(startMoney: Int = 0, list: Inventory) {
         self.money = Money(money: startMoney)
         self.list = list
         self.history = History()
         
     }
+
+    // MARK: private static func
+    private static func vmAchine() -> VendingMachine {
+        do {
+            return try VMArchiver.load()
+        } catch {
+            return VMArchiver.set()
+        }
+    }
     
+    // MARK: - func
     func buyAvailableHotBeverages() -> [Packages] {
         return list.buyAvailableHotBeverages()
     }
@@ -76,6 +93,7 @@ class VendingMachine: NSObject {
     
 }
 
+//MARK: extension VendingMachine: NSSecureCodin
 extension VendingMachine: NSSecureCoding {
     static var supportsSecureCoding: Bool {
         return true

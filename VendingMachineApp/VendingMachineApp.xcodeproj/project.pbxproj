@@ -38,7 +38,7 @@
 		F3056B60228996E8004EEAA0 /* Cantata.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = F3056B5F228996E8004EEAA0 /* Cantata.jpeg */; };
 		F3056B6222899743004EEAA0 /* Starbucks.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F3056B6122899743004EEAA0 /* Starbucks.jpg */; };
 		F36EFFF422928D3400471E19 /* RoundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36EFFF322928D3400471E19 /* RoundImageView.swift */; };
-		F3E33C7F22BB683200DDE3A9 /* VMArchiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E33C7E22BB683200DDE3A9 /* VMArchiver.swift */; };
+		F3E33C8522BB7CE000DDE3A9 /* VendingMachineArchiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E33C8422BB7CDF00DDE3A9 /* VendingMachineArchiver.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,7 +75,7 @@
 		F3056B5F228996E8004EEAA0 /* Cantata.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Cantata.jpeg; sourceTree = "<group>"; };
 		F3056B6122899743004EEAA0 /* Starbucks.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Starbucks.jpg; sourceTree = "<group>"; };
 		F36EFFF322928D3400471E19 /* RoundImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundImageView.swift; sourceTree = "<group>"; };
-		F3E33C7E22BB683200DDE3A9 /* VMArchiver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VMArchiver.swift; sourceTree = "<group>"; };
+		F3E33C8422BB7CDF00DDE3A9 /* VendingMachineArchiver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VendingMachineArchiver.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,7 +111,7 @@
 				F3056B5822899677004EEAA0 /* img */,
 				F3056AE622817DA6004EEAA0 /* Mode */,
 				F3056AA0228178BB004EEAA0 /* AppDelegate.swift */,
-				F3E33C7E22BB683200DDE3A9 /* VMArchiver.swift */,
+				F3E33C8422BB7CDF00DDE3A9 /* VendingMachineArchiver.swift */,
 				F3056AA2228178BB004EEAA0 /* ViewController.swift */,
 				F3056AA4228178BB004EEAA0 /* Main.storyboard */,
 				F3056AA7228178BE004EEAA0 /* Assets.xcassets */,
@@ -303,8 +303,8 @@
 				F3056AD622817D54004EEAA0 /* Menu.swift in Sources */,
 				F3056AD322817D54004EEAA0 /* MenuScript.swift in Sources */,
 				F3056AD822817D54004EEAA0 /* ExpirationPeriod.swift in Sources */,
-				F3E33C7F22BB683200DDE3A9 /* VMArchiver.swift in Sources */,
 				F3056ADB22817D54004EEAA0 /* MilkFarmCode.swift in Sources */,
+				F3E33C8522BB7CE000DDE3A9 /* VendingMachineArchiver.swift in Sources */,
 				F3056AD122817D54004EEAA0 /* Coffee.swift in Sources */,
 				F3056ADE22817D54004EEAA0 /* Beverage.swift in Sources */,
 				F3056AD222817D54004EEAA0 /* StarbucksCoffee.swift in Sources */,

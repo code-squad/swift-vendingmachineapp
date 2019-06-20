@@ -1,5 +1,5 @@
 //
-//  VMArchiver.swift
+//  VendingMachineArchiver.swift
 //  VendingMachineApp
 //
 //  Created by Elena on 20/06/2019.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class VMArchiver {
+class VendingMachineArchiver {
     
     // MARK: - enum
     enum loadError: Error {

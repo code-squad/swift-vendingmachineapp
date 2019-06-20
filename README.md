@@ -112,3 +112,10 @@ class RoundImageView: UIImageView{
     UserDefaults.standard.data(forKey: "vendingMachine")
     ```
 
+## step4. 싱글톤 모델
+
+- 매번 똑같은 하나의 인스턴스만을 반환하도록 하는 클래스 설계 방식
+- 단 하나의 인스턴스로만 관리할 클래스에 대해 사용한다.
+
+- 장점
+- 한 번 생성된 이후에 하나를 사용하기 때문에 한번 생성된 메모리 영역만 사용하므로, 메모리가 낭비되는 것을 방지할 수 있다. 

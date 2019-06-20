@@ -30,7 +30,7 @@ enum AvailableMoney: Int, CaseIterable {
 class VendingMachine: NSObject {
     
     // MARK: - static variable
-    static let shared: VendingMachine = vmAchine()
+    static let shared: VendingMachine = VendingMachine.init(list: Inventory(list: [ObjectIdentifier: Packages]()))
     
     // MARK: - private variable
     private var money: Money
@@ -48,17 +48,14 @@ class VendingMachine: NSObject {
         self.history = History()
         
     }
-
-    // MARK: private static func
-    private static func vmAchine() -> VendingMachine {
-        do {
-            return try VendingMachineArchiver.load()
-        } catch {
-            return VendingMachineArchiver.set()
-        }
-    }
     
     // MARK: - func
+    func set(instance: VendingMachine) {
+        VendingMachine.shared.money = instance.money
+        VendingMachine.shared.list = instance.list
+        VendingMachine.shared.history = instance.history
+    }
+    
     func buyAvailableHotBeverages() -> [Packages] {
         return list.buyAvailableHotBeverages()
     }

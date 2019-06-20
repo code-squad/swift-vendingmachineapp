@@ -12,12 +12,18 @@ class ViewController: UIViewController {
     
     // MARK: - private variable
     private weak var appDelegate: AppDelegate? = UIApplication.shared.delegate as! AppDelegate
+    private var vendingMachine: VendingMachine?
     
     // MARK: - @IBOutlet
     @IBOutlet var beverageImageView: [RoundImageView]!
     @IBOutlet var beverageLabel: [UILabel]!
     @IBOutlet weak var list: UILabel!
 
+    // MARK: - init
+    required init?(coder aDecoder: NSCoder) {
+        self.vendingMachine = VendingMachine.shared
+        super.init(coder: aDecoder)
+    }
     
     // MARK: - function
     private func showQuantity() {

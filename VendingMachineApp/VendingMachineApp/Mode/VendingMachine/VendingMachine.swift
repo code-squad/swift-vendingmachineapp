@@ -28,6 +28,7 @@ enum AvailableMoney: Int, CaseIterable {
 }
 
 class VendingMachine: NSObject {
+    
     private var money: Money
     private var list: Inventory
     private var history: History
@@ -40,7 +41,7 @@ class VendingMachine: NSObject {
         self.history = History()
         
     }
-
+    
     func buyAvailableHotBeverages() -> [Packages] {
         return list.buyAvailableHotBeverages()
     }

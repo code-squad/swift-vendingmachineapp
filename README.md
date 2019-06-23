@@ -119,3 +119,73 @@ class RoundImageView: UIImageView{
 
 - 장점
 - 한 번 생성된 이후에 하나를 사용하기 때문에 한번 생성된 메모리 영역만 사용하므로, 메모리가 낭비되는 것을 방지할 수 있다. 
+
+
+## step5. 관찰자(Observer) 패턴
+
+### 관찰자 패턴(Observer Pattern)
+
+- 해당 프로퍼티가 변경 되는걸 관찰하고 있다가 변경 되는 시점에서 update가 수행 되게 되는 형태
+- 언제 써야할까?  특정 값이 변경이 발생 할 때, 다른 연쇄적으로 그 값을 참조 하고, 참조하고 있는 값들이 자동 적으로 변경이 이루어 져야 할 때 사용 하면 유용한 패턴이다.
+- MVC 패턴에서 Model과 Controller의 직접적인 참조 관계를 끊기 위해서 관찰자(Observer) 패턴을 적용한다
+
+### 적용 해보기
+
+1. 객체에서는 변화에 대해 NotificationCenter 에 Post 한다.
+
+```swift
+extension NSNotification.Name {
+	static let addBeverage = NSNotification.Name(rawValue: "addBeverage")
+	static let insertMoney = NSNotification.Name(rawValue: "insertMoney")
+}
+
+class VendingMachine {
+  // 음료를 추가할때
+	func add(beverage: Beverage) {
+        list.add(beverage: beverage)
+        NotificationCenter.default.post(name: .addBeverage, object: self)
+    }
+  
+  // 돈을 넣었을때
+  func isPut(cash: Int) -> Bool {
+        NotificationCenter.default.post(name: .insertMoney, object: self)
+        return money.addMoney(put: cash)        
+    }
+}
+
+```
+
+2. 변화에 대해 알려줄 객체를 Observer 등록
+```swift
+class ViewController: UIViewController {
+  // MARK: - viewDidLoad
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(showQuantity), name: .addBeverage, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(moneyFormat), name: .insertMoney, object: nil)
+        
+        showQuantity()
+        vendingMachine?.showList(show: moneyFormat)
+
+    }
+
+  // MARK: - @objc
+    @objc private func showQuantity() {
+        for (index, count) in beverageLabel.enumerated() {
+            if let number = vendingMachine?.count(beverage: index) {
+                count.text = "\(number)개"
+                continue
+            }
+            count.text = "0개"
+        }
+    }
+    
+    @objc private func moneyFormat(money: Int) {
+        self.list.text = "\(money.commaRepresentation)"
+    }
+}
+```
+
+3. 노티가 발생하면 옵저버로 등록된 객체에서 행동을 수행한다.
+
+

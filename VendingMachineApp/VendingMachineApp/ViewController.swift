@@ -8,6 +8,11 @@
 
 import UIKit
 
+extension NSNotification.Name {
+    static let addBeverage = NSNotification.Name(rawValue: "addBeverage")
+    static let insertMoney = NSNotification.Name(rawValue: "insertMoney")
+}
+
 class ViewController: UIViewController {
     
     // MARK: - private variable
@@ -23,22 +28,7 @@ class ViewController: UIViewController {
         self.vendingMachine = VendingMachine.shared
         super.init(coder: aDecoder)
     }
-    
-    // MARK: - function
-    private func showQuantity() {
-        for (index, count) in beverageLabel.enumerated() {
-            if let number = vendingMachine?.count(beverage: index) {
-                count.text = "\(number)개"
-                continue
-            }
-            count.text = "0개"
-        }
-    }
-    
-    private func moneyFormat(money: Int) {
-        self.list.text = "\(money.commaRepresentation)"
-    }
-    
+
     // MARK: - @IBAction
     @IBAction func addBeverage(_ sender: UIButton) {
         let beverage = sender.tag
@@ -60,9 +50,26 @@ class ViewController: UIViewController {
     // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(showQuantity), name: .addBeverage, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(moneyFormat), name: .insertMoney, object: nil)
         
         showQuantity()
         vendingMachine?.showList(show: moneyFormat)
 
+    }
+    
+    // MARK: - @objc
+    @objc private func showQuantity() {
+        for (index, count) in beverageLabel.enumerated() {
+            if let number = vendingMachine?.count(beverage: index) {
+                count.text = "\(number)개"
+                continue
+            }
+            count.text = "0개"
+        }
+    }
+    
+    @objc private func moneyFormat(money: Int) {
+        self.list.text = "\(money.commaRepresentation)"
     }
 }

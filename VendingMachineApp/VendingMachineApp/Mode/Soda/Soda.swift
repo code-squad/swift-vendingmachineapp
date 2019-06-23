@@ -11,7 +11,7 @@ import Foundation
 class Soda: Beverage {
 
     private let suger: Bool
-    static let expiredays: Int = 365
+    private let expiredays: Int = 365
 
     init(brand: String,
          volume: Int,
@@ -19,7 +19,7 @@ class Soda: Beverage {
          name: String,
          manufacturedDate: Date,
          suger: Bool ,
-         expiryPeriod: ExpirationPeriod = ExpirationPeriod(endDay: Soda.expiredays)) {
+         expiryPeriod: ExpirationPeriod = ExpirationPeriod(endDay: 365)) {
         self.suger = true
         super.init(
             brand: brand,

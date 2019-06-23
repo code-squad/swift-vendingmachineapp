@@ -116,8 +116,9 @@ extension VendingMachine: Manager {
 
     func add(beverage: Beverage) {
         list.add(beverage: beverage)
+        NotificationCenter.default.post(name: .addBeverage, object: self)
     }
-
+    
     func removeGoBadBeverages() -> [Beverage] {
         return list.removeGoBadBeverages()
     }
@@ -153,7 +154,8 @@ extension VendingMachine: Customer {
     }
 
     func isPut(cash: Int) -> Bool {
-        return money.addMoney(put: cash)
+        NotificationCenter.default.post(name: .insertMoney, object: self)
+        return money.addMoney(put: cash)        
     }
 
     func buyAvailableList() -> [Packages] {

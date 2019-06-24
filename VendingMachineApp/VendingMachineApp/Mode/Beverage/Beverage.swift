@@ -119,7 +119,7 @@ extension Beverage: NSSecureCoding {
         aCoder.encode(NSNumber(value: price), forKey: CodingKeys.price.rawValue)
         aCoder.encode(name as NSString, forKey: CodingKeys.name.rawValue)
         aCoder.encode(manufacturedDate as NSDate, forKey: CodingKeys.manufacturedDate.rawValue)
-        aCoder.encode(NSNumber(value: expiryPeriod.endDateSecond()) , forKey: CodingKeys.expiryPeriod.rawValue)
+        aCoder.encode(NSNumber(value: expiryPeriod.getterInt()) , forKey: CodingKeys.expiryPeriod.rawValue)
     }
     
 }

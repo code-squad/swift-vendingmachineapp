@@ -28,6 +28,21 @@ class ViewController: UIViewController {
         self.vendingMachine = VendingMachine.shared
         super.init(coder: aDecoder)
     }
+    
+    // MARK: - private
+    private func showQuantity() {
+        for (index, count) in beverageLabel.enumerated() {
+            if let number = vendingMachine?.count(beverage: index) {
+                count.text = "\(number)개"
+                continue
+            }
+            count.text = "0개"
+        }
+    }
+    
+    private func moneyFormat(money: Int) {
+        self.list.text = "\(money.commaRepresentation)"
+    }
 
     // MARK: - @IBAction
     @IBAction func addBeverage(_ sender: UIButton) {
@@ -50,26 +65,23 @@ class ViewController: UIViewController {
     // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(self, selector: #selector(showQuantity), name: .addBeverage, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(moneyFormat), name: .insertMoney, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(objcShowQuantity), name: .addBeverage, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(objcMoneyFormat), name: .insertMoney, object: nil)
         
         showQuantity()
         vendingMachine?.showList(show: moneyFormat)
-
+    }
+    
+    func selectShowQuantity(){
+        
     }
     
     // MARK: - @objc
-    @objc private func showQuantity() {
-        for (index, count) in beverageLabel.enumerated() {
-            if let number = vendingMachine?.count(beverage: index) {
-                count.text = "\(number)개"
-                continue
-            }
-            count.text = "0개"
-        }
+    @objc private func objcShowQuantity() {
+        showQuantity()
     }
     
-    @objc private func moneyFormat(money: Int) {
-        self.list.text = "\(money.commaRepresentation)"
+    @objc private func objcMoneyFormat(money: Int) {
+        moneyFormat(money: money)
     }
 }

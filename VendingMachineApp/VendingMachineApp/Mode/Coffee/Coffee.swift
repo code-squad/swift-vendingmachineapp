@@ -12,7 +12,7 @@ class Coffee: Beverage {
 
     private let caffeine: Int?
     private let hot: Bool
-    private let expiredays: Int = 60
+    static let expiredays: Int = 60
 
     init(brand: String,
          volume: Int,
@@ -58,6 +58,7 @@ class Coffee: Beverage {
     enum CoffeeCodingKey : String, CodingKey{
         case caffeine
         case hot
+        case expiredays
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -65,6 +66,7 @@ class Coffee: Beverage {
         let caffeine = aDecoder.decodeObject(of: NSNumber.self, forKey: CoffeeCodingKey.caffeine.rawValue) ?? 0
         hot = aDecoder.decodeBool(forKey: CoffeeCodingKey.hot.rawValue)
         self.caffeine = caffeine.intValue
+
         
         super.init(coder: aDecoder)
     }

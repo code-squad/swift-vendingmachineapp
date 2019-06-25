@@ -39,6 +39,12 @@ class ViewController: UIViewController {
     @IBAction func pepsiCokeSupply(_ sender: Any) {
         vendingMachine.supply(6, amount: 1)
     }
+    @IBAction func insertOneThousand(_ sender: Any) {
+        vendingMachine.insertCoin(1000)
+    }
+    @IBAction func insertFiveThousand(_ sender: Any) {
+        vendingMachine.insertCoin(5000)
+    }
     
 }
 

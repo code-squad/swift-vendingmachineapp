@@ -150,12 +150,18 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="+1000"/>
+                                <connections>
+                                    <action selector="insertOneThousand:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3Lr-7m-Y84"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IVp-4P-lQx">
                                 <rect key="frame" x="1002" y="202" width="93" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="+5000"/>
+                                <connections>
+                                    <action selector="insertFiveThousand:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hMP-w8-r3l"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pdg-pc-vPf">
                                 <rect key="frame" x="967" y="274" width="19" height="36"/>

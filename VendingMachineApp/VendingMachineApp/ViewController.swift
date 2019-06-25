@@ -22,6 +22,7 @@ class ViewController: UIViewController {
     @IBOutlet var beverageImageView: [RoundImageView]!
     @IBOutlet var beverageLabel: [UILabel]!
     @IBOutlet weak var list: UILabel!
+    @IBOutlet var buyButton: [UIButton]!
 
     // MARK: - init
     required init?(coder aDecoder: NSCoder) {

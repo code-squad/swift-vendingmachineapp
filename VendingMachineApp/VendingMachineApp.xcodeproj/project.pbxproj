@@ -33,6 +33,12 @@
 		33FAF09B22C20AB200588E95 /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FAF08622C20AB200588E95 /* Drink.swift */; };
 		33FAF09C22C20AB200588E95 /* PepsiCoke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FAF08722C20AB200588E95 /* PepsiCoke.swift */; };
 		33FAF09D22C20AB200588E95 /* MainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FAF08822C20AB200588E95 /* MainMenu.swift */; };
+		33FAF0A422C2414200588E95 /* hot6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 33FAF09F22C2414100588E95 /* hot6.jpg */; };
+		33FAF0A522C2414200588E95 /* bananaMilk.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 33FAF0A022C2414100588E95 /* bananaMilk.jpg */; };
+		33FAF0A622C2414200588E95 /* top.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 33FAF0A122C2414100588E95 /* top.jpg */; };
+		33FAF0A722C2414200588E95 /* pepsiCoke.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 33FAF0A222C2414100588E95 /* pepsiCoke.jpg */; };
+		33FAF0A822C2414200588E95 /* strawberryMilk.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 33FAF0A322C2414100588E95 /* strawberryMilk.jpg */; };
+		33FAF0AA22C2418300588E95 /* fanta.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 33FAF0A922C2418300588E95 /* fanta.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +70,12 @@
 		33FAF08622C20AB200588E95 /* Drink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Drink.swift; sourceTree = "<group>"; };
 		33FAF08722C20AB200588E95 /* PepsiCoke.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PepsiCoke.swift; sourceTree = "<group>"; };
 		33FAF08822C20AB200588E95 /* MainMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenu.swift; sourceTree = "<group>"; };
+		33FAF09F22C2414100588E95 /* hot6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = hot6.jpg; sourceTree = "<group>"; };
+		33FAF0A022C2414100588E95 /* bananaMilk.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bananaMilk.jpg; sourceTree = "<group>"; };
+		33FAF0A122C2414100588E95 /* top.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = top.jpg; sourceTree = "<group>"; };
+		33FAF0A222C2414100588E95 /* pepsiCoke.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pepsiCoke.jpg; sourceTree = "<group>"; };
+		33FAF0A322C2414100588E95 /* strawberryMilk.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = strawberryMilk.jpg; sourceTree = "<group>"; };
+		33FAF0A922C2418300588E95 /* fanta.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = fanta.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +108,7 @@
 		33FAF06122C2061400588E95 /* VendingMachineApp */ = {
 			isa = PBXGroup;
 			children = (
+				33FAF09E22C2412100588E95 /* images */,
 				33FAF06222C2061400588E95 /* AppDelegate.swift */,
 				33FAF06422C2061400588E95 /* ViewController.swift */,
 				33FAF06622C2061400588E95 /* Main.storyboard */,
@@ -125,6 +138,19 @@
 				33FAF07D22C20AB200588E95 /* VendingMachineUseable.swift */,
 			);
 			path = VendingMachineApp;
+			sourceTree = "<group>";
+		};
+		33FAF09E22C2412100588E95 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				33FAF0A022C2414100588E95 /* bananaMilk.jpg */,
+				33FAF09F22C2414100588E95 /* hot6.jpg */,
+				33FAF0A922C2418300588E95 /* fanta.jpg */,
+				33FAF0A222C2414100588E95 /* pepsiCoke.jpg */,
+				33FAF0A322C2414100588E95 /* strawberryMilk.jpg */,
+				33FAF0A122C2414100588E95 /* top.jpg */,
+			);
+			path = images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -185,9 +211,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33FAF0A422C2414200588E95 /* hot6.jpg in Resources */,
 				33FAF06D22C2061A00588E95 /* LaunchScreen.storyboard in Resources */,
 				33FAF06A22C2061A00588E95 /* Assets.xcassets in Resources */,
+				33FAF0AA22C2418300588E95 /* fanta.jpg in Resources */,
+				33FAF0A822C2414200588E95 /* strawberryMilk.jpg in Resources */,
+				33FAF0A622C2414200588E95 /* top.jpg in Resources */,
+				33FAF0A522C2414200588E95 /* bananaMilk.jpg in Resources */,
 				33FAF06822C2061400588E95 /* Main.storyboard in Resources */,
+				33FAF0A722C2414200588E95 /* pepsiCoke.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

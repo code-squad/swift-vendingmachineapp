@@ -47,7 +47,7 @@ struct VendingMachine: VendingMachineManagementable, VendingMachineUseable {
     
     mutating func supply(_ index: Int, amount: Int) {
         for _ in 1...amount {
-            stock.append(drinks[index])
+            stock.append(drinks[index-1])
         }
     }
     

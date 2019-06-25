@@ -14,6 +14,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        vendingMachine.supply(1, amount: 1)
+        vendingMachine.supply(2, amount: 2)
+        vendingMachine.supply(6, amount: 1)
+        
+        print(vendingMachine.getStockList())
     }
 
 

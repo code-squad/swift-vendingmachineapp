@@ -1,0 +1,23 @@
+//
+//  TOP.swift
+//  VendingMachine
+//
+//  Created by joon-ho kil on 6/18/19.
+//  Copyright © 2019 JK. All rights reserved.
+//
+
+import Foundation
+
+class TOP: Coffee {
+    private var topLevelCoffeebeanContainPercent: Double
+    
+    init(brand: String, ml: Int, price: Int, productDate: String, hot: Bool, expirationDate: String) {
+        topLevelCoffeebeanContainPercent = 0.5
+        
+        super.init(brand: brand, ml: ml, price: price, name: "TOP아메리카노", productDate: productDate, hot: hot, barcode: Barcode.upc(60, 70, 80, 100), expirationDate: expirationDate)
+    }
+    
+    func isTopLevelCoffeebeanContainPercent(_ percent: Double) -> Bool {
+        return topLevelCoffeebeanContainPercent == percent
+    }
+}

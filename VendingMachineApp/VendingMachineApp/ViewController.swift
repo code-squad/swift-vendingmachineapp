@@ -53,8 +53,6 @@ class ViewController: UIViewController {
         }
     }
 
-   
-
     @IBAction func drinkSupply(_ sender: UIButton) {
         vendingMachine.supply(sender.tag, amount: 1)
         refreshDrinkCount()

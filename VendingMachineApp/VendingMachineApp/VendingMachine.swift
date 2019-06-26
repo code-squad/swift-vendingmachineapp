@@ -26,33 +26,20 @@ struct VendingMachine: VendingMachineManagementable, VendingMachineUseable {
     private var balance = Money()
     private var stock = [Drink]()
     private var sellList = [Drink]()
-    
-    private let bananaMilk: BananaMilk
-    private let strawberryMilk: StrawberryMilk
-    private let fanta: Fanta
-    private let top: TOP
-    private let hot6: Hot6
-    private let pepsiCoke: PepsiCoke
-    private let drinks: [Drink]
-    
-    init () {
-        bananaMilk = BananaMilk(brand: "빙그레", ml: 200, price: 1300, productDate: "20190301", farmCode: 5, expirationDate: "20190930")
-        strawberryMilk = StrawberryMilk(brand: "빙그레", ml: 200, price: 1300, productDate: "20190405", farmCode: 3, expirationDate: "20190925")
-        fanta = Fanta(brand: "롯데", ml: 350, price: 2000, productDate: "20190505", orangeIncense: 0.7, expirationDate: "20190921")
-        top = TOP(brand: "맥심", ml: 400, price: 3000, productDate: "20190606", hot: false, expirationDate: "20190920")
-        hot6 = Hot6(brand: "롯데", ml: 240, price: 1000, productDate: "20190529", expirationDate: "20191029")
-        pepsiCoke = PepsiCoke(brand: "펩시", ml: 255, price: 1200, productDate: "20190610", expirationDate: "20191010")
-        drinks = [bananaMilk, strawberryMilk, fanta, top, hot6, pepsiCoke]
-    }
+    private var supplyableDrinkList = SupplyableDrinkList()
     
     mutating func supply(_ index: Int, amount: Int) {
+        let supplyableDrinks = supplyableDrinkList.getSupplyableDrinkList()
+        
         for _ in 1...amount {
-            stock.append(drinks[index-1])
+            stock.append(supplyableDrinks[index-1])
         }
     }
     
     func getAbleDrinks () -> [Drink] {
-        return drinks
+        let supplyableDrinks = supplyableDrinkList.getSupplyableDrinkList()
+        
+        return supplyableDrinks
     }
     
     /// 전체 상품 재고를 (사전으로 표현하는) 종류별로 리턴하는 메소드
@@ -67,7 +54,7 @@ struct VendingMachine: VendingMachineManagementable, VendingMachineUseable {
         return stockList
     }
     
-    func getStockCount (_ drink: Drink, _ stockList: Dictionary<Drink, Int>) -> Int {
+    private func getStockCount (_ drink: Drink, _ stockList: Dictionary<Drink, Int>) -> Int {
         if let stockCount = stockList[drink] {
             return stockCount + 1
         }

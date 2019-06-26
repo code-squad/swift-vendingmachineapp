@@ -39,6 +39,7 @@
 		33FAF0A722C2414200588E95 /* pepsiCoke.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 33FAF0A222C2414100588E95 /* pepsiCoke.jpg */; };
 		33FAF0A822C2414200588E95 /* strawberryMilk.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 33FAF0A322C2414100588E95 /* strawberryMilk.jpg */; };
 		33FAF0AA22C2418300588E95 /* fanta.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 33FAF0A922C2418300588E95 /* fanta.jpg */; };
+		33FAF0AC22C3096300588E95 /* SupplyableDrinkList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FAF0AB22C3096300588E95 /* SupplyableDrinkList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +77,7 @@
 		33FAF0A222C2414100588E95 /* pepsiCoke.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pepsiCoke.jpg; sourceTree = "<group>"; };
 		33FAF0A322C2414100588E95 /* strawberryMilk.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = strawberryMilk.jpg; sourceTree = "<group>"; };
 		33FAF0A922C2418300588E95 /* fanta.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = fanta.jpg; sourceTree = "<group>"; };
+		33FAF0AB22C3096300588E95 /* SupplyableDrinkList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupplyableDrinkList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 				33FAF09E22C2412100588E95 /* images */,
 				33FAF06222C2061400588E95 /* AppDelegate.swift */,
 				33FAF06422C2061400588E95 /* ViewController.swift */,
+				33FAF0AB22C3096300588E95 /* SupplyableDrinkList.swift */,
 				33FAF06622C2061400588E95 /* Main.storyboard */,
 				33FAF06922C2061A00588E95 /* Assets.xcassets */,
 				33FAF06B22C2061A00588E95 /* LaunchScreen.storyboard */,
@@ -239,6 +242,7 @@
 				33FAF09A22C20AB200588E95 /* Money.swift in Sources */,
 				33FAF09C22C20AB200588E95 /* PepsiCoke.swift in Sources */,
 				33FAF09522C20AB200588E95 /* Converter.swift in Sources */,
+				33FAF0AC22C3096300588E95 /* SupplyableDrinkList.swift in Sources */,
 				33FAF09222C20AB200588E95 /* VendingMachineUseable.swift in Sources */,
 				33FAF09722C20AB200588E95 /* Sparkling.swift in Sources */,
 				33FAF09422C20AB200588E95 /* Ment.swift in Sources */,

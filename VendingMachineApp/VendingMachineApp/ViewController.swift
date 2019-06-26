@@ -18,7 +18,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var balance: UILabel!
     
     
-    var vendingMachine = VendingMachine()
+    private var vendingMachine = VendingMachine()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +28,7 @@ class ViewController: UIViewController {
         
     }
     
-    func refreshDrinkCount () {
+    private func refreshDrinkCount () {
         let stock = vendingMachine.getStockList()
         
         for (drink, count) in stock {
@@ -52,22 +52,20 @@ class ViewController: UIViewController {
             }
         }
     }
+    
+    private func refreshBalance () {
+        let balance = vendingMachine.getBalance()
+        self.balance.text = "\(balance)원"
+    }
 
     @IBAction func drinkSupply(_ sender: UIButton) {
         vendingMachine.supply(sender.tag, amount: 1)
         refreshDrinkCount()
     }
     
-    @IBAction func insertOneThousand(_ sender: Any) {
-        vendingMachine.insertCoin(1000)
-        let balance = vendingMachine.getBalance()
-        self.balance.text = "\(balance)원"
+    @IBAction func insertCoin(_ sender: UIButton) {
+        vendingMachine.insertCoin(sender.tag)
+        refreshBalance()
     }
-    @IBAction func insertFiveThousand(_ sender: Any) {
-        vendingMachine.insertCoin(5000)
-        let balance = vendingMachine.getBalance()
-        self.balance.text = "\(balance)원"
-    }
-    
 }
 

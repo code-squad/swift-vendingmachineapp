@@ -96,7 +96,7 @@
                                 <rect key="frame" x="45" y="168" width="127" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Cantata.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="5A8-DU-lQC" customClass="RoundImageView" customModule="VendingMachineApp" customModuleProvider="target">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Cantata.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="5A8-DU-lQC" userLabel="Cantata.jpg" customClass="RoundImageView" customModule="VendingMachineApp" customModuleProvider="target">
                                 <rect key="frame" x="198" y="168" width="127" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -226,7 +226,7 @@
     </scenes>
     <resources>
         <image name="Banana.jpg" width="120" height="120"/>
-        <image name="Cantata.jpeg" width="225" height="225"/>
+        <image name="Cantata.jpg" width="225" height="225"/>
         <image name="Choco.jpg" width="305" height="305"/>
         <image name="Coca.jpg" width="225" height="225"/>
         <image name="Starbucks.jpg" width="300" height="300"/>

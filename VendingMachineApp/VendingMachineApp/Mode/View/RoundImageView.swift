@@ -10,6 +10,11 @@ import UIKit
 
 class RoundImageView: UIImageView{
     
+    // MARK: - init
+    override init(image: UIImage?) {
+        super.init(image: image)
+    }
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         
@@ -18,4 +23,14 @@ class RoundImageView: UIImageView{
         self.layer.cornerRadius = 10
     }
     
+    convenience init(imageName: String, form: ImageFileForm) {
+        let image = UIImage(named: "\(imageName).\(form.rawValue)")
+        self.init(image: image)
+    }
+    
+    // MARK: - enum ImageFileForm
+    enum ImageFileForm: String {
+        case jpg = "jpg"
+    }
+
 }

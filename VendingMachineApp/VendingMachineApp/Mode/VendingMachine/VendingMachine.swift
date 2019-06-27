@@ -143,7 +143,7 @@ protocol Customer {
     func isEmpty() -> Bool
     func isPut(cash: Int) -> Bool
     func buyAvailableList() -> [Packages]
-    mutating func buyBeverage(package: Packages) -> Beverage?
+    func buyBeverage(beverage: BeverageTypeName) -> Beverage?
 }
 
 // MARK: - Extension VendingMachine: Customer
@@ -162,13 +162,13 @@ extension VendingMachine: Customer {
         return list.buyAvailableList(money: money)
     }
 
-    func buyBeverage(package: Packages) -> Beverage? {
-        guard let beverage = list.remove(beverage: package) else { return nil }
-        beverage.subtract(pay: money)
-        history.add(purchase: beverage)
-        return beverage
+    func buyBeverage(beverage: BeverageTypeName) -> Beverage? {
+        guard let findBeverage = list.find(type: beverage.type)else { return nil}
+        guard let beverageSelect = list.remove(beverage: findBeverage) else { return nil }
+        beverageSelect.subtract(pay: money)
+        history.add(purchase: beverageSelect)
+        return beverageSelect
     }
-
 }
 
 // MARK: - Protocol VendingMachineShowCustomer

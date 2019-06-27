@@ -6,10 +6,10 @@
 //  Copyright © 2019 elena. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 // MARK: enum BeverageType
-enum BeverageType: Int, CaseIterable{
+enum BeverageTypeName: Int, CaseIterable{
     case banana = 0
     case cantata
     case coca

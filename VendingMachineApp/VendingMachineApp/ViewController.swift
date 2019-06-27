@@ -58,6 +58,8 @@ class ViewController: UIViewController {
     @IBAction func buyBeverage(_ sender: UIButton) {
         guard let beverage = BeverageTypeName(rawValue: sender.tag) else { return }
         guard vendingMachine?.buyBeverage(beverage: beverage) != nil else { return }
+        showQuantity()
+        vendingMachine?.showList(show: moneyFormat)
     }
     
     @IBAction func inputMoney(_ sender: UIButton) {

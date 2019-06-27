@@ -8,9 +8,11 @@
 
 import UIKit
 
+// MARK: - NSNotification.Name
 extension NSNotification.Name {
     static let addBeverage = NSNotification.Name(rawValue: "addBeverage")
     static let insertMoney = NSNotification.Name(rawValue: "insertMoney")
+    static let purchaseList = NSNotification.Name(rawValue: "purchaseList")
 }
 
 class ViewController: UIViewController {
@@ -68,13 +70,10 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(objcShowQuantity), name: .addBeverage, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(objcMoneyFormat), name: .insertMoney, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(objcPurchaseListHistory), name: .purchaseList, object: nil)
         
         showQuantity()
         vendingMachine?.showList(show: moneyFormat)
-    }
-    
-    func selectShowQuantity(){
-        
     }
     
     // MARK: - @objc
@@ -84,5 +83,9 @@ class ViewController: UIViewController {
     
     @objc private func objcMoneyFormat(money: Int) {
         moneyFormat(money: money)
+    }
+    
+    @objc func objcPurchaseListHistory(_ notification: Notification) {
+      
     }
 }

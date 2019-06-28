@@ -8,7 +8,14 @@
 
 import Foundation
 
-//이력, 내역
+// MARK: - Extension 
+extension Notification {
+    struct NotiKey {
+        static let purchaseName = "purchaseName"
+        static let purchaseIndex = "purchaseIndex"
+    }
+}
+
 class History: NSObject{
     private var purchases: [Beverage]
 
@@ -19,9 +26,18 @@ class History: NSObject{
     convenience override init() {
         self.init(purchases: [])
     }
-
+    
+    // MARK: - private func
+    private func NotificationPurchase(userData: [AnyHashable: Any]?) {
+        NotificationCenter.default.post(name: .purchaseList, object: self, userInfo: userData)
+    }
+    
+    // MARK: - func
     func add(purchase beverage: Beverage) {
         purchases.append(beverage)
+
+        let historyData: [AnyHashable: Any] = [Notification.NotiKey.purchaseName: beverage.className,Notification.NotiKey.purchaseIndex: purchases.firstIndex(of: beverage) ?? (purchases.count-1)]
+        NotificationPurchase(userData: historyData)
     }
     
     static func == (lhs: History, rhs: History) -> Bool {

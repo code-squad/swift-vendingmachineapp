@@ -10,6 +10,10 @@ import Foundation
 
 class Hot6: Sparkling {
     init(brand: String, ml: Int, price: Int, productDate: String, expirationDate: String) {
-        super.init(brand: brand, ml: ml, price: price, name: "핫식스", productDate: productDate, calorie: 50, barcode: Barcode.upc(21, 13, 35, 51), expirationDate: expirationDate)
+        super.init(brand: brand, ml: ml, price: price, name: "핫식스", productDate: productDate, calorie: 50, barcode: "21, 13, 35, 51", expirationDate: expirationDate)
+    }
+    
+    required init(from decoder: Decoder) throws {
+        fatalError("init(from:) has not been implemented")
     }
 }

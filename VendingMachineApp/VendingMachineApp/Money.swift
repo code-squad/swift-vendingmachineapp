@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Money: CustomStringConvertible {
+struct Money: CustomStringConvertible, Codable {
     private var balance: Int
     
     init() {

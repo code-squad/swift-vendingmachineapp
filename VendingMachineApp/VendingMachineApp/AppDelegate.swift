@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        reloadVendingMachine()
+        loadData()
         
         return true
     }
@@ -30,7 +30,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-        saveVendingMachine()
+
+        saveData()
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -47,33 +48,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     
-    private func reloadVendingMachine () {
-        let stock = UserDefaults.standard.object(forKey: "stock") as? [Int]
-        let balance = UserDefaults.standard.object(forKey: "balance") as? Int
-    
-        if let stock = stock {
-            for (index, amount) in stock.enumerated() {
-                vendingMachine.supply(index, amount: amount)
-            }
-        }
-    
-        if let balance = balance {
-            vendingMachine.insertCoin(balance)
-        }
+    func saveData(){
+        UserDefaults.standard.set(try? PropertyListEncoder().encode(vendingMachine), forKey: "product")
     }
     
-    private func saveVendingMachine () {
-        let stock = vendingMachine.getStockList()
-        let ableDrinks = vendingMachine.getAbleDrinks()
-        let balance = vendingMachine.getBalance()
-        
-        let stockToSave = ableDrinks.map { (drink) -> Int in
-            return stock[drink] ?? 0
+    func loadData() {
+        if let data = UserDefaults.standard.object(forKey: "product") as? Data {
+            
+            vendingMachine = try! PropertyListDecoder().decode(VendingMachine.self, from: data)
         }
-        
-        let balanceToSave = Int("\(balance)")
-        UserDefaults.standard.set(stockToSave, forKey: "stock")
-        UserDefaults.standard.set(balanceToSave, forKey: "balance")
     }
 }
 

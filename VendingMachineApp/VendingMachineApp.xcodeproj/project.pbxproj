@@ -22,7 +22,6 @@
 		33FAF09022C20AB200588E95 /* Hot6.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FAF07B22C20AB100588E95 /* Hot6.swift */; };
 		33FAF09122C20AB200588E95 /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FAF07C22C20AB100588E95 /* Coffee.swift */; };
 		33FAF09222C20AB200588E95 /* VendingMachineUseable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FAF07D22C20AB200588E95 /* VendingMachineUseable.swift */; };
-		33FAF09322C20AB200588E95 /* Barcode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FAF07E22C20AB200588E95 /* Barcode.swift */; };
 		33FAF09422C20AB200588E95 /* Ment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FAF07F22C20AB200588E95 /* Ment.swift */; };
 		33FAF09522C20AB200588E95 /* Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FAF08022C20AB200588E95 /* Converter.swift */; };
 		33FAF09622C20AB200588E95 /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FAF08122C20AB200588E95 /* Milk.swift */; };
@@ -60,7 +59,6 @@
 		33FAF07B22C20AB100588E95 /* Hot6.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hot6.swift; sourceTree = "<group>"; };
 		33FAF07C22C20AB100588E95 /* Coffee.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
 		33FAF07D22C20AB200588E95 /* VendingMachineUseable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VendingMachineUseable.swift; sourceTree = "<group>"; };
-		33FAF07E22C20AB200588E95 /* Barcode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Barcode.swift; sourceTree = "<group>"; };
 		33FAF07F22C20AB200588E95 /* Ment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ment.swift; sourceTree = "<group>"; };
 		33FAF08022C20AB200588E95 /* Converter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Converter.swift; sourceTree = "<group>"; };
 		33FAF08122C20AB200588E95 /* Milk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Milk.swift; sourceTree = "<group>"; };
@@ -119,7 +117,6 @@
 				33FAF06B22C2061A00588E95 /* LaunchScreen.storyboard */,
 				33FAF06E22C2061A00588E95 /* Info.plist */,
 				33FAF07722C20AB100588E95 /* BananaMilk.swift */,
-				33FAF07E22C20AB200588E95 /* Barcode.swift */,
 				33FAF08422C20AB200588E95 /* BuyError.swift */,
 				33FAF07C22C20AB100588E95 /* Coffee.swift */,
 				33FAF08022C20AB200588E95 /* Converter.swift */,
@@ -233,7 +230,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				33FAF09322C20AB200588E95 /* Barcode.swift in Sources */,
 				33FAF08F22C20AB200588E95 /* ManagementMenu.swift in Sources */,
 				33FAF09622C20AB200588E95 /* Milk.swift in Sources */,
 				33FAF09122C20AB200588E95 /* Coffee.swift in Sources */,

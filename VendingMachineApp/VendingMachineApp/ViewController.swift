@@ -18,7 +18,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var balance: UILabel!
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    var vendingMachine = VendingMachine()
+    var vendingMachine: VendingMachine!
     
     override func viewDidLoad() {
         super.viewDidLoad()

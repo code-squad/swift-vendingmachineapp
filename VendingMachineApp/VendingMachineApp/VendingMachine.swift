@@ -22,17 +22,17 @@ extension Array where Element: Hashable {
     }
 }
 
-struct VendingMachine: VendingMachineManagementable, VendingMachineUseable {
+class VendingMachine: VendingMachineManagementable, VendingMachineUseable {
     private var balance = Money()
     private var stock = [Drink]()
     private var sellList = [Drink]()
     private var supplyableDrinkList = SupplyableDrinkList()
     
-    mutating func supply(_ index: Int, amount: Int) {
+    func supply(_ index: Int, amount: Int) {
         let supplyableDrinks = supplyableDrinkList.getSupplyableDrinkList()
         
-        for _ in 1...amount {
-            stock.append(supplyableDrinks[index-1])
+        for _ in 0..<amount {
+            stock.append(supplyableDrinks[index])
         }
     }
     
@@ -98,7 +98,7 @@ struct VendingMachine: VendingMachineManagementable, VendingMachineUseable {
     
     
     /// 자판기 금액을 원하는 금액만큼 올리는 메소드
-    mutating func insertCoin(_ coin: Int) {
+    func insertCoin(_ coin: Int) {
         balance.addBalance(coin)
     }
     
@@ -113,7 +113,7 @@ struct VendingMachine: VendingMachineManagementable, VendingMachineUseable {
     }
     
     /// 음료수를 구매하는 메소드
-    mutating func buy (_ drink: Drink) throws {
+    func buy (_ drink: Drink) throws {
         let drinkIndex = stock.firstIndex(of: drink)
         
         guard let buyDrinkIndex = drinkIndex else {

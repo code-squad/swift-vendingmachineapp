@@ -16,6 +16,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var hot6Count: UILabel!
     @IBOutlet weak var pepsiCokeCount: UILabel!
     @IBOutlet weak var balance: UILabel!
+    lazy var counts = [bananaMilkCount, strawberryMilkCount, fantaCount, topCount, hot6Count, pepsiCokeCount]
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var vendingMachine: VendingMachine!
@@ -32,26 +33,10 @@ class ViewController: UIViewController {
     
     private func refreshDrinkCount () {
         let stock = vendingMachine.getStockList()
+        let drinkList = SupplyableDrinkList.getSupplyableDrinkList()
         
-        for (drink, count) in stock {
-            if drink is BananaMilk {
-                bananaMilkCount.text = "\(count)개"
-            }
-            if drink is StrawberryMilk {
-                strawberryMilkCount.text = "\(count)개"
-            }
-            if drink is Fanta {
-                fantaCount.text = "\(count)개"
-            }
-            if drink is TOP {
-                topCount.text = "\(count)개"
-            }
-            if drink is Hot6 {
-                hot6Count.text = "\(count)개"
-            }
-            if drink is PepsiCoke {
-                pepsiCokeCount.text = "\(count)개"
-            }
+        for (index, drink) in drinkList.enumerated() {
+            counts[index]?.text = String(stock[drink] ?? 0)+"개"
         }
     }
     

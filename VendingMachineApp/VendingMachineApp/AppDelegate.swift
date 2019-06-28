@@ -17,6 +17,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        let stock = UserDefaults.standard.object(forKey: "stock") as? [Int]
+        let balance = UserDefaults.standard.object(forKey: "balance") as? Int
+        
+        if let stock = stock {
+            for (index, amount) in stock.enumerated() {
+                vendingMachine.supply(index, amount: amount)
+            }
+        }
+        
+        if let balance = balance {
+            vendingMachine.insertCoin(balance)
+        }
+        
         return true
     }
 

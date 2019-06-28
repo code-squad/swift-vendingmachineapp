@@ -26,19 +26,6 @@ class ViewController: UIViewController {
         
         vendingMachine = appDelegate.vendingMachine
         
-        let stock = UserDefaults.standard.object(forKey: "stock") as? [Int]
-        let balance = UserDefaults.standard.object(forKey: "balance") as? Int
-        
-        if let stock = stock {
-            for (index, amount) in stock.enumerated() {
-                vendingMachine.supply(index, amount: amount)
-            }
-        }
-        
-        if let balance = balance {
-            vendingMachine.insertCoin(balance)
-        }
-        
         refreshDrinkCount()
         refreshBalance()
     }

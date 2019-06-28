@@ -189,3 +189,34 @@ class ViewController: UIViewController {
 3. 노티가 발생하면 옵저버로 등록된 객체에서 행동을 수행한다.
 
 
+## step6. 구매목록 View 코드
+
+- 실행화면
+
+![screensh_step6](./img/STEP06.png)
+
+### 기능 추가 내용
+구매 버튼을 추가하여 구매목록을 하단에 이미지 출력하는것을 학습
+
+#### NotificationCenter 를 활용하여 구매목록 ImageView 추가
+Histroy에서 add 메소드를 호출하여 구매목록을 추가하고, 노티피케이션 Post 한다.
+```swift
+func add(purchase beverage: Beverage) {
+    purchases.append(beverage)
+
+    let historyData: [AnyHashable: Any] = [Notification.NotiKey.purchaseName: beverage.className,Notification.NotiKey.purchaseIndex: purchases.firstIndex(of: beverage) ?? (purchases.count-1)]
+    NotificationPurchase(userData: historyData)
+}
+```
+구매한 음료 클래스 이름과 , 구매목록 배열의 위치를 딕셔너리에 저장하여 Post 한다.
+```swift
+@objc func objcPurchaseListHistory(_ notification: Notification) {
+    guard let imgName = notification.userInfo?[Notification.NotiKey.purchaseName] as? String else { return }
+    guard let historyNumber = notification.userInfo?[Notification.NotiKey.purchaseIndex] as? Int else { return }
+    let imageView = RoundImageView(imageName: imgName, form: .jpg)
+    imageView.moveImageView(index: historyNumber)
+    self.view.addSubview(imageView)
+}
+```
+
+

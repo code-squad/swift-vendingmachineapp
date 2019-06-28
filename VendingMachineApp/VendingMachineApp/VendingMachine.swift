@@ -22,11 +22,17 @@ extension Array where Element: Hashable {
     }
 }
 
-class VendingMachine: VendingMachineManagementable, VendingMachineUseable {
+final class VendingMachine: VendingMachineManagementable, VendingMachineUseable {
+    static let sharedInstance = VendingMachine()
+    
     private var balance = Money()
     private var stock = [Drink]()
     private var sellList = [Drink]()
     private var supplyableDrinkList = SupplyableDrinkList()
+    
+    private init() {
+        
+    }
     
     func supply(_ index: Int, amount: Int) {
         let supplyableDrinks = supplyableDrinkList.getSupplyableDrinkList()

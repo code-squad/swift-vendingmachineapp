@@ -32,11 +32,11 @@
 		F3056AE222817D54004EEAA0 /* Soda.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3056ACB22817D53004EEAA0 /* Soda.swift */; };
 		F3056AE322817D54004EEAA0 /* CocaCola.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3056ACC22817D53004EEAA0 /* CocaCola.swift */; };
 		F3056AE422817D54004EEAA0 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3056ACD22817D54004EEAA0 /* Date.swift */; };
-		F3056B5C22899693004EEAA0 /* Coca.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F3056B5922899693004EEAA0 /* Coca.jpg */; };
-		F3056B5D22899693004EEAA0 /* Banana.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F3056B5A22899693004EEAA0 /* Banana.jpg */; };
-		F3056B5E22899693004EEAA0 /* Choco.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F3056B5B22899693004EEAA0 /* Choco.jpg */; };
-		F3056B60228996E8004EEAA0 /* Cantata.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F3056B5F228996E8004EEAA0 /* Cantata.jpg */; };
-		F3056B6222899743004EEAA0 /* Starbucks.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F3056B6122899743004EEAA0 /* Starbucks.jpg */; };
+		F3056B5C22899693004EEAA0 /* CocaCola.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F3056B5922899693004EEAA0 /* CocaCola.jpg */; };
+		F3056B5D22899693004EEAA0 /* BananaMilk.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F3056B5A22899693004EEAA0 /* BananaMilk.jpg */; };
+		F3056B5E22899693004EEAA0 /* ChocolateMilk.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F3056B5B22899693004EEAA0 /* ChocolateMilk.jpg */; };
+		F3056B60228996E8004EEAA0 /* CantataCoffee.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F3056B5F228996E8004EEAA0 /* CantataCoffee.jpg */; };
+		F3056B6222899743004EEAA0 /* StarbucksCoffee.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F3056B6122899743004EEAA0 /* StarbucksCoffee.jpg */; };
 		F36EFFF422928D3400471E19 /* RoundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36EFFF322928D3400471E19 /* RoundImageView.swift */; };
 		F3E33C8522BB7CE000DDE3A9 /* VendingMachineArchiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E33C8422BB7CDF00DDE3A9 /* VendingMachineArchiver.swift */; };
 		F3E33C9422C0B91600DDE3A9 /* Inventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3056ABF22817D53004EEAA0 /* Inventory.swift */; };
@@ -105,11 +105,11 @@
 		F3056ACB22817D53004EEAA0 /* Soda.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Soda.swift; sourceTree = "<group>"; };
 		F3056ACC22817D53004EEAA0 /* CocaCola.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CocaCola.swift; sourceTree = "<group>"; };
 		F3056ACD22817D54004EEAA0 /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
-		F3056B5922899693004EEAA0 /* Coca.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Coca.jpg; sourceTree = "<group>"; };
-		F3056B5A22899693004EEAA0 /* Banana.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Banana.jpg; sourceTree = "<group>"; };
-		F3056B5B22899693004EEAA0 /* Choco.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Choco.jpg; sourceTree = "<group>"; };
-		F3056B5F228996E8004EEAA0 /* Cantata.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Cantata.jpg; sourceTree = "<group>"; };
-		F3056B6122899743004EEAA0 /* Starbucks.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Starbucks.jpg; sourceTree = "<group>"; };
+		F3056B5922899693004EEAA0 /* CocaCola.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = CocaCola.jpg; sourceTree = "<group>"; };
+		F3056B5A22899693004EEAA0 /* BananaMilk.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = BananaMilk.jpg; sourceTree = "<group>"; };
+		F3056B5B22899693004EEAA0 /* ChocolateMilk.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ChocolateMilk.jpg; sourceTree = "<group>"; };
+		F3056B5F228996E8004EEAA0 /* CantataCoffee.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = CantataCoffee.jpg; sourceTree = "<group>"; };
+		F3056B6122899743004EEAA0 /* StarbucksCoffee.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = StarbucksCoffee.jpg; sourceTree = "<group>"; };
 		F36EFFF322928D3400471E19 /* RoundImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundImageView.swift; sourceTree = "<group>"; };
 		F3E33C8422BB7CDF00DDE3A9 /* VendingMachineArchiver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VendingMachineArchiver.swift; sourceTree = "<group>"; };
 		F3E33C8A22C0B8E700DDE3A9 /* VendingMachineAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VendingMachineAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -154,7 +154,7 @@
 		F3056A9F228178BB004EEAA0 /* VendingMachineApp */ = {
 			isa = PBXGroup;
 			children = (
-				F3056B5822899677004EEAA0 /* img */,
+				F36EFFF322928D3400471E19 /* RoundImageView.swift */,
 				F3056AE622817DA6004EEAA0 /* Mode */,
 				F3056AA0228178BB004EEAA0 /* AppDelegate.swift */,
 				F3E33C8422BB7CDF00DDE3A9 /* VendingMachineArchiver.swift */,
@@ -182,7 +182,6 @@
 			children = (
 				F3056AB922817D53004EEAA0 /* MenuScript.swift */,
 				F3056ABC22817D53004EEAA0 /* Menu.swift */,
-				F36EFFF322928D3400471E19 /* RoundImageView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -219,6 +218,7 @@
 		F3056AE622817DA6004EEAA0 /* Mode */ = {
 			isa = PBXGroup;
 			children = (
+				F3056B5822899677004EEAA0 /* img */,
 				F3056AE722817DFB004EEAA0 /* VendingMachine */,
 				F3056AB822817D53004EEAA0 /* View */,
 				F3056AC922817D53004EEAA0 /* Soda */,
@@ -247,11 +247,11 @@
 		F3056B5822899677004EEAA0 /* img */ = {
 			isa = PBXGroup;
 			children = (
-				F3056B5A22899693004EEAA0 /* Banana.jpg */,
-				F3056B5F228996E8004EEAA0 /* Cantata.jpg */,
-				F3056B5B22899693004EEAA0 /* Choco.jpg */,
-				F3056B6122899743004EEAA0 /* Starbucks.jpg */,
-				F3056B5922899693004EEAA0 /* Coca.jpg */,
+				F3056B5A22899693004EEAA0 /* BananaMilk.jpg */,
+				F3056B5F228996E8004EEAA0 /* CantataCoffee.jpg */,
+				F3056B5B22899693004EEAA0 /* ChocolateMilk.jpg */,
+				F3056B6122899743004EEAA0 /* StarbucksCoffee.jpg */,
+				F3056B5922899693004EEAA0 /* CocaCola.jpg */,
 			);
 			path = img;
 			sourceTree = "<group>";
@@ -338,12 +338,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3056AAB228178BE004EEAA0 /* LaunchScreen.storyboard in Resources */,
-				F3056B5C22899693004EEAA0 /* Coca.jpg in Resources */,
-				F3056B60228996E8004EEAA0 /* Cantata.jpg in Resources */,
-				F3056B5D22899693004EEAA0 /* Banana.jpg in Resources */,
+				F3056B5C22899693004EEAA0 /* CocaCola.jpg in Resources */,
+				F3056B60228996E8004EEAA0 /* CantataCoffee.jpg in Resources */,
+				F3056B5D22899693004EEAA0 /* BananaMilk.jpg in Resources */,
 				F3056AA8228178BE004EEAA0 /* Assets.xcassets in Resources */,
-				F3056B5E22899693004EEAA0 /* Choco.jpg in Resources */,
-				F3056B6222899743004EEAA0 /* Starbucks.jpg in Resources */,
+				F3056B5E22899693004EEAA0 /* ChocolateMilk.jpg in Resources */,
+				F3056B6222899743004EEAA0 /* StarbucksCoffee.jpg in Resources */,
 				F3056AA6228178BB004EEAA0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

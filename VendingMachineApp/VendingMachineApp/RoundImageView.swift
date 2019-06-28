@@ -24,8 +24,7 @@ class RoundImageView: UIImageView{
     }
     
     convenience init(imageName: String, form: ImageFileForm) {
-        //let image = UIImage(named:"\(imageName).\(form.rawValue)")
-        let image = UIImage(named: "Banana.jpg")
+        let image = UIImage(named:"\(imageName).\(form.rawValue)")
         self.init(image: image)
     }
     
@@ -34,6 +33,18 @@ class RoundImageView: UIImageView{
         case jpg = "jpg"
     }
     
-   
+    // MARK: - func
+    func moveImageView(index: Int) {
+        
+        let lineMaxFix = 17
+        let firstLineItem = 575
+        let width = 140
+        let height = 100
+        let newLine = index >= lineMaxFix ? true : false
+        let index = newLine ? index - lineMaxFix : index
+        let line = newLine ? (firstLineItem + height) : firstLineItem
+        
+        self.frame = CGRect(x: 40+index*60, y: line, width: width, height: height)
+    }
 
 }

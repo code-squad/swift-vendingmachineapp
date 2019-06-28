@@ -22,20 +22,21 @@ extension Array where Element: Hashable {
     }
 }
 
-final class VendingMachine: VendingMachineManagementable, VendingMachineUseable {
+final class VendingMachine: VendingMachineManagementable, VendingMachineUseable, Codable {
+    
     static let sharedInstance = VendingMachine()
     
     private var balance = Money()
     private var stock = [Drink]()
     private var sellList = [Drink]()
-    private var supplyableDrinkList = SupplyableDrinkList()
+    
     
     private init() {
         
     }
     
     func supply(_ index: Int, amount: Int) {
-        let supplyableDrinks = supplyableDrinkList.getSupplyableDrinkList()
+        let supplyableDrinks = SupplyableDrinkList.getSupplyableDrinkList()
         
         for _ in 0..<amount {
             stock.append(supplyableDrinks[index])
@@ -43,7 +44,7 @@ final class VendingMachine: VendingMachineManagementable, VendingMachineUseable 
     }
     
     func getAbleDrinks () -> [Drink] {
-        let supplyableDrinks = supplyableDrinkList.getSupplyableDrinkList()
+        let supplyableDrinks = SupplyableDrinkList.getSupplyableDrinkList()
         
         return supplyableDrinks
     }

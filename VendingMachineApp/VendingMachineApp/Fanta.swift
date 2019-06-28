@@ -14,7 +14,11 @@ class Fanta: Sparkling {
     init(brand: String, ml: Int, price: Int, productDate: String, orangeIncense: Double, expirationDate: String) {
         self.orangeIncense = orangeIncense
         
-        super.init(brand: brand, ml: ml, price: price, name: "오렌지 환타", productDate: productDate, calorie: 70, barcode: Barcode.upc(30, 33, 50, 150), expirationDate: expirationDate)
+        super.init(brand: brand, ml: ml, price: price, name: "오렌지 환타", productDate: productDate, calorie: 70, barcode: "30, 33, 50, 150", expirationDate: expirationDate)
+    }
+    
+    required init(from decoder: Decoder) throws {
+        fatalError("init(from:) has not been implemented")
     }
     
     func isOrangeIncense(_ orangeIncenseCompared: Double) -> Bool {

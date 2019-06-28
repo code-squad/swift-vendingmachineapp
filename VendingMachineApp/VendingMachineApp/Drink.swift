@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Drink: CustomStringConvertible, Hashable {
+class Drink: CustomStringConvertible, Hashable, Codable {
     static func == (lhs: Drink, rhs: Drink) -> Bool {
         return lhs.hashValue == rhs.hashValue
     }
@@ -18,7 +18,7 @@ class Drink: CustomStringConvertible, Hashable {
     private var price: Int
     private let name: String
     private let productDate: Date
-    private let barcode: Barcode
+    private let barcode: String
     private let expirationDate: Date
     internal var hashValue: Int {
         return name.hashValue
@@ -28,7 +28,7 @@ class Drink: CustomStringConvertible, Hashable {
         return name
     }
     
-    init(brand: String, ml: Int, price: Int, name: String, productDate: String, barcode: Barcode, expirationDate: String) {
+    init(brand: String, ml: Int, price: Int, name: String, productDate: String, barcode: String, expirationDate: String) {
         self.brand = brand
         self.ml = ml
         self.price = price

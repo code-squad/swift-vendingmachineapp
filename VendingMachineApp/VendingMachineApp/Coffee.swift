@@ -11,10 +11,23 @@ import Foundation
 class Coffee: Drink {
     private var hot: Bool
     
-    init(brand: String, ml: Int, price: Int, name: String, productDate: String, hot: Bool, barcode: Barcode, expirationDate: String) {
+    enum CodingKeys: String, CodingKey {
+        case hot
+        case topLevelCoffeebeanContainPercent
+    }
+    
+    enum ProductKeys: String, CodingKey {
+        case vendingMachine
+    }
+    
+    init(brand: String, ml: Int, price: Int, name: String, productDate: String, hot: Bool, barcode: String, expirationDate: String) {
         self.hot = hot
         
         super.init(brand: brand, ml: ml, price: price, name: name, productDate: productDate, barcode: barcode, expirationDate: expirationDate)
+    }
+    
+    required init(from decoder: Decoder) throws {
+        fatalError("init(from:) has not been implemented")
     }
     
     func isHot() -> Bool {

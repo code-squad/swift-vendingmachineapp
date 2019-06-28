@@ -14,7 +14,11 @@ class TOP: Coffee {
     init(brand: String, ml: Int, price: Int, productDate: String, hot: Bool, expirationDate: String) {
         topLevelCoffeebeanContainPercent = 0.5
         
-        super.init(brand: brand, ml: ml, price: price, name: "TOP아메리카노", productDate: productDate, hot: hot, barcode: Barcode.upc(60, 70, 80, 100), expirationDate: expirationDate)
+        super.init(brand: brand, ml: ml, price: price, name: "TOP아메리카노", productDate: productDate, hot: hot, barcode: "60, 70, 80, 100", expirationDate: expirationDate)
+    }
+    
+    required init(from decoder: Decoder) throws {
+        fatalError("init(from:) has not been implemented")
     }
     
     func isTopLevelCoffeebeanContainPercent(_ percent: Double) -> Bool {

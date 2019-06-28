@@ -93,6 +93,12 @@ class ViewController: UIViewController {
     }
     
     @objc func objcPurchaseListHistory(_ notification: Notification) {
-      
+        guard let imgName = notification.userInfo?[Notification.NotiKey.purchaseName] as? String else { return }
+        guard let historyNumber = notification.userInfo?[Notification.NotiKey.purchaseIndex] as? Int else { return }
+        let imageView = RoundImageView(imageName: imgName, form: .jpg)
+        imageView.moveImageView(index: historyNumber)
+        self.view.addSubview(imageView)
+        
     }
+    
 }

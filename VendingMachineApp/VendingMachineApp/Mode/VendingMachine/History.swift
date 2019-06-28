@@ -33,6 +33,14 @@ class History: NSObject{
     }
     
     // MARK: - func
+    func viewAppear() {
+        for (index, purchase) in purchases.enumerated() {
+            let historyData: [AnyHashable: Any] = [Notification.NotiKey.purchaseName: purchase.className,
+                                                   Notification.NotiKey.purchaseIndex: index]
+            NotificationPurchase(userData: historyData)
+        }
+    }
+
     func add(purchase beverage: Beverage) {
         purchases.append(beverage)
 

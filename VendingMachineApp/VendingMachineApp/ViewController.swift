@@ -79,6 +79,7 @@ class ViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(objcMoneyFormat), name: .insertMoney, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(objcPurchaseListHistory), name: .purchaseList, object: nil)
         
+        vendingMachine?.viewAppear()
         showQuantity()
         vendingMachine?.showList(show: moneyFormat)
     }

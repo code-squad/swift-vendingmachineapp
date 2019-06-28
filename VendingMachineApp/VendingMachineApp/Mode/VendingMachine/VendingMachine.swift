@@ -46,10 +46,13 @@ class VendingMachine: NSObject {
         self.money = Money(money: startMoney)
         self.list = list
         self.history = History()
-        
+    }
+
+    // MARK: - func
+    func viewAppear() {
+        history.viewAppear()
     }
     
-    // MARK: - func
     func set(instance: VendingMachine) {
         VendingMachine.shared.money = instance.money
         VendingMachine.shared.list = instance.list

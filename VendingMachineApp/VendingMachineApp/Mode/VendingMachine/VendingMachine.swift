@@ -13,12 +13,11 @@ typealias AllListResultPrintClosure = (String, Int, Bool) -> Void
 
 // MARK: - enum
 enum AvailableMoney: Int, CaseIterable {
-    case defaultValue = 0, oneThousand ,fiveThousands
+    case oneThousand = 0
+    case fiveThousands = 1
     
     var value: Int {
         switch self {
-        case .defaultValue:
-            return 0
         case .oneThousand:
             return 1000
         case .fiveThousands:

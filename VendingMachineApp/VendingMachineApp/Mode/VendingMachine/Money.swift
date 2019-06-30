@@ -14,7 +14,7 @@ class Money: NSObject{
     init(money: Int = 0) {
         self.money = money
     }
-    
+
     func addMoney(put: Int) -> Bool {
         guard put > 0 else { return false }
         self.money += put

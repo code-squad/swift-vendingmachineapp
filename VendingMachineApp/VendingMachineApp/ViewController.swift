@@ -52,24 +52,20 @@ class ViewController: UIViewController {
         let beverage = sender.tag
         guard vendingMachine?.add(beverage: beverage) ?? false else { return }
         
-        showQuantity()
+        //showQuantity()
     }
     
     @IBAction func buyBeverage(_ sender: UIButton) {
         guard let beverage = BeverageTypeName(rawValue: sender.tag) else { return }
         guard vendingMachine?.buyBeverage(beverage: beverage) != nil else { return }
-        showQuantity()
-        vendingMachine?.showList(show: moneyFormat)
+//        showQuantity()
+//        vendingMachine?.showList(show: moneyFormat)
     }
-    
+
     @IBAction func inputMoney(_ sender: UIButton) {
-        switch sender.tag {
-        case 0: vendingMachine?.isPut(cash: AvailableMoney.oneThousand.value)
-        case 1: vendingMachine?.isPut(cash: AvailableMoney.fiveThousands.value)
-        default:
-            return
-        }
-        vendingMachine?.showList(show: moneyFormat)
+        guard let unit = AvailableMoney(rawValue: sender.tag) else { return }
+        guard vendingMachine?.isPut(cash: unit.value) ?? true else { return }
+        //vendingMachine?.showList(show: moneyFormat)
     }
     
     // MARK: - viewDidLoad

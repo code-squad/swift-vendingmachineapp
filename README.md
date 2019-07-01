@@ -220,3 +220,22 @@ func add(purchase beverage: Beverage) {
 ```
 
 
+## step7. 관리자 ViewController
+
+- 실행화면
+![screensh_step7](./img/STEP07.gif)
+
+### 기능 추가 내용
+
+- AdminViewController 추가하여 관리자 모드와 사용자 모드로 구분
+- 새로운 ViewController를 추가하고, Button에서 Segue를 연결
+- Segue를 선택하고 Kind를 Present Modally로 지정하고, Transition을 Flip Horizontal로 설정
+
+```swift
+// MARK: - prepare
+override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    guard let adminViewController = segue.destination as? AdminViewController else { return }
+    adminViewController.set(vendingMachine: vendingMachine)
+}
+```
+화면을 전환하면서 데이터를 전달하기 위해 prepare 구현

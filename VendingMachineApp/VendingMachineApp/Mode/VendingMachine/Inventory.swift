@@ -51,13 +51,6 @@ class Inventory: NSObject {
         return goBadGoods
     }
 
-    private func findObjectIdentifier(package: Packages) -> ObjectIdentifier? {
-        for pack in list where pack.value == package {
-            return pack.key
-        }
-        return nil
-    }
-
     func find(type: Beverage.Type) -> Packages? {
         let beverageType = ObjectIdentifier(type)
         guard let package = list[beverageType] else { return nil }
@@ -79,6 +72,27 @@ class Inventory: NSObject {
             guard item.value.isEmpty() else { return false }
         }
         return true
+    }
+    
+    func viewAppear() {
+        NotificationBeverageChange()
+    }
+    
+    func postDataChanged(index: Int) {
+        let userData = [Notification.NotiKey.purchaseIndex: index]
+        NotificationBeverageChange(userData: userData)
+    }
+    
+    // MARK: - private func
+    private func findObjectIdentifier(package: Packages) -> ObjectIdentifier? {
+        for pack in list where pack.value == package {
+            return pack.key
+        }
+        return nil
+    }
+    
+    private func NotificationBeverageChange(userData: [AnyHashable: Any]? = nil) {
+        NotificationCenter.default.post(name: .addBeverage, object: self, userInfo: userData)
     }
     
     // MARK: - NSSecureCoding

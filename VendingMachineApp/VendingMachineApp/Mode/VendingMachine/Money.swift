@@ -15,9 +15,11 @@ class Money: NSObject{
         self.money = money
     }
 
+    // MARK: - func
     func addMoney(put: Int) -> Bool {
         guard put > 0 else { return false }
         self.money += put
+        NotificationMoneyChange()
         return true
     }
 
@@ -27,10 +29,20 @@ class Money: NSObject{
 
     func subtract(price: Int) {
         self.money -= price
+        NotificationMoneyChange()
     }
 
     func showMoney() -> Int {
         return money
+    }
+   
+    func viewAppear() {
+        NotificationMoneyChange()
+    }
+    
+    // MARKL - private func
+    private func NotificationMoneyChange() {
+        NotificationCenter.default.post(name: .insertMoney, object: self)
     }
 
     // MARK: - NSSecureCoding

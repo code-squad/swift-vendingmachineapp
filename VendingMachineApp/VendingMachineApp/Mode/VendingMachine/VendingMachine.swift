@@ -50,6 +50,8 @@ class VendingMachine: NSObject {
     // MARK: - func
     func viewAppear() {
         history.viewAppear()
+        money.viewAppear()
+        list.viewAppear()
     }
     
     func set(instance: VendingMachine) {
@@ -129,6 +131,7 @@ extension VendingMachine: Manager {
         guard beverage < beverageTypes.count else { return false }
         let newGoods = beverageTypes[beverage].init()
         list.add(beverage: newGoods)
+        NotificationCenter.default.post(name: .addBeverage, object: self)
         return true
     }
 
@@ -166,9 +169,12 @@ extension VendingMachine: Customer {
 
     func buyBeverage(beverage: BeverageTypeName) -> Beverage? {
         guard let findBeverage = list.find(type: beverage.type)else { return nil}
+        guard findBeverage.isBuyable(with: money) else { return nil }
         guard let beverageSelect = list.remove(beverage: findBeverage) else { return nil }
+        
         beverageSelect.subtract(pay: money)
         history.add(purchase: beverageSelect)
+        list.postDataChanged(index: beverage.rawValue)
         return beverageSelect
     }
 }

@@ -17,10 +17,7 @@ class RoundImageView: UIImageView{
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        
-        self.layer.borderColor = UIColor.gray.cgColor
-        self.layer.borderWidth = 2
-        self.layer.cornerRadius = 10
+        roundImage()
     }
     
     convenience init(imageName: String, form: ImageFileForm) {
@@ -31,6 +28,13 @@ class RoundImageView: UIImageView{
     // MARK: - enum ImageFileForm
     enum ImageFileForm: String {
         case jpg = "jpg"
+    }
+    
+    // MARK: - private func
+    private func roundImage() {
+        self.layer.borderColor = UIColor.gray.cgColor
+        self.layer.borderWidth = 2
+        self.layer.cornerRadius = 10
     }
     
     // MARK: - func

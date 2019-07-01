@@ -104,6 +104,11 @@ class ViewController: UIViewController {
         let imageView = RoundImageView(imageName: imgName, form: .jpg)
         imageView.moveImageView(index: historyNumber)
         self.view.addSubview(imageView)
-
+    }
+    
+    // MARK: - prepare
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let adminViewController = segue.destination as? AdminViewController else { return }
+        adminViewController.set(vendingMachine: vendingMachine)
     }
 }

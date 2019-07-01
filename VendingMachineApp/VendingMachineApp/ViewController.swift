@@ -17,10 +17,10 @@ extension NSNotification.Name {
 }
 
 class ViewController: UIViewController {
-    
+
     // MARK: - private variable
     private var vendingMachine: VendingMachine?
-    
+
     // MARK: - @IBOutlet
     @IBOutlet var beverageImageView: [RoundImageView]!
     @IBOutlet var beverageLabel: [UILabel]!
@@ -32,23 +32,23 @@ class ViewController: UIViewController {
         self.vendingMachine = VendingMachine.shared
         super.init(coder: aDecoder)
     }
-    
+
     // MARK: - private
     private func showQuantity() {
-                for (index, count) in beverageLabel.enumerated() {
-                    if let number = vendingMachine?.count(beverage: index) {
-                        count.text = "\(number)개"
-                        continue
-                    }
-                    count.text = "0개"
-                }
+        for (index, count) in beverageLabel.enumerated() {
+            if let number = vendingMachine?.count(beverage: index) {
+                count.text = "\(number)개"
+                continue
+            }
+            count.text = "0개"
+        }
     }
-    
+
     private func showQuantity(index: Int) {
-        let count =  vendingMachine?.count(beverage: index)
+        let count = vendingMachine?.count(beverage: index)
         beverageLabel[index].text = "\(count ?? 0)개"
     }
-    
+
     private func moneyFormat(money: Int) {
         self.list.text = "\(money.commaRepresentation)"
     }
@@ -58,7 +58,7 @@ class ViewController: UIViewController {
         let beverage = sender.tag
         guard vendingMachine?.add(beverage: beverage) ?? false else { return }
     }
-    
+
     @IBAction func buyBeverage(_ sender: UIButton) {
         guard let beverage = BeverageTypeName(rawValue: sender.tag) else { return }
         guard vendingMachine?.buyBeverage(beverage: beverage) != nil else { return }
@@ -68,18 +68,18 @@ class ViewController: UIViewController {
         guard let unit = AvailableMoney(rawValue: sender.tag) else { return }
         guard vendingMachine?.isPut(cash: unit.value) ?? true else { return }
     }
-    
+
     // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(objcShowQuantity(_:)), name: .addBeverage, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(objcMoneyFormat), name: .insertMoney, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(objcPurchaseListHistory(_:)), name: .purchaseList, object: nil)
-        
+
         vendingMachine?.viewAppear()
 
     }
-    
+
     // MARK: - @objc
     @objc private func objcShowQuantity(_ notification: Notification) {
         if let data = notification.userInfo?[Notification.NotiKey.purchaseIndex] as? Int {
@@ -90,20 +90,20 @@ class ViewController: UIViewController {
             showQuantity(index: data)
         }
     }
-    
+
     @objc private func objcMoneyFormat(money: Int) {
         let moneyFormat = { (money: Int) -> Void in
             self.list.text = "\(money.commaRepresentation)"
         }
         vendingMachine?.showList(show: moneyFormat)
     }
-    
+
     @objc func objcPurchaseListHistory(_ notification: Notification) {
         guard let imgName = notification.userInfo?[Notification.NotiKey.purchaseName] as? String else { return }
         guard let historyNumber = notification.userInfo?[Notification.NotiKey.purchaseIndex] as? Int else { return }
         let imageView = RoundImageView(imageName: imgName, form: .jpg)
         imageView.moveImageView(index: historyNumber)
         self.view.addSubview(imageView)
-        
+
     }
 }

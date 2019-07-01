@@ -21,58 +21,6 @@
                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="120" translatesAutoresizingMaskIntoConstraints="NO" id="2kS-z6-aFA">
                                 <rect key="frame" x="91" y="104" width="655" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="phu-yx-vze">
-                                        <rect key="frame" x="0.0" y="0.0" width="35" height="36"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                        <state key="normal" title="추가">
-                                            <color key="titleColor" red="1" green="0.1764705882352941" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="addBeverage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XJi-Ve-ZGD"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tWR-vN-pGU">
-                                        <rect key="frame" x="155" y="0.0" width="35" height="36"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                        <state key="normal" title="추가">
-                                            <color key="titleColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="addBeverage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hGF-B3-EEj"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MwZ-rF-Xrw">
-                                        <rect key="frame" x="310" y="0.0" width="35" height="36"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                        <state key="normal" title="추가">
-                                            <color key="titleColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="addBeverage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AeC-7P-o3z"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AdK-yu-QZU">
-                                        <rect key="frame" x="465" y="0.0" width="35" height="36"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                        <state key="normal" title="추가">
-                                            <color key="titleColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="addBeverage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="h5H-5R-Z9M"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xdm-SV-orw">
-                                        <rect key="frame" x="620" y="0.0" width="35" height="36"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                        <state key="normal" title="추가">
-                                            <color key="titleColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="addBeverage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bvz-Wg-bkc"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="잔액 :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fA7-85-vEJ">
                                 <rect key="frame" x="816" y="241" width="79" height="55"/>
@@ -211,6 +159,13 @@
                                     <action selector="buyBeverage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Lbt-2y-6OT"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zVx-Da-XXM">
+                                <rect key="frame" x="957" y="371" width="22" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <segue destination="VgB-oA-1bs" kind="presentation" modalTransitionStyle="flipHorizontal" id="0xV-Zt-2Hm"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -237,6 +192,163 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="243" y="-6"/>
+        </scene>
+        <!--Admin View Controller-->
+        <scene sceneID="KBf-xo-lsO">
+            <objects>
+                <viewController id="VgB-oA-1bs" customClass="AdminViewController" customModule="VendingMachineApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="BSi-iV-hag">
+                        <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="120" translatesAutoresizingMaskIntoConstraints="NO" id="aOU-Ff-aJO">
+                                <rect key="frame" x="233" y="147" width="655" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pki-IA-ur4">
+                                        <rect key="frame" x="0.0" y="0.0" width="35" height="36"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <state key="normal" title="추가">
+                                            <color key="titleColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="addBeverage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Gxr-tB-k1g"/>
+                                            <action selector="addBeverage:" destination="VgB-oA-1bs" eventType="touchUpInside" id="qVe-9L-HAs"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n48-sd-nd9">
+                                        <rect key="frame" x="155" y="0.0" width="35" height="36"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <state key="normal" title="추가">
+                                            <color key="titleColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="addBeverage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="da6-Ud-DHh"/>
+                                            <action selector="addBeverage:" destination="VgB-oA-1bs" eventType="touchUpInside" id="fHh-bI-AiS"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kad-Xd-rK7">
+                                        <rect key="frame" x="310" y="0.0" width="35" height="36"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <state key="normal" title="추가">
+                                            <color key="titleColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="addBeverage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MRA-em-KUL"/>
+                                            <action selector="addBeverage:" destination="VgB-oA-1bs" eventType="touchUpInside" id="dcb-IW-QKP"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ncx-ZY-h5U">
+                                        <rect key="frame" x="465" y="0.0" width="35" height="36"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <state key="normal" title="추가">
+                                            <color key="titleColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="addBeverage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XTI-lQ-6Ao"/>
+                                            <action selector="addBeverage:" destination="VgB-oA-1bs" eventType="touchUpInside" id="uVX-wD-vl0"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YDy-TW-kQY">
+                                        <rect key="frame" x="620" y="0.0" width="35" height="36"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <state key="normal" title="추가">
+                                            <color key="titleColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="addBeverage:" destination="VgB-oA-1bs" eventType="touchUpInside" id="Ev9-1G-BZM"/>
+                                            <action selector="addBeverage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Paw-xJ-8YI"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BananaMilk.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="zwn-Ki-Z93" customClass="RoundImageView" customModule="VendingMachineApp" customModuleProvider="target">
+                                <rect key="frame" x="182" y="199" width="127" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="CantataCoffee.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="pI3-W6-3qv" userLabel="Cantata.jpg" customClass="RoundImageView" customModule="VendingMachineApp" customModuleProvider="target">
+                                <rect key="frame" x="335" y="199" width="127" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="CocaCola.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="rAo-wo-Q16" customClass="RoundImageView" customModule="VendingMachineApp" customModuleProvider="target">
+                                <rect key="frame" x="501" y="199" width="127" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ChocolateMilk.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="4Yk-jJ-ZUq" customClass="RoundImageView" customModule="VendingMachineApp" customModuleProvider="target">
+                                <rect key="frame" x="652" y="199" width="127" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="StarbucksCoffee.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="1Km-D1-qKl" customClass="RoundImageView" customModule="VendingMachineApp" customModuleProvider="target">
+                                <rect key="frame" x="804" y="199" width="127" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xxk-e0-AfE">
+                                <rect key="frame" x="804" y="418" width="184" height="127"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <state key="normal" title="닫기">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="closeButton:" destination="VgB-oA-1bs" eventType="touchUpInside" id="Yui-xN-amU"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" distribution="equalCentering" spacing="113" translatesAutoresizingMaskIntoConstraints="NO" id="ARU-mI-cwI">
+                                <rect key="frame" x="233" y="335" width="662" height="20.5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vak-ZW-s6b">
+                                        <rect key="frame" x="0.0" y="0.0" width="42" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fhh-UU-MiF">
+                                        <rect key="frame" x="155" y="0.0" width="42" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CbK-6t-BdV">
+                                        <rect key="frame" x="310" y="0.0" width="42" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bvy-Lv-FwC">
+                                        <rect key="frame" x="465" y="0.0" width="42" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" tag="4" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tdv-fG-BoP">
+                                        <rect key="frame" x="620" y="0.0" width="42" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.75520467840000005" blue="0.82863776820000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="evA-ZQ-2hx"/>
+                    </view>
+                    <connections>
+                        <outletCollection property="beverageImageView" destination="zwn-Ki-Z93" collectionClass="NSMutableArray" id="330-yA-1fv"/>
+                        <outletCollection property="beverageImageView" destination="pI3-W6-3qv" collectionClass="NSMutableArray" id="xIl-rz-nOQ"/>
+                        <outletCollection property="beverageImageView" destination="rAo-wo-Q16" collectionClass="NSMutableArray" id="bga-gf-8bp"/>
+                        <outletCollection property="beverageImageView" destination="4Yk-jJ-ZUq" collectionClass="NSMutableArray" id="jA1-zW-g1J"/>
+                        <outletCollection property="beverageImageView" destination="1Km-D1-qKl" collectionClass="NSMutableArray" id="S2x-Nb-A0x"/>
+                        <outletCollection property="beverageLabel" destination="vak-ZW-s6b" collectionClass="NSMutableArray" id="bfn-KQ-k3m"/>
+                        <outletCollection property="beverageLabel" destination="Fhh-UU-MiF" collectionClass="NSMutableArray" id="heg-na-T8Z"/>
+                        <outletCollection property="beverageLabel" destination="CbK-6t-BdV" collectionClass="NSMutableArray" id="wub-DQ-cfU"/>
+                        <outletCollection property="beverageLabel" destination="bvy-Lv-FwC" collectionClass="NSMutableArray" id="ahZ-ug-YmE"/>
+                        <outletCollection property="beverageLabel" destination="Tdv-fG-BoP" collectionClass="NSMutableArray" id="noP-mW-O2b"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GW2-ZK-U1D" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="968.52517985611519" y="-6.4748201438848927"/>
         </scene>
     </scenes>
     <resources>

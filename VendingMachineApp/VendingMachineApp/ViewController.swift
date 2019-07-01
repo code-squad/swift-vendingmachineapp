@@ -13,6 +13,7 @@ extension NSNotification.Name {
     static let addBeverage = NSNotification.Name(rawValue: "addBeverage")
     static let insertMoney = NSNotification.Name(rawValue: "insertMoney")
     static let purchaseList = NSNotification.Name(rawValue: "purchaseList")
+    static let moneyChange = NSNotification.Name(rawValue: "moneyChange")
 }
 
 class ViewController: UIViewController {
@@ -34,13 +35,18 @@ class ViewController: UIViewController {
     
     // MARK: - private
     private func showQuantity() {
-        for (index, count) in beverageLabel.enumerated() {
-            if let number = vendingMachine?.count(beverage: index) {
-                count.text = "\(number)개"
-                continue
-            }
-            count.text = "0개"
-        }
+                for (index, count) in beverageLabel.enumerated() {
+                    if let number = vendingMachine?.count(beverage: index) {
+                        count.text = "\(number)개"
+                        continue
+                    }
+                    count.text = "0개"
+                }
+    }
+    
+    private func showQuantity(index: Int) {
+        let count =  vendingMachine?.count(beverage: index)
+        beverageLabel[index].text = "\(count ?? 0)개"
     }
     
     private func moneyFormat(money: Int) {
@@ -51,42 +57,45 @@ class ViewController: UIViewController {
     @IBAction func addBeverage(_ sender: UIButton) {
         let beverage = sender.tag
         guard vendingMachine?.add(beverage: beverage) ?? false else { return }
-        
-        //showQuantity()
     }
     
     @IBAction func buyBeverage(_ sender: UIButton) {
         guard let beverage = BeverageTypeName(rawValue: sender.tag) else { return }
         guard vendingMachine?.buyBeverage(beverage: beverage) != nil else { return }
-//        showQuantity()
-//        vendingMachine?.showList(show: moneyFormat)
     }
 
     @IBAction func inputMoney(_ sender: UIButton) {
         guard let unit = AvailableMoney(rawValue: sender.tag) else { return }
         guard vendingMachine?.isPut(cash: unit.value) ?? true else { return }
-        //vendingMachine?.showList(show: moneyFormat)
     }
     
     // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(self, selector: #selector(objcShowQuantity), name: .addBeverage, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(objcShowQuantity(_:)), name: .addBeverage, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(objcMoneyFormat), name: .insertMoney, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(objcPurchaseListHistory), name: .purchaseList, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(objcPurchaseListHistory(_:)), name: .purchaseList, object: nil)
         
         vendingMachine?.viewAppear()
-        showQuantity()
-        vendingMachine?.showList(show: moneyFormat)
+
     }
     
     // MARK: - @objc
-    @objc private func objcShowQuantity() {
-        showQuantity()
+    @objc private func objcShowQuantity(_ notification: Notification) {
+        if let data = notification.userInfo?[Notification.NotiKey.purchaseIndex] as? Int {
+            showQuantity(index: data)
+            return
+        }
+        for data in beverageLabel.indices {
+            showQuantity(index: data)
+        }
     }
     
     @objc private func objcMoneyFormat(money: Int) {
-        moneyFormat(money: money)
+        let moneyFormat = { (money: Int) -> Void in
+            self.list.text = "\(money.commaRepresentation)"
+        }
+        vendingMachine?.showList(show: moneyFormat)
     }
     
     @objc func objcPurchaseListHistory(_ notification: Notification) {
@@ -97,5 +106,4 @@ class ViewController: UIViewController {
         self.view.addSubview(imageView)
         
     }
-    
 }

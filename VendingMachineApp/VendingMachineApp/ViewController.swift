@@ -8,6 +8,11 @@
 
 import UIKit
 
+extension Notification.Name {
+    static let addStock = Notification.Name("addStock")
+    static let addBalance = Notification.Name("addBalance")
+}
+
 class ViewController: UIViewController {
     @IBOutlet weak var bananaMilkCount: UILabel!
     @IBOutlet weak var strawberryMilkCount: UILabel!
@@ -26,9 +31,11 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         vendingMachine = appDelegate.vendingMachine
-        
         refreshDrinkCount()
         refreshBalance()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(onAddStock(_:)), name: .addStock, object: nil)
+         NotificationCenter.default.addObserver(self, selector: #selector(onAddBalance(_:)), name: .addBalance, object: nil)
     }
     
     private func refreshDrinkCount () {
@@ -54,12 +61,20 @@ class ViewController: UIViewController {
 
     @IBAction func drinkSupply(_ sender: UIButton) {
         vendingMachine.supply(sender.tag, amount: 1)
-        refreshDrinkCount()
     }
     
     @IBAction func insertCoin(_ sender: UIButton) {
         vendingMachine.insertCoin(sender.tag)
+    }
+    
+    @objc func onAddStock(_ notification:Notification) {
+        refreshDrinkCount()
+    }
+    
+    @objc func onAddBalance(_ notification:Notification) {
         refreshBalance()
     }
+    
 }
+
 

@@ -8,6 +8,11 @@
 
 import Foundation
 
+extension Notification.Name {
+    static let addStock = Notification.Name("addStock")
+    static let addBalance = Notification.Name("addBalance")
+}
+
 extension Array where Element: Hashable {
     func removingDuplicates() -> [Element] {
         var addedDict = [Element: Bool]()

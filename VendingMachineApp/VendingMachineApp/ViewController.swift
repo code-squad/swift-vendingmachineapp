@@ -8,11 +8,6 @@
 
 import UIKit
 
-extension Notification.Name {
-    static let addStock = Notification.Name("addStock")
-    static let addBalance = Notification.Name("addBalance")
-}
-
 class ViewController: UIViewController {
     @IBOutlet weak var bananaMilkCount: UILabel!
     @IBOutlet weak var strawberryMilkCount: UILabel!

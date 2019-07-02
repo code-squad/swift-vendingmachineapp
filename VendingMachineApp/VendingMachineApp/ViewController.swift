@@ -26,33 +26,23 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         vendingMachine = appDelegate.vendingMachine
-        refreshDrinkCount()
-        refreshBalance()
         
         NotificationCenter.default.addObserver(self, selector: #selector(onRefreshStock(_:)), name: .refreshStock, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(onRefreshBalance(_:)), name: .refreshBalance, object: nil)
+        
+        vendingMachine.notifyStockToObservers()
+        vendingMachine.notifyBalanceToObservers()
     }
     
-    private func refreshDrinkCount () {
-        let stock = vendingMachine.getStockList()
-        let drinkList = SupplyableDrinkList.getSupplyableDrinkList()
-        
-        for (index, drink) in drinkList.enumerated() {
-            counts[index]?.text = String(stock[drink] ?? 0)+"개"
+    private func refreshDrinkCount (_ stock: [Int:Int]) {
+        for (index, count) in stock {
+            counts[index]?.text = String(count)+"개"
         }
     }
     
-    private func refreshBalance () {
-        let balance = vendingMachine.getBalance()
-        self.balance.text = "\(balance)원"
+    private func refreshBalance (_ balance: String) {
+        self.balance.text = balance+"원"
     }
-    
-//    private func drinkToLabel(_ drink: Drink) -> UILabel {
-//        let supplyableDrinks = SupplyableDrinkList.getSupplyableDrinkList
-////        let drinkLabels = [supplyableDrinks[0]: bananaMilkCount]
-//
-//
-//    }
 
     @IBAction func drinkSupply(_ sender: UIButton) {
         if sender.tag >= 0 && sender.tag <= 5 {
@@ -66,19 +56,16 @@ class ViewController: UIViewController {
     
     @objc func onRefreshStock(_ notification:Notification) {
         guard let userInfo = notification.userInfo else { return }
-        let stock: [Drink : Int] = userInfo["stock"] as! [Drink : Int]
-        let drinkList = SupplyableDrinkList.getSupplyableDrinkList()
+        let stock = userInfo["stock"] as! [Int:Int]
         
-        for (index, drink) in drinkList.enumerated() {
-            counts[index]?.text = String(stock[drink] ?? 0)+"개"
-        }
+        refreshDrinkCount(stock)
     }
     
     @objc func onRefreshBalance(_ notification:Notification) {
         guard let userInfo = notification.userInfo else { return }
-        let balance = userInfo["balance"] as! Money
+        let balance = userInfo["balance"] as! String
         
-        self.balance.text = "\(balance)원"
+        refreshBalance(balance)
     }
 }
 

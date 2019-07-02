@@ -29,8 +29,8 @@ class ViewController: UIViewController {
         refreshDrinkCount()
         refreshBalance()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(onAddStock(_:)), name: .addStock, object: nil)
-         NotificationCenter.default.addObserver(self, selector: #selector(onAddBalance(_:)), name: .addBalance, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(onRefreshStock(_:)), name: .refreshStock, object: nil)
+         NotificationCenter.default.addObserver(self, selector: #selector(onRefreshBalance(_:)), name: .refreshBalance, object: nil)
     }
     
     private func refreshDrinkCount () {
@@ -62,14 +62,13 @@ class ViewController: UIViewController {
         vendingMachine.insertCoin(sender.tag)
     }
     
-    @objc func onAddStock(_ notification:Notification) {
+    @objc func onRefreshStock(_ notification:Notification) {
         refreshDrinkCount()
     }
     
-    @objc func onAddBalance(_ notification:Notification) {
+    @objc func onRefreshBalance(_ notification:Notification) {
         refreshBalance()
     }
-    
 }
 
 

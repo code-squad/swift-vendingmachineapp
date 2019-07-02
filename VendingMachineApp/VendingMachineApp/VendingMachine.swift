@@ -9,8 +9,8 @@
 import Foundation
 
 extension Notification.Name {
-    static let addStock = Notification.Name("addStock")
-    static let addBalance = Notification.Name("addBalance")
+    static let refreshStock = Notification.Name("refreshStock")
+    static let refreshBalance = Notification.Name("refreshBalance")
 }
 
 extension Array where Element: Hashable {
@@ -47,7 +47,7 @@ final class VendingMachine: VendingMachineManagementable, VendingMachineUseable,
             stock.append(supplyableDrinks[index])
         }
         
-        NotificationCenter.default.post(name: .addStock, object: nil)
+        NotificationCenter.default.post(name: .refreshStock, object: nil)
     }
     
     func getAbleDrinks () -> [Drink] {
@@ -115,7 +115,7 @@ final class VendingMachine: VendingMachineManagementable, VendingMachineUseable,
     func insertCoin(_ coin: Int) {
         balance.addBalance(coin)
         
-        NotificationCenter.default.post(name: .addBalance, object: nil)
+        NotificationCenter.default.post(name: .refreshBalance, object: nil)
     }
     
     /// 현재 금액으로 구매가능한 음료수 목록을 리턴하는 메소드
@@ -145,8 +145,8 @@ final class VendingMachine: VendingMachineManagementable, VendingMachineUseable,
         
         try balance.minusBalance(drink.getPrice())
         
-        NotificationCenter.default.post(name: .addStock, object: nil)
-        NotificationCenter.default.post(name: .addBalance, object: nil)
+        NotificationCenter.default.post(name: .refreshStock, object: nil)
+        NotificationCenter.default.post(name: .refreshBalance, object: nil)
     }
     
     /// 잔액을 확인하는 메소드

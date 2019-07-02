@@ -26,6 +26,7 @@ enum AvailableMoney: Int, CaseIterable {
     }
 }
 
+// MARK: - class VendingMachine
 class VendingMachine: NSObject {
     
     // MARK: - static variable
@@ -113,6 +114,7 @@ protocol Manager {
     func add(beverage: Int) -> Bool
     func remove(beverage: Int) -> Beverage?
     func removeGoBadBeverages() -> [Beverage]
+    func count(beverage: Int) -> Int?
 }
 
 // MARK: - Extension VendingMachine: Manger

@@ -47,7 +47,7 @@ final class VendingMachine: VendingMachineManagementable, VendingMachineUseable,
             stock.append(supplyableDrinks[index])
         }
         
-        NotificationCenter.default.post(name: .refreshStock, object: nil)
+        notifyStockToObservers()
     }
     
     func getAbleDrinks () -> [Drink] {
@@ -115,7 +115,7 @@ final class VendingMachine: VendingMachineManagementable, VendingMachineUseable,
     func insertCoin(_ coin: Int) {
         balance.addBalance(coin)
         
-        NotificationCenter.default.post(name: .refreshBalance, object: nil)
+        notifyBalanceToObservers()
     }
     
     /// 현재 금액으로 구매가능한 음료수 목록을 리턴하는 메소드
@@ -145,8 +145,8 @@ final class VendingMachine: VendingMachineManagementable, VendingMachineUseable,
         
         try balance.minusBalance(drink.getPrice())
         
-        NotificationCenter.default.post(name: .refreshStock, object: nil)
-        NotificationCenter.default.post(name: .refreshBalance, object: nil)
+        notifyBalanceToObservers()
+        notifyStockToObservers()
     }
     
     /// 잔액을 확인하는 메소드
@@ -157,5 +157,17 @@ final class VendingMachine: VendingMachineManagementable, VendingMachineUseable,
     /// 시작이후 구매 상품 이력을 배열로 리턴하는 메소드
     func getSellList () -> [Drink] {
         return sellList
+    }
+    
+    /// 잔고를 옵저버에게 알리기
+    private func notifyBalanceToObservers () {
+        let balance = getBalance()
+        NotificationCenter.default.post(name: .refreshBalance, object: nil, userInfo: ["balance":balance])
+    }
+    
+    /// 재고를 옵저버에게 알리기
+    private func notifyStockToObservers () {
+        let stock = getStockList()
+        NotificationCenter.default.post(name: .refreshStock, object: nil, userInfo: ["stock":stock])
     }
 }

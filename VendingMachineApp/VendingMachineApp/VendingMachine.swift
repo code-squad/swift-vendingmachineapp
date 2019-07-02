@@ -160,14 +160,21 @@ final class VendingMachine: VendingMachineManagementable, VendingMachineUseable,
     }
     
     /// 잔고를 옵저버에게 알리기
-    private func notifyBalanceToObservers () {
+    func notifyBalanceToObservers () {
         let balance = getBalance()
-        NotificationCenter.default.post(name: .refreshBalance, object: nil, userInfo: ["balance":balance])
+        NotificationCenter.default.post(name: .refreshBalance, object: nil, userInfo: ["balance":"\(balance)"])
     }
     
     /// 재고를 옵저버에게 알리기
-    private func notifyStockToObservers () {
+    func notifyStockToObservers () {
         let stock = getStockList()
-        NotificationCenter.default.post(name: .refreshStock, object: nil, userInfo: ["stock":stock])
+        let drinkList = SupplyableDrinkList.getSupplyableDrinkList()
+        var counts = [Int:Int]()
+        
+        for (index, drink) in drinkList.enumerated() {
+            counts[index] = stock[drink] ?? 0
+        }
+    
+        NotificationCenter.default.post(name: .refreshStock, object: nil, userInfo: ["stock":counts])
     }
 }

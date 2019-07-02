@@ -109,6 +109,7 @@ class ViewController: UIViewController {
     // MARK: - prepare
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let adminViewController = segue.destination as? AdminViewController else { return }
+        guard let vendingMachine = vendingMachine as? Manager else { return }
         adminViewController.set(vendingMachine: vendingMachine)
     }
 }

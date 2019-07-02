@@ -10,7 +10,7 @@ import UIKit
 
 class AdminViewController: UIViewController {
     // MARK: - private variable
-    private weak var vendingMachine: VendingMachine?
+    private var vendingMachine: Manager?
     
     // MARK: - @IBOutlet
     @IBOutlet var beverageImageView: [RoundImageView]!
@@ -23,7 +23,7 @@ class AdminViewController: UIViewController {
     }
     
     // MARK: - func
-    func set(vendingMachine: VendingMachine?) {
+    func set(vendingMachine: Manager?) {
         self.vendingMachine = vendingMachine
     }
     

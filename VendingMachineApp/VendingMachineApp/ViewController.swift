@@ -36,12 +36,12 @@ class ViewController: UIViewController {
     
     private func refreshDrinkCount (_ stock: [Int:Int]) {
         for (index, count) in stock {
-            counts[index]?.text = String(count)+"개"
+            counts[index]?.text = String(count)+KoreanUnit.count.rawValue
         }
     }
     
     private func refreshBalance (_ balance: String) {
-        self.balance.text = balance+"원"
+        self.balance.text = balance+KoreanUnit.won.rawValue
     }
 
     @IBAction func drinkSupply(_ sender: UIButton) {

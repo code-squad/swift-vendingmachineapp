@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3307997722CB89870005A70A /* KoreanUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3307997622CB89870005A70A /* KoreanUnit.swift */; };
 		33FAF06322C2061400588E95 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FAF06222C2061400588E95 /* AppDelegate.swift */; };
 		33FAF06522C2061400588E95 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FAF06422C2061400588E95 /* ViewController.swift */; };
 		33FAF06822C2061400588E95 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33FAF06622C2061400588E95 /* Main.storyboard */; };
@@ -76,6 +77,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3307997622CB89870005A70A /* KoreanUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreanUnit.swift; sourceTree = "<group>"; };
 		33FAF05F22C2061400588E95 /* VendingMachineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendingMachineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33FAF06222C2061400588E95 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		33FAF06422C2061400588E95 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 				33FAF07522C20AB100588E95 /* VendingMachine.swift */,
 				33FAF07622C20AB100588E95 /* VendingMachineManagement.swift */,
 				33FAF07D22C20AB200588E95 /* VendingMachineUseable.swift */,
+				3307997622CB89870005A70A /* KoreanUnit.swift */,
 			);
 			path = VendingMachineApp;
 			sourceTree = "<group>";
@@ -326,6 +329,7 @@
 				33FAF0AC22C3096300588E95 /* SupplyableDrinkList.swift in Sources */,
 				33FAF09222C20AB200588E95 /* VendingMachineUseable.swift in Sources */,
 				33FAF09722C20AB200588E95 /* Sparkling.swift in Sources */,
+				3307997722CB89870005A70A /* KoreanUnit.swift in Sources */,
 				33FAF09422C20AB200588E95 /* Ment.swift in Sources */,
 				33FAF09D22C20AB200588E95 /* MainMenu.swift in Sources */,
 				33FAF08922C20AB200588E95 /* UserMenu.swift in Sources */,

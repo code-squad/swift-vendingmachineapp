@@ -65,11 +65,20 @@ class ViewController: UIViewController {
     }
     
     @objc func onRefreshStock(_ notification:Notification) {
-        refreshDrinkCount()
+        guard let userInfo = notification.userInfo else { return }
+        let stock: [Drink : Int] = userInfo["stock"] as! [Drink : Int]
+        let drinkList = SupplyableDrinkList.getSupplyableDrinkList()
+        
+        for (index, drink) in drinkList.enumerated() {
+            counts[index]?.text = String(stock[drink] ?? 0)+"개"
+        }
     }
     
     @objc func onRefreshBalance(_ notification:Notification) {
-        refreshBalance()
+        guard let userInfo = notification.userInfo else { return }
+        let balance = userInfo["balance"] as! Money
+        
+        self.balance.text = "\(balance)원"
     }
 }
 

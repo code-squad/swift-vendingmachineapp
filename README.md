@@ -239,3 +239,34 @@ override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 }
 ```
 화면을 전환하면서 데이터를 전달하기 위해 prepare 구현
+
+## step8. 코어 그래픽스(Core Graphics)
+
+- 실행화면
+![screensh_step8](./img/STEP08.png)
+
+### 기능 추가 내용
+
+- 관리자 화면에 파이 그래프 그리기
+업데이트 될때 호출되는 draw() 메소드를 override 하여 파이그래프를 그린다.
+
+```swift
+// MARK: - override func draw
+override func draw(_ rect: CGRect) {
+    super.draw(rect)
+    guard let classifiedPurchase = historyDataSource?.purchaseClassName else { return }
+    let total = classifiedPurchase.values.reduce(0) { $0 + $1 }
+    var startAngle: CGFloat = 0
+    for (index, purchase) in classifiedPurchase.enumerated() {
+        colors[index].setFill()
+        let endAngle = startAngle + 2 * .pi * ( CGFloat(purchase.value) / CGFloat(total) )
+        let rendering = UIBezierPath(arcCenter: pi, radius: (bounds.width * 0.5),
+        startAngle: startAngle, endAngle: endAngle,
+        clockwise: true)
+        rendering.addLine(to: pi)
+        rendering.fill()
+        drawLabel(text: purchase.key as NSString, startAngle: startAngle, endAngle: endAngle)
+        startAngle = endAngle
+    }
+}
+```

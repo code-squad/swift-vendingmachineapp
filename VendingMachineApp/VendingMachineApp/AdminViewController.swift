@@ -11,11 +11,13 @@ import UIKit
 class AdminViewController: UIViewController {
     // MARK: - private variable
     private var vendingMachine: Manager?
+    private var purchases: [Beverage] = []
     
     // MARK: - @IBOutlet
     @IBOutlet var beverageImageView: [RoundImageView]!
     @IBOutlet var beverageLabel: [UILabel]!
-    
+    @IBOutlet weak var purchasePieGraph: PieGraphView!
+
     // MARK: - private
     private func showQuantity(index: Int) {
         let count = vendingMachine?.count(beverage: index)
@@ -45,6 +47,7 @@ class AdminViewController: UIViewController {
         for index in beverageLabel.indices {
             showQuantity(index: index)
         }
+        purchasePieGraph.historyDataSource = self
     }
     
     // MARK: - @objc
@@ -56,5 +59,28 @@ class AdminViewController: UIViewController {
         for data in beverageLabel.indices {
             showQuantity(index: data)
         }
+    }
+}
+
+// MARK: - protocol HistoryDataSource
+protocol HistoryDataSource {
+    var purchaseClassName: [String: Int] { get }
+}
+
+// MARK: - extension AdminViewController
+extension AdminViewController: HistoryDataSource {
+    
+    var purchaseClassName: [String: Int] {
+        return purchases.reduce(into: [:]) { $0[$1.title, default: 0] += 1 }
+    }
+    
+    // MARK: - private func
+    private func updateHistory() {
+        let updateBeverages = purchases.count
+        guard let beverages = vendingMachine?.updateHistory(data: updateBeverages) else { return }
+        for index in beverages {
+            purchases.append(index)
+        }
+        purchasePieGraph.setNeedsDisplay()
     }
 }

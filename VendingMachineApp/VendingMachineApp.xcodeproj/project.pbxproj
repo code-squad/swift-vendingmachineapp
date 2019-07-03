@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3307997722CB89870005A70A /* KoreanUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3307997622CB89870005A70A /* KoreanUnit.swift */; };
+		3307997922CC44940005A70A /* BalancePrintable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3307997822CC44940005A70A /* BalancePrintable.swift */; };
+		3307997B22CC449F0005A70A /* StockPrintable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3307997A22CC449F0005A70A /* StockPrintable.swift */; };
 		33FAF06322C2061400588E95 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FAF06222C2061400588E95 /* AppDelegate.swift */; };
 		33FAF06522C2061400588E95 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FAF06422C2061400588E95 /* ViewController.swift */; };
 		33FAF06822C2061400588E95 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33FAF06622C2061400588E95 /* Main.storyboard */; };
@@ -78,6 +80,8 @@
 
 /* Begin PBXFileReference section */
 		3307997622CB89870005A70A /* KoreanUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreanUnit.swift; sourceTree = "<group>"; };
+		3307997822CC44940005A70A /* BalancePrintable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalancePrintable.swift; sourceTree = "<group>"; };
+		3307997A22CC449F0005A70A /* StockPrintable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockPrintable.swift; sourceTree = "<group>"; };
 		33FAF05F22C2061400588E95 /* VendingMachineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendingMachineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33FAF06222C2061400588E95 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		33FAF06422C2061400588E95 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -185,6 +189,8 @@
 				33FAF07622C20AB100588E95 /* VendingMachineManagement.swift */,
 				33FAF07D22C20AB200588E95 /* VendingMachineUseable.swift */,
 				3307997622CB89870005A70A /* KoreanUnit.swift */,
+				3307997822CC44940005A70A /* BalancePrintable.swift */,
+				3307997A22CC449F0005A70A /* StockPrintable.swift */,
 			);
 			path = VendingMachineApp;
 			sourceTree = "<group>";
@@ -332,11 +338,13 @@
 				3307997722CB89870005A70A /* KoreanUnit.swift in Sources */,
 				33FAF09422C20AB200588E95 /* Ment.swift in Sources */,
 				33FAF09D22C20AB200588E95 /* MainMenu.swift in Sources */,
+				3307997B22CC449F0005A70A /* StockPrintable.swift in Sources */,
 				33FAF08922C20AB200588E95 /* UserMenu.swift in Sources */,
 				33FAF06522C2061400588E95 /* ViewController.swift in Sources */,
 				33FAF06322C2061400588E95 /* AppDelegate.swift in Sources */,
 				33FAF09922C20AB200588E95 /* BuyError.swift in Sources */,
 				33FAF08A22C20AB200588E95 /* VendingMachine.swift in Sources */,
+				3307997922CC44940005A70A /* BalancePrintable.swift in Sources */,
 				33FAF09022C20AB200588E95 /* Hot6.swift in Sources */,
 				33FAF08B22C20AB200588E95 /* VendingMachineManagement.swift in Sources */,
 				33FAF08C22C20AB200588E95 /* BananaMilk.swift in Sources */,

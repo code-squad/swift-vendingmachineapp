@@ -17,7 +17,13 @@ class AdminViewController: UIViewController {
     @IBOutlet var beverageImageView: [RoundImageView]!
     @IBOutlet var beverageLabel: [UILabel]!
     @IBOutlet weak var purchasePieGraph: PieGraphView!
-
+    
+    // MARK: - override func viewWillAppear
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        updateHistory()
+    }
+    
     // MARK: - private
     private func showQuantity(index: Int) {
         let count = vendingMachine?.count(beverage: index)

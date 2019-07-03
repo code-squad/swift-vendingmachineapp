@@ -27,8 +27,7 @@ extension Array where Element: Hashable {
     }
 }
 
-final class VendingMachine: VendingMachineManagementable, VendingMachineUseable, Codable {
-    
+final class VendingMachine: VendingMachineManagementable, VendingMachineUseable, Codable, BalancePrintable, StockPrintable {
     static let sharedInstance = VendingMachine()
     
     private var balance = Money()
@@ -37,7 +36,7 @@ final class VendingMachine: VendingMachineManagementable, VendingMachineUseable,
     
     
     private init() {
-        
+
     }
     
     func supply(_ index: Int, amount: Int) {
@@ -160,21 +159,33 @@ final class VendingMachine: VendingMachineManagementable, VendingMachineUseable,
     }
     
     /// 잔고를 옵저버에게 알리기
-    func notifyBalanceToObservers () {
-        let balance = getBalance()
-        NotificationCenter.default.post(name: .refreshBalance, object: nil, userInfo: ["balance":"\(balance)"])
+    private func notifyBalanceToObservers () {
+        let balance = printBalance()
+        
+        NotificationCenter.default.post(name: .refreshBalance, object: nil, userInfo: ["balance":balance])
     }
     
     /// 재고를 옵저버에게 알리기
-    func notifyStockToObservers () {
+    private func notifyStockToObservers () {
+        let stock = printStock()
+    
+        NotificationCenter.default.post(name: .refreshStock, object: nil, userInfo: ["stock":stock])
+    }
+    
+    func printBalance() -> Money {
+        let balance = getBalance()
+        
+        return balance
+    }
+    
+    func printStock() -> [Int] {
         let stock = getStockList()
         let drinkList = SupplyableDrinkList.getSupplyableDrinkList()
-        var counts = [Int:Int]()
         
-        for (index, drink) in drinkList.enumerated() {
-            counts[index] = stock[drink] ?? 0
+        let counts = drinkList.map { (drink) -> Int in
+            return stock[drink] ?? 0
         }
-    
-        NotificationCenter.default.post(name: .refreshStock, object: nil, userInfo: ["stock":counts])
+        
+        return counts
     }
 }

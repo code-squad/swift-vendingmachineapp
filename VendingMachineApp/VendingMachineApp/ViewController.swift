@@ -26,22 +26,23 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         vendingMachine = appDelegate.vendingMachine
+        let stock = vendingMachine.printStock()
+        refreshDrinkCount(stock)
+        let balance = vendingMachine.printBalance()
+        refreshBalance(balance)
         
         NotificationCenter.default.addObserver(self, selector: #selector(onRefreshStock(_:)), name: .refreshStock, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(onRefreshBalance(_:)), name: .refreshBalance, object: nil)
-        
-        vendingMachine.notifyStockToObservers()
-        vendingMachine.notifyBalanceToObservers()
     }
     
-    private func refreshDrinkCount (_ stock: [Int:Int]) {
-        for (index, count) in stock {
+    private func refreshDrinkCount (_ stock: [Int]) {
+        for (index, count) in stock.enumerated() {
             counts[index]?.text = String(count)+KoreanUnit.count.rawValue
         }
     }
     
-    private func refreshBalance (_ balance: String) {
-        self.balance.text = balance+KoreanUnit.won.rawValue
+    private func refreshBalance (_ balance: Money) {
+        self.balance.text = "\(balance)"+KoreanUnit.won.rawValue
     }
 
     @IBAction func drinkSupply(_ sender: UIButton) {
@@ -56,14 +57,14 @@ class ViewController: UIViewController {
     
     @objc func onRefreshStock(_ notification:Notification) {
         guard let userInfo = notification.userInfo else { return }
-        let stock = userInfo["stock"] as! [Int:Int]
+        let stock = userInfo["stock"] as! [Int]
         
         refreshDrinkCount(stock)
     }
     
     @objc func onRefreshBalance(_ notification:Notification) {
         guard let userInfo = notification.userInfo else { return }
-        let balance = userInfo["balance"] as! String
+        let balance = userInfo["balance"] as! Money
         
         refreshBalance(balance)
     }

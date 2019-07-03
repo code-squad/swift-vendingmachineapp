@@ -33,6 +33,12 @@ class History: NSObject{
     }
     
     // MARK: - func
+    func update(data: Int) -> ArraySlice<Beverage>? {
+        guard data < purchases.count else { return nil }
+        let beverages = purchases[data...]
+        return beverages
+    }
+    
     func viewAppear() {
         for (index, purchase) in purchases.enumerated() {
             let historyData: [AnyHashable: Any] = [Notification.NotiKey.purchaseName: purchase.className,

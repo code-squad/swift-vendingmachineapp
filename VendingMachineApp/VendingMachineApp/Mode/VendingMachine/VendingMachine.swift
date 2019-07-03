@@ -115,10 +115,15 @@ protocol Manager {
     func remove(beverage: Int) -> Beverage?
     func removeGoBadBeverages() -> [Beverage]
     func count(beverage: Int) -> Int?
+    func updateHistory(data: Int) -> ArraySlice<Beverage>?
 }
 
 // MARK: - Extension VendingMachine: Manger
 extension VendingMachine: Manager {
+    
+    func updateHistory(data: Int) -> ArraySlice<Beverage>? {
+        return history.update(data: data)
+    }
 
     func add(beverage: Beverage) {
         list.add(beverage: beverage)

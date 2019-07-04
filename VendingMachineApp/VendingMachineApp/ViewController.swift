@@ -17,6 +17,13 @@ class ViewController: UIViewController {
     @IBOutlet weak var pepsiCokeCount: UILabel!
     @IBOutlet weak var balance: UILabel!
     lazy var counts = [bananaMilkCount, strawberryMilkCount, fantaCount, topCount, hot6Count, pepsiCokeCount]
+    @IBOutlet weak var bananaMilkImage: UIImageView!
+    @IBOutlet weak var strawberryMilkImage: UIImageView!
+    @IBOutlet weak var fantaImage: UIImageView!
+    @IBOutlet weak var topCoffeImage: UIImageView!
+    @IBOutlet weak var hot6Image: UIImageView!
+    @IBOutlet weak var pepsiCokeImage: UIImageView!
+    lazy var images = [bananaMilkImage, strawberryMilkImage, fantaImage, topCoffeImage, hot6Image, pepsiCokeImage]
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var vendingMachine: VendingMachine!
@@ -33,6 +40,8 @@ class ViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(onRefreshStock(_:)), name: .refreshStock, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(onRefreshBalance(_:)), name: .refreshBalance, object: nil)
+        
+        imageInit()
     }
     
     private func refreshDrinkCount (_ stock: [Int]) {
@@ -43,6 +52,13 @@ class ViewController: UIViewController {
     
     private func refreshBalance (_ balance: Money) {
         self.balance.text = "\(balance)"+KoreanUnit.won.rawValue
+    }
+    
+    /// 이미지 Border, Round 변경
+    private func imageInit () {
+        for image in images {
+            image?.layer.cornerRadius = 15
+        }
     }
 
     @IBAction func drinkSupply(_ sender: UIButton) {

@@ -34,11 +34,8 @@ class ViewController: UIViewController {
         
         vendingMachine = appDelegate.vendingMachine
         
-        let stock = vendingMachine.printStock()
-        refreshDrinkCount(stock)
-        let balance = vendingMachine.printBalance()
-        refreshBalance(balance)
-        
+        refreshDrinkCount((vendingMachine))
+        refreshBalance(vendingMachine)
         addSubViewToSellList(vendingMachine)
         
         
@@ -49,14 +46,20 @@ class ViewController: UIViewController {
         imageInit()
     }
     
-    private func refreshDrinkCount (_ stock: [Int]) {
-        for (index, count) in stock.enumerated() {
-            counts[index]?.text = String(count)+KoreanUnit.count.rawValue
-        }
+    private func refreshDrinkCount (_ stock: StockPrintable) {
+        stock.printStock(handler:
+            { stock in
+                for (index, count) in stock.enumerated() {
+                    counts[index]?.text = String(count)+KoreanUnit.count.rawValue
+                }
+        })
     }
     
-    private func refreshBalance (_ balance: Money) {
-        self.balance.text = "\(balance)"+KoreanUnit.won.rawValue
+    private func refreshBalance (_ balance: BalancePrintable) {
+        balance.printBalance(handler:
+            { balance in
+                self.balance.text = "\(balance)"+KoreanUnit.won.rawValue
+        })
     }
     
     /// 이미지 Border, Round 변경
@@ -92,17 +95,11 @@ class ViewController: UIViewController {
     }
     
     @objc func onRefreshStock(_ notification:Notification) {
-        guard let userInfo = notification.userInfo else { return }
-        let stock = userInfo["stock"] as! [Int]
-        
-        refreshDrinkCount(stock)
+       refreshDrinkCount(vendingMachine)
     }
     
     @objc func onRefreshBalance(_ notification:Notification) {
-        guard let userInfo = notification.userInfo else { return }
-        let balance = userInfo["balance"] as! Money
-        
-        refreshBalance(balance)
+        refreshBalance(vendingMachine)
     }
     
     @objc func onRefreshSellList(_ notification:Notification) {
@@ -127,22 +124,24 @@ class ViewController: UIViewController {
     }
     
     private func drinkToImageName (_ drink: Drink) -> String {
-        if drink is BananaMilk {
+        let supplyableDrinkList = SupplyableDrinkList.getSupplyableDrinkList()
+        
+        if drink == supplyableDrinkList[0] {
             return "bananaMilk.jpg"
         }
-        if drink is StrawberryMilk {
+        if drink == supplyableDrinkList[1] {
             return "strawberryMilk.jpg"
         }
-        if drink is Fanta {
+        if drink == supplyableDrinkList[2] {
             return "fanta.jpg"
         }
-        if drink is TOP {
+        if drink == supplyableDrinkList[3] {
             return "top.jpg"
         }
-        if drink is Hot6 {
+        if drink == supplyableDrinkList[4] {
             return "hot6.jpg"
         }
-        if drink is PepsiCoke {
+        if drink == supplyableDrinkList[5] {
             return "pepsiCoke.jpg"
         }
         return "fanta.jpg"

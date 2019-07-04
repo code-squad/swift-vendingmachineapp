@@ -69,5 +69,3 @@ class ViewController: UIViewController {
         refreshBalance(balance)
     }
 }
-
-

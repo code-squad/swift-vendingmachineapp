@@ -40,6 +40,7 @@ class ViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(onRefreshStock(_:)), name: .refreshStock, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(onRefreshBalance(_:)), name: .refreshBalance, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(onRefreshSellList(_:)), name: .refreshSellList, object: nil)
         
         imageInit()
     }
@@ -71,6 +72,22 @@ class ViewController: UIViewController {
         vendingMachine.insertCoin(sender.tag)
     }
     
+    @IBAction func buy(_ sender: UIButton) {
+        if sender.tag >= 0 && sender.tag <= 5 {
+            do {
+                try vendingMachine.buyToIndex(sender.tag)
+            }
+            catch let error as BuyError
+            {
+                // propagate the error to the caller
+                print(error.localizedDescription)
+            }
+            catch {
+                print("안알려진 오류입니다")
+            }
+        }
+    }
+    
     @objc func onRefreshStock(_ notification:Notification) {
         guard let userInfo = notification.userInfo else { return }
         let stock = userInfo["stock"] as! [Int]
@@ -83,5 +100,55 @@ class ViewController: UIViewController {
         let balance = userInfo["balance"] as! Money
         
         refreshBalance(balance)
+    }
+    
+    @objc func onRefreshSellList(_ notification:Notification) {
+        print("구매했어요!")
+        
+//        let image1 = UIImage(named: "fanta.jpg")
+//        let iv1 = UIImageView(image: image1!)
+//        iv1.frame = CGRect(x: 40, y: 575, width: 100, height: 100)
+//        self.view.addSubview(iv1)
+
+        addSubViewToSellList(vendingMachine)
+//        refreshBalance()
+    }
+    
+    private func addSubViewToSellList (_ sellList: SellListPrintable) {
+        var xCoordinate = 40
+        sellList.printSellList(handler:
+            { sellList in
+                for drink in sellList {
+                    let imageName = drinkToImageName(drink)
+                    let image1 = UIImage(named: imageName)
+                    let iv1 = UIImageView(image: image1!)
+                    iv1.frame = CGRect(x: xCoordinate, y: 575, width: 100, height: 100)
+                    self.view.addSubview(iv1)
+                    
+                    xCoordinate += 50
+                }
+        })
+    }
+    
+    private func drinkToImageName (_ drink: Drink) -> String {
+        if drink is BananaMilk {
+            return "bananaMilk.jpg"
+        }
+        if drink is StrawberryMilk {
+            return "strawberryMilk.jpg"
+        }
+        if drink is Fanta {
+            return "fanta.jpg"
+        }
+        if drink is TOP {
+            return "top.jpg"
+        }
+        if drink is Hot6 {
+            return "hot6.jpg"
+        }
+        if drink is PepsiCoke {
+            return "pepsiCoke.jpg"
+        }
+        return "fanta.jpg"
     }
 }

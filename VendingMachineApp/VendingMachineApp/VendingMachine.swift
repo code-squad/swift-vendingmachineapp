@@ -11,6 +11,7 @@ import Foundation
 extension Notification.Name {
     static let refreshStock = Notification.Name("refreshStock")
     static let refreshBalance = Notification.Name("refreshBalance")
+    static let refreshSellList = Notification.Name("refreshSellList")
 }
 
 extension Array where Element: Hashable {
@@ -27,7 +28,7 @@ extension Array where Element: Hashable {
     }
 }
 
-final class VendingMachine: VendingMachineManagementable, VendingMachineUseable, Codable, BalancePrintable, StockPrintable {
+final class VendingMachine: VendingMachineManagementable, VendingMachineUseable, Codable, BalancePrintable, StockPrintable, SellListPrintable {
     static let sharedInstance = VendingMachine()
     
     private var balance = Money()
@@ -127,6 +128,17 @@ final class VendingMachine: VendingMachineManagementable, VendingMachineUseable,
         return buyableDrinks
     }
     
+    /// 인덱스로 buy 메소드를 이용해서 음료수를 구매하는 메소드
+    func buyToIndex (_ index: Int) throws {
+        let supplyableDrinks = SupplyableDrinkList.getSupplyableDrinkList()
+        
+        try buy(supplyableDrinks[index])
+        
+        notifyStockToObservers()
+        notifyBalanceToObservers()
+        notifySellListToObservers()
+    }
+    
     /// 음료수를 구매하는 메소드
     func buy (_ drink: Drink) throws {
         let drinkIndex = stock.firstIndex(of: drink)
@@ -172,6 +184,11 @@ final class VendingMachine: VendingMachineManagementable, VendingMachineUseable,
         NotificationCenter.default.post(name: .refreshStock, object: nil, userInfo: ["stock":stock])
     }
     
+    /// 판매 목록를 옵저버에게 알리기
+    private func notifySellListToObservers () {
+        NotificationCenter.default.post(name: .refreshSellList, object: nil)
+    }
+    
     func printBalance() -> Money {
         let balance = getBalance()
         
@@ -187,5 +204,9 @@ final class VendingMachine: VendingMachineManagementable, VendingMachineUseable,
         }
         
         return counts
+    }
+    
+    func printSellList(handler: ([Drink]) -> ()) {
+        handler(sellList)
     }
 }

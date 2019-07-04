@@ -172,16 +172,12 @@ final class VendingMachine: VendingMachineManagementable, VendingMachineUseable,
     
     /// 잔고를 옵저버에게 알리기
     private func notifyBalanceToObservers () {
-        let balance = printBalance()
-        
-        NotificationCenter.default.post(name: .refreshBalance, object: nil, userInfo: ["balance":balance])
+        NotificationCenter.default.post(name: .refreshBalance, object: nil)
     }
     
     /// 재고를 옵저버에게 알리기
     private func notifyStockToObservers () {
-        let stock = printStock()
-    
-        NotificationCenter.default.post(name: .refreshStock, object: nil, userInfo: ["stock":stock])
+        NotificationCenter.default.post(name: .refreshStock, object: nil)
     }
     
     /// 판매 목록를 옵저버에게 알리기
@@ -189,13 +185,11 @@ final class VendingMachine: VendingMachineManagementable, VendingMachineUseable,
         NotificationCenter.default.post(name: .refreshSellList, object: nil)
     }
     
-    func printBalance() -> Money {
-        let balance = getBalance()
-        
-        return balance
+    func printBalance(handler: (Money) -> ()) {
+        handler(balance)
     }
     
-    func printStock() -> [Int] {
+    func printStock(handler: ([Int]) -> ()) {
         let stock = getStockList()
         let drinkList = SupplyableDrinkList.getSupplyableDrinkList()
         
@@ -203,7 +197,7 @@ final class VendingMachine: VendingMachineManagementable, VendingMachineUseable,
             return stock[drink] ?? 0
         }
         
-        return counts
+        handler(counts)
     }
     
     func printSellList(handler: ([Drink]) -> ()) {

@@ -9,11 +9,11 @@
 import Foundation
 
 protocol StockPrintable {
-    func printStock () -> [Int]
+    func printStock(handler: ([Int])->())
 }
 
 protocol BalancePrintable {
-    func printBalance () -> Money
+    func printBalance(handler: (Money)->())
 }
 
 protocol SellListPrintable {

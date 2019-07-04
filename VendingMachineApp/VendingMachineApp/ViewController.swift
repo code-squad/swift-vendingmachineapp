@@ -33,10 +33,14 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         vendingMachine = appDelegate.vendingMachine
+        
         let stock = vendingMachine.printStock()
         refreshDrinkCount(stock)
         let balance = vendingMachine.printBalance()
         refreshBalance(balance)
+        
+        addSubViewToSellList(vendingMachine)
+        
         
         NotificationCenter.default.addObserver(self, selector: #selector(onRefreshStock(_:)), name: .refreshStock, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(onRefreshBalance(_:)), name: .refreshBalance, object: nil)
@@ -79,7 +83,6 @@ class ViewController: UIViewController {
             }
             catch let error as BuyError
             {
-                // propagate the error to the caller
                 print(error.localizedDescription)
             }
             catch {
@@ -103,19 +106,12 @@ class ViewController: UIViewController {
     }
     
     @objc func onRefreshSellList(_ notification:Notification) {
-        print("구매했어요!")
-        
-//        let image1 = UIImage(named: "fanta.jpg")
-//        let iv1 = UIImageView(image: image1!)
-//        iv1.frame = CGRect(x: 40, y: 575, width: 100, height: 100)
-//        self.view.addSubview(iv1)
-
         addSubViewToSellList(vendingMachine)
-//        refreshBalance()
     }
     
     private func addSubViewToSellList (_ sellList: SellListPrintable) {
         var xCoordinate = 40
+        
         sellList.printSellList(handler:
             { sellList in
                 for drink in sellList {

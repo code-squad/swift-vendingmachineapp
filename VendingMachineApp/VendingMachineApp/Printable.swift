@@ -9,7 +9,7 @@
 import Foundation
 
 protocol StockPrintable {
-    func printStock(handler: ([Int])->())
+    func printStock(handler: (DrinkMenu, Int)->())
 }
 
 protocol BalancePrintable {

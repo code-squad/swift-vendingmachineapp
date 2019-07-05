@@ -40,11 +40,11 @@ final class VendingMachine: VendingMachineManagementable, VendingMachineUseable,
 
     }
     
-    func supply(_ index: Int, amount: Int) {
-        let supplyableDrinks = SupplyableDrinkList.getSupplyableDrinkList()
+    func supply(_ drinkMenu: DrinkMenu, amount: Int) {
+        let supplyableDrink = drinkMenu.getSample()
         
         for _ in 0..<amount {
-            stock.append(supplyableDrinks[index])
+            stock.append(supplyableDrink)
         }
         
         notifyStockToObservers()
@@ -129,10 +129,10 @@ final class VendingMachine: VendingMachineManagementable, VendingMachineUseable,
     }
     
     /// 인덱스로 buy 메소드를 이용해서 음료수를 구매하는 메소드
-    func buyToIndex (_ index: Int) throws {
-        let supplyableDrinks = SupplyableDrinkList.getSupplyableDrinkList()
+    func buyToDrinkMenu (_ drinkMenu: DrinkMenu) throws {
+        let supplyableDrink = drinkMenu.getSample()
         
-        try buy(supplyableDrinks[index])
+        try buy(supplyableDrink)
         
         notifyStockToObservers()
         notifyBalanceToObservers()
@@ -189,15 +189,13 @@ final class VendingMachine: VendingMachineManagementable, VendingMachineUseable,
         handler(balance)
     }
     
-    func printStock(handler: ([Int]) -> ()) {
+    func printStock(handler: (DrinkMenu, Int) -> ()) {
         let stock = getStockList()
-        let drinkList = SupplyableDrinkList.getSupplyableDrinkList()
         
-        let counts = drinkList.map { (drink) -> Int in
-            return stock[drink] ?? 0
+        for (drink, count) in stock {
+            let drinkMenu = DrinkMenu.getDrinkMenu(drink)
+            handler(drinkMenu, count)
         }
-        
-        handler(counts)
     }
     
     func printSellList(handler: ([Drink]) -> ()) {

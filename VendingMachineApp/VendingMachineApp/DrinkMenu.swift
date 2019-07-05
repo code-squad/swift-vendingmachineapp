@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum DrinkMenu: Int {
+enum DrinkMenu: Int, CaseIterable {
     case bananaMilk
     case strawberryMilk
     case fanta
@@ -25,5 +25,25 @@ enum DrinkMenu: Int {
         case .hot6: return Hot6(brand: "롯데", ml: 240, price: 1000, productDate: "20190529", expirationDate: "20191029")
         case .pepsiCoke: return PepsiCoke(brand: "펩시", ml: 255, price: 1200, productDate: "20190610", expirationDate: "20191010")
         }
+    }
+    
+    func getImageName () -> String {
+        switch self {
+        case .bananaMilk: return "bananaMilk.jpg"
+        case .strawberryMilk: return "strawberryMilk.jpg"
+        case .fanta: return "fanta.jpg"
+        case .top: return "top.jpg"
+        case .hot6: return "hot6.jpg"
+        case .pepsiCoke: return "pepsiCoke.jpg"
+        }
+    }
+    
+    static func getDrinkMenu (_ drink: Drink) -> DrinkMenu {
+        for drinkMenu in DrinkMenu.allCases {
+            if drink == drinkMenu.getSample() {
+                return drinkMenu
+            }
+        }
+        return DrinkMenu.fanta
     }
 }

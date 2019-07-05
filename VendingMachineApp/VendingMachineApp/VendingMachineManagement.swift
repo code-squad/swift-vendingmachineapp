@@ -9,7 +9,7 @@
 import Foundation
 
 protocol VendingMachineManagementable {
-    mutating func supply(_ index: Int, amount: Int)
+    mutating func supply(_ drinkMenu: DrinkMenu, amount: Int)
     func getAbleDrinks () -> [Drink]
     func getStockList () -> Dictionary<Drink, Int>
     func getExpiredDrinkList () -> [Drink]

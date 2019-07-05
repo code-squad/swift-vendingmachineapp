@@ -46,10 +46,8 @@ class ViewController: UIViewController {
     
     private func refreshDrinkCount (_ stock: StockPrintable) {
         stock.printStock(handler:
-            { stock in
-                for (index, count) in stock.enumerated() {
-                    counts[index]?.text = String(count)+KoreanUnit.count.rawValue
-                }
+            { drinkMenu, count in
+                counts[drinkMenu.rawValue]?.text = String(count)+KoreanUnit.count.rawValue
         })
     }
     
@@ -61,8 +59,10 @@ class ViewController: UIViewController {
     }
 
     @IBAction func drinkSupply(_ sender: UIButton) {
-        if sender.tag >= 0 && sender.tag <= 5 {
-            vendingMachine.supply(sender.tag, amount: 1)
+        let drinkMenu = DrinkMenu(rawValue: sender.tag)
+        
+        if let drinkMenu = drinkMenu {
+            vendingMachine.supply(drinkMenu, amount: 1)
         }
     }
     
@@ -71,17 +71,18 @@ class ViewController: UIViewController {
     }
     
     @IBAction func buy(_ sender: UIButton) {
-        if sender.tag >= 0 && sender.tag <= 5 {
-            do {
-                try vendingMachine.buyToIndex(sender.tag)
-            }
-            catch let error as BuyError
-            {
-                print(error.localizedDescription)
-            }
-            catch {
-                print("안알려진 오류입니다")
-            }
+        guard let drinkMenu = DrinkMenu(rawValue: sender.tag) else {
+            return
+        }
+        do {
+            try vendingMachine.buyToDrinkMenu(drinkMenu)
+        }
+        catch let error as BuyError
+        {
+            print(error.localizedDescription)
+        }
+        catch {
+            print("안알려진 오류입니다")
         }
     }
     
@@ -103,38 +104,14 @@ class ViewController: UIViewController {
         sellList.printSellList(handler:
             { sellList in
                 for drink in sellList {
-                    let imageName = drinkToImageName(drink)
-                    let image1 = UIImage(named: imageName)
-                    let iv1 = UIImageView(image: image1!)
-                    iv1.frame = CGRect(x: xCoordinate, y: 575, width: 100, height: 100)
-                    self.view.addSubview(iv1)
-                    
-                    xCoordinate += 50
+//                    let imageName = drinkToImageName(drink)
+//                    let image1 = UIImage(named: imageName)
+//                    let iv1 = UIImageView(image: image1!)
+//                    iv1.frame = CGRect(x: xCoordinate, y: 575, width: 100, height: 100)
+//                    self.view.addSubview(iv1)
+//                    
+//                    xCoordinate += 50
                 }
         })
-    }
-    
-    private func drinkToImageName (_ drink: Drink) -> String {
-        let supplyableDrinkList = SupplyableDrinkList.getSupplyableDrinkList()
-        
-        if drink == supplyableDrinkList[0] {
-            return "bananaMilk.jpg"
-        }
-        if drink == supplyableDrinkList[1] {
-            return "strawberryMilk.jpg"
-        }
-        if drink == supplyableDrinkList[2] {
-            return "fanta.jpg"
-        }
-        if drink == supplyableDrinkList[3] {
-            return "top.jpg"
-        }
-        if drink == supplyableDrinkList[4] {
-            return "hot6.jpg"
-        }
-        if drink == supplyableDrinkList[5] {
-            return "pepsiCoke.jpg"
-        }
-        return "fanta.jpg"
     }
 }

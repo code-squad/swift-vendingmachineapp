@@ -160,16 +160,6 @@ final class VendingMachine: VendingMachineManagementable, VendingMachineUseable,
         notifyStockToObservers()
     }
     
-    /// 잔액을 확인하는 메소드
-    func getBalance () -> Money {
-        return balance
-    }
-    
-    /// 시작이후 구매 상품 이력을 배열로 리턴하는 메소드
-    func getSellList () -> [Drink] {
-        return sellList
-    }
-    
     /// 잔고를 옵저버에게 알리기
     private func notifyBalanceToObservers () {
         NotificationCenter.default.post(name: .refreshBalance, object: nil)

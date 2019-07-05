@@ -188,7 +188,11 @@ final class VendingMachine: VendingMachineManagementable, VendingMachineUseable,
         }
     }
     
-    func printSellList(handler: ([Drink]) -> ()) {
-        handler(sellList)
+    func printSellList(handler: (DrinkMenu) -> ()) {
+        for drink in sellList {
+            let drinkMenu = DrinkMenu.getDrinkMenu(drink)
+            
+            handler(drinkMenu)
+        }
     }
 }

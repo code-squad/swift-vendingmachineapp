@@ -102,16 +102,13 @@ class ViewController: UIViewController {
         var xCoordinate = 40
         
         sellList.printSellList(handler:
-            { sellList in
-                for drink in sellList {
-//                    let imageName = drinkToImageName(drink)
-//                    let image1 = UIImage(named: imageName)
-//                    let iv1 = UIImageView(image: image1!)
-//                    iv1.frame = CGRect(x: xCoordinate, y: 575, width: 100, height: 100)
-//                    self.view.addSubview(iv1)
-//                    
-//                    xCoordinate += 50
-                }
+            { drinkMenu in
+                    let image = UIImage(named: drinkMenu.getImageName())
+                    let imageView = UIImageView(image: image!)
+                    imageView.frame = CGRect(x: xCoordinate, y: 575, width: 100, height: 100)
+                    self.view.addSubview(imageView)
+
+                    xCoordinate += 50
         })
     }
 }

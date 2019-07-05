@@ -42,7 +42,6 @@
 		33FAF0A722C2414200588E95 /* pepsiCoke.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 33FAF0A222C2414100588E95 /* pepsiCoke.jpg */; };
 		33FAF0A822C2414200588E95 /* strawberryMilk.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 33FAF0A322C2414100588E95 /* strawberryMilk.jpg */; };
 		33FAF0AA22C2418300588E95 /* fanta.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 33FAF0A922C2418300588E95 /* fanta.jpg */; };
-		33FAF0AC22C3096300588E95 /* SupplyableDrinkList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FAF0AB22C3096300588E95 /* SupplyableDrinkList.swift */; };
 		33FB517E22C9F240005819A6 /* VendingMachineAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FB517D22C9F240005819A6 /* VendingMachineAppTests.swift */; };
 		33FB518522C9F29D005819A6 /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FAF07522C20AB100588E95 /* VendingMachine.swift */; };
 		33FB518622C9F3A9005819A6 /* Money.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FAF08522C20AB200588E95 /* Money.swift */; };
@@ -60,7 +59,6 @@
 		33FB519322C9F3E2005819A6 /* Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FAF08022C20AB200588E95 /* Converter.swift */; };
 		33FB519422C9F3E4005819A6 /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FAF07C22C20AB100588E95 /* Coffee.swift */; };
 		33FB519522C9F3E7005819A6 /* BananaMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FAF07722C20AB100588E95 /* BananaMilk.swift */; };
-		33FB519622C9F3EB005819A6 /* SupplyableDrinkList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FAF0AB22C3096300588E95 /* SupplyableDrinkList.swift */; };
 		33FB519722C9F46A005819A6 /* UserMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FAF07422C20AB100588E95 /* UserMenu.swift */; };
 		33FB519822C9F471005819A6 /* ManagementMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FAF07A22C20AB100588E95 /* ManagementMenu.swift */; };
 		33FB519922C9F473005819A6 /* MainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FAF08822C20AB200588E95 /* MainMenu.swift */; };
@@ -117,7 +115,6 @@
 		33FAF0A222C2414100588E95 /* pepsiCoke.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pepsiCoke.jpg; sourceTree = "<group>"; };
 		33FAF0A322C2414100588E95 /* strawberryMilk.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = strawberryMilk.jpg; sourceTree = "<group>"; };
 		33FAF0A922C2418300588E95 /* fanta.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = fanta.jpg; sourceTree = "<group>"; };
-		33FAF0AB22C3096300588E95 /* SupplyableDrinkList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupplyableDrinkList.swift; sourceTree = "<group>"; };
 		33FB517B22C9F240005819A6 /* VendingMachineAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VendingMachineAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		33FB517D22C9F240005819A6 /* VendingMachineAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineAppTests.swift; sourceTree = "<group>"; };
 		33FB517F22C9F240005819A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -166,7 +163,6 @@
 				33FAF06222C2061400588E95 /* AppDelegate.swift */,
 				33FAF06422C2061400588E95 /* ViewController.swift */,
 				3307998022CEFB040005A70A /* RoundImageView.swift */,
-				33FAF0AB22C3096300588E95 /* SupplyableDrinkList.swift */,
 				33FAF06622C2061400588E95 /* Main.storyboard */,
 				33FAF06922C2061A00588E95 /* Assets.xcassets */,
 				33FAF06B22C2061A00588E95 /* LaunchScreen.storyboard */,
@@ -336,7 +332,6 @@
 				3307998322CF24050005A70A /* DrinkMenu.swift in Sources */,
 				33FAF09C22C20AB200588E95 /* PepsiCoke.swift in Sources */,
 				33FAF09522C20AB200588E95 /* Converter.swift in Sources */,
-				33FAF0AC22C3096300588E95 /* SupplyableDrinkList.swift in Sources */,
 				33FAF09222C20AB200588E95 /* VendingMachineUseable.swift in Sources */,
 				33FAF09722C20AB200588E95 /* Sparkling.swift in Sources */,
 				3307997722CB89870005A70A /* KoreanUnit.swift in Sources */,
@@ -365,7 +360,6 @@
 				33FB518A22C9F3B4005819A6 /* StrawberryMilk.swift in Sources */,
 				33FB518F22C9F3D1005819A6 /* Hot6.swift in Sources */,
 				33FB518822C9F3AF005819A6 /* PepsiCoke.swift in Sources */,
-				33FB519622C9F3EB005819A6 /* SupplyableDrinkList.swift in Sources */,
 				33FB518D22C9F3C5005819A6 /* VendingMachineManagement.swift in Sources */,
 				33FB519322C9F3E2005819A6 /* Converter.swift in Sources */,
 				33FB518622C9F3A9005819A6 /* Money.swift in Sources */,

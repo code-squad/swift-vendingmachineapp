@@ -42,8 +42,6 @@ class ViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(onRefreshStock(_:)), name: .refreshStock, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(onRefreshBalance(_:)), name: .refreshBalance, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(onRefreshSellList(_:)), name: .refreshSellList, object: nil)
-        
-        imageInit()
     }
     
     private func refreshDrinkCount (_ stock: StockPrintable) {
@@ -60,13 +58,6 @@ class ViewController: UIViewController {
             { balance in
                 self.balance.text = "\(balance)"+KoreanUnit.won.rawValue
         })
-    }
-    
-    /// 이미지 Border, Round 변경
-    private func imageInit () {
-        for image in images {
-            image?.layer.cornerRadius = 15
-        }
     }
 
     @IBAction func drinkSupply(_ sender: UIButton) {

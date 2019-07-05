@@ -12,6 +12,7 @@ extension Notification.Name {
     static let refreshStock = Notification.Name("refreshStock")
     static let refreshBalance = Notification.Name("refreshBalance")
     static let refreshSellList = Notification.Name("refreshSellList")
+    static let refreshSellDrink = Notification.Name("refreshSellDrink")
 }
 
 extension Array where Element: Hashable {
@@ -28,7 +29,7 @@ extension Array where Element: Hashable {
     }
 }
 
-final class VendingMachine: VendingMachineManagementable, VendingMachineUseable, Codable, BalancePrintable, StockPrintable, SellListPrintable {
+final class VendingMachine: VendingMachineManagementable, VendingMachineUseable, Codable, BalancePrintable, StockPrintable, SellListPrintable, SellDrinkPrintable {
     static let sharedInstance = VendingMachine()
     
     private var balance = Money()
@@ -50,30 +51,28 @@ final class VendingMachine: VendingMachineManagementable, VendingMachineUseable,
         notifyStockToObservers()
     }
     
-    func getAbleDrinks () -> [Drink] {
-        let supplyableDrinks = SupplyableDrinkList.getSupplyableDrinkList()
-        
-        return supplyableDrinks
-    }
-    
     /// 전체 상품 재고를 (사전으로 표현하는) 종류별로 리턴하는 메소드
-    func getStockList () -> Dictionary<Drink, Int> {
-        var stockList = Dictionary<Drink, Int>()
+    func getStockList () -> Dictionary<DrinkMenu, Int> {
+        var stockList = Dictionary<DrinkMenu, Int>()
         
-        for drink in stock {
-            let stockCount = getStockCount(drink, stockList)
-            stockList[drink] = stockCount
+        for drinkMenu in DrinkMenu.allCases {
+            let stockCount = getStockCount(drinkMenu)
+            stockList[drinkMenu] = stockCount
         }
         
         return stockList
     }
     
-    private func getStockCount (_ drink: Drink, _ stockList: Dictionary<Drink, Int>) -> Int {
-        if let stockCount = stockList[drink] {
-            return stockCount + 1
+    private func getStockCount (_ drinkMenu: DrinkMenu) -> Int {
+        var count = 0
+        
+        for drink in stock {
+            if drink == drinkMenu.getSample() {
+                count += 1
+            }
         }
         
-        return 1
+        return count
     }
     
     /// 유통기한이 지난 재고만 리턴하는 메소드
@@ -133,10 +132,6 @@ final class VendingMachine: VendingMachineManagementable, VendingMachineUseable,
         let supplyableDrink = drinkMenu.getSample()
         
         try buy(supplyableDrink)
-        
-        notifyStockToObservers()
-        notifyBalanceToObservers()
-        notifySellListToObservers()
     }
     
     /// 음료수를 구매하는 메소드
@@ -158,6 +153,7 @@ final class VendingMachine: VendingMachineManagementable, VendingMachineUseable,
         
         notifyBalanceToObservers()
         notifyStockToObservers()
+        notifySellDrinkToObservers()
     }
     
     /// 잔고를 옵저버에게 알리기
@@ -170,9 +166,9 @@ final class VendingMachine: VendingMachineManagementable, VendingMachineUseable,
         NotificationCenter.default.post(name: .refreshStock, object: nil)
     }
     
-    /// 판매 목록를 옵저버에게 알리기
-    private func notifySellListToObservers () {
-        NotificationCenter.default.post(name: .refreshSellList, object: nil)
+    /// 판매 음료를 옵저버에게 알리기
+    private func notifySellDrinkToObservers () {
+        NotificationCenter.default.post(name: .refreshSellDrink, object: nil)
     }
     
     func printBalance(handler: (Money) -> ()) {
@@ -181,9 +177,8 @@ final class VendingMachine: VendingMachineManagementable, VendingMachineUseable,
     
     func printStock(handler: (DrinkMenu, Int) -> ()) {
         let stock = getStockList()
-        
-        for (drink, count) in stock {
-            let drinkMenu = DrinkMenu.getDrinkMenu(drink)
+    
+        for (drinkMenu, count) in stock {
             handler(drinkMenu, count)
         }
     }
@@ -194,5 +189,12 @@ final class VendingMachine: VendingMachineManagementable, VendingMachineUseable,
             
             handler(drinkMenu)
         }
+    }
+    
+    func printSellDrink(handler: (Int, DrinkMenu) -> ()) {
+        let sellDrink = sellList.last!
+        let drinkMenu = DrinkMenu.getDrinkMenu(sellDrink)
+        
+        handler(sellList.count, drinkMenu)
     }
 }

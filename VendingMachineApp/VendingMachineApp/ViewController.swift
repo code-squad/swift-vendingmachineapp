@@ -34,7 +34,7 @@ class ViewController: UIViewController {
         
         vendingMachine = appDelegate.vendingMachine
         
-        refreshDrinkCount((vendingMachine))
+        refreshDrinkCount(vendingMachine)
         refreshBalance(vendingMachine)
         addSubViewToSellList(vendingMachine)
         
@@ -42,6 +42,7 @@ class ViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(onRefreshStock(_:)), name: .refreshStock, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(onRefreshBalance(_:)), name: .refreshBalance, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(onRefreshSellList(_:)), name: .refreshSellList, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(onRefreshSellDrink(_:)), name: .refreshSellDrink, object: nil)
     }
     
     private func refreshDrinkCount (_ stock: StockPrintable) {
@@ -79,10 +80,13 @@ class ViewController: UIViewController {
         }
         catch let error as BuyError
         {
-            print(error.localizedDescription)
+            let alert = UIAlertController(title: "오류", message: error.localizedDescription, preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "닫기", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         }
         catch {
-            print("안알려진 오류입니다")
+            
         }
     }
     
@@ -98,6 +102,10 @@ class ViewController: UIViewController {
         addSubViewToSellList(vendingMachine)
     }
     
+    @objc func onRefreshSellDrink(_ notification:Notification) {
+        addSubViewToSellDrink(vendingMachine)
+    }
+    
     private func addSubViewToSellList (_ sellList: SellListPrintable) {
         var xCoordinate = 40
         
@@ -109,6 +117,20 @@ class ViewController: UIViewController {
                     self.view.addSubview(imageView)
 
                     xCoordinate += 50
+        })
+    }
+    
+    private func addSubViewToSellDrink (_ sellDrink: SellDrinkPrintable) {
+        var xCoordinate = 40
+        
+        sellDrink.printSellDrink(handler:
+            { count, drinkMenu in
+                xCoordinate += (count-1)*50
+                
+                let image = UIImage(named: drinkMenu.getImageName())
+                let imageView = UIImageView(image: image!)
+                imageView.frame = CGRect(x: xCoordinate, y: 575, width: 100, height: 100)
+                self.view.addSubview(imageView)
         })
     }
 }

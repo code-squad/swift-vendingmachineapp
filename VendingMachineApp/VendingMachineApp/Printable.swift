@@ -17,5 +17,5 @@ protocol BalancePrintable {
 }
 
 protocol SellListPrintable {
-    func printSellList(handler: ([Drink])->())
+    func printSellList(handler: (DrinkMenu)->())
 }

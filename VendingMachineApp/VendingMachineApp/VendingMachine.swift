@@ -11,7 +11,6 @@ import Foundation
 extension Notification.Name {
     static let refreshStock = Notification.Name("refreshStock")
     static let refreshBalance = Notification.Name("refreshBalance")
-    static let refreshSellList = Notification.Name("refreshSellList")
     static let refreshSellDrink = Notification.Name("refreshSellDrink")
 }
 
@@ -29,7 +28,7 @@ extension Array where Element: Hashable {
     }
 }
 
-final class VendingMachine: VendingMachineManagementable, VendingMachineUseable, Codable, BalancePrintable, StockPrintable, SellListPrintable, SellDrinkPrintable {
+final class VendingMachine: VendingMachineManagementable, VendingMachineUseable, Codable, BalancePrintable, StockPrintable, SellDrinkPrintable {
     static let sharedInstance = VendingMachine()
     
     private var balance = Money()
@@ -156,17 +155,17 @@ final class VendingMachine: VendingMachineManagementable, VendingMachineUseable,
         notifySellDrinkToObservers()
     }
     
-    /// 잔고를 옵저버에게 알리기
+    /// 잔고가 변경됬다는 것을 옵저버에게 알리기
     private func notifyBalanceToObservers () {
         NotificationCenter.default.post(name: .refreshBalance, object: nil)
     }
     
-    /// 재고를 옵저버에게 알리기
+    /// 재고가 변경됬다는 것을 옵저버에게 알리기
     private func notifyStockToObservers () {
         NotificationCenter.default.post(name: .refreshStock, object: nil)
     }
     
-    /// 판매 음료를 옵저버에게 알리기
+    /// 판매 음료가 변경됬다는 것을 옵저버에게 알리기
     private func notifySellDrinkToObservers () {
         NotificationCenter.default.post(name: .refreshSellDrink, object: nil)
     }
@@ -183,11 +182,11 @@ final class VendingMachine: VendingMachineManagementable, VendingMachineUseable,
         }
     }
     
-    func printSellList(handler: (DrinkMenu) -> ()) {
-        for drink in sellList {
+    func printSellDrinkList(handler: (Int, DrinkMenu) -> ()) {
+        for (index, drink) in sellList.enumerated() {
             let drinkMenu = DrinkMenu.getDrinkMenu(drink)
             
-            handler(drinkMenu)
+            handler(index+1, drinkMenu)
         }
     }
     

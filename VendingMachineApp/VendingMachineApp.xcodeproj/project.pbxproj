@@ -11,6 +11,7 @@
 		3307997B22CC449F0005A70A /* Printable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3307997A22CC449F0005A70A /* Printable.swift */; };
 		3307998122CEFB040005A70A /* RoundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3307998022CEFB040005A70A /* RoundImageView.swift */; };
 		3307998322CF24050005A70A /* DrinkMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3307998222CF24050005A70A /* DrinkMenu.swift */; };
+		336CF32822D1BAAB00432BA7 /* AdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336CF32722D1BAAB00432BA7 /* AdminViewController.swift */; };
 		33FAF06322C2061400588E95 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FAF06222C2061400588E95 /* AppDelegate.swift */; };
 		33FAF06522C2061400588E95 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FAF06422C2061400588E95 /* ViewController.swift */; };
 		33FAF06822C2061400588E95 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33FAF06622C2061400588E95 /* Main.storyboard */; };
@@ -82,6 +83,7 @@
 		3307997A22CC449F0005A70A /* Printable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Printable.swift; sourceTree = "<group>"; };
 		3307998022CEFB040005A70A /* RoundImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RoundImageView.swift; path = ../RoundImageView.swift; sourceTree = "<group>"; };
 		3307998222CF24050005A70A /* DrinkMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkMenu.swift; sourceTree = "<group>"; };
+		336CF32722D1BAAB00432BA7 /* AdminViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminViewController.swift; sourceTree = "<group>"; };
 		33FAF05F22C2061400588E95 /* VendingMachineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendingMachineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33FAF06222C2061400588E95 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		33FAF06422C2061400588E95 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 				33FAF09E22C2412100588E95 /* images */,
 				33FAF06222C2061400588E95 /* AppDelegate.swift */,
 				33FAF06422C2061400588E95 /* ViewController.swift */,
+				336CF32722D1BAAB00432BA7 /* AdminViewController.swift */,
 				3307998022CEFB040005A70A /* RoundImageView.swift */,
 				33FAF06622C2061400588E95 /* Main.storyboard */,
 				33FAF06922C2061A00588E95 /* Assets.xcassets */,
@@ -341,6 +344,7 @@
 				33FAF08922C20AB200588E95 /* UserMenu.swift in Sources */,
 				33FAF06522C2061400588E95 /* ViewController.swift in Sources */,
 				33FAF06322C2061400588E95 /* AppDelegate.swift in Sources */,
+				336CF32822D1BAAB00432BA7 /* AdminViewController.swift in Sources */,
 				33FAF09922C20AB200588E95 /* BuyError.swift in Sources */,
 				33FAF08A22C20AB200588E95 /* VendingMachine.swift in Sources */,
 				33FAF09022C20AB200588E95 /* Hot6.swift in Sources */,

@@ -12,5 +12,4 @@ protocol VendingMachineManagementable: StockPrintable {
     mutating func supply(_ drinkMenu: DrinkMenu, amount: Int)
     func getExpiredDrinkList () -> [Drink]
     func getHotDrinkList () -> [Drink]
-    func printStock(handler: (DrinkMenu, Int)->())
 }

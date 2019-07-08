@@ -28,7 +28,7 @@ extension Array where Element: Hashable {
     }
 }
 
-final class VendingMachine: VendingMachineManagementable, VendingMachineUseable, Codable, BalancePrintable, StockPrintable, SellDrinkPrintable {
+final class VendingMachine: VendingMachineManagementable, VendingMachineUseable, Codable, BalancePrintable, SellDrinkPrintable {
     static let sharedInstance = VendingMachine()
     
     private var balance = Money()

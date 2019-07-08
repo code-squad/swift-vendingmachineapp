@@ -11,7 +11,7 @@ import UIKit
 class AdminViewController: UIViewController {
     @IBOutlet var drinksCount: [UILabel]!
     
-    var vendingMachine: VendingMachine!
+    private var vendingMachine: VendingMachineManagementable!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,5 +43,9 @@ class AdminViewController: UIViewController {
     
     @objc func onRefreshStock(_ notification:Notification) {
         refreshDrinkCount(vendingMachine)
+    }
+    
+    func referToVendingMachineManagementable (_ vendingMachineManagementable: VendingMachineManagementable) {
+        vendingMachine = vendingMachineManagementable
     }
 }

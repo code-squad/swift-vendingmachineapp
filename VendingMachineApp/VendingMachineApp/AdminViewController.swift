@@ -9,21 +9,12 @@
 import UIKit
 
 class AdminViewController: UIViewController {
-    @IBOutlet weak var bananaMilkCount: UILabel!
-    @IBOutlet weak var strawberryMilkCount: UILabel!
-    @IBOutlet weak var fantaCount: UILabel!
-    @IBOutlet weak var topCount: UILabel!
-    @IBOutlet weak var hot6Count: UILabel!
-    @IBOutlet weak var pepsiCokeCount: UILabel!
-    lazy var counts = [bananaMilkCount, strawberryMilkCount, fantaCount, topCount, hot6Count, pepsiCokeCount]
+    @IBOutlet var drinksCount: [UILabel]!
     
-    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var vendingMachine: VendingMachine!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        vendingMachine = appDelegate.vendingMachine
         
         refreshDrinkCount(vendingMachine)
         NotificationCenter.default.addObserver(self, selector: #selector(onRefreshStock(_:)), name: .refreshStock, object: nil)
@@ -44,8 +35,9 @@ class AdminViewController: UIViewController {
     
     private func refreshDrinkCount (_ stock: StockPrintable) {
         stock.printStock(handler:
-            { drinkMenu, count in
-                counts[drinkMenu.rawValue]?.text = String(count)+KoreanUnit.count.rawValue
+            { drinkMenu, count in drinksCount [drinkMenu.rawValue].text =
+                
+                String(count)+KoreanUnit.count.rawValue
         })
     }
     

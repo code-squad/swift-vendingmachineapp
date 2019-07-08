@@ -25,14 +25,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var pepsiCokeImage: UIImageView!
     lazy var images = [bananaMilkImage, strawberryMilkImage, fantaImage, topCoffeImage, hot6Image, pepsiCokeImage]
     
-    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var vendingMachine: VendingMachine!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
-        vendingMachine = appDelegate.vendingMachine
         
         refreshDrinkCount(vendingMachine)
         refreshBalance(vendingMachine)
@@ -49,6 +46,13 @@ class ViewController: UIViewController {
             { drinkMenu, count in
                 counts[drinkMenu.rawValue]?.text = String(count)+KoreanUnit.count.rawValue
         })
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "moveToAdmin" {
+            let destination = segue.destination as! AdminViewController
+            destination.vendingMachine = self.vendingMachine
+        }
     }
     
     private func refreshBalance (_ balance: BalancePrintable) {

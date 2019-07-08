@@ -8,8 +8,9 @@
 
 import Foundation
 
-protocol VendingMachineUseable {
+protocol VendingMachineUseable: StockPrintable, BalancePrintable, SellDrinkPrintable {
     mutating func insertCoin(_ coin: Int)
     func getBuyableDrinkList () -> [Drink]
     mutating func buy (_ drink: Drink) throws
+    func buyToDrinkMenu (_ drinkMenu: DrinkMenu) throws
 }

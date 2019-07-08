@@ -25,7 +25,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var pepsiCokeImage: UIImageView!
     lazy var images = [bananaMilkImage, strawberryMilkImage, fantaImage, topCoffeImage, hot6Image, pepsiCokeImage]
     
-    var vendingMachine: VendingMachine!
+    var vendingMachine: VendingMachineUseable!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,7 +51,7 @@ class ViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "moveToAdmin" {
             let destination = segue.destination as! AdminViewController
-            destination.referToVendingMachineManagementable(self.vendingMachine)
+            destination.referToVendingMachineManagementable(self.vendingMachine as! VendingMachineManagementable)
         }
     }
     
@@ -60,14 +60,6 @@ class ViewController: UIViewController {
             { balance in
                 self.balance.text = "\(balance)"+KoreanUnit.won.rawValue
         })
-    }
-
-    @IBAction func drinkSupply(_ sender: UIButton) {
-        let drinkMenu = DrinkMenu(rawValue: sender.tag)
-        
-        if let drinkMenu = drinkMenu {
-            vendingMachine.supply(drinkMenu, amount: 1)
-        }
     }
     
     @IBAction func insertCoin(_ sender: UIButton) {

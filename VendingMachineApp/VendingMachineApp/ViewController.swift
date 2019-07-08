@@ -51,7 +51,7 @@ class ViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "moveToAdmin" {
             let destination = segue.destination as! AdminViewController
-            destination.vendingMachine = self.vendingMachine
+            destination.referToVendingMachineManagementable(self.vendingMachine)
         }
     }
     

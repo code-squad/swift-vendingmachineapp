@@ -196,4 +196,12 @@ final class VendingMachine: VendingMachineManagementable, VendingMachineUseable,
         
         handler(sellList.count, drinkMenu)
     }
+    
+    func drawPieGraph(handler: (DrinkMenu, Int) -> ()) {
+        let stock = getStockList()
+        
+        for (drinkMenu, count) in stock {
+            handler(drinkMenu, count)
+        }
+    }
 }

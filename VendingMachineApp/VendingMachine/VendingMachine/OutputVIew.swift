@@ -22,7 +22,7 @@ struct OutputView {
     }
     
     // 현재 보유 중인 음료수 내역
-    func beverageList(_ beverage:VendingMachine) {
+    static func beverageList(_ beverage:VendingMachine) {
         let drinks = beverage.currentBeverageStatus()
         for inner in 0 ..< drinks.count {
             print("\(inner + 1)) \(drinks[inner].beverageName) \(drinks[inner].beveragaPrice)원 \(drinks[inner].beverageCount)개")
@@ -35,7 +35,7 @@ struct OutputView {
     }
     
     // 에러 출력
-    func printError(_ error: InputError) {
+    static func printError(_ error: InputError) {
             print(error.message())
     }
 }

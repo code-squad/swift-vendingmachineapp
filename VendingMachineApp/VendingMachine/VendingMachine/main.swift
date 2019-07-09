@@ -21,7 +21,7 @@ struct main {
     
     static func input() throws -> userChoice {
         OutputView.currentStatus(vendingMachine.balance()) // 현재 투입한 금액이 0원입니다. 다음과 같은 음료가 있습니다.
-        OutputView().beverageList(vendingMachine)
+        OutputView.beverageList(vendingMachine)
         OutputView.menu() // 1. 금액추가 2. 음료구매
         let select = InputView().selectMenu() // 메뉴를 선택하도록 입력 받는다.
         return try incorrect(select)
@@ -48,10 +48,10 @@ func work()  {
         do {
             try main.operate()
         } catch let error as InputError{
-            OutputView().printError(error)
+            OutputView.printError(error)
         }
         catch {
-            OutputView().printError(InputError.unexpected)
+            OutputView.printError(InputError.unexpected)
         }
     }
 }

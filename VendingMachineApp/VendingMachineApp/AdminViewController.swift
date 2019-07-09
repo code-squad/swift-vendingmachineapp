@@ -57,7 +57,7 @@ class AdminViewController: UIViewController {
         let colors = [#colorLiteral(red: 1, green: 0.1426950693, blue: 0.01320748683, alpha: 1),#colorLiteral(red: 0.9933604598, green: 0.8310629725, blue: 0.003603453049, alpha: 1),#colorLiteral(red: 0.3653128147, green: 0.2048009932, blue: 0.4820051193, alpha: 1),#colorLiteral(red: 0.2989775836, green: 0.3618170917, blue: 0.5847190619, alpha: 1),#colorLiteral(red: 0.1790518165, green: 0.6309198141, blue: 0.4178460836, alpha: 1),#colorLiteral(red: 0.7070120573, green: 0.2774977088, blue: 0.3688604832, alpha: 1)]
         var segments = [LabelledSegment]()
         
-        pieChartView.segmentLabelFont = .systemFont(ofSize: 20)
+        pieChartView.segmentLabelFont = .systemFont(ofSize: 15)
         
         stock.drawPieGraph(handler:
             { drinkMenu, count in

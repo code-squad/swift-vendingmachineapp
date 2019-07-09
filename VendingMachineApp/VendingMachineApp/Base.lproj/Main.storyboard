@@ -363,7 +363,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Roq-II-41w">
-                                <rect key="frame" x="426" y="427" width="127" height="100"/>
+                                <rect key="frame" x="430" y="20" width="127" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="73"/>
                                 <state key="normal" title="닫기">
@@ -373,11 +373,17 @@
                                     <action selector="closeButton:" destination="JsE-7S-LTQ" eventType="touchUpInside" id="Qjo-FQ-IAK"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OWW-BZ-Tvq" customClass="PieGraphView" customModule="VendingMachineApp" customModuleProvider="target">
+                                <rect key="frame" x="293" y="402" width="400" height="400"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.42375338080000002" green="0.66167640689999996" blue="0.43918132780000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="4lX-Ak-Ame"/>
                     </view>
                     <connections>
+                        <outlet property="pieChartView" destination="OWW-BZ-Tvq" id="nfM-jk-VgL"/>
                         <outletCollection property="drinksCount" destination="EHL-Gs-CuE" collectionClass="NSMutableArray" id="pA2-G6-xzb"/>
                         <outletCollection property="drinksCount" destination="MWb-cw-Zdo" collectionClass="NSMutableArray" id="b3Q-BS-V7E"/>
                         <outletCollection property="drinksCount" destination="IMw-56-uH0" collectionClass="NSMutableArray" id="6d3-3l-MAw"/>

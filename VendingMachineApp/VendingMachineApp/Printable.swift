@@ -20,3 +20,7 @@ protocol SellDrinkPrintable {
     func printSellDrink(handler: (Int, DrinkMenu)->())
     func printSellDrinkList(handler: (Int, DrinkMenu)->())
 }
+
+protocol pieGraphDrawable {
+    func drawPieGraph(handler: (DrinkMenu, Int)->())
+}

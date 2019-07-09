@@ -9,10 +9,16 @@
 import UIKit
 
 class ViewController: UIViewController {
+    var inven = Inventory()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        var beverage = [BeverageType.chocolate,BeverageType.cola]
+        var vending = VendingMachine(inven.beverageList(beverage))
+        print(vending.drinks())
+        
+        
+        
     }
 
 

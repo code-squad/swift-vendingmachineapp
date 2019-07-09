@@ -23,6 +23,7 @@ class AdminViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         drawPieGraph(vendingMachine)
+        super.viewWillAppear(false)
     }
 
     @IBAction func closeButton(_ sender: Any) {

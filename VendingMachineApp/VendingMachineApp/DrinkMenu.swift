@@ -46,4 +46,15 @@ enum DrinkMenu: Int, CaseIterable {
         }
         return DrinkMenu.fanta
     }
+    
+    func getKoreaName () -> String {
+        switch self {
+        case .bananaMilk: return "바나나우유"
+        case .strawberryMilk: return "딸기우유"
+        case .fanta: return "환타"
+        case .top: return "티오피"
+        case .hot6: return "핫식스"
+        case .pepsiCoke: return "펩시콜라"
+        }
+    }
 }

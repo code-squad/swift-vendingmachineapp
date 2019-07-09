@@ -31,9 +31,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        refreshDrinkCount(vendingMachine)
-        refreshBalance(vendingMachine)
-        addSubViewToSellDrinkList(vendingMachine)
+        refreshDrinkCount()
+        refreshBalance()
+        addSubViewToSellDrinkList()
         
         
         NotificationCenter.default.addObserver(self, selector: #selector(onRefreshStock(_:)), name: .refreshStock, object: nil)
@@ -41,8 +41,8 @@ class ViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(onRefreshSellDrink(_:)), name: .refreshSellDrink, object: nil)
     }
     
-    private func refreshDrinkCount (_ stock: StockPrintable) {
-        stock.printStock(handler:
+    private func refreshDrinkCount () {
+        vendingMachine.printStock(handler:
             { drinkMenu, count in
                 counts[drinkMenu.rawValue]?.text = String(count)+KoreanUnit.count.rawValue
         })
@@ -55,8 +55,8 @@ class ViewController: UIViewController {
         }
     }
     
-    private func refreshBalance (_ balance: BalancePrintable) {
-        balance.printBalance(handler:
+    private func refreshBalance () {
+        vendingMachine.printBalance(handler:
             { balance in
                 self.balance.text = "\(balance)"+KoreanUnit.won.rawValue
         })
@@ -86,27 +86,27 @@ class ViewController: UIViewController {
     }
     
     @objc func onRefreshStock(_ notification:Notification) {
-       refreshDrinkCount(vendingMachine)
+       refreshDrinkCount()
     }
     
     @objc func onRefreshBalance(_ notification:Notification) {
-        refreshBalance(vendingMachine)
+        refreshBalance()
     }
     
     @objc func onRefreshSellList(_ notification:Notification) {
-        addSubViewToSellDrink(vendingMachine)
+        addSubViewToSellDrink()
     }
     
     @objc func onRefreshSellDrink(_ notification:Notification) {
-        addSubViewToSellDrink(vendingMachine)
+        addSubViewToSellDrink()
     }
     
-    private func addSubViewToSellDrink (_ sellDrink: SellDrinkPrintable) {
-        sellDrink.printSellDrink(handler: addSubView)
+    private func addSubViewToSellDrink () {
+        vendingMachine.printSellDrink(handler: addSubView)
     }
     
-    private func addSubViewToSellDrinkList (_ sellDrink: SellDrinkPrintable) {
-        sellDrink.printSellDrinkList(handler: addSubView)
+    private func addSubViewToSellDrinkList () {
+        vendingMachine.printSellDrinkList(handler: addSubView)
     }
     
     private func addSubView (count: Int, drinkMenu: DrinkMenu) {

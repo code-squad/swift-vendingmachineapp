@@ -219,7 +219,7 @@ class PieGraphView : UIView {
             dataSource?.addSegment(handler:
                 { count in
                     if count > 0 {
-                        segments.append(LabelledSegment(color: colors[drink.rawValue], name: drink.getKoreaName(), value: CGFloat(count)))
+                        segments.append(LabelledSegment(color: colors[drink.rawValue], name: drink.getName(), value: CGFloat(count)))
                     }
             }, drinkMenu: drink)
         }

@@ -27,9 +27,9 @@ enum BeverageType: String {
         case .sprite :
             return Sider(carbonicAcidContent: 30, calorie: 300, brand: "코카콜라", volume: 300, price: 2000, productName: "스프라이트")
         case .kanuIce :
-            return Kanu(kindOfKanu: "아이스블랜드", ice: true, brand: "맥심", volume: 180, price: 500, productName: "카누 아이스 블랜드")
+            return Kanu(kindOfKanu: "아이스블랜드", temperature: -3, brand: "맥심", volume: 180, price: 500, productName: "카누 아이스 블랜드")
         case .TOPLatte :
-            return TOP(flavor: "라떼", ice: false, brand: "맥심", volume: 200, price: 1400, productName: "TOP카페라떼")
+            return TOP(flavor: "라떼", temperature: 68, brand: "맥심", volume: 200, price: 1400, productName: "TOP카페라떼")
         }
     }
 //    case strawberry = "1"

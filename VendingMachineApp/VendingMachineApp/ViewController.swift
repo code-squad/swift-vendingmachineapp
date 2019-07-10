@@ -9,16 +9,15 @@
 import UIKit
 
 class ViewController: UIViewController {
+    var vending = VendingMachine()
     var inven = Inventory()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         var beverage = [BeverageType.chocolate,BeverageType.cola]
-        var vending = VendingMachine(inven.beverageList(beverage))
-        print(vending.drinks())
-        
-        
-        
+        var list = inven.beverageList(beverage)
+        print(vending.drinks(list))
     }
 
 

@@ -22,5 +22,5 @@ protocol SellDrinkPrintable {
 }
 
 protocol pieGraphDrawable {
-    func drawPieGraph(handler: (DrinkMenu, Int)->())
+    func addSegment(handler: (Int) -> (), drinkMenu: DrinkMenu)
 }

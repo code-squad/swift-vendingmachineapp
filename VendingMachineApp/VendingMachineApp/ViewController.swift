@@ -112,7 +112,7 @@ class ViewController: UIViewController {
     private func addSubView (count: Int, drinkMenu: DrinkMenu) {
         let xCoordinate = ((count-1)*50)+40
     
-        let image = UIImage(named: drinkMenu.getImageName())
+        let image = UIImage(named: drinkMenu.getName()+".jpg")
         let imageView = UIImageView(image: image!)
         imageView.frame = CGRect(x: xCoordinate, y: 575, width: 100, height: 100)
         self.view.addSubview(imageView)

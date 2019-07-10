@@ -27,14 +27,14 @@ enum DrinkMenu: Int, CaseIterable {
         }
     }
     
-    func getImageName () -> String {
+    func getName () -> String {
         switch self {
-        case .bananaMilk: return "bananaMilk.jpg"
-        case .strawberryMilk: return "strawberryMilk.jpg"
-        case .fanta: return "fanta.jpg"
-        case .top: return "top.jpg"
-        case .hot6: return "hot6.jpg"
-        case .pepsiCoke: return "pepsiCoke.jpg"
+        case .bananaMilk: return "bananaMilk"
+        case .strawberryMilk: return "strawberryMilk"
+        case .fanta: return "fanta"
+        case .top: return "top"
+        case .hot6: return "hot6"
+        case .pepsiCoke: return "pepsiCoke"
         }
     }
     
@@ -45,16 +45,5 @@ enum DrinkMenu: Int, CaseIterable {
             }
         }
         return DrinkMenu.fanta
-    }
-    
-    func getKoreaName () -> String {
-        switch self {
-        case .bananaMilk: return "바나나우유"
-        case .strawberryMilk: return "딸기우유"
-        case .fanta: return "환타"
-        case .top: return "티오피"
-        case .hot6: return "핫식스"
-        case .pepsiCoke: return "펩시콜라"
-        }
     }
 }

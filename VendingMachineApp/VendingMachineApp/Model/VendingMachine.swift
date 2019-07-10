@@ -8,28 +8,27 @@
 
 import Foundation
 
-class VendingMachine {
+struct VendingMachine {
     enum Menu: String {
         case insertMoney = "1"
         case buyBeverage = "2"
     }
     
     private var list: [Beverage]
-    private var currentBalance: Int
+    private var currentBalance: Int = 0
     private var purchase = [String]()
     
-    init(_ list: [Beverage], currentBalance: Int = 0) {
-        self.list = list
-        self.currentBalance = currentBalance
+    init() {
+        self.list = []
     }
     
     // 현재 보유 중인 음료 리턴
-    func drinks() -> [Beverage] {
-        return self.list
+    func drinks(_ list: [Beverage]) -> [Beverage] {
+        return list
     }
     
     // 자판기 금액을 변경해주는 메소드
-    func insert(money: Int) {
+    mutating func insert(money: Int) {
         self.currentBalance = currentBalance + money
     }
     

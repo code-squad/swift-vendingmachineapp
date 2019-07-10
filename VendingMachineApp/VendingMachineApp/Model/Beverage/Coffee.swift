@@ -9,6 +9,7 @@
 import Foundation
 
 class Coffee: Beverage {
+    static let standard = 65
     private let temperature: Int
     
     init(temperature: Int, brand: String, volume: Int, price: Int, productName: String, dateOfManufacture: Date = Date()) {
@@ -17,7 +18,7 @@ class Coffee: Beverage {
     }
     
     func isHot() -> Bool {
-        return temperature > 65
+        return temperature > Coffee.standard
     }
 }
 

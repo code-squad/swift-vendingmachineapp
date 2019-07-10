@@ -22,7 +22,7 @@ class AdminViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        pieChartView.changeSegments(vendingMachine)
+        pieChartView.dataSource = vendingMachine
         super.viewWillAppear(false)
     }
 

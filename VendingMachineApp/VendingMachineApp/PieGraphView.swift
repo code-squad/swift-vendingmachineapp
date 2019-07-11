@@ -210,7 +210,6 @@ class PieGraphView : UIView {
                     // segment.
                     startAngle = endAngle
                 }
-//                startAngle = endAngle
                 
                 body(LabelledSegment(color: colors[index], name: drinkMenu.getName(), value: CGFloat(value)), startAngle, endAngle)
             })

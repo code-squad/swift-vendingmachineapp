@@ -8,19 +8,6 @@
 
 import UIKit
 
-/// Defines a segment of the pie chart.
-struct LabelledSegment {
-    
-    /// The color of the segment.
-    var color: UIColor
-    
-    /// The name of the segment.
-    var name: String
-    
-    /// The value of the segment.
-    var value: CGFloat
-}
-
 extension Collection where Element : Numeric {
     func sum() -> Element {
         return reduce(0, +)
@@ -86,28 +73,6 @@ extension UIColor.RGBAComponents {
     var brightness: CGFloat {
         return (red + green + blue) / 3
     }
-}
-
-struct SegmentLabelFormatter {
-    private let _getLabel: (LabelledSegment) -> String
-    init(_ getLabel: @escaping (LabelledSegment) -> String) {
-        self._getLabel = getLabel
-    }
-    func getLabel(for segment: LabelledSegment) -> String {
-        return _getLabel(segment)
-    }
-}
-
-extension SegmentLabelFormatter {
-    /// Display the segment's name along with its value in parentheses.
-    static let nameWithValue = SegmentLabelFormatter { segment in
-        let formattedValue = NumberFormatter.toOneDecimalPlace
-            .string(from: segment.value as NSNumber) ?? "\(segment.value)"
-        return "\(segment.name) (\(formattedValue))"
-    }
-    
-    /// Only display the segment's name.
-    static let nameOnly = SegmentLabelFormatter { $0.name }
 }
 
 @IBDesignable

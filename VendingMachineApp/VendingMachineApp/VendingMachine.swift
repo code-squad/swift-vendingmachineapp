@@ -197,10 +197,42 @@ final class VendingMachine: VendingMachineManagementable, VendingMachineUseable,
         handler(sellList.count, drinkMenu)
     }
     
-    func addSegment(handler: (Int) -> (), drinkMenu: DrinkMenu) {
+    func getSegmentsCount() -> Int {
         let stock = getStockList()
-        let count = stock[drinkMenu]!
+        var count = 0
         
-        handler(count)
+        for drink in stock {
+            if drink.value > 0 {
+                count += 1
+            }
+        }
+        
+        return count
+    }
+    
+    func getSegmentsValueTotal() -> Float {
+        let stock = getStockList()
+
+        let result: Float = Float(stock.reduce(0) { (result, arg1) -> Int in
+            return result + arg1.value
+        })
+        
+        return result
+    }
+    
+    func drawSegment(index: Int, handler: (DrinkMenu, Float) -> ()) {
+        let stock = getStockList()
+        
+        let segments = stock.filter { (arg0) -> Bool in
+            return arg0.value > 0
+        }
+        
+        let segementsSorted = segments.sorted { (arg0, arg1) -> Bool in
+            return arg0.key.rawValue < arg1.key.rawValue
+        }
+        
+        let segment = segementsSorted[segementsSorted.index(segementsSorted.startIndex, offsetBy: index)]
+        
+        handler(segment.key, Float(segment.value))
     }
 }

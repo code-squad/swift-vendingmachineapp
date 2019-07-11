@@ -190,7 +190,11 @@ class PieGraphView : UIView {
         _ endAngle: CGFloat) -> Void
         ) {
         // Enumerate the total value of the segments by using reduce to sum them.
-        let valueCount = segments.lazy.map { $0.value }.sum()
+//        let valueCount = segments.lazy.map { $0.value }.sum()
+        
+        let valueCount = CGFloat((dataSource?.getSegmentsValueTotal())!)
+        let segmentCount = dataSource?.getSegmentsCount()
+        let colors = [#colorLiteral(red: 1, green: 0.1426950693, blue: 0.01320748683, alpha: 1),#colorLiteral(red: 0.9933604598, green: 0.8310629725, blue: 0.003603453049, alpha: 1),#colorLiteral(red: 0.3653128147, green: 0.2048009932, blue: 0.4820051193, alpha: 1),#colorLiteral(red: 0.2989775836, green: 0.3618170917, blue: 0.5847190619, alpha: 1),#colorLiteral(red: 0.1790518165, green: 0.6309198141, blue: 0.4178460836, alpha: 1),#colorLiteral(red: 0.7070120573, green: 0.2774977088, blue: 0.3688604832, alpha: 1)]
         
         // The starting angle is -90 degrees (top of the circle, as the context is
         // flipped). By default, 0 is the right hand side of the circle, with the
@@ -198,32 +202,22 @@ class PieGraphView : UIView {
         // circle in maths).
         var startAngle: CGFloat = -.pi * 0.5
         
-        // Loop through the values array.
-        for segment in segments {
-            // Get the end angle of this segment.
-            let endAngle = startAngle + .pi * 2 * (segment.value / valueCount)
-            defer {
-                // Update starting angle of the next segment to the ending angle of this
-                // segment.
-                startAngle = endAngle
-            }
-            
-            body(segment, startAngle, endAngle)
+        for index in 0..<segmentCount! {
+            dataSource?.drawSegment(index: index, handler: { (drinkMenu, value)  in
+                let endAngle = startAngle + .pi * 2 * (CGFloat(value) / valueCount)
+                defer {
+                    // Update starting angle of the next segment to the ending angle of this
+                    // segment.
+                    startAngle = endAngle
+                }
+//                startAngle = endAngle
+                
+                body(LabelledSegment(color: colors[index], name: drinkMenu.getName(), value: CGFloat(value)), startAngle, endAngle)
+            })
         }
     }
     
     override func draw(_ rect: CGRect) {
-        let colors = [#colorLiteral(red: 1, green: 0.1426950693, blue: 0.01320748683, alpha: 1),#colorLiteral(red: 0.9933604598, green: 0.8310629725, blue: 0.003603453049, alpha: 1),#colorLiteral(red: 0.3653128147, green: 0.2048009932, blue: 0.4820051193, alpha: 1),#colorLiteral(red: 0.2989775836, green: 0.3618170917, blue: 0.5847190619, alpha: 1),#colorLiteral(red: 0.1790518165, green: 0.6309198141, blue: 0.4178460836, alpha: 1),#colorLiteral(red: 0.7070120573, green: 0.2774977088, blue: 0.3688604832, alpha: 1)]
-        
-        for drink in DrinkMenu.allCases {
-            dataSource?.addSegment(handler:
-                { count in
-                    if count > 0 {
-                        segments.append(LabelledSegment(color: colors[drink.rawValue], name: drink.getName(), value: CGFloat(count)))
-                    }
-            }, drinkMenu: drink)
-        }
-        
         // Get current context.
         guard let ctx = UIGraphicsGetCurrentContext() else { return }
         
@@ -258,7 +252,7 @@ class PieGraphView : UIView {
                 
                 // Get the 'center' of the segment.
                 var segmentCenter = viewCenter
-                if segments.count > 1 {
+                if (dataSource?.getSegmentsCount())! > 1 {
                     segmentCenter = segmentCenter
                         .projected(by: radius * textPositionOffset, angle: halfAngle)
                 }

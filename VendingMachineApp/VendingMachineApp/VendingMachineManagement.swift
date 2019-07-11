@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol VendingMachineManagementable: StockPrintable, pieGraphDrawable {
+protocol VendingMachineManagementable: StockPrintable, PieGraphDrawable {
     mutating func supply(_ drinkMenu: DrinkMenu, amount: Int)
     func getExpiredDrinkList () -> [Drink]
     func getHotDrinkList () -> [Drink]

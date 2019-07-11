@@ -21,7 +21,7 @@ protocol SellDrinkPrintable {
     func printSellDrinkList(handler: (Int, DrinkMenu)->())
 }
 
-protocol pieGraphDrawable {
+protocol PieGraphDrawable {
     func getSegmentsValueTotal() -> Float
     func getSegmentsCount() -> Int
     func drawSegment(index: Int, handler: (DrinkMenu, Float) -> ())

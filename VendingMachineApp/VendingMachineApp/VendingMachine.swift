@@ -201,13 +201,11 @@ final class VendingMachine: VendingMachineManagementable, VendingMachineUseable,
         let stock = getStockList()
         var count = 0
         
-        for drink in stock {
-            if drink.value > 0 {
-                count += 1
-            }
+        let segments = stock.filter { (arg0) -> Bool in
+            return arg0.value > 0
         }
         
-        return count
+        return segments.count
     }
     
     func getSegmentsValueTotal() -> Float {

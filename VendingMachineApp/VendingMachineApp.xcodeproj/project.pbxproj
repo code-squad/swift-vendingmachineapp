@@ -25,6 +25,7 @@
 		150AD19622DC57F9009127A9 /* CantataCoffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150AD18A22DC57F9009127A9 /* CantataCoffee.swift */; };
 		150AD19722DC57F9009127A9 /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150AD18B22DC57F9009127A9 /* Milk.swift */; };
 		150AD19922DC57F9009127A9 /* Sprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150AD18D22DC57F9009127A9 /* Sprite.swift */; };
+		150AD19B22DC6335009127A9 /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150AD19A22DC6335009127A9 /* VendingMachine.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		150AD18A22DC57F9009127A9 /* CantataCoffee.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CantataCoffee.swift; sourceTree = "<group>"; };
 		150AD18B22DC57F9009127A9 /* Milk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Milk.swift; sourceTree = "<group>"; };
 		150AD18D22DC57F9009127A9 /* Sprite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sprite.swift; sourceTree = "<group>"; };
+		150AD19A22DC6335009127A9 /* VendingMachine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VendingMachine.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +164,7 @@
 				150AD18D22DC57F9009127A9 /* Sprite.swift */,
 				150AD18622DC57F9009127A9 /* TOPCoffee.swift */,
 				150AD18A22DC57F9009127A9 /* CantataCoffee.swift */,
+				150AD19A22DC6335009127A9 /* VendingMachine.swift */,
 			);
 			path = VendingMachineClass;
 			sourceTree = "<group>";
@@ -310,6 +313,7 @@
 				150AD19122DC57F9009127A9 /* Product.swift in Sources */,
 				150AD19722DC57F9009127A9 /* Milk.swift in Sources */,
 				150AD19322DC57F9009127A9 /* Coffee.swift in Sources */,
+				150AD19B22DC6335009127A9 /* VendingMachine.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

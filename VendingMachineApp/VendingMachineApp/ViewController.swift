@@ -9,10 +9,22 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    let formatter = OutputFormatter()
+    
+    let machine = VendingMachine()
+    let maker = BeverageMaker()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        machine.switchMode(to: .administrator)
+        try! machine.addItems(maker.exampleBeverages)
+        
+        let inventoryStr = formatter.inventory(machine.inventory)
+        
+        print(inventoryStr)
     }
 
 

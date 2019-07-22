@@ -43,8 +43,6 @@
 		C557604522E58C68003FD540 /* ChargingMoneyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5575FFA22E58C68003FD540 /* ChargingMoneyState.swift */; };
 		C557604622E58C68003FD540 /* ReadyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5575FFB22E58C68003FD540 /* ReadyState.swift */; };
 		C557604722E58C68003FD540 /* MockVendingMachineCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5575FFD22E58C68003FD540 /* MockVendingMachineCreator.swift */; };
-		C557604822E58C68003FD540 /* UserMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5575FFE22E58C68003FD540 /* UserMode.swift */; };
-		C557604A22E58C68003FD540 /* AdminMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C557600022E58C68003FD540 /* AdminMode.swift */; };
 		C557604C22E58C68003FD540 /* VendingMachineError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C557600322E58C68003FD540 /* VendingMachineError.swift */; };
 		C557604D22E58C68003FD540 /* BeverageInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C557600522E58C68003FD540 /* BeverageInfo.swift */; };
 		C557604E22E58C68003FD540 /* DrinkStockTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C557600622E58C68003FD540 /* DrinkStockTable.swift */; };
@@ -106,8 +104,6 @@
 		C5575FFA22E58C68003FD540 /* ChargingMoneyState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChargingMoneyState.swift; sourceTree = "<group>"; };
 		C5575FFB22E58C68003FD540 /* ReadyState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadyState.swift; sourceTree = "<group>"; };
 		C5575FFD22E58C68003FD540 /* MockVendingMachineCreator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockVendingMachineCreator.swift; sourceTree = "<group>"; };
-		C5575FFE22E58C68003FD540 /* UserMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserMode.swift; sourceTree = "<group>"; };
-		C557600022E58C68003FD540 /* AdminMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminMode.swift; sourceTree = "<group>"; };
 		C557600322E58C68003FD540 /* VendingMachineError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VendingMachineError.swift; sourceTree = "<group>"; };
 		C557600522E58C68003FD540 /* BeverageInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeverageInfo.swift; sourceTree = "<group>"; };
 		C557600622E58C68003FD540 /* DrinkStockTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrinkStockTable.swift; sourceTree = "<group>"; };
@@ -335,8 +331,6 @@
 			isa = PBXGroup;
 			children = (
 				C5575FFD22E58C68003FD540 /* MockVendingMachineCreator.swift */,
-				C5575FFE22E58C68003FD540 /* UserMode.swift */,
-				C557600022E58C68003FD540 /* AdminMode.swift */,
 			);
 			name = VendingMachine;
 			path = ../VendingMachine;
@@ -518,7 +512,6 @@
 				C557604422E58C68003FD540 /* InitialState.swift in Sources */,
 				C557603922E58C68003FD540 /* Antihypnotical.swift in Sources */,
 				C557604222E58C68003FD540 /* AddStockState.swift in Sources */,
-				C557604822E58C68003FD540 /* UserMode.swift in Sources */,
 				C557603A22E58C68003FD540 /* SugaryContainable.swift in Sources */,
 				C557606522E58C68003FD540 /* CoffeeBean.swift in Sources */,
 				C557603022E58C68003FD540 /* CarbonatedDrink.swift in Sources */,
@@ -535,7 +528,6 @@
 				C557602922E58C68003FD540 /* Milk.swift in Sources */,
 				C557603722E58C68003FD540 /* Coffee.swift in Sources */,
 				C5575FBE22E58C2A003FD540 /* AppDelegate.swift in Sources */,
-				C557604A22E58C68003FD540 /* AdminMode.swift in Sources */,
 				C557604022E58C68003FD540 /* RemoveStockState.swift in Sources */,
 				C557603F22E58C68003FD540 /* AdminReadyState.swift in Sources */,
 				C557603E22E58C68003FD540 /* StateTransitionable.swift in Sources */,

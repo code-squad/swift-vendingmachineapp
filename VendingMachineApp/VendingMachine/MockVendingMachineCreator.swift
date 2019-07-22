@@ -29,9 +29,14 @@ class MockVendingMachineCreator {
         let firstDrink = StrawberryMilk.init(brand: "매일우유", quantity: 500, price: 1000, name: "딸기우유", date: validDate, isLowFat: false, fruitPercent: 3.0, fruitOrigin: "국산", milkFarmCode: .kyunggy, calorySet: defaultCaloryElements, temperature: 4)
         let secondDrink = Coke.init(brand: "펩시", quantity: 500, price: 1500, name: "펩시콜라", date: validDate, sugar: 30, calorySet: sugarCaloryElements, temperature: 5)
         let thirdDrink = BananaMilk.init(brand: "서울우유", quantity: 350, price: 1300, name: "바나나우유", date: validDate, isLowFat: false, bananaPercent: 3, fruitOrigin: "필리핀", milkFarmCode: .kangwon, calorySet: defaultCaloryElements, temperature: 5)
+        let fourthDrink = TOPCoffee.init(brand: "맥심", quantity: 450, price: 3000, name: "TOP커피", date: validDate, coffeine: 90, bean: .ethiopia, type: .americano, calorySet: minimumCaloryElements, temperature: 60)
+        let fifthDrink = HotSix.init(brand: "롯데칠성", quantity: 250, price: 800, name: "핫식스", date: validDate, sugar: 35, coffeine: 100, taurine: 100, calorySet: sugarCaloryElements, temp: 5)
         drinkList.append(firstDrink)
         drinkList.append(secondDrink)
         drinkList.append(thirdDrink)
+        drinkList.append(fourthDrink)
+        drinkList.append(fifthDrink)
+
         return drinkList
     }
     

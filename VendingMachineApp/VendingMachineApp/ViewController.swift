@@ -9,14 +9,14 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    private var vendingMachine: VendingMachine!
     override func viewDidLoad() {
         super.viewDidLoad()
-        let vendingMachine = MockVendingMachineCreator.initializeVendingMachine()
-        printInitialDrinkMenuList(vendingMachine)
+        vendingMachine = MockVendingMachineCreator.initializeVendingMachine()
+        printInitialDrinkMenuList()
     }
 
-    func printInitialDrinkMenuList(_ vendingmachine: VendingMachine){
+    func printInitialDrinkMenuList(){
         let printDrinkMenuListFormat = {
             (sortedMenutable: [(key: Int, value: DrinkItemList)]) in
             sortedMenutable.forEach{ (key: Int, value: DrinkItemList) in
@@ -24,7 +24,7 @@ class ViewController: UIViewController {
             }
             print()
         }
-        vendingmachine.displayDrinkMenuList(printFormat: printDrinkMenuListFormat)
+        vendingMachine.displayDrinkMenuList(printFormat: printDrinkMenuListFormat)
     }
 
 }

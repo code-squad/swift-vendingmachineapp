@@ -1,57 +1,84 @@
-# 진행 방법
+# STEP1
 
-- 음료수 자판기 iOS 앱에 요구사항을 파악한다.
-- 요구사항에 대한 구현을 완료한 후 자신의 github 아이디에 해당하는 브랜치에 Pull Request(이하 PR)를 통해 코드 리뷰 요청을 한다.
-- 코드 리뷰 피드백에 대한 개선 작업을 하고 다시 PUSH한다.
-- 모든 피드백을 완료하면 다음 단계를 도전하고 앞의 과정을 반복한다.
+### 결과화면 
 
-# 코드 리뷰 과정
-> 저장소 브랜치에 자신의 github 아이디에 해당하는 브랜치가 존재해야 한다.
->
-> 자신의 github 아이디에 해당하는 브랜치가 있는지 확인한다.
+![image](./images/step1.png)
 
-1. 자신의 github 아이디에 해당하는 브랜치가 없는 경우 브랜치 생성 요청 채널을 통해 브랜치 생성을 요청한다.
-프로젝트를 자신의 계정으로 fork한다. 저장소 우측 상단의 fork 버튼을 활용한다.
 
-2. fork한 프로젝트를 자신의 컴퓨터로 clone한다.
-```
-git clone https://github.com/{본인_아이디}/{저장소 아이디}
-ex) https://github.com/godrm/swift-vendingmachineapp
-```
 
-3. clone한 프로젝트 이동
-```
-cd {저장소 아이디}
-ex) cd swift-vendingmachineapp
-```
+### 주의사항
 
-4. 본인 아이디로 브랜치를 만들기 위한 checkout
-```
-git checkout -t origin/본인_아이디
-ex) git checkout -t origin/godrm
-```
+main.swift 파일이 잔존해있으면 (설령 클래스 파일을 주석처리하여도) AppDelegate의 Attribute인 
 
-5. commit
-```
-git status //확인
-git rm 파일명 //삭제된 파일
-git add 파일명(or * 모두) // 추가/변경 파일
-git commit -m "메세지" // 커밋
+**`@UIApplicationMain`**  의 사용이 불가능하다. 해당 어트리뷰트는 다음과 같은 코드로 대체 가능하다.
+
+
+
+#### @UIApplicationMain의 역할
+
+- main 클래스 역할
+- AppDelegate와 UIApplication을 연결
+  - AppDelegate 테스트시에 아래의 항등코드를 수동으로 작성가능하다.
+- UIApplication도 UIResponder를 상속받는 대표적인 객체이나, UIApplication는 이벤트 처리를 위해 UIViewController, UIView 등으로 이벤트를 전달한다.
+  - 기타 이벤트 처리 기능은 **event handling을 담당하는** **`UIResponder`** 프로토콜을 상속받은 다른 객체 인스턴스들이 수행한다.
+
+```swift
+UIApplicationMain{
+  	CommandLine.argc,
+  	CommandLine.unsafeArgv,
+  	NSStringFromClass(UIApplication.self),
+  	NSStringFromClass(AppDelegate.self)
+}
 ```
 
-6. 본인 원격 저장소에 올리기
+
+
+----
+
+
+
+### macOS vs iOS
+
+> Cocoa 플랫폼에서 macOS 와 iOS를 다루는 메인 함수로 NSApplicationMain과 UIApplicationMain가 각각 존재한다. 
+
+> 이들은 **AppDelegate 클래스**에 annotate하기 위해 사용되며, **컴파일러**는 이를 인식하여 자동으로 엔트리 포인트 메서드인 **main() 함수를 생성**한다.
+
+macOS의 AppDelegate.swift 파일의 초기 상태는 다음과 같다
+
+```swift
+import Cocoa
+
+//int NSApplicationMain(int argc, const char * _Nonnull *argv);
+@NSApplicationMain
+class AppDelegate: NSObject, NSApplicationDelegate {
+    func applicationDidFinishLaunching(_ aNotification: Notification) {
+        // Insert code here to initialize your application
+    }
+    func applicationWillTerminate(_ aNotification: Notification) {
+        // Insert code here to tear down your application
+    }
+}
+
 ```
-git push origin 본인_아이디
-ex) git push origin godrm
+
+-  NSApplicationMain 은 Cocoa 애플리케이션을 생성하고 앱의 런칭을 실행하기 위해 메인함수에 의해 호출되는 함수를 의미한다. 앱 객체의 클래스는 무조건 `NSApplication`이며, 앱 델리게이트는 nib 파일 내에 정의되어 있어야 한다.
+  - [출처](https://developer.apple.com/documentation/appkit/1428499-nsapplicationmain)
+- `NSApplication` 은 앱의 메인 이벤트 루프와 앱의 객체들에서 사용하는 모든 리소스들을 관리한다 
+
+마찬가지로 ViewController의 초기코드는 아래와 같다.
+
+```swift
+import Cocoa
+class ViewController: NSViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+
+    override var representedObject: Any? {
+        didSet {
+        // Update the view, if already loaded.
+        }
+    }
+}
 ```
 
-7. pull request
-8. pull request는 github 서비스에서 진행할 수 있다.
-9. pull request는 반드시 original 저장소의 브랜치와 fork한 자신의 저장소 브랜치 이름이 같아야 하며, 브랜치 이름은 자신의 github 아이디여야 한다.
-10. code review 및 push
-11. pull request를 통해 피드백을 받는다.
-12. 코드 리뷰 피드백에 대한 개선 작업을 하고 다시 PUSH한다.
-
-## 앞의 코드 리뷰 과정은 [영상 보기](https://www.youtube.com/watch?v=ZSZoaG0PqLg) 를 통해 참고 가능
-
-## 실습 중 모든 질문은 슬랙 채널에서...

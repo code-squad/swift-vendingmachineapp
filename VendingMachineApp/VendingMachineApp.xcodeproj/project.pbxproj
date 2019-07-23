@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		C5575FBE22E58C2A003FD540 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5575FBD22E58C2A003FD540 /* AppDelegate.swift */; };
-		C5575FC022E58C2A003FD540 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5575FBF22E58C2A003FD540 /* ViewController.swift */; };
 		C5575FC322E58C2A003FD540 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5575FC122E58C2A003FD540 /* Main.storyboard */; };
 		C5575FC522E58C2C003FD540 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5575FC422E58C2C003FD540 /* Assets.xcassets */; };
 		C5575FC822E58C2C003FD540 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5575FC622E58C2C003FD540 /* LaunchScreen.storyboard */; };
@@ -50,7 +49,6 @@
 		C557605022E58C68003FD540 /* PossibleStateSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = C557600822E58C68003FD540 /* PossibleStateSet.swift */; };
 		C557605122E58C68003FD540 /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = C557600922E58C68003FD540 /* VendingMachine.swift */; };
 		C557605222E58C68003FD540 /* MenuTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C557600A22E58C68003FD540 /* MenuTable.swift */; };
-		C557605422E58C68003FD540 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C557600F22E58C68003FD540 /* Validation.swift */; };
 		C557605922E58C68003FD540 /* CustomDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C557601622E58C68003FD540 /* CustomDateFormatter.swift */; };
 		C557605C22E58C68003FD540 /* ProductSoldable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C557601A22E58C68003FD540 /* ProductSoldable.swift */; };
 		C557606022E58C68003FD540 /* Fruit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C557602022E58C68003FD540 /* Fruit.swift */; };
@@ -63,12 +61,13 @@
 		C557606722E58C68003FD540 /* AdminStateType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C557602722E58C68003FD540 /* AdminStateType.swift */; };
 		C557606822E58C68003FD540 /* FarmCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C557602822E58C68003FD540 /* FarmCode.swift */; };
 		C557606A22E58D78003FD540 /* AuxiliaryStockStateModifying.swift in Sources */ = {isa = PBXBuildFile; fileRef = C557606922E58D77003FD540 /* AuxiliaryStockStateModifying.swift */; };
+		C557608A22E5A833003FD540 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C557608922E5A833003FD540 /* Validation.swift */; };
+		C557608C22E5BC7B003FD540 /* VendingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C557608B22E5BC7B003FD540 /* VendingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C5575FBA22E58C2A003FD540 /* VendingMachineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendingMachineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5575FBD22E58C2A003FD540 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C5575FBF22E58C2A003FD540 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C5575FC222E58C2A003FD540 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C5575FC422E58C2C003FD540 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C5575FC722E58C2C003FD540 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -111,7 +110,6 @@
 		C557600822E58C68003FD540 /* PossibleStateSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PossibleStateSet.swift; sourceTree = "<group>"; };
 		C557600922E58C68003FD540 /* VendingMachine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VendingMachine.swift; sourceTree = "<group>"; };
 		C557600A22E58C68003FD540 /* MenuTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTable.swift; sourceTree = "<group>"; };
-		C557600F22E58C68003FD540 /* Validation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
 		C557601622E58C68003FD540 /* CustomDateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomDateFormatter.swift; sourceTree = "<group>"; };
 		C557601A22E58C68003FD540 /* ProductSoldable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductSoldable.swift; sourceTree = "<group>"; };
 		C557602022E58C68003FD540 /* Fruit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fruit.swift; sourceTree = "<group>"; };
@@ -124,6 +122,8 @@
 		C557602722E58C68003FD540 /* AdminStateType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminStateType.swift; sourceTree = "<group>"; };
 		C557602822E58C68003FD540 /* FarmCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FarmCode.swift; sourceTree = "<group>"; };
 		C557606922E58D77003FD540 /* AuxiliaryStockStateModifying.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuxiliaryStockStateModifying.swift; sourceTree = "<group>"; };
+		C557608922E5A833003FD540 /* Validation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
+		C557608B22E5BC7B003FD540 /* VendingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,10 +165,9 @@
 				C557600422E58C68003FD540 /* VendingMachineDTO */,
 				C557601922E58C68003FD540 /* VendingMachineProtocol */,
 				C5575FEC22E58C68003FD540 /* VendingMachineState */,
-				C557600E22E58C68003FD540 /* Validation */,
-				C557600B22E58C68003FD540 /* Views */,
+				C557608822E5A833003FD540 /* Validation */,
 				C5575FBD22E58C2A003FD540 /* AppDelegate.swift */,
-				C5575FBF22E58C2A003FD540 /* ViewController.swift */,
+				C557608B22E5BC7B003FD540 /* VendingViewController.swift */,
 				C5575FC122E58C2A003FD540 /* Main.storyboard */,
 				C5575FC422E58C2C003FD540 /* Assets.xcassets */,
 				C5575FC622E58C2C003FD540 /* LaunchScreen.storyboard */,
@@ -180,9 +179,9 @@
 		C5575FCF22E58C67003FD540 /* BeverageDTO */ = {
 			isa = PBXGroup;
 			children = (
+				C5575FDC22E58C67003FD540 /* Drink.swift */,
 				C5575FD022E58C67003FD540 /* Milk */,
 				C5575FD622E58C67003FD540 /* CarbonatedDrink */,
-				C5575FDC22E58C67003FD540 /* Drink.swift */,
 				C5575FDD22E58C67003FD540 /* EnergyDrink */,
 				C5575FE122E58C67003FD540 /* Coffee */,
 			);
@@ -359,23 +358,6 @@
 			path = ../VendingMachineDTO;
 			sourceTree = "<group>";
 		};
-		C557600B22E58C68003FD540 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Views;
-			path = ../Views;
-			sourceTree = "<group>";
-		};
-		C557600E22E58C68003FD540 /* Validation */ = {
-			isa = PBXGroup;
-			children = (
-				C557600F22E58C68003FD540 /* Validation.swift */,
-			);
-			name = Validation;
-			path = ../Views/InputView/Validation;
-			sourceTree = "<group>";
-		};
 		C557601522E58C68003FD540 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -411,6 +393,14 @@
 			name = Enum;
 			path = ../Enum;
 			sourceTree = "<group>";
+		};
+		C557608822E5A833003FD540 /* Validation */ = {
+			isa = PBXGroup;
+			children = (
+				C557608922E5A833003FD540 /* Validation.swift */,
+			);
+			path = Validation;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -487,8 +477,8 @@
 				C557606822E58C68003FD540 /* FarmCode.swift in Sources */,
 				C557604622E58C68003FD540 /* ReadyState.swift in Sources */,
 				C557604C22E58C68003FD540 /* VendingMachineError.swift in Sources */,
+				C557608A22E5A833003FD540 /* Validation.swift in Sources */,
 				C557606422E58C68003FD540 /* ModeType.swift in Sources */,
-				C5575FC022E58C2A003FD540 /* ViewController.swift in Sources */,
 				C557603622E58C68003FD540 /* CantataCoffee.swift in Sources */,
 				C557605922E58C68003FD540 /* CustomDateFormatter.swift in Sources */,
 				C557605022E58C68003FD540 /* PossibleStateSet.swift in Sources */,
@@ -498,7 +488,7 @@
 				C557604322E58C68003FD540 /* SellingState.swift in Sources */,
 				C557605222E58C68003FD540 /* MenuTable.swift in Sources */,
 				C557606622E58C68003FD540 /* CoffeeType.swift in Sources */,
-				C557605422E58C68003FD540 /* Validation.swift in Sources */,
+				C557608C22E5BC7B003FD540 /* VendingViewController.swift in Sources */,
 				C557606022E58C68003FD540 /* Fruit.swift in Sources */,
 				C557606A22E58D78003FD540 /* AuxiliaryStockStateModifying.swift in Sources */,
 				C557603B22E58C68003FD540 /* Drinkable.swift in Sources */,

@@ -205,3 +205,17 @@ class ViewController: NSViewController {
 ### 		![이미지](./images/step2/errorAlert.png)
 
 - 캡쳐결과를 얻을 때, System Error와 userError를 혼용하여 이후 코드레벨에서 수정
+
+
+
+### 참고 레퍼런스
+
+https://zeddios.tistory.com/239
+
+https://www.raywenderlich.com/9334-uicollectionview-tutorial-getting-started#toc-anchor-014
+
+https://baked-corn.tistory.com/42
+
+https://learnappmaking.com/notification-center-how-to-swift/
+
+https://www.ioscreator.com/tutorials/collection-view-controller-ios-tutorial

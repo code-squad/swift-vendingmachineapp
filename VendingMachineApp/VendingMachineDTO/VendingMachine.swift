@@ -42,6 +42,9 @@ class VendingMachine: ProductSoldable {
         return drinkStockTable
     }
     
+    func showDrinkStockTableMenuSize() -> Int {
+        return drinkStockTable.stockTable.count
+    }
     ///시작이후 구매 상품 이력을 배열로 리턴하는 메소드
     func showShoppingHistory() -> [Drink] {
         return shoppingHistory
@@ -84,6 +87,17 @@ class VendingMachine: ProductSoldable {
             let productList = try drinkStockTable.selectProduct(productId: productId)
             return productList
         }catch let error as VendingMachineError{
+            throw error
+        }
+    }
+    
+    func showSpecifiedDrinkStockSize(_ index: Int) throws -> Int{
+        do {
+            guard let list = drinkStockTable.stockTable[index] else{
+                throw VendingMachineError.notFoundDrinkIdError
+            }
+            return list.drinkStockList.count
+        }catch let error as VendingMachineError {
             throw error
         }
     }
@@ -133,9 +147,11 @@ class VendingMachine: ProductSoldable {
         }
         throw VendingMachineError.notEnoughMoneyError
     }
+    
     private func updateEarning(_ money: Int){
         earning += money
     }
+    
     private func minusProductPriceFromBalance(_ money: Int) {
         balance -= money
     }
@@ -147,7 +163,7 @@ class VendingMachine: ProductSoldable {
     func showCurrentEarningInfo(printFormat: (_ earning: Int) -> Void){
         printFormat(earning)
     }
-    ///initialState
+    
     func displayDrinkMenuList(printFormat: ([(key: Int, value: DrinkItemList)]) -> Void ) {
         let sortedMenutable = drinkStockTable.stockTable.sorted{$0.key < $1.key }
         printFormat(sortedMenutable)

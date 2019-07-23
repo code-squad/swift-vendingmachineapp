@@ -22,7 +22,7 @@ class VendingViewController: UIViewController{
     
     @objc func displayAlert(notification:Notification){
         let errorInfo = notification.object as! VendingMachineError
-        let alert = UIAlertController(title: "시스템에러", message: "\(errorInfo)", preferredStyle: UIAlertController.Style.alert)
+        let alert = UIAlertController(title: "에러발생", message: "\(errorInfo)", preferredStyle: UIAlertController.Style.alert)
         let errorConfirmAction = UIAlertAction(title:"확인", style: .default, handler: nil)
         alert.addAction(errorConfirmAction)
         present(alert, animated: true, completion: nil)
@@ -99,7 +99,7 @@ class GridCell: UICollectionViewCell{
             let stockSize = try vendingMachine.showSpecifiedDrinkStockSize(itemIndex)
             stockInfoLabel.text = "\(stockSize)개"
         }catch let error as VendingMachineError{
-            NotificationCenter.default.post(name: .addDrinkButtonError , object: error)
+                NotificationCenter.default.post(name: .addDrinkButtonError , object: error)
         }catch {
         }
     }

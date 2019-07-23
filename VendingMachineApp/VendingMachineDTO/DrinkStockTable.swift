@@ -28,8 +28,8 @@ class DrinkStockTable {
             totalNotForSaleList += stockNotForSaleList
         }
         return totalNotForSaleList
-        
     }
+    
     ///따뜻한 음료만 리턴하는 메소드
     ///동일한 상품 카테고리 물건이라도 서로 다른 온도를 지닐 수 있음을 가정
     func showHotterDrinkList() -> [Drink]{

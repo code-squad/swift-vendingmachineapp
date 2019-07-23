@@ -58,6 +58,9 @@
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                                             <state key="normal" title="추가"/>
+                                                            <connections>
+                                                                <action selector="testButton:" destination="N06-5x-xe0" eventType="touchUpInside" id="l3u-yE-LAL"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                 </view>
@@ -96,6 +99,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4oI-mT-RKu">
                                         <rect key="frame" x="907" y="199" width="44" height="30"/>
                                         <state key="normal" title="+1000"/>
+                                        <connections>
+                                            <action selector="handleChargeBalanceButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IB8-EM-AHG"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="잔액 : " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ml6-yF-1Fc">
                                         <rect key="frame" x="911" y="280" width="43" height="59"/>
@@ -118,6 +124,9 @@
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="44" id="vVx-tn-rFc"/>
                                         </constraints>
                                         <state key="normal" title="+5000"/>
+                                        <connections>
+                                            <action selector="handleChargeBalanceButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aTD-bL-6TN"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.87251541639999997" green="0.81347227430000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -132,7 +141,7 @@
                                     <constraint firstItem="4oI-mT-RKu" firstAttribute="top" secondItem="D7Y-BN-Stg" secondAttribute="top" constant="199" id="eUa-b1-FAF"/>
                                     <constraint firstItem="4oI-mT-RKu" firstAttribute="leading" secondItem="R6O-zv-MRB" secondAttribute="trailing" constant="21" id="iwo-Kt-GNi"/>
                                     <constraint firstItem="HHr-bQ-FAs" firstAttribute="baseline" secondItem="4oI-mT-RKu" secondAttribute="baseline" id="jeO-Mu-U0g"/>
-                                    <constraint firstItem="HHr-bQ-FAs" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="4oI-mT-RKu" secondAttribute="trailing" symbolic="YES" id="lUL-gD-Iwl"/>
+                                    <constraint firstItem="HHr-bQ-FAs" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="4oI-mT-RKu" secondAttribute="trailing" constant="8" symbolic="YES" id="lUL-gD-Iwl"/>
                                     <constraint firstItem="R6O-zv-MRB" firstAttribute="top" secondItem="Vh7-qD-ChK" secondAttribute="bottom" constant="36" id="pTz-t8-b2b"/>
                                     <constraint firstItem="R6O-zv-MRB" firstAttribute="leading" secondItem="D7Y-BN-Stg" secondAttribute="leading" constant="36" id="uCd-sp-hqq"/>
                                     <constraint firstItem="Vh7-qD-ChK" firstAttribute="centerX" secondItem="D7Y-BN-Stg" secondAttribute="centerX" id="vgf-nA-sgu"/>
@@ -150,6 +159,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="balanceInfo" destination="t2V-cM-yIX" id="tiJ-tl-ZR2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

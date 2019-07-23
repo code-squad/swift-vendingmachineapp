@@ -8,7 +8,7 @@
 
 import UIKit
 
-class VendingViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource{
+class VendingViewController: UIViewController{
     private var vendingMachine: VendingMachine!
     @IBOutlet weak var balanceInfo: UILabel!
     
@@ -17,24 +17,21 @@ class VendingViewController: UIViewController, UICollectionViewDelegate, UIColle
         printInitialDrinkMenuList()
         updateBalance()
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(displayAlert(notification:)), name: .addDrinkButtonError, object: nil)
+    }
+    
+    @objc func displayAlert(notification:Notification){
+        let errorInfo = notification.object as! VendingMachineError
+        let alert = UIAlertController(title: "시스템에러", message: "\(errorInfo)", preferredStyle: UIAlertController.Style.alert)
+        let errorConfirmAction = UIAlertAction(title:"확인", style: .default, handler: nil)
+        alert.addAction(errorConfirmAction)
+        present(alert, animated: true, completion: nil)
     }
     
     private func updateBalance(){
         vendingMachine.showCurrentBalanceInfo(printFormat: { (balance) in
             balanceInfo.text = "\(balance)원"
         })
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print("size : \(vendingMachine.showDrinkStockTable().stockTable.count)")
-        return vendingMachine.showDrinkStockTable().stockTable.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let info = vendingMachine.showDrinkStockTable()
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GridCell", for: indexPath) as! GridCell
-        cell.updateDrinkInfo(drinkStock: info, index: indexPath.item)
-        return cell
     }
     
     private func printInitialDrinkMenuList(){
@@ -60,16 +57,32 @@ class VendingViewController: UIViewController, UICollectionViewDelegate, UIColle
         vendingMachine.chargeBalance(chargeInput)
         updateBalance()
     }
+}
 
+extension VendingViewController: UICollectionViewDelegate, UICollectionViewDataSource{
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return vendingMachine.showDrinkStockTableMenuSize()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let info = vendingMachine.showDrinkStockTable()
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GridCell", for: indexPath) as! GridCell
+        cell.updateDrinkInfo(drinkStock: info, index: indexPath.item, vendingMachine: vendingMachine)
+        return cell
+    }
 }
 
 extension VendingViewController: UICollectionViewDelegateFlowLayout {
     ///cell size를 기기에 맞게 설정
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width: CGFloat = (collectionView.bounds.width-50)/5
+        let width: CGFloat = (collectionView.bounds.width-50)/5 - 10
         let height: CGFloat = collectionView.bounds.height
         return CGSize.init(width: width, height: height)
     }
+}
+
+extension Notification.Name {
+    static let addDrinkButtonError = Notification.Name(rawValue: "AddDrinkButtonError")
 }
 
 class GridCell: UICollectionViewCell{
@@ -77,26 +90,41 @@ class GridCell: UICollectionViewCell{
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var stockInfoLabel: UILabel!
     private var itemIndex: Int!
+    private var vendingMachine: VendingMachine!
     
-    @IBAction func testButton(_ sender: UIButton) {
-        guard let currentStock = stockInfoLabel.text else{
-            return
+    @IBAction func addDrinkStockButton(_ sender: UIButton) {
+        do {
+            let drink = try vendingMachine.selectProduct(productId: itemIndex)
+            try vendingMachine.addDrinkStock(drink, quantity: 1)
+            let stockSize = try vendingMachine.showSpecifiedDrinkStockSize(itemIndex)
+            stockInfoLabel.text = "\(stockSize)개"
+        }catch let error as VendingMachineError{
+            NotificationCenter.default.post(name: .addDrinkButtonError , object: error)
+        }catch {
         }
-        guard let stockSize = Int(currentStock.components(separatedBy: "개")[0]) else{
-            return
-        }
-        stockInfoLabel.text = "\(stockSize+1)개"
     }
     
-    func updateDrinkInfo(drinkStock: DrinkStockTable, index: Int){
+    private func setImageViewBorderRound(){
+        imgView.layer.cornerRadius = 10
+        imgView.layer.borderWidth = 1
+        imgView.layer.borderColor = UIColor.cyan.cgColor
+    }
+    
+    private func setImage(_ index: Int) {
         guard let img: UIImage = UIImage.init(named: "\(index+1).jpg") else{
             return
         }
         imgView.image = img
+        setImageViewBorderRound()
+    }
+    
+    func updateDrinkInfo(drinkStock: DrinkStockTable, index: Int, vendingMachine: VendingMachine){
+        setImage(index)
         guard let drinkItemList = drinkStock.stockTable[index+1] else{
             return
         }
         stockInfoLabel.text = "\(drinkItemList.drinkStockList.count)개"
-        itemIndex = index
+        itemIndex = index+1
+        self.vendingMachine = vendingMachine
     }
 }

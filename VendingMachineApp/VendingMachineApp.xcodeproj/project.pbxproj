@@ -63,6 +63,8 @@
 		C557606A22E58D78003FD540 /* AuxiliaryStockStateModifying.swift in Sources */ = {isa = PBXBuildFile; fileRef = C557606922E58D77003FD540 /* AuxiliaryStockStateModifying.swift */; };
 		C557608A22E5A833003FD540 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C557608922E5A833003FD540 /* Validation.swift */; };
 		C557608C22E5BC7B003FD540 /* VendingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C557608B22E5BC7B003FD540 /* VendingViewController.swift */; };
+		C595392622E837A3006084BC /* GridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C595392522E837A3006084BC /* GridCell.swift */; };
+		C595392A22E83992006084BC /* MoneyQuantity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C595392922E83992006084BC /* MoneyQuantity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -124,6 +126,8 @@
 		C557606922E58D77003FD540 /* AuxiliaryStockStateModifying.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuxiliaryStockStateModifying.swift; sourceTree = "<group>"; };
 		C557608922E5A833003FD540 /* Validation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
 		C557608B22E5BC7B003FD540 /* VendingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingViewController.swift; sourceTree = "<group>"; };
+		C595392522E837A3006084BC /* GridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridCell.swift; sourceTree = "<group>"; };
+		C595392922E83992006084BC /* MoneyQuantity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyQuantity.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +172,7 @@
 				C557608822E5A833003FD540 /* Validation */,
 				C5575FBD22E58C2A003FD540 /* AppDelegate.swift */,
 				C557608B22E5BC7B003FD540 /* VendingViewController.swift */,
+				C595392522E837A3006084BC /* GridCell.swift */,
 				C5575FC122E58C2A003FD540 /* Main.storyboard */,
 				C5575FC422E58C2C003FD540 /* Assets.xcassets */,
 				C5575FC622E58C2C003FD540 /* LaunchScreen.storyboard */,
@@ -384,6 +389,7 @@
 				C557602122E58C68003FD540 /* StateType.swift */,
 				C557602222E58C68003FD540 /* Units.swift */,
 				C557602322E58C68003FD540 /* Currency.swift */,
+				C595392922E83992006084BC /* MoneyQuantity.swift */,
 				C557602422E58C68003FD540 /* ModeType.swift */,
 				C557602522E58C68003FD540 /* CoffeeBean.swift */,
 				C557602622E58C68003FD540 /* CoffeeType.swift */,
@@ -483,6 +489,7 @@
 				C557605922E58C68003FD540 /* CustomDateFormatter.swift in Sources */,
 				C557605022E58C68003FD540 /* PossibleStateSet.swift in Sources */,
 				C557603322E58C68003FD540 /* EnergyDrink.swift in Sources */,
+				C595392A22E83992006084BC /* MoneyQuantity.swift in Sources */,
 				C557604D22E58C68003FD540 /* BeverageInfo.swift in Sources */,
 				C557604122E58C68003FD540 /* AdminInitialState.swift in Sources */,
 				C557604322E58C68003FD540 /* SellingState.swift in Sources */,
@@ -514,6 +521,7 @@
 				C557606122E58C68003FD540 /* StateType.swift in Sources */,
 				C557603822E58C68003FD540 /* Fruitable.swift in Sources */,
 				C557605C22E58C68003FD540 /* ProductSoldable.swift in Sources */,
+				C595392622E837A3006084BC /* GridCell.swift in Sources */,
 				C557602F22E58C68003FD540 /* Fanta.swift in Sources */,
 				C557602922E58C68003FD540 /* Milk.swift in Sources */,
 				C557603722E58C68003FD540 /* Coffee.swift in Sources */,

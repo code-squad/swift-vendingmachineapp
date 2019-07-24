@@ -9,7 +9,7 @@
 import UIKit
 
 class GridCell: UICollectionViewCell{
-    @IBOutlet var imgView: DrinkUIImageView!
+    @IBOutlet var imgView: UIImageView!
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var stockInfoLabel: UILabel!
     private var itemIndex: Int!
@@ -40,7 +40,7 @@ class GridCell: UICollectionViewCell{
         guard let img: UIImage = UIImage.init(named: "\(index).jpg") else{
             return
         }
-        imgView = DrinkUIImageView(image: img)
+        imgView.image = img
         stockInfoLabel.text = "\(drinkStockSize)개"
         itemIndex = index
     }

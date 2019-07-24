@@ -97,7 +97,6 @@ extension VendingViewController: UICollectionViewDelegate, UICollectionViewDataS
         }
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GridCell", for: indexPath) as! GridCell
         cell.updateDrinkInfo(drinkStockSize: stockSize, index: index)
-        cell.contentView.addSubview(cell.imgView)
         return cell
     }
 }

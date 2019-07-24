@@ -9,7 +9,7 @@
 import UIKit
 
 class GridCell: UICollectionViewCell{
-    @IBOutlet var imgView: UIImageView!
+    @IBOutlet var imgView: DrinkUIImageView!
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var stockInfoLabel: UILabel!
     private var itemIndex: Int!

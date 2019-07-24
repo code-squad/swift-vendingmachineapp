@@ -92,9 +92,12 @@ extension VendingViewController: UICollectionViewDelegate, UICollectionViewDataS
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let info = vendingMachine.showDrinkStockTable()
+        let index = indexPath.item+1
+        guard let stockSize = try? vendingMachine.showSpecifiedDrinkStockSize(index) else{
+            return UICollectionViewCell()
+        }
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GridCell", for: indexPath) as! GridCell
-        cell.updateDrinkInfo(drinkStock: info, index: indexPath.item, vendingMachine: vendingMachine)
+        cell.updateDrinkInfo(drinkStockSize: stockSize, index: index)
         return cell
     }
 }

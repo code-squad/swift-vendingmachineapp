@@ -9,8 +9,7 @@
 import UIKit
 
 class DrinkUIImageView: UIImageView {
-    
-    override init(image: UIImage?) {
+    override init(image: UIImage?){
         super.init(image: image)
     }
     override init(frame: CGRect) {

@@ -18,9 +18,38 @@ class VendingViewController: UIViewController{
         updateBalance()
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(displayAlert(notification:)), name: .addDrinkButtonError, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(increaseDrinkStock(notification:)), name: .addDrinkButton, object: nil)
     }
     
-    @objc func displayAlert(notification:Notification){
+    private func unwrapDrinkId(_ object: Any?) -> Int?{
+        guard let itemIndex = object as? Int else{
+            NotificationCenter.default.post(
+                name: .addDrinkButtonError,
+                object: VendingMachineError.notFoundDrinkIdError
+            )
+            return nil
+        }
+        return itemIndex
+    }
+    
+    @objc func increaseDrinkStock(notification: Notification){
+        guard let itemIndex = unwrapDrinkId(notification.object) else{
+            return
+        }
+        do {
+            let drink = try vendingMachine.selectProduct(productId: itemIndex)
+            try vendingMachine.addDrinkStock(drink, quantity: 1)
+            let stockSize = try vendingMachine.showSpecifiedDrinkStockSize(itemIndex)
+        }catch let error as VendingMachineError{
+            NotificationCenter.default.post(
+                name: .addDrinkButtonError,
+                object: error
+            )
+        }catch {
+        }
+    }
+    
+    @objc func displayAlert(notification: Notification){
         let errorInfo = notification.object as! VendingMachineError
         let alert = UIAlertController(title: "에러발생", message: "\(errorInfo)", preferredStyle: UIAlertController.Style.alert)
         let errorConfirmAction = UIAlertAction(title:"확인", style: .default, handler: nil)
@@ -81,5 +110,6 @@ extension VendingViewController: UICollectionViewDelegateFlowLayout {
 
 extension Notification.Name {
     static let addDrinkButtonError = Notification.Name(rawValue: "AddDrinkButtonError")
+    static let addDrinkButton = Notification.Name(rawValue: "AddDrinkButton")
 }
 

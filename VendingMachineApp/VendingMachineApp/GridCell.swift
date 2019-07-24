@@ -9,7 +9,7 @@
 import UIKit
 
 class GridCell: UICollectionViewCell{
-    @IBOutlet var imgView: UIImageView!
+    @IBOutlet var imgView: DrinkUIImageView!
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var stockInfoLabel: UILabel!
     private var itemIndex: Int!
@@ -29,22 +29,18 @@ class GridCell: UICollectionViewCell{
         stockInfoLabel.text = "\(stockSize+1)개"
     }
     
-    private func setImageViewBorderRound(){
-        imgView.layer.cornerRadius = 10
-        imgView.layer.borderWidth = 1
-        imgView.layer.borderColor = UIColor.cyan.cgColor
-    }
-    
     private func setImage(_ index: Int) {
         guard let img: UIImage = UIImage.init(named: "\(index).jpg") else{
             return
         }
         imgView.image = img
-        setImageViewBorderRound()
     }
     
     func updateDrinkInfo(drinkStockSize: Int, index: Int){
-        setImage(index)
+        guard let img: UIImage = UIImage.init(named: "\(index).jpg") else{
+            return
+        }
+        imgView = DrinkUIImageView(image: img)
         stockInfoLabel.text = "\(drinkStockSize)개"
         itemIndex = index
     }

@@ -65,6 +65,7 @@
 		C557608C22E5BC7B003FD540 /* VendingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C557608B22E5BC7B003FD540 /* VendingViewController.swift */; };
 		C595392622E837A3006084BC /* GridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C595392522E837A3006084BC /* GridCell.swift */; };
 		C595392A22E83992006084BC /* MoneyQuantity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C595392922E83992006084BC /* MoneyQuantity.swift */; };
+		C595392C22E8509D006084BC /* DrinkUIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C595392B22E8509D006084BC /* DrinkUIImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -128,6 +129,7 @@
 		C557608B22E5BC7B003FD540 /* VendingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingViewController.swift; sourceTree = "<group>"; };
 		C595392522E837A3006084BC /* GridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridCell.swift; sourceTree = "<group>"; };
 		C595392922E83992006084BC /* MoneyQuantity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyQuantity.swift; sourceTree = "<group>"; };
+		C595392B22E8509D006084BC /* DrinkUIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkUIImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +175,7 @@
 				C5575FBD22E58C2A003FD540 /* AppDelegate.swift */,
 				C557608B22E5BC7B003FD540 /* VendingViewController.swift */,
 				C595392522E837A3006084BC /* GridCell.swift */,
+				C595392B22E8509D006084BC /* DrinkUIImageView.swift */,
 				C5575FC122E58C2A003FD540 /* Main.storyboard */,
 				C5575FC422E58C2C003FD540 /* Assets.xcassets */,
 				C5575FC622E58C2C003FD540 /* LaunchScreen.storyboard */,
@@ -500,6 +503,7 @@
 				C557606A22E58D78003FD540 /* AuxiliaryStockStateModifying.swift in Sources */,
 				C557603B22E58C68003FD540 /* Drinkable.swift in Sources */,
 				C557602A22E58C68003FD540 /* StrawberryMilk.swift in Sources */,
+				C595392C22E8509D006084BC /* DrinkUIImageView.swift in Sources */,
 				C557603222E58C68003FD540 /* HotSix.swift in Sources */,
 				C557602B22E58C68003FD540 /* ChocoMilk.swift in Sources */,
 				C557603C22E58C68003FD540 /* ModeSelectState.swift in Sources */,

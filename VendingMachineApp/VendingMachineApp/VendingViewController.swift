@@ -14,7 +14,6 @@ class VendingViewController: UIViewController{
     
     override func viewDidLoad() {
         vendingMachine = MockVendingMachineCreator.initializeVendingMachine()
-        printInitialDrinkMenuList()
         updateBalance()
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(displayAlert(notification:)), name: .addDrinkButtonError, object: nil)
@@ -98,6 +97,7 @@ extension VendingViewController: UICollectionViewDelegate, UICollectionViewDataS
         }
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GridCell", for: indexPath) as! GridCell
         cell.updateDrinkInfo(drinkStockSize: stockSize, index: index)
+        cell.contentView.addSubview(cell.imgView)
         return cell
     }
 }

@@ -13,7 +13,6 @@ class GridCell: UICollectionViewCell{
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var stockInfoLabel: UILabel!
     private var itemIndex: Int!
-    private var vendingMachine: VendingMachine!
     
     @IBAction func addDrinkStockButton(_ sender: UIButton) {
         guard let stockSize = Int((stockInfoLabel.text!.components(separatedBy: "개")[0])) else{
@@ -37,20 +36,16 @@ class GridCell: UICollectionViewCell{
     }
     
     private func setImage(_ index: Int) {
-        guard let img: UIImage = UIImage.init(named: "\(index+1).jpg") else{
+        guard let img: UIImage = UIImage.init(named: "\(index).jpg") else{
             return
         }
         imgView.image = img
         setImageViewBorderRound()
     }
     
-    func updateDrinkInfo(drinkStock: DrinkStockTable, index: Int, vendingMachine: VendingMachine){
+    func updateDrinkInfo(drinkStockSize: Int, index: Int){
         setImage(index)
-        guard let drinkItemList = drinkStock.stockTable[index+1] else{
-            return
-        }
-        stockInfoLabel.text = "\(drinkItemList.drinkStockList.count)개"
-        itemIndex = index+1
-        self.vendingMachine = vendingMachine
+        stockInfoLabel.text = "\(drinkStockSize)개"
+        itemIndex = index
     }
 }

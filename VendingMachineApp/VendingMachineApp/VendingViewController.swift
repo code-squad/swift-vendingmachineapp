@@ -45,14 +45,12 @@ class VendingViewController: UIViewController{
     }
     
     @IBAction func handleChargeBalanceButton(_ sender: UIButton) {
-        guard let balanceSize = sender.currentTitle else {
-            return
-        }
+        let balanceSize = sender.tag
         var chargeInput = 0
-        if balanceSize == "+1000"{
-            chargeInput = 1000
-        }else if balanceSize == "+5000"{
-            chargeInput = 5000
+        if balanceSize == MoneyQuantity.oneThousand.rawValue{
+            chargeInput = MoneyQuantity.oneThousand.rawValue
+        }else if balanceSize == MoneyQuantity.fiveThousand  .rawValue{
+            chargeInput = MoneyQuantity.fiveThousand.rawValue
         }
         vendingMachine.chargeBalance(chargeInput)
         updateBalance()
@@ -85,46 +83,3 @@ extension Notification.Name {
     static let addDrinkButtonError = Notification.Name(rawValue: "AddDrinkButtonError")
 }
 
-class GridCell: UICollectionViewCell{
-    @IBOutlet var imgView: UIImageView!
-    @IBOutlet weak var addButton: UIButton!
-    @IBOutlet weak var stockInfoLabel: UILabel!
-    private var itemIndex: Int!
-    private var vendingMachine: VendingMachine!
-    
-    @IBAction func addDrinkStockButton(_ sender: UIButton) {
-        do {
-            let drink = try vendingMachine.selectProduct(productId: itemIndex)
-            try vendingMachine.addDrinkStock(drink, quantity: 1)
-            let stockSize = try vendingMachine.showSpecifiedDrinkStockSize(itemIndex)
-            stockInfoLabel.text = "\(stockSize)개"
-        }catch let error as VendingMachineError{
-                NotificationCenter.default.post(name: .addDrinkButtonError , object: error)
-        }catch {
-        }
-    }
-    
-    private func setImageViewBorderRound(){
-        imgView.layer.cornerRadius = 10
-        imgView.layer.borderWidth = 1
-        imgView.layer.borderColor = UIColor.cyan.cgColor
-    }
-    
-    private func setImage(_ index: Int) {
-        guard let img: UIImage = UIImage.init(named: "\(index+1).jpg") else{
-            return
-        }
-        imgView.image = img
-        setImageViewBorderRound()
-    }
-    
-    func updateDrinkInfo(drinkStock: DrinkStockTable, index: Int, vendingMachine: VendingMachine){
-        setImage(index)
-        guard let drinkItemList = drinkStock.stockTable[index+1] else{
-            return
-        }
-        stockInfoLabel.text = "\(drinkItemList.drinkStockList.count)개"
-        itemIndex = index+1
-        self.vendingMachine = vendingMachine
-    }
-}

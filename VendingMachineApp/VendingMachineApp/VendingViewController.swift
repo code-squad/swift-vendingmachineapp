@@ -22,10 +22,7 @@ class VendingViewController: UIViewController{
     
     private func unwrapDrinkId(_ object: Any?) -> Int?{
         guard let itemIndex = object as? Int else{
-            NotificationCenter.default.post(
-                name: .addDrinkButtonError,
-                object: VendingMachineError.notFoundDrinkIdError
-            )
+            displayAlertInplace(VendingMachineError.notFoundDrinkIdError)
             return nil
         }
         return itemIndex
@@ -38,19 +35,20 @@ class VendingViewController: UIViewController{
         do {
             let drink = try vendingMachine.selectProduct(productId: itemIndex)
             try vendingMachine.addDrinkStock(drink, quantity: 1)
-            let stockSize = try vendingMachine.showSpecifiedDrinkStockSize(itemIndex)
+            _ = try vendingMachine.showSpecifiedDrinkStockSize(itemIndex)
         }catch let error as VendingMachineError{
-            NotificationCenter.default.post(
-                name: .addDrinkButtonError,
-                object: error
-            )
+            displayAlertInplace(error)
         }catch {
         }
     }
     
     @objc func displayAlert(notification: Notification){
         let errorInfo = notification.object as! VendingMachineError
-        let alert = UIAlertController(title: "에러발생", message: "\(errorInfo)", preferredStyle: UIAlertController.Style.alert)
+        displayAlertInplace(errorInfo)
+    }
+    
+    private func displayAlertInplace(_ error: VendingMachineError){
+        let alert = UIAlertController(title: "에러발생", message: "\(error)", preferredStyle: UIAlertController.Style.alert)
         let errorConfirmAction = UIAlertAction(title:"확인", style: .default, handler: nil)
         alert.addAction(errorConfirmAction)
         present(alert, animated: true, completion: nil)

@@ -9,14 +9,14 @@
 import UIKit
 
 class ViewController: UIViewController {
-    let strawberryMilk = StrawberryMilk()
-    let chocolateMilk = ChocolateMilk()
-    let coke = Coke()
-    let sprite = Sprite()
-    let topCoffee = TOPCoffee()
-    let cantataCoffee = CantataCoffee()
+    private let strawberryMilk = StrawberryMilk()
+    private let chocolateMilk = ChocolateMilk()
+    private let coke = Coke()
+    private let sprite = Sprite()
+    private let topCoffee = TOPCoffee()
+    private let cantataCoffee = CantataCoffee()
     
-    var vendingMachine = VendingMachine()
+    private var vendingMachine = VendingMachine()
     override func viewDidLoad() {
         super.viewDidLoad()
         vendingMachine.stockUp(of: strawberryMilk, count: 2)

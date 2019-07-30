@@ -8,9 +8,9 @@
 
 import Foundation
 
-class MenuTable{
+class MenuTable: Codable{
     private (set) var menu: [String : Int]
-    init( drinkStockTable: DrinkStockTable ){
+    init(drinkStockTable: DrinkStockTable ){
         menu = [String: Int]()
         for element in drinkStockTable.stockTable{
             menu.updateValue(element.key, forKey: "\(element.value.drinkName)")

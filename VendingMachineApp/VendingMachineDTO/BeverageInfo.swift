@@ -8,7 +8,7 @@
 
 import Foundation
 
-class BeverageInfo {
+class BeverageInfo: Codable {
     private var nameInfo: String!
     private var priceInfo: Int!
     private (set) var quantityInfo: Int!

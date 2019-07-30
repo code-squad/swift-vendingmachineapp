@@ -25,7 +25,18 @@ class CarbonatedDrink: Drink, SugaryContainable {
         self.sugar = sugar
         super.init(brand: brand, quantity: quantity, price: price, name: name, date: date, caloryElements: calorySet, temp: temp)
     }
-
+    
+    private enum CodingKeys: String, CodingKey {
+        case sugar
+    }
+    
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        sugar = try container.decode(Int.self, forKey: .sugar)
+        let superDecoder = try container.superDecoder()
+        try super.init(from: superDecoder)
+    }
+    
     var sugary: Int {
         get {
             switch sugar {

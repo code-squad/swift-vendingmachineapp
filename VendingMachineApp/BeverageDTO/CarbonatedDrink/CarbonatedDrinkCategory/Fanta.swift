@@ -25,4 +25,14 @@ class Fanta: CarbonatedDrink {
         self.fruitType = fruitType
         super.init(brand: brand, quantity: quantity, price: price, name: name, date: date, sugar: sugar, calorySet: calorySet, temp: temperature)
     }
+    private enum CodingKeys: String, CodingKey {
+        case fruitType
+    }
+    
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        fruitType = try container.decode(Fruit.self, forKey: .fruitType)
+        let superDecoder = try container.superDecoder()
+        try super.init(from: superDecoder)
+    }
 }

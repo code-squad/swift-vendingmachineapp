@@ -29,6 +29,19 @@ class Coffee: Drink, Antihypnotical{
         super.init(brand: brand, quantity: quantity, price: price, name: name, date: date, caloryElements: calorySet, temp: temp)
     }
     
+    private enum CodingKeys: String, CodingKey {
+        case coffeine
+        case bean
+    }
+    
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        coffeine = try container.decode(Double.self, forKey: .coffeine)
+        bean = try container.decode(CoffeeBean.self, forKey: .bean )
+        let superDecoder = try container.superDecoder()
+        try super.init(from: superDecoder)
+    }
+    
     var coffeeBeanInfo: CoffeeBean {
         get{
             return self.bean

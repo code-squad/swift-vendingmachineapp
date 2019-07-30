@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum FarmCode : Int {
+enum FarmCode : Int, Codable {
     case none = -1
     case kyunggy = 1000
     case south_chungChung = 2000
@@ -20,4 +20,9 @@ enum FarmCode : Int {
     case kangwon = 5000
     case jeju = 6000
     case imported = 7000
+    
+    init(from decoder: Decoder) throws {
+        let code = try decoder.singleValueContainer().decode(Int.self)
+        self = FarmCode(rawValue: code) ?? .none
+    }
 }

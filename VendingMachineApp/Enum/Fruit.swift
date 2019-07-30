@@ -8,12 +8,17 @@
 
 import Foundation
 
-enum Fruit: CustomStringConvertible{
+enum Fruit: String, CustomStringConvertible, Codable{
     case strawberry
     case purpleGrape
     case orange
     case whiteGrape
     case mango
+    
+    init(from decoder: Decoder) throws {
+        let label = try decoder.singleValueContainer().decode(String.self)
+        self = Fruit(rawValue: label) ?? .strawberry
+    }
     
     var description: String {
         switch self{

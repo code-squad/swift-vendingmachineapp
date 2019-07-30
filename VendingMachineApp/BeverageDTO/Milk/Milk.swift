@@ -9,9 +9,10 @@
 import Foundation
 
 /// 저지방 유무에 대한 프로퍼티 추가
-class Milk: Drink {
+class Milk: Drink{
     private let isLowFat : Bool
     private let milkFarmCode : FarmCode?
+    
     
     init(
             brand: String,
@@ -27,6 +28,19 @@ class Milk: Drink {
         self.isLowFat = isLowFat
         self.milkFarmCode = milkFarmCode
         super.init(brand: brand, quantity: quantity, price: price, name: name, date: date, caloryElements: calorySet, temp: temp)
+    }
+    
+    private enum CodingKeys: String, CodingKey{
+        case isLowFat
+        case milkFarmCode
+    }
+    
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        isLowFat = try container.decode(Bool.self, forKey: .isLowFat)
+        milkFarmCode = try container.decode(FarmCode.self, forKey: .milkFarmCode )
+        let superDecoder = try container.superDecoder()
+        try super.init(from: superDecoder)
     }
     
     func displayFarmCode() -> FarmCode {

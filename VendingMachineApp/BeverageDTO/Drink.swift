@@ -8,9 +8,14 @@
 
 import Foundation
 
-public typealias CaloryElements = (carbon: Int, protein: Int, fat: Int )
+//public typealias CaloryElements = (carbon: Int, protein: Int, fat: Int )
+struct CaloryElements: Codable{
+    var carbon: Int
+    var protein: Int
+    var fat: Int
+}
 
-class Drink{
+class Drink: Codable{
     private let brand: String
     private var quantity: Int
     private var price: Int

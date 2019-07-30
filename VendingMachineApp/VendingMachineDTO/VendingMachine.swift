@@ -11,23 +11,17 @@ import Foundation
 class VendingMachine: ProductSoldable, Codable {
     private var balance : Int
     private var earning: Int = 0
-//    private (set) var fromState : StateType
     private var shoppingHistory: [Drink]
     /// 메뉴번호별 음료수 리스트 1~6
     private var drinkStockTable: DrinkStockTable
     /// drinkName과 메뉴번호 매핑한 딕셔너리
-    private (set) var menuTable: MenuTable // = buildMenuTable(drinkStockTable)
-    
-//    var vendingMachineState: StateTransitionable?
-//    private (set) lazy var possibleStateSet: PossibleStateSet = PossibleStateSet.init(machine: self)
+    private (set) var menuTable: MenuTable
     
     init(drinkStockTable: DrinkStockTable){
         self.drinkStockTable = drinkStockTable
         balance = 0
         shoppingHistory = [Drink]()
-//        fromState = StateType.modeSelect
         menuTable = MenuTable.init(drinkStockTable: drinkStockTable)
-//        vendingMachineState = ModeSelectState.init(machine: self)
     }
     
     ///자판기 금액을 원하는 금액만큼 올리는 메소드
@@ -43,6 +37,7 @@ class VendingMachine: ProductSoldable, Codable {
     func showDrinkStockTableMenuSize() -> Int {
         return drinkStockTable.stockTable.count
     }
+    
     ///시작이후 구매 상품 이력을 배열로 리턴하는 메소드
     func showShoppingHistory() -> [Drink] {
         return shoppingHistory
@@ -118,12 +113,6 @@ class VendingMachine: ProductSoldable, Codable {
     func informCurrentBalance() -> Int {
         return balance
     }
-    
-    ///자판기의 현재상태 전이 메서드
-//    func changeState(_ nextState: StateTransitionable, from : StateType){
-//        vendingMachineState = nextState
-//        fromState = from
-//    }
     
     ///음료수를 구매(판매)하는 메소드
     func sellProduct(productId: Int) throws -> Drink {

@@ -8,11 +8,16 @@
 
 import Foundation
 
-enum CoffeeBean {
+enum CoffeeBean: String, Codable{
     case arabica
     case ethiopia
     case kenya
     case brazil
+    
+    init(from decoder: Decoder) throws {
+        let beanType = try decoder.singleValueContainer().decode(String.self)
+        self = CoffeeBean(rawValue: beanType) ?? .arabica
+    }
     
     var description: String {
         switch self {

@@ -26,6 +26,17 @@ class Coke: CarbonatedDrink, Antihypnotical {
         super.init(brand: brand, quantity: quantity, price: price, name: name, date: date, sugar: sugar, calorySet: calorySet, temp:    temperature)
     }
     
+    private enum CodingKeys: String, CodingKey {
+        case coffeine
+    }
+    
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        coffeine = try container.decode(Double.self, forKey: .coffeine)
+        let superDecoder = try container.superDecoder()
+        try super.init(from: superDecoder)
+    }
+    
     var coffeineDisplay: Double {
         get{
             return self.coffeine

@@ -25,4 +25,15 @@ class HotSix : EnergyDrink {
         self.taurine = taurine
         super.init(brand: brand, quantity: quantity, price: price, name: name, date: date, sugar: sugar, coffeine: coffeine, calorySet: calorySet, temp: temperature)
     }
+    
+    private enum CodingKeys: String, CodingKey{
+        case taurine
+    }
+    
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        taurine = try container.decode(Double.self, forKey: .taurine)
+        let superDecoder = try container.superDecoder()
+        try super.init(from: superDecoder)
+    }
 }

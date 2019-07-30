@@ -8,11 +8,16 @@
 
 import Foundation
 
-enum CoffeeType{
+enum CoffeeType: String, Codable{
     case americano
     case latte
     case caramel
     case coldbrew
+    
+    init(from decoder: Decoder) throws {
+        let label = try decoder.singleValueContainer().decode(String.self)
+        self = CoffeeType(rawValue: label) ?? .americano
+    }
     
     var description: String {
         switch self{

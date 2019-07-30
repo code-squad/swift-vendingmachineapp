@@ -35,4 +35,15 @@ class TOPCoffee: Coffee{
         let temp = 4.0
         self.init(brand: brand, quantity: quantity, price: price, name: name, date: date, coffeine: coffeine, bean: bean, type: coffeeType, calorySet: calorySet, temperature: temp)        
     }
+    
+    private enum CodingKeys: String, CodingKey {
+        case coffeeType
+    }
+    
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        coffeeType = try container.decode(CoffeeType.self, forKey: .coffeeType)
+        let superDecoder = try container.superDecoder()
+        try super.init(from: superDecoder)
+    }
 }

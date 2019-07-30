@@ -30,6 +30,19 @@ class StrawberryMilk: Milk {
         self.fruitOrigin = fruitOrigin
         super.init(brand: brand, quantity: quantity, price: price, name: name, date: date, isLowFat: isLowFat, milkFarmCode: milkFarmCode, calorySet: calorySet, temp: temperature)
     }
+    
+    private enum CodingKeys: String, CodingKey {
+        case proportion
+        case fruitOrigin
+    }
+    
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        proportion = try container.decode(Double.self, forKey: .proportion)
+        fruitOrigin = try container.decode(String.self, forKey: .fruitOrigin)
+        let superDecoder = try container.superDecoder()
+        try super.init(from: superDecoder)
+    }
 }
 extension StrawberryMilk: Fruitable {
     func displayFruitProportion() -> Double {

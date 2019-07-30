@@ -25,4 +25,16 @@ class Sprite: CarbonatedDrink {
         self.lowSugary = lowSugary
         super.init(brand: brand, quantity: quantity, price: price, name: name, date: date, sugar: sugar, calorySet: calorySet, temp:  temperature)
     }
+    
+    private enum CodingKeys: String, CodingKey {
+        case lowSugary
+    }
+    
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        lowSugary = try container.decode(Bool.self, forKey: .lowSugary)
+        let superDecoder = try container.superDecoder()
+        try super.init(from: superDecoder)
+    }
+    
 }

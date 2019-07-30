@@ -29,4 +29,20 @@ class GeorgiaCoffee: Coffee{
         self.coffeeType = coffeeType
         super.init(brand: brand, quantity: quantity, price: price, name: name, date: date, coffeine: coffeine, bean: bean, calorySet: calorySet, temp: temperature )
     }
+    
+    private enum CodingKeys: String, CodingKey {
+        case model
+        case coffeeType
+    }
+    
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        model = try container.decode(String.self, forKey: .model)
+        coffeeType = try container.decode(CoffeeType.self, forKey: .coffeeType)
+        let superDecoder = try container.superDecoder()
+        try super.init(from: superDecoder)
+    }
+    
+    
+    
 }

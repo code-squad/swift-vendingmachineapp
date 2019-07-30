@@ -143,6 +143,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C54AF28D22F0167100F90085 /* VendingMachineProperties */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = VendingMachineProperties;
+			sourceTree = "<group>";
+		};
 		C5575FB122E58C2A003FD540 = {
 			isa = PBXGroup;
 			children = (
@@ -355,6 +362,7 @@
 		C557600422E58C68003FD540 /* VendingMachineDTO */ = {
 			isa = PBXGroup;
 			children = (
+				C54AF28D22F0167100F90085 /* VendingMachineProperties */,
 				C557600522E58C68003FD540 /* BeverageInfo.swift */,
 				C557600622E58C68003FD540 /* DrinkStockTable.swift */,
 				C557600722E58C68003FD540 /* DrinkItemList.swift */,

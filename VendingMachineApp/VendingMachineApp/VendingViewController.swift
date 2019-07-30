@@ -12,10 +12,19 @@ class VendingViewController: UIViewController{
     private var vendingMachine: VendingMachine!
     @IBOutlet weak var balanceInfo: UILabel!
     
+    private func receiveAppDelegatePropertyState(){
+        let delegate = UIApplication.shared.delegate as! AppDelegate
+        vendingMachine = delegate.vendingMachine
+    }
+    
     override func viewDidLoad() {
-        vendingMachine = MockVendingMachineCreator.initializeVendingMachine()
+        receiveAppDelegatePropertyState()
         updateBalance()
         super.viewDidLoad()
+        addNotificationObservers()
+    }
+    
+    private func addNotificationObservers(){
         NotificationCenter.default.addObserver(self, selector: #selector(displayAlert(notification:)), name: .addDrinkButtonError, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(increaseDrinkStock(notification:)), name: .addDrinkButton, object: nil)
     }

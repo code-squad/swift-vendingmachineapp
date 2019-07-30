@@ -8,8 +8,16 @@
 
 import Foundation
 
-typealias InstructionResult = (success: String?, failure: VendingMachineError?)
-
+//typealias InstructionResult = (success: String?, failure: VendingMachineError?)
+struct InstructionResult {
+    var success: String?
+    var failure: VendingMachineError?
+    
+    init(_ success: String?, _ failure: VendingMachineError?){
+        self.success = success
+        self.failure = failure
+    }
+}
 protocol StateTransitionable {
     func moveToNextState(nextTo: StateTransitionable)
     func implementStateInstruction() -> InstructionResult

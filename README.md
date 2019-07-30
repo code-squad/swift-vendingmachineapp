@@ -219,3 +219,45 @@ https://baked-corn.tistory.com/42
 https://learnappmaking.com/notification-center-how-to-swift/
 
 https://www.ioscreator.com/tutorials/collection-view-controller-ios-tutorial
+
+
+
+
+
+# STEP3
+
+### 결과화면
+
+![image](./images/step3/result.gif)
+
+- 구현 내용 : 애플리케이션의 종료 후 다시 실행시켰을때, 인스턴스의 기존 상태를 보존한다.
+
+
+
+### 구현 내용
+
+- AppDelegate로 vendingMachine 프로퍼티 이동
+
+  - 앱 종료/실행 시 UserDefaults로부터 Data를 저장/로드 할 수 있도록 변경
+
+    
+
+- Codable 프로토콜을 활용하여 클래스 인스턴스의 현재 상태를 저장
+
+  
+
+### 이론 학습내용 정리
+
+- [ClassCopyAndArchiving](./study/ClassCopyAndArchiving.md)
+
+- [Codable](./study/Codable.md)
+- [UserDefaults](./study/UserDefaults)
+
+
+
+
+
+
+
+
+

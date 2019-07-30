@@ -13,6 +13,7 @@ struct ErrorType{
     static let userError: String = "[ 사용자 에러 ]"
 }
 
+
 enum VendingMachineError: Error, CustomStringConvertible{
     case addDrinkToUnknownMenuNumberError
     case notFoundDrinkIdError

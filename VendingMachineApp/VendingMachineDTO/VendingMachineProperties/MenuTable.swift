@@ -17,7 +17,6 @@ class MenuTable: Codable{
         }
     }
     
-    
     func updateMenuTable(nextIndex newMenuNumber: Int, name newDrinkName : String) {
         menu.updateValue(newMenuNumber, forKey: newDrinkName)
     }

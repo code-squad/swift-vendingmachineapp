@@ -8,7 +8,7 @@
 
 import Foundation
 
-class DrinkStockTable {
+class DrinkStockTable: Codable {
     private (set) var stockTable: [Int : DrinkItemList]
 
     init(_ table:[Int: DrinkItemList]){

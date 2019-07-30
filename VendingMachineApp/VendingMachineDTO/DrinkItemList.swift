@@ -8,7 +8,7 @@
 
 import Foundation
 
-class DrinkItemList : CustomStringConvertible{
+class DrinkItemList : CustomStringConvertible, Codable{
     private (set) var drinkStockInfo: BeverageInfo
     private var notForSaleList: [Drink] = [Drink]()
     private (set) var drinkStockList: [Drink]

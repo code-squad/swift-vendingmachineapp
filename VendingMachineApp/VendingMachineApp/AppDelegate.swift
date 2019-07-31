@@ -15,42 +15,63 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let decoder = JSONDecoder()
 
     var window: UIWindow?
-
-
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        guard let jsonData = UserDefaults.standard.value(forKey: "vendingMachine") as? Data else{
-            vendingMachine = MockVendingMachineCreator.initializeVendingMachine()
-            return true
-        }
-        if let machine = try? decoder.decode(VendingMachine.self, from: jsonData) {
-            vendingMachine = machine
-            return true
-        }
-        vendingMachine = MockVendingMachineCreator.initializeVendingMachine()
-        return true
-    }
-
-    func applicationWillResignActive(_ application: UIApplication) {
+    
+    private func encodeVendingMachineJsonData(){
+        
         encoder.outputFormatting = [.sortedKeys, .prettyPrinted]
         guard let jsonData = try? encoder.encode(vendingMachine)else{
             return
         }
-        let jsonString = String(data: jsonData, encoding: .utf8 )
         UserDefaults.standard.set(jsonData, forKey: "vendingMachine")
+    }
+    
+    private func debugEncodingData(){
+        encoder.outputFormatting = [.sortedKeys, .prettyPrinted]
+        guard let jsonData = try? encoder.encode(vendingMachine)else{
+            return
+        }
+        _ = String(data: jsonData, encoding: .utf8 )
+    }
+    
+    private func decodeJsonData(_ jsonData: Data)-> VendingMachine? {
+        guard let machine = try? decoder.decode(VendingMachine.self, from: jsonData) else{
+            return nil
+        }
+        return machine
+    }
+    
+    private func decodeVendingMachineJsonData() -> VendingMachine {
+        let dummyMachine = MockVendingMachineCreator.initializeVendingMachine()
+        guard let jsonData = loadData() else{
+            return dummyMachine
+        }
+        guard let machine = decodeJsonData(jsonData) as? VendingMachine else{
+            return dummyMachine
+        }
+        return machine
+    }
+    
+    private func loadData() -> Data? {
+        guard let jsonData = UserDefaults.standard.value(forKey: "vendingMachine") as? Data else{
+            return nil
+        }
+        return jsonData
+    }
+    
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        vendingMachine = decodeVendingMachineJsonData()
+        return true
+    }
+
+    func applicationWillResignActive(_ application: UIApplication) {
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
-        
+        encodeVendingMachineJsonData()
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
-        guard let jsonData = UserDefaults.standard.value(forKey: "vendingMachine") as? Data else{
-            vendingMachine = MockVendingMachineCreator.initializeVendingMachine()
-            return
-        }
-        if let machine = try? decoder.decode(VendingMachine.self, from: jsonData) {
-            vendingMachine = machine
-        }
+        vendingMachine = decodeVendingMachineJsonData()
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
@@ -58,12 +79,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
-        encoder.outputFormatting = [.sortedKeys, .prettyPrinted]
-        guard let jsonData = try? encoder.encode(vendingMachine)else{
-            return
-        }
-        let jsonString = String(data: jsonData, encoding: .utf8 )
-        UserDefaults.standard.set(jsonData, forKey: "vendingMachine")
+        encodeVendingMachineJsonData()
     }
 }
 

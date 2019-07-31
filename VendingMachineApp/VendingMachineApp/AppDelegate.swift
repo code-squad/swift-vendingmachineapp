@@ -40,14 +40,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return machine
     }
     
+    private func injectMachineToVendingViewController(){
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vendingVC = storyboard.instantiateViewController(withIdentifier: "VendingViewController") as! VendingViewController
+        vendingVC.self.vendingMachine = self.vendingMachine
+    }
+    
     private func decodeVendingMachineJsonData() -> VendingMachine {
         let dummyMachine = MockVendingMachineCreator.initializeVendingMachine()
         guard let jsonData = loadData() else{
             return dummyMachine
         }
-        guard let machine = decodeJsonData(jsonData) as? VendingMachine else{
+        guard let machine = decodeJsonData(jsonData) else{
             return dummyMachine
         }
+        injectMachineToVendingViewController()
         return machine
     }
     

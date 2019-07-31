@@ -9,7 +9,7 @@
 import UIKit
 
 class VendingViewController: UIViewController{
-    private var vendingMachine: VendingMachine!
+    var vendingMachine: VendingMachine!
     @IBOutlet weak var balanceInfo: UILabel!
     
     private func receiveAppDelegatePropertyState(){

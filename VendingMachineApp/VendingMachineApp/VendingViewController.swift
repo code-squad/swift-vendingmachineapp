@@ -13,6 +13,9 @@ class VendingViewController: UIViewController{
     @IBOutlet weak var balanceInfo: UILabel!
     
     override func viewDidLoad() {
+        if vendingMachine == nil {
+            vendingMachine = MockVendingMachineCreator.initializeVendingMachine()
+        }
         super.viewDidLoad()
         addNotificationObservers()
     }

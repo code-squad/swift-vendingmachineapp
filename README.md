@@ -1,6 +1,6 @@
 # STEP1
 
-### 결과화면 
+### 결과화면 (2019/07/23)
 
 ![image](./images/step1/step1.png)
 
@@ -86,7 +86,7 @@ class ViewController: NSViewController {
 
 # STEP 2
 
-### 결과화면
+### 결과화면 (2019/07/25)
 
 - 초기화면
 
@@ -226,7 +226,7 @@ https://www.ioscreator.com/tutorials/collection-view-controller-ios-tutorial
 
 # STEP3
 
-### 결과화면
+### 결과화면 (2019/07/30)
 
 ![image](./images/step3/result.gif)
 
@@ -296,7 +296,17 @@ https://www.ioscreator.com/tutorials/collection-view-controller-ios-tutorial
 
 - 싱글턴 패턴 적용
 
-이론 학습내용 정리
+### 결과화면 (2019/07/31)
+
+![이미지](./images/step4/step4_result.gif)
+
+### 코드 변경사항
+
+- VendingMachine 클래스의 생성자 private 으로 변경
+- `static let sharedInstance` 로 인스턴스 생성하는 방식으로 싱글턴 인스턴스 생성
+- 
+
+###이론 학습내용 정리
 
 - [Singleton Pattern](./study/SingletonPattern.md)
 

@@ -13,11 +13,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private (set) var vendingMachine: VendingMachine!
     let encoder = JSONEncoder()
     let decoder = JSONDecoder()
-
     var window: UIWindow?
     
     private func encodeVendingMachineJsonData(){
-        
         encoder.outputFormatting = [.sortedKeys, .prettyPrinted]
         guard let jsonData = try? encoder.encode(vendingMachine)else{
             return
@@ -27,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private func debugEncodingData(){
         encoder.outputFormatting = [.sortedKeys, .prettyPrinted]
-        guard let jsonData = try? encoder.encode(vendingMachine)else{
+        guard let jsonData = try? encoder.encode(vendingMachine) else{
             return
         }
         _ = String(data: jsonData, encoding: .utf8 )
@@ -41,9 +39,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     private func injectMachineToVendingViewController(){
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vendingVC = storyboard.instantiateViewController(withIdentifier: "VendingViewController") as! VendingViewController
-        vendingVC.self.vendingMachine = self.vendingMachine
+        guard let vendingVC = self.window?.rootViewController! as? VendingViewController else {
+            return
+        }
+        vendingVC.vendingMachine = self.vendingMachine
     }
     
     private func decodeVendingMachineJsonData() -> VendingMachine {
@@ -54,7 +53,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         guard let machine = decodeJsonData(jsonData) else{
             return dummyMachine
         }
-        injectMachineToVendingViewController()
         return machine
     }
     
@@ -67,9 +65,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         vendingMachine = decodeVendingMachineJsonData()
+        injectMachineToVendingViewController()
         return true
     }
-
     func applicationWillResignActive(_ application: UIApplication) {
     }
 
@@ -79,10 +77,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillEnterForeground(_ application: UIApplication) {
         vendingMachine = decodeVendingMachineJsonData()
+        injectMachineToVendingViewController()
+
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        
     }
 
     func applicationWillTerminate(_ application: UIApplication) {

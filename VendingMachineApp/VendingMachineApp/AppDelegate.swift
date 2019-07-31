@@ -10,9 +10,9 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    private (set) var vendingMachine: VendingMachine!
-    let encoder = JSONEncoder()
-    let decoder = JSONDecoder()
+    private var vendingMachine: VendingMachine! = VendingMachine.sharedInstance
+    private let encoder = JSONEncoder()
+    private let decoder = JSONDecoder()
     var window: UIWindow?
     
     private func encodeVendingMachineJsonData(){
@@ -23,12 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UserDefaults.standard.set(jsonData, forKey: "vendingMachine")
     }
     
-    private func debugEncodingData(){
-        encoder.outputFormatting = [.sortedKeys, .prettyPrinted]
-        guard let jsonData = try? encoder.encode(vendingMachine) else{
-            return
-        }
-        _ = String(data: jsonData, encoding: .utf8 )
+    private func flushPreviousVendingMachineData(){
+        UserDefaults.standard.set(nil, forKey: "vendingMachine")
     }
     
     private func decodeJsonData(_ jsonData: Data)-> VendingMachine? {
@@ -42,7 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         guard let vendingVC = self.window?.rootViewController! as? VendingViewController else {
             return
         }
-        vendingVC.vendingMachine = self.vendingMachine
+        vendingVC.vendingMachine = vendingMachine
     }
     
     private func decodeVendingMachineJsonData() {
@@ -65,6 +61,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+//        flushPreviousVendingMachineData()
         decodeVendingMachineJsonData()
         return true
     }

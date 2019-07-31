@@ -14,7 +14,7 @@ class VendingViewController: UIViewController{
     
     override func viewDidLoad() {
         if vendingMachine == nil {
-            vendingMachine = MockVendingMachineCreator.initializeVendingMachine()
+            vendingMachine = VendingMachine.sharedInstance
         }
         super.viewDidLoad()
         addNotificationObservers()

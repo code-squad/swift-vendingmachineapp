@@ -40,14 +40,13 @@ class MockVendingMachineCreator {
         return drinkList
     }
     
-    static func initializeVendingMachine() -> VendingMachine{
+    static func populateDrinkStockTable() -> DrinkStockTable{
         let drinkTable = DrinkStockTable.init([Int : DrinkItemList]())
         var drinkList = makeDrinkListByType()
         for index in 0..<drinkList.count {
             let itemList = createDrinkItemList(drink: drinkList[index], count: Int.random(in: 1...5))
             drinkTable.updateStockTable(itemList, forKey: index+1)
         }
-        let machine = VendingMachine(drinkStockTable: drinkTable)
-        return machine
+        return drinkTable
     }
 }

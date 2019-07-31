@@ -304,9 +304,10 @@ https://www.ioscreator.com/tutorials/collection-view-controller-ios-tutorial
 
 - VendingMachine 클래스의 생성자 private 으로 변경
 - `static let sharedInstance` 로 인스턴스 생성하는 방식으로 싱글턴 인스턴스 생성
-- 
 
-###이론 학습내용 정리
+  
+
+### 이론 학습내용 정리
 
 - [Singleton Pattern](./study/SingletonPattern.md)
 

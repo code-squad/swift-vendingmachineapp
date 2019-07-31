@@ -12,16 +12,13 @@ class VendingViewController: UIViewController{
     var vendingMachine: VendingMachine!
     @IBOutlet weak var balanceInfo: UILabel!
     
-    private func receiveAppDelegatePropertyState(){
-        let delegate = UIApplication.shared.delegate as! AppDelegate
-        vendingMachine = delegate.vendingMachine
-    }
-    
     override func viewDidLoad() {
-        receiveAppDelegatePropertyState()
-        updateBalance()
         super.viewDidLoad()
         addNotificationObservers()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        updateBalance()
     }
     
     private func addNotificationObservers(){

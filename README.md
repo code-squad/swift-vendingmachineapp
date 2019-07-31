@@ -255,11 +255,44 @@ https://www.ioscreator.com/tutorials/collection-view-controller-ios-tutorial
 
 
 
+### Trouble Shooting
+
+- 개선점으로 피드백을 받았는데, 문제를 해결하다보니 아래와 같은 문제에 봉착하였다.
+
+#### 1. How to inject properties in View Controller from AppDelegate?
+
+- **문제 상황 :** AppDelegate에서 ViewController에 vendingMachine 프로퍼티를 주입할 때, 아래와 같은 방식으로 접근하였더니 문제가 발생하였다. 
+
+  ```swift
+  private func injectMachineToVendingViewController(){
+  		let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+  		let vc = storyboard.instantiateViewController(withIdentifier: “VendingViewController”)
+  		vc.vendingMachine = self.vendingMachine
+  }
+  ```
+
+- application() 메서드 이후에 ViewController의 viewDidLoad() 호출시 vendingMachine의 프로퍼티가 초기화되어있지 않는 것이다.
+
+- **해결 방안 :** AppDelegate 내에 원래부터 존재하는 단일 프로퍼티인 rootViewController를 통해서 프로퍼티를 주입시켰다.
+
+  ```swift
+  private func injectMachineToVendingViewController(){
+  	guard let vendingVC = self.window?.rootViewController! as? VendingViewController else {
+  		return
+  	}
+  	vendingVC.vendingMachine = self.vendingMachine
+  }
+  ```
+
+- **추후 개선책** : App 내에서 하나만 존재해야하는 인스턴스에 대해서 싱글턴 패턴을 적용시키는 것이 `데이터의 정합성` 을 위해 필요하다고 생각된다.
 
 
 
 
 
+# STEP 4
 
+### 요구사항 
 
+- 싱글턴 패턴 적용
 

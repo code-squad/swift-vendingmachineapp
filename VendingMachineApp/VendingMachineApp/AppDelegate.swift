@@ -45,15 +45,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         vendingVC.vendingMachine = self.vendingMachine
     }
     
-    private func decodeVendingMachineJsonData() -> VendingMachine {
-        let dummyMachine = MockVendingMachineCreator.initializeVendingMachine()
+    private func decodeVendingMachineJsonData() {
         guard let jsonData = loadData() else{
-            return dummyMachine
+            return
         }
         guard let machine = decodeJsonData(jsonData) else{
-            return dummyMachine
+            return
         }
-        return machine
+        vendingMachine = machine
+        injectMachineToVendingViewController()
+        return
     }
     
     private func loadData() -> Data? {
@@ -64,8 +65,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        vendingMachine = decodeVendingMachineJsonData()
-        injectMachineToVendingViewController()
+        decodeVendingMachineJsonData()
         return true
     }
     func applicationWillResignActive(_ application: UIApplication) {
@@ -76,9 +76,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
-        vendingMachine = decodeVendingMachineJsonData()
-        injectMachineToVendingViewController()
-
+        decodeVendingMachineJsonData()
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {

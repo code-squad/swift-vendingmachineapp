@@ -12,12 +12,14 @@ class VendingMachine: ProductSoldable, Codable {
     private var balance : Int
     private var earning: Int = 0
     private var shoppingHistory: [Drink]
+    
+    static let sharedInstance = VendingMachine(MockVendingMachineCreator.populateDrinkStockTable())
     /// 메뉴번호별 음료수 리스트 1~6
     private var drinkStockTable: DrinkStockTable
     /// drinkName과 메뉴번호 매핑한 딕셔너리
     private (set) var menuTable: MenuTable
     
-    init(drinkStockTable: DrinkStockTable){
+    private init(_ drinkStockTable: DrinkStockTable){
         self.drinkStockTable = drinkStockTable
         balance = 0
         shoppingHistory = [Drink]()

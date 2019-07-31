@@ -296,3 +296,7 @@ https://www.ioscreator.com/tutorials/collection-view-controller-ios-tutorial
 
 - 싱글턴 패턴 적용
 
+이론 학습내용 정리
+
+- [Singleton Pattern](./study/SingletonPattern.md)
+

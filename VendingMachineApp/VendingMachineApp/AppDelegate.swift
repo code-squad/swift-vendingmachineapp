@@ -14,16 +14,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     /// injection
-    private func injectMachineToVendingViewController(_ vendingMachine: VendingMachine){
+    private func injectMachineToVendingViewController(){
         guard let vendingVC = self.window?.rootViewController! as? VendingViewController else {
             return
         }
-        vendingVC.configure(vendingMachine)
+        vendingVC.configure(dataController.vendingMachine)
     }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        guard let vendingMachine = dataController.fetchData() else{ return true }
-        injectMachineToVendingViewController(vendingMachine)
+        injectMachineToVendingViewController()
         return true
     }
     
@@ -35,8 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
-        guard let vendingMachine = dataController.fetchData() else{ return }
-        injectMachineToVendingViewController(vendingMachine)
+        injectMachineToVendingViewController()
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {

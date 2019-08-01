@@ -17,7 +17,65 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="StrawberryMilk" translatesAutoresizingMaskIntoConstraints="NO" id="FMb-0j-Z5x">
+                                <rect key="frame" x="20" y="70" width="133.5" height="133.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="FMb-0j-Z5x" secondAttribute="height" multiplier="1:1" id="Hkj-r7-ge1"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ChocolateMilk" translatesAutoresizingMaskIntoConstraints="NO" id="kuD-nU-ure">
+                                <rect key="frame" x="173.5" y="70" width="133.5" height="133.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="kuD-nU-ure" secondAttribute="height" multiplier="1:1" id="kUP-1c-o6Y"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Coke" translatesAutoresizingMaskIntoConstraints="NO" id="O19-4h-iXd">
+                                <rect key="frame" x="327" y="70" width="133.5" height="133.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="O19-4h-iXd" secondAttribute="height" multiplier="1:1" id="oWy-Us-jjc"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Sprite" translatesAutoresizingMaskIntoConstraints="NO" id="ckg-BA-au9">
+                                <rect key="frame" x="480.5" y="70" width="133.5" height="133.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="ckg-BA-au9" secondAttribute="height" multiplier="1:1" id="JtE-mu-gLM"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TOP" translatesAutoresizingMaskIntoConstraints="NO" id="569-vF-L93">
+                                <rect key="frame" x="634" y="70" width="133" height="133.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="569-vF-L93" secondAttribute="height" multiplier="1:1" id="z16-hp-mqS"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Cantata" translatesAutoresizingMaskIntoConstraints="NO" id="K6U-fF-edX">
+                                <rect key="frame" x="787" y="70" width="133.5" height="133.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="K6U-fF-edX" secondAttribute="height" multiplier="1:1" id="IsO-FH-QeS"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="FMb-0j-Z5x" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.12" id="4fQ-el-IOd"/>
+                            <constraint firstItem="FMb-0j-Z5x" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="6Zz-IM-TOg"/>
+                            <constraint firstItem="ckg-BA-au9" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="885-bG-Df9"/>
+                            <constraint firstItem="kuD-nU-ure" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="DwI-EF-rnR"/>
+                            <constraint firstItem="K6U-fF-edX" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.12" id="ELy-FH-hsR"/>
+                            <constraint firstItem="kuD-nU-ure" firstAttribute="leading" secondItem="FMb-0j-Z5x" secondAttribute="trailing" constant="20" id="HN9-mK-LEu"/>
+                            <constraint firstItem="K6U-fF-edX" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="TCe-nR-c4b"/>
+                            <constraint firstItem="ckg-BA-au9" firstAttribute="leading" secondItem="O19-4h-iXd" secondAttribute="trailing" constant="20" id="UNU-TP-b1B"/>
+                            <constraint firstItem="O19-4h-iXd" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.12" id="WH7-lH-yEo"/>
+                            <constraint firstItem="569-vF-L93" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="XTI-wk-Veu"/>
+                            <constraint firstItem="O19-4h-iXd" firstAttribute="leading" secondItem="kuD-nU-ure" secondAttribute="trailing" constant="20" id="XeV-Gv-3l1"/>
+                            <constraint firstItem="K6U-fF-edX" firstAttribute="leading" secondItem="569-vF-L93" secondAttribute="trailing" constant="20" id="Z65-eh-HFX"/>
+                            <constraint firstItem="569-vF-L93" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.12" id="a1O-Ys-kPG"/>
+                            <constraint firstItem="ckg-BA-au9" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.12" id="cs1-kp-JLJ"/>
+                            <constraint firstItem="kuD-nU-ure" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.12" id="h58-LZ-lMS"/>
+                            <constraint firstItem="FMb-0j-Z5x" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="iYC-o6-Yqs"/>
+                            <constraint firstItem="O19-4h-iXd" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="k7O-ws-XjL"/>
+                            <constraint firstItem="569-vF-L93" firstAttribute="leading" secondItem="ckg-BA-au9" secondAttribute="trailing" constant="20" id="vig-iA-TVC"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
@@ -25,4 +83,12 @@
             </objects>
         </scene>
     </scenes>
+    <resources>
+        <image name="Cantata" width="102" height="102"/>
+        <image name="ChocolateMilk" width="102" height="102"/>
+        <image name="Coke" width="102" height="102"/>
+        <image name="Sprite" width="102" height="102"/>
+        <image name="StrawberryMilk" width="102" height="102"/>
+        <image name="TOP" width="102" height="102"/>
+    </resources>
 </document>

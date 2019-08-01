@@ -9,13 +9,13 @@
 import Foundation
 
 class VendingMachineDataController {
-    private var vendingMachine: VendingMachine!
+    private (set) var vendingMachine: VendingMachine!
     private let encoder = JSONEncoder()
     private let decoder = JSONDecoder()
     static let shared = VendingMachineDataController()
     
     init(){
-        fetchData()
+        initializeFromFile()
     }
 
     func encode(){
@@ -37,7 +37,7 @@ class VendingMachineDataController {
         return machine
     }
     
-    func fetchData() {
+    private func initializeFromFile() {
         if vendingMachine != nil {
             return
         }

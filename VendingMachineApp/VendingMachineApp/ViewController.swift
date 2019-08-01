@@ -26,6 +26,13 @@ class ViewController: UIViewController {
     @IBOutlet weak var stockOfCantataCoffee: UILabel!
     @IBOutlet weak var depositedMoney: UILabel!
     
+    @IBOutlet weak var strawberryMilkImage: UIImageView!
+    @IBOutlet weak var chocolateMilkImage: UIImageView!
+    @IBOutlet weak var cokeImage: UIImageView!
+    @IBOutlet weak var spriteImage: UIImageView!
+    @IBOutlet weak var topCoffeeImage: UIImageView!
+    @IBOutlet weak var cantataCoffeeImage: UIImageView!
+    
     @IBAction func addStrawberryMilk(_ sender: Any) {
         vendingMachine.stockUp(of: strawberryMilk, count: 1)
         self.stockOfStrawberryMilk.text = "\(vendingMachine.isFullStock()[strawberryMilk]!)개"
@@ -71,6 +78,13 @@ class ViewController: UIViewController {
         for (key, value) in vendingMachine.isFullStock() {
             print("\(key.getName()) (\(value)개)", terminator: " ")
         }
+        
+        self.strawberryMilkImage.layer.cornerRadius = self.strawberryMilkImage.frame.height/4
+        self.chocolateMilkImage.layer.cornerRadius = self.chocolateMilkImage.frame.height/4
+        self.cokeImage.layer.cornerRadius = self.cokeImage.frame.height/4
+        self.spriteImage.layer.cornerRadius = self.spriteImage.frame.height/4
+        self.topCoffeeImage.layer.cornerRadius = self.topCoffeeImage.frame.height/4
+        self.cantataCoffeeImage.layer.cornerRadius = self.cantataCoffeeImage.frame.height/4
         
         self.stockOfStrawberryMilk.text = "\(vendingMachine.isFullStock()[strawberryMilk]!)개"
         self.stockOfChocolateMilk.text = "\(vendingMachine.isFullStock()[chocolateMilk]!)개"

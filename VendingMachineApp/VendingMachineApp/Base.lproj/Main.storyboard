@@ -211,12 +211,18 @@
                     </view>
                     <connections>
                         <outlet property="StockOfTOPCoffee" destination="QdP-vO-gbm" id="xt1-QG-49b"/>
+                        <outlet property="cantataCoffeeImage" destination="K6U-fF-edX" id="9oj-kC-cIj"/>
+                        <outlet property="chocolateMilkImage" destination="kuD-nU-ure" id="0lK-WR-M61"/>
+                        <outlet property="cokeImage" destination="O19-4h-iXd" id="cYx-hL-g9Y"/>
                         <outlet property="depositedMoney" destination="RRk-pq-hgF" id="nHF-K1-Tr2"/>
+                        <outlet property="spriteImage" destination="ckg-BA-au9" id="wU8-aa-VYJ"/>
                         <outlet property="stockOfCantataCoffee" destination="AFe-e0-Ww0" id="fUG-sY-gvi"/>
                         <outlet property="stockOfChocolateMilk" destination="bk0-gh-nSx" id="HNj-JQ-D1I"/>
                         <outlet property="stockOfCoke" destination="kDh-Kg-0l6" id="mrv-5Z-S5C"/>
                         <outlet property="stockOfSprite" destination="2Ap-k2-652" id="gZJ-EB-SAd"/>
                         <outlet property="stockOfStrawberryMilk" destination="ZPh-Zx-bis" id="GMc-rT-Jhm"/>
+                        <outlet property="strawberryMilkImage" destination="FMb-0j-Z5x" id="Jbh-YQ-eYd"/>
+                        <outlet property="topCoffeeImage" destination="569-vF-L93" id="dSf-6m-h6e"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

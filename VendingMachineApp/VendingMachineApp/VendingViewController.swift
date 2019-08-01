@@ -9,13 +9,18 @@
 import UIKit
 
 class VendingViewController: UIViewController{
-    var vendingMachine: VendingMachine!
+    private var vendingMachine: VendingMachine!
     @IBOutlet weak var balanceInfo: UILabel!
     
-    override func viewDidLoad() {
+    func configure(_ vendingMachine: VendingMachine){
         if vendingMachine == nil {
-            vendingMachine = VendingMachine.sharedInstance
+            self.vendingMachine = VendingMachine.sharedInstance
+            return
         }
+        self.vendingMachine = vendingMachine
+    }
+    
+    override func viewDidLoad() {
         super.viewDidLoad()
         addNotificationObservers()
     }

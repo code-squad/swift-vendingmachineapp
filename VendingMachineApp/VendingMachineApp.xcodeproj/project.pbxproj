@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C54AF28F22F0173C00F90085 /* InstructionResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54AF28E22F0173C00F90085 /* InstructionResult.swift */; };
+		C54AF2B522F2A75B00F90085 /* VendingMachineDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54AF2B422F2A75B00F90085 /* VendingMachineDataController.swift */; };
 		C5575FBE22E58C2A003FD540 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5575FBD22E58C2A003FD540 /* AppDelegate.swift */; };
 		C5575FC322E58C2A003FD540 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5575FC122E58C2A003FD540 /* Main.storyboard */; };
 		C5575FC522E58C2C003FD540 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5575FC422E58C2C003FD540 /* Assets.xcassets */; };
@@ -59,6 +60,7 @@
 
 /* Begin PBXFileReference section */
 		C54AF28E22F0173C00F90085 /* InstructionResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionResult.swift; sourceTree = "<group>"; };
+		C54AF2B422F2A75B00F90085 /* VendingMachineDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineDataController.swift; sourceTree = "<group>"; };
 		C5575FBA22E58C2A003FD540 /* VendingMachineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendingMachineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5575FBD22E58C2A003FD540 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C5575FC222E58C2A003FD540 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 				C557608822E5A833003FD540 /* Validation */,
 				C5575FBD22E58C2A003FD540 /* AppDelegate.swift */,
 				C557608B22E5BC7B003FD540 /* VendingViewController.swift */,
+				C54AF2B422F2A75B00F90085 /* VendingMachineDataController.swift */,
 				C595392522E837A3006084BC /* GridCell.swift */,
 				C595392B22E8509D006084BC /* DrinkUIImageView.swift */,
 				C5575FC122E58C2A003FD540 /* Main.storyboard */,
@@ -431,6 +434,7 @@
 				C557608C22E5BC7B003FD540 /* VendingViewController.swift in Sources */,
 				C557606022E58C68003FD540 /* Fruit.swift in Sources */,
 				C557606A22E58D78003FD540 /* AuxiliaryStockStateModifying.swift in Sources */,
+				C54AF2B522F2A75B00F90085 /* VendingMachineDataController.swift in Sources */,
 				C557603B22E58C68003FD540 /* Drinkable.swift in Sources */,
 				C557602A22E58C68003FD540 /* StrawberryMilk.swift in Sources */,
 				C595392C22E8509D006084BC /* DrinkUIImageView.swift in Sources */,

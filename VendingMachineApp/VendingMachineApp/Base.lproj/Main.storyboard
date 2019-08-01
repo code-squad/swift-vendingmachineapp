@@ -161,6 +161,7 @@
                     </view>
                     <connections>
                         <outlet property="balanceInfo" destination="t2V-cM-yIX" id="tiJ-tl-ZR2"/>
+                        <outlet property="collectionView" destination="R6O-zv-MRB" id="GtG-m5-GQV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

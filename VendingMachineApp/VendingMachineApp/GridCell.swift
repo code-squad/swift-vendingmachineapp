@@ -26,7 +26,6 @@ class GridCell: UICollectionViewCell{
             return
         }
         NotificationCenter.default.post(name: .addDrinkButton, object: index)
-        stockInfoLabel.text = "\(stockSize+1)개"
     }
     
     private func setImage(_ index: Int) {

@@ -11,6 +11,7 @@ import UIKit
 class VendingViewController: UIViewController{
     private var vendingMachine: VendingMachine!
     @IBOutlet weak var balanceInfo: UILabel!
+    @IBOutlet weak var collectionView: UICollectionView!
     
     func configure(_ vendingMachine: VendingMachine){
         self.vendingMachine = vendingMachine
@@ -28,6 +29,18 @@ class VendingViewController: UIViewController{
     private func addNotificationObservers(){
         NotificationCenter.default.addObserver(self, selector: #selector(displayAlert(notification:)), name: .addDrinkButtonError, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(increaseDrinkStock(notification:)), name: .addDrinkButton, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateGridCell(notification:)), name: .updateGridCell, object: nil)
+    }
+    
+    @objc func updateGridCell(notification: Notification){
+        guard var number = notification.object as? Int else{
+            return
+        }
+        number -= 1
+        var indexPaths: [IndexPath] = [IndexPath]()
+        indexPaths.append(IndexPath.init(item: number, section: 0))
+        collectionView.reloadItems(at: indexPaths)
+//        collectionView.reloadData()
     }
     
     private func unwrapDrinkId(_ object: Any?) -> Int?{
@@ -121,5 +134,6 @@ extension VendingViewController: UICollectionViewDelegateFlowLayout {
 extension Notification.Name {
     static let addDrinkButtonError = Notification.Name(rawValue: "AddDrinkButtonError")
     static let addDrinkButton = Notification.Name(rawValue: "AddDrinkButton")
+    static let updateGridCell = Notification.Name(rawValue: "updateGridCell")
 }
 

@@ -10,7 +10,6 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    private let dataController: VendingMachineDataController = VendingMachineDataController.shared
     var window: UIWindow?
     
     /// injection
@@ -18,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         guard let vendingVC = self.window?.rootViewController! as? VendingViewController else {
             return
         }
-        vendingVC.configure(dataController.vendingMachine)
+        vendingVC.configure(VendingMachine.sharedInstance)
     }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -30,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
-        dataController.encode()
+        VendingMachine.encode()
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -42,7 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
-        dataController.encode()
+        VendingMachine.encode()
     }
 }
 

@@ -13,7 +13,10 @@ class VendingMachine: ProductSoldable, Codable {
     private var earning: Int = 0
     private var shoppingHistory: [Drink]
     
-    static let sharedInstance = VendingMachine(MockVendingMachineCreator.populateDrinkStockTable())
+    
+    /// Singleton Pattern
+    static let sharedInstance: VendingMachine = initializeFromFile()
+    
     /// 메뉴번호별 음료수 리스트 1~6
     private var drinkStockTable: DrinkStockTable
     /// drinkName과 메뉴번호 매핑한 딕셔너리
@@ -110,7 +113,7 @@ class VendingMachine: ProductSoldable, Codable {
         let drinkList = drinkStockTable.stockTable[number]!
         try drinkList.addItem(drink, quantity: quantity)
     }
-
+    
     ///잔액을 확인하는 메소드
     func informCurrentBalance() -> Int {
         return balance
@@ -156,5 +159,59 @@ class VendingMachine: ProductSoldable, Codable {
     func displayDrinkMenuList(printFormat: ([(key: Int, value: DrinkItemList)]) -> Void ) {
         let sortedMenutable = drinkStockTable.stockTable.sorted{$0.key < $1.key }
         printFormat(sortedMenutable)
+    }
+    
+    /// Data Save/Load
+    static func encode(){
+        let encoder = JSONEncoder()
+        encoder.outputFormatting = [.sortedKeys, .prettyPrinted]
+        guard let jsonData = try? encoder.encode(VendingMachine.sharedInstance) else{
+            return
+        }
+        UserDefaults.standard.set(jsonData, forKey: "vendingMachine")
+    }
+    
+    private static func decodeJsonData(_ jsonData: Data) -> VendingMachine? {
+        let decoder = JSONDecoder()
+        guard let machine = try? decoder.decode(VendingMachine.self, from: jsonData) else{
+            return nil
+        }
+        return machine
+    }
+    
+    private static func initializeFromFile() -> VendingMachine{
+        guard let jsonData = loadData() else{
+            return initializeSharedInstance()
+        }
+        guard let machine = decodeJsonData(jsonData) else{
+            return initializeSharedInstance()
+        }
+        return machine
+    }
+    
+    private static func initializeSharedInstance() -> VendingMachine{
+        let newMachine = VendingMachine(MockVendingMachineCreator.populateDrinkStockTable())
+        initialEncode(newMachine)
+        return newMachine
+    }
+    
+    private static func initialEncode(_ machine: VendingMachine){
+        let encoder = JSONEncoder()
+        encoder.outputFormatting = [.sortedKeys, .prettyPrinted]
+        guard let jsonData = try? encoder.encode(machine) else{
+            return
+        }
+        UserDefaults.standard.set(jsonData, forKey: "vendingMachine")
+    }
+    
+    private static func loadData() -> Data? {
+        guard let jsonData = UserDefaults.standard.value(forKey: "vendingMachine") as? Data else{
+            return nil
+        }
+        return jsonData
+    }
+    
+    private static func flushPreviousVendingMachineData(){
+        UserDefaults.standard.set(nil, forKey: "vendingMachine")
     }
 }

@@ -13,10 +13,6 @@ class VendingViewController: UIViewController{
     @IBOutlet weak var balanceInfo: UILabel!
     
     func configure(_ vendingMachine: VendingMachine){
-        if self.vendingMachine == nil {
-            self.vendingMachine = VendingMachine.sharedInstance
-            return
-        }
         self.vendingMachine = vendingMachine
     }
     

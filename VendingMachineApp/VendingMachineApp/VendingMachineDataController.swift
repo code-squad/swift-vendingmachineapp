@@ -15,14 +15,12 @@ class VendingMachineDataController {
     static let shared = VendingMachineDataController()
     
     init(){
-        guard fetchData() == nil else { return }
-        vendingMachine = VendingMachine.sharedInstance
-        encode()
+        fetchData()
     }
 
     func encode(){
         encoder.outputFormatting = [.sortedKeys, .prettyPrinted]
-        guard let jsonData = try? encoder.encode(vendingMachine)else{
+        guard let jsonData = try? encoder.encode(vendingMachine) else{
             return
         }
         UserDefaults.standard.set(jsonData, forKey: "vendingMachine")
@@ -39,18 +37,24 @@ class VendingMachineDataController {
         return machine
     }
     
-    func fetchData() -> VendingMachine? {
+    func fetchData() {
         if vendingMachine != nil {
-            return vendingMachine
+            return
         }
         guard let jsonData = loadData() else{
-            return nil
+            initializeWithSharedInstance()
+            return
         }
         guard let machine = decodeJsonData(jsonData) else{
-            return nil
+            initializeWithSharedInstance()
+            return
         }
         vendingMachine = machine
-        return vendingMachine
+    }
+    
+    private func initializeWithSharedInstance(){
+        vendingMachine = VendingMachine.sharedInstance
+        encode()
     }
     
     private func loadData() -> Data? {

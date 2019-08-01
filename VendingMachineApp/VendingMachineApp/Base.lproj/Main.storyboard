@@ -54,46 +54,46 @@
                                     <constraint firstAttribute="width" secondItem="K6U-fF-edX" secondAttribute="height" multiplier="1:1" id="IsO-FH-QeS"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4zh-Xv-FtR">
-                                <rect key="frame" x="71.5" y="40" width="30" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4zh-Xv-FtR">
+                                <rect key="frame" x="71.5" y="41" width="30" height="30"/>
                                 <state key="normal" title="추가"/>
                                 <connections>
-                                    <action selector="addStrawberryMilk:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Lra-ov-fRo"/>
+                                    <action selector="stockUp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="deU-bl-2BG"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XTB-Zf-fgM">
-                                <rect key="frame" x="225" y="40" width="30" height="30"/>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XTB-Zf-fgM">
+                                <rect key="frame" x="225" y="41" width="30" height="30"/>
                                 <state key="normal" title="추가"/>
                                 <connections>
-                                    <action selector="addChocolateMilk:" destination="BYZ-38-t0r" eventType="touchUpInside" id="H7o-nc-dgF"/>
+                                    <action selector="stockUp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DLd-a6-aao"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zUx-8V-qTt">
-                                <rect key="frame" x="378.5" y="40" width="30" height="30"/>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zUx-8V-qTt">
+                                <rect key="frame" x="378.5" y="41" width="30" height="30"/>
                                 <state key="normal" title="추가"/>
                                 <connections>
-                                    <action selector="addCoke:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kZB-XJ-0Bn"/>
+                                    <action selector="stockUp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Jlw-sx-tOT"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hx6-ZX-7hj">
-                                <rect key="frame" x="532" y="40" width="30" height="30"/>
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hx6-ZX-7hj">
+                                <rect key="frame" x="532" y="41" width="30" height="30"/>
                                 <state key="normal" title="추가"/>
                                 <connections>
-                                    <action selector="addSprite:" destination="BYZ-38-t0r" eventType="touchUpInside" id="f5S-cx-Hoa"/>
+                                    <action selector="stockUp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nka-Ri-MkQ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hLB-Xp-C93">
-                                <rect key="frame" x="685.5" y="40" width="30" height="30"/>
+                            <button opaque="NO" tag="4" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hLB-Xp-C93">
+                                <rect key="frame" x="685.5" y="41" width="30" height="30"/>
                                 <state key="normal" title="추가"/>
                                 <connections>
-                                    <action selector="addTOPCoffee:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sDz-aH-Ie0"/>
+                                    <action selector="stockUp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YEz-dQ-sum"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TUG-ma-9PI">
-                                <rect key="frame" x="839" y="40" width="30" height="30"/>
+                            <button opaque="NO" tag="5" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TUG-ma-9PI">
+                                <rect key="frame" x="839" y="41" width="30" height="30"/>
                                 <state key="normal" title="추가"/>
                                 <connections>
-                                    <action selector="addCantataCoffee:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Z0j-m2-VKN"/>
+                                    <action selector="stockUp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jim-AN-ESR"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZPh-Zx-bis">
@@ -102,31 +102,31 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kDh-Kg-0l6">
+                            <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kDh-Kg-0l6">
                                 <rect key="frame" x="372.5" y="223.5" width="42" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Ap-k2-652">
+                            <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Ap-k2-652">
                                 <rect key="frame" x="526" y="223.5" width="42" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QdP-vO-gbm">
+                            <label opaque="NO" userInteractionEnabled="NO" tag="4" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QdP-vO-gbm">
                                 <rect key="frame" x="679.5" y="223.5" width="42" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AFe-e0-Ww0">
+                            <label opaque="NO" userInteractionEnabled="NO" tag="5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AFe-e0-Ww0">
                                 <rect key="frame" x="833" y="223.5" width="42" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bk0-gh-nSx">
+                            <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bk0-gh-nSx">
                                 <rect key="frame" x="219" y="223.5" width="42" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -135,18 +135,18 @@
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="XUh-zl-3eh">
                                 <rect key="frame" x="940.5" y="70" width="111" height="30"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ccc-Vu-gS5">
+                                    <button opaque="NO" tag="1000" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ccc-Vu-gS5">
                                         <rect key="frame" x="0.0" y="0.0" width="44" height="30"/>
                                         <state key="normal" title="+1000"/>
                                         <connections>
-                                            <action selector="inputSmallMoney:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TRY-xc-BC0"/>
+                                            <action selector="inputMoney:" destination="BYZ-38-t0r" eventType="touchUpInside" id="U5z-gT-QaK"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ptS-zn-oyZ">
+                                    <button opaque="NO" tag="5000" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ptS-zn-oyZ">
                                         <rect key="frame" x="64" y="0.0" width="47" height="30"/>
                                         <state key="normal" title="+5000"/>
                                         <connections>
-                                            <action selector="inputLargeMoney:" destination="BYZ-38-t0r" eventType="touchUpInside" id="269-EX-cf2"/>
+                                            <action selector="inputMoney:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yTR-Eo-CIH"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -210,19 +210,25 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="StockOfTOPCoffee" destination="QdP-vO-gbm" id="xt1-QG-49b"/>
-                        <outlet property="cantataCoffeeImage" destination="K6U-fF-edX" id="9oj-kC-cIj"/>
-                        <outlet property="chocolateMilkImage" destination="kuD-nU-ure" id="0lK-WR-M61"/>
-                        <outlet property="cokeImage" destination="O19-4h-iXd" id="cYx-hL-g9Y"/>
-                        <outlet property="depositedMoney" destination="RRk-pq-hgF" id="nHF-K1-Tr2"/>
-                        <outlet property="spriteImage" destination="ckg-BA-au9" id="wU8-aa-VYJ"/>
-                        <outlet property="stockOfCantataCoffee" destination="AFe-e0-Ww0" id="fUG-sY-gvi"/>
-                        <outlet property="stockOfChocolateMilk" destination="bk0-gh-nSx" id="HNj-JQ-D1I"/>
-                        <outlet property="stockOfCoke" destination="kDh-Kg-0l6" id="mrv-5Z-S5C"/>
-                        <outlet property="stockOfSprite" destination="2Ap-k2-652" id="gZJ-EB-SAd"/>
-                        <outlet property="stockOfStrawberryMilk" destination="ZPh-Zx-bis" id="GMc-rT-Jhm"/>
-                        <outlet property="strawberryMilkImage" destination="FMb-0j-Z5x" id="Jbh-YQ-eYd"/>
-                        <outlet property="topCoffeeImage" destination="569-vF-L93" id="dSf-6m-h6e"/>
+                        <outlet property="depositedMoney" destination="RRk-pq-hgF" id="wH6-Qh-blX"/>
+                        <outletCollection property="productImages" destination="FMb-0j-Z5x" collectionClass="NSMutableArray" id="MDU-R1-5Sh"/>
+                        <outletCollection property="productImages" destination="kuD-nU-ure" collectionClass="NSMutableArray" id="rbg-qZ-Ds9"/>
+                        <outletCollection property="productImages" destination="O19-4h-iXd" collectionClass="NSMutableArray" id="1T0-sV-DnF"/>
+                        <outletCollection property="productImages" destination="ckg-BA-au9" collectionClass="NSMutableArray" id="5NB-xq-Lki"/>
+                        <outletCollection property="productImages" destination="569-vF-L93" collectionClass="NSMutableArray" id="OoG-fA-fFD"/>
+                        <outletCollection property="productImages" destination="K6U-fF-edX" collectionClass="NSMutableArray" id="9vC-OU-xKQ"/>
+                        <outletCollection property="stockOfProducts" destination="ZPh-Zx-bis" collectionClass="NSMutableArray" id="3bE-Fa-zIM"/>
+                        <outletCollection property="stockOfProducts" destination="bk0-gh-nSx" collectionClass="NSMutableArray" id="Wp4-IG-V00"/>
+                        <outletCollection property="stockOfProducts" destination="kDh-Kg-0l6" collectionClass="NSMutableArray" id="kcS-BK-BaG"/>
+                        <outletCollection property="stockOfProducts" destination="2Ap-k2-652" collectionClass="NSMutableArray" id="kLs-dH-HUG"/>
+                        <outletCollection property="stockOfProducts" destination="QdP-vO-gbm" collectionClass="NSMutableArray" id="GlU-ZW-GeP"/>
+                        <outletCollection property="stockOfProducts" destination="AFe-e0-Ww0" collectionClass="NSMutableArray" id="qJW-QI-ZeM"/>
+                        <outletCollection property="addProducts" destination="4zh-Xv-FtR" collectionClass="NSMutableArray" id="NdY-pW-FuR"/>
+                        <outletCollection property="addProducts" destination="XTB-Zf-fgM" collectionClass="NSMutableArray" id="jd8-bi-f89"/>
+                        <outletCollection property="addProducts" destination="zUx-8V-qTt" collectionClass="NSMutableArray" id="lKH-dK-kLf"/>
+                        <outletCollection property="addProducts" destination="Hx6-ZX-7hj" collectionClass="NSMutableArray" id="Bjs-yc-pUh"/>
+                        <outletCollection property="addProducts" destination="hLB-Xp-C93" collectionClass="NSMutableArray" id="FEm-3w-3qA"/>
+                        <outletCollection property="addProducts" destination="TUG-ma-9PI" collectionClass="NSMutableArray" id="P2V-zh-w6r"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

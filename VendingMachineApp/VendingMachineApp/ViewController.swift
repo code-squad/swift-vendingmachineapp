@@ -9,90 +9,71 @@
 import UIKit
 
 class ViewController: UIViewController {
+    // MARK: Property
     let strawberryMilk = StrawberryMilk()
     let chocolateMilk = ChocolateMilk()
     let coke = Coke()
     let sprite = Sprite()
     let topCoffee = TOPCoffee()
     let cantataCoffee = CantataCoffee()
-    
     private var vendingMachine = VendingMachine()
     
-    @IBOutlet weak var stockOfStrawberryMilk: UILabel!
-    @IBOutlet weak var stockOfChocolateMilk: UILabel!
-    @IBOutlet weak var stockOfCoke: UILabel!
-    @IBOutlet weak var stockOfSprite: UILabel!
-    @IBOutlet weak var StockOfTOPCoffee: UILabel!
-    @IBOutlet weak var stockOfCantataCoffee: UILabel!
+    // MARK: IBOutlet
+    @IBOutlet var stockOfProducts: [UILabel]!
+    @IBOutlet var productImages: [UIImageView]!
+    @IBOutlet var addProducts: [UIButton]!
     @IBOutlet weak var depositedMoney: UILabel!
     
-    @IBOutlet weak var strawberryMilkImage: UIImageView!
-    @IBOutlet weak var chocolateMilkImage: UIImageView!
-    @IBOutlet weak var cokeImage: UIImageView!
-    @IBOutlet weak var spriteImage: UIImageView!
-    @IBOutlet weak var topCoffeeImage: UIImageView!
-    @IBOutlet weak var cantataCoffeeImage: UIImageView!
+    // MARK: IBAction
+    @IBAction func stockUp(_ sender: UIButton) {
+        let products = stocks()
+        vendingMachine.stockUp(of: products[sender.tag], count: 1)
+        stockOfProducts[sender.tag].text = setStockCount(tag: sender.tag)
+    }
     
-    @IBAction func addStrawberryMilk(_ sender: Any) {
-        vendingMachine.stockUp(of: strawberryMilk, count: 1)
-        self.stockOfStrawberryMilk.text = "\(vendingMachine.isFullStock()[strawberryMilk]!)개"
+    @IBAction func inputMoney(_ sender: UIButton) {
+        vendingMachine.pay(of: sender.tag)
+        setDepositedMoney()
     }
-    @IBAction func addChocolateMilk(_ sender: Any) {
-        vendingMachine.stockUp(of: chocolateMilk, count: 1)
-        self.stockOfChocolateMilk.text = "\(vendingMachine.isFullStock()[chocolateMilk]!)개"
+    
+    // MARK: Custom Method
+    /// tag를 입력받아 재고의 개수를 String으로 반환하는 메소드
+    private func setStockCount(tag: Int) -> String{
+        let products = stocks()
+        return "\(vendingMachine.isFullStock()[products[tag]]!)개"
     }
-    @IBAction func addCoke(_ sender: Any) {
-        vendingMachine.stockUp(of: coke, count: 1)
-        self.stockOfCoke.text = "\(vendingMachine.isFullStock()[coke]!)개"
-    }
-    @IBAction func addSprite(_ sender: Any) {
-        vendingMachine.stockUp(of: sprite, count: 1)
-        self.stockOfSprite.text = "\(vendingMachine.isFullStock()[sprite]!)개"
-    }
-    @IBAction func addTOPCoffee(_ sender: Any) {
-        vendingMachine.stockUp(of: topCoffee, count: 1)
-        self.StockOfTOPCoffee.text = "\(vendingMachine.isFullStock()[topCoffee]!)개"
-    }
-    @IBAction func addCantataCoffee(_ sender: Any) {
-        vendingMachine.stockUp(of: cantataCoffee, count: 1)
-        self.stockOfCantataCoffee.text = "\(vendingMachine.isFullStock()[cantataCoffee]!)개"
-    }
-    @IBAction func inputSmallMoney(_ sender: Any) {
-        vendingMachine.pay(of: 1000)
-        self.depositedMoney.text = "잔액: \(vendingMachine.checkBalance())"
-    }
-    @IBAction func inputLargeMoney(_ sender: Any) {
-        vendingMachine.pay(of: 5000)
+    
+    /// 잔액을 보여주는 Label에 잔액을 표시하는 메소드
+    private func setDepositedMoney() {
         self.depositedMoney.text = "잔액: \(vendingMachine.checkBalance())"
     }
     
+    /// 상품의 순인 배열을 반환
+    private func stocks() -> [Product]{
+        return [strawberryMilk, chocolateMilk, coke, sprite, topCoffee, cantataCoffee]
+    }
+    
+    // MARK: LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        vendingMachine.stockUp(of: strawberryMilk, count: 5)
-        vendingMachine.stockUp(of: chocolateMilk, count: 5)
-        vendingMachine.stockUp(of: coke, count: 5)
-        vendingMachine.stockUp(of: sprite, count: 5)
-        vendingMachine.stockUp(of: topCoffee, count: 5)
-        vendingMachine.stockUp(of: cantataCoffee, count: 5)
+        let products = stocks()
+        for product in products {
+            vendingMachine.stockUp(of: product, count: 5)
+        }
         
         for (key, value) in vendingMachine.isFullStock() {
             print("\(key.getName()) (\(value)개)", terminator: " ")
         }
         
-        self.strawberryMilkImage.layer.cornerRadius = self.strawberryMilkImage.frame.height/4
-        self.chocolateMilkImage.layer.cornerRadius = self.chocolateMilkImage.frame.height/4
-        self.cokeImage.layer.cornerRadius = self.cokeImage.frame.height/4
-        self.spriteImage.layer.cornerRadius = self.spriteImage.frame.height/4
-        self.topCoffeeImage.layer.cornerRadius = self.topCoffeeImage.frame.height/4
-        self.cantataCoffeeImage.layer.cornerRadius = self.cantataCoffeeImage.frame.height/4
+        for productImage in productImages {
+            productImage.layer.cornerRadius = productImage.frame.height/4
+        }
         
-        self.stockOfStrawberryMilk.text = "\(vendingMachine.isFullStock()[strawberryMilk]!)개"
-        self.stockOfChocolateMilk.text = "\(vendingMachine.isFullStock()[chocolateMilk]!)개"
-        self.stockOfCoke.text = "\(vendingMachine.isFullStock()[coke]!)개"
-        self.stockOfSprite.text = "\(vendingMachine.isFullStock()[sprite]!)개"
-        self.StockOfTOPCoffee.text = "\(vendingMachine.isFullStock()[topCoffee]!)개"
-        self.stockOfCantataCoffee.text = "\(vendingMachine.isFullStock()[cantataCoffee]!)개"
-        self.depositedMoney.text = "잔액: \(vendingMachine.checkBalance())"
+        for stockOfProduct in stockOfProducts {
+            stockOfProduct.text = setStockCount(tag: stockOfProduct.tag)
+        }
+        
+        setDepositedMoney()
     }
 }
 

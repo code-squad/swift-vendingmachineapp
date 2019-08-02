@@ -40,7 +40,6 @@ class VendingViewController: UIViewController{
         var indexPaths: [IndexPath] = [IndexPath]()
         indexPaths.append(IndexPath.init(item: number, section: 0))
         collectionView.reloadItems(at: indexPaths)
-//        collectionView.reloadData()
     }
     
     private func unwrapDrinkId(_ object: Any?) -> Int?{

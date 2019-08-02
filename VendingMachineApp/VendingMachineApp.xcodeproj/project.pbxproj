@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		C54AF28F22F0173C00F90085 /* InstructionResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54AF28E22F0173C00F90085 /* InstructionResult.swift */; };
 		C54AF2B722F41EA600F90085 /* VendingMachineNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54AF2B622F41EA600F90085 /* VendingMachineNotification.swift */; };
+		C54AF2BB22F4416900F90085 /* ShoppingHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54AF2BA22F4416900F90085 /* ShoppingHistory.swift */; };
 		C5575FBE22E58C2A003FD540 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5575FBD22E58C2A003FD540 /* AppDelegate.swift */; };
 		C5575FC322E58C2A003FD540 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5575FC122E58C2A003FD540 /* Main.storyboard */; };
 		C5575FC522E58C2C003FD540 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5575FC422E58C2C003FD540 /* Assets.xcassets */; };
@@ -61,6 +62,7 @@
 /* Begin PBXFileReference section */
 		C54AF28E22F0173C00F90085 /* InstructionResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionResult.swift; sourceTree = "<group>"; };
 		C54AF2B622F41EA600F90085 /* VendingMachineNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineNotification.swift; sourceTree = "<group>"; };
+		C54AF2BA22F4416900F90085 /* ShoppingHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingHistory.swift; sourceTree = "<group>"; };
 		C5575FBA22E58C2A003FD540 /* VendingMachineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendingMachineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5575FBD22E58C2A003FD540 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C5575FC222E58C2A003FD540 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 				C557600622E58C68003FD540 /* DrinkStockTable.swift */,
 				C557600722E58C68003FD540 /* DrinkItemList.swift */,
 				C557600A22E58C68003FD540 /* MenuTable.swift */,
+				C54AF2BA22F4416900F90085 /* ShoppingHistory.swift */,
 			);
 			path = VendingMachineProperties;
 			sourceTree = "<group>";
@@ -445,6 +448,7 @@
 				C557603922E58C68003FD540 /* Antihypnotical.swift in Sources */,
 				C557603A22E58C68003FD540 /* SugaryContainable.swift in Sources */,
 				C557606522E58C68003FD540 /* CoffeeBean.swift in Sources */,
+				C54AF2BB22F4416900F90085 /* ShoppingHistory.swift in Sources */,
 				C557603022E58C68003FD540 /* CarbonatedDrink.swift in Sources */,
 				C557602D22E58C68003FD540 /* Coke.swift in Sources */,
 				C557606322E58C68003FD540 /* Currency.swift in Sources */,

@@ -30,6 +30,8 @@ class VendingViewController: UIViewController{
         NotificationCenter.default.addObserver(self, selector: #selector(displayAlert(notification:)), name: .addDrinkButtonError, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(increaseDrinkStock(notification:)), name: .addDrinkButton, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(updateGridCell(notification:)), name: .notifyDrinkStockSizeUpdate, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(buyDrink(notification:)), name: .buyDrinkButton, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(displayAlert(notification:)), name: .buyDrinkButtonError, object: nil)
     }
     
     @objc func updateGridCell(notification: Notification){
@@ -50,6 +52,19 @@ class VendingViewController: UIViewController{
         return itemIndex
     }
     
+    @objc func buyDrink(notification: Notification){
+        guard let itemIndex = unwrapDrinkId(notification.object) else{
+            return
+        }
+        do {
+            let drink = try vendingMachine.sellProduct(productId: itemIndex)
+            try vendingMachine.showSpecifiedDrinkStockSize(itemIndex)
+        }catch let error as VendingMachineError{
+            displayAlertInplace(error)
+        }catch{
+        }
+    }
+    
     @objc func increaseDrinkStock(notification: Notification){
         guard let itemIndex = unwrapDrinkId(notification.object) else{
             return
@@ -57,7 +72,7 @@ class VendingViewController: UIViewController{
         do {
             let drink = try vendingMachine.selectProduct(productId: itemIndex)
             try vendingMachine.addDrinkStock(drink, quantity: 1)
-            _ = try vendingMachine.showSpecifiedDrinkStockSize(itemIndex)
+            try vendingMachine.showSpecifiedDrinkStockSize(itemIndex)
         }catch let error as VendingMachineError{
             displayAlertInplace(error)
         }catch {
@@ -117,6 +132,7 @@ extension VendingViewController: UICollectionViewDelegate, UICollectionViewDataS
         }
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GridCell", for: indexPath) as! GridCell
         cell.updateDrinkInfo(drinkStockSize: stockSize, index: index)
+        cell.configureButtonStyle()
         return cell
     }
 }

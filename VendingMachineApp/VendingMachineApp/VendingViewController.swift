@@ -13,6 +13,13 @@ class VendingViewController: UIViewController{
     @IBOutlet weak var balanceInfo: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
     
+    private let startX: CGFloat = 40
+    private var startY: CGFloat = 575
+    private var currentImageX: CGFloat = 40
+    private let space = 50
+    private let width: CGFloat = 100, height: CGFloat = 100
+    private var historyImageList : [UIImageView] = [UIImageView]()
+    
     func configure(_ vendingMachine: VendingMachine){
         self.vendingMachine = vendingMachine
     }
@@ -83,13 +90,6 @@ class VendingViewController: UIViewController{
         }catch{
         }
     }
-    
-    private let startX: CGFloat = 40
-    private var startY: CGFloat = 575
-    private var currentImageX: CGFloat = 40
-    let space = 50
-    let width: CGFloat = 100, height: CGFloat = 100
-    var historyImageList : [UIImageView] = [UIImageView]()
     
     private func updateShoppingHistory(_ index: Int){
         let historyListSize = vendingMachine.showShoppingHistory().count - 1

@@ -132,10 +132,11 @@ class VendingMachine: ProductSoldable, Codable {
             let soldProduct = productList.removeFirstElement()
             let price = productList.drinkStockInfo.price
             minusProductPriceFromBalance(price)
-            notifyUpdateBalanceCompleted()
             updateEarning(price)
             drinkStockTable.updateStockTable(productList, forKey: productId)
             shoppingHistory.addDrinkHistory(soldProduct)
+            notifyUpdateBalanceCompleted()
+            notifyUpdateShoppingHistory(productId)
             return soldProduct
         }
         throw VendingMachineError.notEnoughMoneyError
@@ -147,6 +148,10 @@ class VendingMachine: ProductSoldable, Codable {
     
     private func notifyUpdateBalanceCompleted(){
         NotificationCenter.default.post(name: .notifyBalanceInfoUpdate, object: nil)
+    }
+    
+    private func notifyUpdateShoppingHistory(_ productId: Int){
+        NotificationCenter.default.post(name: .notifyShoppingHistory, object: productId)
     }
     
     private func updateEarning(_ money: Int){

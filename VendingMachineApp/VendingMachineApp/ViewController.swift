@@ -8,25 +8,38 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UICollectionViewDataSource {
     
-    let formatter = OutputFormatter()
+    //MARK: 프로퍼티
     
     let machine = VendingMachine()
     let maker = BeverageMaker()
     
-
+    @IBOutlet weak var beverageCollectionView: UICollectionView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        beverageCollectionView.dataSource = self
         
-        machine.switchMode(to: .administrator)
-        try! machine.addItems(maker.exampleBeverages)
-        
-        let inventoryStr = formatter.inventory(machine.inventory)
-        
-        print(inventoryStr)
     }
-
-
+    
+    //MARK: UICollectionViewDataSource
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        // 미완성
+        return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let identifier = "BeverageCollectionViewCell"
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as? BeverageCollectionViewCell else {
+            fatalError("큐에서 제거된 Cell은 BeverageCollectionViewCell의 인스턴스가 아님")
+        }
+        
+    }
+    
 }
-

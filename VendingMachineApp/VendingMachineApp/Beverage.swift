@@ -37,17 +37,15 @@ class Beverage {
         self.expirationPeriod = expirationPeriod
     }
     
+    //MARK: 연산 프로퍼티
+    
+    var expiredBeverages: [Date] {
+        return manufactureDates.filter { $0.isExpired(period: expirationPeriod) }
+    }
+    
     //MARK: 메소드
     
-    func expirationDate(of index: Int) -> Date {
-        return manufactureDates[index] + expirationPeriod
-    }
-    
-    func isExpired(index: Int, targetDate: Date) -> Bool {
-        return expirationDate(of: index) < targetDate
-    }
-    
-    func addBeverage(manufactureDate: Date) {
+    func addBeverage(manufactureDate: Date = Date()) {
         manufactureDates.append(manufactureDate)
     }
 }

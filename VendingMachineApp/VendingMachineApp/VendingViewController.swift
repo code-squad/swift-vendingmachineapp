@@ -20,6 +20,7 @@ class VendingViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         addNotificationObservers()
+        presentCurrentHistory()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -32,6 +33,7 @@ class VendingViewController: UIViewController{
         NotificationCenter.default.addObserver(self, selector: #selector(updateGridCell(notification:)), name: .notifyDrinkStockSizeUpdate, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(buyDrink(notification:)), name: .buyDrinkButton, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(displayAlert(notification:)), name: .buyDrinkButtonError, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateBalanceLabel), name: .notifyBalanceInfoUpdate, object: nil)
     }
     
     @objc func updateGridCell(notification: Notification){
@@ -59,9 +61,42 @@ class VendingViewController: UIViewController{
         do {
             let drink = try vendingMachine.sellProduct(productId: itemIndex)
             try vendingMachine.showSpecifiedDrinkStockSize(itemIndex)
+            updateShoppingHistory(itemIndex)
         }catch let error as VendingMachineError{
             displayAlertInplace(error)
         }catch{
+        }
+    }
+    
+    private let startX: CGFloat = 40
+    private var startY: CGFloat = 575
+    let space = 50
+    var historyImageList : [UIImageView] = [UIImageView]()
+    
+    private func updateShoppingHistory(_ index: Int){
+        let historyListSize = vendingMachine.showShoppingHistory().count - 1
+        let maxWidth = self.view.frame.width - 100
+        let maxHeight = self.view.frame.height - 100
+        let drinkImg: UIImage = UIImage.init(named: "\(index).jpg")!
+        let cardImage: UIImageView = UIImageView(image: drinkImg)
+        var currentImageX = startX * CGFloat(historyListSize)
+        
+        /// 화면 벗어나는 경우 처리
+        if maxWidth > currentImageX + 100 {
+            cardImage.frame = CGRect.init(x: currentImageX, y: startY, width: 100, height: 100)
+        }else {
+            startY += 100
+            currentImageX = CGFloat(Int(currentImageX) % historyListSize)
+            cardImage.frame = CGRect.init(x: currentImageX, y: startY, width: 100, height: 100)
+        }
+        
+        view.addSubview(cardImage)
+        historyImageList.append(cardImage)
+    }
+    
+    private func presentCurrentHistory(){
+        for image in historyImageList {
+            view.addSubview(image)
         }
     }
     
@@ -91,11 +126,16 @@ class VendingViewController: UIViewController{
         present(alert, animated: true, completion: nil)
     }
     
+    @objc func updateBalanceLabel(){
+        updateBalance()
+    }
+    
     private func updateBalance(){
         vendingMachine.showCurrentBalanceInfo(printFormat: { (balance) in
             balanceInfo.text = "\(balance)원"
         })
     }
+    
     
     private func printInitialDrinkMenuList(){
         let printDrinkMenuListFormat = {

@@ -86,6 +86,7 @@ class VendingViewController: UIViewController{
     
     private let startX: CGFloat = 40
     private var startY: CGFloat = 575
+    private var currentImageX: CGFloat = 40
     let space = 50
     let width: CGFloat = 100, height: CGFloat = 100
     var historyImageList : [UIImageView] = [UIImageView]()
@@ -101,16 +102,12 @@ class VendingViewController: UIViewController{
     
     /// 화면 벗어나는 경우 처리
     private func configureCoordinates(size: Int, cardImage: UIImageView)->(currentImageX: CGFloat, cardImage: UIImageView ){
-        var currentImageX = startX + CGFloat(space * (size))
-        let maxWidth = self.view.frame.width - 100
-        if maxWidth > currentImageX + 100 {
-            cardImage.frame = CGRect.init(x: currentImageX, y: startY, width: width, height: height)
-        }else {
-            startY += 100
-            let newX = CGFloat(Int(currentImageX) % space)
-            currentImageX = newX < startX ? startX : newX
-            cardImage.frame = CGRect.init(x: currentImageX, y: startY, width: width, height: height)
-        }
+        let modifiedSize = size < 20 ? size : size - 20 * (size/20)
+        let originalY = startY
+        startY = size < 20 ? startY : (startY + CGFloat(50*(size/20)))
+        currentImageX = startX + CGFloat(space * (modifiedSize))
+        cardImage.frame = CGRect.init(x: currentImageX, y: startY, width: width, height: height)
+        startY = originalY
         return (currentImageX, cardImage)
     }
     

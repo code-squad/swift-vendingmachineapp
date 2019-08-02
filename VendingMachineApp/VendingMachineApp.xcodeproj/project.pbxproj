@@ -23,6 +23,7 @@
 		F27FF12222DDB0470079EE89 /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27FF11E22DDB0470079EE89 /* Beverage.swift */; };
 		F27FF12322DDB0470079EE89 /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27FF11F22DDB0470079EE89 /* Milk.swift */; };
 		F27FF12422DDB0470079EE89 /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27FF12022DDB0470079EE89 /* Coffee.swift */; };
+		F283512922F417C6001644EF /* BeverageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F283512822F417C6001644EF /* BeverageCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		F27FF11E22DDB0470079EE89 /* Beverage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Beverage.swift; sourceTree = "<group>"; };
 		F27FF11F22DDB0470079EE89 /* Milk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Milk.swift; sourceTree = "<group>"; };
 		F27FF12022DDB0470079EE89 /* Coffee.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
+		F283512822F417C6001644EF /* BeverageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +127,7 @@
 				F27FF12022DDB0470079EE89 /* Coffee.swift */,
 				F27FF11F22DDB0470079EE89 /* Milk.swift */,
 				F27FF11D22DDB0470079EE89 /* SoftDrink.swift */,
+				F283512822F417C6001644EF /* BeverageCollectionViewCell.swift */,
 				F27FF0E522DDAEE00079EE89 /* ViewController.swift */,
 				F27FF0E722DDAEE00079EE89 /* Main.storyboard */,
 				F27FF0EA22DDAEE10079EE89 /* Assets.xcassets */,
@@ -289,6 +292,7 @@
 				F27FF11822DDAF910079EE89 /* Inventory.swift in Sources */,
 				F27FF0E622DDAEE00079EE89 /* ViewController.swift in Sources */,
 				F27FF12322DDB0470079EE89 /* Milk.swift in Sources */,
+				F283512922F417C6001644EF /* BeverageCollectionViewCell.swift in Sources */,
 				F27FF11A22DDAF910079EE89 /* Administrator.swift in Sources */,
 				F27FF11722DDAF910079EE89 /* Date.swift in Sources */,
 				F27FF11B22DDAF910079EE89 /* BeverageMaker.swift in Sources */,

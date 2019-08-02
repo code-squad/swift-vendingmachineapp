@@ -31,7 +31,7 @@
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" id="5G6-Ug-wzm">
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" id="5G6-Ug-wzm" customClass="BeverageCollectionViewCell" customModule="VendingMachineApp" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="180" height="260"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -56,6 +56,11 @@
                                                         </label>
                                                     </subviews>
                                                 </view>
+                                                <connections>
+                                                    <outlet property="addButton" destination="sV4-LZ-j0a" id="wvx-hu-lhX"/>
+                                                    <outlet property="countLabel" destination="u8G-wa-vrk" id="zdU-eE-xfN"/>
+                                                    <outlet property="photoImageVIew" destination="TYx-nW-Dyc" id="AgI-Vz-0JW"/>
+                                                </connections>
                                             </collectionViewCell>
                                         </cells>
                                     </collectionView>
@@ -95,6 +100,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="beverageCollectionView" destination="JHi-Cc-rz2" id="ur7-jK-QCu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

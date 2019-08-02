@@ -11,8 +11,7 @@ import Foundation
 class VendingMachine: ProductSoldable, Codable {
     private var balance : Int
     private var earning: Int = 0
-    private var shoppingHistory: [Drink]
-    
+    private var shoppingHistory: ShoppingHistory
     
     /// Singleton Pattern
     static let sharedInstance: VendingMachine = initializeFromFile()
@@ -25,7 +24,7 @@ class VendingMachine: ProductSoldable, Codable {
     private init(_ drinkStockTable: DrinkStockTable){
         self.drinkStockTable = drinkStockTable
         balance = 0
-        shoppingHistory = [Drink]()
+        shoppingHistory = ShoppingHistory()
         menuTable = MenuTable.init(drinkStockTable: drinkStockTable)
     }
     
@@ -44,7 +43,7 @@ class VendingMachine: ProductSoldable, Codable {
     }
     
     ///시작이후 구매 상품 이력을 배열로 리턴하는 메소드
-    func showShoppingHistory() -> [Drink] {
+    func showShoppingHistory() -> ShoppingHistory {
         return shoppingHistory
     }
     
@@ -136,7 +135,7 @@ class VendingMachine: ProductSoldable, Codable {
             notifyUpdateBalanceCompleted()
             updateEarning(price)
             drinkStockTable.updateStockTable(productList, forKey: productId)
-            shoppingHistory.append(soldProduct)
+            shoppingHistory.addDrinkHistory(soldProduct)
             return soldProduct
         }
         throw VendingMachineError.notEnoughMoneyError
@@ -221,6 +220,9 @@ class VendingMachine: ProductSoldable, Codable {
         return jsonData
     }
     
+    func addDrinkInfo(_ imageInfo: ImageInfo) {
+        self.shoppingHistory.addSubImageView(imageInfo)
+    }
     private static func flushPreviousVendingMachineData(){
         UserDefaults.standard.set(nil, forKey: "vendingMachine")
     }

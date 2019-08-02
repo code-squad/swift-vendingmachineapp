@@ -143,9 +143,9 @@ class VendingMachine: ProductSoldable, Codable {
     }
     
     private func notifyAddingCompleted(_ productId: Int){
-        NotificationCenter.default.post(name: .updateGridCell, object: productId)
-
+        NotificationCenter.default.post(name: .notifyDrinkStockSizeUpdate, object: productId)
     }
+    
     private func updateEarning(_ money: Int){
         earning += money
     }

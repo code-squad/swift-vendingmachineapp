@@ -311,3 +311,36 @@ https://www.ioscreator.com/tutorials/collection-view-controller-ios-tutorial
 
 - [Singleton Pattern](./study/SingletonPattern.md)
 
+
+
+### 피드백 개선 내용
+
+- 싱글턴 인스턴스인 DataController를 만들어서 VendingMachine 싱글턴 인스턴스를 관리하도록 하는 구조로 설계하였으나, 해당 DataController의 역할을 VendingMachine에게 위임하였다. (DataController 삭제)
+- VendingMachine에서 싱글턴 인스턴스 생성시 미리 저장된 data에 대한 decode를 시도, 데이터가 없다면 새로 만들어서 바로 encode 시키는 방향으로 개선
+
+
+
+
+
+# STEP 5
+
+### 요구사항 
+
+- Notification을 사용한 MVC 패턴 구축
+- 기존에 View -> Controller -> Model 로 상호작용(재고추가버튼 이벤트)을 Controller를 거쳐 Model의 update를 이끌어내는 과정은 STEP2에서 구현하였다. (원래 이것도 이 스텝의 구현 목표였다.)
+- 이번에는 Model -> Controller -> View 로 위의 `IBAction` 의 결과 모델의 업데이트 내용을 컨트롤러를 통해서 View에 반영하는 방식을 구현한다.
+
+
+
+### 결과화면 (2019/08/01)
+
+![이미지](./images/step5/step5_result.gif)
+
+- 버튼 추가시 해당 cell만 리 렌더링 되도록 collectionView의 `reloadItem` 메서드를 이용하여 핸들러를 작성하였다.
+
+
+
+### 이론 학습내용 정리
+
+[MVC 패턴과 NotificationCenter](./study/0801_MVC_NotificationCenter.md)
+

@@ -12,6 +12,11 @@ struct Inventory {
     
     private var storage = [String: Beverage]()
     
+    var allBeverages: [Beverage] {
+        return Array(storage.values)
+    }
+    
+    
     subscript (name: String) -> Beverage {
         get {
             guard let beverage = storage[name] else {
@@ -21,18 +26,16 @@ struct Inventory {
         }
     }
     
-    mutating func addBeverageType(_ beverage: Beverage, manufactureDate: Date = Date()) {
-        storage[beverage.name] = beverage
+    mutating func addBeverage(_ beverage: Beverage, manufactureDate: Date = Date()) {
+        if storage[beverage.name] == nil {
+            storage[beverage.name] = beverage
+        }
         self[beverage.name].addBeverage(manufactureDate: manufactureDate)
     }
     
-    mutating func addBeverage(named name: String, manufactureDate: Date = Date()) {
-        self[name].addBeverage(manufactureDate: manufactureDate)
-    }
-    
-    mutating func removeOneBeverage(named name: String) -> Date {
-        return self[name].removeBeverage()
-    }
+//    mutating func removeOneBeverage(named name: String) -> Date {
+//        return self[name].removeBeverage()
+//    }
     
     var expiredBeverages: [String: [Date]] {
         return storage.mapValues { $0.expiredBeverages }

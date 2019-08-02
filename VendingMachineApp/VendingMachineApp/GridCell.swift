@@ -7,12 +7,29 @@
 //
 
 import UIKit
-
+enum GridCellTextSet: String{
+    case buy = "구매"
+    case charge = "추가"
+}
 class GridCell: UICollectionViewCell{
     @IBOutlet var imgView: DrinkUIImageView!
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var stockInfoLabel: UILabel!
+    
+    @IBOutlet weak var buyButton: UIButton!
+    
     private var itemIndex: Int!
+    
+    @IBAction func buyDrinkButton(_ sender: UIButton) {
+        guard let index = itemIndex else{
+            NotificationCenter.default.post(
+                name: .buyDrinkButtonError,
+                object: VendingMachineError.notFoundDrinkIdError
+            )
+            return
+        }
+        NotificationCenter.default.post(name: .buyDrinkButton, object: index)
+    }
     
     @IBAction func addDrinkStockButton(_ sender: UIButton) {
         guard let stockSize = Int((stockInfoLabel.text!.components(separatedBy: "개")[0])) else{
@@ -43,9 +60,18 @@ class GridCell: UICollectionViewCell{
         stockInfoLabel.text = "\(drinkStockSize)개"
         itemIndex = index
     }
+    
+    func configureButtonStyle(){
+        buyButton.setTitle(GridCellTextSet.buy.rawValue, for: .normal)
+        buyButton.setTitleColor(.red, for: .normal)
+        addButton.setTitle(GridCellTextSet.charge.rawValue, for: .normal)
+        addButton.setTitleColor(.blue, for: .normal)
+    }
 }
 
 extension Notification.Name {
-    static let addDrinkButtonError = Notification.Name(rawValue: "AddDrinkButtonError")
-    static let addDrinkButton = Notification.Name(rawValue: "AddDrinkButton")
+    static let addDrinkButtonError = Notification.Name(rawValue: "AddDrinkEventError")
+    static let addDrinkButton = Notification.Name(rawValue: "AddDrinkEvent")
+    static let buyDrinkButtonError = Notification.Name(rawValue: "BuyDrinkEventError")
+    static let buyDrinkButton = Notification.Name(rawValue: "BuyDrinkEvent")
 }

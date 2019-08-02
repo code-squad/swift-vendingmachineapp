@@ -133,6 +133,7 @@ class VendingMachine: ProductSoldable, Codable {
             let soldProduct = productList.removeFirstElement()
             let price = productList.drinkStockInfo.price
             minusProductPriceFromBalance(price)
+            notifyUpdateBalanceCompleted()
             updateEarning(price)
             drinkStockTable.updateStockTable(productList, forKey: productId)
             shoppingHistory.append(soldProduct)
@@ -143,6 +144,10 @@ class VendingMachine: ProductSoldable, Codable {
     
     private func notifyUpdateStockCompleted(_ productId: Int){
         NotificationCenter.default.post(name: .notifyDrinkStockSizeUpdate, object: productId)
+    }
+    
+    private func notifyUpdateBalanceCompleted(){
+        NotificationCenter.default.post(name: .notifyBalanceInfoUpdate, object: nil)
     }
     
     private func updateEarning(_ money: Int){

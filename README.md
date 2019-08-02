@@ -346,3 +346,78 @@ https://www.ioscreator.com/tutorials/collection-view-controller-ios-tutorial
 
 [MVC 패턴과 NotificationCenter](./study/0801_MVC_NotificationCenter.md)
 
+
+
+
+
+# STEP 6
+
+### 요구사항
+
+- 구매 목록에 대한 제품 이미지뷰를 동적으로 코드로 직접 View에 추가
+- 구매목록 이미지를 화면 하단에 추가. 앱 종료 후 재실행시 나타날 수 있도록 구현
+
+
+
+### 결과화면 (2019/08/02)
+
+![이미지](./images/step6/result_step6.gif)
+
+- 기존에 Error를 Alert창으로 처리하는 Notification을 만들었기 때문에, 재고부족/잔액부족 등의 예외에 대해 Alert창을 띄웁니다.
+
+### 추가 구현사항 
+
+![이미지](./images/step6/culumated_history.png)
+
+-  이미지를 20개 단위로 끊어서 화면을 벗어나는 이미지에 대해 하단에 중첩할 수 있게 구현하였습니다. (Coverage: 100개)
+  - 이보다 더 많아지는 경우에 화면에 보이는 이미지를 전부 리사이징하여 리로딩 할 수 있는 로직의 구현도 고려해보았습니다만 추후 다른 스텝의 예제에서 다뤄볼 생각입니다.
+
+### 이론 학습내용 정리
+
+
+
+### 뷰 코드 생성 vs StoryBoard 작업
+
+- #### **코드 생성 장점**
+
+  - **통제**하기에 용이하다. 
+
+  - **재사용성**이 높다.
+
+  - VCS 에서 **conflict handle**이 쉽다.
+
+  - 스토리보드와 달리 **화면 복잡도(Clutter)가 적고** **Navigation 추적이 용이**하다.
+
+    - 어떤 요소가 서로 엮여있는지, 그렇지 않은지에 대해 쉽게 파악할 수 있다.
+
+    
+
+- #### **스토리보드 장점**
+
+  - **사용하기 쉽다.**
+    - segue, button/label 등 UI 컴포넌트의 바인딩이 쉬움
+    - autoLayout 작업이 용이
+  - **시각적임** 
+    - build > run의 과정 없이도 preview 화면으로 구현된 화면을 파악하기 쉽다.
+  - **코드 작성이 줄어든다.**
+
+  
+
+- #### **보완점 (Conflict Issue)**
+
+  - 스토리보드를 쓸 때, Conflict에 대응하기 위해...
+
+    - 아이템을 세분화 하여 xib 파일로 관리. (Tip from Jake)
+
+    - 한번에 한 사람이 건드는 ui 파일을 최소화하여 충돌을 피할 수 있다.
+
+    - 페어프로그래밍
+
+    - 스토리보드를 작게 만든다.
+
+    - 그냥 코드로 만든다. 
+
+      
+
+  
+

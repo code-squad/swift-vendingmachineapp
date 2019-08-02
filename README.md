@@ -336,7 +336,9 @@ https://www.ioscreator.com/tutorials/collection-view-controller-ios-tutorial
 
 ![이미지](./images/step5/step5_result.gif)
 
-- 버튼 추가시 해당 cell만 리 렌더링 되도록 collectionView의 `reloadItem` 메서드를 이용하여 핸들러를 작성하였다.
+- 버튼 추가시 해당 cell만 리 렌더링 되도록 collectionView의 `reloadItem(at: IndexPath)` 메서드를 이용하여 핸들러를 작성하였다.
+  - selector에서 indexPath를 만들어서 reloadItem로 전달.
+- reloadData 메서드는 컬렉션뷰 전체에 대해 리렌더링 작업을 수행하므로 비효율적이라 판단하였다.
 
 
 

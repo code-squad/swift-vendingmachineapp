@@ -205,15 +205,15 @@
 
 ### loose coupling추구로 인한 장점
 
--  유연하고, 모델-뷰-컨트롤러 사이의 결합도를 낮춘다. 
+-  유연하고, 모델-뷰-컨트롤러 사이의 결합도를 낮춥니다. 
 - 특정 모델/뷰/컨트롤러에 프로그램이 의존성이 심화되지 않도록 한 설계
 
 
 
 ### iOS MVC의 특징 (단점)
 
-- MVC 분리가 완전하지 않아서 (특히 뷰와 컨트롤러), View의 생명주기, 네트워크 통신 등을 컨트롤러가 담당하여 **컨트롤러의 역할이 지나치게 커지는 경향**이 있다. 
-  - (Web framework인  Spring에서는 Controller의 역할이 이에 비하면 상당히 적었던 기억이 있다.)
+- MVC 분리가 완전하지 않아서 (특히 뷰와 컨트롤러), View의 생명주기, 네트워크 통신 등을 컨트롤러가 담당하여 **컨트롤러의 역할이 지나치게 커지는 경향**이 있습니다. 
+  - (Web framework인  Spring에서는 Controller의 역할이 이에 비하면 상당히 적었던 기억이 있습니다.)
 -  cf. MVC 구조는 Test에 적합한가?
 
 
@@ -231,10 +231,10 @@
 
 ## 3. NotificationCenter
 
-- NSNotification을 중계해주는 역할을 하는 객체이다. 
-- 인스턴스를 직접 생성하지 않고, 앱 프로젝트에 싱글턴 인스턴스로 존재한다. 
+- NSNotification을 중계해주는 역할을 하는 객체입니다. 
+- 인스턴스를 직접 생성하지 않고, 앱 프로젝트에 싱글턴 인스턴스로 존재합니다. 
   - `NSNotificationCenter.default`
-- NSNotificationCenter는 앱에 전역으로 존재한다.
+- NSNotificationCenter는 앱에 전역으로 존재합니다.
 
 ![이미지](../images/step5/notificationCenter_in_mvc.png)
 
@@ -244,24 +244,84 @@
 
 ### 작동 방식 예
 
+- Notification으로 지정할 이름들을 설정합니다. 문자열 날것으로 하드코딩하기보다는 아래와 같이 extension으로 설정해주는 것이 편리하고 사용하기에 좋습니다.
+
+  ```swift
+  extension Notification.Name {
+      static let addDrinkButtonError = Notification.Name(rawValue: "AddDrinkButtonError")
+      static let addDrinkButton = Notification.Name(rawValue: "AddDrinkButton")
+      static let updateGridCell = Notification.Name(rawValue: "updateGridCell")
+  }
+  ```
+
+  
+
 - **addObserver**메서드를 통해 옵저버를 등록한다.
 
   -  [addObserver(_:selector:name:object:)](apple-reference-documentation://hszAPoyDAF) or [addObserver(forName:object:queue:using:)](apple-reference-documentation://hsY3HocvnR) 
 
-  - addObserver에서 object는 Notification을 보낼 Sender를 지칭하는 것이다. nil 로 설정하는 경우 모든 Sender로부터 오는 해당 Notification.Name에 대해 다 수신하겠다는 의미가 된다.
+  - addObserver에서 object는 Notification을 보낼 Sender를 지칭하는 것이다. nil 로 설정하는 경우 모든 Sender로부터 오는 해당 Notification.Name에 대해 다 수신하겠다는 의미가 됩니다.
 
+  - 보통 특정 뷰컨트롤러의 viewDidLoad()에서 아래와 같이 super.viewDidLoad() 호출 후에 옵저버를 등록합니다.
+
+    ```swift
+    override func viewDidLoad() {
+      	super.viewDidLoad()
+    		addNotificationObservers()
+    }
     
+    private func addNotificationObservers(){
+    		NotificationCenter.default.addObserver(self, selector: #selector(displayAlert(notification:)), name: .addDrinkButtonError, object: nil)
+    		NotificationCenter.default.addObserver(self, selector: #selector(increaseDrinkStock(notification:)), name: .addDrinkButton, object: nil)
+    		NotificationCenter.default.addObserver(self, selector: #selector(updateGridCell(notification:)), name: .updateGridCell, object: nil)
+    }
+    ```
 
 - **post Notification**
 
-  - NotificationCenter.default.**post** 메서드로 Notification이 발생했음을 센터에 전송할 수 있다.
+  - NotificationCenter.default.**post** 메서드로 Notification이 발생했음을 센터에 전송할 수 있습니다.
 
-- 등록된 옵저버의 **selector(handler 함수)**로 Notification을 전달한다.
-  - 이때, post시에 NSNotification에 등록한 name에 맞는 옵저버로 Notification이 전달된다.
-  - post시에 object, userInfo 등 부수적인 정보를 Notification으로 전달할 수 있고, selector 메서드에서 이를 받아서 사용할 수 있다.
+  - 모델 객체에서 아래와 같이 NotificationCenter의 싱글턴 인스턴스로 post를 하는 코드예시입니다.
 
-- **removeObserver**를 통해 소속된 인스턴스가 사라졌을 때, NSNC에서도 옵저버를 제거해주어야 한다.
-  - removeObserver:name:object: 등으로 필요한 특정 옵저버만 제거할 수 있다.
+    ```swift
+    private func notifyAddingCompleted(_ productId: Int){
+    		NotificationCenter.default.post(name: .updateGridCell, object: productId)
+    }
+    ```
+
+    
+
+- 등록된 옵저버의 **selector(handler 함수)**로 Notification을 전달합니다.
+
+  - 이때, post시에 NSNotification에 등록한 name에 맞는 옵저버로 Notification이 전달됩니다.
+
+  - post시에 object, userInfo 등 부수적인 정보를 Notification으로 전달할 수 있고, selector 메서드에서 이를 받아서 사용할 수 있습니다.
+
+  - selector  메서드는 단일 전달인자를 받으며, 파라미터의 데이터타입 Notification 타입 입니다. 
+
+  - 보통은 옵저버를 등록한 뷰 컨트롤러에서 seletor 함수를 작성하는데, (다른 뷰컨트롤러에서 대행할 수 있는지 모르겠습니다) objective-C와 호환을 위해 **`@objc`** 를 반드시 명시해줘야 합니다. 
+
+    - (swift4 이전 컴파일러에서는 이를 자동으로 수행했으나, 성능 저하의 이유로 swift 4 이후에 다시 표기명시 방식으로 바뀌었습니다.)
+    - 예시코드. post로 전달한 object값 **(숫자를 전송했는데 object는 Any?로 저장이 되므로 다시 타입캐스팅이 필요)**
+
+    ```swift
+    @objc func updateGridCell(notification: Notification){
+    		guard var productId = notification.object as? Int else{
+    				return
+    		}
+      	productId -= 1	// indexPath의 item은 0부터 시작하므로.. index 보정
+        var indexPaths: [IndexPath] = [IndexPath]()
+    		indexPaths.append(IndexPath.init(item: number, section: 0))
+    		collectionView.reloadItems(at: indexPaths)
+    }
+    ```
+
+    - 참고로 userInfo는 딕셔너리 형태로 값을 저장합니다.
+
+    
+
+- **removeObserver**를 통해 소속된 인스턴스가 사라졌을 때, NSNC에서도 옵저버를 제거해주어야 합니다.
+  - removeObserver:name:object: 등으로 필요한 특정 옵저버만 제거할 수 있습니다.
 
 
 

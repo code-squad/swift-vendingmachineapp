@@ -6,14 +6,14 @@ class Beverage {
     
     //MARK: 프로퍼티
     
+    var name: String
+    var price: Coin
+    var photo: UIImage?
+    
     var brand: String
     var packageSize: Int
     var beverageTemperature: Int
     var expirationPeriod: TimeInterval
-    
-    var name: String
-    var price: Coin
-    var photo: UIImage?
     
     var manufactureDates = [Date]()
     
@@ -27,14 +27,14 @@ class Beverage {
     
     //MARK: 초기화
     
-    internal init(brand: String, packageSize: Int, price: Coin, name: String, expirationPeriod: TimeInterval, beverageTemperature: Int, photo: UIImage?) {
+    init(name: String, price: Coin, photo: UIImage?, brand: String, packageSize: Int, beverageTemperature: Int, expirationPeriod: TimeInterval) {
+        self.name = name
+        self.price = price
+        self.photo = photo
         self.brand = brand
         self.packageSize = packageSize
-        self.price = price
-        self.name = name
-        self.expirationPeriod = expirationPeriod
         self.beverageTemperature = beverageTemperature
-        self.photo = photo
+        self.expirationPeriod = expirationPeriod
     }
     
     //MARK: 메소드

@@ -46,6 +46,10 @@ class Beverage {
     func isExpired(index: Int, targetDate: Date) -> Bool {
         return expirationDate(of: index) < targetDate
     }
+    
+    func addBeverage(manufactureDate: Date) {
+        manufactureDates.append(manufactureDate)
+    }
 }
 
 extension Beverage: CustomStringConvertible {

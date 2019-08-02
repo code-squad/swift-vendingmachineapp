@@ -1,11 +1,11 @@
-import Foundation
+import UIKit
 
 class SoftDrink: Beverage {
-    private var calorie: Int
+    var calorie: Int
     
-    init(brand: String, packageSize: Int, price: Int, name: String, calorie: Int, dateOfManufacture: Date) {
-        self.calorie = calorie
-        super.init(brand: brand, packageSize: packageSize, price: price, name: name, dateOfManufacture: dateOfManufacture, expirationPeriod: Date.timeInterval(fromDays: 365), beverageTemperature: 10)
+    init(name: String, price: Coin, photo: UIImage?, brand: String, packageSize: Int, calorie: Int) {
+        
+        super.init(name: name, price: price, photo: photo, brand: brand, packageSize: packageSize, beverageTemperature: 10, expirationPeriod: Date.timeInterval(fromDays: 365))
     }
     
     var isLowCalorie: Bool {
@@ -14,13 +14,13 @@ class SoftDrink: Beverage {
 }
 
 class Cola: SoftDrink {
-    init(dateOfManufacture: Date) {
-        super.init(brand: "코카콜라", packageSize: 355, price: 2000, name: "코카콜라", calorie: 152, dateOfManufacture: dateOfManufacture)
+    init() {
+        super.init(name: "코카콜라", price: 2000, photo: #imageLiteral(resourceName: "Cocacola"), brand: "코카콜라", packageSize: 355, calorie: 152)
     }
 }
 
 class LemonlimeDrink: SoftDrink {
-    init(dateOfManufacture: Date) {
-        super.init(brand: "롯데", packageSize: 350, price: 1600, name: "칠성사이다", calorie: 155, dateOfManufacture: dateOfManufacture)
+    init() {
+        super.init(name: "칠성사이다", price: 1600, photo: #imageLiteral(resourceName: "ChilsungCider"), brand: "롯데", packageSize: 350, calorie: 155)
     }
 }

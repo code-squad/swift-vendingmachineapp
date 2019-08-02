@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  VendingMachineViewController.swift
 //  VendingMachineApp
 //
 //  Created by 김성현 on 16/07/2019.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UICollectionViewDataSource {
+class VendingMachineViewController: UIViewController, UICollectionViewDataSource {
     
     //MARK: 프로퍼티
     
@@ -40,6 +40,8 @@ class ViewController: UIViewController, UICollectionViewDataSource {
             fatalError("큐에서 제거된 Cell은 BeverageCollectionViewCell의 인스턴스가 아님")
         }
         
+        
+        return cell
     }
     
 }

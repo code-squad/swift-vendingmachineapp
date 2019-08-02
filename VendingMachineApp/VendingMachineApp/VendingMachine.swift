@@ -17,7 +17,7 @@ class VendingMachine {
     
     private(set) var inventory = Inventory()
     private(set) var coinsDeposited: Coin = 0
-    private(set) var purchasedItems = [Beverage]()
+    private(set) var purchasedItems = Inventory()
     private(set) var mode: Mode
     
     init(mode: Mode = .user) {
@@ -38,36 +38,23 @@ class VendingMachine {
     
     func vend(itemNamed name: String) throws -> Beverage {
         
-        guard let item = inventory[name] else {
-            throw VendingMachineError.invalidSelection
+        let item = inventory[name]
+        
+        guard item.price <= coinsDeposited else {
+            throw VendingMachineError.insufficientFunds(coinsNeeded: item.price - coinsDeposited)
         }
         
-        guard item.count > 0 else {
-            throw VendingMachineError.outOfStock
-        }
-        
-        guard item.price! <= coinsDeposited else {
-            throw VendingMachineError.insufficientFunds(coinsNeeded: item.price! - coinsDeposited)
-        }
-        
-        coinsDeposited -= item.price!
-        let itemVended = inventory[name]!.removeFirst()
-        purchasedItems.append(itemVended)
-        return itemVended
+        coinsDeposited -= item.price
+        let manufactureDate = try item.removeBeverage()
+        purchasedItems.addBeverageType(item)
+        purchasedItems.addBeverage(named: item.name, manufactureDate: manufactureDate)
+        return item
     }
     
     var availableItems: [String] {
         return inventory.filter { (_, item) in
             item.price! <= coinsDeposited
             }.keys.map { $0 }
-    }
-    
-    var hotBeverages: [String] {
-        return inventory.hotBeverages
-    }
-    
-    var expiredBeverages: [Beverage] {
-        return inventory.expiredBeverages
     }
     
     func addItem(_ beverage: Beverage) throws {

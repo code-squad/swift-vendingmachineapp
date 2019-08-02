@@ -28,11 +28,27 @@ class VendingViewController: UIViewController{
     }
     
     private func addNotificationObservers(){
+        addDrinkButtonObserver()
+        addGridCellObserver()
+        addBuyButtonObserver()
+        addBalanceObserver()
+    }
+    
+    private func addDrinkButtonObserver(){
         NotificationCenter.default.addObserver(self, selector: #selector(displayAlert(notification:)), name: .addDrinkButtonError, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(increaseDrinkStock(notification:)), name: .addDrinkButton, object: nil)
+    }
+    
+    private func addGridCellObserver(){
         NotificationCenter.default.addObserver(self, selector: #selector(updateGridCell(notification:)), name: .notifyDrinkStockSizeUpdate, object: nil)
+    }
+    
+    private func addBuyButtonObserver(){
         NotificationCenter.default.addObserver(self, selector: #selector(buyDrink(notification:)), name: .buyDrinkButton, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(displayAlert(notification:)), name: .buyDrinkButtonError, object: nil)
+    }
+    
+    private func addBalanceObserver(){
         NotificationCenter.default.addObserver(self, selector: #selector(updateBalanceLabel), name: .notifyBalanceInfoUpdate, object: nil)
     }
     
@@ -59,7 +75,7 @@ class VendingViewController: UIViewController{
             return
         }
         do {
-            let drink = try vendingMachine.sellProduct(productId: itemIndex)
+            _ = try vendingMachine.sellProduct(productId: itemIndex)
             try vendingMachine.showSpecifiedDrinkStockSize(itemIndex)
             updateShoppingHistory(itemIndex)
         }catch let error as VendingMachineError{
@@ -71,33 +87,60 @@ class VendingViewController: UIViewController{
     private let startX: CGFloat = 40
     private var startY: CGFloat = 575
     let space = 50
+    let width: CGFloat = 100, height: CGFloat = 100
     var historyImageList : [UIImageView] = [UIImageView]()
     
     private func updateShoppingHistory(_ index: Int){
         let historyListSize = vendingMachine.showShoppingHistory().count - 1
-        let maxWidth = self.view.frame.width - 100
-        let maxHeight = self.view.frame.height - 100
         let drinkImg: UIImage = UIImage.init(named: "\(index).jpg")!
         let cardImage: UIImageView = UIImageView(image: drinkImg)
-        var currentImageX = startX * CGFloat(historyListSize)
-        
-        /// 화면 벗어나는 경우 처리
+        let (currentImageX, convertedImage) = configureCoordinates(size: historyListSize, cardImage: cardImage)
+        saveCardImageInfo(x: currentImageX, y: startY, width: width, height: height, index: index)
+        view.addSubview(convertedImage)
+    }
+    
+    /// 화면 벗어나는 경우 처리
+    private func configureCoordinates(size: Int, cardImage: UIImageView)->(currentImageX: CGFloat, cardImage: UIImageView ){
+        var currentImageX = startX + CGFloat(space * (size))
+        let maxWidth = self.view.frame.width - 100
         if maxWidth > currentImageX + 100 {
-            cardImage.frame = CGRect.init(x: currentImageX, y: startY, width: 100, height: 100)
+            cardImage.frame = CGRect.init(x: currentImageX, y: startY, width: width, height: height)
         }else {
             startY += 100
-            currentImageX = CGFloat(Int(currentImageX) % historyListSize)
-            cardImage.frame = CGRect.init(x: currentImageX, y: startY, width: 100, height: 100)
+            let newX = CGFloat(Int(currentImageX) % space)
+            currentImageX = newX < startX ? startX : newX
+            cardImage.frame = CGRect.init(x: currentImageX, y: startY, width: width, height: height)
         }
-        
-        view.addSubview(cardImage)
-        historyImageList.append(cardImage)
+        return (currentImageX, cardImage)
+    }
+    
+    private func saveCardImageInfo(x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat, index: Int){
+        let imageInfo = ImageInfo.init(
+                x: Double(x),
+                y: Double(y),
+                width: Double(width),
+                height: Double(height),
+                imageName: "\(index).jpg"
+        )
+        vendingMachine.addDrinkInfo(imageInfo)
+    }
+    
+    private func convertImageInfoToImageView(){
+        let history = vendingMachine.showShoppingHistory()
+        let imageInfoList = history.images
+        imageInfoList.forEach { (imageInfo) in
+            let drinkImg: UIImage = UIImage.init(named: "\(imageInfo.imageName)")!
+            let cardImage = UIImageView.init(image: drinkImg)
+            cardImage.frame = CGRect.init(x: CGFloat(imageInfo.x), y: CGFloat(imageInfo.y), width: CGFloat(imageInfo.width), height: CGFloat(imageInfo.height))
+            historyImageList.append(cardImage)
+        }
     }
     
     private func presentCurrentHistory(){
-        for image in historyImageList {
-            view.addSubview(image)
-        }
+        convertImageInfoToImageView()
+        historyImageList.forEach({ (subView) in
+            view.addSubview(subView)
+        })
     }
     
     @objc func increaseDrinkStock(notification: Notification){
@@ -135,7 +178,6 @@ class VendingViewController: UIViewController{
             balanceInfo.text = "\(balance)원"
         })
     }
-    
     
     private func printInitialDrinkMenuList(){
         let printDrinkMenuListFormat = {

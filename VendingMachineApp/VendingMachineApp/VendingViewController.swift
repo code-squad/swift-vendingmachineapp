@@ -39,24 +39,49 @@ class VendingViewController: UIViewController{
         addGridCellObserver()
         addBuyButtonObserver()
         addBalanceObserver()
+        addShoppingHistoryObserver()
     }
     
     private func addDrinkButtonObserver(){
-        NotificationCenter.default.addObserver(self, selector: #selector(displayAlert(notification:)), name: .addDrinkButtonError, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(increaseDrinkStock(notification:)), name: .addDrinkButton, object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(displayAlert(notification:)),
+                                               name: .addDrinkButtonError,
+                                               object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(increaseDrinkStock(notification:)),
+                                               name: .addDrinkButton,
+                                               object: nil)
     }
     
     private func addGridCellObserver(){
-        NotificationCenter.default.addObserver(self, selector: #selector(updateGridCell(notification:)), name: .notifyDrinkStockSizeUpdate, object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(updateGridCell(notification:)),
+                                               name: .notifyDrinkStockSizeUpdate,
+                                               object: nil)
     }
     
     private func addBuyButtonObserver(){
-        NotificationCenter.default.addObserver(self, selector: #selector(buyDrink(notification:)), name: .buyDrinkButton, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(displayAlert(notification:)), name: .buyDrinkButtonError, object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(buyDrink(notification:)),
+                                               name: .buyDrinkButton,
+                                               object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(displayAlert(notification:)),
+                                               name: .buyDrinkButtonError, object: nil)
     }
     
     private func addBalanceObserver(){
-        NotificationCenter.default.addObserver(self, selector: #selector(updateBalanceLabel), name: .notifyBalanceInfoUpdate, object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(updateBalanceLabel),
+                                               name: .notifyBalanceInfoUpdate,
+                                               object: nil)
+    }
+    
+    private func addShoppingHistoryObserver(){
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(updateShoppingHistory(notification:)),
+                                               name: .notifyShoppingHistory,
+                                               object: nil)
     }
     
     @objc func updateGridCell(notification: Notification){
@@ -84,14 +109,17 @@ class VendingViewController: UIViewController{
         do {
             _ = try vendingMachine.sellProduct(productId: itemIndex)
             try vendingMachine.showSpecifiedDrinkStockSize(itemIndex)
-            updateShoppingHistory(itemIndex)
+//            updateShoppingHistory(itemIndex)
         }catch let error as VendingMachineError{
             displayAlertInplace(error)
         }catch{
         }
     }
     
-    private func updateShoppingHistory(_ index: Int){
+    @objc func updateShoppingHistory(notification: Notification){
+        guard let index = unwrapDrinkId(notification.object) else{
+            return
+        }
         let historyListSize = vendingMachine.showShoppingHistory().count - 1
         let drinkImg: UIImage = UIImage.init(named: "\(index).jpg")!
         let cardImage: UIImageView = UIImageView(image: drinkImg)
@@ -101,7 +129,7 @@ class VendingViewController: UIViewController{
     }
     
     /// 화면 벗어나는 경우 처리
-    private func configureCoordinates(size: Int, cardImage: UIImageView)->(currentImageX: CGFloat, cardImage: UIImageView ){
+    private func configureCoordinates(size: Int, cardImage: UIImageView) -> (currentImageX: CGFloat, cardImage: UIImageView){
         let modifiedSize = size < 20 ? size : size - 20 * (size/20)
         let originalY = startY
         startY = size < 20 ? startY : (startY + CGFloat(50*(size/20)))
@@ -112,14 +140,19 @@ class VendingViewController: UIViewController{
     }
     
     private func saveCardImageInfo(x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat, index: Int){
-        let imageInfo = ImageInfo.init(
-                x: Double(x),
-                y: Double(y),
-                width: Double(width),
-                height: Double(height),
-                imageName: "\(index).jpg"
-        )
+        let imageInfo = ImageInfo.init(x: Double(x),
+                                       y: Double(y),
+                                       width: Double(width),
+                                       height: Double(height),
+                                       imageName: "\(index).jpg")
         vendingMachine.addDrinkInfo(imageInfo)
+    }
+    
+    private func presentCurrentHistory(){
+        convertImageInfoToImageView()
+        historyImageList.forEach({ (subView) in
+            view.addSubview(subView)
+        })
     }
     
     private func convertImageInfoToImageView(){
@@ -131,13 +164,6 @@ class VendingViewController: UIViewController{
             cardImage.frame = CGRect.init(x: CGFloat(imageInfo.x), y: CGFloat(imageInfo.y), width: CGFloat(imageInfo.width), height: CGFloat(imageInfo.height))
             historyImageList.append(cardImage)
         }
-    }
-    
-    private func presentCurrentHistory(){
-        convertImageInfoToImageView()
-        historyImageList.forEach({ (subView) in
-            view.addSubview(subView)
-        })
     }
     
     @objc func increaseDrinkStock(notification: Notification){

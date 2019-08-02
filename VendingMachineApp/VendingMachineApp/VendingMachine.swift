@@ -8,8 +8,6 @@ enum VendingMachineError: Error {
     case noPermission
 }
 
-typealias Coin = Int
-
 class VendingMachine {
     
     enum Mode {

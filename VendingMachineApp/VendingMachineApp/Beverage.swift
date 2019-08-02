@@ -1,60 +1,55 @@
-import Foundation
+import UIKit
+
+typealias Coin = Int
 
 class Beverage {
     
-    private var brand: String
-    private var packageSize: Int
-    private(set) var price: Coin
-    private(set) var name: String
-    private var dateOfManufacture: Date
-    private var expirationPeriod: TimeInterval
-    private(set) var beverageTemperature: Int
+    //MARK: 프로퍼티
     
-    init(brand: String, packageSize: Int, price: Int, name: String, dateOfManufacture: Date, expirationPeriod: TimeInterval, beverageTemperature: Int) {
-        self.brand = brand
-        self.packageSize = packageSize
-        self.price = price
-        self.name = name
-        self.dateOfManufacture = dateOfManufacture
-        self.expirationPeriod = expirationPeriod
-        self.beverageTemperature = beverageTemperature
-    }
+    var brand: String
+    var packageSize: Int
+    var beverageTemperature: Int
+    var expirationPeriod: TimeInterval
     
-    var expirationDate: Date {
-        return dateOfManufacture + expirationPeriod
-    }
+    var name: String
+    var price: Coin
+    var photo: UIImage?
     
-    func isExpired(targetDate: Date) -> Bool {
-        return expirationDate < targetDate
+    var manufactureDates = [Date]()
+    
+    var count: Int {
+        return manufactureDates.count
     }
     
     var isHot: Bool {
         return beverageTemperature > 50
     }
+    
+    //MARK: 초기화
+    
+    internal init(brand: String, packageSize: Int, price: Coin, name: String, expirationPeriod: TimeInterval, beverageTemperature: Int, photo: UIImage?) {
+        self.brand = brand
+        self.packageSize = packageSize
+        self.price = price
+        self.name = name
+        self.expirationPeriod = expirationPeriod
+        self.beverageTemperature = beverageTemperature
+        self.photo = photo
+    }
+    
+    //MARK: 메소드
+    
+    func expirationDate(of index: Int) -> Date {
+        return manufactureDates[index] + expirationPeriod
+    }
+    
+    func isExpired(index: Int, targetDate: Date) -> Bool {
+        return expirationDate(of: index) < targetDate
+    }
 }
 
 extension Beverage: CustomStringConvertible {
     var description: String {
-        return "\(type(of: self)) - \(brand), \(packageSize)ml, \(price)원, \(name), \(dateOfManufacture)"
-    }
-}
-
-typealias Beverages = [Beverage]
-
-extension Beverages {
-    
-    var price: Coin? {
-        return self.first?.price
-    }
-    
-    var beverageTemperature: Int? {
-        return self.first?.beverageTemperature
-    }
-    
-    var isHot: Bool? {
-        guard let temperature = beverageTemperature else {
-            return nil
-        }
-        return temperature > 50
+        return "\(type(of: self)) - \(brand), \(packageSize)ml, \(price)원, \(name), \(manufactureDates)"
     }
 }

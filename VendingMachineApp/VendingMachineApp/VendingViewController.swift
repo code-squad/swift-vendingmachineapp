@@ -29,7 +29,7 @@ class VendingViewController: UIViewController{
     private func addNotificationObservers(){
         NotificationCenter.default.addObserver(self, selector: #selector(displayAlert(notification:)), name: .addDrinkButtonError, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(increaseDrinkStock(notification:)), name: .addDrinkButton, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(updateGridCell(notification:)), name: .updateGridCell, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateGridCell(notification:)), name: .notifyDrinkStockSizeUpdate, object: nil)
     }
     
     @objc func updateGridCell(notification: Notification){
@@ -133,6 +133,5 @@ extension VendingViewController: UICollectionViewDelegateFlowLayout {
 extension Notification.Name {
     static let addDrinkButtonError = Notification.Name(rawValue: "AddDrinkButtonError")
     static let addDrinkButton = Notification.Name(rawValue: "AddDrinkButton")
-    static let updateGridCell = Notification.Name(rawValue: "updateGridCell")
 }
 

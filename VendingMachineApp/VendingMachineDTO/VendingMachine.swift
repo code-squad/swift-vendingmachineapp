@@ -78,7 +78,6 @@ class VendingMachine: ProductSoldable, Codable {
             drinkStockTable.updateDrinkStockTable(nextIndex: newMenuNumber, drinkElement: drink)
             try addStockDefault(drink: drink, number: newMenuNumber, quantity: quantity-1)
         }
-        
     }
     
     func selectProduct(productId: Int) throws -> Drink{
@@ -95,7 +94,7 @@ class VendingMachine: ProductSoldable, Codable {
             guard let list = drinkStockTable.stockTable[index] else{
                 throw VendingMachineError.notFoundDrinkIdError
             }
-            notifyAddingCompleted(index)
+            notifyUpdateStockCompleted(index)
             return list.drinkStockList.count
         }catch let error as VendingMachineError {
             throw error
@@ -142,7 +141,7 @@ class VendingMachine: ProductSoldable, Codable {
         throw VendingMachineError.notEnoughMoneyError
     }
     
-    private func notifyAddingCompleted(_ productId: Int){
+    private func notifyUpdateStockCompleted(_ productId: Int){
         NotificationCenter.default.post(name: .notifyDrinkStockSizeUpdate, object: productId)
     }
     

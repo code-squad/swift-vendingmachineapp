@@ -10,4 +10,5 @@ import Foundation
 
 extension Notification.Name {
     static let notifyDrinkStockSizeUpdate = Notification.Name(rawValue: "notifyDrinkStockSizeUpdate")
+    static let notifyBalanceInfoUpdate = Notification.Name(rawValue: "notifyBalanceInfoUpdate")
 }

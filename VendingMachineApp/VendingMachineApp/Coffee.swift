@@ -1,20 +1,20 @@
-import Foundation
+import UIKit
 
 class Coffee: Beverage {
     
-    init(brand: String, packageSize: Int, price: Int, name: String, beverageTemperature: Int, dateOfManufacture: Date) {
-        super.init(brand: brand, packageSize: packageSize, price: price, name: name, dateOfManufacture: dateOfManufacture, expirationPeriod: Date.timeInterval(fromDays: 90), beverageTemperature: beverageTemperature)
+    init(name: String, price: Coin, photo: UIImage?, brand: String, packageSize: Int, beverageTemperature: Int) {
+        
+        super.init(name: name, price: price, photo: photo, brand: brand, packageSize: packageSize, beverageTemperature: beverageTemperature, expirationPeriod: Date.timeInterval(fromDays: 90))
+        
     }
 }
 
 class TOPCoffee: Coffee {
-    init(dateOfManufacture: Date) {
-        super.init(brand: "맥심", packageSize: 275, price: 1000, name: "TOP", beverageTemperature: 10, dateOfManufacture: dateOfManufacture)
-    }
+    init() {
+        super.init(name: "TOP", price: 1000, photo: #imageLiteral(resourceName: "TOP"), brand: "맥심", packageSize: 275, beverageTemperature: 10)
 }
 
 class CantataCoffee: Coffee {
-    init(dateOfManufacture: Date) {
-        super.init(brand: "롯데", packageSize: 500, price: 1500, name: "칸타타", beverageTemperature: 80, dateOfManufacture: dateOfManufacture)
-    }
+    init() {
+        super.init(name: "칸타타", price: 1500, photo: #imageLiteral(resourceName: "Cantata"), brand: "롯데", packageSize: 500, beverageTemperature: 80)
 }

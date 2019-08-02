@@ -129,9 +129,3 @@ extension VendingViewController: UICollectionViewDelegateFlowLayout {
         return CGSize.init(width: width, height: height)
     }
 }
-
-extension Notification.Name {
-    static let addDrinkButtonError = Notification.Name(rawValue: "AddDrinkButtonError")
-    static let addDrinkButton = Notification.Name(rawValue: "AddDrinkButton")
-}
-

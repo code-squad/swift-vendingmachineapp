@@ -44,3 +44,8 @@ class GridCell: UICollectionViewCell{
         itemIndex = index
     }
 }
+
+extension Notification.Name {
+    static let addDrinkButtonError = Notification.Name(rawValue: "AddDrinkButtonError")
+    static let addDrinkButton = Notification.Name(rawValue: "AddDrinkButton")
+}

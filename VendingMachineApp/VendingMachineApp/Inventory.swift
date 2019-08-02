@@ -6,34 +6,30 @@
 //  Copyright © 2019 JK. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
-typealias Inventory = [String: Beverages]
-
-extension Inventory {
-    var hotBeverages: [String] {
-        return self.filter { (_, beverages) in
-            if let isHot = beverages.isHot {
-                return isHot
+struct Inventory {
+    private var storage = [String: Beverage]()
+    
+    subscript (name: String) -> Beverage {
+        get {
+            guard let beverage = storage[name] else {
+                fatalError("잘못된 음료 이름이 전달됨")
             }
-            return false
-            }.keys.map { $0 }
-    }
-    
-    var expiredBeverages: [Beverage] {
-        let allBeverages = self.values.flatMap { $0 }
-        return allBeverages.filter { $0.isExpired(targetDate: Date()) }
-    }
-    
-    mutating func addItem(_ beverage: Beverage) {
-        if self[beverage.name] == nil {
-            self[beverage.name] = [beverage]
-        } else {
-            self[beverage.name]!.append(beverage)
+            return beverage
         }
     }
     
-    mutating func addItems(_ beverages: [Beverage]) {
-        beverages.forEach { addItem($0) }
+    mutating func addBeverageType(_ beverage: Beverage) {
+        storage[beverage.name] = beverage
     }
+    
+    mutating func addBeverage(named name: String, manufactureDate: Date = Date()) {
+        storage[name]?.addBeverage(manufactureDate: manufactureDate)
+    }
+    
+    var expiredBeverages: [String: [Date]] {
+        return storage.mapValues { $0.expiredBeverages }
+    }
+    
 }

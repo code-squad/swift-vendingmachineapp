@@ -53,9 +53,7 @@ class GridCell: UICollectionViewCell{
     }
     
     func updateDrinkInfo(drinkStockSize: Int, index: Int){
-        guard let img: UIImage = UIImage.init(named: "\(index).jpg") else{
-            return
-        }
+        let img: UIImage = UIImage.init(named: "\(index).jpg")!
         imgView.image = img
         stockInfoLabel.text = "\(drinkStockSize)개"
         itemIndex = index

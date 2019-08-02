@@ -48,6 +48,13 @@ class Beverage {
     func addBeverage(manufactureDate: Date = Date()) {
         manufactureDates.append(manufactureDate)
     }
+    
+    func removeBeverage() throws -> Date {
+        guard count > 0 else {
+            throw VendingMachineError.outOfStock
+        }
+        return manufactureDates.removeFirst()
+    }
 }
 
 extension Beverage: CustomStringConvertible {

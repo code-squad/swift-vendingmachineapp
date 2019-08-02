@@ -17,4 +17,5 @@ class TOPCoffee: Coffee {
 class CantataCoffee: Coffee {
     init() {
         super.init(name: "칸타타", price: 1500, photo: #imageLiteral(resourceName: "Cantata"), brand: "롯데", packageSize: 500, beverageTemperature: 80)
+    }
 }

@@ -2,6 +2,9 @@ import UIKit
 
 class BeverageMaker {
     
+    
+    
+    
     struct ExampleDate {
         static let date1 = Date("20190208")!
         static let date2 = Date("20190411")!

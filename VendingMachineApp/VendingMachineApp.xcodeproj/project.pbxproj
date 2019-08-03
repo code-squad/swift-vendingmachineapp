@@ -18,7 +18,6 @@
 		F27FF11822DDAF910079EE89 /* Inventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27FF11222DDAF910079EE89 /* Inventory.swift */; };
 		F27FF11922DDAF910079EE89 /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27FF11322DDAF910079EE89 /* VendingMachine.swift */; };
 		F27FF11A22DDAF910079EE89 /* Administrator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27FF11422DDAF910079EE89 /* Administrator.swift */; };
-		F27FF11B22DDAF910079EE89 /* BeverageMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27FF11522DDAF910079EE89 /* BeverageMaker.swift */; };
 		F27FF12122DDB0470079EE89 /* SoftDrink.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27FF11D22DDB0470079EE89 /* SoftDrink.swift */; };
 		F27FF12222DDB0470079EE89 /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27FF11E22DDB0470079EE89 /* Beverage.swift */; };
 		F27FF12322DDB0470079EE89 /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27FF11F22DDB0470079EE89 /* Milk.swift */; };
@@ -295,7 +294,6 @@
 				F283512922F417C6001644EF /* BeverageCollectionViewCell.swift in Sources */,
 				F27FF11A22DDAF910079EE89 /* Administrator.swift in Sources */,
 				F27FF11722DDAF910079EE89 /* Date.swift in Sources */,
-				F27FF11B22DDAF910079EE89 /* BeverageMaker.swift in Sources */,
 				F27FF12122DDB0470079EE89 /* SoftDrink.swift in Sources */,
 				F27FF0E422DDAEE00079EE89 /* AppDelegate.swift in Sources */,
 			);

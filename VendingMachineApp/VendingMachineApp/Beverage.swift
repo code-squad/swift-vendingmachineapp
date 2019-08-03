@@ -17,14 +17,6 @@ class Beverage {
     
     var manufactureDates = [Date]()
     
-    var count: Int {
-        return manufactureDates.count
-    }
-    
-    var isHot: Bool {
-        return beverageTemperature > 50
-    }
-    
     //MARK: 초기화
     
     init(name: String, price: Coin, photo: UIImage?, brand: String, packageSize: Int, beverageTemperature: Int, expirationPeriod: TimeInterval) {
@@ -38,6 +30,14 @@ class Beverage {
     }
     
     //MARK: 연산 프로퍼티
+    
+    var count: Int {
+        return manufactureDates.count
+    }
+    
+    var isHot: Bool {
+        return beverageTemperature > 50
+    }
     
     var expiredBeverages: [Date] {
         return manufactureDates.filter { $0.isExpired(period: expirationPeriod) }

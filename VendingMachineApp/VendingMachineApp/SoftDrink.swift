@@ -4,7 +4,7 @@ class SoftDrink: Beverage {
     var calorie: Int
     
     init(name: String, price: Coin, photo: UIImage?, brand: String, packageSize: Int, calorie: Int) {
-        
+        self.calorie = calorie
         super.init(name: name, price: price, photo: photo, brand: brand, packageSize: packageSize, beverageTemperature: 10, expirationPeriod: Date.timeInterval(fromDays: 365))
     }
     

@@ -16,4 +16,12 @@ class BeverageCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var countLabel: UILabel!
     
     @IBOutlet weak var addButton: UIButton!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        // 셀과 이미지의 모서리를 둥글게 합니다.
+        photoImageVIew.layer.cornerRadius = 10
+        self.layer.cornerRadius = 10
+    }
 }

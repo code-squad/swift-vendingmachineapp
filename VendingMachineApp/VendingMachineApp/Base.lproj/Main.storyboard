@@ -138,8 +138,14 @@
                                             <action selector="handleChargeBalanceButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aTD-bL-6TN"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="구매이력" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E7D-mN-ZDe">
+                                        <rect key="frame" x="36" y="485" width="94" height="33"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.87251541639999997" green="0.81347227430000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.81477403054659003" green="0.86071849288849112" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstItem="t2V-cM-yIX" firstAttribute="firstBaseline" secondItem="ml6-yF-1Fc" secondAttribute="firstBaseline" id="9aT-jD-arT"/>
                                     <constraint firstItem="t2V-cM-yIX" firstAttribute="baseline" secondItem="ml6-yF-1Fc" secondAttribute="baseline" id="Dp0-2F-w3i"/>
@@ -157,6 +163,8 @@
                                     <constraint firstItem="Vh7-qD-ChK" firstAttribute="centerX" secondItem="D7Y-BN-Stg" secondAttribute="centerX" id="vgf-nA-sgu"/>
                                     <constraint firstAttribute="trailing" secondItem="HHr-bQ-FAs" secondAttribute="trailing" constant="37" id="wAM-C0-Vta"/>
                                     <constraint firstItem="t2V-cM-yIX" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ml6-yF-1Fc" secondAttribute="trailing" constant="8" symbolic="YES" id="wZh-Iq-Fka"/>
+                                    <constraint firstItem="E7D-mN-ZDe" firstAttribute="leading" secondItem="R6O-zv-MRB" secondAttribute="leading" id="yDW-Hs-MUD"/>
+                                    <constraint firstItem="E7D-mN-ZDe" firstAttribute="top" secondItem="R6O-zv-MRB" secondAttribute="bottom" constant="56" id="zsY-5M-bUq"/>
                                 </constraints>
                             </view>
                         </subviews>

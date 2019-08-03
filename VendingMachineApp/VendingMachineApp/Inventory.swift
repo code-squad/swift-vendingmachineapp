@@ -6,7 +6,7 @@
 //  Copyright © 2019 JK. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 struct Inventory {
     
@@ -16,26 +16,23 @@ struct Inventory {
         return Array(storage.values)
     }
     
+    subscript(name: String) -> Beverage {
+        guard let beverage = storage[name] else {
+            fatalError("잘못된 음료 이름이 전달됨")
+        }
+        return beverage
+    }
     
-    subscript (name: String) -> Beverage {
-        get {
-            guard let beverage = storage[name] else {
-                fatalError("잘못된 음료 이름이 전달됨")
-            }
-            return beverage
+    mutating func addBeverageType(_ beverage: Beverage) {
+        if storage[beverage.name] == nil {
+            storage[beverage.name] = beverage
         }
     }
     
     mutating func addBeverage(_ beverage: Beverage, manufactureDate: Date = Date()) {
-        if storage[beverage.name] == nil {
-            storage[beverage.name] = beverage
-        }
+        addBeverageType(beverage)
         self[beverage.name].addBeverage(manufactureDate: manufactureDate)
     }
-    
-//    mutating func removeOneBeverage(named name: String) -> Date {
-//        return self[name].removeBeverage()
-//    }
     
     var expiredBeverages: [String: [Date]] {
         return storage.mapValues { $0.expiredBeverages }

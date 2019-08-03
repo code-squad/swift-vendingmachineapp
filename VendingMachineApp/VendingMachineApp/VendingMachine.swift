@@ -10,36 +10,13 @@ enum VendingMachineError: Error {
 
 class VendingMachine {
     
-    
-    //MARK: 타입
-    
-//    enum Mode {
-//        case administrator
-//        case user
-//    }
-    
     //MARK: 속성
     
     private(set) var inventory = Inventory()
     private(set) var coinsDeposited: Coin = 0
     private(set) var purchasedItems = Inventory()
-//    private(set) var mode: Mode
-    
-    //MARK: 초기화
-    
-//    init(mode: Mode = .user) {
-//        self.mode = mode
-//    }
     
     //MARK: 메소드
-    
-//    func switchMode(to mode: Mode) {
-//        self.mode = mode
-//    }
-    
-//    var isAdministrator: Bool {
-//        return mode == .administrator
-//    }
     
     func insertCoins(_ amount: Coin) {
         coinsDeposited += amount
@@ -59,26 +36,29 @@ class VendingMachine {
     func vend(itemNamed name: String) throws -> Beverage {
         
         let beverage = inventory[name]
-        
         try deductCoins(beverage.price)
         
         let manufactureDate = try takeItem(named: beverage.name)
-        
         purchasedItems.addBeverage(beverage, manufactureDate: manufactureDate)
         
         return beverage
     }
     
-    var purchasableItems: [Beverage] {
-        return inventory.allBeverages.filter { $0.price <= coinsDeposited }
+    func addBeverageType(_ beverage: Beverage) {
+        inventory.addBeverageType(beverage)
     }
     
     func addBeverage(_ beverage: Beverage, manufactureDate: Date = Date()) {
         inventory.addBeverage(beverage, manufactureDate: manufactureDate)
     }
     
-    func addBeverages(_ beverage: Beverage, manufactureDates: [Date]) throws {
+    func addBeverages(_ beverage: Beverage, manufactureDates: [Date]) {
         manufactureDates.forEach { addBeverage(beverage, manufactureDate: $0) }
     }
     
+    //MARK: 연산 프로퍼티
+    
+    var purchasableItems: [Beverage] {
+        return inventory.allBeverages.filter { $0.price <= coinsDeposited }
+    }
 }

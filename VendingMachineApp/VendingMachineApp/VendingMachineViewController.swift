@@ -16,13 +16,14 @@ class VendingMachineViewController: UIViewController, UICollectionViewDataSource
     
     @IBOutlet weak var beverageCollectionView: UICollectionView!
     
+    @IBOutlet weak var coinsDepositedLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         beverageCollectionView.dataSource = self
-//        beverageCollectionView.delegate = self
         loadSampleBeverages()
-        
+        reloadCoinsDepositedLabel()
     }
     
     //MARK: UICollectionViewDataSource
@@ -48,6 +49,23 @@ class VendingMachineViewController: UIViewController, UICollectionViewDataSource
         return cell
     }
     
+    //MARK: 액션
+    
+    @IBAction func insertCoinsButtonTapped(_ sender: UIButton) {
+        switch sender.tag {
+        case 0:
+            machine.insertCoins(5000)
+        case 1:
+            machine.insertCoins(1000)
+        default:
+            fatalError("유효하지 않은 insertCoins 버튼 태그")
+        }
+        reloadCoinsDepositedLabel()
+    }
+    
+    
+    
+    
     //MARK: 비공개 메소드
     
     private func loadSampleBeverages() {
@@ -60,6 +78,10 @@ class VendingMachineViewController: UIViewController, UICollectionViewDataSource
             LemonlimeDrink()
         ]
         sampleBeverages.forEach { machine.addBeverageType($0) }
+    }
+    
+    private func reloadCoinsDepositedLabel() {
+        coinsDepositedLabel.text = "\(machine.coinsDeposited) 코인"
     }
     
 }

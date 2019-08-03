@@ -63,8 +63,12 @@ class VendingMachineViewController: UIViewController, UICollectionViewDataSource
         reloadCoinsDepositedLabel()
     }
     
-    
-    
+    @IBAction func addBeverageButton(_ sender: UIButton) {
+        let index = sender.tag
+        let beverage = machine.inventory.allBeverages[index]
+        machine.addBeverage(beverage)
+        reloadBeverageCount(at: index)
+    }
     
     //MARK: 비공개 메소드
     
@@ -82,6 +86,10 @@ class VendingMachineViewController: UIViewController, UICollectionViewDataSource
     
     private func reloadCoinsDepositedLabel() {
         coinsDepositedLabel.text = "\(machine.coinsDeposited) 코인"
+    }
+    
+    private func reloadBeverageCount(at index: Int) {
+        beverageCollectionView.reloadItems(at: [IndexPath(row: index, section: 0)])
     }
     
 }

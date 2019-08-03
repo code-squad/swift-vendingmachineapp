@@ -8,7 +8,7 @@
 
 import Foundation
 
-class VendingMachine: ProductSoldable, Codable {
+class VendingMachine: ProductSoldable, Codable{
     private var balance : Int
     private var earning: Int = 0
     private var shoppingHistory: ShoppingHistory
@@ -38,12 +38,12 @@ class VendingMachine: ProductSoldable, Codable {
         return drinkStockTable
     }
     
-    func showDrinkStockTableMenuSize() -> Int {
+    func showDrinkStockTableMenuSize() -> Int{
         return drinkStockTable.stockTable.count
     }
     
     ///시작이후 구매 상품 이력을 배열로 리턴하는 메소드
-    func showShoppingHistory() -> ShoppingHistory {
+    func showShoppingHistory() -> ShoppingHistory{
         return shoppingHistory
     }
     
@@ -68,7 +68,7 @@ class VendingMachine: ProductSoldable, Codable {
     
     ///특정 상품 인스턴스를 넘겨서 재고를 추가하는 메소드
     ///만약 해당 상품인스턴스가 기존 재고에 없다면 넘버링을 새로하여 메뉴테이블과 재고테이블에 추가한다.
-    func addDrinkStock(_ drink: Drink, quantity: Int) throws {
+    func addDrinkStock(_ drink: Drink, quantity: Int) throws{
         if let menuNumber = menuTable.menu[drink.name] {
             try addStockDefault(drink: drink, number: menuNumber, quantity: quantity)
         }else{
@@ -95,7 +95,7 @@ class VendingMachine: ProductSoldable, Codable {
             }
             notifyUpdateStockCompleted(index)
             return list.drinkStockList.count
-        }catch let error as VendingMachineError {
+        }catch let error as VendingMachineError{
             throw error
         }
     }
@@ -109,24 +109,26 @@ class VendingMachine: ProductSoldable, Codable {
         }
     }
     
-    private func addStockDefault(drink: Drink, number : Int, quantity: Int) throws {
+    private func addStockDefault(drink: Drink, number : Int, quantity: Int) throws{
         let drinkList = drinkStockTable.stockTable[number]!
         try drinkList.addItem(drink, quantity: quantity)
     }
     
     ///잔액을 확인하는 메소드
-    func informCurrentBalance() -> Int {
+    func informCurrentBalance() -> Int{
         return balance
     }
     
     ///음료수를 구매(판매)하는 메소드
     func sellProduct(productId: Int) throws -> Drink {
-        guard let productList = drinkStockTable.stockTable[productId] else {
+        guard let productList = drinkStockTable.stockTable[productId] else{
+            notifySellingCompleted(VendingMachineError.notFoundDrinkIdError)
             throw VendingMachineError.notFoundDrinkIdError
         }
         if productList.isAvailable(balance){  /// 판매 가능하면 업데이트
             productList.makeNotForSaleList()
             if productList.isEmpty{
+                notifySellingCompleted(VendingMachineError.outOfStockError)
                 throw VendingMachineError.outOfStockError
             }
             let soldProduct = productList.removeFirstElement()
@@ -135,10 +137,11 @@ class VendingMachine: ProductSoldable, Codable {
             updateEarning(price)
             drinkStockTable.updateStockTable(productList, forKey: productId)
             shoppingHistory.addDrinkHistory(soldProduct)
+            notifySellingCompleted(productId)
             notifyUpdateBalanceCompleted()
-            notifyUpdateShoppingHistory(productId)
             return soldProduct
         }
+        notifySellingCompleted(VendingMachineError.notEnoughMoneyError)
         throw VendingMachineError.notEnoughMoneyError
     }
     
@@ -150,15 +153,26 @@ class VendingMachine: ProductSoldable, Codable {
         NotificationCenter.default.post(name: .notifyBalanceInfoUpdate, object: nil)
     }
     
-    private func notifyUpdateShoppingHistory(_ productId: Int){
-        NotificationCenter.default.post(name: .notifyShoppingHistory, object: productId)
+    private func notifySellingCompleted(_ result: Any){
+        if let id = result as? Int {
+            let success = ["200" : id]
+            NotificationCenter.default.post(name: .notifySellingResult, object: nil, userInfo: success)
+        }else{
+            guard let error = result as? VendingMachineError else{
+                let failure = ["500" : VendingMachineError.unknownError]
+                NotificationCenter.default.post(name: .notifySellingResult, object: nil, userInfo: failure)
+                return
+            }
+            let failure = ["500" : error]
+            NotificationCenter.default.post(name: .notifySellingResult, object: nil, userInfo: failure)
+        }
     }
     
     private func updateEarning(_ money: Int){
         earning += money
     }
     
-    private func minusProductPriceFromBalance(_ money: Int) {
+    private func minusProductPriceFromBalance(_ money: Int){
         balance -= money
     }
     
@@ -170,7 +184,7 @@ class VendingMachine: ProductSoldable, Codable {
         printFormat(earning)
     }
     
-    func displayDrinkMenuList(printFormat: ([(key: Int, value: DrinkItemList)]) -> Void ) {
+    func displayDrinkMenuList(printFormat: ([(key: Int, value: DrinkItemList)]) -> Void){
         let sortedMenutable = drinkStockTable.stockTable.sorted{$0.key < $1.key }
         printFormat(sortedMenutable)
     }
@@ -185,7 +199,7 @@ class VendingMachine: ProductSoldable, Codable {
         UserDefaults.standard.set(jsonData, forKey: "vendingMachine")
     }
     
-    private static func decodeJsonData(_ jsonData: Data) -> VendingMachine? {
+    private static func decodeJsonData(_ jsonData: Data) -> VendingMachine?{
         let decoder = JSONDecoder()
         guard let machine = try? decoder.decode(VendingMachine.self, from: jsonData) else{
             return nil
@@ -218,14 +232,14 @@ class VendingMachine: ProductSoldable, Codable {
         UserDefaults.standard.set(jsonData, forKey: "vendingMachine")
     }
     
-    private static func loadData() -> Data? {
+    private static func loadData() -> Data?{
         guard let jsonData = UserDefaults.standard.value(forKey: "vendingMachine") as? Data else{
             return nil
         }
         return jsonData
     }
     
-    func addDrinkInfo(_ imageInfo: ImageInfo) {
+    func addDrinkInfo(_ imageInfo: ImageInfo){
         self.shoppingHistory.addSubImageView(imageInfo)
     }
     private static func flushPreviousVendingMachineData(){

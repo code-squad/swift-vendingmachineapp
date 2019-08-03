@@ -22,10 +22,6 @@ class GridCell: UICollectionViewCell{
     
     @IBAction func buyDrinkButton(_ sender: UIButton) {
         guard let index = itemIndex else{
-            NotificationCenter.default.post(
-                name: .buyDrinkButtonError,
-                object: VendingMachineError.notFoundDrinkIdError
-            )
             return
         }
         NotificationCenter.default.post(name: .buyDrinkButton, object: index)
@@ -36,10 +32,6 @@ class GridCell: UICollectionViewCell{
             return
         }
         guard let index = itemIndex else {
-            NotificationCenter.default.post(
-                name: .addDrinkButtonError,
-                object: VendingMachineError.notFoundDrinkIdError
-            )
             return
         }
         NotificationCenter.default.post(name: .addDrinkButton, object: index)
@@ -68,8 +60,6 @@ class GridCell: UICollectionViewCell{
 }
 
 extension Notification.Name {
-    static let addDrinkButtonError = Notification.Name(rawValue: "AddDrinkEventError")
     static let addDrinkButton = Notification.Name(rawValue: "AddDrinkEvent")
-    static let buyDrinkButtonError = Notification.Name(rawValue: "BuyDrinkEventError")
     static let buyDrinkButton = Notification.Name(rawValue: "BuyDrinkEvent")
 }

@@ -12,4 +12,5 @@ extension Notification.Name {
     static let notifyDrinkStockSizeUpdate = Notification.Name(rawValue: "notifyDrinkStockSizeUpdate")
     static let notifyBalanceInfoUpdate = Notification.Name(rawValue: "notifyBalanceInfoUpdate")
     static let notifyShoppingHistory = Notification.Name(rawValue: "notifyShoppingHistory")
+    static let notifySellingResult = Notification.Name(rawValue: "notifySellingResult")
 }

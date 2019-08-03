@@ -60,7 +60,6 @@
 		F27FF11222DDAF910079EE89 /* Inventory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Inventory.swift; sourceTree = "<group>"; };
 		F27FF11322DDAF910079EE89 /* VendingMachine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VendingMachine.swift; sourceTree = "<group>"; };
 		F27FF11422DDAF910079EE89 /* Administrator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Administrator.swift; sourceTree = "<group>"; };
-		F27FF11522DDAF910079EE89 /* BeverageMaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeverageMaker.swift; sourceTree = "<group>"; };
 		F27FF11D22DDB0470079EE89 /* SoftDrink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoftDrink.swift; sourceTree = "<group>"; };
 		F27FF11E22DDB0470079EE89 /* Beverage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Beverage.swift; sourceTree = "<group>"; };
 		F27FF11F22DDB0470079EE89 /* Milk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Milk.swift; sourceTree = "<group>"; };
@@ -118,7 +117,6 @@
 			children = (
 				F27FF0E322DDAEE00079EE89 /* AppDelegate.swift */,
 				F27FF11422DDAF910079EE89 /* Administrator.swift */,
-				F27FF11522DDAF910079EE89 /* BeverageMaker.swift */,
 				F27FF11122DDAF910079EE89 /* Date.swift */,
 				F27FF11222DDAF910079EE89 /* Inventory.swift */,
 				F27FF11322DDAF910079EE89 /* VendingMachine.swift */,

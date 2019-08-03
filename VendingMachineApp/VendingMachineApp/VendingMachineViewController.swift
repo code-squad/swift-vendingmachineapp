@@ -43,7 +43,7 @@ class VendingMachineViewController: UIViewController, UICollectionViewDataSource
         }
         let beverage = machine.inventory.allBeverages[indexPath.row]
         cell.addButton.tag = indexPath.row
-        cell.countLabel.text = "\(beverage.count)"
+        cell.countLabel.text = "\(beverage.count)개"
         cell.photoImageVIew.image = beverage.photo
         
         return cell
@@ -89,7 +89,12 @@ class VendingMachineViewController: UIViewController, UICollectionViewDataSource
     }
     
     private func reloadBeverageCount(at index: Int) {
-        beverageCollectionView.reloadItems(at: [IndexPath(row: index, section: 0)])
+        guard let cell = beverageCollectionView.cellForItem(at: IndexPath(row: index, section: 0)) as? BeverageCollectionViewCell else {
+            fatalError("유효하지 않은 인덱스: \(index) 또는 셀이 BeverageCollectionViewCell이 아님.")
+        }
+        cell.countLabel.text = "\(machine.inventory.allBeverages[index].count)개"
     }
+    
+    
     
 }

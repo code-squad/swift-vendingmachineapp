@@ -89,10 +89,8 @@ class VendingMachineViewController: UIViewController, UICollectionViewDataSource
     }
     
     private func reloadBeverageCount(at index: Int) {
-        guard let cell = beverageCollectionView.cellForItem(at: IndexPath(row: index, section: 0)) as? BeverageCollectionViewCell else {
-            fatalError("유효하지 않은 인덱스: \(index) 또는 셀이 BeverageCollectionViewCell이 아님.")
-        }
-        cell.countLabel.text = "\(machine.inventory.allBeverages[index].count)개"
+        let indexPath = IndexPath(row: index, section: 0)
+        beverageCollectionView.reloadItems(at: [indexPath])
     }
     
     

@@ -35,15 +35,16 @@ class ViewController: UIViewController {
     }
     
     // MARK: Custom Method
-    /// tag를 입력받아 재고의 개수를 String으로 반환하는 메소드
+    /// IBOutlet Collection의 Index를 입력받아 재고의 개수를 String으로 반환하는 메소드
     private func setStockCount(index: Int) -> String{
         let product = ProductInput(index: index)
-        return "\(vendingMachine.isFullStock()[product.getProduct()]!)개"
+        let value = vendingMachine.isFullStock()[product.getProduct()]!
+        return vendingMachine.printCount(value: value)
     }
     
     /// 잔액을 보여주는 Label에 잔액을 표시하는 메소드
     private func setDepositedMoney() {
-        self.depositedMoney.text = "잔액: \(vendingMachine.checkBalance())"
+        self.depositedMoney.text = vendingMachine.checkBalance()
     }
     
     // MARK: LifeCycle

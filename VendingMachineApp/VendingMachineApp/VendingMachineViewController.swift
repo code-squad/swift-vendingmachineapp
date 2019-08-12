@@ -70,14 +70,14 @@ class VendingMachineViewController: UIViewController, UICollectionViewDataSource
         // 눌린 버튼이 속한 셀의 Index Path를 사용해 재고를 추가하도록 합니다.
         let visibleCells = beverageCollectionView.visibleCells.compactMap { (cell) -> BeverageCollectionViewCell? in
             guard let cell = cell as? BeverageCollectionViewCell else {
-                print("셀이 BeverageCollectionViewCell의 인스턴스가 아님")
+                // 셀이 BeverageCollectionViewCell의 인스턴스가 아니면 배열에서 제거
                 return nil
             }
             return cell
         }
         let visibleButtons = visibleCells.map { $0.addButton! }
         guard let index = visibleButtons.firstIndex(of: button) else {
-            print("버튼: \(button)은(는) 배열: \(visibleButtons)에 존재하지 않습니다.")
+            // 버튼이 배열에 존재하지 않으면 함수를 종료합니다.
             return
         }
         

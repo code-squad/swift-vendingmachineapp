@@ -96,13 +96,15 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ik0-ut-Hsc">
                                 <rect key="frame" x="1010" y="60" width="44" height="42"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="닫기"/>
+                                <state key="normal" title="닫기">
+                                    <color key="titleColor" red="0.85344622461928932" green="0.00106706470389482" blue="0.83427364788339375" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
                                 <connections>
                                     <action selector="closeButton:" destination="ziI-un-gC3" eventType="touchUpInside" id="gbf-WD-iUz"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.44613973827385306" green="0.71918751209752052" blue="0.79266625642776489" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="fBS-FU-njR" firstAttribute="bottom" secondItem="V38-1G-sbW" secondAttribute="bottom" constant="395" id="730-SS-laB"/>
                             <constraint firstItem="V38-1G-sbW" firstAttribute="top" secondItem="XiI-6N-WME" secondAttribute="bottom" constant="40" id="GNk-wZ-rR0"/>

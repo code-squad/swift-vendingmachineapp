@@ -436,3 +436,8 @@ https://www.ioscreator.com/tutorials/collection-view-controller-ios-tutorial
 - button @IBAction 으로 dismiss() 호출 시 rootViewController에도 재고추가 내용이 반영되어야 하므로 addGridCellObserver() 옵저버 등록은 살려야 함.
 
   
+
+### 개선사항 
+
+- 기존에 model 변경시 userInfo에 ["200" : Id] or ["500" : VendingMachineError]를 임의로 집어넣었는데, 이를 Result<Int, VendingMachineError> 로 개선 
+

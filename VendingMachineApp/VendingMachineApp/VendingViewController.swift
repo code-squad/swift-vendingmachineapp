@@ -96,16 +96,20 @@ class VendingViewController: UIViewController {
     }
     
     func decideSellDrinkResult(_ userInfo: [String : Any]) -> Any? {
-        guard let index = userInfo["200"] as? Int else{
-            guard let error = userInfo["500"] as? VendingMachineError else{
+        guard let index = userInfo["result"] as? Result<Int, VendingMachineError>  else{
+            return VendingMachineError.unknownError
+        }
+        guard let drinkId = try? index.get() else {
+            guard let error = userInfo["result"] as? Result<Int, VendingMachineError> else{
                 return VendingMachineError.unknownError
             }
             return error
         }
-        return index
+        return drinkId
     }
     
     @objc func followUpSellDrink(notification: Notification) {
+        print(type(of: notification.userInfo))
         guard let result = decideSellDrinkResult(notification.userInfo as! [String : Any]) else{
             return
         }

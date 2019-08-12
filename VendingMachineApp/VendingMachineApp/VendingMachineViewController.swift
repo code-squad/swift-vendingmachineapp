@@ -34,8 +34,12 @@ class VendingMachineViewController: UIViewController, UICollectionViewDataSource
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let identifier = "BeverageCollectionViewCell"
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as? BeverageCollectionViewCell else {
-            fatalError("큐에서 제거된 Cell은 BeverageCollectionViewCell의 인스턴스가 아님")
+        let cell: BeverageCollectionViewCell
+        
+        if let dequeuedCell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as? BeverageCollectionViewCell {
+            cell = dequeuedCell
+        } else {
+            cell = BeverageCollectionViewCell()
         }
         let beverage = machine.inventory.allBeverages[indexPath.row]
         cell.addButton.addTarget(self, action: #selector(addBeverageButtonTapped), for: .touchUpInside)

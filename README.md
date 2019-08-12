@@ -421,3 +421,18 @@ https://www.ioscreator.com/tutorials/collection-view-controller-ios-tutorial
 
   
 
+## STEP 7
+
+### 결과화면
+
+![image](./images/step7/result.gif)
+
+
+
+### 유의사항
+
+- CollectionView 내 GridCell의 양상이 서로 다르기 때문에 별도의 GridCell (AdminGridCell)을 추가하여 구현
+
+- button @IBAction 으로 dismiss() 호출 시 rootViewController에도 재고추가 내용이 반영되어야 하므로 addGridCellObserver() 옵저버 등록은 살려야 함.
+
+  

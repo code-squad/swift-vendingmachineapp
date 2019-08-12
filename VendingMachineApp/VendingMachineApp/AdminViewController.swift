@@ -13,7 +13,6 @@ class AdminViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     @IBAction func closeButton(_ sender: UIButton) {
-        
         dismiss(animated: true)
     }
     
@@ -23,26 +22,26 @@ class AdminViewController: UIViewController {
     }
     
 
-    private func addNotificationObservers(){
+    private func addNotificationObservers() {
         addDrinkButtonObserver()
         addGridCellObserver()
     }
     
-    private func addDrinkButtonObserver(){
+    private func addDrinkButtonObserver() {
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(increaseDrinkStock(notification:)),
                                                name: .addDrinkButton,
                                                object: nil)
     }
     
-    private func addGridCellObserver(){
+    private func addGridCellObserver() {
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(updateGridCell(notification:)),
                                                name: .notifyDrinkStockSizeUpdate,
                                                object: nil)
     }
 
-    @objc func updateGridCell(notification: Notification){
+    @objc func updateGridCell(notification: Notification) {
         guard var number = notification.object as? Int else{
             return
         }
@@ -52,14 +51,14 @@ class AdminViewController: UIViewController {
         collectionView.reloadItems(at: indexPaths)
     }
     
-    private func unwrapDrinkId(_ object: Any?) -> Int?{
+    private func unwrapDrinkId(_ object: Any?) -> Int? {
         guard let itemIndex = object as? Int else{
             return nil
         }
         return itemIndex
     }
     
-    @objc func increaseDrinkStock(notification: Notification){
+    @objc func increaseDrinkStock(notification: Notification) {
         guard let itemIndex = unwrapDrinkId(notification.object) else{
             return
         }
@@ -73,7 +72,7 @@ class AdminViewController: UIViewController {
         }
     }
     
-    private func displayAlertInplace(_ error: VendingMachineError){
+    private func displayAlertInplace(_ error: VendingMachineError) {
         let alert = UIAlertController(title: "에러발생", message: "\(error)", preferredStyle: UIAlertController.Style.alert)
         let errorConfirmAction = UIAlertAction(title:"확인", style: .default, handler: nil)
         alert.addAction(errorConfirmAction)
@@ -81,7 +80,7 @@ class AdminViewController: UIViewController {
     }
 }
 
-extension AdminViewController: UICollectionViewDelegate, UICollectionViewDataSource{
+extension AdminViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return vendingMachine.showDrinkStockTableMenuSize()
     }

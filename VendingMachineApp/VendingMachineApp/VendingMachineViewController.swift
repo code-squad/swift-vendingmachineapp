@@ -38,7 +38,7 @@ class VendingMachineViewController: UIViewController, UICollectionViewDataSource
             fatalError("큐에서 제거된 Cell은 BeverageCollectionViewCell의 인스턴스가 아님")
         }
         let beverage = machine.inventory.allBeverages[indexPath.row]
-        cell.addButton.tag = indexPath.row
+        cell.addButton.addTarget(self, action: #selector(addBeverageButtonTapped), for: .touchUpInside)
         cell.countLabel.text = "\(beverage.count)개"
         cell.photoImageVIew.image = beverage.photo
         
@@ -59,11 +59,22 @@ class VendingMachineViewController: UIViewController, UICollectionViewDataSource
         reloadCoinsDepositedLabel()
     }
     
-    @IBAction func addBeverageButton(_ sender: UIButton) {
-        let index = sender.tag
-        let beverage = machine.inventory.allBeverages[index]
-        machine.addBeverage(beverage)
-        reloadBeverageCount(at: index)
+    @objc func addBeverageButtonTapped(button: UIButton) {
+        // 눌린 버튼이 속한 셀의 Index Path를 사용해 재고를 추가하도록 합니다.
+        let visibleCells = beverageCollectionView.visibleCells.map { (cell) -> BeverageCollectionViewCell in
+            guard let cell = cell as? BeverageCollectionViewCell else {
+                fatalError("셀이 BeverageCollectionViewCell의 인스턴스가 아님")
+            }
+            return cell
+        }
+        let visibleButtons = visibleCells.map { $0.addButton! }
+        guard let index = visibleButtons.firstIndex(of: button) else {
+            fatalError("버튼: \(button)은(는) 배열: \(visibleButtons)에 존재하지 않습니다.")
+        }
+        
+        let indexPath = beverageCollectionView.indexPath(for: visibleCells[index])!
+        machine.inventory.allBeverages[indexPath.row].addBeverage()
+        reloadBeverageCount(at: indexPath.row)
     }
     
     //MARK: 비공개 메소드

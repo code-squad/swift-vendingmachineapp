@@ -155,15 +155,15 @@ class VendingMachine: ProductSoldable, Codable{
     
     private func notifySellingCompleted(_ result: Any){
         if let id = result as? Int {
-            let success = ["200" : id]
+            let success = ["result" : Result<Int, VendingMachineError>.success(id)]
             NotificationCenter.default.post(name: .notifySellingResult, object: nil, userInfo: success)
         }else{
             guard let error = result as? VendingMachineError else{
-                let failure = ["500" : VendingMachineError.unknownError]
+                let failure = ["result" : Result<Int, VendingMachineError>.failure(VendingMachineError.unknownError)]
                 NotificationCenter.default.post(name: .notifySellingResult, object: nil, userInfo: failure)
                 return
             }
-            let failure = ["500" : error]
+            let failure = ["result" : Result<Int, VendingMachineError>.failure(error)]
             NotificationCenter.default.post(name: .notifySellingResult, object: nil, userInfo: failure)
         }
     }

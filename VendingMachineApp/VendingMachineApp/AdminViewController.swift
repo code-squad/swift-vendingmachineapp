@@ -65,7 +65,6 @@ class AdminViewController: UIViewController {
         do {
             let drink = try vendingMachine.selectProduct(productId: itemIndex)
             try vendingMachine.addDrinkStock(drink, quantity: 1)
-            try vendingMachine.showSpecifiedDrinkStockSize(itemIndex)
         }catch let error as VendingMachineError{
             displayAlertInplace(error)
         }catch {

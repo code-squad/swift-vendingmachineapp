@@ -23,6 +23,7 @@
 		F27FF12322DDB0470079EE89 /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27FF11F22DDB0470079EE89 /* Milk.swift */; };
 		F27FF12422DDB0470079EE89 /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27FF12022DDB0470079EE89 /* Coffee.swift */; };
 		F283512922F417C6001644EF /* BeverageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F283512822F417C6001644EF /* BeverageCollectionViewCell.swift */; };
+		F2BAFC482301470900CC3C4B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = F2BAFC472301470900CC3C4B /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		F27FF11F22DDB0470079EE89 /* Milk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Milk.swift; sourceTree = "<group>"; };
 		F27FF12022DDB0470079EE89 /* Coffee.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
 		F283512822F417C6001644EF /* BeverageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageCollectionViewCell.swift; sourceTree = "<group>"; };
+		F2BAFC472301470900CC3C4B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 		F27FF0D722DDAEE00079EE89 = {
 			isa = PBXGroup;
 			children = (
+				F2BAFC472301470900CC3C4B /* README.md */,
 				F27FF0E222DDAEE00079EE89 /* VendingMachineApp */,
 				F27FF0F722DDAEE10079EE89 /* VendingMachineAppTests */,
 				F27FF10222DDAEE10079EE89 /* VendingMachineAppUITests */,
@@ -258,6 +261,7 @@
 			files = (
 				F27FF0EE22DDAEE10079EE89 /* LaunchScreen.storyboard in Resources */,
 				F27FF0EB22DDAEE10079EE89 /* Assets.xcassets in Resources */,
+				F2BAFC482301470900CC3C4B /* README.md in Resources */,
 				F27FF0E922DDAEE00079EE89 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -31,7 +31,7 @@ class VendingMachine {
     private var money: Int = 0
     private var items = [Product]()
     private var purchaseDetails = [String]()
-
+    
     /// 해당 아이템 가격보다 가진 돈이 많은지 확인하는 메소드
     func distinctBuyable(of item: Product) -> Bool {
         return item.getPrice() < money

@@ -10,12 +10,6 @@ import UIKit
 
 class ViewController: UIViewController {
     // MARK: Property
-    let strawberryMilk = StrawberryMilk()
-    let chocolateMilk = ChocolateMilk()
-    let coke = Coke()
-    let sprite = Sprite()
-    let topCoffee = TOPCoffee()
-    let cantataCoffee = CantataCoffee()
     private var vendingMachine = VendingMachine()
     
     // MARK: IBOutlet
@@ -26,8 +20,8 @@ class ViewController: UIViewController {
     
     // MARK: IBAction
     @IBAction func stockUp(_ sender: UIButton) {
-        let products = stocks()
-        vendingMachine.stockUp(of: products[sender.tag], count: 1)
+        let product = ProductInput(index: sender.tag)
+        vendingMachine.stockUp(of: product.getProduct(), count: 1)
         stockOfProducts[sender.tag].text = setStockCount(tag: sender.tag)
     }
     
@@ -39,8 +33,8 @@ class ViewController: UIViewController {
     // MARK: Custom Method
     /// tag를 입력받아 재고의 개수를 String으로 반환하는 메소드
     private func setStockCount(tag: Int) -> String{
-        let products = stocks()
-        return "\(vendingMachine.isFullStock()[products[tag]]!)개"
+        let product = ProductInput(index: tag)
+        return "\(vendingMachine.isFullStock()[product.getProduct()]!)개"
     }
     
     /// 잔액을 보여주는 Label에 잔액을 표시하는 메소드
@@ -48,17 +42,12 @@ class ViewController: UIViewController {
         self.depositedMoney.text = "잔액: \(vendingMachine.checkBalance())"
     }
     
-    /// 상품의 순인 배열을 반환
-    private func stocks() -> [Product]{
-        return [strawberryMilk, chocolateMilk, coke, sprite, topCoffee, cantataCoffee]
-    }
-    
     // MARK: LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        let products = stocks()
-        for product in products {
-            vendingMachine.stockUp(of: product, count: 5)
+        for index in 0...5 {
+            let product = ProductInput(index: index)
+            vendingMachine.stockUp(of: product.getProduct(), count: 5)
         }
         
         for productImage in productImages {

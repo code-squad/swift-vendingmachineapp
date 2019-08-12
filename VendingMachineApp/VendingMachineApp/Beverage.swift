@@ -1,4 +1,4 @@
-import UIKit
+import Foundation
 
 typealias Coin = Int
 
@@ -8,7 +8,6 @@ class Beverage {
     
     var name: String
     var price: Coin
-    var photo: UIImage?
     
     var brand: String
     var packageSize: Int
@@ -19,10 +18,9 @@ class Beverage {
     
     //MARK: 초기화
     
-    init(name: String, price: Coin, photo: UIImage?, brand: String, packageSize: Int, beverageTemperature: Int, expirationPeriod: TimeInterval) {
+    init(name: String, price: Coin, brand: String, packageSize: Int, beverageTemperature: Int, expirationPeriod: TimeInterval) {
         self.name = name
         self.price = price
-        self.photo = photo
         self.brand = brand
         self.packageSize = packageSize
         self.beverageTemperature = beverageTemperature

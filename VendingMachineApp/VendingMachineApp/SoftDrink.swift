@@ -1,6 +1,6 @@
 import UIKit
 
-class SoftDrink: Beverage {
+class SoftDrink: BeverageWithPhoto {
     var calorie: Int
     
     init(name: String, price: Coin, photo: UIImage?, brand: String, packageSize: Int, calorie: Int) {

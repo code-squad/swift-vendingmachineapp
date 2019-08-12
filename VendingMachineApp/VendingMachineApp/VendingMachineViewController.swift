@@ -44,7 +44,10 @@ class VendingMachineViewController: UIViewController, UICollectionViewDataSource
         let beverage = machine.inventory.allBeverages[indexPath.row]
         cell.addButton.addTarget(self, action: #selector(addBeverageButtonTapped), for: .touchUpInside)
         cell.countLabel.text = "\(beverage.count)개"
-        cell.photoImageVIew.image = beverage.photo
+        
+        if let beverage = beverage as? BeverageWithPhoto {
+            cell.photoImageVIew.image = beverage.photo
+        }
         
         return cell
     }

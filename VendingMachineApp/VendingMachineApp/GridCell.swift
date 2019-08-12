@@ -13,9 +13,7 @@ enum GridCellTextSet: String{
 }
 class GridCell: UICollectionViewCell{
     @IBOutlet var imgView: DrinkUIImageView!
-    @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var stockInfoLabel: UILabel!
-    
     @IBOutlet weak var buyButton: UIButton!
     
     private var itemIndex: Int!
@@ -54,12 +52,10 @@ class GridCell: UICollectionViewCell{
     func configureButtonStyle(){
         buyButton.setTitle(GridCellTextSet.buy.rawValue, for: .normal)
         buyButton.setTitleColor(.red, for: .normal)
-        addButton.setTitle(GridCellTextSet.charge.rawValue, for: .normal)
-        addButton.setTitleColor(.blue, for: .normal)
     }
 }
 
 extension Notification.Name {
-    static let addDrinkButton = Notification.Name(rawValue: "AddDrinkEvent")
+   
     static let buyDrinkButton = Notification.Name(rawValue: "BuyDrinkEvent")
 }

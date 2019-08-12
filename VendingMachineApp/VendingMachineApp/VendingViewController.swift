@@ -35,17 +35,9 @@ class VendingViewController: UIViewController{
     }
     
     private func addNotificationObservers(){
-        addDrinkButtonObserver()
         addGridCellObserver()
         addBuyButtonObserver()
         addBalanceObserver()
-    }
-    
-    private func addDrinkButtonObserver(){
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(increaseDrinkStock(notification:)),
-                                               name: .addDrinkButton,
-                                               object: nil)
     }
     
     private func addGridCellObserver(){

@@ -99,7 +99,6 @@ extension AdminViewController: UICollectionViewDelegate, UICollectionViewDataSou
 }
 
 extension AdminViewController: UICollectionViewDelegateFlowLayout {
-    ///cell size를 기기에 맞게 설정
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width: CGFloat = (collectionView.bounds.width-50)/5 - 10
         let height: CGFloat = collectionView.bounds.height

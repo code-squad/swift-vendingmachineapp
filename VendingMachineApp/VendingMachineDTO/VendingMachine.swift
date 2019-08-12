@@ -71,11 +71,13 @@ class VendingMachine: ProductSoldable, Codable{
     func addDrinkStock(_ drink: Drink, quantity: Int) throws{
         if let menuNumber = menuTable.menu[drink.name] {
             try addStockDefault(drink: drink, number: menuNumber, quantity: quantity)
+            try showSpecifiedDrinkStockSize(menuNumber)
         }else{
             let newMenuNumber = menuTable.menu.count+1
             menuTable.updateMenuTable(nextIndex: newMenuNumber, name: drink.name)
             drinkStockTable.updateDrinkStockTable(nextIndex: newMenuNumber, drinkElement: drink)
             try addStockDefault(drink: drink, number: newMenuNumber, quantity: quantity-1)
+            try showSpecifiedDrinkStockSize(newMenuNumber)
         }
     }
     

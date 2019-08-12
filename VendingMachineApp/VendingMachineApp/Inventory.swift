@@ -16,11 +16,8 @@ struct Inventory {
         return Array(storage.values)
     }
     
-    subscript(name: String) -> Beverage {
-        guard let beverage = storage[name] else {
-            fatalError("잘못된 음료 이름이 전달됨")
-        }
-        return beverage
+    subscript(name: String) -> Beverage? {
+        return storage[name]
     }
     
     mutating func addBeverageType(_ beverage: Beverage) {
@@ -31,7 +28,7 @@ struct Inventory {
     
     mutating func addBeverage(_ beverage: Beverage, manufactureDate: Date = Date()) {
         addBeverageType(beverage)
-        self[beverage.name].addBeverage(manufactureDate: manufactureDate)
+        self[beverage.name]!.addBeverage(manufactureDate: manufactureDate)
     }
     
     var expiredBeverages: [String: [Date]] {

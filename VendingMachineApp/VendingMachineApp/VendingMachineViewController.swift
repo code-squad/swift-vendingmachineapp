@@ -28,10 +28,6 @@ class VendingMachineViewController: UIViewController, UICollectionViewDataSource
     
     //MARK: UICollectionViewDataSource
     
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return machine.inventory.allBeverages.count
     }
@@ -58,7 +54,7 @@ class VendingMachineViewController: UIViewController, UICollectionViewDataSource
         case 1:
             machine.insertCoins(1000)
         default:
-            fatalError("유효하지 않은 insertCoins 버튼 태그")
+            return
         }
         reloadCoinsDepositedLabel()
     }
@@ -92,7 +88,4 @@ class VendingMachineViewController: UIViewController, UICollectionViewDataSource
         let indexPath = IndexPath(row: index, section: 0)
         beverageCollectionView.reloadItems(at: [indexPath])
     }
-    
-    
-    
 }

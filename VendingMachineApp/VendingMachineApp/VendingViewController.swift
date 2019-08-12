@@ -109,7 +109,6 @@ class VendingViewController: UIViewController {
     }
     
     @objc func followUpSellDrink(notification: Notification) {
-        print(type(of: notification.userInfo))
         guard let result = decideSellDrinkResult(notification.userInfo as! [String : Any]) else{
             return
         }
@@ -125,7 +124,9 @@ class VendingViewController: UIViewController {
     
     private func updateShoppingHistory(_ index: Int) {
         let historyListSize = vendingMachine.showShoppingHistory().count - 1
-        let drinkImg: UIImage = UIImage.init(named: "\(index).jpg")!
+        guard let drinkImg: UIImage = UIImage.init(named: "\(index).jpg") else{
+            return
+        }
         let cardImage: UIImageView = UIImageView(image: drinkImg)
         let (currentImageX, convertedImage) = configureCoordinates(size: historyListSize, cardImage: cardImage)
         saveCardImageInfo(x: currentImageX, y: startY, width: width, height: height, index: index)

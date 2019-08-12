@@ -17,23 +17,27 @@ class ViewController: UIViewController {
     @IBOutlet var productImages: [UIImageView]!
     @IBOutlet var addProducts: [UIButton]!
     @IBOutlet weak var depositedMoney: UILabel!
+    @IBOutlet var addMoney: [UIButton]!
     
     // MARK: IBAction
     @IBAction func stockUp(_ sender: UIButton) {
-        let product = ProductInput(index: sender.tag)
+        let index = addProducts.firstIndex(of: sender) ?? addProducts.startIndex
+        let product = ProductInput(index: index)
         vendingMachine.stockUp(of: product.getProduct(), count: 1)
-        stockOfProducts[sender.tag].text = setStockCount(tag: sender.tag)
+        stockOfProducts[index].text = setStockCount(index: index)
     }
     
     @IBAction func inputMoney(_ sender: UIButton) {
-        vendingMachine.pay(of: sender.tag)
+        let index = addMoney.firstIndex(of: sender) ?? addMoney.startIndex
+        let money = index == 0 ? 1000 : 5000
+        vendingMachine.pay(of: money)
         setDepositedMoney()
     }
     
     // MARK: Custom Method
     /// tag를 입력받아 재고의 개수를 String으로 반환하는 메소드
-    private func setStockCount(tag: Int) -> String{
-        let product = ProductInput(index: tag)
+    private func setStockCount(index: Int) -> String{
+        let product = ProductInput(index: index)
         return "\(vendingMachine.isFullStock()[product.getProduct()]!)개"
     }
     
@@ -45,7 +49,7 @@ class ViewController: UIViewController {
     // MARK: LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        for index in 0...5 {
+        for index in 0..<stockOfProducts.count {
             let product = ProductInput(index: index)
             vendingMachine.stockUp(of: product.getProduct(), count: 5)
         }
@@ -55,7 +59,7 @@ class ViewController: UIViewController {
         }
         
         for stockOfProduct in stockOfProducts {
-            stockOfProduct.text = setStockCount(tag: stockOfProduct.tag)
+            stockOfProduct.text = setStockCount(index: stockOfProducts.firstIndex(of: stockOfProduct) ?? stockOfProducts.startIndex)
         }
         
         setDepositedMoney()

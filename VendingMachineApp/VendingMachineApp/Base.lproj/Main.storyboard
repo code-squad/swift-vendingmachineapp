@@ -229,6 +229,8 @@
                         <outletCollection property="addProducts" destination="Hx6-ZX-7hj" collectionClass="NSMutableArray" id="Bjs-yc-pUh"/>
                         <outletCollection property="addProducts" destination="hLB-Xp-C93" collectionClass="NSMutableArray" id="FEm-3w-3qA"/>
                         <outletCollection property="addProducts" destination="TUG-ma-9PI" collectionClass="NSMutableArray" id="P2V-zh-w6r"/>
+                        <outletCollection property="addMoney" destination="ccc-Vu-gS5" collectionClass="NSMutableArray" id="JcT-0G-zgu"/>
+                        <outletCollection property="addMoney" destination="ptS-zn-oyZ" collectionClass="NSMutableArray" id="nxH-t0-3KL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

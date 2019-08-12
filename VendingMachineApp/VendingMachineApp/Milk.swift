@@ -1,6 +1,6 @@
 import UIKit
 
-class Milk: Beverage {
+class Milk: BeverageWithPhoto {
     private(set) var milkFactoryIdentifier: String
     
     init(name: String, price: Coin, photo: UIImage?, brand: String, packageSize: Int, milkFactoryIdentifier: String) {

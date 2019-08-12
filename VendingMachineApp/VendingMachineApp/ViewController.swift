@@ -61,12 +61,8 @@ class ViewController: UIViewController {
             vendingMachine.stockUp(of: product, count: 5)
         }
         
-        for (key, value) in vendingMachine.isFullStock() {
-            print("\(key.getName()) (\(value)개)", terminator: " ")
-        }
-        
         for productImage in productImages {
-            productImage.layer.cornerRadius = productImage.frame.height/4
+            productImage.roundedCorner()
         }
         
         for stockOfProduct in stockOfProducts {
@@ -77,3 +73,8 @@ class ViewController: UIViewController {
     }
 }
 
+extension UIImageView {
+    func roundedCorner() {
+        self.layer.cornerRadius = self.frame.height/4
+    }
+}

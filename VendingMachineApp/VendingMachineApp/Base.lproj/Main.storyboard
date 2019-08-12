@@ -238,11 +238,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Cantata" width="102" height="102"/>
-        <image name="ChocolateMilk" width="102" height="102"/>
-        <image name="Coke" width="102" height="102"/>
-        <image name="Sprite" width="102" height="102"/>
-        <image name="StrawberryMilk" width="102" height="102"/>
-        <image name="TOP" width="102" height="102"/>
+        <image name="Cantata" width="51" height="51"/>
+        <image name="ChocolateMilk" width="51" height="51"/>
+        <image name="Coke" width="51" height="51"/>
+        <image name="Sprite" width="51" height="51"/>
+        <image name="StrawberryMilk" width="51" height="51"/>
+        <image name="TOP" width="51" height="51"/>
     </resources>
 </document>

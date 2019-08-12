@@ -8,7 +8,7 @@
 
 import UIKit
 
-class VendingViewController: UIViewController{
+class VendingViewController: UIViewController {
     private var vendingMachine: VendingMachine!
     @IBOutlet weak var balanceInfo: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -20,7 +20,7 @@ class VendingViewController: UIViewController{
     private let width: CGFloat = 100, height: CGFloat = 100
     private var historyImageList : [UIImageView] = [UIImageView]()
     
-    func configure(_ vendingMachine: VendingMachine){
+    func configure(_ vendingMachine: VendingMachine) {
         self.vendingMachine = vendingMachine
     }
     
@@ -40,14 +40,14 @@ class VendingViewController: UIViewController{
         addBalanceObserver()
     }
     
-    private func addGridCellObserver(){
+    private func addGridCellObserver() {
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(updateGridCell(notification:)),
                                                name: .notifyDrinkStockSizeUpdate,
                                                object: nil)
     }
     
-    private func addBuyButtonObserver(){
+    private func addBuyButtonObserver() {
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(buyDrink(notification:)),
                                                name: .buyDrinkButton,
@@ -57,14 +57,14 @@ class VendingViewController: UIViewController{
                                                name: .notifySellingResult, object: nil)
     }
     
-    private func addBalanceObserver(){
+    private func addBalanceObserver() {
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(updateBalanceLabel),
                                                name: .notifyBalanceInfoUpdate,
                                                object: nil)
     }
     
-    @objc func updateGridCell(notification: Notification){
+    @objc func updateGridCell(notification: Notification) {
         guard var number = notification.object as? Int else{
             return
         }
@@ -74,7 +74,7 @@ class VendingViewController: UIViewController{
         collectionView.reloadItems(at: indexPaths)
     }
     
-    private func unwrapDrinkId(_ object: Any?) -> Int?{
+    private func unwrapDrinkId(_ object: Any?) -> Int? {
         guard let itemIndex = object as? Int else{
             return nil
         }
@@ -82,7 +82,7 @@ class VendingViewController: UIViewController{
     }
     
     
-    @objc func buyDrink(notification: Notification){
+    @objc func buyDrink(notification: Notification) {
         guard let itemIndex = unwrapDrinkId(notification.object) else{
             return
         }
@@ -95,7 +95,7 @@ class VendingViewController: UIViewController{
         }
     }
     
-    func decideSellDrinkResult(_ userInfo: [String:Any]) -> Any?{
+    func decideSellDrinkResult(_ userInfo: [String : Any]) -> Any? {
         guard let index = userInfo["200"] as? Int else{
             guard let error = userInfo["500"] as? VendingMachineError else{
                 return VendingMachineError.unknownError
@@ -105,7 +105,7 @@ class VendingViewController: UIViewController{
         return index
     }
     
-    @objc func followUpSellDrink(notification: Notification){
+    @objc func followUpSellDrink(notification: Notification) {
         guard let result = decideSellDrinkResult(notification.userInfo as! [String : Any]) else{
             return
         }
@@ -119,7 +119,7 @@ class VendingViewController: UIViewController{
         updateShoppingHistory(index)
     }
     
-    private func updateShoppingHistory(_ index: Int){
+    private func updateShoppingHistory(_ index: Int) {
         let historyListSize = vendingMachine.showShoppingHistory().count - 1
         let drinkImg: UIImage = UIImage.init(named: "\(index).jpg")!
         let cardImage: UIImageView = UIImageView(image: drinkImg)
@@ -129,7 +129,7 @@ class VendingViewController: UIViewController{
     }
     
     /// 화면 벗어나는 경우 처리
-    private func configureCoordinates(size: Int, cardImage: UIImageView) -> (currentImageX: CGFloat, cardImage: UIImageView){
+    private func configureCoordinates(size: Int, cardImage: UIImageView) -> (currentImageX: CGFloat, cardImage: UIImageView) {
         let modifiedSize = size < 20 ? size : size - 20 * (size/20)
         let originalY = startY
         startY = size < 20 ? startY : (startY + CGFloat(50 * (size/20)))
@@ -139,7 +139,7 @@ class VendingViewController: UIViewController{
         return (currentImageX, cardImage)
     }
     
-    private func saveCardImageInfo(x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat, index: Int){
+    private func saveCardImageInfo(x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat, index: Int) {
         let imageInfo = ImageInfo.init(x: Double(x),
                                        y: Double(y),
                                        width: Double(width),
@@ -148,14 +148,14 @@ class VendingViewController: UIViewController{
         vendingMachine.addDrinkInfo(imageInfo)
     }
     
-    private func presentCurrentHistory(){
+    private func presentCurrentHistory() {
         convertImageInfoToImageView()
         historyImageList.forEach({ (subView) in
             view.addSubview(subView)
         })
     }
     
-    private func convertImageInfoToImageView(){
+    private func convertImageInfoToImageView() {
         let history = vendingMachine.showShoppingHistory()
         let imageInfoList = history.images
         imageInfoList.forEach { (imageInfo) in
@@ -166,43 +166,24 @@ class VendingViewController: UIViewController{
         }
     }
     
-    @objc func increaseDrinkStock(notification: Notification){
-        guard let itemIndex = unwrapDrinkId(notification.object) else{
-            return
-        }
-        do {
-            let drink = try vendingMachine.selectProduct(productId: itemIndex)
-            try vendingMachine.addDrinkStock(drink, quantity: 1)
-            try vendingMachine.showSpecifiedDrinkStockSize(itemIndex)
-        }catch let error as VendingMachineError{
-            displayAlertInplace(error)
-        }catch {
-        }
-    }
-    
-    @objc func displayAlert(notification: Notification){
-        let errorInfo = notification.object as! VendingMachineError
-        displayAlertInplace(errorInfo)
-    }
-    
-    private func displayAlertInplace(_ error: VendingMachineError){
+    private func displayAlertInplace(_ error: VendingMachineError) {
         let alert = UIAlertController(title: "에러발생", message: "\(error)", preferredStyle: UIAlertController.Style.alert)
         let errorConfirmAction = UIAlertAction(title:"확인", style: .default, handler: nil)
         alert.addAction(errorConfirmAction)
         present(alert, animated: true, completion: nil)
     }
     
-    @objc func updateBalanceLabel(){
+    @objc func updateBalanceLabel() {
         updateBalance()
     }
     
-    private func updateBalance(){
+    private func updateBalance() {
         vendingMachine.showCurrentBalanceInfo(printFormat: { (balance) in
             balanceInfo.text = "\(balance)원"
         })
     }
     
-    private func printInitialDrinkMenuList(){
+    private func printInitialDrinkMenuList() {
         let printDrinkMenuListFormat = {
             (sortedMenutable: [(key: Int, value: DrinkItemList)]) in
             sortedMenutable.forEach{ (key: Int, value: DrinkItemList) in
@@ -225,7 +206,7 @@ class VendingViewController: UIViewController{
     }
 }
 
-extension VendingViewController: UICollectionViewDelegate, UICollectionViewDataSource{
+extension VendingViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return vendingMachine.showDrinkStockTableMenuSize()
     }

@@ -56,6 +56,5 @@ class GridCell: UICollectionViewCell{
 }
 
 extension Notification.Name {
-   
     static let buyDrinkButton = Notification.Name(rawValue: "BuyDrinkEvent")
 }

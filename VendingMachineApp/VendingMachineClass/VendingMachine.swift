@@ -98,12 +98,12 @@ class VendingMachine {
     }
 
     /// 잔액을 확인하는 메소드
-    func checkBalance() -> Int {
-        return money
+    func checkBalance() -> String {
+        return "잔액: \(money)"
     }
 
     /// 전체 상품 재고를 (사전으로 표현하는) 종류별로 리턴하는 메소드
-    func isFullStock() -> [Product: Int] {
+    func isFullStock() -> [Product : Int] {
         var dictionaryTypeItems = [Product: Int]()
         for item in items.set() {
             dictionaryTypeItems[item] = items.countElement(of: item)
@@ -137,5 +137,9 @@ class VendingMachine {
     /// 시작이후 구매 상품 이력을 배열로 리턴하는 메소드
     func isPurchaseDetails() -> [String] {
         return purchaseDetails
+    }
+    
+    func printCount(value: Int) -> String {
+        return "\(value) 개"
     }
 }

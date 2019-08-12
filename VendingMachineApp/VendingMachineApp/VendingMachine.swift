@@ -5,6 +5,8 @@ enum VendingMachineError: Error {
     case outOfStock
     case insufficientFunds(coinsNeeded: Int)
     
+    case invalidItemName
+    
     case noPermission
 }
 
@@ -30,12 +32,17 @@ class VendingMachine {
     }
     
     func takeItem(named name: String) throws -> Date {
-        return try inventory[name].removeBeverage()
+        guard let dateOfItem = try inventory[name]?.removeBeverage() else {
+            throw VendingMachineError.invalidItemName
+        }
+        return dateOfItem
     }
     
     func vend(itemNamed name: String) throws -> Beverage {
         
-        let beverage = inventory[name]
+        guard let beverage = inventory[name] else {
+            throw VendingMachineError.invalidItemName
+        }
         try deductCoins(beverage.price)
         
         let manufactureDate = try takeItem(named: beverage.name)

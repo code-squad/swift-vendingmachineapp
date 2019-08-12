@@ -1,4 +1,4 @@
-import UIKit
+import Foundation
 
 protocol Administrator {
     func removeItem()

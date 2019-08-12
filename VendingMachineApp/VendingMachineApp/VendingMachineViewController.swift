@@ -65,20 +65,22 @@ class VendingMachineViewController: UIViewController, UICollectionViewDataSource
     
     @objc func addBeverageButtonTapped(button: UIButton) {
         // 눌린 버튼이 속한 셀의 Index Path를 사용해 재고를 추가하도록 합니다.
-        let visibleCells = beverageCollectionView.visibleCells.map { (cell) -> BeverageCollectionViewCell in
+        let visibleCells = beverageCollectionView.visibleCells.compactMap { (cell) -> BeverageCollectionViewCell? in
             guard let cell = cell as? BeverageCollectionViewCell else {
-                fatalError("셀이 BeverageCollectionViewCell의 인스턴스가 아님")
+                print("셀이 BeverageCollectionViewCell의 인스턴스가 아님")
+                return nil
             }
             return cell
         }
         let visibleButtons = visibleCells.map { $0.addButton! }
         guard let index = visibleButtons.firstIndex(of: button) else {
-            fatalError("버튼: \(button)은(는) 배열: \(visibleButtons)에 존재하지 않습니다.")
+            print("버튼: \(button)은(는) 배열: \(visibleButtons)에 존재하지 않습니다.")
+            return
         }
         
         let indexPath = beverageCollectionView.indexPath(for: visibleCells[index])!
         machine.inventory.allBeverages[indexPath.row].addBeverage()
-        reloadBeverageCount(at: indexPath.row)
+        reloadBeverageCell(at: indexPath.row)
     }
     
     //MARK: 비공개 메소드
@@ -99,7 +101,7 @@ class VendingMachineViewController: UIViewController, UICollectionViewDataSource
         coinsDepositedLabel.text = "\(machine.coinsDeposited) 코인"
     }
     
-    private func reloadBeverageCount(at index: Int) {
+    private func reloadBeverageCell(at index: Int) {
         let indexPath = IndexPath(row: index, section: 0)
         beverageCollectionView.reloadItems(at: [indexPath])
     }

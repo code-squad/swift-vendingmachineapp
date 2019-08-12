@@ -141,9 +141,11 @@ class VendingMachine: ProductSoldable, Codable{
             shoppingHistory.addDrinkHistory(soldProduct)
             notifySellingCompleted(productId)
             notifyUpdateBalanceCompleted()
+            try showSpecifiedDrinkStockSize(productId)
             return soldProduct
         }
         notifySellingCompleted(VendingMachineError.notEnoughMoneyError)
+
         throw VendingMachineError.notEnoughMoneyError
     }
     

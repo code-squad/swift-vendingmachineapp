@@ -88,7 +88,6 @@ class VendingViewController: UIViewController {
         }
         do {
             _ = try vendingMachine.sellProduct(productId: itemIndex)
-            try vendingMachine.showSpecifiedDrinkStockSize(itemIndex)
         }catch let error as VendingMachineError{
             displayAlertInplace(error)
         }catch{

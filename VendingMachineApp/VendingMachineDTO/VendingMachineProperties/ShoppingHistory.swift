@@ -31,6 +31,9 @@ class ShoppingHistory: Codable{
             return drinkList.count
         }
     }
+    var list : [Drink]{
+        return drinkList
+    }
     var images: [ImageInfo]{
         return imageInfoList
     }

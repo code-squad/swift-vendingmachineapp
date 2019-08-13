@@ -3,9 +3,20 @@ import UIKit
 class SoftDrink: BeverageWithPhoto {
     var calorie: Int
     
+    private enum CodingKeys: CodingKey {
+        case calorie
+    }
+    
     init(name: String, price: Coin, photo: UIImage?, brand: String, packageSize: Int, calorie: Int) {
         self.calorie = calorie
         super.init(name: name, price: price, photo: photo, brand: brand, packageSize: packageSize, beverageTemperature: 10, expirationPeriod: Date.timeInterval(fromDays: 365))
+    }
+    
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        calorie = try container.decode(Int.self, forKey: .calorie)
+        try super.init(from: container.superDecoder())
     }
     
     var isLowCalorie: Bool {
@@ -17,10 +28,18 @@ class Cola: SoftDrink {
     init() {
         super.init(name: "코카콜라", price: 2000, photo: #imageLiteral(resourceName: "Cocacola"), brand: "코카콜라", packageSize: 355, calorie: 152)
     }
+    
+    required init(from decoder: Decoder) throws {
+        super.init(name: "코카콜라", price: 2000, photo: #imageLiteral(resourceName: "Cocacola"), brand: "코카콜라", packageSize: 355, calorie: 152)
+    }
 }
 
 class LemonlimeDrink: SoftDrink {
     init() {
+        super.init(name: "칠성사이다", price: 1600, photo: #imageLiteral(resourceName: "ChilsungCider"), brand: "롯데", packageSize: 350, calorie: 155)
+    }
+    
+    required init(from decoder: Decoder) throws {
         super.init(name: "칠성사이다", price: 1600, photo: #imageLiteral(resourceName: "ChilsungCider"), brand: "롯데", packageSize: 350, calorie: 155)
     }
 }

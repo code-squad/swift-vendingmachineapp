@@ -10,6 +10,7 @@ import UIKit
 
 class AdminViewController: UIViewController {
     private var vendingMachine: VendingMachine! = VendingMachine.sharedInstance
+    @IBOutlet weak var pieGraphView: PieGraphView!
     @IBOutlet weak var collectionView: UICollectionView!
     
     @IBAction func closeButton(_ sender: UIButton) {
@@ -19,8 +20,12 @@ class AdminViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         addNotificationObservers()
+        
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        view.addSubview(pieGraphView)
+    }
 
     private func addNotificationObservers() {
         addDrinkButtonObserver()

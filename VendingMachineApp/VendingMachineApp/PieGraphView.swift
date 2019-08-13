@@ -18,6 +18,18 @@ class PieGraphView: UIView {
         UIColor.init(red: 0, green: 0.8, blue: 0.2, alpha: 1),
         UIColor.init(red: 0.9,green: 0.1, blue: 0, alpha: 1)
     ]
+    
+    private static func makeParagrapheStyle() -> NSParagraphStyle {
+        let style = NSMutableParagraphStyle()
+        style.alignment = .center
+        return style.mutableCopy() as! NSParagraphStyle
+    }
+    
+    private let paragraphStyle: NSParagraphStyle = makeParagrapheStyle()
+
+    private lazy var textAttributes: [NSAttributedString.Key: Any] = [
+        .paragraphStyle: self.paragraphStyle, .font: UIFont.systemFont(ofSize: 20)
+    ]
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -29,6 +41,7 @@ class PieGraphView: UIView {
         self.initializeHistorySet()
         isOpaque = false
     }
+    
     
     func initializeHistorySet() {
         let list = VendingMachine.sharedInstance.showShoppingHistory().list
@@ -77,5 +90,38 @@ class PieGraphView: UIView {
             startAngle = endAngle
             index += 1
         }
+        
+        index = 0
+        startAngle = initialAngle
+        for drink in historySet.enumerated(){
+            let endAngle = startAngle + 2 * .pi * (CGFloat(drink.element.value)/CGFloat(totalCount))
+            let halfAngle = startAngle + (endAngle - startAngle)/2
+            //text attribute
+            let textLabel = drink.element.key as NSString
+            let textRenderSize = textLabel.size(withAttributes: textAttributes)
+            let textLabelCenter = center
+            // text rect size          
+            let rectOriginPoint = textLabelCenter.project(by: radius, center: center, angle: halfAngle)
+            let rectCenterPoint = CGPoint.init(x: rectOriginPoint.x - textRenderSize.width * 0.5, y: rectOriginPoint.y - textRenderSize.height*0.5)
+            let textRect = CGRect(origin: rectCenterPoint, size: textRenderSize)
+            textAttributes[.foregroundColor] = UIColor.black
+            textLabel.draw(in: textRect, withAttributes: textAttributes)
+            index += 1
+            startAngle = endAngle
+        }
+    }
+}
+
+extension CGPoint {
+    /// 중점 좌표로부터 보정된 rad만큼의 각도를 따라
+    /// x방향으로 radius * cos(angle)
+    /// y방향으로 radius * sin(angle)
+    /// 만큼 떨어진 좌표를 label의 중점좌표로 두기 위함.
+    func project(by radius: CGFloat, center: CGPoint, angle: CGFloat) -> CGPoint {
+        let tunedRadius = 0.6 * radius
+        let labelX = center.x + tunedRadius * cos(angle)
+        let labelY = center.y + tunedRadius * sin(angle)
+        let labelCenter = CGPoint(x: labelX, y: labelY)
+        return labelCenter
     }
 }

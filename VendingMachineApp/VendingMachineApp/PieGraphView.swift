@@ -11,12 +11,12 @@ import UIKit
 
 class PieGraphView: UIView {
     private var historySet: [String: Int] = [String: Int]()
-    let colorList = [
-        UIColor.orange,
-        UIColor.init(red: 0.7, green: 0.0, blue: 0.7, alpha: 1),
-        UIColor.init(red: 0.1, green: 0.3, blue: 0.9, alpha: 1),
-        UIColor.init(red: 0, green: 0.8, blue: 0.2, alpha: 1),
-        UIColor.init(red: 0.9,green: 0.1, blue: 0, alpha: 1)
+    private var colorSet: [String: CGColor] = [String: CGColor]()
+    private let colorList = [ UIColor.orange,
+                              UIColor.init(red: 0.7, green: 0.0, blue: 0.7, alpha: 1),
+                              UIColor.init(red: 0.1, green: 0.3, blue: 0.9, alpha: 1),
+                              UIColor.init(red: 0, green: 0.8, blue: 0.2, alpha: 1),
+                              UIColor.init(red: 0.9,green: 0.1, blue: 0, alpha: 1)
     ]
     
     private let paragraphStyle: NSParagraphStyle = makeParagrapheStyle()
@@ -41,10 +41,22 @@ class PieGraphView: UIView {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.initializeHistorySet()
+        initializeColorSet()
         isOpaque = false
     }
     
-    func initializeHistorySet() {
+    private func initializeColorSet(){
+        let list = VendingMachine.sharedInstance.showShoppingHistory().list
+        var colorIndex = 0
+        for index in 0..<list.count {
+            guard let _ = colorSet[list[index].name] else{
+                colorSet.updateValue(colorList[colorIndex].cgColor, forKey: list[index].name)
+                colorIndex += 1
+                continue
+            }
+        }
+    }
+    private func initializeHistorySet() {
         let list = VendingMachine.sharedInstance.showShoppingHistory().list
         for drink in list {
             guard let value = historySet[drink.name] else{
@@ -79,24 +91,31 @@ class PieGraphView: UIView {
         guard let context = UIGraphicsGetCurrentContext() else {
             return
         }
-        var index = 0
         for drink in historySet.enumerated(){
-            context.setFillColor(colorList[index].cgColor)
             let endAngle = startAngle + 2 * .pi * (CGFloat(drink.element.value)/CGFloat(totalCount))
-            context.move(to: center)
-            context.addArc(center: center, radius: radius,
-                           startAngle: startAngle, endAngle: endAngle, clockwise: false)
-            context.fillPath()
+            drawArcsInPieGraph(drinkName: drink.element.key, context: context,
+                              center: center, radius: radius,
+                              startAngle: startAngle, endAngle: endAngle)
             startAngle = endAngle
-            index += 1
         }
         addGlowGradient(context: context, center: center, radius: radius)
+    }
+    
+    private func drawArcsInPieGraph(drinkName: String, context: CGContext, center: CGPoint, radius: CGFloat, startAngle: CGFloat, endAngle: CGFloat) {
+        guard let currentCGColor = colorSet[drinkName] else{
+            return
+        }
+        context.setFillColor(currentCGColor)
+        context.move(to: center)
+        context.addArc(center: center, radius: radius,
+                       startAngle: startAngle, endAngle: endAngle, clockwise: false)
+        context.fillPath()
     }
     
     private func addGlowGradient(context: CGContext, center: CGPoint, radius: CGFloat) {
         let colorSpace = CGColorSpaceCreateDeviceRGB()
         let colorComponents : [CGFloat] = [
-        ///  R    G    B    A
+            ///  R    G    B    A
             1.0, 1.0, 1.0, 0.8,
             0.9, 0.9, 0.9, 0.0,
         ]

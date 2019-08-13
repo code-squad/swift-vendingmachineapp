@@ -44,7 +44,6 @@ class PieGraphView: UIView {
         isOpaque = false
     }
     
-    
     func initializeHistorySet() {
         let list = VendingMachine.sharedInstance.showShoppingHistory().list
         for drink in list {
@@ -82,9 +81,6 @@ class PieGraphView: UIView {
         }
         var index = 0
         for drink in historySet.enumerated(){
-            if index >= colorList.count {
-                index = 0
-            }
             context.setFillColor(colorList[index].cgColor)
             let endAngle = startAngle + 2 * .pi * (CGFloat(drink.element.value)/CGFloat(totalCount))
             context.move(to: center)
@@ -94,6 +90,24 @@ class PieGraphView: UIView {
             startAngle = endAngle
             index += 1
         }
+        addGlowGradient(context: context, center: center, radius: radius)
+    }
+    
+    private func addGlowGradient(context: CGContext, center: CGPoint, radius: CGFloat) {
+        let colorSpace = CGColorSpaceCreateDeviceRGB()
+        let colorComponents : [CGFloat] = [
+        ///  R    G    B    A
+            1.0, 1.0, 1.0, 0.8,
+            0.9, 0.9, 0.9, 0.0,
+        ]
+        let locations : [CGFloat] = [0.1, 0.9]
+        guard let glowGradient = CGGradient.init( colorSpace: colorSpace,
+                                                  colorComponents: colorComponents,
+                                                  locations: locations,
+                                                  count: locations.count ) else { return }
+        context.drawRadialGradient(glowGradient, startCenter: center,
+                                   startRadius: 1, endCenter: center,
+                                   endRadius: radius, options: [])
     }
     
     private func makeLabelsForPieGraph(start: CGFloat, radius: CGFloat, center: CGPoint, totalCount: Int){

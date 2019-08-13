@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		C53EE6182301421E00E98AFC /* AdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C53EE6172301421E00E98AFC /* AdminViewController.swift */; };
 		C53EE61E230146AA00E98AFC /* AdminGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C53EE61D230146AA00E98AFC /* AdminGridCell.swift */; };
+		C548617B23016A4200F6555C /* PieGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C548617A23016A4200F6555C /* PieGraphView.swift */; };
 		C54AF28F22F0173C00F90085 /* InstructionResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54AF28E22F0173C00F90085 /* InstructionResult.swift */; };
 		C54AF2B722F41EA600F90085 /* VendingMachineNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54AF2B622F41EA600F90085 /* VendingMachineNotification.swift */; };
 		C54AF2BB22F4416900F90085 /* ShoppingHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54AF2BA22F4416900F90085 /* ShoppingHistory.swift */; };
@@ -64,6 +65,7 @@
 /* Begin PBXFileReference section */
 		C53EE6172301421E00E98AFC /* AdminViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminViewController.swift; sourceTree = "<group>"; };
 		C53EE61D230146AA00E98AFC /* AdminGridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminGridCell.swift; sourceTree = "<group>"; };
+		C548617A23016A4200F6555C /* PieGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieGraphView.swift; sourceTree = "<group>"; };
 		C54AF28E22F0173C00F90085 /* InstructionResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionResult.swift; sourceTree = "<group>"; };
 		C54AF2B622F41EA600F90085 /* VendingMachineNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineNotification.swift; sourceTree = "<group>"; };
 		C54AF2BA22F4416900F90085 /* ShoppingHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingHistory.swift; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 				C557608822E5A833003FD540 /* Validation */,
 				C5575FBD22E58C2A003FD540 /* AppDelegate.swift */,
 				C557608B22E5BC7B003FD540 /* VendingViewController.swift */,
+				C548617A23016A4200F6555C /* PieGraphView.swift */,
 				C53EE6172301421E00E98AFC /* AdminViewController.swift */,
 				C595392B22E8509D006084BC /* DrinkUIImageView.swift */,
 				C595392522E837A3006084BC /* GridCell.swift */,
@@ -438,6 +441,7 @@
 				C557605922E58C68003FD540 /* CustomDateFormatter.swift in Sources */,
 				C557603322E58C68003FD540 /* EnergyDrink.swift in Sources */,
 				C595392A22E83992006084BC /* MoneyQuantity.swift in Sources */,
+				C548617B23016A4200F6555C /* PieGraphView.swift in Sources */,
 				C557604D22E58C68003FD540 /* BeverageInfo.swift in Sources */,
 				C557605222E58C68003FD540 /* MenuTable.swift in Sources */,
 				C557606622E58C68003FD540 /* CoffeeType.swift in Sources */,

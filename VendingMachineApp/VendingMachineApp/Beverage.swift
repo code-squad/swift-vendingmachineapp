@@ -2,7 +2,7 @@ import Foundation
 
 typealias Coin = Int
 
-class Beverage {
+class Beverage: Codable {
     
     //MARK: 프로퍼티
     

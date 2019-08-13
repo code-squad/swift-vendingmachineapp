@@ -421,7 +421,7 @@ https://www.ioscreator.com/tutorials/collection-view-controller-ios-tutorial
 
   
 
-## STEP 7
+# STEP 7
 
 ### 결과화면
 
@@ -440,4 +440,36 @@ https://www.ioscreator.com/tutorials/collection-view-controller-ios-tutorial
 ### 개선사항 
 
 - 기존에 model 변경시 userInfo에 ["200" : Id] or ["500" : VendingMachineError]를 임의로 집어넣었는데, 이를 Result<Int, VendingMachineError> 로 개선 
+
+
+
+
+
+# STEP 8
+
+### 구현내용
+
+- Core graphics 활용하여 pie chart 그리기
+- pie chart 내 label text 넣기
+- 광원효과 적용하기
+
+### 초기화면
+
+![이미지](./images/step8/초기화면.png)
+
+### 바나나우유 구매 후
+
+![이미지](./images/step8/바나나우유구매후.png)
+
+### 바나나우유 추가 구매 후
+
+![이미지](./images/step8/바나나우유추가구매후.png)
+
+### 이론 학습내용 정리
+
+[좌표계](./study/CoordinateSystem.md)
+
+[CoreGraphics Example](./study/CoreGraphics.md)
+
+
 

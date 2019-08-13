@@ -16,24 +16,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="잔액 표시 라벨" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xKm-Ah-e7I">
-                                <rect key="frame" x="934" y="158" width="97.5" height="20.5"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="잔액 표시 라벨" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xKm-Ah-e7I">
+                                <rect key="frame" x="942" y="150" width="110" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aij-vK-ysZ">
-                                <rect key="frame" x="934" y="85" width="47" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="+5000"/>
-                                <connections>
-                                    <action selector="insertCoinsButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Hiu-Yf-ZL1"/>
-                                </connections>
-                            </button>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" delaysContentTouches="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="JHi-Cc-rz2">
-                                <rect key="frame" x="54" y="59" width="792" height="588"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" delaysContentTouches="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="JHi-Cc-rz2">
+                                <rect key="frame" x="60" y="60" width="822" height="714"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="M0w-5g-epn">
                                     <size key="itemSize" width="180" height="260"/>
@@ -77,16 +67,38 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IFp-vH-Ywa">
-                                <rect key="frame" x="1000" y="85" width="44" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="+1000"/>
-                                <connections>
-                                    <action selector="insertCoinsButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hZj-va-jzb"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="Ohu-q2-1vN">
+                                <rect key="frame" x="942" y="60" width="110" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aij-vK-ysZ">
+                                        <rect key="frame" x="0.0" y="0.0" width="47" height="30"/>
+                                        <state key="normal" title="+5000"/>
+                                        <connections>
+                                            <action selector="insertCoinsButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Hiu-Yf-ZL1"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IFp-vH-Ywa">
+                                        <rect key="frame" x="66" y="0.0" width="44" height="30"/>
+                                        <state key="normal" title="+1000"/>
+                                        <connections>
+                                            <action selector="insertCoinsButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hZj-va-jzb"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Ohu-q2-1vN" secondAttribute="trailing" constant="60" id="D2w-24-60W"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="JHi-Cc-rz2" secondAttribute="bottom" constant="60" id="O1g-Ht-6cB"/>
+                            <constraint firstItem="JHi-Cc-rz2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="60" id="S2v-mZ-ztn"/>
+                            <constraint firstItem="xKm-Ah-e7I" firstAttribute="top" secondItem="Ohu-q2-1vN" secondAttribute="bottom" constant="60" id="bIS-gC-Otl"/>
+                            <constraint firstItem="xKm-Ah-e7I" firstAttribute="leading" secondItem="Ohu-q2-1vN" secondAttribute="leading" id="eQS-p4-Ro7"/>
+                            <constraint firstItem="Ohu-q2-1vN" firstAttribute="top" secondItem="JHi-Cc-rz2" secondAttribute="top" id="iSd-2L-ZPh"/>
+                            <constraint firstItem="Ohu-q2-1vN" firstAttribute="leading" secondItem="JHi-Cc-rz2" secondAttribute="trailing" constant="60" id="jR7-pK-i0Q"/>
+                            <constraint firstItem="JHi-Cc-rz2" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="60" id="qff-xQ-Bde"/>
+                            <constraint firstItem="xKm-Ah-e7I" firstAttribute="width" secondItem="Ohu-q2-1vN" secondAttribute="width" id="una-qP-Hy4"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>

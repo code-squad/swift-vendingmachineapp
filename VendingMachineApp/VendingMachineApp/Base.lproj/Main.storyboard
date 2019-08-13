@@ -103,13 +103,23 @@
                                     <action selector="closeButton:" destination="ziI-un-gC3" eventType="touchUpInside" id="gbf-WD-iUz"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" restorationIdentifier="PieGraphView" translatesAutoresizingMaskIntoConstraints="NO" id="zMU-g3-9VV" customClass="PieGraphView" customModule="VendingMachineApp" customModuleProvider="target">
+                                <rect key="frame" x="293" y="459" width="400" height="350"/>
+                                <color key="backgroundColor" red="0.40650941140000002" green="0.86803450179999997" blue="0.99999998670000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="400" id="3Bo-R8-aXH"/>
+                                    <constraint firstAttribute="height" constant="350" id="Stk-z1-d13"/>
+                                </constraints>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.44613973827385306" green="0.71918751209752052" blue="0.79266625642776489" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.44309312105178833" green="0.7641100287437439" blue="0.78824317455291748" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="fBS-FU-njR" firstAttribute="bottom" secondItem="V38-1G-sbW" secondAttribute="bottom" constant="395" id="730-SS-laB"/>
+                            <constraint firstItem="zMU-g3-9VV" firstAttribute="centerX" secondItem="V38-1G-sbW" secondAttribute="centerX" id="AAR-2d-vXp"/>
                             <constraint firstItem="V38-1G-sbW" firstAttribute="top" secondItem="XiI-6N-WME" secondAttribute="bottom" constant="40" id="GNk-wZ-rR0"/>
                             <constraint firstItem="XiI-6N-WME" firstAttribute="top" secondItem="fBS-FU-njR" secondAttribute="top" constant="38" id="IW4-ss-5qj"/>
                             <constraint firstItem="Ik0-ut-Hsc" firstAttribute="leading" secondItem="V38-1G-sbW" secondAttribute="trailing" constant="92" id="K39-di-0pZ"/>
+                            <constraint firstItem="zMU-g3-9VV" firstAttribute="top" secondItem="V38-1G-sbW" secondAttribute="bottom" constant="20" id="Sgg-8O-xGv"/>
                             <constraint firstItem="Ik0-ut-Hsc" firstAttribute="leading" secondItem="XiI-6N-WME" secondAttribute="trailing" constant="369" id="gIv-UJ-oHg"/>
                             <constraint firstItem="fBS-FU-njR" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Ik0-ut-Hsc" secondAttribute="trailing" symbolic="YES" id="jRB-8Z-FSE"/>
                             <constraint firstItem="V38-1G-sbW" firstAttribute="leading" secondItem="5g8-j6-0LD" secondAttribute="leadingMargin" constant="48" id="qqI-ec-5q0"/>
@@ -120,11 +130,12 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="V38-1G-sbW" id="Gub-DH-LP4"/>
+                        <outlet property="pieGraphView" destination="zMU-g3-9VV" id="2BZ-Dx-e4i"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zy0-v9-qQf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="675" y="22"/>
+            <point key="canvasLocation" x="675" y="21.582733812949641"/>
         </scene>
         <!--Vending View Controller-->
         <scene sceneID="tne-QT-ifu">

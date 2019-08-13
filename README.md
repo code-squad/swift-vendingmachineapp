@@ -455,15 +455,15 @@ https://www.ioscreator.com/tutorials/collection-view-controller-ios-tutorial
 
 ### 초기화면
 
-![이미지](./images/step8/초기화면.png)
+![이미지](./images/step8/1.png)
 
 ### 바나나우유 구매 후
 
-![이미지](./images/step8/바나나우유구매후.png)
+![이미지](./images/step8/2.png)
 
 ### 바나나우유 추가 구매 후
 
-![이미지](./images/step8/바나나우유추가구매후.png)
+![이미지](./images/step8/3.png)
 
 ### 이론 학습내용 정리
 

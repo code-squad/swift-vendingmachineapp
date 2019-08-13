@@ -105,7 +105,7 @@
                             </button>
                             <view contentMode="scaleToFill" restorationIdentifier="PieGraphView" translatesAutoresizingMaskIntoConstraints="NO" id="zMU-g3-9VV" customClass="PieGraphView" customModule="VendingMachineApp" customModuleProvider="target">
                                 <rect key="frame" x="293" y="459" width="400" height="350"/>
-                                <color key="backgroundColor" red="0.40650941140000002" green="0.86803450179999997" blue="0.99999998670000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="400" id="3Bo-R8-aXH"/>
                                     <constraint firstAttribute="height" constant="350" id="Stk-z1-d13"/>

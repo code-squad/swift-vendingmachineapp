@@ -159,7 +159,7 @@ extension CGPoint {
         let tunedRadius = 0.6 * radius
         let labelX = center.x + tunedRadius * cos(angle)
         let labelY = center.y + tunedRadius * sin(angle)
-        let labelCenter = CGPoint(x: labelX, y: labelY)
-        return labelCenter
+        let labelOriginPoint = CGPoint(x: labelX, y: labelY)
+        return labelOriginPoint
     }
 }

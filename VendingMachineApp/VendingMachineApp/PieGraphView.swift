@@ -10,7 +10,7 @@ import UIKit
 
 
 class PieGraphView: UIView {
-    private var shoppingHistory: ShoppingHistory!
+    private var shoppingHistory: GraphDrawable!
     
     private var colorSet: [String: CGColor] = [String: CGColor]()
     private let colorList = [ UIColor.orange,
@@ -75,9 +75,6 @@ class PieGraphView: UIView {
         shoppingHistory = historyData
     }
     
-    private func calculateTotalCount() -> Int{
-        return shoppingHistory.totalCount
-    }
     
     override func draw(_ rect: CGRect) {
         guard let context = UIGraphicsGetCurrentContext() else {

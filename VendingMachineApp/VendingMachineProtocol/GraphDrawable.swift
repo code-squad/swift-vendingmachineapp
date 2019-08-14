@@ -11,4 +11,5 @@ import Foundation
 protocol GraphDrawable {
     func drawData(_ format: ([String : Int], Int) -> Void)
     func setColors(_ format: ([String: Int]) -> Void)
+    func showTotalCount(_ format: (Int) -> Void)
 }

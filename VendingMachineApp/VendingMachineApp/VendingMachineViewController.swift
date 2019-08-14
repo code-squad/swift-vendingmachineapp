@@ -24,8 +24,10 @@ class VendingMachineViewController: UIViewController, UICollectionViewDataSource
         // 저장된 자판기를 로드합니다. 로드하지 못했다면 샘플을 로드합니다.
         if let savedMachine = loadVendingMachine() {
             machine = savedMachine
+            print("로드됨")
         } else {
             loadSampleBeverages()
+            print("로드 실패")
         }
         
         beverageCollectionView.dataSource = self
@@ -70,6 +72,8 @@ class VendingMachineViewController: UIViewController, UICollectionViewDataSource
             return
         }
         reloadCoinsDepositedLabel()
+        
+        saveVendingMachine()
     }
     
     @objc func addBeverageButtonTapped(button: UIButton) {
@@ -90,6 +94,8 @@ class VendingMachineViewController: UIViewController, UICollectionViewDataSource
         let indexPath = beverageCollectionView.indexPath(for: visibleCells[index])!
         machine.inventory.allBeverages[indexPath.row].addBeverage()
         reloadBeverageCell(at: indexPath.row)
+        
+        saveVendingMachine()
     }
     
     //MARK: 비공개 메소드
@@ -110,10 +116,21 @@ class VendingMachineViewController: UIViewController, UICollectionViewDataSource
     }
     
     private func saveVendingMachine() {
-        UserDefaults.standard.set(machine, forKey: VendingMachine.propertyKey)
+        do {
+            let data = try PropertyListEncoder().encode(machine)
+            UserDefaults.standard.set(data, forKey: VendingMachine.PropertyKey)
+            print("저장 성공")
+        } catch {
+            print("저장 실패")
+            return
+        }
     }
     
     private func loadVendingMachine() -> VendingMachine? {
-        return UserDefaults.standard.object(forKey: VendingMachine.propertyKey) as? VendingMachine
+        guard let data = UserDefaults.standard.data(forKey: VendingMachine.PropertyKey) else {
+            return nil
+        }
+        let vendingMachine = try? PropertyListDecoder().decode(VendingMachine.self, from: data)
+        return vendingMachine
     }
 }

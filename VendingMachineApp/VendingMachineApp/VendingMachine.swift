@@ -20,7 +20,7 @@ class VendingMachine: Codable {
     
     //MARK: 프로퍼티 키
     
-    static let propertyKey = "VendingMachine"
+    static let PropertyKey = "VendingMachine"
     
     //MARK: 메소드
     

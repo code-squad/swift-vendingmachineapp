@@ -18,6 +18,12 @@ class PieGraphView: UIView {
                               UIColor.init(red: 0, green: 0.8, blue: 0.2, alpha: 1),
                               UIColor.init(red: 0.9,green: 0.1, blue: 0, alpha: 1)
     ]
+    private var initialAngle: CGFloat = -CGFloat.pi * 0.5
+    private var frameSize: CGFloat = 0
+    private var boundSize: CGFloat = 0
+    private var radius: CGFloat = 0
+    private var centerPoint: CGPoint!
+    private var totalCount: Int = 0
     
     private let paragraphStyle: NSParagraphStyle = makeParagrapheStyle()
     
@@ -36,13 +42,25 @@ class PieGraphView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.initializeHistorySet()
+        initializeDrawingProperties()
+
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.initializeHistorySet()
         initializeColorSet()
+        initializeDrawingProperties()
+
         isOpaque = false
+    }
+    
+    private func initializeDrawingProperties(){
+        frameSize = min(frame.size.height, frame.size.width)
+        boundSize = min(bounds.size.height, bounds.size.width)
+        radius = frameSize * 0.5
+        centerPoint = CGPoint(x: boundSize * 0.5, y: boundSize * 0.5)
+        totalCount = calculateTotalCount()
     }
     
     private func initializeColorSet(){
@@ -75,23 +93,17 @@ class PieGraphView: UIView {
     }
     
     override func draw(_ rect: CGRect) {
-        let initialAngle: CGFloat = -CGFloat.pi * 0.5
-        let frameSize = min(frame.size.height, frame.size.width)
-        let boundSize = min(bounds.size.height, bounds.size.width)
-        let radius = frameSize * 0.5
-        let center = CGPoint(x: boundSize * 0.5, y: boundSize * 0.5)
-        let totalCount = calculateTotalCount()
-        var startAngle = initialAngle
-        makePieGraph(start: startAngle, radius: radius, center: center, totalCount: totalCount)
-        startAngle = initialAngle
-        makeLabelsForPieGraph(start: startAngle, radius: radius, center: center, totalCount: totalCount)
-    }
-    
-    private func makePieGraph(start: CGFloat, radius: CGFloat, center: CGPoint, totalCount: Int){
-        var startAngle = start
         guard let context = UIGraphicsGetCurrentContext() else {
             return
         }
+        makePieGraph(context: context, start: initialAngle, radius: radius,
+                     center: centerPoint, totalCount: totalCount)
+        makeLabelsForPieGraph(start: initialAngle, radius: radius, center: centerPoint, totalCount: totalCount)
+    }
+    
+    private func makePieGraph(context: CGContext, start: CGFloat, radius: CGFloat, center: CGPoint, totalCount: Int){
+        var startAngle = start
+        
         for drink in historySet.enumerated(){
             let endAngle = startAngle + 2 * .pi * (CGFloat(drink.element.value)/CGFloat(totalCount))
             drawArcsInPieGraph(drinkName: drink.element.key, context: context,

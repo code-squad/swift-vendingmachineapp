@@ -246,6 +246,7 @@ class VendingMachine: ProductSoldable, Codable{
     func addDrinkInfo(_ imageInfo: ImageInfo){
         self.shoppingHistory.addSubImageView(imageInfo)
     }
+    
     private static func flushPreviousVendingMachineData(){
         UserDefaults.standard.set(nil, forKey: "vendingMachine")
     }

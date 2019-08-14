@@ -24,7 +24,7 @@ class AdminViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        view.addSubview(pieGraphView)
+        super.viewWillAppear(animated)
     }
 
     private func addNotificationObservers() {

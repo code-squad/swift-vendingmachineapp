@@ -71,7 +71,7 @@ class PieGraphView: UIView {
         shoppingHistory.setColors(format)
     }
     
-    func configureHistory(_ historyData: ShoppingHistory){
+    func configureHistory(_ historyData: GraphDrawable){
         shoppingHistory = historyData
     }
     

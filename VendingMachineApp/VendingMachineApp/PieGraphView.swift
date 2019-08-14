@@ -51,7 +51,6 @@ class PieGraphView: UIView {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        initializeColorSet()
         initializeDrawingProperties()
         isOpaque = false
     }

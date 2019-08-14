@@ -10,12 +10,8 @@ import UIKit
 
 
 class PieGraphView: UIView {
-    private var historySet: [String: Int] = [String: Int]() {
-        didSet {
-            totalCount = calculateTotalCount()
-            updateColorSet()
-        }
-    }
+    private var shoppingHistory: ShoppingHistory!
+    
     private var colorSet: [String: CGColor] = [String: CGColor]()
     private let colorList = [ UIColor.orange,
                               UIColor.init(red: 0.7, green: 0.0, blue: 0.7, alpha: 1),
@@ -28,7 +24,6 @@ class PieGraphView: UIView {
     private var boundSize: CGFloat = 0
     private var radius: CGFloat = 0
     private var centerPoint: CGPoint!
-    private var totalCount: Int = 0
     
     private let paragraphStyle: NSParagraphStyle = makeParagrapheStyle()
     
@@ -60,51 +55,54 @@ class PieGraphView: UIView {
         boundSize = min(bounds.size.height, bounds.size.width)
         radius = frameSize * 0.5
         centerPoint = CGPoint(x: boundSize * 0.5, y: boundSize * 0.5)
-        totalCount = calculateTotalCount()
     }
     
     private func updateColorSet(){
-        var colorIndex = 0
-        historySet.forEach { (name: String, value: Int) in
-            if colorSet[name] == nil {
-                colorSet.updateValue(colorList[colorIndex].cgColor,
-                                     forKey: name)
-                colorIndex += 1
+        let format = { (historySet: [String : Int]) in
+            var colorIndex = 0
+            historySet.forEach { (name: String, value: Int) in
+                if self.colorSet[name] == nil {
+                    self.colorSet.updateValue(self.colorList[colorIndex].cgColor, forKey: name)
+                    colorIndex += 1
+                }
             }
+            return
         }
+        shoppingHistory.setColors(format)
     }
-
-    func configureDataSet(_ dataSet: [String: Int]){
-        historySet = dataSet
+    
+    func configureHistory(_ historyData: ShoppingHistory){
+        shoppingHistory = historyData
     }
     
     private func calculateTotalCount() -> Int{
-        let temporalMap = historySet.map{ (key: String, value: Int) ->
-            Int in return value }
-        let totalCount = temporalMap.reduce(0, {(value1: Int, value2: Int) ->
-            Int in return value1+value2})
-        return totalCount
+        return shoppingHistory.totalCount
     }
     
     override func draw(_ rect: CGRect) {
         guard let context = UIGraphicsGetCurrentContext() else {
             return
         }
-        makePieGraph(context: context, start: initialAngle, radius: radius,
-                     center: centerPoint, totalCount: totalCount)
-        makeLabelsForPieGraph(start: initialAngle, radius: radius,
-                              center: centerPoint, totalCount: totalCount)
+        updateColorSet()
+        shoppingHistory.showTotalCount { (totalCount: Int) in
+            makePieGraph(context: context, start: initialAngle, radius: radius,
+                         center: centerPoint, totalCount: totalCount)
+            makeLabelsForPieGraph(start: initialAngle, radius: radius,
+                                  center: centerPoint, totalCount: totalCount)
+        }
     }
     
     private func makePieGraph(context: CGContext, start: CGFloat, radius: CGFloat, center: CGPoint, totalCount: Int){
         var startAngle = start
-        
-        for drink in historySet.enumerated(){
-            let endAngle = startAngle + 2 * .pi * (CGFloat(drink.element.value)/CGFloat(totalCount))
-            drawArcsInPieGraph(drinkName: drink.element.key, context: context,
-                              center: center, radius: radius,
-                              startAngle: startAngle, endAngle: endAngle)
-            startAngle = endAngle
+        shoppingHistory.drawData { (historySet: [String : Int], totalCount: Int) in
+            for drink in historySet.enumerated(){
+                let endAngle = startAngle + 2 * .pi * (CGFloat(drink.element.value)/CGFloat(totalCount))
+                drawArcsInPieGraph(drinkName: drink.element.key, context: context,
+                                   center: center, radius: radius,
+                                   startAngle: startAngle, endAngle: endAngle)
+                startAngle = endAngle
+            }
+            return
         }
         addGlowGradient(context: context, center: center, radius: radius)
     }
@@ -139,20 +137,23 @@ class PieGraphView: UIView {
     
     private func makeLabelsForPieGraph(start: CGFloat, radius: CGFloat, center: CGPoint, totalCount: Int){
         var startAngle = start
-        for drink in historySet.enumerated(){
-            let endAngle = startAngle + 2 * .pi * (CGFloat(drink.element.value)/CGFloat(totalCount))
-            let halfAngle = startAngle + (endAngle - startAngle)/2
-            //text attribute
-            let labelText = drink.element.key as NSString
-            let textRenderSize = labelText.size(withAttributes: textAttributes)
-            let textLabelCenter = center
-            // text rect size
-            let rectOriginPoint = textLabelCenter.project(by: radius, center: center, angle: halfAngle)
-            let rectCenterPoint = CGPoint.init(x: rectOriginPoint.x - textRenderSize.width * 0.5,
-                                               y: rectOriginPoint.y - textRenderSize.height * 0.5)
-            let textLabelRect = CGRect(origin: rectCenterPoint, size: textRenderSize)
-            labelText.draw(in: textLabelRect, withAttributes: textAttributes)
-            startAngle = endAngle
+        shoppingHistory.drawData { (historySet: [String : Int], totalCount: Int) in
+            for drink in historySet.enumerated(){
+                let endAngle = startAngle + 2 * .pi * (CGFloat(drink.element.value)/CGFloat(totalCount))
+                let halfAngle = startAngle + (endAngle - startAngle)/2
+                //text attribute
+                let labelText = drink.element.key as NSString
+                let textRenderSize = labelText.size(withAttributes: textAttributes)
+                let textLabelCenter = center
+                // text rect size
+                let rectOriginPoint = textLabelCenter.project(by: radius, center: center, angle: halfAngle)
+                let rectCenterPoint = CGPoint.init(x: rectOriginPoint.x - textRenderSize.width * 0.5,
+                                                   y: rectOriginPoint.y - textRenderSize.height * 0.5)
+                let textLabelRect = CGRect(origin: rectCenterPoint, size: textRenderSize)
+                labelText.draw(in: textLabelRect, withAttributes: textAttributes)
+                startAngle = endAngle
+            }
+            return
         }
     }
 }

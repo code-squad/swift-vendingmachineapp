@@ -64,26 +64,19 @@ class PieGraphView: UIView {
     }
     
     private func initializeColorSet(){
-        let list = VendingMachine.sharedInstance.showShoppingHistory().list
+        let list = VendingMachine.sharedInstance.showShoppingHistory().historySet
         var colorIndex = 0
         
-        list.forEach { (drink) in
-            if colorSet[drink.name] == nil {
+        list.forEach { (name: String, value: Int) in
+            if colorSet[name] == nil {
                 colorSet.updateValue(colorList[colorIndex].cgColor,
-                                     forKey: drink.name)
+                                     forKey: name)
                 colorIndex += 1
             }
         }
     }
     private func initializeHistorySet() {
-        let list = VendingMachine.sharedInstance.showShoppingHistory().list
-        for drink in list {
-            guard let value = historySet[drink.name] else{
-                historySet.updateValue(1, forKey: drink.name)
-                continue
-            }
-            historySet.updateValue(value+1, forKey: drink.name)
-        }
+        historySet = VendingMachine.sharedInstance.showShoppingHistory().historySet
     }
     
     private func calculateTotalCount() -> Int{

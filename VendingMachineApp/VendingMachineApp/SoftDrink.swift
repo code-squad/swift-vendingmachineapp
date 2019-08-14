@@ -23,23 +23,3 @@ class SoftDrink: BeverageWithPhoto {
         return calorie < 80
     }
 }
-
-class Cola: SoftDrink {
-    init() {
-        super.init(name: "코카콜라", price: 2000, photo: #imageLiteral(resourceName: "Cocacola"), brand: "코카콜라", packageSize: 355, calorie: 152)
-    }
-    
-    required init(from decoder: Decoder) throws {
-        super.init(name: "코카콜라", price: 2000, photo: #imageLiteral(resourceName: "Cocacola"), brand: "코카콜라", packageSize: 355, calorie: 152)
-    }
-}
-
-class LemonlimeDrink: SoftDrink {
-    init() {
-        super.init(name: "칠성사이다", price: 1600, photo: #imageLiteral(resourceName: "ChilsungCider"), brand: "롯데", packageSize: 350, calorie: 155)
-    }
-    
-    required init(from decoder: Decoder) throws {
-        super.init(name: "칠성사이다", price: 1600, photo: #imageLiteral(resourceName: "ChilsungCider"), brand: "롯데", packageSize: 350, calorie: 155)
-    }
-}

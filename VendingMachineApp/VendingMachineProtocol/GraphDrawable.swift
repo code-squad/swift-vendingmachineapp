@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol Drawable {
+protocol GraphDrawable {
     func drawData(_ format: ([String : Int], Int) -> Void)
     func setColors(_ format: ([String: Int]) -> Void)
 }

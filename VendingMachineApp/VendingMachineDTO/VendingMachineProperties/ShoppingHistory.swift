@@ -23,7 +23,7 @@ class ImageInfo: Codable{
     }
 }
 
-class ShoppingHistory: Codable, Drawable{
+class ShoppingHistory: Codable, GraphDrawable{
 
     
     private var drinkList : [Drink]

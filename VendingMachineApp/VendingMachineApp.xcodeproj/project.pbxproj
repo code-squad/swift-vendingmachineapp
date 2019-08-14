@@ -10,7 +10,7 @@
 		C53EE6182301421E00E98AFC /* AdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C53EE6172301421E00E98AFC /* AdminViewController.swift */; };
 		C53EE61E230146AA00E98AFC /* AdminGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C53EE61D230146AA00E98AFC /* AdminGridCell.swift */; };
 		C548617B23016A4200F6555C /* PieGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C548617A23016A4200F6555C /* PieGraphView.swift */; };
-		C548617F2303F0E700F6555C /* Drawable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C548617E2303F0E700F6555C /* Drawable.swift */; };
+		C54861812304011200F6555C /* GraphDrawable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54861802304011200F6555C /* GraphDrawable.swift */; };
 		C54AF28F22F0173C00F90085 /* InstructionResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54AF28E22F0173C00F90085 /* InstructionResult.swift */; };
 		C54AF2B722F41EA600F90085 /* VendingMachineNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54AF2B622F41EA600F90085 /* VendingMachineNotification.swift */; };
 		C54AF2BB22F4416900F90085 /* ShoppingHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54AF2BA22F4416900F90085 /* ShoppingHistory.swift */; };
@@ -67,7 +67,7 @@
 		C53EE6172301421E00E98AFC /* AdminViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminViewController.swift; sourceTree = "<group>"; };
 		C53EE61D230146AA00E98AFC /* AdminGridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminGridCell.swift; sourceTree = "<group>"; };
 		C548617A23016A4200F6555C /* PieGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieGraphView.swift; sourceTree = "<group>"; };
-		C548617E2303F0E700F6555C /* Drawable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drawable.swift; sourceTree = "<group>"; };
+		C54861802304011200F6555C /* GraphDrawable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphDrawable.swift; sourceTree = "<group>"; };
 		C54AF28E22F0173C00F90085 /* InstructionResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionResult.swift; sourceTree = "<group>"; };
 		C54AF2B622F41EA600F90085 /* VendingMachineNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineNotification.swift; sourceTree = "<group>"; };
 		C54AF2BA22F4416900F90085 /* ShoppingHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingHistory.swift; sourceTree = "<group>"; };
@@ -331,7 +331,7 @@
 			isa = PBXGroup;
 			children = (
 				C557601A22E58C68003FD540 /* ProductSoldable.swift */,
-				C548617E2303F0E700F6555C /* Drawable.swift */,
+				C54861802304011200F6555C /* GraphDrawable.swift */,
 			);
 			name = VendingMachineProtocol;
 			path = ../VendingMachineProtocol;
@@ -448,6 +448,7 @@
 				C557604D22E58C68003FD540 /* BeverageInfo.swift in Sources */,
 				C557605222E58C68003FD540 /* MenuTable.swift in Sources */,
 				C557606622E58C68003FD540 /* CoffeeType.swift in Sources */,
+				C54861812304011200F6555C /* GraphDrawable.swift in Sources */,
 				C53EE6182301421E00E98AFC /* AdminViewController.swift in Sources */,
 				C557608C22E5BC7B003FD540 /* VendingViewController.swift in Sources */,
 				C557606022E58C68003FD540 /* Fruit.swift in Sources */,
@@ -464,7 +465,6 @@
 				C557603A22E58C68003FD540 /* SugaryContainable.swift in Sources */,
 				C557606522E58C68003FD540 /* CoffeeBean.swift in Sources */,
 				C54AF2BB22F4416900F90085 /* ShoppingHistory.swift in Sources */,
-				C548617F2303F0E700F6555C /* Drawable.swift in Sources */,
 				C557603022E58C68003FD540 /* CarbonatedDrink.swift in Sources */,
 				C557602D22E58C68003FD540 /* Coke.swift in Sources */,
 				C557606322E58C68003FD540 /* Currency.swift in Sources */,

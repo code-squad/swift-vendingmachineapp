@@ -48,11 +48,12 @@ class PieGraphView: UIView {
     private func initializeColorSet(){
         let list = VendingMachine.sharedInstance.showShoppingHistory().list
         var colorIndex = 0
-        for index in 0..<list.count {
-            guard let _ = colorSet[list[index].name] else{
-                colorSet.updateValue(colorList[colorIndex].cgColor, forKey: list[index].name)
+        
+        list.forEach { (drink) in
+            if colorSet[drink.name] == nil {
+                colorSet.updateValue(colorList[colorIndex].cgColor,
+                                     forKey: drink.name)
                 colorIndex += 1
-                continue
             }
         }
     }

@@ -19,23 +19,3 @@ class Milk: BeverageWithPhoto {
         try super.init(from: container.superDecoder())
     }
 }
-
-class StrawberryMilk: Milk {
-    init() {
-        super.init(name: "딸기 우유", price: 500, photo: UIImage(named: "Strawberry"), brand: "매일유업", packageSize: 200, milkFactoryIdentifier: "매일우유목장")
-    }
-    
-    required init(from decoder: Decoder) throws {
-        super.init(name: "딸기 우유", price: 500, photo: UIImage(named: "Strawberry"), brand: "매일유업", packageSize: 200, milkFactoryIdentifier: "매일우유목장")
-    }
-}
-
-class ChocolateMilk: Milk {
-    init() {
-        super.init(name: "초코 우유", price: 600, photo: UIImage(named: "Chocolate"), brand: "남양", packageSize: 180, milkFactoryIdentifier: "남양우유목장")
-    }
-    
-    required init(from decoder: Decoder) throws {
-        super.init(name: "딸기 우유", price: 500, photo: UIImage(named: "Strawberry"), brand: "매일유업", packageSize: 200, milkFactoryIdentifier: "매일우유목장")
-    }
-}

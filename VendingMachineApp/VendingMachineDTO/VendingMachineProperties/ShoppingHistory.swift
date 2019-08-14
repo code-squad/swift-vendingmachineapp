@@ -34,6 +34,17 @@ class ShoppingHistory: Codable{
     var list : [Drink]{
         return drinkList
     }
+    var historySet: [String: Int] {
+        var historySet = [String: Int]()
+        for drink in drinkList {
+            guard let value = historySet[drink.name] else{
+                historySet.updateValue(1, forKey: drink.name)
+                continue
+            }
+            historySet.updateValue(value+1, forKey: drink.name)
+        }
+        return historySet
+    }
     var images: [ImageInfo]{
         return imageInfoList
     }

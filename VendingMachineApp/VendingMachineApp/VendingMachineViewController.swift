@@ -89,14 +89,8 @@ class VendingMachineViewController: UIViewController, UICollectionViewDataSource
     //MARK: 비공개 메소드
     
     private func loadSampleBeverages() {
-        let sampleBeverages = [
-            TOPCoffee(),
-            CantataCoffee(),
-            StrawberryMilk(),
-            ChocolateMilk(),
-            Cola(),
-            LemonlimeDrink()
-        ]
+        let sampleMaker = SampleBeverageMaker()
+        let sampleBeverages = sampleMaker.sampleBeverages()
         sampleBeverages.forEach { machine.addBeverageType($0) }
     }
     

@@ -13,7 +13,7 @@ class PieGraphView: UIView {
     private var historySet: [String: Int] = [String: Int]() {
         didSet {
             totalCount = calculateTotalCount()
-            initializeColorSet()
+            updateColorSet()
         }
     }
     private var colorSet: [String: CGColor] = [String: CGColor]()
@@ -63,7 +63,7 @@ class PieGraphView: UIView {
         totalCount = calculateTotalCount()
     }
     
-    private func initializeColorSet(){
+    private func updateColorSet(){
         var colorIndex = 0
         historySet.forEach { (name: String, value: Int) in
             if colorSet[name] == nil {

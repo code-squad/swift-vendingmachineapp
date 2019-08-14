@@ -23,7 +23,9 @@ class ImageInfo: Codable{
     }
 }
 
-class ShoppingHistory: Codable{
+class ShoppingHistory: Codable, Drawable{
+
+    
     private var drinkList : [Drink]
     private var imageInfoList : [ImageInfo]
     var count : Int{
@@ -33,6 +35,9 @@ class ShoppingHistory: Codable{
     }
     var list : [Drink]{
         return drinkList
+    }
+    var totalCount: Int {
+        return calculateTotalCount()
     }
     var historySet: [String: Int] {
         var historySet = [String: Int]()
@@ -58,5 +63,25 @@ class ShoppingHistory: Codable{
     func addSubImageView(_ imageInfo: ImageInfo){
         imageInfoList.append(imageInfo)
     }
+    
+    func drawData(_ format: (_ dataSet: [String : Int], _ optionValue: Int ) -> Void) {
+        format(historySet, totalCount)
+    }
+    
+    func setColors(_ format: ([String : Int]) -> Void) {
+        format(historySet)
+    }
+    
+    func showTotalCount (_ format: (Int) -> Void){
+        format(totalCount)
+    }
+    private func calculateTotalCount() -> Int{
+        let temporalMap = historySet.map{ (key: String, value: Int) ->
+            Int in return value }
+        let totalCount = temporalMap.reduce(0, {(value1: Int, value2: Int) ->
+            Int in return value1+value2})
+        return totalCount
+    }
+    
     
 }

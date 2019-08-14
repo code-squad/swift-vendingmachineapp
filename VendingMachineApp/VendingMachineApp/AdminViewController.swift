@@ -24,6 +24,8 @@ class AdminViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        pieGraphView.configureDataSet(vendingMachine.showShoppingHistory().historySet)
+
         super.viewWillAppear(animated)
     }
 

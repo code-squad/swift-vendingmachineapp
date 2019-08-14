@@ -10,7 +10,12 @@ import UIKit
 
 
 class PieGraphView: UIView {
-    private var historySet: [String: Int] = [String: Int]()
+    private var historySet: [String: Int] = [String: Int]() {
+        didSet {
+            totalCount = calculateTotalCount()
+            initializeColorSet()
+        }
+    }
     private var colorSet: [String: CGColor] = [String: CGColor]()
     private let colorList = [ UIColor.orange,
                               UIColor.init(red: 0.7, green: 0.0, blue: 0.7, alpha: 1),
@@ -41,17 +46,13 @@ class PieGraphView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.initializeHistorySet()
         initializeDrawingProperties()
-
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        self.initializeHistorySet()
         initializeColorSet()
         initializeDrawingProperties()
-
         isOpaque = false
     }
     
@@ -64,10 +65,8 @@ class PieGraphView: UIView {
     }
     
     private func initializeColorSet(){
-        let list = VendingMachine.sharedInstance.showShoppingHistory().historySet
         var colorIndex = 0
-        
-        list.forEach { (name: String, value: Int) in
+        historySet.forEach { (name: String, value: Int) in
             if colorSet[name] == nil {
                 colorSet.updateValue(colorList[colorIndex].cgColor,
                                      forKey: name)
@@ -75,8 +74,9 @@ class PieGraphView: UIView {
             }
         }
     }
-    private func initializeHistorySet() {
-        historySet = VendingMachine.sharedInstance.showShoppingHistory().historySet
+
+    func configureDataSet(_ dataSet: [String: Int]){
+        historySet = dataSet
     }
     
     private func calculateTotalCount() -> Int{
@@ -152,7 +152,6 @@ class PieGraphView: UIView {
             let rectCenterPoint = CGPoint.init(x: rectOriginPoint.x - textRenderSize.width * 0.5,
                                                y: rectOriginPoint.y - textRenderSize.height * 0.5)
             let textLabelRect = CGRect(origin: rectCenterPoint, size: textRenderSize)
-            
             labelText.draw(in: textLabelRect, withAttributes: textAttributes)
             startAngle = endAngle
         }

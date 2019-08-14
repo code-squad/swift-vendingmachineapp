@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Inventory {
+struct Inventory: Codable {
     
     private var storage = [String: Beverage]()
     

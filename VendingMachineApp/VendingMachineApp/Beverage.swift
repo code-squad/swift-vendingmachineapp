@@ -54,9 +54,3 @@ class Beverage: Codable {
         return manufactureDates.removeFirst()
     }
 }
-
-extension Beverage: CustomStringConvertible {
-    var description: String {
-        return "\(type(of: self)) - \(brand), \(packageSize)ml, \(price)원, \(name), \(manufactureDates)"
-    }
-}

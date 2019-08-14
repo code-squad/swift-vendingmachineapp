@@ -10,7 +10,7 @@ enum VendingMachineError: Error {
     case noPermission
 }
 
-class VendingMachine {
+class VendingMachine: Codable {
     
     //MARK: 속성
     

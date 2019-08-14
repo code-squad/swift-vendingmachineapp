@@ -18,6 +18,10 @@ class VendingMachine: Codable {
     private(set) var coinsDeposited: Coin = 0
     private(set) var purchasedItems = Inventory()
     
+    //MARK: 프로퍼티 키
+    
+    static let propertyKey = "VendingMachine"
+    
     //MARK: 메소드
     
     func insertCoins(_ amount: Coin) {

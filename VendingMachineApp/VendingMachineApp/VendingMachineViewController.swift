@@ -12,7 +12,7 @@ class VendingMachineViewController: UIViewController, UICollectionViewDataSource
     
     //MARK: 프로퍼티
     
-    let machine = VendingMachine()
+    var machine = VendingMachine()
     
     @IBOutlet weak var beverageCollectionView: UICollectionView!
     
@@ -21,8 +21,14 @@ class VendingMachineViewController: UIViewController, UICollectionViewDataSource
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // 저장된 자판기를 로드합니다. 로드하지 못했다면 샘플을 로드합니다.
+        if let savedMachine = loadVendingMachine() {
+            machine = savedMachine
+        } else {
+            loadSampleBeverages()
+        }
+        
         beverageCollectionView.dataSource = self
-        loadSampleBeverages()
         reloadCoinsDepositedLabel()
     }
     
@@ -101,5 +107,13 @@ class VendingMachineViewController: UIViewController, UICollectionViewDataSource
     private func reloadBeverageCell(at index: Int) {
         let indexPath = IndexPath(row: index, section: 0)
         beverageCollectionView.reloadItems(at: [indexPath])
+    }
+    
+    private func saveVendingMachine() {
+        UserDefaults.standard.set(machine, forKey: VendingMachine.propertyKey)
+    }
+    
+    private func loadVendingMachine() -> VendingMachine? {
+        return UserDefaults.standard.object(forKey: VendingMachine.propertyKey) as? VendingMachine
     }
 }

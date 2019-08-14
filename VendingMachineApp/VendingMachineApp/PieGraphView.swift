@@ -87,8 +87,10 @@ class PieGraphView: UIView {
     }
     
     private func calculateTotalCount() -> Int{
-        let temporalMap = historySet.map{ (key: String, value: Int) -> Int in return value }
-        let totalCount = temporalMap.reduce(0, {(value1: Int, value2: Int) -> Int in return value1+value2})
+        let temporalMap = historySet.map{ (key: String, value: Int) ->
+            Int in return value }
+        let totalCount = temporalMap.reduce(0, {(value1: Int, value2: Int) ->
+            Int in return value1+value2})
         return totalCount
     }
     
@@ -98,7 +100,8 @@ class PieGraphView: UIView {
         }
         makePieGraph(context: context, start: initialAngle, radius: radius,
                      center: centerPoint, totalCount: totalCount)
-        makeLabelsForPieGraph(start: initialAngle, radius: radius, center: centerPoint, totalCount: totalCount)
+        makeLabelsForPieGraph(start: initialAngle, radius: radius,
+                              center: centerPoint, totalCount: totalCount)
     }
     
     private func makePieGraph(context: CGContext, start: CGFloat, radius: CGFloat, center: CGPoint, totalCount: Int){

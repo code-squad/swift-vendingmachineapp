@@ -35,7 +35,9 @@ class Beverage: NSObject, NSCoding {
     required convenience init?(coder: NSCoder) {
         let beverageTemperature = coder.decodeInteger(forKey: PropertyKey.beverageTemperature)
         let expirationPeriod = coder.decodeDouble(forKey: PropertyKey.expirationPeriod)
-        let manufactureDates = coder.decodeObject(forKey: PropertyKey.manufactureDates) as! Date
+        guard let manufactureDates = coder.decodeObject(forKey: PropertyKey.manufactureDates) as? Date else {
+            return nil
+        }
         self.init(beverageTemperature: beverageTemperature, expirationPeriod: expirationPeriod, manufactureDates: manufactureDates)
     }
     

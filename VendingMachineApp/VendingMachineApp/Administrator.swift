@@ -7,9 +7,9 @@ protocol Administrator {
 }
 
 protocol BeverageMakable {
-    func makeBeverage() -> Beverage
+    func makeBeverage() -> BeverageItem
     
-    func makeBeverageManual() -> Beverage
+    func makeBeverageManual() -> BeverageItem
     
-    func makeBeverageInOptions() -> Beverage
+    func makeBeverageInOptions() -> BeverageItem
 }

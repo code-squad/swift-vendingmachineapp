@@ -42,7 +42,7 @@ class VendingMachine: Codable {
         return dateOfItem
     }
     
-    func vend(itemNamed name: String) throws -> Beverage {
+    func vend(itemNamed name: String) throws -> BeverageItem {
         
         guard let beverage = inventory[name] else {
             throw VendingMachineError.invalidItemName
@@ -55,15 +55,15 @@ class VendingMachine: Codable {
         return beverage
     }
     
-    func addBeverageType(_ beverage: Beverage) {
+    func addBeverageType(_ beverage: BeverageItem) {
         inventory.addBeverageType(beverage)
     }
     
-    func addBeverage(_ beverage: Beverage, manufactureDate: Date = Date()) {
+    func addBeverage(_ beverage: BeverageItem, manufactureDate: Date = Date()) {
         inventory.addBeverage(beverage, manufactureDate: manufactureDate)
     }
     
-    func addBeverages(_ beverage: Beverage, manufactureDates: [Date]) {
+    func addBeverages(_ beverage: BeverageItem, manufactureDates: [Date]) {
         manufactureDates.forEach { addBeverage(beverage, manufactureDate: $0) }
     }
     
@@ -75,7 +75,7 @@ class VendingMachine: Codable {
     
     //MARK: 연산 프로퍼티
     
-    var purchasableItems: [Beverage] {
+    var purchasableItems: [BeverageItem] {
         return inventory.allBeverages.filter { $0.price <= coinsDeposited }
     }
 }

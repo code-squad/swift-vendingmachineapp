@@ -1,6 +1,6 @@
 import UIKit
 
-class SoftDrink: Beverage {
+class SoftDrink: BeverageItem {
     var calorie: Int
     
     private enum CodingKeys: CodingKey {

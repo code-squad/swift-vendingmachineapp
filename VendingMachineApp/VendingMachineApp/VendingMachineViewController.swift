@@ -12,10 +12,6 @@ class VendingMachineViewController: UIViewController, UICollectionViewDataSource
     
     //MARK: 프로퍼티
     
-//    var machine: VendingMachine {
-//        print("불린다~")
-//        return (UIApplication.shared.delegate as! AppDelegate).machine
-//    }
     var machine: VendingMachine!
     
     @IBOutlet weak var beverageCollectionView: UICollectionView!
@@ -73,7 +69,6 @@ class VendingMachineViewController: UIViewController, UICollectionViewDataSource
             return
         }
         reloadCoinsDepositedLabel()
-//        beverageCollectionView.reloadData()
     }
     
     @objc func addBeverageButtonTapped(button: UIButton) {

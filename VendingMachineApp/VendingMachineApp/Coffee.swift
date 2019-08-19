@@ -8,10 +8,9 @@ class Coffee: BeverageItem {
         case caffeine
     }
     
-    init(name: String, price: Coin, brand: String, packageSize: Int, beverageTemperature: Int, caffeine: Int) {
+    init(name: String, price: Coin, brand: String, packageSize: Int, caffeine: Int) {
         self.caffeine = caffeine
-        super.init(name: name, price: price, brand: brand, packageSize: packageSize, beverageTemperature: beverageTemperature, expirationPeriod: Date.timeInterval(fromDays: 90))
-        
+        super.init(name: name, price: price, brand: brand, packageSize: packageSize)
     }
     
     required init(from decoder: Decoder) throws {

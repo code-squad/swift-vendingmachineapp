@@ -24,12 +24,29 @@ class VendingMachine: NSObject, NSCoding {
     
     //MARK: NSCoding
     
+    struct PropertyKey {
+        static let inventory = "inventory"
+        static let coinsDeposited = "coinsDeposited"
+        static let purchasedItems = "purchasedItems"
+    }
+    
     func encode(with coder: NSCoder) {
-        <#code#>
+        coder.encode(inventory, forKey: PropertyKey.inventory)
+        coder.encode(coinsDeposited, forKey: PropertyKey.coinsDeposited)
+        coder.encode(purchasedItems, forKey: PropertyKey.purchasedItems)
     }
     
     required init?(coder: NSCoder) {
-        <#code#>
+        guard let inventory = coder.decodeObject(forKey: PropertyKey.inventory) as? Inventory else {
+            return nil
+        }
+        let coinsDeposited = coder.decodeInteger(forKey: PropertyKey.coinsDeposited)
+        guard let purchasedItems = coder.decodeObject(forKey: PropertyKey.purchasedItems) as? Inventory else {
+            return nil
+        }
+        self.inventory = inventory
+        self.coinsDeposited = coinsDeposited
+        self.purchasedItems = purchasedItems
     }
     
     

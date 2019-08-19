@@ -20,6 +20,25 @@ class Beverage: NSObject, NSCoding {
         self.manufactureDates = manufactureDates
     }
     
+    struct PropertyKey {
+        static let beverageTemperature = "beverageTemperature"
+        static let expirationPeriod = "expirationPeriod"
+        static let manufactureDates = "manufactureDates"
+    }
+    
+    func encode(with coder: NSCoder) {
+        coder.encode(beverageTemperature, forKey: PropertyKey.beverageTemperature)
+        coder.encode(expirationPeriod, forKey: PropertyKey.expirationPeriod)
+        coder.encode(manufactureDates, forKey: PropertyKey.manufactureDates)
+    }
+    
+    required convenience init?(coder: NSCoder) {
+        let beverageTemperature = coder.decodeInteger(forKey: PropertyKey.beverageTemperature)
+        let expirationPeriod = coder.decodeDouble(forKey: PropertyKey.expirationPeriod)
+        let manufactureDates = coder.decodeObject(forKey: PropertyKey.manufactureDates) as! Date
+        self.init(beverageTemperature: beverageTemperature, expirationPeriod: expirationPeriod, manufactureDates: manufactureDates)
+    }
+    
     var isHot: Bool {
         return beverageTemperature > 50
     }

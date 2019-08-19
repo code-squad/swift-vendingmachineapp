@@ -1,6 +1,6 @@
 import UIKit
 
-class Coffee: Beverage {
+class Coffee: BeverageItem {
     
     var caffeine: Int
     

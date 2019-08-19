@@ -10,23 +10,23 @@ import Foundation
 
 struct Inventory: Codable {
     
-    private var storage = [String: Beverage]()
+    private var storage = [String: BeverageItem]()
     
-    var allBeverages: [Beverage] {
+    var allBeverages: [BeverageItem] {
         return Array(storage.values)
     }
     
-    subscript(name: String) -> Beverage? {
+    subscript(name: String) -> BeverageItem? {
         return storage[name]
     }
     
-    mutating func addBeverageType(_ beverage: Beverage) {
+    mutating func addBeverageType(_ beverage: BeverageItem) {
         if storage[beverage.name] == nil {
             storage[beverage.name] = beverage
         }
     }
     
-    mutating func addBeverage(_ beverage: Beverage, manufactureDate: Date = Date()) {
+    mutating func addBeverage(_ beverage: BeverageItem, manufactureDate: Date = Date()) {
         addBeverageType(beverage)
         self[beverage.name]!.addBeverage(manufactureDate: manufactureDate)
     }
@@ -35,7 +35,7 @@ struct Inventory: Codable {
         return storage.mapValues { $0.expiredBeverages }
     }
     
-    var hotBeverages: [Beverage] {
+    var hotBeverages: [BeverageItem] {
         return storage.values.filter { $0.isHot }
     }
     

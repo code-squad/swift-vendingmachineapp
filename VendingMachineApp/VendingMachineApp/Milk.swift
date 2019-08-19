@@ -1,6 +1,6 @@
 import UIKit
 
-class Milk: Beverage {
+class Milk: BeverageItem {
     private(set) var milkFactoryIdentifier: String
     
     private enum CodingKeys: CodingKey {

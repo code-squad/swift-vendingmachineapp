@@ -50,7 +50,7 @@ class VendingMachine: NSObject, NSCoding {
         try deductCoins(item.price)
         
         let beverage = try takeItem(named: item.name)
-        purchasedItems.addBeverage(item, manufactureDate: beverage)
+        purchasedItems.addBeverage(beverage, to: item)
         
         return item
     }
@@ -59,12 +59,12 @@ class VendingMachine: NSObject, NSCoding {
         inventory.addBeverageItem(beverage)
     }
     
-    func addBeverage(_ beverage: BeverageItem, manufactureDate: Date = Date()) {
-        inventory.addBeverage(beverage, manufactureDate: manufactureDate)
+    func addBeverage(_ beverage: Beverage, to item: BeverageItem) {
+        inventory.addBeverage(beverage, to: item)
     }
     
-    func addBeverages(_ beverage: BeverageItem, manufactureDates: [Date]) {
-        manufactureDates.forEach { addBeverage(beverage, manufactureDate: $0) }
+    func addBeverages(_ beverages: [Beverage], to item: BeverageItem) {
+        beverages.forEach { addBeverage($0, to: item) }
     }
     
     func loadSampleBeverages() {

@@ -11,46 +11,40 @@ class BeverageItem: Codable {
     
     var brand: String
     var packageSize: Int
-    var beverageTemperature: Int
-    var expirationPeriod: TimeInterval
     
-    var manufactureDates = [Date]()
+    private var beverages = [Beverage]()
     
     //MARK: 초기화
     
-    init(name: String, price: Coin, brand: String, packageSize: Int, beverageTemperature: Int, expirationPeriod: TimeInterval) {
+    init(name: String, price: Coin, brand: String, packageSize: Int) {
         self.name = name
         self.price = price
         self.brand = brand
         self.packageSize = packageSize
-        self.beverageTemperature = beverageTemperature
-        self.expirationPeriod = expirationPeriod
     }
     
     //MARK: 연산 프로퍼티
     
     var count: Int {
-        return manufactureDates.count
+        return beverages.count
     }
     
-    var isHot: Bool {
-        return beverageTemperature > 50
-    }
     
-    var expiredBeverages: [Date] {
-        return manufactureDates.filter { $0.isExpired(period: expirationPeriod) }
+    
+    var expiredBeverages: [Beverage] {
+        return beverages.filter { $0.isExpired() }
     }
     
     //MARK: 메소드
     
-    func addBeverage(manufactureDate: Date = Date()) {
-        manufactureDates.append(manufactureDate)
+    func addBeverage(_ beverage: Beverage) {
+        beverages.append(beverage)
     }
     
-    func removeBeverage() throws -> Date {
+    func removeBeverage() throws -> Beverage {
         guard count > 0 else {
             throw VendingMachineError.outOfStock
         }
-        return manufactureDates.removeFirst()
+        return beverages.removeFirst()
     }
 }

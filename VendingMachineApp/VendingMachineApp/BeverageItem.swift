@@ -39,7 +39,7 @@ class BeverageItem: NSObject, NSCoding {
         coder.encode(beverages, forKey: PropertyKey.beverages)
     }
     
-    required convenience init?(coder: NSCoder) {
+    required init?(coder: NSCoder) {
         guard let name = coder.decodeObject(forKey: PropertyKey.name) as? String else {
             return nil
         }
@@ -51,7 +51,10 @@ class BeverageItem: NSObject, NSCoding {
         guard let beverages = coder.decodeObject(forKey: PropertyKey.packageSize) as? [Beverage] else {
             return nil
         }
-        self.init(name: name, price: price, brand: brand, packageSize: packageSize)
+        self.name = name
+        self.price = price
+        self.brand = brand
+        self.packageSize = packageSize
         self.beverages = beverages
     }
     

@@ -10,11 +10,11 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
     var window: UIWindow?
-
+    
     var machine: VendingMachine!
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         // 저장된 자판기를 가져옵니다. 가져올 수 없으면 샘플을 로드합니다.
@@ -27,21 +27,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return true
     }
-
+    
     func applicationWillResignActive(_ application: UIApplication) {
     }
-
+    
     func applicationDidEnterBackground(_ application: UIApplication) {
         // 자판기를 저장합니다.
         saveVendingMachine()
     }
-
+    
     func applicationWillEnterForeground(_ application: UIApplication) {
     }
-
+    
     func applicationDidBecomeActive(_ application: UIApplication) {
     }
-
+    
     func applicationWillTerminate(_ application: UIApplication) {
     }
     
@@ -49,20 +49,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private func saveVendingMachine() {
         do {
-            let data = try PropertyListEncoder().encode(machine)
-            UserDefaults.standard.set(data, forKey: VendingMachine.PropertyKey)
-            print("저장성공")
+            let machineData = try NSKeyedArchiver.archivedData(withRootObject: machine!, requiringSecureCoding: false)
+            UserDefaults.standard.set(machineData, forKey: VendingMachine.UserDefaultsKey)
         } catch {
-            print("저장 실패")
+            print(error)
+            return
         }
     }
     
     private func loadVendingMachine() -> VendingMachine? {
-        guard let data = UserDefaults.standard.data(forKey: VendingMachine.PropertyKey) else {
-            print("데이터를 찾을 수 없음")
+        guard let data = UserDefaults.standard.data(forKey: VendingMachine.UserDefaultsKey) else {
             return nil
         }
-        return try? PropertyListDecoder().decode(VendingMachine.self, from: data)
+        return try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? VendingMachine
     }
 }
 

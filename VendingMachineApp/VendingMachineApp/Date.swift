@@ -29,13 +29,4 @@ extension Date {
         return timeInterval(fromHours: hours)
     }
     
-    /// 유효 기간을 확인합니다.
-    func expirationDate(expirationPeriod: TimeInterval) -> Date {
-        return self + expirationPeriod
-    }
-    
-    /// 만료되었는지 확인합니다.
-    func isExpired(period: TimeInterval, targetDate: Date = Date()) -> Bool {
-        return expirationDate(expirationPeriod: period) > targetDate
-    }
 }

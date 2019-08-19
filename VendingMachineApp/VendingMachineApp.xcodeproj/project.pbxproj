@@ -25,6 +25,7 @@
 		F27FF12422DDB0470079EE89 /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27FF12022DDB0470079EE89 /* Coffee.swift */; };
 		F283512922F417C6001644EF /* BeverageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F283512822F417C6001644EF /* BeverageCollectionViewCell.swift */; };
 		F2BAFC482301470900CC3C4B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = F2BAFC472301470900CC3C4B /* README.md */; };
+		F2EFBF60230AAC8500303BA4 /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2EFBF5F230AAC8500303BA4 /* Beverage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		F27FF12022DDB0470079EE89 /* Coffee.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
 		F283512822F417C6001644EF /* BeverageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageCollectionViewCell.swift; sourceTree = "<group>"; };
 		F2BAFC472301470900CC3C4B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		F2EFBF5F230AAC8500303BA4 /* Beverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beverage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +128,7 @@
 				F27FF11222DDAF910079EE89 /* Inventory.swift */,
 				F27FF11322DDAF910079EE89 /* VendingMachine.swift */,
 				F27FF11E22DDB0470079EE89 /* BeverageItem.swift */,
+				F2EFBF5F230AAC8500303BA4 /* Beverage.swift */,
 				F27FEDCC2303D7D6008630F4 /* SampleBeverageMaker.swift */,
 				F27FF12022DDB0470079EE89 /* Coffee.swift */,
 				F27FF11F22DDB0470079EE89 /* Milk.swift */,
@@ -291,6 +294,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F27FF12222DDB0470079EE89 /* BeverageItem.swift in Sources */,
+				F2EFBF60230AAC8500303BA4 /* Beverage.swift in Sources */,
 				F27FF12422DDB0470079EE89 /* Coffee.swift in Sources */,
 				F27FF11922DDAF910079EE89 /* VendingMachine.swift in Sources */,
 				F27FF11822DDAF910079EE89 /* Inventory.swift in Sources */,

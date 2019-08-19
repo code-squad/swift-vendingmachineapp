@@ -10,7 +10,7 @@ import UIKit
 
 class SampleBeverageMaker {
     
-    func sampleBeverages() -> [Beverage] {
+    func sampleBeverages() -> [BeverageWithPhoto] {
         
         let topCoffee = Coffee(name: "TOP", price: 1000, photo: #imageLiteral(resourceName: "TOP"), brand: "맥심", packageSize: 275, beverageTemperature: 10, caffeine: 50)
         

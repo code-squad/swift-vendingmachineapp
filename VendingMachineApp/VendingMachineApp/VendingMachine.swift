@@ -55,16 +55,22 @@ class VendingMachine: Codable {
         return beverage
     }
     
-    func addBeverageType(_ beverage: Beverage) {
+    func addBeverageType(_ beverage: BeverageWithPhoto) {
         inventory.addBeverageType(beverage)
     }
     
-    func addBeverage(_ beverage: Beverage, manufactureDate: Date = Date()) {
+    func addBeverage(_ beverage: BeverageWithPhoto, manufactureDate: Date = Date()) {
         inventory.addBeverage(beverage, manufactureDate: manufactureDate)
     }
     
-    func addBeverages(_ beverage: Beverage, manufactureDates: [Date]) {
+    func addBeverages(_ beverage: BeverageWithPhoto, manufactureDates: [Date]) {
         manufactureDates.forEach { addBeverage(beverage, manufactureDate: $0) }
+    }
+    
+    func loadSampleBeverages() {
+        let sampleMaker = SampleBeverageMaker()
+        let sampleBeverages = sampleMaker.sampleBeverages()
+        sampleBeverages.forEach { addBeverageType($0) }
     }
     
     //MARK: 연산 프로퍼티

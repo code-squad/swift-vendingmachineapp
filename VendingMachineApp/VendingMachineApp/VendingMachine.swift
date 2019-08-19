@@ -18,8 +18,15 @@ class VendingMachine: NSObject, NSCoding {
     private(set) var coinsDeposited: Coin = 0
     private(set) var purchasedItems = Inventory()
     
-    //MARK: 프로퍼티 키
+    //MARK: NSCoding
     
+    func encode(with coder: NSCoder) {
+        <#code#>
+    }
+    
+    required init?(coder: NSCoder) {
+        <#code#>
+    }
     
     
     //MARK: 메소드

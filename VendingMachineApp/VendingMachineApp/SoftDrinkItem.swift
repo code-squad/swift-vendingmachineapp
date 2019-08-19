@@ -8,6 +8,8 @@ class SoftDrinkItem: BeverageItem {
         super.init(name: name, price: price, brand: brand, packageSize: packageSize, defaultBeverage: defaultBeverage)
     }
     
+    //MARK: NSCoding
+    
     var isLowCalorie: Bool {
         return calorie < 80
     }

@@ -26,6 +26,8 @@ class BeverageItem: NSObject, NSCoding {
         self.defaultBeverage = defaultBeverage
     }
     
+    //MARK: NSCoding
+    
     struct PropertyKey {
         static let name = "name"
         static let price = "price"
@@ -84,8 +86,8 @@ class BeverageItem: NSObject, NSCoding {
     
     //MARK: 메소드
     
-    func addBeverage(_ beverage: Beverage) {
-        beverages.append(beverage)
+    func addBeverage(_ beverage: Beverage? = nil) {
+        beverages.append(beverage ?? defaultBeverage)
     }
     
     func removeBeverage() throws -> Beverage {

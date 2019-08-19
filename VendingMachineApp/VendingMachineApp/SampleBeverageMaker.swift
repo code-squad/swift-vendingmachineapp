@@ -12,9 +12,9 @@ class SampleBeverageMaker {
     
     func sampleBeverages() -> [BeverageItem] {
         
-        let topCoffee = CoffeeItem(name: "TOP", price: 1000, brand: "맥심", packageSize: 275, beverageTemperature: 10, caffeine: 50)
+        let topCoffee = CoffeeItem(name: "TOP", price: 1000, brand: "맥심", packageSize: 275, caffeine: 50)
         
-        let cantata = CoffeeItem(name: "칸타타", price: 1500, brand: "롯데", packageSize: 500, beverageTemperature: 80, caffeine: 40)
+        let cantata = CoffeeItem(name: "칸타타", price: 1500, brand: "롯데", packageSize: 500, caffeine: 40)
         
         let strawberryMilk = MilkItem(name: "딸기 우유", price: 500, brand: "매일유업", packageSize: 200, milkFactoryIdentifier: "매일우유목장")
         

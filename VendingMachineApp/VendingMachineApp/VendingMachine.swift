@@ -55,15 +55,15 @@ class VendingMachine: Codable {
         return beverage
     }
     
-    func addBeverageType(_ beverage: BeverageWithPhoto) {
+    func addBeverageType(_ beverage: Beverage) {
         inventory.addBeverageType(beverage)
     }
     
-    func addBeverage(_ beverage: BeverageWithPhoto, manufactureDate: Date = Date()) {
+    func addBeverage(_ beverage: Beverage, manufactureDate: Date = Date()) {
         inventory.addBeverage(beverage, manufactureDate: manufactureDate)
     }
     
-    func addBeverages(_ beverage: BeverageWithPhoto, manufactureDates: [Date]) {
+    func addBeverages(_ beverage: Beverage, manufactureDates: [Date]) {
         manufactureDates.forEach { addBeverage(beverage, manufactureDate: $0) }
     }
     

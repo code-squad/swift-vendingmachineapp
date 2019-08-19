@@ -1,6 +1,6 @@
 import UIKit
 
-class Coffee: BeverageWithPhoto {
+class Coffee: Beverage {
     
     var caffeine: Int
     
@@ -8,9 +8,9 @@ class Coffee: BeverageWithPhoto {
         case caffeine
     }
     
-    init(name: String, price: Coin, photo: UIImage?, brand: String, packageSize: Int, beverageTemperature: Int, caffeine: Int) {
+    init(name: String, price: Coin, brand: String, packageSize: Int, beverageTemperature: Int, caffeine: Int) {
         self.caffeine = caffeine
-        super.init(name: name, price: price, photo: photo, brand: brand, packageSize: packageSize, beverageTemperature: beverageTemperature, expirationPeriod: Date.timeInterval(fromDays: 90))
+        super.init(name: name, price: price, brand: brand, packageSize: packageSize, beverageTemperature: beverageTemperature, expirationPeriod: Date.timeInterval(fromDays: 90))
         
     }
     

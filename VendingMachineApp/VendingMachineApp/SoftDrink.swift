@@ -1,15 +1,15 @@
 import UIKit
 
-class SoftDrink: BeverageWithPhoto {
+class SoftDrink: Beverage {
     var calorie: Int
     
     private enum CodingKeys: CodingKey {
         case calorie
     }
     
-    init(name: String, price: Coin, photo: UIImage?, brand: String, packageSize: Int, calorie: Int) {
+    init(name: String, price: Coin, brand: String, packageSize: Int, calorie: Int) {
         self.calorie = calorie
-        super.init(name: name, price: price, photo: photo, brand: brand, packageSize: packageSize, beverageTemperature: 10, expirationPeriod: Date.timeInterval(fromDays: 365))
+        super.init(name: name, price: price, brand: brand, packageSize: packageSize, beverageTemperature: 10, expirationPeriod: Date.timeInterval(fromDays: 365))
     }
     
     required init(from decoder: Decoder) throws {

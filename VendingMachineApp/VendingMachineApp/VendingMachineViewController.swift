@@ -12,7 +12,11 @@ class VendingMachineViewController: UIViewController, UICollectionViewDataSource
     
     //MARK: 프로퍼티
     
-    var machine = VendingMachine()
+//    var machine: VendingMachine {
+//        print("불린다~")
+//        return (UIApplication.shared.delegate as! AppDelegate).machine
+//    }
+    var machine: VendingMachine!
     
     @IBOutlet weak var beverageCollectionView: UICollectionView!
     
@@ -20,18 +24,15 @@ class VendingMachineViewController: UIViewController, UICollectionViewDataSource
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // 저장된 자판기를 로드합니다. 로드하지 못했다면 샘플을 로드합니다.
-        if let savedMachine = loadVendingMachine() {
-            machine = savedMachine
-            print("로드됨")
-        } else {
-            loadSampleBeverages()
-            print("로드 실패")
-        }
-        
+        machine = (UIApplication.shared.delegate as! AppDelegate).machine
         beverageCollectionView.dataSource = self
         reloadCoinsDepositedLabel()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        
     }
     
     //MARK: UICollectionViewDataSource
@@ -72,8 +73,7 @@ class VendingMachineViewController: UIViewController, UICollectionViewDataSource
             return
         }
         reloadCoinsDepositedLabel()
-        
-        saveVendingMachine()
+//        beverageCollectionView.reloadData()
     }
     
     @objc func addBeverageButtonTapped(button: UIButton) {
@@ -94,17 +94,9 @@ class VendingMachineViewController: UIViewController, UICollectionViewDataSource
         let indexPath = beverageCollectionView.indexPath(for: visibleCells[index])!
         machine.inventory.allBeverages[indexPath.row].addBeverage()
         reloadBeverageCell(at: indexPath.row)
-        
-        saveVendingMachine()
     }
     
     //MARK: 비공개 메소드
-    
-    private func loadSampleBeverages() {
-        let sampleMaker = SampleBeverageMaker()
-        let sampleBeverages = sampleMaker.sampleBeverages()
-        sampleBeverages.forEach { machine.addBeverageType($0) }
-    }
     
     private func reloadCoinsDepositedLabel() {
         coinsDepositedLabel.text = "\(machine.coinsDeposited) 코인"
@@ -113,24 +105,5 @@ class VendingMachineViewController: UIViewController, UICollectionViewDataSource
     private func reloadBeverageCell(at index: Int) {
         let indexPath = IndexPath(row: index, section: 0)
         beverageCollectionView.reloadItems(at: [indexPath])
-    }
-    
-    private func saveVendingMachine() {
-        do {
-            let data = try PropertyListEncoder().encode(machine)
-            UserDefaults.standard.set(data, forKey: VendingMachine.PropertyKey)
-            print("저장 성공")
-        } catch {
-            print("저장 실패")
-            return
-        }
-    }
-    
-    private func loadVendingMachine() -> VendingMachine? {
-        guard let data = UserDefaults.standard.data(forKey: VendingMachine.PropertyKey) else {
-            return nil
-        }
-        let vendingMachine = try? PropertyListDecoder().decode(VendingMachine.self, from: data)
-        return vendingMachine
     }
 }

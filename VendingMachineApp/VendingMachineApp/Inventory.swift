@@ -10,23 +10,23 @@ import Foundation
 
 struct Inventory: Codable {
     
-    private var storage = [String: Beverage]()
+    private var storage = [String: BeverageWithPhoto]()
     
-    var allBeverages: [Beverage] {
+    var allBeverages: [BeverageWithPhoto] {
         return Array(storage.values)
     }
     
-    subscript(name: String) -> Beverage? {
+    subscript(name: String) -> BeverageWithPhoto? {
         return storage[name]
     }
     
-    mutating func addBeverageType(_ beverage: Beverage) {
+    mutating func addBeverageType(_ beverage: BeverageWithPhoto) {
         if storage[beverage.name] == nil {
             storage[beverage.name] = beverage
         }
     }
     
-    mutating func addBeverage(_ beverage: Beverage, manufactureDate: Date = Date()) {
+    mutating func addBeverage(_ beverage: BeverageWithPhoto, manufactureDate: Date = Date()) {
         addBeverageType(beverage)
         self[beverage.name]!.addBeverage(manufactureDate: manufactureDate)
     }

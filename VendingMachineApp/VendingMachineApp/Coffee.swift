@@ -18,6 +18,6 @@ class Coffee: BeverageWithPhoto {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
         caffeine = try container.decode(Int.self, forKey: .caffeine)
-        try super.init(from: container.superDecoder())
+        try super.init(from: decoder)
     }
 }

@@ -16,6 +16,6 @@ class Milk: BeverageWithPhoto {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
         milkFactoryIdentifier = try container.decode(String.self, forKey: .milkFactoryIdentifier)
-        try super.init(from: container.superDecoder())
+        try super.init(from: decoder)
     }
 }

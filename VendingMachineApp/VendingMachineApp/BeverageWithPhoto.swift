@@ -26,6 +26,13 @@ class BeverageWithPhoto: Beverage {
         
         let photoData = try container.decode(Data.self, forKey: .photo)
         self.photo = UIImage(data: photoData)
-        try super.init(from: container.superDecoder())
+        try super.init(from: decoder)
+    }
+    
+    override func encode(to encoder: Encoder) throws {
+        try super.encode(to: encoder)
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        let photoData = photo?.jpegData(compressionQuality: 1)
+        try container.encode(photoData, forKey: .photo)
     }
 }

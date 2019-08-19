@@ -13,21 +13,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    var machine = VendingMachine()
+    var machine: VendingMachine!
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
         
-        let vendingMachineVC = window?.rootViewController as? VendingMachineViewController
-        
-        
+        // 저장된 자판기를 가져옵니다. 가져올 수 없으면 샘플을 로드합니다.
         if let savedMachine = loadVendingMachine() {
-            vendingMachineVC?.machine = savedMachine
-            if machine.inventory.allBeverages.isEmpty {
-                machine.loadSampleBeverages()
-                print("로드성공")
-            }
+            machine = savedMachine
         } else {
+            machine = VendingMachine()
             machine.loadSampleBeverages()
         }
         
@@ -73,10 +67,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private func loadVendingMachine() -> VendingMachine? {
         guard let data = UserDefaults.standard.data(forKey: VendingMachine.PropertyKey) else {
+            print("데이터를 찾을 수 없음")
             return nil
         }
-        let vendingMachine = try? PropertyListDecoder().decode(VendingMachine.self, from: data)
-        return vendingMachine
+        return try? PropertyListDecoder().decode(VendingMachine.self, from: data)
     }
 }
 

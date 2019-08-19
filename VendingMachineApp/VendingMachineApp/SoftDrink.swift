@@ -16,7 +16,7 @@ class SoftDrink: BeverageWithPhoto {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
         calorie = try container.decode(Int.self, forKey: .calorie)
-        try super.init(from: container.superDecoder())
+        try super.init(from: decoder)
     }
     
     var isLowCalorie: Bool {

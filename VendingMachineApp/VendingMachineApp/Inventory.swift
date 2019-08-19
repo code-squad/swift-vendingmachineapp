@@ -12,14 +12,25 @@ class Inventory: NSObject, NSCoding {
     
     private var storage = [String: BeverageItem]()
     
+    override init() {
+        super.init()
+    }
+    
     //MARK: NSCoding
     
+    struct PropertyKey {
+        static let storage = "storage"
+    }
+    
     func encode(with coder: NSCoder) {
-        <#code#>
+        coder.encode(storage, forKey: PropertyKey.storage)
     }
     
     required init?(coder: NSCoder) {
-        <#code#>
+        guard let storage = coder.decodeObject(forKey: PropertyKey.storage) as? [String: BeverageItem] else {
+            return nil
+        }
+        self.storage = storage
     }
     
     var allBeverages: [BeverageItem] {

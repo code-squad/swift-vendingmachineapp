@@ -2,7 +2,7 @@ import Foundation
 
 typealias Coin = Int
 
-class BeverageItem: Codable {
+class BeverageItem: NSObject, NSCoding {
     
     //MARK: 프로퍼티
     
@@ -29,10 +29,12 @@ class BeverageItem: Codable {
         return beverages.count
     }
     
-    
-    
     var expiredBeverages: [Beverage] {
         return beverages.filter { $0.isExpired() }
+    }
+    
+    var hotBeverages: [Beverage] {
+        return beverages.filter { $0.isHot }
     }
     
     //MARK: 메소드

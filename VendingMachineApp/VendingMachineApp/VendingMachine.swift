@@ -10,7 +10,7 @@ enum VendingMachineError: Error {
     case noPermission
 }
 
-class VendingMachine: Codable {
+class VendingMachine: NSObject, NSCoding {
     
     //MARK: 속성
     
@@ -20,7 +20,7 @@ class VendingMachine: Codable {
     
     //MARK: 프로퍼티 키
     
-    static let PropertyKey = "VendingMachine"
+    
     
     //MARK: 메소드
     
@@ -35,28 +35,28 @@ class VendingMachine: Codable {
         coinsDeposited -= amount
     }
     
-    func takeItem(named name: String) throws -> Date {
-        guard let dateOfItem = try inventory[name]?.removeBeverage() else {
+    func takeItem(named name: String) throws -> Beverage {
+        guard let beverage = try inventory[name]?.removeBeverage() else {
             throw VendingMachineError.invalidItemName
         }
-        return dateOfItem
+        return beverage
     }
     
     func vend(itemNamed name: String) throws -> BeverageItem {
         
-        guard let beverage = inventory[name] else {
+        guard let item = inventory[name] else {
             throw VendingMachineError.invalidItemName
         }
-        try deductCoins(beverage.price)
+        try deductCoins(item.price)
         
-        let manufactureDate = try takeItem(named: beverage.name)
-        purchasedItems.addBeverage(beverage, manufactureDate: manufactureDate)
+        let beverage = try takeItem(named: item.name)
+        purchasedItems.addBeverage(item, manufactureDate: beverage)
         
-        return beverage
+        return item
     }
     
     func addBeverageType(_ beverage: BeverageItem) {
-        inventory.addBeverageType(beverage)
+        inventory.addBeverageItem(beverage)
     }
     
     func addBeverage(_ beverage: BeverageItem, manufactureDate: Date = Date()) {

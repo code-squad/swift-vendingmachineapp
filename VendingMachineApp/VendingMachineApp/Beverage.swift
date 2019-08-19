@@ -8,10 +8,17 @@
 
 import Foundation
 
-struct Beverage {
+class Beverage: NSObject, NSCoding {
+    
     var beverageTemperature: Int
     var expirationPeriod: TimeInterval
     var manufactureDates: Date
+    
+    init(beverageTemperature: Int, expirationPeriod: TimeInterval, manufactureDates: Date) {
+        self.beverageTemperature = beverageTemperature
+        self.expirationPeriod = expirationPeriod
+        self.manufactureDates = manufactureDates
+    }
     
     var isHot: Bool {
         return beverageTemperature > 50

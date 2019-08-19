@@ -9,7 +9,7 @@ class SoftDrink: BeverageItem {
     
     init(name: String, price: Coin, brand: String, packageSize: Int, calorie: Int) {
         self.calorie = calorie
-        super.init(name: name, price: price, brand: brand, packageSize: packageSize, beverageTemperature: 10, expirationPeriod: Date.timeInterval(fromDays: 365))
+        super.init(name: name, price: price, brand: brand, packageSize: packageSize)
     }
     
     required init(from decoder: Decoder) throws {

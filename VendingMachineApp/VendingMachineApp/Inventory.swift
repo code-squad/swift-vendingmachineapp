@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Inventory: Codable {
+class Inventory: NSObject, NSCoding {
     
     private var storage = [String: BeverageItem]()
     
@@ -20,23 +20,23 @@ struct Inventory: Codable {
         return storage[name]
     }
     
-    mutating func addBeverageType(_ beverage: BeverageItem) {
-        if storage[beverage.name] == nil {
-            storage[beverage.name] = beverage
+    func addBeverageItem(_ item: BeverageItem) {
+        if storage[item.name] == nil {
+            storage[item.name] = item
         }
     }
     
-    mutating func addBeverage(_ beverage: BeverageItem, manufactureDate: Date = Date()) {
-        addBeverageType(beverage)
-        self[beverage.name]!.addBeverage(manufactureDate: manufactureDate)
+    func addBeverage(_ beverage: Beverage, to item: BeverageItem) {
+        addBeverageItem(item)
+        self[item.name]!.addBeverage(beverage)
     }
     
-    var expiredBeverages: [String: [Date]] {
+    var expiredBeverages: [String: [Beverage]] {
         return storage.mapValues { $0.expiredBeverages }
     }
     
-    var hotBeverages: [BeverageItem] {
-        return storage.values.filter { $0.isHot }
+    var hotBeverages: [String: [Beverage]] {
+        return storage.mapValues { $0.hotBeverages }
     }
     
 }

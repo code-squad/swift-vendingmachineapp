@@ -30,6 +30,8 @@ class VendingMachine: NSObject, NSCoding {
         static let purchasedItems = "purchasedItems"
     }
     
+    static let UserDefaultsKey = "VendingMachine"
+    
     func encode(with coder: NSCoder) {
         coder.encode(inventory, forKey: PropertyKey.inventory)
         coder.encode(coinsDeposited, forKey: PropertyKey.coinsDeposited)

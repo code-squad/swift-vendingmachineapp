@@ -11,4 +11,19 @@ class SoftDrinkItem: BeverageItem {
     var isLowCalorie: Bool {
         return calorie < 80
     }
+    
+    struct PropertyKey {
+        static let calorie = "calorie"
+    }
+    
+    override func encode(with coder: NSCoder) {
+        super.encode(with: coder)
+        coder.encode(calorie, forKey: PropertyKey.calorie)
+    }
+    
+    required init?(coder: NSCoder) {
+        let calorie = coder.decodeInteger(forKey: PropertyKey.calorie)
+        self.calorie = calorie
+        super.init(coder: coder)
+    }
 }

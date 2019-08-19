@@ -20,6 +20,8 @@ class Beverage: NSObject, NSCoding {
         self.manufactureDates = manufactureDates
     }
     
+    //MARK: NSCoding
+    
     struct PropertyKey {
         static let beverageTemperature = "beverageTemperature"
         static let expirationPeriod = "expirationPeriod"

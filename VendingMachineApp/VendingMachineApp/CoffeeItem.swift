@@ -9,6 +9,8 @@ class CoffeeItem: BeverageItem {
         super.init(name: name, price: price, brand: brand, packageSize: packageSize, defaultBeverage: defaultBeverage)
     }
     
+    //MARK: NSCoding
+    
     struct PropertyKey {
         static let caffeine = "caffeine"
     }

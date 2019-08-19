@@ -12,6 +12,16 @@ class Inventory: NSObject, NSCoding {
     
     private var storage = [String: BeverageItem]()
     
+    //MARK: NSCoding
+    
+    func encode(with coder: NSCoder) {
+        <#code#>
+    }
+    
+    required init?(coder: NSCoder) {
+        <#code#>
+    }
+    
     var allBeverages: [BeverageItem] {
         return Array(storage.values)
     }

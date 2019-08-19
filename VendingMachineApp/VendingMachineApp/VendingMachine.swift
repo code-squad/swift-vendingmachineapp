@@ -18,6 +18,10 @@ class VendingMachine: NSObject, NSCoding {
     private(set) var coinsDeposited: Coin = 0
     private(set) var purchasedItems = Inventory()
     
+    override init() {
+        super.init()
+    }
+    
     //MARK: NSCoding
     
     func encode(with coder: NSCoder) {

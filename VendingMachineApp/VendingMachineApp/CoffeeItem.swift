@@ -4,9 +4,9 @@ class CoffeeItem: BeverageItem {
     
     var caffeine: Int
     
-    init(name: String, price: Coin, brand: String, packageSize: Int, caffeine: Int) {
+    init(name: String, price: Coin, brand: String, packageSize: Int, caffeine: Int, defaultBeverage: Beverage) {
         self.caffeine = caffeine
-        super.init(name: name, price: price, brand: brand, packageSize: packageSize)
+        super.init(name: name, price: price, brand: brand, packageSize: packageSize, defaultBeverage: defaultBeverage)
     }
     
     struct PropertyKey {

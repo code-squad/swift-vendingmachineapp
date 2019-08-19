@@ -3,9 +3,9 @@ import UIKit
 class SoftDrinkItem: BeverageItem {
     var calorie: Int
     
-    init(name: String, price: Coin, brand: String, packageSize: Int, calorie: Int) {
+    init(name: String, price: Coin, brand: String, packageSize: Int, calorie: Int, defaultBeverage: Beverage) {
         self.calorie = calorie
-        super.init(name: name, price: price, brand: brand, packageSize: packageSize)
+        super.init(name: name, price: price, brand: brand, packageSize: packageSize, defaultBeverage: defaultBeverage)
     }
     
     var isLowCalorie: Bool {

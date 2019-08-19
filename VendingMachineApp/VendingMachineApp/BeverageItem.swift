@@ -14,13 +14,16 @@ class BeverageItem: NSObject, NSCoding {
     
     private var beverages = [Beverage]()
     
+    private var defaultBeverage: Beverage
+    
     //MARK: 초기화
     
-    init(name: String, price: Coin, brand: String, packageSize: Int) {
+    init(name: String, price: Coin, brand: String, packageSize: Int, defaultBeverage: Beverage) {
         self.name = name
         self.price = price
         self.brand = brand
         self.packageSize = packageSize
+        self.defaultBeverage = defaultBeverage
     }
     
     struct PropertyKey {
@@ -29,6 +32,7 @@ class BeverageItem: NSObject, NSCoding {
         static let brand = "brand"
         static let packageSize = "packageSize"
         static let beverages = "beverages"
+        static let defaultBeverage = "defaultBeverage"
     }
     
     func encode(with coder: NSCoder) {
@@ -37,6 +41,7 @@ class BeverageItem: NSObject, NSCoding {
         coder.encode(brand, forKey: PropertyKey.brand)
         coder.encode(packageSize, forKey: PropertyKey.packageSize)
         coder.encode(beverages, forKey: PropertyKey.beverages)
+        coder.encode(defaultBeverage, forKey: PropertyKey.defaultBeverage)
     }
     
     required init?(coder: NSCoder) {
@@ -51,11 +56,15 @@ class BeverageItem: NSObject, NSCoding {
         guard let beverages = coder.decodeObject(forKey: PropertyKey.packageSize) as? [Beverage] else {
             return nil
         }
+        guard let defaultBeverage = coder.decodeObject(forKey: PropertyKey.packageSize) as? Beverage else {
+            return nil
+        }
         self.name = name
         self.price = price
         self.brand = brand
         self.packageSize = packageSize
         self.beverages = beverages
+        self.defaultBeverage = defaultBeverage
     }
     
     

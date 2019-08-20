@@ -55,10 +55,10 @@ class BeverageItem: NSObject, NSCoding {
             return nil
         }
         let packageSize = coder.decodeInteger(forKey: PropertyKey.packageSize)
-        guard let beverages = coder.decodeObject(forKey: PropertyKey.packageSize) as? [Beverage] else {
+        guard let beverages = coder.decodeObject(forKey: PropertyKey.beverages) as? [Beverage] else {
             return nil
         }
-        guard let defaultBeverage = coder.decodeObject(forKey: PropertyKey.packageSize) as? Beverage else {
+        guard let defaultBeverage = coder.decodeObject(forKey: PropertyKey.defaultBeverage) as? Beverage else {
             return nil
         }
         self.name = name

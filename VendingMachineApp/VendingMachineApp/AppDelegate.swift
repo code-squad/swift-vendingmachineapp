@@ -20,7 +20,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // 저장된 자판기를 가져옵니다. 가져올 수 없으면 샘플을 로드합니다.
         if let savedMachine = loadVendingMachine() {
             machine = savedMachine
-            print("로드 성공")
         } else {
             machine = VendingMachine()
             machine.loadSampleBeverages()
@@ -51,7 +50,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private func saveVendingMachine() {
         do {
             let machineData = try NSKeyedArchiver.archivedData(withRootObject: machine!, requiringSecureCoding: false)
-            print("저장 성공")
             UserDefaults.standard.set(machineData, forKey: VendingMachine.UserDefaultsKey)
         } catch {
             print(error)
@@ -60,18 +58,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     private func loadVendingMachine() -> VendingMachine? {
-        guard let data = UserDefaults.standard.data(forKey: VendingMachine.UserDefaultsKey) else {
-            print("데이터 nil")
+        guard let savedData = UserDefaults.standard.data(forKey: VendingMachine.UserDefaultsKey) else {
             return nil
         }
-        
         do {
-            let object = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data)
-            guard let machine = object as? VendingMachine else {
-                print("캐스트 실패")
-                return nil
-            }
-            return machine
+            let machineObject = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(savedData)
+            return machineObject as? VendingMachine
         } catch {
             print(error)
             return nil

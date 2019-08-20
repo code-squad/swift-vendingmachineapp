@@ -98,8 +98,8 @@ class VendingMachine: NSObject, NSCoding {
     }
     
     func loadSampleBeverages() {
-        let sampleMaker = SampleBeverageMaker()
-        let sampleBeverages = sampleMaker.sampleBeverages()
+        let sampleMaker = SampleBeverageItemMaker()
+        let sampleBeverages = sampleMaker.samples()
         sampleBeverages.forEach { addBeverageType($0) }
     }
     

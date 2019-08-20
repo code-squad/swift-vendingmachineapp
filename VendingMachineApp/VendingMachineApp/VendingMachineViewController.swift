@@ -12,7 +12,7 @@ class VendingMachineViewController: UIViewController, UICollectionViewDataSource
     
     //MARK: 프로퍼티
     
-    var machine: VendingMachine!
+    private var machine: VendingMachine!
     
     @IBOutlet weak var beverageCollectionView: UICollectionView!
     

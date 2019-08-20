@@ -8,9 +8,9 @@
 
 import UIKit
 
-class SampleBeverageMaker {
+class SampleBeverageItemMaker {
     
-    func sampleBeverages() -> [BeverageItem] {
+    func samples() -> [BeverageItem] {
         
         let topCoffee = CoffeeItem(name: "TOP", price: 1000, brand: "맥심", packageSize: 275, caffeine: 50, defaultBeverage: Beverage(beverageTemperature: 60, expirationPeriod: Date.timeInterval(fromDays: 30), manufactureDates: Date()))
         
@@ -18,12 +18,25 @@ class SampleBeverageMaker {
         
         let strawberryMilk = MilkItem(name: "딸기 우유", price: 500, brand: "매일유업", packageSize: 200, milkFactoryIdentifier: "매일우유목장", defaultBeverage: Beverage(beverageTemperature: 10, expirationPeriod: Date.timeInterval(fromDays: 14), manufactureDates: Date()))
         
-        let chocolateMilk = MilkItem(name: "딸기 우유", price: 500, brand: "매일유업", packageSize: 200, milkFactoryIdentifier: "매일우유목장", defaultBeverage: Beverage(beverageTemperature: 15, expirationPeriod: Date.timeInterval(fromDays: 14), manufactureDates: Date()))
+        let chocolateMilk = MilkItem(name: "초코 우유", price: 700, brand: "남양", packageSize: 250, milkFactoryIdentifier: "남양우유목장", defaultBeverage: Beverage(beverageTemperature: 15, expirationPeriod: Date.timeInterval(fromDays: 14), manufactureDates: Date()))
         
         let cola = SoftDrinkItem(name: "코카콜라", price: 2000, brand: "코카콜라", packageSize: 355, calorie: 152, defaultBeverage: Beverage(beverageTemperature: 5, expirationPeriod: Date.timeInterval(fromDays: 90), manufactureDates: Date()))
         
         let lemonlineDrink = SoftDrinkItem(name: "칠성사이다", price: 1600, brand: "롯데", packageSize: 350, calorie: 155, defaultBeverage: Beverage(beverageTemperature: 5, expirationPeriod: Date.timeInterval(fromDays: 90), manufactureDates: Date()))
         
         return [topCoffee, cantata, strawberryMilk, chocolateMilk, cola, lemonlineDrink]
+    }
+    
+    let beverageImageMap = [
+        "TOP": UIImage(named: "TOP")!,
+        "칸타타": UIImage(named: "Cantata")!,
+        "칠성사이다": UIImage(named: "ChilsungCider")!,
+        "초코 우유": UIImage(named: "Chocolate")!,
+        "코카콜라": UIImage(named: "Cocacola")!,
+        "딸기 우유": UIImage(named: "Strawberry")!,
+    ]
+    
+    func beverageImage(for item: BeverageItem) -> UIImage? {
+        return beverageImageMap[item.name]
     }
 }

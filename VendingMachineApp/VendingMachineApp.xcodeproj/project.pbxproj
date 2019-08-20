@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F27FEDCD2303D7D6008630F4 /* SampleBeverageMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27FEDCC2303D7D6008630F4 /* SampleBeverageMaker.swift */; };
+		F27FEDCD2303D7D6008630F4 /* SampleBeverageItemMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27FEDCC2303D7D6008630F4 /* SampleBeverageItemMaker.swift */; };
 		F27FF0E422DDAEE00079EE89 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27FF0E322DDAEE00079EE89 /* AppDelegate.swift */; };
 		F27FF0E622DDAEE00079EE89 /* VendingMachineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27FF0E522DDAEE00079EE89 /* VendingMachineViewController.swift */; };
 		F27FF0E922DDAEE00079EE89 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F27FF0E722DDAEE00079EE89 /* Main.storyboard */; };
@@ -46,7 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		F27FEDCC2303D7D6008630F4 /* SampleBeverageMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleBeverageMaker.swift; sourceTree = "<group>"; };
+		F27FEDCC2303D7D6008630F4 /* SampleBeverageItemMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleBeverageItemMaker.swift; sourceTree = "<group>"; };
 		F27FF0E022DDAEE00079EE89 /* VendingMachineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendingMachineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F27FF0E322DDAEE00079EE89 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F27FF0E522DDAEE00079EE89 /* VendingMachineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineViewController.swift; sourceTree = "<group>"; };
@@ -129,7 +129,7 @@
 				F27FF11322DDAF910079EE89 /* VendingMachine.swift */,
 				F27FF11E22DDB0470079EE89 /* BeverageItem.swift */,
 				F2EFBF5F230AAC8500303BA4 /* Beverage.swift */,
-				F27FEDCC2303D7D6008630F4 /* SampleBeverageMaker.swift */,
+				F27FEDCC2303D7D6008630F4 /* SampleBeverageItemMaker.swift */,
 				F27FF12022DDB0470079EE89 /* CoffeeItem.swift */,
 				F27FF11F22DDB0470079EE89 /* MilkItem.swift */,
 				F27FF11D22DDB0470079EE89 /* SoftDrinkItem.swift */,
@@ -301,7 +301,7 @@
 				F27FF0E622DDAEE00079EE89 /* VendingMachineViewController.swift in Sources */,
 				F27FF12322DDB0470079EE89 /* MilkItem.swift in Sources */,
 				F283512922F417C6001644EF /* BeverageCollectionViewCell.swift in Sources */,
-				F27FEDCD2303D7D6008630F4 /* SampleBeverageMaker.swift in Sources */,
+				F27FEDCD2303D7D6008630F4 /* SampleBeverageItemMaker.swift in Sources */,
 				F27FF11A22DDAF910079EE89 /* Administrator.swift in Sources */,
 				F27FF11722DDAF910079EE89 /* Date.swift in Sources */,
 				F27FF12122DDB0470079EE89 /* SoftDrinkItem.swift in Sources */,

@@ -27,7 +27,7 @@ class SampleBeverageItemMaker {
         return [topCoffee, cantata, strawberryMilk, chocolateMilk, cola, lemonlineDrink]
     }
     
-    let beverageImageMap = [
+    static let beverageImageMap = [
         "TOP": UIImage(named: "TOP")!,
         "칸타타": UIImage(named: "Cantata")!,
         "칠성사이다": UIImage(named: "ChilsungCider")!,
@@ -36,7 +36,7 @@ class SampleBeverageItemMaker {
         "딸기 우유": UIImage(named: "Strawberry")!,
     ]
     
-    func beverageImage(for item: BeverageItem) -> UIImage? {
+    static func beverageImage(for item: BeverageItem) -> UIImage? {
         return beverageImageMap[item.name]
     }
 }

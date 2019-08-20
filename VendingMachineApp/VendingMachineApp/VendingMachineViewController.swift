@@ -46,10 +46,10 @@ class VendingMachineViewController: UIViewController, UICollectionViewDataSource
         } else {
             cell = BeverageCollectionViewCell()
         }
-        let beverage = machine.inventory.allBeverages[indexPath.row]
+        let item = machine.inventory.allBeverages[indexPath.row]
         cell.addButton.addTarget(self, action: #selector(addBeverageButtonTapped), for: .touchUpInside)
-        cell.countLabel.text = "\(beverage.count)개"
-        
+        cell.countLabel.text = "\(item.count)개"
+        cell.photoImageVIew.image = SampleBeverageItemMaker.beverageImage(for: item)
         return cell
     }
     

@@ -13,7 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     
-    var machine: VendingMachine!
+    var machine = VendingMachine.shared
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
@@ -49,7 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private func saveVendingMachine() {
         do {
-            let machineData = try NSKeyedArchiver.archivedData(withRootObject: machine!, requiringSecureCoding: false)
+            let machineData = try NSKeyedArchiver.archivedData(withRootObject: machine, requiringSecureCoding: false)
             UserDefaults.standard.set(machineData, forKey: VendingMachine.UserDefaultsKey)
         } catch {
             print(error)

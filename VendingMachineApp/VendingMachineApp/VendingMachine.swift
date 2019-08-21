@@ -12,6 +12,8 @@ enum VendingMachineError: Error {
 
 class VendingMachine: NSObject, NSCoding {
     
+    static var shared = VendingMachine()
+    
     //MARK: 속성
     
     private(set) var inventory = Inventory()

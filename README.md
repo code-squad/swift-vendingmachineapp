@@ -56,11 +56,35 @@ required init(from decoder: Decoder) throws {
 ```
 
 
+### NSCoding 사용하기
+클래스에 NSObject를 상속받고 NSCoding 프로토콜을 채택해야 한다. 그리고 두 개의 메소드를 구현해야 한다.
+```swift
+// 인코딩
+encode(with coder: NSCoder)
+// 디코딩
+required init?(coder: NSCoder)
+```
+### 구현 방법
+```swift
+func encode(with coder: NSCoder) {
+    coder.encode(myProperty, forKey: "myProperty")
+}
+
+required convenience init?(coder aDecoder: NSCoder) {
+		// 필요하다면 as?를 사용하여 조건부 캐스트를 해줍니다.
+    let myProperty = coder.decodeObject(forKey: "myProperty")
+    // 지정 이니셜라이저를 호출하여 초기화를 마칩니다. 또는 직접 프로퍼티에 값을 넣어도 됩니다(convenience 키워드 필요 없음).
+    self.init(myProperty: myProperty)
+}
+```
+
 ```swift
 // UserDefaults에 저장하기
 UserDefaults.standard.set(value, forKey: String)
 
 // UserDefaults에서 로드하기
 UserDefaults.standard.data(forKey: String)
-// data의 경우 bool 및 interger 등 적합한 유형으로 변겨하여 사용할 수 있음
+// data의 경우 bool 및 interger 등 적합한 유형으로 변경하여 사용할 수 있음
 ```
+`UserDefaults` - 사용자의 기본 정보 저장소입니다.
+`.standard` - `UserDefaults`의 싱글톤 객체입니다.

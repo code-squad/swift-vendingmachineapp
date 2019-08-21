@@ -88,3 +88,7 @@ UserDefaults.standard.data(forKey: String)
 ```
 `UserDefaults` - 사용자의 기본 정보 저장소입니다.
 `.standard` - `UserDefaults`의 싱글톤 객체입니다.
+
+## Step4 (2019-08-21)
+
+자판기 인스턴스를 싱글톤 인스턴스로 만들어 사용함.

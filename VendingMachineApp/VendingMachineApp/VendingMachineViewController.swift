@@ -20,15 +20,8 @@ class VendingMachineViewController: UIViewController, UICollectionViewDataSource
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        machine = (UIApplication.shared.delegate as! AppDelegate).machine
         beverageCollectionView.dataSource = self
         reloadCoinsDepositedLabel()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        
     }
     
     //MARK: UICollectionViewDataSource
@@ -65,6 +58,11 @@ class VendingMachineViewController: UIViewController, UICollectionViewDataSource
             return
         }
         reloadCoinsDepositedLabel()
+    }
+    
+    @IBAction func loadSamplesButtonTapped(_ sender: UIButton) {
+        machine.loadSampleBeverages()
+        beverageCollectionView.reloadData()
     }
     
     @objc func addBeverageButtonTapped(button: UIButton) {

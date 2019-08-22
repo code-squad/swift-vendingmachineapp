@@ -17,13 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        // 저장된 자판기를 가져옵니다. 가져올 수 없으면 샘플을 로드합니다.
-        if let savedMachine = loadVendingMachine() {
-            machine = savedMachine
-        } else {
-            machine = VendingMachine()
-            machine.loadSampleBeverages()
-        }
+        machine.loadData()
         
         return true
     }
@@ -33,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func applicationDidEnterBackground(_ application: UIApplication) {
         // 자판기를 저장합니다.
-        saveVendingMachine()
+        machine.saveData()
     }
     
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -43,31 +37,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func applicationWillTerminate(_ application: UIApplication) {
-    }
-    
-    //MARK: 비공개 메소드
-    
-    private func saveVendingMachine() {
-        do {
-            let machineData = try NSKeyedArchiver.archivedData(withRootObject: machine, requiringSecureCoding: false)
-            UserDefaults.standard.set(machineData, forKey: VendingMachine.UserDefaultsKey)
-        } catch {
-            print(error)
-            return
-        }
-    }
-    
-    private func loadVendingMachine() -> VendingMachine? {
-        guard let savedData = UserDefaults.standard.data(forKey: VendingMachine.UserDefaultsKey) else {
-            return nil
-        }
-        do {
-            let machineObject = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(savedData)
-            return machineObject as? VendingMachine
-        } catch {
-            print(error)
-            return nil
-        }
     }
 }
 

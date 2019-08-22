@@ -10,9 +10,9 @@ enum VendingMachineError: Error {
     case noPermission
 }
 
-class VendingMachine: NSObject, NSCoding {
+class VendingMachine {
     
-    static var shared = VendingMachine()
+    static let shared = VendingMachine()
     
     //MARK: 속성
     
@@ -20,39 +20,13 @@ class VendingMachine: NSObject, NSCoding {
     private(set) var coinsDeposited: Coin = 0
     private(set) var purchasedItems = Inventory()
     
-    override init() {
-        super.init()
-    }
-    
     //MARK: NSCoding
     
-    struct PropertyKey {
+    struct UserDefaultsKey {
         static let inventory = "inventory"
         static let coinsDeposited = "coinsDeposited"
         static let purchasedItems = "purchasedItems"
     }
-    
-    static let UserDefaultsKey = "VendingMachine"
-    
-    func encode(with coder: NSCoder) {
-        coder.encode(inventory, forKey: PropertyKey.inventory)
-        coder.encode(coinsDeposited, forKey: PropertyKey.coinsDeposited)
-        coder.encode(purchasedItems, forKey: PropertyKey.purchasedItems)
-    }
-    
-    required init?(coder: NSCoder) {
-        guard let inventory = coder.decodeObject(forKey: PropertyKey.inventory) as? Inventory else {
-            return nil
-        }
-        let coinsDeposited = coder.decodeInteger(forKey: PropertyKey.coinsDeposited)
-        guard let purchasedItems = coder.decodeObject(forKey: PropertyKey.purchasedItems) as? Inventory else {
-            return nil
-        }
-        self.inventory = inventory
-        self.coinsDeposited = coinsDeposited
-        self.purchasedItems = purchasedItems
-    }
-    
     
     //MARK: 메소드
     
@@ -110,4 +84,56 @@ class VendingMachine: NSObject, NSCoding {
     var purchasableItems: [BeverageItem] {
         return inventory.allBeverages.filter { $0.price <= coinsDeposited }
     }
+    
+    func saveData() {
+        do {
+            let inventoryData = try NSKeyedArchiver.archivedData(withRootObject: inventory, requiringSecureCoding: false)
+            let purchasedData = try NSKeyedArchiver.archivedData(withRootObject: purchasedItems, requiringSecureCoding: false)
+            
+            UserDefaults.standard.set(inventoryData, forKey: VendingMachine.UserDefaultsKey.inventory)
+            UserDefaults.standard.set(coinsDeposited, forKey: VendingMachine.UserDefaultsKey.coinsDeposited)
+            UserDefaults.standard.set(purchasedData, forKey: VendingMachine.UserDefaultsKey.purchasedItems)
+        } catch {
+            print(error)
+            return
+        }
+    }
+    
+    func loadData() {
+        
+        let inventoryObject: Any?
+        let purchasedObject: Any?
+        
+        guard let inventoryData = UserDefaults.standard.data(forKey: VendingMachine.UserDefaultsKey.inventory) else {
+            print("인벤토리를 로드할 수 없음")
+            return
+        }
+        let coinsDeposited = UserDefaults.standard.integer(forKey: VendingMachine.UserDefaultsKey.coinsDeposited)
+        guard let purchasedData = UserDefaults.standard.data(forKey: VendingMachine.UserDefaultsKey.purchasedItems) else {
+            print("구매 목록을 로드할 수 없음")
+            return
+        }
+        do {
+            inventoryObject = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(inventoryData)
+            purchasedObject = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(purchasedData)
+            
+        } catch {
+            print(error)
+            return
+        }
+        
+        guard let inventory = inventoryObject as? Inventory else {
+            print("인벤토리 타입 변환 실패")
+            return
+        }
+        
+        guard let purchasedItems = purchasedObject as? Inventory else {
+            print("구매 목록 타입 변환 실패")
+            return
+        }
+        self.inventory = inventory
+        self.coinsDeposited = coinsDeposited
+        self.purchasedItems = purchasedItems
+    }
+    
 }

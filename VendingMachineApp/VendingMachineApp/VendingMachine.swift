@@ -1,5 +1,8 @@
 import Foundation
 
+extension Notification.Name {
+    static let reloadCoinsDeposited = Notification.Name("reloadCoinsDeposited")
+}
 enum VendingMachineError: Error {
     case invalidSelection
     case outOfStock
@@ -17,7 +20,11 @@ class VendingMachine {
     //MARK: 속성
     
     private(set) var inventory = Inventory()
-    private(set) var coinsDeposited: Coin = 0
+    private(set) var coinsDeposited: Coin = 0 {
+        didSet {
+            NotificationCenter.default.post(name: .reloadCoinsDeposited, object: nil)
+        }
+    }
     private(set) var purchasedItems = Inventory()
     
     //MARK: NSCoding

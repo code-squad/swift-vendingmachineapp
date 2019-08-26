@@ -22,6 +22,8 @@ class VendingMachineViewController: UIViewController, UICollectionViewDataSource
         super.viewDidLoad()
         beverageCollectionView.dataSource = self
         reloadCoinsDepositedLabel()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadCoinsDepositedLabel), name: .reloadCoinsDeposited, object: nil)
     }
     
     //MARK: UICollectionViewDataSource
@@ -57,7 +59,6 @@ class VendingMachineViewController: UIViewController, UICollectionViewDataSource
         default:
             return
         }
-        reloadCoinsDepositedLabel()
     }
     
     @IBAction func loadSamplesButtonTapped(_ sender: UIButton) {
@@ -87,7 +88,7 @@ class VendingMachineViewController: UIViewController, UICollectionViewDataSource
     
     //MARK: 비공개 메소드
     
-    private func reloadCoinsDepositedLabel() {
+    @objc private func reloadCoinsDepositedLabel() {
         coinsDepositedLabel.text = "\(machine.coinsDeposited) 코인"
     }
     

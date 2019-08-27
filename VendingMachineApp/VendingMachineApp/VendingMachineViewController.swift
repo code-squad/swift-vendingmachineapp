@@ -24,6 +24,7 @@ class VendingMachineViewController: UIViewController, UICollectionViewDataSource
         reloadCoinsDepositedLabel()
         
         NotificationCenter.default.addObserver(self, selector: #selector(reloadCoinsDepositedLabel), name: .reloadCoinsDeposited, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadBeverageCell(with:)), name: .reloadBeverageItem, object: nil)
     }
     
     //MARK: UICollectionViewDataSource
@@ -83,13 +84,25 @@ class VendingMachineViewController: UIViewController, UICollectionViewDataSource
         
         let indexPath = beverageCollectionView.indexPath(for: visibleCells[index])!
         machine.inventory.allBeverages[indexPath.row].addBeverage()
-        reloadBeverageCell(at: indexPath.row)
     }
     
     //MARK: 비공개 메소드
     
     @objc private func reloadCoinsDepositedLabel() {
         coinsDepositedLabel.text = "\(machine.coinsDeposited) 코인"
+    }
+    
+    @objc private func reloadBeverageCell(with notification: Notification) {
+        // 업데이트 되어야 할 셀의 정보를 받지 못하면 전체 데이터를 리로드합니다.
+        guard let info = notification.userInfo as? [String: BeverageItem], let item = info["item"] else {
+            beverageCollectionView.reloadData()
+            return
+        }
+        guard let index = machine.inventory.allBeverages.firstIndex(of: item) else {
+            print("존재하지 않는 음료 정보를 전달받음")
+            return
+        }
+        reloadBeverageCell(at: index)
     }
     
     private func reloadBeverageCell(at index: Int) {

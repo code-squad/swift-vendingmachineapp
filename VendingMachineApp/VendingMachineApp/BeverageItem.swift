@@ -1,5 +1,9 @@
 import Foundation
 
+extension Notification.Name {
+    static let reloadBeverageItem = Notification.Name("reloadBeverageItem")
+}
+
 typealias Coin = Int
 
 class BeverageItem: NSObject, NSCoding {
@@ -88,12 +92,16 @@ class BeverageItem: NSObject, NSCoding {
     
     func addBeverage(_ beverage: Beverage? = nil) {
         beverages.append(beverage ?? defaultBeverage)
+        
+        NotificationCenter.default.post(name: .reloadBeverageItem, object: nil, userInfo: ["item": self])
     }
     
     func removeBeverage() throws -> Beverage {
         guard count > 0 else {
             throw VendingMachineError.outOfStock
         }
+        
+        NotificationCenter.default.post(name: .reloadBeverageItem, object: nil, userInfo: ["item": self])
         return beverages.removeFirst()
     }
 }

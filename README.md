@@ -92,3 +92,55 @@ UserDefaults.standard.data(forKey: String)
 ## Step4 (2019-08-21)
 
 자판기 인스턴스를 싱글톤 인스턴스로 만들어 사용함.
+
+## Step5 (2019-08-27)
+
+옵저버 패턴을 사용하여 뷰를 업데이트하도록 작성함.
+
+### NotificationCenter를 사용하여 옵저버 패턴 적용하기
+
+1. 알림을 식별하기 위한 `Notification.Name`을 등록합니다.
+```swift
+// Notification.Name에 익스텐션을 하여 정적 상수로 저장하게 되면 매개 변수에 넣을 때에 타입추론을 통해 `.`으로 접근할 수 있어 편리합니다.
+extension Notification.Name {
+    static let reloadCoinsDeposited = Notification.Name("reloadData")
+}
+```
+
+2. 알림을 전송하기 위해 `post` 메소드를 호출합니다.
+```swift
+var data = 0 {
+        didSet {
+            NotificationCenter.default.post(name: .reloadData, object: nil, userInfo: ["data": data])
+        }
+    }
+```
+- `.default`: 앱의 기본 Notification Center입니다. 앱으로 전송된 모든 알림은 `default`에 게시됩니다.
+- `.post(name:object:userInfo:)`: 이름, 발신자 및 정보를 가지고 알림을 생성하여 Notification Center로 전송합니다.
+  - `name`: 알림의 이름입니다. (예시에선 익스텐션을 통해 만들어준 알림 이름을 사용함)
+  - `object`: 알림을 전송하는 객체입니다.
+  - `userInfo`: 선택적으로 전송할 수 있는 알림에 대한 정보입니다. (예시에선 `"data"` 문자열 키에 `data` 정수 값을 담아 보냄)
+
+3. 알림을 받기 위해 `addObserver`를 사용하여 옵저버를 추가합니다.
+```swift
+// 예시에서는 ViewController.viewDidLoad 메소드 내부에 작성합니다.
+NotificationCenter.default.addObserver(self, selector: #selector(reloadData), name: .reloadData, object: nil)
+```
+- `observer`: 옵저버를 등록할 객체입니다.  (예시에선 ViewController를 옵저버로 등록함)
+- `selector`: 알림이 전송되었음을 옵저버에게 알리기 위해 메시지를 보내는 Selector입니다. `selector`로 지정된 메소드는 인자로 `Notification`를 전달받을 수 있어야 합니다.
+- `name`: 어떤 알림을 받을 것인지에 대한 알림의 이름입니다. `name` 알림만 받게됩니다. 만약 `nil`을 전달하면, 알림 이름에 따른 수신 여부를 결정하지 않게 됩니다.
+- `object`: 옵저버가 알림 수신을 허용할 객체입니다. `object`로부터만 알림을 받게 됩니다. 만약 `nil`을 전달하면, 전송자가 누구인지에 따라 알림 수신 여부를 결정하지 않게 됩니다.
+
+#### `selector`로 전달할 메소드에서 메시지를 받아 사용하기
+
+```swift
+@objc private func reloadData(notification: Notification) {
+        guard let userInfo = notification.userInfo as? [String: Int] else {
+            print("알 수 없는 메시지: \(notification.userInfo)")
+            return
+        }
+        print(userInfo["data"]!)
+    }
+```
+
+`notification` 인스턴스에서 `userInfo`에 접근하여 전달 받은 메시지를 사용할 수 있습니다. 이  예시에서는 위에서 전달한 `[String: Int]` 자료형으로 다운캐스트 후에 적합한 키로 접근하여 사용하였습니다.

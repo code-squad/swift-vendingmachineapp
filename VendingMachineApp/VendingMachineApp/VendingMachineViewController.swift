@@ -24,7 +24,7 @@ class VendingMachineViewController: UIViewController, UICollectionViewDataSource
         reloadCoinsDepositedLabel()
         
         NotificationCenter.default.addObserver(self, selector: #selector(reloadCoinsDepositedLabel), name: .reloadCoinsDeposited, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(reloadBeverageCell(with:)), name: .reloadBeverageItem, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadBeverageCell(_:)), name: .reloadBeverageItem, object: nil)
     }
     
     //MARK: UICollectionViewDataSource
@@ -92,7 +92,7 @@ class VendingMachineViewController: UIViewController, UICollectionViewDataSource
         coinsDepositedLabel.text = "\(machine.coinsDeposited) 코인"
     }
     
-    @objc private func reloadBeverageCell(with notification: Notification) {
+    @objc private func reloadBeverageCell(_ notification: Notification) {
         // 업데이트 되어야 할 셀의 정보를 받지 못하면 전체 데이터를 리로드합니다.
         guard let info = notification.userInfo as? [String: BeverageItem], let item = info["item"] else {
             beverageCollectionView.reloadData()

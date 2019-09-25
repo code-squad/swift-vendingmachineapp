@@ -40,11 +40,12 @@ class Item {
         return representBeverage
     }
     
-    var info: (name: String, price: Int, value: Int)?  {
+    var info: ItemInfo? {
         guard let beverage = representBeverage else {
             return nil
         }
-        return (beverage.itemName, beverage.itemPrice, count)
+        let info = ItemInfo(name: beverage.itemName, price: beverage.itemPrice, count: count)
+        return info
     }
 }
 
@@ -75,4 +76,12 @@ extension Item {
             }
         }
     }
+}
+
+// MARK: - ItemDTO
+
+struct ItemInfo {
+    let name: String
+    let price: Int
+    let count: Int
 }

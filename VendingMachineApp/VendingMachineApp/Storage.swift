@@ -8,7 +8,7 @@
 
 import Foundation
 
-typealias InventoryInfo = ([(name: String, price: Int, value: Int)]) -> Void
+typealias InventoryInfo = ([ItemInfo]) -> Void
 
 class Storage {
     private var inventory: [ObjectIdentifier: Item] = [:]

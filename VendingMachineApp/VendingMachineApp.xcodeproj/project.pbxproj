@@ -93,6 +93,20 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		FA1A080D233CBF4F00CD36CE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FAD29AB4233A8C5900210C31 /* VendingMachine.swift */,
+				FAD29AB8233A8C6400210C31 /* Item.swift */,
+				FAD29AB9233A8C6400210C31 /* Storage.swift */,
+				FAD29AB7233A8C6300210C31 /* Menu.swift */,
+				FAD29AB6233A8C6300210C31 /* Mode.swift */,
+				FAD29AC6233A8D0A00210C31 /* Beverages */,
+				FAD29ADD233A8D8400210C31 /* Utils */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		FAD29A82233A882500210C31 = {
 			isa = PBXGroup;
 			children = (
@@ -119,13 +133,7 @@
 				FAD29A90233A882500210C31 /* SceneDelegate.swift */,
 				FAD29A92233A882500210C31 /* ViewController.swift */,
 				FAD29A94233A882500210C31 /* Main.storyboard */,
-				FAD29AB4233A8C5900210C31 /* VendingMachine.swift */,
-				FAD29AB8233A8C6400210C31 /* Item.swift */,
-				FAD29AB9233A8C6400210C31 /* Storage.swift */,
-				FAD29AB7233A8C6300210C31 /* Menu.swift */,
-				FAD29AB6233A8C6300210C31 /* Mode.swift */,
-				FAD29AC6233A8D0A00210C31 /* Beverages */,
-				FAD29ADD233A8D8400210C31 /* Utils */,
+				FA1A080D233CBF4F00CD36CE /* Models */,
 				FAD29A97233A882800210C31 /* Assets.xcassets */,
 				FAD29A99233A882800210C31 /* LaunchScreen.storyboard */,
 				FAD29A9C233A882800210C31 /* Info.plist */,

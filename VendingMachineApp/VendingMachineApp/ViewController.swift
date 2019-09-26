@@ -14,7 +14,6 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         let vendingMachine = VendingMachine(storage: Storage())
         
-        
         vendingMachine.addStock(of: StrawberryMilk(), count: 2)
         vendingMachine.addStock(of: ChocolateMilk(), count: 5)
         vendingMachine.addStock(of: Coke(), count: 1)
@@ -25,7 +24,4 @@ class ViewController: UIViewController {
             }
         }
     }
-
-
 }
-

@@ -20,8 +20,7 @@ protocol Executable {
 protocol Managerable {
     func addStock(of beverage: Beverage, count: Int)
     func takeOutStock(of beverage: Beverage, count: Int)
-    func fetchExpiredStock() -> [Beverage]
-    func fetchHotBeverages() -> [Beverage]
+    func fetchFilteredBeverages(by condition: Item.Condition) -> [Beverage]
     func fetchPurchaseHistory() -> [Beverage]
 }
 
@@ -93,14 +92,9 @@ extension VendingMachine: Managerable {
         storage.remove(beverage, count: count)
     }
     
-    /// 유통기한이 지난 재고만 리턴한다.
-    func fetchExpiredStock() -> [Beverage] {
-        return storage.filter(by: .expired)
-    }
-    
-    /// 따뜻한 음료만 리턴한다.
-    func fetchHotBeverages() -> [Beverage] {
-        return storage.filter(by: .hot)
+    /// 조건에 따른 음료를 리턴한다.
+    func fetchFilteredBeverages(by condition: Item.Condition) -> [Beverage] {
+        return storage.filter(by: condition)
     }
     
     /// 시작이후 구매 상품 이력을 배열로 리턴한다.

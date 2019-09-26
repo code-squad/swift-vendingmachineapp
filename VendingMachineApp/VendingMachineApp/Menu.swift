@@ -37,4 +37,3 @@ struct Menu {
         }
     }
 }
-

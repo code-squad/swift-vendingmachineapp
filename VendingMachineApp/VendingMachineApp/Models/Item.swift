@@ -80,21 +80,3 @@ extension Item {
         }
     }
 }
-
-// MARK: - ItemDTO
-
-struct ItemInfo {
-    let name: String
-    let price: Int
-    let count: Int
-    let imageName: String
-}
-
-extension Array where Element == ItemInfo {
-    func fetchInfo(at index: Int) -> Element? {
-        guard index < self.count && index > -1 else {
-            return nil
-        }
-        return self[index]
-    }
-}

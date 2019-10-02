@@ -44,7 +44,10 @@ class Item {
         guard let beverage = representBeverage else {
             return nil
         }
-        let info = ItemInfo(name: beverage.itemName, price: beverage.itemPrice, count: count)
+        let info = ItemInfo(name: beverage.itemName,
+                            price: beverage.itemPrice,
+                            count: count,
+                            imageName: beverage.itemImageName)
         return info
     }
 }
@@ -84,4 +87,6 @@ struct ItemInfo {
     let name: String
     let price: Int
     let count: Int
+    let imageName: String
+}
 }

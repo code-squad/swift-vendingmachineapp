@@ -89,4 +89,12 @@ struct ItemInfo {
     let count: Int
     let imageName: String
 }
+
+extension Array where Element == ItemInfo {
+    func fetchInfo(at index: Int) -> Element? {
+        guard index < self.count && index > -1 else {
+            return nil
+        }
+        return self[index]
+    }
 }

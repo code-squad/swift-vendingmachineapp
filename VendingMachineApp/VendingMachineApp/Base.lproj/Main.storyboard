@@ -17,8 +17,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="48g-Cq-fkP">
-                                <rect key="frame" x="28" y="182" width="895" height="332"/>
-                                <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="28" y="182" width="893" height="332"/>
+                                <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="vML-jd-3WB">
                                     <size key="itemSize" width="173" height="236"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -62,7 +62,7 @@
                                                 <constraint firstItem="vNg-Ht-yVb" firstAttribute="top" secondItem="7x5-Jv-d9f" secondAttribute="bottom" constant="10" id="zqx-F5-4UV"/>
                                             </constraints>
                                         </collectionViewCellContentView>
-                                        <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <size key="customSize" width="173" height="236"/>
                                         <connections>
                                             <outlet property="beverageImageView" destination="7x5-Jv-d9f" id="Cwb-9d-Suz"/>
@@ -71,24 +71,30 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="67" translatesAutoresizingMaskIntoConstraints="NO" id="ijK-Lr-J5a">
-                                <rect key="frame" x="943" y="233" width="159" height="117.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ijK-Lr-J5a">
+                                <rect key="frame" x="941" y="233" width="161" height="117.5"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="67" translatesAutoresizingMaskIntoConstraints="NO" id="fPQ-sH-gSG">
-                                        <rect key="frame" x="0.0" y="0.0" width="159" height="30"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="67" translatesAutoresizingMaskIntoConstraints="NO" id="fPQ-sH-gSG">
+                                        <rect key="frame" x="0.0" y="0.0" width="161" height="54"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LUw-L8-4o5">
-                                                <rect key="frame" x="0.0" y="0.0" width="46" height="30"/>
-                                                <state key="normal" title="Button"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="47" height="54"/>
+                                                <state key="normal" title="+1000"/>
+                                                <connections>
+                                                    <action selector="touchInsert1000:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BYy-S6-mq1"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Xr-ee-Zee">
-                                                <rect key="frame" x="113" y="0.0" width="46" height="30"/>
-                                                <state key="normal" title="Button"/>
+                                                <rect key="frame" x="114" y="0.0" width="47" height="54"/>
+                                                <state key="normal" title="+5000"/>
+                                                <connections>
+                                                    <action selector="touchInsert5000:" destination="BYZ-38-t0r" eventType="touchUpInside" id="04E-Lq-pMf"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="잔액: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VZZ-sh-Hac">
-                                        <rect key="frame" x="0.0" y="97" width="38.5" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="잔액: 0 원" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VZZ-sh-Hac">
+                                        <rect key="frame" x="0.0" y="64" width="161" height="53.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -109,6 +115,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="balanceLabel" destination="VZZ-sh-Hac" id="jNb-3d-Iaf"/>
                         <outlet property="beverageCollectionView" destination="48g-Cq-fkP" id="VUX-AI-geh"/>
                     </connections>
                 </viewController>

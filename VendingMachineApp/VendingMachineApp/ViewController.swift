@@ -19,6 +19,7 @@ class ViewController: UIViewController {
     // MARK: IBOutlets
     
     @IBOutlet weak var beverageCollectionView: UICollectionView!
+    @IBOutlet weak var balanceLabel: UILabel!
     
     // MARK: - LifeCycle
     
@@ -36,6 +37,27 @@ class ViewController: UIViewController {
                 print("\(item.name) (\(item.count)개)")
             }
             self.beverages = beverage
+        }
+    }
+    
+    // MARK: - Methods
+    // MARK: IBActions
+    
+    @IBAction func touchInsert1000(_ sender: Any) {
+        insertAction(money: 1000)
+    }
+    
+    @IBAction func touchInsert5000(_ sender: Any) {
+       insertAction(money: 5000)
+    }
+    
+    // MARK: Custom Methods
+    private func insertAction(money amount: Int) {
+        guard vendingMachine.insertMoney(amount: amount) else {
+            return
+        }
+        vendingMachine.showBalance { balance in
+            balanceLabel.text = "잔액: \(balance) 원"
         }
     }
 }

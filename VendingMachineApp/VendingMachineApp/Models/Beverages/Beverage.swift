@@ -53,8 +53,8 @@ class Beverage: CustomStringConvertible {
         return price
     }
     
-    func showBeverage(with show: (String, Int) -> Void) {
-        show(name, price)
+    var itemImageName: String {
+        return "img\(type(of: self))"
     }
 }
 

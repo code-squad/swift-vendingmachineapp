@@ -9,8 +9,6 @@
 import UIKit
 
 class BeverageCollectionViewCell: UICollectionViewCell {
-    
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var beverageImageView: UIImageView!
     @IBOutlet weak var quantityLabel: UILabel!
-    
 }

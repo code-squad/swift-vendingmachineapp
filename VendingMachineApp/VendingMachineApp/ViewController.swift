@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    // MARK:  Properties
+    // MARK: Properties
     
     private let vendingMachine = VendingMachine(storage: Storage())
     private var beverages: [ItemInfo] = []
@@ -43,17 +43,8 @@ class ViewController: UIViewController {
     // MARK: - Methods
     // MARK: IBActions
     
-    @IBAction func touchInsert1000(_ sender: Any) {
-        insertAction(money: 1000)
-    }
-    
-    @IBAction func touchInsert5000(_ sender: Any) {
-       insertAction(money: 5000)
-    }
-    
-    // MARK: Custom Methods
-    private func insertAction(money amount: Int) {
-        guard vendingMachine.insertMoney(amount: amount) else {
+    @IBAction func touchInsertMoneyButton(_ sender: UIButton) {
+        guard vendingMachine.insertMoney(amount: sender.tag) else {
             return
         }
         vendingMachine.showBalance { balance in

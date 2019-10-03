@@ -18,7 +18,7 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="48g-Cq-fkP">
                                 <rect key="frame" x="28" y="182" width="893" height="332"/>
-                                <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="vML-jd-3WB">
                                     <size key="itemSize" width="173" height="236"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -36,6 +36,9 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IfQ-p2-siY">
                                                     <rect key="frame" x="10" y="10" width="153" height="30"/>
                                                     <state key="normal" title="추가"/>
+                                                    <connections>
+                                                        <action selector="touchAddButton:" destination="O77-h8-GTe" eventType="touchUpInside" id="nlm-Ox-Wr3"/>
+                                                    </connections>
                                                 </button>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7x5-Jv-d9f">
                                                     <rect key="frame" x="17.5" y="50" width="138" height="138.5"/>
@@ -62,7 +65,7 @@
                                                 <constraint firstItem="vNg-Ht-yVb" firstAttribute="top" secondItem="7x5-Jv-d9f" secondAttribute="bottom" constant="10" id="zqx-F5-4UV"/>
                                             </constraints>
                                         </collectionViewCellContentView>
-                                        <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <size key="customSize" width="173" height="236"/>
                                         <connections>
                                             <outlet property="beverageImageView" destination="7x5-Jv-d9f" id="Cwb-9d-Suz"/>
@@ -77,18 +80,18 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="67" translatesAutoresizingMaskIntoConstraints="NO" id="fPQ-sH-gSG">
                                         <rect key="frame" x="0.0" y="0.0" width="161" height="54"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LUw-L8-4o5">
+                                            <button opaque="NO" tag="1000" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LUw-L8-4o5">
                                                 <rect key="frame" x="0.0" y="0.0" width="47" height="54"/>
                                                 <state key="normal" title="+1000"/>
                                                 <connections>
-                                                    <action selector="touchInsert1000:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BYy-S6-mq1"/>
+                                                    <action selector="touchInsertMoneyButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rDx-Af-bSj"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Xr-ee-Zee">
+                                            <button opaque="NO" tag="5000" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Xr-ee-Zee">
                                                 <rect key="frame" x="114" y="0.0" width="47" height="54"/>
                                                 <state key="normal" title="+5000"/>
                                                 <connections>
-                                                    <action selector="touchInsert5000:" destination="BYZ-38-t0r" eventType="touchUpInside" id="04E-Lq-pMf"/>
+                                                    <action selector="touchInsertMoneyButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gNP-WE-fZA"/>
                                                 </connections>
                                             </button>
                                         </subviews>

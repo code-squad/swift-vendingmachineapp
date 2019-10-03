@@ -65,12 +65,28 @@ extension ViewController: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellReuseID, for: indexPath) as? BeverageCollectionViewCell else {
             return .init()
         }
+        cell.delegate = self
+        cell.indexPath = indexPath
         
         if let beverage = beverages.fetchInfo(at: indexPath.row) {
-            cell.quantityLabel.text = beverage.name
+            cell.quantityLabel.text = "\(beverage.count)개"
             cell.beverageImageView.image = UIImage(named: beverage.imageName)
         }
         
         return cell
+    }
+}
+
+extension ViewController: BeverageCollectionViewCellDelegate {
+    func addStock(with indexPath: IndexPath) {
+        guard let beverage =  vendingMachine.fetchBeverage(at: indexPath.item) else {
+            return
+        }
+        vendingMachine.addStock(of: beverage, count: 1)
+        vendingMachine.showInventory { beverages in
+            self.beverages = beverages
+        }
+        
+        beverageCollectionView.reloadData()
     }
 }

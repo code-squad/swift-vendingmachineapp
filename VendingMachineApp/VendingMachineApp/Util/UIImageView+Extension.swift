@@ -1,5 +1,5 @@
 //
-//  Extensions.swift
+//  UIImageView+Extension.swift
 //  VendingMachineApp
 //
 //  Created by CHOMINJI on 04/10/2019.
@@ -9,8 +9,8 @@
 import UIKit
 
 extension UIImageView {
-    func makeRounded(radius value: CGFloat) {
+    func makeRounded(radius: CGFloat) {
         layer.masksToBounds = true
-        layer.cornerRadius = value
+        layer.cornerRadius = radius
     }
 }

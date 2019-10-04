@@ -19,7 +19,12 @@ class BeverageCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var beverageImageView: UIImageView!
     @IBOutlet weak var quantityLabel: UILabel!
     
+    override func awakeFromNib() {
+        beverageImageView.makeRounded(radius: 10)
+    }
+    
     @IBAction func touchAddButton(_ sender: Any) {
         delegate?.addStock(with: indexPath)
     }
+    
 }

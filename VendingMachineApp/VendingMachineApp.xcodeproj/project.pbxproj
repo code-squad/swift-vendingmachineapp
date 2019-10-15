@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		8509861D853574A7810DF505 /* Pods_VendingMachineApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30CC261BC835B59E3A8032B7 /* Pods_VendingMachineApp.framework */; };
 		FA1A07EA233C91D600CD36CE /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = FA1A07E9233C91D600CD36CE /* .swiftlint.yml */; };
-		FA46F82623478DBE00538CA3 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA46F82523478DBE00538CA3 /* UIImageView+Extension.swift */; };
+		FA46F82623478DBE00538CA3 /* RoundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA46F82523478DBE00538CA3 /* RoundImageView.swift */; };
 		FA5750ED2344D63B00666C52 /* ItemInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5750EC2344D63B00666C52 /* ItemInfo.swift */; };
 		FAADF15F23438510008057C2 /* BeverageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAADF15E23438510008057C2 /* BeverageCollectionViewCell.swift */; };
 		FAD29A8F233A882500210C31 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD29A8E233A882500210C31 /* AppDelegate.swift */; };
@@ -41,7 +41,7 @@
 		49ACDAA58FC08B90FCB090AA /* Pods-VendingMachineApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VendingMachineApp.release.xcconfig"; path = "Target Support Files/Pods-VendingMachineApp/Pods-VendingMachineApp.release.xcconfig"; sourceTree = "<group>"; };
 		8CFA0FE6CE9B98E98E294EF3 /* Pods-VendingMachineApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VendingMachineApp.debug.xcconfig"; path = "Target Support Files/Pods-VendingMachineApp/Pods-VendingMachineApp.debug.xcconfig"; sourceTree = "<group>"; };
 		FA1A07E9233C91D600CD36CE /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
-		FA46F82523478DBE00538CA3 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		FA46F82523478DBE00538CA3 /* RoundImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundImageView.swift; sourceTree = "<group>"; };
 		FA5750EC2344D63B00666C52 /* ItemInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemInfo.swift; sourceTree = "<group>"; };
 		FAADF15E23438510008057C2 /* BeverageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageCollectionViewCell.swift; sourceTree = "<group>"; };
 		FAD29A8B233A882500210C31 /* VendingMachineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendingMachineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -124,7 +124,7 @@
 		FA46F82823478E3100538CA3 /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				FA46F82523478DBE00538CA3 /* UIImageView+Extension.swift */,
+				FA46F82523478DBE00538CA3 /* RoundImageView.swift */,
 				FAD29AC4233A8CE000210C31 /* Date+Extension.swift */,
 			);
 			path = Util;
@@ -340,7 +340,7 @@
 				FAD29ABA233A8C6400210C31 /* Mode.swift in Sources */,
 				FAD29A8F233A882500210C31 /* AppDelegate.swift in Sources */,
 				FAD29ADA233A8D7C00210C31 /* ChocolateMilk.swift in Sources */,
-				FA46F82623478DBE00538CA3 /* UIImageView+Extension.swift in Sources */,
+				FA46F82623478DBE00538CA3 /* RoundImageView.swift in Sources */,
 				FAD29ADC233A8D7C00210C31 /* Milk.swift in Sources */,
 				FA5750ED2344D63B00666C52 /* ItemInfo.swift in Sources */,
 				FAD29AC5233A8CE000210C31 /* Date+Extension.swift in Sources */,

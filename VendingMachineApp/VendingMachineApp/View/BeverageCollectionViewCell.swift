@@ -16,15 +16,10 @@ class BeverageCollectionViewCell: UICollectionViewCell {
     var indexPath: IndexPath!
     weak var delegate: BeverageCollectionViewCellDelegate?
     
-    @IBOutlet weak var beverageImageView: UIImageView!
+    @IBOutlet weak var beverageImageView: RoundImageView!
     @IBOutlet weak var quantityLabel: UILabel!
-    
-    override func awakeFromNib() {
-        beverageImageView.makeRounded(radius: 10)
-    }
     
     @IBAction func touchAddButton(_ sender: Any) {
         delegate?.addStock(with: indexPath)
     }
-    
 }

@@ -24,6 +24,10 @@ class Item {
         return beverages.isEmpty
     }
     
+    var imageName: String? {
+        return representBeverage?.itemImageName
+    }
+    
     func append(beverage: Beverage, count: Int = 0) {
         let bundle = Array(repeating: beverage, count: count)
         beverages.append(contentsOf: bundle)
@@ -46,8 +50,7 @@ class Item {
         }
         let info = ItemInfo(name: beverage.itemName,
                             price: beverage.itemPrice,
-                            count: count,
-                            imageName: beverage.itemImageName)
+                            count: count)
         return info
     }
 }

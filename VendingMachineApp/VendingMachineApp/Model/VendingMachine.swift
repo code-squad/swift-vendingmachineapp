@@ -34,6 +34,10 @@ class VendingMachine: Executable {
     private var storage: Storage
     private var purchaseHistory: [Beverage] = []
     
+    var beverages: [Item] {
+        return storage.beverages
+    }
+    
     init(storage: Storage) {
         self.storage = storage
     }

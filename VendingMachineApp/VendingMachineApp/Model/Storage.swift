@@ -15,6 +15,12 @@ class Storage {
     private var objectIDs: [ObjectIdentifier] {
         return Array(inventory.keys)
     }
+    var count: Int {
+        return inventory.count
+    }
+    var beverages: [Item] {
+        return Array(inventory.values)
+    }
     
     func append(_ beverage: Beverage, count: Int = 0) {
         let items = findItems(key: beverage.objectID)

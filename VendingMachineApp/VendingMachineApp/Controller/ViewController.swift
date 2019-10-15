@@ -13,8 +13,10 @@ class ViewController: UIViewController {
     // MARK: Properties
     
     private let vendingMachine = VendingMachine(storage: Storage())
-    private var beverages: [ItemInfo] = []
     private let cellReuseID = "BeverageCollectionViewCell"
+    private var beverages: [Item] {
+        return vendingMachine.beverages
+    }
     
     // MARK: IBOutlets
     
@@ -36,7 +38,6 @@ class ViewController: UIViewController {
             beverage.forEach { item in
                 print("\(item.name) (\(item.count)개)")
             }
-            self.beverages = beverage
         }
     }
     
@@ -68,10 +69,9 @@ extension ViewController: UICollectionViewDataSource {
         cell.delegate = self
         cell.indexPath = indexPath
         
-        if let beverage = beverages.fetchInfo(at: indexPath.row) {
-            cell.quantityLabel.text = "\(beverage.count)개"
-            cell.beverageImageView.image = UIImage(named: beverage.imageName)
-        }
+        let beverage = beverages[indexPath.row]
+        cell.quantityLabel.text = "\(beverage.count)개"
+        cell.beverageImageView.image = UIImage(named: beverage.imageName ?? "")
         
         return cell
     }
@@ -83,9 +83,6 @@ extension ViewController: BeverageCollectionViewCellDelegate {
             return
         }
         vendingMachine.addStock(of: beverage, count: 1)
-        vendingMachine.showInventory { beverages in
-            self.beverages = beverages
-        }
         
         beverageCollectionView.reloadData()
     }

@@ -14,7 +14,6 @@ struct ItemInfo {
     let name: String
     let price: Int
     let count: Int
-    let imageName: String
 }
 
 extension Array where Element == ItemInfo {

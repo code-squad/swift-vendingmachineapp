@@ -8,12 +8,27 @@
 
 import Foundation
 
-class Item {
+class Item: NSObject, NSCoding {
     private var beverages: [Beverage]
-    private var representBeverage: Beverage?
+    private(set) var representBeverage: Beverage?
     
     init(beverages: [Beverage] = []) {
         self.beverages = beverages
+    }
+    
+    enum Keys: String {
+        case beverages = "Beverages"
+        case representBeverage = "RepresentBeverage"
+    }
+    
+    func encode(with coder: NSCoder) {
+        coder.encode(beverages, forKey: Keys.beverages.rawValue)
+        coder.encode(representBeverage, forKey: Keys.representBeverage.rawValue)
+    }
+    
+    required init?(coder: NSCoder) {
+        self.beverages = coder.decodeObject(forKey: Keys.beverages.rawValue) as! [Beverage]
+        self.representBeverage = coder.decodeObject(forKey: Keys.representBeverage.rawValue) as! Beverage
     }
     
     var count: Int {

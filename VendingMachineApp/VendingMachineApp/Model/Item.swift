@@ -28,7 +28,7 @@ class Item: NSObject, NSCoding {
     
     required init?(coder: NSCoder) {
         self.beverages = coder.decodeObject(forKey: Keys.beverages.rawValue) as! [Beverage]
-        self.representBeverage = coder.decodeObject(forKey: Keys.representBeverage.rawValue) as! Beverage
+        self.representBeverage = coder.decodeObject(forKey: Keys.representBeverage.rawValue) as? Beverage
     }
     
     var count: Int {

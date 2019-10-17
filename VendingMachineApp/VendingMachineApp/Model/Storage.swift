@@ -10,7 +10,7 @@ import Foundation
 
 typealias InventoryInfo = ([ItemInfo]) -> Void
 
-class Storage {
+class Storage: NSObject, NSCoding {
     private var inventory: [ObjectIdentifier: Item] = [:]
     private var objectIDs: [ObjectIdentifier] {
         return Array(inventory.keys)
@@ -20,6 +20,30 @@ class Storage {
     }
     var beverages: [Item] {
         return Array(inventory.values)
+    }
+    
+    enum Keys: String {
+        case inventory = "Inventory"
+        case items = "Items"
+    }
+    
+    func encode(with coder: NSCoder) {
+        let items = Array(inventory.values)
+        coder.encode(items, forKey: Keys.items.rawValue)
+    }
+    
+    override init() { }
+    
+    required init?(coder: NSCoder) {
+        let items = coder.decodeObject(forKey: Keys.items.rawValue) as! [Item]
+        let decodedInventory = items.reduce(into: [ObjectIdentifier: Item]()) { (inventory, item) in
+            if let representBeverage = item.representBeverage {
+                let itemType = type(of: representBeverage)
+                let objectID = ObjectIdentifier(itemType)
+                inventory[objectID] = item
+            }
+        }
+        self.inventory = decodedInventory
     }
     
     func append(_ beverage: Beverage, count: Int = 0) {

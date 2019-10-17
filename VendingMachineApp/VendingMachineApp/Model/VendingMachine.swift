@@ -29,17 +29,33 @@ protocol Userable {
     func purchase(beverage: Beverage, completion: (String, Int) -> Void) -> Beverage?
 }
 
-class VendingMachine: Executable {
-    private var balance = 0
-    private var storage: Storage
-    private var purchaseHistory: [Beverage] = []
+class VendingMachine: NSObject, NSCoding, Executable {
+    var balance = 0
+    var storage: Storage
+    var purchaseHistory: [Beverage] = []
     
     var beverages: [Item] {
         return storage.beverages
     }
     
     init(storage: Storage) {
-        self.storage = storage
+        self.storage = Storage()
+    }
+    
+    enum Keys: String {
+        case balance = "Balance"
+        case storage = "Storage"
+        case purchaseHistory = "PurchaseHistory"
+    }
+    
+    func encode(with coder: NSCoder) {
+        coder.encode(balance, forKey: Keys.balance.rawValue)
+        coder.encode(storage, forKey: Keys.storage.rawValue)
+    }
+    
+    required init?(coder: NSCoder) {
+        self.balance = coder.decodeInteger(forKey: Keys.balance.rawValue)
+        self.storage = coder.decodeObject(forKey: Keys.storage.rawValue) as! Storage
     }
     
     func fetchBeverage(at index: Int) -> Beverage? {

@@ -47,11 +47,6 @@ class ViewController: UIViewController {
         initBalance()
     }
     
-    @IBAction func removeButton(_ sender: Any) {
-        UserDefaults.standard.removeObject(forKey: "VendingMachine")
-        UserDefaults.standard.synchronize()
-    }
-    
     private func initBalance() {
         vendingMachine.showBalance { balance in
             balanceLabel.text = "잔액: \(balance) 원"

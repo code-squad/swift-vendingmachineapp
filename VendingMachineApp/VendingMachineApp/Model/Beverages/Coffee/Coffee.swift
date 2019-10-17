@@ -22,4 +22,20 @@ class Coffee: Beverage {
         case arabica
         case liberica
     }
+    
+    enum Keys: String {
+        case bean = "Bean"
+    }
+    
+    override func encode(with coder: NSCoder) {
+        coder.encode(bean, forKey: Keys.bean.rawValue)
+        
+        super.encode(with: coder)
+    }
+    
+    required init?(coder: NSCoder) {
+        self.bean = coder.decodeObject(forKey: Keys.bean.rawValue) as! Bean
+        
+        super.init(coder: coder)
+    }
 }

@@ -25,4 +25,20 @@ class StrawberryMilk: Milk {
             calciumContent: 1
         )
     }
+    
+    enum Keys: String {
+        case strawberryContent = "StrawberryContent"
+    }
+    
+    override func encode(with coder: NSCoder) {
+        coder.encode(strawberryContent, forKey: Keys.strawberryContent.rawValue)
+        
+        super.encode(with: coder)
+    }
+    
+    required init?(coder: NSCoder) {
+        self.strawberryContent = coder.decodeInteger(forKey: Keys.strawberryContent.rawValue)
+        
+        super.init(coder: coder)
+    }
 }

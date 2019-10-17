@@ -17,7 +17,7 @@ class Coffee: Beverage {
         super.init(brand: brand, capacity: capacity, price: price, name: name, dateOfManufactured: dateOfManufactured, temperature: temperature, shelfLife: shelfLife)
     }
     
-    enum Bean {
+    enum Bean: String, Codable {
         case robusta
         case arabica
         case liberica
@@ -28,13 +28,19 @@ class Coffee: Beverage {
     }
     
     override func encode(with coder: NSCoder) {
-        coder.encode(bean, forKey: Keys.bean.rawValue)
+        guard let coder = coder as? NSKeyedArchiver else {
+            return
+        }
+        try? coder.encodeEncodable(bean, forKey: Keys.bean.rawValue)
         
         super.encode(with: coder)
     }
     
     required init?(coder: NSCoder) {
-        self.bean = coder.decodeObject(forKey: Keys.bean.rawValue) as! Bean
+        guard let coder = coder as? NSKeyedUnarchiver else {
+            return nil
+        }
+        self.bean = coder.decodeDecodable(Bean.self, forKey: Keys.bean.rawValue) ?? .arabica
         
         super.init(coder: coder)
     }

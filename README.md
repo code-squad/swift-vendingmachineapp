@@ -91,3 +91,23 @@
 
 <img src="assets/step2.gif" alt="step2" style="zoom:70%;" />
 
+
+
+## 3 - 앱 생명주기와 객체 저장
+
+### 요구사항 / 추가 내용
+
+- 앱 종료(background) 시점 콜백 함수에서 VendingMachine 객체 인스턴스 속성을 저장한다.
+  - User Default를 사용한다.
+- 앱 시작(activate) 시점 콜백 함수에서 기존에 저장된 값에서 불러와서 VendingMachine 객체 인스턴스를 생성한다.
+  -  저장된 데이터 값을 언아카이브해서 VendingMachine 객체를 생성한다
+
+### 실행 결과
+
+- 초기 상태
+
+<img src="assets/Screen Shot 2019-10-17 at 20.45.20.png" alt="Screen Shot 2019-10-17 at 20.45.20" style="zoom: 25%;" />
+
+- 백그라운드로 이동 후 재시작
+
+<img src="assets/Screen Shot 2019-10-17 at 20.50.31.png" alt="Screen Shot 2019-10-17 at 20.50.31" style="zoom: 25%;" />

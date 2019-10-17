@@ -25,4 +25,21 @@ class Cider: SoftDrink {
             calorie: 200
         )
     }
+    
+    enum Keys: String {
+        case lemonScentContent = "LemonScentContent"
+    }
+    
+    override func encode(with coder: NSCoder) {
+        coder.encode(lemonScentContent, forKey: Keys.lemonScentContent.rawValue)
+        
+        super.encode(with: coder)
+    }
+    
+    required init?(coder: NSCoder) {
+        self.lemonScentContent = coder.decodeInteger(forKey: Keys.lemonScentContent.rawValue)
+        
+        super.init(coder: coder)
+    }
+    
 }

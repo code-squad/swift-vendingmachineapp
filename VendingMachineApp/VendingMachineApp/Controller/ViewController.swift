@@ -11,8 +11,7 @@ import UIKit
 class ViewController: UIViewController {
     
     // MARK: Properties
-    
-    private let vendingMachine = VendingMachine(storage: Storage())
+    var vendingMachine: VendingMachine!
     private let cellReuseID = "BeverageCollectionViewCell"
     private var beverages: [Item] {
         return vendingMachine.beverages
@@ -30,10 +29,7 @@ class ViewController: UIViewController {
         
         beverageCollectionView.dataSource = self
         
-        vendingMachine.addStock(of: StrawberryMilk(), count: 2)
-        vendingMachine.addStock(of: ChocolateMilk(), count: 5)
-        vendingMachine.addStock(of: Coke(), count: 1)
-        
+        initBalance()
         vendingMachine.showInventory { beverage in
             beverage.forEach { item in
                 print("\(item.name) (\(item.count)개)")
@@ -48,6 +44,15 @@ class ViewController: UIViewController {
         guard vendingMachine.insertMoney(amount: sender.tag) else {
             return
         }
+        initBalance()
+    }
+    
+    @IBAction func removeButton(_ sender: Any) {
+        UserDefaults.standard.removeObject(forKey: "VendingMachine")
+        UserDefaults.standard.synchronize()
+    }
+    
+    private func initBalance() {
         vendingMachine.showBalance { balance in
             balanceLabel.text = "잔액: \(balance) 원"
         }

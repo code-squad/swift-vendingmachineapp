@@ -9,14 +9,49 @@
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-
+    
     var window: UIWindow?
-
+    var vendingMachine: VendingMachine?
+    private let vendingMachineID = "VendingMachine"
+    
+    private func saveVendingMachine() {
+        let encodedData = try? NSKeyedArchiver.archivedData(withRootObject: vendingMachine!,
+                                                            requiringSecureCoding: false)
+        UserDefaults.standard.set(encodedData, forKey: vendingMachineID)
+    }
+    
+    private func loadVendingMachine() {
+        guard let encodedData = UserDefaults.standard.data(forKey: vendingMachineID),
+            let loaded = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(encodedData) as? VendingMachine else {
+                return
+        }
+        vendingMachine = loaded
+    }
+    
+    private func initVendingMachine() {
+        if vendingMachine == nil {
+            vendingMachine = VendingMachine(storage: Storage())
+            vendingMachine?.addStock(of: StrawberryMilk(), count: 2)
+            vendingMachine?.addStock(of: ChocolateMilk(), count: 5)
+            vendingMachine?.addStock(of: Coke(), count: 1)
+            vendingMachine?.addStock(of: Americano(), count: 3)
+        }
+    }
+    
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard (scene as? UIWindowScene) != nil else { return }
+        
+        guard let rootVC = window?.rootViewController as? ViewController else {
+            return
+        }
+        
+        loadVendingMachine()
+        initVendingMachine()
+        
+        rootVC.vendingMachine = vendingMachine
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -45,5 +80,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Called as the scene transitions from the foreground to the background.
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
+        
+        saveVendingMachine()
     }
 }

@@ -20,4 +20,21 @@ class SoftDrink: Beverage {
     var isLowCalorie: Bool {
         return calorie < BeverageStandard.calorie
     }
+    
+    enum Keys: String {
+        case calorie = "Calorie"
+    }
+    
+    override func encode(with coder: NSCoder) {
+        coder.encode(calorie, forKey: Keys.calorie.rawValue)
+        
+        super.encode(with: coder)
+    }
+    
+    required init?(coder: NSCoder) {
+        self.calorie = coder.decodeInteger(forKey: Keys.calorie.rawValue)
+        
+        super.init(coder: coder)
+        
+    }
 }

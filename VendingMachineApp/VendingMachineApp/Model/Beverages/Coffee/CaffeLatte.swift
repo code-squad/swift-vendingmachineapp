@@ -25,4 +25,20 @@ class CaffeLatte: Coffee {
             bean: .robusta
         )
     }
+    
+    enum Keys: String {
+        case milkContent = "MilkContent"
+    }
+    
+    override func encode(with coder: NSCoder) {
+        coder.encode(milkContent, forKey: Keys.milkContent.rawValue)
+        
+        super.encode(with: coder)
+    }
+    
+    required init?(coder: NSCoder) {
+        self.milkContent = coder.decodeInteger(forKey: Keys.milkContent.rawValue)
+        
+        super.init(coder: coder)
+    }
 }

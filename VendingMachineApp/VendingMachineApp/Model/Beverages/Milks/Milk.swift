@@ -20,4 +20,20 @@ class Milk: Beverage {
     var isHighCalcium: Bool {
         return calciumContent > BeverageStandard.calcium
     }
+    
+    enum Keys: String {
+        case calciumContent = "CalciumContent"
+    }
+
+    override func encode(with coder: NSCoder) {
+        coder.encode(calciumContent, forKey: Keys.calciumContent.rawValue)
+        
+        super.encode(with: coder)
+    }
+    
+    required init?(coder: NSCoder) {
+        self.calciumContent = coder.decodeInteger(forKey: Keys.calciumContent.rawValue)
+        
+        super.init(coder: coder)
+    }
 }

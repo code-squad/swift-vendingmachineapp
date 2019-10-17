@@ -14,7 +14,7 @@ struct BeverageStandard {
     static let calcium = 2
 }
 
-class Beverage: CustomStringConvertible {
+class Beverage: NSObject, NSCoding {
     private let brand: String
     private let capacity: Int
     private let price: Int
@@ -33,7 +33,7 @@ class Beverage: CustomStringConvertible {
         self.shelfLife = TimeInterval(SecondOfDay.second) * 7
     }
     
-    var description: String {
+    override var description: String {
         return "\(type(of: self)) - \(brand), \(capacity)ml, \(price)원, \(name), \(dateOfManufactured.convertToString())"
     }
     
@@ -56,17 +56,35 @@ class Beverage: CustomStringConvertible {
     var itemImageName: String {
         return "img\(type(of: self))"
     }
-}
-
-extension Beverage: Equatable {
-    static func == (lhs: Beverage, rhs: Beverage) -> Bool {
-        return lhs.name == rhs.name
+    
+    enum Keys: String {
+        case brand = "Brand"
+        case capacity = "Capacity"
+        case price = "Price"
+        case name = "Name"
+        case dateOfManufactured = "DateOfManufactured"
+        case temperature = "Temperature"
+        case shelfLife = "ShelfLife"
     }
-}
-
-extension Beverage: Hashable {
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(name)
+    
+    func encode(with coder: NSCoder) {
+        coder.encode(brand, forKey: Keys.brand.rawValue)
+        coder.encode(capacity, forKey: Keys.capacity.rawValue)
+        coder.encode(price, forKey: Keys.price.rawValue)
+        coder.encode(name, forKey: Keys.name.rawValue)
+        coder.encode(dateOfManufactured, forKey: Keys.dateOfManufactured.rawValue)
+        coder.encode(temperature, forKey: Keys.temperature.rawValue)
+        coder.encode(shelfLife, forKey: Keys.shelfLife.rawValue)
+    }
+    
+    required init?(coder: NSCoder) {
+        self.brand = coder.decodeObject(forKey: Keys.brand.rawValue) as! String
+        self.capacity = coder.decodeInteger(forKey: Keys.capacity.rawValue)
+        self.price = coder.decodeInteger(forKey: Keys.price.rawValue)
+        self.name = coder.decodeObject(forKey: Keys.name.rawValue) as! String
+        self.dateOfManufactured = coder.decodeObject(forKey: Keys.dateOfManufactured.rawValue) as! Date
+        self.temperature = coder.decodeInteger(forKey: Keys.temperature.rawValue)
+        self.shelfLife = coder.decodeDouble(forKey: Keys.shelfLife.rawValue)
     }
 }
 

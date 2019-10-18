@@ -4,6 +4,10 @@
 
 [2. MVC 패턴](#2---MVC-패턴)
 
+[3. 앱 생명주기와 객체저장](#3---앱-생명주기와-객체-저장)
+
+
+
 ## 1 - 아이패드 앱
 
 ###  요구 사항 / 추가 내용
@@ -93,9 +97,15 @@
 
 
 
+
+
 ## 3 - 앱 생명주기와 객체 저장
 
 ### 요구사항 / 추가 내용
+
+- 
+  앱 실행 이후 VendingMachine 객체의 속성(마지막 재고 상태, 잔액 등)이 앱을 종료하더라도 저장되도록 한다.
+- 앱을 다시 실행하면 마지막 재고 상태를 그대로 복원한다.
 
 - 앱 종료(background) 시점 콜백 함수에서 VendingMachine 객체 인스턴스 속성을 저장한다.
   - User Default를 사용한다.
@@ -111,3 +121,113 @@
 - 백그라운드로 이동 후 재시작
 
 <img src="assets/Screen Shot 2019-10-17 at 20.50.31.png" alt="Screen Shot 2019-10-17 at 20.50.31" style="zoom: 25%;" />
+
+### 학습 내용
+
+#### User Default 
+
+- Finder에서 UserDefault 보기
+  - /Users/momo/Library/Developer/CoreSimulator/Devices/(디바이스ID)5C86490A-BB85-4CB5-98B8-2CA20BE99071/data/Containers/Data/Application/(앱ID)A13B0FB4-4A45-48C5-929F-3AFB8DC62246/Library/Preferences/com.cmindy.VendingMachineApp.plist
+
+
+
+### 문제 / 해결
+
+
+
+- 상속 관계에서 NSCoding 구현시 잘못된 init 사용
+
+- ```swift 
+   required convenience init?(coder: NSCoder) {
+          let lemonScentContent = coder.decodeInteger(forKey: Keys.lemonScentContent.rawValue)
+          
+          self.init(lemonScentContent: lemonScentContent)
+      }
+  ```
+
+- ```swift
+      required init?(coder: NSCoder) {
+          self.lemonScentContent = coder.decodeInteger(forKey: Keys.lemonScentContent.rawValue)
+          
+          super.init(coder: coder)
+      }
+  ```
+
+  - 처음에 NSCoding을 구현했을 때 `required convenience init?` 으로 생성했다.
+  - convenience init에서는 같은 클래스에서 다른 이니셜라이저를 호출해야하고 지정 이니셜라이저로 끝맺어야한다.
+  - 이전에는 self.init으로 상위 클래스의 프로퍼티를 init하지 않았다.
+  - `super.init()`을 호출하지 않아서 객체들의 프로퍼티가 언아카이빙이 아니라 새로 init되었다.
+  - super.init()을 호출해 LSP를 지키도록 한다.
+
+- 상속 관계에서 NSCoding 구현시 잘못된 encode
+
+  ```swift
+      override func encode(with coder: NSCoder) {
+          coder.encode(lemonScentContent, forKey: Keys.lemonScentContent.rawValue)
+      }
+  ```
+
+  ```swift
+      override func encode(with coder: NSCoder) {
+          coder.encode(lemonScentContent, forKey: Keys.lemonScentContent.rawValue)
+          
+          super.encode(with: coder)
+      }
+  ```
+
+  - 상속관계에 있어서 부모 클래스의 프로퍼티들에 대한 encode도 필요
+  - `super.encode(with: coder)`를 추가해 부모 클래스의 프로퍼티도 같이 encode 해 아카이빙 한다.
+
+- NSCoding 구현 시 enum 
+
+  - ```swift 
+    class Coffee {
+      private let bean: Bean
+      enum Bean {
+            case robusta
+            case arabica
+            case liberica
+        }
+      ...
+      
+    }
+    ```
+
+  - Coffee 클래스에는 bean 이라는 enum 프로퍼티가 있다. 
+
+  - enum은 값타입이기 때문에 NSObject을 상속받을 수 없고 NSCoding 프로토콜을 준수할 수 없다.
+
+  - 다른 프로퍼티처럼 encode, decode를 해줬을 때 아카이빙과 언아카이빙이 되지 않았다.
+
+  - enum에 Codable을 채택해 encode와 decode가 되도록 변경했다.
+
+  - 이 경우, `NSCoder`는 Codable (Encodable, Decodable) 을 알지 못하기 때문에 Codable을 알고 있는 NSKeyedArchiver / NSKeyedUnarchiver로 타입 캐스팅해 값을 encode, decode 한다.
+
+  - `@nonobjc public func decodeDecodable<T>(_ type: T.Type, forKey key: String) -> T? where T : Decodable`
+
+  - ```swift
+    enum Bean: String, Codable {
+      case robusta
+      case arabica
+      case liberica
+    }
+    
+    
+    override func encode(with coder: NSCoder) {
+            guard let coder = coder as? NSKeyedArchiver else {
+                return
+            }
+            try? coder.encodeEncodable(bean, forKey: Keys.bean.rawValue)
+            super.encode(with: coder)
+        }
+        
+        required init?(coder: NSCoder) {
+            guard let coder = coder as? NSKeyedUnarchiver else {
+                return nil
+            }
+            self.bean = coder.decodeDecodable(Bean.self, forKey: Keys.bean.rawValue) ?? .arabica
+            super.init(coder: coder)
+        }
+    ```
+
+  - 

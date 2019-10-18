@@ -12,30 +12,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var window: UIWindow?
     var vendingMachine: VendingMachine?
-    private let vendingMachineID = "VendingMachine"
+    
     
     private func saveVendingMachine() {
-        let encodedData = try? NSKeyedArchiver.archivedData(withRootObject: vendingMachine!,
+        let encodedData = try? NSKeyedArchiver.archivedData(withRootObject: VendingMachine.sharedInstance,
                                                             requiringSecureCoding: false)
         UserDefaults.standard.set(encodedData, forKey: vendingMachineID)
-    }
-    
-    private func loadVendingMachine() {
-        guard let encodedData = UserDefaults.standard.data(forKey: vendingMachineID),
-            let loaded = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(encodedData) as? VendingMachine else {
-                return
-        }
-        vendingMachine = loaded
-    }
-    
-    private func initVendingMachine() {
-        if vendingMachine == nil {
-            vendingMachine = VendingMachine(storage: Storage())
-            vendingMachine?.addStock(of: StrawberryMilk(), count: 2)
-            vendingMachine?.addStock(of: ChocolateMilk(), count: 5)
-            vendingMachine?.addStock(of: Coke(), count: 1)
-            vendingMachine?.addStock(of: Americano(), count: 3)
-        }
     }
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
@@ -43,9 +25,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard (scene as? UIWindowScene) != nil else { return }
-        
-        loadVendingMachine()
-        initVendingMachine()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

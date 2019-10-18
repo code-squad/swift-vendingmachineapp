@@ -29,7 +29,21 @@ protocol Userable {
     func purchase(beverage: Beverage, completion: (String, Int) -> Void) -> Beverage?
 }
 
+let vendingMachineID = "VendingMachine"
+
 class VendingMachine: NSObject, NSCoding, Executable {
+    static let sharedInstance: VendingMachine = {
+        guard let loaded = loadVendingMachine() else {
+            let sample = VendingMachine(storage: Storage())
+            sample.addStock(of: StrawberryMilk(), count: 2)
+            sample.addStock(of: ChocolateMilk(), count: 5)
+            sample.addStock(of: Coke(), count: 1)
+            sample.addStock(of: Americano(), count: 3)
+            return sample
+        }
+        return loaded
+    }()
+    
     var balance = 0
     var storage: Storage
     var purchaseHistory: [Beverage] = []
@@ -38,7 +52,7 @@ class VendingMachine: NSObject, NSCoding, Executable {
         return storage.beverages
     }
     
-    init(storage: Storage) {
+    private init(storage: Storage) {
         self.storage = Storage()
     }
     
@@ -120,5 +134,17 @@ extension VendingMachine: Managerable {
     /// 시작이후 구매 상품 이력을 배열로 리턴한다.
     func fetchPurchaseHistory() -> [Beverage] {
         return purchaseHistory
+    }
+}
+
+// MARK: - Load UserDefault
+
+extension VendingMachine {
+    static func loadVendingMachine() -> VendingMachine? {
+        guard let encodedData = UserDefaults.standard.data(forKey: vendingMachineID),
+            let loaded = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(encodedData) as? VendingMachine else {
+                return nil
+        }
+        return loaded
     }
 }

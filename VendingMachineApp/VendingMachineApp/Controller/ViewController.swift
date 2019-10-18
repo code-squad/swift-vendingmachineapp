@@ -27,14 +27,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        beverageCollectionView.dataSource = self
-
-        guard let scene = UIApplication.shared.windows.first?.windowScene?.delegate as? SceneDelegate,
-        let loadedVendingMachine = scene.vendingMachine else {
-            return
-        }
+        vendingMachine = VendingMachine.sharedInstance
         
-        vendingMachine = loadedVendingMachine
+        beverageCollectionView.dataSource = self
+        
         initBalance()
         
         vendingMachine.showInventory { beverage in

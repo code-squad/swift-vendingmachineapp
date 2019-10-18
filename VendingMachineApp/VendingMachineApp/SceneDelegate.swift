@@ -44,14 +44,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard (scene as? UIWindowScene) != nil else { return }
         
-        guard let rootVC = window?.rootViewController as? ViewController else {
-            return
-        }
-        
         loadVendingMachine()
         initVendingMachine()
-        
-        rootVC.vendingMachine = vendingMachine
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

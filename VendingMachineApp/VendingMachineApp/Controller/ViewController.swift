@@ -28,15 +28,22 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         beverageCollectionView.dataSource = self
+
+        guard let scene = UIApplication.shared.windows.first?.windowScene?.delegate as? SceneDelegate,
+        let loadedVendingMachine = scene.vendingMachine else {
+            return
+        }
         
+        vendingMachine = loadedVendingMachine
         initBalance()
+        
         vendingMachine.showInventory { beverage in
             beverage.forEach { item in
                 print("\(item.name) (\(item.count)개)")
             }
         }
     }
-    
+
     // MARK: - Methods
     // MARK: IBActions
     

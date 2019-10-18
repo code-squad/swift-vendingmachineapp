@@ -11,8 +11,6 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var window: UIWindow?
-    var vendingMachine: VendingMachine?
-    
     
     private func saveVendingMachine() {
         let encodedData = try? NSKeyedArchiver.archivedData(withRootObject: VendingMachine.sharedInstance,

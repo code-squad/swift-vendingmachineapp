@@ -11,7 +11,9 @@ import UIKit
 class ViewController: UIViewController {
     
     // MARK: Properties
-    var vendingMachine: VendingMachine!
+    var vendingMachine: VendingMachine {
+        return VendingMachine.sharedInstance
+    }
     private let cellReuseID = "BeverageCollectionViewCell"
     private var beverages: [Item] {
         return vendingMachine.beverages
@@ -26,8 +28,6 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        vendingMachine = VendingMachine.sharedInstance
         
         beverageCollectionView.dataSource = self
         

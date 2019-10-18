@@ -33,7 +33,9 @@ let vendingMachineID = "VendingMachine"
 
 class VendingMachine: NSObject, NSCoding, Executable {
     static let sharedInstance: VendingMachine = {
-        guard let loaded = loadVendingMachine() else {
+        if let loaded = loadVendingMachine() {
+            return loaded
+        } else {
             let sample = VendingMachine(storage: Storage())
             sample.addStock(of: StrawberryMilk(), count: 2)
             sample.addStock(of: ChocolateMilk(), count: 5)
@@ -41,7 +43,6 @@ class VendingMachine: NSObject, NSCoding, Executable {
             sample.addStock(of: Americano(), count: 3)
             return sample
         }
-        return loaded
     }()
     
     var balance = 0

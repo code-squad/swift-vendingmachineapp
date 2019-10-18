@@ -10,6 +10,8 @@ import UIKit
 
 class RoundImageView: UIImageView {
     override func awakeFromNib() {
+        super.awakeFromNib()
+        
         layer.cornerRadius =  10
     }
 }

@@ -34,6 +34,15 @@ class Storage: NSObject, NSCoding {
     
     override init() { }
     
+    init(allBeverages: [[Beverage]]) {
+        for beverages in allBeverages {
+            let item = Item(beverages: beverages)
+            if let beverage = item.fetchFirst() {
+                inventory[beverage.objectID] = item
+            }
+        }
+    }
+    
     required init?(coder: NSCoder) {
         let items = coder.decodeObject(forKey: Keys.items.rawValue) as! [Item]
         let decodedInventory = items.reduce(into: [ObjectIdentifier: Item]()) { (inventory, item) in

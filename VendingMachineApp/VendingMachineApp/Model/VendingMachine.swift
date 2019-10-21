@@ -29,18 +29,28 @@ protocol Userable {
     func purchase(beverage: Beverage, completion: (String, Int) -> Void) -> Beverage?
 }
 
+protocol VendingMachineType {
+    var beverages: [Item] { get }
+    func insertMoney(amount: Int) -> Bool
+    func showInventory(with form: InventoryInfo)
+    func showBalance(with show: (Int) -> Void)
+    func addStock(of beverage: Beverage, count: Int)
+    func fetchBeverage(at index: Int) -> Beverage?
+}
+
 let vendingMachineID = "VendingMachine"
 
-class VendingMachine: NSObject, NSCoding, Executable {
-    static let sharedInstance: VendingMachine = {
-        if let loaded = loadVendingMachine() {
+class VendingMachine: NSObject, NSCoding, VendingMachineType {
+    static let sharedInstance: VendingMachineType = {
+        let manager = UserDefaultManager<VendingMachineType>(key: vendingMachineID)
+        if let loaded = manager.load() {
             return loaded
         } else {
-            let sample = VendingMachine(storage: Storage())
-            sample.addStock(of: StrawberryMilk(), count: 2)
-            sample.addStock(of: ChocolateMilk(), count: 5)
-            sample.addStock(of: Coke(), count: 1)
-            sample.addStock(of: Americano(), count: 3)
+            let allBeverages = [[StrawberryMilk(), StrawberryMilk()],
+                        [ChocolateMilk(), ChocolateMilk(), ChocolateMilk(), ChocolateMilk()],
+                        [Coke()],
+                        [Americano(), Americano(), Americano()]]
+            let sample = VendingMachine(storage: Storage(allBeverages: allBeverages))
             return sample
         }
     }()
@@ -54,7 +64,7 @@ class VendingMachine: NSObject, NSCoding, Executable {
     }
     
     private init(storage: Storage) {
-        self.storage = Storage()
+        self.storage = storage
     }
     
     enum Keys: String {

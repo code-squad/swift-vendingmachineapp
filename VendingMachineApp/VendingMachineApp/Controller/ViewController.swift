@@ -8,12 +8,15 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+protocol MachineViewProtocol {
+    var vendingMachine: VendingMachineType! { get set }
+}
+
+class ViewController: UIViewController, MachineViewProtocol {
     
     // MARK: Properties
-    var vendingMachine: VendingMachine {
-        return VendingMachine.sharedInstance
-    }
+    var vendingMachine: VendingMachineType!
+    
     private let cellReuseID = "BeverageCollectionViewCell"
     private var beverages: [Item] {
         return vendingMachine.beverages
@@ -21,14 +24,14 @@ class ViewController: UIViewController {
     
     // MARK: IBOutlets
     
-    @IBOutlet weak var beverageCollectionView: UICollectionView!
+    @IBOutlet weak var beverageCollectionView: UICollectionView! 
     @IBOutlet weak var balanceLabel: UILabel!
     
     // MARK: - LifeCycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+           
         beverageCollectionView.dataSource = self
         
         initBalance()

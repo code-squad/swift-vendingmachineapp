@@ -14,6 +14,7 @@ class Item: NSObject, NSCoding {
     
     init(beverages: [Beverage] = []) {
         self.beverages = beverages
+        representBeverage = beverages.first
     }
     
     enum Keys: String {

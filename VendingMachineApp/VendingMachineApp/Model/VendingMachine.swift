@@ -147,15 +147,3 @@ extension VendingMachine: Managerable {
         return purchaseHistory
     }
 }
-
-// MARK: - Load UserDefault
-
-extension VendingMachine {
-    static func loadVendingMachine() -> VendingMachine? {
-        guard let encodedData = UserDefaults.standard.data(forKey: vendingMachineID),
-            let loaded = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(encodedData) as? VendingMachine else {
-                return nil
-        }
-        return loaded
-    }
-}

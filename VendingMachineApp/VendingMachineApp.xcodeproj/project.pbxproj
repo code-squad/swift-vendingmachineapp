@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8509861D853574A7810DF505 /* Pods_VendingMachineApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30CC261BC835B59E3A8032B7 /* Pods_VendingMachineApp.framework */; };
+		FA051F58235DCB8200A01418 /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA051F57235DCB8200A01418 /* UserDefaultManager.swift */; };
 		FA1A07EA233C91D600CD36CE /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = FA1A07E9233C91D600CD36CE /* .swiftlint.yml */; };
 		FA46F82623478DBE00538CA3 /* RoundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA46F82523478DBE00538CA3 /* RoundImageView.swift */; };
 		FA5750ED2344D63B00666C52 /* ItemInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5750EC2344D63B00666C52 /* ItemInfo.swift */; };
@@ -40,6 +41,7 @@
 		30CC261BC835B59E3A8032B7 /* Pods_VendingMachineApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VendingMachineApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		49ACDAA58FC08B90FCB090AA /* Pods-VendingMachineApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VendingMachineApp.release.xcconfig"; path = "Target Support Files/Pods-VendingMachineApp/Pods-VendingMachineApp.release.xcconfig"; sourceTree = "<group>"; };
 		8CFA0FE6CE9B98E98E294EF3 /* Pods-VendingMachineApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VendingMachineApp.debug.xcconfig"; path = "Target Support Files/Pods-VendingMachineApp/Pods-VendingMachineApp.debug.xcconfig"; sourceTree = "<group>"; };
+		FA051F57235DCB8200A01418 /* UserDefaultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultManager.swift; sourceTree = "<group>"; };
 		FA1A07E9233C91D600CD36CE /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		FA46F82523478DBE00538CA3 /* RoundImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundImageView.swift; sourceTree = "<group>"; };
 		FA5750EC2344D63B00666C52 /* ItemInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemInfo.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 			children = (
 				FA46F82523478DBE00538CA3 /* RoundImageView.swift */,
 				FAD29AC4233A8CE000210C31 /* Date+Extension.swift */,
+				FA051F57235DCB8200A01418 /* UserDefaultManager.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -333,6 +336,7 @@
 			files = (
 				FAD29AC3233A8CDD00210C31 /* Beverage.swift in Sources */,
 				FAD29ADB233A8D7C00210C31 /* StrawberryMilk.swift in Sources */,
+				FA051F58235DCB8200A01418 /* UserDefaultManager.swift in Sources */,
 				FAADF15F23438510008057C2 /* BeverageCollectionViewCell.swift in Sources */,
 				FAD29ABB233A8C6400210C31 /* Menu.swift in Sources */,
 				FAD29A93233A882500210C31 /* ViewController.swift in Sources */,

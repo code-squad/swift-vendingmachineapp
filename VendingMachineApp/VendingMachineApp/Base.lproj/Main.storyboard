@@ -33,22 +33,27 @@
                                             <rect key="frame" x="0.0" y="0.0" width="173" height="236"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IfQ-p2-siY">
-                                                    <rect key="frame" x="10" y="10" width="153" height="30"/>
-                                                    <state key="normal" title="추가"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IfQ-p2-siY">
+                                                    <rect key="frame" x="10" y="10" width="153" height="22"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="18"/>
+                                                    <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <state key="normal" title=" 추가" image="plus.circle" catalog="system">
+                                                        <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default" weight="bold"/>
+                                                    </state>
                                                     <connections>
                                                         <action selector="touchAddButton:" destination="O77-h8-GTe" eventType="touchUpInside" id="nlm-Ox-Wr3"/>
                                                     </connections>
                                                 </button>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7x5-Jv-d9f" customClass="RoundImageView" customModule="VendingMachineApp" customModuleProvider="target">
-                                                    <rect key="frame" x="17.5" y="50" width="138" height="138.5"/>
+                                                    <rect key="frame" x="17.5" y="42" width="138" height="138.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="7x5-Jv-d9f" secondAttribute="height" multiplier="1:1" id="ffU-qf-Wr5"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vNg-Ht-yVb">
-                                                    <rect key="frame" x="10" y="198.5" width="153" height="20.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="10" y="190.5" width="153" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -65,7 +70,7 @@
                                                 <constraint firstItem="vNg-Ht-yVb" firstAttribute="top" secondItem="7x5-Jv-d9f" secondAttribute="bottom" constant="10" id="zqx-F5-4UV"/>
                                             </constraints>
                                         </collectionViewCellContentView>
-                                        <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.79097638462695163" green="0.81045315246824734" blue="0.9404743020304569" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <size key="customSize" width="173" height="236"/>
                                         <connections>
                                             <outlet property="beverageImageView" destination="7x5-Jv-d9f" id="Cwb-9d-Suz"/>
@@ -127,4 +132,7 @@
             <point key="canvasLocation" x="138.69346733668343" y="87.769784172661872"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="plus.circle" catalog="system" width="64" height="60"/>
+    </resources>
 </document>

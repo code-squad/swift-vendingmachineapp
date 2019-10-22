@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard (scene as? UIWindowScene) != nil else { return }
         
-        guard let rootViewController = window?.rootViewController as? ViewController else {
+        guard var rootViewController = window?.rootViewController as? VendingMachineViewType else {
             return
         }
         

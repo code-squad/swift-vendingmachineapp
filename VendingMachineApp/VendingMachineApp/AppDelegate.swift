@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        guard let rootViewController = window?.rootViewController as? ViewController else {
+        guard var rootViewController = window?.rootViewController as? VendingMachineViewType else {
             return false
         }
         

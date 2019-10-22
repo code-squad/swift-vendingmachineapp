@@ -8,11 +8,11 @@
 
 import UIKit
 
-protocol MachineViewProtocol {
+protocol VendingMachineViewType {
     var vendingMachine: VendingMachineType! { get set }
 }
 
-class ViewController: UIViewController, MachineViewProtocol {
+class ViewController: UIViewController, VendingMachineViewType {
     
     // MARK: Properties
     var vendingMachine: VendingMachineType!

@@ -41,8 +41,17 @@ class ViewController: UIViewController, VendingMachineViewType {
                 print("\(item.name) (\(item.count)개)")
             }
         }
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(initBalance),
+                                               name: NSNotification.Name(rawValue: NotificationID.stockChanged),
+                                               object: nil)
     }
-
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     // MARK: - Methods
     // MARK: IBActions
     
@@ -53,6 +62,7 @@ class ViewController: UIViewController, VendingMachineViewType {
         initBalance()
     }
     
+    @objc
     private func initBalance() {
         vendingMachine.showBalance { balance in
             balanceLabel.text = "잔액: \(balance) 원"

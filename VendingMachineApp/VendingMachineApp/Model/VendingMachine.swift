@@ -29,6 +29,11 @@ protocol Userable {
     func purchase(beverage: Beverage, completion: (String, Int) -> Void) -> Beverage?
 }
 
+protocol StockChangable {
+    func addStock(of beverage: Beverage, count: Int)
+    func takeOutStock(of beverage: Beverage, count: Int)
+}
+
 protocol VendingMachineType {
     var beverages: [Item] { get }
     func insertMoney(amount: Int) -> Bool

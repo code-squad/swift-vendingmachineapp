@@ -36,9 +36,14 @@ protocol StockChangable {
 
 extension StockChangable {
     func postStockChanged() {
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "StockChanged"), object: nil)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: NotificationID.stockChanged), object: nil)
     }
 }
+
+enum NotificationID {
+    static let stockChanged = "StockChanged"
+}
+
 protocol VendingMachineType {
     var beverages: [Item] { get }
     func insertMoney(amount: Int) -> Bool

@@ -141,15 +141,17 @@ extension VendingMachine: Userable {
     }
 }
 
-extension VendingMachine: Managerable {
+extension VendingMachine: Managerable, StockChangable {
     ///특정 상품 인스턴스를 넘겨서 재고를 추가한다.
     func addStock(of beverage: Beverage, count: Int) {
         storage.append(beverage, count: count)
+        postStockChanged()
     }
     
     /// 특정 상품 인스턴스를 넘겨서 재고를 삭제한다.
     func takeOutStock(of beverage: Beverage, count: Int = 0) {
         storage.remove(beverage, count: count)
+        postStockChanged()
     }
     
     /// 조건에 따른 음료를 리턴한다.

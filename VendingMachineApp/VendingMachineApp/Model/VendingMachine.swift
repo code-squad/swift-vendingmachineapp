@@ -29,21 +29,6 @@ protocol Userable {
     func purchase(beverage: Beverage, completion: (String, Int) -> Void) -> Beverage?
 }
 
-protocol StockChangable {
-    func addStock(of beverage: Beverage, count: Int)
-    func takeOutStock(of beverage: Beverage, count: Int)
-}
-
-extension StockChangable {
-    func postStockChanged() {
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: NotificationID.stockChanged), object: nil)
-    }
-}
-
-enum NotificationID {
-    static let stockChanged = "StockChanged"
-}
-
 protocol VendingMachineType {
     var beverages: [Item] { get }
     func insertMoney(amount: Int) -> Bool
@@ -141,17 +126,15 @@ extension VendingMachine: Userable {
     }
 }
 
-extension VendingMachine: Managerable, StockChangable {
+extension VendingMachine: Managerable {
     ///특정 상품 인스턴스를 넘겨서 재고를 추가한다.
     func addStock(of beverage: Beverage, count: Int) {
         storage.append(beverage, count: count)
-        postStockChanged()
     }
     
     /// 특정 상품 인스턴스를 넘겨서 재고를 삭제한다.
     func takeOutStock(of beverage: Beverage, count: Int = 0) {
         storage.remove(beverage, count: count)
-        postStockChanged()
     }
     
     /// 조건에 따른 음료를 리턴한다.

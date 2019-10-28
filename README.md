@@ -8,6 +8,8 @@
 
 [4. 싱글톤 모델](#4---싱글톤-모델)
 
+[5. 관찰자(Observer) 패턴](#5---관찰자(Observer)-패턴)
+
 
 
 ## 1 - 아이패드 앱
@@ -254,3 +256,18 @@
 - 백그라운드로 이동 후 재시작
 
 <img src="assets/image-20191021170001587.png" alt="image-20191021170001587" style="zoom:25%;" />
+
+
+
+## 5 - 관찰자(Observer) 패턴
+
+### 요구사항 / 추가 내용
+
+- MVC 패턴에서 Model과 Controller의 직접적인 참조 관계를 끊기 위해서 관찰자(Observer) 패턴을 적용한다
+  - viewDidLoad에서 Observe를 등록한다
+  - 재고가 바뀌는 Notification을 받으면 화면에 Label을 업데이트한다
+  - 추가 버튼을 누르면 해당 음식 재고를 모델에 추가할 때마다 VendingMachine 모델 객체에서는 변화에 대해 NotificationCenter에 post한다.
+
+### 실행결과
+
+- 4. 싱글톤 모델 스텝과 같은 실행 결과

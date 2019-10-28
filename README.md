@@ -84,6 +84,8 @@
 
 
 
+[⏫ TOP](#vendingmachineapp)
+
 ## 2 - MVC 패턴
 
 ###  요구 사항 / 추가 내용
@@ -101,7 +103,7 @@
 
 
 
-
+[⏫ TOP](#vendingmachineapp)
 
 ## 3 - 앱 생명주기와 객체 저장
 
@@ -236,7 +238,7 @@
 
   - 
 
-
+[⏫ TOP](#vendingmachineapp)
 
 ##  4 - 싱글톤 모델
 
@@ -257,7 +259,7 @@
 
 <img src="assets/image-20191021170001587.png" alt="image-20191021170001587" style="zoom:25%;" />
 
-
+[⏫ TOP](#vendingmachineapp)
 
 ## 5 - 관찰자(Observer) 패턴
 
@@ -271,3 +273,5 @@
 ### 실행결과
 
 - 4. 싱글톤 모델 스텝과 같은 실행 결과
+
+[⏫ TOP](#vendingmachineapp)

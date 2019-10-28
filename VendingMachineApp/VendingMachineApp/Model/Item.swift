@@ -8,8 +8,16 @@
 
 import Foundation
 
+enum NotificationID {
+    static let stockChanged = "StockChanged"
+}
+
 class Item: NSObject, NSCoding {
-    private var beverages: [Beverage]
+    private var beverages: [Beverage] {
+        didSet {
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: NotificationID.stockChanged), object: nil)
+        }
+    }
     private(set) var representBeverage: Beverage?
     
     init(beverages: [Beverage] = []) {

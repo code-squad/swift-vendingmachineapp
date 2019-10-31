@@ -16,6 +16,8 @@ class ViewController: UIViewController, VendingMachineViewType {
     
     // MARK: Properties
     var vendingMachine: VendingMachineType!
+    var cardImageX: CGFloat = 0.0
+    let cardImageSpace: CGFloat = 50.0
     
     private let cellReuseID = "BeverageCollectionViewCell"
     private var beverages: [Item] {
@@ -99,7 +101,20 @@ extension ViewController: BeverageCollectionViewCellDelegate {
             return
         }
         vendingMachine.addStock(of: beverage, count: 1)
+        beverageCollectionView.reloadData()
+    }
+    
+    func purchase(with indexPath: IndexPath) {
+        guard let beverage = vendingMachine.fetchBeverage(at: indexPath.item),
+        let purchaseBeverage = vendingMachine.purchase(beverage: beverage, completion: nil) else {
+            return
+        }
         
+        let cardImage = UIImageView(image: UIImage(named: purchaseBeverage.itemImageName))
+        view.addSubview(cardImage)
+        view.contentMode = .scaleAspectFill
+        cardImageX += cardImageSpace
+        cardImage.frame = CGRect(x: cardImageX, y: 575, width: 144.0, height: 144.0)
         beverageCollectionView.reloadData()
     }
 }

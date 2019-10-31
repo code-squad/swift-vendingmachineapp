@@ -47,11 +47,11 @@ class VendingMachine: NSObject, NSCoding, VendingMachineType {
         if let loaded = manager.load() {
             return loaded
         } else {
-            let allBeverages = [[StrawberryMilk(), StrawberryMilk()],
-                        [ChocolateMilk(), ChocolateMilk(), ChocolateMilk(), ChocolateMilk()],
-                        [Coke()],
-                        [Americano(), Americano(), Americano()]]
-            let sample = VendingMachine(storage: Storage(allBeverages: allBeverages))
+            let sample = VendingMachine(storage: Storage())
+            sample.addStock(of: StrawberryMilk(), count: 1)
+            sample.addStock(of: ChocolateMilk(), count: 1)
+            sample.addStock(of: Coke(), count: 1)
+            sample.addStock(of: Americano(), count: 1)
             return sample
         }
     }()

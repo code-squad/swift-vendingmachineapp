@@ -96,7 +96,7 @@ extension ViewController: UICollectionViewDataSource {
 }
 
 extension ViewController: BeverageCollectionViewCellDelegate {
-    func addStock(with indexPath: IndexPath) {
+    func beverageCell(_ cell: UICollectionViewCell, addItemAt indexPath: IndexPath) {
         guard let beverage =  vendingMachine.fetchBeverage(at: indexPath.item) else {
             return
         }
@@ -104,10 +104,10 @@ extension ViewController: BeverageCollectionViewCellDelegate {
         beverageCollectionView.reloadData()
     }
     
-    func purchase(with indexPath: IndexPath) {
+    func beverageCell(_ cell: UICollectionViewCell, purchaseItemAt indexPath: IndexPath) {
         guard let beverage = vendingMachine.fetchBeverage(at: indexPath.item),
-        let purchaseBeverage = vendingMachine.purchase(beverage: beverage, completion: nil) else {
-            return
+            let purchaseBeverage = vendingMachine.purchase(beverage: beverage, completion: nil) else {
+                return
         }
         
         let cardImage = UIImageView(image: UIImage(named: purchaseBeverage.itemImageName))

@@ -9,8 +9,8 @@
 import UIKit
 
 protocol BeverageCollectionViewCellDelegate: class {
-    func addStock(with indexPath: IndexPath)
-    func purchase(with indexPath: IndexPath)
+    func beverageCell(_ cell: UICollectionViewCell, addItemAt indexPath: IndexPath)
+    func beverageCell(_ cell: UICollectionViewCell, purchaseItemAt indexPath: IndexPath)
 }
 
 class BeverageCollectionViewCell: UICollectionViewCell {
@@ -21,10 +21,10 @@ class BeverageCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var quantityLabel: UILabel!
     
     @IBAction func touchAddButton(_ sender: Any) {
-        delegate?.addStock(with: indexPath)
+        delegate?.beverageCell(self, addItemAt: indexPath)
     }
     
     @IBAction func touchPurchaseButton(_ sender: Any) {
-        delegate?.purchase(with: indexPath)
+        delegate?.beverageCell(self, purchaseItemAt: indexPath)
     }
 }

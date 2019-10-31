@@ -26,7 +26,7 @@ protocol Managerable {
 
 protocol Userable {
     func insertMoney(amount: Int) -> Bool
-    func purchase(beverage: Beverage, completion: (String, Int) -> Void) -> Beverage?
+    func purchase(beverage: Beverage, completion: ((String, Int) -> Void)?) -> Beverage?
 }
 
 protocol VendingMachineType {
@@ -36,6 +36,7 @@ protocol VendingMachineType {
     func showBalance(with show: (Int) -> Void)
     func addStock(of beverage: Beverage, count: Int)
     func fetchBeverage(at index: Int) -> Beverage?
+    func purchase(beverage: Beverage, completion: ((String, Int) -> Void)?) -> Beverage?
 }
 
 let vendingMachineID = "VendingMachine"
@@ -108,7 +109,7 @@ extension VendingMachine: Userable {
     }
     
     /// 음료수를 구매한다.
-    func purchase(beverage: Beverage, completion: (String, Int) -> Void) -> Beverage? {
+    func purchase(beverage: Beverage, completion: ((String, Int) -> Void)?) -> Beverage? {
         let purchasableBeverages = fetchPurchasableBeverages()
         guard purchasableBeverages.contains(beverage) else {
             return nil
@@ -116,7 +117,7 @@ extension VendingMachine: Userable {
         storage.remove(beverage, count: 1)
         purchaseHistory.append(beverage)
         balance -= beverage.itemPrice
-        completion(beverage.itemName, beverage.itemPrice)
+        (completion ?? { _, _ in })(beverage.itemName, beverage.itemPrice)
         return beverage
     }
     

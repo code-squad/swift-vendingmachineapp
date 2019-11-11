@@ -16,13 +16,12 @@ class ViewController: UIViewController, VendingMachineViewType {
     
     // MARK: Properties
     var vendingMachine: VendingMachineType!
-    var cardImageX: CGFloat = 0.0
-    let cardImageSpace: CGFloat = 50.0
-    
     private let cellReuseID = "BeverageCollectionViewCell"
     private var beverages: [Item] {
         return vendingMachine.beverages
     }
+    private var cardImageX: CGFloat = 0.0
+    private let cardImageSpace: CGFloat = 50.0
     
     // MARK: IBOutlets
     
@@ -33,9 +32,28 @@ class ViewController: UIViewController, VendingMachineViewType {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-           
-        beverageCollectionView.dataSource = self
         
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(initStock),
+                                               name: NSNotification.Name(NotificationID.stockAdded),
+                                               object: nil)
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(initStock),
+                                               name: NSNotification.Name(NotificationID.stockRemoved),
+                                               object: nil)
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(initBalance),
+                                               name: NSNotification.Name(rawValue: NotificationID.moneyInserted),
+                                               object: nil)
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(initBalance),
+                                               name: NSNotification.Name(rawValue: NotificationID.moneyPurchased),
+                                               object: nil)
+        
+        beverageCollectionView.dataSource = self
         initBalance()
         
         vendingMachine.showInventory { beverage in
@@ -43,11 +61,6 @@ class ViewController: UIViewController, VendingMachineViewType {
                 print("\(item.name) (\(item.count)개)")
             }
         }
-        
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(initBalance),
-                                               name: NSNotification.Name(rawValue: NotificationID.stockChanged),
-                                               object: nil)
     }
     
     deinit {
@@ -61,7 +74,6 @@ class ViewController: UIViewController, VendingMachineViewType {
         guard vendingMachine.insertMoney(amount: sender.tag) else {
             return
         }
-        initBalance()
     }
     
     @objc
@@ -69,6 +81,11 @@ class ViewController: UIViewController, VendingMachineViewType {
         vendingMachine.showBalance { balance in
             balanceLabel.text = "잔액: \(balance) 원"
         }
+    }
+    
+    @objc
+    private func initStock() {
+        beverageCollectionView.reloadData()
     }
 }
 
@@ -101,7 +118,6 @@ extension ViewController: BeverageCollectionViewCellDelegate {
             return
         }
         vendingMachine.addStock(of: beverage, count: 1)
-        beverageCollectionView.reloadData()
     }
     
     func beverageCell(_ cell: UICollectionViewCell, purchaseItemAt indexPath: IndexPath) {
@@ -115,6 +131,5 @@ extension ViewController: BeverageCollectionViewCellDelegate {
         view.contentMode = .scaleAspectFill
         cardImageX += cardImageSpace
         cardImage.frame = CGRect(x: cardImageX, y: 575, width: 144.0, height: 144.0)
-        beverageCollectionView.reloadData()
     }
 }

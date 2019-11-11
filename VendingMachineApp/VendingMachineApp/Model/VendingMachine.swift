@@ -59,7 +59,6 @@ class VendingMachine: NSObject, NSCoding, VendingMachineType {
     var balance = 0
     var storage: Storage
     var purchaseHistory: [Beverage] = []
-    
     var beverages: [Item] {
         return storage.beverages
     }
@@ -105,6 +104,8 @@ extension VendingMachine: Userable {
             return false
         }
         balance += amount
+        
+        NotificationCenter.default.post(name: NSNotification.Name(NotificationID.moneyInserted), object: nil)
         return true
     }
     
@@ -117,6 +118,8 @@ extension VendingMachine: Userable {
         storage.remove(beverage, count: 1)
         purchaseHistory.append(beverage)
         balance -= beverage.itemPrice
+        
+        NotificationCenter.default.post(name: NSNotification.Name(NotificationID.moneyPurchased), object: nil)
         (completion ?? { _, _ in })(beverage.itemName, beverage.itemPrice)
         return beverage
     }

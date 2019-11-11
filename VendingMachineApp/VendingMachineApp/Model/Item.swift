@@ -9,15 +9,14 @@
 import Foundation
 
 enum NotificationID {
-    static let stockChanged = "StockChanged"
+    static let stockAdded = "StockAdded"
+    static let stockRemoved = "StockRemoved"
+    static let moneyInserted = "MoneyInserted"
+    static let moneyPurchased = "MoneyPurchased"
 }
 
 class Item: NSObject, NSCoding {
-    private var beverages: [Beverage] {
-        didSet {
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: NotificationID.stockChanged), object: nil)
-        }
-    }
+    private var beverages: [Beverage]
     private(set) var representBeverage: Beverage?
     
     init(beverages: [Beverage] = []) {
@@ -56,11 +55,15 @@ class Item: NSObject, NSCoding {
         let bundle = Array(repeating: beverage, count: count)
         beverages.append(contentsOf: bundle)
         representBeverage = beverage.self
+        
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: NotificationID.stockAdded), object: nil)
     }
     
     func remove(beverage: Beverage) {
         if let index = beverages.firstIndex(of: beverage) {
             beverages.remove(at: index)
+            
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: NotificationID.stockRemoved), object: nil)
         }
     }
     

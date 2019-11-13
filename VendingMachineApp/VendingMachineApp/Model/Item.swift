@@ -13,6 +13,7 @@ enum NotificationID {
     static let stockRemoved = "StockRemoved"
     static let moneyInserted = "MoneyInserted"
     static let moneyPurchased = "MoneyPurchased"
+    static let historyAdded = "HistoryAdded"
 }
 
 class Item: NSObject, NSCoding {

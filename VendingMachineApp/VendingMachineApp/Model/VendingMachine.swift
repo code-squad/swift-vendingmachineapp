@@ -37,6 +37,7 @@ protocol VendingMachineType {
     func addStock(of beverage: Beverage, count: Int)
     func fetchBeverage(at index: Int) -> Beverage?
     func purchase(beverage: Beverage, completion: ((String, Int) -> Void)?) -> Beverage?
+    func fetchPurchaseHistory() -> [Beverage]
 }
 
 let vendingMachineID = "VendingMachine"
@@ -106,6 +107,7 @@ extension VendingMachine: Userable {
         balance += amount
         
         NotificationCenter.default.post(name: NSNotification.Name(NotificationID.moneyInserted), object: nil)
+        NotificationCenter.default.post(name: NSNotification.Name(NotificationID.historyAdded), object: nil)
         return true
     }
     
@@ -120,6 +122,7 @@ extension VendingMachine: Userable {
         balance -= beverage.itemPrice
         
         NotificationCenter.default.post(name: NSNotification.Name(NotificationID.moneyPurchased), object: nil)
+        NotificationCenter.default.post(name: NSNotification.Name(NotificationID.historyAdded), object: nil)
         (completion ?? { _, _ in })(beverage.itemName, beverage.itemPrice)
         return beverage
     }

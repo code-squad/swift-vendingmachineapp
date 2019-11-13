@@ -53,6 +53,11 @@ class ViewController: UIViewController, VendingMachineViewType {
                                                name: NSNotification.Name(rawValue: NotificationID.moneyPurchased),
                                                object: nil)
         
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(initHistory),
+                                               name: NSNotification.Name(rawValue: NotificationID.historyAdded),
+                                               object: nil)
+        
         beverageCollectionView.dataSource = self
         initBalance()
         
@@ -86,6 +91,20 @@ class ViewController: UIViewController, VendingMachineViewType {
     @objc
     private func initStock() {
         beverageCollectionView.reloadData()
+    }
+    
+    @objc
+    private func initHistory() {
+        let histories = vendingMachine.fetchPurchaseHistory()
+        guard let purchaseBeverage = histories.last else {
+            return
+        }
+        let cardImage = UIImageView(image: UIImage(named: purchaseBeverage.itemImageName))
+        view.addSubview(cardImage)
+        view.contentMode = .scaleAspectFill
+        cardImageX += cardImageSpace
+        cardImage.frame = CGRect(x: cardImageX, y: 575, width: 144.0, height: 144.0)
+        
     }
 }
 
@@ -121,15 +140,11 @@ extension ViewController: BeverageCollectionViewCellDelegate {
     }
     
     func beverageCell(_ cell: UICollectionViewCell, purchaseItemAt indexPath: IndexPath) {
-        guard let beverage = vendingMachine.fetchBeverage(at: indexPath.item),
-            let purchaseBeverage = vendingMachine.purchase(beverage: beverage, completion: nil) else {
+        guard let beverage = vendingMachine.fetchBeverage(at: indexPath.item) else {
                 return
         }
+         vendingMachine.purchase(beverage: beverage, completion: nil)
         
-        let cardImage = UIImageView(image: UIImage(named: purchaseBeverage.itemImageName))
-        view.addSubview(cardImage)
-        view.contentMode = .scaleAspectFill
-        cardImageX += cardImageSpace
-        cardImage.frame = CGRect(x: cardImageX, y: 575, width: 144.0, height: 144.0)
+        
     }
 }

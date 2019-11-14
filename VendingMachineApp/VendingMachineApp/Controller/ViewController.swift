@@ -37,32 +37,35 @@ class ViewController: UIViewController, VendingMachineViewType {
         super.viewDidLoad()
         
         NotificationCenter.default.addObserver(self,
-                                               selector: #selector(initStock),
+                                               selector: #selector(refreshStock),
                                                name: NSNotification.Name(NotificationID.stockAdded),
                                                object: nil)
         
         NotificationCenter.default.addObserver(self,
-                                               selector: #selector(initStock),
+                                               selector: #selector(refreshStock),
                                                name: NSNotification.Name(NotificationID.stockRemoved),
                                                object: nil)
         
         NotificationCenter.default.addObserver(self,
-                                               selector: #selector(initBalance),
+                                               selector: #selector(refreshBalance),
                                                name: NSNotification.Name(rawValue: NotificationID.moneyInserted),
                                                object: nil)
         
         NotificationCenter.default.addObserver(self,
-                                               selector: #selector(initBalance),
+                                               selector: #selector(refreshBalance),
                                                name: NSNotification.Name(rawValue: NotificationID.moneyPurchased),
                                                object: nil)
         
         NotificationCenter.default.addObserver(self,
-                                               selector: #selector(initHistory),
+                                               selector: #selector(refreshHistory),
                                                name: NSNotification.Name(rawValue: NotificationID.historyAdded),
                                                object: nil)
         
         beverageCollectionView.dataSource = self
-        initBalance()
+        
+        vendingMachine.showBalance { balance in
+            balanceLabel.text = "잔액: \(balance) 원"
+        }
         
         let histories = vendingMachine.fetchPurchaseHistory()
         histories.forEach {
@@ -90,19 +93,19 @@ class ViewController: UIViewController, VendingMachineViewType {
     }
     
     @objc
-    private func initBalance() {
+    private func refreshBalance() {
         vendingMachine.showBalance { balance in
             balanceLabel.text = "잔액: \(balance) 원"
         }
     }
     
     @objc
-    private func initStock() {
+    private func refreshStock() {
         beverageCollectionView.reloadData()
     }
     
     @objc
-    private func initHistory() {
+    private func refreshHistory() {
         let histories = vendingMachine.fetchPurchaseHistory()
         guard let purchaseBeverage = histories.last else {
             return

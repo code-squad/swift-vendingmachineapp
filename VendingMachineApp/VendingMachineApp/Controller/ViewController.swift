@@ -64,6 +64,12 @@ class ViewController: UIViewController, VendingMachineViewType {
         beverageCollectionView.dataSource = self
         initBalance()
         
+        let histories = vendingMachine.fetchPurchaseHistory()
+        histories.forEach {
+            let cardImage = createCardImageView(with: $0)
+            view.addSubview(cardImage)
+        }
+        
         vendingMachine.showInventory { beverage in
             beverage.forEach { item in
                 print("\(item.name) (\(item.count)개)")

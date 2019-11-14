@@ -77,11 +77,13 @@ class VendingMachine: NSObject, NSCoding, VendingMachineType {
     func encode(with coder: NSCoder) {
         coder.encode(balance, forKey: Keys.balance.rawValue)
         coder.encode(storage, forKey: Keys.storage.rawValue)
+        coder.encode(purchaseHistory, forKey: Keys.purchaseHistory.rawValue)
     }
     
     required init?(coder: NSCoder) {
         self.balance = coder.decodeInteger(forKey: Keys.balance.rawValue)
         self.storage = coder.decodeObject(forKey: Keys.storage.rawValue) as! Storage
+        self.purchaseHistory = coder.decodeObject(forKey: Keys.purchaseHistory.rawValue) as! [Beverage]
     }
     
     func fetchBeverage(at index: Int) -> Beverage? {

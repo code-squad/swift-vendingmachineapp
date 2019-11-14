@@ -15,13 +15,16 @@ protocol VendingMachineViewType {
 class ViewController: UIViewController, VendingMachineViewType {
     
     // MARK: Properties
+    
     var vendingMachine: VendingMachineType!
     private let cellReuseID = "BeverageCollectionViewCell"
     private var beverages: [Item] {
         return vendingMachine.beverages
     }
-    private var cardImageX: CGFloat = 0.0
+    
+    private let cardImageSize = CGSize(width: 144.0, height: 144.0)
     private let cardImageSpace: CGFloat = 50.0
+    private var cardImageOrigin = CGPoint(x: 0.0, y: 575.0)
     
     // MARK: IBOutlets
     
@@ -73,7 +76,6 @@ class ViewController: UIViewController, VendingMachineViewType {
     }
     
     // MARK: - Methods
-    // MARK: IBActions
     
     @IBAction func touchInsertMoneyButton(_ sender: UIButton) {
         guard vendingMachine.insertMoney(amount: sender.tag) else {
@@ -99,12 +101,18 @@ class ViewController: UIViewController, VendingMachineViewType {
         guard let purchaseBeverage = histories.last else {
             return
         }
-        let cardImage = UIImageView(image: UIImage(named: purchaseBeverage.itemImageName))
-        view.addSubview(cardImage)
-        view.contentMode = .scaleAspectFill
-        cardImageX += cardImageSpace
-        cardImage.frame = CGRect(x: cardImageX, y: 575, width: 144.0, height: 144.0)
         
+        let cardImage = createCardImageView(with: purchaseBeverage)
+        view.addSubview(cardImage)
+    }
+    
+    private func createCardImageView(with beverage: Beverage) -> UIImageView {
+        let cardImageView = UIImageView()
+        cardImageView.image = UIImage(named: beverage.itemImageName)
+        cardImageView.contentMode = .scaleAspectFill
+        cardImageOrigin.x += cardImageSpace
+        cardImageView.frame = CGRect(origin: cardImageOrigin, size: cardImageSize)
+        return cardImageView
     }
 }
 
@@ -144,7 +152,5 @@ extension ViewController: BeverageCollectionViewCellDelegate {
                 return
         }
          vendingMachine.purchase(beverage: beverage, completion: nil)
-        
-        
     }
 }

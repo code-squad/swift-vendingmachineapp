@@ -588,3 +588,62 @@ protocol VendingMachineViewType: ProductListDisplayable {
 }
 ```
 
+
+
+
+
+### Step8
+
+----
+
+#### 프로그래밍 요구사항
+
+- UIView에서 상속받는 새로운 PieGraphView 클래스를 추가한다.
+
+  ![img](http://public.codesquad.kr/jk/vendingapp-piegraph.png)
+
+- 스토리보스에서 관리자 화면에 UIView를 추가하고, Identity에서 Custom Class 항목에 PieGraphView를 지정한다. 크기는 400 x 400 크기 정도로 지정한다.
+
+- PieGraphView 속성에 음료 구매목록 배열을 추가한다.
+
+- PieGraphView.swift 파일에 drawRect() 메서드에서 구매목록 배열를 참고해서 전체 구매 항목 중에 종류별 음료수가 얼마나 차지하는지 Pie로 표시한다.
+
+  ![img](http://public.codesquad.kr/jk/vendingapp-piegraph-example.png)
+
+- 관리자 화면의 viewWillAppear() 메서드에서 PieGraphView 객체에 구매 목록을 업데이트한다.
+
+- 다른 동작은 이전 단계와 동일하게 동작해야 한다.
+
+
+
+---
+
+
+
+#### 해결
+
+
+
+<img width="938" alt="스크린샷 2019-11-15 오전 12 18 00" src="https://user-images.githubusercontent.com/39197978/68869976-69f0a700-073d-11ea-9ffc-6215ffc6cae0.png">
+
+
+
+
+
+Beverage의 판매이력을 시각화하는 PieGraphView라는 커스텀 view를 만들었다.
+
+`UIBezierPath`를 통해 경로를 그리고
+
+그 경로에 색상을 채웠다.
+
+Graph 도 여러 개의 데이터소스를 시각화 하는 뷰이므로, 
+
+`PieGraphViewDataSource`를 구현했고,  그 과정에서 `CoreGraphics`를 import 해야했다.
+
+허나 **해당 프로토콜을 구현하기 위해 다른 패키지에 의존을 하게 되었고,** 그걸 피하기 위한 코드수정을 했고,
+
+CoreGraphics는 해당 View에서만 화면을 그래픽 디스플레이를 위해서만 import하게 수정했고,
+
+DataSource에서 무의미한 index라는 프로퍼티를 두었었는데, 애플 프레임워크를 참고해서
+
+`numOfCategories(in pieGraphView: PieGraphView)` 형태의 인터페이스로 구현을 마쳤다.

@@ -27,6 +27,7 @@ class MenuCollectionViewManager: NSObject, UICollectionViewDataSource {
         self.strategy = strategy
         self.style = style
         self.errorHandler = handler
+        
     }
     
     func collectionView(_ collectionView: UICollectionView,
@@ -68,6 +69,7 @@ extension MenuCollectionViewManager: CellButtonDelegate {
     func cellButton(_ button: UIButton, didSelectItemAt indexPath: IndexPath) {
         self.strategy.setItemIndex(at: indexPath.row)
         service.setStateStrategy(self.strategy)
+        
         do {
             try service.execute()
         } catch let error {

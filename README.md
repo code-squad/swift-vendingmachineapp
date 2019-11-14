@@ -10,7 +10,7 @@
 
 [5. 관찰자(Observer) 패턴](#5---관찰자(Observer)-패턴)
 
-
+[6. 구매목록 View 코드](#6---구매목록-View-코드)
 
 ## 1 - 아이패드 앱
 
@@ -261,6 +261,8 @@
 
 [⏫ TOP](#vendingmachineapp)
 
+
+
 ## 5 - 관찰자(Observer) 패턴
 
 ### 요구사항 / 추가 내용
@@ -275,3 +277,52 @@
 - 4. 싱글톤 모델 스텝과 같은 실행 결과
 
 [⏫ TOP](#vendingmachineapp)
+
+
+
+## 6 - 구매목록 View 코드
+
+### 요구사항 / 추가 내용
+
+- 구매 목록에 대한 제품 이미지뷰를 동적으로 코드로 직접 View에 추가한다.
+  - 특정 제품을 구매할 때마다 해당 제품 이미지를 추가하도록 구현한다.
+- 구매 목록도 앱 종료이후에 저장되도록한다.
+
+### 실행결과
+
+<img src="assets/image-20191114124432946.png" alt="image-20191114124432946" style="zoom:25%;" />
+
+[⏫ TOP](#vendingmachineapp)
+
+
+
+### 문제 / 해결
+
+- 음료 구매시 특정 개수 이상 구매시 구매가 불가능
+
+  - <img src="assets/image-20191031193911929.png" alt="image-20191031193911929" style="zoom:50%;" />
+
+  - Archiving 구현시 UserDefault에 값이 없으면 샘플음료를 추가하고, 값이 있으면 archiving해서 저장된 값들을 불러왔었음
+
+    
+
+  - <img src="assets/image-20191031194532429.png" alt="image-20191031194532429" style="zoom:50%;" />
+
+  - 음료 구매시 contains로 구매가 가능한지 판단했었음.
+
+  - <img src="assets/image-20191031200317707.png" alt="image-20191031200317707" style="zoom:50%;" />
+
+  - 오브젝트 아이디는 같지만 생성을 ChocolateMilk() ChocolateMilk()로 했었기 때문에 같은 객체가 아님.
+
+  - 그렇기 때문에 contains에서 false가 발생해 nil이 리턴되어 돌아왔었음
+
+- <img src="assets/image-20191031193911929.png" alt="image-20191031193911929" style="zoom:50%;" />
+
+  - addStock()을 이용해 한 객체만 생성하고 레퍼런스를 늘리는 방식으로 샘플 음료를 생성해서 해결했다. 
+
+
+
+
+
+
+

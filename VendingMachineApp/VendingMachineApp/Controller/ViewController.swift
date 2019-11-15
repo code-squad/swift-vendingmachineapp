@@ -36,56 +36,22 @@ class ViewController: UIViewController, VendingMachineViewType {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(refreshStock),
-                                               name: NSNotification.Name(NotificationID.stockAdded),
-                                               object: nil)
+        addObservers()
         
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(refreshStock),
-                                               name: NSNotification.Name(NotificationID.stockRemoved),
-                                               object: nil)
-        
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(refreshBalance),
-                                               name: NSNotification.Name(rawValue: NotificationID.moneyInserted),
-                                               object: nil)
-        
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(refreshBalance),
-                                               name: NSNotification.Name(rawValue: NotificationID.moneyPurchased),
-                                               object: nil)
-        
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(refreshHistory),
-                                               name: NSNotification.Name(rawValue: NotificationID.historyAdded),
-                                               object: nil)
-        
-        beverageCollectionView.dataSource = self
-        
-        vendingMachine.showBalance { balance in
-            balanceLabel.text = "잔액: \(balance) 원"
-        }
-        
-        let histories = vendingMachine.fetchPurchaseHistory()
-        histories.forEach {
-            let cardImage = createCardImageView(with: $0)
-            view.addSubview(cardImage)
-        }
-        
-        vendingMachine.showInventory { beverage in
-            beverage.forEach { item in
-                print("\(item.name) (\(item.count)개)")
-            }
-        }
+        initCollectionView()
+        initBalance()
+        initHistory()
     }
     
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
     
-    // MARK: - Methods
-    
+}
+
+// MARK: - Action
+
+extension ViewController {
     @IBAction func touchInsertMoneyButton(_ sender: UIButton) {
         guard vendingMachine.insertMoney(amount: sender.tag) else {
             return
@@ -114,6 +80,55 @@ class ViewController: UIViewController, VendingMachineViewType {
         let cardImage = createCardImageView(with: purchaseBeverage)
         view.addSubview(cardImage)
     }
+}
+
+// MARK: - Methods
+
+extension ViewController {
+    private func addObservers() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(refreshStock),
+                                               name: NSNotification.Name(NotificationID.stockAdded),
+                                               object: nil)
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(refreshStock),
+                                               name: NSNotification.Name(NotificationID.stockRemoved),
+                                               object: nil)
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(refreshBalance),
+                                               name: NSNotification.Name(rawValue: NotificationID.moneyInserted),
+                                               object: nil)
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(refreshBalance),
+                                               name: NSNotification.Name(rawValue: NotificationID.moneyPurchased),
+                                               object: nil)
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(refreshHistory),
+                                               name: NSNotification.Name(rawValue: NotificationID.historyAdded),
+                                               object: nil)
+    }
+    
+    private func initCollectionView() {
+        beverageCollectionView.dataSource = self
+    }
+    
+    private func initBalance() {
+        vendingMachine.showBalance { balance in
+            balanceLabel.text = "잔액: \(balance) 원"
+        }
+    }
+    
+    private func initHistory() {
+        let histories = vendingMachine.fetchPurchaseHistory()
+        histories.forEach {
+            let cardImage = createCardImageView(with: $0)
+            view.addSubview(cardImage)
+        }
+    }
     
     private func createCardImageView(with beverage: Beverage) -> UIImageView {
         let cardImageView = UIImageView()
@@ -125,8 +140,7 @@ class ViewController: UIViewController, VendingMachineViewType {
     }
 }
 
-// MARK: - Extensions
-// MARK: CollectionViewDataSource
+// MARK: - CollectionView
 
 extension ViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -147,6 +161,8 @@ extension ViewController: UICollectionViewDataSource {
         return cell
     }
 }
+
+// MARK: - Cell Delegate
 
 extension ViewController: BeverageCollectionViewCellDelegate {
     func beverageCell(_ cell: UICollectionViewCell, addItemAt indexPath: IndexPath) {

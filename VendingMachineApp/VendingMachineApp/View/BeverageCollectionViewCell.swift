@@ -14,6 +14,7 @@ protocol BeverageCollectionViewCellDelegate: class {
 }
 
 class BeverageCollectionViewCell: UICollectionViewCell {
+    static let reuseID = "BeverageCollectionViewCell"
     var indexPath: IndexPath!
     weak var delegate: BeverageCollectionViewCellDelegate?
     

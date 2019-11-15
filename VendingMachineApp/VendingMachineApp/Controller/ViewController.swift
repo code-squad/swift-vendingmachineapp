@@ -38,8 +38,8 @@ class ViewController: UIViewController, VendingMachineViewType {
         addObservers()
         
         initCollectionView()
-        initBalance()
         initHistory()
+        refreshBalance()
     }
     
     deinit {
@@ -113,12 +113,6 @@ extension ViewController {
     
     private func initCollectionView() {
         beverageCollectionView.dataSource = self
-    }
-    
-    private func initBalance() {
-        vendingMachine.showBalance { balance in
-            balanceLabel.text = "잔액: \(balance) 원"
-        }
     }
     
     private func initHistory() {

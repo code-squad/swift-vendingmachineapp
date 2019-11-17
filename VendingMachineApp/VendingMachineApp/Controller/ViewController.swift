@@ -46,6 +46,12 @@ class ViewController: UIViewController, VendingMachineViewType {
         NotificationCenter.default.removeObserver(self)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let target = segue.destination as? ManagerViewController else {
+            return
+        }
+        target.vendingMachine = self.vendingMachine
+    }
 }
 
 // MARK: - Action

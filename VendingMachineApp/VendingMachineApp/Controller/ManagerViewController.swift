@@ -63,17 +63,10 @@ extension ManagerViewController: UICollectionViewDataSource {
 }
 
 extension ManagerViewController: BeverageCollectionViewCellDelegate {
-    func beverageCell(_ cell: UICollectionViewCell, addItemAt indexPath: IndexPath) {
+    func beverageCell(_ cell: UICollectionViewCell, itemAt indexPath: IndexPath) {
         guard let beverage =  vendingMachine.fetchBeverage(at: indexPath.item) else {
             return
         }
         vendingMachine.addStock(of: beverage, count: 1)
-    }
-    
-    func beverageCell(_ cell: UICollectionViewCell, purchaseItemAt indexPath: IndexPath) {
-        guard let beverage = vendingMachine.fetchBeverage(at: indexPath.item) else {
-                return
-        }
-         vendingMachine.purchase(beverage: beverage, completion: nil)
     }
 }

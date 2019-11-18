@@ -55,7 +55,7 @@
                                                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default" weight="bold"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="touchPurchaseButton:" destination="O77-h8-GTe" eventType="touchUpInside" id="NJL-Pj-F9j"/>
+                                                        <action selector="touchButton:" destination="O77-h8-GTe" eventType="touchUpInside" id="sC8-qK-tJi"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -174,7 +174,7 @@
                                                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default" weight="bold"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="touchAddButton:" destination="iDN-Z3-3jR" eventType="touchUpInside" id="xfZ-V0-T5Z"/>
+                                                        <action selector="touchButton:" destination="iDN-Z3-3jR" eventType="touchUpInside" id="xfZ-V0-T5Z"/>
                                                     </connections>
                                                 </button>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fsM-hR-lfy" customClass="RoundImageView" customModule="VendingMachineApp" customModuleProvider="target">

@@ -109,10 +109,9 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xg5-Q5-bQn">
-                                <rect key="frame" x="1081" y="56" width="46" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xg5-Q5-bQn">
+                                <rect key="frame" x="1093" y="59" width="25" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
                                 <connections>
                                     <segue destination="T5K-8n-e3K" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="xUh-N2-n31"/>
                                 </connections>
@@ -150,7 +149,7 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fUi-AH-2qn">
                                 <rect key="frame" x="68" y="185" width="893" height="332"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.78539192680000003" green="0.80957204100000002" blue="0.96473318340000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.7348275662" green="0.63244836550000005" blue="0.80301976230000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ady-d4-zOf">
                                     <size key="itemSize" width="180" height="263"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -202,7 +201,7 @@
                                                 <constraint firstItem="fsM-hR-lfy" firstAttribute="width" secondItem="0Bw-6H-zOO" secondAttribute="width" multiplier="0.8" id="pUd-Lm-Sve"/>
                                             </constraints>
                                         </collectionViewCellContentView>
-                                        <color key="backgroundColor" red="0.79097638459999997" green="0.81045315250000005" blue="0.94047430200000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" red="0.7348275662" green="0.63244836550000005" blue="0.80301976230000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <size key="customSize" width="180" height="263"/>
                                         <connections>
                                             <outlet property="beverageImageView" destination="fsM-hR-lfy" id="3TT-ai-RGB"/>
@@ -212,15 +211,18 @@
                                 </cells>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Mx-s9-W1x">
-                                <rect key="frame" x="1073" y="57" width="30" height="30"/>
+                                <rect key="frame" x="1073" y="56" width="30" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="닫기"/>
+                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="17"/>
+                                <state key="normal" title="닫기">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="touchCloseButton:" destination="T5K-8n-e3K" eventType="touchUpInside" id="OYI-2A-Z6B"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="0.7348275662" green="0.63244836550000005" blue="0.80301976230000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <viewLayoutGuide key="safeArea" id="qV8-kr-FGE"/>
                     </view>
                     <navigationItem key="navigationItem" id="hUE-f1-Uv6"/>

@@ -11,7 +11,6 @@ import UIKit
 class ManagerViewController: UIViewController, VendingMachineViewType {
     
     var vendingMachine: VendingMachineType!
-    private let cellReuseID = "BeverageCollectionViewCell"
     private var beverages: [Item] {
         return vendingMachine.beverages
     }
@@ -48,7 +47,7 @@ extension ManagerViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellReuseID, for: indexPath) as? BeverageCollectionViewCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BeverageCollectionViewCell.reuseID, for: indexPath) as? BeverageCollectionViewCell else {
             return .init()
         }
         cell.delegate = self

@@ -31,6 +31,7 @@ protocol Userable {
 
 protocol VendingMachineType {
     var beverages: [Item] { get }
+    var history: History { get }
     func insertMoney(amount: Int) -> Bool
     func showInventory(with form: InventoryInfo)
     func showBalance(with show: (Int) -> Void)
@@ -48,7 +49,7 @@ class VendingMachine: NSObject, NSCoding, VendingMachineType {
         if let loaded = manager.load() {
             return loaded
         } else {
-            let sample = VendingMachine(storage: Storage())
+            let sample = VendingMachine(storage: Storage(), history: History())
             sample.addStock(of: StrawberryMilk(), count: 1)
             sample.addStock(of: ChocolateMilk(), count: 1)
             sample.addStock(of: Coke(), count: 1)
@@ -59,31 +60,32 @@ class VendingMachine: NSObject, NSCoding, VendingMachineType {
     
     var balance = 0
     var storage: Storage
-    var purchaseHistory: [Beverage] = []
+    var history: History
     var beverages: [Item] {
         return storage.beverages
     }
     
-    private init(storage: Storage) {
+    private init(storage: Storage, history: History) {
         self.storage = storage
+        self.history = history
     }
     
     enum Keys: String {
         case balance = "Balance"
         case storage = "Storage"
-        case purchaseHistory = "PurchaseHistory"
+        case history = "History"
     }
     
     func encode(with coder: NSCoder) {
         coder.encode(balance, forKey: Keys.balance.rawValue)
         coder.encode(storage, forKey: Keys.storage.rawValue)
-        coder.encode(purchaseHistory, forKey: Keys.purchaseHistory.rawValue)
+        coder.encode(history, forKey: Keys.history.rawValue)
     }
     
     required init?(coder: NSCoder) {
         self.balance = coder.decodeInteger(forKey: Keys.balance.rawValue)
         self.storage = coder.decodeObject(forKey: Keys.storage.rawValue) as! Storage
-        self.purchaseHistory = coder.decodeObject(forKey: Keys.purchaseHistory.rawValue) as! [Beverage]
+        self.history = coder.decodeObject(forKey: Keys.history.rawValue) as! History
     }
     
     func fetchBeverage(at index: Int) -> Beverage? {
@@ -120,7 +122,7 @@ extension VendingMachine: Userable {
             return nil
         }
         storage.remove(beverage, count: 1)
-        purchaseHistory.append(beverage)
+        history.append(beverage)
         balance -= beverage.itemPrice
         
         NotificationCenter.default.post(name: NSNotification.Name(NotificationID.moneyPurchased), object: nil)
@@ -153,6 +155,6 @@ extension VendingMachine: Managerable {
     
     /// 시작이후 구매 상품 이력을 배열로 리턴한다.
     func fetchPurchaseHistory() -> [Beverage] {
-        return purchaseHistory
+        return history.beverages
     }
 }

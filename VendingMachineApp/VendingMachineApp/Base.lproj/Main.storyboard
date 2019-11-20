@@ -146,8 +146,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="1194" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fUi-AH-2qn">
-                                <rect key="frame" x="68" y="20" width="1058" height="352"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fUi-AH-2qn">
+                                <rect key="frame" x="68" y="20" width="1058" height="282"/>
                                 <color key="backgroundColor" red="0.7348275662" green="0.63244836550000005" blue="0.80301976230000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ady-d4-zOf">
                                     <size key="itemSize" width="180" height="263"/>
@@ -157,7 +157,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="BeverageCollectionViewCell" id="iDN-Z3-3jR" customClass="BeverageCollectionViewCell" customModule="VendingMachineApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="180" height="263"/>
+                                        <rect key="frame" x="0.0" y="9.5" width="180" height="263"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="0Bw-6H-zOO">
                                             <rect key="frame" x="0.0" y="0.0" width="180" height="263"/>
@@ -210,11 +210,11 @@
                                 </cells>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tbd-Hr-Sn8" customClass="PieGraphView" customModule="VendingMachineApp" customModuleProvider="target">
-                                <rect key="frame" x="68" y="388" width="410" height="410"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <rect key="frame" x="68" y="378" width="420" height="420"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="410" id="Kfl-Qt-0Hr"/>
-                                    <constraint firstAttribute="height" constant="410" id="lRI-br-1Vt"/>
+                                    <constraint firstAttribute="width" constant="420" id="Kfl-Qt-0Hr"/>
+                                    <constraint firstAttribute="height" constant="420" id="lRI-br-1Vt"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Mx-s9-W1x">

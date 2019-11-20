@@ -16,6 +16,7 @@ protocol PieDataSource: class {
 
 class PieGraphView: UIView {
     weak var dataSource: PieDataSource?
+    private var palette = [UIColor.systemPink, UIColor.systemOrange, UIColor.systemPurple, UIColor.systemYellow, UIColor.systemGreen, UIColor.systemBlue]
     private var radius: CGFloat {
         return bounds.width * 0.5
     }
@@ -54,12 +55,10 @@ class PieGraphView: UIView {
                         startAngle: startAngle,
                         endAngle: endAngle,
                         clockwise: true)
-            
             path.close()
-            [UIColor.red, UIColor.green, UIColor.blue].randomElement()!.setFill()
+            
+            palette.popLast()?.set()
             path.fill()
-            UIColor.black.setStroke()
-            path.stroke()
             
             drawText(category: category, center: center, angle: halfAngle)
             startAngle = endAngle

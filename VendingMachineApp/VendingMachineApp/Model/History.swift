@@ -32,4 +32,16 @@ extension History {
     }
 }
 
-
+extension History: PieDataSource {
+    func categories(for pieGraph: PieGraphView) -> [Beverage] {
+        return Set(beverages).map { $0 }
+    }
+    
+    func numberOfTotal(for pieGraph: PieGraphView) -> Int {
+        return beverages.count
+    }
+    
+    func pieGraphView(_ pieGraphView: PieGraphView, numberForItemAt beverage: Beverage) -> Int {
+        return beverages.filter { $0 == beverage }.count
+    }
+}

@@ -16,6 +16,7 @@ class ManagerViewController: UIViewController, VendingMachineViewType {
     }
     
     @IBOutlet weak var beverageCollectionView: UICollectionView!
+    @IBOutlet weak var pieGraphView: PieGraphView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +27,8 @@ class ManagerViewController: UIViewController, VendingMachineViewType {
                                                object: nil)
 
         beverageCollectionView.dataSource = self
+        pieGraphView.dataSource = vendingMachine.history
+        
     }
     
     @IBAction func touchCloseButton(_ sender: Any) {

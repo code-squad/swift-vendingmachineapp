@@ -61,15 +61,17 @@ class PieGraphView: UIView {
             UIColor.black.setStroke()
             path.stroke()
             
-            drawLabel(category: category, center: center, angle: halfAngle)
+            drawText(category: category, center: center, angle: halfAngle)
             startAngle = endAngle
         }
     }
     
-    private func drawLabel(category: Beverage, center: CGPoint, angle halfAngle: CGFloat) {
-        let tempText = category.itemName as NSString
-        let labelX = center.x + radius * 0.5 * cos(halfAngle)
-        let labelY = center.y + radius * 0.5 * sin(halfAngle)
-        tempText.draw(at: CGPoint(x: labelX, y: labelY), withAttributes: textAttributes)
+    private func drawText(category: Beverage, center: CGPoint, angle: CGFloat) {
+        let itemNameText = category.itemName as NSString
+        let labelX = center.x + radius * 0.5 * cos(angle)
+        let labelY = center.y + radius * 0.5 * sin(angle)
+        let textSize = itemNameText.size(withAttributes: textAttributes)
+        let renderRect = CGRect(origin: CGPoint(x: labelX, y: labelY), size: textSize)
+        itemNameText.draw(in: renderRect, withAttributes: textAttributes)
     }
 }

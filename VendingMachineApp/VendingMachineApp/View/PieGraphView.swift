@@ -26,31 +26,30 @@ class PieGraphView: UIView {
     ]
     
     override func draw(_ rect: CGRect) {
-        let center = CGPoint(x: rect.midX, y: rect.midY)
-        drawPie(at: center)
+        let viewCenter = CGPoint(x: rect.midX, y: rect.midY)
+        drawPie(at: viewCenter)
     }
     
-    private func drawPie(at center: CGPoint) {
-        var startAngle: CGFloat = 0.0
-        var endAngle: CGFloat = 0.0
-        
+    private func drawPie(at viewCenter: CGPoint) {
         guard let dataSource = dataSource else {
             return
         }
         
+        var startAngle: CGFloat = 0.0
+        var endAngle: CGFloat = 0.0
         let categories = dataSource.categories(for: self)
         let numOfTotal = dataSource.numberOfTotal(for: self)
         
         for category in categories {
             let numOfItem = dataSource.pieGraphView(self, numberForItemAt: category)
-
+            
             let path = UIBezierPath()
-            path.move(to: center)
+            path.move(to: viewCenter)
             
             endAngle = startAngle + (CGFloat(numOfItem) / CGFloat(numOfTotal)) * .pi * 2
             let halfAngle = startAngle + (endAngle - startAngle) * 0.5
             
-            path.addArc(withCenter: center,
+            path.addArc(withCenter: viewCenter,
                         radius: radius,
                         startAngle: startAngle,
                         endAngle: endAngle,
@@ -60,17 +59,28 @@ class PieGraphView: UIView {
             palette.popLast()?.set()
             path.fill()
             
-            drawText(category: category, center: center, angle: halfAngle)
+            drawText(category: category, viewCenter: viewCenter, angle: halfAngle)
             startAngle = endAngle
         }
     }
     
-    private func drawText(category: Beverage, center: CGPoint, angle: CGFloat) {
+    private func drawText(category: Beverage, viewCenter: CGPoint, angle: CGFloat) {
         let itemNameText = category.itemName as NSString
-        let labelX = center.x + radius * 0.5 * cos(angle)
-        let labelY = center.y + radius * 0.5 * sin(angle)
-        let textSize = itemNameText.size(withAttributes: textAttributes)
-        let renderRect = CGRect(origin: CGPoint(x: labelX, y: labelY), size: textSize)
+        let halfPoint = calculateHalfPoint(of: angle, viewCenter: viewCenter)
+        let renderRect = calculateRenderRect(text: itemNameText, from: halfPoint)
         itemNameText.draw(in: renderRect, withAttributes: textAttributes)
+    }
+    
+    private func calculateHalfPoint(of angle: CGFloat, viewCenter: CGPoint) -> CGPoint {
+        let labelX = viewCenter.x + radius * 0.5 * cos(angle)
+        let labelY = viewCenter.y + radius * 0.5 * sin(angle)
+        return CGPoint(x: labelX, y: labelY)
+    }
+    
+    private func calculateRenderRect(text: NSString, from point: CGPoint) -> CGRect {
+        let textSize = text.size(withAttributes: textAttributes)
+        let renderPoint = CGPoint(x: point.x - textSize.width * 0.5, y: point.y - textSize.height * 0.5)
+        let renderRect = CGRect(origin: renderPoint, size: textSize)
+        return renderRect
     }
 }

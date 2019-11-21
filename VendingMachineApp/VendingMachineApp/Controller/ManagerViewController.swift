@@ -28,7 +28,12 @@ class ManagerViewController: UIViewController, VendingMachineViewType {
 
         beverageCollectionView.dataSource = self
         pieGraphView.dataSource = vendingMachine.history
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
+        pieGraphView.setNeedsDisplay()
     }
     
     @IBAction func touchCloseButton(_ sender: Any) {

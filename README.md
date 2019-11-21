@@ -346,3 +346,19 @@
 <img src="assets/image-20191118180442128.png" alt="image-20191118180442128" style="zoom:25%;" />
 
 [⏫ TOP](#vendingmachineapp)
+
+
+
+## 8 - 코어 그래픽스(Core Graphics)
+
+### 요구사항 / 추가 내용
+
+- 전체 구매 항목 중에 종류별 음료수가 얼마나 차지하는지 Pie로 표시한다.
+- 관리자 화면의 viewWillAppear() 메서드에서 PieGraphView 객체에 구매 목록을 업데이트한다.
+
+
+
+### 실행결과
+
+<img src="assets/image-20191121125744904.png" alt="image-20191121125744904" style="zoom:25%;" />
+

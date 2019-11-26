@@ -14,7 +14,7 @@ protocol Storable {
     mutating func takeProduct(at index: Int) -> Sellable?
     func fetchProduct(at index: Int) -> Sellable
     func search(option: ProductStatus, balance: Money) -> [Sellable]
-    func showInventory(form: (Int, String, Int, Int) -> ())
+    func showInventory(form: (Int, String, Int, Int) -> Void)
 }
 
 enum ProductStatus {
@@ -45,7 +45,7 @@ struct BeverageInventory: Storable {
     }
     
     private var stockCounter: [(product: Sellable, count: Int)] {
-        var countResult = [ObjectIdentifier : Int]()
+        var countResult = [ObjectIdentifier: Int]()
         
         stock.forEach { countResult[$0.objectID] = (countResult[$0.objectID] ?? 0) + 1 }
         
@@ -94,7 +94,7 @@ struct BeverageInventory: Storable {
         return stock.filter { option.condition(balance: balance)($0) }
     }
     
-    func showInventory(form: (Int, String, Int, Int) -> ()) {
+    func showInventory(form: (Int, String, Int, Int) -> Void) {
         for (index, stock) in stockCounter.enumerated() {
             form(index + 1, stock.product.productName, stock.product.productPrice, stock.count)
         }

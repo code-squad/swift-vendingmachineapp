@@ -17,4 +17,3 @@ class Coke: Soda {
         super.init(brand: brand, capacity: capacity, price: price, name: name, expirationDate: expirationDate, temperature: temperature, sugarContent: sugarContent)
     }
 }
-

@@ -9,8 +9,8 @@
 import Foundation
 
 protocol Printable {
-    func showBalance(form: (Money) -> ())
-    func showInventory(form: (Int, String, Int, Int) -> ())
+    func showBalance(form: (Money) -> Void)
+    func showInventory(form: (Int, String, Int, Int) -> Void)
 }
 
 protocol VendingMachineManagerable {
@@ -37,11 +37,11 @@ class VendingMachine {
 }
 
 extension VendingMachine: Printable {
-    func showBalance(form: (Money) -> ()) {
+    func showBalance(form: (Money) -> Void) {
         form(balance)
     }
     
-    func showInventory(form: (Int, String, Int, Int) -> ()) {
+    func showInventory(form: (Int, String, Int, Int) -> Void) {
         inventory.showInventory(form: form)
     }
 }

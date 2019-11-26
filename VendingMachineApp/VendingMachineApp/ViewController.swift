@@ -12,7 +12,14 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        let beverages = BeverageGenerator.generateBeverage()
+        let beverageInventory = BeverageInventory(stock: beverages)
+        let vendingMachine = VendingMachine(inventory: beverageInventory)
+        
+        vendingMachine.showInventory {
+            print("\($1) (\($3)개)")
+        }
     }
 
 

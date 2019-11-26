@@ -1,2 +1,8 @@
 disabled_rules:
 - line_length
+- trailing_whitespace
+
+excluded:
+- Pods
+- VendingMachineApp/AppDelegate.swift
+- VendingMachineApp/SceneDelegate.swift

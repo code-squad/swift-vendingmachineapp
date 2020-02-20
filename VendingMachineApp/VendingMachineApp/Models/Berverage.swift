@@ -23,3 +23,12 @@ class Beverage {
         self.dateOfManufacture = dateOfManufacture
     }
 }
+
+extension Beverage: CustomStringConvertible {
+    var description: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "ko_KR")
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        return "\(brand), \(name), \(servingSize)ml, \(price)원, \(dateFormatter.string(from: dateOfManufacture))"
+    }
+}

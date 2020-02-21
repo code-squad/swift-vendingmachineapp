@@ -13,6 +13,7 @@
 		44A408C124001597007995C5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44A408BF24001597007995C5 /* Main.storyboard */; };
 		44A408C324001598007995C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44A408C224001598007995C5 /* Assets.xcassets */; };
 		44A408C624001598007995C5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44A408C424001598007995C5 /* LaunchScreen.storyboard */; };
+		44A408CF24001610007995C5 /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A408CE24001610007995C5 /* Beverage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		44A408C224001598007995C5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		44A408C524001598007995C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		44A408C724001598007995C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		44A408CE24001610007995C5 /* Beverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beverage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 		44A408B824001597007995C5 /* VendingMachineApp */ = {
 			isa = PBXGroup;
 			children = (
+				44A408CD240015FC007995C5 /* Model */,
 				44A408B924001597007995C5 /* AppDelegate.swift */,
 				44A408BB24001597007995C5 /* SceneDelegate.swift */,
 				44A408BD24001597007995C5 /* ViewController.swift */,
@@ -65,6 +68,14 @@
 				44A408C724001598007995C5 /* Info.plist */,
 			);
 			path = VendingMachineApp;
+			sourceTree = "<group>";
+		};
+		44A408CD240015FC007995C5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				44A408CE24001610007995C5 /* Beverage.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,6 +151,7 @@
 			files = (
 				44A408BE24001597007995C5 /* ViewController.swift in Sources */,
 				44A408BA24001597007995C5 /* AppDelegate.swift in Sources */,
+				44A408CF24001610007995C5 /* Beverage.swift in Sources */,
 				44A408BC24001597007995C5 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

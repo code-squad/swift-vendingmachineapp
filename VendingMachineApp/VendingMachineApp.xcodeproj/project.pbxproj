@@ -17,6 +17,8 @@
 		44A408D12400186D007995C5 /* Soda.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A408D02400186D007995C5 /* Soda.swift */; };
 		44A408D324001943007995C5 /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A408D224001943007995C5 /* Coffee.swift */; };
 		44A408D52400195B007995C5 /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A408D42400195B007995C5 /* Milk.swift */; };
+		44A408D7240019A6007995C5 /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A408D6240019A6007995C5 /* VendingMachine.swift */; };
+		44A408D924001FDF007995C5 /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A408D824001FDF007995C5 /* Stock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		44A408D02400186D007995C5 /* Soda.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Soda.swift; sourceTree = "<group>"; };
 		44A408D224001943007995C5 /* Coffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
 		44A408D42400195B007995C5 /* Milk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Milk.swift; sourceTree = "<group>"; };
+		44A408D6240019A6007995C5 /* VendingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachine.swift; sourceTree = "<group>"; };
+		44A408D824001FDF007995C5 /* Stock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stock.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +85,8 @@
 			children = (
 				44A408CE24001610007995C5 /* Beverage.swift */,
 				44A408D02400186D007995C5 /* Soda.swift */,
+				44A408D6240019A6007995C5 /* VendingMachine.swift */,
+				44A408D824001FDF007995C5 /* Stock.swift */,
 				44A408D224001943007995C5 /* Coffee.swift */,
 				44A408D42400195B007995C5 /* Milk.swift */,
 			);
@@ -165,6 +171,8 @@
 				44A408BC24001597007995C5 /* SceneDelegate.swift in Sources */,
 				44A408D12400186D007995C5 /* Soda.swift in Sources */,
 				44A408D324001943007995C5 /* Coffee.swift in Sources */,
+				44A408D7240019A6007995C5 /* VendingMachine.swift in Sources */,
+				44A408D924001FDF007995C5 /* Stock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

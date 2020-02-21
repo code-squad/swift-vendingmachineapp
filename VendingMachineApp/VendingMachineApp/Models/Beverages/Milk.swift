@@ -9,14 +9,10 @@
 import Foundation
 
 class Milk: Beverage {
-    let type: MilkType
+    let farmCode: String
     
-    init(name: String, brand: String, servingSize: Int, price: Int, dateOfManufacture: Date, milkType: MilkType) {
-        self.type = milkType
+    init(name: String, brand: String, servingSize: Int, price: Int, dateOfManufacture: Date, farmCode: String) {
+        self.farmCode = farmCode
         super.init(name: name, brand: brand, servingSize: servingSize, price: price, dateOfManufacture: dateOfManufacture)
-    }
-    
-    enum MilkType {
-        case strawberryMilk, chocolateMilk, bananaMilk
     }
 }

@@ -9,14 +9,10 @@
 import Foundation
 
 class Coffee: Beverage {
-    let type: CoffeeType
+    let servingCaffeine: Int
     
-    init(name: String, brand: String, servingSize: Int, price: Int, dateOfManufacture: Date, coffeeType: CoffeeType) {
-        self.type = coffeeType
+    init(name: String, brand: String, servingSize: Int, price: Int, dateOfManufacture: Date, servingCaffeine: Int) {
+        self.servingCaffeine = servingCaffeine
         super.init(name: name, brand: brand, servingSize: servingSize, price: price, dateOfManufacture: dateOfManufacture)
-    }
-    
-    enum CoffeeType {
-        case TOP, Cantata, Georgia
     }
 }

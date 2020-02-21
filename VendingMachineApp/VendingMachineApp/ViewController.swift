@@ -10,14 +10,14 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    var vendingMachine: VendingMachine?
+    var vendingMachine = VendingMachine()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        vendingMachine = VendingMachine()
+        [Milk(name: "바나나는 원래 하얗다", brand: "매일우유", servingSize: 150, price: 1200, dateOfManufacture: Date(), milkType: .bananaMilk),
+        Soda(name: "펩시", brand: "PEPSI", servingSize: 120, price: 900, dateOfManufacture: Date(), sodaType: .coke),
+        Coffee(name: "TOP아메리카노", brand: "TOP", servingSize: 180, price: 1500, dateOfManufacture: Date(), coffeeType: .TOP)].forEach{ print(vendingMachine.informationOf(beverage: $0)) }
     }
-
-
 }
 

@@ -9,10 +9,14 @@
 import Foundation
 
 class Cantata: Coffee {
-    let isLattee: Bool
+    let isCoffeeLatte: Bool
     
-    init(name: String, brand: String, servingSize: Int, price: Int, dateOfManufacture: Date, servingCaffeine: Int, isLattee: Bool) {
-        self.isLattee = isLattee
+    init(name: String, brand: String, servingSize: Int, price: Int, dateOfManufacture: Date, servingCaffeine: Int, isCoffeeLatte: Bool) {
+        self.isCoffeeLatte = isCoffeeLatte
         super.init(name: name, brand: brand, servingSize: servingSize, price: price, dateOfManufacture: dateOfManufacture, servingCaffeine: servingCaffeine)
+    }
+    
+    func isLatte() -> Bool {
+        return isCoffeeLatte
     }
 }

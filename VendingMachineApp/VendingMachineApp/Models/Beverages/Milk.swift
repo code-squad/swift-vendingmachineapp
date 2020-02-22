@@ -15,4 +15,8 @@ class Milk: Beverage {
         self.farmCode = farmCode
         super.init(name: name, brand: brand, servingSize: servingSize, price: price, dateOfManufacture: dateOfManufacture)
     }
+    
+    func hasBeenProduced(from farmCode: String) -> Bool {
+        return self.farmCode == farmCode
+    }
 }

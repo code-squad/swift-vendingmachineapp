@@ -20,6 +20,6 @@ class Stock {
     }
     
     func enqueue(beverage: Beverage) {
-        stockOf[beverage] = stockOf[beverage]! + 1
+        stockOf[beverage] = (stockOf[beverage] ?? 0) + 1
     }
 }

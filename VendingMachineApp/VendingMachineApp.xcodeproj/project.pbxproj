@@ -15,6 +15,7 @@
 		A5E7DA5024036882002CDF82 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5E7DA4E24036882002CDF82 /* LaunchScreen.storyboard */; };
 		A5E7DA5B24036882002CDF82 /* VendingMachineAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E7DA5A24036882002CDF82 /* VendingMachineAppTests.swift */; };
 		A5E7DA6624036F36002CDF82 /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E7DA6524036F36002CDF82 /* VendingMachine.swift */; };
+		A5E7DA6A240386C1002CDF82 /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E7DA69240386C1002CDF82 /* Beverage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		A5E7DA5A24036882002CDF82 /* VendingMachineAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineAppTests.swift; sourceTree = "<group>"; };
 		A5E7DA5C24036882002CDF82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A5E7DA6524036F36002CDF82 /* VendingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachine.swift; sourceTree = "<group>"; };
+		A5E7DA69240386C1002CDF82 /* Beverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beverage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 				A5E7DA4E24036882002CDF82 /* LaunchScreen.storyboard */,
 				A5E7DA5124036882002CDF82 /* Info.plist */,
 				A5E7DA6524036F36002CDF82 /* VendingMachine.swift */,
+				A5E7DA69240386C1002CDF82 /* Beverage.swift */,
 			);
 			path = VendingMachineApp;
 			sourceTree = "<group>";
@@ -203,6 +206,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5E7DA6A240386C1002CDF82 /* Beverage.swift in Sources */,
 				A5E7DA4824036880002CDF82 /* ViewController.swift in Sources */,
 				A5E7DA4424036880002CDF82 /* AppDelegate.swift in Sources */,
 				A5E7DA4624036880002CDF82 /* SceneDelegate.swift in Sources */,

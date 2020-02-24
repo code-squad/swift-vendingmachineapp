@@ -8,10 +8,30 @@
 
 import Foundation
 
-class VendingMachine {
+struct VendingMachine {
+    let stock: Stock = Stock()
+    private var purchased: [Beverage] = []
+    private var balance: Int = 0
     
     init() {
         
+    }
+    
+    mutating func putMoney(_ money: Int) {
+        balance += money
+    }
+    
+    func addToStock(beverage: Beverage) {
+        stock.enqueue(beverage: beverage)
+    }
+    
+    func beveragesCanBuy() -> [BeverageType: [Beverage]] {
+        return stock.stockOf
+    }
+    
+    mutating func buyBeverage(_ beverage: Beverage) -> Beverage? {
+        balance -= beverage.price
+        return stock.dequeue(beverage: beverage)
     }
     
     func informationOf(beverage: Beverage) -> String {

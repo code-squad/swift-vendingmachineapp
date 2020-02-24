@@ -21,7 +21,9 @@ class ViewController: UIViewController {
         vendingMachine.insertBeverage(beverage: pepsi)
         vendingMachine.insertBeverage(beverage: maxim)
         
-        vendingMachine.printBeverages()
+        vendingMachine.forEachBeverages{
+            print($0)
+        }
     }
 }
 

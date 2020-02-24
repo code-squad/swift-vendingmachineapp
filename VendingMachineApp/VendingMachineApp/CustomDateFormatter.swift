@@ -9,7 +9,7 @@
 import Foundation
 
 class CustomDateFormatter {
-    func convertDate(date: Date) -> String {
+    static func convertDate(date: Date) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyyMMdd"
         

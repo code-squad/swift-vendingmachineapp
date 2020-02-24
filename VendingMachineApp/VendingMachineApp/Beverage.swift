@@ -23,3 +23,11 @@ class Beverage {
         self.manufacturingDate = manufacturingDate
     }
 }
+
+extension Beverage: CustomStringConvertible{
+    var description: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyyMMdd"
+        return "\(brand), \(capacity)ml, \(price)원, \(name), \(dateFormatter.string(from: manufacturingDate))"
+    }
+}

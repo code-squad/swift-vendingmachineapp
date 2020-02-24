@@ -9,32 +9,15 @@
 import Foundation
 
 class Stock {
-    var soda = [Soda]()
-    var coffee = [Coffee]()
-    var milk = [Milk]()
+    var beverages = [Beverage]()
     
     func add(beverage: Beverage) {
-        switch beverage {
-        case is Soda:
-            soda.append(beverage as! Soda)
-        case is Coffee:
-            coffee.append(beverage as! Coffee)
-        case is Milk:
-            milk.append(beverage as! Milk)
-        default:
-            break
-        }
-    }
-    
-    private func printOut(stock: [Beverage]) {
-        stock.forEach {
-            print($0)
-        }
+        beverages.append(beverage)
     }
     
     func printAll() {
-        printOut(stock: soda)
-        printOut(stock: coffee)
-        printOut(stock: milk)
+        beverages.forEach {
+            print($0)
+        }
     }
 }

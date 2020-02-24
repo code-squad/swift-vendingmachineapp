@@ -44,7 +44,7 @@ class VendingMachineUnitTests: XCTestCase {
         
         XCTAssert(vendingMachine.availableBeverages().count == 2)
         
-        vendingMachine.buy(bananaMilk)
+        vendingMachine.select(bananaMilk)
         XCTAssert(vendingMachine.numberOfBeverage(bananaMilk) == 0)
         
         XCTAssert(vendingMachine.availableBeverages().count == 0)

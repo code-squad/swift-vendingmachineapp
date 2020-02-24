@@ -15,6 +15,10 @@ class VendingMachine{
         beverages = Beverages()
     }
     
+    func insertBeverage(beverage: Beverage){
+        beverages.addBeverage(beverage: beverage)
+    }
+    
     func convertDate(date: Date) -> String{
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyyMMdd"

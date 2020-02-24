@@ -19,7 +19,7 @@ class Beverages{
         beverages.append(beverage)
     }
     
-    func forEachBeverages(transform: (Beverage) -> ()){
+    func forEachBeverages(_ transform: (Beverage) -> ()){
         beverages.forEach{
             transform($0)
         }

@@ -8,6 +8,22 @@
 
 import Foundation
 
-class VendinMachine{
+class VendingMachine{
+    var beverages: Beverages
     
+    init(){
+        beverages = Beverages()
+    }
+    
+    func convertDate(date: Date) -> String{
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyyMMdd"
+        return dateFormatter.string(from: date)
+    }
+    
+    func printBeverages(){
+        beverages.forEachBeverages{
+            print("\($0), \(convertDate(date: $0.date()))")
+        }
+    }
 }

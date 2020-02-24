@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A545DEE12403B5BF00151143 /* Beverages.swift in Sources */ = {isa = PBXBuildFile; fileRef = A545DEE02403B5BF00151143 /* Beverages.swift */; };
 		A5E7DA4424036880002CDF82 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E7DA4324036880002CDF82 /* AppDelegate.swift */; };
 		A5E7DA4624036880002CDF82 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E7DA4524036880002CDF82 /* SceneDelegate.swift */; };
 		A5E7DA4824036880002CDF82 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E7DA4724036880002CDF82 /* ViewController.swift */; };
@@ -29,6 +30,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A545DEE02403B5BF00151143 /* Beverages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beverages.swift; sourceTree = "<group>"; };
 		A5E7DA4024036880002CDF82 /* VendingMachineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendingMachineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5E7DA4324036880002CDF82 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A5E7DA4524036880002CDF82 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 				A5E7DA5124036882002CDF82 /* Info.plist */,
 				A5E7DA6524036F36002CDF82 /* VendingMachine.swift */,
 				A5E7DA69240386C1002CDF82 /* Beverage.swift */,
+				A545DEE02403B5BF00151143 /* Beverages.swift */,
 			);
 			path = VendingMachineApp;
 			sourceTree = "<group>";
@@ -206,6 +209,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A545DEE12403B5BF00151143 /* Beverages.swift in Sources */,
 				A5E7DA6A240386C1002CDF82 /* Beverage.swift in Sources */,
 				A5E7DA4824036880002CDF82 /* ViewController.swift in Sources */,
 				A5E7DA4424036880002CDF82 /* AppDelegate.swift in Sources */,

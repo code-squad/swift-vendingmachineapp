@@ -10,11 +10,12 @@ import Foundation
 
 struct VendingMachine {
     let stock: Stock = Stock()
+    let products: [Beverage]
     private var purchased: [Beverage] = []
-    private var balance: Int = 0
+    private(set) var balance: Int = 0
     
-    init() {
-        
+    init(products: [Beverage]) {
+        self.products = products
     }
     
     mutating func putMoney(_ money: Int) {
@@ -25,12 +26,26 @@ struct VendingMachine {
         stock.enqueue(beverage: beverage)
     }
     
-    func beveragesCanBuy() -> [BeverageType: [Beverage]] {
-        return stock.stockOf
+    func numberOfBeverage(type: BeverageType) -> Int {
+        return stock.numberOfBeverage(type: type)
     }
     
-    mutating func buyBeverage(_ beverage: Beverage) -> Beverage? {
+    func availableBeverages() -> [BeverageType] {
+        var availableBeverages: [BeverageType] = []
+        products.forEach { (product) in
+            if balance > product.price {
+                availableBeverages.append(BeverageType(of: product))
+            }
+        }
+        return availableBeverages
+    }
+    
+    @discardableResult mutating func buyBeverage(_ beverage: Beverage) -> Beverage? {
+        guard balance >= beverage.price && stock.numberOfBeverage(type: BeverageType(of: beverage)) > 0 else { return nil }
         balance -= beverage.price
+        let boughtOne = stock.dequeue(beverage: beverage)
+        purchased.append(boughtOne)
+        return boughtOne
         return stock.dequeue(beverage: beverage)
     }
     

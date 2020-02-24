@@ -13,21 +13,19 @@ class Beverage {
     private let amount: Int
     private let price: Int
     private let name: String
-    private let manufacturingDate: Date
+    private let manufacturingDate: ManufacturingDate
     
     init(brand: String, amount: Int, price: Int, name: String) {
         self.brand = brand
         self.amount = amount
         self.price = price
         self.name = name
-        self.manufacturingDate = Date()
+        self.manufacturingDate = ManufacturingDate()
     }
 }
 
 extension Beverage: CustomStringConvertible {
     var description: String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyyMMdd"
-        return "\(brand), \(amount)ml, \(price)원, \(name), \(formatter.string(from: manufacturingDate))"
+        "\(brand), \(amount)ml, \(price)원, \(name), \(manufacturingDate)"
     }
 }

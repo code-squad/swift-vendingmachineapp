@@ -40,7 +40,7 @@ struct VendingMachine {
         return availableBeverages
     }
     
-    mutating func buy(_ beverage: Beverage) {
+    mutating func select(_ beverage: Beverage) {
         guard balance >= beverage.price && stock.numberOf(beverage) > 0 else { return }
         balance.subtract(money: beverage.price)
         stock.dequeue(beverage: beverage)

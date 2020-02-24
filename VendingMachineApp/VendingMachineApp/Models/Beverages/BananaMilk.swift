@@ -11,7 +11,7 @@ import Foundation
 class BananaMilk: Milk {
     let bananaContentGram: Int
     
-    init(name: String, brand: String, servingSize: Int, price: Int, dateOfManufacture: Date, farmCode: String, bananaContentGram: Int) {
+    init(name: String, brand: String, servingSize: Int, price: Money, dateOfManufacture: Date, farmCode: String, bananaContentGram: Int) {
         self.bananaContentGram = bananaContentGram
         super.init(name: name, brand: brand, servingSize: servingSize, price: price, dateOfManufacture: dateOfManufacture, farmCode: farmCode)
     }

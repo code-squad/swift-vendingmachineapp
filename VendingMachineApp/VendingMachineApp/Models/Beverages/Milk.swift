@@ -11,7 +11,7 @@ import Foundation
 class Milk: Beverage {
     let farmCode: String
     
-    init(name: String, brand: String, servingSize: Int, price: Int, dateOfManufacture: Date, farmCode: String) {
+    init(name: String, brand: String, servingSize: Int, price: Money, dateOfManufacture: Date, farmCode: String) {
         self.farmCode = farmCode
         super.init(name: name, brand: brand, servingSize: servingSize, price: price, dateOfManufacture: dateOfManufacture)
     }

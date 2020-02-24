@@ -11,7 +11,7 @@ import Foundation
 class Cantata: Coffee {
     let isCoffeeLatte: Bool
     
-    init(name: String, brand: String, servingSize: Int, price: Int, dateOfManufacture: Date, servingCaffeine: Int, isCoffeeLatte: Bool) {
+    init(name: String, brand: String, servingSize: Int, price: Money, dateOfManufacture: Date, servingCaffeine: Int, isCoffeeLatte: Bool) {
         self.isCoffeeLatte = isCoffeeLatte
         super.init(name: name, brand: brand, servingSize: servingSize, price: price, dateOfManufacture: dateOfManufacture, servingCaffeine: servingCaffeine)
     }

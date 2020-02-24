@@ -8,19 +8,7 @@
 
 import Foundation
 
-class Beverage: Hashable {
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(name)
-    }
-    
-    static func == (lhs: Beverage, rhs: Beverage) -> Bool {
-        guard lhs.name == rhs.name else { return false }
-        guard lhs.brand == rhs.brand else { return false }
-        guard lhs.servingSize == rhs.servingSize else { return false }
-        guard lhs.price == rhs.price else { return false }
-        return true
-    }
-    
+class Beverage {
     let name: String
     let brand: String
     let servingSize: Int
@@ -33,6 +21,20 @@ class Beverage: Hashable {
         self.servingSize = servingSize
         self.price = price
         self.dateOfManufacture = dateOfManufacture
+    }
+}
+
+extension Beverage: Hashable {
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(name)
+    }
+    
+    static func == (lhs: Beverage, rhs: Beverage) -> Bool {
+        guard lhs.name == rhs.name else { return false }
+        guard lhs.brand == rhs.brand else { return false }
+        guard lhs.servingSize == rhs.servingSize else { return false }
+        guard lhs.price == rhs.price else { return false }
+        return true
     }
 }
 

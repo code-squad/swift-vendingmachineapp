@@ -13,14 +13,20 @@ class Beverage {
     let brand: String
     let servingSize: Int
     let price: Money
-    let dateOfManufacture: Date
+    let manufactureDate: Date
+    let expirationDate: Date
     
-    init(name: String, brand: String, servingSize: Int, price: Money, dateOfManufacture: Date) {
+    init(name: String, brand: String, servingSize: Int, price: Money, manufactureDate: Date, expirationDate: Date) {
         self.name = name
         self.brand = brand
         self.servingSize = servingSize
         self.price = price
-        self.dateOfManufacture = dateOfManufacture
+        self.manufactureDate = manufactureDate
+        self.expirationDate = expirationDate
+    }
+    
+    func validate(with date: Date) -> Bool {
+        return Date() < expirationDate
     }
     
     func objectIdentifier() -> ObjectIdentifier {

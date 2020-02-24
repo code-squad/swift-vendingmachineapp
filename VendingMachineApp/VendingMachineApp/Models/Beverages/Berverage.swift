@@ -8,33 +8,19 @@
 
 import Foundation
 
-enum BeverageType: String {
-    case coke = "Coke"
-    case sprite = "Sprite"
-    case cantata = "Cantata"
-    case georgia = "Georgia"
-    case chocolateMilk = "ChocolateMilk"
-    case bananaMilk = "BananaMilk"
-    
-    init(of beverage: Beverage) {
-        switch beverage {
-        case is Coke:
-            self = .coke
-        case is Sprite:
-            self = .sprite
-        case is Cantata:
-            self = .cantata
-        case is Georgia:
-            self = .georgia
-        case is ChocolateMilk:
-            self = .chocolateMilk
-        default:
-            self = .bananaMilk
-        }
+class Beverage: Hashable {
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(name)
     }
-}
-
-class Beverage {
+    
+    static func == (lhs: Beverage, rhs: Beverage) -> Bool {
+        guard lhs.name == rhs.name else { return false }
+        guard lhs.brand == rhs.brand else { return false }
+        guard lhs.servingSize == rhs.servingSize else { return false }
+        guard lhs.price == rhs.price else { return false }
+        return true
+    }
+    
     let name: String
     let brand: String
     let servingSize: Int

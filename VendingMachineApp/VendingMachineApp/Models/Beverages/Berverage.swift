@@ -22,6 +22,10 @@ class Beverage {
         self.price = price
         self.dateOfManufacture = dateOfManufacture
     }
+    
+    func objectIdentifier() -> ObjectIdentifier {
+        return ObjectIdentifier(type(of: self))
+    }
 }
 
 extension Beverage: Hashable {

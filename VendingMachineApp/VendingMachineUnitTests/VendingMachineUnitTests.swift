@@ -36,6 +36,8 @@ class VendingMachineUnitTests: XCTestCase {
         sampleBeverages.forEach {
             vendingMachine.addToStock(beverage: $0)
         }
+        
+        let bananaMilk = BananaMilk(name: "바나나는 원래 하얗다", brand: "매일우유", servingSize: 150, price: Money(1200), dateOfManufacture: Date(), farmCode: "AEKS38", bananaContentGram: 30)
         vendingMachine.putMoney(Money(1300))
         XCTAssert(vendingMachine.balance == Money(1300))
         XCTAssert(vendingMachine.numberOfBeverage(bananaMilk) == 1)

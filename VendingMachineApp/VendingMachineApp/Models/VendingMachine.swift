@@ -33,9 +33,8 @@ struct VendingMachine {
     func availableBeverages() -> Set<Beverage> {
         var availableBeverages: Set<Beverage> = []
         products.forEach { (product) in
-            if balance > product.price {
-                availableBeverages.insert(product)
-            }
+            guard balance > product.price else { return }
+            availableBeverages.insert(product)
         }
         return availableBeverages
     }

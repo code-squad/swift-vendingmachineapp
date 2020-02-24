@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		441A37EF240386EC00F44B1E /* ManufacturingDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441A37EE240386EC00F44B1E /* ManufacturingDate.swift */; };
 		44A408BA24001597007995C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A408B924001597007995C5 /* AppDelegate.swift */; };
 		44A408BC24001597007995C5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A408BB24001597007995C5 /* SceneDelegate.swift */; };
 		44A408BE24001597007995C5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A408BD24001597007995C5 /* ViewController.swift */; };
@@ -31,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		441A37EE240386EC00F44B1E /* ManufacturingDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManufacturingDate.swift; sourceTree = "<group>"; };
 		44A408B624001597007995C5 /* VendingMachineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendingMachineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44A408B924001597007995C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		44A408BB24001597007995C5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				44A408CE24001610007995C5 /* Beverage.swift */,
+				441A37EE240386EC00F44B1E /* ManufacturingDate.swift */,
 				44AD04B124036C660059C5D1 /* Milk */,
 				44AD04AA24036C0B0059C5D1 /* Coffee */,
 				44AD04A924036B880059C5D1 /* Soda */,
@@ -217,6 +220,7 @@
 			files = (
 				44A408BE24001597007995C5 /* ViewController.swift in Sources */,
 				44AD04B324036C800059C5D1 /* StrawberryMilk.swift in Sources */,
+				441A37EF240386EC00F44B1E /* ManufacturingDate.swift in Sources */,
 				44A408BA24001597007995C5 /* AppDelegate.swift in Sources */,
 				44AD04B024036C2E0059C5D1 /* Georgia.swift in Sources */,
 				44A408CF24001610007995C5 /* Beverage.swift in Sources */,

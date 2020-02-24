@@ -38,10 +38,10 @@ class Beverage {
     let name: String
     let brand: String
     let servingSize: Int
-    let price: Int
+    let price: Money
     let dateOfManufacture: Date
     
-    init(name: String, brand: String, servingSize: Int, price: Int, dateOfManufacture: Date) {
+    init(name: String, brand: String, servingSize: Int, price: Money, dateOfManufacture: Date) {
         self.name = name
         self.brand = brand
         self.servingSize = servingSize

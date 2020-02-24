@@ -12,14 +12,14 @@ struct VendingMachine {
     let stock: Stock = Stock()
     let products: [Beverage]
     private var purchased: [Beverage] = []
-    private(set) var balance: Int = 0
+    private(set) var balance: Money = Money()
     
     init(products: [Beverage]) {
         self.products = products
     }
     
-    mutating func putMoney(_ money: Int) {
-        balance += money
+    mutating func putMoney(_ money: Money) {
+        balance.add(money: money)
     }
     
     func addToStock(beverage: Beverage) {
@@ -42,11 +42,10 @@ struct VendingMachine {
     
     @discardableResult mutating func buyBeverage(_ beverage: Beverage) -> Beverage? {
         guard balance >= beverage.price && stock.numberOfBeverage(type: BeverageType(of: beverage)) > 0 else { return nil }
-        balance -= beverage.price
+        balance.subtract(money: beverage.price)
         let boughtOne = stock.dequeue(beverage: beverage)
         purchased.append(boughtOne)
         return boughtOne
-        return stock.dequeue(beverage: beverage)
     }
     
     func informationOf(beverage: Beverage) -> String {

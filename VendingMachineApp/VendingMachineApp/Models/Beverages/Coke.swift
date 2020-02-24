@@ -11,7 +11,7 @@ import Foundation
 class Coke: Soda {
     let packageColor: String
     
-    init(name: String, brand: String, servingSize: Int, price: Int, dateOfManufacture: Date, isSugarFree: Bool, packageColor: String) {
+    init(name: String, brand: String, servingSize: Int, price: Money, dateOfManufacture: Date, isSugarFree: Bool, packageColor: String) {
         self.packageColor = packageColor
         super.init(name: name, brand: brand, servingSize: servingSize, price: price, dateOfManufacture: dateOfManufacture, isSugarFree: isSugarFree)
     }

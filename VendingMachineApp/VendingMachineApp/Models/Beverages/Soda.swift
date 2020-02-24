@@ -11,7 +11,7 @@ import Foundation
 class Soda: Beverage {
     let isSugarFree: Bool
     
-    init(name: String, brand: String, servingSize: Int, price: Int, dateOfManufacture: Date, isSugarFree: Bool) {
+    init(name: String, brand: String, servingSize: Int, price: Money, dateOfManufacture: Date, isSugarFree: Bool) {
         self.isSugarFree = isSugarFree
         super.init(name: name, brand: brand, servingSize: servingSize, price: price, dateOfManufacture: dateOfManufacture)
     }

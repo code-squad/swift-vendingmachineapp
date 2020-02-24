@@ -9,5 +9,7 @@
 import Foundation
 
 class StrawberryMilk: Milk {
-    
+    static func everyDayStrawberryMilk() -> StrawberryMilk {
+        return StrawberryMilk(brand: "서울우유", amount: 200, price: 1000, name: "날마다딸기우유")
+    }
 }

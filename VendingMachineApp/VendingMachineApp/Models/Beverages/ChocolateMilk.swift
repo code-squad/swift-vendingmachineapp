@@ -11,8 +11,8 @@ import Foundation
 class ChocolateMilk: Milk {
     let cacaoContentRate: Int
     
-    init(name: String, brand: String, servingSize: Int, price: Money, dateOfManufacture: Date, farmCode: String, cacaoContentRate: Int) {
+    init(name: String, brand: String, servingSize: Int, price: Money, manufactureDate: Date, expirationDate: Date , farmCode: String, cacaoContentRate: Int) {
         self.cacaoContentRate = cacaoContentRate
-        super.init(name: name, brand: brand, servingSize: servingSize, price: price, dateOfManufacture: dateOfManufacture, farmCode: farmCode)
+        super.init(name: name, brand: brand, servingSize: servingSize, price: price, manufactureDate: manufactureDate, expirationDate: expirationDate, farmCode: farmCode)
     }
 }

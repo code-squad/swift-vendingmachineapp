@@ -11,8 +11,8 @@ import Foundation
 class Sprite: Soda {
     let packageMaterial: String
     
-    init(name: String, brand: String, servingSize: Int, price: Money, dateOfManufacture: Date, isSugarFree: Bool, packageMaterial: String) {
+    init(name: String, brand: String, servingSize: Int, price: Money, manufactureDate: Date, expirationDate: Date, isSugarFree: Bool, packageMaterial: String) {
         self.packageMaterial = packageMaterial
-        super.init(name: name, brand: brand, servingSize: servingSize, price: price, dateOfManufacture: dateOfManufacture, isSugarFree: isSugarFree)
+        super.init(name: name, brand: brand, servingSize: servingSize, price: price, manufactureDate: manufactureDate, expirationDate: expirationDate, isSugarFree: isSugarFree)
     }
 }

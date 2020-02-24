@@ -9,7 +9,7 @@
 import Foundation
 
 class Milk: Beverage {
-    private var fatRatio: Double
+    private let fatRatio: Double
     
     func isLowFat() -> Bool {
         return fatRatio < 3

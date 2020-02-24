@@ -34,7 +34,6 @@ enum BeverageType: String {
     }
 }
 
-
 class Beverage {
     let name: String
     let brand: String

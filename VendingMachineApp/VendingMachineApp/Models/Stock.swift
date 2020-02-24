@@ -15,14 +15,13 @@ class Stock {
         
     }
     
-    func numberOfBevergae(_ beverage: Beverage) -> Int {
-        let beverageType = BeverageType(of: beverage)
-        return (stockOf[beverageType] ?? []).count
+    func numberOfBeverage(type: BeverageType) -> Int {
+        return (stockOf[type] ?? []).count
     }
     
-    func dequeue(beverage: Beverage) -> Beverage? {
+    func dequeue(beverage: Beverage) -> Beverage {
         let beverageType = BeverageType(of: beverage)
-        return stockOf[beverageType]?.first
+        return stockOf[beverageType]!.removeFirst()
     }
     
     func enqueue(beverage: Beverage) {

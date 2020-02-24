@@ -9,25 +9,17 @@
 import Foundation
 
 class Stock {
-    private(set) var stockOf: [BeverageType: [Beverage]] = [:]
+    private(set) var stockOf: [Beverage: Int] = [:]
     
-    init() {
-        
+    func numberOf(_ beverage: Beverage) -> Int {
+        return stockOf[beverage] ?? 0
     }
     
-    func numberOfBeverage(type: BeverageType) -> Int {
-        return (stockOf[type] ?? []).count
-    }
-    
-    func dequeue(beverage: Beverage) -> Beverage {
-        let beverageType = BeverageType(of: beverage)
-        return stockOf[beverageType]!.removeFirst()
+    func dequeue(beverage: Beverage) {
+        stockOf[beverage] = stockOf[beverage]! - 1
     }
     
     func enqueue(beverage: Beverage) {
-        let beverageType = BeverageType(of: beverage)
-        var beverages = stockOf[beverageType] ?? []
-        beverages.append(beverage)
-        stockOf[beverageType] = beverages
+        stockOf[beverage] = stockOf[beverage]! + 1
     }
 }

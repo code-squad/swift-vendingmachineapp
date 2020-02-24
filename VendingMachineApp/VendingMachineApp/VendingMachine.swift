@@ -9,7 +9,7 @@
 import Foundation
 
 class VendingMachine{
-    var beverages: Beverages
+    private var beverages: Beverages
     
     init(){
         beverages = Beverages()
@@ -19,15 +19,9 @@ class VendingMachine{
         beverages.addBeverage(beverage: beverage)
     }
     
-    func convertDate(date: Date) -> String{
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyyMMdd"
-        return dateFormatter.string(from: date)
-    }
-    
-    func printBeverages(){
+    func forEachBeverages(_ transfrom: (Beverage) -> ()){
         beverages.forEachBeverages{
-            print("\($0), \(convertDate(date: $0.date()))")
+            transfrom($0)
         }
     }
 }

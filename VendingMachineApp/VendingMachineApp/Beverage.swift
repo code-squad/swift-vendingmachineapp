@@ -22,14 +22,10 @@ class Beverage {
         self.name = name
         self.manufacturingDate = manufacturingDate
     }
-    
-    func date() -> Date {
-        return manufacturingDate
-    }
 }
 
 extension Beverage: CustomStringConvertible {
     var description: String {
-        return "\(brand), \(capacity)ml, \(price)원, \(name)"
+        return "\(brand), \(capacity)ml, \(price)원, \(name), \(CustomDateFormatter.convertDate(date: manufacturingDate))"
     }
 }

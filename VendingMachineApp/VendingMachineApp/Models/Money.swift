@@ -9,7 +9,11 @@
 import Foundation
 
 class Money {
-    private(set) var balance: Int = 0
+    private(set) var balance: Int
+    
+    init(_ balance: Int = 0) {
+        self.balance = balance
+    }
     
     func add(money: Money) {
         self.balance += money.balance

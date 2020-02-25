@@ -15,8 +15,8 @@ class Milk: Beverage {
         return fatRatio < 3
     }
     
-    init(brand: String, amount: Int, price: Int, name: String, fatRatio: Double) {
+    init(brand: String, amount: Int, price: Int, name: String, calorie: Double, fatRatio: Double) {
         self.fatRatio = fatRatio
-        super.init(brand: brand, amount: amount, price: price, name: name)
+        super.init(brand: brand, amount: amount, price: price, name: name, calorie: calorie)
     }
 }

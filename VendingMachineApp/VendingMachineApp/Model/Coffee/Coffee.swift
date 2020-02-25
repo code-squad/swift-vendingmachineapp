@@ -15,8 +15,8 @@ class Coffee: Beverage {
         return caffeineContent < 10
     }
     
-    init(brand: String, amount: Int, price: Int, name: String, caffeineContent: Double) {
+    init(brand: String, amount: Int, price: Int, name: String, calorie: Double, caffeineContent: Double) {
         self.caffeineContent = caffeineContent
-        super.init(brand: brand, amount: amount, price: price, name: name)
+        super.init(brand: brand, amount: amount, price: price, name: name, calorie: calorie)
     }
 }

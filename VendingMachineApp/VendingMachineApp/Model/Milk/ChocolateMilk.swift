@@ -9,5 +9,10 @@
 import Foundation
 
 class ChocolateMilk: Milk {
+    private let chocolateContent: Double
     
+    init(brand: String, amount: Int, price: Int, name: String, calorie: Double, saleablePeriod: Int, fatRatio: Double, chocolateContent: Double) {
+        self.chocolateContent = chocolateContent
+        super.init(brand: brand, amount: amount, price: price, name: name, calorie: calorie, saleablePeriod: saleablePeriod, fatRatio: fatRatio)
+    }
 }

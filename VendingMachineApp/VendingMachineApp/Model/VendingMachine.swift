@@ -9,7 +9,7 @@
 import Foundation
 
 struct VendingMachine {
-    private var stock = Stock()
+    var stock = Stock()
     var money = 0
     
     func addBeverage(beverage: Beverage) {

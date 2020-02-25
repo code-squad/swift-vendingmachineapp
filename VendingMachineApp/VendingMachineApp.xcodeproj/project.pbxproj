@@ -12,6 +12,7 @@
 		388A25F22404F7AD00727EEB /* Date+extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388A25F12404F7AC00727EEB /* Date+extentions.swift */; };
 		388A25F32404F7AD00727EEB /* Date+extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388A25F12404F7AC00727EEB /* Date+extentions.swift */; };
 		388A25F52404F91400727EEB /* BeverageUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388A25F42404F91400727EEB /* BeverageUnitTests.swift */; };
+		38A7C2652405028900F1E8F5 /* ProductStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A7C2642405028900F1E8F5 /* ProductStackView.swift */; };
 		38CB9B5C24001408009FF065 /* BananaMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CB9B5B24001408009FF065 /* BananaMilk.swift */; };
 		38CB9B5E24001413009FF065 /* ChocolateMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CB9B5D24001413009FF065 /* ChocolateMilk.swift */; };
 		38CB9B60240018FD009FF065 /* Coke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CB9B5F240018FD009FF065 /* Coke.swift */; };
@@ -62,6 +63,7 @@
 		388A25EC24043F3200727EEB /* Beverages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beverages.swift; sourceTree = "<group>"; };
 		388A25F12404F7AC00727EEB /* Date+extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+extentions.swift"; sourceTree = "<group>"; };
 		388A25F42404F91400727EEB /* BeverageUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageUnitTests.swift; sourceTree = "<group>"; };
+		38A7C2642405028900F1E8F5 /* ProductStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductStackView.swift; sourceTree = "<group>"; };
 		38CB9B5B24001408009FF065 /* BananaMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BananaMilk.swift; sourceTree = "<group>"; };
 		38CB9B5D24001413009FF065 /* ChocolateMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChocolateMilk.swift; sourceTree = "<group>"; };
 		38CB9B5F240018FD009FF065 /* Coke.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coke.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 		388A25F62404FC2900727EEB /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				38A7C2642405028900F1E8F5 /* ProductStackView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -346,6 +349,7 @@
 				388A25F22404F7AD00727EEB /* Date+extentions.swift in Sources */,
 				38CB9B622400190C009FF065 /* Sprite.swift in Sources */,
 				38CB9BA62403E7BA009FF065 /* Money.swift in Sources */,
+				38A7C2652405028900F1E8F5 /* ProductStackView.swift in Sources */,
 				38E570E523FEB6F000310E11 /* VendingMachine.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

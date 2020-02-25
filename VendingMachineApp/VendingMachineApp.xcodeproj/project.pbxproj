@@ -17,6 +17,7 @@
 		A56F74202405445F0006A7CE /* Coke.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56F741F2405445F0006A7CE /* Coke.swift */; };
 		A56F7422240548F20006A7CE /* Cider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56F7421240548F20006A7CE /* Cider.swift */; };
 		A56F742424054BC70006A7CE /* TOP.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56F742324054BC70006A7CE /* TOP.swift */; };
+		A56F742624055E080006A7CE /* Georgia.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56F742524055E080006A7CE /* Georgia.swift */; };
 		A5E7DA4424036880002CDF82 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E7DA4324036880002CDF82 /* AppDelegate.swift */; };
 		A5E7DA4624036880002CDF82 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E7DA4524036880002CDF82 /* SceneDelegate.swift */; };
 		A5E7DA4824036880002CDF82 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E7DA4724036880002CDF82 /* ViewController.swift */; };
@@ -49,6 +50,7 @@
 		A56F741F2405445F0006A7CE /* Coke.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coke.swift; sourceTree = "<group>"; };
 		A56F7421240548F20006A7CE /* Cider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cider.swift; sourceTree = "<group>"; };
 		A56F742324054BC70006A7CE /* TOP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOP.swift; sourceTree = "<group>"; };
+		A56F742524055E080006A7CE /* Georgia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Georgia.swift; sourceTree = "<group>"; };
 		A5E7DA4024036880002CDF82 /* VendingMachineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendingMachineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5E7DA4324036880002CDF82 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A5E7DA4524036880002CDF82 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				A56F741F2405445F0006A7CE /* Coke.swift */,
 				A56F7421240548F20006A7CE /* Cider.swift */,
 				A56F742324054BC70006A7CE /* TOP.swift */,
+				A56F742524055E080006A7CE /* Georgia.swift */,
 			);
 			path = Beverage;
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 				A5E7DA6A240386C1002CDF82 /* Beverage.swift in Sources */,
 				A56F74162403E31C0006A7CE /* Milk.swift in Sources */,
 				A5E7DA4824036880002CDF82 /* ViewController.swift in Sources */,
+				A56F742624055E080006A7CE /* Georgia.swift in Sources */,
 				A56F74122403C0CB0006A7CE /* CustomDateFormatter.swift in Sources */,
 				A5E7DA4424036880002CDF82 /* AppDelegate.swift in Sources */,
 				A5E7DA4624036880002CDF82 /* SceneDelegate.swift in Sources */,

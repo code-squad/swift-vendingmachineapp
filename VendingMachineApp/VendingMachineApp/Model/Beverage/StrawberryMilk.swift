@@ -7,3 +7,16 @@
 //
 
 import Foundation
+
+class StrawberryMilk: Milk {
+    private var juiceContent: Double
+    
+    init(brand: String, capacity: Int, price: Int, name: String, manufacturingDate: Date, expirationDate: Date, calorie: Double, farmCode: String, juiceContent: Double) {
+        self.juiceContent = juiceContent
+        super.init(brand: brand, capacity: capacity, price: price, name: name, manufacturingDate: manufacturingDate, expirationDate: expirationDate, calorie: calorie, farmCode: farmCode)
+    }
+    
+    func isHigher(than juiceContent: Double) -> Bool {
+        return self.juiceContent > juiceContent
+    }
+}

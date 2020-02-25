@@ -9,8 +9,9 @@
 import Foundation
 
 struct VendingMachine {
-    var stock = Stock()
-    var money = 0
+    private var stock = Stock()
+    private var money = 0
+    private(set) var purchaseHistory = [Beverage]()
     var purchasableList: [Beverage] {
         stock.getPurchasableList(money: money)
     }
@@ -23,7 +24,6 @@ struct VendingMachine {
     var hotBeverages: [Beverage] {
         stock.getHotBeverages()
     }
-    var purchaseHistory = [Beverage]()
     
     func addBeverage(beverage: Beverage) {
         stock.add(beverage: beverage)
@@ -31,10 +31,6 @@ struct VendingMachine {
     
     func checkBalance() -> Int {
         return money
-    }
-    
-    func printStock() {
-        stock.printAll()
     }
     
     mutating func putMoney(_ money: Int) {

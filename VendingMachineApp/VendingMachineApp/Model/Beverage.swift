@@ -11,7 +11,7 @@ import Foundation
 class Beverage {
     private let brand: String
     private let amount: Int
-    private let price: Int
+    private(set) var price: Int
     let name: String
     private(set) var calorie: Double
     private(set) var isHot: Bool
@@ -35,10 +35,6 @@ class Beverage {
     
     func validate(with date: Date) -> Bool {
         return date < expirationDate
-    }
-    
-    func isPurchasable(money: Int) -> Bool {
-        return money >= price
     }
 }
 

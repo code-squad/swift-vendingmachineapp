@@ -45,11 +45,4 @@ struct VendingMachine {
         stock.dequeue(beverage: beverage)
         purchased.append(beverage)
     }
-    
-    func informationOf(beverage: Beverage) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.locale = Locale(identifier: "ko_KR")
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        return "\(beverage.description), \(dateFormatter.string(from: beverage.manufactureDate))"
-    }
 }

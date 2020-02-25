@@ -50,6 +50,6 @@ extension Beverage: Hashable {
 
 extension Beverage: CustomStringConvertible {
     var description: String {
-        return "\(brand), \(name), \(servingSize)ml, \(price)원"
+        return "\(brand), \(name), \(servingSize)ml, \(price)원, 제조일자: \(manufactureDate.dateFormatString())"
     }
 }

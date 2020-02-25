@@ -11,6 +11,9 @@ import Foundation
 struct VendingMachine {
     var stock = Stock()
     var money = 0
+    var purchasableList: [Beverage] {
+        return stock.getPurchasableList(money: money)
+    }
     
     func addBeverage(beverage: Beverage) {
         stock.add(beverage: beverage)

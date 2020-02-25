@@ -20,4 +20,8 @@ class Stock {
             print($0)
         }
     }
+    
+    func getPurchasableList(money: Int) -> [Beverage] {
+        return beverages.filter { $0.isPurchasable(money: money) }
+    }
 }

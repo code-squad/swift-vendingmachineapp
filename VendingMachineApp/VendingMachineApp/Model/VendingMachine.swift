@@ -12,10 +12,13 @@ struct VendingMachine {
     var stock = Stock()
     var money = 0
     var purchasableList: [Beverage] {
-        return stock.getPurchasableList(money: money)
+        stock.getPurchasableList(money: money)
     }
     var stockList: [Beverage: Int] {
-        return stock.sortOut()
+        stock.sortOut()
+    }
+    var dateExpiredBeverages: [Beverage] {
+        stock.getDateExpiredBeverages()
     }
     
     func addBeverage(beverage: Beverage) {

@@ -39,4 +39,8 @@ class Stock {
         }
         return list
     }
+    
+    func getDateExpiredBeverages() -> [Beverage] {
+        return beverages.filter { !$0.validate(with: Date()) }
+    }
 }

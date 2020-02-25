@@ -15,18 +15,26 @@ class Beverage {
     private let name: String
     private let calorie: Double
     private let manufacturingDate: Date
+    private let expirationDate: Date
     
-    init(brand: String, amount: Int, price: Int, name: String, calorie: Double) {
+    init(brand: String, amount: Int, price: Int, name: String, calorie: Double, saleablePeriod: Int) {
         self.brand = brand
         self.amount = amount
         self.price = price
         self.name = name
         self.calorie = calorie
         self.manufacturingDate = Date()
+        self.expirationDate = Calendar.current.date(byAdding: .day, value: saleablePeriod, to: manufacturingDate)!
     }
+    
     func isLowCalorie() -> Bool {
         return calorie < 30
     }
+    
+    func validate(with date: Date) -> Bool {
+        return date < expirationDate
+    }
+    
 }
 
 extension Beverage: CustomStringConvertible {

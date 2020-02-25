@@ -9,7 +9,7 @@
 import Foundation
 
 class Stock {
-    var beverages = [Beverage]()
+    private var beverages = [Beverage]()
     
     func add(beverage: Beverage) {
         beverages.append(beverage)
@@ -18,13 +18,7 @@ class Stock {
     func serve(beverageName: String) -> Beverage {
         return beverages.remove(at: beverages.firstIndex(where: { $0.name == beverageName })!)
     }
-    
-    func printAll() {
-        beverages.forEach {
-            print($0)
-        }
-    }
-    
+        
     func getPurchasableList(money: Int) -> [Beverage] {
         return beverages.filter { money >= $0.price }
     }

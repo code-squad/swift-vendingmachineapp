@@ -13,14 +13,19 @@ class Beverage {
     private let amount: Int
     private let price: Int
     private let name: String
+    private let calorie: Double
     private let manufacturingDate: Date
     
-    init(brand: String, amount: Int, price: Int, name: String) {
+    init(brand: String, amount: Int, price: Int, name: String, calorie: Double) {
         self.brand = brand
         self.amount = amount
         self.price = price
         self.name = name
+        self.calorie = calorie
         self.manufacturingDate = Date()
+    }
+    func isLowCalorie() -> Bool {
+        return calorie < 30
     }
 }
 

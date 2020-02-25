@@ -8,8 +8,9 @@
 
 import Foundation
 
-class VendingMachine {
+struct VendingMachine {
     private var stock = Stock()
+    var money = 0
     
     func addBeverage(beverage: Beverage) {
         stock.add(beverage: beverage)
@@ -17,5 +18,9 @@ class VendingMachine {
     
     func printStock() {
         stock.printAll()
+    }
+    
+    mutating func putMoney(_ money: Int) {
+        self.money += money
     }
 }

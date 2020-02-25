@@ -26,4 +26,13 @@ struct VendingMachine {
     mutating func putMoney(_ money: Int) {
         self.money += money
     }
+    
+    mutating func buy(beverageName: String) -> Beverage? {
+        guard purchasableList.contains(where: { $0.name == beverageName }) else {
+            return nil
+        }
+        let beverage = stock.serve(beverageName: beverageName)
+        money -= beverage.price
+        return beverage
+    }
 }

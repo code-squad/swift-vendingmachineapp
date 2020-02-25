@@ -15,6 +15,10 @@ class Stock {
         beverages.append(beverage)
     }
     
+    func serve(beverageName: String) -> Beverage {
+        return beverages.remove(at: beverages.firstIndex(where: { $0.name == beverageName })!)
+    }
+    
     func printAll() {
         beverages.forEach {
             print($0)
@@ -22,6 +26,6 @@ class Stock {
     }
     
     func getPurchasableList(money: Int) -> [Beverage] {
-        return beverages.filter { $0.isPurchasable(money: money) }
+        return beverages.filter { money >= $0.price }
     }
 }

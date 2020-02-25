@@ -12,7 +12,7 @@ class Beverage {
     private let brand: String
     private let amount: Int
     private let price: Int
-    private let name: String
+    let name: String
     private(set) var calorie: Double
     private(set) var isHot: Bool
     private let manufacturingDate: Date

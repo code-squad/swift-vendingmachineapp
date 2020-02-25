@@ -36,6 +36,10 @@ class Beverage {
     func validate(with date: Date) -> Bool {
         return date < expirationDate
     }
+    
+    func isPurchasable(money: Int) -> Bool {
+        return money >= price
+    }
 }
 
 extension Beverage: CustomStringConvertible {

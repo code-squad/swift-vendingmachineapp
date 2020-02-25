@@ -17,7 +17,7 @@ class Beverage {
     private var expirationDate: Date
     private var calorie: Double
     
-    init(brand: String, capacity: Int, price: Int, name: String, manufacturingDate: Date, expirationDate: Date, calorie: Double){
+    init(brand: String, capacity: Int, price: Int, name: String, manufacturingDate: Date, expirationDate: Date, calorie: Double) {
         self.brand = brand
         self.capacity = capacity
         self.price = price

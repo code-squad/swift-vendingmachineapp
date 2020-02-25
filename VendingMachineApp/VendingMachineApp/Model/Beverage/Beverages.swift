@@ -8,19 +8,19 @@
 
 import Foundation
 
-class Beverages{
+class Beverages {
     private var beverages: [Beverage]
     
     init(){
         beverages = [Beverage]()
     }
     
-    func addBeverage(beverage: Beverage){
+    func addBeverage(beverage: Beverage) {
         beverages.append(beverage)
     }
     
-    func forEachBeverages(_ transform: (Beverage) -> ()){
-        beverages.forEach{
+    func forEachBeverages(_ transform: (Beverage) -> ()) {
+        beverages.forEach {
             transform($0)
         }
     }

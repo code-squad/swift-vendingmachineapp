@@ -10,9 +10,11 @@ import Foundation
 
 class VendingMachine{
     private var beverages: Beverages
+    private var balance: Int
     
     init() {
-        beverages = Beverages()
+        self.beverages = Beverages()
+        self.balance = 0
     }
     
     func insertBeverage(beverage: Beverage) {
@@ -23,5 +25,9 @@ class VendingMachine{
         beverages.forEachBeverages{
             transfrom($0)
         }
+    }
+    
+    func addBalance(balance: Int) {
+        self.balance += balance
     }
 }

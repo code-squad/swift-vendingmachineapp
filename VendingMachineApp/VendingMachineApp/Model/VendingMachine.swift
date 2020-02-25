@@ -14,6 +14,9 @@ struct VendingMachine {
     var purchasableList: [Beverage] {
         return stock.getPurchasableList(money: money)
     }
+    var stockList: [Beverage: Int] {
+        return stock.sortOut()
+    }
     
     func addBeverage(beverage: Beverage) {
         stock.add(beverage: beverage)

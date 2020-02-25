@@ -28,4 +28,15 @@ class Stock {
     func getPurchasableList(money: Int) -> [Beverage] {
         return beverages.filter { money >= $0.price }
     }
+    
+    func sortOut() -> [Beverage:Int] {
+        let list = beverages.reduce(into: [Beverage:Int]()) {
+            if $0[$1] == nil {
+                $0[$1] = 1
+            } else {
+                $0[$1]! += 1
+            }
+        }
+        return list
+    }
 }

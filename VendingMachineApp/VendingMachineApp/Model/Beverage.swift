@@ -38,9 +38,17 @@ class Beverage {
     }
 }
 
-extension Beverage: CustomStringConvertible {
+extension Beverage: CustomStringConvertible, Hashable {
     var description: String {
         "\(brand), \(amount)ml, \(price)원, \(name), \(manufacturingDate.formattedDate)"
+    }
+    static func == (lhs: Beverage, rhs: Beverage) -> Bool {
+        lhs.brand == rhs.brand && lhs.name == rhs.name 
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(self.brand)
+        hasher.combine(self.name)
     }
 }
 

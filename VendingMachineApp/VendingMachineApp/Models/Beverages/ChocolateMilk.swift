@@ -9,9 +9,9 @@
 import Foundation
 
 class ChocolateMilk: Milk {
-    let cacaoContentRate: Int
+    let cacaoContentRate: Double
     
-    init(name: String, brand: String, servingSize: Int, price: Money, manufactureDate: Date, expirationDate: Date , farmCode: String, cacaoContentRate: Int) {
+    init(name: String, brand: String, servingSize: Int, price: Money, manufactureDate: Date, expirationDate: Date , farmCode: String, cacaoContentRate: Double) {
         self.cacaoContentRate = cacaoContentRate
         super.init(name: name, brand: brand, servingSize: servingSize, price: price, manufactureDate: manufactureDate, expirationDate: expirationDate, farmCode: farmCode)
     }

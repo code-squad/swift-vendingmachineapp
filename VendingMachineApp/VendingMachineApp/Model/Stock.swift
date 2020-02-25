@@ -43,4 +43,8 @@ class Stock {
     func getDateExpiredBeverages() -> [Beverage] {
         return beverages.filter { !$0.validate(with: Date()) }
     }
+    
+    func getHotBeverages() -> [Beverage] {
+        return beverages.filter { $0.isHot }
+    }
 }

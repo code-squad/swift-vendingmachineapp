@@ -20,6 +20,9 @@ struct VendingMachine {
     var dateExpiredBeverages: [Beverage] {
         stock.getDateExpiredBeverages()
     }
+    var hotBeverages: [Beverage] {
+        stock.getHotBeverages()
+    }
     
     func addBeverage(beverage: Beverage) {
         stock.add(beverage: beverage)

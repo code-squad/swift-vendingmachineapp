@@ -42,4 +42,15 @@ class VendingMachineTests: XCTestCase {
         XCTAssertTrue(myVendingMachine.purchasableList.contains { $0.name == "바나나맛우유" })
         XCTAssertTrue(myVendingMachine.purchasableList.contains { $0.name == "콘트라베이스 콜드브루" })
     }
+    
+    func testBuy() {
+        myVendingMachine.stock.beverages.append(BananaMilk(brand: "빙그레", amount: 240, price: 1000, name: "바나나맛우유", calorie: 208, saleablePeriod: 14, fatRatio: 15, bananaContent: 3))
+        myVendingMachine.stock.beverages.append( Cantata(brand: "롯데", amount: 500, price: 3000, name: "콘트라베이스 콜드브루", calorie: 20, saleablePeriod: 270, caffeineContent: 179, isHot: true))
+        myVendingMachine.money = 2000
+        XCTAssertNil(myVendingMachine.buy(beverageName: "콘트라베이스 콜드브루"))
+        XCTAssertNil(myVendingMachine.buy(beverageName: "딸기맛우유"))
+        XCTAssertEqual(myVendingMachine.buy(beverageName: "바나나맛우유")?.name, "바나나맛우유")
+        XCTAssertEqual(myVendingMachine.money, 1000)
+        XCTAssertFalse(myVendingMachine.stock.beverages.contains { $0.name == "바나나맛우유" })
+    }
 }

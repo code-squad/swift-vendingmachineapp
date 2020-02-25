@@ -53,4 +53,9 @@ class VendingMachineTests: XCTestCase {
         XCTAssertEqual(myVendingMachine.money, 1000)
         XCTAssertFalse(myVendingMachine.stock.beverages.contains { $0.name == "바나나맛우유" })
     }
+    
+    func testCheckBalance() {
+        myVendingMachine.money = 3000
+        XCTAssertEqual(myVendingMachine.checkBalance(), 3000)
+    }
 }

@@ -11,7 +11,7 @@ import Foundation
 class Beverages {
     private var beverages: [Beverage]
     
-    init(){
+    init() {
         beverages = [Beverage]()
     }
     

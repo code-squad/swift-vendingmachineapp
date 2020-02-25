@@ -26,6 +26,14 @@ class Beverage {
         self.expirationDate = expirationDate
         self.calorie = calorie
     }
+    
+    func canBuy(have balance: Int) -> Bool {
+        return balance >= price
+    }
+    
+    func isSafe() -> Bool {
+        return CustomDateFormatter.convertDate(date: expirationDate) > CustomDateFormatter.convertDate(date : Date())
+    }
 }
 
 extension Beverage: CustomStringConvertible {

@@ -114,6 +114,21 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		388A25F62404FC2900727EEB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		388A25F72404FC3100727EEB /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				38E570CB23FE452800310E11 /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		38CB9B4C23FFEEE0009FF065 /* Beverages */ = {
 			isa = PBXGroup;
 			children = (
@@ -163,11 +178,12 @@
 		38E570C623FE452800310E11 /* VendingMachineApp */ = {
 			isa = PBXGroup;
 			children = (
+				388A25F72404FC3100727EEB /* Controllers */,
+				388A25F62404FC2900727EEB /* Views */,
 				388A25F02404F79900727EEB /* Extensions */,
 				38E570DB23FE47BB00310E11 /* Models */,
 				38E570C723FE452800310E11 /* AppDelegate.swift */,
 				38E570C923FE452800310E11 /* SceneDelegate.swift */,
-				38E570CB23FE452800310E11 /* ViewController.swift */,
 				38E570CD23FE452800310E11 /* Main.storyboard */,
 				38E570D023FE452B00310E11 /* Assets.xcassets */,
 				38E570D223FE452B00310E11 /* LaunchScreen.storyboard */,

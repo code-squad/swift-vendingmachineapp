@@ -11,6 +11,7 @@
 		388A25EE24043F3200727EEB /* Beverages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388A25EC24043F3200727EEB /* Beverages.swift */; };
 		388A25F22404F7AD00727EEB /* Date+extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388A25F12404F7AC00727EEB /* Date+extentions.swift */; };
 		388A25F32404F7AD00727EEB /* Date+extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388A25F12404F7AC00727EEB /* Date+extentions.swift */; };
+		388A25F52404F91400727EEB /* BeverageUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388A25F42404F91400727EEB /* BeverageUnitTests.swift */; };
 		38CB9B5C24001408009FF065 /* BananaMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CB9B5B24001408009FF065 /* BananaMilk.swift */; };
 		38CB9B5E24001413009FF065 /* ChocolateMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CB9B5D24001413009FF065 /* ChocolateMilk.swift */; };
 		38CB9B60240018FD009FF065 /* Coke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CB9B5F240018FD009FF065 /* Coke.swift */; };
@@ -60,6 +61,7 @@
 /* Begin PBXFileReference section */
 		388A25EC24043F3200727EEB /* Beverages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beverages.swift; sourceTree = "<group>"; };
 		388A25F12404F7AC00727EEB /* Date+extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+extentions.swift"; sourceTree = "<group>"; };
+		388A25F42404F91400727EEB /* BeverageUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageUnitTests.swift; sourceTree = "<group>"; };
 		38CB9B5B24001408009FF065 /* BananaMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BananaMilk.swift; sourceTree = "<group>"; };
 		38CB9B5D24001413009FF065 /* ChocolateMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChocolateMilk.swift; sourceTree = "<group>"; };
 		38CB9B5F240018FD009FF065 /* Coke.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coke.swift; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 		38CB9B8E2403ACC4009FF065 /* VendingMachineUnitTests */ = {
 			isa = PBXGroup;
 			children = (
+				388A25F42404F91400727EEB /* BeverageUnitTests.swift */,
 				38CB9B8F2403ACC4009FF065 /* VendingMachineUnitTests.swift */,
 				38CB9B912403ACC4009FF065 /* Info.plist */,
 			);
@@ -301,6 +304,7 @@
 				38CB9B9D2403ACE3009FF065 /* Sprite.swift in Sources */,
 				38CB9B972403ACE3009FF065 /* Berverage.swift in Sources */,
 				388A25EE24043F3200727EEB /* Beverages.swift in Sources */,
+				388A25F52404F91400727EEB /* BeverageUnitTests.swift in Sources */,
 				38CB9BA12403ACE3009FF065 /* VendingMachine.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

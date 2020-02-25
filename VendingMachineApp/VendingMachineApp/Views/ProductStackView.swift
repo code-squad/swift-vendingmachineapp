@@ -24,7 +24,7 @@ class ProductStackView: UIStackView {
         imageView.heightAnchor.constraint(equalToConstant: 120).isActive = true
         imageView.widthAnchor.constraint(equalTo: imageView.heightAnchor).isActive = true
         imageView.contentMode = .scaleAspectFit
-        imageView.backgroundColor = .yellow
+        imageView.backgroundColor = .white
         imageView.layer.cornerRadius = 16
         return imageView
     }()
@@ -55,5 +55,3 @@ class ProductStackView: UIStackView {
         [addToStockButton, productImageView, stockCountLabel].forEach{ addArrangedSubview($0) }
     }
 }
-
-

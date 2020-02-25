@@ -72,4 +72,13 @@ class VendingMachineTests: XCTestCase {
         XCTAssertEqual(myVendingMachine.stockList[milk], 3)
         XCTAssertEqual(myVendingMachine.stockList[coffee], 1)
     }
+    
+    func testDateExpiredBeverages() {
+        let expiredCola = Cola(brand: "코카콜라", amount: 500, price: 2000, name: "콜라", calorie: 30, saleablePeriod: -1, sugarContent: 0)
+        myVendingMachine.stock.beverages.append(milk)
+        myVendingMachine.stock.beverages.append(coffee)
+        myVendingMachine.stock.beverages.append(expiredCola)
+        XCTAssertEqual(myVendingMachine.dateExpiredBeverages.count, 1)
+        XCTAssertTrue(myVendingMachine.dateExpiredBeverages.contains(expiredCola))
+    }
 }

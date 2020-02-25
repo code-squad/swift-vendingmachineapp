@@ -34,10 +34,20 @@ class Beverage {
     func isSafe() -> Bool {
         return CustomDateFormatter.convertDate(date: expirationDate) > CustomDateFormatter.convertDate(date : Date())
     }
+    
+    func getPrice() -> Int {
+        return price
+    }
 }
 
 extension Beverage: CustomStringConvertible {
     var description: String {
         return "\(brand), \(capacity)ml, \(price)원, \(name), \(CustomDateFormatter.convertDate(date: manufacturingDate))"
+    }
+}
+
+extension Beverage: Equatable {
+    static func == (lhs: Beverage, rhs: Beverage) -> Bool {
+        return (lhs.brand == rhs.brand) && (lhs.name == rhs.name) && (lhs.capacity == rhs.capacity)
     }
 }

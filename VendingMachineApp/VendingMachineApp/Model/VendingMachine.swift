@@ -41,4 +41,9 @@ class VendingMachine{
         
         return beverageList
     }
+    
+    func purchase(beverage: Beverage) {
+        balance -= beverage.getPrice()
+        beverages.removeBeverage(beverage: beverage)
+    }
 }

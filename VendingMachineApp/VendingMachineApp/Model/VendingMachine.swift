@@ -23,6 +23,7 @@ struct VendingMachine {
     var hotBeverages: [Beverage] {
         stock.getHotBeverages()
     }
+    var purchaseHistory = [Beverage]()
     
     func addBeverage(beverage: Beverage) {
         stock.add(beverage: beverage)
@@ -46,6 +47,7 @@ struct VendingMachine {
         }
         let beverage = stock.serve(beverageName: beverageName)
         money -= beverage.price
+        purchaseHistory.append(beverage)
         return beverage
     }
 }

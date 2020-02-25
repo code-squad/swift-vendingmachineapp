@@ -9,5 +9,7 @@
 import Foundation
 
 class Cola: Soda {
-
+    func isZeroCola() -> Bool {
+        return calorie == 0
+    }
 }

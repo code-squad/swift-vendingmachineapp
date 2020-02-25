@@ -19,6 +19,10 @@ struct VendingMachine {
         stock.add(beverage: beverage)
     }
     
+    func checkBalance() -> Int {
+        return money
+    }
+    
     func printStock() {
         stock.printAll()
     }

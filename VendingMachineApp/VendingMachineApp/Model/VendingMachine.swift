@@ -30,4 +30,15 @@ class VendingMachine{
     func addBalance(balance: Int) {
         self.balance += balance
     }
+    
+    func purchasableBeverages() -> [String] {
+        var beverageList = [String]()
+        beverages.forEachBeverages{
+            if $0.canBuy(have: balance) {
+                beverageList.append("\($0)")
+            }
+        }
+        
+        return beverageList
+    }
 }

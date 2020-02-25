@@ -28,4 +28,14 @@ class BeverageTests: XCTestCase {
         XCTAssertTrue(coffee.validate(with: Date()))
         XCTAssertFalse(coffee.validate(with: Calendar.current.date(byAdding: .day, value: 300, to: Date())!))
     }
+    
+    func testSoda() {
+        let soda = Cola(brand: "코카콜라", amount: 355, price: 1500, name: "코카콜라 제로", calorie: 0, saleablePeriod: 100, sugarContent: 0)
+        XCTAssertTrue(soda.isZeroCola())
+        XCTAssertTrue(soda.isLowCalorie())
+        XCTAssertFalse(soda.isHot)
+        XCTAssertTrue(soda.isUnsweetened())
+        XCTAssertTrue(soda.validate(with: Calendar.current.date(byAdding: .day, value: 99, to: Date())!))
+        XCTAssertFalse(soda.validate(with: Calendar.current.date(byAdding: .day, value: 101, to: Date())!))
+    }
 }

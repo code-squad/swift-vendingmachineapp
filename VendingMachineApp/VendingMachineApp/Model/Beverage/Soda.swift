@@ -9,7 +9,7 @@
 import Foundation
 
 class Soda: Beverage {
-    var zeroCalorie: Bool
+    private var zeroCalorie: Bool
     
     init(brand: String, capacity: Int, price: Int, name: String, manufacturingDate: Date, expirationDate: Date, calorie: Double, zeroCalorie: Bool) {
         self.zeroCalorie = zeroCalorie

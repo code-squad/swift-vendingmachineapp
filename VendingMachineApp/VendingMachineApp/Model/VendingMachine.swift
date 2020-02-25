@@ -11,15 +11,15 @@ import Foundation
 class VendingMachine{
     private var beverages: Beverages
     
-    init(){
+    init() {
         beverages = Beverages()
     }
     
-    func insertBeverage(beverage: Beverage){
+    func insertBeverage(beverage: Beverage) {
         beverages.addBeverage(beverage: beverage)
     }
     
-    func forEachBeverages(_ transfrom: (Beverage) -> ()){
+    func forEachBeverages(_ transfrom: (Beverage) -> ()) {
         beverages.forEachBeverages{
             transfrom($0)
         }

@@ -65,4 +65,15 @@ class VendingMachine{
         
         return expired
     }
+    
+    func hotBeverages() -> [String] {
+        var hot = [String]()
+        beverages.forEachBeverages {
+            if $0.isHot() {
+                hot.append("\($0)")
+            }
+        }
+        
+        return hot
+    }
 }

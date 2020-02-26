@@ -10,9 +10,9 @@ import XCTest
 @testable import VendingMachineApp
 
 class BeverageTests: XCTestCase {
-    let someBeverage = Beverage(brand: "bevereage", capacity: 355, price: 1000, name: "bevereage", manufacturingDate: Date(), expirationDate: Date(timeIntervalSinceNow: -800000), calorie: 100, hot: false)
+    let someBeverage = Beverage(brand: "bevereage", capacity: 355, price: 1000, name: "bevereage", manufacturingDate: Date(), expirationDate: Date(timeIntervalSinceNow: -800000), calorie: 100, temperature: 10)
     
-        let someSomeBeverage = Beverage(brand: "bevereage", capacity: 355, price: 200, name: "bevereage", manufacturingDate: Date(), expirationDate: Date(timeIntervalSinceNow: 800000), calorie: 100, hot: true)
+        let someSomeBeverage = Beverage(brand: "bevereage", capacity: 355, price: 200, name: "bevereage", manufacturingDate: Date(), expirationDate: Date(timeIntervalSinceNow: 800000), calorie: 100, temperature: 67)
     
     func testCanBuy() {
         XCTAssertFalse(someBeverage.canBuy(have: 300))

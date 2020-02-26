@@ -11,9 +11,9 @@ import Foundation
 class Milk: Beverage {
     private var farmCode: String
     
-    init(brand: String, capacity: Int, price: Int, name: String, manufacturingDate: Date, expirationDate: Date, calorie: Double, hot: Bool, farmCode: String) {
+    init(brand: String, capacity: Int, price: Int, name: String, manufacturingDate: Date, expirationDate: Date, calorie: Double, temperature: Double, farmCode: String) {
         self.farmCode = farmCode
-        super.init(brand: brand, capacity: capacity, price: price, name: name, manufacturingDate: manufacturingDate, expirationDate: expirationDate, calorie: calorie, hot: hot)
+        super.init(brand: brand, capacity: capacity, price: price, name: name, manufacturingDate: manufacturingDate, expirationDate: expirationDate, calorie: calorie, temperature: temperature)
     }
     
     func from() -> String {

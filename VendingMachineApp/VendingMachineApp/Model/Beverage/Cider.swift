@@ -16,9 +16,9 @@ class Cider: Soda {
     
     private var taste: Taste
     
-    init(brand: String, capacity: Int, price: Int, name: String, manufacturingDate: Date, expirationDate: Date, calorie: Double, zeroCalorie: Bool, taste: Taste) {
+    init(brand: String, capacity: Int, price: Int, name: String, manufacturingDate: Date, expirationDate: Date, calorie: Double, hot: Bool, zeroCalorie: Bool, taste: Taste) {
         self.taste = taste
-        super.init(brand: brand, capacity: capacity, price: price, name: name, manufacturingDate: manufacturingDate, expirationDate: expirationDate, calorie: calorie, zeroCalorie: zeroCalorie)
+        super.init(brand: brand, capacity: capacity, price: price, name: name, manufacturingDate: manufacturingDate, expirationDate: expirationDate, calorie: calorie, hot: hot, zeroCalorie: zeroCalorie)
     }
     
     func isSameTaste(as taste: Taste) -> Bool {

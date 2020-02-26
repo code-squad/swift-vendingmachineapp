@@ -14,6 +14,7 @@ class VendingMachineTests: XCTestCase {
     let coke = Coke(brand: "coca-cola", capacity: 355, price: 1000, name: "coca-cola", manufacturingDate: Date(), expirationDate: Date(), calorie: 100, temperature: 10, zeroCalorie: false, carbonicAcid: 20)
     let chocoMilk = ChocolateMilk(brand: "seoulMilk", capacity: 150, price: 2000, name: "seoulMilk", manufacturingDate: Date(), expirationDate: Date(), calorie: 112, temperature: 10, farmCode: "AB110", package: .paper)
     let georgia = Georgia(brand: "coca-cola", capacity: 200, price: 1200, name: "georgia", manufacturingDate: Date(), expirationDate: Date(), calorie: 50, temperature: 70, decaffeinated: false, black: false)
+    let cider = Cider(brand: "coca-cola", capacity: 200, price: 1000, name: "sprite", manufacturingDate: Date(), expirationDate: Date(), calorie: 200, temperature: 10, zeroCalorie: false, taste: .lemon)
     
     override func setUp() {
         machine.insert(beverage: coke)
@@ -21,12 +22,12 @@ class VendingMachineTests: XCTestCase {
         machine.insert(beverage: georgia)
         machine.add(balance: 1000)
     }
-
+    
     func testInsertBeverage() {
         var matchCount = 0
-        
+        machine.insert(beverage: cider)
         machine.forEachBeverages{
-            if $0 == coke {
+            if $0 == cider {
                 matchCount += 1
             }
         }

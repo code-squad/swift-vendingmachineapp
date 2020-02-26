@@ -74,7 +74,7 @@ class VendingMachine{
     func hotBeverages() -> [String] {
         var hot = [String]()
         beverages.forEachBeverages {
-            if $0.isHot() {
+            if $0.isHot(standard: 65) {
                 hot.append("\($0)")
             }
         }

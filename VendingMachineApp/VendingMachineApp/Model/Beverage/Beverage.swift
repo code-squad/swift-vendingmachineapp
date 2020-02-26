@@ -17,7 +17,6 @@ class Beverage {
     private var expirationDate: Date
     private var calorie: Double
     private var temperature: Double
-    private let standardOfHot: Double = 65
     
     init(brand: String, capacity: Int, price: Int, name: String, manufacturingDate: Date, expirationDate: Date, calorie: Double, temperature: Double) {
         self.brand = brand
@@ -42,8 +41,8 @@ class Beverage {
         return price
     }
     
-    func isHot() -> Bool {
-        return temperature >= standardOfHot
+    func isHot(standard: Double) -> Bool {
+        return temperature >= standard
     }
 }
 

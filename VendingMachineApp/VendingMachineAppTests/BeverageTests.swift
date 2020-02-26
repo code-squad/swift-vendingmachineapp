@@ -29,7 +29,7 @@ class BeverageTests: XCTestCase {
     }
     
     func testIsHot() {
-        XCTAssertFalse(someBeverage.isHot())
-        XCTAssertTrue(someSomeBeverage.isHot())
+        XCTAssertFalse(someBeverage.isHot(standard: 65))
+        XCTAssertTrue(someSomeBeverage.isHot(standard: 65))
     }
 }

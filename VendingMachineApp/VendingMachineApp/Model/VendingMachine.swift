@@ -54,4 +54,15 @@ class VendingMachine{
     func getDictionary() -> [String : Int] {
         return beverages.getDictionary()
     }
+    
+    func expiredBeverages() -> [String] {
+        var expired = [String]()
+        beverages.forEachBeverages {
+            if $0.isSafe() != false {
+                expired.append("\($0)")
+            }
+        }
+        
+        return expired
+    }
 }

@@ -35,12 +35,9 @@ class Beverages {
     }
     
     func kindOfBeverages() -> [String : Int] {
-        var kindAndCount = [String : Int]()
-        beverages.forEach{
-            let beverage = $0
-            kindAndCount["\(beverage)"] = beverages.filter{beverage == $0}.count
+        let result = beverages.reduce(into: [String : Int]()) { (result, key) in
+            result["\(key)"] = beverages.filter{key == $0}.count
         }
-        
-        return kindAndCount
+        return result
     }
 }

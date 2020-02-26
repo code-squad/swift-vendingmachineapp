@@ -35,7 +35,7 @@ class VendingMachineTests: XCTestCase {
     }
     
     func testAddBalance() {
-        XCTAssertEqual(machine.getBalance(), 1000)
+        XCTAssertEqual(machine.balance, 1000)
     }
     
     func testPurchasableBeverages() {
@@ -44,7 +44,7 @@ class VendingMachineTests: XCTestCase {
     
     func testPurchase() {
         machine.purchase(beverage: coke)
-        XCTAssertEqual(machine.getBalance(), 0)
+        XCTAssertEqual(machine.balance, 0)
         
         var historyCount = 0
         var remainsCount = 0

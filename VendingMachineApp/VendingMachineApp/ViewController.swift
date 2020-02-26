@@ -17,9 +17,9 @@ class ViewController: UIViewController {
         let maxim = Beverage(brand: "맥심", capacity: 400, price: 3000, name: "TOP아메리카노", manufacturingDate: Date(timeIntervalSinceNow: -86400 * 2), expirationDate: Date(timeIntervalSinceNow: 86400), calorie: 140, hot: false)
         let vendingMachine = VendingMachine()
         
-        vendingMachine.insertBeverage(beverage: seoulMilk)
-        vendingMachine.insertBeverage(beverage: pepsi)
-        vendingMachine.insertBeverage(beverage: maxim)
+        vendingMachine.insert(beverage: seoulMilk)
+        vendingMachine.insert(beverage: pepsi)
+        vendingMachine.insert(beverage: maxim)
         
         vendingMachine.forEachBeverages{
             print($0)

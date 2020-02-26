@@ -16,10 +16,10 @@ class VendingMachineTests: XCTestCase {
     let georgia = Georgia(brand: "coca-cola", capacity: 200, price: 1200, name: "georgia", manufacturingDate: Date(), expirationDate: Date(), calorie: 50, hot: true, decaffeinated: false, black: false)
     
     override func setUp() {
-        machine.insertBeverage(beverage: coke)
-        machine.insertBeverage(beverage: chocoMilk)
-        machine.insertBeverage(beverage: georgia)
-        machine.addBalance(balance: 1000)
+        machine.insert(beverage: coke)
+        machine.insert(beverage: chocoMilk)
+        machine.insert(beverage: georgia)
+        machine.add(balance: 1000)
     }
 
     func testInsertBeverage() {

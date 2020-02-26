@@ -51,11 +51,10 @@ class VendingMachineTests: XCTestCase {
         myVendingMachine.stock.beverages.append(milk)
         myVendingMachine.stock.beverages.append(coffee)
         myVendingMachine.money = 2000
-        XCTAssertNil(myVendingMachine.buy(beverageName: "콘트라베이스 콜드브루"))
-        XCTAssertNil(myVendingMachine.buy(beverageName: "딸기맛우유"))
-        XCTAssertEqual(myVendingMachine.buy(beverageName: "바나나맛우유")?.name, "바나나맛우유")
+        XCTAssertNil(myVendingMachine.buy(beverage: coffee))
+        XCTAssertEqual(myVendingMachine.buy(beverage: milk), milk)
         XCTAssertEqual(myVendingMachine.money, 1000)
-        XCTAssertFalse(myVendingMachine.stock.beverages.contains { $0.name == "바나나맛우유" })
+        XCTAssertFalse(myVendingMachine.stock.beverages.contains(milk))
     }
     
     func testCheckBalance() {

@@ -40,7 +40,7 @@ class IntegrationTest: XCTestCase {
         // 구매가능 음료 확인, 커피를 제외한 음료 4개 구매 가능
         XCTAssertEqual(myVendingMachine.purchasableList.count, 4)
         // 바나나맛우유 구매, 바나나맛우유를 제대로 반환했는지 확인
-        XCTAssertEqual(bananaMilk, myVendingMachine.buy(beverageName: "바나나맛우유"))
+        XCTAssertEqual(bananaMilk, myVendingMachine.buy(beverage: bananaMilk))
         // 재고 갯수 감소 확인
         XCTAssertEqual(myVendingMachine.stock.beverages.count, 4)
         // 남은 잔액 확인
@@ -48,11 +48,11 @@ class IntegrationTest: XCTestCase {
         // 구매가능 음료 확인, 1000원짜리 음료 두개 구매가능
         XCTAssertEqual(myVendingMachine.purchasableList.count, 2)
         // 비싼커피 구매 시도 -> nil 반환
-        XCTAssertNil(myVendingMachine.buy(beverageName: "콘트라베이스 콜드브루"))
+        XCTAssertNil(myVendingMachine.buy(beverage: cantataCoffee))
         // 잔액 그대로인지 확인
         XCTAssertEqual(myVendingMachine.checkBalance(), 1000)
         // 딸기맛우유 구매, 딸기맛우유를 제대로 반환했는지 확인
-        XCTAssertEqual(strawberryMilk, myVendingMachine.buy(beverageName: "딸기맛우유"))
+        XCTAssertEqual(strawberryMilk, myVendingMachine.buy(beverage: strawberryMilk))
         // 남은 잔액 확인
         XCTAssertEqual(myVendingMachine.checkBalance(), 0)
         // 재고 갯수 감소 확인

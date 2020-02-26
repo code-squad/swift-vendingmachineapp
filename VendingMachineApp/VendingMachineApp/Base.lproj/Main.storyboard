@@ -21,10 +21,10 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="AfR-xf-pUx" userLabel="ProductsStackView">
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="AfR-xf-pUx" userLabel="ProductsStackView" customClass="ProductsStackView" customModule="VendingMachineApp" customModuleProvider="target">
                                 <rect key="frame" x="240" y="114.5" width="714" height="189.5"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="s2y-Ca-hQt">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="s2y-Ca-hQt" customClass="ProductStackView" customModule="VendingMachineApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="120" height="189.5"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EGc-Cx-H7U">
@@ -178,6 +178,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outletCollection property="productsStackView" destination="AfR-xf-pUx" collectionClass="NSMutableArray" id="rT7-SG-csf"/>
+                        <outletCollection property="productsStackView" destination="s2y-Ca-hQt" collectionClass="NSMutableArray" id="CPm-Ze-Tg7"/>
+                        <outletCollection property="productsStackView" destination="54L-NC-oTd" collectionClass="NSMutableArray" id="tlg-C6-4xD"/>
+                        <outletCollection property="productsStackView" destination="LCi-gW-B56" collectionClass="NSMutableArray" id="bcp-2F-AHK"/>
+                        <outletCollection property="productsStackView" destination="3P8-pq-auC" collectionClass="NSMutableArray" id="vFb-ZM-3yj"/>
+                        <outletCollection property="productsStackView" destination="Q4d-S6-hcp" collectionClass="NSMutableArray" id="MPL-JK-49B"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

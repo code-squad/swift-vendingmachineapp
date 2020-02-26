@@ -10,7 +10,8 @@ import UIKit
 
 class ViewController: UIViewController {
     var vendingMachine = VendingMachine(products: [])
-    
+
+    @IBOutlet var productsStackView: [UIStackView]!
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -12,7 +12,7 @@ import XCTest
 class BeverageTests: XCTestCase {
 
     func testMilk() {
-        let milk = BananaMilk(brand: "빙그레", amount: 240, price: 1000, name: "바나나맛우유", calorie: 208, saleablePeriod: 14, fatRatio: 15, bananaContent: 3)
+        let milk = BananaMilk(brand: "빙그레", amount: 240, price: Money(amount: 1000), name: "바나나맛우유", calorie: 208, saleablePeriod: 14, fatRatio: 15, bananaContent: 3)
         XCTAssertFalse(milk.isLowFat())
         XCTAssertFalse(milk.isLowCalorie())
         XCTAssertFalse(milk.isHot)
@@ -21,7 +21,7 @@ class BeverageTests: XCTestCase {
     }
     
     func testCoffee() {
-        let coffee = Cantata(brand: "롯데", amount: 500, price: 3000, name: "콘트라베이스 콜드브루", calorie: 20, saleablePeriod: 270, caffeineContent: 179, isHot: true)
+        let coffee = Cantata(brand: "롯데", amount: 500, price: Money(amount: 3000), name: "콘트라베이스 콜드브루", calorie: 20, saleablePeriod: 270, caffeineContent: 179, isHot: true)
         XCTAssertTrue(coffee.isLowCalorie())
         XCTAssertTrue(coffee.isHot)
         XCTAssertFalse(coffee.isDecaffeinated())
@@ -30,7 +30,7 @@ class BeverageTests: XCTestCase {
     }
     
     func testSoda() {
-        let soda = Cola(brand: "코카콜라", amount: 355, price: 1500, name: "코카콜라 제로", calorie: 0, saleablePeriod: 100, sugarContent: 0)
+        let soda = Cola(brand: "코카콜라", amount: 355, price: Money(amount: 1500), name: "코카콜라 제로", calorie: 0, saleablePeriod: 100, sugarContent: 0)
         XCTAssertTrue(soda.isZeroCola())
         XCTAssertTrue(soda.isLowCalorie())
         XCTAssertFalse(soda.isHot)

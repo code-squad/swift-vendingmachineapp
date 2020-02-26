@@ -18,13 +18,13 @@ class VendingMachineTests: XCTestCase {
     override func setUp() {
         super.setUp()
         myVendingMachine = VendingMachine()
-        milk = BananaMilk(brand: "빙그레", amount: 240, price: 1000, name: "바나나맛우유", calorie: 208, saleablePeriod: 14, fatRatio: 15, bananaContent: 3)
-        coffee = Cantata(brand: "롯데", amount: 500, price: 3000, name: "콘트라베이스 콜드브루", calorie: 20, saleablePeriod: 270, caffeineContent: 179, isHot: true)
+        milk = BananaMilk(brand: "빙그레", amount: 240, price: Money(amount: 1000), name: "바나나맛우유", calorie: 208, saleablePeriod: 14, fatRatio: 15, bananaContent: 3)
+        coffee = Cantata(brand: "롯데", amount: 500, price: Money(amount: 3000), name: "콘트라베이스 콜드브루", calorie: 20, saleablePeriod: 270, caffeineContent: 179, isHot: true)
     }
     
     func testPutMoney() {
-        myVendingMachine.putMoney(3000)
-        XCTAssertEqual(myVendingMachine.money, 3000) 
+        myVendingMachine.putMoney(Money(amount: 3000))
+        XCTAssertEqual(myVendingMachine.money, Money(amount: 3000))
     }
     
     func testAddBeverage() {
@@ -39,10 +39,10 @@ class VendingMachineTests: XCTestCase {
     func testPurchasableList() {
         myVendingMachine.stock.beverages.append(milk)
         myVendingMachine.stock.beverages.append(coffee)
-        myVendingMachine.money = 2000
+        myVendingMachine.money = Money(amount: 2000)
         XCTAssertTrue(myVendingMachine.purchasableList.contains { $0.name == "바나나맛우유" })
         XCTAssertFalse(myVendingMachine.purchasableList.contains { $0.name == "콘트라베이스 콜드브루" })
-        myVendingMachine.money = 3000
+        myVendingMachine.money = Money(amount: 3000)
         XCTAssertTrue(myVendingMachine.purchasableList.contains { $0.name == "바나나맛우유" })
         XCTAssertTrue(myVendingMachine.purchasableList.contains { $0.name == "콘트라베이스 콜드브루" })
     }
@@ -50,16 +50,16 @@ class VendingMachineTests: XCTestCase {
     func testBuy() {
         myVendingMachine.stock.beverages.append(milk)
         myVendingMachine.stock.beverages.append(coffee)
-        myVendingMachine.money = 2000
+        myVendingMachine.money = Money(amount: 2000)
         XCTAssertNil(myVendingMachine.buy(beverage: coffee))
         XCTAssertEqual(myVendingMachine.buy(beverage: milk), milk)
-        XCTAssertEqual(myVendingMachine.money, 1000)
+        XCTAssertEqual(myVendingMachine.money, Money(amount: 1000))
         XCTAssertFalse(myVendingMachine.stock.beverages.contains(milk))
     }
     
     func testCheckBalance() {
-        myVendingMachine.money = 3000
-        XCTAssertEqual(myVendingMachine.checkBalance(), 3000)
+        myVendingMachine.money = Money(amount: 3000)
+        XCTAssertEqual(myVendingMachine.checkBalance(), Money(amount: 3000))
     }
     
     func testStockList() {
@@ -73,7 +73,7 @@ class VendingMachineTests: XCTestCase {
     }
     
     func testDateExpiredBeverages() {
-        let expiredCola = Cola(brand: "코카콜라", amount: 500, price: 2000, name: "콜라", calorie: 30, saleablePeriod: -1, sugarContent: 0)
+        let expiredCola = Cola(brand: "코카콜라", amount: 500, price: Money(amount: 2000), name: "콜라", calorie: 30, saleablePeriod: -1, sugarContent: 0)
         myVendingMachine.stock.beverages.append(milk)
         myVendingMachine.stock.beverages.append(coffee)
         myVendingMachine.stock.beverages.append(expiredCola)

@@ -35,7 +35,7 @@ class Beverage {
     }
     
     func isSafe() -> Bool {
-        return CustomDateFormatter.convertDate(date: expirationDate) > CustomDateFormatter.convertDate(date : Date())
+        return expirationDate > Date()
     }
     
     func getPrice() -> Int {

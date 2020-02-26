@@ -34,13 +34,13 @@ class Beverages {
         }
     }
     
-    func getDictionary() -> [String : Int] {
-        var beverageDic = [String : Int]()
+    func kindOfBeverages() -> [String : Int] {
+        var kindAndCount = [String : Int]()
         beverages.forEach{
             let beverage = $0
-            beverageDic["\(beverage)"] = beverages.filter{beverage == $0}.count
+            kindAndCount["\(beverage)"] = beverages.filter{beverage == $0}.count
         }
         
-        return beverageDic
+        return kindAndCount
     }
 }

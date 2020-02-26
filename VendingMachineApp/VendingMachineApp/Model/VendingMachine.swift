@@ -56,8 +56,8 @@ class VendingMachine{
         beverages.remove(beverage: beverage)
     }
     
-    func getDictionary() -> [String : Int] {
-        return beverages.getDictionary()
+    func kindOfBeverages() -> [String : Int] {
+        return beverages.kindOfBeverages()
     }
     
     func expiredBeverages() -> [String] {

@@ -15,8 +15,8 @@ class Stock {
         beverages.append(beverage)
     }
     
-    func serve(beverageName: String) -> Beverage {
-        return beverages.remove(at: beverages.firstIndex(where: { $0.name == beverageName })!)
+    func serve(beverage: Beverage) -> Beverage {
+        return beverages.remove(at: beverages.firstIndex(of: beverage)!)
     }
         
     func getPurchasableList(money: Int) -> [Beverage] {

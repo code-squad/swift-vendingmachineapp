@@ -50,4 +50,8 @@ class VendingMachine{
     func getBalance() -> Int {
         return balance
     }
+    
+    func getDictionary() -> [String : Int] {
+        return beverages.getDictionary()
+    }
 }

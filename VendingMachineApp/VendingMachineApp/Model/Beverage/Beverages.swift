@@ -33,4 +33,14 @@ class Beverages {
             }
         }
     }
+    
+    func getDictionary() -> [String : Int] {
+        var beverageDic = [String : Int]()
+        beverages.forEach{
+            let beverage = $0
+            beverageDic["\(beverage)"] = beverages.filter{beverage == $0}.count
+        }
+        
+        return beverageDic
+    }
 }

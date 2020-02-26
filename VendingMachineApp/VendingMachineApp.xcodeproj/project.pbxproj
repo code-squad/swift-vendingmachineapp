@@ -19,6 +19,7 @@
 		A56F742424054BC70006A7CE /* TOP.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56F742324054BC70006A7CE /* TOP.swift */; };
 		A56F742624055E080006A7CE /* Georgia.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56F742524055E080006A7CE /* Georgia.swift */; };
 		A56F742A240614EA0006A7CE /* VendingMachineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56F7429240614EA0006A7CE /* VendingMachineTests.swift */; };
+		A56F742E24062E380006A7CE /* BeveragesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56F742D24062E380006A7CE /* BeveragesTests.swift */; };
 		A5E7DA4424036880002CDF82 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E7DA4324036880002CDF82 /* AppDelegate.swift */; };
 		A5E7DA4624036880002CDF82 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E7DA4524036880002CDF82 /* SceneDelegate.swift */; };
 		A5E7DA4824036880002CDF82 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E7DA4724036880002CDF82 /* ViewController.swift */; };
@@ -53,6 +54,7 @@
 		A56F742324054BC70006A7CE /* TOP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOP.swift; sourceTree = "<group>"; };
 		A56F742524055E080006A7CE /* Georgia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Georgia.swift; sourceTree = "<group>"; };
 		A56F7429240614EA0006A7CE /* VendingMachineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineTests.swift; sourceTree = "<group>"; };
+		A56F742D24062E380006A7CE /* BeveragesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeveragesTests.swift; sourceTree = "<group>"; };
 		A5E7DA4024036880002CDF82 /* VendingMachineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendingMachineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5E7DA4324036880002CDF82 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A5E7DA4524036880002CDF82 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				A5E7DA5A24036882002CDF82 /* VendingMachineAppTests.swift */,
 				A5E7DA5C24036882002CDF82 /* Info.plist */,
 				A56F7429240614EA0006A7CE /* VendingMachineTests.swift */,
+				A56F742D24062E380006A7CE /* BeveragesTests.swift */,
 			);
 			path = VendingMachineAppTests;
 			sourceTree = "<group>";
@@ -283,6 +286,7 @@
 			files = (
 				A5E7DA5B24036882002CDF82 /* VendingMachineAppTests.swift in Sources */,
 				A56F742A240614EA0006A7CE /* VendingMachineTests.swift in Sources */,
+				A56F742E24062E380006A7CE /* BeveragesTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

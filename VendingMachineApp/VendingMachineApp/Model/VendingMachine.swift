@@ -10,7 +10,7 @@ import Foundation
 
 struct VendingMachine {
     private var stock = Stock()
-    private var money = 0
+    private var money = Money()
     private(set) var purchaseHistory = [Beverage]()
     var purchasableList: [Beverage] {
         stock.getPurchasableList(money: money)
@@ -29,11 +29,11 @@ struct VendingMachine {
         stock.add(beverage: beverage)
     }
     
-    func checkBalance() -> Int {
+    func checkBalance() -> Money {
         return money
     }
     
-    mutating func putMoney(_ money: Int) {
+    mutating func putMoney(_ money: Money) {
         self.money += money
     }
     

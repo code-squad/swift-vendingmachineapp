@@ -10,6 +10,7 @@
 		441A37F7240522E800F44B1E /* BeverageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441A37F6240522E800F44B1E /* BeverageTests.swift */; };
 		441A38052405305500F44B1E /* VendingMachineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441A38042405305500F44B1E /* VendingMachineTests.swift */; };
 		441A3813240561AB00F44B1E /* IntegrationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441A3812240561AB00F44B1E /* IntegrationTest.swift */; };
+		441A381B24065C8E00F44B1E /* Money.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441A381A24065C8E00F44B1E /* Money.swift */; };
 		44A408BA24001597007995C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A408B924001597007995C5 /* AppDelegate.swift */; };
 		44A408BC24001597007995C5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A408BB24001597007995C5 /* SceneDelegate.swift */; };
 		44A408BE24001597007995C5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A408BD24001597007995C5 /* ViewController.swift */; };
@@ -67,6 +68,7 @@
 		441A3810240561AB00F44B1E /* IntegrationTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IntegrationTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		441A3812240561AB00F44B1E /* IntegrationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntegrationTest.swift; sourceTree = "<group>"; };
 		441A3814240561AB00F44B1E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		441A381A24065C8E00F44B1E /* Money.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Money.swift; sourceTree = "<group>"; };
 		44A408B624001597007995C5 /* VendingMachineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendingMachineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44A408B924001597007995C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		44A408BB24001597007995C5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 				44AD04AA24036C0B0059C5D1 /* Coffee */,
 				44AD04A924036B880059C5D1 /* Soda */,
 				44A408D6240019A6007995C5 /* VendingMachine.swift */,
+				441A381A24065C8E00F44B1E /* Money.swift */,
 				44A408D824001FDF007995C5 /* Stock.swift */,
 			);
 			path = Model;
@@ -432,6 +435,7 @@
 				44A408D52400195B007995C5 /* Milk.swift in Sources */,
 				44A408BC24001597007995C5 /* SceneDelegate.swift in Sources */,
 				44AD04AE24036C1F0059C5D1 /* Cantata.swift in Sources */,
+				441A381B24065C8E00F44B1E /* Money.swift in Sources */,
 				44A408D12400186D007995C5 /* Soda.swift in Sources */,
 				44A408D324001943007995C5 /* Coffee.swift in Sources */,
 				44A408D7240019A6007995C5 /* VendingMachine.swift in Sources */,

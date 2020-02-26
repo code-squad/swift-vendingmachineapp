@@ -19,7 +19,7 @@ class Stock {
         return beverages.remove(at: beverages.firstIndex(of: beverage)!)
     }
         
-    func getPurchasableList(money: Int) -> [Beverage] {
+    func getPurchasableList(money: Money) -> [Beverage] {
         return beverages.filter { money >= $0.price }
     }
     

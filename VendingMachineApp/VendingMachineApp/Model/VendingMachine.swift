@@ -29,6 +29,12 @@ class VendingMachine{
         }
     }
     
+    func forEachPurchasedHistory(_ transfrom: (Beverage) -> ()) {
+        purchaseHistory.forEachBeverages{
+            transfrom($0)
+        }
+    }
+    
     func addBalance(balance: Int) {
         self.balance += balance
     }

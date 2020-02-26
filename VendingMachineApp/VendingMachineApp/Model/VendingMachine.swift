@@ -11,10 +11,12 @@ import Foundation
 class VendingMachine{
     private var beverages: Beverages
     private var balance: Int
+    private var purchaseHistory: Beverages
     
     init() {
         self.beverages = Beverages()
         self.balance = 0
+        self.purchaseHistory = Beverages()
     }
     
     func insertBeverage(beverage: Beverage) {
@@ -44,6 +46,7 @@ class VendingMachine{
     
     func purchase(beverage: Beverage) {
         balance -= beverage.getPrice()
+        purchaseHistory.addBeverage(beverage: beverage)
         beverages.removeBeverage(beverage: beverage)
     }
     
@@ -75,5 +78,14 @@ class VendingMachine{
         }
         
         return hot
+    }
+    
+    func purchasedBeverages() -> [String] {
+        var purchased = [String]()
+        purchaseHistory.forEachBeverages {
+            purchased.append("\($0)")
+        }
+        
+        return purchased
     }
 }

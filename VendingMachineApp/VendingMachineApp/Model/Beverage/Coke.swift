@@ -9,7 +9,6 @@
 import Foundation
 
 class Coke: Soda {
-    private let standardOfStrong: Double = 40
     private var carbonicAcid: Double
     
     init(brand: String, capacity: Int, price: Int, name: String, manufacturingDate: Date, expirationDate: Date, calorie: Double, temperature: Double, zeroCalorie: Bool, carbonicAcid: Double) {
@@ -17,7 +16,7 @@ class Coke: Soda {
         super.init(brand: brand, capacity: capacity, price: price, name: name, manufacturingDate: manufacturingDate, expirationDate: expirationDate, calorie: calorie, temperature: temperature, zeroCalorie: zeroCalorie)
     }
     
-    func isStrong() -> Bool {
-        return carbonicAcid >= standardOfStrong
+    func isStrong(standard: Double) -> Bool {
+        return carbonicAcid >= standard
     }
 }

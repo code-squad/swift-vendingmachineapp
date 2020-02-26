@@ -9,6 +9,7 @@
 import Foundation
 
 class Milk: Beverage {
+    static let lowFatStandard = 3.0
     private let fatRatio: Double
     
     init(brand: String, amount: Int, price: Int, name: String, calorie: Double, saleablePeriod: Int, fatRatio: Double) {
@@ -17,6 +18,6 @@ class Milk: Beverage {
     }
     
     func isLowFat() -> Bool {
-        return fatRatio < 3
+        return fatRatio < Milk.lowFatStandard
     }
 }

@@ -9,6 +9,7 @@
 import Foundation
 
 class Beverage {
+    static let lowCalorieStandard = 30.0
     private let brand: String
     private let amount: Int
     private(set) var price: Int
@@ -30,7 +31,7 @@ class Beverage {
     }
     
     func isLowCalorie() -> Bool {
-        return calorie < 30
+        return calorie < Beverage.lowCalorieStandard
     }
     
     func validate(with date: Date) -> Bool {
@@ -42,6 +43,7 @@ extension Beverage: CustomStringConvertible, Hashable {
     var description: String {
         "\(brand), \(amount)ml, \(price)원, \(name), \(manufacturingDate.formattedDate)"
     }
+    
     static func == (lhs: Beverage, rhs: Beverage) -> Bool {
         lhs.brand == rhs.brand && lhs.name == rhs.name 
     }

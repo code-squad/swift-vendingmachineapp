@@ -17,13 +17,13 @@ class BeveragesTests: XCTestCase {
     let georgia = Georgia(brand: "coca-cola", capacity: 200, price: 1200, name: "georgia", manufacturingDate: Date(), expirationDate: Date(), calorie: 50, hot: true, decaffeinated: false, black: false)
     
     override func setUp() {
-        beverages.addBeverage(beverage: coke)
-        beverages.addBeverage(beverage: chocoMilk)
-        beverages.addBeverage(beverage: georgia)
+        beverages.add(beverage: coke)
+        beverages.add(beverage: chocoMilk)
+        beverages.add(beverage: georgia)
     }
     
     func testAddBeverage() {
-        beverages.addBeverage(beverage: coke)
+        beverages.add(beverage: coke)
         var beveragesCount = 0
         
         beverages.forEachBeverages {_ in
@@ -34,7 +34,7 @@ class BeveragesTests: XCTestCase {
     }
     
     func testRemoveBeverage() {
-        beverages.removeBeverage(beverage: chocoMilk)
+        beverages.remove(beverage: chocoMilk)
         
         var beveragesCount = 0
         

@@ -15,7 +15,7 @@ class Beverages {
         beverages = [Beverage]()
     }
     
-    func addBeverage(beverage: Beverage) {
+    func add(beverage: Beverage) {
         beverages.append(beverage)
     }
     
@@ -25,7 +25,7 @@ class Beverages {
         }
     }
     
-    func removeBeverage(beverage: Beverage) {
+    func remove(beverage: Beverage) {
         for beverageIndex in 0 ..< beverages.count {
             if beverages[beverageIndex] == beverage {
                 beverages.remove(at: beverageIndex)

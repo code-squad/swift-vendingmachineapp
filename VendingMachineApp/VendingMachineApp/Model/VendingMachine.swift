@@ -19,8 +19,8 @@ class VendingMachine{
         self.purchaseHistory = Beverages()
     }
     
-    func insertBeverage(beverage: Beverage) {
-        beverages.addBeverage(beverage: beverage)
+    func insert(beverage: Beverage) {
+        beverages.add(beverage: beverage)
     }
     
     func forEachBeverages(_ transfrom: (Beverage) -> ()) {
@@ -35,7 +35,7 @@ class VendingMachine{
         }
     }
     
-    func addBalance(balance: Int) {
+    func add(balance: Int) {
         self.balance += balance
     }
     
@@ -52,8 +52,8 @@ class VendingMachine{
     
     func purchase(beverage: Beverage) {
         balance -= beverage.getPrice()
-        purchaseHistory.addBeverage(beverage: beverage)
-        beverages.removeBeverage(beverage: beverage)
+        purchaseHistory.add(beverage: beverage)
+        beverages.remove(beverage: beverage)
     }
     
     func getDictionary() -> [String : Int] {

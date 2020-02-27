@@ -8,11 +8,15 @@
 
 import Foundation
 
-class Beverage {
+class Beverage: CustomStringConvertible {
     let manufacturer: String
     let size: Int
     let price: Int
     let productionDate: Date
+    
+    var description: String {
+        return "\(manufacturer), \(size), \(price)"
+    }
     
     fileprivate init(manufacturer: String, size: Int, price: Int) {
         self.manufacturer = manufacturer
@@ -23,11 +27,17 @@ class Beverage {
 }
 
 final class Milk: Beverage {
-    enum Product {
-        case strawberryMilk, chocolateMilk, bananaMilk
+    enum Product: String {
+        case strawberryMilk = "상하목장 유기농 딸기우유"
+        case chocolateMilk = "바나나는 원래 하얗다"
+        case bananaMilk = "매일 멸균우유 초코"
     }
     
     let product: Product
+    
+    override var description: String {
+        return super.description + ", \(product.rawValue)"
+    }
     
     init(product: Product) {
         self.product = product
@@ -36,11 +46,17 @@ final class Milk: Beverage {
 }
 
 final class SoftDrink: Beverage {
-    enum Product {
-        case coke, sprite, fanta
+    enum Product: String {
+        case coke = "코카콜라"
+        case sprite = "스프라이트"
+        case fanta = "환타"
     }
     
     let product: Product
+    
+    override var description: String {
+        return super.description + ", \(product.rawValue)"
+    }
     
     init(product: Product) {
         self.product = product
@@ -54,11 +70,17 @@ final class SoftDrink: Beverage {
 }
 
 final class Coffee: Beverage {
-    enum Product {
-        case top, cantata, georgia
+    enum Product: String {
+        case top = "티.오.피"
+        case cantata = "칸타타 프리미엄라떼"
+        case georgia = "조지아 오리지널"
     }
     
     let product: Product
+    
+    override var description: String {
+        return super.description + ", \(product.rawValue)"
+    }
     
     init(product: Product) {
         self.product = product

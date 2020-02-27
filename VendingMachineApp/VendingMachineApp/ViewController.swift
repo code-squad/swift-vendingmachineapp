@@ -9,12 +9,16 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    let vendingMachine = VendingMachine()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        vendingMachine.fill(beverage: Milk(product: .strawberryMilk))
+        vendingMachine.fill(beverage: SoftDrink(product: .fanta))
+        vendingMachine.fill(beverage: Coffee(product: .top))
+        print(vendingMachine.stockList)
     }
-
-
 }
 

@@ -14,6 +14,7 @@
 		C2078AC02407CA8F00B403A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2078ABF2407CA8F00B403A7 /* Assets.xcassets */; };
 		C2078AC32407CA8F00B403A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2078AC12407CA8F00B403A7 /* LaunchScreen.storyboard */; };
 		C2078ACE2407CA8F00B403A7 /* VendingMachineAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2078ACD2407CA8F00B403A7 /* VendingMachineAppTests.swift */; };
+		C2078ADA2407CFD400B403A7 /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2078AD92407CFD400B403A7 /* Beverage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		C2078AC92407CA8F00B403A7 /* VendingMachineAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VendingMachineAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2078ACD2407CA8F00B403A7 /* VendingMachineAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineAppTests.swift; sourceTree = "<group>"; };
 		C2078ACF2407CA8F00B403A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C2078AD92407CFD400B403A7 /* Beverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beverage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 		C2078AB52407CA8900B403A7 /* VendingMachineApp */ = {
 			isa = PBXGroup;
 			children = (
+				C2078AD82407CFB200B403A7 /* Models */,
 				C2078AB62407CA8900B403A7 /* AppDelegate.swift */,
 				C2078AB82407CA8900B403A7 /* SceneDelegate.swift */,
 				C2078ABA2407CA8900B403A7 /* ViewController.swift */,
@@ -97,6 +100,14 @@
 				C2078ACF2407CA8F00B403A7 /* Info.plist */,
 			);
 			path = VendingMachineAppTests;
+			sourceTree = "<group>";
+		};
+		C2078AD82407CFB200B403A7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C2078AD92407CFD400B403A7 /* Beverage.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -202,6 +213,7 @@
 			files = (
 				C2078ABB2407CA8900B403A7 /* ViewController.swift in Sources */,
 				C2078AB72407CA8900B403A7 /* AppDelegate.swift in Sources */,
+				C2078ADA2407CFD400B403A7 /* Beverage.swift in Sources */,
 				C2078AB92407CA8900B403A7 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

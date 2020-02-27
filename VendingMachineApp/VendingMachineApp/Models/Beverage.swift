@@ -27,20 +27,20 @@ class Beverage: CustomStringConvertible {
 }
 
 final class Milk: Beverage {
-    enum Product: String {
-        case strawberryMilk = "상하목장 유기농 딸기우유"
-        case chocolateMilk = "바나나는 원래 하얗다"
-        case bananaMilk = "매일 멸균우유 초코"
+    enum Flavor: String {
+        case strawberry = "상하목장 유기농 딸기우유"
+        case chocolate = "바나나는 원래 하얗다"
+        case banana = "매일 멸균우유 초코"
     }
     
-    let product: Product
+    let flavor: Flavor
     
     override var description: String {
-        return super.description + ", \(product.rawValue)"
+        return super.description + ", \(flavor.rawValue)"
     }
     
-    init(product: Product) {
-        self.product = product
+    init(flavor: Flavor) {
+        self.flavor = flavor
         super.init(manufacturer: "매일유업", size: 300, price: 1500)
     }
 }

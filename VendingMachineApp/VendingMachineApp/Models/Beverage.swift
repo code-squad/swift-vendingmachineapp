@@ -36,7 +36,8 @@ final class Milk: Beverage {
     let flavor: Flavor
     
     override var description: String {
-        return super.description + ", \(flavor.rawValue)"
+        return super.description
+            + ", \(flavor.rawValue), \(DateFormatter.productionDateFormatter.string(from: productionDate))"
     }
     
     init(flavor: Flavor) {
@@ -55,7 +56,8 @@ final class SoftDrink: Beverage {
     let product: Product
     
     override var description: String {
-        return super.description + ", \(product.rawValue)"
+        return super.description
+            + ", \(product.rawValue), \(DateFormatter.productionDateFormatter.string(from: productionDate))"
     }
     
     init(product: Product) {
@@ -79,7 +81,8 @@ final class Coffee: Beverage {
     let product: Product
     
     override var description: String {
-        return super.description + ", \(product.rawValue)"
+        return super.description
+            + ", \(product.rawValue), \(DateFormatter.productionDateFormatter.string(from: productionDate))"
     }
     
     init(product: Product) {
@@ -90,4 +93,12 @@ final class Coffee: Beverage {
         case .georgia: super.init(manufacturer: "코카콜라", size: 250, price: 1300)
         }
     }
+}
+
+extension DateFormatter {
+    static let productionDateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        return formatter
+    }()
 }

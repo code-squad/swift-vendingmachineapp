@@ -8,16 +8,25 @@
 
 import Foundation
 
-protocol SomeDelegate {
-    func someFunction(someProperty: Int)
+protocol SomeDelegate: class {
+    func addBalance(amount: Int)
+    func checkBalance() -> Money
 }
 
 class VendingMachineManager {
-    var vendingMachine = VendingMachine()
+    weak var anyDelegate: AnyDelegate?
+    var vendingMachine = VendingMachine() {
+        didSet {
+            anyDelegate?.updateBalanceLabel(amount: "\(checkBalance())")
+        }
+    }
 }
 
 extension VendingMachineManager: SomeDelegate {
-    func someFunction(someProperty: Int) {
-        vendingMachine.addBalance(Money(amount: someProperty))
+    func addBalance(amount: Int) {
+        vendingMachine.addBalance(Money(amount: amount))
+    }
+    func checkBalance() -> Money {
+        vendingMachine.checkBalance()
     }
 }

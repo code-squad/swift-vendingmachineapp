@@ -8,13 +8,25 @@
 
 import UIKit
 
+protocol AnyDelegate: class {
+    func updateBalanceLabel(amount: String)
+}
+
 class MainView: UIView {
 
-    var someDelegate: SomeDelegate?
+    weak var someDelegate: SomeDelegate?
     
     @IBOutlet var addBalanceButtons: [UIButton]!
     
+    @IBOutlet weak var balanceLabel: UILabel!
+    
     @IBAction func addBalanceButtonTapped(_ sender: UIButton) {
-        someDelegate?.someFunction(someProperty: sender.tag)
+        someDelegate?.addBalance(amount: sender.tag)
+    }
+}
+
+extension MainView: AnyDelegate {
+    func updateBalanceLabel(amount: String) {
+        balanceLabel.text = "잔액: " + amount + "원"
     }
 }

@@ -16,5 +16,6 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         mainView = view as? MainView
         mainView.someDelegate = manager
+        manager.anyDelegate = mainView
     }
 }

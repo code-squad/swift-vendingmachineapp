@@ -32,6 +32,8 @@
 		44AD04B324036C800059C5D1 /* StrawberryMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44AD04B224036C800059C5D1 /* StrawberryMilk.swift */; };
 		44AD04B524036C900059C5D1 /* ChocolateMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44AD04B424036C900059C5D1 /* ChocolateMilk.swift */; };
 		44AD04B724036C990059C5D1 /* BananaMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44AD04B624036C990059C5D1 /* BananaMilk.swift */; };
+		44D32D0B24090B560048CEA0 /* VendingMachineManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D32D0A24090B560048CEA0 /* VendingMachineManager.swift */; };
+		44D32D1024093D4F0048CEA0 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D32D0F24093D4F0048CEA0 /* MainView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +94,8 @@
 		44AD04B224036C800059C5D1 /* StrawberryMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrawberryMilk.swift; sourceTree = "<group>"; };
 		44AD04B424036C900059C5D1 /* ChocolateMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChocolateMilk.swift; sourceTree = "<group>"; };
 		44AD04B624036C990059C5D1 /* BananaMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BananaMilk.swift; sourceTree = "<group>"; };
+		44D32D0A24090B560048CEA0 /* VendingMachineManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineManager.swift; sourceTree = "<group>"; };
+		44D32D0F24093D4F0048CEA0 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +184,7 @@
 			children = (
 				44A408CD240015FC007995C5 /* Model */,
 				44A408B924001597007995C5 /* AppDelegate.swift */,
+				44D32D0C24093CD50048CEA0 /* View */,
 				44A408BB24001597007995C5 /* SceneDelegate.swift */,
 				44A408BD24001597007995C5 /* ViewController.swift */,
 				44A408BF24001597007995C5 /* Main.storyboard */,
@@ -200,6 +205,7 @@
 				44A408D6240019A6007995C5 /* VendingMachine.swift */,
 				441A381A24065C8E00F44B1E /* Money.swift */,
 				44A408D824001FDF007995C5 /* Stock.swift */,
+				44D32D0A24090B560048CEA0 /* VendingMachineManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -235,6 +241,14 @@
 				44AD04B224036C800059C5D1 /* StrawberryMilk.swift */,
 			);
 			path = Milk;
+			sourceTree = "<group>";
+		};
+		44D32D0C24093CD50048CEA0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				44D32D0F24093D4F0048CEA0 /* MainView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -423,6 +437,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				44A408BE24001597007995C5 /* ViewController.swift in Sources */,
+				44D32D1024093D4F0048CEA0 /* MainView.swift in Sources */,
 				44AD04B324036C800059C5D1 /* StrawberryMilk.swift in Sources */,
 				44A408BA24001597007995C5 /* AppDelegate.swift in Sources */,
 				44AD04B024036C2E0059C5D1 /* Georgia.swift in Sources */,
@@ -439,6 +454,7 @@
 				44A408D12400186D007995C5 /* Soda.swift in Sources */,
 				44A408D324001943007995C5 /* Coffee.swift in Sources */,
 				44A408D7240019A6007995C5 /* VendingMachine.swift in Sources */,
+				44D32D0B24090B560048CEA0 /* VendingMachineManager.swift in Sources */,
 				44AD04A424036A380059C5D1 /* Cola.swift in Sources */,
 				44A408D924001FDF007995C5 /* Stock.swift in Sources */,
 			);

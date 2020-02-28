@@ -22,8 +22,8 @@ class VendingMachineTests: XCTestCase {
         coffee = Cantata(brand: "롯데", amount: 500, price: Money(amount: 3000), name: "콘트라베이스 콜드브루", calorie: 20, saleablePeriod: 270, caffeineContent: 179, isHot: true)
     }
     
-    func testPutMoney() {
-        myVendingMachine.putMoney(Money(amount: 3000))
+    func testAddBalance() {
+        myVendingMachine.addBalance(Money(amount: 3000))
         XCTAssertEqual(myVendingMachine.money, Money(amount: 3000))
     }
     

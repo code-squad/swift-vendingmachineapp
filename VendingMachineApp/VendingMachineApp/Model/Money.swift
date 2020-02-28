@@ -20,6 +20,12 @@ final class Money {
     }
 }
 
+extension Money: CustomStringConvertible {
+    var description: String {
+        "\(amount)"
+    }
+}
+
 extension Money: AdditiveArithmetic, Comparable {
     static var zero: Money {
         Money()

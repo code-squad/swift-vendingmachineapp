@@ -16,23 +16,23 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" tag="1000" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h2W-HE-4EN">
-                                <rect key="frame" x="860" y="223" width="46" height="30"/>
+                                <rect key="frame" x="861" y="223" width="44" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="+1000"/>
                                 <connections>
                                     <action selector="addBalanceButtonTapped:" destination="8bC-Xf-vdC" eventType="touchUpInside" id="bmi-QI-L6s"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="5000" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YjJ-mu-YdU">
-                                <rect key="frame" x="970" y="223" width="46" height="30"/>
+                                <rect key="frame" x="970" y="223" width="47" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="+5000"/>
                                 <connections>
                                     <action selector="addBalanceButtonTapped:" destination="8bC-Xf-vdC" eventType="touchUpInside" id="BCZ-ak-CtW"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kF3-SF-paK">
-                                <rect key="frame" x="862" y="298" width="42" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="잔액: 0원" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kF3-SF-paK">
+                                <rect key="frame" x="861" y="298" width="156" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -42,6 +42,7 @@
                         <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <connections>
+                            <outlet property="balanceLabel" destination="kF3-SF-paK" id="yM4-Rd-yCw"/>
                             <outletCollection property="addBalanceButtons" destination="h2W-HE-4EN" collectionClass="NSMutableArray" id="S7E-x9-QpO"/>
                             <outletCollection property="addBalanceButtons" destination="YjJ-mu-YdU" collectionClass="NSMutableArray" id="Qvt-Ki-fHZ"/>
                         </connections>

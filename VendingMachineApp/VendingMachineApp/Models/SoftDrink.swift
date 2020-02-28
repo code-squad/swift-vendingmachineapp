@@ -19,7 +19,7 @@ final class SoftDrink: Beverage {
     
     override var description: String {
         return super.description
-            + ", \(product.rawValue), \(DateFormatter.productionDateFormatter.string(from: productionDate))"
+            + ", \(product.rawValue), \(productionDate.stockDisplayingFormat)"
     }
     
     init(product: Product) {

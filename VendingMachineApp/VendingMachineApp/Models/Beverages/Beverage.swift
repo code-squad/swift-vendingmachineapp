@@ -12,16 +12,20 @@ class Beverage: CustomStringConvertible {
     let manufacturer: String
     let size: Int
     let price: Int
+    let name: String
     let productionDate: Date
     
     var description: String {
-        return "\(manufacturer), \(size), \(price)"
+        return """
+        \(manufacturer), \(size), \(price), \(name), \(productionDate.stockDisplayingFormat)
+        """
     }
     
-    init(manufacturer: String, size: Int, price: Int) {
+    init(manufacturer: String, size: Int, price: Int, name: String) {
         self.manufacturer = manufacturer
         self.size = size
         self.price = price
+        self.name = name
         self.productionDate = Date()
     }
 }

@@ -15,9 +15,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        vendingMachine.fill(beverage: Milk(flavor: .strawberry))
-        vendingMachine.fill(beverage: SoftDrink(product: .fanta))
-        vendingMachine.fill(beverage: Coffee(product: .top))
+        vendingMachine.fill(beverage: StrawberryMilk())
+        vendingMachine.fill(beverage: Fanta())
+        vendingMachine.fill(beverage: Top())
         print(vendingMachine.stockList)
     }
 }

@@ -12,7 +12,7 @@ class VendingMachine {
     private var stock = [Beverage]()
     
     var stockList: String {
-        return stock.map { "\($0)" }.joined(separator: "\n")
+        return "\(stock)"
     }
     
     func fill(beverage: Beverage) {

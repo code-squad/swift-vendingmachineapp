@@ -18,6 +18,6 @@ class VendingMachineManager {
 
 extension VendingMachineManager: SomeDelegate {
     func someFunction(someProperty: Int) {
-        vendingMachine.putMoney(Money(amount: someProperty))
+        vendingMachine.addBalance(Money(amount: someProperty))
     }
 }

@@ -33,7 +33,7 @@ struct VendingMachine {
         return money
     }
     
-    mutating func putMoney(_ money: Money) {
+    mutating func addBalance(_ money: Money) {
         self.money += money
     }
     

@@ -36,7 +36,7 @@ class IntegrationTest: XCTestCase {
         // 추가한 음료 갯수 확인
         XCTAssertEqual(myVendingMachine.stock.beverages.count, 5)
         // 2000원 넣음
-        myVendingMachine.putMoney( Money(amount: 2000))
+        myVendingMachine.addBalance( Money(amount: 2000))
         // 구매가능 음료 확인, 커피를 제외한 음료 4개 구매 가능
         XCTAssertEqual(myVendingMachine.purchasableList.count, 4)
         // 바나나맛우유 구매, 바나나맛우유를 제대로 반환했는지 확인

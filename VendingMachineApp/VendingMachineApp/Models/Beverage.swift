@@ -26,10 +26,14 @@ class Beverage: CustomStringConvertible {
     }
 }
 
-extension DateFormatter {
+extension Date {
     static let productionDateFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
         return formatter
     }()
+    
+    var stockDisplayingFormat: String {
+        return Self.productionDateFormatter.string(from: self)
+    }
 }

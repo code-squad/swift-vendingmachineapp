@@ -19,7 +19,7 @@ final class Milk: Beverage {
     
     override var description: String {
         return super.description
-            + ", \(flavor.rawValue), \(DateFormatter.productionDateFormatter.string(from: productionDate))"
+            + ", \(flavor.rawValue), \(productionDate.stockDisplayingFormat)"
     }
     
     init(flavor: Flavor) {

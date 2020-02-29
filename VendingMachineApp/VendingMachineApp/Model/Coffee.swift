@@ -23,6 +23,7 @@ class Coffee: Beverage {
         case americano
         case vanilla
         case mocha
+        case latte
     }
     
     enum Packages{

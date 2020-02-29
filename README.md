@@ -1,5 +1,17 @@
 # Swift Vending Machine App
 
-final class 는 상속이 금지된 클래스. 다른 클래스를 상속받는 것은 가능하지만, 다른 클래스가 final class를 상속하는 것은 불가능하다. 
 
-프로퍼티는 overriding 방식이 메서드와 다르다. 계산 속성을 구현하거나, 프로퍼티 옵저버를 추가해야한다. 
+
+## Step 1. 음료 클래스 설계
+
+- 상위 클래스 Beverage와 이를 상속받은 Milk, Soda, Coffee 클래스 구현
+- VendingMachine 클래스에서 현재 보유한 음료 목록 출력 
+
+
+
+### 실행 화면
+
+<img src="https://user-images.githubusercontent.com/40784518/75602870-81954500-5b0c-11ea-84c1-819746c989a5.png " width="50%"></img>
+
+
+

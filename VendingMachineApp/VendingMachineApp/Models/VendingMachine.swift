@@ -20,10 +20,6 @@ struct VendingMachine {
     private var purchased: [Beverage] = []
     private(set) var balance: Money = Money()
     
-//    init(products: [Beverage]) {
-//        self.products = products
-//    }
-    
     mutating func putMoney(_ money: Money) {
         balance.add(money: money)
     }

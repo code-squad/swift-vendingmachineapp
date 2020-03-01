@@ -9,10 +9,18 @@
 import Foundation
 
 class Money {
-    private(set) var balance: Int
+    private(set) var balance: Int {
+        didSet {
+            balanceChanged()
+        }
+    }
     
     init(_ balance: Int = 0) {
         self.balance = balance
+    }
+    
+    private func balanceChanged() {
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "BalanceChange"), object: nil, userInfo: ["balance": balance])
     }
     
     func add(money: Money) {

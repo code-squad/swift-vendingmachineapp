@@ -20,14 +20,15 @@ class ViewController: UIViewController {
         setupUI()
         setupNotification()
     }
-
+    
     @IBAction func addToStockButtonTouched(_ sender: Any) {
         let button = sender as! UIButton
         vendingMachine.addToStock(index: button.tag)
     }
     
-    private func setupNotification() { NotificationCenter.default.addObserver(self, selector: #selector(updateLabel(_:)), name: NSNotification.Name(rawValue: "AddToStockButton"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(updateBalanceLabel(_:)), name: NSNotification.Name(rawValue: "BalanceChange"), object: nil)
+    @IBAction func putMoneyTouched(_ sender: Any) {
+        let button = sender as! UIButton
+        vendingMachine.putMoney(Money(button.tag))
     }
     
     @objc private func updateBalanceLabel(_ notification: Notification) {
@@ -35,7 +36,7 @@ class ViewController: UIViewController {
         balanceLabel.text = String(balance)
     }
     
-    @objc private func updateLabel(_ notification: Notification) {
+    @objc private func updateStockLabel(_ notification: Notification) {
         guard let changedIndex = notification.userInfo?["changedIndex"] as? Int, let changedBeverageStockNumber = notification.userInfo?["numberOfBeverage"] as? Int else { return }
         
         berverageStockLabels.forEach {
@@ -44,9 +45,8 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction func putMoneyTouched(_ sender: Any) {
-        let button = sender as! UIButton
-        vendingMachine.putMoney(Money(button.tag))
+    private func setupNotification() { NotificationCenter.default.addObserver(self, selector: #selector(updateStockLabel(_:)), name: NSNotification.Name(rawValue: "StockNumberChange"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateBalanceLabel(_:)), name: NSNotification.Name(rawValue: "BalanceChange"), object: nil)
     }
     
     private func setupUI() {

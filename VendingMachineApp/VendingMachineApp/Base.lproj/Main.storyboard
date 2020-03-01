@@ -77,7 +77,7 @@
                                                     <constraint firstAttribute="width" secondItem="DNE-gJ-CQO" secondAttribute="height" multiplier="1:1" id="rBL-RI-wCu"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OAI-wZ-dpd">
+                                            <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OAI-wZ-dpd">
                                                 <rect key="frame" x="0.0" y="169" width="120" height="20.5"/>
                                                 <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -108,7 +108,7 @@
                                                     <constraint firstAttribute="width" secondItem="U6N-CB-scR" secondAttribute="height" multiplier="1:1" id="vkR-5e-ONR"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ky8-1M-gBU">
+                                            <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ky8-1M-gBU">
                                                 <rect key="frame" x="0.0" y="169" width="120" height="20.5"/>
                                                 <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -139,7 +139,7 @@
                                                     <constraint firstAttribute="width" constant="120" id="emu-BO-sud"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="24S-b5-1R4">
+                                            <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="24S-b5-1R4">
                                                 <rect key="frame" x="0.0" y="169" width="120" height="20.5"/>
                                                 <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -170,7 +170,7 @@
                                                     <constraint firstAttribute="width" secondItem="zBq-0n-U64" secondAttribute="height" multiplier="1:1" id="g6q-BD-JUA"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YrK-eg-MNo">
+                                            <label opaque="NO" userInteractionEnabled="NO" tag="4" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YrK-eg-MNo">
                                                 <rect key="frame" x="0.0" y="169" width="120" height="20.5"/>
                                                 <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -244,12 +244,6 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outletCollection property="productsStackView" destination="AfR-xf-pUx" collectionClass="NSMutableArray" id="rT7-SG-csf"/>
-                        <outletCollection property="productsStackView" destination="s2y-Ca-hQt" collectionClass="NSMutableArray" id="CPm-Ze-Tg7"/>
-                        <outletCollection property="productsStackView" destination="54L-NC-oTd" collectionClass="NSMutableArray" id="tlg-C6-4xD"/>
-                        <outletCollection property="productsStackView" destination="LCi-gW-B56" collectionClass="NSMutableArray" id="bcp-2F-AHK"/>
-                        <outletCollection property="productsStackView" destination="3P8-pq-auC" collectionClass="NSMutableArray" id="vFb-ZM-3yj"/>
-                        <outletCollection property="productsStackView" destination="Q4d-S6-hcp" collectionClass="NSMutableArray" id="MPL-JK-49B"/>
                         <outletCollection property="addToStockButtons" destination="EGc-Cx-H7U" collectionClass="NSMutableArray" id="q3w-kP-mdx"/>
                         <outletCollection property="addToStockButtons" destination="F8G-17-eZe" collectionClass="NSMutableArray" id="z3p-aR-21L"/>
                         <outletCollection property="addToStockButtons" destination="V1Z-cu-d7S" collectionClass="NSMutableArray" id="hun-Wn-h6y"/>
@@ -260,6 +254,11 @@
                         <outletCollection property="beverageImageViews" destination="U6N-CB-scR" collectionClass="NSMutableArray" id="V0V-Hu-npq"/>
                         <outletCollection property="beverageImageViews" destination="tVM-9c-Hmb" collectionClass="NSMutableArray" id="8hL-ob-fq3"/>
                         <outletCollection property="beverageImageViews" destination="zBq-0n-U64" collectionClass="NSMutableArray" id="htC-cD-tb9"/>
+                        <outletCollection property="berverageStockLabels" destination="3da-IN-7xS" collectionClass="NSMutableArray" id="RAw-kX-zpE"/>
+                        <outletCollection property="berverageStockLabels" destination="OAI-wZ-dpd" collectionClass="NSMutableArray" id="41o-OD-egW"/>
+                        <outletCollection property="berverageStockLabels" destination="ky8-1M-gBU" collectionClass="NSMutableArray" id="Ykw-YE-HaU"/>
+                        <outletCollection property="berverageStockLabels" destination="24S-b5-1R4" collectionClass="NSMutableArray" id="euu-Y2-pCN"/>
+                        <outletCollection property="berverageStockLabels" destination="YrK-eg-MNo" collectionClass="NSMutableArray" id="WgO-Ah-oBg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

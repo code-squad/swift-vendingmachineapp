@@ -9,18 +9,33 @@
 import Foundation
 
 class Stock {
-    private(set) var stockOf: [ObjectIdentifier: Beverages] = [:]
+    private var changedIndex: Int?
+    private var changedBeverageObjectIdentifier: ObjectIdentifier?
+    private(set) var stockOf: [ObjectIdentifier: Beverages] = [:] {
+        didSet {
+            didChange()
+        }
+    }
+    
+    func didChange() {
+        guard let changedBeverages = stockOf[changedBeverageObjectIdentifier!] else { return }
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "AddToStockButton"), object: nil, userInfo: ["changedIndex": changedIndex!,                                                                         "numberOfBeverage": changedBeverages.beverages.count])
+    }
     
     func numberOf(_ beverage: Beverage) -> Int {
         let beverages = stockOf[beverage.objectIdentifier()] ?? Beverages()
         return beverages.beverages.count
     }
     
-    func dequeue(beverage: Beverage) -> Beverage {
+    func dequeue(beverage: Beverage, in index: Int) -> Beverage {
+        changedIndex = index
+        changedBeverageObjectIdentifier = beverage.objectIdentifier()
         return stockOf[beverage.objectIdentifier()]!.dequeue()
     }
     
-    func enqueue(beverage: Beverage) {
+    func enqueue(beverage: Beverage, in index: Int) {
+        changedIndex = index
+        changedBeverageObjectIdentifier = beverage.objectIdentifier()
         let beverages = stockOf[beverage.objectIdentifier()] ?? Beverages()
         beverages.enqueue(beverage: beverage)
         stockOf[beverage.objectIdentifier()] = beverages

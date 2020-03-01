@@ -9,20 +9,34 @@
 import UIKit
 
 class ViewController: UIViewController {
-    var vendingMachine = VendingMachine(products: [])
+    var vendingMachine = VendingMachine()
 
-    @IBOutlet var productsStackView: [UIStackView]!
     @IBOutlet var addToStockButtons: [UIButton]!
     @IBOutlet var beverageImageViews: [UIImageView]!
+    @IBOutlet var berverageStockLabels: [UILabel]!
     
     @IBAction func addToStockButtonTouched(_ sender: Any) {
         let button = sender as! UIButton
+        vendingMachine.addToStock(index: button.tag)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupUI()
+        setupNotification()
+    }
+    
+    private func setupNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(updateLabel(_:)), name: NSNotification.Name(rawValue: "AddToStockButton"), object: nil)
+    }
+    
+    @objc private func updateLabel(_ notification: Notification) {
+        guard let changedIndex = notification.userInfo?["changedIndex"] as? Int, let changedBeverageStockNumber = notification.userInfo?["numberOfBeverage"] as? Int else { return }
+        
+        berverageStockLabels.forEach {
+            guard $0.tag == changedIndex else { return }
+            $0.text = String(changedBeverageStockNumber)
+        }
     }
     
     private func setupUI() {

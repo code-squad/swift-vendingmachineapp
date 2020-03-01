@@ -187,19 +187,25 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="D8f-Ta-qdk">
                                         <rect key="frame" x="0.0" y="0.0" width="160" height="38"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="guE-91-XJF">
+                                            <button opaque="NO" tag="1000" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="guE-91-XJF">
                                                 <rect key="frame" x="0.0" y="0.0" width="80" height="38"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                 <state key="normal" title="+1000">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="putMoneyTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="boj-hH-CL7"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5fg-9N-3a0">
+                                            <button opaque="NO" tag="5000" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5fg-9N-3a0">
                                                 <rect key="frame" x="80" y="0.0" width="80" height="38"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                 <state key="normal" title="+5000">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="putMoneyTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qqG-ja-CWS"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -212,7 +218,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1000" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SsL-9V-dUC">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SsL-9V-dUC">
                                                 <rect key="frame" x="60" y="0.0" width="100" height="25.5"/>
                                                 <color key="backgroundColor" red="0.13613065269999999" green="0.13876771800000001" blue="0.14006358390000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
@@ -244,6 +250,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="balanceLabel" destination="SsL-9V-dUC" id="MCS-DY-gtw"/>
                         <outletCollection property="addToStockButtons" destination="EGc-Cx-H7U" collectionClass="NSMutableArray" id="q3w-kP-mdx"/>
                         <outletCollection property="addToStockButtons" destination="F8G-17-eZe" collectionClass="NSMutableArray" id="z3p-aR-21L"/>
                         <outletCollection property="addToStockButtons" destination="V1Z-cu-d7S" collectionClass="NSMutableArray" id="hun-Wn-h6y"/>

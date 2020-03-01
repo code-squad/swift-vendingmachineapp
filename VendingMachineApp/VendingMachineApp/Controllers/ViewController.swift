@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     @IBOutlet var addToStockButtons: [UIButton]!
     @IBOutlet var beverageImageViews: [UIImageView]!
     @IBOutlet var berverageStockLabels: [UILabel]!
+    @IBOutlet weak var balanceLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +27,12 @@ class ViewController: UIViewController {
     }
     
     private func setupNotification() { NotificationCenter.default.addObserver(self, selector: #selector(updateLabel(_:)), name: NSNotification.Name(rawValue: "AddToStockButton"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateBalanceLabel(_:)), name: NSNotification.Name(rawValue: "BalanceChange"), object: nil)
+    }
+    
+    @objc private func updateBalanceLabel(_ notification: Notification) {
+        guard let balance = notification.userInfo?["balance"] as? Int else { return }
+        balanceLabel.text = String(balance)
     }
     
     @objc private func updateLabel(_ notification: Notification) {
@@ -37,6 +44,11 @@ class ViewController: UIViewController {
         }
     }
     
+    @IBAction func putMoneyTouched(_ sender: Any) {
+        let button = sender as! UIButton
+        vendingMachine.putMoney(Money(button.tag))
+    }
+    
     private func setupUI() {
         beverageImageViews.forEach {
             $0.layer.cornerRadius = 16
@@ -44,7 +56,7 @@ class ViewController: UIViewController {
     }
     
     deinit {
-        NotificationCenter.default.removeObserver(self, name: Notification.Name(rawValue: "AddToStockButton"), object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "AddToStockButton"), object: nil)
     }
 }
 

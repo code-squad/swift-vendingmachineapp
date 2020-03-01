@@ -13,13 +13,13 @@ class Stock {
     private var changedBeverageObjectIdentifier: ObjectIdentifier?
     private(set) var stockOf: [ObjectIdentifier: Beverages] = [:] {
         didSet {
-            didChange()
+            postNotification()
         }
     }
     
-    func didChange() {
+    func postNotification() {
         guard let changedBeverages = stockOf[changedBeverageObjectIdentifier!] else { return }
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "AddToStockButton"), object: nil, userInfo: ["changedIndex": changedIndex!,                                                                         "numberOfBeverage": changedBeverages.beverages.count])
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "StockNumberChange"), object: nil, userInfo: ["changedIndex": changedIndex!,                                                                         "numberOfBeverage": changedBeverages.beverages.count])
     }
     
     func numberOf(_ beverage: Beverage) -> Int {

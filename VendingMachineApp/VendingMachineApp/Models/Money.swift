@@ -11,7 +11,7 @@ import Foundation
 class Money {
     private(set) var balance: Int {
         didSet {
-            balanceChanged()
+            postNotification()
         }
     }
     
@@ -19,7 +19,7 @@ class Money {
         self.balance = balance
     }
     
-    private func balanceChanged() {
+    private func postNotification() {
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "BalanceChange"), object: nil, userInfo: ["balance": balance])
     }
     

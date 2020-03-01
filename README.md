@@ -1,57 +1,89 @@
-# 진행 방법
+## Step1
 
-- 음료수 자판기 iOS 앱에 요구사항을 파악한다.
-- 요구사항에 대한 구현을 완료한 후 자신의 github 아이디에 해당하는 브랜치에 Pull Request(이하 PR)를 통해 코드 리뷰 요청을 한다.
-- 코드 리뷰 피드백에 대한 개선 작업을 하고 다시 PUSH한다.
-- 모든 피드백을 완료하면 다음 단계를 도전하고 앞의 과정을 반복한다.
+## Step2
 
-# 코드 리뷰 과정
-> 저장소 브랜치에 자신의 github 아이디에 해당하는 브랜치가 존재해야 한다.
->
-> 자신의 github 아이디에 해당하는 브랜치가 있는지 확인한다.
+2020/Feb/25
 
-1. 자신의 github 아이디에 해당하는 브랜치가 없는 경우 브랜치 생성 요청 채널을 통해 브랜치 생성을 요청한다.
-프로젝트를 자신의 계정으로 fork한다. 저장소 우측 상단의 fork 버튼을 활용한다.
+#### ObjectIdentifier
 
-2. fork한 프로젝트를 자신의 컴퓨터로 clone한다.
-```
-git clone https://github.com/{본인_아이디}/{저장소 아이디}
-ex) https://github.com/godrm/swift-vendingmachineapp
+```swift
+private(set) var stockOf: [ObjectIdentifier: Beverages] = [:]
 ```
 
-3. clone한 프로젝트 이동
-```
-cd {저장소 아이디}
-ex) cd swift-vendingmachineapp
+ObjectIdentifier를 사용하면 세분화 되어져 만들어진 Class를 활용하여 충분히 분류작업을 처리할 수 있다.
+
+#### DateFormatter
+
+```swift
+extension Date {
+    func dateFormatString() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "ko_KR")
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        return dateFormatter.string(from: self)
+    }
+}
 ```
 
-4. 본인 아이디로 브랜치를 만들기 위한 checkout
-```
-git checkout -t origin/본인_아이디
-ex) git checkout -t origin/godrm
+extension을 활용한 기능 확장
+
+## Step3
+
+2020/March/01
+
+#### IBOutletCollection
+
+```swift
+private func setupUI() {
+    beverageImageViews.forEach {
+        $0.layer.cornerRadius = 16
+    }
+}
 ```
 
-5. commit
-```
-git status //확인
-git rm 파일명 //삭제된 파일
-git add 파일명(or * 모두) // 추가/변경 파일
-git commit -m "메세지" // 커밋
-```
+#### UIButton과 UILabel의 tag 활용
 
-6. 본인 원격 저장소에 올리기
-```
-git push origin 본인_아이디
-ex) git push origin godrm
+```swift
+@IBAction func putMoneyTouched(_ sender: Any) {
+    let button = sender as! UIButton
+    vendingMachine.putMoney(Money(button.tag))
+}
 ```
 
-7. pull request
-8. pull request는 github 서비스에서 진행할 수 있다.
-9. pull request는 반드시 original 저장소의 브랜치와 fork한 자신의 저장소 브랜치 이름이 같아야 하며, 브랜치 이름은 자신의 github 아이디여야 한다.
-10. code review 및 push
-11. pull request를 통해 피드백을 받는다.
-12. 코드 리뷰 피드백에 대한 개선 작업을 하고 다시 PUSH한다.
+<br>
 
-## 앞의 코드 리뷰 과정은 [영상 보기](https://www.youtube.com/watch?v=ZSZoaG0PqLg) 를 통해 참고 가능
 
-## 실습 중 모든 질문은 슬랙 채널에서...
+#### Notification Obsever 사용하여 변경된 Model 값을 View에 반영
+
+> NotificationCenter - addObserver
+
+```swift
+NotificationCenter.default.addObserver(self, selector: #selector(updateBalanceLabel(_:)), name: NSNotification.Name(rawValue: "BalanceChange"), object: nil)
+```
+
+Notification에 대한 observer를 viewcontroller에 추가한다.
+
+> View - action
+
+재고 추가 버튼과 잔액 추가 버튼을 누르면 model 값이 변경되도록 `@IBAction`을 통해 구현
+
+<br>
+
+> Model - didSet
+
+```swift
+didSet {
+	  postNotification()
+}
+
+func postNotification() {
+		NotificationCenter.default.post(name: NSNotification.Name(rawValue: "BalanceChange"), object: nil, userInfo: ["balance": balance])
+}
+```
+
+model이 변경될 때마다 Notification을 날려주기 위해서 didSet에 post 메소드를 호출 하도록 구현한다. post 메소드에 인자인`userInfo`로 변경된 데이터를 전달한다.
+
+<br>
+
+<img src="https://github.com/corykim0829/swift-vendingmachineapp/blob/corykim0829/Screenshots/step3.png?raw=true" width="560px">
+

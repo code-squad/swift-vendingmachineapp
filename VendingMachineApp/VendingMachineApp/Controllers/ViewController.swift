@@ -10,24 +10,22 @@ import UIKit
 
 class ViewController: UIViewController {
     var vendingMachine = VendingMachine()
-
     @IBOutlet var addToStockButtons: [UIButton]!
     @IBOutlet var beverageImageViews: [UIImageView]!
     @IBOutlet var berverageStockLabels: [UILabel]!
-    
-    @IBAction func addToStockButtonTouched(_ sender: Any) {
-        let button = sender as! UIButton
-        vendingMachine.addToStock(index: button.tag)
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         setupNotification()
     }
+
+    @IBAction func addToStockButtonTouched(_ sender: Any) {
+        let button = sender as! UIButton
+        vendingMachine.addToStock(index: button.tag)
+    }
     
-    private func setupNotification() {
-        NotificationCenter.default.addObserver(self, selector: #selector(updateLabel(_:)), name: NSNotification.Name(rawValue: "AddToStockButton"), object: nil)
+    private func setupNotification() { NotificationCenter.default.addObserver(self, selector: #selector(updateLabel(_:)), name: NSNotification.Name(rawValue: "AddToStockButton"), object: nil)
     }
     
     @objc private func updateLabel(_ notification: Notification) {
@@ -43,6 +41,10 @@ class ViewController: UIViewController {
         beverageImageViews.forEach {
             $0.layer.cornerRadius = 16
         }
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: Notification.Name(rawValue: "AddToStockButton"), object: nil)
     }
 }
 

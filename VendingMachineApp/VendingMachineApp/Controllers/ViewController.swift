@@ -21,13 +21,11 @@ class ViewController: UIViewController {
         setupNotification()
     }
     
-    @IBAction func addToStockButtonTouched(_ sender: Any) {
-        let button = sender as! UIButton
+    @IBAction func addToStockButtonTouched(_ button: UIButton) {
         vendingMachine.addToStock(index: button.tag)
     }
     
-    @IBAction func putMoneyTouched(_ sender: Any) {
-        let button = sender as! UIButton
+    @IBAction func putMoneyTouched(_ button: UIButton) {
         vendingMachine.putMoney(Money(button.tag))
     }
     
@@ -45,8 +43,9 @@ class ViewController: UIViewController {
         }
     }
     
-    private func setupNotification() { NotificationCenter.default.addObserver(self, selector: #selector(updateStockLabel(_:)), name: NSNotification.Name(rawValue: "StockNumberChange"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(updateBalanceLabel(_:)), name: NSNotification.Name(rawValue: "BalanceChange"), object: nil)
+    private func setupNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(updateStockLabel(_:)), name: .BalanceDidChange, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateBalanceLabel(_:)), name: .StockNumberDidChange, object: nil)
     }
     
     private func setupUI() {
@@ -56,7 +55,7 @@ class ViewController: UIViewController {
     }
     
     deinit {
-        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "AddToStockButton"), object: nil)
+        NotificationCenter.default.removeObserver(self, name: .BalanceDidChange, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .StockNumberDidChange, object: nil)
     }
 }
-

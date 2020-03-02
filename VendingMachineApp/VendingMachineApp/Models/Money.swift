@@ -20,7 +20,8 @@ class Money {
     }
     
     private func postNotification() {
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "BalanceChange"), object: nil, userInfo: ["balance": balance])
+        NotificationCenter.default.post(name: .BalanceDidChange, object: nil,
+                                        userInfo: ["balance": balance])
     }
     
     func add(money: Money) {

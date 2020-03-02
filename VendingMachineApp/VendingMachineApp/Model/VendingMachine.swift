@@ -35,7 +35,7 @@ struct VendingMachine {
         self.stock.add(beverage: Fanta(brand: "코카콜라", amount: 250, price: Money(amount: 1000), name: "환타 오렌지", calorie: 136, saleablePeriod: 600, sugarContent: 34, flavor: "오렌지"))
     }
     
-    func addBeverage(beverage: Beverage) {
+    mutating func addBeverage(beverage: Beverage) {
         stock.add(beverage: beverage)
     }
     

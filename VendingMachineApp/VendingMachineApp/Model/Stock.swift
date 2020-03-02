@@ -8,14 +8,14 @@
 
 import Foundation
 
-class Stock {
+struct Stock {
     private var beverages = [Beverage]()
     
-    func add(beverage: Beverage) {
+    mutating func add(beverage: Beverage) {
         beverages.append(beverage)
     }
     
-    func serve(beverage: Beverage) -> Beverage {
+    mutating func serve(beverage: Beverage) -> Beverage {
         return beverages.remove(at: beverages.firstIndex(of: beverage)!)
     }
         

@@ -31,6 +31,7 @@ class MainView: UIView {
     override func layoutSubviews() {
         stockImageViews.forEach {
             $0.image = UIImage(imageLiteralResourceName: "\(vendingMachineManager?.stockNames[$0.tag] ?? "").png")
+            $0.layer.cornerRadius = 30
         }
     }
 }

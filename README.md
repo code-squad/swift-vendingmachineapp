@@ -87,3 +87,25 @@ model이 변경될 때마다 Notification을 날려주기 위해서 didSet에 po
 
 <img src="https://github.com/corykim0829/swift-vendingmachineapp/blob/corykim0829/Screenshots/step3.png?raw=true" width="560px">
 
+2020/March/02
+
+#### @IBAction 함수 인자 타입 변경
+
+```swift
+@IBAction func addToStockButtonTouched(_ button: UIButton) {
+    vendingMachine.addToStock(index: button.tag)
+}
+```
+
+sender: Any에서 인자명이나, 타입을 바꿀 수 있다.
+
+#### extension NSNotification.Name
+
+rawValue로 계속 사용하게 되면 실수할 수 있기 때문에 extension로 NSNotification.Name을 확장하여 정의하여 사용한다.
+
+```swift
+extension NSNotification.Name {
+    static let BalanceDidChange = NSNotification.Name(rawValue: "BalanceDidChangeNotification")
+    static let StockNumberDidChange = NSNotification.Name(rawValue: "StockNumberDidChangeNotifiaction")
+}
+```

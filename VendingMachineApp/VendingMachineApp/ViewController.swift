@@ -9,14 +9,14 @@
 import UIKit
 
 class ViewController: UIViewController {
-    var manager = VendingMachineManager()
-    var mainView: MainView!
+    private var manager = VendingMachineManager()
+    private var mainView: MainView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         mainView = view as? MainView
-        mainView.someDelegate = manager
-        manager.anyDelegate = mainView
+        mainView.vendingMachineManager = manager
+        manager.mainViewUpdater = mainView
         manager.updateVendingMachine()
     }
 }

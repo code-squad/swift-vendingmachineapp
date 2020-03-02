@@ -8,13 +8,13 @@
 
 import UIKit
 
-protocol AnyDelegate: class {
+protocol MainViewUpdaterDelegate: class {
     func updateBalanceLabel(amount: String)
     func updateStockCountLabels(stockList: [(key: Beverage, value: Int)])
 }
 
 class MainView: UIView {
-    weak var someDelegate: SomeDelegate?
+    weak var vendingMachineManager: VendingMachineManagementDelegate?
     @IBOutlet weak var balanceLabel: UILabel!
     @IBOutlet var addBalanceButtons: [UIButton]!
     @IBOutlet var addStockButtons: [UIButton]!
@@ -22,20 +22,20 @@ class MainView: UIView {
     @IBOutlet var stockCountLabels: [UILabel]!
     
     @IBAction func addBalanceButtonTapped(_ sender: UIButton) {
-        someDelegate?.addBalance(amount: sender.tag)
+        vendingMachineManager?.addBalance(amount: sender.tag)
     }
     @IBAction func addStockButtonTapped(_ sender: UIButton) {
-        someDelegate?.addStock(index: sender.tag)
+        vendingMachineManager?.addStock(index: sender.tag)
     }
     
     override func layoutSubviews() {
         stockImageViews.forEach {
-            $0.image = UIImage(imageLiteralResourceName: "\(someDelegate?.stockNames[$0.tag] ?? "").png")
+            $0.image = UIImage(imageLiteralResourceName: "\(vendingMachineManager?.stockNames[$0.tag] ?? "").png")
         }
     }
 }
 
-extension MainView: AnyDelegate {
+extension MainView: MainViewUpdaterDelegate {
     func updateBalanceLabel(amount: String) {
         balanceLabel.text = "잔액: " + amount + "원"
     }

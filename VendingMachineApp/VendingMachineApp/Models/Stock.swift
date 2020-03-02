@@ -18,7 +18,7 @@ class Stock {
     }
     
     func postNotification() {
-        guard let changedBeverages = stockOf[changedBeverageObjectIdentifier!] else { return }
+        guard let objectIdentifier = changedBeverageObjectIdentifier, let changedBeverages = stockOf[objectIdentifier] else { return }
         NotificationCenter.default.post(name: .StockNumberDidChange, object: nil,
                                         userInfo: ["changedIndex": changedIndex!,                                      "numberOfBeverage": changedBeverages.beverages.count])
     }

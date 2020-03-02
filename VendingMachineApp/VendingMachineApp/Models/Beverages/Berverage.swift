@@ -25,6 +25,10 @@ class Beverage {
         self.expirationDate = expirationDate
     }
     
+    func isPurchasable(with balance: Money) -> Bool {
+        return price >= balance
+    }
+    
     func validate(with date: Date) -> Bool {
         return Date() < expirationDate
     }

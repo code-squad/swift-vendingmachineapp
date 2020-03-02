@@ -13,15 +13,23 @@ protocol AnyDelegate: class {
 }
 
 class MainView: UIView {
-
     weak var someDelegate: SomeDelegate?
-    
-    @IBOutlet var addBalanceButtons: [UIButton]!
-    
     @IBOutlet weak var balanceLabel: UILabel!
+    @IBOutlet var addBalanceButtons: [UIButton]!
+    @IBOutlet var addStockButtons: [UIButton]!
+    @IBOutlet var stockImageViews: [UIImageView]!
     
     @IBAction func addBalanceButtonTapped(_ sender: UIButton) {
         someDelegate?.addBalance(amount: sender.tag)
+    }
+    @IBAction func addStockButtonTapped(_ sender: UIButton) {
+        someDelegate?.addStock(index: sender.tag)
+    }
+    
+    override func layoutSubviews() {
+        stockImageViews.forEach {
+            $0.image = UIImage(imageLiteralResourceName: "\(someDelegate?.stockList[$0.tag] ?? "").png")
+        }
     }
 }
 

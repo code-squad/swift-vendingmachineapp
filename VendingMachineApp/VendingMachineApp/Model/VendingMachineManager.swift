@@ -9,8 +9,10 @@
 import Foundation
 
 protocol SomeDelegate: class {
+    var stockList: [String] { get }
     func addBalance(amount: Int)
     func checkBalance() -> Money
+    func addStock(index: Int)
 }
 
 class VendingMachineManager {
@@ -23,10 +25,17 @@ class VendingMachineManager {
 }
 
 extension VendingMachineManager: SomeDelegate {
+    var stockList: [String] {
+        vendingMachine.stockList.map { $0.key.name }
+    }
+    
     func addBalance(amount: Int) {
         vendingMachine.addBalance(Money(amount: amount))
     }
     func checkBalance() -> Money {
         vendingMachine.checkBalance()
+    }
+    func addStock(index: Int) {
+        
     }
 }

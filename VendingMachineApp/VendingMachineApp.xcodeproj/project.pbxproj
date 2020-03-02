@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		383594BC240CB38F00102CD1 /* NSNotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383594BB240CB38F00102CD1 /* NSNotificationName.swift */; };
 		388A25ED24043F3200727EEB /* Beverages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388A25EC24043F3200727EEB /* Beverages.swift */; };
 		388A25EE24043F3200727EEB /* Beverages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388A25EC24043F3200727EEB /* Beverages.swift */; };
 		388A25F22404F7AD00727EEB /* Date+DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388A25F12404F7AC00727EEB /* Date+DateFormatter.swift */; };
@@ -59,6 +60,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		383594BB240CB38F00102CD1 /* NSNotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSNotificationName.swift; sourceTree = "<group>"; };
 		388A25EC24043F3200727EEB /* Beverages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beverages.swift; sourceTree = "<group>"; };
 		388A25F12404F7AC00727EEB /* Date+DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+DateFormatter.swift"; sourceTree = "<group>"; };
 		388A25F42404F91400727EEB /* BeverageUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageUnitTests.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				388A25F12404F7AC00727EEB /* Date+DateFormatter.swift */,
+				383594BB240CB38F00102CD1 /* NSNotificationName.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -329,6 +332,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				383594BC240CB38F00102CD1 /* NSNotificationName.swift in Sources */,
 				38CB9B642400191F009FF065 /* Georgia.swift in Sources */,
 				38E570CC23FE452800310E11 /* ViewController.swift in Sources */,
 				38E570DD23FE47D900310E11 /* Berverage.swift in Sources */,

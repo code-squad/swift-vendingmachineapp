@@ -26,7 +26,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func putMoneyTouched(_ button: UIButton) {
-        vendingMachine.putMoney(Money(button.tag))
+        vendingMachine.putMoney(button.tag)
     }
     
     @objc private func updateBalanceLabel(_ notification: Notification) {
@@ -44,8 +44,8 @@ class ViewController: UIViewController {
     }
     
     private func setupNotification() {
-        NotificationCenter.default.addObserver(self, selector: #selector(updateStockLabel(_:)), name: .BalanceDidChange, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(updateBalanceLabel(_:)), name: .StockNumberDidChange, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateStockLabel(_:)), name: .StockNumberDidChange, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateBalanceLabel(_:)), name: .BalanceDidChange, object: nil)
     }
     
     private func setupUI() {

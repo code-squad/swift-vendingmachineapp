@@ -20,8 +20,10 @@ struct VendingMachine {
     private var purchased: [Beverage] = []
     private(set) var balance: Money = Money()
     
-    mutating func putMoney(_ money: Money) {
+    @discardableResult mutating func putMoney(_ amount: Int) -> Money {
+        let money = Money(amount)
         balance.add(money: money)
+        return balance
     }
     
     func addToStock(index: Int) {

@@ -9,7 +9,7 @@
 import Foundation
 
 protocol SomeDelegate: class {
-    var stockList: [String] { get }
+    var stockNames: [String] { get }
     func addBalance(amount: Int)
     func checkBalance() -> Money
     func addStock(index: Int)
@@ -19,13 +19,18 @@ class VendingMachineManager {
     weak var anyDelegate: AnyDelegate?
     var vendingMachine = VendingMachine() {
         didSet {
-            anyDelegate?.updateBalanceLabel(amount: "\(checkBalance())")
+            updateVendingMachine()
         }
+    }
+    
+    func updateVendingMachine() {
+        anyDelegate?.updateBalanceLabel(amount: "\(checkBalance())")
+        anyDelegate?.updateStockCountLabels(stockList: vendingMachine.stockList)
     }
 }
 
 extension VendingMachineManager: SomeDelegate {
-    var stockList: [String] {
+    var stockNames: [String] {
         vendingMachine.stockList.map { $0.key.name }
     }
     
@@ -36,6 +41,6 @@ extension VendingMachineManager: SomeDelegate {
         vendingMachine.checkBalance()
     }
     func addStock(index: Int) {
-        
+        vendingMachine.addBeverage(beverage: vendingMachine.stockList[index].key)
     }
 }

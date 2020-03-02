@@ -10,6 +10,7 @@ import UIKit
 
 protocol AnyDelegate: class {
     func updateBalanceLabel(amount: String)
+    func updateStockCountLabels(stockList: [(key: Beverage, value: Int)])
 }
 
 class MainView: UIView {
@@ -18,6 +19,7 @@ class MainView: UIView {
     @IBOutlet var addBalanceButtons: [UIButton]!
     @IBOutlet var addStockButtons: [UIButton]!
     @IBOutlet var stockImageViews: [UIImageView]!
+    @IBOutlet var stockCountLabels: [UILabel]!
     
     @IBAction func addBalanceButtonTapped(_ sender: UIButton) {
         someDelegate?.addBalance(amount: sender.tag)
@@ -28,7 +30,7 @@ class MainView: UIView {
     
     override func layoutSubviews() {
         stockImageViews.forEach {
-            $0.image = UIImage(imageLiteralResourceName: "\(someDelegate?.stockList[$0.tag] ?? "").png")
+            $0.image = UIImage(imageLiteralResourceName: "\(someDelegate?.stockNames[$0.tag] ?? "").png")
         }
     }
 }
@@ -36,5 +38,11 @@ class MainView: UIView {
 extension MainView: AnyDelegate {
     func updateBalanceLabel(amount: String) {
         balanceLabel.text = "잔액: " + amount + "원"
+    }
+    
+    func updateStockCountLabels(stockList: [(key: Beverage, value: Int)]) {
+        stockCountLabels.forEach {
+            $0.text = "\(stockList[$0.tag].value)개"
+        }
     }
 }

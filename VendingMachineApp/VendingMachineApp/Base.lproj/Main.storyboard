@@ -78,7 +78,7 @@
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="en8-eF-pa0">
                                                 <rect key="frame" x="0.0" y="30" width="150" height="150"/>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0개" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F9H-t8-wAU">
+                                            <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0개" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F9H-t8-wAU">
                                                 <rect key="frame" x="0.0" y="180" width="150" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -99,7 +99,7 @@
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cB6-0c-PkK">
                                                 <rect key="frame" x="0.0" y="30" width="150" height="150"/>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0개" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Czy-az-M7b">
+                                            <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0개" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Czy-az-M7b">
                                                 <rect key="frame" x="0.0" y="180" width="150" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -120,7 +120,7 @@
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="3" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2cy-Ej-q6j">
                                                 <rect key="frame" x="0.0" y="30" width="150" height="150"/>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0개" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0hG-hk-cmS">
+                                            <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0개" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0hG-hk-cmS">
                                                 <rect key="frame" x="0.0" y="180" width="150" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -141,7 +141,7 @@
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="4" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FHc-OU-A6M">
                                                 <rect key="frame" x="0.0" y="30" width="150" height="150"/>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0개" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s2g-fC-kfd">
+                                            <label opaque="NO" userInteractionEnabled="NO" tag="4" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0개" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s2g-fC-kfd">
                                                 <rect key="frame" x="0.0" y="180" width="150" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -192,6 +192,11 @@
                             <outletCollection property="stockImageViews" destination="cB6-0c-PkK" collectionClass="NSMutableArray" id="DDA-I8-kgS"/>
                             <outletCollection property="stockImageViews" destination="2cy-Ej-q6j" collectionClass="NSMutableArray" id="ZeL-ST-xuY"/>
                             <outletCollection property="stockImageViews" destination="FHc-OU-A6M" collectionClass="NSMutableArray" id="9wT-YK-Fbn"/>
+                            <outletCollection property="stockCountLabels" destination="QXR-n8-Inz" collectionClass="NSMutableArray" id="tKF-6p-pE3"/>
+                            <outletCollection property="stockCountLabels" destination="F9H-t8-wAU" collectionClass="NSMutableArray" id="uqV-q1-TEi"/>
+                            <outletCollection property="stockCountLabels" destination="Czy-az-M7b" collectionClass="NSMutableArray" id="O66-o8-WHR"/>
+                            <outletCollection property="stockCountLabels" destination="0hG-hk-cmS" collectionClass="NSMutableArray" id="Da3-83-6kc"/>
+                            <outletCollection property="stockCountLabels" destination="s2g-fC-kfd" collectionClass="NSMutableArray" id="mKL-wd-7D2"/>
                         </connections>
                     </view>
                 </viewController>

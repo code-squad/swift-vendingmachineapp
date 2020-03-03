@@ -8,8 +8,27 @@
 
 import Foundation
 
-final class Fanta: Beverage {
-    init() {
-        super.init(manufacturer: "코카콜라", size: 185, price: 900, name: "환타")
+final class Fanta: SoftDrink {
+    
+    enum Flavor {
+        case grape
+        case orange
+        case strawberry
+    }
+    
+    let flavor: Flavor
+    
+    init(manufacturer: String,
+         size: Int,
+         price: Int,
+         name: String,
+         bubbleIntensity: BubbleIntensity,
+         flavor: Flavor) {
+        self.flavor = flavor
+        super.init(manufacturer: manufacturer,
+                   size: size,
+                   price: price,
+                   name: name,
+                   bubbleIntensity: bubbleIntensity)
     }
 }

@@ -8,8 +8,20 @@
 
 import Foundation
 
-final class Coke: Beverage {
-    init() {
-        super.init(manufacturer: "코카콜라", size: 355, price: 1600, name: "코카콜라")
+final class Coke: SoftDrink {
+    let isDietCoke: Bool
+    
+    init(manufacturer: String,
+         size: Int,
+         price: Int,
+         name: String,
+         bubbleIntensity: BubbleIntensity,
+         isDietCoke: Bool) {
+        self.isDietCoke = isDietCoke
+        super.init(manufacturer: manufacturer,
+                   size: size,
+                   price: price,
+                   name: name,
+                   bubbleIntensity: bubbleIntensity)
     }
 }

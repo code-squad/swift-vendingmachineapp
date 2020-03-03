@@ -8,8 +8,27 @@
 
 import Foundation
 
-final class Sprite: Beverage {
-    init() {
-        super.init(manufacturer: "코카콜라", size: 250, price: 1200, name: "스프라이트")
+final class Sprite: SoftDrink {
+    
+    enum Container {
+        case bottle
+        case can
+        case pet
+    }
+    
+    let container: Container
+    
+    init(manufacturer: String,
+         size: Int,
+         price: Int,
+         name: String,
+         bubbleIntensity: BubbleIntensity,
+         container: Container) {
+        self.container = container
+        super.init(manufacturer: manufacturer,
+                   size: size,
+                   price: price,
+                   name: name,
+                   bubbleIntensity: bubbleIntensity)
     }
 }

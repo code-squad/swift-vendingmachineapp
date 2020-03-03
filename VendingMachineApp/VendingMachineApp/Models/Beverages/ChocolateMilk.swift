@@ -8,8 +8,16 @@
 
 import Foundation
 
-final class ChocolateMilk: Beverage {
-    init() {
-        super.init(manufacturer: "매일유업", size: 300, price: 1500, name: "바나나는 원래 하얗다")
+final class ChocolateMilk: Milk {
+    let containsMint: Bool
+    
+    init(manufacturer: String,
+         size: Int,
+         price: Int,
+         name: String,
+         farmCode: MilkFarmCode,
+         containsMint: Bool) {
+        self.containsMint = containsMint
+        super.init(manufacture: manufacturer, size: size, price: price, name: name, farmCode: farmCode)
     }
 }

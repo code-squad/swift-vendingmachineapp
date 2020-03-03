@@ -15,9 +15,13 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        vendingMachine.fill(beverage: StrawberryMilk())
-        vendingMachine.fill(beverage: Fanta())
-        vendingMachine.fill(beverage: Top())
+        [StrawberryMilk(manufacturer: "매일유업",
+                        size: 300,
+                        price: 1500,
+                        name: "상하목장 유기농 딸기우유",
+                        farmCode: .incheonRhinoFarm,
+                        strawberryContentRate: 0)].forEach { vendingMachine.fill(beverage: $0) }
+        
         print(vendingMachine.stockList)
     }
 }

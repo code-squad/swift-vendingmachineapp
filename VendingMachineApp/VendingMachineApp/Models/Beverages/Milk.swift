@@ -16,8 +16,8 @@ class Milk: Beverage {
         case incheonRhinoFarm = "RNO003"
     }
     
-    var farmCode: MilkFarmCode
-    var expirationDate: Date
+    private(set) var farmCode: MilkFarmCode
+    private var expirationDate: Date
     
     init(manufacture: String, size: Int, price: Int, name: String, farmCode: MilkFarmCode) {
         self.farmCode = farmCode
@@ -26,6 +26,10 @@ class Milk: Beverage {
         
         let week = DateComponents(day: 7)
         self.expirationDate = Calendar.current.date(byAdding: week, to: self.productionDate)!
+    }
+    
+    func validate() -> Bool {
+        return Date() < expirationDate
     }
 }
 

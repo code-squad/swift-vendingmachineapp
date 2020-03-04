@@ -18,7 +18,7 @@ class Coffee: Beverage {
         self.flavor = flavor
         self.package = package
         self.isHot = isHot
-        super.init(manufacturer: manufacturer, brand: brand, capacity: capacity, price: price, name: name, manufacturedDate: manufacturedDate, expirationDate: expirationDate)
+        super.init(manufacturer: manufacturer, brand: brand, capacity: capacity, price: price, name: name, manufacturedDate: manufacturedDate, expirationDate: expirationDate, isHot: isHot)
     }
     
     enum Flavor {

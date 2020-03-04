@@ -21,4 +21,8 @@ class Beverages {
     func addBeverage(_ beverage: Beverage) {
         beverages.append(beverage)
     }
+    
+    func verifyHotBeverages() -> [Beverage]{
+       return beverages.filter { $0.verifyHotBeverage() }
+    }
 }

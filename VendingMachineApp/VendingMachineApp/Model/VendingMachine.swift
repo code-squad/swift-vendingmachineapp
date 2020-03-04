@@ -59,9 +59,10 @@ struct VendingMachine {
         
     }
 //    따뜻한 음료만 리턴하는 메소드
-    func reportWarmBeverage() {
-        
+    func verifyHotBeverages() -> [Beverage] {
+       return beverages.verifyHotBeverages()
     }
+    
 //    시작이후 구매 상품 이력을 배열로 리턴하는 메소드
     func reportPurchaseHistory() {
         

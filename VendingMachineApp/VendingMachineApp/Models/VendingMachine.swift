@@ -9,13 +9,18 @@
 import Foundation
 
 class VendingMachine {
-    private var stock = [Beverage]()
+    private var inventory = Inventory()
+    private var balance = 0
     
     var stockList: String {
-        return "\(stock)"
+        return "\(inventory)"
+    }
+    
+    func insert(money: Int) {
+        balance += money
     }
     
     func fill(beverage: Beverage) {
-        stock.append(beverage)
+        inventory.add(beverage)
     }
 }

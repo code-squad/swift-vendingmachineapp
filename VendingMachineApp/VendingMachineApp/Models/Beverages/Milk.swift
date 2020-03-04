@@ -32,4 +32,3 @@ class Milk: Beverage {
         return date < expirationDate
     }
 }
-

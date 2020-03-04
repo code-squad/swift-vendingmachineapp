@@ -16,7 +16,7 @@ final class Fanta: SoftDrink {
         case strawberry
     }
     
-    let flavor: Flavor
+    private(set) var flavor: Flavor
     
     init(manufacturer: String,
          size: Int,

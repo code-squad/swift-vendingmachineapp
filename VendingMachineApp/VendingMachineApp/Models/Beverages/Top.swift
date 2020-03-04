@@ -16,7 +16,7 @@ final class Top: Coffee {
         case bottle
     }
     
-    let containerType: ContainerType
+    private(set) var containerType: ContainerType
     
     init(manufacturer: String,
          size: Int,

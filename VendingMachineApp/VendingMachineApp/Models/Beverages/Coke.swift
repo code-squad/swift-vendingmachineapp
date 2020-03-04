@@ -9,7 +9,7 @@
 import Foundation
 
 final class Coke: SoftDrink {
-    let isDietCoke: Bool
+    private(set) var isDietCoke: Bool
     
     init(manufacturer: String,
          size: Int,

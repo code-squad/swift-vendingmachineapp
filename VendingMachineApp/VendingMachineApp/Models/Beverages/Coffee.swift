@@ -9,8 +9,8 @@
 import Foundation
 
 class Coffee: Beverage {
-    let caffeineContent: Int
-    let temperature: Int
+    private let caffeineContent: Int
+    private let temperature: Int
     
     init(manufacturer: String,
          size: Int,
@@ -21,5 +21,13 @@ class Coffee: Beverage {
         self.caffeineContent = caffeineContent
         self.temperature = temperature
         super.init(manufacturer: manufacturer, size: size, price: price, name: name)
+    }
+    
+    func canReplaceEnergyDrinks() -> Bool {
+        return caffeineContent > 50
+    }
+    
+    func isHot() -> Bool {
+        return temperature > 80
     }
 }

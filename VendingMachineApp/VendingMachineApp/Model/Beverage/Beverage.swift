@@ -15,12 +15,13 @@ class Beverage: CustomStringConvertible {
     private var name: String
     private var manufacturedDate: Date
     private var expirationDate: Date
+    private var isHot: Bool
     
     var description: String {
         return "\(manufacturer), \(capacity), \(price), \(brand), \(dateToString(manufacturedDate))"
     }
 
-    init(manufacturer: String, brand: String, capacity: Int, price: Int, name: String, manufacturedDate: Date, expirationDate: Date) {
+    init(manufacturer: String, brand: String, capacity: Int, price: Int, name: String, manufacturedDate: Date, expirationDate: Date, isHot: Bool) {
         self.manufacturer = manufacturer
         self.brand = brand
         self.capacity = capacity
@@ -28,6 +29,7 @@ class Beverage: CustomStringConvertible {
         self.name = name
         self.manufacturedDate = manufacturedDate
         self.expirationDate = expirationDate
+        self.isHot = isHot
     }
     
     func dateToString(_ date: Date) -> String {
@@ -41,5 +43,9 @@ class Beverage: CustomStringConvertible {
         dateFormatter.dateFormat = "yyyyMMdd"
         dateFormatter.timeZone = NSTimeZone(name: "UTC") as TimeZone?
         return dateFormatter.date(from: date)!
+    }
+    
+    func verifyHotBeverage() -> Bool {
+        return isHot
     }
 }

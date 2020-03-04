@@ -49,3 +49,18 @@ class Beverage: CustomStringConvertible {
         return isHot
     }
 }
+
+extension Beverage: Equatable {
+
+    static func == (lhs: Beverage, rhs: Beverage) -> Bool {
+        return lhs.brand == rhs.brand
+            && lhs.capacity == rhs.capacity
+            && lhs.expirationDate == rhs.expirationDate
+            && lhs.isHot == rhs.isHot
+            && lhs.manufacturedDate == rhs.manufacturedDate
+            && lhs.manufacturer == rhs.manufacturer
+            && lhs.name == rhs.name
+            && lhs.price == rhs.price
+    }
+    
+}

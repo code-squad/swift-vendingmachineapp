@@ -10,6 +10,8 @@ import Foundation
 struct VendingMachine {
     var beverages: Beverages
     var money: [String:Int] = ["fiveThousand" : 0, "thousand" : 0, "fiveHundred" : 0, "hundred" : 0]
+    var balance = 0
+    var purchasedList: [Beverage] = []
     
     func showTotalStock() {
         beverages.forEachBeverages { print($0.description) }
@@ -22,6 +24,7 @@ struct VendingMachine {
              guard let value = money[key] else { return }
             money.updateValue(moneyType + value, forKey: key)
         }
+       balance = confirmBalance()
     }
 
     func addStock(_ beverage: Beverage) {
@@ -38,14 +41,14 @@ struct VendingMachine {
         }
         return purchasbleBeverages
     }
-//    음료수를 구매하는 메소드
-    func purchaseBeverage() {
-        //해당 금액만큼 돈 차감
-        //음료 갯수  1 차감
+
+    mutating func purchaseBeverage(beverage: Beverage, price: Int) {
+        balance -= price
+        beverages.removeBeverage(beverage)
+        purchasedList.append(beverage)
     }
 
     mutating func confirmBalance() -> Int {
-        var balance = 0
         for (key, value) in money {
             var tmp = 0
             if key.contains("thousand") {
@@ -76,8 +79,7 @@ struct VendingMachine {
        return beverages.verifyHotBeverages()
     }
     
-//    시작이후 구매 상품 이력을 배열로 리턴하는 메소드
-    func reportPurchaseHistory() {
-        
+    func reportPurchasedHistory() -> [Beverage] {
+        return purchasedList
     }
 }

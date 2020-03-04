@@ -26,4 +26,7 @@ class Beverages {
        return beverages.filter { $0.verifyHotBeverage() }
     }
  
+    func removeBeverage(_ beverage: Beverage) {
+        beverages.firstIndex(of: beverage).map { beverages.remove(at: $0) }
+    }
 }

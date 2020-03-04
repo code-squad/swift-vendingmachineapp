@@ -24,4 +24,5 @@ class Beverage {
         self.name = name
         self.manufacturingDate = manufacturingDate
     }
+    
 }

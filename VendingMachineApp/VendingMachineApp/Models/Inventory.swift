@@ -18,4 +18,12 @@ class Inventory: CustomStringConvertible {
     func add(_ beverage: Beverage) {
         inventory.append(beverage)
     }
+    
+    func repeatForAllItems(_ block: (Beverage) -> Void) {
+        inventory.forEach { block($0) }
+    }
+    
+    func repeatForAvailableItems(with balance: Int, _ block: (Beverage) -> Void) {
+        inventory.filter { $0.price <= balance }.forEach { block($0) }
+    }
 }

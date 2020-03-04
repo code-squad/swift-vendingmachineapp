@@ -8,8 +8,28 @@
 
 import Foundation
 
-final class Cantata: Beverage {
-    init() {
-        super.init(manufacturer: "롯데", size: 225, price: 1250, name: "칸타타 프리미엄라떼")
+final class Cantata: Coffee {
+    
+    enum ProductType {
+        case americano
+        case latte
+        case caramelMacchiato
+    }
+    
+    let productType: ProductType
+    
+    init(manufacturer: String,
+         size: Int,
+         price: Int,
+         name: String,
+         caffeineContent: Int,
+         temperature: Int,
+         productType: ProductType) {
+        self.productType = productType
+        super.init(manufacturer: manufacturer,
+                   size: size, price: price,
+                   name: name,
+                   caffeineContent: caffeineContent,
+                   temperature: temperature)
     }
 }

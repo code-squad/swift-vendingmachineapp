@@ -12,7 +12,7 @@ class Coffee: Beverage {
     let caffeineContent: Int
     let temperature: Int
     
-    init(manufacture: String,
+    init(manufacturer: String,
          size: Int,
          price: Int,
          name: String,
@@ -20,6 +20,6 @@ class Coffee: Beverage {
          temperature: Int) {
         self.caffeineContent = caffeineContent
         self.temperature = temperature
-        super.init(manufacturer: manufacture, size: size, price: price, name: name)
+        super.init(manufacturer: manufacturer, size: size, price: price, name: name)
     }
 }

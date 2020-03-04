@@ -11,8 +11,7 @@ import XCTest
 
 class BeveragesTests: XCTestCase {
     
-    var milk: Milk?
-    var coffee: Coffee?
+    var milk: Milk!
     
     override func setUp() {
         milk = Milk(manufacture: "",
@@ -23,13 +22,13 @@ class BeveragesTests: XCTestCase {
     }
     
     func testValidMilk() {
-        XCTAssertTrue(milk?.validate(with: Date()) ?? false)
+        XCTAssertTrue(milk.validate(with: Date()))
     }
     
     func testInvalidMilk() {
         let eightDays = DateComponents(day: 8)
         let eightDaysPassedFromNow = Calendar.current.date(byAdding: eightDays, to: Date())!
-        XCTAssertFalse(milk?.validate(with: eightDaysPassedFromNow) ?? true)
+        XCTAssertFalse(milk.validate(with: eightDaysPassedFromNow))
     }
     
     func testEnergyDrinkReplaceableCoffee() {

@@ -12,11 +12,11 @@ class Milk: Beverage {
     private var flavor: Flavor
     private var isLactoFree: Bool
 
-    init(manufacturer: String, brand: String, capacity: Int, price: Int, name: String, manufacturedDate: Date, fatRatio: FatRatio, flavor: Flavor, isLactoFree: Bool) {
+    init(manufacturer: String, brand: String, capacity: Int, price: Int, name: String, manufacturedDate: Date, expirationDate: Date, fatRatio: FatRatio, flavor: Flavor, isLactoFree: Bool) {
         self.fatRatio = fatRatio
         self.flavor = flavor
         self.isLactoFree = isLactoFree
-        super.init(manufacturer: manufacturer, brand: brand, capacity: capacity, price: price, name: name, manufacturedDate: manufacturedDate)
+        super.init(manufacturer: manufacturer, brand: brand, capacity: capacity, price: price, name: name, manufacturedDate: manufacturedDate, expirationDate: expirationDate)
     }
     
     enum Flavor {

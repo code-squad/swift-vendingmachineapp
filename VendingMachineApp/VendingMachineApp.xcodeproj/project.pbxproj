@@ -15,6 +15,7 @@
 		5A91FCD9240FCE0000884D64 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A91FCD7240FCE0000884D64 /* LaunchScreen.storyboard */; };
 		5A91FCE4240FCE0000884D64 /* VendingMachineAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A91FCE3240FCE0000884D64 /* VendingMachineAppTests.swift */; };
 		5A91FCEF240FCE0000884D64 /* VendingMachineAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A91FCEE240FCE0000884D64 /* VendingMachineAppUITests.swift */; };
+		5A91FCFE240FD6DE00884D64 /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A91FCFD240FD6DE00884D64 /* VendingMachine.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		5A91FCEA240FCE0000884D64 /* VendingMachineAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VendingMachineAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A91FCEE240FCE0000884D64 /* VendingMachineAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineAppUITests.swift; sourceTree = "<group>"; };
 		5A91FCF0240FCE0000884D64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5A91FCFD240FD6DE00884D64 /* VendingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachine.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 		5A91FCCB240FCDFB00884D64 /* VendingMachineApp */ = {
 			isa = PBXGroup;
 			children = (
+				5A91FCFC240FD6B700884D64 /* View */,
 				5A91FCCC240FCDFB00884D64 /* AppDelegate.swift */,
 				5A91FCCE240FCDFB00884D64 /* SceneDelegate.swift */,
 				5A91FCD0240FCDFB00884D64 /* ViewController.swift */,
@@ -126,6 +129,14 @@
 				5A91FCF0240FCE0000884D64 /* Info.plist */,
 			);
 			path = VendingMachineAppUITests;
+			sourceTree = "<group>";
+		};
+		5A91FCFC240FD6B700884D64 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5A91FCFD240FD6DE00884D64 /* VendingMachine.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,6 +273,7 @@
 				5A91FCD1240FCDFB00884D64 /* ViewController.swift in Sources */,
 				5A91FCCD240FCDFB00884D64 /* AppDelegate.swift in Sources */,
 				5A91FCCF240FCDFB00884D64 /* SceneDelegate.swift in Sources */,
+				5A91FCFE240FD6DE00884D64 /* VendingMachine.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

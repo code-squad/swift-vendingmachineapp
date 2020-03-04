@@ -26,7 +26,14 @@ class ViewController: UIViewController {
                 price: 1200,
                 name: "스프라이트",
                 bubbleIntensity: .medium,
-                container: .can)].forEach { vendingMachine.fill(beverage: $0) }
+                container: .can),
+         Top(manufacturer: "동서식품",
+             size: 260,
+             price: 1200,
+             name: "티.오.피",
+             caffeineContent: 120,
+             temperature: 5,
+             containerType: .cup)].forEach { vendingMachine.fill(beverage: $0) }
         
         print(vendingMachine.stockList)
     }

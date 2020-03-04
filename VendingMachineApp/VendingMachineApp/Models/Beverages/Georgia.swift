@@ -8,8 +8,28 @@
 
 import Foundation
 
-final class Georgia: Beverage {
-    init() {
-        super.init(manufacturer: "코카콜라", size: 250, price: 1300, name: "조지아 오리지널")
+final class Georgia: Coffee {
+    
+    enum ProductType {
+        case original
+        case caffeLatte
+        case americano
+    }
+    
+    let productType: ProductType
+    
+    init(manufacturer: String,
+         size: Int,
+         price: Int,
+         name: String,
+         caffeineContent: Int,
+         temperature: Int,
+         productType: ProductType) {
+        self.productType = productType
+        super.init(manufacturer: manufacturer,
+                   size: size, price: price,
+                   name: name,
+                   caffeineContent: caffeineContent,
+                   temperature: temperature)
     }
 }

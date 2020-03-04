@@ -10,20 +10,20 @@ import Foundation
 
 final class Sprite: SoftDrink {
     
-    enum Container {
+    enum ContainerType {
         case bottle
         case can
         case pet
     }
     
-    let container: Container
+    let container: ContainerType
     
     init(manufacturer: String,
          size: Int,
          price: Int,
          name: String,
          bubbleIntensity: BubbleIntensity,
-         container: Container) {
+         container: ContainerType) {
         self.container = container
         super.init(manufacturer: manufacturer,
                    size: size,

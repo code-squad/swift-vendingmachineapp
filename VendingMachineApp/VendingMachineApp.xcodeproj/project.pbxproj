@@ -17,6 +17,9 @@
 		5A91FCEF240FCE0000884D64 /* VendingMachineAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A91FCEE240FCE0000884D64 /* VendingMachineAppUITests.swift */; };
 		5A91FCFE240FD6DE00884D64 /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A91FCFD240FD6DE00884D64 /* VendingMachine.swift */; };
 		5A91FD00240FD7D100884D64 /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A91FCFF240FD7D100884D64 /* Beverage.swift */; };
+		5A91FD02240FDFE900884D64 /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A91FD01240FDFE800884D64 /* Milk.swift */; };
+		5A91FD04240FE04400884D64 /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A91FD03240FE04400884D64 /* Coffee.swift */; };
+		5A91FD06240FE0BE00884D64 /* Soda.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A91FD05240FE0BE00884D64 /* Soda.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +56,9 @@
 		5A91FCF0240FCE0000884D64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5A91FCFD240FD6DE00884D64 /* VendingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachine.swift; sourceTree = "<group>"; };
 		5A91FCFF240FD7D100884D64 /* Beverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beverage.swift; sourceTree = "<group>"; };
+		5A91FD01240FDFE800884D64 /* Milk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Milk.swift; sourceTree = "<group>"; };
+		5A91FD03240FE04400884D64 /* Coffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
+		5A91FD05240FE0BE00884D64 /* Soda.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Soda.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +144,9 @@
 			children = (
 				5A91FCFD240FD6DE00884D64 /* VendingMachine.swift */,
 				5A91FCFF240FD7D100884D64 /* Beverage.swift */,
+				5A91FD01240FDFE800884D64 /* Milk.swift */,
+				5A91FD03240FE04400884D64 /* Coffee.swift */,
+				5A91FD05240FE0BE00884D64 /* Soda.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -277,7 +286,10 @@
 				5A91FCD1240FCDFB00884D64 /* ViewController.swift in Sources */,
 				5A91FCCD240FCDFB00884D64 /* AppDelegate.swift in Sources */,
 				5A91FCCF240FCDFB00884D64 /* SceneDelegate.swift in Sources */,
+				5A91FD06240FE0BE00884D64 /* Soda.swift in Sources */,
+				5A91FD02240FDFE900884D64 /* Milk.swift in Sources */,
 				5A91FCFE240FD6DE00884D64 /* VendingMachine.swift in Sources */,
+				5A91FD04240FE04400884D64 /* Coffee.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

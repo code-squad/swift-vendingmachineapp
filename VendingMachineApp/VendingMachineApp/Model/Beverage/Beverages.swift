@@ -14,7 +14,11 @@ class Beverages {
         beverages = [Beverage]()
     }
     
-    func forEach(_ handler: (Beverage) -> ()) {
+    func forEachBeverages(_ handler: (Beverage) -> ()) {
         beverages.forEach { handler($0) }
+    }
+    
+    func addBeverage(_ beverage: Beverage) {
+        beverages.append(beverage)
     }
 }

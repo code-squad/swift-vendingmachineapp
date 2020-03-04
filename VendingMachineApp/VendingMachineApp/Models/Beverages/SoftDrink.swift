@@ -16,7 +16,7 @@ class SoftDrink: Beverage {
         case weak
     }
     
-    let bubbleIntensity: BubbleIntensity
+    private(set) var bubbleIntensity: BubbleIntensity
     
     init(manufacturer: String, size: Int, price: Int, name: String, bubbleIntensity: BubbleIntensity) {
         self.bubbleIntensity = bubbleIntensity

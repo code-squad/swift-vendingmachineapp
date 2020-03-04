@@ -16,7 +16,7 @@ final class Georgia: Coffee {
         case americano
     }
     
-    let productType: ProductType
+    private(set) var productType: ProductType
     
     init(manufacturer: String,
          size: Int,

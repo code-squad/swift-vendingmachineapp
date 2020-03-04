@@ -18,13 +18,13 @@ final class Top: Coffee {
     
     private(set) var containerType: ContainerType
     
-    init(manufacturer: String,
-         size: Int,
-         price: Int,
-         name: String,
-         caffeineContent: Int,
-         temperature: Int,
-         containerType: ContainerType) {
+    init(manufacturer: String = "동서식품",
+         size: Int = 260,
+         price: Int = 1200,
+         name: String = "티.오.피",
+         caffeineContent: Int = 30,
+         temperature: Int = 4,
+         containerType: ContainerType = .cup) {
         self.containerType = containerType
         super.init(manufacturer: manufacturer,
                    size: size, price: price,

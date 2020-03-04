@@ -11,12 +11,12 @@ import Foundation
 final class StrawberryMilk: Milk {
     private(set) var strawberryContentRate: Int
     
-    init(manufacturer: String,
-         size: Int,
-         price: Int,
-         name: String,
-         farmCode: MilkFarmCode,
-         strawberryContentRate: Int) {
+    init(manufacturer: String = "매일유업",
+         size: Int = 300,
+         price: Int = 1500,
+         name: String = "상하목장 유기농 딸기우유",
+         farmCode: MilkFarmCode = .seoulCowFarm,
+         strawberryContentRate: Int = 0) {
         self.strawberryContentRate = strawberryContentRate
         super.init(manufacture: manufacturer, size: size, price: price, name: name, farmCode: farmCode)
     }

@@ -9,7 +9,7 @@
 import Foundation
 
 final class ChocolateMilk: Milk {
-    let containsMint: Bool
+    private let containsMint: Bool
     
     init(manufacturer: String,
          size: Int,
@@ -19,5 +19,9 @@ final class ChocolateMilk: Milk {
          containsMint: Bool) {
         self.containsMint = containsMint
         super.init(manufacture: manufacturer, size: size, price: price, name: name, farmCode: farmCode)
+    }
+    
+    func isMintChoco() -> Bool {
+        return containsMint
     }
 }

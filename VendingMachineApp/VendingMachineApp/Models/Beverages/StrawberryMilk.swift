@@ -9,7 +9,7 @@
 import Foundation
 
 final class StrawberryMilk: Milk {
-    let strawberryContentRate: Int
+    private(set) var strawberryContentRate: Int
     
     init(manufacturer: String,
          size: Int,

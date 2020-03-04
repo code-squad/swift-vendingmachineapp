@@ -11,7 +11,7 @@ class Beverage: CustomStringConvertible {
     private var manufacturer: String
     private var brand: String
     private var capacity: Int
-    private var price: Int
+    private(set) var price: Int
     private var name: String
     private var manufacturedDate: Date
     private var expirationDate: Date

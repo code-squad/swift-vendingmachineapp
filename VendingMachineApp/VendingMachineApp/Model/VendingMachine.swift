@@ -10,7 +10,6 @@ import Foundation
 struct VendingMachine {
     var beverages: Beverages
     var money: [String:Int] = ["fiveThousand" : 0, "thousand" : 0, "fiveHundred" : 0, "hundred" : 0]
-    var balance = 0
     
     func showTotalStock() {
         beverages.forEachBeverages { print($0.description) }
@@ -24,21 +23,29 @@ struct VendingMachine {
             money.updateValue(moneyType + value, forKey: key)
         }
     }
-//    특정 상품 인스턴스를 넘겨서 재고를 추가하는 메소드
+
     func addStock(_ beverage: Beverage) {
         beverages.addBeverage(beverage)
     }
 //    현재 금액으로 구매가능한 음료수 목록을 리턴하는 메소드
-    func reportAvailableStockNowMoney() {
-        
+    mutating func reportAvailableBeverageNowMoney() -> [Beverage] {
+        let nowBalance = confirmBalance()
+        var purchasbleBeverages: [Beverage] = []
+        beverages.forEachBeverages { (beverage) in
+            if beverage.price > nowBalance {
+                purchasbleBeverages.append(beverage)
+            }
+        }
+        return purchasbleBeverages
     }
 //    음료수를 구매하는 메소드
     func purchaseBeverage() {
         //해당 금액만큼 돈 차감
         //음료 갯수  1 차감
     }
-//    잔액을 확인하는 메소드
+
     mutating func confirmBalance() -> Int {
+        var balance = 0
         for (key, value) in money {
             var tmp = 0
             if key.contains("thousand") {
@@ -58,7 +65,7 @@ struct VendingMachine {
     func confirmOverdateStock() {
         
     }
-//    따뜻한 음료만 리턴하는 메소드
+
     func verifyHotBeverages() -> [Beverage] {
        return beverages.verifyHotBeverages()
     }

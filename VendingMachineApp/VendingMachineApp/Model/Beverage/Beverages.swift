@@ -7,3 +7,14 @@
 //
 
 import Foundation
+class Beverages {
+    private var beverages: [Beverage]
+    
+    init() {
+        beverages = [Beverage]()
+    }
+    
+    func forEach(_ handler: (Beverage) -> ()) {
+        beverages.forEach { handler($0) }
+    }
+}

@@ -28,8 +28,8 @@ class Milk: Beverage {
         self.expirationDate = Calendar.current.date(byAdding: week, to: self.productionDate)!
     }
     
-    func validate() -> Bool {
-        return Date() < expirationDate
+    func validate(with date: Date) -> Bool {
+        return date < expirationDate
     }
 }
 

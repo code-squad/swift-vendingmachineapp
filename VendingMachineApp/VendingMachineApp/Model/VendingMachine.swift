@@ -10,11 +10,12 @@ import Foundation
 struct VendingMachine {
     var beverages: Beverages
     var money: [String:Int] = ["fiveThousand" : 0, "thousand" : 0, "fiveHundred" : 0, "hundred" : 0]
+    var balance = 0
     
     func showTotalStock() {
-//        beverages.forEach { print($0.description) }
+        beverages.forEachBeverages { print($0.description) }
     }
-//    자판기 금액을 원하는 금액만큼 올리는 메소드
+    
     mutating func raiseMoney(fiveThousandCount: Int, thousandCount: Int, fiveHundredCount: Int, hundredCount: Int) {
         let insertedMoney = [fiveThousandCount, thousandCount, fiveHundredCount, hundredCount]
         for moneyType in insertedMoney {
@@ -24,8 +25,8 @@ struct VendingMachine {
         }
     }
 //    특정 상품 인스턴스를 넘겨서 재고를 추가하는 메소드
-    func addStock() {
-        
+    func addStock(_ beverage: Beverage) {
+        beverages.addBeverage(beverage)
     }
 //    현재 금액으로 구매가능한 음료수 목록을 리턴하는 메소드
     func reportAvailableStockNowMoney() {
@@ -37,8 +38,7 @@ struct VendingMachine {
         //음료 갯수  1 차감
     }
 //    잔액을 확인하는 메소드
-    func confirmBalance() -> Int {
-        var balance = 0
+    mutating func confirmBalance() -> Int {
         for (key, value) in money {
             var tmp = 0
             if key.contains("thousand") {

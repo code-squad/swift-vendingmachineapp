@@ -27,7 +27,7 @@ struct VendingMachine {
     func addStock(_ beverage: Beverage) {
         beverages.addBeverage(beverage)
     }
-//    현재 금액으로 구매가능한 음료수 목록을 리턴하는 메소드
+
     mutating func reportAvailableBeverageNowMoney() -> [Beverage] {
         let nowBalance = confirmBalance()
         var purchasbleBeverages: [Beverage] = []
@@ -61,9 +61,15 @@ struct VendingMachine {
     func reportTotalStock() {
         
     }
-//    유통기한이 지난 재고만 확인하는 메소드
-    func confirmOverdateStock() {
-        
+    
+    func confirmOverdateStock() -> [Beverage] {
+        var overExpirationBeverage: [Beverage] = []
+        beverages.forEachBeverages { (beverage) in
+            if beverage.manufacturedDate < beverage.expirationDate {
+                overExpirationBeverage.append(beverage)
+            }
+        }
+        return overExpirationBeverage
     }
 
     func verifyHotBeverages() -> [Beverage] {

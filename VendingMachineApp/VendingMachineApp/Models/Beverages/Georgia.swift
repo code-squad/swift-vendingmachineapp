@@ -18,13 +18,13 @@ final class Georgia: Coffee {
     
     private(set) var productType: ProductType
     
-    init(manufacturer: String,
-         size: Int,
-         price: Int,
-         name: String,
-         caffeineContent: Int,
-         temperature: Int,
-         productType: ProductType) {
+    init(manufacturer: String = "코카콜라",
+         size: Int = 250,
+         price: Int = 1300,
+         name: String = "조지아 오리지널",
+         caffeineContent: Int = 120,
+         temperature: Int = 5,
+         productType: ProductType = .americano) {
         self.productType = productType
         super.init(manufacturer: manufacturer,
                    size: size, price: price,

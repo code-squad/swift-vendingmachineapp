@@ -18,12 +18,12 @@ final class Fanta: SoftDrink {
     
     private(set) var flavor: Flavor
     
-    init(manufacturer: String,
-         size: Int,
-         price: Int,
-         name: String,
-         bubbleIntensity: BubbleIntensity,
-         flavor: Flavor) {
+    init(manufacturer: String = "코카콜라",
+         size: Int = 185,
+         price: Int = 900,
+         name: String = "환타",
+         bubbleIntensity: BubbleIntensity = .weak,
+         flavor: Flavor = .orange) {
         self.flavor = flavor
         super.init(manufacturer: manufacturer,
                    size: size,

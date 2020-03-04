@@ -11,12 +11,12 @@ import Foundation
 final class Coke: SoftDrink {
     private(set) var isDietCoke: Bool
     
-    init(manufacturer: String,
-         size: Int,
-         price: Int,
-         name: String,
-         bubbleIntensity: BubbleIntensity,
-         isDietCoke: Bool) {
+    init(manufacturer: String = "코카콜라",
+         size: Int = 355,
+         price: Int = 1600,
+         name: String = "코카콜라",
+         bubbleIntensity: BubbleIntensity = .strong,
+         isDietCoke: Bool = false) {
         self.isDietCoke = isDietCoke
         super.init(manufacturer: manufacturer,
                    size: size,

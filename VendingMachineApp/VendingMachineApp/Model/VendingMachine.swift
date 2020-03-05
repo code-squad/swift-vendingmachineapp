@@ -8,22 +8,25 @@
 
 import Foundation
 struct VendingMachine {
-    var beverages: Beverages
-    var money: [String:Int] = ["fiveThousand" : 0, "thousand" : 0, "fiveHundred" : 0, "hundred" : 0]
-    var balance = 0
-    var purchasedList: [Beverage] = []
+    private var beverages: Beverages
+    private var money: [String:Int] = ["fiveThousand" : 0, "thousand" : 0, "fiveHundred" : 0, "hundred" : 0]
+    private(set) var balance = 0
+    private var purchasedList: [Beverage] = []
+    
+    init() {
+        beverages = Beverages()
+    }
     
     func showTotalStock() {
         beverages.forEachBeverages { print($0.description) }
     }
     
     mutating func raiseMoney(fiveThousandCount: Int, thousandCount: Int, fiveHundredCount: Int, hundredCount: Int) {
-        let insertedMoney = [fiveThousandCount, thousandCount, fiveHundredCount, hundredCount]
-        for moneyType in insertedMoney {
-            let key = String(moneyType) + "Count"
-             guard let value = money[key] else { return }
-            money.updateValue(moneyType + value, forKey: key)
-        }
+         let insertedMoney = ["fiveThousand": fiveThousandCount, "thousand": thousandCount, "fiveHundred": fiveHundredCount, "hundred": hundredCount]
+              for (moneyType, count) in insertedMoney {
+                  guard let value = money[moneyType] else { return }
+                  money.updateValue(count + value, forKey: moneyType)
+              }
        balance = confirmBalance()
     }
 
@@ -32,10 +35,9 @@ struct VendingMachine {
     }
 
     mutating func reportAvailableBeverageNowMoney() -> [Beverage] {
-        let nowBalance = confirmBalance()
         var purchasbleBeverages: [Beverage] = []
         beverages.forEachBeverages { (beverage) in
-            if beverage.price > nowBalance {
+            if beverage.price > balance {
                 purchasbleBeverages.append(beverage)
             }
         }
@@ -50,13 +52,20 @@ struct VendingMachine {
 
     mutating func confirmBalance() -> Int {
         for (key, value) in money {
-            var tmp = 0
-            if key.contains("thousand") {
-                tmp += value * 1000
-            }else if key.contains("five") {
-                tmp += value * 5
+            var temp = 0
+            switch key {
+            case "fiveThousand":
+                temp += value * 5000
+            case "thousand":
+                temp += value * 1000
+            case "fiveHundred":
+                temp += value * 500
+            case "hundred":
+                temp += value * 100
+            default:
+                temp = 0
             }
-            balance += tmp
+            balance += temp
         }
         return balance
     }

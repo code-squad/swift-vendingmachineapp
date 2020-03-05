@@ -35,7 +35,11 @@ class Inventory: CustomStringConvertible {
             return
         }
         
-        if inventory[index].price > balance { block(.fail(.insufficientBalance)) }
+        if inventory[index].price > balance {
+            block(.fail(.insufficientBalance))
+            return
+        }
+        
         block(.success(inventory.remove(at: index)))
     }
     

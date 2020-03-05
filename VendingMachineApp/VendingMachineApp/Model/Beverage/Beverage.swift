@@ -37,14 +37,7 @@ class Beverage: CustomStringConvertible {
         dateFormatter.dateFormat = "yyyyMMdd"
         return dateFormatter.string(from: date)
     }
-    
-    func stringToDate(_ date: String) -> Date {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyyMMdd"
-        dateFormatter.timeZone = NSTimeZone(name: "UTC") as TimeZone?
-        return dateFormatter.date(from: date)!
-    }
-    
+
     func verifyHotBeverage() -> Bool {
         return isHot
     }

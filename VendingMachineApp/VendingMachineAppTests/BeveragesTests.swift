@@ -22,13 +22,13 @@ class BeveragesTests: XCTestCase {
     }
     
     func testValidMilk() {
-        XCTAssertTrue(milk.validate(with: Date()))
+        XCTAssertTrue(milk.isValid(with: Date()))
     }
     
     func testInvalidMilk() {
         let eightDays = DateComponents(day: 8)
         let eightDaysPassedFromNow = Calendar.current.date(byAdding: eightDays, to: Date())!
-        XCTAssertFalse(milk.validate(with: eightDaysPassedFromNow))
+        XCTAssertFalse(milk.isValid(with: eightDaysPassedFromNow))
     }
     
     func testEnergyDrinkReplaceableCoffee() {

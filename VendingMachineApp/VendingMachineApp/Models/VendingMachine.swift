@@ -10,7 +10,8 @@ import Foundation
 
 class VendingMachine {
     private var inventory = Inventory()
-    private var balance = 0
+    private(set) var balance = 0
+    private var salesLog = [Beverage]()
     
     var stockList: String {
         return "\(inventory)"
@@ -22,5 +23,20 @@ class VendingMachine {
     
     func fill(beverage: Beverage) {
         inventory.add(beverage)
+    }
+    
+    func sell(beverage: String) {
+        inventory.takeOut(beverage, balance: balance) { result in
+            switch result {
+            case let .fail(error): print(error.localizedDescription)
+            case let .success(beverage):
+                balance -= beverage.price
+                salesLog.append(beverage)
+            }
+        }
+    }
+    
+    func repeatForSalesLog(_ block: (Beverage) -> Void) {
+        salesLog.forEach { block($0) }
     }
 }

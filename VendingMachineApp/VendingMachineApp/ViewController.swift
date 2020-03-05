@@ -10,11 +10,11 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    let vendingMachine = VendingMachine()
+//    let vendingMachine = VendingMachine()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        vendingMachine.showBeverages()
+//        vendingMachine.showTotalStock()
     }
 
 

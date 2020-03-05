@@ -29,4 +29,16 @@ class Beverages {
     func removeBeverage(_ beverage: Beverage) {
         beverages.firstIndex(of: beverage).map { beverages.remove(at: $0) }
     }
+    
+    func reportKindWithCount() -> [Beverage : Int] {
+        var stockList: [Beverage : Int] = [:]
+        beverages.forEach { (beverage) in
+            if let value = stockList[beverage] {
+                stockList[beverage] = value + 1
+            } else {
+                stockList[beverage] = 1
+            }
+        }
+        return stockList
+    }
 }

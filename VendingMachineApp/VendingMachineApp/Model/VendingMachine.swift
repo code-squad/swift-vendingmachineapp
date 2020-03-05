@@ -60,9 +60,9 @@ struct VendingMachine {
         }
         return balance
     }
-//    전체 상품 재고를 (사전으로 표현하는) 종류별로 리턴하는 메소드
-    func reportTotalStock() {
-        
+    
+    func reportTotalStock() -> [Beverage:Int] {
+        return beverages.reportKindWithCount()
     }
     
     func confirmOverdateStock() -> [Beverage] {

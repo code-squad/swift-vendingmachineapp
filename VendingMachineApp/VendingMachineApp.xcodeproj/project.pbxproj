@@ -29,6 +29,7 @@
 		30B9CB7F240FF416002760FE /* UCCCoffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B9CB7E240FF416002760FE /* UCCCoffee.swift */; };
 		30FC1B742410E995000DFF44 /* VendingMachineAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FC1B732410E995000DFF44 /* VendingMachineAppTests.swift */; };
 		30FC1B7C2410EDFF000DFF44 /* BeverageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FC1B7B2410EDFF000DFF44 /* BeverageTests.swift */; };
+		30FC1B802410F2F8000DFF44 /* BeveragesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FC1B7F2410F2F8000DFF44 /* BeveragesTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		30FC1B732410E995000DFF44 /* VendingMachineAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineAppTests.swift; sourceTree = "<group>"; };
 		30FC1B752410E995000DFF44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		30FC1B7B2410EDFF000DFF44 /* BeverageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageTests.swift; sourceTree = "<group>"; };
+		30FC1B7F2410F2F8000DFF44 /* BeveragesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeveragesTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +182,7 @@
 				30FC1B732410E995000DFF44 /* VendingMachineAppTests.swift */,
 				30FC1B752410E995000DFF44 /* Info.plist */,
 				30FC1B7B2410EDFF000DFF44 /* BeverageTests.swift */,
+				30FC1B7F2410F2F8000DFF44 /* BeveragesTests.swift */,
 			);
 			path = VendingMachineAppTests;
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30FC1B802410F2F8000DFF44 /* BeveragesTests.swift in Sources */,
 				30FC1B7C2410EDFF000DFF44 /* BeverageTests.swift in Sources */,
 				30FC1B742410E995000DFF44 /* VendingMachineAppTests.swift in Sources */,
 			);

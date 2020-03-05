@@ -27,7 +27,19 @@
 		30B9CB7B240FF387002760FE /* StarbucksCoffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B9CB7A240FF387002760FE /* StarbucksCoffee.swift */; };
 		30B9CB7D240FF3ED002760FE /* CantataCoffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B9CB7C240FF3ED002760FE /* CantataCoffee.swift */; };
 		30B9CB7F240FF416002760FE /* UCCCoffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B9CB7E240FF416002760FE /* UCCCoffee.swift */; };
+		30FC1B742410E995000DFF44 /* VendingMachineAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FC1B732410E995000DFF44 /* VendingMachineAppTests.swift */; };
+		30FC1B7C2410EDFF000DFF44 /* BeverageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FC1B7B2410EDFF000DFF44 /* BeverageTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		30FC1B762410E995000DFF44 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 30609DF62407EFC000EF3645 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 30609DFD2407EFC100EF3645;
+			remoteInfo = VendingMachineApp;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		300CD767240EA35100085882 /* Beverages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beverages.swift; sourceTree = "<group>"; };
@@ -52,10 +64,21 @@
 		30B9CB7A240FF387002760FE /* StarbucksCoffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarbucksCoffee.swift; sourceTree = "<group>"; };
 		30B9CB7C240FF3ED002760FE /* CantataCoffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CantataCoffee.swift; sourceTree = "<group>"; };
 		30B9CB7E240FF416002760FE /* UCCCoffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UCCCoffee.swift; sourceTree = "<group>"; };
+		30FC1B712410E995000DFF44 /* VendingMachineAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VendingMachineAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		30FC1B732410E995000DFF44 /* VendingMachineAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineAppTests.swift; sourceTree = "<group>"; };
+		30FC1B752410E995000DFF44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		30FC1B7B2410EDFF000DFF44 /* BeverageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		30609DFB2407EFC100EF3645 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		30FC1B6E2410E995000DFF44 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -69,18 +92,10 @@
 			isa = PBXGroup;
 			children = (
 				30609E162407F43700EF3645 /* Beverage.swift */,
-				30609E182407F6EE00EF3645 /* Milk.swift */,
-				30609E1A2407F71000EF3645 /* Soda.swift */,
-				30609E1C2407F72A00EF3645 /* Coffee.swift */,
 				300CD767240EA35100085882 /* Beverages.swift */,
-				30B9CB70240FEF8B002760FE /* BananaMilk.swift */,
-				30B9CB72240FF21B002760FE /* ChocoMilk.swift */,
-				30B9CB74240FF256002760FE /* StrawberryMilk.swift */,
-				30B9CB76240FF28D002760FE /* Coke.swift */,
-				30B9CB78240FF32A002760FE /* Cider.swift */,
-				30B9CB7A240FF387002760FE /* StarbucksCoffee.swift */,
-				30B9CB7C240FF3ED002760FE /* CantataCoffee.swift */,
-				30B9CB7E240FF416002760FE /* UCCCoffee.swift */,
+				30FC1B6C2410E8F3000DFF44 /* Coffee */,
+				30FC1B6B2410E8E8000DFF44 /* Soda */,
+				30FC1B6A2410E8DA000DFF44 /* Milk */,
 			);
 			path = Beverage;
 			sourceTree = "<group>";
@@ -89,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				30609E002407EFC100EF3645 /* VendingMachineApp */,
+				30FC1B722410E995000DFF44 /* VendingMachineAppTests */,
 				30609DFF2407EFC100EF3645 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -97,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				30609DFE2407EFC100EF3645 /* VendingMachineApp.app */,
+				30FC1B712410E995000DFF44 /* VendingMachineAppTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -125,6 +142,48 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		30FC1B6A2410E8DA000DFF44 /* Milk */ = {
+			isa = PBXGroup;
+			children = (
+				30609E182407F6EE00EF3645 /* Milk.swift */,
+				30B9CB74240FF256002760FE /* StrawberryMilk.swift */,
+				30B9CB72240FF21B002760FE /* ChocoMilk.swift */,
+				30B9CB70240FEF8B002760FE /* BananaMilk.swift */,
+			);
+			path = Milk;
+			sourceTree = "<group>";
+		};
+		30FC1B6B2410E8E8000DFF44 /* Soda */ = {
+			isa = PBXGroup;
+			children = (
+				30609E1A2407F71000EF3645 /* Soda.swift */,
+				30B9CB76240FF28D002760FE /* Coke.swift */,
+				30B9CB78240FF32A002760FE /* Cider.swift */,
+			);
+			path = Soda;
+			sourceTree = "<group>";
+		};
+		30FC1B6C2410E8F3000DFF44 /* Coffee */ = {
+			isa = PBXGroup;
+			children = (
+				30B9CB7C240FF3ED002760FE /* CantataCoffee.swift */,
+				30B9CB7E240FF416002760FE /* UCCCoffee.swift */,
+				30B9CB7A240FF387002760FE /* StarbucksCoffee.swift */,
+				30609E1C2407F72A00EF3645 /* Coffee.swift */,
+			);
+			path = Coffee;
+			sourceTree = "<group>";
+		};
+		30FC1B722410E995000DFF44 /* VendingMachineAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				30FC1B732410E995000DFF44 /* VendingMachineAppTests.swift */,
+				30FC1B752410E995000DFF44 /* Info.plist */,
+				30FC1B7B2410EDFF000DFF44 /* BeverageTests.swift */,
+			);
+			path = VendingMachineAppTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -145,6 +204,24 @@
 			productReference = 30609DFE2407EFC100EF3645 /* VendingMachineApp.app */;
 			productType = "com.apple.product-type.application";
 		};
+		30FC1B702410E995000DFF44 /* VendingMachineAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 30FC1B782410E995000DFF44 /* Build configuration list for PBXNativeTarget "VendingMachineAppTests" */;
+			buildPhases = (
+				30FC1B6D2410E995000DFF44 /* Sources */,
+				30FC1B6E2410E995000DFF44 /* Frameworks */,
+				30FC1B6F2410E995000DFF44 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				30FC1B772410E995000DFF44 /* PBXTargetDependency */,
+			);
+			name = VendingMachineAppTests;
+			productName = VendingMachineAppTests;
+			productReference = 30FC1B712410E995000DFF44 /* VendingMachineAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -157,6 +234,10 @@
 				TargetAttributes = {
 					30609DFD2407EFC100EF3645 = {
 						CreatedOnToolsVersion = 11.3;
+					};
+					30FC1B702410E995000DFF44 = {
+						CreatedOnToolsVersion = 11.3;
+						TestTargetID = 30609DFD2407EFC100EF3645;
 					};
 				};
 			};
@@ -174,6 +255,7 @@
 			projectRoot = "";
 			targets = (
 				30609DFD2407EFC100EF3645 /* VendingMachineApp */,
+				30FC1B702410E995000DFF44 /* VendingMachineAppTests */,
 			);
 		};
 /* End PBXProject section */
@@ -186,6 +268,13 @@
 				30609E0E2407EFC600EF3645 /* LaunchScreen.storyboard in Resources */,
 				30609E0B2407EFC600EF3645 /* Assets.xcassets in Resources */,
 				30609E092407EFC100EF3645 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		30FC1B6F2410E995000DFF44 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,7 +305,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		30FC1B6D2410E995000DFF44 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				30FC1B7C2410EDFF000DFF44 /* BeverageTests.swift in Sources */,
+				30FC1B742410E995000DFF44 /* VendingMachineAppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		30FC1B772410E995000DFF44 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 30609DFD2407EFC100EF3645 /* VendingMachineApp */;
+			targetProxy = 30FC1B762410E995000DFF44 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		30609E072407EFC100EF3645 /* Main.storyboard */ = {
@@ -388,6 +494,46 @@
 			};
 			name = Release;
 		};
+		30FC1B792410E995000DFF44 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = NC28R53QWB;
+				INFOPLIST_FILE = VendingMachineAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.delma.VendingMachineAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VendingMachineApp.app/VendingMachineApp";
+			};
+			name = Debug;
+		};
+		30FC1B7A2410E995000DFF44 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = NC28R53QWB;
+				INFOPLIST_FILE = VendingMachineAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.delma.VendingMachineAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VendingMachineApp.app/VendingMachineApp";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -405,6 +551,15 @@
 			buildConfigurations = (
 				30609E132407EFC700EF3645 /* Debug */,
 				30609E142407EFC700EF3645 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		30FC1B782410E995000DFF44 /* Build configuration list for PBXNativeTarget "VendingMachineAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				30FC1B792410E995000DFF44 /* Debug */,
+				30FC1B7A2410E995000DFF44 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

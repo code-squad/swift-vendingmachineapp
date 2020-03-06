@@ -29,6 +29,9 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ie-dg-O0U">
                                                         <rect key="frame" x="0.0" y="0.0" width="282" height="110"/>
                                                         <state key="normal" title="추가"/>
+                                                        <connections>
+                                                            <action selector="addStock:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Wmd-mh-hK9"/>
+                                                        </connections>
                                                     </button>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chocolateMilk" translatesAutoresizingMaskIntoConstraints="NO" id="Xhq-qf-9pb">
                                                         <rect key="frame" x="0.0" y="110" width="282" height="110.5"/>
@@ -47,9 +50,12 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="S8I-kk-27T">
                                                 <rect key="frame" x="282" y="0.0" width="282" height="330.5"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sog-k3-S8q">
+                                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sog-k3-S8q">
                                                         <rect key="frame" x="0.0" y="0.0" width="282" height="110"/>
                                                         <state key="normal" title="추가"/>
+                                                        <connections>
+                                                            <action selector="addStock:" destination="BYZ-38-t0r" eventType="touchUpInside" id="baE-Ia-TrG"/>
+                                                        </connections>
                                                     </button>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="strawberryMilk" translatesAutoresizingMaskIntoConstraints="NO" id="J9Z-PB-Qei">
                                                         <rect key="frame" x="0.0" y="110" width="282" height="110.5"/>
@@ -68,9 +74,12 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Za0-2j-XPg">
                                                 <rect key="frame" x="564" y="0.0" width="282" height="330.5"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="47Y-aX-l8j">
+                                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="47Y-aX-l8j">
                                                         <rect key="frame" x="0.0" y="0.0" width="282" height="110"/>
                                                         <state key="normal" title="추가"/>
+                                                        <connections>
+                                                            <action selector="addStock:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PFz-a4-UcU"/>
+                                                        </connections>
                                                     </button>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coke" translatesAutoresizingMaskIntoConstraints="NO" id="tSk-wb-OIp">
                                                         <rect key="frame" x="0.0" y="110" width="282" height="110.5"/>
@@ -95,9 +104,12 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="eew-SJ-Mes">
                                                 <rect key="frame" x="0.0" y="0.0" width="282" height="330.5"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fKt-HY-oh9">
+                                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fKt-HY-oh9">
                                                         <rect key="frame" x="0.0" y="0.0" width="282" height="110"/>
                                                         <state key="normal" title="추가"/>
+                                                        <connections>
+                                                            <action selector="addStock:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5zm-FP-tSv"/>
+                                                        </connections>
                                                     </button>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sprite" translatesAutoresizingMaskIntoConstraints="NO" id="0Gi-nc-7Xg">
                                                         <rect key="frame" x="0.0" y="110" width="282" height="110.5"/>
@@ -116,9 +128,12 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="TpI-2x-MFe">
                                                 <rect key="frame" x="282" y="0.0" width="282" height="330.5"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pYn-o3-zbC">
+                                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pYn-o3-zbC">
                                                         <rect key="frame" x="0.0" y="0.0" width="282" height="110"/>
                                                         <state key="normal" title="추가"/>
+                                                        <connections>
+                                                            <action selector="addStock:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KXA-IL-1Ug"/>
+                                                        </connections>
                                                     </button>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="georgia" translatesAutoresizingMaskIntoConstraints="NO" id="0r4-zd-mob">
                                                         <rect key="frame" x="0.0" y="110" width="282" height="110.5"/>
@@ -137,9 +152,12 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Oxx-KX-nja">
                                                 <rect key="frame" x="564" y="0.0" width="282" height="330.5"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lpe-zi-46g">
+                                                    <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lpe-zi-46g">
                                                         <rect key="frame" x="0.0" y="0.0" width="282" height="110"/>
                                                         <state key="normal" title="추가"/>
+                                                        <connections>
+                                                            <action selector="addStock:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yT8-9b-UCk"/>
+                                                        </connections>
                                                     </button>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TOP" translatesAutoresizingMaskIntoConstraints="NO" id="uiv-uI-3an">
                                                         <rect key="frame" x="0.0" y="110" width="282" height="110.5"/>
@@ -163,11 +181,17 @@
                                 <rect key="frame" x="958" y="188" width="44" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="+1000"/>
+                                <connections>
+                                    <action selector="addBalance:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VJb-JG-JB8"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7aq-jf-xWp">
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7aq-jf-xWp">
                                 <rect key="frame" x="1049" y="188" width="50" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="+5000"/>
+                                <connections>
+                                    <action selector="addBalance:" destination="BYZ-38-t0r" eventType="touchUpInside" id="98W-ft-5Kj"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SQn-k4-T9R">
                                 <rect key="frame" x="1008" y="263" width="42" height="21"/>
@@ -180,6 +204,29 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="balanceLabel" destination="ysS-N8-uDA" id="a2o-gL-w5t"/>
+                        <outletCollection property="addStockButtons" destination="8ie-dg-O0U" collectionClass="NSMutableArray" id="Qs1-9q-ooq"/>
+                        <outletCollection property="addStockButtons" destination="sog-k3-S8q" collectionClass="NSMutableArray" id="9Af-FI-DTf"/>
+                        <outletCollection property="addStockButtons" destination="47Y-aX-l8j" collectionClass="NSMutableArray" id="6Qc-t2-BdO"/>
+                        <outletCollection property="addStockButtons" destination="fKt-HY-oh9" collectionClass="NSMutableArray" id="jdP-U5-3dA"/>
+                        <outletCollection property="addStockButtons" destination="pYn-o3-zbC" collectionClass="NSMutableArray" id="brG-oI-f5s"/>
+                        <outletCollection property="addStockButtons" destination="lpe-zi-46g" collectionClass="NSMutableArray" id="Dnt-F7-VOW"/>
+                        <outletCollection property="productImages" destination="Xhq-qf-9pb" collectionClass="NSMutableArray" id="m6m-Td-5ri"/>
+                        <outletCollection property="productImages" destination="J9Z-PB-Qei" collectionClass="NSMutableArray" id="sLG-4j-zMe"/>
+                        <outletCollection property="productImages" destination="tSk-wb-OIp" collectionClass="NSMutableArray" id="IxP-Vi-UTn"/>
+                        <outletCollection property="productImages" destination="0Gi-nc-7Xg" collectionClass="NSMutableArray" id="Uh1-A5-rXd"/>
+                        <outletCollection property="productImages" destination="0r4-zd-mob" collectionClass="NSMutableArray" id="WFJ-fA-ToM"/>
+                        <outletCollection property="productImages" destination="uiv-uI-3an" collectionClass="NSMutableArray" id="ZQI-Xq-WpT"/>
+                        <outletCollection property="stockLabels" destination="HzD-JS-4Tc" collectionClass="NSMutableArray" id="N2J-pZ-fNt"/>
+                        <outletCollection property="stockLabels" destination="Pd8-6e-ChJ" collectionClass="NSMutableArray" id="B8E-VD-eWR"/>
+                        <outletCollection property="stockLabels" destination="6nU-0n-A6m" collectionClass="NSMutableArray" id="DNy-rr-DAe"/>
+                        <outletCollection property="stockLabels" destination="ig5-nU-xpZ" collectionClass="NSMutableArray" id="imv-D3-g3l"/>
+                        <outletCollection property="stockLabels" destination="szG-h0-7gR" collectionClass="NSMutableArray" id="rqd-kI-L0p"/>
+                        <outletCollection property="stockLabels" destination="ysS-N8-uDA" collectionClass="NSMutableArray" id="VVS-rD-enc"/>
+                        <outletCollection property="addBalaceButtons" destination="v79-Lw-nPZ" collectionClass="NSMutableArray" id="Rpp-qz-8Df"/>
+                        <outletCollection property="addBalaceButtons" destination="7aq-jf-xWp" collectionClass="NSMutableArray" id="Asa-YH-YtD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

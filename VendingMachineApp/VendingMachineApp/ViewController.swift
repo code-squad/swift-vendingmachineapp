@@ -9,17 +9,21 @@
 import UIKit
 
 class ViewController: UIViewController {
+    let vendingMachine = VendingMachine()
+    @IBOutlet var addStockButtons: [UIButton]!
+    @IBOutlet var productImages: [UIImageView]!
+    @IBOutlet var stockLabels: [UILabel]!
+    @IBOutlet var addBalaceButtons: [UIButton]!
+    @IBOutlet weak var balanceLabel: UILabel!
 
+    @IBAction func addStock(_ sender: UIButton) {
+    }
+    
+    @IBAction func addBalance(_ sender: UIButton) {
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        let seoulMilk = Beverage(brand: "서울우유", capacity: 200, price: 1000, name: "날마다딸기우유", manufacturingDate: Date(), expirationDate: Date(timeIntervalSinceNow: 86400), calorie: 100, temperature: 10)
-        let pepsi = Beverage(brand: "펩시", capacity: 350, price: 2000, name: "다이어트콜라", manufacturingDate: Date(), expirationDate: Date(timeIntervalSinceNow: 86400), calorie: 120, temperature: 10)
-        let maxim = Beverage(brand: "맥심", capacity: 400, price: 3000, name: "TOP아메리카노", manufacturingDate: Date(timeIntervalSinceNow: -86400 * 2), expirationDate: Date(timeIntervalSinceNow: 86400), calorie: 140, temperature: 10)
-        let vendingMachine = VendingMachine()
-        
-        vendingMachine.insert(beverage: seoulMilk)
-        vendingMachine.insert(beverage: pepsi)
-        vendingMachine.insert(beverage: maxim)
     }
 }
 

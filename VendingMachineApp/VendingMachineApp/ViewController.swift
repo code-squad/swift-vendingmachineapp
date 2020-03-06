@@ -20,10 +20,6 @@ class ViewController: UIViewController {
         vendingMachine.insert(beverage: seoulMilk)
         vendingMachine.insert(beverage: pepsi)
         vendingMachine.insert(beverage: maxim)
-        
-        vendingMachine.forEachBeverages{
-            print($0)
-        }
     }
 }
 

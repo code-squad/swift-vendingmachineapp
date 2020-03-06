@@ -74,7 +74,7 @@ struct VendingMachine {
         return beverages.reportKindWithCount()
     }
     
-    func confirmOverdateStock() -> [Beverage] {
+    func reportExpiratedBeverage() -> [Beverage] {
         return beverages.reportExpiratedBeverage()
     }
 

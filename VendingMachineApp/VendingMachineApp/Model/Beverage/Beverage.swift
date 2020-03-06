@@ -28,7 +28,7 @@ class Beverage: CustomStringConvertible {
         self.price = price
         self.name = name
         self.manufacturedDate = manufacturedDate
-        self.expirationDate = expirationDate
+        self.expirationDate = expirationDate.setPastDate()
         self.isHot = isHot
     }
     
@@ -37,7 +37,8 @@ class Beverage: CustomStringConvertible {
     }
     
     func isExpiratedBeverage() -> Bool {
-       return manufacturedDate > expirationDate ? true : false
+        let now = Date()
+       return now > expirationDate ? true : false
     }
     
 }

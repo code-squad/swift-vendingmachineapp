@@ -17,7 +17,7 @@ class Pepsi: Soda {
     }
     
     convenience init?(volume: Int, price: Int, name: String, dateInfo: String) {
-        self.init(brand: "팹시코", volume: volume, price: price,
+        self.init(brand: "팹시", volume: volume, price: price,
                   name: name, dateInfo: dateInfo)
     }
     

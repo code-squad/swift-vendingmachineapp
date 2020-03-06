@@ -24,6 +24,17 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
+    }
+    
+    func setupUI() {
+        makeCornerRadius()
+    }
+    
+    func makeCornerRadius() {
+        productImages.forEach{
+            $0.layer.cornerRadius = 40
+        }
     }
 }
 

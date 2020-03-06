@@ -18,7 +18,7 @@ class Beverage: CustomStringConvertible {
     private var isHot: Bool
     
     var description: String {
-        return "\(manufacturer), \(capacity), \(price), \(brand), \(dateToString(manufacturedDate))"
+        return "\(manufacturer), \(capacity), \(price), \(brand), \(manufacturedDate.dateToString())"
     }
 
     init(manufacturer: String, brand: String, capacity: Int, price: Int, name: String, manufacturedDate: Date, expirationDate: Date, isHot: Bool) {
@@ -32,12 +32,6 @@ class Beverage: CustomStringConvertible {
         self.isHot = isHot
     }
     
-    func dateToString(_ date: Date) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyyMMdd"
-        return dateFormatter.string(from: date)
-    }
-
     func verifyHotBeverage() -> Bool {
         return isHot
     }

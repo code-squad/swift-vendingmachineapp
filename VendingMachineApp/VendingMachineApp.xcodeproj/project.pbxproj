@@ -19,6 +19,7 @@
 		30609E192407F6EE00EF3645 /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30609E182407F6EE00EF3645 /* Milk.swift */; };
 		30609E1B2407F71000EF3645 /* Soda.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30609E1A2407F71000EF3645 /* Soda.swift */; };
 		30609E1D2407F72A00EF3645 /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30609E1C2407F72A00EF3645 /* Coffee.swift */; };
+		30B6CA44241297BB00C7FA28 /* ExtendedDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B6CA43241297BB00C7FA28 /* ExtendedDate.swift */; };
 		30B9CB71240FEF8B002760FE /* BananaMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B9CB70240FEF8B002760FE /* BananaMilk.swift */; };
 		30B9CB73240FF21B002760FE /* ChocoMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B9CB72240FF21B002760FE /* ChocoMilk.swift */; };
 		30B9CB75240FF256002760FE /* StrawberryMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B9CB74240FF256002760FE /* StrawberryMilk.swift */; };
@@ -57,6 +58,7 @@
 		30609E182407F6EE00EF3645 /* Milk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Milk.swift; sourceTree = "<group>"; };
 		30609E1A2407F71000EF3645 /* Soda.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Soda.swift; sourceTree = "<group>"; };
 		30609E1C2407F72A00EF3645 /* Coffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
+		30B6CA43241297BB00C7FA28 /* ExtendedDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtendedDate.swift; sourceTree = "<group>"; };
 		30B9CB70240FEF8B002760FE /* BananaMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BananaMilk.swift; sourceTree = "<group>"; };
 		30B9CB72240FF21B002760FE /* ChocoMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChocoMilk.swift; sourceTree = "<group>"; };
 		30B9CB74240FF256002760FE /* StrawberryMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrawberryMilk.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 				30FC1B6C2410E8F3000DFF44 /* Coffee */,
 				30FC1B6B2410E8E8000DFF44 /* Soda */,
 				30FC1B6A2410E8DA000DFF44 /* Milk */,
+				30B6CA43241297BB00C7FA28 /* ExtendedDate.swift */,
 			);
 			path = Beverage;
 			sourceTree = "<group>";
@@ -296,6 +299,7 @@
 				30609E1B2407F71000EF3645 /* Soda.swift in Sources */,
 				30609E062407EFC100EF3645 /* ViewController.swift in Sources */,
 				30B9CB7F240FF416002760FE /* UCCCoffee.swift in Sources */,
+				30B6CA44241297BB00C7FA28 /* ExtendedDate.swift in Sources */,
 				30B9CB73240FF21B002760FE /* ChocoMilk.swift in Sources */,
 				30609E022407EFC100EF3645 /* AppDelegate.swift in Sources */,
 				30609E172407F43700EF3645 /* Beverage.swift in Sources */,

@@ -17,7 +17,7 @@ class HersheyChocolateDrink: Milk {
     }
     
     convenience init?(volume: Int, price: Int, name: String, dateInfo: String) {
-        self.init(brand: "허쉬", volume: volume, price: price,
+        self.init(brand: "허쉬초콜릿드링크", volume: volume, price: price,
                   name: name, dateInfo: dateInfo)
     }
     

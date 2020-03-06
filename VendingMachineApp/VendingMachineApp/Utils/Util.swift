@@ -10,7 +10,7 @@ import Foundation
 
 class Util {
     
-    static let dateFormatter : DateFormatter = {
+    static let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.locale = Locale(identifier:"ko_KR")
         formatter.dateFormat = "yyyyMMdd"

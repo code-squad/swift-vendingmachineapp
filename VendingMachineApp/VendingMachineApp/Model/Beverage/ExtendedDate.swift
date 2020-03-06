@@ -14,4 +14,8 @@ extension Date {
         dateFormatter.dateFormat = "yyyyMMdd"
         return dateFormatter.string(from: self)
     }
+    
+    func setPastDate() -> Date {
+        return Date(timeInterval: -86400, since: self)
+    }
 }

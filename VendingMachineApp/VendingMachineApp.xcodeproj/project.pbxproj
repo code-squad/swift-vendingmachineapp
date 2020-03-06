@@ -118,7 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				5A91FD1324125D5A00884D64 /* Utils */,
-				5A91FCFC240FD6B700884D64 /* Views */,
+				5A91FCFC240FD6B700884D64 /* Models */,
 				5A91FCCC240FCDFB00884D64 /* AppDelegate.swift */,
 				5A91FCCE240FCDFB00884D64 /* SceneDelegate.swift */,
 				5A91FCD0240FCDFB00884D64 /* ViewController.swift */,
@@ -148,7 +148,7 @@
 			path = VendingMachineAppUITests;
 			sourceTree = "<group>";
 		};
-		5A91FCFC240FD6B700884D64 /* Views */ = {
+		5A91FCFC240FD6B700884D64 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				5A91FCFD240FD6DE00884D64 /* VendingMachine.swift */,
@@ -160,7 +160,7 @@
 				5A91FD09240FE92B00884D64 /* Cantata.swift */,
 				5A91FD0B240FEC6500884D64 /* Pepsi.swift */,
 			);
-			path = Views;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		5A91FD1324125D5A00884D64 /* Utils */ = {

@@ -75,13 +75,7 @@ struct VendingMachine {
     }
     
     func confirmOverdateStock() -> [Beverage] {
-        var overExpirationBeverage: [Beverage] = []
-        beverages.forEachBeverages { (beverage) in
-            if beverage.manufacturedDate < beverage.expirationDate {
-                overExpirationBeverage.append(beverage)
-            }
-        }
-        return overExpirationBeverage
+        return beverages.reportExpiratedBeverage()
     }
 
     func verifyHotBeverages() -> [Beverage] {

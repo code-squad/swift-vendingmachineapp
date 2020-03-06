@@ -13,8 +13,8 @@ class Beverage: CustomStringConvertible {
     private var capacity: Int
     private(set) var price: Int
     private var name: String
-    private(set) var manufacturedDate: Date
-    private(set) var expirationDate: Date
+    private var manufacturedDate: Date
+    private var expirationDate: Date
     private var isHot: Bool
     
     var description: String {
@@ -41,7 +41,13 @@ class Beverage: CustomStringConvertible {
     func verifyHotBeverage() -> Bool {
         return isHot
     }
+    
+    func isExpiratedBeverage() -> Bool {
+       return manufacturedDate > expirationDate ? true : false
+    }
+    
 }
+
 
 extension Beverage: Equatable, Hashable{
     var hashValue: Int {

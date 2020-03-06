@@ -41,4 +41,8 @@ class Beverages {
         }
         return stockList
     }
+    
+    func reportExpiratedBeverage() -> [Beverage] {
+        return beverages.filter{ $0.isExpiratedBeverage() }
+    }
 }

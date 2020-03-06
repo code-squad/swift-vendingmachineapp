@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     @IBOutlet var stockLabels: [UILabel]!
     @IBOutlet var addBalaceButtons: [UIButton]!
     @IBOutlet weak var balanceLabel: UILabel!
-
+    
     @IBAction func addStock(_ sender: UIButton) {
     }
     

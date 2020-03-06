@@ -31,15 +31,9 @@ class Beverages {
     }
     
     func reportKindWithCount() -> [Beverage : Int] {
-        var stockList: [Beverage : Int] = [:]
-        beverages.forEach { (beverage) in
-            if let value = stockList[beverage] {
-                stockList[beverage] = value + 1
-            } else {
-                stockList[beverage] = 1
-            }
+       return beverages.reduce(into: [Beverage : Int]()) { (stockList, beverage) in
+            stockList[beverage] = beverages.filter({ $0 == beverage }).count
         }
-        return stockList
     }
     
     func reportExpiratedBeverage() -> [Beverage] {

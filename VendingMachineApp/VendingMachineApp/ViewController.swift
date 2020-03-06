@@ -29,12 +29,17 @@ class ViewController: UIViewController {
     
     func setupUI() {
         makeCornerRadius()
+        setupBalanceLabel()
     }
     
     func makeCornerRadius() {
         productImages.forEach{
             $0.layer.cornerRadius = 40
         }
+    }
+    
+    func setupBalanceLabel() {
+        balanceLabel.text = "잔액: \(vendingMachine.balance)"
     }
 }
 

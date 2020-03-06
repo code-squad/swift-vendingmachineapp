@@ -193,19 +193,26 @@
                                     <action selector="addBalance:" destination="BYZ-38-t0r" eventType="touchUpInside" id="98W-ft-5Kj"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SQn-k4-T9R">
-                                <rect key="frame" x="1008" y="263" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="SQn-k4-T9R">
+                                <rect key="frame" x="958" y="263" width="141" height="21"/>
+                                <autoresizingMask key="autoresizingMask"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="SQn-k4-T9R" secondAttribute="trailing" constant="144" id="6Kk-B7-0g0"/>
+                            <constraint firstItem="SQn-k4-T9R" firstAttribute="leading" secondItem="3Tb-Yo-gco" secondAttribute="trailing" constant="142" id="Std-nM-393"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="SQn-k4-T9R" secondAttribute="bottom" constant="530" id="eB8-7r-1gh"/>
+                            <constraint firstItem="SQn-k4-T9R" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="263" id="lad-Ny-7ES"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="SQn-k4-T9R" secondAttribute="trailing" constant="144" id="zg2-1R-jI2"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="balanceLabel" destination="ysS-N8-uDA" id="a2o-gL-w5t"/>
+                        <outlet property="balanceLabel" destination="SQn-k4-T9R" id="G7R-IG-kyF"/>
                         <outletCollection property="addStockButtons" destination="8ie-dg-O0U" collectionClass="NSMutableArray" id="Qs1-9q-ooq"/>
                         <outletCollection property="addStockButtons" destination="sog-k3-S8q" collectionClass="NSMutableArray" id="9Af-FI-DTf"/>
                         <outletCollection property="addStockButtons" destination="47Y-aX-l8j" collectionClass="NSMutableArray" id="6Qc-t2-BdO"/>

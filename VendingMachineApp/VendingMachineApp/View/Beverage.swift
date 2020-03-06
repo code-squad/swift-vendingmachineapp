@@ -15,16 +15,10 @@ class Beverage {
     let price: Int
     let name: String
     var manufacturingDate: Date
-    static let dateFormatter : DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.locale = Locale(identifier:"ko_KR")
-        formatter.dateFormat = "yyyyMMdd"
-        return formatter
-    }()
     
     init?(brand: String, volume: Int, price: Int,
           name: String, dateInfo: String) {
-        guard let date = Beverage.dateFormatter.date(from: dateInfo) else {
+        guard let date = Util.dateFormatter.date(from: dateInfo) else {
             return nil
         }
         self.brand = brand
@@ -39,7 +33,7 @@ class Beverage {
 extension Beverage: CustomStringConvertible {
     
     var description: String {
-        return "\(brand), \(volume)ml, \(price)원, \(Beverage.dateFormatter.string(from: manufacturingDate))"
+        return "\(brand), \(volume)ml, \(price)원, \(Util.dateFormatter.string(from: manufacturingDate))"
         
     }
 }

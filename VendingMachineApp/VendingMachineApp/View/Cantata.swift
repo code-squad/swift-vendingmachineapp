@@ -17,7 +17,7 @@ class Cantata: Coffee {
     }
     
     convenience init?(volume: Int, price:Int, name: String, dateInfo: String) {
-        self.init(brand: "롯데칠성음료", volume: volume, price: price,
+        self.init(brand: "칸타타", volume: volume, price: price,
                   name: name,dateInfo: dateInfo)
     }
     

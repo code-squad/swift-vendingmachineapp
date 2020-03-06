@@ -18,7 +18,7 @@
 
 > Beverage (1단계)
 <br>+---- Milk, Soda, Coffee (2단계)
-<br>+---- HershChocolateDrink / Pepsi / Cantata (3단계)
+<br>+---- HersheyChocolateDrink / Pepsi / Cantata (3단계)
 
 => 3단계에서 클래스 명을 브랜드명으로 한 이유 
 

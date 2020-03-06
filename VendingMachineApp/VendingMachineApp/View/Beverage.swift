@@ -33,10 +33,13 @@ class Beverage {
         self.name = name
         self.manufacturingDate = date
     }
+    
 }
 
 extension Beverage: CustomStringConvertible {
+    
     var description: String {
         return "\(brand), \(volume)ml, \(price)원, \(Beverage.dateFormatter.string(from: manufacturingDate))"
+        
     }
 }

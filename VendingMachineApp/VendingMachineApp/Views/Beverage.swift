@@ -34,6 +34,6 @@ extension Beverage: CustomStringConvertible {
     
     var description: String {
         return "\(brand), \(volume)ml, \(price)원, \(Util.dateFormatter.string(from: manufacturingDate))"
-        
     }
+    
 }

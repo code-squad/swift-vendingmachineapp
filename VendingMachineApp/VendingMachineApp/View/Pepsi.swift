@@ -10,13 +10,15 @@ import Foundation
 
 class Pepsi: Soda {
     
-    override init(brand: String, volume: Int, price: Int, name: String, manufacturingDate: Date) {
-        super.init(brand: brand, volume: volume, price: price, name: name, manufacturingDate: manufacturingDate)
+    override init?(brand: String, volume: Int, price: Int,
+                  name: String, dateInfo: String) {
+        super.init(brand: brand, volume: volume, price: price,
+                   name: name, dateInfo: dateInfo)
     }
     
-    convenience init(volume: Int, price: Int, name: String, manufacturingDate: Date) {
-        self.init(brand: "팹시코", volume: volume, price: price, name: name,
-                  manufacturingDate: manufacturingDate)
+    convenience init?(volume: Int, price: Int, name: String, dateInfo: String) {
+        self.init(brand: "팹시코", volume: volume, price: price,
+                  name: name, dateInfo: dateInfo)
     }
     
 }

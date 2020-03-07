@@ -9,19 +9,15 @@
 import Foundation
 
 final class ChocolateMilk: Milk {
-    private let containsMint: Bool
+    private(set) var cacaoContentRate: Int
     
     init(manufacturer: String = "매일유업",
          size: Int = 300,
          price: Int = 1500,
          name: String = "매일 멸균우유 초코",
          farmCode: MilkFarmCode = .gyeonggiBullFarm,
-         containsMint: Bool = false) {
-        self.containsMint = containsMint
+         cacaoContentRate: Int = 10) {
+        self.cacaoContentRate = cacaoContentRate
         super.init(manufacture: manufacturer, size: size, price: price, name: name, farmCode: farmCode)
-    }
-    
-    func isMintChoco() -> Bool {
-        return containsMint
     }
 }

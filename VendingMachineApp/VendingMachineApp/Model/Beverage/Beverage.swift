@@ -44,20 +44,19 @@ class Beverage: CustomStringConvertible {
 }
 
 
-extension Beverage: Equatable, Hashable{
-    var hashValue: Int {
-        return capacity.hashValue ^ brand.hashValue ^ expirationDate.hashValue ^ temperature.hashValue ^ manufacturedDate.hashValue ^ manufacturer.hashValue ^ price.hashValue
+extension Beverage: Hashable{
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(capacity)
+        hasher.combine(brand)
+        hasher.combine(expirationDate)
+        hasher.combine(temperature)
+        hasher.combine(manufacturedDate)
+        hasher.combine(manufacturer)
+        hasher.combine(price)
     }
     
     static func == (lhs: Beverage, rhs: Beverage) -> Bool {
-        return lhs.brand == rhs.brand
-            && lhs.capacity == rhs.capacity
-            && lhs.expirationDate == rhs.expirationDate
-            && lhs.temperature == rhs.temperature
-            && lhs.manufacturedDate == rhs.manufacturedDate
-            && lhs.manufacturer == rhs.manufacturer
-            && lhs.name == rhs.name
-            && lhs.price == rhs.price
+        return lhs.hashValue == rhs.hashValue
     }
     
 }

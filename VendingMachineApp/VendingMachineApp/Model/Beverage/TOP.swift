@@ -18,9 +18,9 @@ class TOP: Coffee {
     
     private var beanOrigin: BeanOrigin
     
-    init(brand: String, capacity: Int, price: Int, name: String, manufacturingDate: Date, expirationDate: Date, calorie: Double, temperature: Double, decaffeinated: Bool, beanOrigin: BeanOrigin) {
+    init(brand: Brand, capacity: Capacity, price: Price, name: Name, manufacturingDate: Date, expirationDate: Date, calorie: Calorie, temperature: Temperature, decaffeinated: Bool, beanOrigin: BeanOrigin) {
         self.beanOrigin = beanOrigin
-        super.init(brand: brand, capacity: capacity, price: price, name: name, manufacturingDate: manufacturingDate, expirationDate: expirationDate, calorie: calorie, temperature: temperature, decaffeinated: decaffeinated)
+        super.init(brand: brand, capacity: capacity, price: price, name: name, manufacturingDate: manufacturingDate, calorie: calorie, temperature: temperature, decaffeinated: decaffeinated)
     }
     
     func isSameBeanOrigin(as beanOrigin : BeanOrigin) -> Bool {

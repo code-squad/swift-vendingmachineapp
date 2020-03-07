@@ -203,11 +203,10 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="SQn-k4-T9R" secondAttribute="trailing" constant="144" id="6Kk-B7-0g0"/>
                             <constraint firstItem="SQn-k4-T9R" firstAttribute="leading" secondItem="3Tb-Yo-gco" secondAttribute="trailing" constant="142" id="Std-nM-393"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="SQn-k4-T9R" secondAttribute="bottom" constant="530" id="eB8-7r-1gh"/>
                             <constraint firstItem="SQn-k4-T9R" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="263" id="lad-Ny-7ES"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="SQn-k4-T9R" secondAttribute="trailing" constant="144" id="zg2-1R-jI2"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="SQn-k4-T9R" secondAttribute="trailing" id="zg2-1R-jI2"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

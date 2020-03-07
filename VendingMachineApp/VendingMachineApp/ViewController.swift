@@ -21,14 +21,13 @@ class ViewController: UIViewController {
     }
     
     @IBAction func addBalance(_ sender: UIButton) {
+        vendingMachine.add(balance: sender.tag)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(updateStockLabel(_:)),
-                                               name: Notification.Name.updateStock, object: nil)
+        setupNotificationObserver()
     }
     
     func setupUI() {
@@ -56,11 +55,28 @@ class ViewController: UIViewController {
         }
     }
     
+    func setupNotificationObserver() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(updateStockLabel(_:)),
+                                               name: Notification.Name.updateStock,
+                                               object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(updateBalance(_:)),
+                                               name: Notification.Name.updateBalance,
+                                               object: nil)
+    }
+    
     @objc func updateStockLabel(_ notification: Notification) {
         if let index: Int = notification.userInfo?["index"] as? Int {
             if let stock: Int = notification.userInfo?["stock"] as? Int {
                 stockLabels[index].text = String(stock)
             }
+        }
+    }
+    
+    @objc func updateBalance(_ notification: Notification) {
+        if let balance: Int = notification.userInfo?["balance"] as? Int {
+            balanceLabel.text = "잔액: \(balance)"
         }
     }
 }

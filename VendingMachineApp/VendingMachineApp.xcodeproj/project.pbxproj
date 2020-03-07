@@ -23,7 +23,6 @@
 		5A91FD08240FE2C800884D64 /* HersheyChocolateDrink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A91FD07240FE2C700884D64 /* HersheyChocolateDrink.swift */; };
 		5A91FD0A240FE92B00884D64 /* Cantata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A91FD09240FE92B00884D64 /* Cantata.swift */; };
 		5A91FD0C240FEC6500884D64 /* Pepsi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A91FD0B240FEC6500884D64 /* Pepsi.swift */; };
-		5A91FD1524125D7900884D64 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A91FD1424125D7900884D64 /* Util.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,7 +65,6 @@
 		5A91FD07240FE2C700884D64 /* HersheyChocolateDrink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HersheyChocolateDrink.swift; sourceTree = "<group>"; };
 		5A91FD09240FE92B00884D64 /* Cantata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cantata.swift; sourceTree = "<group>"; };
 		5A91FD0B240FEC6500884D64 /* Pepsi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pepsi.swift; sourceTree = "<group>"; };
-		5A91FD1424125D7900884D64 /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,7 +115,6 @@
 		5A91FCCB240FCDFB00884D64 /* VendingMachineApp */ = {
 			isa = PBXGroup;
 			children = (
-				5A91FD1324125D5A00884D64 /* Utils */,
 				5A91FCFC240FD6B700884D64 /* Models */,
 				5A91FCCC240FCDFB00884D64 /* AppDelegate.swift */,
 				5A91FCCE240FCDFB00884D64 /* SceneDelegate.swift */,
@@ -161,14 +158,6 @@
 				5A91FD0B240FEC6500884D64 /* Pepsi.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		5A91FD1324125D5A00884D64 /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				5A91FD1424125D7900884D64 /* Util.swift */,
-			);
-			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -309,7 +298,6 @@
 				5A91FCCD240FCDFB00884D64 /* AppDelegate.swift in Sources */,
 				5A91FCCF240FCDFB00884D64 /* SceneDelegate.swift in Sources */,
 				5A91FD06240FE0BE00884D64 /* Soda.swift in Sources */,
-				5A91FD1524125D7900884D64 /* Util.swift in Sources */,
 				5A91FD02240FDFE900884D64 /* Milk.swift in Sources */,
 				5A91FCFE240FD6DE00884D64 /* VendingMachine.swift in Sources */,
 				5A91FD0C240FEC6500884D64 /* Pepsi.swift in Sources */,

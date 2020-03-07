@@ -18,7 +18,7 @@ class Beverage {
     
     init?(brand: String, volume: Int, price: Int,
           name: String, dateInfo: String) {
-        guard let date = Util.dateFormatter.date(from: dateInfo) else {
+        guard let date = Date.dateFormatter.date(from: dateInfo) else {
             return nil
         }
         self.brand = brand
@@ -33,7 +33,20 @@ class Beverage {
 extension Beverage: CustomStringConvertible {
     
     var description: String {
-        return "\(brand), \(volume)ml, \(price)원, \(Util.dateFormatter.string(from: manufacturingDate))"
+        return "\(brand), \(volume)ml, \(price)원, \(manufacturingDate.description))"
     }
     
+}
+
+extension Date {
+    
+    static let dateFormatter : DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyyMMdd"
+        return formatter
+    }()
+
+    var description: String {
+        return Date.dateFormatter.string(from: self)
+    }
 }

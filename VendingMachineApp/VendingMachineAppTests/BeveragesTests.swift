@@ -38,7 +38,7 @@ class BeveragesTests: XCTestCase {
                             name: "",
                             caffeineContent: 120,
                             temperature: 0)
-        XCTAssertTrue(coffee.canReplaceEnergyDrinks())
+        XCTAssertTrue(coffee.canReplaceEnergyDrinks(threshold: 50))
     }
     
     func testEnergyDrinkNotReplaceableCoffee() {
@@ -48,7 +48,7 @@ class BeveragesTests: XCTestCase {
                             name: "",
                             caffeineContent: 32,
                             temperature: 0)
-        XCTAssertFalse(coffee.canReplaceEnergyDrinks())
+        XCTAssertFalse(coffee.canReplaceEnergyDrinks(threshold: 50))
     }
     
     func testHotCoffee() {
@@ -58,7 +58,7 @@ class BeveragesTests: XCTestCase {
                             name: "",
                             caffeineContent: 0,
                             temperature: 99)
-        XCTAssertTrue(coffee.isHot())
+        XCTAssertTrue(coffee.isHot(threshold: 80))
     }
     
     func testIceCoffee() {
@@ -68,6 +68,6 @@ class BeveragesTests: XCTestCase {
                             name: "",
                             caffeineContent: 32,
                             temperature: 5)
-        XCTAssertFalse(coffee.isHot())
+        XCTAssertFalse(coffee.isHot(threshold: 80))
     }
 }

@@ -76,7 +76,7 @@ class InventoryTests: XCTestCase {
         items.forEach { inventory.add($0) }
         var hotItems = [Beverage]()
         
-        inventory.repeatForHotItems() { hotItems.append($0) }
+        inventory.repeatForHotItems(threshold: 80) { hotItems.append($0) }
         XCTAssert(hotItems[0] === items[3])
     }
     

@@ -13,12 +13,13 @@ enum Result<T, Error> {
     case fail(Error)
 }
 
-enum InventoryError: Error {
-    case insufficientBalance
-    case notInStock
-}
-
 class Inventory: CustomStringConvertible {
+
+    enum SaleError: Error {
+        case insufficientBalance
+        case notInStock
+    }
+    
     private var inventory = [Beverage]()
     
     var description: String {
@@ -29,7 +30,7 @@ class Inventory: CustomStringConvertible {
         inventory.append(beverage)
     }
     
-    func takeOut(_ beverage: String, balance: Int, block: (Result<Beverage, InventoryError>) -> Void) {
+    func takeOut(_ beverage: String, balance: Int, block: (Result<Beverage, Inventory.SaleError>) -> Void) {
         guard let index = inventory.firstIndex(where: { "\(type(of: $0))" == beverage }) else {
             block(.fail(.notInStock))
             return

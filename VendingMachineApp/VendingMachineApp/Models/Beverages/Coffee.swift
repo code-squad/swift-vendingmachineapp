@@ -23,11 +23,11 @@ class Coffee: Beverage {
         super.init(manufacturer: manufacturer, size: size, price: price, name: name)
     }
     
-    func canReplaceEnergyDrinks() -> Bool {
-        return caffeineContent > 50
+    func canReplaceEnergyDrinks(threshold: Int) -> Bool {
+        return caffeineContent > threshold
     }
     
-    func isHot() -> Bool {
-        return temperature > 80
+    func isHot(threshold: Int) -> Bool {
+        return temperature > threshold
     }
 }

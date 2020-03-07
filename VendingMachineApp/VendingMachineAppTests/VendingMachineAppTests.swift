@@ -23,7 +23,7 @@ class VendingMachineAppTests: XCTestCase {
     
     func testRaiseMoney() {
        vendingMachine.raiseMoney(fiveThousandCount: 2, thousandCount: 2, fiveHundredCount: 1, hundredCount: 2)
-        let leftMoney = vendingMachine.confirmBalance()
+        let leftMoney = vendingMachine.confirmBalance(balance: vendingMachine.balance)
         XCTAssertEqual(leftMoney, 12700)
     }
     

@@ -19,17 +19,13 @@ class IntegrationTests: XCTestCase {
     
     func testVendingMachine() {
         vendingMachine.insert(money: 1000)
-        XCTAssertEqual(vendingMachine.balance, 1000)
         vendingMachine.insert(money: 5000)
-        XCTAssertEqual(vendingMachine.balance, 6000)
         
         let items = [StrawberryMilk(), StrawberryMilk(), Coke(), Fanta(), Top(), Top()]
         items.forEach { vendingMachine.fill(beverage: $0) }
         
         vendingMachine.sell(beverage: "StrawberryMilk")
-        XCTAssertEqual(vendingMachine.balance, 4500)
         vendingMachine.sell(beverage: "Top")
-        XCTAssertEqual(vendingMachine.balance, 3300)
         
         var salesLog = [Beverage]()
         vendingMachine.repeatForSalesLog { salesLog.append($0) }

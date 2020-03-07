@@ -17,21 +17,6 @@ class VendingMachineTests: XCTestCase {
         vendingMachine = VendingMachine()
     }
     
-    func testInsertMoney() {
-        vendingMachine.insert(money: 1000)
-        XCTAssertEqual(vendingMachine.balance, 1000)
-    }
-    
-    func testSell() {
-        let items = [StrawberryMilk(), Coke(), Fanta(), Top()]
-        items.forEach { vendingMachine.fill(beverage: $0) }
-        
-        vendingMachine.insert(money: 2000)
-        vendingMachine.sell(beverage: "Coke")
-        
-        XCTAssertEqual(vendingMachine.balance, 400)
-    }
-    
     func testSalesLog() {
         let items = [StrawberryMilk(), Coke(), Fanta(), Top()]
         items.forEach { vendingMachine.fill(beverage: $0) }

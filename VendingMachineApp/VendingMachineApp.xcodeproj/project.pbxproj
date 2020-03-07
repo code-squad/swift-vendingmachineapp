@@ -29,6 +29,7 @@
 		30B9CB7D240FF3ED002760FE /* Mocha.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B9CB7C240FF3ED002760FE /* Mocha.swift */; };
 		30B9CB7F240FF416002760FE /* Latte.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B9CB7E240FF416002760FE /* Latte.swift */; };
 		30F1CC5E2413536D000609F5 /* Money.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F1CC5D2413536D000609F5 /* Money.swift */; };
+		30F1CC602413CEB6000609F5 /* Milkis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F1CC5F2413CEB6000609F5 /* Milkis.swift */; };
 		30FC1B742410E995000DFF44 /* VendingMachineAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FC1B732410E995000DFF44 /* VendingMachineAppTests.swift */; };
 		30FC1B7C2410EDFF000DFF44 /* BeverageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FC1B7B2410EDFF000DFF44 /* BeverageTests.swift */; };
 		30FC1B802410F2F8000DFF44 /* BeveragesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FC1B7F2410F2F8000DFF44 /* BeveragesTests.swift */; };
@@ -69,6 +70,7 @@
 		30B9CB7C240FF3ED002760FE /* Mocha.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mocha.swift; sourceTree = "<group>"; };
 		30B9CB7E240FF416002760FE /* Latte.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Latte.swift; sourceTree = "<group>"; };
 		30F1CC5D2413536D000609F5 /* Money.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Money.swift; sourceTree = "<group>"; };
+		30F1CC5F2413CEB6000609F5 /* Milkis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Milkis.swift; sourceTree = "<group>"; };
 		30FC1B712410E995000DFF44 /* VendingMachineAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VendingMachineAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		30FC1B732410E995000DFF44 /* VendingMachineAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineAppTests.swift; sourceTree = "<group>"; };
 		30FC1B752410E995000DFF44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 				30609E1A2407F71000EF3645 /* Soda.swift */,
 				30B9CB76240FF28D002760FE /* Coke.swift */,
 				30B9CB78240FF32A002760FE /* Cider.swift */,
+				30F1CC5F2413CEB6000609F5 /* Milkis.swift */,
 			);
 			path = Soda;
 			sourceTree = "<group>";
@@ -294,6 +297,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30F1CC602413CEB6000609F5 /* Milkis.swift in Sources */,
 				30B9CB77240FF28D002760FE /* Coke.swift in Sources */,
 				300CD768240EA35100085882 /* Beverages.swift in Sources */,
 				30B9CB7D240FF3ED002760FE /* Mocha.swift in Sources */,

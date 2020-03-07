@@ -8,7 +8,14 @@
 
 import Foundation
 class Cider: Soda {
-    override init(manufacturer: String, brand: String, capacity: Int, price: Int, name: String, manufacturedDate: Date, expirationDate: Date, sugarRatio: SugarRatio, temperature: Int) {
+    private var flavor: Flavor
+    
+    enum Flavor {
+        case apple, lemon
+    }a 
+    
+    init(manufacturer: String, brand: String, capacity: Int, price: Int, name: String, manufacturedDate: Date, expirationDate: Date, sugarRatio: SugarRatio, temperature: Int, flavor: Flavor) {
+        self.flavor = flavor
         super.init(manufacturer: manufacturer, brand: brand, capacity: capacity, price: price, name: name, manufacturedDate: manufacturedDate, expirationDate: expirationDate, sugarRatio: sugarRatio, temperature: temperature)
     }
 }

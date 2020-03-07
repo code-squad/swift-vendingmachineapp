@@ -17,6 +17,8 @@ class Beverages {
     
     func add(beverage: Beverage) {
         beverages.append(beverage)
+        NotificationCenter.default.post(name: Notification.Name.updateStock,
+                                        object: nil, userInfo: ["index": beverage.beverageIndex.getValue(), "stock": beverages.filter{$0 == beverage}.count])
     }
     
     func forEachBeverages(_ transform: (Beverage) -> ()) {
@@ -40,4 +42,8 @@ class Beverages {
         }
         return result
     }
+}
+
+extension Notification.Name {
+    static let updateStock = Notification.Name("UpdateStock")
 }

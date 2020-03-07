@@ -14,8 +14,12 @@ class VendingMachine{
     private var purchaseHistory: Beverages
     private let beverageFactory: BeverageFactory
     
-    enum BeverageNames: Int, CaseIterable {
+    enum BeverageNumbers: Int, CaseIterable {
         case ChocolateMilk, StrawberryMilk, Coke, Cider, Georgia, TOP
+        
+        func getValue() -> Int {
+            return self.rawValue
+        }
     }
     
     init() {
@@ -25,7 +29,7 @@ class VendingMachine{
         self.beverageFactory = BeverageFactory()
     }
     
-    func insert(beverageNumber: BeverageNames) {
+    func insert(beverageNumber: BeverageNumbers) {
         beverages.add(beverage: beverageFactory.makeBeverage(number: beverageNumber))
     }
     

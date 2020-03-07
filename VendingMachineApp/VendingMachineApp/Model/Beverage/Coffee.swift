@@ -11,9 +11,9 @@ import Foundation
 class Coffee: Beverage {
     private var decaffeinated: Bool
     
-    init(brand: Brand, capacity: Capacity, price: Price, name: Name, manufacturingDate: Date, calorie: Calorie, temperature: Temperature, decaffeinated: Bool) {
+    init(brand: Brand, capacity: Capacity, price: Price, name: Name, manufacturingDate: Date, calorie: Calorie, temperature: Temperature, beverageIndex: VendingMachine.BeverageNumbers, decaffeinated: Bool) {
         self.decaffeinated = decaffeinated
-        super.init(brand: brand, capacity: capacity, price: price, name: name, manufacturingDate: manufacturingDate, calorie: calorie, temperature: temperature)
+        super.init(brand: brand, capacity: capacity, price: price, name: name, manufacturingDate: manufacturingDate, calorie: calorie, temperature: temperature, beverageIndex: beverageIndex)
     }
     
     func isDecaffeinated() -> Bool {

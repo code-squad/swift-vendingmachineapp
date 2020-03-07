@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var balanceLabel: UILabel!
     
     @IBAction func addStock(_ sender: UIButton) {
+        vendingMachine.insert(beverageNumber: VendingMachine.BeverageNumbers.allCases[sender.tag])
     }
     
     @IBAction func addBalance(_ sender: UIButton) {
@@ -25,6 +26,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(updateStockLabel(_:)),
+                                               name: Notification.Name.updateStock, object: nil)
     }
     
     func setupUI() {
@@ -48,6 +52,14 @@ class ViewController: UIViewController {
         if kindOfBeverages.count == 0 {
             stockLabels.forEach{
                 $0.text = String(0)
+            }
+        }
+    }
+    
+    @objc func updateStockLabel(_ notification: Notification) {
+        if let index: Int = notification.userInfo?["index"] as? Int {
+            if let stock: Int = notification.userInfo?["stock"] as? Int {
+                stockLabels[index].text = String(stock)
             }
         }
     }

@@ -9,7 +9,7 @@
 import Foundation
 
 class BeverageFactory {
-    func makeBeverage(number: VendingMachine.BeverageNames) -> Beverage {
+    func makeBeverage(number: VendingMachine.BeverageNumbers) -> Beverage {
         switch number {
         case .ChocolateMilk:
             return ChocolateMilk(brand: .SeoulMilk,
@@ -19,6 +19,7 @@ class BeverageFactory {
                                  manufacturingDate: Date(),
                                  calorie: .Middle,
                                  temperature: .Cool,
+                                 beverageIndex: .ChocolateMilk,
                                  farmCode: Milk.FarmCode(index: Int.random(in: 0..<Milk.FarmCode.allCases.count)),
                                  package: .paper)
         case .StrawberryMilk:
@@ -30,6 +31,7 @@ class BeverageFactory {
                                   calorie: .Middle,
                                   farmCode: Milk.FarmCode(index: Int.random(in: 0..<Milk.FarmCode.allCases.count)),
                                   temperature: .Cool,
+                                  beverageIndex: .StrawberryMilk,
                                   juiceContent: 2)
         case .Coke:
             return Coke(brand: .CocaCola,
@@ -39,6 +41,7 @@ class BeverageFactory {
                         manufacturingDate: Date(),
                         calorie: .High,
                         temperature: .Cool,
+                        beverageIndex: .Coke,
                         carbonicAcid: 20)
             
         case .Cider:
@@ -49,6 +52,7 @@ class BeverageFactory {
                          manufacturingDate: Date(),
                          calorie: .High,
                          temperature: .Cool,
+                         beverageIndex: .Cider,
                          taste: Cider.Taste(index: Int.random(in: 0..<Cider.Taste.allCases.count)))
             
         case .Georgia:
@@ -59,6 +63,7 @@ class BeverageFactory {
                            manufacturingDate: Date(),
                            calorie: .Low,
                            temperature: .Hot,
+                           beverageIndex: .Georgia,
                            decaffeinated: false,
                            black: false)
             
@@ -70,6 +75,7 @@ class BeverageFactory {
                        manufacturingDate: Date(),
                        calorie: .Low,
                        temperature: .Hot,
+                       beverageIndex: .TOP,
                        decaffeinated: false,
                        beanOrigin: TOP.BeanOrigin.init(index: Int.random(in: 0..<TOP.BeanOrigin.allCases.count)))
         }

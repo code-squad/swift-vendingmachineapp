@@ -10,15 +10,14 @@ import Foundation
 
 class VendingMachine {
     private var inventory = Inventory()
-    private(set) var balance = 0
-    private var salesLog = [Beverage]()
+    private var cashier = Cashier()
     
     var stockList: String {
         return "\(inventory)"
     }
     
     func insert(money: Int) {
-        balance += money
+        cashier.addToBalance(money)
     }
     
     func fill(beverage: Beverage) {
@@ -26,17 +25,15 @@ class VendingMachine {
     }
     
     func sell(beverage: String) {
-        inventory.takeOut(beverage, balance: balance) { result in
+        inventory.takeOut(beverage, balance: cashier.balance) { result in
             switch result {
             case let .fail(error): print(error.localizedDescription)
-            case let .success(beverage):
-                balance -= beverage.price
-                salesLog.append(beverage)
+            case let .success(beverage): cashier.sell(beverage: beverage)
             }
         }
     }
     
     func repeatForSalesLog(_ block: (Beverage) -> Void) {
-        salesLog.forEach { block($0) }
+        cashier.forEachSalesLog { block($0) }
     }
 }

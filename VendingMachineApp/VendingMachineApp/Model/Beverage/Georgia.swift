@@ -11,9 +11,9 @@ import Foundation
 class Georgia: Coffee {
     private var black: Bool
     
-    init(brand: Brand, capacity: Capacity, price: Price, name: Name, manufacturingDate: Date, calorie: Calorie, temperature: Temperature, decaffeinated: Bool, black: Bool) {
+    init(brand: Brand, capacity: Capacity, price: Price, name: Name, manufacturingDate: Date, calorie: Calorie, temperature: Temperature, beverageIndex: VendingMachine.BeverageNumbers , decaffeinated: Bool, black: Bool) {
         self.black = black
-        super.init(brand: brand, capacity: capacity, price: price, name: name, manufacturingDate: manufacturingDate, calorie: calorie, temperature: temperature, decaffeinated: decaffeinated)
+        super.init(brand: brand, capacity: capacity, price: price, name: name, manufacturingDate: manufacturingDate, calorie: calorie, temperature: temperature, beverageIndex: beverageIndex, decaffeinated: decaffeinated)
     }
     
     func isBlack() -> Bool {

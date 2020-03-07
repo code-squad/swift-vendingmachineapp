@@ -67,8 +67,9 @@ class Beverage {
     private var expirationDate: Date
     private var calorie: Calorie
     private var temperature: Temperature
+    private(set) var beverageIndex: VendingMachine.BeverageNumbers
     
-    init(brand: Brand, capacity: Capacity, price: Price, name: Name, manufacturingDate: Date, calorie: Calorie, temperature: Temperature) {
+    init(brand: Brand, capacity: Capacity, price: Price, name: Name, manufacturingDate: Date, calorie: Calorie, temperature: Temperature, beverageIndex: VendingMachine.BeverageNumbers) {
         self.brand = brand
         self.capacity = capacity
         self.price = price
@@ -77,6 +78,7 @@ class Beverage {
         self.expirationDate = Date(timeInterval: 86400 * 14, since: manufacturingDate)
         self.calorie = calorie
         self.temperature = temperature
+        self.beverageIndex = beverageIndex
     }
     
     func canBuy(have balance: Int) -> Bool {
@@ -98,7 +100,7 @@ class Beverage {
 
 extension Beverage: CustomStringConvertible {
     var description: String {
-        return "\(brand), \(capacity), \(price), \(name)"
+        return "\(name)"
     }
 }
 

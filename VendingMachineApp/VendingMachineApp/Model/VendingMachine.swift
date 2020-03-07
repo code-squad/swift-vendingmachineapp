@@ -47,6 +47,9 @@ class VendingMachine{
     
     func add(balance: Int) {
         self.balance += balance
+        NotificationCenter.default.post(name: Notification.Name.updateBalance,
+                                        object: nil,
+                                        userInfo: ["balance": self.balance])
     }
     
     func purchasableBeverages() -> [String] {
@@ -100,4 +103,8 @@ class VendingMachine{
         
         return purchased
     }
+}
+
+extension Notification.Name {
+    static let updateBalance = Notification.Name("UpdateBalance")
 }

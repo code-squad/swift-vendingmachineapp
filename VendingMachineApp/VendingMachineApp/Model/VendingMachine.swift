@@ -9,12 +9,13 @@
 import Foundation
 struct VendingMachine {
     private var beverages: Beverages
-    private var money: [String:Int] = ["fiveThousand" : 0, "thousand" : 0, "fiveHundred" : 0, "hundred" : 0]
+//    private var money: [String:Int] = ["fiveThousand" : 0, "thousand" : 0, "fiveHundred" : 0, "hundred" : 0]
     private(set) var balance = 0
     private var purchasedList: [Beverage] = []
-    
+    private var money: Money
     init() {
         beverages = Beverages()
+        money = Money()
     }
     
     func showTotalStock() {
@@ -22,12 +23,7 @@ struct VendingMachine {
     }
     
     mutating func raiseMoney(fiveThousandCount: Int, thousandCount: Int, fiveHundredCount: Int, hundredCount: Int) {
-         let insertedMoney = ["fiveThousand": fiveThousandCount, "thousand": thousandCount, "fiveHundred": fiveHundredCount, "hundred": hundredCount]
-              for (moneyType, count) in insertedMoney {
-                  guard let value = money[moneyType] else { return }
-                  money.updateValue(count + value, forKey: moneyType)
-              }
-       balance = confirmBalance()
+        money.raiseMoney(fiveThousandCount: fiveThousandCount, thousandCount: thousandCount, fiveHundredCount: fiveHundredCount, hundredCount: hundredCount)
     }
 
     func addStock(_ beverage: Beverage) {
@@ -45,29 +41,14 @@ struct VendingMachine {
     }
 
     mutating func purchaseBeverage(beverage: Beverage, price: Int) {
+        balance = money.confirmBalance(balance)
         balance -= price
         beverages.removeBeverage(beverage)
         purchasedList.append(beverage)
     }
 
-    mutating func confirmBalance() -> Int {
-        for (key, value) in money {
-            var temp = 0
-            switch key {
-            case "fiveThousand":
-                temp += value * 5000
-            case "thousand":
-                temp += value * 1000
-            case "fiveHundred":
-                temp += value * 500
-            case "hundred":
-                temp += value * 100
-            default:
-                temp = 0
-            }
-            balance += temp
-        }
-        return balance
+    mutating func confirmBalance(balance: Int) -> Int {
+        return balance + money.confirmBalance(balance)
     }
     
     func reportTotalStock() -> [Beverage:Int] {

@@ -9,18 +9,26 @@
 import Foundation
 
 class Milk: Beverage {
-    private var farmCode: String
+    enum FarmCode: String {
+        case A, B, C, D, E, F
+        
+        func isSame(farmCode: String) -> Bool {
+            return self.rawValue == farmCode
+        }
+    }
     
-    init(brand: String, capacity: Int, price: Int, name: String, manufacturingDate: Date, expirationDate: Date, calorie: Double, temperature: Double, farmCode: String) {
+    private var farmCode: FarmCode
+    
+    init(brand: Brand, capacity: Capacity, price: Price, name: Name, manufacturingDate: Date, calorie: Calorie, temperature: Temperature, farmCode: FarmCode) {
         self.farmCode = farmCode
-        super.init(brand: brand, capacity: capacity, price: price, name: name, manufacturingDate: manufacturingDate, expirationDate: expirationDate, calorie: calorie, temperature: temperature)
+        super.init(brand: brand, capacity: capacity, price: price, name: name, manufacturingDate: manufacturingDate, calorie: calorie, temperature: temperature)
     }
     
     func from() -> String {
-        return farmCode
+        return farmCode.rawValue
     }
     
     func isSameFarm(farmCode: String) ->  Bool {
-        return self.farmCode == farmCode
+        return self.farmCode.isSame(farmCode: farmCode)
     }
 }

@@ -11,9 +11,9 @@ import Foundation
 class Coke: Soda {
     private var carbonicAcid: Double
     
-    init(brand: String, capacity: Int, price: Int, name: String, manufacturingDate: Date, expirationDate: Date, calorie: Double, temperature: Double, zeroCalorie: Bool, carbonicAcid: Double) {
+    init(brand: Brand, capacity: Capacity, price: Price, name: Name, manufacturingDate: Date, expirationDate: Date, calorie: Calorie, temperature: Temperature, zeroCalorie: Bool, carbonicAcid: Double) {
         self.carbonicAcid = carbonicAcid
-        super.init(brand: brand, capacity: capacity, price: price, name: name, manufacturingDate: manufacturingDate, expirationDate: expirationDate, calorie: calorie, temperature: temperature, zeroCalorie: zeroCalorie)
+        super.init(brand: brand, capacity: capacity, price: price, name: name, manufacturingDate: manufacturingDate, calorie: calorie, temperature: temperature)
     }
     
     func isStrong(standard: Double) -> Bool {

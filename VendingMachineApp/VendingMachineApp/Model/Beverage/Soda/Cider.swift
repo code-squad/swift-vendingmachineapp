@@ -9,10 +9,9 @@
 import Foundation
 class Cider: Soda {
     private var sugarRatio: SugarRatio = .original
-    private var flavor: Flavor = .cider
     
     init(manufacturer: String, brand: String, capacity: Int, price: Int, name: String, manufacturedDate: Date, expirationDate: Date, temperature: Int) {
 
-        super.init(manufacturer: manufacturer, brand: brand, capacity: capacity, price: price, name: name, manufacturedDate: manufacturedDate, expirationDate: expirationDate, sugarRatio: sugarRatio, flavor: flavor, temperature: temperature)
+        super.init(manufacturer: manufacturer, brand: brand, capacity: capacity, price: price, name: name, manufacturedDate: manufacturedDate, expirationDate: expirationDate, sugarRatio: sugarRatio, temperature: temperature)
     }
 }

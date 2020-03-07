@@ -9,10 +9,9 @@
 import Foundation
 class ChocoMilk: Milk {
     private var fatRatio: FatRatio = .original
-    private var flavor: Flavor = .choco
     private var isLactoFree = true
     
     init(manufacturer: String, brand: String, capacity: Int, price: Int, name: String, manufacturedDate: Date, expirationDate: Date, temperature: Int) {
-        super.init(manufacturer: manufacturer, brand: brand, capacity: capacity, price: price, name: name, manufacturedDate: manufacturedDate, expirationDate: expirationDate, fatRatio: fatRatio, flavor: flavor, isLactoFree: isLactoFree, temperature: temperature)
+        super.init(manufacturer: manufacturer, brand: brand, capacity: capacity, price: price, name: name, manufacturedDate: manufacturedDate, expirationDate: expirationDate, fatRatio: fatRatio, isLactoFree: isLactoFree, temperature: temperature)
     }
 }

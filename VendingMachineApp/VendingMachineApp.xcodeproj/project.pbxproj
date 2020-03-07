@@ -25,9 +25,9 @@
 		30B9CB75240FF256002760FE /* StrawberryMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B9CB74240FF256002760FE /* StrawberryMilk.swift */; };
 		30B9CB77240FF28D002760FE /* Coke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B9CB76240FF28D002760FE /* Coke.swift */; };
 		30B9CB79240FF32A002760FE /* Cider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B9CB78240FF32A002760FE /* Cider.swift */; };
-		30B9CB7B240FF387002760FE /* StarbucksCoffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B9CB7A240FF387002760FE /* StarbucksCoffee.swift */; };
-		30B9CB7D240FF3ED002760FE /* CantataCoffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B9CB7C240FF3ED002760FE /* CantataCoffee.swift */; };
-		30B9CB7F240FF416002760FE /* UCCCoffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B9CB7E240FF416002760FE /* UCCCoffee.swift */; };
+		30B9CB7B240FF387002760FE /* Americano.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B9CB7A240FF387002760FE /* Americano.swift */; };
+		30B9CB7D240FF3ED002760FE /* Mocha.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B9CB7C240FF3ED002760FE /* Mocha.swift */; };
+		30B9CB7F240FF416002760FE /* Latte.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B9CB7E240FF416002760FE /* Latte.swift */; };
 		30FC1B742410E995000DFF44 /* VendingMachineAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FC1B732410E995000DFF44 /* VendingMachineAppTests.swift */; };
 		30FC1B7C2410EDFF000DFF44 /* BeverageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FC1B7B2410EDFF000DFF44 /* BeverageTests.swift */; };
 		30FC1B802410F2F8000DFF44 /* BeveragesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FC1B7F2410F2F8000DFF44 /* BeveragesTests.swift */; };
@@ -64,9 +64,9 @@
 		30B9CB74240FF256002760FE /* StrawberryMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrawberryMilk.swift; sourceTree = "<group>"; };
 		30B9CB76240FF28D002760FE /* Coke.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coke.swift; sourceTree = "<group>"; };
 		30B9CB78240FF32A002760FE /* Cider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cider.swift; sourceTree = "<group>"; };
-		30B9CB7A240FF387002760FE /* StarbucksCoffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarbucksCoffee.swift; sourceTree = "<group>"; };
-		30B9CB7C240FF3ED002760FE /* CantataCoffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CantataCoffee.swift; sourceTree = "<group>"; };
-		30B9CB7E240FF416002760FE /* UCCCoffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UCCCoffee.swift; sourceTree = "<group>"; };
+		30B9CB7A240FF387002760FE /* Americano.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Americano.swift; sourceTree = "<group>"; };
+		30B9CB7C240FF3ED002760FE /* Mocha.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mocha.swift; sourceTree = "<group>"; };
+		30B9CB7E240FF416002760FE /* Latte.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Latte.swift; sourceTree = "<group>"; };
 		30FC1B712410E995000DFF44 /* VendingMachineAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VendingMachineAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		30FC1B732410E995000DFF44 /* VendingMachineAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineAppTests.swift; sourceTree = "<group>"; };
 		30FC1B752410E995000DFF44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -171,9 +171,9 @@
 		30FC1B6C2410E8F3000DFF44 /* Coffee */ = {
 			isa = PBXGroup;
 			children = (
-				30B9CB7C240FF3ED002760FE /* CantataCoffee.swift */,
-				30B9CB7E240FF416002760FE /* UCCCoffee.swift */,
-				30B9CB7A240FF387002760FE /* StarbucksCoffee.swift */,
+				30B9CB7C240FF3ED002760FE /* Mocha.swift */,
+				30B9CB7E240FF416002760FE /* Latte.swift */,
+				30B9CB7A240FF387002760FE /* Americano.swift */,
 				30609E1C2407F72A00EF3645 /* Coffee.swift */,
 			);
 			path = Coffee;
@@ -293,19 +293,19 @@
 			files = (
 				30B9CB77240FF28D002760FE /* Coke.swift in Sources */,
 				300CD768240EA35100085882 /* Beverages.swift in Sources */,
-				30B9CB7D240FF3ED002760FE /* CantataCoffee.swift in Sources */,
+				30B9CB7D240FF3ED002760FE /* Mocha.swift in Sources */,
 				30B9CB75240FF256002760FE /* StrawberryMilk.swift in Sources */,
 				30B9CB71240FEF8B002760FE /* BananaMilk.swift in Sources */,
 				30609E1B2407F71000EF3645 /* Soda.swift in Sources */,
 				30609E062407EFC100EF3645 /* ViewController.swift in Sources */,
-				30B9CB7F240FF416002760FE /* UCCCoffee.swift in Sources */,
+				30B9CB7F240FF416002760FE /* Latte.swift in Sources */,
 				30B6CA44241297BB00C7FA28 /* ExtendedDate.swift in Sources */,
 				30B9CB73240FF21B002760FE /* ChocoMilk.swift in Sources */,
 				30609E022407EFC100EF3645 /* AppDelegate.swift in Sources */,
 				30609E172407F43700EF3645 /* Beverage.swift in Sources */,
 				30609E042407EFC100EF3645 /* SceneDelegate.swift in Sources */,
 				30609E192407F6EE00EF3645 /* Milk.swift in Sources */,
-				30B9CB7B240FF387002760FE /* StarbucksCoffee.swift in Sources */,
+				30B9CB7B240FF387002760FE /* Americano.swift in Sources */,
 				30609E1D2407F72A00EF3645 /* Coffee.swift in Sources */,
 				304429BA240A3C64004D3312 /* VendingMachine.swift in Sources */,
 				30B9CB79240FF32A002760FE /* Cider.swift in Sources */,

@@ -30,6 +30,7 @@ class ViewController: UIViewController {
     func setupUI() {
         makeCornerRadius()
         setupBalanceLabel()
+        setupStockLabels()
     }
     
     func makeCornerRadius() {
@@ -40,6 +41,15 @@ class ViewController: UIViewController {
     
     func setupBalanceLabel() {
         balanceLabel.text = "잔액: \(vendingMachine.balance)"
+    }
+    
+    func setupStockLabels() {
+        let kindOfBeverages = vendingMachine.kindOfBeverages()
+        if kindOfBeverages.count == 0 {
+            stockLabels.forEach{
+                $0.text = String(0)
+            }
+        }
     }
 }
 

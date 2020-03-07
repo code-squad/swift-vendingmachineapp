@@ -98,6 +98,7 @@
 				A56F74142403DFDE0006A7CE /* Beverage */,
 				A5E7DA6524036F36002CDF82 /* VendingMachine.swift */,
 				A56F74112403C0CB0006A7CE /* CustomDateFormatter.swift */,
+				A5098EA924137F0E00ACB92B /* BeverageFacory.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -149,7 +150,6 @@
 				A5E7DA4C24036882002CDF82 /* Assets.xcassets */,
 				A5E7DA4E24036882002CDF82 /* LaunchScreen.storyboard */,
 				A5E7DA5124036882002CDF82 /* Info.plist */,
-				A5098EA924137F0E00ACB92B /* BeverageFacory.swift */,
 			);
 			path = VendingMachineApp;
 			sourceTree = "<group>";

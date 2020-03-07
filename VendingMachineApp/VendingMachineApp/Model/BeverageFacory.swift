@@ -9,7 +9,7 @@
 import Foundation
 
 class BeverageFactory {
-    func makeBeverage(number: VendingMachine.KindOfBeverages) -> Beverage {
+    func makeBeverage(number: VendingMachine.BeverageNames) -> Beverage {
         switch number {
         case .ChocolateMilk:
             return ChocolateMilk(brand: .SeoulMilk,

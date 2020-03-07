@@ -99,6 +99,9 @@
 			children = (
 				30609E162407F43700EF3645 /* Beverage.swift */,
 				300CD767240EA35100085882 /* Beverages.swift */,
+				30609E1C2407F72A00EF3645 /* Coffee.swift */,
+				30609E1A2407F71000EF3645 /* Soda.swift */,
+				30609E182407F6EE00EF3645 /* Milk.swift */,
 				30FC1B6C2410E8F3000DFF44 /* Coffee */,
 				30FC1B6B2410E8E8000DFF44 /* Soda */,
 				30FC1B6A2410E8DA000DFF44 /* Milk */,
@@ -153,7 +156,6 @@
 		30FC1B6A2410E8DA000DFF44 /* Milk */ = {
 			isa = PBXGroup;
 			children = (
-				30609E182407F6EE00EF3645 /* Milk.swift */,
 				30B9CB74240FF256002760FE /* StrawberryMilk.swift */,
 				30B9CB72240FF21B002760FE /* ChocoMilk.swift */,
 				30B9CB70240FEF8B002760FE /* BananaMilk.swift */,
@@ -164,7 +166,6 @@
 		30FC1B6B2410E8E8000DFF44 /* Soda */ = {
 			isa = PBXGroup;
 			children = (
-				30609E1A2407F71000EF3645 /* Soda.swift */,
 				30B9CB76240FF28D002760FE /* Coke.swift */,
 				30B9CB78240FF32A002760FE /* Cider.swift */,
 			);
@@ -177,7 +178,6 @@
 				30B9CB7C240FF3ED002760FE /* Mocha.swift */,
 				30B9CB7E240FF416002760FE /* Latte.swift */,
 				30B9CB7A240FF387002760FE /* Americano.swift */,
-				30609E1C2407F72A00EF3645 /* Coffee.swift */,
 			);
 			path = Coffee;
 			sourceTree = "<group>";

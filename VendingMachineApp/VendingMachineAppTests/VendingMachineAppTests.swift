@@ -28,6 +28,7 @@ class VendingMachineAppTests: XCTestCase {
     }
     
     func testAvailableBeverageNowMoney() {
+         vendingMachine.raiseMoney(fiveThousandCount: 2, thousandCount: 2, fiveHundredCount: 1, hundredCount: 2)
         let availabeBeverage = vendingMachine.reportAvailableBeverageNowMoney()
         XCTAssertEqual(availabeBeverage.contains(coffee), true)
         XCTAssertEqual(availabeBeverage.contains(soda), true)

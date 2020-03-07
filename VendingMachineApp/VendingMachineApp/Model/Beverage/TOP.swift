@@ -9,16 +9,20 @@
 import Foundation
 
 class TOP: Coffee {
-    enum BeanOrigin: String {
+    enum BeanOrigin: String, CaseIterable {
         case Colombia = "Colombia"
         case Congo = "Congo"
         case Cuba = "Cuba"
         case Ethiopia = "Ethiopia"
+        
+        init(index: Int) {
+            self = BeanOrigin.allCases[index]
+        }
     }
     
     private var beanOrigin: BeanOrigin
     
-    init(brand: Brand, capacity: Capacity, price: Price, name: Name, manufacturingDate: Date, expirationDate: Date, calorie: Calorie, temperature: Temperature, decaffeinated: Bool, beanOrigin: BeanOrigin) {
+    init(brand: Brand, capacity: Capacity, price: Price, name: Name, manufacturingDate: Date, calorie: Calorie, temperature: Temperature, decaffeinated: Bool, beanOrigin: BeanOrigin) {
         self.beanOrigin = beanOrigin
         super.init(brand: brand, capacity: capacity, price: price, name: name, manufacturingDate: manufacturingDate, calorie: calorie, temperature: temperature, decaffeinated: decaffeinated)
     }

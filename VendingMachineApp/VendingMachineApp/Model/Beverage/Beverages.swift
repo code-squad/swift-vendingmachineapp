@@ -9,10 +9,6 @@
 import Foundation
 
 class Beverages {
-    enum KindOfBeverages: Int {
-        case ChocolateMilk, StrawberryMilk, Coke, Cider, GeorGia, TOP
-    }
-    
     private var beverages: [Beverage]
     
     init() {

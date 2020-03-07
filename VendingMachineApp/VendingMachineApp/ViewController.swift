@@ -12,7 +12,6 @@ class ViewController: UIViewController {
 
     let vendingMachine = VendingMachine()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
     }

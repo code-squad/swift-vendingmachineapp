@@ -58,10 +58,10 @@ class Inventory: CustomStringConvertible {
         }.forEach { block($0) }
     }
     
-    func repeatForHotItems(_ block: (Beverage) -> Void) {
+    func repeatForHotItems(threshold: Int, _ block: (Beverage) -> Void) {
         inventory.filter { beverage in
             guard let coffee = beverage as? Coffee else { return false }
-            return coffee.isHot()
+            return coffee.isHot(threshold: threshold)
         }.forEach { block($0) }
     }
     

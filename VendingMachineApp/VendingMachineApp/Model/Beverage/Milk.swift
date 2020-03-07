@@ -9,8 +9,12 @@
 import Foundation
 
 class Milk: Beverage {
-    enum FarmCode: String {
+    enum FarmCode: String, CaseIterable {
         case A, B, C, D, E, F
+        
+        init(index: Int) {
+            self = FarmCode.allCases[index]
+        }
         
         func isSame(farmCode: String) -> Bool {
             return self.rawValue == farmCode

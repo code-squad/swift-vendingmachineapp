@@ -9,14 +9,18 @@
 import Foundation
 
 class Cider: Soda {
-    enum Taste: String {
+    enum Taste: String, CaseIterable {
         case lemon = "lemon"
         case pear = "pear"
+        
+        init(index: Int) {
+            self = Taste.allCases[index]
+        }
     }
     
     private var taste: Taste
     
-    init(brand: Brand, capacity: Capacity, price: Price, name: Name, manufacturingDate: Date, expirationDate: Date, calorie: Calorie, temperature: Temperature, zeroCalorie: Bool, taste: Taste) {
+    init(brand: Brand, capacity: Capacity, price: Price, name: Name, manufacturingDate: Date, calorie: Calorie, temperature: Temperature, taste: Taste) {
         self.taste = taste
         super.init(brand: brand, capacity: capacity, price: price, name: name, manufacturingDate: manufacturingDate, calorie: calorie, temperature: temperature)
     }

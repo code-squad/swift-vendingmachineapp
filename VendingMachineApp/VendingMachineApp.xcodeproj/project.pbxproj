@@ -29,6 +29,7 @@
 		C2560CAF24091B6E00933332 /* ChocolateMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2560CAE24091B6E00933332 /* ChocolateMilk.swift */; };
 		C2560CB524091D5600933332 /* Top.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2560CB424091D5600933332 /* Top.swift */; };
 		C2560CB924091D7A00933332 /* Georgia.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2560CB824091D7A00933332 /* Georgia.swift */; };
+		C2D405E02413744500848736 /* Cashier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D405DF2413744500848736 /* Cashier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		C2560CAE24091B6E00933332 /* ChocolateMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChocolateMilk.swift; sourceTree = "<group>"; };
 		C2560CB424091D5600933332 /* Top.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Top.swift; sourceTree = "<group>"; };
 		C2560CB824091D7A00933332 /* Georgia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Georgia.swift; sourceTree = "<group>"; };
+		C2D405DF2413744500848736 /* Cashier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cashier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +141,7 @@
 				C2560CA4240910E700933332 /* Beverages */,
 				C2078ADB2407ECDD00B403A7 /* VendingMachine.swift */,
 				C250FB98240FC975008DB2AD /* Inventory.swift */,
+				C2D405DF2413744500848736 /* Cashier.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -268,6 +271,7 @@
 				C2560CAB2409112000933332 /* Fanta.swift in Sources */,
 				C2078ABB2407CA8900B403A7 /* ViewController.swift in Sources */,
 				C2560CB524091D5600933332 /* Top.swift in Sources */,
+				C2D405E02413744500848736 /* Cashier.swift in Sources */,
 				C2078AB72407CA8900B403A7 /* AppDelegate.swift in Sources */,
 				C2078ADA2407CFD400B403A7 /* Beverage.swift in Sources */,
 				C250FB97240ED512008DB2AD /* Coffee.swift in Sources */,

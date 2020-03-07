@@ -39,4 +39,8 @@ class Beverages {
     func reportExpiratedBeverage() -> [Beverage] {
         return beverages.filter{ $0.isExpiratedBeverage() }
     }
+    
+    func reportAvailableBeverageNowMoney(_ balance: Int) -> [Beverage] {
+        beverages.filter { $0.price < balance }
+    }
 }

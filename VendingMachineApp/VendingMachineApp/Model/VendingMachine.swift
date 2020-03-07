@@ -9,7 +9,6 @@
 import Foundation
 struct VendingMachine {
     private var beverages: Beverages
-//    private var money: [String:Int] = ["fiveThousand" : 0, "thousand" : 0, "fiveHundred" : 0, "hundred" : 0]
     private(set) var balance = 0
     private var purchasedList: [Beverage] = []
     private var money: Money
@@ -31,13 +30,8 @@ struct VendingMachine {
     }
 
     mutating func reportAvailableBeverageNowMoney() -> [Beverage] {
-        var purchasbleBeverages: [Beverage] = []
-        beverages.forEachBeverages { (beverage) in
-            if beverage.price > balance {
-                purchasbleBeverages.append(beverage)
-            }
-        }
-        return purchasbleBeverages
+        
+        return beverages.reportAvailableBeverageNowMoney(confirmBalance(balance: balance))
     }
 
     mutating func purchaseBeverage(beverage: Beverage, price: Int) {

@@ -24,7 +24,7 @@ class Beverage {
         self.price = price
         self.name = name
         self.manufacturingDate = manufacturingDate
-        self.expirationDate = Date(timeInterval: 86400 * 14, since: manufacturingDate)
+        self.expirationDate = Date().expiredDay(from: manufacturingDate, period: 14)
         self.calorie = calorie
         self.temperature = temperature
     }
@@ -51,5 +51,11 @@ extension Beverage: CustomStringConvertible {
 extension Beverage: Equatable {
     static func == (lhs: Beverage, rhs: Beverage) -> Bool {
         return (lhs.brand == rhs.brand) && (lhs.name == rhs.name) && (lhs.capacity == rhs.capacity)
+    }
+}
+
+extension Date {
+    func expiredDay(from: Date, period: Double) -> Date{
+        return Date(timeInterval: 86400 * period, since: from)
     }
 }

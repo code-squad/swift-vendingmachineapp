@@ -9,12 +9,6 @@
 import Foundation
 
 class Beverage {
-    enum Capacity: Int {
-        case Small = 190
-        case Middle = 300
-        case Large = 355
-    }
-    
     enum Price: Int {
         case Cheap = 1000
         case Expensive = 2000
@@ -45,7 +39,7 @@ class Beverage {
     }
     
     private var brand: String
-    private var capacity: Capacity
+    private var capacity: Double
     private var price: Price
     private var name: String
     private var manufacturingDate: Date
@@ -54,7 +48,7 @@ class Beverage {
     private var temperature: Temperature
     private(set) var beverageIndex: VendingMachine.BeverageNumbers
     
-    init(brand: String, capacity: Capacity, price: Price, name: String, manufacturingDate: Date, calorie: Calorie, temperature: Temperature, beverageIndex: VendingMachine.BeverageNumbers) {
+    init(brand: String, capacity: Double, price: Price, name: String, manufacturingDate: Date, calorie: Calorie, temperature: Temperature, beverageIndex: VendingMachine.BeverageNumbers) {
         self.brand = brand
         self.capacity = capacity
         self.price = price

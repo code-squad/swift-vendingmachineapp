@@ -21,7 +21,8 @@ struct VendingMachine {
     let cider = Cider(manufacturer: "코카콜라", brand: "스프라이트", capacity: 355, price: Money(balance: 1800), name: "스프라이트", manufacturedDate: Date(), expirationDate: Date(), sugarRatio: .lower, temperature: 8, flavor: .lemon)
     let milkis = Milkis(manufacturer: "롯데", brand: "밀키스", capacity: 355, price: Money(balance: 1400), name: "밀키스", manufacturedDate: Date(), expirationDate: Date(), sugarRatio: .original, temperature: 4, milkRatio: 20.0)
     lazy var products: [Beverage] = [bananaMilk, chocoMilk, strawberryMilk, americano, latte, mocha, coke, cider, milkis]
-
+    let currency = [5000, 1000, 500, 100]
+    
     init() {
         beverages = Beverages()
     }
@@ -30,8 +31,8 @@ struct VendingMachine {
         beverages.forEachBeverages { print($0.description) }
     }
     
-    mutating func raiseMoney(fiveThousandCount: Int, thousandCount: Int, fiveHundredCount: Int, hundredCount: Int) {
-        balance.raiseMoney(fiveThousandCount: fiveThousandCount, thousandCount: thousandCount, fiveHundredCount: fiveHundredCount, hundredCount: hundredCount)
+    mutating func raiseMoney(index: Int) {
+        balance.raiseMoney(index: index)
     }
 
     mutating func addStock(_ index: Int) {

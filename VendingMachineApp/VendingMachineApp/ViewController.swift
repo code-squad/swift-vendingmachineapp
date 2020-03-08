@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    let vendingMachine = VendingMachine()
+    var vendingMachine = VendingMachine()
     
     /*
      할일
@@ -34,6 +34,8 @@ class ViewController: UIViewController {
     @IBOutlet var stockCount: [UILabel]!
     @IBOutlet var beverageImages: [UIImageView]!
     
+    @IBOutlet var addMoneyButton: [UIButton]!
+    @IBOutlet var balanceLabel: UILabel!
     
     func setUI() {
        for img in beverageImages {
@@ -45,7 +47,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func addStock(button: UIButton) {
-        
+        vendingMachine.addStock(button.tag)
     }
     
     

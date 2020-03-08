@@ -27,6 +27,9 @@
                                                 <rect key="frame" x="68" y="8" width="62" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="재고 추가"/>
+                                                <connections>
+                                                    <action selector="addStockWithButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2Np-Eg-ul2"/>
+                                                </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bananaMilk" translatesAutoresizingMaskIntoConstraints="NO" id="8dW-n1-pYK">
                                                 <rect key="frame" x="55" y="33" width="90" height="110"/>
@@ -43,6 +46,9 @@
                                                 <rect key="frame" x="218" y="8" width="62" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="재고 추가"/>
+                                                <connections>
+                                                    <action selector="addStockWithButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vAv-19-zjA"/>
+                                                </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ChocoMilk" translatesAutoresizingMaskIntoConstraints="NO" id="O98-m8-4ev">
                                                 <rect key="frame" x="202" y="33" width="90" height="110"/>
@@ -59,6 +65,9 @@
                                                 <rect key="frame" x="369" y="8" width="62" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="재고 추가"/>
+                                                <connections>
+                                                    <action selector="addStockWithButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Xs6-d6-aoD"/>
+                                                </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="strawberryMilk" translatesAutoresizingMaskIntoConstraints="NO" id="PZz-A6-HTJ">
                                                 <rect key="frame" x="355" y="33" width="90" height="110"/>
@@ -75,6 +84,9 @@
                                                 <rect key="frame" x="526" y="8" width="62" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="재고 추가"/>
+                                                <connections>
+                                                    <action selector="addStockWithButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tzu-in-Cav"/>
+                                                </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Americano" translatesAutoresizingMaskIntoConstraints="NO" id="Uwp-8D-7Ae">
                                                 <rect key="frame" x="512" y="33" width="90" height="110"/>
@@ -91,6 +103,9 @@
                                                 <rect key="frame" x="696" y="8" width="62" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="재고 추가"/>
+                                                <connections>
+                                                    <action selector="addStockWithButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="00z-hl-Dxj"/>
+                                                </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Latte" translatesAutoresizingMaskIntoConstraints="NO" id="gwc-Oe-r2q">
                                                 <rect key="frame" x="677" y="33" width="90" height="110"/>
@@ -117,7 +132,7 @@
                                                 <color key="textColor" red="0.60737533587411163" green="0.37121491526239747" blue="0.14323879654749228" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" tag="1000" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nNo-Jf-NSo">
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nNo-Jf-NSo">
                                                 <rect key="frame" x="135" y="65" width="110" height="105"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" red="0.97662198600000005" green="0.89076694219999997" blue="0.77554270439999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -126,7 +141,7 @@
                                                     <color key="titleColor" red="0.40466370559999998" green="0.2702901311" blue="0.16211305549999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                             </button>
-                                            <button opaque="NO" tag="500" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xpl-Gr-jHE">
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xpl-Gr-jHE">
                                                 <rect key="frame" x="15" y="178" width="110" height="105"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" red="0.97662198600000005" green="0.89076694219999997" blue="0.77554270439999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -135,7 +150,7 @@
                                                     <color key="titleColor" red="0.40466370559999998" green="0.2702901311" blue="0.16211305549999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                             </button>
-                                            <button opaque="NO" tag="100" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kkk-aF-JPS">
+                                            <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kkk-aF-JPS">
                                                 <rect key="frame" x="135" y="178" width="110" height="105"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" red="0.97662198600000005" green="0.89076694219999997" blue="0.77554270439999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -151,7 +166,7 @@
                                                 <color key="textColor" red="0.80044416240000005" green="0.2472920435" blue="0.20724295240000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" tag="5000" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VES-uh-vpe">
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VES-uh-vpe">
                                                 <rect key="frame" x="15" y="65" width="110" height="105"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" red="0.97662198604060912" green="0.89076694220378771" blue="0.77554270436717687" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -178,6 +193,9 @@
                                                 <rect key="frame" x="68" y="8" width="62" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="재고 추가"/>
+                                                <connections>
+                                                    <action selector="addStockWithButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="va8-hu-lU9"/>
+                                                </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Mocha" translatesAutoresizingMaskIntoConstraints="NO" id="amr-hq-Llx">
                                                 <rect key="frame" x="54" y="33" width="90" height="110"/>
@@ -194,6 +212,9 @@
                                                 <rect key="frame" x="223" y="8" width="62" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="재고 추가"/>
+                                                <connections>
+                                                    <action selector="addStockWithButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Sqi-YB-3qk"/>
+                                                </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Coke" translatesAutoresizingMaskIntoConstraints="NO" id="N8r-qo-N5B">
                                                 <rect key="frame" x="209" y="33" width="90" height="110"/>
@@ -210,6 +231,9 @@
                                                 <rect key="frame" x="369" y="8" width="62" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="재고 추가"/>
+                                                <connections>
+                                                    <action selector="addStockWithButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="M2O-1Z-zDW"/>
+                                                </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Cider" translatesAutoresizingMaskIntoConstraints="NO" id="Uim-wa-5D7">
                                                 <rect key="frame" x="355" y="33" width="90" height="110"/>
@@ -226,6 +250,9 @@
                                                 <rect key="frame" x="531" y="8" width="62" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="재고 추가"/>
+                                                <connections>
+                                                    <action selector="addStockWithButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qps-2d-HLR"/>
+                                                </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="milkis" translatesAutoresizingMaskIntoConstraints="NO" id="mw7-1B-AUc">
                                                 <rect key="frame" x="515" y="33" width="90" height="110"/>
@@ -256,6 +283,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="balanceLabel" destination="VYk-KQ-3Rg" id="JUg-HH-jZD"/>
                         <outletCollection property="addStockButton" destination="xW5-h4-OFc" collectionClass="NSMutableArray" id="EJm-cd-xY2"/>
                         <outletCollection property="addStockButton" destination="ajS-vh-lX2" collectionClass="NSMutableArray" id="OjX-qI-cf9"/>
                         <outletCollection property="addStockButton" destination="lHY-v2-mlJ" collectionClass="NSMutableArray" id="3yN-wc-Lvx"/>
@@ -286,6 +314,10 @@
                         <outletCollection property="backgroundViews" destination="xGL-Fs-eef" collectionClass="NSMutableArray" id="kRZ-kp-xCz"/>
                         <outletCollection property="backgroundViews" destination="G3r-Om-M6D" collectionClass="NSMutableArray" id="NTg-Vc-vIj"/>
                         <outletCollection property="backgroundViews" destination="e2F-8d-h01" collectionClass="NSMutableArray" id="OXC-YK-Ex8"/>
+                        <outletCollection property="addMoneyButton" destination="VES-uh-vpe" collectionClass="NSMutableArray" id="BpQ-hI-Ueh"/>
+                        <outletCollection property="addMoneyButton" destination="nNo-Jf-NSo" collectionClass="NSMutableArray" id="Lnh-CT-d3c"/>
+                        <outletCollection property="addMoneyButton" destination="Xpl-Gr-jHE" collectionClass="NSMutableArray" id="kLB-1y-2hO"/>
+                        <outletCollection property="addMoneyButton" destination="kkk-aF-JPS" collectionClass="NSMutableArray" id="CzN-tg-i26"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

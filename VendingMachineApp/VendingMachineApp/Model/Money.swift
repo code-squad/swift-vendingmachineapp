@@ -14,8 +14,21 @@ class Money {
         self.balance = balance
     }
     
-    func raiseMoney(fiveThousandCount: Int, thousandCount: Int, fiveHundredCount: Int, hundredCount: Int) {
-      balance += (fiveThousandCount * 5000) + (thousandCount * 1000) + (fiveHundredCount * 500) + (hundredCount * 100)
+    func raiseMoney(index: Int) {
+        var inputMoney = 0
+        switch index {
+        case 0:
+            inputMoney = index * 5000
+        case 1:
+           inputMoney = index * 1000
+        case 2:
+           inputMoney = index * 500
+        case 3:
+           inputMoney = index * 100
+        default:
+           inputMoney = 0
+        }
+      balance += inputMoney
     }
     
     func confirmBalance(_ money: Money) {

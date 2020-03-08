@@ -64,7 +64,7 @@ class VendingMachine{
     }
     
     func purchase(beverage: Beverage) {
-        balance -= beverage.getPrice()
+        balance -= beverage.price.money
         purchaseHistory.add(beverage: beverage)
         beverages.remove(beverage: beverage)
     }

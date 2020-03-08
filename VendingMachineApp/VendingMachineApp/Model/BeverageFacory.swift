@@ -14,7 +14,7 @@ class BeverageFactory {
         case .ChocolateMilk:
             return ChocolateMilk(brand: "SeoulMilk",
                                  capacity: 300,
-                                 price: .Cheap,
+                                 price: Price(1000),
                                  name: "ChocolateMilk",
                                  manufacturingDate: Date(),
                                  calorie: .Middle,
@@ -25,7 +25,7 @@ class BeverageFactory {
         case .StrawberryMilk:
             return StrawberryMilk(brand: "SeoulMilk",
                                   capacity: 300,
-                                  price: .Cheap,
+                                  price: Price(1000),
                                   name: "StrawberryMilk",
                                   manufacturingDate: Date(),
                                   calorie: .Middle,
@@ -36,7 +36,7 @@ class BeverageFactory {
         case .Coke:
             return Coke(brand: "CocaCola",
                         capacity: 355,
-                        price: .Expensive,
+                        price: Price(2000),
                         name: "Coke",
                         manufacturingDate: Date(),
                         calorie: .High,
@@ -47,7 +47,7 @@ class BeverageFactory {
         case .Cider:
             return Cider(brand: "CocaCola",
                          capacity: 355,
-                         price: .Expensive,
+                         price: Price(2000),
                          name: "Cider",
                          manufacturingDate: Date(),
                          calorie: .High,
@@ -58,7 +58,7 @@ class BeverageFactory {
         case .Georgia:
             return Georgia(brand: "CocaCola",
                            capacity: 240,
-                           price: .Cheap,
+                           price: Price(1500),
                            name: "GeorGia",
                            manufacturingDate: Date(),
                            calorie: .Low,
@@ -70,7 +70,7 @@ class BeverageFactory {
         case .TOP:
             return TOP(brand: "Maxim",
                        capacity: 275,
-                       price: .Expensive,
+                       price: Price(2000),
                        name: "TOP",
                        manufacturingDate: Date(),
                        calorie: .Low,

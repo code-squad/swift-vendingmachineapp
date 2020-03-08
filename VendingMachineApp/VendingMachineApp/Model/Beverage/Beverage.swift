@@ -9,15 +9,6 @@
 import Foundation
 
 class Beverage {
-    enum Price: Int {
-        case Cheap = 1000
-        case Expensive = 2000
-        
-        func isCheaper(than balance:Int) -> Bool{
-            return balance >= self.rawValue
-        }
-    }
-    
     enum Calorie: Double {
         case Low = 5
         case Middle = 100
@@ -40,7 +31,7 @@ class Beverage {
     
     private var brand: String
     private var capacity: Double
-    private var price: Price
+    private(set) var price: Price
     private var name: String
     private var manufacturingDate: Date
     private var expirationDate: Date
@@ -61,15 +52,11 @@ class Beverage {
     }
     
     func canBuy(have balance: Int) -> Bool {
-        return price.isCheaper(than: balance)
+        return price.isCheaper(than: Price(balance))
     }
     
     func isSafe() -> Bool {
         return expirationDate > Date()
-    }
-    
-    func getPrice() -> Int {
-        return price.rawValue
     }
     
     func isHot(standard: Double) -> Bool {

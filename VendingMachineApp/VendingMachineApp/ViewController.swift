@@ -9,8 +9,8 @@
 import UIKit
 
 class ViewController: UIViewController {
-    let vendingMachine = VendingMachine()
-    var selectedIndex = -1
+    private let vendingMachine = VendingMachine()
+    private var selectedIndex = -1
     @IBOutlet var addStockButtons: [UIButton]!
     @IBOutlet var productImages: [UIImageView]!
     @IBOutlet var stockLabels: [UILabel]!

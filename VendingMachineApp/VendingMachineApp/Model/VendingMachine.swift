@@ -12,6 +12,7 @@ class VendingMachine{
     private var beverages: Beverages
     private(set) var balance: Price
     private var purchaseHistory: Beverages
+    private let hotStandard = 65.0
     
     let beverageList = [
         ChocolateMilk(brand: "SeoulMilk",
@@ -135,7 +136,7 @@ class VendingMachine{
     func hotBeverages() -> [String] {
         var hot = [String]()
         beverages.forEachBeverages {
-            if $0.isHot(standard: 65) {
+            if $0.isHot(standard: hotStandard) {
                 hot.append("\($0)")
             }
         }

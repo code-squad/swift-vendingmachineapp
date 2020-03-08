@@ -11,9 +11,9 @@ import XCTest
 
 class VendingMachineAppTests: XCTestCase {
     var vendingMachine = VendingMachine()
-    let coffee = Latte(manufacturer: "동서식품", brand: "스타벅스", capacity: 300, price: 2700, name: "스타벅스 카페라떼", manufacturedDate: Date(), expirationDate: Date(), isContainMilk: true, package: .plastic, temperature: 8)
-    let soda = Coke(manufacturer: "코카콜라", brand: "코카콜라", capacity: 200, price: 2000, name: "코카콜라", manufacturedDate: Date(), expirationDate: Date(), sugarRatio: .original, temperature: 2)
-    let milk = StrawberryMilk(manufacturer: "서울우유", brand: "서울우유", capacity: 200, price: 1200, name: "딸기맛 우유", manufacturedDate: Date(), expirationDate:  Date(), fatRatio: .original, isLactoFree: false, temperature: 3)
+   let coffee = Mocha(manufacturer: "동서식품", brand: "스타벅스", capacity: 355, price: Money(balance: 2700), name: "스타벅스 모카", manufacturedDate: Date(), expirationDate:  Date(), isContainMilk: true, package: .glass, temperature: 8, isContainWheepCream: true)
+    let soda = Coke(manufacturer: "코카콜라", brand: "코카콜라", capacity: 200, price: Money(balance: 2000), name: "코카콜라", manufacturedDate: Date(), expirationDate: Date(), sugarRatio: .lower, temperature: 2, cocaLeafRatio: 8.8)
+    let milk = StrawberryMilk(manufacturer: "서울우유", brand: "서울우유", capacity: 200, price: Money(balance: 1200), name: "딸기맛 우유", manufacturedDate: Date(), expirationDate:  Date(), fatRatio: .original, temperature: 8, isLactoFree: false)
     
     override func setUp() {
         vendingMachine.addStock(coffee)
@@ -23,8 +23,8 @@ class VendingMachineAppTests: XCTestCase {
     
     func testRaiseMoney() {
        vendingMachine.raiseMoney(fiveThousandCount: 2, thousandCount: 2, fiveHundredCount: 1, hundredCount: 2)
-        let leftMoney = vendingMachine.confirmBalance(balance: vendingMachine.balance)
-        XCTAssertEqual(leftMoney, 12700)
+        let leftMoney = vendingMachine.confirmBalance()
+        XCTAssertEqual(leftMoney.balance, 12700)
     }
     
     func testAvailableBeverageNowMoney() {
@@ -38,7 +38,7 @@ class VendingMachineAppTests: XCTestCase {
     func testPurchaseBeverage() {
         vendingMachine.raiseMoney(fiveThousandCount: 2, thousandCount: 2, fiveHundredCount: 1, hundredCount: 2)
         vendingMachine.purchaseBeverage(beverage: coffee, price: coffee.price)
-        XCTAssertEqual(vendingMachine.balance, 10000)
+        XCTAssertEqual(vendingMachine.balance.balance, 10000)
     }
     
     func testPurchaseHistory() {

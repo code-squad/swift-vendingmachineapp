@@ -9,40 +9,41 @@
 import Foundation
 struct VendingMachine {
     private var beverages: Beverages
-    private(set) var balance = 0
+    private(set) var balance: Money = Money()
     private var purchasedList: [Beverage] = []
-    private var money: Money
+//    private var inputMoney: Money
     init() {
         beverages = Beverages()
-        money = Money()
     }
     
     func showTotalStock() {
         beverages.forEachBeverages { print($0.description) }
     }
     
+    //자판기에 돈 넣어서 잔액 올림
     mutating func raiseMoney(fiveThousandCount: Int, thousandCount: Int, fiveHundredCount: Int, hundredCount: Int) {
-        money.raiseMoney(fiveThousandCount: fiveThousandCount, thousandCount: thousandCount, fiveHundredCount: fiveHundredCount, hundredCount: hundredCount)
+        balance.raiseMoney(fiveThousandCount: fiveThousandCount, thousandCount: thousandCount, fiveHundredCount: fiveHundredCount, hundredCount: hundredCount)
     }
 
     func addStock(_ beverage: Beverage) {
         beverages.addBeverage(beverage)
     }
 
+    //현재 잔액으로 구매 가능한 음료들
     mutating func reportAvailableBeverageNowMoney() -> [Beverage] {
-        
-        return beverages.reportAvailableBeverageNowMoney(confirmBalance(balance: balance))
+        return beverages.reportAvailableBeverageNowMoney(confirmBalance())
     }
 
-    mutating func purchaseBeverage(beverage: Beverage, price: Int) {
-        balance = money.confirmBalance(balance)
-        balance -= price
+    //음료 금액만큼 잔액 차감
+    mutating func purchaseBeverage(beverage: Beverage, price: Money) {
+        balance.subtract(price)
         beverages.removeBeverage(beverage)
         purchasedList.append(beverage)
     }
 
-    mutating func confirmBalance(balance: Int) -> Int {
-        return balance + money.confirmBalance(balance)
+    //현재 잔액 확인
+    func confirmBalance() -> Money {
+        return balance
     }
     
     func reportTotalStock() -> [Beverage:Int] {

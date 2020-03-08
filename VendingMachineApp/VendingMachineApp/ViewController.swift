@@ -12,36 +12,41 @@ class ViewController: UIViewController {
 
     let vendingMachine = VendingMachine()
     
+    /*
+     할일
+     1. 모든 음료 종류 생성
+     2. 벤딩머신.애드스탁 에 추가
+     3. 음료에 재고추가 버튼 클릭시 벤딩머신.애드스탁
+     4. 음료 라벨에 해당 음료 수량 표현
+     
+     5. 잔액란 벤딩머신.발란스로
+     6. 머니에 각 버튼 클릭시 애드발란스
+     
+     */
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    @IBAction func addBananaMilk(_ sender: Any) {
-    }
-    
-    @IBAction func addChocoMilk(_ sender: Any) {
+        setUI()
     }
     
-    @IBAction func addStrawberrMilk(_ sender: Any) {
+    
+    @IBOutlet var backgroundViews: [UIView]!
+    @IBOutlet var addStockButton: [UIButton]!
+    @IBOutlet var stockCount: [UILabel]!
+    @IBOutlet var beverageImages: [UIImageView]!
+    
+    
+    func setUI() {
+       for img in beverageImages {
+            img.layer.cornerRadius = 30.0
+        }
+        for view in backgroundViews {
+            view.layer.cornerRadius = 20.0
+        }
     }
     
-    @IBAction func addAmericano(_ sender: Any) {
+    @IBAction func addStock(button: UIButton) {
+        
     }
-    
-    @IBAction func addLatte(_ sender: Any) {
-    }
-    
-    @IBAction func addMocha(_ sender: Any) {
-    }
-    
-    @IBAction func addCoke(_ sender: Any) {
-    }
-    
-    @IBAction func addCider(_ sender: Any) {
-    }
-    
-    @IBAction func addMilkis(_ sender: Any) {
-    }
-    
     
     
 }

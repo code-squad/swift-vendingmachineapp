@@ -13,7 +13,7 @@ class BeverageFactory {
         switch number {
         case .ChocolateMilk:
             return ChocolateMilk(brand: "SeoulMilk",
-                                 capacity: .Middle,
+                                 capacity: 300,
                                  price: .Cheap,
                                  name: "ChocolateMilk",
                                  manufacturingDate: Date(),
@@ -24,7 +24,7 @@ class BeverageFactory {
                                  package: .paper)
         case .StrawberryMilk:
             return StrawberryMilk(brand: "SeoulMilk",
-                                  capacity: .Middle,
+                                  capacity: 300,
                                   price: .Cheap,
                                   name: "StrawberryMilk",
                                   manufacturingDate: Date(),
@@ -35,7 +35,7 @@ class BeverageFactory {
                                   juiceContent: 2)
         case .Coke:
             return Coke(brand: "CocaCola",
-                        capacity: .Large,
+                        capacity: 355,
                         price: .Expensive,
                         name: "Coke",
                         manufacturingDate: Date(),
@@ -46,7 +46,7 @@ class BeverageFactory {
             
         case .Cider:
             return Cider(brand: "CocaCola",
-                         capacity: .Large,
+                         capacity: 355,
                          price: .Expensive,
                          name: "Cider",
                          manufacturingDate: Date(),
@@ -57,7 +57,7 @@ class BeverageFactory {
             
         case .Georgia:
             return Georgia(brand: "CocaCola",
-                           capacity: .Small,
+                           capacity: 240,
                            price: .Cheap,
                            name: "GeorGia",
                            manufacturingDate: Date(),
@@ -69,7 +69,7 @@ class BeverageFactory {
             
         case .TOP:
             return TOP(brand: "Maxim",
-                       capacity: .Large,
+                       capacity: 275,
                        price: .Expensive,
                        name: "TOP",
                        manufacturingDate: Date(),

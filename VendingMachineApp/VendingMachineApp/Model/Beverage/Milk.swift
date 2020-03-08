@@ -12,12 +12,8 @@ class Milk: Beverage {
     enum FarmCode: String, CaseIterable {
         case A, B, C, D, E, F
         
-        init(index: Int) {
-            self = FarmCode.allCases[index]
-        }
-        
-        func isSame(farmCode: String) -> Bool {
-            return self.rawValue == farmCode
+        init() {
+            self = FarmCode.allCases[Int.random(in: 0..<FarmCode.allCases.count)]
         }
     }
     
@@ -30,9 +26,5 @@ class Milk: Beverage {
     
     func from() -> String {
         return farmCode.rawValue
-    }
-    
-    func isSameFarm(farmCode: String) ->  Bool {
-        return self.farmCode.isSame(farmCode: farmCode)
     }
 }

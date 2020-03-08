@@ -15,8 +15,8 @@ class TOP: Coffee {
         case Cuba = "Cuba"
         case Ethiopia = "Ethiopia"
         
-        init(index: Int) {
-            self = BeanOrigin.allCases[index]
+        init() {
+            self = BeanOrigin.allCases[Int.random(in: 0..<BeanOrigin.allCases.count)]
         }
     }
     

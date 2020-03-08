@@ -11,9 +11,9 @@ import Foundation
 class StrawberryMilk: Milk {
     private var juiceContent: Double
     
-    init(brand: String, capacity: Double, price: Price, name: String, manufacturingDate: Date, calorie: Double, farmCode: FarmCode, temperature: Double, beverageIndex: VendingMachine.BeverageNumbers, juiceContent: Double) {
+    init(brand: String, capacity: Double, price: Price, name: String, manufacturingDate: Date, calorie: Double, farmCode: FarmCode, temperature: Double, juiceContent: Double) {
         self.juiceContent = juiceContent
-        super.init(brand: brand, capacity: capacity, price: price, name: name, manufacturingDate: manufacturingDate, calorie: calorie, temperature: temperature, beverageIndex: beverageIndex, farmCode: farmCode)
+        super.init(brand: brand, capacity: capacity, price: price, name: name, manufacturingDate: manufacturingDate, calorie: calorie, temperature: temperature, farmCode: farmCode)
     }
     
     func isHigher(than juiceContent: Double) -> Bool {

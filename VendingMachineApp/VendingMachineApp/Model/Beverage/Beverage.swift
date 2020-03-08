@@ -17,9 +17,8 @@ class Beverage {
     private var expirationDate: Date
     private var calorie: Double
     private var temperature: Double
-    private(set) var beverageIndex: VendingMachine.BeverageNumbers
     
-    init(brand: String, capacity: Double, price: Price, name: String, manufacturingDate: Date, calorie: Double, temperature: Double, beverageIndex: VendingMachine.BeverageNumbers) {
+    init(brand: String, capacity: Double, price: Price, name: String, manufacturingDate: Date, calorie: Double, temperature: Double) {
         self.brand = brand
         self.capacity = capacity
         self.price = price
@@ -28,7 +27,6 @@ class Beverage {
         self.expirationDate = Date(timeInterval: 86400 * 14, since: manufacturingDate)
         self.calorie = calorie
         self.temperature = temperature
-        self.beverageIndex = beverageIndex
     }
     
     func canBuy(have balance: Int) -> Bool {

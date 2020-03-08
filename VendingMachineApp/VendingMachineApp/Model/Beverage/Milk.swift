@@ -23,9 +23,9 @@ class Milk: Beverage {
     
     private var farmCode: FarmCode
     
-    init(brand: String, capacity: Double, price: Price, name: String, manufacturingDate: Date, calorie: Double, temperature: Double, beverageIndex: VendingMachine.BeverageNumbers, farmCode: FarmCode) {
+    init(brand: String, capacity: Double, price: Price, name: String, manufacturingDate: Date, calorie: Double, temperature: Double, farmCode: FarmCode) {
         self.farmCode = farmCode
-        super.init(brand: brand, capacity: capacity, price: price, name: name, manufacturingDate: manufacturingDate, calorie: calorie, temperature: temperature, beverageIndex: beverageIndex)
+        super.init(brand: brand, capacity: capacity, price: price, name: name, manufacturingDate: manufacturingDate, calorie: calorie, temperature: temperature)
     }
     
     func from() -> String {

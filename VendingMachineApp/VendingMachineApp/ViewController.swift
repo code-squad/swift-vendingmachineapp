@@ -10,6 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     let vendingMachine = VendingMachine()
+    var selectedIndex = -1
     @IBOutlet var addStockButtons: [UIButton]!
     @IBOutlet var productImages: [UIImageView]!
     @IBOutlet var stockLabels: [UILabel]!
@@ -17,7 +18,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var balanceLabel: UILabel!
     
     @IBAction func addStock(_ sender: UIButton) {
-        vendingMachine.insert(beverageNumber: VendingMachine.BeverageNumbers.allCases[sender.tag])
+        selectedIndex = sender.tag
+        vendingMachine.insert(beverageNumber: sender.tag)
     }
     
     @IBAction func addBalance(_ sender: UIButton) {
@@ -43,7 +45,7 @@ class ViewController: UIViewController {
     }
     
     func setupBalanceLabel() {
-        balanceLabel.text = "잔액: \(vendingMachine.balance)"
+        balanceLabel.text = "잔액: \(vendingMachine.balance.money)"
     }
     
     func setupStockLabels() {
@@ -67,11 +69,10 @@ class ViewController: UIViewController {
     }
     
     @objc func updateStockLabel(_ notification: Notification) {
-        if let index: Int = notification.userInfo?["index"] as? Int {
-            if let stock: Int = notification.userInfo?["stock"] as? Int {
-                stockLabels[index].text = String(stock)
-            }
+        if let stock: Int = notification.userInfo?["stock"] as? Int {
+            stockLabels[selectedIndex].text = String(stock)
         }
+        
     }
     
     @objc func updateBalance(_ notification: Notification) {

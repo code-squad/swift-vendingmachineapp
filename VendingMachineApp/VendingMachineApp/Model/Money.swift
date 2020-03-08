@@ -9,26 +9,14 @@
 import Foundation
 class Money {
     private(set) var balance: Int
+    private(set) var moneyType = [5000, 1000, 500, 100]
     
     init(balance: Int = 0) {
         self.balance = balance
     }
     
-    func raiseMoney(index: Int) {
-        var inputMoney = 0
-        switch index {
-        case 0:
-            inputMoney = index * 5000
-        case 1:
-           inputMoney = index * 1000
-        case 2:
-           inputMoney = index * 500
-        case 3:
-           inputMoney = index * 100
-        default:
-           inputMoney = 0
-        }
-      balance += inputMoney
+    func raiseMoney(moneyType: Int) {
+      balance += moneyType
     }
     
     func confirmBalance(_ money: Money) {

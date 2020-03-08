@@ -9,16 +9,6 @@
 import Foundation
 
 class Beverage {
-    enum Temperature: Double {
-        case Cool = 10
-        case Tepid = 35
-        case Hot = 65
-        
-        func isHotter(than standard: Double) -> Bool {
-            return self.rawValue >= standard
-        }
-    }
-    
     private var brand: String
     private var capacity: Double
     private(set) var price: Price
@@ -26,10 +16,10 @@ class Beverage {
     private var manufacturingDate: Date
     private var expirationDate: Date
     private var calorie: Double
-    private var temperature: Temperature
+    private var temperature: Double
     private(set) var beverageIndex: VendingMachine.BeverageNumbers
     
-    init(brand: String, capacity: Double, price: Price, name: String, manufacturingDate: Date, calorie: Double, temperature: Temperature, beverageIndex: VendingMachine.BeverageNumbers) {
+    init(brand: String, capacity: Double, price: Price, name: String, manufacturingDate: Date, calorie: Double, temperature: Double, beverageIndex: VendingMachine.BeverageNumbers) {
         self.brand = brand
         self.capacity = capacity
         self.price = price
@@ -50,7 +40,7 @@ class Beverage {
     }
     
     func isHot(standard: Double) -> Bool {
-        return temperature.isHotter(than: standard)
+        return temperature >= standard
     }
 }
 

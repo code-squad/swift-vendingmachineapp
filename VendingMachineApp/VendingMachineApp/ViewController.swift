@@ -35,26 +35,13 @@ class ViewController: UIViewController {
     
     func setupUI() {
         makeCornerRadius()
-        setupBalanceLabel()
-        setupStockLabels()
+        updateBalance(nil)
+        updateStockLabel(nil)
     }
     
     func makeCornerRadius() {
         productImages.forEach{
             $0.layer.cornerRadius = 40
-        }
-    }
-    
-    func setupBalanceLabel() {
-        balanceLabel.text = "잔액: \(vendingMachine.balance.money)"
-    }
-    
-    func setupStockLabels() {
-        let kindOfBeverages = vendingMachine.kindOfBeverages()
-        if kindOfBeverages.count == 0 {
-            stockLabels.forEach{
-                $0.text = String(0)
-            }
         }
     }
     
@@ -69,16 +56,28 @@ class ViewController: UIViewController {
                                                object: nil)
     }
     
-    @objc func updateStockLabel(_ notification: Notification) {
-        if let stock: Int = notification.userInfo?["stock"] as? Int {
-            stockLabels[selectedIndex].text = String(stock)
+    @objc func updateStockLabel(_ notification: Notification?) {
+        if let notification = notification {
+            if let stock: Int = notification.userInfo?["stock"] as? Int {
+                stockLabels[selectedIndex].text = String(stock)
+            }
+        } else {
+            let kindOfBeverages = vendingMachine.kindOfBeverages()
+            if kindOfBeverages.count == 0 {
+                stockLabels.forEach{
+                    $0.text = String(0)
+                }
+            }
         }
-        
     }
     
-    @objc func updateBalance(_ notification: Notification) {
-        if let balance: Int = notification.userInfo?["balance"] as? Int {
-            balanceLabel.text = "잔액: \(balance)"
+    @objc func updateBalance(_ notification: Notification?) {
+        if let notification = notification {
+            if let balance: Int = notification.userInfo?["balance"] as? Int {
+                balanceLabel.text = "잔액: \(balance)"
+            }
+        } else {
+            balanceLabel.text = "잔액: \(vendingMachine.balance.money)"
         }
     }
 }

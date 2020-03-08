@@ -12,10 +12,10 @@ class ViewController: UIViewController {
     var vendingMachine = VendingMachine()
     
     @IBOutlet var backgroundViews: [UIView]!
-    @IBOutlet var addStockButton: [UIButton]!
-    @IBOutlet var stockCountLabel: [UILabel]!
+    @IBOutlet var addStockButtons: [UIButton]!
+    @IBOutlet var stockCountLabels: [UILabel]!
     @IBOutlet var beverageImages: [UIImageView]!
-    @IBOutlet var addMoneyButton: [UIButton]!
+    @IBOutlet var addMoneyButtons: [UIButton]!
     @IBOutlet var balanceLabel: UILabel!
     
     override func viewDidLoad() {
@@ -34,7 +34,7 @@ class ViewController: UIViewController {
     
     @IBAction func addStock(button: UIButton) {
         vendingMachine.addStock(button.tag)
-        updateBeverageCount()
+        updateBeverageCountLabel()
     }
     
     @IBAction func addMoney(button: UIButton) {
@@ -42,11 +42,11 @@ class ViewController: UIViewController {
         updateBalanceLabel()
     }
     
-    func updateBeverageCount() {
+    func updateBeverageCountLabel() {
         let totalStock = vendingMachine.reportTotalStock()
         for (beverage, count) in totalStock {
             if vendingMachine.products.contains(beverage), let index = vendingMachine.products.firstIndex(of: beverage) {
-                stockCountLabel[index].text = String(count)
+                stockCountLabels[index].text = String(count)
             }
         }
     }

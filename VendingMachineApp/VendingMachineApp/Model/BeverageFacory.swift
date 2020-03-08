@@ -12,7 +12,7 @@ class BeverageFactory {
     func makeBeverage(number: VendingMachine.BeverageNumbers) -> Beverage {
         switch number {
         case .ChocolateMilk:
-            return ChocolateMilk(brand: .SeoulMilk,
+            return ChocolateMilk(brand: "SeoulMilk",
                                  capacity: .Middle,
                                  price: .Cheap,
                                  name: .ChocolateMilk,
@@ -23,7 +23,7 @@ class BeverageFactory {
                                  farmCode: Milk.FarmCode(index: Int.random(in: 0..<Milk.FarmCode.allCases.count)),
                                  package: .paper)
         case .StrawberryMilk:
-            return StrawberryMilk(brand: .SeoulMilk,
+            return StrawberryMilk(brand: "SeoulMilk",
                                   capacity: .Middle,
                                   price: .Cheap,
                                   name: .StrawberryMilk,
@@ -34,7 +34,7 @@ class BeverageFactory {
                                   beverageIndex: .StrawberryMilk,
                                   juiceContent: 2)
         case .Coke:
-            return Coke(brand: .CocaCola,
+            return Coke(brand: "CocaCola",
                         capacity: .Large,
                         price: .Expensive,
                         name: .Coke,
@@ -45,7 +45,7 @@ class BeverageFactory {
                         carbonicAcid: 20)
             
         case .Cider:
-            return Cider(brand: .CocaCola,
+            return Cider(brand: "CocaCola",
                          capacity: .Large,
                          price: .Expensive,
                          name: .Cider,
@@ -56,7 +56,7 @@ class BeverageFactory {
                          taste: Cider.Taste(index: Int.random(in: 0..<Cider.Taste.allCases.count)))
             
         case .Georgia:
-            return Georgia(brand: .CocaCola,
+            return Georgia(brand: "CocaCola",
                            capacity: .Small,
                            price: .Cheap,
                            name: .GeorGia,
@@ -68,7 +68,7 @@ class BeverageFactory {
                            black: false)
             
         case .TOP:
-            return TOP(brand: .Maxim,
+            return TOP(brand: "Maxim",
                        capacity: .Large,
                        price: .Expensive,
                        name: .TOP,

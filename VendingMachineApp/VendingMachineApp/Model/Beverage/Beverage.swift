@@ -9,16 +9,6 @@
 import Foundation
 
 class Beverage {
-    enum Calorie: Double {
-        case Low = 5
-        case Middle = 100
-        case High = 200
-        
-        func isZero() -> Bool{
-            return self == Beverage.Calorie.Low
-        }
-    }
-    
     enum Temperature: Double {
         case Cool = 10
         case Tepid = 35
@@ -35,11 +25,11 @@ class Beverage {
     private var name: String
     private var manufacturingDate: Date
     private var expirationDate: Date
-    private var calorie: Calorie
+    private var calorie: Double
     private var temperature: Temperature
     private(set) var beverageIndex: VendingMachine.BeverageNumbers
     
-    init(brand: String, capacity: Double, price: Price, name: String, manufacturingDate: Date, calorie: Calorie, temperature: Temperature, beverageIndex: VendingMachine.BeverageNumbers) {
+    init(brand: String, capacity: Double, price: Price, name: String, manufacturingDate: Date, calorie: Double, temperature: Temperature, beverageIndex: VendingMachine.BeverageNumbers) {
         self.brand = brand
         self.capacity = capacity
         self.price = price

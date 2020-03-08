@@ -11,7 +11,7 @@ import Foundation
 class Coke: Soda {
     private var carbonicAcid: Double
     
-    init(brand: String, capacity: Double, price: Price, name: String, manufacturingDate: Date, calorie: Calorie, temperature: Temperature, beverageIndex: VendingMachine.BeverageNumbers, carbonicAcid: Double) {
+    init(brand: String, capacity: Double, price: Price, name: String, manufacturingDate: Date, calorie: Double, temperature: Temperature, beverageIndex: VendingMachine.BeverageNumbers, carbonicAcid: Double) {
         self.carbonicAcid = carbonicAcid
         super.init(brand: brand, capacity: capacity, price: price, name: name, manufacturingDate: manufacturingDate, calorie: calorie, temperature: temperature, beverageIndex: beverageIndex)
     }

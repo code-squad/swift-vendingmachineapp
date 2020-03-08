@@ -9,10 +9,11 @@
 import Foundation
 
 class Soda: Beverage {
+    private let zeroStandard = 10.0
     private var zeroCalorie: Bool
     
-    override init(brand: String, capacity: Double, price: Price, name: String, manufacturingDate: Date, calorie: Calorie, temperature: Temperature, beverageIndex: VendingMachine.BeverageNumbers) {
-        self.zeroCalorie = calorie.isZero()
+    override init(brand: String, capacity: Double, price: Price, name: String, manufacturingDate: Date, calorie: Double, temperature: Temperature, beverageIndex: VendingMachine.BeverageNumbers) {
+        self.zeroCalorie = zeroStandard >= calorie ? true : false
         super.init(brand: brand, capacity: capacity, price: price, name: name, manufacturingDate: manufacturingDate, calorie: calorie, temperature: temperature, beverageIndex: beverageIndex)
     }
     

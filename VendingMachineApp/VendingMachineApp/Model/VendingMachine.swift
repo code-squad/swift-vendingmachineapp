@@ -10,27 +10,72 @@ import Foundation
 
 class VendingMachine{
     private var beverages: Beverages
-    private(set) var balance: Int
+    private(set) var balance: Price
     private var purchaseHistory: Beverages
-    private let beverageFactory: BeverageFactory
     
-    enum BeverageNumbers: Int, CaseIterable {
-        case ChocolateMilk, StrawberryMilk, Coke, Cider, Georgia, TOP
-        
-        func getValue() -> Int {
-            return self.rawValue
-        }
-    }
+    let beverageList = [
+        ChocolateMilk(brand: "SeoulMilk",
+                      capacity: 300,
+                      price: Price(1000),
+                      name: "ChocolateMilk",
+                      manufacturingDate: Date(),
+                      calorie: 195,
+                      temperature: 10,
+                      farmCode: Milk.FarmCode(index: Int.random(in: 0..<Milk.FarmCode.allCases.count)),
+                      package: .paper),
+        StrawberryMilk(brand: "SeoulMilk",
+                       capacity: 300,
+                       price: Price(1000),
+                       name: "StrawberryMilk",
+                       manufacturingDate: Date(),
+                       calorie: 195,
+                       farmCode: Milk.FarmCode(index: Int.random(in: 0..<Milk.FarmCode.allCases.count)),
+                       temperature: 10,
+                       juiceContent: 2),
+        Coke(brand: "CocaCola",
+             capacity: 355,
+             price: Price(2000),
+             name: "Coke",
+             manufacturingDate: Date(),
+             calorie: 160,
+             temperature: 10,
+             carbonicAcid: 20),
+        Cider(brand: "CocaCola",
+              capacity: 355,
+              price: Price(2000),
+              name: "Cider",
+              manufacturingDate: Date(),
+              calorie: 168,
+              temperature: 10,
+              taste: Cider.Taste(index: Int.random(in: 0..<Cider.Taste.allCases.count))),
+        Georgia(brand: "CocaCola",
+                capacity: 240,
+                price: Price(1500),
+                name: "GeorGia",
+                manufacturingDate: Date(),
+                calorie: 94,
+                temperature: 65,
+                decaffeinated: false,
+                black: false),
+        TOP(brand: "Maxim",
+            capacity: 275,
+            price: Price(2000),
+            name: "TOP",
+            manufacturingDate: Date(),
+            calorie: 48,
+            temperature: 65,
+            decaffeinated: false,
+            beanOrigin: TOP.BeanOrigin.init(index: Int.random(in: 0..<TOP.BeanOrigin.allCases.count)))
+    ]
     
     init() {
         self.beverages = Beverages()
-        self.balance = 0
+        self.balance = Price(0)
         self.purchaseHistory = Beverages()
-        self.beverageFactory = BeverageFactory()
     }
     
-    func insert(beverageNumber: BeverageNumbers) {
-        beverages.add(beverage: beverageFactory.makeBeverage(number: beverageNumber))
+    func insert(beverageNumber: Int) {
+        beverages.add(beverage: beverageList[beverageNumber])
     }
     
     func forEachBeverages(_ transfrom: (Beverage) -> ()) {
@@ -46,16 +91,16 @@ class VendingMachine{
     }
     
     func add(balance: Int) {
-        self.balance += balance
+        self.balance.add(money: balance)
         NotificationCenter.default.post(name: Notification.Name.updateBalance,
                                         object: nil,
-                                        userInfo: ["balance": self.balance])
+                                        userInfo: ["balance": self.balance.money])
     }
     
     func purchasableBeverages() -> [String] {
         var beverageList = [String]()
         beverages.forEachBeverages{
-            if $0.canBuy(have: balance) {
+            if $0.canBuy(have: balance.money) {
                 beverageList.append("\($0)")
             }
         }
@@ -63,10 +108,13 @@ class VendingMachine{
         return beverageList
     }
     
-    func purchase(beverage: Beverage) {
-        balance -= beverage.price.money
-        purchaseHistory.add(beverage: beverage)
-        beverages.remove(beverage: beverage)
+    func purchase(beverageNumber: Int) {
+        balance.add(money: -beverageList[beverageNumber].price.money)
+        purchaseHistory.add(beverage: beverageList[beverageNumber])
+        beverages.remove(beverage: beverageList[beverageNumber])
+        NotificationCenter.default.post(name: Notification.Name.updateBalance,
+                                        object: nil,
+                                        userInfo: ["balance": self.balance.money])
     }
     
     func kindOfBeverages() -> [String : Int] {

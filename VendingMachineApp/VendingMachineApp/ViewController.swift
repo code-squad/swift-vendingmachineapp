@@ -9,34 +9,20 @@
 import UIKit
 
 class ViewController: UIViewController {
-
     var vendingMachine = VendingMachine()
-    
-    /*
-     할일
-     1. 모든 음료 종류 생성
-     2. 벤딩머신.애드스탁 에 추가
-     3. 음료에 재고추가 버튼 클릭시 벤딩머신.애드스탁
-     4. 음료 라벨에 해당 음료 수량 표현
-     
-     5. 잔액란 벤딩머신.발란스로
-     6. 머니에 각 버튼 클릭시 애드발란스
-     
-     */
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setUI()
-    }
-    
     
     @IBOutlet var backgroundViews: [UIView]!
     @IBOutlet var addStockButton: [UIButton]!
-    @IBOutlet var stockCount: [UILabel]!
+    @IBOutlet var stockCountLabel: [UILabel]!
     @IBOutlet var beverageImages: [UIImageView]!
-    
     @IBOutlet var addMoneyButton: [UIButton]!
     @IBOutlet var balanceLabel: UILabel!
     
+    override func viewDidLoad() {
+         super.viewDidLoad()
+         setUI()
+     }
+     
     func setUI() {
        for img in beverageImages {
             img.layer.cornerRadius = 30.0
@@ -48,8 +34,26 @@ class ViewController: UIViewController {
     
     @IBAction func addStock(button: UIButton) {
         vendingMachine.addStock(button.tag)
+        updateBeverageCount()
     }
     
+    @IBAction func addMoney(button: UIButton) {
+        vendingMachine.raiseMoney(index: button.tag)
+        updateBalanceLabel()
+    }
+    
+    func updateBeverageCount() {
+        let totalStock = vendingMachine.reportTotalStock()
+        for (beverage, count) in totalStock {
+            if vendingMachine.products.contains(beverage), let index = vendingMachine.products.firstIndex(of: beverage) {
+                stockCountLabel[index].text = String(count)
+            }
+        }
+    }
+    
+    func updateBalanceLabel() {
+        balanceLabel.text = String(vendingMachine.confirmBalance().balance)
+    }
     
 }
 

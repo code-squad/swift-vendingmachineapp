@@ -35,14 +35,14 @@
                                                 <rect key="frame" x="55" y="33" width="90" height="110"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="남은 수량" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hyx-pa-PbC">
-                                                <rect key="frame" x="71" y="147" width="56" height="18"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hyx-pa-PbC">
+                                                <rect key="frame" x="93" y="145" width="12" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ajS-vh-lX2">
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ajS-vh-lX2">
                                                 <rect key="frame" x="218" y="8" width="62" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="재고 추가"/>
@@ -54,10 +54,10 @@
                                                 <rect key="frame" x="202" y="33" width="90" height="110"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="남은 수량" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T4C-eG-bqi">
-                                                <rect key="frame" x="219" y="147" width="56" height="18"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T4C-eG-bqi">
+                                                <rect key="frame" x="241" y="143" width="12" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -73,10 +73,10 @@
                                                 <rect key="frame" x="355" y="33" width="90" height="110"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="남은 수량" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6hc-0j-uDF">
-                                                <rect key="frame" x="372" y="147" width="56" height="18"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6hc-0j-uDF">
+                                                <rect key="frame" x="395" y="145" width="12" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -92,10 +92,10 @@
                                                 <rect key="frame" x="512" y="33" width="90" height="110"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="남은 수량" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VQ1-pp-ryN">
-                                                <rect key="frame" x="529" y="147" width="56" height="18"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VQ1-pp-ryN">
+                                                <rect key="frame" x="552" y="145" width="12" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -111,10 +111,10 @@
                                                 <rect key="frame" x="677" y="33" width="90" height="110"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="남은 수량" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Onb-0R-oTr">
-                                                <rect key="frame" x="694" y="147" width="56" height="18"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" tag="4" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Onb-0R-oTr">
+                                                <rect key="frame" x="717" y="145" width="12" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -140,6 +140,9 @@
                                                 <state key="normal" title="1000원">
                                                     <color key="titleColor" red="0.40466370559999998" green="0.2702901311" blue="0.16211305549999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="addMoneyWithButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nUN-ey-pJ4"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xpl-Gr-jHE">
                                                 <rect key="frame" x="15" y="178" width="110" height="105"/>
@@ -149,18 +152,24 @@
                                                 <state key="normal" title="500원">
                                                     <color key="titleColor" red="0.40466370559999998" green="0.2702901311" blue="0.16211305549999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="addMoneyWithButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QV8-vR-2YM"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kkk-aF-JPS">
                                                 <rect key="frame" x="135" y="178" width="110" height="105"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" red="0.97662198600000005" green="0.89076694219999997" blue="0.77554270439999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                <state key="normal" title="500원">
+                                                <state key="normal" title="100원">
                                                     <color key="titleColor" red="0.40466370559999998" green="0.2702901311" blue="0.16211305549999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="addMoneyWithButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="V5D-2N-Tce"/>
+                                                </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="5000" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VYk-KQ-3Rg">
-                                                <rect key="frame" x="120" y="330" width="126" height="21"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VYk-KQ-3Rg">
+                                                <rect key="frame" x="120" y="330" width="126" height="24"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-BoldItalic" family="Helvetica Neue" pointSize="20"/>
                                                 <color key="textColor" red="0.80044416240000005" green="0.2472920435" blue="0.20724295240000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -174,6 +183,9 @@
                                                 <state key="normal" title="5000원">
                                                     <color key="titleColor" red="0.40466370559492393" green="0.27029013111447286" blue="0.16211305546025703" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="addMoneyWithButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2Yz-QN-w9g"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="MONEY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cxE-1A-pmI">
                                                 <rect key="frame" x="93" y="15" width="83" height="27"/>
@@ -201,10 +213,10 @@
                                                 <rect key="frame" x="54" y="33" width="90" height="110"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="남은 수량" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ksl-fX-j4V">
-                                                <rect key="frame" x="71" y="151" width="56" height="18"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" tag="5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ksl-fX-j4V">
+                                                <rect key="frame" x="94" y="151" width="12" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -220,10 +232,10 @@
                                                 <rect key="frame" x="209" y="33" width="90" height="110"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="남은 수량" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aic-Kx-6bX">
-                                                <rect key="frame" x="226" y="151" width="56" height="18"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" tag="6" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aic-Kx-6bX">
+                                                <rect key="frame" x="249" y="151" width="12" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -239,10 +251,10 @@
                                                 <rect key="frame" x="355" y="33" width="90" height="110"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="남은 수량" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M8P-FB-WSY">
-                                                <rect key="frame" x="372" y="151" width="56" height="18"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" tag="7" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M8P-FB-WSY">
+                                                <rect key="frame" x="395" y="148" width="12" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -258,10 +270,10 @@
                                                 <rect key="frame" x="515" y="33" width="90" height="110"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="남은 수량" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YAU-Sv-cdf">
-                                                <rect key="frame" x="532" y="151" width="56" height="18"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" tag="8" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YAU-Sv-cdf">
+                                                <rect key="frame" x="555" y="150" width="12" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -293,15 +305,15 @@
                         <outletCollection property="addStockButton" destination="jwJ-Ax-fen" collectionClass="NSMutableArray" id="hfw-Xl-QfL"/>
                         <outletCollection property="addStockButton" destination="BQc-j5-MAz" collectionClass="NSMutableArray" id="CGG-7b-dR2"/>
                         <outletCollection property="addStockButton" destination="aHJ-Zh-p0Q" collectionClass="NSMutableArray" id="eTy-FS-GU4"/>
-                        <outletCollection property="stockCount" destination="hyx-pa-PbC" collectionClass="NSMutableArray" id="ibX-qO-5b7"/>
-                        <outletCollection property="stockCount" destination="T4C-eG-bqi" collectionClass="NSMutableArray" id="GD2-28-2pQ"/>
-                        <outletCollection property="stockCount" destination="6hc-0j-uDF" collectionClass="NSMutableArray" id="Nw7-7q-UIj"/>
-                        <outletCollection property="stockCount" destination="VQ1-pp-ryN" collectionClass="NSMutableArray" id="aQf-sz-r6P"/>
-                        <outletCollection property="stockCount" destination="Onb-0R-oTr" collectionClass="NSMutableArray" id="FJJ-DK-Y3L"/>
-                        <outletCollection property="stockCount" destination="ksl-fX-j4V" collectionClass="NSMutableArray" id="9Hb-mM-LCq"/>
-                        <outletCollection property="stockCount" destination="Aic-Kx-6bX" collectionClass="NSMutableArray" id="56f-kk-BzO"/>
-                        <outletCollection property="stockCount" destination="M8P-FB-WSY" collectionClass="NSMutableArray" id="du5-Yu-dyJ"/>
-                        <outletCollection property="stockCount" destination="YAU-Sv-cdf" collectionClass="NSMutableArray" id="ngm-ef-gL7"/>
+                        <outletCollection property="stockCountLabel" destination="hyx-pa-PbC" collectionClass="NSMutableArray" id="ibX-qO-5b7"/>
+                        <outletCollection property="stockCountLabel" destination="T4C-eG-bqi" collectionClass="NSMutableArray" id="GD2-28-2pQ"/>
+                        <outletCollection property="stockCountLabel" destination="6hc-0j-uDF" collectionClass="NSMutableArray" id="Nw7-7q-UIj"/>
+                        <outletCollection property="stockCountLabel" destination="VQ1-pp-ryN" collectionClass="NSMutableArray" id="aQf-sz-r6P"/>
+                        <outletCollection property="stockCountLabel" destination="Onb-0R-oTr" collectionClass="NSMutableArray" id="FJJ-DK-Y3L"/>
+                        <outletCollection property="stockCountLabel" destination="ksl-fX-j4V" collectionClass="NSMutableArray" id="9Hb-mM-LCq"/>
+                        <outletCollection property="stockCountLabel" destination="Aic-Kx-6bX" collectionClass="NSMutableArray" id="56f-kk-BzO"/>
+                        <outletCollection property="stockCountLabel" destination="M8P-FB-WSY" collectionClass="NSMutableArray" id="du5-Yu-dyJ"/>
+                        <outletCollection property="stockCountLabel" destination="YAU-Sv-cdf" collectionClass="NSMutableArray" id="ngm-ef-gL7"/>
                         <outletCollection property="beverageImages" destination="8dW-n1-pYK" collectionClass="NSMutableArray" id="Tl0-AE-FQ2"/>
                         <outletCollection property="beverageImages" destination="O98-m8-4ev" collectionClass="NSMutableArray" id="fDs-i4-itX"/>
                         <outletCollection property="beverageImages" destination="PZz-A6-HTJ" collectionClass="NSMutableArray" id="6xm-cH-MTh"/>

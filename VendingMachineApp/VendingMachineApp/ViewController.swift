@@ -18,12 +18,13 @@ class ViewController: UIViewController {
     @IBOutlet weak var balanceLabel: UILabel!
     
     @IBAction func addStock(_ sender: UIButton) {
-        selectedIndex = sender.tag
-        vendingMachine.insert(beverageNumber: sender.tag)
+        selectedIndex = addStockButtons.enumerated().filter{$0.element == sender}[0].offset
+        vendingMachine.insert(beverageNumber: selectedIndex)
     }
     
     @IBAction func addBalance(_ sender: UIButton) {
-        vendingMachine.add(balance: sender.tag)
+        let btnIndex = addBalaceButtons.enumerated().filter{$0.element == sender}[0].offset
+        vendingMachine.add(moneyNumber: btnIndex)
     }
     
     override func viewDidLoad() {

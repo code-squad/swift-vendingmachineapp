@@ -18,7 +18,7 @@ class BeverageFactory {
                                  name: "ChocolateMilk",
                                  manufacturingDate: Date(),
                                  calorie: 195,
-                                 temperature: .Cool,
+                                 temperature: 10,
                                  beverageIndex: .ChocolateMilk,
                                  farmCode: Milk.FarmCode(index: Int.random(in: 0..<Milk.FarmCode.allCases.count)),
                                  package: .paper)
@@ -30,7 +30,7 @@ class BeverageFactory {
                                   manufacturingDate: Date(),
                                   calorie: 195,
                                   farmCode: Milk.FarmCode(index: Int.random(in: 0..<Milk.FarmCode.allCases.count)),
-                                  temperature: .Cool,
+                                  temperature: 10,
                                   beverageIndex: .StrawberryMilk,
                                   juiceContent: 2)
         case .Coke:
@@ -40,7 +40,7 @@ class BeverageFactory {
                         name: "Coke",
                         manufacturingDate: Date(),
                         calorie: 160,
-                        temperature: .Cool,
+                        temperature: 10,
                         beverageIndex: .Coke,
                         carbonicAcid: 20)
             
@@ -51,7 +51,7 @@ class BeverageFactory {
                          name: "Cider",
                          manufacturingDate: Date(),
                          calorie: 168,
-                         temperature: .Cool,
+                         temperature: 10,
                          beverageIndex: .Cider,
                          taste: Cider.Taste(index: Int.random(in: 0..<Cider.Taste.allCases.count)))
             
@@ -62,7 +62,7 @@ class BeverageFactory {
                            name: "GeorGia",
                            manufacturingDate: Date(),
                            calorie: 94,
-                           temperature: .Hot,
+                           temperature: 65,
                            beverageIndex: .Georgia,
                            decaffeinated: false,
                            black: false)
@@ -74,7 +74,7 @@ class BeverageFactory {
                        name: "TOP",
                        manufacturingDate: Date(),
                        calorie: 48,
-                       temperature: .Hot,
+                       temperature: 65,
                        beverageIndex: .TOP,
                        decaffeinated: false,
                        beanOrigin: TOP.BeanOrigin.init(index: Int.random(in: 0..<TOP.BeanOrigin.allCases.count)))

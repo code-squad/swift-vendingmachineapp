@@ -13,8 +13,8 @@ class Cider: Soda {
         case lemon = "lemon"
         case pear = "pear"
         
-        init(index: Int) {
-            self = Taste.allCases[index]
+        init() {
+            self = Taste.allCases[Int.random(in: 0..<Taste.allCases.count)]
         }
     }
     

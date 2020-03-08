@@ -21,7 +21,7 @@ class VendingMachine{
                       manufacturingDate: Date(),
                       calorie: 195,
                       temperature: 10,
-                      farmCode: Milk.FarmCode(index: Int.random(in: 0..<Milk.FarmCode.allCases.count)),
+                      farmCode: Milk.FarmCode(),
                       package: .paper),
         StrawberryMilk(brand: "SeoulMilk",
                        capacity: 300,
@@ -29,7 +29,7 @@ class VendingMachine{
                        name: "StrawberryMilk",
                        manufacturingDate: Date(),
                        calorie: 195,
-                       farmCode: Milk.FarmCode(index: Int.random(in: 0..<Milk.FarmCode.allCases.count)),
+                       farmCode: Milk.FarmCode(),
                        temperature: 10,
                        juiceContent: 2),
         Coke(brand: "CocaCola",
@@ -47,7 +47,7 @@ class VendingMachine{
               manufacturingDate: Date(),
               calorie: 168,
               temperature: 10,
-              taste: Cider.Taste(index: Int.random(in: 0..<Cider.Taste.allCases.count))),
+              taste: Cider.Taste()),
         Georgia(brand: "CocaCola",
                 capacity: 240,
                 price: Price(1500),
@@ -65,7 +65,7 @@ class VendingMachine{
             calorie: 48,
             temperature: 65,
             decaffeinated: false,
-            beanOrigin: TOP.BeanOrigin.init(index: Int.random(in: 0..<TOP.BeanOrigin.allCases.count)))
+            beanOrigin: TOP.BeanOrigin())
     ]
     
     init() {

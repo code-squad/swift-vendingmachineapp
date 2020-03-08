@@ -10,9 +10,14 @@ import Foundation
 
 class Price {
     private(set) var money: Int
+    private let moneyList = [1000, 5000]
     
     init(_ money: Int) {
         self.money = money
+    }
+    
+    func add(moneyNumber: Int) {
+        money += moneyList[moneyNumber]
     }
     
     func add(money: Int) {

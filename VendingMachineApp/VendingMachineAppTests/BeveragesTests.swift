@@ -10,9 +10,9 @@ import XCTest
 @testable import VendingMachineApp
 class BeveragesTests: XCTestCase {
     var beverages = Beverages()
-    let coffee = Mocha(manufacturer: "동서식품", brand: "스타벅스", capacity: 355, price: 2700, name: "스타벅스 모카", manufacturedDate: Date(), expirationDate:  Date(), isContainMilk: true, package: .glass, temperature: 8)
-    let soda = Coke(manufacturer: "코카콜라", brand: "코카콜라", capacity: 200, price: 2000, name: "코카콜라", manufacturedDate: Date(), expirationDate: Date(), sugarRatio: .lower, temperature: 2)
-    let milk = StrawberryMilk(manufacturer: "서울우유", brand: "서울우유", capacity: 200, price: 1200, name: "딸기맛 우유", manufacturedDate: Date(), expirationDate:  Date(), fatRatio: .original, isLactoFree: false, temperature: 8)
+    let coffee = Mocha(manufacturer: "동서식품", brand: "스타벅스", capacity: 355, price: Money(balance: 2700), name: "스타벅스 모카", manufacturedDate: Date(), expirationDate:  Date(), isContainMilk: true, package: .glass, temperature: 8, isContainWheepCream: true)
+    let soda = Coke(manufacturer: "코카콜라", brand: "코카콜라", capacity: 200, price: Money(balance: 2000), name: "코카콜라", manufacturedDate: Date(), expirationDate: Date(), sugarRatio: .lower, temperature: 2, cocaLeafRatio: 8.8)
+    let milk = StrawberryMilk(manufacturer: "서울우유", brand: "서울우유", capacity: 200, price: Money(balance: 1200), name: "딸기맛 우유", manufacturedDate: Date(), expirationDate:  Date(), fatRatio: .original, temperature: 8, isLactoFree: false)
     
     override func setUp() {
         beverages.addBeverage(coffee)

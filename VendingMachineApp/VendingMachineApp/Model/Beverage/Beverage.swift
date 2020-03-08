@@ -11,7 +11,7 @@ class Beverage: CustomStringConvertible {
     private var manufacturer: String
     private var brand: String
     private var capacity: Int
-    private(set) var price: Int
+    private(set) var price: Money
     private var name: String
     private var manufacturedDate: Date
     private var expirationDate: Date
@@ -21,7 +21,7 @@ class Beverage: CustomStringConvertible {
         return "\(manufacturer), \(capacity), \(price), \(brand), \(manufacturedDate.dateToString())"
     }
 
-    init(manufacturer: String, brand: String, capacity: Int, price: Int, name: String, manufacturedDate: Date, expirationDate: Date, temperature: Int) {
+    init(manufacturer: String, brand: String, capacity: Int, price: Money, name: String, manufacturedDate: Date, expirationDate: Date, temperature: Int) {
         self.manufacturer = manufacturer
         self.brand = brand
         self.capacity = capacity

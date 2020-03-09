@@ -12,10 +12,6 @@ class Cider: Soda {
     enum Taste: String, CaseIterable {
         case lemon = "lemon"
         case pear = "pear"
-        
-        init() {
-            self = Taste.allCases[Int.random(in: 0..<Taste.allCases.count)]
-        }
     }
     
     private var taste: Taste

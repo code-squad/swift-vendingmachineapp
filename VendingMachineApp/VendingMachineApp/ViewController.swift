@@ -43,11 +43,8 @@ class ViewController: UIViewController {
     }
     
     func updateBeverageCountLabel() {
-        let totalStock = vendingMachine.reportTotalStock()
-        for (beverage, count) in totalStock {
-            if vendingMachine.products.contains(beverage), let index = vendingMachine.products.firstIndex(of: beverage) {
-                stockCountLabels[index].text = String(count)
-            }
+        vendingMachine.forEachBeverageCount {
+            stockCountLabels[$1].text = String($0)
         }
     }
     

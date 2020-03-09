@@ -36,9 +36,4 @@ class Milk: Beverage {
         super.hash(into: &hasher)
         hasher.combine(farmCode)
     }
-    
-    override func isEqual(to rhs: Beverage) -> Bool {
-        return rhs is Milk
-            && hashValue == rhs.hashValue
-    }
 }

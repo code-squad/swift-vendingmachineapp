@@ -25,9 +25,4 @@ final class ChocolateMilk: Milk {
         super.hash(into: &hasher)
         hasher.combine(cacaoContentRate)
     }
-    
-    override func isEqual(to rhs: Beverage) -> Bool {
-        return rhs is ChocolateMilk
-            && hashValue == rhs.hashValue
-    }
 }

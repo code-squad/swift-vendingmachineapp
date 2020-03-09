@@ -36,9 +36,4 @@ class Coffee: Beverage {
         hasher.combine(caffeineContent)
         hasher.combine(temperature)
     }
-    
-    override func isEqual(to rhs: Beverage) -> Bool {
-        return rhs is Coffee
-            && hashValue == rhs.hashValue
-    }
 }

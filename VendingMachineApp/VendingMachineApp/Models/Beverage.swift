@@ -37,16 +37,3 @@ extension Beverage: CustomStringConvertible {
     }
     
 }
-
-extension Date {
-    
-    static let dateFormatter : DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyyMMdd"
-        return formatter
-    }()
-
-    var description: String {
-        return Date.dateFormatter.string(from: self)
-    }
-}

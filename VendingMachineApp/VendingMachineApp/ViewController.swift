@@ -39,7 +39,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func addMoney(button: UIButton) {
-        vendingMachine.raiseMoney(index: button.tag)
+        vendingMachine.raiseMoney(moneyUnit: Money.MoneyUnit(rawValue: button.tag)!)
         NotificationCenter.default.post(name: .updateBalanceLabel, object: nil)
     }
     

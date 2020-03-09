@@ -9,14 +9,21 @@
 import Foundation
 class Money {
     private(set) var balance: Int
-    private(set) var moneyUnit = [5000, 1000, 500, 100]
+//    private(set) var moneyUnit = [5000, 1000, 500, 100]
+    
+    enum MoneyUnit: Int {
+        case fiveThousand = 5000
+        case thousand = 1000
+        case fiveHundred = 500
+        case hundred = 100
+    }
     
     init(balance: Int = 0) {
         self.balance = balance
     }
     
-    func raiseMoney(moneyUnit: Int) {
-      balance += moneyUnit
+    func raiseMoney(moneyUnit: MoneyUnit) {
+        balance += moneyUnit.rawValue
     }
     
     func confirmBalance(_ money: Money) {

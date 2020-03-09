@@ -28,7 +28,8 @@ class MainView: UIView {
         vendingMachineManager?.addStock(index: sender.tag)
     }
     
-    override func layoutSubviews() {
+    override func willMove(toSuperview newSuperview: UIView?) {
+        super.willMove(toSuperview: newSuperview)
         stockImageViews.forEach {
             $0.image = UIImage(imageLiteralResourceName: "\(vendingMachineManager?.stockNames[$0.tag] ?? "").png")
             $0.layer.cornerRadius = 30

@@ -8,11 +8,6 @@
 
 import UIKit
 
-protocol MainViewUpdaterDelegate: class {
-    func updateBalanceLabel(amount: String)
-    func updateStockCountLabels(stockList: [(key: Beverage, value: Int)])
-}
-
 class MainView: UIView {
     weak var vendingMachineManager: VendingMachineManagementDelegate?
     @IBOutlet weak var balanceLabel: UILabel!
@@ -24,6 +19,7 @@ class MainView: UIView {
     @IBAction func addBalanceButtonTapped(_ sender: UIButton) {
         vendingMachineManager?.addBalance(amount: sender.tag)
     }
+    
     @IBAction func addStockButtonTapped(_ sender: UIButton) {
         vendingMachineManager?.addStock(index: sender.tag)
     }
@@ -35,9 +31,7 @@ class MainView: UIView {
             $0.layer.cornerRadius = 30
         }
     }
-}
-
-extension MainView: MainViewUpdaterDelegate {
+    
     func updateBalanceLabel(amount: String) {
         balanceLabel.text = "잔액: " + amount + "원"
     }
@@ -47,4 +41,8 @@ extension MainView: MainViewUpdaterDelegate {
             $0.text = "\(stockList[$0.tag].value)개"
         }
     }
+
 }
+
+
+    

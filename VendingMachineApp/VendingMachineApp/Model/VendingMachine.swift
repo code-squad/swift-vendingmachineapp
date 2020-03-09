@@ -9,8 +9,16 @@
 import Foundation
 
 struct VendingMachine {
-    private var stock = Stock()
-    private var money = Money()
+    private var stock = Stock() {
+        didSet {
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "StockChanged"), object: self, userInfo: ["stock":stockList])
+        }
+    }
+    private var money = Money() {
+        didSet {
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "MoneyChanged"), object: self, userInfo: ["balance":"\(money)"])
+        }
+    }
     private(set) var purchaseHistory = [Beverage]()
     var purchasableList: [Beverage] {
         stock.getPurchasableList(money: money)

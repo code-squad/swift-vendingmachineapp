@@ -17,15 +17,15 @@ class Beverage {
     var manufacturingDate: Date
     
     init?(brand: String, volume: Int, price: Int,
-          name: String, dateInfo: String) {
-        guard let date = Date.dateFormatter.date(from: dateInfo) else {
+          name: String, manufacturingDateInfo: String) {
+        guard let manufacturingDate = Date.dateFormatter.date(from: manufacturingDateInfo) else {
             return nil
         }
         self.brand = brand
         self.volume = volume
         self.price = price
         self.name = name
-        self.manufacturingDate = date
+        self.manufacturingDate = manufacturingDate
     }
     
 }

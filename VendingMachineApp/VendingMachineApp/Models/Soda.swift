@@ -11,9 +11,9 @@ import Foundation
 class Soda: Beverage {
     
     override init?(brand: String, volume: Int, price: Int,
-                  name: String, dateInfo: String) {
+                  name: String, manufacturingDateInfo: String) {
         super.init(brand: brand, volume: volume, price: price,
-                   name: name, dateInfo: dateInfo)
+                   name: name, manufacturingDateInfo: manufacturingDateInfo)
     }
     
 }

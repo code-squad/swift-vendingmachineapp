@@ -10,17 +10,17 @@ import Foundation
 
 class Soda: Beverage {
     
-    private let calorie: Int
+    private let kiloCalorie: Int
     
     init?(brand: String, volume: Int, price: Int,
-          name: String, manufacturingDateInfo: String, calorie: Int) {
-        self.calorie = calorie
+          name: String, manufacturingDateInfo: String, kiloCalorie: Int) {
+        self.kiloCalorie = kiloCalorie
         super.init(brand: brand, volume: volume, price: price,
         name: name, manufacturingDateInfo: manufacturingDateInfo)
     }
     
     func isLowCalorie() -> Bool {
-        guard calorie <= Quantity.maxLowCalorie
+        guard kiloCalorie <= Quantity.maxLowKiloCalorie
         else {
            return false
         }
@@ -31,6 +31,6 @@ class Soda: Beverage {
 
 enum Quantity {
     
-    static let maxLowCalorie = 100
+    static let maxLowKiloCalorie = 100
     
 }

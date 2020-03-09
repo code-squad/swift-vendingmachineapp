@@ -34,8 +34,8 @@ class Beverage {
 
 extension Beverage: CustomStringConvertible {
     
-    var description: String {
-        return "\(brand), \(volume)ml, \(price)원, \(manufacturingDate.description))"
+    @objc var description: String {
+        return "\(brand), \(volume)ml, \(price)원, \(manufacturingDate.description)"
     }
     
 }

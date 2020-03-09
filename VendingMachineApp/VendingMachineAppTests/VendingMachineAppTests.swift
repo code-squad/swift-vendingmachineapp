@@ -19,13 +19,13 @@ class VendingMachineAppTests: XCTestCase {
     }
     
     func testRaiseMoney() {
-        vendingMachine.raiseMoney(index: 0)
-        let leftMoney = vendingMachine.confirmBalance()
-        XCTAssertEqual(leftMoney.balance, 5000)
+        vendingMachine.raiseMoney(moneyUnit: Money.MoneyUnit.fiveThousand)
+        let leftMoney = vendingMachine.confirmBalance().description
+        XCTAssertEqual(leftMoney, "5000")
     }
     
     func testAvailableBeverageNowMoney() {
-         vendingMachine.raiseMoney(index: 0)
+        vendingMachine.raiseMoney(moneyUnit: Money.MoneyUnit.fiveThousand)
         let availableBeverage = vendingMachine.reportAvailableBeverageNowMoney()
         XCTAssertEqual(availableBeverage.contains(vendingMachine.bananaMilk), true)
         XCTAssertEqual(availableBeverage.contains(vendingMachine.americano), true)
@@ -33,9 +33,10 @@ class VendingMachineAppTests: XCTestCase {
     }
 
     func testPurchaseBeverage() {
-        vendingMachine.raiseMoney(index: 0)
+        vendingMachine.raiseMoney(moneyUnit: Money.MoneyUnit.fiveThousand)
         vendingMachine.purchaseBeverage(index: 0)
-        XCTAssertEqual(vendingMachine.balance.balance, 3800)
+        XCTAssertEqual(vendingMachine.confirmBalance().description
+, "3800")
     }
     
     func testPurchaseHistory() {

@@ -28,7 +28,7 @@ class Coffee: Beverage {
 extension Coffee {
     
     override var description: String {
-        return super.description + ", \(hotState)"
+        return super.description + ", hotState: \(hotState)"
     }
     
 }

@@ -19,4 +19,12 @@ class Soda: Beverage {
         name: name, manufacturingDateInfo: manufacturingDateInfo)
     }
     
+    func isLowCalorie() -> Bool {
+        guard calorie < 100
+        else {
+           return false
+        }
+        return true
+    }
+    
 }

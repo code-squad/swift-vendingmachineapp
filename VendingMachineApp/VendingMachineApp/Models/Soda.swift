@@ -29,6 +29,14 @@ class Soda: Beverage {
     
 }
 
+extension Soda {
+    
+    override var description: String {
+        return super.description + ", \(kiloCalorie)kcal"
+    }
+    
+}
+
 enum Quantity {
     
     static let maxLowKiloCalorie = 100

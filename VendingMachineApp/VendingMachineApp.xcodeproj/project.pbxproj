@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5A7EFBC2241631860018710C /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7EFBC1241631860018710C /* Date.swift */; };
 		5A7EFBC4241635390018710C /* MilkTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7EFBC3241635390018710C /* MilkTest.swift */; };
+		5A7EFBC624163FE40018710C /* CoffeeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7EFBC524163FE40018710C /* CoffeeTest.swift */; };
 		5A91FCCD240FCDFB00884D64 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A91FCCC240FCDFB00884D64 /* AppDelegate.swift */; };
 		5A91FCCF240FCDFB00884D64 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A91FCCE240FCDFB00884D64 /* SceneDelegate.swift */; };
 		5A91FCD1240FCDFB00884D64 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A91FCD0240FCDFB00884D64 /* ViewController.swift */; };
@@ -47,6 +48,7 @@
 /* Begin PBXFileReference section */
 		5A7EFBC1241631860018710C /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		5A7EFBC3241635390018710C /* MilkTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MilkTest.swift; sourceTree = "<group>"; };
+		5A7EFBC524163FE40018710C /* CoffeeTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeTest.swift; sourceTree = "<group>"; };
 		5A91FCC9240FCDFB00884D64 /* VendingMachineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendingMachineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A91FCCC240FCDFB00884D64 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5A91FCCE240FCDFB00884D64 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 				5A91FCE3240FCE0000884D64 /* VendingMachineAppTests.swift */,
 				5A91FCE5240FCE0000884D64 /* Info.plist */,
 				5A7EFBC3241635390018710C /* MilkTest.swift */,
+				5A7EFBC524163FE40018710C /* CoffeeTest.swift */,
 			);
 			path = VendingMachineAppTests;
 			sourceTree = "<group>";
@@ -316,6 +319,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A7EFBC624163FE40018710C /* CoffeeTest.swift in Sources */,
 				5A7EFBC4241635390018710C /* MilkTest.swift in Sources */,
 				5A91FCE4240FCE0000884D64 /* VendingMachineAppTests.swift in Sources */,
 			);

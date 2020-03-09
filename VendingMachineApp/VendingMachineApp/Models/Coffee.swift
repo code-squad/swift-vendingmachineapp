@@ -19,6 +19,10 @@ class Coffee: Beverage {
         name: name, manufacturingDateInfo: manufacturingDateInfo)
     }
     
+    func isHot() -> Bool {
+        return hot
+    }
+    
 }
 
 extension Coffee {

@@ -43,4 +43,14 @@ class VendingMachineTest: XCTestCase {
         XCTAssertEqual(hotCoffees, [primiumLatte])
     }
     
+    func testReceive() {
+        let money = 2000
+        vendingMachine.receive(insertedMoney: money)
+        XCTAssertEqual(vendingMachine.currentMoney(), money)
+    }
+
+    func testCurrentMoney() {
+        XCTAssertEqual(vendingMachine.currentMoney(), Quantity.zero)
+    }
+    
 }

@@ -96,3 +96,13 @@
 
 <img src = "https://user-images.githubusercontent.com/40784518/76164087-53a8a400-618f-11ea-94cf-49ec2616aabb.png" width = "80%"/>
 
+
+
+### 수정 사항
+
+- `moneyType` 이름을 좀 더 명확한 `moneyUnit` 으로 변경
+- `Money` 클래스에서 `balance`의 접근 제한자를 private 으로 변경해, `Money` 객체 자체를 타입으로 활용
+  - `Money` 타입이 CumstomStringConvertible을 채택해 `balance` 를 문자열로 리턴해주게 함 
+- `VendingMachine` 클래스에서 `raiseMoney(index:) `의 Int 타입인 인자 index를 `MoneyUnit`으로 변경해 조금 더 안전하게 동작하도록 변경
+- `ViewController`에서 각 음료에 재고 추가시 재고 갯수를 리턴받는 코드를 `VendingMachine`에 클로저로 넘겨서 처리하도록 변경
+- `ViewController`에서 `addMoney(button:)` 메서드에서 **Controller -> View** 로만 있던 흐름을 **Model -> View -> Controller** 의 흐름이 되도록 Observer Pattern 사용 

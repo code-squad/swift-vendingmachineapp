@@ -30,8 +30,8 @@ struct VendingMachine {
         beverages.forEachBeverages { print($0.description) }
     }
     
-    mutating func raiseMoney(index: Int) {
-        balance.raiseMoney(moneyUnit: balance.moneyUnit[index])
+    mutating func raiseMoney(moneyUnit: Money.MoneyUnit) {
+        balance.raiseMoney(moneyUnit: moneyUnit)
     }
 
     mutating func addStock(_ index: Int) {

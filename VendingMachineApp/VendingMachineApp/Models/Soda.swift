@@ -10,10 +10,13 @@ import Foundation
 
 class Soda: Beverage {
     
-    override init?(brand: String, volume: Int, price: Int,
-                  name: String, manufacturingDateInfo: String) {
+    private let calorie: Int
+    
+    init?(brand: String, volume: Int, price: Int,
+          name: String, manufacturingDateInfo: String, calorie: Int) {
+        self.calorie = calorie
         super.init(brand: brand, volume: volume, price: price,
-                   name: name, manufacturingDateInfo: manufacturingDateInfo)
+        name: name, manufacturingDateInfo: manufacturingDateInfo)
     }
     
 }

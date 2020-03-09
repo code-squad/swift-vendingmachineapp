@@ -45,3 +45,19 @@
 | 티.오.피 | 1200 |
 | 조지아   | 1300 |
 
+### 개선한 내용
+
+* 초코우유를 나타내는 더 적합한 프로퍼티로 변경. Bool 대신 확장성이 좋은 Int를 사용하기에도 적절
+* canReplaceEnergyDrinks() 이나 isHot() 에서 기준값을 매개변수로 넘기도록 변경
+* 인벤토리 에러를 인벤토리 안으로 중첩시킴
+* 돈에 관한 로직들을 담당하는 Cashier 새로 생성
+* Cashier 테스트 코드 추가
+* VendingMachine 테스트 개선
+    * Cashier의 행위를 정의한 Calculable 프로토콜을 만들고, VendingMachine은 Calculable을 의존하도록 변경.
+    * Calculable 프로토콜을 준수하는 Mock을 만들어서 VendingMachine 테스트
+* Beverage 및 하위 클래스들에 각각 hash(into:) 구현
+    * 이를 이용하여 테스트 메서드들에서 인스턴스가 같은지를 비교하는 부분들을 모두 개선
+* stockList 문자열이 아니라 클로저를 통해 접근하도록 개선
+* 음료를 구매할 때도 문자열이 아니라 Beverage 타입을 그대로 활용하도록 개선
+* enum이 부적절한 부분은 사용하지 않도록 개선
+

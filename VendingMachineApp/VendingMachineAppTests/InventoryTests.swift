@@ -21,14 +21,17 @@ class InventoryTests: XCTestCase {
         inventory.repeatForAllItems { _ in XCTAssert(false) }
         let item = StrawberryMilk()
         inventory.add(item)
-        inventory.repeatForAllItems { XCTAssert($0 === item) }
+        
+        var inventoryItems = [Beverage]()
+        inventory.repeatForAllItems { inventoryItems.append($0) }
+        XCTAssertEqual(inventoryItems, [StrawberryMilk()])
     }
     
     func testTakeOutSuccess() {
         let items = [StrawberryMilk(), Coke(), Fanta(), Top()]
         items.forEach { inventory.add($0) }
         inventory.takeOut("Coke", balance: 1700) { result in
-            if case let .success(beverage) = result { XCTAssert(beverage === items[1]) }
+            if case let .success(beverage) = result { XCTAssertEqual(beverage, Coke()) }
             else { XCTAssert(false) }
         }
     }
@@ -56,8 +59,7 @@ class InventoryTests: XCTestCase {
         items.forEach { inventory.add($0) }
         var availableItems = [Beverage]()
         inventory.repeatForAvailableItems(with: 1200) { availableItems.append($0) }
-        XCTAssert(availableItems[0] === items[2])
-        XCTAssert(availableItems[1] === items[3])
+        XCTAssertEqual(availableItems, [Fanta(), Top()])
     }
     
     func testInvalidItems() {
@@ -68,7 +70,7 @@ class InventoryTests: XCTestCase {
         let eightDays = DateComponents(day: 8)
         let eightDaysPassedFromNow = Calendar.current.date(byAdding: eightDays, to: Date())!
         inventory.repeatForInvalidItems(with: eightDaysPassedFromNow) { invalidItems.append($0) }
-        XCTAssert(invalidItems[0] === items[0])
+        XCTAssertEqual(invalidItems, [StrawberryMilk()])
     }
     
     func testHotItems() {
@@ -77,7 +79,7 @@ class InventoryTests: XCTestCase {
         var hotItems = [Beverage]()
         
         inventory.repeatForHotItems(threshold: 80) { hotItems.append($0) }
-        XCTAssert(hotItems[0] === items[3])
+        XCTAssertEqual(hotItems, [Top(temperature: 85)])
     }
     
     func testBriefStock() {

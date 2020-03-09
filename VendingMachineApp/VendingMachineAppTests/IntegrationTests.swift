@@ -31,7 +31,6 @@ class IntegrationTests: XCTestCase {
         
         var salesLog = [Beverage]()
         vendingMachine.repeatForSalesLog { salesLog.append($0) }
-        XCTAssert(salesLog[0] === items[0])
-        XCTAssert(salesLog[1] === items[4])
+        XCTAssertEqual(salesLog, [StrawberryMilk(), Top()])
     }
 }

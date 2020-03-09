@@ -11,12 +11,12 @@ import Foundation
 class Cantata: Coffee {
     
     init?(volume: Int, price: Int, name: String,
-          manufacturingDateInfo: String, isHot: Bool) {
+          manufacturingDateInfo: String, hotState: Bool) {
         super.init(brand: "칸타타",
                    volume: volume, price: price,
                    name: name,
                    manufacturingDateInfo: manufacturingDateInfo,
-                   isHot: isHot)
+                   hotState: hotState)
     }
     
 }

@@ -18,7 +18,7 @@ class ViewController: UIViewController {
         [StrawberryMilk(), Fanta(), Top()]
             .forEach { vendingMachine.fill(beverage: $0) }
         
-        print(vendingMachine.stockList)
+        vendingMachine.repeatForItemsInStock { print($0) }
     }
 }
 

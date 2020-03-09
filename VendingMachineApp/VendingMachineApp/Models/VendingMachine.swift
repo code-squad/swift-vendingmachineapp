@@ -12,10 +12,6 @@ class VendingMachine {
     private var inventory = Inventory()
     private var cashier: Calculable
     
-    var stockList: String {
-        return "\(inventory)"
-    }
-    
     init(cashier: Calculable) {
         self.cashier = cashier
     }
@@ -39,5 +35,9 @@ class VendingMachine {
     
     func repeatForSalesLog(_ block: (Beverage) -> Void) {
         cashier.forEachSalesLog { block($0) }
+    }
+    
+    func repeatForItemsInStock(_ block: (Beverage) -> Void) {
+        inventory.repeatForAllItems { block($0) }
     }
 }

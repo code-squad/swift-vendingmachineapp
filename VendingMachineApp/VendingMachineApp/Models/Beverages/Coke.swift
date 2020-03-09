@@ -24,4 +24,14 @@ final class Coke: SoftDrink {
                    name: name,
                    bubbleIntensity: bubbleIntensity)
     }
+    
+    override func hash(into hasher: inout Hasher) {
+        super.hash(into: &hasher)
+        hasher.combine(isDietCoke)
+    }
+    
+    override func isEqual(to rhs: Beverage) -> Bool {
+        return rhs is Coke
+            && hashValue == rhs.hashValue
+    }
 }

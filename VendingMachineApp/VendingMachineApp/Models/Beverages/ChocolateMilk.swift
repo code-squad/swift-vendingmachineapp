@@ -20,4 +20,14 @@ final class ChocolateMilk: Milk {
         self.cacaoContentRate = cacaoContentRate
         super.init(manufacture: manufacturer, size: size, price: price, name: name, farmCode: farmCode)
     }
+    
+    override func hash(into hasher: inout Hasher) {
+        super.hash(into: &hasher)
+        hasher.combine(cacaoContentRate)
+    }
+    
+    override func isEqual(to rhs: Beverage) -> Bool {
+        return rhs is ChocolateMilk
+            && hashValue == rhs.hashValue
+    }
 }

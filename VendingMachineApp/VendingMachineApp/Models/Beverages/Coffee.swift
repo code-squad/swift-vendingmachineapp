@@ -30,4 +30,15 @@ class Coffee: Beverage {
     func isHot(threshold: Int) -> Bool {
         return temperature > threshold
     }
+    
+    override func hash(into hasher: inout Hasher) {
+        super.hash(into: &hasher)
+        hasher.combine(caffeineContent)
+        hasher.combine(temperature)
+    }
+    
+    override func isEqual(to rhs: Beverage) -> Bool {
+        return rhs is Coffee
+            && hashValue == rhs.hashValue
+    }
 }

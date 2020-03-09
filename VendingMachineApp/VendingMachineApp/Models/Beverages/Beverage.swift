@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Beverage: CustomStringConvertible {
+class Beverage: CustomStringConvertible, Hashable {
     let manufacturer: String
     let size: Int
     let price: Int
@@ -27,6 +27,21 @@ class Beverage: CustomStringConvertible {
         self.price = price
         self.name = name
         self.productionDate = Date()
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(manufacturer)
+        hasher.combine(size)
+        hasher.combine(price)
+        hasher.combine(name)
+    }
+    
+    func isEqual(to rhs: Beverage) -> Bool {
+        return hashValue == rhs.hashValue
+    }
+    
+    static func == (lhs: Beverage, rhs: Beverage) -> Bool {
+        return lhs.isEqual(to: rhs)
     }
 }
 

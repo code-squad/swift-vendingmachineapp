@@ -21,6 +21,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
          super.viewDidLoad()
          setUI()
+        NotificationCenter.default.addObserver(self, selector: #selector(updateBalanceLabel(_:)), name: .updateBalanceLabel, object: nil)
      }
      
     func setUI() {
@@ -39,7 +40,7 @@ class ViewController: UIViewController {
     
     @IBAction func addMoney(button: UIButton) {
         vendingMachine.raiseMoney(index: button.tag)
-        updateBalanceLabel()
+        NotificationCenter.default.post(name: .updateBalanceLabel, object: nil)
     }
     
     func updateBeverageCountLabel() {
@@ -48,9 +49,16 @@ class ViewController: UIViewController {
         }
     }
     
-    func updateBalanceLabel() {
+    @objc func updateBalanceLabel(_ notification: Notification) {
         balanceLabel.text = String(vendingMachine.confirmBalance().balance)
     }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: .updateBalanceLabel, object: nil)
+    }
+}
+
+extension Notification.Name {
+    static let updateBalanceLabel =  NSNotification.Name(rawValue: "updateBalanceLabel")
 }
 

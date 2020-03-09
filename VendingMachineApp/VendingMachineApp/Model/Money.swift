@@ -9,14 +9,14 @@
 import Foundation
 class Money {
     private(set) var balance: Int
-    private(set) var moneyType = [5000, 1000, 500, 100]
+    private(set) var moneyUnit = [5000, 1000, 500, 100]
     
     init(balance: Int = 0) {
         self.balance = balance
     }
     
-    func raiseMoney(moneyType: Int) {
-      balance += moneyType
+    func raiseMoney(moneyUnit: Int) {
+      balance += moneyUnit
     }
     
     func confirmBalance(_ money: Money) {

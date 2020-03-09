@@ -31,7 +31,7 @@ struct VendingMachine {
     }
     
     mutating func raiseMoney(index: Int) {
-        balance.raiseMoney(moneyType: balance.moneyType[index])
+        balance.raiseMoney(moneyUnit: balance.moneyUnit[index])
     }
 
     mutating func addStock(_ index: Int) {

@@ -19,7 +19,7 @@ class CashierTests: XCTestCase {
     
     func testAddToBalance() {
         cashier.addToBalance(1000)
-        XCTAssertEqual(cashier.balance, 1000)
+        XCTAssertEqual(cashier.balance(), 1000)
     }
     
     func testSell() {
@@ -28,7 +28,7 @@ class CashierTests: XCTestCase {
         cashier.sell(beverage: beverage)
         
         var log = [Beverage]()
-        XCTAssertEqual(cashier.balance, 3500)
+        XCTAssertEqual(cashier.balance(), 3500)
         cashier.forEachSalesLog { log.append($0) }
         XCTAssert(beverage === log[0])
     }

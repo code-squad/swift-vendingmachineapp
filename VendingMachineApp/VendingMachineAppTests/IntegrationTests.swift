@@ -12,9 +12,11 @@ import XCTest
 class IntegrationTests: XCTestCase {
     
     var vendingMachine: VendingMachine!
+    var cashier: Cashier!
     
     override func setUp() {
-        vendingMachine = VendingMachine()
+        cashier = Cashier()
+        vendingMachine = VendingMachine(cashier: cashier)
     }
     
     func testVendingMachine() {

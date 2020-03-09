@@ -34,4 +34,5 @@ class SodaTest: XCTestCase {
         
         XCTAssertFalse(soda.isLowCalorie())
     }
+    
 }

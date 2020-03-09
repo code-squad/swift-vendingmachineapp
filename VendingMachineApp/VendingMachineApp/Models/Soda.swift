@@ -20,11 +20,17 @@ class Soda: Beverage {
     }
     
     func isLowCalorie() -> Bool {
-        guard calorie < 100
+        guard calorie <= Quantity.maxLowCalorie
         else {
            return false
         }
         return true
     }
+    
+}
+
+enum Quantity {
+    
+    static let maxLowCalorie = 100
     
 }

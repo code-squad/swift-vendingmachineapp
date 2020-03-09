@@ -30,7 +30,7 @@ class VendingMachineTests: XCTestCase {
         items.forEach { vendingMachine.fill(beverage: $0) }
         
         vendingMachine.insert(money: 2000)
-        vendingMachine.sell(beverage: "Coke")
+        vendingMachine.sell(beverage: Coke())
         
         XCTAssertEqual(mockCashier.cash, 400)
         XCTAssertEqual(mockCashier.balanceCalled, 1)
@@ -43,7 +43,7 @@ class VendingMachineTests: XCTestCase {
         items.forEach { vendingMachine.fill(beverage: $0) }
         
         vendingMachine.insert(money: 2000)
-        vendingMachine.sell(beverage: "Coke")
+        vendingMachine.sell(beverage: Coke())
         
         vendingMachine.repeatForSalesLog { _ in return }
         XCTAssertEqual(mockCashier.salesLogCalled, 1)

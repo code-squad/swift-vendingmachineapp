@@ -30,7 +30,7 @@ class InventoryTests: XCTestCase {
     func testTakeOutSuccess() {
         let items = [StrawberryMilk(), Coke(), Fanta(), Top()]
         items.forEach { inventory.add($0) }
-        inventory.takeOut("Coke", balance: 1700) { result in
+        inventory.takeOut(Coke(), balance: 1700) { result in
             if case let .success(beverage) = result { XCTAssertEqual(beverage, Coke()) }
             else { XCTAssert(false) }
         }
@@ -39,7 +39,7 @@ class InventoryTests: XCTestCase {
     func testTakeOutNotInStockError() {
         let items = [StrawberryMilk(), Fanta(), Top()]
         items.forEach { inventory.add($0) }
-        inventory.takeOut("Coke", balance: 9000) { result in
+        inventory.takeOut(Coke(), balance: 9000) { result in
             if case let .fail(error) = result { XCTAssertEqual(error, Inventory.SaleError.notInStock) }
             else { XCTAssert(false) }
         }
@@ -48,7 +48,7 @@ class InventoryTests: XCTestCase {
     func testTakeOutInsufficientBalanceError() {
         let items = [StrawberryMilk(), Coke(), Fanta(), Top()]
         items.forEach { inventory.add($0) }
-        inventory.takeOut("Coke", balance: 1500) { result in
+        inventory.takeOut(Coke(), balance: 1500) { result in
             if case let .fail(error) = result { XCTAssertEqual(error, Inventory.SaleError.insufficientBalance) }
             else { XCTAssert(false) }
         }

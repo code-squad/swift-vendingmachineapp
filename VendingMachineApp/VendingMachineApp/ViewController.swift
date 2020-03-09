@@ -21,4 +21,3 @@ class ViewController: UIViewController {
         vendingMachine.repeatForItemsInStock { print($0) }
     }
 }
-

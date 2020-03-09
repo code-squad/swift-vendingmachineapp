@@ -35,7 +35,7 @@ class ViewController: UIViewController {
         mainView.updateStockCountLabels(stockList: stockList)
     }
     
-    func setupMainView() {
+    private func setupMainView() {
         mainView.updateBalanceLabel(amount: manager.balance)
         mainView.updateStockCountLabels(stockList: manager.stockList)
     }

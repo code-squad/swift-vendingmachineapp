@@ -12,4 +12,21 @@ struct VendingMachine {
     
     private var stock: [Beverage]
     
+    init(stock: [Beverage]) {
+        self.stock = stock
+    }
+    
+    func hotCoffees() -> [Beverage] {
+        var hotCoffees = [Beverage]()
+        for beverage in stock {
+            guard let hotCoffee = beverage as? Coffee, hotCoffee.isHot()
+            else {
+                continue
+            }
+            
+            hotCoffees.append(hotCoffee)
+        }
+        return hotCoffees
+    }
+    
 }

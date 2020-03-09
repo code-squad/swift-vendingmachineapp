@@ -10,4 +10,6 @@ import Foundation
 
 struct VendingMachine {
     
+    private var beverages: [Beverage]
+    
 }

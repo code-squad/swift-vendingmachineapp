@@ -25,7 +25,7 @@ struct VendingMachine {
     }
     var stockList: [(key: Beverage, value: Int)] {
         stock.sortOut().sorted {
-            $0.key.name < $1.key.name
+            $0.key < $1.key
         }
     }
     var dateExpiredBeverages: [Beverage] {

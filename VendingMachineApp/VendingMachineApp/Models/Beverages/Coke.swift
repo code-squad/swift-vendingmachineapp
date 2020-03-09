@@ -29,9 +29,4 @@ final class Coke: SoftDrink {
         super.hash(into: &hasher)
         hasher.combine(isDietCoke)
     }
-    
-    override func isEqual(to rhs: Beverage) -> Bool {
-        return rhs is Coke
-            && hashValue == rhs.hashValue
-    }
 }

@@ -36,12 +36,8 @@ class Beverage: CustomStringConvertible, Hashable {
         hasher.combine(name)
     }
     
-    func isEqual(to rhs: Beverage) -> Bool {
-        return hashValue == rhs.hashValue
-    }
-    
     static func == (lhs: Beverage, rhs: Beverage) -> Bool {
-        return lhs.isEqual(to: rhs)
+        return lhs.hashValue == rhs.hashValue
     }
 }
 

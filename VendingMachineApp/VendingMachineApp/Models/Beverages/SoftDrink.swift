@@ -27,9 +27,4 @@ class SoftDrink: Beverage {
         super.hash(into: &hasher)
         hasher.combine(bubbleIntensity)
     }
-    
-    override func isEqual(to rhs: Beverage) -> Bool {
-        return rhs is SoftDrink
-            && hashValue == rhs.hashValue
-    }
 }

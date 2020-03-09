@@ -37,9 +37,4 @@ final class Top: Coffee {
         super.hash(into: &hasher)
         hasher.combine(containerType)
     }
-    
-    override func isEqual(to rhs: Beverage) -> Bool {
-        return rhs is Top
-            && hashValue == rhs.hashValue
-    }
 }

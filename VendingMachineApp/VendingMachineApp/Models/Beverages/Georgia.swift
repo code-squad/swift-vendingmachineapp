@@ -37,9 +37,4 @@ final class Georgia: Coffee {
         super.hash(into: &hasher)
         hasher.combine(productType)
     }
-    
-    override func isEqual(to rhs: Beverage) -> Bool {
-        return rhs is Georgia
-            && hashValue == rhs.hashValue
-    }
 }

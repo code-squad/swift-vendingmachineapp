@@ -11,7 +11,7 @@ import Foundation
 struct VendingMachine {
     
     private var stock: [Beverage]
-    private var money = 0
+    private var money = Quantity.zero
     
     init(stock: [Beverage]) {
         self.stock = stock

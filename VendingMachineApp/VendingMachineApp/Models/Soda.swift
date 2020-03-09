@@ -36,9 +36,3 @@ extension Soda {
     }
     
 }
-
-enum Quantity {
-    
-    static let maxLowKiloCalorie = 100
-    
-}

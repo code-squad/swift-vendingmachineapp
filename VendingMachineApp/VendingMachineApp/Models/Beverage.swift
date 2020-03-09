@@ -11,9 +11,9 @@ import Foundation
 class Beverage {
     
     private let brand: String
+    private let name: String
     private let volume: Int
     private let price: Int
-    private let name: String
     private let manufacturingDate: Date
     
     init?(brand: String, volume: Int, price: Int,
@@ -28,6 +28,10 @@ class Beverage {
         self.price = price
         self.name = name
         self.manufacturingDate = manufacturingDate
+    }
+    
+    func nameByVolume() -> String {
+        return "\(name) - \(volume)"
     }
     
 }

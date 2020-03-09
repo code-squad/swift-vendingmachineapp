@@ -16,8 +16,8 @@ struct VendingMachine {
         self.stock = stock
     }
     
-    func hotCoffees() -> [Beverage] {
-        var hotCoffees = [Beverage]()
+    func hotCoffees() -> [Coffee] {
+        var hotCoffees = [Coffee]()
         for beverage in stock {
             guard let hotCoffee = beverage as? Coffee, hotCoffee.isHot()
             else {

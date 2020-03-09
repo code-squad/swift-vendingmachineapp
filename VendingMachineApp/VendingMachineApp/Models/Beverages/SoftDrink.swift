@@ -22,4 +22,14 @@ class SoftDrink: Beverage {
         self.bubbleIntensity = bubbleIntensity
         super.init(manufacturer: manufacturer, size: size, price: price, name: name)
     }
+    
+    override func hash(into hasher: inout Hasher) {
+        super.hash(into: &hasher)
+        hasher.combine(bubbleIntensity)
+    }
+    
+    override func isEqual(to rhs: Beverage) -> Bool {
+        return rhs is SoftDrink
+            && hashValue == rhs.hashValue
+    }
 }

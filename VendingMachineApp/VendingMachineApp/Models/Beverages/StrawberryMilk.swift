@@ -20,4 +20,14 @@ final class StrawberryMilk: Milk {
         self.strawberryContentRate = strawberryContentRate
         super.init(manufacture: manufacturer, size: size, price: price, name: name, farmCode: farmCode)
     }
+    
+    override func hash(into hasher: inout Hasher) {
+        super.hash(into: &hasher)
+        hasher.combine(strawberryContentRate)
+    }
+    
+    override func isEqual(to rhs: Beverage) -> Bool {
+        return rhs is StrawberryMilk
+            && hashValue == rhs.hashValue
+    }
 }

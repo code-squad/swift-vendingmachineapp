@@ -31,4 +31,14 @@ class Milk: Beverage {
     func isValid(with date: Date) -> Bool {
         return date < expirationDate
     }
+    
+    override func hash(into hasher: inout Hasher) {
+        super.hash(into: &hasher)
+        hasher.combine(farmCode)
+    }
+    
+    override func isEqual(to rhs: Beverage) -> Bool {
+        return rhs is Milk
+            && hashValue == rhs.hashValue
+    }
 }

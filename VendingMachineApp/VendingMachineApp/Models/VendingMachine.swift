@@ -11,7 +11,7 @@ import Foundation
 struct VendingMachine {
     
     private var stock: [Beverage]
-    private var money: Int?
+    private var money = 0
     
     init(stock: [Beverage]) {
         self.stock = stock
@@ -28,6 +28,10 @@ struct VendingMachine {
             hotCoffees.append(hotCoffee)
         }
         return hotCoffees
+    }
+    
+    mutating func receive(insertedMoney: Int) {
+        money += insertedMoney
     }
     
 }

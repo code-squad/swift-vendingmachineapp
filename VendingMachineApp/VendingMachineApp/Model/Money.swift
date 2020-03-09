@@ -8,8 +8,7 @@
 
 import Foundation
 class Money {
-    private(set) var balance: Int
-//    private(set) var moneyUnit = [5000, 1000, 500, 100]
+    private var balance: Int
     
     enum MoneyUnit: Int {
         case fiveThousand = 5000
@@ -59,3 +58,8 @@ extension Money: Equatable, Hashable {
     }
 }
 
+extension Money: CustomStringConvertible {
+    var description: String {
+        "\(balance)"
+    }
+}

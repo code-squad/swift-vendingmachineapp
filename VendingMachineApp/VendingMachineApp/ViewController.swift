@@ -50,7 +50,7 @@ class ViewController: UIViewController {
     }
     
     @objc func updateBalanceLabel(_ notification: Notification) {
-        balanceLabel.text = String(vendingMachine.confirmBalance().balance)
+        balanceLabel.text = String(vendingMachine.confirmBalance().description)
     }
     
     deinit {

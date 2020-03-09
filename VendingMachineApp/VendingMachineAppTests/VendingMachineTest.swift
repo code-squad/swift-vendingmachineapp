@@ -42,4 +42,5 @@ class VendingMachineTest: XCTestCase {
                                    hotState: true)
         XCTAssertEqual(hotCoffees, [primiumLatte])
     }
+    
 }

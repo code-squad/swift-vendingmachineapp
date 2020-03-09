@@ -10,9 +10,9 @@ import Foundation
 
 class Cantata: Coffee {
     
-    init?(volume: Int, price: Int, name: String, dateInfo: String) {
+    init?(volume: Int, price: Int, name: String, manufacturingDateInfo: String) {
         super.init(brand: "칸타타", volume: volume,
-                   price: price, name: name, dateInfo: dateInfo)
+                   price: price, name: name, manufacturingDateInfo: manufacturingDateInfo)
     }
     
 }

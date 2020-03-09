@@ -9,22 +9,15 @@
 import Foundation
 
 final class Fanta: SoftDrink {
-    
-    enum Flavor {
-        case grape
-        case orange
-        case strawberry
-    }
-    
-    private(set) var flavor: Flavor
+    private(set) var calorie: Int
     
     init(manufacturer: String = "코카콜라",
          size: Int = 185,
          price: Int = 900,
          name: String = "환타",
          bubbleIntensity: BubbleIntensity = .weak,
-         flavor: Flavor = .orange) {
-        self.flavor = flavor
+         calorie: Int = 100) {
+        self.calorie = calorie
         super.init(manufacturer: manufacturer,
                    size: size,
                    price: price,
@@ -34,6 +27,6 @@ final class Fanta: SoftDrink {
     
     override func hash(into hasher: inout Hasher) {
         super.hash(into: &hasher)
-        hasher.combine(flavor)
+        hasher.combine(calorie)
     }
 }

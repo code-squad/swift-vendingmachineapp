@@ -9,14 +9,7 @@
 import Foundation
 
 final class Georgia: Coffee {
-    
-    enum ProductType {
-        case original
-        case caffeLatte
-        case americano
-    }
-    
-    private(set) var productType: ProductType
+    private(set) var containsMilk: Bool
     
     init(manufacturer: String = "코카콜라",
          size: Int = 250,
@@ -24,8 +17,8 @@ final class Georgia: Coffee {
          name: String = "조지아 오리지널",
          caffeineContent: Int = 120,
          temperature: Int = 5,
-         productType: ProductType = .americano) {
-        self.productType = productType
+         containsMilk: Bool = false) {
+        self.containsMilk = containsMilk
         super.init(manufacturer: manufacturer,
                    size: size, price: price,
                    name: name,
@@ -35,6 +28,6 @@ final class Georgia: Coffee {
     
     override func hash(into hasher: inout Hasher) {
         super.hash(into: &hasher)
-        hasher.combine(productType)
+        hasher.combine(containsMilk)
     }
 }

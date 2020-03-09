@@ -10,9 +10,13 @@ import Foundation
 
 class HersheyChocolateDrink: Milk {
     
-    init?(volume: Int, price: Int, name: String, manufacturingDateInfo: String) {
-        super.init(brand: "허쉬초콜릿드링크", volume: volume,
-                   price: price, name: name, manufacturingDateInfo: manufacturingDateInfo)
+    init?(volume: Int, price: Int, name: String,
+          manufacturingDateInfo: String, expirationDateInfo: String) {
+        super.init(brand: "허쉬초콜릿드링크",
+                   volume: volume, price: price,
+                   name: name,
+                   manufacturingDateInfo: manufacturingDateInfo,
+                   expirationDateInfo: expirationDateInfo)
     }
     
 }

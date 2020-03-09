@@ -10,10 +10,17 @@ import Foundation
 
 class Milk: Beverage {
     
-    override init?(brand: String, volume: Int, price: Int,
-                  name: String, manufacturingDateInfo: String) {
-        super.init(brand: brand, volume: volume, price: price,
-                   name: name, manufacturingDateInfo: manufacturingDateInfo)
-    }
+    let expirationDate: Date
     
+    init?(brand: String, volume: Int, price: Int,
+          name: String, manufacturingDateInfo: String, expirationDateInfo: String) {
+        guard let expirationDate = Date.dateFormatter.date(from: expirationDateInfo)
+        else {
+            return nil
+        }
+        
+        self.expirationDate = expirationDate
+        super.init(brand: brand, volume: volume, price: price,
+        name: name, manufacturingDateInfo: manufacturingDateInfo)
+    }
 }

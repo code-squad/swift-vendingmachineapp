@@ -8,16 +8,27 @@
 
 import Foundation
 
-class Cashier {
-    private(set) var balance = 0
+protocol Calculable {
+    func balance() -> Int
+    func addToBalance(_ money: Int)
+    func sell(beverage: Beverage)
+    func forEachSalesLog(_ block: (Beverage) -> Void)
+}
+
+class Cashier: Calculable {
+    private var cash = 0
     private var salesLog = [Beverage]()
     
+    func balance() -> Int {
+        return cash
+    }
+    
     func addToBalance(_ money: Int) {
-        balance += money
+        cash += money
     }
     
     func sell(beverage: Beverage) {
-        balance -= beverage.price
+        cash -= beverage.price
         salesLog.append(beverage)
     }
     

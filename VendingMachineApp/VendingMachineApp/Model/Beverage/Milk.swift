@@ -19,7 +19,7 @@ class Milk: Beverage {
     
     private var farmCode: FarmCode
     
-    init(brand: String, capacity: Double, price: Price, name: String, manufacturingDate: Date, calorie: Double, temperature: Double, farmCode: FarmCode) {
+    init(brand: String, capacity: Int, price: Price, name: String, manufacturingDate: Date, calorie: Double, temperature: Temperature, farmCode: FarmCode) {
         self.farmCode = farmCode
         super.init(brand: brand, capacity: capacity, price: price, name: name, manufacturingDate: manufacturingDate, calorie: calorie, temperature: temperature)
     }

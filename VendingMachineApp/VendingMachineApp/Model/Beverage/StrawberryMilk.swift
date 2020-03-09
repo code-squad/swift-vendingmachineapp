@@ -11,7 +11,7 @@ import Foundation
 class StrawberryMilk: Milk {
     private var juiceContent: Double
     
-    init(brand: String, capacity: Double, price: Price, name: String, manufacturingDate: Date, calorie: Double, farmCode: FarmCode, temperature: Double, juiceContent: Double) {
+    init(brand: String, capacity: Int, price: Price, name: String, manufacturingDate: Date, calorie: Double, farmCode: FarmCode, temperature: Temperature, juiceContent: Double) {
         self.juiceContent = juiceContent
         super.init(brand: brand, capacity: capacity, price: price, name: name, manufacturingDate: manufacturingDate, calorie: calorie, temperature: temperature, farmCode: farmCode)
     }

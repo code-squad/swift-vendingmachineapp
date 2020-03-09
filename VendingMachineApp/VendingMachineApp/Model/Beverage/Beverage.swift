@@ -9,17 +9,25 @@
 import Foundation
 
 class Beverage {
+    enum Temperature: Double {
+        case Cool = 10.0
+        case Hot = 65.0
+        
+        func isHot() -> Bool {
+            return self == Temperature.Hot
+        }
+    }
+    
     private var brand: String
-    private var capacity: Double
+    private var capacity: Int
     private(set) var price: Price
     private var name: String
     private var manufacturingDate: Date
     private var expirationDate: Date
     private var calorie: Double
-    private var temperature: Double
-    private let hotStandard = 65.0
+    private var temperature: Temperature
     
-    init(brand: String, capacity: Double, price: Price, name: String, manufacturingDate: Date, calorie: Double, temperature: Double) {
+    init(brand: String, capacity: Int, price: Price, name: String, manufacturingDate: Date, calorie: Double, temperature: Temperature) {
         self.brand = brand
         self.capacity = capacity
         self.price = price
@@ -39,7 +47,7 @@ class Beverage {
     }
     
     func isHot() -> Bool {
-        return temperature >= hotStandard
+        return temperature.isHot()
     }
 }
 

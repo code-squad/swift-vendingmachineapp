@@ -34,4 +34,8 @@ struct VendingMachine {
         money += insertedMoney
     }
     
+    func currentMoney() -> Int {
+        return money
+    }
+    
 }

@@ -10,11 +10,11 @@ import Foundation
 
 class Beverage {
     
-    let brand: String
-    let volume: Int
-    let price: Int
-    let name: String
-    var manufacturingDate: Date
+    private let brand: String
+    private let volume: Int
+    private let price: Int
+    private let name: String
+    private let manufacturingDate: Date
     
     init?(brand: String, volume: Int, price: Int,
           name: String, manufacturingDateInfo: String) {

@@ -10,7 +10,7 @@ import Foundation
 
 class Milk: Beverage {
     
-    let expirationDate: Date
+    private let expirationDate: Date
     
     init?(brand: String, volume: Int, price: Int,
           name: String, manufacturingDateInfo: String, expirationDateInfo: String) {

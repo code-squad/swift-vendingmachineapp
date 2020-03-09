@@ -30,8 +30,8 @@ class Inventory: CustomStringConvertible {
         inventory.append(beverage)
     }
     
-    func takeOut(_ beverage: String, balance: Int, block: (Result<Beverage, Inventory.SaleError>) -> Void) {
-        guard let index = inventory.firstIndex(where: { "\(type(of: $0))" == beverage }) else {
+    func takeOut(_ beverage: Beverage, balance: Int, block: (Result<Beverage, Inventory.SaleError>) -> Void) {
+        guard let index = inventory.firstIndex(where: { type(of: $0) == type(of: beverage) }) else {
             block(.fail(.notInStock))
             return
         }

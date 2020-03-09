@@ -26,8 +26,8 @@ class IntegrationTests: XCTestCase {
         let items = [StrawberryMilk(), StrawberryMilk(), Coke(), Fanta(), Top(), Top()]
         items.forEach { vendingMachine.fill(beverage: $0) }
         
-        vendingMachine.sell(beverage: "StrawberryMilk")
-        vendingMachine.sell(beverage: "Top")
+        vendingMachine.sell(beverage: StrawberryMilk())
+        vendingMachine.sell(beverage: Top())
         
         var salesLog = [Beverage]()
         vendingMachine.repeatForSalesLog { salesLog.append($0) }

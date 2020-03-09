@@ -24,7 +24,7 @@ class VendingMachine {
         inventory.add(beverage)
     }
     
-    func sell(beverage: String) {
+    func sell(beverage: Beverage) {
         inventory.takeOut(beverage, balance: cashier.balance()) { result in
             switch result {
             case let .fail(error): print(error.localizedDescription)

@@ -30,6 +30,6 @@ class CashierTests: XCTestCase {
         var log = [Beverage]()
         XCTAssertEqual(cashier.balance(), 3500)
         cashier.forEachSalesLog { log.append($0) }
-        XCTAssert(beverage === log[0])
+        XCTAssertEqual(log, [ChocolateMilk(price: 1500)])
     }
 }

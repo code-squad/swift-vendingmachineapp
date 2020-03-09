@@ -10,9 +10,12 @@ import Foundation
 
 class Pepsi: Soda {
     
-    init?(volume: Int, price: Int, name: String, manufacturingDateInfo: String) {
+    init?(volume: Int, price: Int, name: String,
+          manufacturingDateInfo: String, calorie: Int) {
         super.init(brand: "팹시", volume: volume,
-                   price: price, name: name, manufacturingDateInfo: manufacturingDateInfo)
+                   price: price, name: name,
+                   manufacturingDateInfo: manufacturingDateInfo,
+                   calorie: calorie)
     }
 
 }

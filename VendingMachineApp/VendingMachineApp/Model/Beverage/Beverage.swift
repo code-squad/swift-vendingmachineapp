@@ -33,7 +33,7 @@ class Beverage {
         self.price = price
         self.name = name
         self.manufacturingDate = manufacturingDate
-        self.expirationDate = Date().expiredDay(from: manufacturingDate, period: 14)
+        self.expirationDate = Date().expiredDay(from: manufacturingDate, days: 14)
         self.calorie = calorie
         self.temperature = temperature
     }
@@ -64,7 +64,7 @@ extension Beverage: Equatable {
 }
 
 extension Date {
-    func expiredDay(from: Date, period: Double) -> Date{
-        return Date(timeInterval: 86400 * period, since: from)
+    func expiredDay(from: Date, days: Double) -> Date{
+        return Date(timeInterval: 86400 * days, since: from)
     }
 }

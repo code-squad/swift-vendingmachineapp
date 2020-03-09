@@ -20,3 +20,9 @@ class Coffee: Beverage {
     }
     
 }
+
+extension Coffee {
+    override var description: String {
+        return super.description + ", \(isHot)"
+    }
+}

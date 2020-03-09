@@ -10,7 +10,7 @@ import Foundation
 
 class Coffee: Beverage {
     
-    let isHot: Bool
+    private let isHot: Bool
     
     init?(brand: String, volume: Int, price: Int,
           name: String, manufacturingDateInfo: String, isHot: Bool) {
@@ -22,7 +22,9 @@ class Coffee: Beverage {
 }
 
 extension Coffee {
+    
     override var description: String {
         return super.description + ", \(isHot)"
     }
+    
 }

@@ -94,13 +94,13 @@ class VendingMachine{
         self.balance.add(moneyNumber: moneyNumber)
         NotificationCenter.default.post(name: Notification.Name.updateBalance,
                                         object: nil,
-                                        userInfo: ["balance": self.balance.money])
+                                        userInfo: ["balance": self.balance])
     }
     
     func purchasableBeverages() -> [String] {
         var beverageList = [String]()
         beverages.forEachBeverages{
-            if $0.canBuy(have: balance.money) {
+            if $0.canBuy(have: balance) {
                 beverageList.append("\($0)")
             }
         }
@@ -109,12 +109,12 @@ class VendingMachine{
     }
     
     func purchase(beverageNumber: Int) {
-        balance.add(money: -beverageList[beverageNumber].price.money)
+        balance.minus(money: beverageList[beverageNumber].price)
         purchaseHistory.add(beverage: beverageList[beverageNumber])
         beverages.remove(beverage: beverageList[beverageNumber])
         NotificationCenter.default.post(name: Notification.Name.updateBalance,
                                         object: nil,
-                                        userInfo: ["balance": self.balance.money])
+                                        userInfo: ["balance": self.balance])
     }
     
     func kindOfBeverages() -> [String : Int] {

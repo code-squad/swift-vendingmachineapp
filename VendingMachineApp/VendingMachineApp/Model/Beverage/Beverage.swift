@@ -38,8 +38,8 @@ class Beverage {
         self.temperature = temperature
     }
     
-    func canBuy(have balance: Int) -> Bool {
-        return price.isCheaper(than: Price(balance))
+    func canBuy(have balance: Price) -> Bool {
+        return price.isCheaper(than: Price("\(balance)"))
     }
     
     func isSafe() -> Bool {

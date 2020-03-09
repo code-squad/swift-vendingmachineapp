@@ -73,11 +73,11 @@ class ViewController: UIViewController {
     
     @objc func updateBalance(_ notification: Notification?) {
         if let notification = notification {
-            if let balance: Int = notification.userInfo?["balance"] as? Int {
+            if let balance = notification.userInfo?["balance"] {
                 balanceLabel.text = "잔액: \(balance)"
             }
         } else {
-            balanceLabel.text = "잔액: \(vendingMachine.balance.money)"
+            balanceLabel.text = "잔액: \(vendingMachine.balance)"
         }
     }
 }

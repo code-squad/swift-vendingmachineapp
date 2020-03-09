@@ -9,22 +9,44 @@
 import Foundation
 
 class Price {
-    private(set) var money: Int
+    private var money: Int
     private let moneyList = [1000, 5000]
     
     init(_ money: Int) {
         self.money = money
     }
     
+    init(_ money: String) {
+        if let money = Int(money) {
+            self.money = money
+        } else {
+            self.money = 0
+        }
+    }
+    
     func add(moneyNumber: Int) {
         money += moneyList[moneyNumber]
     }
     
-    func add(money: Int) {
-        self.money += money
+    func add(money: Price) {
+        if let money = Int("\(money)"){
+            self.money += money
+        }
+    }
+    
+    func minus(money: Price) {
+        if let money = Int("\(money)"){
+            self.money -= money
+        }
     }
     
     func isCheaper(than price: Price) -> Bool {
         return price.money >= self.money
+    }
+}
+
+extension Price: CustomStringConvertible {
+    var description: String {
+        return String(money)
     }
 }

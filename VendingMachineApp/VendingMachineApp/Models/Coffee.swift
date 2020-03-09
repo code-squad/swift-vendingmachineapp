@@ -10,17 +10,17 @@ import Foundation
 
 class Coffee: Beverage {
     
-    private let hot: Bool
+    private let hotState: Bool
     
     init?(brand: String, volume: Int, price: Int,
-          name: String, manufacturingDateInfo: String, isHot: Bool) {
-        self.hot = isHot
+          name: String, manufacturingDateInfo: String, hotState: Bool) {
+        self.hotState = hotState
         super.init(brand: brand, volume: volume, price: price,
         name: name, manufacturingDateInfo: manufacturingDateInfo)
     }
     
     func isHot() -> Bool {
-        return hot
+        return hotState
     }
     
 }
@@ -28,7 +28,7 @@ class Coffee: Beverage {
 extension Coffee {
     
     override var description: String {
-        return super.description + ", \(hot)"
+        return super.description + ", \(hotState)"
     }
     
 }

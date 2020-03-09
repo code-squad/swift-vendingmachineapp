@@ -38,4 +38,8 @@ struct VendingMachine {
         return money
     }
     
+    mutating func add(beverage: Beverage) {
+        stock.append(beverage)
+    }
+    
 }

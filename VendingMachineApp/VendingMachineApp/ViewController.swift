@@ -35,8 +35,8 @@ class ViewController: UIViewController {
     
     func setupUI() {
         makeCornerRadius()
-        updateBalance(nil)
-        updateStockLabel(nil)
+        updateBalance(balance: "\(vendingMachine.balance)")
+        updateStockLabel(stock: -1)
     }
     
     func makeCornerRadius() {
@@ -56,11 +56,9 @@ class ViewController: UIViewController {
                                                object: nil)
     }
     
-    @objc func updateStockLabel(_ notification: Notification?) {
-        if let notification = notification {
-            if let stock: Int = notification.userInfo?["stock"] as? Int {
-                stockLabels[selectedIndex].text = String(stock)
-            }
+    private func updateStockLabel(stock: Int) {
+        if stock != -1 {
+            stockLabels[selectedIndex].text = String(stock)
         } else {
             let kindOfBeverages = vendingMachine.kindOfBeverages()
             if kindOfBeverages.count == 0 {
@@ -71,13 +69,19 @@ class ViewController: UIViewController {
         }
     }
     
-    @objc func updateBalance(_ notification: Notification?) {
-        if let notification = notification {
-            if let balance = notification.userInfo?["balance"] {
-                balanceLabel.text = "잔액: \(balance)"
-            }
-        } else {
-            balanceLabel.text = "잔액: \(vendingMachine.balance)"
+    private func updateBalance(balance: String) {
+        balanceLabel.text = "잔액: \(balance)"
+    }
+    
+    @objc func updateStockLabel(_ notification: Notification) {
+        if let stock: Int = notification.userInfo?["stock"] as? Int {
+            updateStockLabel(stock: stock)
+        }
+    }
+    
+    @objc func updateBalance(_ notification: Notification) {
+        if let balance: Price = notification.userInfo?["balance"] as? Price {
+            updateBalance(balance: "\(balance)")
         }
     }
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A7EFBC2241631860018710C /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7EFBC1241631860018710C /* Date.swift */; };
 		5A91FCCD240FCDFB00884D64 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A91FCCC240FCDFB00884D64 /* AppDelegate.swift */; };
 		5A91FCCF240FCDFB00884D64 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A91FCCE240FCDFB00884D64 /* SceneDelegate.swift */; };
 		5A91FCD1240FCDFB00884D64 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A91FCD0240FCDFB00884D64 /* ViewController.swift */; };
@@ -43,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5A7EFBC1241631860018710C /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		5A91FCC9240FCDFB00884D64 /* VendingMachineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendingMachineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A91FCCC240FCDFB00884D64 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5A91FCCE240FCDFB00884D64 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 				5A91FD07240FE2C700884D64 /* HersheyChocolateDrink.swift */,
 				5A91FD09240FE92B00884D64 /* Cantata.swift */,
 				5A91FD0B240FEC6500884D64 /* Pepsi.swift */,
+				5A7EFBC1241631860018710C /* Date.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 				5A91FCCD240FCDFB00884D64 /* AppDelegate.swift in Sources */,
 				5A91FCCF240FCDFB00884D64 /* SceneDelegate.swift in Sources */,
 				5A91FD06240FE0BE00884D64 /* Soda.swift in Sources */,
+				5A7EFBC2241631860018710C /* Date.swift in Sources */,
 				5A91FD02240FDFE900884D64 /* Milk.swift in Sources */,
 				5A91FCFE240FD6DE00884D64 /* VendingMachine.swift in Sources */,
 				5A91FD0C240FEC6500884D64 /* Pepsi.swift in Sources */,

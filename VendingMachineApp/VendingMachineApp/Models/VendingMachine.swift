@@ -11,6 +11,7 @@ import Foundation
 struct VendingMachine {
     
     private var stock: [Beverage]
+    private var money: Int?
     
     init(stock: [Beverage]) {
         self.stock = stock

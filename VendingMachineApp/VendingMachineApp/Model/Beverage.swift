@@ -39,7 +39,11 @@ class Beverage {
     }
 }
 
-extension Beverage: CustomStringConvertible, Hashable {
+extension Beverage: CustomStringConvertible, Hashable, Comparable {
+    static func < (lhs: Beverage, rhs: Beverage) -> Bool {
+        lhs.name < rhs.name
+    }
+    
     var description: String {
         "\(brand), \(amount)ml, \(price)원, \(name), \(manufacturingDate.formattedDate)"
     }

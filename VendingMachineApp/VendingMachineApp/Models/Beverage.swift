@@ -38,8 +38,7 @@ extension Beverage: Equatable {
         return lhs.brand == rhs.brand &&
             lhs.volume == rhs.volume &&
             lhs.price == rhs.price &&
-            lhs.name == rhs.name &&
-            lhs.manufacturingDate == rhs.manufacturingDate
+            lhs.name == rhs.name
     }
     
 }

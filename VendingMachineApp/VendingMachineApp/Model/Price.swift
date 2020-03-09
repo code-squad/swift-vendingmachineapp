@@ -10,7 +10,24 @@ import Foundation
 
 class Price {
     private var money: Int
-    private let moneyList = [1000, 5000]
+    
+    enum KindOfMoney: Int, CaseIterable {
+        case Zero = 0
+        case TenThousand = 1000
+        case FiftyThounsand = 5000
+        
+        init(amount: Int) {
+            if amount >= 0 && amount < KindOfMoney.allCases.count {
+                self = KindOfMoney.allCases[amount]
+            } else {
+                self = KindOfMoney.Zero
+            }
+        }
+        
+        func add(_ price: Int) -> Int {
+            return price + self.rawValue
+        }
+    }
     
     init(_ money: Int) {
         self.money = money
@@ -24,8 +41,8 @@ class Price {
         }
     }
     
-    func add(moneyNumber: Int) {
-        money += moneyList[moneyNumber]
+    func add(money: KindOfMoney) {
+        self.money = money.add(self.money)
     }
     
     func add(money: Price) {

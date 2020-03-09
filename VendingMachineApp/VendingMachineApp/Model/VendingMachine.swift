@@ -91,7 +91,7 @@ class VendingMachine{
     }
     
     func add(moneyNumber: Int) {
-        self.balance.add(moneyNumber: moneyNumber)
+        self.balance.add(money: Price.KindOfMoney.allCases[moneyNumber])
         NotificationCenter.default.post(name: Notification.Name.updateBalance,
                                         object: nil,
                                         userInfo: ["balance": self.balance])

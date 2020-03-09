@@ -10,10 +10,13 @@ import Foundation
 
 class Coffee: Beverage {
     
-    override init?(brand: String, volume: Int, price: Int,
-                  name: String, manufacturingDateInfo: String) {
+    let isHot: Bool
+    
+    init?(brand: String, volume: Int, price: Int,
+          name: String, manufacturingDateInfo: String, isHot: Bool) {
+        self.isHot = isHot
         super.init(brand: brand, volume: volume, price: price,
-                   name: name, manufacturingDateInfo: manufacturingDateInfo)
+        name: name, manufacturingDateInfo: manufacturingDateInfo)
     }
     
 }

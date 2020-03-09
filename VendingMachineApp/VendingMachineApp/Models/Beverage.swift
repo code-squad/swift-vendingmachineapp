@@ -19,8 +19,8 @@ class Beverage {
     init?(brand: String, volume: Int, price: Int,
           name: String, manufacturingDateInfo: String) {
         guard let manufacturingDate = Date.dateFormatter.date(from: manufacturingDateInfo)
-        else {
-            return nil
+            else {
+                return nil
         }
         
         self.brand = brand
@@ -28,6 +28,18 @@ class Beverage {
         self.price = price
         self.name = name
         self.manufacturingDate = manufacturingDate
+    }
+    
+}
+
+extension Beverage: Equatable {
+    
+    static func == (lhs: Beverage, rhs: Beverage) -> Bool {
+        return lhs.brand == rhs.brand &&
+            lhs.volume == rhs.volume &&
+            lhs.price == rhs.price &&
+            lhs.name == rhs.name &&
+            lhs.manufacturingDate == rhs.manufacturingDate
     }
     
 }

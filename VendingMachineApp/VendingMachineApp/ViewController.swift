@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    let vendingMachine = VendingMachine()
+    let vendingMachine = VendingMachine(cashier: Cashier())
     
     override func viewDidLoad() {
         super.viewDidLoad()

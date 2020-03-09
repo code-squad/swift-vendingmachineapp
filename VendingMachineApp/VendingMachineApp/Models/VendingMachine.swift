@@ -10,10 +10,14 @@ import Foundation
 
 class VendingMachine {
     private var inventory = Inventory()
-    private var cashier = Cashier()
+    private var cashier: Calculable
     
     var stockList: String {
         return "\(inventory)"
+    }
+    
+    init(cashier: Calculable) {
+        self.cashier = cashier
     }
     
     func insert(money: Int) {
@@ -25,7 +29,7 @@ class VendingMachine {
     }
     
     func sell(beverage: String) {
-        inventory.takeOut(beverage, balance: cashier.balance) { result in
+        inventory.takeOut(beverage, balance: cashier.balance()) { result in
             switch result {
             case let .fail(error): print(error.localizedDescription)
             case let .success(beverage): cashier.sell(beverage: beverage)

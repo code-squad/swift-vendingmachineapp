@@ -17,6 +17,18 @@ class ElementsOfBeverage {
     private var dateOfManufacture: Date
     private var dateGenerator: DateGenerator = DateGenerator()
     private var additionalElements: String = ""
+    var descriptionBrand: String {
+        brand + ", "
+    }
+    var descriptionWeight: String {
+        String(weight) + "ml, "
+    }
+    var descriptionPrice: String {
+        String(price) + "원, "
+    }
+    var descriptionName: String {
+        name + ", "
+    }
     
     init(brand: String, weight: Int, price: Int, name: String, dateOfManufacture: Date) {
         self.brand = brand
@@ -33,7 +45,7 @@ class ElementsOfBeverage {
 
 extension ElementsOfBeverage: CustomStringConvertible {
     var description: String {
-        return brand + ", " + String(weight) + "ml, " + String(price) + "원, " + name + ", " + dateGenerator.transrate(date: dateOfManufacture) + additionalElements
+        return descriptionBrand + descriptionWeight + descriptionPrice + descriptionName + dateGenerator.transrate(date: dateOfManufacture) + additionalElements
     }
 }
 

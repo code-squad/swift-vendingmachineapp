@@ -30,6 +30,10 @@ class Beverage {
         self.manufacturingDate = manufacturingDate
     }
     
+    func isBuyable(money: Int) -> Bool {
+        return money >= price
+    }
+    
 }
 
 extension Beverage: Hashable {

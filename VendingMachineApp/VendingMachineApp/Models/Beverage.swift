@@ -42,10 +42,7 @@ extension Beverage: Hashable {
     }
     
     func hash(into hasher: inout Hasher) {
-        return hasher.combine(brand.hashValue +
-            volume.hashValue +
-            price.hashValue +
-            name.hashValue )
+        return hasher.combine(name + String(volume))
     }
     
 }

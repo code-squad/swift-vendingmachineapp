@@ -11,6 +11,7 @@ import XCTest
 
 class ProductionDateTests: XCTestCase {
     func testNewProductionDate() {
-//        let productionDate = Produc
+        let productionDate = ProductionDate(from: "20200222")
+        XCTAssertEqual(productionDate?.description, "20200222")
     }
 }

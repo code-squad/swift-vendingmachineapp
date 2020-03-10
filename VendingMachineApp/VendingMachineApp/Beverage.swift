@@ -19,12 +19,16 @@ class Beverage: CustomStringConvertible {
 
     // MARK: Methods
 
-    init(name: String, price: Int, capacity: Int, brand: String, productionDate: ProductionDate) {
+    init(name: String, price: Int, capacity: Int, brand: String, productionDate: ProductionDate?) {
+        guard let validProductionDate = productionDate else {
+            fatalError("Unexpected production date: \(String(describing: productionDate))")
+        }
+
         self.name = name
         self.price = price
         self.capacity = capacity
         self.brand = brand
-        self.productionDate = productionDate
+        self.productionDate = validProductionDate
     }
 }
 

@@ -60,7 +60,7 @@ class VendingMachineTest: XCTestCase {
         }
     }
     
-    func testSellableBeverages() {
+    func testSearchSellableBeverages() {
         vendingMachine.receive(insertedMoney: 1500)
         vendingMachine.searchSellableBeverages {
             XCTAssertEqual($0.key, cookieCreamMilk)

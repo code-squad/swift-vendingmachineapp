@@ -39,9 +39,7 @@ class Beverage {
 extension Beverage: Hashable {
     
     static func == (lhs: Beverage, rhs: Beverage) -> Bool {
-        return lhs.brand == rhs.brand &&
-            lhs.volume == rhs.volume &&
-            lhs.price == rhs.price &&
+        return  lhs.volume == rhs.volume &&
             lhs.name == rhs.name
     }
     

@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-    var vendingMachine = VendingMachine()
+    private var vendingMachine: VendingMachine!
     @IBOutlet var addToStockButtons: [UIButton]!
     @IBOutlet var beverageImageViews: [UIImageView]!
     @IBOutlet var berverageStockLabels: [UILabel]!
@@ -17,8 +17,14 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupVendingMachine()
         setupUI()
         setupNotification()
+    }
+    
+    private func setupVendingMachine() {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        self.vendingMachine = appDelegate.vendingMachine
     }
     
     @IBAction func addToStockButtonTouched(_ button: UIButton) {

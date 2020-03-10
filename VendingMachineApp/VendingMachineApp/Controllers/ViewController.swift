@@ -10,10 +10,10 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    var beverages: [ElementsOfBeverage] = []
-    let cola = Cola(brand: "코카콜라", weight: 123, price: 1234, name: "코쿼콜라")
-    let top = Top(brand: "Top", weight: 12, price: 123, name: "티오피")
-    let bananaMilk = BananaMilk(brand: "bananaMilk", weight: 1, price: 12, name: "바나나우유")
+    private var beverages: [ElementsOfBeverage] = []
+    private let cola = Cola(brand: "코카콜라", weight: 1332, price: 1500, name: "코카콜라 제로", dateOfManufacture: Date(), pondusHydrogenii: 2.5)
+    private let top = Top(brand: "맥심", weight: 500, price: 2058, name: "스위트 아메리카", dateOfManufacture: Date(), coffeeVarieties: "아라비카")
+    private let bananaMilk = BananaMilk(brand: "빙그레", weight: 250, price: 1300, name: "바나나맛 우유", dateOfManufacture: Date(), flavor: "바나나")
     
     override func viewDidLoad() {
         super.viewDidLoad()

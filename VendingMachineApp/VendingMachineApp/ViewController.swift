@@ -14,7 +14,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var productsStackView: UIStackView!
     @IBOutlet weak var controllerStackView: UIStackView!
     
+    @IBOutlet weak var balanceLabel: UILabel!
+    
     @IBOutlet var beverageViews: [UIView]!
+    @IBOutlet var beverageLabels: [UILabel]!
+    @IBOutlet var addBeverageButtons: [UIButton]!
     
     let vendingMachine = VendingMachine(cashier: Cashier())
     

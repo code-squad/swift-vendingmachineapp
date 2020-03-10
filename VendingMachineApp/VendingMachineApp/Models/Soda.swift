@@ -16,13 +16,13 @@ class Soda: Beverage {
           name: String, manufacturingDateInfo: String, kiloCalorie: Int) {
         self.kiloCalorie = kiloCalorie
         super.init(brand: brand, volume: volume, price: price,
-        name: name, manufacturingDateInfo: manufacturingDateInfo)
+                   name: name, manufacturingDateInfo: manufacturingDateInfo)
     }
     
     func isLowCalorie() -> Bool {
         guard kiloCalorie <= Quantity.maxLowKiloCalorie
-        else {
-           return false
+            else {
+                return false
         }
         return true
     }

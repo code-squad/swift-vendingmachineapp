@@ -17,5 +17,5 @@ class Pepsi: Soda {
                    manufacturingDateInfo: manufacturingDateInfo,
                    kiloCalorie: kiloCalorie)
     }
-
+    
 }

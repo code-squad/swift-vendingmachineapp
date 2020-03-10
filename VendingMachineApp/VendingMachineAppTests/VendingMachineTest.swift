@@ -10,7 +10,7 @@ import XCTest
 @testable import VendingMachineApp
 
 class VendingMachineTest: XCTestCase {
-
+    
     var vendingMachine: VendingMachine!
     
     override func setUp() {
@@ -22,13 +22,13 @@ class VendingMachineTest: XCTestCase {
         let dietCola = Pepsi(volume: 350, price: 2000, name: "다이어트 콜라",
                              manufacturingDateInfo: "20190928", kiloCalorie: 80)!
         let cookieCreamMilk = HersheyChocolateDrink(volume: 190, price: 1500,
-                                                name: "쿠키 앤 크림",
-                                                manufacturingDateInfo: "20191116",
-                                                expirationDateInfo: "20191123")!
+                                                    name: "쿠키 앤 크림",
+                                                    manufacturingDateInfo: "20191116",
+                                                    expirationDateInfo: "20191123")!
         
         vendingMachine = VendingMachine(stock: [primiumLatte, dietCola, cookieCreamMilk])
     }
-
+    
     override func tearDown() {
         vendingMachine = nil
         super.tearDown()
@@ -48,7 +48,7 @@ class VendingMachineTest: XCTestCase {
         vendingMachine.receive(insertedMoney: money)
         XCTAssertEqual(vendingMachine.currentMoney(), money)
     }
-
+    
     func testCurrentMoney() {
         XCTAssertEqual(vendingMachine.currentMoney(), Quantity.zero)
     }

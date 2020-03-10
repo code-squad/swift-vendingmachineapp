@@ -326,6 +326,7 @@
                         <viewLayoutGuide key="safeArea" id="0i4-Qk-NNf"/>
                     </view>
                     <connections>
+                        <outlet property="balanceLabel" destination="hOV-Yx-Ddj" id="hBs-4Q-bvT"/>
                         <outlet property="controllerStackView" destination="gN4-5Y-deC" id="ja8-z8-HE1"/>
                         <outlet property="productsStackView" destination="XjL-CD-Fkv" id="2ue-Dg-c9Y"/>
                         <outlet property="vendingMachineStackView" destination="k2N-aS-C11" id="kp0-lC-nI7"/>
@@ -335,6 +336,18 @@
                         <outletCollection property="beverageViews" destination="ap5-bn-tJX" collectionClass="NSMutableArray" id="Z9S-tA-tcM"/>
                         <outletCollection property="beverageViews" destination="xqn-kh-C69" collectionClass="NSMutableArray" id="Ebe-Om-c6v"/>
                         <outletCollection property="beverageViews" destination="LD8-Nh-O97" collectionClass="NSMutableArray" id="hrA-Is-HKc"/>
+                        <outletCollection property="beverageLabels" destination="QkM-jX-wF6" collectionClass="NSMutableArray" id="bf8-L6-gj9"/>
+                        <outletCollection property="beverageLabels" destination="QIH-dU-nhU" collectionClass="NSMutableArray" id="nOi-JP-z4H"/>
+                        <outletCollection property="beverageLabels" destination="xug-rY-Xqk" collectionClass="NSMutableArray" id="27m-An-kcv"/>
+                        <outletCollection property="beverageLabels" destination="OYK-Sn-B0e" collectionClass="NSMutableArray" id="RcT-na-Ejc"/>
+                        <outletCollection property="beverageLabels" destination="dyf-bI-256" collectionClass="NSMutableArray" id="l1R-Og-02a"/>
+                        <outletCollection property="beverageLabels" destination="OP0-1Y-c9p" collectionClass="NSMutableArray" id="eq0-e6-IWk"/>
+                        <outletCollection property="addBeverageButtons" destination="SXs-h6-gkB" collectionClass="NSMutableArray" id="3Ir-lA-8qh"/>
+                        <outletCollection property="addBeverageButtons" destination="4Od-jK-64w" collectionClass="NSMutableArray" id="s90-VW-4pB"/>
+                        <outletCollection property="addBeverageButtons" destination="unx-fC-nHr" collectionClass="NSMutableArray" id="1MP-22-fs9"/>
+                        <outletCollection property="addBeverageButtons" destination="otP-BF-cN1" collectionClass="NSMutableArray" id="q79-Yy-qVW"/>
+                        <outletCollection property="addBeverageButtons" destination="Uzd-jb-PtY" collectionClass="NSMutableArray" id="UHg-1h-9Iw"/>
+                        <outletCollection property="addBeverageButtons" destination="L7h-nQ-2hi" collectionClass="NSMutableArray" id="dxQ-wr-AK8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

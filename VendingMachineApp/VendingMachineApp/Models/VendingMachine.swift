@@ -30,6 +30,7 @@ struct VendingMachine {
         stock.append(beverage)
     }
     
+    @discardableResult
     mutating func sell(wantedBeverage: Beverage) -> Beverage? {
         if let beverage = subtractFromStock(to: wantedBeverage) {
             addFromSoldBeverages(to: beverage)
@@ -60,23 +61,6 @@ struct VendingMachine {
         money -= price
     }
     
-    func sellableBeverages() -> [Beverage: [Beverage]] {
-        var sellableBeverages = [Beverage: [Beverage]]()
-        for beverage in stock {
-            guard !sellableBeverages.keys.contains(beverage)
-                else {
-                    sellableBeverages[beverage]?.append(beverage)
-                    continue
-            }
-            guard beverage.isBuyable(money: money)
-                else {
-                    continue
-            }
-            sellableBeverages[beverage] = [beverage]
-        }
-        return sellableBeverages
-    }
-    
 }
 
 extension VendingMachine {
@@ -84,7 +68,7 @@ extension VendingMachine {
     func searchSoldBeverages(handler: (Beverage) -> (Void)) {
         soldBeverages.forEach { handler($0) }
     }
-
+    
     func searchHotCoffees(handler: (Coffee) -> (Void)) {
         for beverage in stock {
             guard let hotCoffee = beverage as? Coffee, hotCoffee.isHot()
@@ -125,6 +109,31 @@ extension VendingMachine {
             stockByKind[beverage] = [beverage]
         }
         return stockByKind
+    }
+    
+    func searchSellableBeverages(handler: ((key: Beverage, value: [Beverage])) -> (Void)) {
+        let sellableBeverages = generateSellableBeverages()
+        for sellableBeverage in sellableBeverages {
+            handler((key: sellableBeverage.key,
+                     value: sellableBeverage.value))
+        }
+    }
+    
+    private func generateSellableBeverages() -> [Beverage: [Beverage]] {
+        var sellableBeverages = [Beverage: [Beverage]]()
+        for beverage in stock {
+            guard !sellableBeverages.keys.contains(beverage)
+                else {
+                    sellableBeverages[beverage]?.append(beverage)
+                    continue
+            }
+            guard beverage.isBuyable(money: money)
+                else {
+                    continue
+            }
+            sellableBeverages[beverage] = [beverage]
+        }
+        return sellableBeverages
     }
     
 }

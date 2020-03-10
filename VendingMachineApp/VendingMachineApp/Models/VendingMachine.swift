@@ -93,9 +93,9 @@ extension VendingMachine {
     
     func searchStockByKind(handler: ((key: Beverage, value: [Beverage])) -> (Void)) {
         let stockByKind = generateStockByKind()
-        for kind in stockByKind {
-            handler((key: kind.key,
-                     value: kind.value))
+        stockByKind.forEach {
+            handler((key: $0.key,
+            value: $0.value))
         }
     }
     
@@ -114,9 +114,9 @@ extension VendingMachine {
     
     func searchSellableBeverages(handler: ((key: Beverage, value: [Beverage])) -> (Void)) {
         let sellableBeverages = generateSellableBeverages()
-        for sellableBeverage in sellableBeverages {
-            handler((key: sellableBeverage.key,
-                     value: sellableBeverage.value))
+        sellableBeverages.forEach {
+            handler((key: $0.key,
+            value: $0.value))
         }
     }
     

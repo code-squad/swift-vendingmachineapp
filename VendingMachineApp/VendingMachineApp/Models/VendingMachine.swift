@@ -60,19 +60,6 @@ struct VendingMachine {
         money -= price
     }
     
-    func hotCoffees() -> [Coffee] {
-        var hotCoffees = [Coffee]()
-        for beverage in stock {
-            guard let hotCoffee = beverage as? Coffee, hotCoffee.isHot()
-                else {
-                    continue
-            }
-            
-            hotCoffees.append(hotCoffee)
-        }
-        return hotCoffees
-    }
-    
     func milksPassed(expirationDate: Date) -> [Milk] {
         var milksPassedExpirationDate = [Milk]()
         for beverage in stock {
@@ -124,6 +111,16 @@ extension VendingMachine {
     
     func searchSoldBeverages(handler: (Beverage) -> Void) {
         soldBeverages.forEach { handler($0) }
+    }
+
+    func searchHotCoffees(handler: (Coffee) -> Void) {
+        for beverage in stock {
+            guard let hotCoffee = beverage as? Coffee, hotCoffee.isHot()
+                else {
+                    continue
+            }
+            handler(hotCoffee)
+        }
     }
     
 }

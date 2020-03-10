@@ -33,15 +33,6 @@ class VendingMachineTest: XCTestCase {
         super.tearDown()
     }
     
-    func testHotCoffees() {
-        let hotCoffees = vendingMachine.hotCoffees()
-        let primiumLatte = Cantata(volume: 275, price: 2200,
-                                   name: "프리미엄 라떼",
-                                   manufacturingDateInfo: "20200102",
-                                   hotState: true)
-        XCTAssertEqual(hotCoffees, [primiumLatte])
-    }
-    
     func testReceive() {
         let money = 2000
         vendingMachine.receive(insertedMoney: money)
@@ -99,6 +90,12 @@ class VendingMachineTest: XCTestCase {
             vendingMachine.searchSoldBeverages {
                 XCTAssertEqual($0, beverage)
             }
+        }
+    }
+    
+    func testSearchHotCoffees() {
+        vendingMachine.searchHotCoffees {
+            XCTAssertEqual($0, primiumLatte)
         }
     }
     

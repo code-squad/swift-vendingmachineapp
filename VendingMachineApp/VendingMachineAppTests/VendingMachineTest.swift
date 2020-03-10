@@ -43,21 +43,19 @@ class VendingMachineTest: XCTestCase {
         XCTAssertEqual(vendingMachine.currentMoney(), Quantity.zero)
     }
     
-    func testStockByKind() {
+    func testSearchStockByKind() {
         let otherCookieCreamMilk = HersheyChocolateDrink(volume: 190, price: 1500,
                                                          name: "쿠키앤크림",
                                                          manufacturingDateInfo: "20191016",
                                                          expirationDateInfo: "20191023")!
         vendingMachine.add(beverage: otherCookieCreamMilk)
-        let stockByKind = vendingMachine.stockByKind()
-        
-        for kind in stockByKind {
-            if kind.key is HersheyChocolateDrink {
-                XCTAssertEqual(kind.value.count, 2)
-            } else if kind.key is Cantata {
-                XCTAssertEqual(kind.value.count, 1)
-            } else if kind.key is Pepsi {
-                XCTAssertEqual(kind.value.count, 1)
+        vendingMachine.searchStockByKind {
+            if $0.key is HersheyChocolateDrink {
+                XCTAssertEqual($0.value.count, 2)
+            } else if $0.key is Cantata {
+                XCTAssertEqual($0.value.count, 1)
+            } else if $0.key is Pepsi {
+                XCTAssertEqual($0.value.count, 1)
             }
         }
     }

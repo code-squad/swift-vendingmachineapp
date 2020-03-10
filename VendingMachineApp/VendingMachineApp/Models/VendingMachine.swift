@@ -60,20 +60,6 @@ struct VendingMachine {
         money -= price
     }
     
-    func stockByKind() -> [Beverage: [Beverage]] {
-        var stockByKind = [Beverage: [Beverage]]()
-        for beverage in stock {
-            guard !stockByKind.keys.contains(beverage)
-                else {
-                    stockByKind[beverage]?.append(beverage)
-                    continue
-            }
-            
-            stockByKind[beverage] = [beverage]
-        }
-        return stockByKind
-    }
-    
     func sellableBeverages() -> [Beverage: [Beverage]] {
         var sellableBeverages = [Beverage: [Beverage]]()
         for beverage in stock {
@@ -118,6 +104,27 @@ extension VendingMachine {
             }
             handler(milkPassedExpirationDate)
         }
+    }
+    
+    func searchStockByKind(handler: ((key: Beverage, value: [Beverage])) -> (Void)) {
+        let stockByKind = generateStockByKind()
+        for kind in stockByKind {
+            handler((key: kind.key,
+                     value: kind.value))
+        }
+    }
+    
+    private func generateStockByKind() -> [Beverage: [Beverage]] {
+        var stockByKind = [Beverage: [Beverage]]()
+        for beverage in stock {
+            guard !stockByKind.keys.contains(beverage)
+                else {
+                    stockByKind[beverage]?.append(beverage)
+                    continue
+            }
+            stockByKind[beverage] = [beverage]
+        }
+        return stockByKind
     }
     
 }

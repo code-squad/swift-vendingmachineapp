@@ -10,14 +10,34 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var vendingMachineStackView: UIStackView!
+    @IBOutlet weak var productsStackView: UIStackView!
+    @IBOutlet weak var controllerStackView: UIStackView!
+    
+    @IBOutlet var beverageViews: [UIView]!
+    
     let vendingMachine = VendingMachine(cashier: Cashier())
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        [StrawberryMilk(), Fanta(), Top()]
-            .forEach { vendingMachine.fill(beverage: $0) }
-        
-        vendingMachine.repeatForItemsInStock { print($0) }
+        layoutStackViewsToReadableContentGuide()
+        layoutBeverageViews()
+    }
+}
+
+extension ViewController {
+    private func layoutStackViewsToReadableContentGuide() {
+        let readableGuide = view.readableContentGuide
+        productsStackView.leadingAnchor.constraint(equalTo: readableGuide.leadingAnchor).isActive = true
+        productsStackView.trailingAnchor.constraint(equalTo: readableGuide.trailingAnchor).isActive = true
+        controllerStackView.leadingAnchor.constraint(equalTo: readableGuide.leadingAnchor).isActive = true
+        controllerStackView.trailingAnchor.constraint(equalTo: readableGuide.trailingAnchor).isActive = true
+    }
+    
+    private func layoutBeverageViews() {
+        beverageViews.forEach {
+            $0.layer.cornerRadius = 25;
+        }
     }
 }

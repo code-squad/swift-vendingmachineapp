@@ -14,7 +14,6 @@ struct VendingMachine {
     private var soldBeverages = [Beverage]()
     private var money = Quantity.zero
     
-    
     init(stock: [Beverage]) {
         self.stock = stock
     }
@@ -32,15 +31,15 @@ struct VendingMachine {
     }
     
     mutating func sell(wantedBeverage: Beverage) -> Beverage? {
-        if let beverage = subtractFromStock(wantedBeverage) {
-            addSoldBeverages(beverage)
-            subtractFromMoney(beverage.price)
+        if let beverage = subtractFromStock(to: wantedBeverage) {
+            addFromSoldBeverages(to: beverage)
+            subtractFromMoney(to: beverage.price)
             return beverage
         }
         return nil
     }
     
-    mutating private func subtractFromStock(_ wantedBeverage: Beverage) -> Beverage? {
+    mutating private func subtractFromStock(to wantedBeverage: Beverage) -> Beverage? {
         for index in 0 ..< stock.count {
             if stock[index] == wantedBeverage {
                 return stock.remove(at: index)
@@ -49,11 +48,11 @@ struct VendingMachine {
         return nil
     }
     
-    mutating private func addSoldBeverages(_ beverage: Beverage) {
+    mutating private func addFromSoldBeverages(to beverage: Beverage) {
         soldBeverages.append(beverage)
     }
     
-    mutating private func subtractFromMoney(_ price: Int) {
+    mutating private func subtractFromMoney(to price: Int) {
         guard money >= price
             else {
                 return

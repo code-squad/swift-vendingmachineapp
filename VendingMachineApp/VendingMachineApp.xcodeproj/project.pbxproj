@@ -14,6 +14,10 @@
 		AEEAD15A2417256F00DB38FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AEEAD1592417256F00DB38FC /* Assets.xcassets */; };
 		AEEAD15D2417256F00DB38FC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEEAD15B2417256F00DB38FC /* LaunchScreen.storyboard */; };
 		AEEAD1682417256F00DB38FC /* VendingMachineAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEAD1672417256F00DB38FC /* VendingMachineAppTests.swift */; };
+		AEEAD179241728E500DB38FC /* BananaMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEAD178241728E500DB38FC /* BananaMilk.swift */; };
+		AEEAD17B2417290100DB38FC /* Cola.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEAD17A2417290100DB38FC /* Cola.swift */; };
+		AEEAD17D2417291A00DB38FC /* Top.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEAD17C2417291A00DB38FC /* Top.swift */; };
+		AEEAD17F24172A9C00DB38FC /* ElementsOfBeverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEAD17E24172A9C00DB38FC /* ElementsOfBeverage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +42,10 @@
 		AEEAD1632417256F00DB38FC /* VendingMachineAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VendingMachineAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEEAD1672417256F00DB38FC /* VendingMachineAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineAppTests.swift; sourceTree = "<group>"; };
 		AEEAD1692417256F00DB38FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AEEAD178241728E500DB38FC /* BananaMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BananaMilk.swift; sourceTree = "<group>"; };
+		AEEAD17A2417290100DB38FC /* Cola.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cola.swift; sourceTree = "<group>"; };
+		AEEAD17C2417291A00DB38FC /* Top.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Top.swift; sourceTree = "<group>"; };
+		AEEAD17E24172A9C00DB38FC /* ElementsOfBeverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementsOfBeverage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,9 +87,10 @@
 		AEEAD14F2417256E00DB38FC /* VendingMachineApp */ = {
 			isa = PBXGroup;
 			children = (
+				AEEAD1752417267900DB38FC /* Models */,
+				AEEAD1732417266300DB38FC /* Controllers */,
 				AEEAD1502417256E00DB38FC /* AppDelegate.swift */,
 				AEEAD1522417256E00DB38FC /* SceneDelegate.swift */,
-				AEEAD1542417256E00DB38FC /* ViewController.swift */,
 				AEEAD1562417256E00DB38FC /* Main.storyboard */,
 				AEEAD1592417256F00DB38FC /* Assets.xcassets */,
 				AEEAD15B2417256F00DB38FC /* LaunchScreen.storyboard */,
@@ -97,6 +106,25 @@
 				AEEAD1692417256F00DB38FC /* Info.plist */,
 			);
 			path = VendingMachineAppTests;
+			sourceTree = "<group>";
+		};
+		AEEAD1732417266300DB38FC /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				AEEAD1542417256E00DB38FC /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		AEEAD1752417267900DB38FC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AEEAD178241728E500DB38FC /* BananaMilk.swift */,
+				AEEAD17C2417291A00DB38FC /* Top.swift */,
+				AEEAD17A2417290100DB38FC /* Cola.swift */,
+				AEEAD17E24172A9C00DB38FC /* ElementsOfBeverage.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -200,9 +228,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AEEAD17B2417290100DB38FC /* Cola.swift in Sources */,
 				AEEAD1552417256E00DB38FC /* ViewController.swift in Sources */,
+				AEEAD179241728E500DB38FC /* BananaMilk.swift in Sources */,
 				AEEAD1512417256E00DB38FC /* AppDelegate.swift in Sources */,
 				AEEAD1532417256E00DB38FC /* SceneDelegate.swift in Sources */,
+				AEEAD17F24172A9C00DB38FC /* ElementsOfBeverage.swift in Sources */,
+				AEEAD17D2417291A00DB38FC /* Top.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -45,7 +45,7 @@ struct VendingMachine {
     func stockByKind() -> [Beverage: [Beverage]] {
         var stockByKind = [Beverage: [Beverage]]()
         for beverage in stock {
-            guard stockByKind.keys.contains(beverage)
+            guard !stockByKind.keys.contains(beverage)
                 else {
                     stockByKind[beverage]?.append(beverage)
                     continue

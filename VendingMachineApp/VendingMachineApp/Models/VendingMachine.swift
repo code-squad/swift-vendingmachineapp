@@ -95,21 +95,21 @@ struct VendingMachine {
         return stockByKind
     }
     
-    func buyableBeverages() -> [Beverage: [Beverage]] {
-        var buyableBeverages = [Beverage: [Beverage]]()
+    func sellableBeverages() -> [Beverage: [Beverage]] {
+        var sellableBeverages = [Beverage: [Beverage]]()
         for beverage in stock {
-            guard !buyableBeverages.keys.contains(beverage)
+            guard !sellableBeverages.keys.contains(beverage)
                 else {
-                    buyableBeverages[beverage]?.append(beverage)
+                    sellableBeverages[beverage]?.append(beverage)
                     continue
             }
             guard beverage.isBuyable(money: money)
                 else {
                     continue
             }
-            buyableBeverages[beverage] = [beverage]
+            sellableBeverages[beverage] = [beverage]
         }
-        return buyableBeverages
+        return sellableBeverages
     }
     
 }

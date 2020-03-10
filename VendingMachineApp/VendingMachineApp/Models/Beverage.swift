@@ -50,7 +50,7 @@ extension Beverage: Equatable {
 extension Beverage: CustomStringConvertible {
     
     @objc var description: String {
-        return "\(brand), \(volume)ml, \(price)원, \(manufacturingDate.description)"
+        return "\(brand), \(volume)ml, \(price)원, \(name), \(manufacturingDate.description)"
     }
     
 }

@@ -43,4 +43,9 @@ class Beverages {
     func reportAvailableBeverageNowMoney(_ balance: Money) -> [Beverage] {
         beverages.filter { $0.price < balance }
     }
+    
+    func reportBeverageCount(_ beverage: Beverage) -> Int {
+        return beverages.filter { $0 == beverage
+        }.count
+    }
 }

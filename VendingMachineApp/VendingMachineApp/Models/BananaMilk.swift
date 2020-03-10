@@ -10,4 +10,12 @@ import Foundation
 
 class BananaMilk: ElementsOfBeverage {
     
+    private var flavor: String
+    
+    init(brand: String, weight: Int, price: Int, name: String, dateOfManufacture: Date, flavor: String) {
+        self.flavor = flavor
+        super.init(brand: brand, weight: weight, price: price, name: name, dateOfManufacture: dateOfManufacture)
+        let bananaFlavor: String = flavor + "맛"
+        apply(featureOfBeverage: [bananaFlavor])
+    }
 }

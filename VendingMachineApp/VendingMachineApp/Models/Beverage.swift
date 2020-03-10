@@ -13,8 +13,8 @@ class Beverage {
     private let brand: String
     private let name: String
     private let volume: Int
-    private let price: Int
     private let manufacturingDate: Date
+    let price: Int
     
     init?(brand: String, volume: Int, price: Int,
           name: String, manufacturingDateInfo: String) {

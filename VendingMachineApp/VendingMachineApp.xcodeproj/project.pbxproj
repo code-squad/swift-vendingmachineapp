@@ -18,6 +18,7 @@
 		AEEAD17B2417290100DB38FC /* Cola.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEAD17A2417290100DB38FC /* Cola.swift */; };
 		AEEAD17D2417291A00DB38FC /* Top.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEAD17C2417291A00DB38FC /* Top.swift */; };
 		AEEAD17F24172A9C00DB38FC /* ElementsOfBeverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEAD17E24172A9C00DB38FC /* ElementsOfBeverage.swift */; };
+		AEEAD18124174CD500DB38FC /* DateGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEAD18024174CD500DB38FC /* DateGenerator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		AEEAD17A2417290100DB38FC /* Cola.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cola.swift; sourceTree = "<group>"; };
 		AEEAD17C2417291A00DB38FC /* Top.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Top.swift; sourceTree = "<group>"; };
 		AEEAD17E24172A9C00DB38FC /* ElementsOfBeverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementsOfBeverage.swift; sourceTree = "<group>"; };
+		AEEAD18024174CD500DB38FC /* DateGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateGenerator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,7 @@
 				AEEAD17C2417291A00DB38FC /* Top.swift */,
 				AEEAD17A2417290100DB38FC /* Cola.swift */,
 				AEEAD17E24172A9C00DB38FC /* ElementsOfBeverage.swift */,
+				AEEAD18024174CD500DB38FC /* DateGenerator.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -231,6 +234,7 @@
 				AEEAD17B2417290100DB38FC /* Cola.swift in Sources */,
 				AEEAD1552417256E00DB38FC /* ViewController.swift in Sources */,
 				AEEAD179241728E500DB38FC /* BananaMilk.swift in Sources */,
+				AEEAD18124174CD500DB38FC /* DateGenerator.swift in Sources */,
 				AEEAD1512417256E00DB38FC /* AppDelegate.swift in Sources */,
 				AEEAD1532417256E00DB38FC /* SceneDelegate.swift in Sources */,
 				AEEAD17F24172A9C00DB38FC /* ElementsOfBeverage.swift in Sources */,

@@ -30,16 +30,18 @@ struct VendingMachine {
         return hotCoffees
     }
     
-    mutating func receive(insertedMoney: Int) {
-        money += insertedMoney
-    }
-    
-    func currentMoney() -> Int {
-        return money
-    }
-    
-    mutating func add(beverage: Beverage) {
-        stock.append(beverage)
+    func milksPassed(expirationDate: Date) -> [Milk] {
+        var milksPassedExpirationDate = [Milk]()
+        for beverage in stock {
+            guard let milkPassedExpirationDate = beverage as? Milk,
+                milkPassedExpirationDate.validate(with: expirationDate)
+                else {
+                    continue
+            }
+            
+            milksPassedExpirationDate.append(milkPassedExpirationDate)
+        }
+        return milksPassedExpirationDate
     }
     
     func stockByKind() -> [Beverage: [Beverage]] {
@@ -71,6 +73,18 @@ struct VendingMachine {
             buyableBeverages[beverage] = [beverage]
         }
         return buyableBeverages
+    }
+    
+    mutating func receive(insertedMoney: Int) {
+        money += insertedMoney
+    }
+    
+    func currentMoney() -> Int {
+        return money
+    }
+    
+    mutating func add(beverage: Beverage) {
+        stock.append(beverage)
     }
     
 }

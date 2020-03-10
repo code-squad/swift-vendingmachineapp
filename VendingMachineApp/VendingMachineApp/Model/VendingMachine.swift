@@ -36,6 +36,8 @@ struct VendingMachine {
 
     mutating func addStock(_ index: Int) {
         beverages.addBeverage(products[index])
+         let beverageCount = beverages.reportBeverageCount(products[index])
+         NotificationCenter.default.post(name: .updateBeverageCountLabel, object: (index, beverageCount))
     }
 
     mutating func reportAvailableBeverageNowMoney() -> [Beverage] {
@@ -66,15 +68,6 @@ struct VendingMachine {
     
     func reportPurchasedHistory() -> [Beverage] {
         return purchasedList
-    }
-    
-    mutating func forEachBeverageCount(_ handler: (_ count: Int, _ index: Int) -> ()) {
-        let totalStock = reportTotalStock()
-        for (beverage, count) in totalStock {
-            if products.contains(beverage), let index = products.firstIndex(of: beverage) {
-                handler(count, index)
-            }
-        }
     }
     
 }

@@ -22,6 +22,7 @@ class ViewController: UIViewController {
          super.viewDidLoad()
          setUI()
         NotificationCenter.default.addObserver(self, selector: #selector(updateBalanceLabel(_:)), name: .updateBalanceLabel, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateBeverageCountLabel(_:)), name: .updateBeverageCountLabel, object: nil)
      }
      
     func setUI() {
@@ -35,17 +36,17 @@ class ViewController: UIViewController {
     
     @IBAction func addStock(button: UIButton) {
         vendingMachine.addStock(button.tag)
-        updateBeverageCountLabel()
     }
     
     @IBAction func addMoney(button: UIButton) {
         vendingMachine.raiseMoney(moneyUnit: Money.MoneyUnit(rawValue: button.tag)!)
     }
     
-    func updateBeverageCountLabel() {
-        vendingMachine.forEachBeverageCount {
-            stockCountLabels[$1].text = String($0)
-        }
+    @objc func updateBeverageCountLabel(_ notification: Notification) {
+        let stockCount = notification.object as! (index: Int, count: Int)
+
+        stockCountLabels[stockCount.index].text = String(stockCount.count)
+        
     }
     
     @objc func updateBalanceLabel(_ notification: Notification) {
@@ -59,6 +60,7 @@ class ViewController: UIViewController {
 }
 
 extension Notification.Name {
-    static let updateBalanceLabel =  NSNotification.Name(rawValue: "updateBalanceLabel")
+    static let updateBalanceLabel =  NSNotification.Name("updateBalanceLabel")
+    static let updateBeverageCountLabel = NSNotification.Name("updateBeverageCountLabel")
 }
 

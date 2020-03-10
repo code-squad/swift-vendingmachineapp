@@ -28,5 +28,5 @@ class ViewController: UIViewController {
         print(dietCola?.description ?? nonInitMessage)
         print(cookieCreamMilk?.description ?? nonInitMessage)
     }
-    
+
 }

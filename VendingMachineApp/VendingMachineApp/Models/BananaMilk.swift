@@ -8,7 +8,7 @@
 
 import Foundation
 
-class BananaMilk: ElementsOfBeverage {
+class BananaMilk: Beverage {
     
     private var flavor: String
     

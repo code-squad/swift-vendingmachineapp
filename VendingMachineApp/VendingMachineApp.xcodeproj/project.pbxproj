@@ -17,7 +17,7 @@
 		AEEAD179241728E500DB38FC /* BananaMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEAD178241728E500DB38FC /* BananaMilk.swift */; };
 		AEEAD17B2417290100DB38FC /* Cola.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEAD17A2417290100DB38FC /* Cola.swift */; };
 		AEEAD17D2417291A00DB38FC /* Top.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEAD17C2417291A00DB38FC /* Top.swift */; };
-		AEEAD17F24172A9C00DB38FC /* ElementsOfBeverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEAD17E24172A9C00DB38FC /* ElementsOfBeverage.swift */; };
+		AEEAD17F24172A9C00DB38FC /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEAD17E24172A9C00DB38FC /* Beverage.swift */; };
 		AEEAD183241764B700DB38FC /* Date++.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEAD182241764B700DB38FC /* Date++.swift */; };
 /* End PBXBuildFile section */
 
@@ -46,7 +46,7 @@
 		AEEAD178241728E500DB38FC /* BananaMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BananaMilk.swift; sourceTree = "<group>"; };
 		AEEAD17A2417290100DB38FC /* Cola.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cola.swift; sourceTree = "<group>"; };
 		AEEAD17C2417291A00DB38FC /* Top.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Top.swift; sourceTree = "<group>"; };
-		AEEAD17E24172A9C00DB38FC /* ElementsOfBeverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementsOfBeverage.swift; sourceTree = "<group>"; };
+		AEEAD17E24172A9C00DB38FC /* Beverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beverage.swift; sourceTree = "<group>"; };
 		AEEAD182241764B700DB38FC /* Date++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date++.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -124,7 +124,7 @@
 				AEEAD178241728E500DB38FC /* BananaMilk.swift */,
 				AEEAD17C2417291A00DB38FC /* Top.swift */,
 				AEEAD17A2417290100DB38FC /* Cola.swift */,
-				AEEAD17E24172A9C00DB38FC /* ElementsOfBeverage.swift */,
+				AEEAD17E24172A9C00DB38FC /* Beverage.swift */,
 				AEEAD182241764B700DB38FC /* Date++.swift */,
 			);
 			path = Models;
@@ -237,7 +237,7 @@
 				AEEAD179241728E500DB38FC /* BananaMilk.swift in Sources */,
 				AEEAD1512417256E00DB38FC /* AppDelegate.swift in Sources */,
 				AEEAD1532417256E00DB38FC /* SceneDelegate.swift in Sources */,
-				AEEAD17F24172A9C00DB38FC /* ElementsOfBeverage.swift in Sources */,
+				AEEAD17F24172A9C00DB38FC /* Beverage.swift in Sources */,
 				AEEAD17D2417291A00DB38FC /* Top.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

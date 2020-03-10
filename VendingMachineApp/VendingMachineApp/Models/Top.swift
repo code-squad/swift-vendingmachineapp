@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Top: ElementsOfBeverage {
+class Top: Beverage {
 
     private var coffeeVarieties: String
     

@@ -67,9 +67,15 @@ class VendingMachineTest: XCTestCase {
             } else if kind.key is Cantata {
                 XCTAssertEqual(kind.value.count, 1)
             } else if kind.key is Pepsi {
-                XCTAssertEqual(kind.value.count , 1)
+                XCTAssertEqual(kind.value.count, 1)
             }
         }
+    }
+    
+    func testBuyableBeverages() {
+        vendingMachine.receive(insertedMoney: 1500)
+        let buyableBeverages = vendingMachine.buyableBeverages()
+        XCTAssertEqual(buyableBeverages, [cookieCreamMilk:[cookieCreamMilk]])
     }
     
 }

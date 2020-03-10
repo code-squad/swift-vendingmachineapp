@@ -71,10 +71,10 @@ class VendingMachineTest: XCTestCase {
         }
     }
     
-    func testBuyableBeverages() {
+    func testSellableBeverages() {
         vendingMachine.receive(insertedMoney: 1500)
-        let buyableBeverages = vendingMachine.buyableBeverages()
-        XCTAssertEqual(buyableBeverages, [cookieCreamMilk:[cookieCreamMilk]])
+        let sellableBeverages = vendingMachine.sellableBeverages()
+        XCTAssertEqual(sellableBeverages, [cookieCreamMilk:[cookieCreamMilk]])
     }
     
     func testMilksPassed() {
@@ -86,7 +86,7 @@ class VendingMachineTest: XCTestCase {
     
     func testSell() {
         vendingMachine.receive(insertedMoney: 1500)
-        let buyableBeverages = vendingMachine.buyableBeverages()
+        let buyableBeverages = vendingMachine.sellableBeverages()
         if let buyedBeverage = vendingMachine.sell(wantedBeverage: buyableBeverages.keys.first!){
             XCTAssertEqual(buyedBeverage, cookieCreamMilk)
             XCTAssertEqual(vendingMachine.currentMoney(), 0)

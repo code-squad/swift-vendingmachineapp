@@ -15,7 +15,7 @@ extension Date {
         formatter.dateFormat = "yyyyMMdd"
         return formatter
     }()
-
+    
     var description: String {
         return Date.dateFormatter.string(from: self)
     }

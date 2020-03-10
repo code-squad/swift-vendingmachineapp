@@ -10,17 +10,17 @@ import XCTest
 @testable import VendingMachineApp
 
 class CoffeeTest: XCTestCase {
-
+    
     var coffee: Coffee!
     
     override func setUp() {
         super.setUp()
         coffee = Cantata(volume: 275, price: 2200,
-        name: "프리미엄 라떼",
-        manufacturingDateInfo: "20200102",
-        hotState: true)
+                         name: "프리미엄 라떼",
+                         manufacturingDateInfo: "20200102",
+                         hotState: true)
     }
-
+    
     override func tearDown() {
         coffee = nil
         super.tearDown()
@@ -32,9 +32,9 @@ class CoffeeTest: XCTestCase {
     
     func testIsHotFalse() {
         coffee = Cantata(volume: 275, price: 2200,
-        name: "프리미엄 라떼",
-        manufacturingDateInfo: "20200102",
-        hotState: false)
+                         name: "프리미엄 라떼",
+                         manufacturingDateInfo: "20200102",
+                         hotState: false)
         XCTAssertFalse(coffee.isHot())
     }
     

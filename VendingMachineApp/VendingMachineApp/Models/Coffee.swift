@@ -16,7 +16,7 @@ class Coffee: Beverage {
           name: String, manufacturingDateInfo: String, hotState: Bool) {
         self.hotState = hotState
         super.init(brand: brand, volume: volume, price: price,
-        name: name, manufacturingDateInfo: manufacturingDateInfo)
+                   name: name, manufacturingDateInfo: manufacturingDateInfo)
     }
     
     func isHot() -> Bool {

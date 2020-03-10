@@ -21,8 +21,8 @@ struct VendingMachine {
         var hotCoffees = [Coffee]()
         for beverage in stock {
             guard let hotCoffee = beverage as? Coffee, hotCoffee.isHot()
-            else {
-                continue
+                else {
+                    continue
             }
             
             hotCoffees.append(hotCoffee)

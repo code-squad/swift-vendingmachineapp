@@ -30,10 +30,6 @@ class Beverage {
         self.manufacturingDate = manufacturingDate
     }
     
-    func nameByVolume() -> String {
-        return "\(name) - \(volume)"
-    }
-    
 }
 
 extension Beverage: Equatable {

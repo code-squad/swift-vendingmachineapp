@@ -78,4 +78,11 @@ class VendingMachineTest: XCTestCase {
         XCTAssertEqual(buyableBeverages, [cookieCreamMilk:[cookieCreamMilk]])
     }
     
+    func testMilksPassed() {
+        if let date = Date.dateFormatter.date(from: "20191201") {
+            let milksPassed = vendingMachine.milksPassed(expirationDate: date)
+            XCTAssertEqual(milksPassed, [cookieCreamMilk])
+        }
+    }
+    
 }

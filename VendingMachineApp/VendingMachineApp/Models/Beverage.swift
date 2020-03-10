@@ -32,13 +32,20 @@ class Beverage {
     
 }
 
-extension Beverage: Equatable {
+extension Beverage: Hashable {
     
     static func == (lhs: Beverage, rhs: Beverage) -> Bool {
         return lhs.brand == rhs.brand &&
             lhs.volume == rhs.volume &&
             lhs.price == rhs.price &&
             lhs.name == rhs.name
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        return hasher.combine(brand.hashValue +
+            volume.hashValue +
+            price.hashValue +
+            name.hashValue )
     }
     
 }

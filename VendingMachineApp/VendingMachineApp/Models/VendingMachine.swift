@@ -42,4 +42,18 @@ struct VendingMachine {
         stock.append(beverage)
     }
     
+    func stockByKind() -> [Beverage: [Beverage]] {
+        var stockByKind = [Beverage: [Beverage]]()
+        for beverage in stock {
+            guard stockByKind.keys.contains(beverage)
+                else {
+                    stockByKind[beverage]?.append(beverage)
+                    continue
+            }
+            
+            stockByKind[beverage] = [beverage]
+        }
+        return stockByKind
+    }
+    
 }

@@ -19,19 +19,31 @@ class ViewController: UIViewController {
     @IBOutlet var balanceLabel: UILabel!
     
     override func viewDidLoad() {
-         super.viewDidLoad()
-         setUI()
+        super.viewDidLoad()
+        setUI()
+        setNotificationCenter()
+    }
+    
+    func setNotificationCenter() {
         NotificationCenter.default.addObserver(self, selector: #selector(updateBalanceLabel(_:)), name: .updateBalanceLabel, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(updateBeverageCountLabel(_:)), name: .updateBeverageCountLabel, object: nil)
-     }
-     
-    func setUI() {
-       for img in beverageImages {
+    }
+    
+    func setBeverageImageCornerRadius() {
+        for img in beverageImages {
             img.layer.cornerRadius = 30.0
         }
+    }
+    
+    func setBackgroundViewCornerRadius() {
         for view in backgroundViews {
             view.layer.cornerRadius = 20.0
         }
+    }
+    func setUI() {
+        setBeverageImageCornerRadius()
+        setBackgroundViewCornerRadius()
+        
     }
     
     @IBAction func addStock(button: UIButton) {
@@ -44,9 +56,7 @@ class ViewController: UIViewController {
     
     @objc func updateBeverageCountLabel(_ notification: Notification) {
         let stockCount = notification.object as! (index: Int, count: Int)
-
         stockCountLabels[stockCount.index].text = String(stockCount.count)
-        
     }
     
     @objc func updateBalanceLabel(_ notification: Notification) {
@@ -56,6 +66,7 @@ class ViewController: UIViewController {
     
     deinit {
         NotificationCenter.default.removeObserver(self, name: .updateBalanceLabel, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .updateBeverageCountLabel, object: nil)
     }
 }
 

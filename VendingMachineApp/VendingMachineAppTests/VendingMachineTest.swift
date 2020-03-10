@@ -84,4 +84,13 @@ class VendingMachineTest: XCTestCase {
         }
     }
     
+    func testSell() {
+        vendingMachine.receive(insertedMoney: 1500)
+        let buyableBeverages = vendingMachine.buyableBeverages()
+        if let buyedBeverage = vendingMachine.sell(wantedBeverage: buyableBeverages.keys.first!){
+            XCTAssertEqual(buyedBeverage, cookieCreamMilk)
+            XCTAssertEqual(vendingMachine.currentMoney(), 0)
+        }
+    }
+    
 }

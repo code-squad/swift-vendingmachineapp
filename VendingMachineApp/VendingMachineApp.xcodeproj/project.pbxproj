@@ -31,6 +31,7 @@
 		C2560CB924091D7A00933332 /* Georgia.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2560CB824091D7A00933332 /* Georgia.swift */; };
 		C2D405E02413744500848736 /* Cashier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D405DF2413744500848736 /* Cashier.swift */; };
 		C2D405E224137BED00848736 /* CashierTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D405E124137BED00848736 /* CashierTests.swift */; };
+		C2F917612417E32D005CE6B1 /* Tags.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F917602417E32D005CE6B1 /* Tags.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,7 @@
 		C2560CB824091D7A00933332 /* Georgia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Georgia.swift; sourceTree = "<group>"; };
 		C2D405DF2413744500848736 /* Cashier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cashier.swift; sourceTree = "<group>"; };
 		C2D405E124137BED00848736 /* CashierTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashierTests.swift; sourceTree = "<group>"; };
+		C2F917602417E32D005CE6B1 /* Tags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tags.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +147,7 @@
 				C2078ADB2407ECDD00B403A7 /* VendingMachine.swift */,
 				C250FB98240FC975008DB2AD /* Inventory.swift */,
 				C2D405DF2413744500848736 /* Cashier.swift */,
+				C2F917602417E32D005CE6B1 /* Tags.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -277,6 +280,7 @@
 				C2D405E02413744500848736 /* Cashier.swift in Sources */,
 				C2078AB72407CA8900B403A7 /* AppDelegate.swift in Sources */,
 				C2078ADA2407CFD400B403A7 /* Beverage.swift in Sources */,
+				C2F917612417E32D005CE6B1 /* Tags.swift in Sources */,
 				C250FB97240ED512008DB2AD /* Coffee.swift in Sources */,
 				C2560CAD24091B4900933332 /* StrawberryMilk.swift in Sources */,
 				C2560CAF24091B6E00933332 /* ChocolateMilk.swift in Sources */,

@@ -93,4 +93,11 @@ class VendingMachineTest: XCTestCase {
         }
     }
     
+    func testSearchSoldBeverages() {
+        vendingMachine.receive(insertedMoney: 1500)
+        if let beverage =  vendingMachine.sell(wantedBeverage: cookieCreamMilk) {
+            let soldBeverages = vendingMachine.searchSoldBeverages()
+            XCTAssertEqual(soldBeverages, [beverage])
+        }
+    }
 }

@@ -11,7 +11,9 @@ import Foundation
 struct VendingMachine {
     
     private var stock: [Beverage]
+    private var soldBeverages = [Beverage]()
     private var money = Quantity.zero
+    
     
     init(stock: [Beverage]) {
         self.stock = stock
@@ -31,6 +33,7 @@ struct VendingMachine {
     
     mutating func sell(wantedBeverage: Beverage) -> Beverage? {
         if let beverage = subtractFromStock(wantedBeverage) {
+            addSoldBeverages(beverage)
             subtractFromMoney(beverage.price)
             return beverage
         }
@@ -46,12 +49,20 @@ struct VendingMachine {
         return nil
     }
     
+    mutating private func addSoldBeverages(_ beverage: Beverage) {
+        soldBeverages.append(beverage)
+    }
+    
     mutating private func subtractFromMoney(_ price: Int) {
         guard money >= price
             else {
                 return
         }
         money -= price
+    }
+    
+    func searchSoldBeverages() -> [Beverage] {
+        return soldBeverages
     }
     
     func hotCoffees() -> [Coffee] {

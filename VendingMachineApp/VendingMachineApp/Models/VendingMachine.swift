@@ -34,7 +34,7 @@ struct VendingMachine {
         var milksPassedExpirationDate = [Milk]()
         for beverage in stock {
             guard let milkPassedExpirationDate = beverage as? Milk,
-                milkPassedExpirationDate.validate(with: expirationDate)
+                !milkPassedExpirationDate.validate(with: expirationDate)
                 else {
                     continue
             }

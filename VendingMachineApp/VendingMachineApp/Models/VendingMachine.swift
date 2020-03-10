@@ -60,10 +60,6 @@ struct VendingMachine {
         money -= price
     }
     
-    func searchSoldBeverages() -> [Beverage] {
-        return soldBeverages
-    }
-    
     func hotCoffees() -> [Coffee] {
         var hotCoffees = [Coffee]()
         for beverage in stock {
@@ -120,6 +116,14 @@ struct VendingMachine {
             sellableBeverages[beverage] = [beverage]
         }
         return sellableBeverages
+    }
+    
+}
+
+extension VendingMachine {
+    
+    func searchSoldBeverages(handler: (Beverage) -> Void) {
+        soldBeverages.forEach { handler($0) }
     }
     
 }

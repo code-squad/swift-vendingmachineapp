@@ -40,7 +40,6 @@ class ViewController: UIViewController {
     
     @IBAction func addMoney(button: UIButton) {
         vendingMachine.raiseMoney(moneyUnit: Money.MoneyUnit(rawValue: button.tag)!)
-        NotificationCenter.default.post(name: .updateBalanceLabel, object: nil)
     }
     
     func updateBeverageCountLabel() {
@@ -50,7 +49,8 @@ class ViewController: UIViewController {
     }
     
     @objc func updateBalanceLabel(_ notification: Notification) {
-        balanceLabel.text = String(vendingMachine.confirmBalance().description)
+        let balance = notification.object as! String
+        balanceLabel.text = balance
     }
     
     deinit {

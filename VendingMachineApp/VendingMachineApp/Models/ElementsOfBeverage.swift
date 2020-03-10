@@ -9,25 +9,31 @@
 import Foundation
 
 class ElementsOfBeverage {
-    var brand: String
-    var weight: Int
-    var price: Int
-    var name: String
-    var date: Date
     
-    init(brand: String, weight: Int, price: Int, name: String) {
+    private var brand: String
+    private var weight: Int
+    private var price: Int
+    private var name: String
+    private var dateOfManufacture: Date
+    private var dateGenerator: DateGenerator = DateGenerator()
+    private var additionalElements: String = ""
+    
+    init(brand: String, weight: Int, price: Int, name: String, dateOfManufacture: Date) {
         self.brand = brand
         self.weight = weight
         self.price = price
         self.name = name
-        date = Date()
+        self.dateOfManufacture = dateOfManufacture
+    }
+    
+    func apply(featureOfBeverage: [String]) {
+        featureOfBeverage.forEach { additionalElements.append(", " + $0) }
     }
 }
 
 extension ElementsOfBeverage: CustomStringConvertible {
     var description: String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyyMMdd"
-        return brand + ", " + String(weight) + "ml, " + String(price) + "원, " + name + ", " + dateFormatter.string(from: date)
+        return brand + ", " + String(weight) + "ml, " + String(price) + "원, " + name + ", " + dateGenerator.transrate(date: dateOfManufacture) + additionalElements
     }
 }
+

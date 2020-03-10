@@ -60,20 +60,6 @@ struct VendingMachine {
         money -= price
     }
     
-    func milksPassed(expirationDate: Date) -> [Milk] {
-        var milksPassedExpirationDate = [Milk]()
-        for beverage in stock {
-            guard let milkPassedExpirationDate = beverage as? Milk,
-                !milkPassedExpirationDate.validate(with: expirationDate)
-                else {
-                    continue
-            }
-            
-            milksPassedExpirationDate.append(milkPassedExpirationDate)
-        }
-        return milksPassedExpirationDate
-    }
-    
     func stockByKind() -> [Beverage: [Beverage]] {
         var stockByKind = [Beverage: [Beverage]]()
         for beverage in stock {
@@ -109,17 +95,28 @@ struct VendingMachine {
 
 extension VendingMachine {
     
-    func searchSoldBeverages(handler: (Beverage) -> Void) {
+    func searchSoldBeverages(handler: (Beverage) -> (Void)) {
         soldBeverages.forEach { handler($0) }
     }
 
-    func searchHotCoffees(handler: (Coffee) -> Void) {
+    func searchHotCoffees(handler: (Coffee) -> (Void)) {
         for beverage in stock {
             guard let hotCoffee = beverage as? Coffee, hotCoffee.isHot()
                 else {
                     continue
             }
             handler(hotCoffee)
+        }
+    }
+    
+    func searchMilksPassed(expirationDate: Date, handler: (Milk) -> (Void)) {
+        for beverage in stock {
+            guard let milkPassedExpirationDate = beverage as? Milk,
+                !milkPassedExpirationDate.validate(with: expirationDate)
+                else {
+                    continue
+            }
+            handler(milkPassedExpirationDate)
         }
     }
     

@@ -9,18 +9,18 @@
 import UIKit
 
 class ViewController: UIViewController {
-    private var manager = VendingMachineManager()
     private var mainView: MainView {
         view as! MainView
     }
-    
+    let app = UIApplication.shared.delegate as! AppDelegate
+
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        mainView.vendingMachineManager = manager
+        mainView.vendingMachineManager = app.manager
         NotificationCenter.default.addObserver(self, selector: #selector(moneyChanged), name: NSNotification.Name(rawValue: "MoneyChanged"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(stockChanged), name: NSNotification.Name(rawValue: "StockChanged"), object: nil)
         setupMainView()
@@ -37,7 +37,7 @@ class ViewController: UIViewController {
     }
     
     private func setupMainView() {
-        mainView.updateBalanceLabel(amount: manager.balance)
-        mainView.updateStockCountLabels(stockList: manager.stockList)
+        mainView.updateBalanceLabel(amount: app.manager.balance)
+        mainView.updateStockCountLabels(stockList: app.manager.stockList)
     }
 }

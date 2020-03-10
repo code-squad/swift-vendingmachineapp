@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Cola: ElementsOfBeverage {
+class Cola: Beverage {
     
     private var pondusHydrogenii: Double
     

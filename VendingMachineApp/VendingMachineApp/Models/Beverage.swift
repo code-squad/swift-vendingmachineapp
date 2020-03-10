@@ -1,5 +1,5 @@
 //
-//  ElementsOfBeverage.swift
+//  Beverage.swift
 //  VendingMachineApp
 //
 //  Created by Cloud on 2020/03/10.
@@ -8,15 +8,15 @@
 
 import Foundation
 
-class ElementsOfBeverage {
+class Beverage {
     
     private var brand: String
     private var weight: Int
     private var price: Int
     private var name: String
     private var dateOfManufacture: Date
-    private var dateGenerator: DateGenerator = DateGenerator()
     private var additionalElements: String = ""
+    private var dateFormat: String = "yyyyMMdd"
     var descriptionBrand: String {
         brand + ", "
     }
@@ -43,9 +43,9 @@ class ElementsOfBeverage {
     }
 }
 
-extension ElementsOfBeverage: CustomStringConvertible {
+extension Beverage: CustomStringConvertible {
     var description: String {
-        return descriptionBrand + descriptionWeight + descriptionPrice + descriptionName + dateGenerator.transrate(date: dateOfManufacture) + additionalElements
+        return descriptionBrand + descriptionWeight + descriptionPrice + descriptionName + dateOfManufacture.customDateFormatToString(format: dateFormat) + additionalElements
     }
 }
 

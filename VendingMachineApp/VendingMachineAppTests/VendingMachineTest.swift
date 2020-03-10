@@ -25,7 +25,6 @@ class VendingMachineTest: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        
         vendingMachine = VendingMachine(stock: [primiumLatte, dietCola, cookieCreamMilk])
     }
     

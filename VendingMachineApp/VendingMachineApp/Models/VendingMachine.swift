@@ -75,6 +75,31 @@ struct VendingMachine {
         return buyableBeverages
     }
     
+    mutating func sell(wantedBeverage: Beverage) -> Beverage? {
+        if let beverage = subtractFromStock(wantedBeverage) {
+            subtractFromMoney(beverage.price)
+            return beverage
+        }
+        return nil
+    }
+    
+    mutating private func subtractFromStock(_ wantedBeverage: Beverage) -> Beverage? {
+        for index in 0 ..< stock.count {
+            if stock[index] == wantedBeverage {
+                return stock.remove(at: index)
+            }
+        }
+        return nil
+    }
+    
+    mutating private func subtractFromMoney(_ price: Int) {
+        guard money >= price
+            else {
+                return
+        }
+        money -= price
+    }
+    
     mutating func receive(insertedMoney: Int) {
         money += insertedMoney
     }

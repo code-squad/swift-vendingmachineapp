@@ -23,6 +23,8 @@ class Money {
     
     func raiseMoney(moneyUnit: MoneyUnit) {
         balance += moneyUnit.rawValue
+        NotificationCenter.default.post(name: .updateBalanceLabel, object: "\(balance)")
+
     }
     
     func confirmBalance(_ money: Money) {

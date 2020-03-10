@@ -11,10 +11,7 @@ import XCTest
 
 class BeverageTests: XCTestCase {
     func testNewBeverage() {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyyMMdd"
-
-        let beverage = Beverage(name: "날마다딸기우유", price: 1000, capacity: 200, brand: "서울우유", productionDate: dateFormatter.date(from: "20171009")!)
+        let beverage = Beverage(name: "날마다딸기우유", price: 1000, capacity: 200, brand: "서울우유", productionDate: ProductionDate(from: "20171009")!)
 
         XCTAssertEqual(beverage.description, "서울우유, 200ml, 1000원, 날마다딸기우유, 20171009")
     }

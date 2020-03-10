@@ -16,6 +16,7 @@
 		8D3859BF241755D70025FF1D /* VendingMachineAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3859BE241755D70025FF1D /* VendingMachineAppTests.swift */; };
 		8D3859CB24176EB00025FF1D /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3859CA24176EB00025FF1D /* Beverage.swift */; };
 		8D3859CD241778A70025FF1D /* BeverageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3859CC241778630025FF1D /* BeverageTests.swift */; };
+		8D3859CF24177FB40025FF1D /* ProductionDateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3859CE24177FB40025FF1D /* ProductionDateTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,7 @@
 		8D3859C924176DDB0025FF1D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		8D3859CA24176EB00025FF1D /* Beverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beverage.swift; sourceTree = "<group>"; };
 		8D3859CC241778630025FF1D /* BeverageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageTests.swift; sourceTree = "<group>"; };
+		8D3859CE24177FB40025FF1D /* ProductionDateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductionDateTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				8D3859BE241755D70025FF1D /* VendingMachineAppTests.swift */,
 				8D3859CC241778630025FF1D /* BeverageTests.swift */,
 				8D3859C0241755D70025FF1D /* Info.plist */,
+				8D3859CE24177FB40025FF1D /* ProductionDateTests.swift */,
 			);
 			path = VendingMachineAppTests;
 			sourceTree = "<group>";
@@ -219,6 +222,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D3859CF24177FB40025FF1D /* ProductionDateTests.swift in Sources */,
 				8D3859CD241778A70025FF1D /* BeverageTests.swift in Sources */,
 				8D3859BF241755D70025FF1D /* VendingMachineAppTests.swift in Sources */,
 			);

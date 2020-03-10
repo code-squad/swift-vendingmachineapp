@@ -19,7 +19,7 @@ class ViewController: UIViewController {
         let dietCola = Pepsi(volume: 350, price: 2000, name: "다이어트 콜라",
                              manufacturingDateInfo: "20190928", kiloCalorie: 80)
         let cookieCreamMilk = HersheyChocolateDrink(volume: 190, price: 1500,
-                                                    name: "쿠키 앤 크림",
+                                                    name: "쿠키앤크림",
                                                     manufacturingDateInfo: "20191116",
                                                     expirationDateInfo: "20191123")
         

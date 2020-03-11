@@ -14,7 +14,7 @@ class Beverage {
     private let name: String
     private let volume: Int
     private let manufacturingDate: Date
-    private let price: Int
+    let price: Int
     
     init?(brand: String, volume: Int, price: Int,
           name: String, manufacturingDateInfo: String) {
@@ -28,14 +28,6 @@ class Beverage {
         self.price = price
         self.name = name
         self.manufacturingDate = manufacturingDate
-    }
-    
-    func isBuyable(money: Int) -> Bool {
-        return money >= price
-    }
-    
-    func subtract(from money: Int) -> Int {
-        return money - price
     }
     
 }

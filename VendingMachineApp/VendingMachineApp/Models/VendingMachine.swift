@@ -8,22 +8,43 @@
 
 import Foundation
 
+class Money {
+    
+    private var balance = Quantity.zero
+    var currentBalance: Int {
+        return balance
+    }
+    
+    func subtract(price: Int) {
+        balance -= price
+    }
+    
+    func plus(money: Int) {
+        balance += money
+    }
+    
+    func isEnoughToBuy(price: Int) -> Bool {
+        return balance >= price
+    }
+
+}
+
 struct VendingMachine {
     
     private var stock: [Beverage]
     private var soldBeverages = [Beverage]()
-    private var money = Quantity.zero
+    private let money = Money()
     
     init(stock: [Beverage]) {
         self.stock = stock
     }
     
     mutating func receive(insertedMoney: Int) {
-        money += insertedMoney
+        money.plus(money: insertedMoney)
     }
     
     func currentMoney() -> Int {
-        return money
+        return money.currentBalance
     }
     
     mutating func addToStock(beverage: Beverage) {
@@ -34,7 +55,7 @@ struct VendingMachine {
     mutating func sell(wantedBeverage: Beverage) -> Beverage? {
         if subtractFromStock(beverage: wantedBeverage) {
             addToSoldBeverages(beverage: wantedBeverage)
-            subtractFromMoney(to: wantedBeverage)
+            subtractFromMoney(to: wantedBeverage.price)
             return wantedBeverage
         }
         return nil
@@ -54,12 +75,12 @@ struct VendingMachine {
         soldBeverages.append(beverage)
     }
     
-    mutating private func subtractFromMoney(to beverage: Beverage) {
-        guard beverage.isBuyable(money: money)
+    mutating private func subtractFromMoney(to price: Int) {
+        guard money.isEnoughToBuy(price: price)
             else {
-            return
+                return
         }
-        money = beverage.subtract(from: money)
+        money.subtract(price: price)
     }
     
 }
@@ -128,7 +149,7 @@ extension VendingMachine {
                     sellableBeverages[beverage]?.append(beverage)
                     continue
             }
-            guard beverage.isBuyable(money: money)
+            guard money.isEnoughToBuy(price: beverage.price)
                 else {
                     continue
             }

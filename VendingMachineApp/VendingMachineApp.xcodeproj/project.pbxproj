@@ -111,10 +111,10 @@
 			children = (
 				5A91FCFF240FD7D100884D64 /* Beverage.swift */,
 				5A91FD01240FDFE800884D64 /* Milk.swift */,
-				5A91FD03240FE04400884D64 /* Coffee.swift */,
-				5A91FD05240FE0BE00884D64 /* Soda.swift */,
 				5A91FD07240FE2C700884D64 /* HersheyChocolateDrink.swift */,
+				5A91FD03240FE04400884D64 /* Coffee.swift */,
 				5A91FD09240FE92B00884D64 /* Cantata.swift */,
+				5A91FD05240FE0BE00884D64 /* Soda.swift */,
 				5A91FD0B240FEC6500884D64 /* Pepsi.swift */,
 			);
 			path = Beverages;

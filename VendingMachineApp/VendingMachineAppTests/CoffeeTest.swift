@@ -18,7 +18,7 @@ class CoffeeTest: XCTestCase {
         coffee = Cantata(volume: 275, price: 2200,
                          name: "프리미엄 라떼",
                          manufacturingDateInfo: "20200102",
-                         hotState: true)
+                         celsius: 65)
     }
     
     override func tearDown() {
@@ -34,7 +34,7 @@ class CoffeeTest: XCTestCase {
         coffee = Cantata(volume: 275, price: 2200,
                          name: "프리미엄 라떼",
                          manufacturingDateInfo: "20200102",
-                         hotState: false)
+                         celsius: 55)
         XCTAssertFalse(coffee.isHot())
     }
     

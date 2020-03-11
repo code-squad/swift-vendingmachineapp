@@ -11,8 +11,7 @@ import Foundation
 struct VendingMachine {
     
     private var stock: [Beverage]
-    private var soldBeverages = [Beverage]()
-    private let cashier = Cashier()
+    private var cashier = Cashier()
     
     init(stock: [Beverage]) {
         self.stock = stock
@@ -33,14 +32,14 @@ struct VendingMachine {
     @discardableResult
     mutating func sell(wantedBeverage: Beverage) -> Beverage? {
         if subtractFromStock(beverage: wantedBeverage) {
-            addToSoldBeverages(beverage: wantedBeverage)
-            subtractFromMoney(to: wantedBeverage.price)
+            cashier.addToSalesLog(beverage: wantedBeverage)
+            cashier.subtract(price: wantedBeverage.price)
             return wantedBeverage
         }
         return nil
     }
     
-    mutating private func subtractFromStock(beverage: Beverage)-> Bool {
+    mutating private func subtractFromStock(beverage: Beverage) -> Bool {
         for index in 0 ..< stock.count {
             if stock[index] === beverage {
                 stock.remove(at: index)
@@ -50,24 +49,12 @@ struct VendingMachine {
         return false
     }
     
-    mutating private func addToSoldBeverages(beverage: Beverage) {
-        soldBeverages.append(beverage)
-    }
-    
-    mutating private func subtractFromMoney(to price: Int) {
-        guard cashier.isEnoughToBuy(price: price)
-            else {
-                return
-        }
-        cashier.subtract(price: price)
-    }
-    
 }
 
 extension VendingMachine {
     
-    func searchSoldBeverages(handler: (Beverage) -> (Void)) {
-        soldBeverages.forEach { handler($0) }
+    func searchSalesLog(handler: (Beverage) -> (Void)) {
+        cashier.searchSalesLog { handler($0) }
     }
     
     func searchHotCoffees(handler: (Coffee) -> (Void)) {

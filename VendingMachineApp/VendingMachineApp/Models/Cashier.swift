@@ -8,23 +8,37 @@
 
 import Foundation
 
-class Cashier {
+struct Cashier {
     
     private var balance = Quantity.zero
+    private var salesLog = [Beverage]()
+    
     var currentBalance: Int {
         return balance
     }
     
-    func subtract(price: Int) {
+    mutating func subtract(price: Int) {
         balance -= price
     }
     
-    func plus(money: Int) {
+    mutating func plus(money: Int) {
         balance += money
     }
     
     func isEnoughToBuy(price: Int) -> Bool {
         return balance >= price
     }
+    
+    mutating func addToSalesLog(beverage: Beverage) {
+        salesLog.append(beverage)
+    }
+    
+}
 
+extension Cashier {
+    
+    func searchSalesLog(handler: (Beverage) -> (Void)) {
+        salesLog.forEach { handler($0) }
+    }
+    
 }

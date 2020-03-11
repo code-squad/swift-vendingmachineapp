@@ -109,7 +109,7 @@ class VendingMachineTest: XCTestCase {
     func testSearchSoldBeverages() {
         vendingMachine.receive(insertedMoney: 1500)
         if let beverage =  vendingMachine.sell(wantedBeverage: cookieCreamMilk) {
-            vendingMachine.searchSoldBeverages {
+            vendingMachine.searchSalesLog {
                 XCTAssertEqual($0, beverage)
             }
         }

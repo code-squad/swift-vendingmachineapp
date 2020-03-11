@@ -14,38 +14,70 @@ class Beverage {
     private var weight: Int
     private var price: Int
     private var name: String
-    private var dateOfManufacture: Date
+    private var expirationDate: Date
     private var additionalElements: String = ""
-    private var dateFormat: String = "yyyyMMdd"
-    var descriptionBrand: String {
+    private var temperature: Double
+    private var calorie: Double
+    public var isHot: Bool {
+        temperature > 0 ? true : false
+    }
+    public var isLowerCalorie: Bool {
+        calorie > 200 ? true : false
+    }
+    public var descriptionBrand: String {
         brand + ", "
     }
-    var descriptionWeight: String {
+    public var descriptionWeight: String {
         String(weight) + "ml, "
     }
-    var descriptionPrice: String {
+    public var descriptionPrice: String {
         String(price) + "원, "
     }
-    var descriptionName: String {
+    public var descriptionName: String {
         name + ", "
     }
     
-    init(brand: String, weight: Int, price: Int, name: String, dateOfManufacture: Date) {
+    public init(
+        brand: String,
+        weight: Int,
+        price: Int,
+        name: String,
+        dateOfManufacture: Date,
+        temperature: Double,
+        calorie: Double
+    ) {
         self.brand = brand
         self.weight = weight
         self.price = price
         self.name = name
-        self.dateOfManufacture = dateOfManufacture
+        self.expirationDate = dateOfManufacture
+        self.temperature = temperature
+        self.calorie = calorie
     }
     
-    func apply(featureOfBeverage: [String]) {
+    public func apply(featureOfBeverage: [String]) {
         featureOfBeverage.forEach { additionalElements.append(", " + $0) }
     }
-}
-
-extension Beverage: CustomStringConvertible {
-    var description: String {
-        return descriptionBrand + descriptionWeight + descriptionPrice + descriptionName + dateOfManufacture.customDateFormatToString(format: dateFormat) + additionalElements
+    
+    public func validDate(_ date: Date) -> Bool {
+        date < expirationDate
+    }
+    
+    public func valid(to cost: Int) -> Bool {
+        cost > price ? true : false
+    }
+    
+    public func balance(payment: Int) -> Int {
+        payment - price
     }
 }
 
+extension Beverage: Hashable {
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(name)
+    }
+    
+    static func == (lhs: Beverage, rhs: Beverage) -> Bool {
+        lhs.name == rhs.name
+    }
+}

@@ -8,15 +8,35 @@
 
 import Foundation
 
-class Cola: Beverage {
+class Cola: CarbonicAcidBeverage {
     
-    private var pondusHydrogenii: Double
+    private var sugar: Bool
+    public var category: String {
+        sugar ? "일반" : "다이어트"
+    }
     
-    init(brand: String, weight: Int, price: Int, name: String, dateOfManufacture: Date, pondusHydrogenii: Double) {
-        self.pondusHydrogenii = pondusHydrogenii
-        super.init(brand: brand, weight: weight, price: price, name: name, dateOfManufacture: dateOfManufacture)
-        let carbonicAcidRatio: String = String(pondusHydrogenii) + "%"
-        apply(featureOfBeverage: [carbonicAcidRatio])
+    public init(
+        brand: String,
+        weight: Int,
+        price: Int,
+        name: String,
+        dateOfManufacture: Date,
+        temperature: Double,
+        calorie: Double,
+        concentration: Double,
+        sugar: Bool
+    ) {
+        self.sugar = sugar
+        super.init(
+            brand: brand,
+            weight: weight,
+            price: price,
+            name: name,
+            dateOfManufacture: dateOfManufacture,
+            temperature: temperature,
+            calorie: calorie,
+            concentration: concentration
+        )
     }
 }
 

@@ -19,8 +19,10 @@ class Stock {
     
     func postNotification() {
         guard let objectIdentifier = changedBeverageObjectIdentifier, let changedBeverages = stockOf[objectIdentifier] else { return }
-        NotificationCenter.default.post(name: .StockNumberDidChange, object: nil,
-                                        userInfo: ["changedIndex": changedIndex!,                                      "numberOfBeverage": changedBeverages.beverages.count])
+        NotificationCenter.default.post(name: .StockNumberDidChange,
+                                        object: nil,
+                                        userInfo: ["changedIndex": changedIndex!,
+                                                   "numberOfBeverage": changedBeverages.beverages.count])
     }
     
     func numberOf(_ beverage: Beverage) -> Int {

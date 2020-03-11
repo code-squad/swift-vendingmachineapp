@@ -9,7 +9,6 @@
 import Foundation
 
 struct VendingMachine {
-    let stock: Stock = Stock()
     private var products: [Beverage] = [
         ChocolateMilk(name: "서울우유-초콜릿", brand: "서울우유", servingSize: 150, price: Money(1000), manufactureDate: Date(), expirationDate: Date(), farmCode: "AEBN127", cacaoContentRate: 23.4),
         BananaMilk(name: "바나나는 원래 하얗다", brand: "매일우유", servingSize: 200, price: Money(1400), manufactureDate: Date(), expirationDate: Date(), farmCode: "DJSN128", bananaContentGram: 30),
@@ -17,8 +16,16 @@ struct VendingMachine {
         Sprite(name: "스프라이트", brand: "코카콜라", servingSize: 250, price: Money(2000), manufactureDate: Date(), expirationDate: Date(), isSugarFree: false, packageMaterial: "Aluminum"),
         Georgia(name: "죠지아", brand: "죠지아", servingSize: 120, price: Money(900), manufactureDate: Date(), expirationDate: Date(), servingCaffeine: 80, isHotCoffee: false)
     ]
-    private var purchased: [Beverage] = []
-    private(set) var balance: Money = Money()
+    
+    let stock: Stock
+    private var purchased: [Beverage]
+    private(set) var balance: Money
+    
+    init() {
+        self.stock = Stock()
+        self.purchased = []
+        self.balance = Money()
+    }
     
     @discardableResult mutating func putMoney(_ amount: Int) -> Money {
         let money = Money(amount)

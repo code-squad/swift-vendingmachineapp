@@ -46,7 +46,7 @@ struct VendingMachine {
     
     mutating func subtract(beverage: Beverage, from beverages: [Beverage]) -> Bool {
         for index in 0 ..< stock.count {
-            if stock[index] == beverage {
+            if stock[index] === beverage {
                 stock.remove(at: index)
                 return true
             }

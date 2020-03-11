@@ -53,9 +53,9 @@ class ViewController: UIViewController {
         let center = NotificationCenter.default
         var observer: NSObjectProtocol
         
-        observer = center.addObserver(forName: .balanceDidChange, userInfoKey: .balance) { [weak self] in
-            guard let balance = $0 as? Int else { return }
-            self?.balanceLabel.text = "잔액: \(balance)원"
+        observer = center.addObserver(forName: .balanceDidChange) { [weak self] in
+            guard let cashier = $0 as? Cashier else { return }
+            self?.balanceLabel.text = "잔액: \(cashier.balance())원"
         }
         observers.append(observer)
         

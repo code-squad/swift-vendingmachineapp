@@ -35,3 +35,11 @@ class HersheyChocolateDrink: Milk {
     }
     
 }
+
+extension HersheyChocolateDrink {
+    
+    override var description: String {
+        return super.description + ", 카카오: \(cacaoContentRate)%"
+    }
+    
+}

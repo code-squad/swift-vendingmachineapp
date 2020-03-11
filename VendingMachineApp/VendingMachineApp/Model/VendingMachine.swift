@@ -8,7 +8,7 @@
 
 import Foundation
 
-class VendingMachine {
+class VendingMachine: NSObject, NSCoding {
     private var stock = Stock()
     private var money = Money() {
         didSet {
@@ -31,7 +31,7 @@ class VendingMachine {
         stock.getHotBeverages()
     }
     
-    init() {
+    override init() {
         self.stock.add(beverage: StrawberryMilk(brand: "서울우유", amount: 180, price: Money(amount: 800), name: "딸기꿀단지", calorie: 145, saleablePeriod: 70, fatRatio: 9, strawberryContent: 1))
         self.stock.add(beverage: Cola(brand: "코카콜라", amount: 250, price: Money(amount: 1200), name: "코카콜라 제로", calorie: 0, saleablePeriod: 600, sugarContent: 0))
         self.stock.add(beverage: Cantata(brand: "롯데", amount: 500, price: Money(amount: 2500), name: "칸타타 콘트라베이스", calorie: 20, saleablePeriod: 150, caffeineContent: 179, isHot: false))
@@ -61,5 +61,19 @@ class VendingMachine {
         purchaseHistory.append(servedBeverage)
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "StockChanged"), object: self, userInfo: ["stock":stockList])
         return beverage
+    }
+    
+    // MARK: - NSCoding
+    
+    required init?(coder: NSCoder) {
+        guard let stock = coder.decodeObject(forKey: "stock") as? Stock,
+            let money = coder.decodeObject(forKey: "money") as? Money else { return nil }
+        self.stock = stock
+        self.money = money
+    }
+    
+    func encode(with coder: NSCoder) {
+        coder.encode(stock, forKey: "stock")
+        coder.encode(money, forKey: "money")
     }
 }

@@ -8,21 +8,31 @@
 
 import Foundation
 
-final class Money {
+final class Money: NSObject, NSCoding {
     private var amount: Int
     
     init(amount: Int) {
         self.amount = amount
     }
     
-    convenience init() {
+    convenience override init() {
         self.init(amount: 0)
     }
-}
-
-extension Money: CustomStringConvertible {
-    var description: String {
+    
+    // MARK: - CustomStringConvertible
+    
+    override var description: String {
         "\(amount)"
+    }
+    
+    // MARK: - NSCoding
+    
+    init?(coder: NSCoder) {
+        self.amount = coder.decodeInteger(forKey: "amount")
+    }
+    
+    func encode(with coder: NSCoder) {
+        coder.encode(amount, forKey: "amount")
     }
 }
 

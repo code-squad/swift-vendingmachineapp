@@ -15,4 +15,17 @@ class Fanta: Soda {
         self.flavor = flavor
         super.init(brand: brand, amount: amount, price: price, name: name, calorie: calorie, saleablePeriod: saleablePeriod, sugarContent: sugarContent)
     }
+    
+    // MARK: - NSCoding
+    
+    required init?(coder: NSCoder) {
+        guard let flavor = coder.decodeObject(forKey: "flavor") as? String else { return nil }
+        self.flavor = flavor
+        super.init(coder: coder)
+    }
+    
+    override func encode(with coder: NSCoder) {
+        super.encode(with: coder)
+        coder.encode(flavor, forKey: "flavor")
+    }
 }

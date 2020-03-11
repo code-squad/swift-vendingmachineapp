@@ -8,8 +8,12 @@
 
 import Foundation
 
-class Stock {
-    private var beverages = [Beverage]()
+class Stock: NSObject, NSCoding {
+    private var beverages: [Beverage]
+    
+    override init() {
+        self.beverages = [Beverage]()
+    }
     
     func add(beverage: Beverage) {
         beverages.append(beverage)
@@ -40,5 +44,16 @@ class Stock {
     
     func getHotBeverages() -> [Beverage] {
         return beverages.filter { $0.isHot }
+    }
+    
+    // MARK: - NSCoding
+    
+    required init?(coder: NSCoder) {
+        guard let beverages = coder.decodeObject(forKey: "beverages") as? [Beverage] else { return nil }
+        self.beverages = beverages
+    }
+
+    func encode(with coder: NSCoder) {
+        coder.encode(beverages, forKey: "beverages")
     }
 }

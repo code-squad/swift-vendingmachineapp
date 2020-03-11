@@ -19,4 +19,16 @@ class Coffee: Beverage {
     func isDecaffeinated() -> Bool {
         return caffeineContent < 10
     }
+    
+    // MARK: - NSCoding
+    
+    required init?(coder: NSCoder) {
+        self.caffeineContent = coder.decodeDouble(forKey: "caffeineContent")
+        super.init(coder: coder)
+    }
+    
+    override func encode(with coder: NSCoder) {
+        super.encode(with: coder)
+        coder.encode(caffeineContent, forKey: "caffeieneContent")
+    }
 }

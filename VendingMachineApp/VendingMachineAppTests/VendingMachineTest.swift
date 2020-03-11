@@ -48,14 +48,24 @@ class VendingMachineTest: XCTestCase {
                                                          name: "쿠키앤크림",
                                                          manufacturingDateInfo: "20191016",
                                                          expirationDateInfo: "20191023")!
+        
+        let newCookieCreamMilk = HersheyChocolateDrink(volume: 10, price: 1500,
+                                                         name: "쿠키앤크림",
+                                                         manufacturingDateInfo: "20191016",
+                                                         expirationDateInfo: "20191023")!
         vendingMachine.addToStock(beverage: otherCookieCreamMilk)
+        vendingMachine.addToStock(beverage: newCookieCreamMilk)
+        
         vendingMachine.searchStockByKind {
             if $0.key is HersheyChocolateDrink {
-                XCTAssertEqual($0.value.count, 2)
+                print("key: \($0.key.description)")
+                print("value: \($0.value.description)")
             } else if $0.key is Cantata {
-                XCTAssertEqual($0.value.count, 1)
+                print("key: \($0.key.description)")
+                print("value: \($0.value.description)")
             } else if $0.key is Pepsi {
-                XCTAssertEqual($0.value.count, 1)
+                print("key: \($0.key.description)")
+                print("value: \($0.value.description)")
             }
         }
     }

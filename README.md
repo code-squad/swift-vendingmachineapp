@@ -61,3 +61,20 @@
 * 음료를 구매할 때도 문자열이 아니라 Beverage 타입을 그대로 활용하도록 개선
 * enum이 부적절한 부분은 사용하지 않도록 개선
 
+## STEP3. 자판기 화면 구성
+
+* 음료수 이미지들 추가
+* 스토리보드로 화면 구성
+* IBOutlet, IBOutletCollection등을 이용하여 스토리보드와 코드 연결
+* IBOutletCollection으로 연결된 뷰들에 태그 지정
+* Notification을 이용하여 뷰 업데이트 구현
+* View Identifier 구현
+* 버튼 터치 시 잔액 추가 구현
+* 잔액 표시 기능 구현
+* 버튼 터치 시 음료수 추가 구현
+* 음료수 재고 표시 기능 구현
+
+**실행 결과**
+
+![step3_result](step3_result.png)
+

@@ -14,6 +14,13 @@ enum UserInfoKeys {
 
 extension NotificationCenter {
     func addObserver(forName name: NSNotification.Name?,
+                     using block: @escaping (Any?) -> Void) -> NSObjectProtocol {
+        return addObserver(forName: name, object: nil, queue: .main) {
+            block($0.object)
+        }
+    }
+    
+    func addObserver(forName name: NSNotification.Name?,
                      userInfoKey: UserInfoKeys,
                      using block: @escaping (Any) -> Void) -> NSObjectProtocol {
         let observer = addObserver(forName: name, object: nil, queue: .main) {

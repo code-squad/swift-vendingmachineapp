@@ -28,6 +28,7 @@ class ViewController: UIViewController {
         
         layoutStackViews()
         layoutBeverageViews()
+        setupBeverageLabels()
         
         addViewUpdatingObservers()
     }
@@ -50,14 +51,23 @@ class ViewController: UIViewController {
     
     private func addViewUpdatingObservers() {
         let center = NotificationCenter.default
+        var observer: NSObjectProtocol
         
-        let observer = center.addObserver(forName: .balanceDidChange, userInfoKey: .balance) { [weak self] in
+        observer = center.addObserver(forName: .balanceDidChange, userInfoKey: .balance) { [weak self] in
             guard let balance = $0 as? Int else { return }
             self?.balanceLabel.text = "잔액: \(balance)원"
         }
+        observers.append(observer)
         
-        
-        
+        observer = center.addObserver(forName: .inventoryDidChange) { [weak self] in
+            guard let inventory = $0 as? Inventory else { return }
+            let stock = inventory.briefStock()
+            
+            self?.beverageLabels.forEach { label in
+                guard let type = ViewIdentifier.findLabel(by: label.tag)?.type else { return }
+                label.text = "\(stock[type] ?? 0)"
+            }
+        }
         observers.append(observer)
     }
 }
@@ -72,8 +82,10 @@ extension ViewController {
     }
     
     private func layoutBeverageViews() {
-        beverageViews.forEach {
-            $0.layer.cornerRadius = 30;
-        }
+        beverageViews.forEach { $0.layer.cornerRadius = 30 }
+    }
+    
+    private func setupBeverageLabels() {
+        beverageLabels.forEach { $0.text = "0" }
     }
 }

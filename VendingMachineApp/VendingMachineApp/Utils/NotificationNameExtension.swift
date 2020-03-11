@@ -10,4 +10,5 @@ import Foundation
 
 extension Notification.Name {
     static let balanceDidChange = Notification.Name("balanceDidChange")
+    static let inventoryDidChange = Notification.Name("inventoryDidChange")
 }

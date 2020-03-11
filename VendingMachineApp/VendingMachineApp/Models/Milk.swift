@@ -33,7 +33,7 @@ class Milk: Beverage {
 extension Milk {
     
     override var description: String {
-        return super.description + ", \(expirationDate.description)"
+        return super.description + ", \(expirationDate.toStringYearMonthDay)"
     }
     
 }

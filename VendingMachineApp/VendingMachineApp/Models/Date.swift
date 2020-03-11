@@ -16,7 +16,7 @@ extension Date {
         return formatter
     }()
     
-    var description: String {
+    var toStringYearMonthDay: String {
         return Date.dateFormatter.string(from: self)
     }
     

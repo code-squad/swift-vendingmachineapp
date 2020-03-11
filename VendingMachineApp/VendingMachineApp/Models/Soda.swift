@@ -20,11 +20,7 @@ class Soda: Beverage {
     }
     
     func isLowCalorie() -> Bool {
-        guard kiloCalorie <= Quantity.maxLowKiloCalorie
-            else {
-                return false
-        }
-        return true
+        return kiloCalorie <= Quantity.maxLowKiloCalorie
     }
     
 }

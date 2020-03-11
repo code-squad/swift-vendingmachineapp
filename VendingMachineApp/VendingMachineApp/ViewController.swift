@@ -16,8 +16,8 @@ class ViewController: UIViewController {
                                    name: "프리미엄 라떼",
                                    manufacturingDateInfo: "20200102",
                                    celsius: 65,
-                                   percentMilk: 0.15,
-                                   percentSugar: 0.05)
+                                   milkContentRate: 0.15,
+                                   sugarContentRate: 0.05)
         let dietCola = Pepsi(volume: 350, price: 2000, name: "다이어트 콜라",
                              manufacturingDateInfo: "20190928", kiloCalorie: 80)
         let cookieCreamMilk = HersheyChocolateDrink(volume: 190, price: 1500,

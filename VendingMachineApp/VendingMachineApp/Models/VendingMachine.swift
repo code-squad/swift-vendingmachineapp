@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Money {
+class Balance {
     
     private var balance = Quantity.zero
     var currentBalance: Int {
@@ -33,18 +33,18 @@ struct VendingMachine {
     
     private var stock: [Beverage]
     private var soldBeverages = [Beverage]()
-    private let money = Money()
+    private let balance = Balance()
     
     init(stock: [Beverage]) {
         self.stock = stock
     }
     
     mutating func receive(insertedMoney: Int) {
-        money.plus(money: insertedMoney)
+        balance.plus(money: insertedMoney)
     }
     
     func currentMoney() -> Int {
-        return money.currentBalance
+        return balance.currentBalance
     }
     
     mutating func addToStock(beverage: Beverage) {
@@ -76,11 +76,11 @@ struct VendingMachine {
     }
     
     mutating private func subtractFromMoney(to price: Int) {
-        guard money.isEnoughToBuy(price: price)
+        guard balance.isEnoughToBuy(price: price)
             else {
                 return
         }
-        money.subtract(price: price)
+        balance.subtract(price: price)
     }
     
 }
@@ -149,7 +149,7 @@ extension VendingMachine {
                     sellableBeverages[beverage]?.append(beverage)
                     continue
             }
-            guard money.isEnoughToBuy(price: beverage.price)
+            guard balance.isEnoughToBuy(price: beverage.price)
                 else {
                     continue
             }

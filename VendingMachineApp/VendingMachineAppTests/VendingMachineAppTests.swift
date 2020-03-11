@@ -10,25 +10,39 @@ import XCTest
 @testable import VendingMachineApp
 
 class VendingMachineAppTests: XCTestCase {
-
+    
+    public var vendingMachine: VendingMachine!
+    public var cola: Cola!
+    
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        vendingMachine = VendingMachine()
+        cola = Cola(brand: "코카콜라", weight: 132, price: 1500, name: "다이어트", dateOfManufacture: Date().addingTimeInterval(500), temperature: 12.00, calorie: 213, concentration: 34.00, sugar: false)
+        vendingMachine.add(product: cola, amount: 3)
     }
-
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+    func testInsertCoin() {
+        vendingMachine.insert(coin: 300)
+        XCTAssertTrue(vendingMachine.balance)
     }
-
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    
+    func testAddProduct() {
+        XCTAssertEqual(vendingMachine.productsCount, 1)
     }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    func testCostValidProduct() {
+        XCTAssertEqual(vendingMachine.costValidProducts().count, 0)
     }
-
+    
+    func testBuyProduct() {
+        vendingMachine.buy(product: cola)
+        XCTAssertEqual(vendingMachine.ordered.count, 1)
+    }
+    
+    func testInvalidDateProducts() {
+        XCTAssertEqual(vendingMachine.inValidDateProducts(date: Date().addingTimeInterval(600)).count, 1)
+    }
+    
+    func testHotProducts() {
+        XCTAssertEqual(vendingMachine.hotProducts().count, 1)
+    }
 }

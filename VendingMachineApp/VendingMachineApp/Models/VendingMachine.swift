@@ -31,12 +31,15 @@ struct VendingMachine {
 
     @discardableResult
     mutating func sell(wantedBeverage: Beverage) -> Beverage? {
-        if subtractFromStock(beverage: wantedBeverage) {
-            cashier.addToSalesLog(beverage: wantedBeverage)
-            cashier.subtract(price: wantedBeverage.price)
-            return wantedBeverage
+        guard cashier.isEnoughToBuy(price: wantedBeverage.price),
+            subtractFromStock(beverage: wantedBeverage)
+            else {
+                return nil
         }
-        return nil
+        
+        cashier.addToSalesLog(beverage: wantedBeverage)
+        cashier.subtract(price: wantedBeverage.price)
+        return wantedBeverage
     }
     
     mutating private func subtractFromStock(beverage: Beverage) -> Bool {

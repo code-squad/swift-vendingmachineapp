@@ -61,23 +61,29 @@ extension VendingMachine {
     }
     
     func searchHotCoffees(handler: (Coffee) -> (Void)) {
-        for beverage in stock {
+        stock.filter { (beverage) -> Bool in
             guard let hotCoffee = beverage as? Coffee, hotCoffee.isHot()
                 else {
-                    continue
+                    return false
             }
+            return true
+        }.forEach {
+            let hotCoffee = $0 as! Coffee
             handler(hotCoffee)
         }
     }
     
     func searchMilksPassed(expirationDate: Date, handler: (Milk) -> (Void)) {
-        for beverage in stock {
+        stock.filter { (beverage) -> Bool in
             guard let milkPassedExpirationDate = beverage as? Milk,
                 !milkPassedExpirationDate.validate(with: expirationDate)
                 else {
-                    continue
+                    return false
             }
-            handler(milkPassedExpirationDate)
+            return true
+        }.forEach {
+            let verifiedMilk = $0 as! Milk
+            handler(verifiedMilk)
         }
     }
     

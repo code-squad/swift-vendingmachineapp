@@ -22,6 +22,10 @@ class Pepsi: Soda {
                    kiloCalorie: kiloCalorie)
     }
     
+    func isFragile() -> Bool {
+        return package == .glass
+    }
+    
 }
 
 extension Pepsi {

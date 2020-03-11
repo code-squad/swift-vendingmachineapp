@@ -87,11 +87,12 @@ extension VendingMachine {
         }
     }
     
-    func searchStockByKind(handler: ((key: String, value: [Beverage])) -> (Void)) {
+    func searchStockByKind(handler: ((key: String, value: Beverage)) -> (Void)) {
         let stockByKind = generateStockByKind()
-        stockByKind.forEach {
-            handler((key: $0.key,
-            value: $0.value))
+        stockByKind.forEach { (kind) in
+            kind.value.forEach {
+                handler((key: kind.key, value: $0))
+            }
         }
     }
     
@@ -109,11 +110,12 @@ extension VendingMachine {
         return stockByKind
     }
     
-    func searchSellableBeverages(handler: ((key: String, value: [Beverage])) -> (Void)) {
+    func searchSellableBeverages(handler: ((key: String, value: Beverage)) -> (Void)) {
         let sellableBeverages = generateSellableBeverages()
-        sellableBeverages.forEach {
-            handler((key: $0.key,
-            value: $0.value))
+        sellableBeverages.forEach { (kind) in
+            kind.value.forEach {
+                handler((key: kind.key, value: $0))
+            }
         }
     }
     

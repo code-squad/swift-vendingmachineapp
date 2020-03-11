@@ -48,27 +48,13 @@ class VendingMachineTest: XCTestCase {
     }
     
     func testSearchStockByKind() {
-        let otherCookieCreamMilk = HersheyChocolateDrink(volume: 190, price: 1500,
-                                                         name: "쿠키앤크림",
-                                                         manufacturingDateInfo: "20191016",
-                                                         expirationDateInfo: "20191023",
-                                                         cacaoContentRate: 0.03)!
-        
-        let newCookieCreamMilk = HersheyChocolateDrink(volume: 10, price: 1500,
-                                                       name: "쿠키앤크림",
-                                                       manufacturingDateInfo: "20191016",
-                                                       expirationDateInfo: "20191023",
-                                                       cacaoContentRate: 0.03)!
-        vendingMachine.addToStock(beverage: otherCookieCreamMilk)
-        vendingMachine.addToStock(beverage: newCookieCreamMilk)
-        
         vendingMachine.searchStockByKind {
             if $0.key == "\(type(of: cookieCreamMilk))" {
-                XCTAssertEqual($0.value.count, 3)
+                XCTAssertEqual($0.value, cookieCreamMilk)
             } else if $0.key == "\(type(of: primiumLatte))" {
-                XCTAssertEqual($0.value.count, 1)
+                XCTAssertEqual($0.value, primiumLatte)
             } else if $0.key == "\(type(of: dietCola))" {
-                XCTAssertEqual($0.value.count, 1)
+                XCTAssertEqual($0.value, dietCola)
             }
         }
     }
@@ -77,14 +63,14 @@ class VendingMachineTest: XCTestCase {
         vendingMachine.receive(insertedMoney: 1500)
         vendingMachine.searchSellableBeverages {
             XCTAssertEqual($0.key, "\(type(of: cookieCreamMilk))")
-            XCTAssertEqual($0.value, [cookieCreamMilk])
+            XCTAssertEqual($0.value, cookieCreamMilk)
         }
     }
 
     func testSell() {
         vendingMachine.receive(insertedMoney: 1500)
         vendingMachine.searchSellableBeverages {
-            vendingMachine.sell(wantedBeverage: $0.value.first!)
+            vendingMachine.sell(wantedBeverage: $0.value)
             XCTAssertEqual(vendingMachine.currentMoney(), 0)
         }
     }
@@ -98,12 +84,12 @@ class VendingMachineTest: XCTestCase {
         vendingMachine.addToStock(beverage: otherCookieCreamMilk)
         vendingMachine.searchStockByKind {
             if $0.key == "\(type(of: cookieCreamMilk))" {
-                XCTAssertEqual($0.value.count, 2)
+                XCTAssertEqual($0.value, cookieCreamMilk)
             }
         }
     }
     
-    func testSearchSoldBeverages() {
+    func testSearchSalesLog() {
         vendingMachine.receive(insertedMoney: 1500)
         if let beverage =  vendingMachine.sell(wantedBeverage: cookieCreamMilk) {
             vendingMachine.searchSalesLog {

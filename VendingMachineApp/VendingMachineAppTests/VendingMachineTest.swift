@@ -63,15 +63,12 @@ class VendingMachineTest: XCTestCase {
         vendingMachine.addToStock(beverage: newCookieCreamMilk)
         
         vendingMachine.searchStockByKind {
-            if $0.key is HersheyChocolateDrink {
-                print("key: \($0.key.description)")
-                print("value: \($0.value.description)")
-            } else if $0.key is Cantata {
-                print("key: \($0.key.description)")
-                print("value: \($0.value.description)")
-            } else if $0.key is Pepsi {
-                print("key: \($0.key.description)")
-                print("value: \($0.value.description)")
+            if $0.key == "\(type(of: cookieCreamMilk))" {
+                XCTAssertEqual($0.value.count, 3)
+            } else if $0.key == "\(type(of: primiumLatte))" {
+                XCTAssertEqual($0.value.count, 1)
+            } else if $0.key == "\(type(of: dietCola))" {
+                XCTAssertEqual($0.value.count, 1)
             }
         }
     }
@@ -79,15 +76,15 @@ class VendingMachineTest: XCTestCase {
     func testSearchSellableBeverages() {
         vendingMachine.receive(insertedMoney: 1500)
         vendingMachine.searchSellableBeverages {
-            XCTAssertEqual($0.key, cookieCreamMilk)
+            XCTAssertEqual($0.key, "\(type(of: cookieCreamMilk))")
             XCTAssertEqual($0.value, [cookieCreamMilk])
         }
     }
-    
+
     func testSell() {
         vendingMachine.receive(insertedMoney: 1500)
         vendingMachine.searchSellableBeverages {
-            vendingMachine.sell(wantedBeverage: $0.key)
+            vendingMachine.sell(wantedBeverage: $0.value.first!)
             XCTAssertEqual(vendingMachine.currentMoney(), 0)
         }
     }
@@ -100,7 +97,7 @@ class VendingMachineTest: XCTestCase {
                                                          cacaoContentRate: 0.03)!
         vendingMachine.addToStock(beverage: otherCookieCreamMilk)
         vendingMachine.searchStockByKind {
-            if $0.key is HersheyChocolateDrink {
+            if $0.key == "\(type(of: cookieCreamMilk))" {
                 XCTAssertEqual($0.value.count, 2)
             }
         }

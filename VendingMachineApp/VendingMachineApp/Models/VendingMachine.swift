@@ -81,7 +81,7 @@ extension VendingMachine {
         }
     }
     
-    func searchStockByKind(handler: ((key: Beverage, value: [Beverage])) -> (Void)) {
+    func searchStockByKind(handler: ((key: String, value: [Beverage])) -> (Void)) {
         let stockByKind = generateStockByKind()
         stockByKind.forEach {
             handler((key: $0.key,
@@ -89,20 +89,21 @@ extension VendingMachine {
         }
     }
     
-    private func generateStockByKind() -> [Beverage: [Beverage]] {
-        var stockByKind = [Beverage: [Beverage]]()
+    private func generateStockByKind() -> [String: [Beverage]] {
+        var stockByKind = [String: [Beverage]]()
         for beverage in stock {
-            guard !stockByKind.keys.contains(beverage)
+            let typeToString = "\(type(of: beverage))"
+            guard !stockByKind.keys.contains(typeToString)
                 else {
-                    stockByKind[beverage]?.append(beverage)
+                    stockByKind[typeToString]?.append(beverage)
                     continue
             }
-            stockByKind[beverage] = [beverage]
+            stockByKind[typeToString] = [beverage]
         }
         return stockByKind
     }
     
-    func searchSellableBeverages(handler: ((key: Beverage, value: [Beverage])) -> (Void)) {
+    func searchSellableBeverages(handler: ((key: String, value: [Beverage])) -> (Void)) {
         let sellableBeverages = generateSellableBeverages()
         sellableBeverages.forEach {
             handler((key: $0.key,
@@ -110,19 +111,20 @@ extension VendingMachine {
         }
     }
     
-    private func generateSellableBeverages() -> [Beverage: [Beverage]] {
-        var sellableBeverages = [Beverage: [Beverage]]()
+    private func generateSellableBeverages() -> [String: [Beverage]] {
+        var sellableBeverages = [String: [Beverage]]()
         for beverage in stock {
-            guard !sellableBeverages.keys.contains(beverage)
+            let typeToString = "\(type(of: beverage))"
+            guard !sellableBeverages.keys.contains(typeToString)
                 else {
-                    sellableBeverages[beverage]?.append(beverage)
+                    sellableBeverages[typeToString]?.append(beverage)
                     continue
             }
             guard cashier.isEnoughToBuy(price: beverage.price)
                 else {
                     continue
             }
-            sellableBeverages[beverage] = [beverage]
+            sellableBeverages[typeToString] = [beverage]
         }
         return sellableBeverages
     }

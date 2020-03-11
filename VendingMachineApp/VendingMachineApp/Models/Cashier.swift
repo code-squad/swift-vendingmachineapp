@@ -16,7 +16,13 @@ protocol Calculable {
 }
 
 class Cashier: Calculable {
-    private var cash = 0
+    private var cash = 0 {
+        didSet {
+            let info = [UserInfoKeys.balance: cash]
+            NotificationCenter.default.post(name: .balanceDidChange, object: self, userInfo: info)
+        }
+    }
+    
     private var salesLog = [Beverage]()
     
     func balance() -> Int {

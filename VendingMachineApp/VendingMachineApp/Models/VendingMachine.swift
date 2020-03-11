@@ -26,31 +26,32 @@ struct VendingMachine {
         return money
     }
     
-    mutating func add(beverage: Beverage) {
+    mutating func addToStock(beverage: Beverage) {
         stock.append(beverage)
     }
-    
+
     @discardableResult
     mutating func sell(wantedBeverage: Beverage) -> Beverage? {
-        if let beverage = subtractFromStock(to: wantedBeverage) {
-            addFromSoldBeverages(to: beverage)
-            subtractFromMoney(to: beverage)
-            return beverage
+        if subtract(beverage: wantedBeverage, from: stock) {
+            addToSoldBeverages(beverage: wantedBeverage)
+            subtractFromMoney(to: wantedBeverage)
+            return wantedBeverage
         }
         return nil
     }
     
-    mutating private func subtractFromStock(to wantedBeverage: Beverage) -> Beverage? {
+    mutating private func addToSoldBeverages(beverage: Beverage) {
+        soldBeverages.append(beverage)
+    }
+    
+    mutating func subtract(beverage: Beverage, from beverages: [Beverage]) -> Bool {
         for index in 0 ..< stock.count {
-            if stock[index] == wantedBeverage {
-                return stock.remove(at: index)
+            if stock[index] == beverage {
+                stock.remove(at: index)
+                return true
             }
         }
-        return nil
-    }
-    
-    mutating private func addFromSoldBeverages(to beverage: Beverage) {
-        soldBeverages.append(beverage)
+        return false
     }
     
     mutating private func subtractFromMoney(to beverage: Beverage) {
@@ -58,7 +59,6 @@ struct VendingMachine {
             else {
             return
         }
-        
         money = beverage.subtract(from: money)
     }
     

@@ -48,7 +48,7 @@ class VendingMachineTest: XCTestCase {
                                                          name: "쿠키앤크림",
                                                          manufacturingDateInfo: "20191016",
                                                          expirationDateInfo: "20191023")!
-        vendingMachine.add(beverage: otherCookieCreamMilk)
+        vendingMachine.addToStock(beverage: otherCookieCreamMilk)
         vendingMachine.searchStockByKind {
             if $0.key is HersheyChocolateDrink {
                 XCTAssertEqual($0.value.count, 2)
@@ -81,7 +81,7 @@ class VendingMachineTest: XCTestCase {
                                                          name: "쿠키앤크림",
                                                          manufacturingDateInfo: "20191016",
                                                          expirationDateInfo: "20191023")!
-        vendingMachine.add(beverage: otherCookieCreamMilk)
+        vendingMachine.addToStock(beverage: otherCookieCreamMilk)
         vendingMachine.searchStockByKind {
             if $0.key is HersheyChocolateDrink {
                 XCTAssertEqual($0.value.count, 2)

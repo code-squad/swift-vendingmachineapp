@@ -11,6 +11,7 @@ import Foundation
 enum Quantity {
     
     static let maxLowKiloCalorie = 100
+    static let minHotCelsius = 60
     static let zero = 0
     
 }

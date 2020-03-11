@@ -9,10 +9,6 @@
 import Foundation
 
 class ViewIdentifier {
-    static func findLabel(by tag: Int) -> Identifier.Label? {
-        return Identifier.Label(rawValue: tag)
-    }
-    
     static func findBalanceButton(by tag: Int) -> Identifier.BalanceButton? {
         return Identifier.BalanceButton(rawValue: tag)
     }
@@ -20,12 +16,27 @@ class ViewIdentifier {
     static func findBeverageButton(by tag: Int) -> Identifier.BeverageButton? {
         return Identifier.BeverageButton(rawValue: tag)
     }
+    
+    static func findLabel(by tag: Int) -> Identifier.Label? {
+        return Identifier.Label(rawValue: tag)
+    }
 }
 
 class Identifier {
     enum Label: Int {
         case coke = 101
         case fanta, strawberryMilk, chocolateMilk, georgia, top
+        
+        var type: String {
+            switch self {
+            case .coke: return "Coke"
+            case .fanta: return "Fanta"
+            case .strawberryMilk: return "StrawberryMilk"
+            case .chocolateMilk: return "ChocolateMilk"
+            case .georgia: return "Georgia"
+            case .top: return "Top"
+            }
+        }
     }
 
     enum BeverageButton: Int {

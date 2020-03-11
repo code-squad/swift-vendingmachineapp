@@ -20,7 +20,11 @@ class Inventory: CustomStringConvertible {
         case notInStock
     }
     
-    private var inventory = [Beverage]()
+    private var inventory = [Beverage]() {
+        didSet {
+            NotificationCenter.default.post(name: .inventoryDidChange, object: self)
+        }
+    }
     
     var description: String {
         return inventory.description

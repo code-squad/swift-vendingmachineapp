@@ -56,6 +56,9 @@
                                                                                 <state key="normal" image="plus.circle.fill" catalog="system">
                                                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25" scale="large"/>
                                                                                 </state>
+                                                                                <connections>
+                                                                                    <action selector="addBeverage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eHG-g6-gPZ"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QkM-jX-wF6">
                                                                                 <rect key="frame" x="36" y="0.0" width="300.5" height="33.5"/>
@@ -95,6 +98,9 @@
                                                                                 <state key="normal" image="plus.circle.fill" catalog="system">
                                                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25" scale="large"/>
                                                                                 </state>
+                                                                                <connections>
+                                                                                    <action selector="addBeverage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1KI-qp-1Zx"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" tag="102" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QIH-dU-nhU">
                                                                                 <rect key="frame" x="36" y="0.0" width="301" height="33.5"/>
@@ -134,6 +140,9 @@
                                                                                 <state key="normal" image="plus.circle.fill" catalog="system">
                                                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25" scale="large"/>
                                                                                 </state>
+                                                                                <connections>
+                                                                                    <action selector="addBeverage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rWE-d2-s1D"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" tag="103" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xug-rY-Xqk">
                                                                                 <rect key="frame" x="36" y="0.0" width="300.5" height="33.5"/>
@@ -178,6 +187,9 @@
                                                                                 <state key="normal" image="plus.circle.fill" catalog="system">
                                                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25" scale="large"/>
                                                                                 </state>
+                                                                                <connections>
+                                                                                    <action selector="addBeverage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vR5-Ko-1Tu"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" tag="104" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OYK-Sn-B0e">
                                                                                 <rect key="frame" x="36" y="0.0" width="300.5" height="33.5"/>
@@ -217,6 +229,9 @@
                                                                                 <state key="normal" image="plus.circle.fill" catalog="system">
                                                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25" scale="large"/>
                                                                                 </state>
+                                                                                <connections>
+                                                                                    <action selector="addBeverage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZOU-PT-BHq"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" tag="105" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dyf-bI-256">
                                                                                 <rect key="frame" x="36" y="0.0" width="301" height="33.5"/>
@@ -256,6 +271,9 @@
                                                                                 <state key="normal" image="plus.circle.fill" catalog="system">
                                                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25" scale="large"/>
                                                                                 </state>
+                                                                                <connections>
+                                                                                    <action selector="addBeverage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5ai-Wi-kNk"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" tag="106" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OP0-1Y-c9p">
                                                                                 <rect key="frame" x="36" y="0.0" width="300.5" height="33.5"/>
@@ -348,12 +366,6 @@
                         <outletCollection property="beverageLabels" destination="OYK-Sn-B0e" collectionClass="NSMutableArray" id="RcT-na-Ejc"/>
                         <outletCollection property="beverageLabels" destination="dyf-bI-256" collectionClass="NSMutableArray" id="l1R-Og-02a"/>
                         <outletCollection property="beverageLabels" destination="OP0-1Y-c9p" collectionClass="NSMutableArray" id="eq0-e6-IWk"/>
-                        <outletCollection property="addBeverageButtons" destination="SXs-h6-gkB" collectionClass="NSMutableArray" id="3Ir-lA-8qh"/>
-                        <outletCollection property="addBeverageButtons" destination="4Od-jK-64w" collectionClass="NSMutableArray" id="s90-VW-4pB"/>
-                        <outletCollection property="addBeverageButtons" destination="unx-fC-nHr" collectionClass="NSMutableArray" id="1MP-22-fs9"/>
-                        <outletCollection property="addBeverageButtons" destination="otP-BF-cN1" collectionClass="NSMutableArray" id="q79-Yy-qVW"/>
-                        <outletCollection property="addBeverageButtons" destination="Uzd-jb-PtY" collectionClass="NSMutableArray" id="UHg-1h-9Iw"/>
-                        <outletCollection property="addBeverageButtons" destination="L7h-nQ-2hi" collectionClass="NSMutableArray" id="dxQ-wr-AK8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

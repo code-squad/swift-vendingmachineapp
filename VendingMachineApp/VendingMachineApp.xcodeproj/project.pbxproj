@@ -34,6 +34,7 @@
 		C2F917612417E32D005CE6B1 /* ViewIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F917602417E32D005CE6B1 /* ViewIdentifier.swift */; };
 		C2F917642418AF5B005CE6B1 /* NotificationCenterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F917632418AF5B005CE6B1 /* NotificationCenterExtension.swift */; };
 		C2F9176624191840005CE6B1 /* NotificationNameExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F9176524191840005CE6B1 /* NotificationNameExtension.swift */; };
+		C2F9176824191DBD005CE6B1 /* BeverageFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F9176724191DBD005CE6B1 /* BeverageFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,7 @@
 		C2F917602417E32D005CE6B1 /* ViewIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewIdentifier.swift; sourceTree = "<group>"; };
 		C2F917632418AF5B005CE6B1 /* NotificationCenterExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenterExtension.swift; sourceTree = "<group>"; };
 		C2F9176524191840005CE6B1 /* NotificationNameExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationNameExtension.swift; sourceTree = "<group>"; };
+		C2F9176724191DBD005CE6B1 /* BeverageFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +154,7 @@
 				C2078ADB2407ECDD00B403A7 /* VendingMachine.swift */,
 				C250FB98240FC975008DB2AD /* Inventory.swift */,
 				C2D405DF2413744500848736 /* Cashier.swift */,
+				C2F9176724191DBD005CE6B1 /* BeverageFactory.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -301,6 +304,7 @@
 				C2560CAD24091B4900933332 /* StrawberryMilk.swift in Sources */,
 				C2560CAF24091B6E00933332 /* ChocolateMilk.swift in Sources */,
 				C250FB99240FC975008DB2AD /* Inventory.swift in Sources */,
+				C2F9176824191DBD005CE6B1 /* BeverageFactory.swift in Sources */,
 				C250FB95240E8210008DB2AD /* SoftDrink.swift in Sources */,
 				C2078AB92407CA8900B403A7 /* SceneDelegate.swift in Sources */,
 			);

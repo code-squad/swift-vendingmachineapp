@@ -13,8 +13,12 @@ class ViewIdentifier {
         return Identifier.Label(rawValue: tag)
     }
     
-    static func findButton(by tag: Int) -> Identifier.Button? {
-        return Identifier.Button(rawValue: tag)
+    static func findBalanceButton(by tag: Int) -> Identifier.BalanceButton? {
+        return Identifier.BalanceButton(rawValue: tag)
+    }
+    
+    static func findBeverageButton(by tag: Int) -> Identifier.BeverageButton? {
+        return Identifier.BeverageButton(rawValue: tag)
     }
 }
 
@@ -24,16 +28,19 @@ class Identifier {
         case fanta, strawberryMilk, chocolateMilk, georgia, top
     }
 
-    enum Button: Int {
+    enum BeverageButton: Int {
         case coke = 201
         case fanta, strawberryMilk, chocolateMilk, georgia, top
-        case thousand, fiveThousand
+    }
+    
+    enum BalanceButton: Int {
+        case thousand = 207
+        case fiveThousand
         
-        var money: Int? {
+        var money: Int {
             switch self {
             case .thousand: return 1000
             case .fiveThousand: return 5000
-            default: return nil
             }
         }
     }

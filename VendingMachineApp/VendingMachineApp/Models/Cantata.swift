@@ -10,20 +10,20 @@ import Foundation
 
 final class Cantata: Coffee {
     
-    private let percentMilk: Double
-    private let percentSugar: Double
+    private let milkContentRate: Double
+    private let sugarContentRate: Double
     
     init?(volume: Int, price: Int, name: String,
           manufacturingDateInfo: String, celsius: Int,
-          percentMilk: Double, percentSugar: Double) {
-        guard percentMilk >= Quantity.minPercent, percentMilk <= Quantity.maxPercent,
-            percentSugar >= Quantity.minPercent, percentSugar <= Quantity.maxPercent
+          milkContentRate: Double, sugarContentRate: Double) {
+        guard milkContentRate >= Quantity.minPercent, milkContentRate <= Quantity.maxPercent,
+            sugarContentRate >= Quantity.minPercent, sugarContentRate <= Quantity.maxPercent
             else {
                 return nil
         }
         
-        self.percentMilk = percentMilk
-        self.percentSugar = percentSugar
+        self.milkContentRate = milkContentRate
+        self.sugarContentRate = sugarContentRate
         super.init(brand: "칸타타",
                    volume: volume, price: price,
                    name: name,
@@ -32,11 +32,11 @@ final class Cantata: Coffee {
     }
     
     func isContainsMilk() -> Bool {
-        return percentMilk == Quantity.minPercent
+        return milkContentRate == Quantity.minPercent
     }
     
     func isContainsSugar() -> Bool {
-        return percentSugar == Quantity.minPercent
+        return sugarContentRate == Quantity.minPercent
     }
     
 }
@@ -45,8 +45,8 @@ extension Cantata {
     
     override var description: String {
         return super.description +
-            ", 우유: \(percentMilk)%" +
-        ", 설탕: \(percentSugar)%"
+            ", 우유: \(milkContentRate)%" +
+        ", 설탕: \(sugarContentRate)%"
     }
     
 }

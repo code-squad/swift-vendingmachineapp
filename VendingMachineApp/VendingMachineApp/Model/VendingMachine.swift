@@ -8,12 +8,8 @@
 
 import Foundation
 
-struct VendingMachine {
-    private var stock = Stock() {
-        didSet {
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "StockChanged"), object: self, userInfo: ["stock":stockList])
-        }
-    }
+class VendingMachine {
+    private var stock = Stock()
     private var money = Money() {
         didSet {
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "MoneyChanged"), object: self, userInfo: ["balance":"\(money)"])
@@ -43,25 +39,27 @@ struct VendingMachine {
         self.stock.add(beverage: Fanta(brand: "코카콜라", amount: 250, price: Money(amount: 1000), name: "환타 오렌지", calorie: 136, saleablePeriod: 600, sugarContent: 34, flavor: "오렌지"))
     }
     
-    mutating func addBeverage(beverage: Beverage) {
+    func addBeverage(beverage: Beverage) {
         stock.add(beverage: beverage)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "StockChanged"), object: self, userInfo: ["stock":stockList])
     }
     
     func checkBalance() -> Money {
         return money
     }
     
-    mutating func addBalance(_ money: Money) {
+    func addBalance(_ money: Money) {
         self.money += money
     }
     
-    mutating func buy(beverage: Beverage) -> Beverage? {
+    func buy(beverage: Beverage) -> Beverage? {
         guard purchasableList.contains(beverage) else {
             return nil
         }
         let servedBeverage = stock.serve(beverage: beverage)
         money -= servedBeverage.price
         purchaseHistory.append(servedBeverage)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "StockChanged"), object: self, userInfo: ["stock":stockList])
         return beverage
     }
 }

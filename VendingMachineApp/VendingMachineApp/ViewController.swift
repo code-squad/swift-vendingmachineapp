@@ -38,7 +38,7 @@ class ViewController: UIViewController {
         
         let observer = center.addObserver(forName: .balanceDidChange, userInfoKey: .balance) { [weak self] in
             guard let balance = $0 as? Int else { return }
-            self?.balanceLabel.text = "\(balance)"
+            self?.balanceLabel.text = "잔액: \(balance)원"
         }
         
         observers.append(observer)
@@ -49,7 +49,9 @@ class ViewController: UIViewController {
     }
     
     @IBAction func insertMoney(_ sender: UIButton) {
-        vendingMachine.insert(money: 1000)
+        if let money = ViewIdentifier.findButton(by: sender.tag)?.money {
+            vendingMachine.insert(money: money)
+        }
     }
 }
 

@@ -296,7 +296,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="6Od-RM-EGK" userLabel="Buttons Stack View">
                                                 <rect key="frame" x="104" y="0.0" width="62" height="72"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bld-rb-gvs">
+                                                    <button opaque="NO" tag="207" contentMode="scaleToFill" horizontalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bld-rb-gvs">
                                                         <rect key="frame" x="3" y="0.0" width="59" height="36"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
                                                         <state key="normal" title="+1000"/>
@@ -304,10 +304,13 @@
                                                             <action selector="insertMoney:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fHA-HG-4L3"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jQT-X5-jFb">
+                                                    <button opaque="NO" tag="208" contentMode="scaleToFill" horizontalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jQT-X5-jFb">
                                                         <rect key="frame" x="0.0" y="36" width="62" height="36"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
                                                         <state key="normal" title="+5000"/>
+                                                        <connections>
+                                                            <action selector="insertMoney:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ebb-e5-mzR"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>

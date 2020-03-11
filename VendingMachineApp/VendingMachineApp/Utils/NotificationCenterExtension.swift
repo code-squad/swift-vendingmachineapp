@@ -12,10 +12,6 @@ enum UserInfoKeys {
     case balance
 }
 
-extension Notification.Name {
-    static let balanceDidChange = Notification.Name("balanceDidChange")
-}
-
 extension NotificationCenter {
     func addObserver(forName name: NSNotification.Name?,
                      userInfoKey: UserInfoKeys,

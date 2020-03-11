@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Beverage {
+class Beverage: NSObject, NSCoding {
     static let lowCalorieStandard = 30.0
     private let brand: String
     private let amount: Int
@@ -37,24 +37,50 @@ class Beverage {
     func validate(with date: Date) -> Bool {
         return date < expirationDate
     }
+    
+    // MARK: - CustomStringConvertible
+    
+    override var description: String {
+        "\(brand), \(amount)ml, \(price)원, \(name), \(manufacturingDate.formattedDate)"
+    }
+
+    // MARK: - NSCoding
+    
+    required init?(coder: NSCoder) {
+        guard let brand = coder.decodeObject(forKey: "brand") as? String,
+            let price = coder.decodeObject(forKey: "price") as? Money,
+            let name = coder.decodeObject(forKey: "name") as? String,
+            let manufacturingDate = coder.decodeObject(forKey: "manufacturingDate") as? Date,
+            let expirationDate = coder.decodeObject(forKey: "expirationDate") as? Date else { return nil }
+        self.brand = brand
+        self.amount = coder.decodeInteger(forKey: "beverageAmount")
+        self.price = price
+        self.name = name
+        self.calorie = coder.decodeDouble(forKey: "calorie")
+        self.isHot = coder.decodeBool(forKey: "isHot")
+        self.manufacturingDate = manufacturingDate
+        self.expirationDate = expirationDate
+    }
+    
+    func encode(with coder: NSCoder) {
+        coder.encode(brand, forKey: "brand")
+        coder.encode(amount, forKey: "beverageAmount")
+        coder.encode(price, forKey: "price")
+        coder.encode(name, forKey: "name")
+        coder.encode(calorie, forKey: "calorie")
+        coder.encode(isHot, forKey: "isHot")
+        coder.encode(manufacturingDate, forKey: "manufacturingDate")
+        coder.encode(expirationDate, forKey: "expirationDate")
+    }
 }
 
-extension Beverage: CustomStringConvertible, Hashable, Comparable {
+extension Beverage: Comparable {
     static func < (lhs: Beverage, rhs: Beverage) -> Bool {
         lhs.name < rhs.name
     }
     
-    var description: String {
-        "\(brand), \(amount)ml, \(price)원, \(name), \(manufacturingDate.formattedDate)"
-    }
-    
     static func == (lhs: Beverage, rhs: Beverage) -> Bool {
         lhs.brand == rhs.brand && lhs.name == rhs.name 
-    }
-    
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(self.brand)
-        hasher.combine(self.name)
     }
 }
 

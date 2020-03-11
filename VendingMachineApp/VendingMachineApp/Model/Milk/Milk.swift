@@ -20,4 +20,16 @@ class Milk: Beverage {
     func isLowFat() -> Bool {
         return fatRatio < Milk.lowFatStandard
     }
+    
+    // MARK: - NSCoding
+    
+    required init?(coder: NSCoder) {
+        self.fatRatio = coder.decodeDouble(forKey: "fatRatio")
+        super.init(coder: coder)
+    }
+    
+    override func encode(with coder: NSCoder) {
+        super.encode(with: coder)
+        coder.encode(fatRatio, forKey: "fatRatio")
+    }
 }

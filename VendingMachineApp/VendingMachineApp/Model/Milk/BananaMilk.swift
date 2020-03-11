@@ -15,4 +15,16 @@ class BananaMilk: Milk {
         self.bananaContent = bananaContent
         super.init(brand: brand, amount: amount, price: price, name: name, calorie: calorie, saleablePeriod: saleablePeriod, fatRatio: fatRatio)
     }
+    
+    // MARK: - NSCoding
+    
+    required init?(coder: NSCoder) {
+        self.bananaContent = coder.decodeDouble(forKey: "bananaContent")
+        super.init(coder: coder)
+    }
+    
+    override func encode(with coder: NSCoder) {
+        super.encode(with: coder)
+        coder.encode(bananaContent, forKey: "bananaContent")
+    }
 }

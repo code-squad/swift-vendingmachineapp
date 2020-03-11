@@ -8,43 +8,22 @@
 
 import Foundation
 
-class Balance {
-    
-    private var balance = Quantity.zero
-    var currentBalance: Int {
-        return balance
-    }
-    
-    func subtract(price: Int) {
-        balance -= price
-    }
-    
-    func plus(money: Int) {
-        balance += money
-    }
-    
-    func isEnoughToBuy(price: Int) -> Bool {
-        return balance >= price
-    }
-
-}
-
 struct VendingMachine {
     
     private var stock: [Beverage]
     private var soldBeverages = [Beverage]()
-    private let balance = Balance()
+    private let cashier = Cashier()
     
     init(stock: [Beverage]) {
         self.stock = stock
     }
     
     mutating func receive(insertedMoney: Int) {
-        balance.plus(money: insertedMoney)
+        cashier.plus(money: insertedMoney)
     }
     
     func currentMoney() -> Int {
-        return balance.currentBalance
+        return cashier.currentBalance
     }
     
     mutating func addToStock(beverage: Beverage) {
@@ -76,11 +55,11 @@ struct VendingMachine {
     }
     
     mutating private func subtractFromMoney(to price: Int) {
-        guard balance.isEnoughToBuy(price: price)
+        guard cashier.isEnoughToBuy(price: price)
             else {
                 return
         }
-        balance.subtract(price: price)
+        cashier.subtract(price: price)
     }
     
 }
@@ -149,7 +128,7 @@ extension VendingMachine {
                     sellableBeverages[beverage]?.append(beverage)
                     continue
             }
-            guard balance.isEnoughToBuy(price: beverage.price)
+            guard cashier.isEnoughToBuy(price: beverage.price)
                 else {
                     continue
             }

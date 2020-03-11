@@ -26,10 +26,22 @@ class Pepsi: Soda {
 
 extension Pepsi {
     
-    enum Package {
+    override var description: String {
+        return super.description + ", package: \(package.description)"
+    }
+    
+}
+
+extension Pepsi {
+    
+    enum Package: String, CustomStringConvertible {
         case glass
         case can
         case pet
+        
+        var description: String {
+            return rawValue
+        }
     }
     
 }

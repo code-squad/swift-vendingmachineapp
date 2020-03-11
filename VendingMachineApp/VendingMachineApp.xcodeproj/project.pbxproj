@@ -33,6 +33,7 @@
 		C2D405E224137BED00848736 /* CashierTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D405E124137BED00848736 /* CashierTests.swift */; };
 		C2F917612417E32D005CE6B1 /* ViewIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F917602417E32D005CE6B1 /* ViewIdentifier.swift */; };
 		C2F917642418AF5B005CE6B1 /* NotificationCenterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F917632418AF5B005CE6B1 /* NotificationCenterExtension.swift */; };
+		C2F9176624191840005CE6B1 /* NotificationNameExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F9176524191840005CE6B1 /* NotificationNameExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +77,7 @@
 		C2D405E124137BED00848736 /* CashierTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashierTests.swift; sourceTree = "<group>"; };
 		C2F917602417E32D005CE6B1 /* ViewIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewIdentifier.swift; sourceTree = "<group>"; };
 		C2F917632418AF5B005CE6B1 /* NotificationCenterExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenterExtension.swift; sourceTree = "<group>"; };
+		C2F9176524191840005CE6B1 /* NotificationNameExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationNameExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +176,7 @@
 		C2F917622418AF35005CE6B1 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				C2F9176524191840005CE6B1 /* NotificationNameExtension.swift */,
 				C2F917632418AF5B005CE6B1 /* NotificationCenterExtension.swift */,
 				C2F917602417E32D005CE6B1 /* ViewIdentifier.swift */,
 			);
@@ -292,6 +295,7 @@
 				C2D405E02413744500848736 /* Cashier.swift in Sources */,
 				C2078AB72407CA8900B403A7 /* AppDelegate.swift in Sources */,
 				C2078ADA2407CFD400B403A7 /* Beverage.swift in Sources */,
+				C2F9176624191840005CE6B1 /* NotificationNameExtension.swift in Sources */,
 				C2F917612417E32D005CE6B1 /* ViewIdentifier.swift in Sources */,
 				C250FB97240ED512008DB2AD /* Coffee.swift in Sources */,
 				C2560CAD24091B4900933332 /* StrawberryMilk.swift in Sources */,

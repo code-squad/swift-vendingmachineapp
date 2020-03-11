@@ -18,7 +18,8 @@ class MilkTest: XCTestCase {
         milk = HersheyChocolateDrink(volume: 190, price: 1500,
                                      name: "쿠키 앤 크림",
                                      manufacturingDateInfo: "20191116",
-                                     expirationDateInfo: "20191123")
+                                     expirationDateInfo: "20191123",
+                                     cacaoContentRate: 0.03)
     }
     
     override func tearDown() {

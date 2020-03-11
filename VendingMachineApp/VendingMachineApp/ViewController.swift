@@ -20,18 +20,41 @@ class ViewController: UIViewController {
     @IBOutlet var beverageLabels: [UILabel]!
     @IBOutlet var addBeverageButtons: [UIButton]!
     
-    let vendingMachine = VendingMachine(cashier: Cashier())
+    private let vendingMachine = VendingMachine(cashier: Cashier())
+    
+    private var observers = [NSObjectProtocol]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        layoutStackViewsToReadableContentGuide()
+        layoutStackViews()
         layoutBeverageViews()
+        
+        addViewUpdatingObservers()
+    }
+    
+    private func addViewUpdatingObservers() {
+        let center = NotificationCenter.default
+        
+        let observer = center.addObserver(forName: .balanceDidChange, userInfoKey: .balance) { [weak self] in
+            guard let balance = $0 as? Int else { return }
+            self?.balanceLabel.text = "\(balance)"
+        }
+        
+        observers.append(observer)
+    }
+    
+    deinit {
+        observers.forEach { NotificationCenter.default.removeObserver($0) }
+    }
+    
+    @IBAction func insertMoney(_ sender: UIButton) {
+        vendingMachine.insert(money: 1000)
     }
 }
 
 extension ViewController {
-    private func layoutStackViewsToReadableContentGuide() {
+    private func layoutStackViews() {
         let readableGuide = view.readableContentGuide
         productsStackView.leadingAnchor.constraint(equalTo: readableGuide.leadingAnchor).isActive = true
         productsStackView.trailingAnchor.constraint(equalTo: readableGuide.trailingAnchor).isActive = true
@@ -41,7 +64,7 @@ extension ViewController {
     
     private func layoutBeverageViews() {
         beverageViews.forEach {
-            $0.layer.cornerRadius = 25;
+            $0.layer.cornerRadius = 30;
         }
     }
 }

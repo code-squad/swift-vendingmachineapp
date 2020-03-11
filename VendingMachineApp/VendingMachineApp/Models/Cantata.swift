@@ -16,8 +16,8 @@ final class Cantata: Coffee {
     init?(volume: Int, price: Int, name: String,
           manufacturingDateInfo: String, celsius: Int,
           milkContentRate: Double, sugarContentRate: Double) {
-        guard milkContentRate >= Quantity.minPercent, milkContentRate <= Quantity.maxPercent,
-            sugarContentRate >= Quantity.minPercent, sugarContentRate <= Quantity.maxPercent
+        guard milkContentRate >= Quantity.minRate, milkContentRate <= Quantity.maxRate,
+            sugarContentRate >= Quantity.minRate, sugarContentRate <= Quantity.maxRate
             else {
                 return nil
         }
@@ -32,11 +32,11 @@ final class Cantata: Coffee {
     }
     
     func isContainsMilk() -> Bool {
-        return milkContentRate == Quantity.minPercent
+        return milkContentRate == Quantity.minRate
     }
     
     func isContainsSugar() -> Bool {
-        return sugarContentRate == Quantity.minPercent
+        return sugarContentRate == Quantity.minRate
     }
     
 }

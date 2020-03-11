@@ -23,7 +23,8 @@ class VendingMachineTest: XCTestCase {
     let cookieCreamMilk = HersheyChocolateDrink(volume: 190, price: 1500,
                                                 name: "쿠키앤크림",
                                                 manufacturingDateInfo: "20191116",
-                                                expirationDateInfo: "20191123")!
+                                                expirationDateInfo: "20191123",
+                                                cacaoContentRate: 0.03)!
     
     override func setUp() {
         super.setUp()
@@ -49,12 +50,14 @@ class VendingMachineTest: XCTestCase {
         let otherCookieCreamMilk = HersheyChocolateDrink(volume: 190, price: 1500,
                                                          name: "쿠키앤크림",
                                                          manufacturingDateInfo: "20191016",
-                                                         expirationDateInfo: "20191023")!
+                                                         expirationDateInfo: "20191023",
+                                                         cacaoContentRate: 0.03)!
         
         let newCookieCreamMilk = HersheyChocolateDrink(volume: 10, price: 1500,
-                                                         name: "쿠키앤크림",
-                                                         manufacturingDateInfo: "20191016",
-                                                         expirationDateInfo: "20191023")!
+                                                       name: "쿠키앤크림",
+                                                       manufacturingDateInfo: "20191016",
+                                                       expirationDateInfo: "20191023",
+                                                       cacaoContentRate: 0.03)!
         vendingMachine.addToStock(beverage: otherCookieCreamMilk)
         vendingMachine.addToStock(beverage: newCookieCreamMilk)
         
@@ -92,7 +95,8 @@ class VendingMachineTest: XCTestCase {
         let otherCookieCreamMilk = HersheyChocolateDrink(volume: 190, price: 1500,
                                                          name: "쿠키앤크림",
                                                          manufacturingDateInfo: "20191016",
-                                                         expirationDateInfo: "20191023")!
+                                                         expirationDateInfo: "20191023",
+                                                         cacaoContentRate: 0.03)!
         vendingMachine.addToStock(beverage: otherCookieCreamMilk)
         vendingMachine.searchStockByKind {
             if $0.key is HersheyChocolateDrink {

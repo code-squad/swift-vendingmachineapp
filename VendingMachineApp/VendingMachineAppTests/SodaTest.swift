@@ -16,7 +16,8 @@ class SodaTest: XCTestCase {
     override func setUp() {
         super.setUp()
         soda = Pepsi(volume: 350, price: 2000, name: "다이어트 콜라",
-                     manufacturingDateInfo: "20190928", kiloCalorie: 80)
+                     manufacturingDateInfo: "20190928",
+                     kiloCalorie: 80, package: .glass)
     }
     
     override func tearDown() {
@@ -30,7 +31,8 @@ class SodaTest: XCTestCase {
     
     func testIsLowCalorieFalse() {
         soda = Pepsi(volume: 350, price: 2000, name: "표준 콜라",
-                     manufacturingDateInfo: "20190928", kiloCalorie: 200)
+                     manufacturingDateInfo: "20190928",
+                     kiloCalorie: 200, package: .glass)
         
         XCTAssertFalse(soda.isLowCalorie())
     }

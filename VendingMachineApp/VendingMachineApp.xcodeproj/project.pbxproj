@@ -13,6 +13,7 @@
 		5A7EFBC8241643E10018710C /* SodaTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7EFBC7241643E10018710C /* SodaTest.swift */; };
 		5A7EFBCA24164EAC0018710C /* VendingMachineTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7EFBC924164EAC0018710C /* VendingMachineTest.swift */; };
 		5A7EFBCC241658C30018710C /* Quantity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7EFBCB241658C30018710C /* Quantity.swift */; };
+		5A834174241900EC00F20FAA /* Cashier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A834173241900EC00F20FAA /* Cashier.swift */; };
 		5A91FCCD240FCDFB00884D64 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A91FCCC240FCDFB00884D64 /* AppDelegate.swift */; };
 		5A91FCCF240FCDFB00884D64 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A91FCCE240FCDFB00884D64 /* SceneDelegate.swift */; };
 		5A91FCD1240FCDFB00884D64 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A91FCD0240FCDFB00884D64 /* ViewController.swift */; };
@@ -55,6 +56,7 @@
 		5A7EFBC7241643E10018710C /* SodaTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SodaTest.swift; sourceTree = "<group>"; };
 		5A7EFBC924164EAC0018710C /* VendingMachineTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineTest.swift; sourceTree = "<group>"; };
 		5A7EFBCB241658C30018710C /* Quantity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quantity.swift; sourceTree = "<group>"; };
+		5A834173241900EC00F20FAA /* Cashier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cashier.swift; sourceTree = "<group>"; };
 		5A91FCC9240FCDFB00884D64 /* VendingMachineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendingMachineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A91FCCC240FCDFB00884D64 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5A91FCCE240FCDFB00884D64 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 				5A91FCFD240FD6DE00884D64 /* VendingMachine.swift */,
 				5A7EFBC1241631860018710C /* Date.swift */,
 				5A7EFBCB241658C30018710C /* Quantity.swift */,
+				5A834173241900EC00F20FAA /* Cashier.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -322,6 +325,7 @@
 				5A91FD08240FE2C800884D64 /* HersheyChocolateDrink.swift in Sources */,
 				5A7EFBCC241658C30018710C /* Quantity.swift in Sources */,
 				5A91FCD1240FCDFB00884D64 /* ViewController.swift in Sources */,
+				5A834174241900EC00F20FAA /* Cashier.swift in Sources */,
 				5A91FCCD240FCDFB00884D64 /* AppDelegate.swift in Sources */,
 				5A91FCCF240FCDFB00884D64 /* SceneDelegate.swift in Sources */,
 				5A91FD06240FE0BE00884D64 /* Soda.swift in Sources */,

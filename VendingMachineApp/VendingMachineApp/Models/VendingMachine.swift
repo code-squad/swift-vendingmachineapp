@@ -36,6 +36,10 @@ struct VendingMachine {
         self.standard = standard
     }
     
+    public mutating func insert(coin: Int) {
+        money.insert(coin)
+    }
+    
     public mutating func add(product: Beverage, amount: Int) {
         products.update(value: (products[product] ?? 0) + 1, forkey: product)
     }

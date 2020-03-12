@@ -24,7 +24,6 @@ class Coffee: Beverage {
     required init?(coder: NSCoder) {
         guard let package = Packages(rawValue: (coder.decodeObject(forKey: "package") as? String)!) else { return nil }
         self.package = package
-//        self.package = Packages(rawValue: ((coder.decodeObject(forKey: "package") as? String)!))!
         super.init(coder: coder)
     }
     

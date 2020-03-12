@@ -18,7 +18,7 @@ class Sprite: Soda {
 }
 
 extension Sprite: Producible {
-    static func produce(at manufactureDate: Date) -> Beverage {
+    static func produce(at manufactureDate: Date = Date()) -> Beverage {
         Sprite(name: "스프라이트", brand: "코카콜라", servingSize: 250, price: Money(2000), manufactureDate: manufactureDate, expirationDate: Date(timeInterval: 25920000, since: manufactureDate), isSugarFree: false, packageMaterial: "Aluminum")
     }
 }

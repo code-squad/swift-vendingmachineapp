@@ -22,7 +22,7 @@ class Cantata: Coffee {
 }
 
 extension Cantata: Producible {
-    static func produce(at manufactureDate: Date) -> Beverage {
+    static func produce(at manufactureDate: Date = Date()) -> Beverage {
         Cantata(name: "칸타타", brand: "칸타타", servingSize: 180, price: Money(950), manufactureDate: manufactureDate, expirationDate: Date(timeInterval: 25920000, since: manufactureDate), servingCaffeine: 80, isCoffeeLatte: false)
     }
 }

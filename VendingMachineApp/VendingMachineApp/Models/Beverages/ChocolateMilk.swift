@@ -18,7 +18,7 @@ class ChocolateMilk: Milk {
 }
 
 extension ChocolateMilk: Producible {
-    static func produce(at manufactureDate: Date) -> Beverage {
+    static func produce(at manufactureDate: Date = Date()) -> Beverage {
         ChocolateMilk(name: "서울우유-초콜릿", brand: "서울우유", servingSize: 150, price: Money(1000), manufactureDate: manufactureDate, expirationDate: Date(timeInterval: 432000, since: manufactureDate), farmCode: "AEBN127", cacaoContentRate: 23.4)
     }
 }

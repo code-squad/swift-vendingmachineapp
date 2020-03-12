@@ -18,7 +18,7 @@ class Coke: Soda {
 }
 
 extension Coke: Producible {
-    static func produce(at manufactureDate: Date) -> Beverage {
+    static func produce(at manufactureDate: Date = Date()) -> Beverage {
         Coke(name: "코카콜라", brand: "코카콜라", servingSize: 140, price: Money(900), manufactureDate: manufactureDate, expirationDate: Date(timeInterval: 25920000, since: manufactureDate), isSugarFree: false, packageColor: "RED")
     }
 }

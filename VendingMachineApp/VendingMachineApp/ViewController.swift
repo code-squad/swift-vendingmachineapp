@@ -14,11 +14,11 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let chocoMilk = ChocolateMilk(brand: "Seoul", capacity: 300, price: 1200, name: "초코우유", manufacturingDate: "20200218", expiryDate: "20200228")
-        let fanta = Fanta(taste: "Orange", brand: "CokeCola", capacity: 355, price: 500, name: "환타오렌지맛", manufacturingDate: "20200101", expiryDate: "20200131")
-        let georgia = Georgia(brand: "Lotte", capacity: 240, price: 800, name: "조지아커피", manufacturingDate: "20200201", expiryDate: "20200228")
+        let chocolateMilk = Milk(flavor: "초코", brand: "Lotte", capacity: 300, price: 1200, name: "진한초코우유", manufacturingDate: "20200128", expiryDate: "20200212")
+        let fanta = Soda(carbonateContent: 20, brand: "Lotte", capacity: 355, price: 800, name: "환타", manufacturingDate: "20200301", expiryDate: "20200315")
+        let georgia = Coffee(caffeineContent: 138, brand: "CokeCola", capacity: 240, price: 950, name: "조지아맥스", manufacturingDate: "20200315", expiryDate: "20200401")
         
-        vendingMachine.addDrinkStock(drink: chocoMilk)
+        vendingMachine.addDrinkStock(drink: chocolateMilk)
         vendingMachine.addDrinkStock(drink: fanta)
         vendingMachine.addDrinkStock(drink: georgia)
         

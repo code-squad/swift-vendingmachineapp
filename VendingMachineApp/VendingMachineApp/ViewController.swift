@@ -19,6 +19,7 @@ class ViewController: UIViewController {
     @IBOutlet var beverageViews: [UIView]!
     @IBOutlet var beverageLabels: [UILabel]!
     @IBOutlet var beverageButtons: [BeverageButton]!
+    @IBOutlet var balanceButtons: [BalanceButton]!
     
     private let vendingMachine = VendingMachine(cashier: Cashier())
     private let observers = Observers()
@@ -38,15 +39,13 @@ class ViewController: UIViewController {
         observers.removeObservers()
     }
     
-    @IBAction func insertMoney(_ sender: UIButton) {
-        if let money = ViewIdentifier.findBalanceButton(by: sender.tag)?.money {
-            vendingMachine.insert(money: money)
-        }
-    }
-    
     private func setupActionForButtons() {
         beverageButtons.forEach { button in
             button.customAction = { [weak self] in self?.vendingMachine.fill(beverage: $0) }
+        }
+        
+        balanceButtons.forEach { button in
+            button.customAction = { [weak self] in self?.vendingMachine.insert(money: $0) }
         }
     }
     

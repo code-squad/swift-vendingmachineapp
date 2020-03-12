@@ -1,5 +1,5 @@
 //
-//  BeverageButton.swift
+//  BalanceButton.swift
 //  VendingMachineApp
 //
 //  Created by Chaewan Park on 2020/03/12.
@@ -8,25 +8,21 @@
 
 import UIKit
 
-class BeverageButton: UIButton {
+class BalanceButton: UIButton {
     
     private enum Item: Int {
-        case coke = 201
-        case fanta, strawberryMilk, chocolateMilk, georgia, top
+        case thousand = 207
+        case fiveThousand
         
-        var action: (() -> Beverage) {
+        var money: Int {
             switch self {
-            case .coke: return { return Coke() }
-            case .fanta: return { return Fanta() }
-            case .strawberryMilk: return { return StrawberryMilk() }
-            case .chocolateMilk: return { return ChocolateMilk() }
-            case .georgia: return { return Georgia() }
-            case .top: return { return Top() }
+            case .thousand: return 1000
+            case .fiveThousand: return 5000
             }
         }
     }
     
-    var customAction: ((Beverage) -> Void)?
+    var customAction: ((Int) -> Void)?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -47,14 +43,14 @@ class BeverageButton: UIButton {
     }
 }
 
-extension BeverageButton {
+extension BalanceButton {
     private func setup() {
         self.addTarget(self, action: #selector(invokeAction), for: .touchUpInside)
     }
     
     @objc func invokeAction(sender: BeverageButton) {
-        if let beverage = Item(rawValue: tag)?.action() {
-            customAction?(beverage)
+        if let money = Item(rawValue: tag)?.money {
+            customAction?(money)
         }
     }
 }

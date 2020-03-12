@@ -35,6 +35,7 @@
 		C2F917642418AF5B005CE6B1 /* NotificationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F917632418AF5B005CE6B1 /* NotificationExtension.swift */; };
 		C2F9176A241A1A7C005CE6B1 /* Observers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F91769241A1A7C005CE6B1 /* Observers.swift */; };
 		C2F9176D241A1DFE005CE6B1 /* BeverageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F9176C241A1DFE005CE6B1 /* BeverageButton.swift */; };
+		C2F9176F241A4EEA005CE6B1 /* BalanceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F9176E241A4EEA005CE6B1 /* BalanceButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,7 @@
 		C2F917632418AF5B005CE6B1 /* NotificationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationExtension.swift; sourceTree = "<group>"; };
 		C2F91769241A1A7C005CE6B1 /* Observers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observers.swift; sourceTree = "<group>"; };
 		C2F9176C241A1DFE005CE6B1 /* BeverageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageButton.swift; sourceTree = "<group>"; };
+		C2F9176E241A4EEA005CE6B1 /* BalanceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +191,7 @@
 		C2F9176B241A1DD1005CE6B1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C2F9176E241A4EEA005CE6B1 /* BalanceButton.swift */,
 				C2F9176C241A1DFE005CE6B1 /* BeverageButton.swift */,
 			);
 			path = Views;
@@ -303,6 +306,7 @@
 				C2078ABB2407CA8900B403A7 /* ViewController.swift in Sources */,
 				C2560CB524091D5600933332 /* Top.swift in Sources */,
 				C2F917642418AF5B005CE6B1 /* NotificationExtension.swift in Sources */,
+				C2F9176F241A4EEA005CE6B1 /* BalanceButton.swift in Sources */,
 				C2D405E02413744500848736 /* Cashier.swift in Sources */,
 				C2078AB72407CA8900B403A7 /* AppDelegate.swift in Sources */,
 				C2078ADA2407CFD400B403A7 /* Beverage.swift in Sources */,

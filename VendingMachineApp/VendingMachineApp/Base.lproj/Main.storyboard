@@ -296,21 +296,15 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="6Od-RM-EGK" userLabel="Buttons Stack View">
                                                 <rect key="frame" x="104" y="0.0" width="62" height="72"/>
                                                 <subviews>
-                                                    <button opaque="NO" tag="207" contentMode="scaleToFill" horizontalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bld-rb-gvs">
+                                                    <button opaque="NO" tag="207" contentMode="scaleToFill" horizontalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bld-rb-gvs" customClass="BalanceButton" customModule="VendingMachineApp" customModuleProvider="target">
                                                         <rect key="frame" x="3" y="0.0" width="59" height="36"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
                                                         <state key="normal" title="+1000"/>
-                                                        <connections>
-                                                            <action selector="insertMoney:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fHA-HG-4L3"/>
-                                                        </connections>
                                                     </button>
-                                                    <button opaque="NO" tag="208" contentMode="scaleToFill" horizontalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jQT-X5-jFb">
+                                                    <button opaque="NO" tag="208" contentMode="scaleToFill" horizontalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jQT-X5-jFb" customClass="BalanceButton" customModule="VendingMachineApp" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="36" width="62" height="36"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
                                                         <state key="normal" title="+5000"/>
-                                                        <connections>
-                                                            <action selector="insertMoney:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ebb-e5-mzR"/>
-                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -354,6 +348,8 @@
                         <outletCollection property="beverageButtons" destination="otP-BF-cN1" collectionClass="NSMutableArray" id="vhm-Oe-x4w"/>
                         <outletCollection property="beverageButtons" destination="Uzd-jb-PtY" collectionClass="NSMutableArray" id="J8y-WG-pKK"/>
                         <outletCollection property="beverageButtons" destination="L7h-nQ-2hi" collectionClass="NSMutableArray" id="rNj-P5-sO9"/>
+                        <outletCollection property="balanceButtons" destination="bld-rb-gvs" collectionClass="NSMutableArray" id="fcW-lK-aiA"/>
+                        <outletCollection property="balanceButtons" destination="jQT-X5-jFb" collectionClass="NSMutableArray" id="ieq-tO-eaD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

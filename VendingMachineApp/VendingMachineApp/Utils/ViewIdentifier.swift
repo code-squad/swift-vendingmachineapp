@@ -13,10 +13,6 @@ class ViewIdentifier {
         return Identifier.BalanceButton(rawValue: tag)
     }
     
-    static func findBeverageButton(by tag: Int) -> Identifier.BeverageButton? {
-        return Identifier.BeverageButton(rawValue: tag)
-    }
-    
     static func findLabel(by tag: Int) -> Identifier.Label? {
         return Identifier.Label(rawValue: tag)
     }
@@ -37,11 +33,6 @@ class Identifier {
             case .top: return "Top"
             }
         }
-    }
-
-    enum BeverageButton: Int {
-        case coke = 201
-        case fanta, strawberryMilk, chocolateMilk, georgia, top
     }
     
     enum BalanceButton: Int {

@@ -34,6 +34,7 @@
 		C2F917612417E32D005CE6B1 /* ViewIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F917602417E32D005CE6B1 /* ViewIdentifier.swift */; };
 		C2F917642418AF5B005CE6B1 /* NotificationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F917632418AF5B005CE6B1 /* NotificationExtension.swift */; };
 		C2F9176824191DBD005CE6B1 /* BeverageFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F9176724191DBD005CE6B1 /* BeverageFactory.swift */; };
+		C2F9176A241A1A7C005CE6B1 /* Observers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F91769241A1A7C005CE6B1 /* Observers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,7 @@
 		C2F917602417E32D005CE6B1 /* ViewIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewIdentifier.swift; sourceTree = "<group>"; };
 		C2F917632418AF5B005CE6B1 /* NotificationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationExtension.swift; sourceTree = "<group>"; };
 		C2F9176724191DBD005CE6B1 /* BeverageFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageFactory.swift; sourceTree = "<group>"; };
+		C2F91769241A1A7C005CE6B1 /* Observers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,9 +152,10 @@
 			children = (
 				C2560CA4240910E700933332 /* Beverages */,
 				C2078ADB2407ECDD00B403A7 /* VendingMachine.swift */,
+				C2F9176724191DBD005CE6B1 /* BeverageFactory.swift */,
+				C2F91769241A1A7C005CE6B1 /* Observers.swift */,
 				C250FB98240FC975008DB2AD /* Inventory.swift */,
 				C2D405DF2413744500848736 /* Cashier.swift */,
-				C2F9176724191DBD005CE6B1 /* BeverageFactory.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -301,6 +304,7 @@
 				C2560CAF24091B6E00933332 /* ChocolateMilk.swift in Sources */,
 				C250FB99240FC975008DB2AD /* Inventory.swift in Sources */,
 				C2F9176824191DBD005CE6B1 /* BeverageFactory.swift in Sources */,
+				C2F9176A241A1A7C005CE6B1 /* Observers.swift in Sources */,
 				C250FB95240E8210008DB2AD /* SoftDrink.swift in Sources */,
 				C2078AB92407CA8900B403A7 /* SceneDelegate.swift in Sources */,
 			);

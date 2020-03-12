@@ -20,8 +20,7 @@ class ViewController: UIViewController {
     @IBOutlet var beverageLabels: [UILabel]!
     
     private let vendingMachine = VendingMachine(cashier: Cashier())
-    
-    private var observers = [NSObjectProtocol]()
+    private let observers = Observers()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +33,7 @@ class ViewController: UIViewController {
     }
     
     deinit {
-        observers.forEach { NotificationCenter.default.removeObserver($0) }
+        observers.removeObservers()
     }
     
     @IBAction func insertMoney(_ sender: UIButton) {
@@ -50,16 +49,12 @@ class ViewController: UIViewController {
     }
     
     private func addViewUpdatingObservers() {
-        let center = NotificationCenter.default
-        var observer: NSObjectProtocol
-        
-        observer = center.addObserver(forName: .balanceDidChange) { [weak self] in
+        observers.addObserver(forName: .balanceDidChange) { [weak self] in
             guard let cashier = $0 as? Cashier else { return }
             self?.balanceLabel.text = "잔액: \(cashier.balance())원"
         }
-        observers.append(observer)
         
-        observer = center.addObserver(forName: .inventoryDidChange) { [weak self] in
+        observers.addObserver(forName: .inventoryDidChange) { [weak self] in
             guard let inventory = $0 as? Inventory else { return }
             let stock = inventory.briefStock()
             
@@ -68,7 +63,6 @@ class ViewController: UIViewController {
                 label.text = "\(stock[type] ?? 0)"
             }
         }
-        observers.append(observer)
     }
 }
 

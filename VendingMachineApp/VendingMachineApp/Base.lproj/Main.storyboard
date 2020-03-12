@@ -57,7 +57,7 @@
                                                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25" scale="large"/>
                                                                                 </state>
                                                                             </button>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QkM-jX-wF6">
+                                                                            <label opaque="NO" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QkM-jX-wF6" customClass="BeverageLabel" customModule="VendingMachineApp" customModuleProvider="target">
                                                                                 <rect key="frame" x="36" y="0.0" width="300.5" height="33.5"/>
                                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -96,7 +96,7 @@
                                                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25" scale="large"/>
                                                                                 </state>
                                                                             </button>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" tag="102" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QIH-dU-nhU">
+                                                                            <label opaque="NO" userInteractionEnabled="NO" tag="102" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QIH-dU-nhU" customClass="BeverageLabel" customModule="VendingMachineApp" customModuleProvider="target">
                                                                                 <rect key="frame" x="36" y="0.0" width="301" height="33.5"/>
                                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -135,7 +135,7 @@
                                                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25" scale="large"/>
                                                                                 </state>
                                                                             </button>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" tag="103" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xug-rY-Xqk">
+                                                                            <label opaque="NO" userInteractionEnabled="NO" tag="103" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xug-rY-Xqk" customClass="BeverageLabel" customModule="VendingMachineApp" customModuleProvider="target">
                                                                                 <rect key="frame" x="36" y="0.0" width="300.5" height="33.5"/>
                                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -179,7 +179,7 @@
                                                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25" scale="large"/>
                                                                                 </state>
                                                                             </button>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" tag="104" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OYK-Sn-B0e">
+                                                                            <label opaque="NO" userInteractionEnabled="NO" tag="104" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OYK-Sn-B0e" customClass="BeverageLabel" customModule="VendingMachineApp" customModuleProvider="target">
                                                                                 <rect key="frame" x="36" y="0.0" width="300.5" height="33.5"/>
                                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -218,7 +218,7 @@
                                                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25" scale="large"/>
                                                                                 </state>
                                                                             </button>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" tag="105" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dyf-bI-256">
+                                                                            <label opaque="NO" userInteractionEnabled="NO" tag="105" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dyf-bI-256" customClass="BeverageLabel" customModule="VendingMachineApp" customModuleProvider="target">
                                                                                 <rect key="frame" x="36" y="0.0" width="301" height="33.5"/>
                                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -257,7 +257,7 @@
                                                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25" scale="large"/>
                                                                                 </state>
                                                                             </button>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" tag="106" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OP0-1Y-c9p">
+                                                                            <label opaque="NO" userInteractionEnabled="NO" tag="106" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OP0-1Y-c9p" customClass="BeverageLabel" customModule="VendingMachineApp" customModuleProvider="target">
                                                                                 <rect key="frame" x="36" y="0.0" width="300.5" height="33.5"/>
                                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -336,12 +336,6 @@
                         <outletCollection property="beverageViews" destination="ap5-bn-tJX" collectionClass="NSMutableArray" id="Z9S-tA-tcM"/>
                         <outletCollection property="beverageViews" destination="xqn-kh-C69" collectionClass="NSMutableArray" id="Ebe-Om-c6v"/>
                         <outletCollection property="beverageViews" destination="LD8-Nh-O97" collectionClass="NSMutableArray" id="hrA-Is-HKc"/>
-                        <outletCollection property="beverageLabels" destination="QkM-jX-wF6" collectionClass="NSMutableArray" id="bf8-L6-gj9"/>
-                        <outletCollection property="beverageLabels" destination="QIH-dU-nhU" collectionClass="NSMutableArray" id="nOi-JP-z4H"/>
-                        <outletCollection property="beverageLabels" destination="xug-rY-Xqk" collectionClass="NSMutableArray" id="27m-An-kcv"/>
-                        <outletCollection property="beverageLabels" destination="OYK-Sn-B0e" collectionClass="NSMutableArray" id="RcT-na-Ejc"/>
-                        <outletCollection property="beverageLabels" destination="dyf-bI-256" collectionClass="NSMutableArray" id="l1R-Og-02a"/>
-                        <outletCollection property="beverageLabels" destination="OP0-1Y-c9p" collectionClass="NSMutableArray" id="eq0-e6-IWk"/>
                         <outletCollection property="beverageButtons" destination="SXs-h6-gkB" collectionClass="NSMutableArray" id="hkf-qv-pv3"/>
                         <outletCollection property="beverageButtons" destination="4Od-jK-64w" collectionClass="NSMutableArray" id="CUi-Tf-e0P"/>
                         <outletCollection property="beverageButtons" destination="unx-fC-nHr" collectionClass="NSMutableArray" id="amq-PH-9u5"/>
@@ -350,6 +344,12 @@
                         <outletCollection property="beverageButtons" destination="L7h-nQ-2hi" collectionClass="NSMutableArray" id="rNj-P5-sO9"/>
                         <outletCollection property="balanceButtons" destination="bld-rb-gvs" collectionClass="NSMutableArray" id="fcW-lK-aiA"/>
                         <outletCollection property="balanceButtons" destination="jQT-X5-jFb" collectionClass="NSMutableArray" id="ieq-tO-eaD"/>
+                        <outletCollection property="beverageLabels" destination="QkM-jX-wF6" collectionClass="NSMutableArray" id="gYm-jg-mIC"/>
+                        <outletCollection property="beverageLabels" destination="QIH-dU-nhU" collectionClass="NSMutableArray" id="n2R-2p-tXc"/>
+                        <outletCollection property="beverageLabels" destination="xug-rY-Xqk" collectionClass="NSMutableArray" id="YqN-f8-eKs"/>
+                        <outletCollection property="beverageLabels" destination="OYK-Sn-B0e" collectionClass="NSMutableArray" id="hq5-3g-pyD"/>
+                        <outletCollection property="beverageLabels" destination="dyf-bI-256" collectionClass="NSMutableArray" id="aLl-ph-MMc"/>
+                        <outletCollection property="beverageLabels" destination="OP0-1Y-c9p" collectionClass="NSMutableArray" id="8D6-dZ-P93"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

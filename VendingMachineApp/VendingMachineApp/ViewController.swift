@@ -18,6 +18,7 @@ class ViewController: UIViewController {
     
     @IBOutlet var beverageViews: [UIView]!
     @IBOutlet var beverageLabels: [UILabel]!
+    @IBOutlet var beverageButtons: [BeverageButton]!
     
     private let vendingMachine = VendingMachine(cashier: Cashier())
     private let observers = Observers()
@@ -27,8 +28,9 @@ class ViewController: UIViewController {
         
         layoutStackViews()
         layoutBeverageViews()
-        setupBeverageLabels()
+        layoutBeverageLabels()
         
+        setupActionForButtons()
         addViewUpdatingObservers()
     }
     
@@ -42,9 +44,9 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction func addBeverage(_ sender: UIButton) {
-        if let id = ViewIdentifier.findBeverageButton(by: sender.tag) {
-            vendingMachine.fill(beverage: BeverageFactory.make(by: id))
+    private func setupActionForButtons() {
+        beverageButtons.forEach { button in
+            button.customAction = { [weak self] in self?.vendingMachine.fill(beverage: $0) }
         }
     }
     
@@ -79,7 +81,7 @@ extension ViewController {
         beverageViews.forEach { $0.layer.cornerRadius = 30 }
     }
     
-    private func setupBeverageLabels() {
+    private func layoutBeverageLabels() {
         beverageLabels.forEach { $0.text = "0" }
     }
 }

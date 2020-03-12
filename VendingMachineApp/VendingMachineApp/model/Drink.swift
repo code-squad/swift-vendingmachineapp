@@ -31,7 +31,6 @@ class Drink {
 
 extension Drink: CustomStringConvertible {
     var description: String {
-        dateFormatter.dateFormat = "yyyyMMdd"
         return "\(brand), \(capacity)ml, \(price)원, \(name), \(dateFormatter.string(from:manufacturingDate))"
     }
 }

@@ -16,6 +16,10 @@ class Georgia: Coffee {
         super.init(name: name, brand: brand, servingSize: servingSize, price: price, manufactureDate: manufactureDate, expirationDate: expirationDate, servingCaffeine: servingCaffeine)
     }
     
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     func isHot() -> Bool {
         return isHotCoffee
     }

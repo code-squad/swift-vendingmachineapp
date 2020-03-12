@@ -8,11 +8,19 @@
 
 import Foundation
 
-class Money {
+class Money: NSObject, NSCoding {
     private(set) var balance: Int {
         didSet {
             postNotification()
         }
+    }
+    
+    required init?(coder: NSCoder) {
+        self.balance = coder.decodeInteger(forKey: "money")
+    }
+    
+    func encode(with coder: NSCoder) {
+        coder.encode(balance, forKey: "money")
     }
     
     init(_ balance: Int = 0) {

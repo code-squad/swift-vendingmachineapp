@@ -8,13 +8,29 @@
 
 import Foundation
 
-class Stock {
+class Stock: NSObject, NSCoding {
+    let stockOfKey = "stockOf"
     private var changedIndex: Int?
     private var changedBeverageObjectIdentifier: ObjectIdentifier?
-    private(set) var stockOf: [ObjectIdentifier: Beverages] = [:] {
+    private(set) var stockOf: [ObjectIdentifier: Beverages] {
         didSet {
             postNotification()
         }
+    }
+    
+    override init() {
+        stockOf = [:]
+    }
+    
+    func encode(with coder: NSCoder) {
+        coder.encode(stockOf, forKey: stockOfKey)
+    }
+    
+    required init?(coder: NSCoder) {
+        guard let stockOf = coder.decodeObject(forKey: stockOfKey) as? [ObjectIdentifier: Beverages] else {
+            self.stockOf = [:]; return
+        }
+        self.stockOf = stockOf
     }
     
     func postNotification() {

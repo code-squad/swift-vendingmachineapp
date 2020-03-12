@@ -10,11 +10,11 @@ import Foundation
 
 struct VendingMachine {
     private var products: [Beverage] = [
-        ChocolateMilk.produce(),
-        BananaMilk.produce(),
-        Coke.produce(),
-        Sprite.produce(),
-        Georgia.produce()
+        ChocolateMilk.produce() as! ChocolateMilk,
+        BananaMilk.produce(at: Date(timeIntervalSince1970: 0)) as! BananaMilk,
+        Coke.produce(at: Date(timeIntervalSince1970: 0)) as! Coke,
+        Sprite.produce(at: Date(timeIntervalSince1970: 0)) as! Sprite,
+        Georgia.produce(at: Date(timeIntervalSince1970: 0)) as! Georgia,
     ]
     
     let stock: Stock

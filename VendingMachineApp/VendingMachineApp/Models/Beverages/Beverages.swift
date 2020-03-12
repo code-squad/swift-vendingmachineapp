@@ -8,8 +8,24 @@
 
 import Foundation
 
-class Beverages {
-    private(set) var beverages: [Beverage] = []
+class Beverages: NSObject, NSCoding {
+    private(set) var beverages: [Beverage]
+    let bevergaesKey = "beverages"
+    
+    override init() {
+        beverages = []
+    }
+    
+    required init?(coder: NSCoder) {
+        guard let beverages = coder.decodeObject(forKey: bevergaesKey) as? [Beverage] else {
+            self.beverages = []; return
+        }
+        self.beverages = beverages
+    }
+    
+    func encode(with coder: NSCoder) {
+        coder.encode(beverages, forKey: bevergaesKey)
+    }
     
     func dequeue() -> Beverage {
         return beverages.removeFirst()

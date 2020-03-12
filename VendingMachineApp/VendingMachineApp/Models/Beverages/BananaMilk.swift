@@ -15,6 +15,10 @@ class BananaMilk: Milk {
         self.bananaContentGram = bananaContentGram
         super.init(name: name, brand: brand, servingSize: servingSize, price: price, manufactureDate: manufactureDate, expirationDate: expirationDate, farmCode: farmCode)
     }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }
 
 extension BananaMilk: Producible {

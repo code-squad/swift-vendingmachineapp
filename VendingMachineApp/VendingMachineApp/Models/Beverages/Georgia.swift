@@ -20,3 +20,9 @@ class Georgia: Coffee {
         return isHotCoffee
     }
 }
+
+extension Georgia: Producible {
+    static func produce(at manufactureDate: Date) -> Beverage {
+        Georgia(name: "죠지아", brand: "죠지아", servingSize: 120, price: Money(900), manufactureDate: manufactureDate, expirationDate: Date(timeInterval: -500, since: manufactureDate), servingCaffeine: 80, isHotCoffee: false)
+    }
+}

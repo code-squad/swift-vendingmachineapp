@@ -10,11 +10,11 @@ import Foundation
 
 struct VendingMachine {
     private var products: [Beverage] = [
-        ChocolateMilk(name: "서울우유-초콜릿", brand: "서울우유", servingSize: 150, price: Money(1000), manufactureDate: Date(), expirationDate: Date(), farmCode: "AEBN127", cacaoContentRate: 23.4),
-        BananaMilk(name: "바나나는 원래 하얗다", brand: "매일우유", servingSize: 200, price: Money(1400), manufactureDate: Date(), expirationDate: Date(), farmCode: "DJSN128", bananaContentGram: 30),
-        Coke(name: "코카콜라", brand: "코카콜라", servingSize: 140, price: Money(900), manufactureDate: Date(), expirationDate: Date(), isSugarFree: false, packageColor: "RED"),
-        Sprite(name: "스프라이트", brand: "코카콜라", servingSize: 250, price: Money(2000), manufactureDate: Date(), expirationDate: Date(), isSugarFree: false, packageMaterial: "Aluminum"),
-        Georgia(name: "죠지아", brand: "죠지아", servingSize: 120, price: Money(900), manufactureDate: Date(), expirationDate: Date(), servingCaffeine: 80, isHotCoffee: false)
+        ChocolateMilk.produce(at: Date()),
+        BananaMilk.produce(at: Date()),
+        Coke.produce(at: Date()),
+        Sprite.produce(at: Date()),
+        Georgia.produce(at: Date())
     ]
     
     let stock: Stock

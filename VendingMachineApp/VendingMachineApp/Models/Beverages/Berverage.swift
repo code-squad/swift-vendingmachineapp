@@ -8,6 +8,10 @@
 
 import Foundation
 
+protocol Producible {
+    static func produce(at manufactureDate: Date) -> Beverage
+}
+
 class Beverage {
     let name: String
     let brand: String

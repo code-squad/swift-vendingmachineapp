@@ -16,3 +16,9 @@ class BananaMilk: Milk {
         super.init(name: name, brand: brand, servingSize: servingSize, price: price, manufactureDate: manufactureDate, expirationDate: expirationDate, farmCode: farmCode)
     }
 }
+
+extension BananaMilk: Producible {
+    static func produce(at manufactureDate: Date) -> Beverage {
+        BananaMilk(name: "바나나는 원래 하얗다", brand: "매일우유", servingSize: 200, price: Money(1400), manufactureDate: manufactureDate, expirationDate: Date(timeInterval: 432000, since: manufactureDate), farmCode: "DJSN128", bananaContentGram: 30)
+    }
+}

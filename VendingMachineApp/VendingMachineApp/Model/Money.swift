@@ -7,7 +7,8 @@
 //
 
 import Foundation
-class Money {
+class Money: NSObject, NSCoding {
+
     private var balance: Int
     
     enum MoneyUnit: Int {
@@ -21,6 +22,14 @@ class Money {
         self.balance = balance
     }
     
+    required init?(coder: NSCoder) {
+        self.balance = coder.decodeInteger(forKey: "balance")
+    }
+    
+    func encode(with coder: NSCoder) {
+        coder.encode(self.balance, forKey: "balance")
+    }
+        
     func raiseMoney(moneyUnit: MoneyUnit) {
         balance += moneyUnit.rawValue
         NotificationCenter.default.post(name: .updateBalanceLabel, object: "\(balance)")
@@ -34,10 +43,10 @@ class Money {
         balance = self.balance - price.balance
     }
     
+    override var description: String {
+        "\(balance)"
+    }
     
-}
-
-extension Money: Equatable, Hashable {
     static func == (lhs: Money, rhs: Money) -> Bool {
         return lhs.balance == rhs.balance
     }
@@ -54,13 +63,4 @@ extension Money: Equatable, Hashable {
         return lhs.balance + rhs.balance
     }
     
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(balance)
-    }
-}
-
-extension Money: CustomStringConvertible {
-    var description: String {
-        "\(balance)"
-    }
 }

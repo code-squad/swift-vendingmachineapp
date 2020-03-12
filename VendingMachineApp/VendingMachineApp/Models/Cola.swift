@@ -10,10 +10,7 @@ import Foundation
 
 class Cola: CarbonicAcidBeverage {
     
-    private var sugar: Bool
-    public var category: String {
-        sugar ? "일반" : "다이어트"
-    }
+    private var sugar: Double
     
     public init(
         brand: String,
@@ -24,7 +21,7 @@ class Cola: CarbonicAcidBeverage {
         temperature: Double,
         calorie: Double,
         concentration: Double,
-        sugar: Bool
+        sugar: Double
     ) {
         self.sugar = sugar
         super.init(
@@ -37,6 +34,10 @@ class Cola: CarbonicAcidBeverage {
             calorie: calorie,
             concentration: concentration
         )
+    }
+    
+    public func category(standard: Double) -> String {
+        sugar > standard ? "일반" : "다이어트"
     }
 }
 

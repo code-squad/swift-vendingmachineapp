@@ -11,7 +11,7 @@ import Foundation
 class Fanta: Drink {
     var taste: String
     
-    init(taste: String, brand: String, capacity: Int, price: Int, name: String, manufacturingDate: Date, expiryDate:Date) {
+    init(taste: String, brand: String, capacity: Int, price: Int, name: String, manufacturingDate: String, expiryDate:String) {
         self.taste = taste
         super.init(brand: brand, capacity: capacity, price: price, name: name, manufacturingDate: manufacturingDate, expiryDate: expiryDate)
     }

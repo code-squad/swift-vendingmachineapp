@@ -15,4 +15,14 @@ class Mocha: Coffee {
         super.init(manufacturer: manufacturer, brand: brand, capacity: capacity, price: price, name: name, manufacturedDate: manufacturedDate, expirationDate: expirationDate, package: package, temperature: temperature)
         
     }
+    
+    required init?(coder: NSCoder) {
+        self.wheepCreamAmount = coder.decodeInteger(forKey: "wheepCreamAmount")
+        super.init(coder: coder)
+    }
+    
+    override func encode(with coder: NSCoder) {
+        super.encode(with: coder)
+        coder.encode(self.wheepCreamAmount, forKey: "wheepCreamAmount")
+    }
 }

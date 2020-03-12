@@ -18,4 +18,15 @@ class Cider: Soda {
         self.flavor = flavor
         super.init(manufacturer: manufacturer, brand: brand, capacity: capacity, price: price, name: name, manufacturedDate: manufacturedDate, expirationDate: expirationDate, sugarRatio: sugarRatio, temperature: temperature)
     }
+    
+      required init?(coder: NSCoder) {
+        guard let flavor = coder.decodeObject(forKey: "flavor") as? Flavor else { return nil }
+        self.flavor = flavor
+        super.init(coder: coder)
+      }
+      
+      override func encode(with coder: NSCoder) {
+          super.encode(with: coder)
+          coder.encode(self.flavor, forKey: "flavor")
+      }
 }

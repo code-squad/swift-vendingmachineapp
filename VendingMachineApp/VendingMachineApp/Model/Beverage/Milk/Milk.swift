@@ -21,4 +21,14 @@ class Milk: Beverage {
         case free
     }
     
+    required init?(coder: NSCoder) {
+        guard let fatRatio = coder.decodeObject(forKey: "fatRatio") as? FatRatio else { return nil }
+        self.fatRatio = fatRatio
+        super.init(coder: coder)
+    }
+    
+    override func encode(with coder: NSCoder) {
+        super.encode(with: coder)
+        coder.encode(self.fatRatio, forKey: "fatRatio")
+    }
 }

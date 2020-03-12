@@ -20,4 +20,16 @@ class Coffee: Beverage {
         case can
         case plastic
     }
+    
+    required init?(coder: NSCoder) {
+       guard let package = coder.decodeObject(forKey: "package") as? Packages else { return nil }
+        self.package = package
+        super.init(coder: coder)
+    }
+    
+    override func encode(with coder: NSCoder) {
+        super.encode(with: coder)
+        coder.encode(self.package, forKey: "package")
+    }
+    
 }

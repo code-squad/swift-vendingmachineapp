@@ -15,4 +15,15 @@ class Americano: Coffee {
             super.init(manufacturer: manufacturer, brand: brand, capacity: capacity, price: price, name: name, manufacturedDate: manufacturedDate, expirationDate: expirationDate, package: package, temperature: temperature)
             
         }
+    
+    required init?(coder: NSCoder) {
+        guard let coffeeBean = coder.decodeObject(forKey: "coffeeBean") as? String else { return nil }
+        self.coffeeBean = coffeeBean
+        super.init(coder: coder)
     }
+    
+    override func encode(with coder: NSCoder) {
+        super.encode(with: coder)
+        coder.encode(self.coffeeBean, forKey: "coffeeBean")
+    }
+}

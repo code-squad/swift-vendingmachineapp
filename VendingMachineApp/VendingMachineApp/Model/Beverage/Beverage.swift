@@ -7,7 +7,8 @@
 //
 
 import Foundation
-class Beverage: CustomStringConvertible {
+class Beverage: NSObject, NSCoding {
+
     private var manufacturer: String
     private var brand: String
     private var capacity: Int
@@ -17,7 +18,7 @@ class Beverage: CustomStringConvertible {
     private var expirationDate: Date
     private var temperature: Int
     
-    var description: String {
+    override var description: String {
         return "\(manufacturer), \(capacity), \(price), \(brand), \(manufacturedDate.dateToString())"
     }
 
@@ -32,6 +33,36 @@ class Beverage: CustomStringConvertible {
         self.temperature = temperature
     }
     
+    required init?(coder: NSCoder) {
+        guard let manufacturer = coder.decodeObject(forKey: "manufacturer") as? String else { return nil }
+        guard let brand = coder.decodeObject(forKey: "brand") as? String else { return nil }
+        guard let price = coder.decodeObject(forKey: "price") as? Money else { return nil }
+        guard let name = coder.decodeObject(forKey: "name") as? String else { return nil }
+        guard let manufacturedDate = coder.decodeObject(forKey: "manufacturedDate") as? Date else { return nil }
+        guard let expirationDate = coder.decodeObject(forKey: "expirationDate") as? Date else { return nil }
+        
+        self.manufacturer = manufacturer
+        self.brand = brand
+        self.capacity = coder.decodeInteger(forKey: "capacity")
+        self.price = price
+        self.name = name
+        self.manufacturedDate = manufacturedDate
+        self.expirationDate = expirationDate
+        self.temperature = coder.decodeInteger(forKey: "temperature")
+        
+    }
+    
+    func encode(with coder: NSCoder) {
+        coder.encode(self.manufacturer, forKey: "manufacturer")
+        coder.encode(self.brand, forKey: "brand")
+        coder.encode(self.capacity, forKey: "capacity")
+        coder.encode(self.price, forKey: "price")
+        coder.encode(self.name, forKey: "name")
+        coder.encode(self.manufacturedDate, forKey: "manufacturedDate")
+        coder.encode(self.expirationDate, forKey: "expirationDate")
+        coder.encode(self.temperature, forKey: "temperature")
+    }
+    
     func verifyHotBeverage() -> Bool {
         return temperature > 65 ? true : false 
     }
@@ -40,23 +71,9 @@ class Beverage: CustomStringConvertible {
         let now = Date()
        return now > expirationDate ? true : false
     }
-    
-}
 
-
-extension Beverage: Hashable{
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(capacity)
-        hasher.combine(brand)
-        hasher.combine(expirationDate)
-        hasher.combine(temperature)
-        hasher.combine(manufacturedDate)
-        hasher.combine(manufacturer)
-        hasher.combine(price)
-    }
-    
-    static func == (lhs: Beverage, rhs: Beverage) -> Bool {
-        return lhs.hashValue == rhs.hashValue
-    }
-    
+   static func == (lhs: Beverage, rhs: Beverage) -> Bool {
+       return lhs.hashValue == rhs.hashValue
+   }
+       
 }

@@ -23,6 +23,14 @@ class VendingMachineManager {
         vendingMachine.stockList
     }
     
+    init() {
+        self.vendingMachine.addBeverage(beverage: StrawberryMilk(brand: "서울우유", amount: 180, price: Money(amount: 800), name: "딸기꿀단지", calorie: 145, saleablePeriod: 70, fatRatio: 9, strawberryContent: 1))
+        self.vendingMachine.addBeverage(beverage: Cola(brand: "코카콜라", amount: 250, price: Money(amount: 1200), name: "코카콜라 제로", calorie: 0, saleablePeriod: 600, sugarContent: 0))
+        self.vendingMachine.addBeverage(beverage: Cantata(brand: "롯데", amount: 500, price: Money(amount: 2500), name: "칸타타 콘트라베이스", calorie: 20, saleablePeriod: 150, caffeineContent: 179, isHot: false))
+        self.vendingMachine.addBeverage(beverage: BananaMilk(brand: "빙그레", amount: 240, price: Money(amount: 1000), name: "바나나맛우유", calorie: 208, saleablePeriod: 90, fatRatio: 15, bananaContent: 3))
+        self.vendingMachine.addBeverage(beverage: Fanta(brand: "코카콜라", amount: 250, price: Money(amount: 1000), name: "환타 오렌지", calorie: 136, saleablePeriod: 600, sugarContent: 34, flavor: "오렌지"))
+    }
+    
     func saveData() {
         do {
             let data = try NSKeyedArchiver.archivedData(withRootObject: vendingMachine, requiringSecureCoding: false)

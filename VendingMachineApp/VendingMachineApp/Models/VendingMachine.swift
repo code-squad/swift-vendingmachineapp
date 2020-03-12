@@ -8,13 +8,16 @@
 
 import Foundation
 
+typealias Standard = (temperature: Double, calorie: Double)
+
 struct VendingMachine {
     
     private var products: Products
-    private var coin: Int = 0
+    private var money: Money
     private var bag: [Beverage] = []
-    public var balance: Bool {
-        coin > 0 ? true : false
+    private var standard: Standard
+    var balance: Int {
+        money.balance
     }
     public var ordered: [Beverage] {
         bag
@@ -23,21 +26,14 @@ struct VendingMachine {
         products.count
     }
     
-    public init(products: Products = Products()) {
+    public init(
+        products: Products = Products(),
+        money: Money = Money(),
+        standard: Standard
+    ) {
         self.products = products
-    }
-    
-    private func map(_ handler: (Beverage) -> Beverage?) -> [Beverage] {
-        var result: [Beverage] = []
-        products.forEach{ beverage, value in
-            guard let beverage = handler(beverage) else { return }
-            result.append(beverage)
-        }
-        return result
-    }
-    
-    public mutating func insert(coin: Int) {
-        self.coin += coin
+        self.money = money
+        self.standard = standard
     }
     
     public mutating func add(product: Beverage, amount: Int) {
@@ -48,19 +44,19 @@ struct VendingMachine {
         guard let value = products[product] else { return }
         bag.append(product)
         products.update(value: value - 1, forkey: product)
-        coin = product.balance(payment: coin)
+        money.balance(product.price)
     }
     
     public func costValidProducts() -> [Beverage] {
-        map { $0.valid(to: coin) ? $0 : nil }
+        products.compactMap { money.valid($0.price) ? $0 : nil }
     }
     
     public func inValidDateProducts(date: Date) -> [Beverage] {
-        map { $0.validDate(date) ? nil : $0 }
+        products.compactMap { $0.validDate(date) ? nil : $0 }
     }
     
     public func hotProducts() -> [Beverage] {
-        map { $0.isHot ? $0 : nil }
+        products.compactMap { $0.isHot(standard.temperature) ? $0 : nil }
     }
 }
 

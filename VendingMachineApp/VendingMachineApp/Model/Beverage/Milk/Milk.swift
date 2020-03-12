@@ -15,20 +15,20 @@ class Milk: Beverage {
         super.init(manufacturer: manufacturer, brand: brand, capacity: capacity, price: price, name: name, manufacturedDate: manufacturedDate, expirationDate: expirationDate, temperature: temperature)
     }
 
-    enum FatRatio {
-        case original
-        case lower
-        case free
+    enum FatRatio: Int {
+        case original = 75
+        case lower = 25
+        case free = 0
     }
     
     required init?(coder: NSCoder) {
-        guard let fatRatio = coder.decodeObject(forKey: "fatRatio") as? FatRatio else { return nil }
+        guard let fatRatio = FatRatio(rawValue: coder.decodeInteger(forKey: "fatRatio")) else { return nil }
         self.fatRatio = fatRatio
         super.init(coder: coder)
     }
     
     override func encode(with coder: NSCoder) {
         super.encode(with: coder)
-        coder.encode(self.fatRatio, forKey: "fatRatio")
+        coder.encode(self.fatRatio.rawValue, forKey: "fatRatio")
     }
 }

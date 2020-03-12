@@ -9,7 +9,9 @@
 import UIKit
 
 class ViewController: UIViewController {
-    var vendingMachine = VendingMachine()
+   
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    var vendingMachine: VendingMachine?
     
     @IBOutlet var backgroundViews: [UIView]!
     @IBOutlet var addStockButtons: [UIButton]!
@@ -19,6 +21,9 @@ class ViewController: UIViewController {
     @IBOutlet var balanceLabel: UILabel!
     
     override func viewDidLoad() {
+        let manager = appDelegate.manager
+        vendingMachine = manager.vendingMachine
+        balanceLabel.text = vendingMachine!.balance.description
         super.viewDidLoad()
         setUI()
         setNotificationCenter()
@@ -47,11 +52,11 @@ class ViewController: UIViewController {
     }
     
     @IBAction func addStock(button: UIButton) {
-        vendingMachine.addStock(button.tag)
+        vendingMachine?.addStock(button.tag)
     }
     
     @IBAction func addMoney(button: UIButton) {
-        vendingMachine.raiseMoney(moneyUnit: Money.MoneyUnit(rawValue: button.tag)!)
+        vendingMachine?.raiseMoney(moneyUnit: Money.MoneyUnit(rawValue: button.tag)!)
     }
     
     @objc func updateBeverageCountLabel(_ notification: Notification) {

@@ -15,20 +15,20 @@ class Soda: Beverage {
         super.init(manufacturer: manufacturer, brand: brand, capacity: capacity, price: price, name: name, manufacturedDate: manufacturedDate, expirationDate: expirationDate, temperature: temperature)
     }
 
-    enum SugarRatio {
-        case original
-        case lower
-        case free
+    enum SugarRatio: Int {
+        case original = 75
+        case lower = 25
+        case free = 0
     }
     
     required init?(coder: NSCoder) {
-        guard let sugarRatio = coder.decodeObject(forKey: "sugarRatio") as? SugarRatio else { return nil }
+        guard let sugarRatio = SugarRatio(rawValue: coder.decodeInteger(forKey: "sugarRatio")) else { return nil }
         self.sugarRatio = sugarRatio
         super.init(coder: coder)
     }
     
     override func encode(with coder: NSCoder) {
         super.encode(with: coder)
-        coder.encode(self.sugarRatio, forKey: "sugarRatio")
+        coder.encode(self.sugarRatio.rawValue, forKey: "sugarRatio")
     }
 }

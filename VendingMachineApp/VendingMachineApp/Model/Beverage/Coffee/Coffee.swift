@@ -15,21 +15,22 @@ class Coffee: Beverage {
         super.init(manufacturer: manufacturer, brand: brand, capacity: capacity, price: price, name: name, manufacturedDate: manufacturedDate, expirationDate: expirationDate, temperature: temperature)
     }
     
-    enum Packages{
-        case glass
-        case can
-        case plastic
+    enum Packages: String {
+        case glass = "glass"
+        case can = "can"
+        case plastic = "plastic"
     }
     
     required init?(coder: NSCoder) {
-       guard let package = coder.decodeObject(forKey: "package") as? Packages else { return nil }
+        guard let package = Packages(rawValue: (coder.decodeObject(forKey: "package") as? String)!) else { return nil }
         self.package = package
+//        self.package = Packages(rawValue: ((coder.decodeObject(forKey: "package") as? String)!))!
         super.init(coder: coder)
     }
     
     override func encode(with coder: NSCoder) {
         super.encode(with: coder)
-        coder.encode(self.package, forKey: "package")
+        coder.encode(self.package.rawValue, forKey: "package")
     }
     
 }

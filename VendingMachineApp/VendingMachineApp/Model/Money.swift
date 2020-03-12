@@ -23,11 +23,11 @@ class Money: NSObject, NSCoding {
     }
     
     required init?(coder: NSCoder) {
-        self.balance = coder.decodeInteger(forKey: "balance")
+        self.balance = coder.decodeInteger(forKey: "moneyBalance")
     }
     
     func encode(with coder: NSCoder) {
-        coder.encode(self.balance, forKey: "balance")
+        coder.encode(self.balance, forKey: "moneyBalance")
     }
         
     func raiseMoney(moneyUnit: MoneyUnit) {

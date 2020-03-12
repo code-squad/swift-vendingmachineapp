@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AE19AC2F2418EC1A0059D115 /* Products.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE19AC2E2418EC1A0059D115 /* Products.swift */; };
+		AE19AC312419CA2F0059D115 /* Money.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE19AC302419CA2F0059D115 /* Money.swift */; };
 		AEEAD1512417256E00DB38FC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEAD1502417256E00DB38FC /* AppDelegate.swift */; };
 		AEEAD1532417256E00DB38FC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEAD1522417256E00DB38FC /* SceneDelegate.swift */; };
 		AEEAD1552417256E00DB38FC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEAD1542417256E00DB38FC /* ViewController.swift */; };
@@ -18,7 +19,6 @@
 		AEEAD179241728E500DB38FC /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEAD178241728E500DB38FC /* Milk.swift */; };
 		AEEAD17B2417290100DB38FC /* Cola.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEAD17A2417290100DB38FC /* Cola.swift */; };
 		AEEAD17F24172A9C00DB38FC /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEAD17E24172A9C00DB38FC /* Beverage.swift */; };
-		AEEAD183241764B700DB38FC /* Date++.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEAD182241764B700DB38FC /* Date++.swift */; };
 		AEEAD18924176A6500DB38FC /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEAD18824176A6500DB38FC /* Coffee.swift */; };
 		AEEAD18B241774BD00DB38FC /* CaffineBeverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEAD18A241774BD00DB38FC /* CaffineBeverage.swift */; };
 		AEEAD18D2417784B00DB38FC /* CarbonicAcidBeverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEAD18C2417784B00DB38FC /* CarbonicAcidBeverage.swift */; };
@@ -38,6 +38,7 @@
 
 /* Begin PBXFileReference section */
 		AE19AC2E2418EC1A0059D115 /* Products.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Products.swift; sourceTree = "<group>"; };
+		AE19AC302419CA2F0059D115 /* Money.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Money.swift; sourceTree = "<group>"; };
 		AEEAD14D2417256E00DB38FC /* VendingMachineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendingMachineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEEAD1502417256E00DB38FC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AEEAD1522417256E00DB38FC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -52,7 +53,6 @@
 		AEEAD178241728E500DB38FC /* Milk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Milk.swift; sourceTree = "<group>"; };
 		AEEAD17A2417290100DB38FC /* Cola.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cola.swift; sourceTree = "<group>"; };
 		AEEAD17E24172A9C00DB38FC /* Beverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beverage.swift; sourceTree = "<group>"; };
-		AEEAD182241764B700DB38FC /* Date++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date++.swift"; sourceTree = "<group>"; };
 		AEEAD18824176A6500DB38FC /* Coffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
 		AEEAD18A241774BD00DB38FC /* CaffineBeverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaffineBeverage.swift; sourceTree = "<group>"; };
 		AEEAD18C2417784B00DB38FC /* CarbonicAcidBeverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarbonicAcidBeverage.swift; sourceTree = "<group>"; };
@@ -138,8 +138,8 @@
 				AEEAD18C2417784B00DB38FC /* CarbonicAcidBeverage.swift */,
 				AEEAD18824176A6500DB38FC /* Coffee.swift */,
 				AEEAD18A241774BD00DB38FC /* CaffineBeverage.swift */,
-				AEEAD182241764B700DB38FC /* Date++.swift */,
 				AEEAD1BE2417863600DB38FC /* VendingMachine.swift */,
+				AE19AC302419CA2F0059D115 /* Money.swift */,
 				AE19AC2E2418EC1A0059D115 /* Products.swift */,
 			);
 			path = Models;
@@ -248,7 +248,7 @@
 			files = (
 				AEEAD17B2417290100DB38FC /* Cola.swift in Sources */,
 				AEEAD18D2417784B00DB38FC /* CarbonicAcidBeverage.swift in Sources */,
-				AEEAD183241764B700DB38FC /* Date++.swift in Sources */,
+				AE19AC312419CA2F0059D115 /* Money.swift in Sources */,
 				AEEAD1552417256E00DB38FC /* ViewController.swift in Sources */,
 				AEEAD179241728E500DB38FC /* Milk.swift in Sources */,
 				AEEAD1512417256E00DB38FC /* AppDelegate.swift in Sources */,

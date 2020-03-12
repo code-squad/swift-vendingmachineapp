@@ -15,14 +15,14 @@ class VendingMachineAppTests: XCTestCase {
     public var cola: Cola!
     
     override func setUp() {
-        vendingMachine = VendingMachine()
-        cola = Cola(brand: "코카콜라", weight: 132, price: 1500, name: "다이어트", dateOfManufacture: Date().addingTimeInterval(500), temperature: 12.00, calorie: 213, concentration: 34.00, sugar: false)
+        vendingMachine = VendingMachine(standard: Standard(30, 400))
+        cola = Cola(brand: "코카콜라", weight: 132, price: 1500, name: "다이어트", dateOfManufacture: Date().addingTimeInterval(500), temperature: 12.00, calorie: 213, concentration: 34.00, sugar: 50)
         vendingMachine.add(product: cola, amount: 3)
     }
     
     func testInsertCoin() {
-        vendingMachine.insert(coin: 300)
-        XCTAssertTrue(vendingMachine.balance)
+        vendingMachine.insert(coin: 600)
+        XCTAssertEqual(vendingMachine.balance, 600)
     }
     
     func testAddProduct() {
@@ -43,6 +43,6 @@ class VendingMachineAppTests: XCTestCase {
     }
     
     func testHotProducts() {
-        XCTAssertEqual(vendingMachine.hotProducts().count, 1)
+        XCTAssertEqual(vendingMachine.hotProducts().count, 0)
     }
 }

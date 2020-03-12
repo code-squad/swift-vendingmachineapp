@@ -9,10 +9,6 @@
 import Foundation
 
 class ViewIdentifier {
-    static func findBalanceButton(by tag: Int) -> Identifier.BalanceButton? {
-        return Identifier.BalanceButton(rawValue: tag)
-    }
-    
     static func findLabel(by tag: Int) -> Identifier.Label? {
         return Identifier.Label(rawValue: tag)
     }
@@ -31,18 +27,6 @@ class Identifier {
             case .chocolateMilk: return "ChocolateMilk"
             case .georgia: return "Georgia"
             case .top: return "Top"
-            }
-        }
-    }
-    
-    enum BalanceButton: Int {
-        case thousand = 207
-        case fiveThousand
-        
-        var money: Int {
-            switch self {
-            case .thousand: return 1000
-            case .fiveThousand: return 5000
             }
         }
     }

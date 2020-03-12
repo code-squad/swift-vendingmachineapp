@@ -17,7 +17,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var balanceLabel: UILabel!
     
     @IBOutlet var beverageViews: [UIView]!
-    @IBOutlet var beverageLabels: [UILabel]!
+    @IBOutlet var beverageLabels: [BeverageLabel]!
     @IBOutlet var beverageButtons: [BeverageButton]!
     @IBOutlet var balanceButtons: [BalanceButton]!
     
@@ -31,7 +31,7 @@ class ViewController: UIViewController {
         layoutBeverageViews()
         layoutBeverageLabels()
         
-        setupActionForButtons()
+        setupActionsForButtons()
         addViewUpdatingObservers()
     }
     
@@ -39,7 +39,7 @@ class ViewController: UIViewController {
         observers.removeObservers()
     }
     
-    private func setupActionForButtons() {
+    private func setupActionsForButtons() {
         beverageButtons.forEach { button in
             button.customAction = { [weak self] in self?.vendingMachine.fill(beverage: $0) }
         }
@@ -60,8 +60,8 @@ class ViewController: UIViewController {
             let stock = inventory.briefStock()
             
             self?.beverageLabels.forEach { label in
-                guard let type = ViewIdentifier.findLabel(by: label.tag)?.type else { return }
-                label.text = "\(stock[type] ?? 0)"
+                guard let type = label.beverageType else { return }
+                label.update(value: stock[type])
             }
         }
     }

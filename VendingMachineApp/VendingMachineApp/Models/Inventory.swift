@@ -70,8 +70,8 @@ class Inventory: CustomStringConvertible {
         }.forEach { block($0) }
     }
     
-    func briefStock() -> Dictionary<String, Int> {
-        let keyValuePairs = zip(inventory.map { "\(type(of: $0))" },
+    func briefStock() -> Dictionary<Beverage, Int> {
+        let keyValuePairs = zip(inventory.map { $0 },
                                 (0..<inventory.count).map { _ in 1 })
         return Dictionary().merging(keyValuePairs, uniquingKeysWith: +)
     }

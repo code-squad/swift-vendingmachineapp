@@ -7,7 +7,7 @@
 //
 
 import Foundation
-struct VendingMachine {
+class VendingMachine: NSObject, NSCoding {
     private var beverages = Beverages()
     private(set) var balance: Money = Money()
     private var purchasedList: [Beverage] = []
@@ -22,25 +22,45 @@ struct VendingMachine {
     let milkis = Milkis(manufacturer: "롯데", brand: "밀키스", capacity: 355, price: Money(balance: 1400), name: "밀키스", manufacturedDate: Date(), expirationDate: Date(), sugarRatio: .original, temperature: 4, milkRatio: 20.0)
     lazy var products: [Beverage] = [bananaMilk, chocoMilk, strawberryMilk, americano, latte, mocha, coke, cider, milkis]
     
+    required init?(coder: NSCoder) {
+        super.init()
+        guard let beverages = coder.decodeObject(forKey: "beverages") as? Beverages else { return nil }
+        guard let balance = coder.decodeObject(forKey: "balance") as? Money else { return nil }
+        guard let purchasedList = coder.decodeObject(forKey: "purchasedList") as? [Beverage] else { return nil }
+        guard let products = coder.decodeObject(forKey: "products") as? [Beverage] else { return nil }
+        
+        self.beverages = beverages
+        self.balance = balance
+        self.purchasedList = purchasedList
+        self.products = products
+     }
+     
+    func encode(with coder: NSCoder) {
+        coder.encode(self.beverages, forKey: "beverages")
+        coder.encode(self.balance, forKey: "balance")
+        coder.encode(self.purchasedList, forKey: "purchasedList")
+        coder.encode(self.products, forKey: "products")
+    }
+    
     func showTotalStock() {
         beverages.forEachBeverages { print($0.description) }
     }
     
-    mutating func raiseMoney(moneyUnit: Money.MoneyUnit) {
+    func raiseMoney(moneyUnit: Money.MoneyUnit) {
         balance.raiseMoney(moneyUnit: moneyUnit)
     }
 
-    mutating func addStock(_ index: Int) {
+    func addStock(_ index: Int) {
         beverages.addBeverage(products[index])
          let beverageCount = beverages.reportBeverageCount(products[index])
          NotificationCenter.default.post(name: .updateBeverageCountLabel, object: (index, beverageCount))
     }
 
-    mutating func reportAvailableBeverageNowMoney() -> [Beverage] {
+    func reportAvailableBeverageNowMoney() -> [Beverage] {
         return beverages.reportAvailableBeverageNowMoney(confirmBalance())
     }
 
-    mutating func purchaseBeverage(index: Int) {
+    func purchaseBeverage(index: Int) {
         balance.subtract(products[index].price)
         beverages.removeBeverage(products[index])
         purchasedList.append(products[index])

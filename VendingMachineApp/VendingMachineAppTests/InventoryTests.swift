@@ -85,6 +85,6 @@ class InventoryTests: XCTestCase {
     func testBriefStock() {
         [Coke(), Coke(), Fanta(), Top()].forEach { inventory.add($0) }
         let result = inventory.briefStock()
-        XCTAssertEqual(result, ["Coke": 2, "Fanta": 1, "Top": 1])
+        XCTAssertEqual(result, [Coke(): 2, Fanta(): 1, Top(): 1])
     }
 }

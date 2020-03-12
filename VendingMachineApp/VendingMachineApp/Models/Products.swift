@@ -21,10 +21,14 @@ struct Products {
         }
     }
     
-    public func forEach(_ transform: (Beverage, Int) -> Void) {
-        products.forEach { key, value in
-            transform(key, value)
+    public func compactMap(_ transform: (Beverage) throws -> Beverage?) rethrows -> [Beverage] {
+        var result: [Beverage] = []
+        for item in products.keys {
+            if let item = try transform(item) {
+                result.append(item)
+            }
         }
+        return result
     }
     
     public mutating func update(value: Int, forkey key: Beverage) {

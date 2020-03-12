@@ -8,7 +8,7 @@
 
 import Foundation
 struct VendingMachine {
-    private var beverages: Beverages
+    private var beverages = Beverages()
     private(set) var balance: Money = Money()
     private var purchasedList: [Beverage] = []
     let bananaMilk = BananMilk(manufacturer: "연세우유", brand: "곰곰", capacity: 200, price: Money(balance: 1200), name: "곰곰 바나나우유", manufacturedDate: Date(), expirationDate: Date(), fatRatio: .original, isLactoFree: false, temperature: 8, bananaCountry: "케냐")
@@ -21,10 +21,6 @@ struct VendingMachine {
     let cider = Cider(manufacturer: "코카콜라", brand: "스프라이트", capacity: 355, price: Money(balance: 1800), name: "스프라이트", manufacturedDate: Date(), expirationDate: Date(), sugarRatio: .lower, temperature: 8, flavor: .lemon)
     let milkis = Milkis(manufacturer: "롯데", brand: "밀키스", capacity: 355, price: Money(balance: 1400), name: "밀키스", manufacturedDate: Date(), expirationDate: Date(), sugarRatio: .original, temperature: 4, milkRatio: 20.0)
     lazy var products: [Beverage] = [bananaMilk, chocoMilk, strawberryMilk, americano, latte, mocha, coke, cider, milkis]
-    
-    init() {
-        beverages = Beverages()
-    }
     
     func showTotalStock() {
         beverages.forEachBeverages { print($0.description) }

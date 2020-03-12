@@ -7,12 +7,23 @@
 //
 
 import Foundation
-class Beverages {
-    private var beverages: [Beverage]
-    
-    init() {
-        beverages = [Beverage]()
+class Beverages: NSObject, NSCoding {
+
+    private var beverages = [Beverage]()
+
+    func encode(with coder: NSCoder) {
+        coder.encode(beverages, forKey: "beverages")
     }
+    
+    override init() {
+        
+    }
+    
+    required init?(coder: NSCoder) {
+        guard let beverages = coder.decodeObject(forKey: "beverages") as? [Beverage] else { return }
+        self.beverages = beverages
+    }
+    
     
     func forEachBeverages(_ handler: (Beverage) -> ()) {
         beverages.forEach { handler($0) }

@@ -16,4 +16,13 @@ class Latte: Coffee {
           
       }
     
+    required init?(coder: NSCoder) {
+        self.sugarAmount = coder.decodeInteger(forKey: "sugarAmount")
+        super.init(coder: coder)
+    }
+    
+    override func encode(with coder: NSCoder) {
+        super.encode(with: coder)
+        coder.encode(self.sugarAmount, forKey: "sugarAmount")
+    }
 }

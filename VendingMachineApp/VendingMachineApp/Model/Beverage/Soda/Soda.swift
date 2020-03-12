@@ -20,4 +20,15 @@ class Soda: Beverage {
         case lower
         case free
     }
+    
+    required init?(coder: NSCoder) {
+        guard let sugarRatio = coder.decodeObject(forKey: "sugarRatio") as? SugarRatio else { return nil }
+        self.sugarRatio = sugarRatio
+        super.init(coder: coder)
+    }
+    
+    override func encode(with coder: NSCoder) {
+        super.encode(with: coder)
+        coder.encode(self.sugarRatio, forKey: "sugarRatio")
+    }
 }

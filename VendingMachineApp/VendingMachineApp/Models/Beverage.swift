@@ -10,32 +10,13 @@ import Foundation
 
 class Beverage {
     
+    public var price: Int
     private var brand: String
     private var weight: Int
-    private var price: Int
     private var name: String
     private var expirationDate: Date
-    private var additionalElements: String = ""
     private var temperature: Double
     private var calorie: Double
-    public var isHot: Bool {
-        temperature > 0 ? true : false
-    }
-    public var isLowerCalorie: Bool {
-        calorie > 200 ? true : false
-    }
-    public var descriptionBrand: String {
-        brand + ", "
-    }
-    public var descriptionWeight: String {
-        String(weight) + "ml, "
-    }
-    public var descriptionPrice: String {
-        String(price) + "원, "
-    }
-    public var descriptionName: String {
-        name + ", "
-    }
     
     public init(
         brand: String,
@@ -55,20 +36,16 @@ class Beverage {
         self.calorie = calorie
     }
     
-    public func apply(featureOfBeverage: [String]) {
-        featureOfBeverage.forEach { additionalElements.append(", " + $0) }
-    }
-    
     public func validDate(_ date: Date) -> Bool {
         date < expirationDate
     }
     
-    public func valid(to cost: Int) -> Bool {
-        cost > price ? true : false
+    public func isHot(_ standard: Double) -> Bool {
+        temperature > standard
     }
     
-    public func balance(payment: Int) -> Int {
-        payment - price
+    public func isHighCalorie(_ standard: Double) -> Bool {
+        calorie > standard
     }
 }
 

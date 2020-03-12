@@ -16,6 +16,9 @@
 		AB0CB1BC2418E86700396015 /* VendingMachineAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0CB1BB2418E86700396015 /* VendingMachineAppTests.swift */; };
 		AB0CB1C72418E86700396015 /* VendingMachineAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0CB1C62418E86700396015 /* VendingMachineAppUITests.swift */; };
 		AB0CB1D62418FDC300396015 /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0CB1D52418FDC300396015 /* Drink.swift */; };
+		AB0CB1F3241A1B9E00396015 /* Georgia.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0CB1F2241A1B9E00396015 /* Georgia.swift */; };
+		AB0CB1F5241A1BBC00396015 /* ChocolateMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0CB1F4241A1BBC00396015 /* ChocolateMilk.swift */; };
+		AB0CB1F7241A1BD500396015 /* Fanta.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0CB1F6241A1BD500396015 /* Fanta.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +54,9 @@
 		AB0CB1C62418E86700396015 /* VendingMachineAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineAppUITests.swift; sourceTree = "<group>"; };
 		AB0CB1C82418E86700396015 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB0CB1D52418FDC300396015 /* Drink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drink.swift; sourceTree = "<group>"; };
+		AB0CB1F2241A1B9E00396015 /* Georgia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Georgia.swift; sourceTree = "<group>"; };
+		AB0CB1F4241A1BBC00396015 /* ChocolateMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChocolateMilk.swift; sourceTree = "<group>"; };
+		AB0CB1F6241A1BD500396015 /* Fanta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fanta.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +141,9 @@
 			isa = PBXGroup;
 			children = (
 				AB0CB1D52418FDC300396015 /* Drink.swift */,
+				AB0CB1F4241A1BBC00396015 /* ChocolateMilk.swift */,
+				AB0CB1F6241A1BD500396015 /* Fanta.swift */,
+				AB0CB1F2241A1B9E00396015 /* Georgia.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -270,10 +279,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB0CB1F3241A1B9E00396015 /* Georgia.swift in Sources */,
 				AB0CB1A92418E86500396015 /* ViewController.swift in Sources */,
 				AB0CB1A52418E86500396015 /* AppDelegate.swift in Sources */,
+				AB0CB1F5241A1BBC00396015 /* ChocolateMilk.swift in Sources */,
 				AB0CB1D62418FDC300396015 /* Drink.swift in Sources */,
 				AB0CB1A72418E86500396015 /* SceneDelegate.swift in Sources */,
+				AB0CB1F7241A1BD500396015 /* Fanta.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

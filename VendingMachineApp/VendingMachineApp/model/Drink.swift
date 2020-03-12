@@ -14,13 +14,15 @@ class Drink {
     private let price: Int
     private let name: String
     private let manufacturingDate: Date
+    private let expiryDate: Date
     
-    init(brand: String, capacity: Int, price: Int, name: String, manufacturingDate: Date) {
+    init(brand: String, capacity: Int, price: Int, name: String, manufacturingDate: Date, expiryDate: Date) {
         self.brand = brand
         self.capacity = capacity
         self.price = price
         self.name = name
         self.manufacturingDate = manufacturingDate
+        self.expiryDate = expiryDate
     }
 }
 

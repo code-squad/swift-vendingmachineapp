@@ -48,8 +48,11 @@ class Stock: NSObject, NSCoding {
     
     // MARK: - NSCoding
     
-    required init?(coder: NSCoder) {
-        guard let beverages = coder.decodeObject(forKey: "beverages") as? [Beverage] else { return nil }
+    required init(coder: NSCoder) {
+        guard let beverages = coder.decodeObject(forKey: "beverages") as? [Beverage] else {
+            self.beverages = [Beverage]()
+            return
+        }
         self.beverages = beverages
     }
 

@@ -21,14 +21,12 @@ class ViewController: UIViewController {
     @IBOutlet var balanceLabel: UILabel!
     
     override func viewDidLoad() {
+        vendingMachine = appDelegate.vendingMachine
+        
         super.viewDidLoad()
         setUI()
         setNotificationCenter()
-        
-        let manager = appDelegate.manager
-        vendingMachine = manager.vendingMachine
-        manager.loadSavedBeverageCount(vendingMachine!)
-        manager.loadSavedBalance(vendingMachine!)
+            
     }
     
     func setNotificationCenter() {

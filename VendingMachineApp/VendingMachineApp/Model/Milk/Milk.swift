@@ -24,12 +24,12 @@ class Milk: Beverage {
     // MARK: - NSCoding
     
     required init(coder: NSCoder) {
-        self.fatRatio = coder.decodeDouble(forKey: "fatRatio")
+        self.fatRatio = coder.decodeDouble(forCustomKey: .fatRatio)
         super.init(coder: coder)
     }
     
     override func encode(with coder: NSCoder) {
         super.encode(with: coder)
-        coder.encode(fatRatio, forKey: "fatRatio")
+        coder.encode(fatRatio, forCustomKey: .fatRatio)
     }
 }

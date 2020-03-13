@@ -19,12 +19,12 @@ class StrawberryMilk: Milk {
     // MARK: - NSCoding
     
     required init(coder: NSCoder) {
-        self.strawberryContent = coder.decodeDouble(forKey: "strawberryContent")
+        self.strawberryContent = coder.decodeDouble(forCustomKey: .strawberryContent)
         super.init(coder: coder)
     }
     
     override func encode(with coder: NSCoder) {
         super.encode(with: coder)
-        coder.encode(strawberryContent, forKey: "strawberryContent")
+        coder.encode(strawberryContent, forCustomKey: .strawberryContent)
     }
 }

@@ -32,7 +32,7 @@ final class Money: NSObject, NSCoding {
     }
     
     func encode(with coder: NSCoder) {
-        coder.encode(amount, forKey: "amount")
+        coder.encode(amount, forCustomKey: .amount)
     }
 }
 

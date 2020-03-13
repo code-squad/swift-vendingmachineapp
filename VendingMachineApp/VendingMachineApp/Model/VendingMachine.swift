@@ -128,4 +128,8 @@ class VendingMachine: NSObject, NSCoding {
         return purchasedList
     }
     
+    func reportProductIndex(_ beverage: Beverage) -> Int? {
+        return products.firstIndex(of: beverage)
+    }
+    
 }

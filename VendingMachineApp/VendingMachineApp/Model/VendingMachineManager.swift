@@ -13,11 +13,11 @@ class VendingMachineManager {
     func saveData() {
         do {
             let encodedData = try NSKeyedArchiver.archivedData(withRootObject: vendingMachine, requiringSecureCoding: false)
-             UserDefaults.standard.set(encodedData, forKey: "vendingMachine")
+            UserDefaults.standard.set(encodedData, forKey: "vendingMachine")
         }catch {
             print(error.localizedDescription)
         }
-       
+        
     }
     
     func loadData() {
@@ -29,4 +29,21 @@ class VendingMachineManager {
             print(error.localizedDescription)
         }
     }
+    
+    func loadSavedBeverageCount(_ vendingMachine: VendingMachine) {
+        let stockCount = vendingMachine.reportTotalStock()
+        for (key, value) in stockCount {
+            if value != 0 {
+                let index = vendingMachine.reportProductIndex(key)
+                NotificationCenter.default.post(name: .updateBeverageCountLabel, object: (index, value))
+            }
+        }
+    }
+    
+    func loadSavedBalance(_ vendingMachine: VendingMachine) {
+        NotificationCenter.default.post(name: .updateBalanceLabel, object: vendingMachine.balance.description)
+
+    }
+    
+    
 }

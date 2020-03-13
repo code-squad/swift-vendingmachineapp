@@ -15,9 +15,9 @@ class VendingMachine: NSObject, NSCoding {
     var bananaMilk = BananMilk(manufacturer: "연세우유", brand: "곰곰", capacity: 200, price: Money(balance: 1200), name: "곰곰 바나나우유", manufacturedDate: Date(), expirationDate: Date(), fatRatio: .original, isLactoFree: false, temperature: 8, bananaCountry: "케냐")
     var chocoMilk = ChocoMilk(manufacturer: "덴마크우유", brand: "덴마크우유", capacity: 300, price: Money(balance: 1600), name: "초코초코우유", manufacturedDate: Date(), expirationDate: Date(), fatRatio: .lower, isLactoFree: false, temperature: 8, chocolateRatio: 30.0)
     var strawberryMilk = StrawberryMilk(manufacturer: "덴마크우유", brand: "덴마크우유", capacity: 300, price: Money(balance: 1600), name: "딸기딸기우유", manufacturedDate: Date(), expirationDate: Date(), fatRatio: .free, temperature: 8, strawberryConcentrateRatio: 20)
-    var americano = Americano(manufacturer: "맥심", brand: "티오피", capacity: 255, price: Money(balance: 1400), name: "스위트 아메리카노", manufacturedDate: Date(), expirationDate: Date(), isContainMilk: false, package: .can, temperature: 70, coffeeBean: "에티오피아")
-    var latte = Latte(manufacturer: "매일유업", brand: "마이카페라떼", capacity: 200, price: Money(balance: 1400), name: "마이카페라떼 마일드", manufacturedDate: Date(), expirationDate: Date(), isContainMilk: true, package: .plastic, temperature: 8, sugarAmount: 15)
-    var mocha = Mocha(manufacturer: "동서식품", brand: "스타벅스", capacity: 300, price: Money(balance: 2200), name: "스타벅스 프라푸치노 모카", manufacturedDate: Date(), expirationDate: Date(), isContainMilk: true, package: .glass, temperature: 8, wheepCreamAmount: 30)
+    var americano = Americano(manufacturer: "맥심", brand: "티오피", capacity: 255, price: Money(balance: 1400), name: "스위트 아메리카노", manufacturedDate: Date(), expirationDate: Date(), package: .can, temperature: 70, coffeeBean: "에티오피아")
+    var latte = Latte(manufacturer: "매일유업", brand: "마이카페라떼", capacity: 200, price: Money(balance: 1400), name: "마이카페라떼 마일드", manufacturedDate: Date(), expirationDate: Date(), package: .plastic, temperature: 8, sugarAmount: 15)
+    var mocha = Mocha(manufacturer: "동서식품", brand: "스타벅스", capacity: 300, price: Money(balance: 2200), name: "스타벅스 프라푸치노 모카", manufacturedDate: Date(), expirationDate: Date(), package: .glass, temperature: 8, wheepCreamAmount: 30)
     var coke = Coke(manufacturer: "코카콜라", brand: "코카콜라", capacity: 355, price: Money(balance: 1800), name: "코카콜라", manufacturedDate: Date(), expirationDate: Date(), sugarRatio: .original, temperature: 8, cocaLeafRatio: 10.0)
     var cider = Cider(manufacturer: "코카콜라", brand: "스프라이트", capacity: 355, price: Money(balance: 1800), name: "스프라이트", manufacturedDate: Date(), expirationDate: Date(), sugarRatio: .lower, temperature: 8, flavor: .lemon)
     var milkis = Milkis(manufacturer: "롯데", brand: "밀키스", capacity: 355, price: Money(balance: 1400), name: "밀키스", manufacturedDate: Date(), expirationDate: Date(), sugarRatio: .original, temperature: 4, milkRatio: 20.0)
@@ -49,39 +49,39 @@ class VendingMachine: NSObject, NSCoding {
     }
     
     required init?(coder: NSCoder) {
-        guard let beverages = coder.decodeObject(forKey: beveragesString) as? Beverages else { return nil }
-        guard let balance = coder.decodeObject(forKey: balanceString) as? Money else { return nil }
-        guard let purchasedList = coder.decodeObject(forKey: purchasedListString) as? [Beverage] else { return nil }
-        guard let products = coder.decodeObject(forKey: productsString) as? [Beverage] else { return nil }
+        let beverages = coder.decodeObject(forKey: beveragesString) as? Beverages
+        let balance = coder.decodeObject(forKey: balanceString) as? Money
+        let purchasedList = coder.decodeObject(forKey: purchasedListString) as? [Beverage]
+        let products = coder.decodeObject(forKey: productsString) as? [Beverage]
         
-        guard let bananaMilk = coder.decodeObject(forKey: bananaMilkString) as? BananMilk else { return nil }
-        guard let chocoMilk = coder.decodeObject(forKey: chocoMilkString) as? ChocoMilk else { return nil }
-        guard let strawberryMilk = coder.decodeObject(forKey: strawberryMilkString) as? StrawberryMilk else { return nil }
+        let bananaMilk = coder.decodeObject(forKey: bananaMilkString) as? BananMilk
+        let chocoMilk = coder.decodeObject(forKey: chocoMilkString) as? ChocoMilk
+        let strawberryMilk = coder.decodeObject(forKey: strawberryMilkString) as? StrawberryMilk
         
-        guard let americano = coder.decodeObject(forKey: americanoString) as? Americano else { return nil }
-        guard let latte = coder.decodeObject(forKey: latteString) as? Latte else { return nil }
-        guard let mocha = coder.decodeObject(forKey: mochaString) as? Mocha else { return nil }
+        let americano = coder.decodeObject(forKey: americanoString) as? Americano
+        let latte = coder.decodeObject(forKey: latteString) as? Latte
+        let mocha = coder.decodeObject(forKey: mochaString) as? Mocha
         
-        guard let coke = coder.decodeObject(forKey: cokeString) as? Coke else { return nil }
-        guard let cider = coder.decodeObject(forKey: ciderString) as? Cider else { return nil }
-        guard let milkis = coder.decodeObject(forKey: milkisString) as? Milkis else { return nil }
+        let coke = coder.decodeObject(forKey: cokeString) as? Coke
+        let cider = coder.decodeObject(forKey: ciderString) as? Cider
+        let milkis = coder.decodeObject(forKey: milkisString) as? Milkis
 
-        self.beverages = beverages
-        self.balance = balance
-        self.purchasedList = purchasedList
-        self.products = products
+        self.beverages = beverages ?? Beverages()
+        self.balance = balance ?? Money()
+        self.purchasedList = purchasedList ?? []
+        self.products = products ?? []
         
-        self.bananaMilk = bananaMilk
-        self.chocoMilk = chocoMilk
-        self.strawberryMilk = strawberryMilk
+        self.bananaMilk = bananaMilk ?? BananMilk()
+        self.chocoMilk = chocoMilk ?? ChocoMilk()
+        self.strawberryMilk = strawberryMilk ?? StrawberryMilk()
         
-        self.americano = americano
-        self.latte = latte
-        self.mocha = mocha
+        self.americano = americano ?? Americano()
+        self.latte = latte ?? Latte()
+        self.mocha = mocha ?? Mocha()
         
-        self.coke = coke
-        self.cider = cider
-        self.milkis = milkis
+        self.coke = coke ?? Coke()
+        self.cider = cider ?? Cider()
+        self.milkis = milkis ?? Milkis()
      }
      
     func encode(with coder: NSCoder) {

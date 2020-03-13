@@ -11,7 +11,7 @@ class Milkis: Soda {
     private var milkRatio: Double
     let milkRatioString = "milkRatio"
     
-    init(manufacturer: String, brand: String, capacity: Int, price: Money, name: String, manufacturedDate: Date, expirationDate: Date, sugarRatio: SugarRatio, temperature: Int, milkRatio: Double) {
+    init(manufacturer: String = "", brand: String = "", capacity: Int = 0, price: Money = Money(), name: String = "", manufacturedDate: Date = Date(), expirationDate: Date = Date(), sugarRatio: SugarRatio = .original, temperature: Int = 0, milkRatio: Double = 0.0) {
         self.milkRatio = milkRatio
         super.init(manufacturer: manufacturer, brand: brand, capacity: capacity, price: price, name: name, manufacturedDate: manufacturedDate, expirationDate: expirationDate, sugarRatio: sugarRatio, temperature: temperature)
     }

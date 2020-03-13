@@ -16,14 +16,15 @@ class Cider: Soda {
         case lemon = "lemon"
     }
     
-    init(manufacturer: String, brand: String, capacity: Int, price: Money, name: String, manufacturedDate: Date, expirationDate: Date, sugarRatio: SugarRatio, temperature: Int, flavor: Flavor) {
+    init(manufacturer: String = "", brand: String = "", capacity: Int = 0, price: Money = Money(), name: String = "", manufacturedDate: Date = Date(), expirationDate: Date = Date(), sugarRatio: SugarRatio = .original, temperature: Int = 0, flavor: Flavor = .apple)  {
         self.flavor = flavor
         super.init(manufacturer: manufacturer, brand: brand, capacity: capacity, price: price, name: name, manufacturedDate: manufacturedDate, expirationDate: expirationDate, sugarRatio: sugarRatio, temperature: temperature)
     }
     
       required init?(coder: NSCoder) {
-        guard let flavor = Flavor(rawValue: (coder.decodeObject(forKey: flavorString) as? String)!) else { return nil }
-        self.flavor = flavor
+        let decodedString = coder.decodeObject(forKey: flavorString) as? String
+        let flavor = Flavor(rawValue: decodedString ?? "")
+        self.flavor = flavor ?? Flavor.apple
         super.init(coder: coder)
       }
       

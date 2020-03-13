@@ -20,14 +20,15 @@ class VendingMachineManager {
         
     }
     
-    func loadData() {
-        guard let encodedData = UserDefaults.standard.value(forKey: "vendingMachine") as? Data else { return }
+    func loadData() -> VendingMachine {
+        guard let encodedData = UserDefaults.standard.value(forKey: "vendingMachine") as? Data else { return vendingMachine }
         do {
-            guard let unarchivedData = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(encodedData) as? VendingMachine else { return }
-            vendingMachine = unarchivedData
+            guard let unarchivedData = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(encodedData) as? VendingMachine else { return vendingMachine }
+            return unarchivedData
         } catch {
             print(error.localizedDescription)
         }
+        return vendingMachine
     }
     
 }

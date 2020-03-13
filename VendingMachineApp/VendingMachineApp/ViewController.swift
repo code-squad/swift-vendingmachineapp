@@ -21,7 +21,7 @@ class ViewController: UIViewController {
     @IBOutlet var balanceLabel: UILabel!
      
     override func viewDidLoad() {
-        vendingMachine = appDelegate.manager.loadData()
+        vendingMachine = appDelegate.vendingMachine
         
         balanceLabel.text = vendingMachine?.balance.description
         updateSavedBeverageCountLabel()

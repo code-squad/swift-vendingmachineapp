@@ -9,12 +9,16 @@
 import Foundation
 
 class Beverage {
-    enum Temperature: Double {
+    enum Temperature: Double, Comparable {
+        static func < (lhs: Beverage.Temperature, rhs: Beverage.Temperature) -> Bool {
+            lhs.rawValue < rhs.rawValue
+        }
+        
         case Cool = 10.0
         case Hot = 65.0
         
         func isHot() -> Bool {
-            return self == Temperature.Hot
+            return self >= Temperature.Hot
         }
     }
     

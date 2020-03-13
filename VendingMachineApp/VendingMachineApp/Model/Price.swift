@@ -12,9 +12,9 @@ class Price {
     private var money: Int
     
     enum KindOfMoney: Int, CaseIterable {
-        case Zero = 0
         case TenThousand = 1000
         case FiftyThounsand = 5000
+        case Zero = 0
         
         init(amount: Int) {
             if amount >= 0 && amount < KindOfMoney.allCases.count {

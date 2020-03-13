@@ -14,15 +14,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let manager = VendingMachineManager()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        manager.loadData()
         return true
     }
-    
-    func applicationDidBecomeActive(_ application: UIApplication) {
-        manager.loadData()
-    }
-    
-    func applicationWillResignActive(_ application: UIApplication) {
+
+    func applicationDidEnterBackground(_ application: UIApplication) {
         manager.saveData()
     }
     

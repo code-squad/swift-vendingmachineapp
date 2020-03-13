@@ -22,7 +22,7 @@ class Soda: Beverage {
     
     // MARK: - NSCoding
     
-    required init?(coder: NSCoder) {
+    required init(coder: NSCoder) {
         self.sugarContent = coder.decodeDouble(forKey: "sugarContent")
         super.init(coder: coder)
     }

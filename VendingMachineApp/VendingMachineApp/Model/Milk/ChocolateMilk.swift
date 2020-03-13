@@ -18,7 +18,7 @@ class ChocolateMilk: Milk {
     
     // MARK: - NSCoding
     
-    required init?(coder: NSCoder) {
+    required init(coder: NSCoder) {
         self.chocolateContent = coder.decodeDouble(forKey: "chocolateContent")
         super.init(coder: coder)
     }

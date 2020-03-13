@@ -62,9 +62,13 @@ class VendingMachine: NSObject, NSCoding {
     
     // MARK: - NSCoding
     
-    required init?(coder: NSCoder) {
+    required init(coder: NSCoder) {
         guard let stock = coder.decodeObject(forKey: "stock") as? Stock,
-            let money = coder.decodeObject(forKey: "money") as? Money else { return nil }
+            let money = coder.decodeObject(forKey: "money") as? Money else {
+                self.stock = Stock()
+                self.money = Money()
+                return
+        }
         self.stock = stock
         self.money = money
     }

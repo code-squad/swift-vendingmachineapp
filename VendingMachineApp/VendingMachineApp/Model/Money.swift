@@ -27,7 +27,7 @@ final class Money: NSObject, NSCoding {
     
     // MARK: - NSCoding
     
-    init?(coder: NSCoder) {
+    init(coder: NSCoder) {
         self.amount = coder.decodeInteger(forKey: "amount")
     }
     

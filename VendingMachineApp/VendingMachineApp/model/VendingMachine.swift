@@ -9,15 +9,9 @@
 import Foundation
 
 class VendingMachine {
-    private var drinkStock = [Drink]()
+    private(set) var drinkStock = [Drink]()
     
     func addDrinkStock(drink: Drink) {
         drinkStock.append(drink)
-    }
-    
-    func showStockList() {
-        drinkStock.forEach { (drink) in
-            print(drink)
-        }
     }
 }

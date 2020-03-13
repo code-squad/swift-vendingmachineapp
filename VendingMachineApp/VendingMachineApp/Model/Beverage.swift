@@ -46,18 +46,25 @@ class Beverage: NSObject, NSCoding {
 
     // MARK: - NSCoding
     
-    required init?(coder: NSCoder) {
+    required init(coder: NSCoder) {
+        self.amount = coder.decodeInteger(forKey: "beverageAmount")
+        self.calorie = coder.decodeDouble(forKey: "calorie")
+        self.isHot = coder.decodeBool(forKey: "isHot")
         guard let brand = coder.decodeObject(forKey: "brand") as? String,
             let price = coder.decodeObject(forKey: "price") as? Money,
             let name = coder.decodeObject(forKey: "name") as? String,
             let manufacturingDate = coder.decodeObject(forKey: "manufacturingDate") as? Date,
-            let expirationDate = coder.decodeObject(forKey: "expirationDate") as? Date else { return nil }
+            let expirationDate = coder.decodeObject(forKey: "expirationDate") as? Date else {
+                self.brand = ""
+                self.price = Money()
+                self.name = "soldOut"
+                self.manufacturingDate = Date()
+                self.expirationDate = Date()
+                return
+        }
         self.brand = brand
-        self.amount = coder.decodeInteger(forKey: "beverageAmount")
         self.price = price
         self.name = name
-        self.calorie = coder.decodeDouble(forKey: "calorie")
-        self.isHot = coder.decodeBool(forKey: "isHot")
         self.manufacturingDate = manufacturingDate
         self.expirationDate = expirationDate
     }

@@ -18,8 +18,12 @@ class Fanta: Soda {
     
     // MARK: - NSCoding
     
-    required init?(coder: NSCoder) {
-        guard let flavor = coder.decodeObject(forKey: "flavor") as? String else { return nil }
+    required init(coder: NSCoder) {
+        guard let flavor = coder.decodeObject(forKey: "flavor") as? String else {
+            self.flavor = ""
+            super.init(coder: coder)
+            return
+        }
         self.flavor = flavor
         super.init(coder: coder)
     }

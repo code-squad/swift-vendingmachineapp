@@ -23,7 +23,7 @@ class Milk: Beverage {
     
     // MARK: - NSCoding
     
-    required init?(coder: NSCoder) {
+    required init(coder: NSCoder) {
         self.fatRatio = coder.decodeDouble(forKey: "fatRatio")
         super.init(coder: coder)
     }

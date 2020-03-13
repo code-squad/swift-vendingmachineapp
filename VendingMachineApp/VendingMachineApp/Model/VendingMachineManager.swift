@@ -25,7 +25,6 @@ class VendingMachineManager {
         do {
             guard let unarchivedData = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(encodedData) as? VendingMachine else { return vendingMachine }
             vendingMachine = unarchivedData
-
             return vendingMachine
         } catch {
             print(error.localizedDescription)

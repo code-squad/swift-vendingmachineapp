@@ -12,8 +12,10 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     let manager = VendingMachineManager()
+    var vendingMachine: VendingMachine? = nil
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        vendingMachine = manager.loadData()
         return true
     }
 

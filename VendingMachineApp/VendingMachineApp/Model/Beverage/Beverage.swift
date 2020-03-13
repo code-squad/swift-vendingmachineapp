@@ -18,6 +18,15 @@ class Beverage: NSObject, NSCoding {
     private var expirationDate: Date
     private var temperature: Int
     
+    let manufacturerString = "manufacturer"
+    let brandString = "brand"
+    let capacityString = "capacity"
+    let priceString = "price"
+    let nameString = "name"
+    let manufacturedDateString = "manufacturedDate"
+    let expirationDateString = "expirationDate"
+    let temperatureString = "temperature"
+    
     override var description: String {
         return "\(manufacturer), \(capacity), \(price), \(brand), \(manufacturedDate.dateToString())"
     }
@@ -34,33 +43,33 @@ class Beverage: NSObject, NSCoding {
     }
     
     required init?(coder: NSCoder) {
-        guard let manufacturer = coder.decodeObject(forKey: "manufacturer") as? String else { return nil }
-        guard let brand = coder.decodeObject(forKey: "brand") as? String else { return nil }
-        guard let price = coder.decodeObject(forKey: "price") as? Money else { return nil }
-        guard let name = coder.decodeObject(forKey: "name") as? String else { return nil }
-        guard let manufacturedDate = coder.decodeObject(forKey: "manufacturedDate") as? Date else { return nil }
-        guard let expirationDate = coder.decodeObject(forKey: "expirationDate") as? Date else { return nil }
+        guard let manufacturer = coder.decodeObject(forKey: manufacturerString) as? String else { return nil }
+        guard let brand = coder.decodeObject(forKey: brandString) as? String else { return nil }
+        guard let price = coder.decodeObject(forKey: priceString) as? Money else { return nil }
+        guard let name = coder.decodeObject(forKey: nameString) as? String else { return nil }
+        guard let manufacturedDate = coder.decodeObject(forKey: manufacturedDateString) as? Date else { return nil }
+        guard let expirationDate = coder.decodeObject(forKey: expirationDateString) as? Date else { return nil }
         
         self.manufacturer = manufacturer
         self.brand = brand
-        self.capacity = coder.decodeInteger(forKey: "capacity")
+        self.capacity = coder.decodeInteger(forKey: capacityString)
         self.price = price
         self.name = name
         self.manufacturedDate = manufacturedDate
         self.expirationDate = expirationDate
-        self.temperature = coder.decodeInteger(forKey: "temperature")
+        self.temperature = coder.decodeInteger(forKey: temperatureString)
         
     }
     
     func encode(with coder: NSCoder) {
-        coder.encode(self.manufacturer, forKey: "manufacturer")
-        coder.encode(self.brand, forKey: "brand")
-        coder.encode(self.capacity, forKey: "capacity")
-        coder.encode(self.price, forKey: "price")
-        coder.encode(self.name, forKey: "name")
-        coder.encode(self.manufacturedDate, forKey: "manufacturedDate")
-        coder.encode(self.expirationDate, forKey: "expirationDate")
-        coder.encode(self.temperature, forKey: "temperature")
+        coder.encode(self.manufacturer, forKey: manufacturerString)
+        coder.encode(self.brand, forKey: brandString)
+        coder.encode(self.capacity, forKey: capacityString)
+        coder.encode(self.price, forKey: priceString)
+        coder.encode(self.name, forKey: nameString)
+        coder.encode(self.manufacturedDate, forKey: manufacturedDateString)
+        coder.encode(self.expirationDate, forKey: expirationDateString)
+        coder.encode(self.temperature, forKey: temperatureString)
     }
     
     func verifyHotBeverage() -> Bool {

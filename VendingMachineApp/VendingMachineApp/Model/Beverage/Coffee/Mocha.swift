@@ -9,6 +9,7 @@
 import Foundation
 class Mocha: Coffee {
     private var wheepCreamAmount: Int
+    let wheepCreamAmountString = "wheepCreamAmount"
     
     init(manufacturer: String, brand: String, capacity: Int, price: Money, name: String, manufacturedDate: Date, expirationDate: Date, isContainMilk: Bool, package: Packages, temperature: Int, wheepCreamAmount: Int) {
         self.wheepCreamAmount = wheepCreamAmount
@@ -17,12 +18,12 @@ class Mocha: Coffee {
     }
     
     required init?(coder: NSCoder) {
-        self.wheepCreamAmount = coder.decodeInteger(forKey: "wheepCreamAmount")
+        self.wheepCreamAmount = coder.decodeInteger(forKey: wheepCreamAmountString)
         super.init(coder: coder)
     }
     
     override func encode(with coder: NSCoder) {
         super.encode(with: coder)
-        coder.encode(self.wheepCreamAmount, forKey: "wheepCreamAmount")
+        coder.encode(self.wheepCreamAmount, forKey: wheepCreamAmountString)
     }
 }

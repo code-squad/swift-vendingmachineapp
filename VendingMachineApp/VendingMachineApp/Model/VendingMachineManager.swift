@@ -9,11 +9,12 @@
 import Foundation
 class VendingMachineManager {
     private var vendingMachine = VendingMachine()
+    let vendingMachineString = "vendingMachine"
     
     func saveData() {
         do {
             let encodedData = try NSKeyedArchiver.archivedData(withRootObject: vendingMachine, requiringSecureCoding: false)
-            UserDefaults.standard.set(encodedData, forKey: "vendingMachine")
+            UserDefaults.standard.set(encodedData, forKey: vendingMachineString)
         }catch {
             print(error.localizedDescription)
         }
@@ -21,7 +22,7 @@ class VendingMachineManager {
     }
     
     func loadData() -> VendingMachine {
-        guard let encodedData = UserDefaults.standard.value(forKey: "vendingMachine") as? Data else { return vendingMachine }
+        guard let encodedData = UserDefaults.standard.value(forKey: vendingMachineString) as? Data else { return vendingMachine }
         do {
             guard let unarchivedData = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(encodedData) as? VendingMachine else { return vendingMachine }
             vendingMachine = unarchivedData

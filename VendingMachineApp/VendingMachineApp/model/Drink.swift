@@ -15,22 +15,27 @@ class Drink {
     private let name: String
     private let manufacturingDate: Date
     private let expiryDate: Date
-    private let dateFormatter = DateFormatter()
     
-    init(brand: String, capacity: Int, price: Int, name: String, manufacturingDate: String, expiryDate: String) {
+    init(brand: String, capacity: Int, price: Int, name: String, manufacturingDate: Date = Date(), expiryDate: Date) {
         self.brand = brand
         self.capacity = capacity
         self.price = price
         self.name = name
-        
-        dateFormatter.dateFormat = "yyyyMMdd"
-        self.manufacturingDate = dateFormatter.date(from: manufacturingDate)!
-        self.expiryDate = dateFormatter.date(from: expiryDate)!
+        self.manufacturingDate = manufacturingDate
+        self.expiryDate = expiryDate
     }
 }
 
 extension Drink: CustomStringConvertible {
     var description: String {
-        return "\(brand), \(capacity)ml, \(price)원, \(name), \(dateFormatter.string(from:manufacturingDate))"
+        return "\(brand), \(capacity)ml, \(price)원, \(name), \(Date().toString(date: manufacturingDate)), \(Date().toString(date: expiryDate))"
+    }
+}
+
+extension Date {
+    func toString(date:Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyyMMdd"
+        return formatter.string(from: date)
     }
 }

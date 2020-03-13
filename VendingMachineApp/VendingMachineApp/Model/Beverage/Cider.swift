@@ -21,6 +21,23 @@ class Cider: Soda {
         super.init(brand: brand, capacity: capacity, price: price, name: name, manufacturingDate: manufacturingDate, calorie: calorie, temperature: temperature)
     }
     
+    enum Property: String, CustomStringConvertible {
+        case taste
+        
+        var description: String {
+            return self.rawValue
+        }
+    }
+    
+    override func encode(with coder: NSCoder) {
+        coder.encode(taste, forKey: "\(Property.taste)")
+    }
+    
+    required init?(coder decoder: NSCoder) {
+        self.taste = decoder.decodeObject(forKey: "\(Property.taste)") as! Taste
+        super.init(coder: decoder)
+    }
+    
     func isSameTaste(as taste: Taste) -> Bool {
         return self.taste == taste
     }

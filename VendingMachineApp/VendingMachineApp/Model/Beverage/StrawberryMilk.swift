@@ -16,6 +16,23 @@ class StrawberryMilk: Milk {
         super.init(brand: brand, capacity: capacity, price: price, name: name, manufacturingDate: manufacturingDate, calorie: calorie, temperature: temperature, farmCode: farmCode)
     }
     
+    enum Property: String, CustomStringConvertible {
+        case juiceContent
+        
+        var description: String {
+            return self.rawValue
+        }
+    }
+    
+    override func encode(with coder: NSCoder) {
+        coder.encode(juiceContent, forKey: "\(Property.juiceContent)")
+    }
+    
+    required init?(coder decoder: NSCoder) {
+        self.juiceContent = decoder.decodeDouble(forKey: "\(Property.juiceContent)")
+        super.init(coder: decoder)
+    }
+    
     func isHigher(than juiceContent: Double) -> Bool {
         return self.juiceContent > juiceContent
     }

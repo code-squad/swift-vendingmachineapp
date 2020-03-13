@@ -8,12 +8,33 @@
 
 import Foundation
 
-class VendingMachine{
+class VendingMachine: NSObject, NSCoding{
+    enum Property: String, CustomStringConvertible {
+        case beverages
+        case balance
+        case purchaseHistory
+        
+        var description: String {
+            return self.rawValue
+        }
+    }
+    func encode(with coder: NSCoder) {
+        coder.encode(beverages, forKey: "\(Property.beverages)")
+        coder.encode(balance, forKey: "\(Property.balance)")
+        coder.encode(purchaseHistory, forKey: "\(Property.purchaseHistory)")
+    }
+    
+    required init?(coder decoder: NSCoder) {
+        self.beverages = decoder.decodeObject(forKey: "\(Property.beverages)") as! Beverages
+        self.balance = decoder.decodeObject(forKey: "\(Property.balance)") as! Price
+        self.purchaseHistory = decoder.decodeObject(forKey: "\(Property.purchaseHistory)") as! Beverages
+    }
+    
     private var beverages: Beverages
     private(set) var balance: Price
     private var purchaseHistory: Beverages
     
-    let beverageList = [
+    static let beverageList = [
         ChocolateMilk(brand: "SeoulMilk",
                       capacity: 300,
                       price: Price(1000),
@@ -68,14 +89,14 @@ class VendingMachine{
             beanOrigin: TOP.BeanOrigin())
     ]
     
-    init() {
+    override init() {
         self.beverages = Beverages()
         self.balance = Price(0)
         self.purchaseHistory = Beverages()
     }
     
     func insert(beverageNumber: Int) {
-        beverages.add(beverage: beverageList[beverageNumber])
+        beverages.add(beverage: VendingMachine.beverageList[beverageNumber])
     }
     
     func forEachBeverages(_ transfrom: (Beverage) -> ()) {
@@ -109,9 +130,9 @@ class VendingMachine{
     }
     
     func purchase(beverageNumber: Int) {
-        balance.minus(money: beverageList[beverageNumber].price)
-        purchaseHistory.add(beverage: beverageList[beverageNumber])
-        beverages.remove(beverage: beverageList[beverageNumber])
+        balance.minus(money: VendingMachine.beverageList[beverageNumber].price)
+        purchaseHistory.add(beverage: VendingMachine.beverageList[beverageNumber])
+        beverages.remove(beverage: VendingMachine.beverageList[beverageNumber])
         NotificationCenter.default.post(name: Notification.Name.updateBalance,
                                         object: nil,
                                         userInfo: ["balance": self.balance])

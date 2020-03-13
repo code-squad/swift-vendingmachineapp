@@ -8,10 +8,26 @@
 
 import Foundation
 
-class Beverages {
+class Beverages: NSObject, NSCoding {
+    enum Property: String, CustomStringConvertible {
+        case beverages
+        
+        var description: String {
+            return self.rawValue
+        }
+    }
+    
+    func encode(with coder: NSCoder) {
+        coder.encode(beverages, forKey: "\(Property.beverages)")
+    }
+    
+    required init?(coder decoder: NSCoder) {
+        self.beverages = decoder.decodeObject(forKey: "\(Property.beverages)") as! [Beverage]
+    }
+    
     private var beverages: [Beverage]
     
-    init() {
+    override init() {
         beverages = [Beverage]()
     }
     

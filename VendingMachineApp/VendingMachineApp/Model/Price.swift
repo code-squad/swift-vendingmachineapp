@@ -8,8 +8,27 @@
 
 import Foundation
 
-class Price {
+class Price: NSObject, NSCoding {
+    enum Property: String, CustomStringConvertible {
+        case money
+        
+        var description: String {
+            return self.rawValue
+        }
+    }
+    
+    func encode(with coder: NSCoder) {
+        coder.encode(money, forKey: "\(Property.money)")
+    }
+    
+    required init?(coder decoder: NSCoder) {
+        self.money = decoder.decodeInteger(forKey: "\(Property.money)")
+    }
+    
     private var money: Int
+    override var description: String {
+        return String(money)
+    }
     
     enum KindOfMoney: Int, CaseIterable {
         case TenThousand = 1000
@@ -59,11 +78,5 @@ class Price {
     
     func isCheaper(than price: Price) -> Bool {
         return price.money >= self.money
-    }
-}
-
-extension Price: CustomStringConvertible {
-    var description: String {
-        return String(money)
     }
 }

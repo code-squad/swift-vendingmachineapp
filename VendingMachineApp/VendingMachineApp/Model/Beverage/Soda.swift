@@ -9,12 +9,29 @@
 import Foundation
 
 class Soda: Beverage {
-    private let zeroStandard = 10.0
+    static let zeroStandard = 10.0
     private var zeroCalorie: Bool
     
     override init(brand: String, capacity: Int, price: Price, name: String, manufacturingDate: Date, calorie: Double, temperature: Temperature) {
-        self.zeroCalorie = zeroStandard >= calorie ? true : false
+        self.zeroCalorie = Soda.zeroStandard >= calorie ? true : false
         super.init(brand: brand, capacity: capacity, price: price, name: name, manufacturingDate: manufacturingDate, calorie: calorie, temperature: temperature)
+    }
+    
+    enum Property: String, CustomStringConvertible {
+        case zeroCalorie
+        
+        var description: String {
+            return self.rawValue
+        }
+    }
+    
+    override func encode(with coder: NSCoder) {
+        coder.encode(zeroCalorie, forKey: "\(Property.zeroCalorie)")
+    }
+    
+    required init?(coder decoder: NSCoder) {
+        self.zeroCalorie = decoder.decodeBool(forKey: "\(Property.zeroCalorie)")
+        super.init(coder: decoder)
     }
     
     func isZeroCalorie() -> Bool {

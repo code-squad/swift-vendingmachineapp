@@ -8,7 +8,44 @@
 
 import Foundation
 
-class Beverage {
+class Beverage: NSObject, NSCoding {
+    enum Property: String, CustomStringConvertible {
+        case brand
+        case capacity
+        case price
+        case name
+        case manufactureingDate
+        case expirationDate
+        case calorie
+        case temperature
+        
+        var description: String {
+            return self.rawValue
+        }
+    }
+    
+    func encode(with coder: NSCoder) {
+        coder.encode(brand, forKey: "\(Property.brand)")
+        coder.encode(capacity, forKey: "\(Property.capacity)")
+        coder.encode(price, forKey: "\(Property.price)")
+        coder.encode(name, forKey: "\(Property.name)")
+        coder.encode(manufacturingDate, forKey: "\(Property.manufactureingDate)")
+        coder.encode(expirationDate, forKey: "\(Property.expirationDate)")
+        coder.encode(calorie, forKey: "\(Property.calorie)")
+        coder.encode(temperature, forKey: "\(Property.temperature)")
+    }
+    
+    required init?(coder decoder: NSCoder) {
+        self.brand = decoder.decodeObject(forKey: "\(Property.brand)") as! String
+        self.capacity = decoder.decodeInteger(forKey: "\(Property.capacity)")
+        self.price = decoder.decodeObject(forKey: "\(Property.price)") as! Price
+        self.name = decoder.decodeObject(forKey: "\(Property.name)") as! String
+        self.manufacturingDate = decoder.decodeObject(forKey: "\(Property.manufactureingDate)") as! Date
+        self.expirationDate = decoder.decodeObject(forKey: "\(Property.expirationDate)") as! Date
+        self.calorie = decoder.decodeDouble(forKey: "\(Property.calorie)")
+        self.temperature = decoder.decodeObject(forKey: "\(Property.temperature)") as! Temperature
+    }
+    
     enum Temperature: Double, Comparable {
         static func < (lhs: Beverage.Temperature, rhs: Beverage.Temperature) -> Bool {
             lhs.rawValue < rhs.rawValue
@@ -31,6 +68,10 @@ class Beverage {
     private var calorie: Double
     private var temperature: Temperature
     
+    override var description: String {
+        return name
+    }
+    
     init(brand: String, capacity: Int, price: Price, name: String, manufacturingDate: Date, calorie: Double, temperature: Temperature) {
         self.brand = brand
         self.capacity = capacity
@@ -52,18 +93,6 @@ class Beverage {
     
     func isHot() -> Bool {
         return temperature.isHot()
-    }
-}
-
-extension Beverage: CustomStringConvertible {
-    var description: String {
-        return "\(name)"
-    }
-}
-
-extension Beverage: Equatable {
-    static func == (lhs: Beverage, rhs: Beverage) -> Bool {
-        return (lhs.brand == rhs.brand) && (lhs.name == rhs.name) && (lhs.capacity == rhs.capacity)
     }
 }
 

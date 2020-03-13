@@ -22,6 +22,23 @@ class ChocolateMilk: Milk {
         super.init(brand: brand, capacity: capacity, price: price, name: name, manufacturingDate: manufacturingDate, calorie: calorie, temperature: temperature, farmCode: farmCode)
     }
     
+    enum Property: String, CustomStringConvertible {
+        case package
+        
+        var description: String {
+            return self.rawValue
+        }
+    }
+    
+    override func encode(with coder: NSCoder) {
+        coder.encode(package, forKey: "\(Property.package)")
+    }
+    
+    required init?(coder decoder: NSCoder) {
+        self.package = decoder.decodeObject(forKey: "\(Property.package)") as! Package
+        super.init(coder: decoder)
+    }
+    
     func isSamePackage(as package: Package) -> Bool {
         return self.package == package
     }

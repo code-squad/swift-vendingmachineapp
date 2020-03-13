@@ -16,6 +16,23 @@ class Coffee: Beverage {
         super.init(brand: brand, capacity: capacity, price: price, name: name, manufacturingDate: manufacturingDate, calorie: calorie, temperature: temperature)
     }
     
+    enum Property: String, CustomStringConvertible {
+        case decaffeinated
+        
+        var description: String {
+            return self.rawValue
+        }
+    }
+    
+    override func encode(with coder: NSCoder) {
+        coder.encode(decaffeinated, forKey: "\(Property.decaffeinated)")
+    }
+    
+    required init?(coder decoder: NSCoder) {
+        self.decaffeinated = decoder.decodeBool(forKey: "\(Property.decaffeinated)")
+        super.init(coder: decoder)
+    }
+    
     func isDecaffeinated() -> Bool {
         return decaffeinated
     }

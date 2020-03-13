@@ -16,14 +16,13 @@ class Coffee: Drink {
          capacity: Int,
          price: Int,
          name: String,
-         manufacturingDate: String,
-         expiryDate:String) {
+         manufacturingDate: Date = Date()) {
         self.caffeineContent = caffeineContent
         super.init(brand: brand,
                    capacity: capacity,
                    price: price,
                    name: name,
                    manufacturingDate: manufacturingDate,
-                   expiryDate: expiryDate)
+                   expiryDate: manufacturingDate.addingTimeInterval(3600 * 24 * 25))
     }
 }

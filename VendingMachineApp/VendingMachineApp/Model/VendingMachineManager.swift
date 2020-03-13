@@ -8,7 +8,7 @@
 
 import Foundation
 class VendingMachineManager {
-    var vendingMachine = VendingMachine()
+    private var vendingMachine = VendingMachine()
     
     func saveData() {
         do {
@@ -29,21 +29,5 @@ class VendingMachineManager {
             print(error.localizedDescription)
         }
     }
-    
-    func loadSavedBeverageCount(_ vendingMachine: VendingMachine) {
-        let stockCount = vendingMachine.reportTotalStock()
-        for (key, value) in stockCount {
-            if value != 0 {
-                let index = vendingMachine.reportProductIndex(key)
-                NotificationCenter.default.post(name: .updateBeverageCountLabel, object: (index, value))
-            }
-        }
-    }
-    
-    func loadSavedBalance(_ vendingMachine: VendingMachine) {
-        NotificationCenter.default.post(name: .updateBalanceLabel, object: vendingMachine.balance.description)
-
-    }
-    
     
 }

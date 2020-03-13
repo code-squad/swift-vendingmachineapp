@@ -21,12 +21,14 @@ class ViewController: UIViewController {
     @IBOutlet var balanceLabel: UILabel!
     
     override func viewDidLoad() {
-        vendingMachine = appDelegate.vendingMachine
+        vendingMachine = appDelegate.manager.loadData()
         
+        balanceLabel.text = vendingMachine?.balance.description
+        updateSavedBeverageCountLabel()
         super.viewDidLoad()
         setUI()
         setNotificationCenter()
-            
+
     }
     
     func setNotificationCenter() {
@@ -72,6 +74,16 @@ class ViewController: UIViewController {
     deinit {
         NotificationCenter.default.removeObserver(self, name: .updateBalanceLabel, object: nil)
         NotificationCenter.default.removeObserver(self, name: .updateBeverageCountLabel, object: nil)
+    }
+    
+    func updateSavedBeverageCountLabel() {
+        let stockCount = vendingMachine?.reportTotalStock()
+        for (key, value) in stockCount! {
+            if value != 0 {
+                guard let index = vendingMachine?.reportProductIndex(key) else { return }
+                stockCountLabels[index].text = String(value)
+            }
+        }
     }
 }
 

@@ -43,20 +43,20 @@ class Beverage: NSObject, NSCoding {
     }
     
     required init?(coder: NSCoder) {
-        guard let manufacturer = coder.decodeObject(forKey: manufacturerString) as? String else { return nil }
-        guard let brand = coder.decodeObject(forKey: brandString) as? String else { return nil }
-        guard let price = coder.decodeObject(forKey: priceString) as? Money else { return nil }
-        guard let name = coder.decodeObject(forKey: nameString) as? String else { return nil }
-        guard let manufacturedDate = coder.decodeObject(forKey: manufacturedDateString) as? Date else { return nil }
-        guard let expirationDate = coder.decodeObject(forKey: expirationDateString) as? Date else { return nil }
+        let manufacturer = coder.decodeObject(forKey: manufacturerString) as? String
+        let brand = coder.decodeObject(forKey: brandString) as? String
+        let price = coder.decodeObject(forKey: priceString) as? Money
+        let name = coder.decodeObject(forKey: nameString) as? String
+        let manufacturedDate = coder.decodeObject(forKey: manufacturedDateString) as? Date
+        let expirationDate = coder.decodeObject(forKey: expirationDateString) as? Date
         
-        self.manufacturer = manufacturer
-        self.brand = brand
+        self.manufacturer = manufacturer ?? ""
+        self.brand = brand ?? ""
         self.capacity = coder.decodeInteger(forKey: capacityString)
-        self.price = price
-        self.name = name
-        self.manufacturedDate = manufacturedDate
-        self.expirationDate = expirationDate
+        self.price = price ?? Money()
+        self.name = name ?? ""
+        self.manufacturedDate = manufacturedDate ?? Date()
+        self.expirationDate = expirationDate ?? Date()
         self.temperature = coder.decodeInteger(forKey: temperatureString)
         
     }

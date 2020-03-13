@@ -12,17 +12,17 @@ class Beverages: NSObject, NSCoding {
     private var beverages = [Beverage]()
     let beveragesString = "beverages"
 
-    func encode(with coder: NSCoder) {
-        coder.encode(beverages, forKey: beveragesString)
-    }
-    
     override init() {
         
     }
     
     required init?(coder: NSCoder) {
-        guard let beverages = coder.decodeObject(forKey: beveragesString) as? [Beverage] else { return }
-        self.beverages = beverages
+        let beverages = coder.decodeObject(forKey: beveragesString) as? [Beverage]
+        self.beverages = beverages ?? [Beverage]()
+    }
+    
+    func encode(with coder: NSCoder) {
+        coder.encode(beverages, forKey: beveragesString)
     }
     
     

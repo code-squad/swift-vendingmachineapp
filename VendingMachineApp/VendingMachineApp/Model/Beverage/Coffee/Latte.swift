@@ -11,7 +11,7 @@ class Latte: Coffee {
       private var sugarAmount: Int
       let sugarAmountString = "sugarAmount"
     
-      init(manufacturer: String, brand: String, capacity: Int, price: Money, name: String, manufacturedDate: Date, expirationDate: Date, isContainMilk: Bool, package: Packages, temperature: Int, sugarAmount: Int) {
+      init(manufacturer: String = "", brand: String = "", capacity: Int = 0, price: Money = Money(), name: String = "", manufacturedDate: Date = Date(), expirationDate: Date = Date(), package: Packages = .can, temperature: Int = 0, sugarAmount: Int = 0) {
           self.sugarAmount = sugarAmount
           super.init(manufacturer: manufacturer, brand: brand, capacity: capacity, price: price, name: name, manufacturedDate: manufacturedDate, expirationDate: expirationDate, package: package, temperature: temperature)
           

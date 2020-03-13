@@ -23,8 +23,9 @@ class Soda: Beverage {
     }
     
     required init?(coder: NSCoder) {
-        guard let sugarRatio = SugarRatio(rawValue: coder.decodeInteger(forKey: sugarRatioString)) else { return nil }
-        self.sugarRatio = sugarRatio
+        let decodedInt = coder.decodeInteger(forKey: sugarRatioString)
+        let sugarRatio = SugarRatio(rawValue: decodedInt)
+        self.sugarRatio = sugarRatio ?? SugarRatio.original
         super.init(coder: coder)
     }
     

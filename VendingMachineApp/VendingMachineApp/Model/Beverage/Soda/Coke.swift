@@ -11,7 +11,7 @@ class Coke: Soda {
     private var cocaLeafRatio: Double
     let cocaLeafRatioString = "cocaLeafRatio"
     
-    init(manufacturer: String, brand: String, capacity: Int, price: Money, name: String, manufacturedDate: Date, expirationDate: Date, sugarRatio: SugarRatio, temperature: Int, cocaLeafRatio: Double) {
+    init (manufacturer: String = "", brand: String = "", capacity: Int = 0, price: Money = Money(), name: String = "", manufacturedDate: Date = Date(), expirationDate: Date = Date(), sugarRatio: SugarRatio = .original, temperature: Int = 0, cocaLeafRatio: Double = 0.0) {
         self.cocaLeafRatio = cocaLeafRatio
         super.init(manufacturer: manufacturer, brand: brand, capacity: capacity, price: price, name: name, manufacturedDate: manufacturedDate, expirationDate: expirationDate, sugarRatio: sugarRatio, temperature: temperature)
     }

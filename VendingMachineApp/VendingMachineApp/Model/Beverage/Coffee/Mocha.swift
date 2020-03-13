@@ -11,7 +11,7 @@ class Mocha: Coffee {
     private var wheepCreamAmount: Int
     let wheepCreamAmountString = "wheepCreamAmount"
     
-    init(manufacturer: String, brand: String, capacity: Int, price: Money, name: String, manufacturedDate: Date, expirationDate: Date, isContainMilk: Bool, package: Packages, temperature: Int, wheepCreamAmount: Int) {
+    init(manufacturer: String = "", brand: String = "", capacity: Int = 0, price: Money = Money(), name: String = "", manufacturedDate: Date = Date(), expirationDate: Date = Date(), package: Packages = .can, temperature: Int = 0, wheepCreamAmount: Int = 0) {
         self.wheepCreamAmount = wheepCreamAmount
         super.init(manufacturer: manufacturer, brand: brand, capacity: capacity, price: price, name: name, manufacturedDate: manufacturedDate, expirationDate: expirationDate, package: package, temperature: temperature)
         

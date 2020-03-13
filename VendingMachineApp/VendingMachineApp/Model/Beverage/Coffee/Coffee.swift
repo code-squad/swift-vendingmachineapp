@@ -9,6 +9,7 @@
 import Foundation
 class Coffee: Beverage {
     private var package: Packages
+    let packageString = "package"
     
     init(manufacturer: String, brand: String, capacity: Int, price: Money, name: String, manufacturedDate: Date, expirationDate: Date,  package: Packages, temperature: Int) {
         self.package = package
@@ -22,14 +23,14 @@ class Coffee: Beverage {
     }
     
     required init?(coder: NSCoder) {
-        guard let package = Packages(rawValue: (coder.decodeObject(forKey: "package") as? String)!) else { return nil }
+        guard let package = Packages(rawValue: (coder.decodeObject(forKey: packageString) as? String)!) else { return nil }
         self.package = package
         super.init(coder: coder)
     }
     
     override func encode(with coder: NSCoder) {
         super.encode(with: coder)
-        coder.encode(self.package.rawValue, forKey: "package")
+        coder.encode(self.package.rawValue, forKey: packageString)
     }
     
 }

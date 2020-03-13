@@ -9,6 +9,7 @@
 import Foundation
 class Milkis: Soda {
     private var milkRatio: Double
+    let milkRatioString = "milkRatio"
     
     init(manufacturer: String, brand: String, capacity: Int, price: Money, name: String, manufacturedDate: Date, expirationDate: Date, sugarRatio: SugarRatio, temperature: Int, milkRatio: Double) {
         self.milkRatio = milkRatio
@@ -16,12 +17,12 @@ class Milkis: Soda {
     }
     
     required init?(coder: NSCoder) {
-        self.milkRatio = coder.decodeDouble(forKey: "milkRatio")
+        self.milkRatio = coder.decodeDouble(forKey: milkRatioString)
         super.init(coder: coder)
     }
     
     override func encode(with coder: NSCoder) {
         super.encode(with: coder)
-        coder.encode(self.milkRatio, forKey: "milkRatio")
+        coder.encode(self.milkRatio, forKey: milkRatioString)
     }
 }

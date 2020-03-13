@@ -9,6 +9,7 @@
 import Foundation
 class BananMilk: Milk {
     private var bananaCountry: String
+    let bananaCountryString = "bananaCountry"
     
     init(manufacturer: String, brand: String, capacity: Int, price: Money, name: String, manufacturedDate: Date, expirationDate: Date, fatRatio: FatRatio, isLactoFree: Bool, temperature: Int, bananaCountry: String) {
         self.bananaCountry = bananaCountry
@@ -16,13 +17,13 @@ class BananMilk: Milk {
        }
     
     required init?(coder: NSCoder) {
-        guard let bananaCountry = coder.decodeObject(forKey: "bananaCountry") as? String else { return nil }
+        guard let bananaCountry = coder.decodeObject(forKey: bananaCountryString) as? String else { return nil }
          self.bananaCountry = bananaCountry
          super.init(coder: coder)
      }
      
      override func encode(with coder: NSCoder) {
          super.encode(with: coder)
-         coder.encode(self.bananaCountry, forKey: "bananaCountry")
+         coder.encode(self.bananaCountry, forKey: bananaCountryString)
      }
 }

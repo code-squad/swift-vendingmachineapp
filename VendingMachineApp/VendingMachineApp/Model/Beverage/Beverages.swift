@@ -10,9 +10,10 @@ import Foundation
 class Beverages: NSObject, NSCoding {
 
     private var beverages = [Beverage]()
+    let beveragesString = "beverages"
 
     func encode(with coder: NSCoder) {
-        coder.encode(beverages, forKey: "beverages")
+        coder.encode(beverages, forKey: beveragesString)
     }
     
     override init() {
@@ -20,7 +21,7 @@ class Beverages: NSObject, NSCoding {
     }
     
     required init?(coder: NSCoder) {
-        guard let beverages = coder.decodeObject(forKey: "beverages") as? [Beverage] else { return }
+        guard let beverages = coder.decodeObject(forKey: beveragesString) as? [Beverage] else { return }
         self.beverages = beverages
     }
     

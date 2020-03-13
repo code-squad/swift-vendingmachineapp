@@ -9,6 +9,7 @@
 import Foundation
 class Cider: Soda {
     private var flavor: Flavor
+    let flavorString = "flavor"
     
     enum Flavor: String {
         case apple = "apple"
@@ -21,13 +22,13 @@ class Cider: Soda {
     }
     
       required init?(coder: NSCoder) {
-        guard let flavor = Flavor(rawValue: (coder.decodeObject(forKey: "flavor") as? String)!) else { return nil }
+        guard let flavor = Flavor(rawValue: (coder.decodeObject(forKey: flavorString) as? String)!) else { return nil }
         self.flavor = flavor
         super.init(coder: coder)
       }
       
       override func encode(with coder: NSCoder) {
           super.encode(with: coder)
-        coder.encode(self.flavor.rawValue, forKey: "flavor")
+        coder.encode(self.flavor.rawValue, forKey: flavorString)
       }
 }

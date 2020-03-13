@@ -74,7 +74,7 @@ class VendingMachine: NSObject, NSCoding {
     }
     
     func encode(with coder: NSCoder) {
-        coder.encode(stock, forKey: "stock")
-        coder.encode(money, forKey: "money")
+        coder.encode(stock, forCustomKey: .stock)
+        coder.encode(money, forCustomKey: .money)
     }
 }

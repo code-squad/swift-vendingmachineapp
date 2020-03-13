@@ -47,14 +47,14 @@ class Beverage: NSObject, NSCoding {
     // MARK: - NSCoding
     
     required init(coder: NSCoder) {
-        self.amount = coder.decodeInteger(forKey: "beverageAmount")
-        self.calorie = coder.decodeDouble(forKey: "calorie")
-        self.isHot = coder.decodeBool(forKey: "isHot")
-        guard let brand = coder.decodeObject(forKey: "brand") as? String,
-            let price = coder.decodeObject(forKey: "price") as? Money,
-            let name = coder.decodeObject(forKey: "name") as? String,
-            let manufacturingDate = coder.decodeObject(forKey: "manufacturingDate") as? Date,
-            let expirationDate = coder.decodeObject(forKey: "expirationDate") as? Date else {
+        self.amount = coder.decodeInteger(forCustomKey: .amount)
+        self.calorie = coder.decodeDouble(forCustomKey: .calorie)
+        self.isHot = coder.decodeBool(forCustomKey: .isHot)
+        guard let brand = coder.decodeObject(forCustomKey: .brand) as? String,
+            let price = coder.decodeObject(forCustomKey: .price) as? Money,
+            let name = coder.decodeObject(forCustomKey: .name) as? String,
+            let manufacturingDate = coder.decodeObject(forCustomKey: .manufacturingDate) as? Date,
+            let expirationDate = coder.decodeObject(forCustomKey: .expirationDate) as? Date else {
                 self.brand = ""
                 self.price = Money()
                 self.name = "soldOut"
@@ -70,14 +70,14 @@ class Beverage: NSObject, NSCoding {
     }
     
     func encode(with coder: NSCoder) {
-        coder.encode(brand, forKey: "brand")
-        coder.encode(amount, forKey: "beverageAmount")
-        coder.encode(price, forKey: "price")
-        coder.encode(name, forKey: "name")
-        coder.encode(calorie, forKey: "calorie")
-        coder.encode(isHot, forKey: "isHot")
-        coder.encode(manufacturingDate, forKey: "manufacturingDate")
-        coder.encode(expirationDate, forKey: "expirationDate")
+        coder.encode(brand, forCustomKey: .brand)
+        coder.encode(amount, forCustomKey: .beverageAmount)
+        coder.encode(price, forCustomKey: .price)
+        coder.encode(name, forCustomKey: .name)
+        coder.encode(calorie, forCustomKey: .calorie)
+        coder.encode(isHot, forCustomKey: .isHot)
+        coder.encode(manufacturingDate, forCustomKey: .manufacturingDate)
+        coder.encode(expirationDate, forCustomKey: .expirationDate)
     }
 }
 

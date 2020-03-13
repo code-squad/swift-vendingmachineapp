@@ -19,7 +19,7 @@ class Fanta: Soda {
     // MARK: - NSCoding
     
     required init(coder: NSCoder) {
-        guard let flavor = coder.decodeObject(forKey: "flavor") as? String else {
+        guard let flavor = coder.decodeObject(forCustomKey: .flavor) as? String else {
             self.flavor = ""
             super.init(coder: coder)
             return
@@ -30,6 +30,6 @@ class Fanta: Soda {
     
     override func encode(with coder: NSCoder) {
         super.encode(with: coder)
-        coder.encode(flavor, forKey: "flavor")
+        coder.encode(flavor, forCustomKey: .flavor)
     }
 }

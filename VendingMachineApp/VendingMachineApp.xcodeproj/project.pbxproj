@@ -34,6 +34,7 @@
 		44AD04B724036C990059C5D1 /* BananaMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44AD04B624036C990059C5D1 /* BananaMilk.swift */; };
 		44D32D0B24090B560048CEA0 /* VendingMachineManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D32D0A24090B560048CEA0 /* VendingMachineManager.swift */; };
 		44D32D1024093D4F0048CEA0 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D32D0F24093D4F0048CEA0 /* MainView.swift */; };
+		44EF530F241B5F95004E6B3B /* NSCoderExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EF530E241B5F95004E6B3B /* NSCoderExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +97,7 @@
 		44AD04B624036C990059C5D1 /* BananaMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BananaMilk.swift; sourceTree = "<group>"; };
 		44D32D0A24090B560048CEA0 /* VendingMachineManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineManager.swift; sourceTree = "<group>"; };
 		44D32D0F24093D4F0048CEA0 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		44EF530E241B5F95004E6B3B /* NSCoderExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSCoderExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,6 +208,7 @@
 				441A381A24065C8E00F44B1E /* Money.swift */,
 				44A408D824001FDF007995C5 /* Stock.swift */,
 				44D32D0A24090B560048CEA0 /* VendingMachineManager.swift */,
+				44EF530E241B5F95004E6B3B /* NSCoderExtension.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -456,6 +459,7 @@
 				44A408D7240019A6007995C5 /* VendingMachine.swift in Sources */,
 				44D32D0B24090B560048CEA0 /* VendingMachineManager.swift in Sources */,
 				44AD04A424036A380059C5D1 /* Cola.swift in Sources */,
+				44EF530F241B5F95004E6B3B /* NSCoderExtension.swift in Sources */,
 				44A408D924001FDF007995C5 /* Stock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -57,6 +57,6 @@ class Stock: NSObject, NSCoding {
     }
 
     func encode(with coder: NSCoder) {
-        coder.encode(beverages, forKey: "beverages")
+        coder.encode(beverages, forCustomKey: .beverages)
     }
 }

@@ -23,12 +23,12 @@ class Coffee: Beverage {
     // MARK: - NSCoding
     
     required init(coder: NSCoder) {
-        self.caffeineContent = coder.decodeDouble(forKey: "caffeineContent")
+        self.caffeineContent = coder.decodeDouble(forCustomKey: .caffeieneContent)
         super.init(coder: coder)
     }
     
     override func encode(with coder: NSCoder) {
         super.encode(with: coder)
-        coder.encode(caffeineContent, forKey: "caffeieneContent")
+        coder.encode(caffeineContent, forCustomKey: .caffeieneContent)
     }
 }

@@ -19,12 +19,12 @@ class ChocolateMilk: Milk {
     // MARK: - NSCoding
     
     required init(coder: NSCoder) {
-        self.chocolateContent = coder.decodeDouble(forKey: "chocolateContent")
+        self.chocolateContent = coder.decodeDouble(forCustomKey: .chocolateContent)
         super.init(coder: coder)
     }
     
     override func encode(with coder: NSCoder) {
         super.encode(with: coder)
-        coder.encode(chocolateContent, forKey: "chocolateContent")
+        coder.encode(chocolateContent, forCustomKey: .chocolateContent)
     }
 }

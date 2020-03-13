@@ -9,7 +9,8 @@
 import UIKit
 
 class ViewController: UIViewController {
-    private let vendingMachine = VendingMachine()
+    private let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    lazy var vendingMachine = appDelegate.vendingMachine
     private var selectedIndex = -1
     @IBOutlet var addStockButtons: [UIButton]!
     @IBOutlet var productImages: [UIImageView]!

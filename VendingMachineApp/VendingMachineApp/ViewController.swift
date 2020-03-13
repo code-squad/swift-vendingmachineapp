@@ -22,7 +22,9 @@ class ViewController: UIViewController {
         vendingMachine.addDrinkStock(drink: fanta)
         vendingMachine.addDrinkStock(drink: georgia)
         
-        vendingMachine.showStockList()
+        vendingMachine.drinkStock.forEach { (drink) in
+            print(drink)
+        }
     }
 
 

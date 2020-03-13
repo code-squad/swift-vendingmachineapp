@@ -19,7 +19,7 @@ class ViewController: UIViewController {
     @IBOutlet var beverageImages: [UIImageView]!
     @IBOutlet var addMoneyButtons: [UIButton]!
     @IBOutlet var balanceLabel: UILabel!
-    
+     
     override func viewDidLoad() {
         vendingMachine = appDelegate.manager.loadData()
         

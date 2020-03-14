@@ -47,16 +47,12 @@ class VendingMachineTest: XCTestCase {
         XCTAssertEqual(vendingMachine.currentMoney(), Quantity.zero)
     }
     
-    func testSearchStockByKind() {
-        vendingMachine.searchStockByKind {
-            if $0.key == "\(type(of: cookieCreamMilk))" {
-                XCTAssertEqual($0.value, cookieCreamMilk)
-            } else if $0.key == "\(type(of: primiumLatte))" {
-                XCTAssertEqual($0.value, primiumLatte)
-            } else if $0.key == "\(type(of: dietCola))" {
-                XCTAssertEqual($0.value, dietCola)
-            }
-        }
+    func testStockByKind() {
+        let stockByKind = vendingMachine.stockByKind()
+        XCTAssertEqual(stockByKind,
+                       ["Cantata": [primiumLatte],
+                        "Pepsi": [dietCola],
+                        "HersheyChocolateDrink": [cookieCreamMilk]])
     }
     
     func testSearchSellableBeverages() {
@@ -82,11 +78,7 @@ class VendingMachineTest: XCTestCase {
                                                          expirationDateInfo: "20191023",
                                                          cacaoContentRate: 0.03)!
         vendingMachine.addToStock(beverage: otherCookieCreamMilk)
-        vendingMachine.searchStockByKind {
-            if $0.key == "\(type(of: cookieCreamMilk))" {
-                XCTAssertEqual($0.value, cookieCreamMilk)
-            }
-        }
+        
     }
     
     func testSearchSalesLog() {

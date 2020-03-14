@@ -105,29 +105,20 @@ extension VendingMachine {
         stock.forEach { handler($0) }
     }
     
-    func searchSellableBeverages(handler: ((key: String, value: Beverage)) -> (Void)) {
-        let sellableBeverages = generateSellableBeverages()
-        sellableBeverages.forEach { (kind) in
-            kind.value.forEach {
-                handler((key: kind.key, value: $0))
-            }
-        }
-    }
-    
-    private func generateSellableBeverages() -> [String: [Beverage]] {
+    func sellableBeverages() -> [String: [Beverage]] {
         var sellableBeverages = [String: [Beverage]]()
-        for beverage in stock {
-            let typeToString = "\(type(of: beverage))"
+        stock.forEach {
+            let typeToString = "\(type(of: $0))"
             guard !sellableBeverages.keys.contains(typeToString)
                 else {
-                    sellableBeverages[typeToString]?.append(beverage)
-                    continue
+                    sellableBeverages[typeToString]?.append($0)
+                    return
             }
-            guard cashier.isEnoughToBuy(price: beverage.price)
+            guard cashier.isEnoughToBuy(price: $0.price)
                 else {
-                    continue
+                    return
             }
-            sellableBeverages[typeToString] = [beverage]
+            sellableBeverages[typeToString] = [$0]
         }
         return sellableBeverages
     }

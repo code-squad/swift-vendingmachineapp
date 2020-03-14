@@ -16,23 +16,9 @@ class VendingMachine: NSObject, NSCoding{
     }
     
     required init?(coder decoder: NSCoder) {
-        if let beverages = decoder.decodeObject(forKey: Property.beverages) as? Beverages {
-            self.beverages = beverages
-        } else {
-            self.beverages = Beverages()
-        }
-            
-        if let balance = decoder.decodeObject(forKey: Property.balance) as? Price {
-            self.balance = balance
-        } else {
-            self.balance = Price(0)
-        }
-        
-        if let purchaseHistory = decoder.decodeObject(forKey: Property.purchaseHistory) as? Beverages {
-            self.purchaseHistory = purchaseHistory
-        } else {
-            self.purchaseHistory = Beverages()
-        }
+        self.beverages = decoder.decodeObject(forKey: Property.beverages) as? Beverages ?? Beverages()
+        self.balance = decoder.decodeObject(forKey: Property.balance) as? Price ?? Price(0)
+        self.purchaseHistory = decoder.decodeObject(forKey: Property.purchaseHistory) as? Beverages ?? Beverages()
     }
     
     private var beverages: Beverages

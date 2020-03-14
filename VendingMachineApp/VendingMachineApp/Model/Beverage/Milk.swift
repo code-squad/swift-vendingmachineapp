@@ -30,11 +30,8 @@ class Milk: Beverage {
     }
     
     required init?(coder decoder: NSCoder) {
-        if let farmCode = decoder.decodeObject(forKey: Property.farmCode) as? String {
-            self.farmCode = FarmCode.init(rawValue: farmCode)!
-        } else {
-            self.farmCode = FarmCode.A
-        }
+        let code = decoder.decodeObject(forKey: Property.farmCode) as? String ?? "A"
+        self.farmCode = FarmCode.init(rawValue: code) ?? FarmCode.A
         super.init(coder: decoder)
     }
     

@@ -14,17 +14,12 @@ class Beverages: NSObject, NSCoding {
     }
     
     required init?(coder decoder: NSCoder) {
-        if let beverages = decoder.decodeObject(forKey: Property.beveragesList) as? [Beverage] {
-            self.beverages = beverages
-        } else {
-            self.beverages = [Beverage]()
-        }
+        self.beverages = decoder.decodeObject(forKey: Property.beveragesList) as? [Beverage] ?? [Beverage]()
     }
     
     private var beverages: [Beverage] {
         didSet {
-            NotificationCenter.default.post(name: Notification.Name.updateStock,
-                                            object: nil)
+            NotificationCenter.default.post(name: Notification.Name.updateStock, object: nil)
         }
     }
     

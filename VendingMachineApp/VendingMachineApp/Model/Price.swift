@@ -19,8 +19,7 @@ class Price: NSObject, NSCoding {
     
     private var money: Int {
         didSet {
-            NotificationCenter.default.post(name: Notification.Name.updateBalance,
-                                            object: nil)
+            NotificationCenter.default.post(name: Notification.Name.updateBalance, object: nil)
         }
     }
     

@@ -27,11 +27,8 @@ class Cider: Soda {
     }
     
     required init?(coder decoder: NSCoder) {
-        if let taste = decoder.decodeObject(forKey: Property.taste) as? String {
-            self.taste = Taste.init(rawValue: taste)!
-        } else {
-            self.taste = Taste.lemon
-        }
+        let material = decoder.decodeObject(forKey: Property.taste) as? String ?? "lemon"
+        self.taste = Taste.init(rawValue: material) ?? Taste.lemon
         super.init(coder: decoder)
     }
     

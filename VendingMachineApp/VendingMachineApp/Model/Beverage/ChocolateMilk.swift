@@ -28,11 +28,9 @@ class ChocolateMilk: Milk {
     }
     
     required init?(coder decoder: NSCoder) {
-        if let package = decoder.decodeObject(forKey: Property.package) as? String {
-            self.package = Package.init(rawValue: package)!
-        } else {
-            self.package = Package.paper
-        }
+        let material = decoder.decodeObject(forKey: Property.package) as? String ?? "plastic"
+        self.package = Package.init(rawValue: material) ?? Package.plastic
+        
         super.init(coder: decoder)
     }
     

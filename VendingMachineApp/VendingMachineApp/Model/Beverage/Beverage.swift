@@ -21,42 +21,14 @@ class Beverage: NSObject, NSCoding {
     }
     
     required init?(coder decoder: NSCoder) {
-        if let brand = decoder.decodeObject(forKey: Property.brand) as? String {
-            self.brand = brand
-        } else {
-            self.brand = ""
-        }
-        
+        self.brand = decoder.decodeObject(forKey: Property.brand) as? String ?? ""
         self.capacity = decoder.decodeInteger(forKey: Property.capacity)
-        
-        if let price = decoder.decodeObject(forKey: Property.price) as? Price {
-            self.price = price
-        } else {
-            self.price = Price(0)
-        }
-        
-        if let name = decoder.decodeObject(forKey: Property.name) as? String {
-            self.name = name
-        } else {
-            self.name = ""
-        }
-        
-        if let manufacturingDate = decoder.decodeObject(forKey: Property.manufactureingDate) as? Date {
-            self.manufacturingDate = manufacturingDate
-        } else {
-            self.manufacturingDate = Date()
-        }
-        
-        if let expirationDate = decoder.decodeObject(forKey: Property.expirationDate) as? Date {
-            self.expirationDate = expirationDate
-        } else {
-            self.expirationDate = Date()
-        }
-        
+        self.price = decoder.decodeObject(forKey: Property.price) as? Price ?? Price(0)
+        self.name = decoder.decodeObject(forKey: Property.name) as? String ?? ""
+        self.manufacturingDate = decoder.decodeObject(forKey: Property.manufactureingDate) as? Date ?? Date()
+        self.expirationDate = decoder.decodeObject(forKey: Property.expirationDate) as? Date ?? Date()
         self.calorie = decoder.decodeDouble(forKey: Property.calorie)
-        
-        let temperature = decoder.decodeDouble(forKey: Property.temperature)
-        self.temperature = Temperature.init(rawValue: temperature)!
+        self.temperature = Temperature.init(rawValue: decoder.decodeDouble(forKey: Property.temperature)) ?? Temperature.Cool
     }
     
     enum Temperature: Double, Comparable {

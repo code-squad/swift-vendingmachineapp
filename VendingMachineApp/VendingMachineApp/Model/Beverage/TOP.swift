@@ -37,12 +37,8 @@ class TOP: Coffee {
     }
     
     required init?(coder decoder: NSCoder) {
-        if let beanOrigin = decoder.decodeObject(forKey: Property.beanOrigin) as? String {
-            self.beanOrigin = BeanOrigin.init(rawValue: beanOrigin)!
-        } else {
-            self.beanOrigin = BeanOrigin.Colombia
-        }
-        
+        let material = decoder.decodeObject(forKey: Property.beanOrigin) as? String ?? "Colombia"
+        self.beanOrigin = BeanOrigin.init(rawValue: material) ?? BeanOrigin.Colombia
         super.init(coder: decoder)
     }
     

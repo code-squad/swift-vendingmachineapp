@@ -182,9 +182,9 @@
 			children = (
 				5A8341722419002B00F20FAA /* Beverages */,
 				5A91FCFD240FD6DE00884D64 /* VendingMachine.swift */,
+				5A834173241900EC00F20FAA /* Cashier.swift */,
 				5A7EFBC1241631860018710C /* Date.swift */,
 				5A7EFBCB241658C30018710C /* Quantity.swift */,
-				5A834173241900EC00F20FAA /* Cashier.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";

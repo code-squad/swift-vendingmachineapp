@@ -20,7 +20,7 @@ class VendingMachineTest: XCTestCase {
                                sugarContentRate: 0.05)!
     let dietCola = Pepsi(volume: 350, price: 2000, name: "다이어트 콜라",
                          manufacturingDateInfo: "20190928",
-                         kiloCalorie: 80, package: .glass)!
+                         kiloCalorie: 80, package: Package.glass)!
     let cookieCreamMilk = HersheyChocolateDrink(volume: 190, price: 1500,
                                                 name: "쿠키앤크림",
                                                 manufacturingDateInfo: "20191116",

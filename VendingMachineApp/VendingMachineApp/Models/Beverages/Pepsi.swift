@@ -10,11 +10,11 @@ import Foundation
 
 class Pepsi: Soda {
     
-    private let package: Package
+    private let package: String
     
     init?(volume: Int, price: Int, name: String,
           manufacturingDateInfo: String, kiloCalorie: Int,
-          package: Package) {
+          package: String) {
         self.package = package
         super.init(brand: "팹시", volume: volume,
                    price: price, name: name,
@@ -23,7 +23,7 @@ class Pepsi: Soda {
     }
     
     func isFragile() -> Bool {
-        return package == .glass
+        return package == Package.glass
     }
     
 }
@@ -36,16 +36,11 @@ extension Pepsi {
     
 }
 
-extension Pepsi {
+enum Package {
     
-    enum Package: String, CustomStringConvertible {
-        case glass
-        case can
-        case pet
-        
-        var description: String {
-            return rawValue
-        }
-    }
+    static let glass = "glass"
+    static let can = "can"
+    static let pet = "pet"
     
 }
+

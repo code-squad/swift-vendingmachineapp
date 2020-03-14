@@ -11,35 +11,62 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var vendingMachine = VendingMachine()
-    
+    var window: UIWindow?
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        if #available(iOS 13.0, *) {
+        } else {
+            let window = UIWindow(frame: UIScreen.main.bounds)
+            window.rootViewController = ViewController()
+            self.window = window
+            window.makeKeyAndVisible()
+        }
+        
+        load()
+        
         return true
     }
-
+    
+    @available(iOS 13.0, *)
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
         return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
     }
     
-    func archive(with things: VendingMachine) -> Data {
-        do {
-            let archived = try NSKeyedArchiver.archivedData(withRootObject: things, requiringSecureCoding: false)
-            return archived
-        }
-        catch {
-            print(error)
-        }
-        return Data()
+    func applicationWillResignActive(_ application: UIApplication) {
+        save()
     }
     
-    func unarchive(with text: Data) -> VendingMachine? {
-        do {
-            let object = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(text)
-            return object as? VendingMachine
+    func save() {
+        func archive() -> Data {
+            do {
+                let archived = try NSKeyedArchiver.archivedData(withRootObject: vendingMachine, requiringSecureCoding: false)
+                return archived
+            }
+            catch {
+                print(error)
+            }
+            return Data()
         }
-        catch {
-            print(error)
+        
+        UserDefaults.standard.set(archive(), forKey: "model")
+    }
+    
+    func load() {
+        func unarchive(with text: Data) -> VendingMachine? {
+            do {
+                let object = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(text)
+                return object as? VendingMachine
+            }
+            catch {
+                print(error)
+            }
+            return nil
         }
-        return nil
+        
+        if let data: Data = UserDefaults.standard.object(forKey: "model") as? Data {
+            if let vendingMachine = unarchive(with: data) {
+                self.vendingMachine = vendingMachine
+            }
+        }
     }
 }
 

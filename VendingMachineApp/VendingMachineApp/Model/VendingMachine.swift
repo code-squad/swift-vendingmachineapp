@@ -127,9 +127,6 @@ class VendingMachine: NSObject, NSCoding{
     
     func add(moneyNumber: Int) {
         self.balance.add(money: Price.KindOfMoney.allCases[moneyNumber])
-        NotificationCenter.default.post(name: Notification.Name.updateBalance,
-                                        object: nil,
-                                        userInfo: ["balance": self.balance])
     }
     
     func purchasableBeverages() -> [String] {
@@ -147,9 +144,6 @@ class VendingMachine: NSObject, NSCoding{
         balance.minus(money: VendingMachine.beverageList[beverageNumber].price)
         purchaseHistory.add(beverage: VendingMachine.beverageList[beverageNumber])
         beverages.remove(beverage: VendingMachine.beverageList[beverageNumber])
-        NotificationCenter.default.post(name: Notification.Name.updateBalance,
-                                        object: nil,
-                                        userInfo: ["balance": self.balance])
     }
     
     func kindOfBeverages() -> [String : Int] {

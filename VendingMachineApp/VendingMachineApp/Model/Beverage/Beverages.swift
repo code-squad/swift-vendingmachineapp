@@ -29,7 +29,12 @@ class Beverages: NSObject, NSCoding {
         }
     }
     
-    private var beverages: [Beverage]
+    private var beverages: [Beverage] {
+        didSet {
+            NotificationCenter.default.post(name: Notification.Name.updateStock,
+                                            object: nil)
+        }
+    }
     
     override init() {
         beverages = [Beverage]()
@@ -37,8 +42,6 @@ class Beverages: NSObject, NSCoding {
     
     func add(beverage: Beverage) {
         beverages.append(beverage)
-        NotificationCenter.default.post(name: Notification.Name.updateStock,
-                                        object: nil, userInfo: ["stock": beverages.filter{$0 == beverage}.count])
     }
     
     func forEachBeverages(_ transform: (Beverage) -> ()) {
@@ -58,7 +61,7 @@ class Beverages: NSObject, NSCoding {
     
     func kindOfBeverages() -> [String : Int] {
         let result = beverages.reduce(into: [String : Int]()) { (result, key) in
-            result["\(key)"] = beverages.filter{key == $0}.count
+            result["\(key)"] = beverages.filter{"\(key)" == "\($0)"}.count
         }
         return result
     }

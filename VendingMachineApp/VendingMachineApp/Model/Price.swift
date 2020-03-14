@@ -25,7 +25,13 @@ class Price: NSObject, NSCoding {
         self.money = decoder.decodeInteger(forKey: "\(Property.money)")
     }
     
-    private var money: Int
+    private var money: Int {
+        didSet {
+            NotificationCenter.default.post(name: Notification.Name.updateBalance,
+                                            object: nil)
+        }
+    }
+    
     override var description: String {
         return String(money)
     }

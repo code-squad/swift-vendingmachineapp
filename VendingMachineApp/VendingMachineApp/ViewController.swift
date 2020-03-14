@@ -35,7 +35,7 @@ class ViewController: UIViewController {
     
     func setupUI() {
         makeCornerRadius()
-        updateBalance(balance: "\(vendingMachine.balance)")
+        updateBalance()
         updateStockLabel()
     }
     
@@ -66,16 +66,10 @@ class ViewController: UIViewController {
                 stockLabels[beverageIndex].text = String(0)
             }
         }
-        
-        if kindOfBeverages.count == 0 {
-            stockLabels.forEach{
-                $0.text = String(0)
-            }
-        }
     }
     
-    private func updateBalance(balance: String) {
-        balanceLabel.text = "잔액: \(balance)"
+    private func updateBalance() {
+        balanceLabel.text = "잔액: \(vendingMachine.balance)"
     }
     
     @objc func updateStockLabel(_ notification: Notification) {
@@ -83,9 +77,7 @@ class ViewController: UIViewController {
     }
     
     @objc func updateBalance(_ notification: Notification) {
-        if let balance: Price = notification.userInfo?["balance"] as? Price {
-            updateBalance(balance: "\(balance)")
-        }
+        updateBalance()
     }
 }
 

@@ -13,7 +13,7 @@ struct VendingMachine {
     private var stock: [Beverage]
     private var cashier = Cashier()
     
-    init(stock: [Beverage]) {
+    init(stock: [Beverage] = []) {
         self.stock = stock
     }
     
@@ -52,6 +52,20 @@ struct VendingMachine {
         return false
     }
     
+    func stockByKind() -> [String: [Beverage]] {
+        var stockByKind = [String: [Beverage]]()
+        for beverage in stock {
+            let typeToString = "\(type(of: beverage))"
+            guard !stockByKind.keys.contains(typeToString)
+                else {
+                    stockByKind[typeToString]?.append(beverage)
+                    continue
+            }
+            stockByKind[typeToString] = [beverage]
+        }
+        return stockByKind
+    }
+    
 }
 
 extension VendingMachine {
@@ -87,18 +101,8 @@ extension VendingMachine {
         }
     }
     
-    func stockByKind() -> [String: [Beverage]] {
-        var stockByKind = [String: [Beverage]]()
-        for beverage in stock {
-            let typeToString = "\(type(of: beverage))"
-            guard !stockByKind.keys.contains(typeToString)
-                else {
-                    stockByKind[typeToString]?.append(beverage)
-                    continue
-            }
-            stockByKind[typeToString] = [beverage]
-        }
-        return stockByKind
+    func searchAllBeverages(handler: (Beverage) -> (Void)) {
+        stock.forEach { handler($0) }
     }
     
     func searchSellableBeverages(handler: ((key: String, value: Beverage)) -> (Void)) {

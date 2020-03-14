@@ -106,3 +106,83 @@
 - `VendingMachine` 클래스에서 `raiseMoney(index:) `의 Int 타입인 인자 index를 `MoneyUnit`으로 변경해 조금 더 안전하게 동작하도록 변경
 - `ViewController`에서 각 음료에 재고 추가시 재고 갯수를 리턴받는 코드를 `VendingMachine`에 클로저로 넘겨서 처리하도록 변경
 - `ViewController`에서 `addMoney(button:)` 메서드에서 **Controller -> View** 로만 있던 흐름을 **Model -> View -> Controller** 의 흐름이 되도록 Observer Pattern 사용 
+
+
+
+
+
+<br>
+
+
+
+## step4. 앱 생명주기와 객체 저장
+
+2020.3.13. Fri
+
+
+
+### 요구사항
+
+- VendingMachine 변수를 ViewController에서 포함하지 않고 AppDelegate로 옮긴다.
+- AppDelegate에 선언한 변수를 ViewController에서 접근하기 위한 방법을 찾는다.
+- 앱 종료(background) 시점 콜백 함수에서 VendingMachine 객체 인스턴스 속성을 저장한다.
+  - 저장할 때는 VendingMachine을 아카이브해서 하나의 데이터 값으로 변형한다.
+  - 값을 저장하고 복원하는 데에는 UserDefault 라는 파운데이션 라이브러리를 사용한다.
+- 앱 시작(activate) 시점 콜백 함수에서 기존에 저장된 값에서 불러와서 VendingMachine 객체 인스턴스를 생성한다.
+  - 복원할 때는 저장된 데이터 값을 언아카이브해서 VendingMachine 객체를 생성한다.
+
+
+
+### 구현 내용
+
+- VendingMachine이 NSObject를 상속받고 NSCoding을 채택하도록 클래스로 변경
+- 자판기의 모든 속성 아카이빙
+- 앱 라이프사이클에 따라 데이터를 저장하고 로드해오도록 구현
+
+
+
+### 고민한 사항
+
+- 데이터를 저장하고 불러오는 시점에 관해 고민함
+
+  1. **데이터를 불러오는 시점은 앱이 시작할 때**
+
+  - 처음에는 화면이 active됐을 때도 데이터를 로드해오면 좋을 것 같아 DidBecomeActive에서 로드를 해줬으나, 화면이 active됐을 때 앱델리게이트의 DidBecomeActive는 호출되지 않았고 씬델리게이트의 DidBecomeActive가 호출됐음..  
+
+    런칭 시점에 이미 데이터를 로드해왔으므로 Active되는 시점에 데이터를 불러오지 않아도 될 것 같아서 런칭시점에만 로드되도록 변경함
+
+  2. **데이터를 저장하는 시점은 앱이 (예상치 못하게)종료될 때와 백그라운드로 들어갈때**
+
+  - 앱 종료시점앱 스위처에서 앱을 종료했을 때는 willTerminate 가 잘 호출되었음.
+    허나 앱이 메모리가 부족해지면 suspend 상태인 앱을 별도의 알림 없이 종료시키는데 이때는 willTerminate가 호출되지 않으므로 foreground에서 background로 넘어갈때도 데이터를 저장해주면 좋을 것 같다.
+  - foreground에서 background로 가는 시점앱델리게이트의 ResignActive는 불려지지 않았고 씬델리게이트의 ResignActive가 불려졌고 앱델리게이트의 didEnterBackground가 불려졌다.
+    앱델리게이트의 ResignActive가 아닌 didEnterBackground에서 데이터를 저장해주면 될 것 같아 그렇게 반영.
+
+- 디코딩 실패시 `decodeInteger`, `decodeDouble` 같은 건 0이나 0.0 등의 기본값을 넣어주지만 `decodeObject` 는 기본값을 넣어주지 않으므로 흐름에 따라서 nil을 리턴할건지 지정된 기본값을 넣어줄건지 정해서 그대로 하면 됨.
+
+- 열거형은 인코딩이 안됨. 그래서 rawValue를 가지게 해서 rawValue 기반으로 인/디코딩 해줌
+
+  
+
+
+
+<br>
+
+<br>
+
+## step 6.구매목록 View에 반영
+
+
+
+### 구현 내용
+
+- 실행이후 구매 목록을 화면 아래 이미지로 추가
+- 구매 목록도 앱 종료이후에 저장되고 앱 시작이후 불러오도록 개선
+- 특정 제품을 구매할 때마다 해당 제품 이미지를 추가하도록 구현
+
+
+
+### 실행 화면
+
+<img src = "https://images.velog.io/images/delmasong/post/d0ecab66-26a9-46a4-b19d-4305697113dd/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202020-03-14%20%EC%98%A4%ED%9B%84%207.34.42.png" width = "80%"/>
+

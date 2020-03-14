@@ -11,7 +11,6 @@ import UIKit
 class ViewController: UIViewController {
     private let appDelegate = UIApplication.shared.delegate as! AppDelegate
     lazy var vendingMachine = appDelegate.vendingMachine
-    private var selectedIndex = -1
     @IBOutlet var addStockButtons: [UIButton]!
     @IBOutlet var productImages: [UIImageView]!
     @IBOutlet var stockLabels: [UILabel]!
@@ -19,7 +18,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var balanceLabel: UILabel!
     
     @IBAction func addStock(_ sender: UIButton) {
-        selectedIndex = addStockButtons.enumerated().filter{$0.element == sender}[0].offset
+        let selectedIndex = addStockButtons.enumerated().filter{$0.element == sender}[0].offset
         vendingMachine.insert(beverageNumber: selectedIndex)
     }
     
@@ -37,7 +36,7 @@ class ViewController: UIViewController {
     func setupUI() {
         makeCornerRadius()
         updateBalance(balance: "\(vendingMachine.balance)")
-        updateStockLabel(stock: -1)
+        updateStockLabel()
     }
     
     func makeCornerRadius() {
@@ -57,15 +56,20 @@ class ViewController: UIViewController {
                                                object: nil)
     }
     
-    private func updateStockLabel(stock: Int) {
-        if stock != -1 {
-            stockLabels[selectedIndex].text = String(stock)
-        } else {
-            let kindOfBeverages = vendingMachine.kindOfBeverages()
-            if kindOfBeverages.count == 0 {
-                stockLabels.forEach{
-                    $0.text = String(0)
-                }
+    private func updateStockLabel() {
+        let kindOfBeverages = vendingMachine.kindOfBeverages()
+        for beverageIndex in 0..<VendingMachine.beverageList.count{
+            let beverage = VendingMachine.beverageList[beverageIndex]
+            if kindOfBeverages.keys.contains("\(beverage)") {
+                stockLabels[beverageIndex].text = String(kindOfBeverages["\(beverage)"]!)
+            } else {
+                stockLabels[beverageIndex].text = String(0)
+            }
+        }
+        
+        if kindOfBeverages.count == 0 {
+            stockLabels.forEach{
+                $0.text = String(0)
             }
         }
     }
@@ -75,9 +79,7 @@ class ViewController: UIViewController {
     }
     
     @objc func updateStockLabel(_ notification: Notification) {
-        if let stock: Int = notification.userInfo?["stock"] as? Int {
-            updateStockLabel(stock: stock)
-        }
+        updateStockLabel()
     }
     
     @objc func updateBalance(_ notification: Notification) {

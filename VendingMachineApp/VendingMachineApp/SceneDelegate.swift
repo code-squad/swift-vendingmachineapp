@@ -15,7 +15,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        if let data: Data = UserDefaults.standard.value(forKey: "model") as? Data {
+        if let data: Data = UserDefaults.standard.object(forKey: "model") as? Data {
             if let vendingMachine = unarchive(with: data) {
                 appDelegate.vendingMachine = vendingMachine
             }

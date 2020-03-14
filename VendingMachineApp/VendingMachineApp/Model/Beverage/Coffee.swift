@@ -26,6 +26,7 @@ class Coffee: Beverage {
     
     override func encode(with coder: NSCoder) {
         coder.encode(decaffeinated, forKey: "\(Property.decaffeinated)")
+        super.encode(with: coder)
     }
     
     required init?(coder decoder: NSCoder) {

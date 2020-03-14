@@ -9,7 +9,7 @@
 import Foundation
 
 class TOP: Coffee {
-    enum BeanOrigin: String, CaseIterable {
+    enum BeanOrigin: String, CaseIterable, CustomStringConvertible {
         case Colombia = "Colombia"
         case Congo = "Congo"
         case Cuba = "Cuba"
@@ -17,6 +17,10 @@ class TOP: Coffee {
         
         init() {
             self = BeanOrigin.allCases[Int.random(in: 0..<BeanOrigin.allCases.count)]
+        }
+        
+        var description: String {
+            return self.rawValue
         }
     }
     
@@ -36,11 +40,17 @@ class TOP: Coffee {
     }
     
     override func encode(with coder: NSCoder) {
-        coder.encode(beanOrigin, forKey: "\(Property.beanOrigin)")
+        coder.encode("\(beanOrigin)", forKey: "\(Property.beanOrigin)")
+        super.encode(with: coder)
     }
     
     required init?(coder decoder: NSCoder) {
-        self.beanOrigin = decoder.decodeObject(forKey: "\(Property.beanOrigin)") as! BeanOrigin
+        if let beanOrigin = decoder.decodeObject(forKey: "\(Property.beanOrigin)") as? String {
+            self.beanOrigin = BeanOrigin.init(rawValue: beanOrigin)!
+        } else {
+            self.beanOrigin = BeanOrigin.Colombia
+        }
+        
         super.init(coder: decoder)
     }
     

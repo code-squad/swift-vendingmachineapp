@@ -26,6 +26,7 @@ class StrawberryMilk: Milk {
     
     override func encode(with coder: NSCoder) {
         coder.encode(juiceContent, forKey: "\(Property.juiceContent)")
+        super.encode(with: coder)
     }
     
     required init?(coder decoder: NSCoder) {

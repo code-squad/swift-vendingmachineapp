@@ -26,6 +26,7 @@ class Georgia: Coffee {
     
     override func encode(with coder: NSCoder) {
         coder.encode(black, forKey: "\(Property.black)")
+        super.encode(with: coder)
     }
     
     required init?(coder decoder: NSCoder) {

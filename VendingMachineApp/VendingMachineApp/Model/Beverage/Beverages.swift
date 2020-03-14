@@ -10,7 +10,7 @@ import Foundation
 
 class Beverages: NSObject, NSCoding {
     enum Property: String, CustomStringConvertible {
-        case beverages
+        case beveragesList
         
         var description: String {
             return self.rawValue
@@ -18,11 +18,15 @@ class Beverages: NSObject, NSCoding {
     }
     
     func encode(with coder: NSCoder) {
-        coder.encode(beverages, forKey: "\(Property.beverages)")
+        coder.encode(beverages, forKey: "\(Property.beveragesList)")
     }
     
     required init?(coder decoder: NSCoder) {
-        self.beverages = decoder.decodeObject(forKey: "\(Property.beverages)") as! [Beverage]
+        if let beverages = decoder.decodeObject(forKey: "\(Property.beveragesList)") as? [Beverage] {
+            self.beverages = beverages
+        } else {
+            self.beverages = [Beverage]()
+        }
     }
     
     private var beverages: [Beverage]

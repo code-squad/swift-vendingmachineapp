@@ -33,11 +33,16 @@ class Milk: Beverage {
     }
     
     override func encode(with coder: NSCoder) {
-        coder.encode(farmCode, forKey: "\(Property.farmCode)")
+        coder.encode(farmCode.rawValue, forKey: "\(Property.farmCode)")
+        super.encode(with: coder)
     }
     
     required init?(coder decoder: NSCoder) {
-        self.farmCode = decoder.decodeObject(forKey: "\(Property.farmCode)") as! FarmCode
+        if let farmCode = decoder.decodeObject(forKey: "\(Property.farmCode)") as? String {
+            self.farmCode = FarmCode.init(rawValue: farmCode)!
+        } else {
+            self.farmCode = FarmCode.A
+        }
         super.init(coder: decoder)
     }
     

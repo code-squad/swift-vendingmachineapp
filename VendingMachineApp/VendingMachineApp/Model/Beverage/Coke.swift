@@ -26,6 +26,7 @@ class Coke: Soda {
     
     override func encode(with coder: NSCoder) {
         coder.encode(carbonicAcid, forKey: "\(Property.carboninAcid)")
+        super.encode(with: coder)
     }
     
     required init?(coder decoder: NSCoder) {

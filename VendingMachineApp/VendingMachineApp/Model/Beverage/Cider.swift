@@ -30,11 +30,16 @@ class Cider: Soda {
     }
     
     override func encode(with coder: NSCoder) {
-        coder.encode(taste, forKey: "\(Property.taste)")
+        coder.encode(taste.rawValue, forKey: "\(Property.taste)")
+        super.encode(with: coder)
     }
     
     required init?(coder decoder: NSCoder) {
-        self.taste = decoder.decodeObject(forKey: "\(Property.taste)") as! Taste
+        if let taste = decoder.decodeObject(forKey: "\(Property.taste)") as? String {
+            self.taste = Taste.init(rawValue: taste)!
+        } else {
+            self.taste = Taste.lemon
+        }
         super.init(coder: decoder)
     }
     

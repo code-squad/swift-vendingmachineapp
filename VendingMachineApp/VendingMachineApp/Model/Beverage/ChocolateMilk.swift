@@ -31,11 +31,16 @@ class ChocolateMilk: Milk {
     }
     
     override func encode(with coder: NSCoder) {
-        coder.encode(package, forKey: "\(Property.package)")
+        coder.encode(package.rawValue, forKey: "\(Property.package)")
+        super.encode(with: coder)
     }
     
     required init?(coder decoder: NSCoder) {
-        self.package = decoder.decodeObject(forKey: "\(Property.package)") as! Package
+        if let package = decoder.decodeObject(forKey: "\(Property.package)") as? String {
+            self.package = Package.init(rawValue: package)!
+        } else {
+            self.package = Package.paper
+        }
         super.init(coder: decoder)
     }
     

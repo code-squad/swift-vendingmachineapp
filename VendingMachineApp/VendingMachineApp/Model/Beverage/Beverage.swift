@@ -32,18 +32,46 @@ class Beverage: NSObject, NSCoding {
         coder.encode(manufacturingDate, forKey: "\(Property.manufactureingDate)")
         coder.encode(expirationDate, forKey: "\(Property.expirationDate)")
         coder.encode(calorie, forKey: "\(Property.calorie)")
-        coder.encode(temperature, forKey: "\(Property.temperature)")
+        coder.encode(temperature.rawValue, forKey: "\(Property.temperature)")
     }
     
     required init?(coder decoder: NSCoder) {
-        self.brand = decoder.decodeObject(forKey: "\(Property.brand)") as! String
+        if let brand = decoder.decodeObject(forKey: "\(Property.brand)") as? String {
+            self.brand = brand
+        } else {
+            self.brand = ""
+        }
+        
         self.capacity = decoder.decodeInteger(forKey: "\(Property.capacity)")
-        self.price = decoder.decodeObject(forKey: "\(Property.price)") as! Price
-        self.name = decoder.decodeObject(forKey: "\(Property.name)") as! String
-        self.manufacturingDate = decoder.decodeObject(forKey: "\(Property.manufactureingDate)") as! Date
-        self.expirationDate = decoder.decodeObject(forKey: "\(Property.expirationDate)") as! Date
+        
+        if let price = decoder.decodeObject(forKey: "\(Property.price)") as? Price {
+            self.price = price
+        } else {
+            self.price = Price(0)
+        }
+        
+        if let name = decoder.decodeObject(forKey: "\(Property.name)") as? String {
+            self.name = name
+        } else {
+            self.name = ""
+        }
+        
+        if let manufacturingDate = decoder.decodeObject(forKey: "\(Property.manufactureingDate)") as? Date {
+            self.manufacturingDate = manufacturingDate
+        } else {
+            self.manufacturingDate = Date()
+        }
+        
+        if let expirationDate = decoder.decodeObject(forKey: "\(Property.expirationDate)") as? Date {
+            self.expirationDate = expirationDate
+        } else {
+            self.expirationDate = Date()
+        }
+        
         self.calorie = decoder.decodeDouble(forKey: "\(Property.calorie)")
-        self.temperature = decoder.decodeObject(forKey: "\(Property.temperature)") as! Temperature
+        
+        let temperature = decoder.decodeDouble(forKey: "\(Property.temperature)")
+        self.temperature = Temperature.init(rawValue: temperature)!
     }
     
     enum Temperature: Double, Comparable {

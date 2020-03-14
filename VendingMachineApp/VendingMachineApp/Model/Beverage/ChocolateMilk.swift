@@ -22,21 +22,13 @@ class ChocolateMilk: Milk {
         super.init(brand: brand, capacity: capacity, price: price, name: name, manufacturingDate: manufacturingDate, calorie: calorie, temperature: temperature, farmCode: farmCode)
     }
     
-    enum Property: String, CustomStringConvertible {
-        case package
-        
-        var description: String {
-            return self.rawValue
-        }
-    }
-    
     override func encode(with coder: NSCoder) {
-        coder.encode(package.rawValue, forKey: "\(Property.package)")
+        coder.encode(package.rawValue, forKey: Property.package)
         super.encode(with: coder)
     }
     
     required init?(coder decoder: NSCoder) {
-        if let package = decoder.decodeObject(forKey: "\(Property.package)") as? String {
+        if let package = decoder.decodeObject(forKey: Property.package) as? String {
             self.package = Package.init(rawValue: package)!
         } else {
             self.package = Package.paper

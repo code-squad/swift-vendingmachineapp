@@ -9,20 +9,12 @@
 import Foundation
 
 class Price: NSObject, NSCoding {
-    enum Property: String, CustomStringConvertible {
-        case money
-        
-        var description: String {
-            return self.rawValue
-        }
-    }
-    
     func encode(with coder: NSCoder) {
-        coder.encode(money, forKey: "\(Property.money)")
+        coder.encode(money, forKey: Property.money)
     }
     
     required init?(coder decoder: NSCoder) {
-        self.money = decoder.decodeInteger(forKey: "\(Property.money)")
+        self.money = decoder.decodeInteger(forKey: Property.money)
     }
     
     private var money: Int {

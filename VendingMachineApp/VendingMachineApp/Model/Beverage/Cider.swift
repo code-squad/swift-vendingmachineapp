@@ -20,22 +20,14 @@ class Cider: Soda {
         self.taste = taste
         super.init(brand: brand, capacity: capacity, price: price, name: name, manufacturingDate: manufacturingDate, calorie: calorie, temperature: temperature)
     }
-    
-    enum Property: String, CustomStringConvertible {
-        case taste
-        
-        var description: String {
-            return self.rawValue
-        }
-    }
-    
+ 
     override func encode(with coder: NSCoder) {
-        coder.encode(taste.rawValue, forKey: "\(Property.taste)")
+        coder.encode(taste.rawValue, forKey: Property.taste)
         super.encode(with: coder)
     }
     
     required init?(coder decoder: NSCoder) {
-        if let taste = decoder.decodeObject(forKey: "\(Property.taste)") as? String {
+        if let taste = decoder.decodeObject(forKey: Property.taste) as? String {
             self.taste = Taste.init(rawValue: taste)!
         } else {
             self.taste = Taste.lemon

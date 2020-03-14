@@ -9,20 +9,12 @@
 import Foundation
 
 class Beverages: NSObject, NSCoding {
-    enum Property: String, CustomStringConvertible {
-        case beveragesList
-        
-        var description: String {
-            return self.rawValue
-        }
-    }
-    
     func encode(with coder: NSCoder) {
-        coder.encode(beverages, forKey: "\(Property.beveragesList)")
+        coder.encode(beverages, forKey: Property.beveragesList)
     }
     
     required init?(coder decoder: NSCoder) {
-        if let beverages = decoder.decodeObject(forKey: "\(Property.beveragesList)") as? [Beverage] {
+        if let beverages = decoder.decodeObject(forKey: Property.beveragesList) as? [Beverage] {
             self.beverages = beverages
         } else {
             self.beverages = [Beverage]()

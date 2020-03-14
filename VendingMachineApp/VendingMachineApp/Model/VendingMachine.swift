@@ -9,35 +9,26 @@
 import Foundation
 
 class VendingMachine: NSObject, NSCoding{
-    enum Property: String, CustomStringConvertible {
-        case beverages
-        case balance
-        case purchaseHistory
-        
-        var description: String {
-            return self.rawValue
-        }
-    }
     func encode(with coder: NSCoder) {
-        coder.encode(beverages, forKey: "\(Property.beverages)")
-        coder.encode(balance, forKey: "\(Property.balance)")
-        coder.encode(purchaseHistory, forKey: "\(Property.purchaseHistory)")
+        coder.encode(beverages, forKey: Property.beverages)
+        coder.encode(balance, forKey: Property.balance)
+        coder.encode(purchaseHistory, forKey: Property.purchaseHistory)
     }
     
     required init?(coder decoder: NSCoder) {
-        if let beverages = decoder.decodeObject(forKey: "\(Property.beverages)") as? Beverages {
+        if let beverages = decoder.decodeObject(forKey: Property.beverages) as? Beverages {
             self.beverages = beverages
         } else {
             self.beverages = Beverages()
         }
             
-        if let balance = decoder.decodeObject(forKey: "\(Property.balance)") as? Price {
+        if let balance = decoder.decodeObject(forKey: Property.balance) as? Price {
             self.balance = balance
         } else {
             self.balance = Price(0)
         }
         
-        if let purchaseHistory = decoder.decodeObject(forKey: "\(Property.purchaseHistory)") as? Beverages {
+        if let purchaseHistory = decoder.decodeObject(forKey: Property.purchaseHistory) as? Beverages {
             self.purchaseHistory = purchaseHistory
         } else {
             self.purchaseHistory = Beverages()

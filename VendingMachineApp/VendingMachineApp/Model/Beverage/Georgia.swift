@@ -16,21 +16,13 @@ class Georgia: Coffee {
         super.init(brand: brand, capacity: capacity, price: price, name: name, manufacturingDate: manufacturingDate, calorie: calorie, temperature: temperature, decaffeinated: decaffeinated)
     }
     
-    enum Property: String, CustomStringConvertible {
-        case black
-        
-        var description: String {
-            return self.rawValue
-        }
-    }
-    
     override func encode(with coder: NSCoder) {
-        coder.encode(black, forKey: "\(Property.black)")
+        coder.encode(black, forKey: Property.black)
         super.encode(with: coder)
     }
     
     required init?(coder decoder: NSCoder) {
-        self.black = decoder.decodeBool(forKey: "\(Property.black)")
+        self.black = decoder.decodeBool(forKey: Property.black)
         super.init(coder: decoder)
     }
     

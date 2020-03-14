@@ -9,14 +9,6 @@
 import Foundation
 
 class Milk: Beverage {
-    enum Property: String, CustomStringConvertible {
-        case farmCode
-        
-        var description: String {
-            return self.rawValue
-        }
-    }
-    
     enum FarmCode: String, CaseIterable {
         case A, B, C, D, E, F
         
@@ -33,12 +25,12 @@ class Milk: Beverage {
     }
     
     override func encode(with coder: NSCoder) {
-        coder.encode(farmCode.rawValue, forKey: "\(Property.farmCode)")
+        coder.encode(farmCode.rawValue, forKey: Property.farmCode)
         super.encode(with: coder)
     }
     
     required init?(coder decoder: NSCoder) {
-        if let farmCode = decoder.decodeObject(forKey: "\(Property.farmCode)") as? String {
+        if let farmCode = decoder.decodeObject(forKey: Property.farmCode) as? String {
             self.farmCode = FarmCode.init(rawValue: farmCode)!
         } else {
             self.farmCode = FarmCode.A

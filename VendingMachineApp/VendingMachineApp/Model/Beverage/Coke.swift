@@ -16,21 +16,13 @@ class Coke: Soda {
         super.init(brand: brand, capacity: capacity, price: price, name: name, manufacturingDate: manufacturingDate, calorie: calorie, temperature: temperature)
     }
     
-    enum Property: String, CustomStringConvertible {
-        case carboninAcid
-        
-        var description: String {
-            return self.rawValue
-        }
-    }
-    
     override func encode(with coder: NSCoder) {
-        coder.encode(carbonicAcid, forKey: "\(Property.carboninAcid)")
+        coder.encode(carbonicAcid, forKey: Property.carboninAcid)
         super.encode(with: coder)
     }
     
     required init?(coder decoder: NSCoder) {
-        self.carbonicAcid = decoder.decodeDouble(forKey: "\(Property.carboninAcid)")
+        self.carbonicAcid = decoder.decodeDouble(forKey: Property.carboninAcid)
         super.init(coder: decoder)
     }
     

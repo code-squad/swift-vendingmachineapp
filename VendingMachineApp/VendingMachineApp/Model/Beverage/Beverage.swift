@@ -9,68 +9,53 @@
 import Foundation
 
 class Beverage: NSObject, NSCoding {
-    enum Property: String, CustomStringConvertible {
-        case brand
-        case capacity
-        case price
-        case name
-        case manufactureingDate
-        case expirationDate
-        case calorie
-        case temperature
-        
-        var description: String {
-            return self.rawValue
-        }
-    }
-    
     func encode(with coder: NSCoder) {
-        coder.encode(brand, forKey: "\(Property.brand)")
-        coder.encode(capacity, forKey: "\(Property.capacity)")
-        coder.encode(price, forKey: "\(Property.price)")
-        coder.encode(name, forKey: "\(Property.name)")
-        coder.encode(manufacturingDate, forKey: "\(Property.manufactureingDate)")
-        coder.encode(expirationDate, forKey: "\(Property.expirationDate)")
-        coder.encode(calorie, forKey: "\(Property.calorie)")
-        coder.encode(temperature.rawValue, forKey: "\(Property.temperature)")
+        coder.encode(brand, forKey: Property.brand)
+        coder.encode(capacity, forKey: Property.capacity)
+        coder.encode(price, forKey: Property.price)
+        coder.encode(name, forKey: Property.name)
+        coder.encode(manufacturingDate, forKey: Property.manufactureingDate)
+        coder.encode(expirationDate, forKey: Property.expirationDate)
+        coder.encode(calorie, forKey: Property.calorie)
+        coder.encode(temperature.rawValue, forKey:Property.temperature)
     }
     
     required init?(coder decoder: NSCoder) {
-        if let brand = decoder.decodeObject(forKey: "\(Property.brand)") as? String {
+        if let brand = decoder.decodeObject(forKey: Property.brand) as? String {
             self.brand = brand
         } else {
             self.brand = ""
         }
         
-        self.capacity = decoder.decodeInteger(forKey: "\(Property.capacity)")
+        self.capacity = decoder.decodeInteger(forKey: Property.capacity)
         
-        if let price = decoder.decodeObject(forKey: "\(Property.price)") as? Price {
+        if let price = decoder.decodeObject(forKey: Property.price) as? Price {
             self.price = price
         } else {
             self.price = Price(0)
         }
         
-        if let name = decoder.decodeObject(forKey: "\(Property.name)") as? String {
+        if let name = decoder.decodeObject(forKey: Property.name) as? String {
             self.name = name
         } else {
             self.name = ""
         }
         
-        if let manufacturingDate = decoder.decodeObject(forKey: "\(Property.manufactureingDate)") as? Date {
+        if let manufacturingDate = decoder.decodeObject(forKey: Property.manufactureingDate) as? Date {
             self.manufacturingDate = manufacturingDate
         } else {
             self.manufacturingDate = Date()
         }
         
-        if let expirationDate = decoder.decodeObject(forKey: "\(Property.expirationDate)") as? Date {
+        if let expirationDate = decoder.decodeObject(forKey: Property.expirationDate) as? Date {
             self.expirationDate = expirationDate
         } else {
             self.expirationDate = Date()
         }
         
-        self.calorie = decoder.decodeDouble(forKey: "\(Property.calorie)")
+        self.calorie = decoder.decodeDouble(forKey: Property.calorie)
         
-        let temperature = decoder.decodeDouble(forKey: "\(Property.temperature)")
+        let temperature = decoder.decodeDouble(forKey: Property.temperature)
         self.temperature = Temperature.init(rawValue: temperature)!
     }
     

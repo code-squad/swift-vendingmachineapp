@@ -30,22 +30,14 @@ class TOP: Coffee {
         self.beanOrigin = beanOrigin
         super.init(brand: brand, capacity: capacity, price: price, name: name, manufacturingDate: manufacturingDate, calorie: calorie, temperature: temperature, decaffeinated: decaffeinated)
     }
-    
-    enum Property: String, CustomStringConvertible {
-        case beanOrigin
-        
-        var description: String {
-            return self.rawValue
-        }
-    }
-    
+ 
     override func encode(with coder: NSCoder) {
-        coder.encode("\(beanOrigin)", forKey: "\(Property.beanOrigin)")
+        coder.encode("\(beanOrigin)", forKey: Property.beanOrigin)
         super.encode(with: coder)
     }
     
     required init?(coder decoder: NSCoder) {
-        if let beanOrigin = decoder.decodeObject(forKey: "\(Property.beanOrigin)") as? String {
+        if let beanOrigin = decoder.decodeObject(forKey: Property.beanOrigin) as? String {
             self.beanOrigin = BeanOrigin.init(rawValue: beanOrigin)!
         } else {
             self.beanOrigin = BeanOrigin.Colombia

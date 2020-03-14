@@ -31,6 +31,7 @@
 		A5E7DA5B24036882002CDF82 /* VendingMachineAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E7DA5A24036882002CDF82 /* VendingMachineAppTests.swift */; };
 		A5E7DA6624036F36002CDF82 /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E7DA6524036F36002CDF82 /* VendingMachine.swift */; };
 		A5E7DA6A240386C1002CDF82 /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E7DA69240386C1002CDF82 /* Beverage.swift */; };
+		A5F9DBE7241D48F000F02C4E /* Property.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F9DBE6241D48F000F02C4E /* Property.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,7 @@
 		A5E7DA5C24036882002CDF82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A5E7DA6524036F36002CDF82 /* VendingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachine.swift; sourceTree = "<group>"; };
 		A5E7DA69240386C1002CDF82 /* Beverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beverage.swift; sourceTree = "<group>"; };
+		A5F9DBE6241D48F000F02C4E /* Property.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Property.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 				A5E7DA6524036F36002CDF82 /* VendingMachine.swift */,
 				A56F74112403C0CB0006A7CE /* CustomDateFormatter.swift */,
 				A5B45D02241500DC002A2327 /* Price.swift */,
+				A5F9DBE6241D48F000F02C4E /* Property.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -267,6 +270,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5F9DBE7241D48F000F02C4E /* Property.swift in Sources */,
 				A56F74202405445F0006A7CE /* Coke.swift in Sources */,
 				A56F74182404F0DF0006A7CE /* Soda.swift in Sources */,
 				A545DEE12403B5BF00151143 /* Beverages.swift in Sources */,

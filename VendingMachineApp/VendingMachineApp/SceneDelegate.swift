@@ -16,7 +16,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         if let data: Data = UserDefaults.standard.object(forKey: "model") as? Data {
-            if let vendingMachine = unarchive(with: data) {
+            if let vendingMachine = appDelegate.unarchive(with: data) {
                 appDelegate.vendingMachine = vendingMachine
             }
         }
@@ -25,29 +25,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     func sceneWillResignActive(_ scene: UIScene) {
         let vendingMachine = appDelegate.vendingMachine
-        UserDefaults.standard.set(archive(with: vendingMachine), forKey: "model")
+        UserDefaults.standard.set(appDelegate.archive(with: vendingMachine), forKey: "model")
     }
     
-    func archive(with things: VendingMachine) -> Data {
-        do {
-            let archived = try NSKeyedArchiver.archivedData(withRootObject: things, requiringSecureCoding: false)
-            return archived
-        }
-        catch {
-            print(error)
-        }
-        return Data()
-    }
-    
-    func unarchive(with text: Data) -> VendingMachine? {
-        do {
-            let object = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(text)
-            return object as? VendingMachine
-        }
-        catch {
-            print(error)
-        }
-        return nil
-    }
+
 }
 

@@ -87,16 +87,7 @@ extension VendingMachine {
         }
     }
     
-    func searchStockByKind(handler: ((key: String, value: Beverage)) -> (Void)) {
-        let stockByKind = generateStockByKind()
-        stockByKind.forEach { (kind) in
-            kind.value.forEach {
-                handler((key: kind.key, value: $0))
-            }
-        }
-    }
-    
-    private func generateStockByKind() -> [String: [Beverage]] {
+    func stockByKind() -> [String: [Beverage]] {
         var stockByKind = [String: [Beverage]]()
         for beverage in stock {
             let typeToString = "\(type(of: beverage))"

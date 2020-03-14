@@ -22,7 +22,6 @@ class Beverage {
             else {
                 return nil
         }
-        
         self.brand = brand
         self.volume = volume
         self.price = price

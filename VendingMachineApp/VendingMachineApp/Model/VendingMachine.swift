@@ -125,6 +125,10 @@ class VendingMachine: NSObject, NSCoding {
         balance.subtract(products[index].price)
         beverages.removeBeverage(products[index])
         purchasedList.append(products[index])
+        
+      let beverageCount = beverages.reportBeverageCount(products[index])
+        NotificationCenter.default.post(name: .updateBeverageCountLabel, object: (index, beverageCount))
+        NotificationCenter.default.post(name: .updatePurchasedImages, object: (index, purchasedList.count))
     }
 
     func confirmBalance() -> Money {

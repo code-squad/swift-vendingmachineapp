@@ -41,6 +41,7 @@ class Money: NSObject, NSCoding {
     
     func subtract(_ price: Money) {
         balance = self.balance - price.balance
+         NotificationCenter.default.post(name: .updateBalanceLabel, object: "\(balance)")
     }
     
     override var description: String {

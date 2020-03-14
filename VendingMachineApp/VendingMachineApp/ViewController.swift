@@ -16,15 +16,20 @@ class ViewController: UIViewController {
     @IBOutlet var backgroundViews: [UIView]!
     @IBOutlet var addStockButtons: [UIButton]!
     @IBOutlet var stockCountLabels: [UILabel]!
-    @IBOutlet var beverageImages: [UIImageView]!
+    @IBOutlet var beverageImageViews: [UIImageView]!
     @IBOutlet var addMoneyButtons: [UIButton]!
     @IBOutlet var balanceLabel: UILabel!
-     
+    let beverageImages: [UIImage] = [#imageLiteral(resourceName: "bananaMilk"), #imageLiteral(resourceName: "ChocoMilk"), #imageLiteral(resourceName: "strawberryMilk"), #imageLiteral(resourceName: "Americano"), #imageLiteral(resourceName: "Latte"), #imageLiteral(resourceName: "Mocha"), #imageLiteral(resourceName: "Coke"), #imageLiteral(resourceName: "Cider"), #imageLiteral(resourceName: "milkis")]
+
+    @IBOutlet var purchaseButtons: [UIButton]!
+    
+    
     override func viewDidLoad() {
         vendingMachine = appDelegate.vendingMachine
         
         balanceLabel.text = vendingMachine?.balance.description
         updateSavedBeverageCountLabel()
+        
         super.viewDidLoad()
         setUI()
         setNotificationCenter()
@@ -34,10 +39,11 @@ class ViewController: UIViewController {
     func setNotificationCenter() {
         NotificationCenter.default.addObserver(self, selector: #selector(updateBalanceLabel(_:)), name: .updateBalanceLabel, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(updateBeverageCountLabel(_:)), name: .updateBeverageCountLabel, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updatePurchasedImages(_:)), name: .updatePurchasedImages, object: nil)
     }
     
     func setBeverageImageCornerRadius() {
-        for img in beverageImages {
+        for img in beverageImageViews {
             img.layer.cornerRadius = 30.0
         }
     }
@@ -47,6 +53,7 @@ class ViewController: UIViewController {
             view.layer.cornerRadius = 20.0
         }
     }
+
     func setUI() {
         setBeverageImageCornerRadius()
         setBackgroundViewCornerRadius()
@@ -59,6 +66,19 @@ class ViewController: UIViewController {
     
     @IBAction func addMoney(button: UIButton) {
         vendingMachine?.raiseMoney(moneyUnit: Money.MoneyUnit(rawValue: button.tag)!)
+    }
+    
+    @IBAction func purchaseBeverage(button: UIButton) {
+        vendingMachine?.purchaseBeverage(index: button.tag)
+    }
+    
+    @objc func updatePurchasedImages(_ notification: Notification) {
+        let purchasedViewIndex = 3
+        let imageCounts = notification.object as! (index: Int, purchasedCount: Int)
+        let downPositionX = imageCounts.purchasedCount * 50
+        let image: UIImageView = UIImageView(image: beverageImages[imageCounts.index])
+        image.frame = CGRect(x: downPositionX, y: 30, width: 80, height: 110)
+        backgroundViews[purchasedViewIndex].addSubview(image)
     }
     
     @objc func updateBeverageCountLabel(_ notification: Notification) {
@@ -74,6 +94,7 @@ class ViewController: UIViewController {
     deinit {
         NotificationCenter.default.removeObserver(self, name: .updateBalanceLabel, object: nil)
         NotificationCenter.default.removeObserver(self, name: .updateBeverageCountLabel, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .updatePurchasedImages, object: nil)
     }
     
     func updateSavedBeverageCountLabel() {
@@ -90,5 +111,6 @@ class ViewController: UIViewController {
 extension Notification.Name {
     static let updateBalanceLabel =  NSNotification.Name("updateBalanceLabel")
     static let updateBeverageCountLabel = NSNotification.Name("updateBeverageCountLabel")
+    static let updatePurchasedImages = Notification.Name("updatePurchasedImages")
 }
 

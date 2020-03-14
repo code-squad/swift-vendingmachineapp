@@ -20,7 +20,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xGL-Fs-eef">
-                                        <rect key="frame" x="28" y="127" width="833" height="198"/>
+                                        <rect key="frame" x="28" y="120" width="833" height="198"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xW5-h4-OFc">
@@ -118,11 +118,66 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zI0-Qy-hgk">
+                                                <rect key="frame" x="232" y="167" width="30" height="20"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                <state key="normal" title="구매">
+                                                    <color key="titleColor" red="0.80044416240000005" green="0.2472920435" blue="0.20724295240000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="purchaseBeverageWithButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rfo-GU-Eso"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="14X-Gx-cnX">
+                                                <rect key="frame" x="385" y="167" width="30" height="20"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                <state key="normal" title="구매">
+                                                    <color key="titleColor" red="0.80044416240000005" green="0.2472920435" blue="0.20724295240000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="purchaseBeverageWithButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cv7-zQ-lQh"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eJO-e2-m0c">
+                                                <rect key="frame" x="542" y="167" width="30" height="20"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                <state key="normal" title="구매">
+                                                    <color key="titleColor" red="0.80044416240000005" green="0.2472920435" blue="0.20724295240000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="purchaseBeverageWithButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nB5-3C-WbF"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="of3-Fp-b9E">
+                                                <rect key="frame" x="707" y="167" width="30" height="20"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                <state key="normal" title="구매">
+                                                    <color key="titleColor" red="0.80044416240000005" green="0.2472920435" blue="0.20724295240000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="purchaseBeverageWithButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0k5-2g-nGM"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6SB-7n-J2t">
+                                                <rect key="frame" x="84" y="167" width="30" height="20"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                <state key="normal" title="구매">
+                                                    <color key="titleColor" red="0.80044416240000005" green="0.2472920435" blue="0.20724295240000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="purchaseBeverageWithButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ArD-8T-NuO"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.75080337749631343" green="0.9066751339280007" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </view>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e2F-8d-h01">
-                                        <rect key="frame" x="894" y="127" width="261" height="379"/>
+                                        <rect key="frame" x="894" y="120" width="261" height="379"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="잔액" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0mo-Sk-2a0">
@@ -198,7 +253,7 @@
                                         <color key="backgroundColor" red="0.94182265228426398" green="0.94182265228426398" blue="0.94182265228426398" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </view>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G3r-Om-M6D">
-                                        <rect key="frame" x="28" y="349" width="833" height="198"/>
+                                        <rect key="frame" x="28" y="342" width="833" height="198"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="guR-mL-7Ak">
@@ -214,7 +269,7 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" tag="5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ksl-fX-j4V">
-                                                <rect key="frame" x="94" y="151" width="12" height="22"/>
+                                                <rect key="frame" x="94" y="147" width="12" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                                 <nil key="textColor"/>
@@ -233,7 +288,7 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" tag="6" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aic-Kx-6bX">
-                                                <rect key="frame" x="249" y="151" width="12" height="22"/>
+                                                <rect key="frame" x="249" y="147" width="12" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                                 <nil key="textColor"/>
@@ -252,7 +307,7 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" tag="7" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M8P-FB-WSY">
-                                                <rect key="frame" x="395" y="148" width="12" height="22"/>
+                                                <rect key="frame" x="395" y="147" width="12" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                                 <nil key="textColor"/>
@@ -271,12 +326,56 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" tag="8" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YAU-Sv-cdf">
-                                                <rect key="frame" x="555" y="150" width="12" height="22"/>
+                                                <rect key="frame" x="555" y="147" width="12" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UwJ-ld-QnP">
+                                                <rect key="frame" x="84" y="168" width="30" height="20"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                <state key="normal" title="구매">
+                                                    <color key="titleColor" red="0.80044416240000005" green="0.2472920435" blue="0.20724295240000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="purchaseBeverageWithButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ddc-9s-xTj"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="7" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JyH-MH-Uhn">
+                                                <rect key="frame" x="385" y="168" width="30" height="20"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                <state key="normal" title="구매">
+                                                    <color key="titleColor" red="0.80044416240000005" green="0.2472920435" blue="0.20724295240000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="purchaseBeverageWithButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RVn-Z2-jnU"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="8" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EvN-A1-MM4">
+                                                <rect key="frame" x="545" y="168" width="30" height="20"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                <state key="normal" title="구매">
+                                                    <color key="titleColor" red="0.80044416240000005" green="0.2472920435" blue="0.20724295240000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="purchaseBeverageWithButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8P9-2T-NtA"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="6" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="muD-o0-hTH">
+                                                <rect key="frame" x="239" y="169" width="30" height="20"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                <state key="normal" title="구매">
+                                                    <color key="titleColor" red="0.80044416240000005" green="0.2472920435" blue="0.20724295240000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="purchaseBeverageWithButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="b4N-33-QaU"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.75080337750000004" green="0.90667513389999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </view>
@@ -285,6 +384,18 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-BoldItalic" family="Helvetica Neue" pointSize="45"/>
                                         <color key="textColor" red="0.86488737305989849" green="0.19882639494112836" blue="0.11271484365905103" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qTY-FW-4R1">
+                                        <rect key="frame" x="28" y="612" width="833" height="174"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.75080337750000004" green="0.90667513389999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Purchased Lists" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7dE-5D-OEQ">
+                                        <rect key="frame" x="28" y="574" width="191" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-BoldItalic" family="Helvetica Neue" pointSize="25"/>
+                                        <color key="textColor" red="0.86488737309999997" green="0.19882639490000001" blue="0.1127148437" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -314,15 +425,15 @@
                         <outletCollection property="stockCountLabels" destination="Aic-Kx-6bX" collectionClass="NSMutableArray" id="56f-kk-BzO"/>
                         <outletCollection property="stockCountLabels" destination="M8P-FB-WSY" collectionClass="NSMutableArray" id="du5-Yu-dyJ"/>
                         <outletCollection property="stockCountLabels" destination="YAU-Sv-cdf" collectionClass="NSMutableArray" id="ngm-ef-gL7"/>
-                        <outletCollection property="beverageImages" destination="8dW-n1-pYK" collectionClass="NSMutableArray" id="Tl0-AE-FQ2"/>
-                        <outletCollection property="beverageImages" destination="O98-m8-4ev" collectionClass="NSMutableArray" id="fDs-i4-itX"/>
-                        <outletCollection property="beverageImages" destination="PZz-A6-HTJ" collectionClass="NSMutableArray" id="6xm-cH-MTh"/>
-                        <outletCollection property="beverageImages" destination="Uwp-8D-7Ae" collectionClass="NSMutableArray" id="eU1-U4-V3X"/>
-                        <outletCollection property="beverageImages" destination="gwc-Oe-r2q" collectionClass="NSMutableArray" id="eL9-Zf-y7B"/>
-                        <outletCollection property="beverageImages" destination="amr-hq-Llx" collectionClass="NSMutableArray" id="Nvx-OS-Blw"/>
-                        <outletCollection property="beverageImages" destination="N8r-qo-N5B" collectionClass="NSMutableArray" id="6Ou-9p-vDN"/>
-                        <outletCollection property="beverageImages" destination="Uim-wa-5D7" collectionClass="NSMutableArray" id="Qrh-cR-4W0"/>
-                        <outletCollection property="beverageImages" destination="mw7-1B-AUc" collectionClass="NSMutableArray" id="Hfr-gN-EiZ"/>
+                        <outletCollection property="beverageImageViews" destination="8dW-n1-pYK" collectionClass="NSMutableArray" id="Tl0-AE-FQ2"/>
+                        <outletCollection property="beverageImageViews" destination="O98-m8-4ev" collectionClass="NSMutableArray" id="fDs-i4-itX"/>
+                        <outletCollection property="beverageImageViews" destination="PZz-A6-HTJ" collectionClass="NSMutableArray" id="6xm-cH-MTh"/>
+                        <outletCollection property="beverageImageViews" destination="Uwp-8D-7Ae" collectionClass="NSMutableArray" id="eU1-U4-V3X"/>
+                        <outletCollection property="beverageImageViews" destination="gwc-Oe-r2q" collectionClass="NSMutableArray" id="eL9-Zf-y7B"/>
+                        <outletCollection property="beverageImageViews" destination="amr-hq-Llx" collectionClass="NSMutableArray" id="Nvx-OS-Blw"/>
+                        <outletCollection property="beverageImageViews" destination="N8r-qo-N5B" collectionClass="NSMutableArray" id="6Ou-9p-vDN"/>
+                        <outletCollection property="beverageImageViews" destination="Uim-wa-5D7" collectionClass="NSMutableArray" id="Qrh-cR-4W0"/>
+                        <outletCollection property="beverageImageViews" destination="mw7-1B-AUc" collectionClass="NSMutableArray" id="Hfr-gN-EiZ"/>
                         <outletCollection property="backgroundViews" destination="xGL-Fs-eef" collectionClass="NSMutableArray" id="kRZ-kp-xCz"/>
                         <outletCollection property="backgroundViews" destination="G3r-Om-M6D" collectionClass="NSMutableArray" id="NTg-Vc-vIj"/>
                         <outletCollection property="backgroundViews" destination="e2F-8d-h01" collectionClass="NSMutableArray" id="OXC-YK-Ex8"/>
@@ -330,6 +441,16 @@
                         <outletCollection property="addMoneyButtons" destination="nNo-Jf-NSo" collectionClass="NSMutableArray" id="Lnh-CT-d3c"/>
                         <outletCollection property="addMoneyButtons" destination="Xpl-Gr-jHE" collectionClass="NSMutableArray" id="kLB-1y-2hO"/>
                         <outletCollection property="addMoneyButtons" destination="kkk-aF-JPS" collectionClass="NSMutableArray" id="CzN-tg-i26"/>
+                        <outletCollection property="purchaseButtons" destination="6SB-7n-J2t" collectionClass="NSMutableArray" id="VJ0-Id-waO"/>
+                        <outletCollection property="purchaseButtons" destination="zI0-Qy-hgk" collectionClass="NSMutableArray" id="HBS-Dq-Uk1"/>
+                        <outletCollection property="purchaseButtons" destination="14X-Gx-cnX" collectionClass="NSMutableArray" id="qH5-Lj-7Wk"/>
+                        <outletCollection property="purchaseButtons" destination="eJO-e2-m0c" collectionClass="NSMutableArray" id="pX1-7X-hg8"/>
+                        <outletCollection property="purchaseButtons" destination="of3-Fp-b9E" collectionClass="NSMutableArray" id="6xd-uQ-Ml2"/>
+                        <outletCollection property="purchaseButtons" destination="UwJ-ld-QnP" collectionClass="NSMutableArray" id="QVm-q0-McD"/>
+                        <outletCollection property="purchaseButtons" destination="muD-o0-hTH" collectionClass="NSMutableArray" id="XIA-X2-FNx"/>
+                        <outletCollection property="purchaseButtons" destination="JyH-MH-Uhn" collectionClass="NSMutableArray" id="Cpn-Z4-HkT"/>
+                        <outletCollection property="purchaseButtons" destination="EvN-A1-MM4" collectionClass="NSMutableArray" id="KFm-fp-p4E"/>
+                        <outletCollection property="backgroundViews" destination="qTY-FW-4R1" collectionClass="NSMutableArray" id="SA2-0E-tR4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

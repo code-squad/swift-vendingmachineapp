@@ -12,16 +12,23 @@ class Milk: Beverage {
     
     private let expirationDate: Date
     
-    init?(brand: String, volume: Int, price: Int,
-          name: String, manufacturingDateInfo: String, expirationDateInfo: String) {
+    init?(brand: String,
+          volume: Int,
+          price: Int,
+          name: String,
+          manufacturingDateInfo: String,
+          expirationDateInfo: String) {
         guard let expirationDate = Date.dateFormatter.date(from: expirationDateInfo)
             else {
                 return nil
         }
         
         self.expirationDate = expirationDate
-        super.init(brand: brand, volume: volume, price: price,
-                   name: name, manufacturingDateInfo: manufacturingDateInfo)
+        super.init(brand: brand,
+                   volume: volume,
+                   price: price,
+                   name: name,
+                   manufacturingDateInfo: manufacturingDateInfo)
     }
     
     func validate(with date:Date) -> Bool {

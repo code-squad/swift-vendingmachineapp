@@ -11,10 +11,11 @@ import Foundation
 struct VendingMachine {
     
     private var stock: [Beverage]
-    private var cashier = Cashier()
+    private var cashier: Calculable
     
     init(stock: [Beverage] = []) {
         self.stock = stock
+        self.cashier = Cashier()
     }
     
     mutating func receive(insertedMoney: Int) {
@@ -22,7 +23,7 @@ struct VendingMachine {
     }
     
     func currentMoney() -> Int {
-        return cashier.currentBalance
+        return cashier.currentBalance()
     }
     
     mutating func addToStock(beverage: Beverage) {

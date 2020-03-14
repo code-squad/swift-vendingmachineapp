@@ -128,6 +128,7 @@ class VendingMachine: NSObject, NSCoding {
         
       let beverageCount = beverages.reportBeverageCount(products[index])
         NotificationCenter.default.post(name: .updateBeverageCountLabel, object: (index, beverageCount))
+        
         NotificationCenter.default.post(name: .updatePurchasedImages, object: (index, purchasedList.count))
     }
 

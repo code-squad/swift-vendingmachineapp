@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-   
+    
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var vendingMachine: VendingMachine?
     
@@ -20,7 +20,7 @@ class ViewController: UIViewController {
     @IBOutlet var addMoneyButtons: [UIButton]!
     @IBOutlet var balanceLabel: UILabel!
     let beverageImages: [UIImage] = [#imageLiteral(resourceName: "bananaMilk"), #imageLiteral(resourceName: "ChocoMilk"), #imageLiteral(resourceName: "strawberryMilk"), #imageLiteral(resourceName: "Americano"), #imageLiteral(resourceName: "Latte"), #imageLiteral(resourceName: "Mocha"), #imageLiteral(resourceName: "Coke"), #imageLiteral(resourceName: "Cider"), #imageLiteral(resourceName: "milkis")]
-
+    
     @IBOutlet var purchaseButtons: [UIButton]!
     
     
@@ -29,11 +29,11 @@ class ViewController: UIViewController {
         
         balanceLabel.text = vendingMachine?.balance.description
         updateSavedBeverageCountLabel()
+        updateSavedPurchasedListImages()
         
         super.viewDidLoad()
         setUI()
         setNotificationCenter()
-
     }
     
     func setNotificationCenter() {
@@ -53,7 +53,7 @@ class ViewController: UIViewController {
             view.layer.cornerRadius = 20.0
         }
     }
-
+    
     func setUI() {
         setBeverageImageCornerRadius()
         setBackgroundViewCornerRadius()
@@ -75,7 +75,7 @@ class ViewController: UIViewController {
     @objc func updatePurchasedImages(_ notification: Notification) {
         let purchasedViewIndex = 3
         let imageCounts = notification.object as! (index: Int, purchasedCount: Int)
-        let downPositionX = imageCounts.purchasedCount * 50
+        let downPositionX = (imageCounts.purchasedCount-1) * 50
         let image: UIImageView = UIImageView(image: beverageImages[imageCounts.index])
         image.frame = CGRect(x: downPositionX, y: 30, width: 80, height: 110)
         backgroundViews[purchasedViewIndex].addSubview(image)
@@ -104,6 +104,18 @@ class ViewController: UIViewController {
                 guard let index = vendingMachine?.reportProductIndex(key) else { return }
                 stockCountLabels[index].text = String(value)
             }
+        }
+    }
+    
+    func updateSavedPurchasedListImages() {
+        guard let purchasedList = vendingMachine?.reportPurchasedHistory() else { return }
+        for purchasedIndex in 0..<purchasedList.count {
+            let purchasedViewIndex = 3
+            let downPositionX = purchasedIndex * 50
+            guard let productIndex = vendingMachine?.reportProductIndex(purchasedList[purchasedIndex]) else { return }
+            let image: UIImageView = UIImageView(image: beverageImages[productIndex])
+            image.frame = CGRect(x: downPositionX, y: 30, width: 80, height: 110)
+            backgroundViews[purchasedViewIndex].addSubview(image)
         }
     }
 }

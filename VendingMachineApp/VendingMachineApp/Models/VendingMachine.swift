@@ -8,6 +8,13 @@
 
 import Foundation
 
+enum SellError: Error {
+    
+    case insufficientMoneyError
+    case nonExistentBeverageError
+    
+}
+
 struct VendingMachine {
     
     private var stock: [Beverage]
@@ -31,16 +38,19 @@ struct VendingMachine {
     }
     
     @discardableResult
-    mutating func sell(wantedBeverage: Beverage) -> Beverage? {
-        guard cashier.isEnoughToBuy(price: wantedBeverage.price),
-            subtractFromStock(beverage: wantedBeverage)
+    mutating func sell(wantedBeverage: Beverage) -> Result<Beverage,SellError> {
+        guard cashier.isEnoughToBuy(price: wantedBeverage.price)
             else {
-                return nil
+                return .failure(.insufficientMoneyError)
+        }
+        guard subtractFromStock(beverage: wantedBeverage)
+            else {
+                return .failure(.nonExistentBeverageError)
         }
         
         cashier.addToSalesLog(beverage: wantedBeverage)
         cashier.subtract(price: wantedBeverage.price)
-        return wantedBeverage
+        return .success(wantedBeverage)
     }
     
     mutating private func subtractFromStock(beverage: Beverage) -> Bool {

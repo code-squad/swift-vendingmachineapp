@@ -12,7 +12,9 @@ class HersheyChocolateDrink: Milk {
     
     private let cacaoContentRate: Double
     
-    init?(volume: Int, price: Int, name: String,
+    init?(volume: Int,
+          price: Int,
+          name: String,
           manufacturingDateInfo: String,
           expirationDateInfo: String,
           cacaoContentRate: Double) {
@@ -24,7 +26,8 @@ class HersheyChocolateDrink: Milk {
         
         self.cacaoContentRate = cacaoContentRate
         super.init(brand: "허쉬초콜릿드링크",
-                   volume: volume, price: price,
+                   volume: volume,
+                   price: price,
                    name: name,
                    manufacturingDateInfo: manufacturingDateInfo,
                    expirationDateInfo: expirationDateInfo)

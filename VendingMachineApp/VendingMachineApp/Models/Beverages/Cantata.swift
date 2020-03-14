@@ -13,9 +13,13 @@ final class Cantata: Coffee {
     private let milkContentRate: Double
     private let sugarContentRate: Double
     
-    init?(volume: Int, price: Int, name: String,
-          manufacturingDateInfo: String, celsius: Int,
-          milkContentRate: Double, sugarContentRate: Double) {
+    init?(volume: Int,
+          price: Int,
+          name: String,
+          manufacturingDateInfo: String,
+          celsius: Int,
+          milkContentRate: Double,
+          sugarContentRate: Double) {
         guard milkContentRate >= Quantity.minRate, milkContentRate <= Quantity.maxRate,
             sugarContentRate >= Quantity.minRate, sugarContentRate <= Quantity.maxRate
             else {
@@ -25,7 +29,8 @@ final class Cantata: Coffee {
         self.milkContentRate = milkContentRate
         self.sugarContentRate = sugarContentRate
         super.init(brand: "칸타타",
-                   volume: volume, price: price,
+                   volume: volume,
+                   price: price,
                    name: name,
                    manufacturingDateInfo: manufacturingDateInfo,
                    celsius: celsius)

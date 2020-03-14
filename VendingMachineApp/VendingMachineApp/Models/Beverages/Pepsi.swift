@@ -12,12 +12,17 @@ class Pepsi: Soda {
     
     private let package: String
     
-    init?(volume: Int, price: Int, name: String,
-          manufacturingDateInfo: String, kiloCalorie: Int,
+    init?(volume: Int,
+          price: Int,
+          name: String,
+          manufacturingDateInfo: String,
+          kiloCalorie: Int,
           package: String) {
         self.package = package
-        super.init(brand: "팹시", volume: volume,
-                   price: price, name: name,
+        super.init(brand: "팹시",
+                   volume: volume,
+                   price: price,
+                   name: name,
                    manufacturingDateInfo: manufacturingDateInfo,
                    kiloCalorie: kiloCalorie)
     }

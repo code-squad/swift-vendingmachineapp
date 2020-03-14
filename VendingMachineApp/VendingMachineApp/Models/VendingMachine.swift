@@ -53,38 +53,6 @@ struct VendingMachine {
         return false
     }
     
-    func stockByKind() -> [String: [Beverage]] {
-        var stockByKind = [String: [Beverage]]()
-        stock.forEach {
-            let typeToString = "\(type(of: $0))"
-            guard !stockByKind.keys.contains(typeToString)
-                else {
-                    stockByKind[typeToString]?.append($0)
-                    return
-            }
-            stockByKind[typeToString] = [$0]
-        }
-        return stockByKind
-    }
-    
-    func sellableBeverages() -> [String: [Beverage]] {
-        var sellableBeverages = [String: [Beverage]]()
-        stock.forEach {
-            let typeToString = "\(type(of: $0))"
-            guard !sellableBeverages.keys.contains(typeToString)
-                else {
-                    sellableBeverages[typeToString]?.append($0)
-                    return
-            }
-            guard cashier.isEnoughToBuy(price: $0.price)
-                else {
-                    return
-            }
-            sellableBeverages[typeToString] = [$0]
-        }
-        return sellableBeverages
-    }
-    
 }
 
 extension VendingMachine {
@@ -122,6 +90,42 @@ extension VendingMachine {
     
     func searchAllBeverages(handler: (Beverage) -> (Void)) {
         stock.forEach { handler($0) }
+    }
+    
+}
+
+extension VendingMachine {
+
+    func stockByKind() -> [String: [Beverage]] {
+        var stockByKind = [String: [Beverage]]()
+        stock.forEach {
+            let typeToString = "\(type(of: $0))"
+            guard !stockByKind.keys.contains(typeToString)
+                else {
+                    stockByKind[typeToString]?.append($0)
+                    return
+            }
+            stockByKind[typeToString] = [$0]
+        }
+        return stockByKind
+    }
+    
+    func sellableBeverages() -> [String: [Beverage]] {
+        var sellableBeverages = [String: [Beverage]]()
+        stock.forEach {
+            let typeToString = "\(type(of: $0))"
+            guard !sellableBeverages.keys.contains(typeToString)
+                else {
+                    sellableBeverages[typeToString]?.append($0)
+                    return
+            }
+            guard cashier.isEnoughToBuy(price: $0.price)
+                else {
+                    return
+            }
+            sellableBeverages[typeToString] = [$0]
+        }
+        return sellableBeverages
     }
     
 }

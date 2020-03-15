@@ -10,20 +10,9 @@ import UIKit
 
 class BeverageLabel: UILabel {
     
-    private enum Item: Int {
+    enum Item: Int {
         case coke = 101
         case fanta, strawberryMilk, chocolateMilk, georgia, top
-        
-        var type: Beverage {
-            switch self {
-            case .coke: return Coke()
-            case .fanta: return Fanta()
-            case .strawberryMilk: return StrawberryMilk()
-            case .chocolateMilk: return ChocolateMilk()
-            case .georgia: return Georgia()
-            case .top: return Top()
-            }
-        }
     }
     
     override init(frame: CGRect) {
@@ -40,8 +29,8 @@ class BeverageLabel: UILabel {
 }
 
 extension BeverageLabel {
-    var beverageType: Beverage? {
-        return Item(rawValue: tag)?.type
+    var beverageType: Item? {
+        return Item(rawValue: tag)
     }
     
     func update(value: Int?) {

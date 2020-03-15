@@ -38,6 +38,15 @@ class ViewController: UIViewController {
         .fiveThousand: 5000
     ]
     
+    private let beverageToUpdate: Dictionary<BeverageLabel.Item, Beverage> = [
+        .coke: Coke(),
+        .fanta: Fanta(),
+        .strawberryMilk: StrawberryMilk(),
+        .chocolateMilk: ChocolateMilk(),
+        .georgia: Georgia(),
+        .top: Top()
+    ]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -79,8 +88,9 @@ class ViewController: UIViewController {
             let stock = inventory.briefStock()
             
             self?.beverageLabels.forEach { label in
-                guard let type = label.beverageType else { return }
-                label.update(value: stock[type])
+                guard let type = label.beverageType,
+                    let beverageType = self?.beverageToUpdate[type] else { return }
+                label.update(value: stock[beverageType])
             }
         }
     }

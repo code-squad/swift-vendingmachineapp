@@ -85,6 +85,12 @@
 * 금액 추가 버튼과 음료수 레이블도 적절한 클래스를 서브클래싱하여 구현
 * 개선된 모델 코드에 맞도록 테스트 코드도 수정
 
+### 더 개선한 내용
+
+* 뷰 초기화 시점에 버튼마다 다른 동작을 넣어놓기 위해 딕셔너리 이용
+* BeverageButton의 switch 비교 구문은 삭제
+* BalanceButton과 BeverageLabel에도 적용
+
 **실행 결과**
 
 ![step3_result](step3_result.png)

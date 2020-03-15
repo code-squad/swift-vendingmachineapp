@@ -14,8 +14,8 @@ class ViewController: UIViewController {
     var vendingMachine: VendingMachine?
     
     @IBOutlet var backgroundViews: [UIView]!
-    @IBOutlet var addStockButtons: [UIButton]!
-    @IBOutlet var stockCountLabels: [UILabel]!
+    @IBOutlet var addStockButtons: [AddStockButton]!
+    @IBOutlet var stockCountLabels: [StockCountLabel]!
     @IBOutlet var beverageImageViews: [UIImageView]!
     @IBOutlet var addMoneyButtons: [UIButton]!
     @IBOutlet var balanceLabel: UILabel!
@@ -33,13 +33,31 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         setUI()
         setNotificationCenter()
-        setPurchaseButtonBeverage()
+        connectPurchaseButtonWithBeverage()
+        connectAddStockButtonWithBeverage()
+        connectStockCountLabelWithBeverage()
     }
     
-    func setPurchaseButtonBeverage() {
+    func connectPurchaseButtonWithBeverage() {
         var index = 0
         for button in purchaseButtons {
             button.beverage = vendingMachine!.products[index]
+            index += 1
+        }
+    }
+    
+    func connectAddStockButtonWithBeverage() {
+        var index = 0
+        for button in addStockButtons {
+            button.beverage = vendingMachine!.products[index]
+            index += 1
+        }
+    }
+    
+    func connectStockCountLabelWithBeverage() {
+        var index = 0
+        for label in stockCountLabels {
+            label.beverage = vendingMachine!.products[index]
             index += 1
         }
     }
@@ -68,8 +86,8 @@ class ViewController: UIViewController {
         
     }
     
-    @IBAction func addStock(button: UIButton) {
-        vendingMachine?.addStock(button.tag)
+    @IBAction func addStock(button: AddStockButton) {
+        vendingMachine?.addStock(button.beverage)
     }
     
     @IBAction func addMoney(button: UIButton) {
@@ -91,8 +109,9 @@ class ViewController: UIViewController {
     }
     
     @objc func updateBeverageCountLabel(_ notification: Notification) {
-        let stockCount = notification.object as! (index: Int, count: Int)
-        stockCountLabels[stockCount.index].text = String(stockCount.count)
+        guard let bevSeqeunceCount = notification.userInfo?["bevSeqeunceCount"] as? (beverageSequence: Int, beverageCount: Int) else { return }
+    
+        stockCountLabels[bevSeqeunceCount.beverageSequence].text = String(bevSeqeunceCount.beverageCount)
     }
     
     @objc func updateBalanceLabel(_ notification: Notification) {

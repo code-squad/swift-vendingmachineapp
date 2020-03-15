@@ -115,10 +115,11 @@ class VendingMachine: NSObject, NSCoding {
         balance.raiseMoney(moneyUnit: moneyUnit)
     }
 
-    func addStock(_ index: Int) {
-        beverages.addBeverage(products[index])
-         let beverageCount = beverages.reportBeverageCount(products[index])
-         NotificationCenter.default.post(name: .updateBeverageCountLabel, object: (index, beverageCount))
+    func addStock(_ beverage: Beverage) {
+        beverages.addBeverage(beverage)
+        let beverageSequence = reportProductIndex(beverage)
+         let beverageCount = beverages.reportBeverageCount(beverage)
+        NotificationCenter.default.post(name: .updateBeverageCountLabel, object: nil, userInfo: ["bevSeqeunceCount":(beverageSequence, beverageCount)])
     }
 
     func reportAvailableBeverageNowMoney() -> [Beverage] {

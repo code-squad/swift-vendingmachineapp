@@ -32,6 +32,7 @@ enum HersheyChocolateDrinks {
         }
         
     }
+    
 }
 
 extension HersheyChocolateDrinks {
@@ -109,7 +110,6 @@ extension Cantatas {
                                                             .milkContentRate,
                                                           sugarContentRate: Cantatas.PriumLatte
                                                             .sugarContentRate)
-    
 }
 
 enum Pepsis {
@@ -157,6 +157,5 @@ extension Pepsis {
                                                kiloCalorie: Pepsis.DietCola
                                                .Volume591ml.kiloCalorie,
                                                package: Pepsis.DietCola.Volume591ml.package)
-    
     
 }

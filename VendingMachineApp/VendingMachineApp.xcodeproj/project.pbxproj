@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		380348BE241E0C58002C91FC /* NSCoder+encode_decode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380348BD241E0C58002C91FC /* NSCoder+encode_decode.swift */; };
 		383594BC240CB38F00102CD1 /* NSNotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383594BB240CB38F00102CD1 /* NSNotificationName.swift */; };
 		388A25ED24043F3200727EEB /* Beverages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388A25EC24043F3200727EEB /* Beverages.swift */; };
 		388A25EE24043F3200727EEB /* Beverages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388A25EC24043F3200727EEB /* Beverages.swift */; };
@@ -47,6 +48,8 @@
 		38E570E123FE9D5800310E11 /* Soda.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E570E023FE9D5800310E11 /* Soda.swift */; };
 		38E570E323FE9D6000310E11 /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E570E223FE9D6000310E11 /* Coffee.swift */; };
 		38E570E523FEB6F000310E11 /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E570E423FEB6F000310E11 /* VendingMachine.swift */; };
+		38EE71C92419C69000AA999F /* VendingMachineManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EE71C82419C69000AA999F /* VendingMachineManager.swift */; };
+		38EE71CA2419D6CD00AA999F /* VendingMachineManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EE71C82419C69000AA999F /* VendingMachineManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +63,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		380348BD241E0C58002C91FC /* NSCoder+encode_decode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSCoder+encode_decode.swift"; sourceTree = "<group>"; };
 		383594BB240CB38F00102CD1 /* NSNotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSNotificationName.swift; sourceTree = "<group>"; };
 		388A25EC24043F3200727EEB /* Beverages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beverages.swift; sourceTree = "<group>"; };
 		388A25F12404F7AC00727EEB /* Date+DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+DateFormatter.swift"; sourceTree = "<group>"; };
@@ -88,6 +92,7 @@
 		38E570E023FE9D5800310E11 /* Soda.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Soda.swift; sourceTree = "<group>"; };
 		38E570E223FE9D6000310E11 /* Coffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
 		38E570E423FEB6F000310E11 /* VendingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachine.swift; sourceTree = "<group>"; };
+		38EE71C82419C69000AA999F /* VendingMachineManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +118,7 @@
 			children = (
 				388A25F12404F7AC00727EEB /* Date+DateFormatter.swift */,
 				383594BB240CB38F00102CD1 /* NSNotificationName.swift */,
+				380348BD241E0C58002C91FC /* NSCoder+encode_decode.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -200,6 +206,7 @@
 			children = (
 				38CB9B4C23FFEEE0009FF065 /* Beverages */,
 				38E570E423FEB6F000310E11 /* VendingMachine.swift */,
+				38EE71C82419C69000AA999F /* VendingMachineManager.swift */,
 				38CB9BA52403E7BA009FF065 /* Money.swift */,
 				38CB9B872403ABD6009FF065 /* Stock.swift */,
 			);
@@ -322,6 +329,7 @@
 				38CB9B982403ACE3009FF065 /* Milk.swift in Sources */,
 				38CB9B9D2403ACE3009FF065 /* Sprite.swift in Sources */,
 				38CB9B972403ACE3009FF065 /* Berverage.swift in Sources */,
+				38EE71CA2419D6CD00AA999F /* VendingMachineManager.swift in Sources */,
 				388A25EE24043F3200727EEB /* Beverages.swift in Sources */,
 				388A25F52404F91400727EEB /* BeverageUnitTests.swift in Sources */,
 				38CB9BA12403ACE3009FF065 /* VendingMachine.swift in Sources */,
@@ -332,6 +340,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38EE71C92419C69000AA999F /* VendingMachineManager.swift in Sources */,
 				383594BC240CB38F00102CD1 /* NSNotificationName.swift in Sources */,
 				38CB9B642400191F009FF065 /* Georgia.swift in Sources */,
 				38E570CC23FE452800310E11 /* ViewController.swift in Sources */,
@@ -343,6 +352,7 @@
 				38CB9B5C24001408009FF065 /* BananaMilk.swift in Sources */,
 				38E570DF23FE9D4800310E11 /* Milk.swift in Sources */,
 				38CB9B882403ABD6009FF065 /* Stock.swift in Sources */,
+				380348BE241E0C58002C91FC /* NSCoder+encode_decode.swift in Sources */,
 				38CB9B662400192B009FF065 /* Cantata.swift in Sources */,
 				38CB9B5E24001413009FF065 /* ChocolateMilk.swift in Sources */,
 				38CB9B60240018FD009FF065 /* Coke.swift in Sources */,

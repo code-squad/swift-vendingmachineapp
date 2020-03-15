@@ -11,10 +11,11 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    let vendingMachine = VendingMachine()
+    let vendingMachineManager = VendingMachineManager()
+    private(set) var vendingMachine: VendingMachine!
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        self.vendingMachine = vendingMachineManager.loadData()
         return true
     }
 
@@ -27,7 +28,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func applicationWillTerminate(_ application: UIApplication) {
-        // Vendingmachine 저장
+        vendingMachineManager.setVendingMachine(vendingMachine)
+        vendingMachineManager.saveData()
     }
 }
 

@@ -9,6 +9,8 @@
 import UIKit
 
 class ViewController: UIViewController {
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    private var vendingMachineManager: VendingMachineManager!
     private var vendingMachine: VendingMachine!
     @IBOutlet var addToStockButtons: [UIButton]!
     @IBOutlet var beverageImageViews: [UIImageView]!
@@ -17,14 +19,31 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupVendingMachine()
+        setupUnarchivingVendingMachine()
         setupUI()
         setupNotification()
     }
     
-    private func setupVendingMachine() {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    private func setupUnarchivingVendingMachine() {
         self.vendingMachine = appDelegate.vendingMachine
+        updateUnarchivedBeveragesInfo()
+        updateUnarchivedBalance()
+    }
+    
+    private func updateUnarchivedBalance() {
+        balanceLabel.text = vendingMachine.balance.description
+    }
+    
+    private func updateUnarchivedBeveragesInfo() {
+        vendingMachine.beverageProductions.forEach {
+            print("\($0(Date()).name) :", vendingMachine.stock.numberOf($0(Date())))
+        }
+        
+        let stockDictionary = vendingMachine.stockDictionary()
+        vendingMachine.forEachProductObjectIdentifier { identifer, index in
+            guard let beverages = stockDictionary[identifer] else { return }
+            updateLabel(at: index, count: beverages.count())
+        }
     }
     
     @IBAction func addToStockButtonTouched(_ button: UIButton) {
@@ -41,11 +60,16 @@ class ViewController: UIViewController {
     }
     
     @objc private func updateStockLabel(_ notification: Notification) {
-        guard let changedIndex = notification.userInfo?["changedIndex"] as? Int, let changedBeverageStockNumber = notification.userInfo?["numberOfBeverage"] as? Int else { return }
-        
+        vendingMachine.forEachProductObjectIdentifier { identifer, index in
+            guard let beverages = notification.userInfo?[identifer] as? Beverages else { return }
+            updateLabel(at: index, count: beverages.count())
+        }
+    }
+    
+    private func updateLabel(at index: Int, count: Int) {
         berverageStockLabels.forEach {
-            guard $0.tag == changedIndex else { return }
-            $0.text = String(changedBeverageStockNumber)
+            guard $0.tag == index else { return }
+            $0.text = String(count)
         }
     }
     

@@ -56,6 +56,14 @@ class Beverage {
     
 }
 
+extension Beverage: Equatable {
+    
+    static func == (lhs: Beverage, rhs: Beverage) -> Bool {
+        return lhs.kind == rhs.kind
+    }
+    
+}
+
 extension Beverage: CustomStringConvertible {
     
     @objc var description: String {

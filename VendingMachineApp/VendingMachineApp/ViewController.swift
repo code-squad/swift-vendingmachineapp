@@ -33,6 +33,11 @@ class ViewController: UIViewController {
         .top: { return Top() }
     ]
     
+    private let moneyToAdd: Dictionary<BalanceButton.Item, Int> = [
+        .thousand: 1000,
+        .fiveThousand: 5000
+    ]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -56,7 +61,10 @@ class ViewController: UIViewController {
         }
         
         balanceButtons.forEach { button in
-            button.customAction = { [weak self] in self?.vendingMachine.insert(money: $0) }
+            button.action = { [weak self] in
+                guard let money = self?.moneyToAdd[$0] else { return }
+                self?.vendingMachine.insert(money: money)
+            }
         }
     }
     

@@ -20,8 +20,7 @@ struct VendingMachine {
     private var stock: [Beverage] {
         didSet {
             NotificationCenter.default.post(name: Notification.Name.beveragesChanged,
-                                            object: self,
-                                            userInfo: ["stock": stock])
+                                            object: self)
         }
     }
     private var cashier: Calculable

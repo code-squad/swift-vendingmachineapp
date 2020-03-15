@@ -22,7 +22,25 @@ final class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(forName: Notification.Name.beveragesChanged,
+                                               object: nil, queue: nil) { [weak self] (notification) in
+                                                self?.changeLabelNumber(notification: notification)
+        }
+    }
+    
+    @objc private func changeLabelNumber(notification: Notification) {
+        guard let vendingMachine = notification.object as? VendingMachine
+            else {
+            return
+        }
         
+        let stockByKind = vendingMachine.stockByKind()
+        beverageNumberLabels.forEach {
+            if let beverage = $0.beverage(),
+            let beverageNumber = stockByKind[beverage.kind] {
+                $0.text = "\(beverageNumber)개"
+            }
+        }
     }
     
 }

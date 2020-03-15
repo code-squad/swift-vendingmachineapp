@@ -12,20 +12,15 @@ import XCTest
 class VendingMachineTest: XCTestCase {
     
     var vendingMachine: VendingMachine!
-    let primiumLatte = Cantata(volume: 275, price: 2200,
-                               name: "프리미엄 라떼",
+    let primiumLatte = Cantata(cantataBuilder: Cantatas.builderPrimiumLatte175ml,
                                manufacturingDateInfo: "20200102",
-                               celsius: 65,
-                               milkContentRate: 0.15,
-                               sugarContentRate: 0.05)!
-    let dietCola = Pepsi(volume: 350, price: 2000, name: "다이어트 콜라",
-                         manufacturingDateInfo: "20190928",
-                         kiloCalorie: 80, package: Package.glass)!
-    let cookieCreamMilk = HersheyChocolateDrink(volume: 190, price: 1500,
-                                                name: "쿠키앤크림",
+                               celsius: 65)!
+    let dietCola = Pepsi(pepsiBuilder: Pepsis.builderDietCola250ml,
+                         manufacturingDateInfo: "20190928")!
+    let cookieCreamMilk = HersheyChocolateDrink(hersheyBuilder:
+                                                HersheyChocolateDrinks.builderCookieCream235ml,
                                                 manufacturingDateInfo: "20191116",
-                                                expirationDateInfo: "20191123",
-                                                cacaoContentRate: 0.03)!
+                                                expirationDateInfo: "20191123")!
     
     override func setUp() {
         super.setUp()
@@ -56,10 +51,10 @@ class VendingMachineTest: XCTestCase {
     }
     
     func testSellableBeverages() {
-        vendingMachine.receive(insertedMoney: 1500)
+        vendingMachine.receive(insertedMoney: 1200)
         let sellableBeverages = vendingMachine.sellableBeverages()
         XCTAssertEqual(sellableBeverages,
-                       [cookieCreamMilk.kind: 1])
+                       [dietCola.kind: 1])
     }
     
     func testSell() {
@@ -69,11 +64,10 @@ class VendingMachineTest: XCTestCase {
     
     func testAdd() {
         vendingMachine = VendingMachine()
-        let otherCookieCreamMilk = HersheyChocolateDrink(volume: 190, price: 1500,
-                                                         name: "쿠키앤크림",
-                                                         manufacturingDateInfo: "20191016",
-                                                         expirationDateInfo: "20191023",
-                                                         cacaoContentRate: 0.03)!
+        let otherCookieCreamMilk = HersheyChocolateDrink(hersheyBuilder:
+            HersheyChocolateDrinks.builderCookieCream235ml,
+                                                         manufacturingDateInfo: "20191116",
+                                                         expirationDateInfo: "20191123")!
         vendingMachine.addToStock(beverage: otherCookieCreamMilk)
         vendingMachine.searchAllBeverages { (beverage) -> (Void) in
             XCTAssertEqual(beverage, otherCookieCreamMilk)

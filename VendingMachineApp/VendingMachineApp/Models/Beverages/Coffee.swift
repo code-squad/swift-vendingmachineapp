@@ -12,17 +12,11 @@ class Coffee: Beverage {
     
     private let celsius: Int
     
-    init?(brand: String,
-          volume: Int,
-          price: Int,
-          name: String,
+    init?(builder: Beverage.Builder,
           manufacturingDateInfo: String,
           celsius: Int) {
         self.celsius = celsius
-        super.init(brand: brand,
-                   volume: volume,
-                   price: price,
-                   name: name,
+        super.init(builder: builder,
                    manufacturingDateInfo: manufacturingDateInfo)
     }
     

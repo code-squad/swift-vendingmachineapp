@@ -15,9 +15,8 @@ class SodaTest: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        soda = Pepsi(volume: 350, price: 2000, name: "다이어트 콜라",
-                     manufacturingDateInfo: "20190928",
-                     kiloCalorie: 80, package: Package.glass)
+        soda = Pepsi(pepsiBuilder: Pepsis.builderDietCola250ml,
+                     manufacturingDateInfo: "20190928")!
     }
     
     override func tearDown() {
@@ -30,9 +29,8 @@ class SodaTest: XCTestCase {
     }
     
     func testIsLowCalorieFalse() {
-        soda = Pepsi(volume: 350, price: 2000, name: "표준 콜라",
-                     manufacturingDateInfo: "20190928",
-                     kiloCalorie: 200, package: Package.glass)
+        soda = Pepsi(pepsiBuilder: Pepsis.builderDietCola591ml,
+                     manufacturingDateInfo: "20190928")!
         
         XCTAssertFalse(soda.isLowCalorie())
     }

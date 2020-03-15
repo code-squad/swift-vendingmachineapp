@@ -15,12 +15,10 @@ class CoffeeTest: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        coffee = Cantata(volume: 275, price: 2200,
-                         name: "프리미엄 라떼",
+        coffee = Cantata(cantataBuilder: Cantatas.builderPrimiumLatte175ml,
                          manufacturingDateInfo: "20200102",
-                         celsius: 65,
-                         milkContentRate: 0.15,
-                         sugarContentRate: 0.05)
+                         celsius: 65)!
+        
     }
     
     override func tearDown() {
@@ -33,12 +31,9 @@ class CoffeeTest: XCTestCase {
     }
     
     func testIsHotFalse() {
-        coffee = Cantata(volume: 275, price: 2200,
-                         name: "프리미엄 라떼",
+        coffee = Cantata(cantataBuilder: Cantatas.builderPrimiumLatte175ml,
                          manufacturingDateInfo: "20200102",
-                         celsius: 55,
-                         milkContentRate: 0.15,
-                         sugarContentRate: 0.05)
+                         celsius: 55)!
         XCTAssertFalse(coffee.isHot())
     }
     

@@ -12,17 +12,10 @@ class Soda: Beverage {
     
     private let kiloCalorie: Int
     
-    init?(brand: String,
-          volume: Int,
-          price: Int,
-          name: String,
-          manufacturingDateInfo: String,
-          kiloCalorie: Int) {
-        self.kiloCalorie = kiloCalorie
-        super.init(brand: brand,
-                   volume: volume,
-                   price: price,
-                   name: name,
+    init?(sodaBuilder: SodaBuilder,
+          manufacturingDateInfo: String) {
+        self.kiloCalorie = sodaBuilder.kiloCalorie
+        super.init(builder: sodaBuilder,
                    manufacturingDateInfo: manufacturingDateInfo)
     }
     
@@ -36,6 +29,28 @@ extension Soda {
     
     override var description: String {
         return super.description + ", \(kiloCalorie)kcal"
+    }
+    
+}
+
+extension Soda {
+    
+    class SodaBuilder: Beverage.Builder {
+        
+        let kiloCalorie: Int
+        
+        init(brand: String,
+             name: String,
+             volume: Int,
+             price: Int,
+             kiloCalorie: Int) {
+            self.kiloCalorie = kiloCalorie
+            super.init(brand: brand,
+                       name: name,
+                       volume: volume,
+                       price: price)
+        }
+        
     }
     
 }

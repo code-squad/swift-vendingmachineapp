@@ -12,23 +12,11 @@ class HersheyChocolateDrink: Milk {
     
     private let cacaoContentRate: Double
     
-    init?(volume: Int,
-          price: Int,
-          name: String,
+    init?(hersheyBuilder: HersheyChocolateDrinks.HersheyBuilder,
           manufacturingDateInfo: String,
-          expirationDateInfo: String,
-          cacaoContentRate: Double) {
-        guard cacaoContentRate >= Quantity.minRate,
-            cacaoContentRate <= Quantity.maxRate
-            else {
-                return nil
-        }
-        
-        self.cacaoContentRate = cacaoContentRate
-        super.init(brand: "허쉬초콜릿드링크",
-                   volume: volume,
-                   price: price,
-                   name: name,
+          expirationDateInfo: String) {
+        self.cacaoContentRate = hersheyBuilder.cacaoContentRate
+        super.init(builder: hersheyBuilder,
                    manufacturingDateInfo: manufacturingDateInfo,
                    expirationDateInfo: expirationDateInfo)
     }
@@ -43,6 +31,28 @@ extension HersheyChocolateDrink {
     
     override var description: String {
         return super.description + ", 카카오: \(cacaoContentRate)%"
+    }
+    
+}
+
+extension HersheyChocolateDrinks {
+    
+    class HersheyBuilder: Beverage.Builder {
+        
+        let cacaoContentRate: Double
+        
+        init(brand: String,
+             name: String,
+             volume: Int,
+             price: Int,
+             cacaoContentRate: Double) {
+            self.cacaoContentRate = cacaoContentRate
+            super.init(brand: brand,
+                       name: name,
+                       volume: volume,
+                       price: price)
+        }
+        
     }
     
 }

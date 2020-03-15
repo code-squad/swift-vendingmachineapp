@@ -90,6 +90,9 @@
 * 뷰 초기화 시점에 버튼마다 다른 동작을 넣어놓기 위해 딕셔너리 이용
 * BeverageButton의 switch 비교 구문은 삭제
 * BalanceButton과 BeverageLabel에도 적용
+* CokeButton, FantaButton 등 각 버튼별로 클래스를 만들어서 각각의 액션을 가지고 있도록 변경.
+* ViewController에서는 상위클래스인 BeverageButton의 배열로 관리
+* BalanceButton과 BeverageLabel에도 같은 구조 적용
 
 **실행 결과**
 

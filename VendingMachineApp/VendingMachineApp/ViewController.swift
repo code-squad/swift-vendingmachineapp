@@ -11,13 +11,17 @@ import UIKit
 final class ViewController: UIViewController {
     
     @IBOutlet var beverageNumberLabels: [BeverageNumberLabel]!
-    
     @IBAction func plusBeverageButtonTapped(_ sender: PlusBeverageButton) {
         if let beverage = sender.beverage() {
             vendingMachine.addToStock(beverage: beverage)
         }
     }
     
+    @IBOutlet weak var balanceLabel: BalanceLabel!
+    @IBAction func plusBalanceButtonTapped(_ sender: PlusBalanceButton) {
+        
+    }
+
     private var vendingMachine = VendingMachine()
     
     override func viewDidLoad() {

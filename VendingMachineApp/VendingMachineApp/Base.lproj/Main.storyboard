@@ -160,10 +160,16 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="goM-GG-ohe" customClass="PlusBalanceButton" customModule="VendingMachineApp" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="44" height="30"/>
                                                 <state key="normal" title="+1000"/>
+                                                <connections>
+                                                    <action selector="plusBalanceButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CxO-Cy-8bO"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EtE-d8-nF1" customClass="PlusBalanceButton" customModule="VendingMachineApp" customModuleProvider="target">
                                                 <rect key="frame" x="71" y="0.0" width="47" height="30"/>
                                                 <state key="normal" title="+5000"/>
+                                                <connections>
+                                                    <action selector="plusBalanceButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lxQ-uH-tsB"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -188,6 +194,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="balanceLabel" destination="KQN-oq-VMf" id="k2B-0l-74G"/>
                         <outletCollection property="beverageNumberLabels" destination="Ah1-gN-xIW" collectionClass="NSMutableArray" id="f7V-7n-DSC"/>
                         <outletCollection property="beverageNumberLabels" destination="RDK-m8-b8V" collectionClass="NSMutableArray" id="NOj-5W-8xZ"/>
                         <outletCollection property="beverageNumberLabels" destination="Utr-Kd-MDb" collectionClass="NSMutableArray" id="zik-XM-6ol"/>

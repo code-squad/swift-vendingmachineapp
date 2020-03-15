@@ -13,7 +13,9 @@ final class ViewController: UIViewController {
     @IBOutlet var beverageNumberLabels: [BeverageNumberLabel]!
     
     @IBAction func plusBeverageButtonTapped(_ sender: PlusBeverageButton) {
-        
+        if let beverage = sender.beverage() {
+            vendingMachine.addToStock(beverage: beverage)
+        }
     }
     
     private var vendingMachine = VendingMachine()

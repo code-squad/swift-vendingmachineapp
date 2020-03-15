@@ -8,7 +8,7 @@
 
 import Foundation
 
-class HersheyChocolateDrink: Milk {
+final class HersheyChocolateDrink: Milk {
     
     private let cacaoContentRate: Double
     

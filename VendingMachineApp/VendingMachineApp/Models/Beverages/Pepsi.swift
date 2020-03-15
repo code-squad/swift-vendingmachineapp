@@ -16,7 +16,7 @@ enum Package {
     
 }
 
-class Pepsi: Soda {
+final class Pepsi: Soda {
     
     private let package: String
     

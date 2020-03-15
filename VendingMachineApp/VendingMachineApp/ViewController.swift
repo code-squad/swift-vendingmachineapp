@@ -55,7 +55,7 @@ class ViewController: UIViewController {
     
     private func setupActionsForButtons() {
         beverageButtons.forEach { button in
-            button.customAction = { [weak self] in self?.vendingMachine.fill(beverage: $0) }
+            button.action = { [weak self] in self?.vendingMachine.fill(beverage: $0) }
         }
         
         balanceButtons.forEach { button in

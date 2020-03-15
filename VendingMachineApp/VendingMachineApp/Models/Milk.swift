@@ -8,20 +8,24 @@
 
 import Foundation
 
-class Milk: OilBeverage {
+class Milk: Beverage {
     
-    private var flavor: String
+    enum Falvor: String {
+        case choco
+        case banana
+    }
+    
+    private var flavor: Falvor
     
     public init(
-        brand: String,
+        brand: Brand,
         weight: Int,
         price: Int,
         name: String,
-        dateOfManufacture: Date,
+        expirationDate: Date,
         temperature: Double,
         calorie: Double,
-        fat: Bool,
-        flavor: String
+        flavor: Falvor
     ) {
         self.flavor = flavor
         super.init(
@@ -29,10 +33,9 @@ class Milk: OilBeverage {
             weight: weight,
             price: price,
             name: name,
-            dateOfManufacture: dateOfManufacture,
+            expirationDate: expirationDate,
             temperature: temperature,
-            calorie: calorie,
-            fat: fat
+            calorie: calorie
         )
     }
 }

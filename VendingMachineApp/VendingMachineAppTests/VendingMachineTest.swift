@@ -50,24 +50,21 @@ class VendingMachineTest: XCTestCase {
     func testStockByKind() {
         let stockByKind = vendingMachine.stockByKind()
         XCTAssertEqual(stockByKind,
-                       ["Cantata": [primiumLatte],
-                        "Pepsi": [dietCola],
-                        "HersheyChocolateDrink": [cookieCreamMilk]])
+                       [primiumLatte.kind: 1,
+                        dietCola.kind: 1,
+                        cookieCreamMilk.kind: 1])
     }
     
     func testSellableBeverages() {
         vendingMachine.receive(insertedMoney: 1500)
         let sellableBeverages = vendingMachine.sellableBeverages()
         XCTAssertEqual(sellableBeverages,
-                       ["HersheyChocolateDrink": [cookieCreamMilk]])
+                       [cookieCreamMilk.kind: 1])
     }
     
     func testSell() {
         vendingMachine.receive(insertedMoney: 1500)
-        let sellableBeverages = vendingMachine.sellableBeverages()
-        let sellableBeverage = sellableBeverages.first!
-        let first = sellableBeverage.value[0]
-        vendingMachine.sell(wantedBeverage: first)
+        vendingMachine.sell(wantedBeverage: cookieCreamMilk)
     }
     
     func testAdd() {

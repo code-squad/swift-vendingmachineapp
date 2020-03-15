@@ -10,12 +10,7 @@ import UIKit
 
 class BalanceButton: UIButton {
     
-    enum Item: Int {
-        case thousand = 207
-        case fiveThousand
-    }
-    
-    var action: ((Item) -> Void)?
+    var action: ((Int) -> Void)?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -41,9 +36,5 @@ extension BalanceButton {
         self.addTarget(self, action: #selector(invokeAction), for: .touchUpInside)
     }
     
-    @objc func invokeAction(sender: BeverageButton) {
-        if let buttonType = Item(rawValue: tag) {
-            action?(buttonType)
-        }
-    }
+    @objc func invokeAction(sender: BalanceButton) { }
 }

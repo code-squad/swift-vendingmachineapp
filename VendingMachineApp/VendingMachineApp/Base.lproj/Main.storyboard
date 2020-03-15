@@ -21,7 +21,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Eic-Av-Q1m">
                                         <rect key="frame" x="0.0" y="0.0" width="250" height="316.5"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9eK-n3-QyH" customClass="PlusBalanceButton" customModule="VendingMachineApp" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9eK-n3-QyH" customClass="PlusBeverageButton" customModule="VendingMachineApp" customModuleProvider="target">
                                                 <rect key="frame" x="110" y="0.0" width="30" height="30"/>
                                                 <state key="normal" title="추가"/>
                                                 <connections>
@@ -42,7 +42,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="iiX-Nj-9tZ">
                                         <rect key="frame" x="258" y="0.0" width="250" height="316.5"/>
                                         <subviews>
-                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mSq-Y1-KOQ" customClass="PlusBalanceButton" customModule="VendingMachineApp" customModuleProvider="target">
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mSq-Y1-KOQ" customClass="PlusBeverageButton" customModule="VendingMachineApp" customModuleProvider="target">
                                                 <rect key="frame" x="110" y="0.0" width="30" height="30"/>
                                                 <state key="normal" title="추가"/>
                                                 <connections>
@@ -63,7 +63,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="wt8-iH-hiL">
                                         <rect key="frame" x="516" y="0.0" width="250" height="316.5"/>
                                         <subviews>
-                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Xp-uK-uZ1" customClass="PlusBalanceButton" customModule="VendingMachineApp" customModuleProvider="target">
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Xp-uK-uZ1" customClass="PlusBeverageButton" customModule="VendingMachineApp" customModuleProvider="target">
                                                 <rect key="frame" x="110" y="0.0" width="30" height="30"/>
                                                 <state key="normal" title="추가"/>
                                                 <connections>
@@ -89,7 +89,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Ff1-0F-qpY">
                                         <rect key="frame" x="0.0" y="0.0" width="256" height="320"/>
                                         <subviews>
-                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aW4-50-y8B" customClass="PlusBalanceButton" customModule="VendingMachineApp" customModuleProvider="target">
+                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aW4-50-y8B" customClass="PlusBeverageButton" customModule="VendingMachineApp" customModuleProvider="target">
                                                 <rect key="frame" x="113" y="0.0" width="30" height="30"/>
                                                 <state key="normal" title="추가"/>
                                                 <connections>
@@ -110,7 +110,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Lbl-WF-sne">
                                         <rect key="frame" x="299" y="4" width="246" height="312.5"/>
                                         <subviews>
-                                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="auh-iv-pma" customClass="PlusBalanceButton" customModule="VendingMachineApp" customModuleProvider="target">
+                                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="auh-iv-pma" customClass="PlusBeverageButton" customModule="VendingMachineApp" customModuleProvider="target">
                                                 <rect key="frame" x="108" y="0.0" width="30" height="30"/>
                                                 <state key="normal" title="추가"/>
                                                 <connections>
@@ -131,7 +131,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="6Zg-nK-zYq">
                                         <rect key="frame" x="588" y="54.5" width="106" height="211.5"/>
                                         <subviews>
-                                            <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tJA-sw-xgO" customClass="PlusBalanceButton" customModule="VendingMachineApp" customModuleProvider="target">
+                                            <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tJA-sw-xgO" customClass="PlusBeverageButton" customModule="VendingMachineApp" customModuleProvider="target">
                                                 <rect key="frame" x="38" y="0.0" width="30" height="30"/>
                                                 <state key="normal" title="추가"/>
                                                 <connections>
@@ -151,10 +151,36 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="hSG-Ze-5PG">
+                                <rect key="frame" x="993" y="286" width="118" height="58.5"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="27" translatesAutoresizingMaskIntoConstraints="NO" id="v5t-UE-a5L">
+                                        <rect key="frame" x="0.0" y="0.0" width="118" height="30"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="goM-GG-ohe" customClass="PlusBalanceButton" customModule="VendingMachineApp" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="44" height="30"/>
+                                                <state key="normal" title="+1000"/>
+                                            </button>
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EtE-d8-nF1" customClass="PlusBalanceButton" customModule="VendingMachineApp" customModuleProvider="target">
+                                                <rect key="frame" x="71" y="0.0" width="47" height="30"/>
+                                                <state key="normal" title="+5000"/>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="잔액 : 0원 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KQN-oq-VMf" customClass="BalanceLabel" customModule="VendingMachineApp" customModuleProvider="target">
+                                        <rect key="frame" x="23" y="38" width="72.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hSG-Ze-5PG" secondAttribute="trailing" constant="1" id="5ps-tp-rWS"/>
                             <constraint firstItem="Cez-H5-jtY" firstAttribute="leading" secondItem="Psm-gf-pU1" secondAttribute="leading" id="AKV-Dq-JYE"/>
+                            <constraint firstItem="hSG-Ze-5PG" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="286" id="KAK-NF-jAY"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Psm-gf-pU1" secondAttribute="bottom" constant="85" id="TR8-1k-KM2"/>
                             <constraint firstItem="Cez-H5-jtY" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="jag-NU-bu0"/>
                             <constraint firstItem="Cez-H5-jtY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="vf8-PW-gNG"/>

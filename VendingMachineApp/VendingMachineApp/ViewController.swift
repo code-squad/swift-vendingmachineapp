@@ -10,21 +10,13 @@ import UIKit
 
 final class ViewController: UIViewController {
     
-    @IBOutlet var beverageNumberLabels: [BeverageNumberLabel]!
-    @IBAction func plusBeverageButtonTapped(_ sender: PlusBeverageButton) {
-        if let beverage = sender.beverage() {
-            vendingMachine.addToStock(beverage: beverage)
-        }
-    }
-    
     @IBOutlet weak var balanceLabel: BalanceLabel!
-    
     @IBAction func plusBalanceButtonTapped(_ sender: PlusBalanceButton) {
         if let money = sender.money() {
             vendingMachine.receive(insertedMoney: money)
         }
     }
-
+    
     private var vendingMachine = VendingMachine()
     
     override func viewDidLoad() {
@@ -33,6 +25,14 @@ final class ViewController: UIViewController {
                                                object: vendingMachine,
                                                queue: nil) { [weak self] _ in
                                                 self?.changeLabelNumber() }
+        
+    }
+    
+    @IBOutlet var beverageNumberLabels: [BeverageNumberLabel]!
+    @IBAction func plusBeverageButtonTapped(_ sender: PlusBeverageButton) {
+        if let beverage = sender.beverage() {
+            vendingMachine.addToStock(beverage: beverage)
+        }
     }
     
     private func changeLabelNumber() {

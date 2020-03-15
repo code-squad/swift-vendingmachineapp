@@ -21,4 +21,5 @@ final class BalanceLabel: UILabel {
     func update(currentMoney :Int) {
         text = "잔액 : \(currentMoney)원"
     }
+    
 }

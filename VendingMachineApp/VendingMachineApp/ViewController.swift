@@ -24,6 +24,15 @@ class ViewController: UIViewController {
     private let vendingMachine = VendingMachine(cashier: Cashier())
     private let observers = Observers()
     
+    private let beverageAddingActions: Dictionary<BeverageButton.Item, () -> Beverage> = [
+        .coke: { return Coke() },
+        .fanta: { return Fanta() },
+        .strawberryMilk: { return StrawberryMilk() },
+        .chocolateMilk: { return ChocolateMilk() },
+        .georgia: { return Georgia() },
+        .top: { return Top() }
+    ]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -41,7 +50,9 @@ class ViewController: UIViewController {
     
     private func setupActionsForButtons() {
         beverageButtons.forEach { button in
-            button.customAction = { [weak self] in self?.vendingMachine.fill(beverage: $0) }
+            button.action = { [weak self] in
+                guard let action = self?.beverageAddingActions[$0] else { return }
+                self?.vendingMachine.fill(beverage: action()) }
         }
         
         balanceButtons.forEach { button in

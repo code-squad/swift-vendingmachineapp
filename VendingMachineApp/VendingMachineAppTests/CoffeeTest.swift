@@ -17,7 +17,6 @@ class CoffeeTest: XCTestCase {
         super.setUp()
         coffee = Cantata(cantataBuilder: Cantatas.builderPrimiumLatte175ml,
                          celsius: 65)
-        
     }
     
     override func tearDown() {

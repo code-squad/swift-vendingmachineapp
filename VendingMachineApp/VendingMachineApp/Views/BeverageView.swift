@@ -10,6 +10,8 @@ import UIKit
 
 final class PlusBeverageButton: UIButton {
     
+    private lazy var itemByTag = ItemByTag(rawValue: tag)
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
@@ -22,6 +24,8 @@ final class PlusBeverageButton: UIButton {
 
 final class BeverageNumberLabel: UILabel {
 
+    private lazy var itemByTag = ItemByTag(rawValue: tag)
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
@@ -29,6 +33,17 @@ final class BeverageNumberLabel: UILabel {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
+    
+}
+
+enum ItemByTag: Int {
+    
+    case cantataPrimiumLatte175ml = 0
+    case cantataPrimiumLatte275ml
+    case pepsiDietCola250ml
+    case pepsiDietCola591ml
+    case hersheyCookieCream235ml
+    case hersheyCookieCream350ml
     
 }
 

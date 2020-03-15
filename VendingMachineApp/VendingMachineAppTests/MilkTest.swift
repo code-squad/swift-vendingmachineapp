@@ -31,7 +31,7 @@ class MilkTest: XCTestCase {
     }
     
     func testValidateFail() {
-        if let date = Date.dateFormatter.date(from: "20191128") {
+        if let date = Date.dateFormatter.date(from: "20201228") {
             XCTAssertFalse(milk.validate(with: date))
         }
     }

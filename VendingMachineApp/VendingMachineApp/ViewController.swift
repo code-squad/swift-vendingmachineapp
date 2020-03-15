@@ -10,13 +10,6 @@ import UIKit
 
 final class ViewController: UIViewController {
     
-    @IBOutlet weak var balanceLabel: BalanceLabel!
-    @IBAction func plusBalanceButtonTapped(_ sender: PlusBalanceButton) {
-        if let money = sender.money() {
-            vendingMachine.receive(insertedMoney: money)
-        }
-    }
-    
     private var vendingMachine = VendingMachine()
     
     override func viewDidLoad() {
@@ -25,7 +18,11 @@ final class ViewController: UIViewController {
                                                object: vendingMachine,
                                                queue: nil) { [weak self] _ in
                                                 self?.changeLabelNumber() }
-        
+        NotificationCenter.default.addObserver(forName: Notification.Name.balanceChanged,
+                                               object: vendingMachine,
+                                               queue: nil) { [weak self] _ in
+                                                self?.updateBalanceLabel()
+        }
     }
     
     @IBOutlet var beverageNumberLabels: [BeverageNumberLabel]!
@@ -43,6 +40,18 @@ final class ViewController: UIViewController {
                 $0.update(number: beverageNumber)
             }
         }
+    }
+    
+    @IBOutlet weak var balanceLabel: BalanceLabel!
+    @IBAction func plusBalanceButtonTapped(_ sender: PlusBalanceButton) {
+        if let money = sender.money() {
+            vendingMachine.receive(insertedMoney: money)
+        }
+    }
+    
+    private func updateBalanceLabel() {
+        let currentMoney = vendingMachine.currentMoney()
+        balanceLabel.update(currentMoney: currentMoney)
     }
     
 }

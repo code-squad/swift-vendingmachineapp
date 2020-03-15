@@ -22,9 +22,6 @@ struct VendingMachine {
     public var ordered: [Beverage] {
         bag
     }
-    public var productsCount: Int {
-        products.count
-    }
     
     public init(
         products: Products = Products(),
@@ -49,6 +46,10 @@ struct VendingMachine {
         bag.append(product)
         products.update(value: value - 1, forkey: product)
         money.balance(product.price)
+    }
+    
+    func productCount(index: Beverage) -> Int? {
+        products[index]
     }
     
     public func costValidProducts() -> [Beverage] {

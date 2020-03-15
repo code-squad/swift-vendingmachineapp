@@ -34,7 +34,7 @@ final class ViewController: UIViewController {
         beverageNumberLabels.forEach {
             if let beverage = $0.beverage(),
             let beverageNumber = stockByKind[beverage.kind] {
-                $0.text = "\(beverageNumber)개"
+                $0.update(number: beverageNumber)
             }
         }
     }

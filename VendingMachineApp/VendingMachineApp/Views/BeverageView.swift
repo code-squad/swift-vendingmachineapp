@@ -44,6 +44,10 @@ final class BeverageNumberLabel: UILabel, BeverageTagControl {
         return BeverageItemByTag(rawValue: tag)?.beverage()
     }
     
+    func update(number: Int) {
+        text = "\(number)개"
+    }
+    
 }
 
 enum BeverageItemByTag: Int {

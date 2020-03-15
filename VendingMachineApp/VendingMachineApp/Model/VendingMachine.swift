@@ -166,6 +166,6 @@ class VendingMachine: NSObject, NSCoding {
     func postNotificationChangePurchaseList(_ beverage: Beverage) {
         let beverageSequence = reportProductIndex(beverage)
 
-        NotificationCenter.default.post(name: .updatePurchasedImages, object: nil, userInfo: ["beverageNSequence" : (beverageSequence, purchasedList.count)])
+        NotificationCenter.default.post(name: .purchasedListChanged, object: nil, userInfo: ["beverageNSequence" : (beverageSequence, purchasedList.count)])
     }
 }

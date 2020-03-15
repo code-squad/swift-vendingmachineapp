@@ -65,7 +65,7 @@ class ViewController: UIViewController {
     func setNotificationCenter() {
         NotificationCenter.default.addObserver(self, selector: #selector(updateBalanceLabel(_:)), name: .balanceChanged, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(updateBeverageCountLabel(_:)), name: .beverageCountChanged, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(updatePurchasedImages(_:)), name: .updatePurchasedImages, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updatePurchasedImages(_:)), name: .purchasedListChanged, object: nil)
     }
     
     func setBeverageImageCornerRadius() {
@@ -110,7 +110,6 @@ class ViewController: UIViewController {
     
     @objc func updateBeverageCountLabel(_ notification: Notification) {
         guard let bevSeqeunceCount = notification.userInfo?["bevSeqeunceCount"] as? (beverageSequence: Int, beverageCount: Int) else { return }
-    
         stockCountLabels[bevSeqeunceCount.beverageSequence].text = String(bevSeqeunceCount.beverageCount)
     }
     
@@ -122,7 +121,7 @@ class ViewController: UIViewController {
     deinit {
         NotificationCenter.default.removeObserver(self, name: .balanceChanged, object: nil)
         NotificationCenter.default.removeObserver(self, name: .beverageCountChanged, object: nil)
-        NotificationCenter.default.removeObserver(self, name: .updatePurchasedImages, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .purchasedListChanged, object: nil)
     }
     
     func updateSavedBeverageCountLabel() {
@@ -151,6 +150,5 @@ class ViewController: UIViewController {
 extension Notification.Name {
     static let balanceChanged =  NSNotification.Name("balanceChanged")
     static let beverageCountChanged = NSNotification.Name("beverageCountChanged")
-    static let updatePurchasedImages = Notification.Name("updatePurchasedImages")
+    static let purchasedListChanged = Notification.Name("purchasedListChanged")
 }
-

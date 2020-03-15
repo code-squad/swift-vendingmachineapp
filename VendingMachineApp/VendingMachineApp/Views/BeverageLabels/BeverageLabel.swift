@@ -10,11 +10,6 @@ import UIKit
 
 class BeverageLabel: UILabel {
     
-    enum Item: Int {
-        case coke = 101
-        case fanta, strawberryMilk, chocolateMilk, georgia, top
-    }
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
@@ -26,12 +21,8 @@ class BeverageLabel: UILabel {
     convenience init() {
         self.init(frame: .zero)
     }
-}
-
-extension BeverageLabel {
-    var beverageType: Item? {
-        return Item(rawValue: tag)
-    }
+    
+    func invokeByType(_ block: (Beverage) -> ()) { }
     
     func update(value: Int?) {
         text = "\(value ?? 0)"

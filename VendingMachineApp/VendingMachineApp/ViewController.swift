@@ -24,15 +24,6 @@ class ViewController: UIViewController {
     private let vendingMachine = VendingMachine(cashier: Cashier())
     private let observers = Observers()
     
-    private let beverageToUpdate: Dictionary<BeverageLabel.Item, Beverage> = [
-        .coke: Coke(),
-        .fanta: Fanta(),
-        .strawberryMilk: StrawberryMilk(),
-        .chocolateMilk: ChocolateMilk(),
-        .georgia: Georgia(),
-        .top: Top()
-    ]
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -67,11 +58,8 @@ class ViewController: UIViewController {
         observers.addObserver(forName: .inventoryDidChange) { [weak self] in
             guard let inventory = $0 as? Inventory else { return }
             let stock = inventory.briefStock()
-            
             self?.beverageLabels.forEach { label in
-                guard let type = label.beverageType,
-                    let beverageType = self?.beverageToUpdate[type] else { return }
-                label.update(value: stock[beverageType])
+                label.invokeByType { label.update(value: stock[$0]) }
             }
         }
     }

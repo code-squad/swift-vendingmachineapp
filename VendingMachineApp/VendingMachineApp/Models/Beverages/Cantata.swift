@@ -13,25 +13,13 @@ final class Cantata: Coffee {
     private let milkContentRate: Double
     private let sugarContentRate: Double
     
-    init?(volume: Int,
-          price: Int,
-          name: String,
+    init?(cantataBuilder: Cantata.CantataBuilder,
           manufacturingDateInfo: String,
-          celsius: Int,
-          milkContentRate: Double,
-          sugarContentRate: Double) {
-        guard milkContentRate >= Quantity.minRate, milkContentRate <= Quantity.maxRate,
-            sugarContentRate >= Quantity.minRate, sugarContentRate <= Quantity.maxRate
-            else {
-                return nil
-        }
+          celsius: Int) {
         
-        self.milkContentRate = milkContentRate
-        self.sugarContentRate = sugarContentRate
-        super.init(brand: "칸타타",
-                   volume: volume,
-                   price: price,
-                   name: name,
+        self.milkContentRate = cantataBuilder.milkContentRate
+        self.sugarContentRate = cantataBuilder.sugarContentRate
+        super.init(builder: cantataBuilder,
                    manufacturingDateInfo: manufacturingDateInfo,
                    celsius: celsius)
     }
@@ -52,6 +40,31 @@ extension Cantata {
         return super.description +
             ", 우유: \(milkContentRate)%" +
         ", 설탕: \(sugarContentRate)%"
+    }
+    
+}
+
+extension Cantata {
+    
+    class CantataBuilder: Beverage.Builder {
+        
+        let milkContentRate: Double
+        let sugarContentRate: Double
+        
+        init(brand: String,
+             name: String,
+             volume: Int,
+             price: Int,
+             milkContentRate: Double,
+             sugarContentRate: Double) {
+            self.milkContentRate = milkContentRate
+            self.sugarContentRate = sugarContentRate
+            super.init(brand: brand,
+                       name: name,
+                       volume: volume,
+                       price: price)
+        }
+       
     }
     
 }

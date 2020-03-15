@@ -12,10 +12,7 @@ class Milk: Beverage {
     
     private let expirationDate: Date
     
-    init?(brand: String,
-          volume: Int,
-          price: Int,
-          name: String,
+    init?(builder: Beverage.Builder,
           manufacturingDateInfo: String,
           expirationDateInfo: String) {
         guard let expirationDate = Date.dateFormatter.date(from: expirationDateInfo)
@@ -24,10 +21,7 @@ class Milk: Beverage {
         }
         
         self.expirationDate = expirationDate
-        super.init(brand: brand,
-                   volume: volume,
-                   price: price,
-                   name: name,
+        super.init(builder: builder,
                    manufacturingDateInfo: manufacturingDateInfo)
     }
     

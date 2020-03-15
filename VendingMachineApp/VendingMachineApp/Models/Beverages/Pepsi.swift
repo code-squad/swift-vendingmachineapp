@@ -8,23 +8,23 @@
 
 import Foundation
 
+enum Package {
+    
+    static let glass = "glass"
+    static let can = "can"
+    static let pet = "pet"
+    
+}
+
 class Pepsi: Soda {
     
     private let package: String
     
-    init?(volume: Int,
-          price: Int,
-          name: String,
-          manufacturingDateInfo: String,
-          kiloCalorie: Int,
-          package: String) {
-        self.package = package
-        super.init(brand: "팹시",
-                   volume: volume,
-                   price: price,
-                   name: name,
-                   manufacturingDateInfo: manufacturingDateInfo,
-                   kiloCalorie: kiloCalorie)
+    init?(pepsiBuilder: PepsiBuilder,
+          manufacturingDateInfo: String) {
+        self.package = pepsiBuilder.package
+        super.init(sodaBuilder: pepsiBuilder,
+                   manufacturingDateInfo: manufacturingDateInfo)
     }
     
     func isFragile() -> Bool {
@@ -41,11 +41,26 @@ extension Pepsi {
     
 }
 
-enum Package {
+extension Pepsi {
     
-    static let glass = "glass"
-    static let can = "can"
-    static let pet = "pet"
+    class PepsiBuilder: Soda.SodaBuilder {
+        
+        let package: String
+        
+        init(brand: String,
+             name: String,
+             volume: Int,
+             price: Int,
+             kiloCalorie: Int,
+             package: String) {
+            self.package = package
+            super.init(brand: brand,
+                       name: name,
+                       volume: volume,
+                       price: price,
+                       kiloCalorie: kiloCalorie)
+        }
+        
+    }
     
 }
-

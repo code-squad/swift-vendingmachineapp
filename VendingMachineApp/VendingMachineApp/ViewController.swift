@@ -12,25 +12,20 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let primiumLatte = Cantata(volume: 275, price: 2200,
-                                   name: "프리미엄 라떼",
+        let primiumLatte = Cantata(cantataBuilder: Cantatas.builderPrimiumLatte175ml,
                                    manufacturingDateInfo: "20200102",
-                                   celsius: 65,
-                                   milkContentRate: 0.15,
-                                   sugarContentRate: 0.05)
-        let dietCola = Pepsi(volume: 350, price: 2000, name: "다이어트 콜라",
-                             manufacturingDateInfo: "20190928",
-                             kiloCalorie: 80, package: Package.glass)
-        let cookieCreamMilk = HersheyChocolateDrink(volume: 190, price: 1500,
-                                                    name: "쿠키앤크림",
+                                   celsius: 65)
+        let dietCola = Pepsi(pepsiBuilder: Pepsis.builderDietCola250ml,
+                             manufacturingDateInfo: "20190928")
+        let cookieCreamMilk = HersheyChocolateDrink(hersheyBuilder: HersheyChocolateDrinks
+                                                    .builderCookieCream235ml,
                                                     manufacturingDateInfo: "20191116",
-                                                    expirationDateInfo: "20191123",
-                                                    cacaoContentRate: 0.03)
+                                                    expirationDateInfo: "20191123")
         
         let nonInitMessage = "non-init"
         print(primiumLatte?.description ?? nonInitMessage)
         print(dietCola?.description ?? nonInitMessage)
         print(cookieCreamMilk?.description ?? nonInitMessage)
     }
-
+    
 }

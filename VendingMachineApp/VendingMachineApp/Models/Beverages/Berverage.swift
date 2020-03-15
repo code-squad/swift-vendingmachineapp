@@ -9,7 +9,7 @@
 import Foundation
 
 protocol Producible {
-    static func produce(at manufactureDate: Date) -> Beverage
+    static var produce: ((_ at: Date) -> (Beverage)) { get set }
 }
 
 class Beverage: NSObject, NSCoding {
@@ -43,29 +43,21 @@ class Beverage: NSObject, NSCoding {
     }
     
     required init?(coder: NSCoder) {
-        guard
-            let name = coder.decodeObject(forKey: Keys.name.keyString()) as? String,
-            let brand = coder.decodeObject(forKey: Keys.brand.keyString()) as? String,
-            let servingSize = coder.decodeObject(forKey: Keys.servingSize.keyString()) as? Int,
-            let price = coder.decodeObject(forKey: Keys.price.keyString()) as? Money,
-            let manufactureDate = coder.decodeObject(forKey: Keys.manufactureDate.keyString()) as? Date,
-            let expirationDate = coder.decodeObject(forKey: Keys.expirationDate.keyString()) as? Date
-        else { return nil }
-        self.name = name
-        self.brand = brand
-        self.servingSize = servingSize
-        self.price = price
-        self.manufactureDate = manufactureDate
-        self.expirationDate = expirationDate
+        self.name = coder.decodeObject(forKey: .name) as? String ?? ""
+        self.brand = coder.decodeObject(forKey: .brand) as? String ?? ""
+        self.servingSize = coder.decodeInteger(forKey: .servingSize)
+        self.price = coder.decodeObject(forKey: .price) as? Money ?? Money()
+        self.manufactureDate = coder.decodeObject(forKey: .manufactureDate) as? Date ?? Date()
+        self.expirationDate = coder.decodeObject(forKey: .expirationDate) as? Date ?? Date()
     }
     
     func encode(with coder: NSCoder) {
-        coder.encode(name, forKey: Keys.name.keyString())
-        coder.encode(brand, forKey: Keys.brand.keyString())
-        coder.encode(servingSize, forKey: Keys.servingSize.keyString())
-        coder.encode(price, forKey: Keys.price.keyString())
-        coder.encode(manufactureDate, forKey: Keys.price.keyString())
-        coder.encode(expirationDate, forKey: Keys.price.keyString())
+        coder.encode(object: name, forKey: .name)
+        coder.encode(object: brand, forKey: .brand)
+        coder.encode(value: servingSize, forKey: .servingSize)
+        coder.encode(object: price, forKey: .price)
+        coder.encode(object: manufactureDate, forKey: .manufactureDate)
+        coder.encode(object: expirationDate, forKey: .expirationDate)
     }
     
     func isPurchasable(with balance: Money) -> Bool {

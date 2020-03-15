@@ -16,11 +16,11 @@ class Money: NSObject, NSCoding {
     }
     
     required init?(coder: NSCoder) {
-        self.balance = coder.decodeInteger(forKey: "money")
+        self.balance = coder.decodeInteger(forKey: .money)
     }
     
     func encode(with coder: NSCoder) {
-        coder.encode(balance, forKey: "money")
+        coder.encode(value: balance, forKey: .money)
     }
     
     init(_ balance: Int = 0) {
@@ -28,7 +28,8 @@ class Money: NSObject, NSCoding {
     }
     
     private func postNotification() {
-        NotificationCenter.default.post(name: .BalanceDidChange, object: nil,
+        NotificationCenter.default.post(name: .BalanceDidChange,
+                                        object: nil,
                                         userInfo: ["balance": balance])
     }
     
@@ -38,6 +39,10 @@ class Money: NSObject, NSCoding {
     
     func subtract(money: Money) {
         self.balance -= money.balance
+    }
+    
+    override var description: String {
+        return String(balance)
     }
 }
 

@@ -17,12 +17,18 @@ class Coke: Soda {
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        self.packageColor = coder.decodeObject(forKey: .packageColor) as? String ?? ""
+        super.init(coder: coder)
+    }
+    
+    override func encode(with coder: NSCoder) {
+        super.encode(with: coder)
+        coder.encode(object: packageColor, forKey: .packageColor)
     }
 }
 
 extension Coke: Producible {
-    static func produce(at manufactureDate: Date = Date()) -> Beverage {
+    static var produce: ((Date) -> (Beverage)) = { manufactureDate in
         Coke(name: "코카콜라", brand: "코카콜라", servingSize: 140, price: Money(900), manufactureDate: manufactureDate, expirationDate: Date(timeInterval: 25920000, since: manufactureDate), isSugarFree: false, packageColor: "RED")
     }
 }

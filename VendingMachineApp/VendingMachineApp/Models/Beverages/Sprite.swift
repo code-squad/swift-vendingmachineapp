@@ -17,12 +17,18 @@ class Sprite: Soda {
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        self.packageMaterial = coder.decodeObject(forKey: .packageMaterial) as? String ?? ""
+        super.init(coder: coder)
+    }
+    
+    override func encode(with coder: NSCoder) {
+        super.encode(with: coder)
+        coder.encode(object: packageMaterial, forKey: .packageMaterial)
     }
 }
 
 extension Sprite: Producible {
-    static func produce(at manufactureDate: Date = Date()) -> Beverage {
+    static var produce: ((Date) -> (Beverage)) = { manufactureDate in
         Sprite(name: "스프라이트", brand: "코카콜라", servingSize: 250, price: Money(2000), manufactureDate: manufactureDate, expirationDate: Date(timeInterval: 25920000, since: manufactureDate), isSugarFree: false, packageMaterial: "Aluminum")
     }
 }

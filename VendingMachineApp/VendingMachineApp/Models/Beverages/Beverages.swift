@@ -10,21 +10,17 @@ import Foundation
 
 class Beverages: NSObject, NSCoding {
     private(set) var beverages: [Beverage]
-    let bevergaesKey = "beverages"
     
     override init() {
         beverages = []
     }
     
     required init?(coder: NSCoder) {
-        guard let beverages = coder.decodeObject(forKey: bevergaesKey) as? [Beverage] else {
-            self.beverages = []; return
-        }
-        self.beverages = beverages
+        self.beverages = coder.decodeObject(forKey: .beverages) as? [Beverage] ?? []
     }
     
     func encode(with coder: NSCoder) {
-        coder.encode(beverages, forKey: bevergaesKey)
+        coder.encode(object: beverages, forKey: .beverages)
     }
     
     func dequeue() -> Beverage {
@@ -33,5 +29,27 @@ class Beverages: NSObject, NSCoding {
     
     func enqueue(beverage: Beverage) {
         beverages.append(beverage)
+    }
+    
+    func count() -> Int {
+        return beverages.count
+    }
+    
+    func firstBeverage(of beverage: Beverage) -> Beverage? {
+        guard let index = beverages.firstIndex(of: beverage) else { return nil }
+        beverages.remove(at: index)
+        let firstBeverage = beverages[index]
+        return firstBeverage
+    }
+    
+    func sortToDictionary() -> [ObjectIdentifier: Beverages] {
+        var dictionary: [ObjectIdentifier: Beverages] = [:]
+        beverages.forEach { (beverage) in
+            let identifier = beverage.objectIdentifier()
+            let beverages = dictionary[identifier] ?? Beverages()
+            beverages.enqueue(beverage: beverage)
+            dictionary[identifier] = beverages
+        }
+        return dictionary
     }
 }

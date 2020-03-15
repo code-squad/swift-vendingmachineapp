@@ -17,6 +17,12 @@ class Soda: Beverage {
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        self.isSugarFree = coder.decodeBool(forKey: .isSugarFree)
+        super.init(coder: coder)
+    }
+    
+    override func encode(with coder: NSCoder) {
+        super.encode(with: coder)
+        coder.encode(value: isSugarFree, forKey: .isSugarFree)
     }
 }

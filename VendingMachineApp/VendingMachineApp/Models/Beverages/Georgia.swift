@@ -17,7 +17,13 @@ class Georgia: Coffee {
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        self.isHotCoffee = coder.decodeBool(forKey: .isHotCoffee)
+        super.init(coder: coder)
+    }
+    
+    override func encode(with coder: NSCoder) {
+        super.encode(with: coder)
+        coder.encode(value: isHotCoffee, forKey: .isHotCoffee)
     }
     
     func isHot() -> Bool {
@@ -26,7 +32,7 @@ class Georgia: Coffee {
 }
 
 extension Georgia: Producible {
-    static func produce(at manufactureDate: Date = Date()) -> Beverage {
+    static var produce: ((Date) -> (Beverage)) = { manufactureDate in
         Georgia(name: "죠지아", brand: "죠지아", servingSize: 120, price: Money(900), manufactureDate: manufactureDate, expirationDate: Date(timeInterval: -500, since: manufactureDate), servingCaffeine: 80, isHotCoffee: false)
     }
 }

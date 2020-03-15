@@ -9,54 +9,48 @@
 import Foundation
 
 class Stock: NSObject, NSCoding {
-    let stockOfKey = "stockOf"
-    private var changedIndex: Int?
-    private var changedBeverageObjectIdentifier: ObjectIdentifier?
-    private(set) var stockOf: [ObjectIdentifier: Beverages] {
-        didSet {
-            postNotification()
-        }
-    }
+    private var beverages: Beverages
     
     override init() {
-        stockOf = [:]
-    }
-    
-    func encode(with coder: NSCoder) {
-        coder.encode(stockOf, forKey: stockOfKey)
+        self.beverages = Beverages()
     }
     
     required init?(coder: NSCoder) {
-        guard let stockOf = coder.decodeObject(forKey: stockOfKey) as? [ObjectIdentifier: Beverages] else {
-            self.stockOf = [:]; return
-        }
-        self.stockOf = stockOf
+        self.beverages = coder.decodeObject(forKey: .stockBeverages) as? Beverages ?? Beverages()
+    }
+    
+    func encode(with coder: NSCoder) {
+        coder.encode(object: beverages, forKey: .stockBeverages)
     }
     
     func postNotification() {
-        guard let objectIdentifier = changedBeverageObjectIdentifier, let changedBeverages = stockOf[objectIdentifier] else { return }
         NotificationCenter.default.post(name: .StockNumberDidChange,
                                         object: nil,
-                                        userInfo: ["changedIndex": changedIndex!,
-                                                   "numberOfBeverage": changedBeverages.beverages.count])
+                                        userInfo: beverages.sortToDictionary())
+    }
+    
+    func dictionary() -> [ObjectIdentifier: Beverages] {
+        return beverages.sortToDictionary()
     }
     
     func numberOf(_ beverage: Beverage) -> Int {
-        let beverages = stockOf[beverage.objectIdentifier()] ?? Beverages()
-        return beverages.beverages.count
+        let dictionary = beverages.sortToDictionary()
+        guard let count = dictionary[beverage.objectIdentifier()]?.count() else { return 0 }
+        return count
     }
     
-    func dequeue(beverage: Beverage, in index: Int) -> Beverage {
-        changedIndex = index
-        changedBeverageObjectIdentifier = beverage.objectIdentifier()
-        return stockOf[beverage.objectIdentifier()]!.dequeue()
+    func stockState() -> [ObjectIdentifier: Beverages] {
+        beverages.sortToDictionary()
     }
     
-    func enqueue(beverage: Beverage, in index: Int) {
-        changedIndex = index
-        changedBeverageObjectIdentifier = beverage.objectIdentifier()
-        let beverages = stockOf[beverage.objectIdentifier()] ?? Beverages()
+    func dequeue(beverage: Beverage) -> Beverage? {
+        guard let firstBeverage = beverages.firstBeverage(of: beverage) else { return nil }
+        postNotification()
+        return firstBeverage
+    }
+    
+    func enqueue(beverage: Beverage) {
         beverages.enqueue(beverage: beverage)
-        stockOf[beverage.objectIdentifier()] = beverages
+        postNotification()
     }
 }

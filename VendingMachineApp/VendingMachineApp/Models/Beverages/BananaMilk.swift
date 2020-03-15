@@ -17,12 +17,18 @@ class BananaMilk: Milk {
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        self.bananaContentGram = coder.decodeInteger(forKey: .bananaContentGram)
+        super.init(coder: coder)
+    }
+    
+    override func encode(with coder: NSCoder) {
+        super.encode(with: coder)
+        coder.encode(value: bananaContentGram, forKey: .bananaContentGram)
     }
 }
 
 extension BananaMilk: Producible {
-    static func produce(at manufactureDate: Date = Date()) -> Beverage {
+    static var produce: ((Date) -> (Beverage)) = { manufactureDate in
         BananaMilk(name: "바나나는 원래 하얗다", brand: "매일우유", servingSize: 200, price: Money(1400), manufactureDate: manufactureDate, expirationDate: Date(timeInterval: 432000, since: manufactureDate), farmCode: "DJSN128", bananaContentGram: 30)
     }
 }

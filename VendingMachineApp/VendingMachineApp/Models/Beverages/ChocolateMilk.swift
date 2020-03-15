@@ -10,6 +10,7 @@ import Foundation
 
 class ChocolateMilk: Milk {
     let cacaoContentRate: Double
+    let cacaoContentRateKey = "cacaoContentRate"
     
     init(name: String, brand: String, servingSize: Int, price: Money, manufactureDate: Date, expirationDate: Date , farmCode: String, cacaoContentRate: Double) {
         self.cacaoContentRate = cacaoContentRate
@@ -17,12 +18,18 @@ class ChocolateMilk: Milk {
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        self.cacaoContentRate = coder.decodeDouble(forKey: .cacaoContentRate)
+        super.init(coder: coder)
+    }
+    
+    override func encode(with coder: NSCoder) {
+        super.encode(with: coder)
+        coder.encode(value: cacaoContentRate, forKey: .cacaoContentRate)
     }
 }
 
 extension ChocolateMilk: Producible {
-    static func produce(at manufactureDate: Date = Date()) -> Beverage {
+    static var produce: ((Date) -> (Beverage)) = { manufactureDate in
         ChocolateMilk(name: "서울우유-초콜릿", brand: "서울우유", servingSize: 150, price: Money(1000), manufactureDate: manufactureDate, expirationDate: Date(timeInterval: 432000, since: manufactureDate), farmCode: "AEBN127", cacaoContentRate: 23.4)
     }
 }

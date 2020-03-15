@@ -17,7 +17,13 @@ class Cantata: Coffee {
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        self.isCoffeeLatte = coder.decodeBool(forKey: .isCoffeeLatte)
+        super.init(coder: coder)
+    }
+    
+    override func encode(with coder: NSCoder) {
+        super.encode(with: coder)
+        coder.encode(value: isCoffeeLatte, forKey: .isCoffeeLatte)
     }
     
     func isLatte() -> Bool {
@@ -26,7 +32,7 @@ class Cantata: Coffee {
 }
 
 extension Cantata: Producible {
-    static func produce(at manufactureDate: Date = Date()) -> Beverage {
+    static var produce: ((Date) -> (Beverage)) = { manufactureDate in
         Cantata(name: "칸타타", brand: "칸타타", servingSize: 180, price: Money(950), manufactureDate: manufactureDate, expirationDate: Date(timeInterval: 25920000, since: manufactureDate), servingCaffeine: 80, isCoffeeLatte: false)
     }
 }

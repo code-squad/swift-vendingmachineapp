@@ -8,34 +8,56 @@
 
 import Foundation
 
-struct VendingMachine {
-    private var products: [Beverage] = [
-        ChocolateMilk.produce() as! ChocolateMilk,
-        BananaMilk.produce(at: Date(timeIntervalSince1970: 0)) as! BananaMilk,
-        Coke.produce(at: Date(timeIntervalSince1970: 0)) as! Coke,
-        Sprite.produce(at: Date(timeIntervalSince1970: 0)) as! Sprite,
-        Georgia.produce(at: Date(timeIntervalSince1970: 0)) as! Georgia,
+class VendingMachine: NSObject, NSCoding {
+    let stock: Stock
+    private(set) var purchased: Beverages
+    private(set) var balance: Money
+    let beverageProductions: [(Date) -> (Beverage)] = [
+        ChocolateMilk.produce,
+        BananaMilk.produce,
+        Coke.produce,
+        Sprite.produce,
+        Georgia.produce
     ]
     
-    let stock: Stock
-    private var purchased: [Beverage]
-    private(set) var balance: Money
-    
-    init() {
+    override init() {
         self.stock = Stock()
-        self.purchased = []
+        self.purchased = Beverages()
         self.balance = Money()
     }
     
-    @discardableResult mutating func putMoney(_ amount: Int) -> Money {
+    required init?(coder: NSCoder) {
+        self.stock = coder.decodeObject(forKey: .stock) as? Stock ?? Stock()
+        self.purchased = coder.decodeObject(forKey: .purchased) as? Beverages ?? Beverages()
+        self.balance = coder.decodeObject(forKey: .balance) as? Money ?? Money()
+    }
+    
+    func encode(with coder: NSCoder) {
+        coder.encode(object: stock, forKey: .stock)
+        coder.encode(object: purchased, forKey: .purchased)
+        coder.encode(object: balance, forKey: .balance)
+    }
+    
+    func stockDictionary() -> [ObjectIdentifier: Beverages] {
+        return stock.dictionary()
+    }
+    
+    func forEachProductObjectIdentifier(_ handler: (ObjectIdentifier, _ index: Int) -> ()) {
+        beverageProductions.enumerated().forEach { (index, productionClosure) in
+            let identifier = productionClosure(Date()).objectIdentifier()
+            handler(identifier, index)
+        }
+    }
+    
+    @discardableResult func putMoney(_ amount: Int) -> Money {
         let money = Money(amount)
         balance.add(money: money)
         return balance
     }
     
     func addToStock(index: Int) {
-        let beverage = products[index]
-        stock.enqueue(beverage: beverage, in: index)
+        let beverage = beverageProductions[index](Date())
+        stock.enqueue(beverage: beverage)
     }
     
     func numberOfBeverage(_ beverage: Beverage) -> Int {
@@ -44,17 +66,17 @@ struct VendingMachine {
     
     func availableBeverages() -> Set<Beverage> {
         var availableBeverages: Set<Beverage> = []
-        products.forEach { (product) in
-            guard balance > product.price else { return }
-            availableBeverages.insert(product)
+        beverageProductions.forEach{
+            guard balance > $0(Date()).price else { return }
+            availableBeverages.insert($0(Date()))
         }
         return availableBeverages
     }
     
-    mutating func select(_ beverage: Beverage) {
+    func select(_ beverage: Beverage) {
         guard beverage.isPurchasable(with: balance) && stock.numberOf(beverage) > 0 else { return }
         balance.subtract(money: beverage.price)
-        stock.dequeue(beverage: beverage, in: 0)
-        purchased.append(beverage)
+        stock.dequeue(beverage: beverage)
+        purchased.enqueue(beverage: beverage)
     }
 }

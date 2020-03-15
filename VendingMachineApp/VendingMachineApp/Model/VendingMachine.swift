@@ -10,7 +10,11 @@ import Foundation
 class VendingMachine: NSObject, NSCoding {
     private var beverages: Beverages
     private(set) var balance: Money
-    private var purchasedList: [Beverage]
+    private var purchasedList: [Beverage] {
+        didSet {
+            
+        }
+    }
     var products: [Beverage]
     var bananaMilk = BananMilk(manufacturer: "연세우유", brand: "곰곰", capacity: 200, price: Money(balance: 1200), name: "곰곰 바나나우유", manufacturedDate: Date(), expirationDate: Date(), fatRatio: .original, isLactoFree: false, temperature: 8, bananaCountry: "케냐")
     var chocoMilk = ChocoMilk(manufacturer: "덴마크우유", brand: "덴마크우유", capacity: 300, price: Money(balance: 1600), name: "초코초코우유", manufacturedDate: Date(), expirationDate: Date(), fatRatio: .lower, isLactoFree: false, temperature: 8, chocolateRatio: 30.0)
@@ -121,15 +125,16 @@ class VendingMachine: NSObject, NSCoding {
         return beverages.reportAvailableBeverageNowMoney(confirmBalance())
     }
 
-    func purchaseBeverage(index: Int) {
-        balance.subtract(products[index].price)
-        beverages.removeBeverage(products[index])
-        purchasedList.append(products[index])
+    func purchaseBeverage(_ beverage: Beverage) {
+        balance.subtract(beverage.price)
+        beverages.removeBeverage(beverage)
+        purchasedList.append(beverage)
         
-      let beverageCount = beverages.reportBeverageCount(products[index])
-        NotificationCenter.default.post(name: .updateBeverageCountLabel, object: (index, beverageCount))
-        
-        NotificationCenter.default.post(name: .updatePurchasedImages, object: (index, purchasedList.count))
+      let beverageCount = beverages.reportBeverageCount(beverage)
+//        NotificationCenter.default.post(name: .updateBeverageCountLabel, object: (index, beverageCount))
+
+        let beverageIndex = reportProductIndex(beverage)
+        NotificationCenter.default.post(name: .updatePurchasedImages, object: nil, userInfo: ["beverageNSequence" : (beverageIndex, purchasedList.count)])
     }
 
     func confirmBalance() -> Money {

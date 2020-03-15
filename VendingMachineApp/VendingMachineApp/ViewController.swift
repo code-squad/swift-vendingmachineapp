@@ -19,21 +19,29 @@ class ViewController: UIViewController {
     @IBOutlet var beverageImageViews: [UIImageView]!
     @IBOutlet var addMoneyButtons: [UIButton]!
     @IBOutlet var balanceLabel: UILabel!
+    @IBOutlet var purchaseButtons: [PurchaseButton]!
+    
     let beverageImages: [UIImage] = [#imageLiteral(resourceName: "bananaMilk"), #imageLiteral(resourceName: "ChocoMilk"), #imageLiteral(resourceName: "strawberryMilk"), #imageLiteral(resourceName: "Americano"), #imageLiteral(resourceName: "Latte"), #imageLiteral(resourceName: "Mocha"), #imageLiteral(resourceName: "Coke"), #imageLiteral(resourceName: "Cider"), #imageLiteral(resourceName: "milkis")]
-    
-    @IBOutlet var purchaseButtons: [UIButton]!
-    
     
     override func viewDidLoad() {
         vendingMachine = appDelegate.vendingMachine
         
         balanceLabel.text = vendingMachine?.balance.description
         updateSavedBeverageCountLabel()
-        updateSavedPurchasedListImages()
+//        updateSavedPurchasedListImages()
         
         super.viewDidLoad()
         setUI()
         setNotificationCenter()
+        setPurchaseButtonBeverage()
+    }
+    
+    func setPurchaseButtonBeverage() {
+        var index = 0
+        for button in purchaseButtons {
+            button.beverage = vendingMachine!.products[index]
+            index += 1
+        }
     }
     
     func setNotificationCenter() {
@@ -68,15 +76,16 @@ class ViewController: UIViewController {
         vendingMachine?.raiseMoney(moneyUnit: Money.MoneyUnit(rawValue: button.tag)!)
     }
     
-    @IBAction func purchaseBeverage(button: UIButton) {
-        vendingMachine?.purchaseBeverage(index: button.tag)
+    @IBAction func purchaseBeverage(button: PurchaseButton) {
+        vendingMachine?.purchaseBeverage(button.beverage)
     }
     
     @objc func updatePurchasedImages(_ notification: Notification) {
+        guard let beverageIndexes = notification.userInfo?["beverageNSequence"] as? (beverageIndex: Int, purchasedSequence: Int) else { return }
         let purchasedViewIndex = 3
-        let imageCounts = notification.object as! (index: Int, purchasedCount: Int)
-        let downPositionX = (imageCounts.purchasedCount-1) * 50
-        let image: UIImageView = UIImageView(image: beverageImages[imageCounts.index])
+        let downPositionX = (beverageIndexes.purchasedSequence-1) * 50
+        
+        let image: UIImageView = UIImageView(image: beverageImages[beverageIndexes.beverageIndex])
         image.frame = CGRect(x: downPositionX, y: 30, width: 80, height: 110)
         backgroundViews[purchasedViewIndex].addSubview(image)
     }
@@ -107,17 +116,17 @@ class ViewController: UIViewController {
         }
     }
     
-    func updateSavedPurchasedListImages() {
-        guard let purchasedList = vendingMachine?.reportPurchasedHistory() else { return }
-        for purchasedIndex in 0..<purchasedList.count {
-            let purchasedViewIndex = 3
-            let downPositionX = purchasedIndex * 50
-            guard let productIndex = vendingMachine?.reportProductIndex(purchasedList[purchasedIndex]) else { return }
-            let image: UIImageView = UIImageView(image: beverageImages[productIndex])
-            image.frame = CGRect(x: downPositionX, y: 30, width: 80, height: 110)
-            backgroundViews[purchasedViewIndex].addSubview(image)
-        }
-    }
+//    func updateSavedPurchasedListImages() {
+//        guard let purchasedList = vendingMachine?.reportPurchasedHistory() else { return }
+//        for purchasedIndex in 0..<purchasedList.count {
+//            let purchasedViewIndex = 3
+//            let downPositionX = purchasedIndex * 50
+//            guard let productIndex = vendingMachine?.reportProductIndex(purchasedList[purchasedIndex]) else { return }
+//            let image: UIImageView = UIImageView(image: beverageImages[productIndex])
+//            image.frame = CGRect(x: downPositionX, y: 30, width: 80, height: 110)
+//            backgroundViews[purchasedViewIndex].addSubview(image)
+//        }
+//    }
 }
 
 extension Notification.Name {

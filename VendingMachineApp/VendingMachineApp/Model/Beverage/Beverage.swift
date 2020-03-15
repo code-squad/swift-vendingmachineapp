@@ -31,7 +31,7 @@ class Beverage: NSObject, NSCoding {
         return "\(manufacturer), \(capacity), \(price), \(brand), \(manufacturedDate.dateToString())"
     }
 
-    init(manufacturer: String, brand: String, capacity: Int, price: Money, name: String, manufacturedDate: Date, expirationDate: Date, temperature: Int) {
+    init(manufacturer: String = "", brand: String = "", capacity: Int = 0, price: Money = Money(), name: String = "", manufacturedDate: Date = Date(), expirationDate: Date = Date(), temperature: Int = 0) {
         self.manufacturer = manufacturer
         self.brand = brand
         self.capacity = capacity

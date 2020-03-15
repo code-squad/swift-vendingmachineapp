@@ -13,11 +13,11 @@ class Cola: CarbonicAcidBeverage {
     private var sugar: Double
     
     public init(
-        brand: String,
+        brand: Brand,
         weight: Int,
         price: Int,
         name: String,
-        dateOfManufacture: Date,
+        expirationDate: Date,
         temperature: Double,
         calorie: Double,
         concentration: Double,
@@ -29,7 +29,7 @@ class Cola: CarbonicAcidBeverage {
             weight: weight,
             price: price,
             name: name,
-            dateOfManufacture: dateOfManufacture,
+            expirationDate: expirationDate,
             temperature: temperature,
             calorie: calorie,
             concentration: concentration

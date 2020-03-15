@@ -10,18 +10,23 @@ import Foundation
 
 class Coffee: CaffineBeverage {
     
-    private var coffeeVarieties: String
+    enum CoffeeVarieties {
+        case keyna
+        case Ethiopia
+    }
+    
+    private var coffeeVarieties: CoffeeVarieties
     
     public init(
-        brand: String,
+        brand: Brand,
         weight: Int,
         price: Int,
         name: String,
-        dateOfManufacture: Date,
+        expirationDate: Date,
         temperature: Double,
         caffine: Double,
         calorie: Double,
-        coffeeVarieties: String
+        coffeeVarieties: CoffeeVarieties
     ) {
         self.coffeeVarieties = coffeeVarieties
         super.init(
@@ -29,7 +34,7 @@ class Coffee: CaffineBeverage {
             weight: weight,
             price: price,
             name: name,
-            dateOfManufacture: dateOfManufacture,
+            expirationDate: expirationDate,
             temperature: temperature,
             calorie: calorie,
             caffine: caffine

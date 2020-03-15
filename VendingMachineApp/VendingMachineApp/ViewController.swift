@@ -24,11 +24,6 @@ class ViewController: UIViewController {
     private let vendingMachine = VendingMachine(cashier: Cashier())
     private let observers = Observers()
     
-    private let moneyToAdd: Dictionary<BalanceButton.Item, Int> = [
-        .thousand: 1000,
-        .fiveThousand: 5000
-    ]
-    
     private let beverageToUpdate: Dictionary<BeverageLabel.Item, Beverage> = [
         .coke: Coke(),
         .fanta: Fanta(),
@@ -59,10 +54,7 @@ class ViewController: UIViewController {
         }
         
         balanceButtons.forEach { button in
-            button.action = { [weak self] in
-                guard let money = self?.moneyToAdd[$0] else { return }
-                self?.vendingMachine.insert(money: money)
-            }
+            button.action = { [weak self] in self?.vendingMachine.insert(money: $0) }
         }
     }
     

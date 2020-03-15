@@ -29,7 +29,7 @@ final class ViewController: UIViewController {
         }
     }
     
-    @objc private func changeLabelNumber() {
+    private func changeLabelNumber() {
         let stockByKind = vendingMachine.stockByKind()
         beverageNumberLabels.forEach {
             if let beverage = $0.beverage(),

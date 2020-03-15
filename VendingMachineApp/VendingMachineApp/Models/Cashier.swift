@@ -21,7 +21,13 @@ protocol Calculable {
 
 struct Cashier: Calculable {
     
-    private var balance = Quantity.zero
+    private var balance = Quantity.zero {
+        didSet {
+            NotificationCenter.default.post(name: Notification.Name.balanceChanged,
+                                            object: self,
+                                            userInfo: ["balance": balance])
+        }
+    }
     private var salesLog = [Beverage]()
     
     func currentBalance() -> Int {

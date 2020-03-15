@@ -13,23 +13,18 @@ class Beverage {
     private let brand: String
     private let name: String
     private let volume: Int
-    private let manufacturingDate: Date
+    let manufacturingDate: Date
     let price: Int
     let kind: Kind
     
-    init?(builder: Beverage.Builder,
-          manufacturingDateInfo: String) {
-        guard let manufacturingDate = Date.dateFormatter.date(from: manufacturingDateInfo)
-            else {
-                return nil
-        }
+    init(builder: Beverage.Builder) {
         self.brand = builder.brand
         self.name = builder.name
         self.volume = builder.volume
         self.price = builder.price
-        self.manufacturingDate = manufacturingDate
         self.kind = Kind(name: self.name,
                          price: self.price)
+        self.manufacturingDate = Date()
     }
     
 }

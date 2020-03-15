@@ -12,13 +12,9 @@ final class HersheyChocolateDrink: Milk {
     
     private let cacaoContentRate: Double
     
-    init?(hersheyBuilder: HersheyChocolateDrinks.HersheyBuilder,
-          manufacturingDateInfo: String,
-          expirationDateInfo: String) {
+    init(hersheyBuilder: HersheyChocolateDrinks.HersheyBuilder) {
         self.cacaoContentRate = hersheyBuilder.cacaoContentRate
-        super.init(builder: hersheyBuilder,
-                   manufacturingDateInfo: manufacturingDateInfo,
-                   expirationDateInfo: expirationDateInfo)
+        super.init(builder: hersheyBuilder)
     }
     
     func isHighCacao() -> Bool {

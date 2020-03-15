@@ -13,14 +13,10 @@ class VendingMachineTest: XCTestCase {
     
     var vendingMachine: VendingMachine!
     let primiumLatte = Cantata(cantataBuilder: Cantatas.builderPrimiumLatte175ml,
-                               manufacturingDateInfo: "20200102",
-                               celsius: 65)!
-    let dietCola = Pepsi(pepsiBuilder: Pepsis.builderDietCola250ml,
-                         manufacturingDateInfo: "20190928")!
+                               celsius: 65)
+    let dietCola = Pepsi(pepsiBuilder: Pepsis.builderDietCola250ml)
     let cookieCreamMilk = HersheyChocolateDrink(hersheyBuilder:
-                                                HersheyChocolateDrinks.builderCookieCream235ml,
-                                                manufacturingDateInfo: "20191116",
-                                                expirationDateInfo: "20191123")!
+                                                HersheyChocolateDrinks.builderCookieCream235ml)
     
     override func setUp() {
         super.setUp()
@@ -65,9 +61,7 @@ class VendingMachineTest: XCTestCase {
     func testAdd() {
         vendingMachine = VendingMachine()
         let otherCookieCreamMilk = HersheyChocolateDrink(hersheyBuilder:
-            HersheyChocolateDrinks.builderCookieCream235ml,
-                                                         manufacturingDateInfo: "20191116",
-                                                         expirationDateInfo: "20191123")!
+            HersheyChocolateDrinks.builderCookieCream235ml)
         vendingMachine.addToStock(beverage: otherCookieCreamMilk)
         vendingMachine.searchAllBeverages { (beverage) -> (Void) in
             XCTAssertEqual(beverage, otherCookieCreamMilk)

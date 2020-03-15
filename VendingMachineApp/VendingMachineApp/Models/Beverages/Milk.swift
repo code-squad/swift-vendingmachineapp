@@ -10,18 +10,12 @@ import Foundation
 
 class Milk: Beverage {
     
-    private let expirationDate: Date
+    private var expirationDate: Date!
     
-    init?(builder: Beverage.Builder,
-          manufacturingDateInfo: String,
-          expirationDateInfo: String) {
-        guard let expirationDate = Date.dateFormatter.date(from: expirationDateInfo)
-            else {
-                return nil
-        }
-        self.expirationDate = expirationDate
-        super.init(builder: builder,
-                   manufacturingDateInfo: manufacturingDateInfo)
+    override init(builder: Beverage.Builder) {
+        super.init(builder: builder)
+        let oneWeekTime = TimeInterval(604800)
+        self.expirationDate = manufacturingDate.addingTimeInterval(oneWeekTime)
     }
     
     func validate(with date:Date) -> Bool {

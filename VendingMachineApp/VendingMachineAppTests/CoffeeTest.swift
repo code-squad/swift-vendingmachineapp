@@ -16,8 +16,7 @@ class CoffeeTest: XCTestCase {
     override func setUp() {
         super.setUp()
         coffee = Cantata(cantataBuilder: Cantatas.builderPrimiumLatte175ml,
-                         manufacturingDateInfo: "20200102",
-                         celsius: 65)!
+                         celsius: 65)
         
     }
     
@@ -32,8 +31,7 @@ class CoffeeTest: XCTestCase {
     
     func testIsHotFalse() {
         coffee = Cantata(cantataBuilder: Cantatas.builderPrimiumLatte175ml,
-                         manufacturingDateInfo: "20200102",
-                         celsius: 55)!
+                         celsius: 55)
         XCTAssertFalse(coffee.isHot())
     }
     

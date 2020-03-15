@@ -16,9 +16,7 @@ class MilkTest: XCTestCase {
     override func setUp() {
         super.setUp()
         milk = HersheyChocolateDrink(hersheyBuilder:
-                                     HersheyChocolateDrinks.builderCookieCream235ml,
-                                     manufacturingDateInfo: "20191116",
-                                     expirationDateInfo: "20191123")!
+                                     HersheyChocolateDrinks.builderCookieCream235ml)
         
     }
     

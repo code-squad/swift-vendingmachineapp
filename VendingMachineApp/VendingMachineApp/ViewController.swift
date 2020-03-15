@@ -18,7 +18,7 @@ final class ViewController: UIViewController {
         NotificationCenter.default.addObserver(forName: Notification.Name.beveragesChanged,
                                                object: vendingMachine,
                                                queue: nil) { [weak self] _ in
-                                                self?.changeLabelNumber() }
+                                                self?.updateBeverageLabels() }
         NotificationCenter.default.addObserver(forName: Notification.Name.balanceChanged,
                                                object: vendingMachine,
                                                queue: nil) { [weak self] _ in
@@ -33,7 +33,7 @@ final class ViewController: UIViewController {
         }
     }
     
-    private func changeLabelNumber() {
+    private func updateBeverageLabels() {
         let stockByKind = vendingMachine.stockByKind()
         beverageNumberLabels.forEach {
             if let beverage = $0.beverage(),

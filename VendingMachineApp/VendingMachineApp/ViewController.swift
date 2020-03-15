@@ -28,7 +28,7 @@ class ViewController: UIViewController {
         
         balanceLabel.text = vendingMachine?.balance.description
         updateSavedBeverageCountLabel()
-//        updateSavedPurchasedListImages()
+        updateSavedPurchasedListImages()
         
         super.viewDidLoad()
         setUI()
@@ -64,7 +64,7 @@ class ViewController: UIViewController {
     
     func setNotificationCenter() {
         NotificationCenter.default.addObserver(self, selector: #selector(updateBalanceLabel(_:)), name: .balanceChanged, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(updateBeverageCountLabel(_:)), name: .updateBeverageCountLabel, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateBeverageCountLabel(_:)), name: .beverageCountChanged, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(updatePurchasedImages(_:)), name: .updatePurchasedImages, object: nil)
     }
     
@@ -121,7 +121,7 @@ class ViewController: UIViewController {
     
     deinit {
         NotificationCenter.default.removeObserver(self, name: .balanceChanged, object: nil)
-        NotificationCenter.default.removeObserver(self, name: .updateBeverageCountLabel, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .beverageCountChanged, object: nil)
         NotificationCenter.default.removeObserver(self, name: .updatePurchasedImages, object: nil)
     }
     
@@ -135,22 +135,22 @@ class ViewController: UIViewController {
         }
     }
     
-//    func updateSavedPurchasedListImages() {
-//        guard let purchasedList = vendingMachine?.reportPurchasedHistory() else { return }
-//        for purchasedIndex in 0..<purchasedList.count {
-//            let purchasedViewIndex = 3
-//            let downPositionX = purchasedIndex * 50
-//            guard let productIndex = vendingMachine?.reportProductIndex(purchasedList[purchasedIndex]) else { return }
-//            let image: UIImageView = UIImageView(image: beverageImages[productIndex])
-//            image.frame = CGRect(x: downPositionX, y: 30, width: 80, height: 110)
-//            backgroundViews[purchasedViewIndex].addSubview(image)
-//        }
-//    }
+    func updateSavedPurchasedListImages() {
+        guard let purchasedList = vendingMachine?.reportPurchasedHistory() else { return }
+        for purchasedIndex in 0..<purchasedList.count {
+            let purchasedViewIndex = 3
+            let downPositionX = purchasedIndex * 50
+            guard let productIndex = vendingMachine?.reportProductIndex(purchasedList[purchasedIndex]) else { return }
+            let image: UIImageView = UIImageView(image: beverageImages[productIndex])
+            image.frame = CGRect(x: downPositionX, y: 30, width: 80, height: 110)
+            backgroundViews[purchasedViewIndex].addSubview(image)
+        }
+    }
 }
 
 extension Notification.Name {
     static let balanceChanged =  NSNotification.Name("balanceChanged")
-    static let updateBeverageCountLabel = NSNotification.Name("updateBeverageCountLabel")
+    static let beverageCountChanged = NSNotification.Name("beverageCountChanged")
     static let updatePurchasedImages = Notification.Name("updatePurchasedImages")
 }
 

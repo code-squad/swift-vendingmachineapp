@@ -69,7 +69,7 @@ class VendingMachine: NSObject, NSCoding {
         let coke = coder.decodeObject(forKey: cokeString) as? Coke
         let cider = coder.decodeObject(forKey: ciderString) as? Cider
         let milkis = coder.decodeObject(forKey: milkisString) as? Milkis
-
+        
         self.beverages = beverages ?? Beverages()
         self.balance = balance ?? Money()
         self.purchasedList = purchasedList ?? []
@@ -86,8 +86,8 @@ class VendingMachine: NSObject, NSCoding {
         self.coke = coke ?? Coke()
         self.cider = cider ?? Cider()
         self.milkis = milkis ?? Milkis()
-     }
-     
+    }
+    
     func encode(with coder: NSCoder) {
         coder.encode(self.beverages, forKey: beveragesString)
         coder.encode(self.balance, forKey: balanceString)
@@ -114,30 +114,25 @@ class VendingMachine: NSObject, NSCoding {
     func raiseMoney(moneyUnit: Money.MoneyUnit) {
         balance.raiseMoney(moneyUnit: moneyUnit)
     }
-
+    
     func addStock(_ beverage: Beverage) {
         beverages.addBeverage(beverage)
-        let beverageSequence = reportProductIndex(beverage)
-         let beverageCount = beverages.reportBeverageCount(beverage)
-        NotificationCenter.default.post(name: .updateBeverageCountLabel, object: nil, userInfo: ["bevSeqeunceCount":(beverageSequence, beverageCount)])
+       postNotificationChangeStock(beverage)
     }
-
+    
     func reportAvailableBeverageNowMoney() -> [Beverage] {
         return beverages.reportAvailableBeverageNowMoney(confirmBalance())
     }
-
+    
     func purchaseBeverage(_ beverage: Beverage) {
         balance.subtract(beverage.price)
         beverages.removeBeverage(beverage)
         purchasedList.append(beverage)
         
-      let beverageCount = beverages.reportBeverageCount(beverage)
-//        NotificationCenter.default.post(name: .updateBeverageCountLabel, object: (index, beverageCount))
-
-        let beverageIndex = reportProductIndex(beverage)
-        NotificationCenter.default.post(name: .updatePurchasedImages, object: nil, userInfo: ["beverageNSequence" : (beverageIndex, purchasedList.count)])
+        postNotificationChangeStock(beverage)
+        postNotificationChangePurchaseList(beverage)
     }
-
+    
     func confirmBalance() -> Money {
         return balance
     }
@@ -149,9 +144,9 @@ class VendingMachine: NSObject, NSCoding {
     func reportExpiratedBeverage() -> [Beverage] {
         return beverages.reportExpiratedBeverage()
     }
-
+    
     func verifyHotBeverages() -> [Beverage] {
-       return beverages.verifyHotBeverages()
+        return beverages.verifyHotBeverages()
     }
     
     func reportPurchasedHistory() -> [Beverage] {
@@ -162,4 +157,15 @@ class VendingMachine: NSObject, NSCoding {
         return products.firstIndex(of: beverage)
     }
     
+    func postNotificationChangeStock(_ beverage: Beverage) {
+        let beverageSequence = reportProductIndex(beverage)
+        let beverageCount = beverages.reportBeverageCount(beverage)
+        NotificationCenter.default.post(name: .beverageCountChanged, object: nil, userInfo: ["bevSeqeunceCount":(beverageSequence, beverageCount)])
+    }
+    
+    func postNotificationChangePurchaseList(_ beverage: Beverage) {
+        let beverageSequence = reportProductIndex(beverage)
+
+        NotificationCenter.default.post(name: .updatePurchasedImages, object: nil, userInfo: ["beverageNSequence" : (beverageSequence, purchasedList.count)])
+    }
 }

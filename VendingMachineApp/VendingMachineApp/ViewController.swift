@@ -10,6 +10,11 @@ import UIKit
 
 final class ViewController: UIViewController {
     
+    @IBOutlet var beverageNumberLabels: [UILabel]!
+    
+    @IBAction func plusBeverageButtonTapped(_ sender: PlusBalanceButton) {
+        
+    }
     
     private var vendingMachine = VendingMachine()
     

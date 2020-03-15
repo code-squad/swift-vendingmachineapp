@@ -10,12 +10,7 @@ import UIKit
 
 class BeverageButton: UIButton {
     
-    enum Item: Int {
-        case coke = 201
-        case fanta, strawberryMilk, chocolateMilk, georgia, top
-    }
-    
-    var action: ((Item) -> Void)?
+    var customAction: ((Beverage) -> Void)?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -41,9 +36,41 @@ extension BeverageButton {
         self.addTarget(self, action: #selector(invokeAction), for: .touchUpInside)
     }
     
-    @objc func invokeAction(sender: BeverageButton) {
-        if let buttonType = Item(rawValue: tag) {
-            action?(buttonType)
-        }
+    @objc func invokeAction(sender: BeverageButton) { }
+}
+
+final class CokeButton: BeverageButton {
+    override func invokeAction(sender: BeverageButton) {
+        customAction?(Coke())
+    }
+}
+
+final class FantaButton: BeverageButton {
+    override func invokeAction(sender: BeverageButton) {
+        customAction?(Fanta())
+    }
+}
+
+final class StrawberryMilkButton: BeverageButton {
+    override func invokeAction(sender: BeverageButton) {
+        customAction?(StrawberryMilk())
+    }
+}
+
+final class ChocolateMilkButton: BeverageButton {
+    override func invokeAction(sender: BeverageButton) {
+        customAction?(ChocolateMilk())
+    }
+}
+
+final class TopButton: BeverageButton {
+    override func invokeAction(sender: BeverageButton) {
+        customAction?(Top())
+    }
+}
+
+final class GeorgiaButton: BeverageButton {
+    override func invokeAction(sender: BeverageButton) {
+        customAction?(Georgia())
     }
 }

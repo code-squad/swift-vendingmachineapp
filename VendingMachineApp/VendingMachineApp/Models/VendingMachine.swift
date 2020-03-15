@@ -17,7 +17,13 @@ enum SellError: Error {
 
 struct VendingMachine {
     
-    private var stock: [Beverage]
+    private var stock: [Beverage] {
+        didSet {
+            NotificationCenter.default.post(name: Notification.Name.beveragesChanged,
+                                            object: self,
+                                            userInfo: ["stock":stock])
+        }
+    }
     private var cashier: Calculable
     
     init(stock: [Beverage] = []) {
@@ -53,7 +59,7 @@ struct VendingMachine {
         return .success(wantedBeverage)
     }
     
-    mutating private func subtractFromStock(beverage: Beverage) -> Bool {
+    private mutating func subtractFromStock(beverage: Beverage) -> Bool {
         for index in 0 ..< stock.count {
             if stock[index] === beverage {
                 stock.remove(at: index)

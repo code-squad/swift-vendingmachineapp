@@ -10,23 +10,12 @@ import UIKit
 
 class BeverageButton: UIButton {
     
-    private enum Item: Int {
+    enum Item: Int {
         case coke = 201
         case fanta, strawberryMilk, chocolateMilk, georgia, top
-        
-        var action: (() -> Beverage) {
-            switch self {
-            case .coke: return { return Coke() }
-            case .fanta: return { return Fanta() }
-            case .strawberryMilk: return { return StrawberryMilk() }
-            case .chocolateMilk: return { return ChocolateMilk() }
-            case .georgia: return { return Georgia() }
-            case .top: return { return Top() }
-            }
-        }
     }
     
-    var customAction: ((Beverage) -> Void)?
+    var action: ((Item) -> Void)?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -53,8 +42,8 @@ extension BeverageButton {
     }
     
     @objc func invokeAction(sender: BeverageButton) {
-        if let beverage = Item(rawValue: tag)?.action() {
-            customAction?(beverage)
+        if let buttonType = Item(rawValue: tag) {
+            action?(buttonType)
         }
     }
 }

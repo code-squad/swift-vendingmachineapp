@@ -8,7 +8,13 @@
 
 import UIKit
 
-final class PlusBalanceButton: UIButton {
+protocol BalanceTagControl {
+    
+    func money() -> Int?
+    
+}
+
+final class PlusBalanceButton: UIButton, BalanceTagControl {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -16,6 +22,26 @@ final class PlusBalanceButton: UIButton {
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+    }
+    
+    func money() -> Int? {
+        return BalanceItemByTag(rawValue: tag)?.money()
+    }
+    
+}
+
+enum BalanceItemByTag: Int {
+    
+    case oneThousand = 0
+    case fiveThousand
+    
+    func money() -> Int {
+        switch self {
+        case .oneThousand:
+            return 1000
+        case .fiveThousand:
+            return 5000
+        }
     }
     
 }

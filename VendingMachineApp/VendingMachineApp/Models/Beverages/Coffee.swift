@@ -12,12 +12,10 @@ class Coffee: Beverage {
     
     private let celsius: Int
     
-    init?(builder: Beverage.Builder,
-          manufacturingDateInfo: String,
+    init(builder: Beverage.Builder,
           celsius: Int) {
         self.celsius = celsius
-        super.init(builder: builder,
-                   manufacturingDateInfo: manufacturingDateInfo)
+        super.init(builder: builder)
     }
     
     func isHot() -> Bool {

@@ -13,13 +13,11 @@ final class Cantata: Coffee {
     private let milkContentRate: Double
     private let sugarContentRate: Double
     
-    init?(cantataBuilder: Cantata.CantataBuilder,
-          manufacturingDateInfo: String,
+    init(cantataBuilder: Cantata.CantataBuilder,
           celsius: Int) {
         self.milkContentRate = cantataBuilder.milkContentRate
         self.sugarContentRate = cantataBuilder.sugarContentRate
         super.init(builder: cantataBuilder,
-                   manufacturingDateInfo: manufacturingDateInfo,
                    celsius: celsius)
     }
     

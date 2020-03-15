@@ -12,11 +12,9 @@ class Soda: Beverage {
     
     private let kiloCalorie: Int
     
-    init?(sodaBuilder: SodaBuilder,
-          manufacturingDateInfo: String) {
+    init(sodaBuilder: SodaBuilder) {
         self.kiloCalorie = sodaBuilder.kiloCalorie
-        super.init(builder: sodaBuilder,
-                   manufacturingDateInfo: manufacturingDateInfo)
+        super.init(builder: sodaBuilder)
     }
     
     func isLowCalorie() -> Bool {

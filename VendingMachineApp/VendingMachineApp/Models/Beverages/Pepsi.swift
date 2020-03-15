@@ -20,11 +20,9 @@ final class Pepsi: Soda {
     
     private let package: String
     
-    init?(pepsiBuilder: PepsiBuilder,
-          manufacturingDateInfo: String) {
+    init(pepsiBuilder: PepsiBuilder) {
         self.package = pepsiBuilder.package
-        super.init(sodaBuilder: pepsiBuilder,
-                   manufacturingDateInfo: manufacturingDateInfo)
+        super.init(sodaBuilder: pepsiBuilder)
     }
     
     func isFragile() -> Bool {

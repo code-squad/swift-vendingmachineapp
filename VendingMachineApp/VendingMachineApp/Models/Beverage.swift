@@ -10,8 +10,16 @@ import Foundation
 
 class Beverage {
     
+    enum Brand: String {
+        case namYang
+        case nongSim
+        case coca
+        case top
+        case canTaTa
+    }
+    
     public var price: Int
-    private var brand: String
+    private var brand: Brand
     private var weight: Int
     private var name: String
     private var expirationDate: Date
@@ -19,11 +27,11 @@ class Beverage {
     private var calorie: Double
     
     public init(
-        brand: String,
+        brand: Brand,
         weight: Int,
         price: Int,
         name: String,
-        dateOfManufacture: Date,
+        expirationDate: Date,
         temperature: Double,
         calorie: Double
     ) {
@@ -31,7 +39,7 @@ class Beverage {
         self.weight = weight
         self.price = price
         self.name = name
-        self.expirationDate = dateOfManufacture
+        self.expirationDate = expirationDate
         self.temperature = temperature
         self.calorie = calorie
     }

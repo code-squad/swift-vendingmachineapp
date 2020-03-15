@@ -100,12 +100,7 @@ class ViewController: UIViewController {
     
     @objc func updatePurchasedImages(_ notification: Notification) {
         guard let beverageIndexes = notification.userInfo?["beverageNSequence"] as? (beverageIndex: Int, purchasedSequence: Int) else { return }
-        let purchasedViewIndex = 3
-        let downPositionX = (beverageIndexes.purchasedSequence-1) * 50
-        
-        let image: UIImageView = UIImageView(image: beverageImages[beverageIndexes.beverageIndex])
-        image.frame = CGRect(x: downPositionX, y: 30, width: 80, height: 110)
-        backgroundViews[purchasedViewIndex].addSubview(image)
+        drawPurchasedBeverage(beverageIndex: beverageIndexes.beverageIndex, purchasedSequence: beverageIndexes.purchasedSequence-1)
     }
     
     @objc func updateBeverageCountLabel(_ notification: Notification) {
@@ -137,13 +132,18 @@ class ViewController: UIViewController {
     func updateSavedPurchasedListImages() {
         guard let purchasedList = vendingMachine?.reportPurchasedHistory() else { return }
         for purchasedIndex in 0..<purchasedList.count {
-            let purchasedViewIndex = 3
-            let downPositionX = purchasedIndex * 50
-            guard let productIndex = vendingMachine?.reportProductIndex(purchasedList[purchasedIndex]) else { return }
-            let image: UIImageView = UIImageView(image: beverageImages[productIndex])
-            image.frame = CGRect(x: downPositionX, y: 30, width: 80, height: 110)
-            backgroundViews[purchasedViewIndex].addSubview(image)
+            guard let beverageIndex = vendingMachine?.reportProductIndex(purchasedList[purchasedIndex]) else { return }
+            drawPurchasedBeverage(beverageIndex: beverageIndex, purchasedSequence: purchasedIndex)
         }
+    }
+    
+    func drawPurchasedBeverage(beverageIndex: Int, purchasedSequence: Int) {
+        let purchasedViewIndex = 3
+        let downPositionX = purchasedSequence * 50
+        
+        let image: UIImageView = UIImageView(image: beverageImages[beverageIndex])
+        image.frame = CGRect(x: downPositionX, y: 30, width: 80, height: 110)
+        backgroundViews[purchasedViewIndex].addSubview(image)
     }
 }
 

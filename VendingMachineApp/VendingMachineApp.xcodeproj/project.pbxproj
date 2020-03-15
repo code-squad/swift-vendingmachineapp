@@ -37,6 +37,12 @@
 		C284434F241E81B900C49B79 /* FantaButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C284434A241E81B900C49B79 /* FantaButton.swift */; };
 		C2844353241E956C00C49B79 /* ThousandButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2844352241E956C00C49B79 /* ThousandButton.swift */; };
 		C2844355241E957900C49B79 /* FiveThousandButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2844354241E957900C49B79 /* FiveThousandButton.swift */; };
+		C2949DC4241E9D480037B1C6 /* CokeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2949DC3241E9D480037B1C6 /* CokeLabel.swift */; };
+		C2949DC6241E9D640037B1C6 /* FantaLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2949DC5241E9D640037B1C6 /* FantaLabel.swift */; };
+		C2949DC8241E9D6B0037B1C6 /* StrawberryMilkLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2949DC7241E9D6B0037B1C6 /* StrawberryMilkLabel.swift */; };
+		C2949DCA241E9D780037B1C6 /* ChocolateMilkLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2949DC9241E9D780037B1C6 /* ChocolateMilkLabel.swift */; };
+		C2949DCC241E9D7F0037B1C6 /* TopLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2949DCB241E9D7F0037B1C6 /* TopLabel.swift */; };
+		C2949DCE241E9D860037B1C6 /* GeorgiaLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2949DCD241E9D860037B1C6 /* GeorgiaLabel.swift */; };
 		C2A6A8FB241A534500E16C28 /* BeverageLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A6A8FA241A534500E16C28 /* BeverageLabel.swift */; };
 		C2D405E02413744500848736 /* Cashier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D405DF2413744500848736 /* Cashier.swift */; };
 		C2D405E224137BED00848736 /* CashierTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D405E124137BED00848736 /* CashierTests.swift */; };
@@ -91,6 +97,12 @@
 		C284434A241E81B900C49B79 /* FantaButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FantaButton.swift; sourceTree = "<group>"; };
 		C2844352241E956C00C49B79 /* ThousandButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThousandButton.swift; sourceTree = "<group>"; };
 		C2844354241E957900C49B79 /* FiveThousandButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiveThousandButton.swift; sourceTree = "<group>"; };
+		C2949DC3241E9D480037B1C6 /* CokeLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CokeLabel.swift; sourceTree = "<group>"; };
+		C2949DC5241E9D640037B1C6 /* FantaLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FantaLabel.swift; sourceTree = "<group>"; };
+		C2949DC7241E9D6B0037B1C6 /* StrawberryMilkLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrawberryMilkLabel.swift; sourceTree = "<group>"; };
+		C2949DC9241E9D780037B1C6 /* ChocolateMilkLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChocolateMilkLabel.swift; sourceTree = "<group>"; };
+		C2949DCB241E9D7F0037B1C6 /* TopLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopLabel.swift; sourceTree = "<group>"; };
+		C2949DCD241E9D860037B1C6 /* GeorgiaLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeorgiaLabel.swift; sourceTree = "<group>"; };
 		C2A6A8FA241A534500E16C28 /* BeverageLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageLabel.swift; sourceTree = "<group>"; };
 		C2D405DF2413744500848736 /* Cashier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cashier.swift; sourceTree = "<group>"; };
 		C2D405E124137BED00848736 /* CashierTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashierTests.swift; sourceTree = "<group>"; };
@@ -219,6 +231,20 @@
 			path = BalanceButtons;
 			sourceTree = "<group>";
 		};
+		C2844357241E96FA00C49B79 /* BeverageLabels */ = {
+			isa = PBXGroup;
+			children = (
+				C2A6A8FA241A534500E16C28 /* BeverageLabel.swift */,
+				C2949DC3241E9D480037B1C6 /* CokeLabel.swift */,
+				C2949DC5241E9D640037B1C6 /* FantaLabel.swift */,
+				C2949DC7241E9D6B0037B1C6 /* StrawberryMilkLabel.swift */,
+				C2949DC9241E9D780037B1C6 /* ChocolateMilkLabel.swift */,
+				C2949DCB241E9D7F0037B1C6 /* TopLabel.swift */,
+				C2949DCD241E9D860037B1C6 /* GeorgiaLabel.swift */,
+			);
+			path = BeverageLabels;
+			sourceTree = "<group>";
+		};
 		C2F917622418AF35005CE6B1 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -232,7 +258,7 @@
 			children = (
 				C2844345241E812C00C49B79 /* BeverageButtons */,
 				C2844351241E941D00C49B79 /* BalanceButtons */,
-				C2A6A8FA241A534500E16C28 /* BeverageLabel.swift */,
+				C2844357241E96FA00C49B79 /* BeverageLabels */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -338,6 +364,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2949DCC241E9D7F0037B1C6 /* TopLabel.swift in Sources */,
 				C2560CA72409110D00933332 /* Coke.swift in Sources */,
 				C2560CB924091D7A00933332 /* Georgia.swift in Sources */,
 				C2078ADC2407ECDD00B403A7 /* VendingMachine.swift in Sources */,
@@ -350,6 +377,7 @@
 				C2844344241E812500C49B79 /* CokeButton.swift in Sources */,
 				C2A6A8FB241A534500E16C28 /* BeverageLabel.swift in Sources */,
 				C2D405E02413744500848736 /* Cashier.swift in Sources */,
+				C2949DC6241E9D640037B1C6 /* FantaLabel.swift in Sources */,
 				C2078AB72407CA8900B403A7 /* AppDelegate.swift in Sources */,
 				C2078ADA2407CFD400B403A7 /* Beverage.swift in Sources */,
 				C2844355241E957900C49B79 /* FiveThousandButton.swift in Sources */,
@@ -357,16 +385,20 @@
 				C250FB97240ED512008DB2AD /* Coffee.swift in Sources */,
 				C284434D241E81B900C49B79 /* ChocolateMilkButton.swift in Sources */,
 				C2844353241E956C00C49B79 /* ThousandButton.swift in Sources */,
+				C2949DCE241E9D860037B1C6 /* GeorgiaLabel.swift in Sources */,
 				C2F9176D241A1DFE005CE6B1 /* BeverageButton.swift in Sources */,
 				C2560CAD24091B4900933332 /* StrawberryMilk.swift in Sources */,
+				C2949DC8241E9D6B0037B1C6 /* StrawberryMilkLabel.swift in Sources */,
 				C2560CAF24091B6E00933332 /* ChocolateMilk.swift in Sources */,
 				C284434E241E81B900C49B79 /* TopButton.swift in Sources */,
 				C250FB99240FC975008DB2AD /* Inventory.swift in Sources */,
 				C284434C241E81B900C49B79 /* StrawberryMilkButton.swift in Sources */,
 				C2F9176A241A1A7C005CE6B1 /* Observers.swift in Sources */,
+				C2949DC4241E9D480037B1C6 /* CokeLabel.swift in Sources */,
 				C284434B241E81B900C49B79 /* GeorgiaButton.swift in Sources */,
 				C250FB95240E8210008DB2AD /* SoftDrink.swift in Sources */,
 				C2078AB92407CA8900B403A7 /* SceneDelegate.swift in Sources */,
+				C2949DCA241E9D780037B1C6 /* ChocolateMilkLabel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

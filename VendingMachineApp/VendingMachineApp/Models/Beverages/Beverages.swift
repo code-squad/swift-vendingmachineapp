@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 enum HersheyChocolateDrinks {
     
     static let brand = "허쉬초콜릿드링크"

@@ -16,7 +16,6 @@ final class Cantata: Coffee {
     init?(cantataBuilder: Cantata.CantataBuilder,
           manufacturingDateInfo: String,
           celsius: Int) {
-        
         self.milkContentRate = cantataBuilder.milkContentRate
         self.sugarContentRate = cantataBuilder.sugarContentRate
         super.init(builder: cantataBuilder,

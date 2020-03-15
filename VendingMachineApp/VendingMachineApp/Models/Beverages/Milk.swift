@@ -19,7 +19,6 @@ class Milk: Beverage {
             else {
                 return nil
         }
-        
         self.expirationDate = expirationDate
         super.init(builder: builder,
                    manufacturingDateInfo: manufacturingDateInfo)

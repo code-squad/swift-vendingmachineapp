@@ -25,7 +25,7 @@ final class PlusBeverageButton: UIButton, BeverageTagControl {
     }
     
     func kind() -> Beverage.Kind? {
-        return ItemByTag(rawValue: tag)?.kind()
+        return BeverageItemByTag(rawValue: tag)?.kind()
     }
     
 }
@@ -41,12 +41,12 @@ final class BeverageNumberLabel: UILabel, BeverageTagControl {
     }
     
     func kind() -> Beverage.Kind? {
-        return ItemByTag(rawValue: tag)?.kind()
+        return BeverageItemByTag(rawValue: tag)?.kind()
     }
     
 }
 
-enum ItemByTag: Int {
+enum BeverageItemByTag: Int {
     
     case cantataPrimiumLatte175ml = 0
     case cantataPrimiumLatte275ml

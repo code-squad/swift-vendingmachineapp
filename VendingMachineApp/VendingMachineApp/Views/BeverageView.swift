@@ -10,7 +10,7 @@ import UIKit
 
 protocol BeverageTagControl {
     
-    func kind() -> Beverage.Kind?
+    func beverage() -> Beverage?
     
 }
 
@@ -24,8 +24,8 @@ final class PlusBeverageButton: UIButton, BeverageTagControl {
         super.init(coder: coder)
     }
     
-    func kind() -> Beverage.Kind? {
-        return BeverageItemByTag(rawValue: tag)?.kind()
+    func beverage() -> Beverage? {
+        return BeverageItemByTag(rawValue: tag)?.beverage()
     }
     
 }
@@ -40,8 +40,8 @@ final class BeverageNumberLabel: UILabel, BeverageTagControl {
         super.init(coder: coder)
     }
     
-    func kind() -> Beverage.Kind? {
-        return BeverageItemByTag(rawValue: tag)?.kind()
+    func beverage() -> Beverage? {
+        return BeverageItemByTag(rawValue: tag)?.beverage()
     }
     
 }
@@ -55,26 +55,24 @@ enum BeverageItemByTag: Int {
     case hersheyCookieCream235ml
     case hersheyCookieCream350ml
     
-    func kind() -> Beverage.Kind {
+    func beverage() -> Beverage {
         switch self {
         case .cantataPrimiumLatte175ml:
-            return Beverage.Kind(name: Cantatas.PriumLatte.name,
-                                 price: Cantatas.PriumLatte.Volume175ml.price)
+            return Cantata(cantataBuilder: Cantatas.builderPrimiumLatte175ml,
+                           celsius: 65)
         case .cantataPrimiumLatte275ml:
-            return Beverage.Kind(name: Cantatas.PriumLatte.name,
-                                 price: Cantatas.PriumLatte.Volume275ml.price)
+            return Cantata(cantataBuilder: Cantatas.builderPrimiumLatte275ml,
+                           celsius: 65)
         case .pepsiDietCola250ml:
-            return Beverage.Kind(name: Pepsis.DietCola.name,
-                                 price: Pepsis.builderDietCola250ml.price)
+            return Pepsi(pepsiBuilder: Pepsis.builderDietCola250ml)
         case .pepsiDietCola591ml:
-            return Beverage.Kind(name: Pepsis.DietCola.name,
-                                 price: Pepsis.builderDietCola591ml.price)
+            return Pepsi(pepsiBuilder: Pepsis.builderDietCola591ml)
         case .hersheyCookieCream235ml:
-            return Beverage.Kind(name: HersheyChocolateDrinks.CookieCream.name,
-                                 price: HersheyChocolateDrinks.CookieCream.Volume235ml.price)
+            return HersheyChocolateDrink(hersheyBuilder:
+                HersheyChocolateDrinks.builderCookieCream235ml)
         case .hersheyCookieCream350ml:
-            return Beverage.Kind(name: HersheyChocolateDrinks.CookieCream.name,
-            price: HersheyChocolateDrinks.CookieCream.Volume350ml.price)
+            return HersheyChocolateDrink(hersheyBuilder:
+                HersheyChocolateDrinks.builderCookieCream350ml)
         }
     }
     

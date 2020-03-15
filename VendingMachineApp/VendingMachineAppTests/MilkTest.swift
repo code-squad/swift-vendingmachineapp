@@ -17,7 +17,6 @@ class MilkTest: XCTestCase {
         super.setUp()
         milk = HersheyChocolateDrink(hersheyBuilder:
                                      HersheyChocolateDrinks.builderCookieCream235ml)
-        
     }
     
     override func tearDown() {

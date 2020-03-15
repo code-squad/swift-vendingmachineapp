@@ -37,7 +37,7 @@ class ViewController: UIViewController {
     }
     
     func setNotificationCenter() {
-        NotificationCenter.default.addObserver(self, selector: #selector(updateBalanceLabel(_:)), name: .updateBalanceLabel, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateBalanceLabel(_:)), name: .balanceChanged, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(updateBeverageCountLabel(_:)), name: .updateBeverageCountLabel, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(updatePurchasedImages(_:)), name: .updatePurchasedImages, object: nil)
     }
@@ -87,12 +87,12 @@ class ViewController: UIViewController {
     }
     
     @objc func updateBalanceLabel(_ notification: Notification) {
-        let balance = notification.object as! String
+        guard let balance = notification.userInfo?["balance"] as? String else { return }
         balanceLabel.text = balance
     }
     
     deinit {
-        NotificationCenter.default.removeObserver(self, name: .updateBalanceLabel, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .balanceChanged, object: nil)
         NotificationCenter.default.removeObserver(self, name: .updateBeverageCountLabel, object: nil)
         NotificationCenter.default.removeObserver(self, name: .updatePurchasedImages, object: nil)
     }
@@ -121,7 +121,7 @@ class ViewController: UIViewController {
 }
 
 extension Notification.Name {
-    static let updateBalanceLabel =  NSNotification.Name("updateBalanceLabel")
+    static let balanceChanged =  NSNotification.Name("balanceChanged")
     static let updateBeverageCountLabel = NSNotification.Name("updateBeverageCountLabel")
     static let updatePurchasedImages = Notification.Name("updatePurchasedImages")
 }

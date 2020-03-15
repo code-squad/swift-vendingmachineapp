@@ -9,7 +9,11 @@
 import Foundation
 class Money: NSObject, NSCoding {
 
-    private var balance: Int
+    private var balance: Int {
+        didSet {
+            postNotification()
+        }
+    }
     
     enum MoneyUnit: Int {
         case fiveThousand = 5000
@@ -29,10 +33,13 @@ class Money: NSObject, NSCoding {
     func encode(with coder: NSCoder) {
         coder.encode(self.balance, forKey: "moneyBalance")
     }
+    
+    func postNotification() {
+        NotificationCenter.default.post(name: .balanceChanged, object: nil, userInfo: ["balance":"\(balance)"])
+    }
         
     func raiseMoney(moneyUnit: MoneyUnit) {
         balance += moneyUnit.rawValue
-        NotificationCenter.default.post(name: .updateBalanceLabel, object: "\(balance)")
     }
     
     func confirmBalance(_ money: Money) {
@@ -41,7 +48,6 @@ class Money: NSObject, NSCoding {
     
     func subtract(_ price: Money) {
         balance = self.balance - price.balance
-         NotificationCenter.default.post(name: .updateBalanceLabel, object: "\(balance)")
     }
     
     override var description: String {

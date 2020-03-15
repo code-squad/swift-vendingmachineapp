@@ -18,8 +18,11 @@ final class ViewController: UIViewController {
     }
     
     @IBOutlet weak var balanceLabel: BalanceLabel!
+    
     @IBAction func plusBalanceButtonTapped(_ sender: PlusBalanceButton) {
-        
+        if let money = sender.money() {
+            vendingMachine.receive(insertedMoney: money)
+        }
     }
 
     private var vendingMachine = VendingMachine()

@@ -10,9 +10,9 @@ import UIKit
 
 final class ViewController: UIViewController {
     
-    @IBOutlet var beverageNumberLabels: [UILabel]!
+    @IBOutlet var beverageNumberLabels: [BeverageNumberLabel]!
     
-    @IBAction func plusBeverageButtonTapped(_ sender: PlusBalanceButton) {
+    @IBAction func plusBeverageButtonTapped(_ sender: PlusBeverageButton) {
         
     }
     

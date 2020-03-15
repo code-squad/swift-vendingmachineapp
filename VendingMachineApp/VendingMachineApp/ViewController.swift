@@ -14,6 +14,7 @@ final class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        balanceLabel.update(currentMoney: vendingMachine.currentMoney())
         NotificationCenter.default.addObserver(forName: Notification.Name.beveragesChanged,
                                                object: vendingMachine,
                                                queue: nil) { [weak self] _ in

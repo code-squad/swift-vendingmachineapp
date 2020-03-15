@@ -17,7 +17,6 @@ class Beverage {
     let price: Int
     let kind: Kind
     
-    
     init?(builder: Beverage.Builder,
           manufacturingDateInfo: String) {
         guard let manufacturingDate = Date.dateFormatter.date(from: manufacturingDateInfo)

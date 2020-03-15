@@ -15,7 +15,7 @@ enum SellError: Error {
     
 }
 
-struct VendingMachine {
+class VendingMachine {
     
     private var stock: [Beverage] {
         didSet {
@@ -30,7 +30,7 @@ struct VendingMachine {
         self.cashier = Cashier()
     }
     
-    mutating func receive(insertedMoney: Int) {
+    func receive(insertedMoney: Int) {
         cashier.plus(money: insertedMoney)
     }
     
@@ -38,12 +38,12 @@ struct VendingMachine {
         return cashier.currentBalance()
     }
     
-    mutating func addToStock(beverage: Beverage) {
+    func addToStock(beverage: Beverage) {
         stock.append(beverage)
     }
     
     @discardableResult
-    mutating func sell(wantedBeverage: Beverage) -> Result<Beverage,SellError> {
+    func sell(wantedBeverage: Beverage) -> Result<Beverage,SellError> {
         guard cashier.isEnoughToBuy(price: wantedBeverage.price)
             else {
                 return .failure(.insufficientMoneyError)
@@ -58,7 +58,7 @@ struct VendingMachine {
         return .success(wantedBeverage)
     }
     
-    private mutating func subtractFromStock(beverage: Beverage) -> Bool {
+    private func subtractFromStock(beverage: Beverage) -> Bool {
         for index in 0 ..< stock.count {
             if stock[index] === beverage {
                 stock.remove(at: index)

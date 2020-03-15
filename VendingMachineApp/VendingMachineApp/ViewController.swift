@@ -23,7 +23,8 @@ final class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(forName: Notification.Name.beveragesChanged,
-                                               object: nil, queue: nil) { [weak self] (notification) in
+                                               object: vendingMachine,
+                                               queue: nil) { [weak self] (notification) in
                                                 self?.changeLabelNumber(notification: notification)
         }
     }

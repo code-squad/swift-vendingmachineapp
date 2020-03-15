@@ -23,7 +23,12 @@ class VendingMachine {
                                             object: self)
         }
     }
-    private var cashier: Calculable
+    private var cashier: Calculable {
+        didSet {
+            NotificationCenter.default.post(name: Notification.Name.balanceChanged,
+                                            object: self)
+        }
+    }
     
     init(stock: [Beverage] = []) {
         self.stock = stock

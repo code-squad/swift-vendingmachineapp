@@ -24,6 +24,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9eK-n3-QyH" customClass="PlusBalanceButton" customModule="VendingMachineApp" customModuleProvider="target">
                                                 <rect key="frame" x="110" y="0.0" width="30" height="30"/>
                                                 <state key="normal" title="추가"/>
+                                                <connections>
+                                                    <action selector="plusBeverageButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="86S-6M-oMv"/>
+                                                </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cantata-primiumlatte-175ml" translatesAutoresizingMaskIntoConstraints="NO" id="ff3-gQ-vTN">
                                                 <rect key="frame" x="0.0" y="38" width="250" height="250"/>
@@ -42,6 +45,9 @@
                                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mSq-Y1-KOQ" customClass="PlusBalanceButton" customModule="VendingMachineApp" customModuleProvider="target">
                                                 <rect key="frame" x="110" y="0.0" width="30" height="30"/>
                                                 <state key="normal" title="추가"/>
+                                                <connections>
+                                                    <action selector="plusBeverageButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0Is-VF-fD7"/>
+                                                </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pepsi-dietCola-250ml" translatesAutoresizingMaskIntoConstraints="NO" id="4Pv-zd-DNJ">
                                                 <rect key="frame" x="0.0" y="38" width="250" height="250"/>
@@ -60,6 +66,9 @@
                                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Xp-uK-uZ1" customClass="PlusBalanceButton" customModule="VendingMachineApp" customModuleProvider="target">
                                                 <rect key="frame" x="110" y="0.0" width="30" height="30"/>
                                                 <state key="normal" title="추가"/>
+                                                <connections>
+                                                    <action selector="plusBeverageButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0z3-fB-Xel"/>
+                                                </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hershey-cookieAndCream-235ml" translatesAutoresizingMaskIntoConstraints="NO" id="sMt-4x-HZk">
                                                 <rect key="frame" x="0.0" y="38" width="250" height="250"/>
@@ -83,6 +92,9 @@
                                             <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aW4-50-y8B" customClass="PlusBalanceButton" customModule="VendingMachineApp" customModuleProvider="target">
                                                 <rect key="frame" x="113" y="0.0" width="30" height="30"/>
                                                 <state key="normal" title="추가"/>
+                                                <connections>
+                                                    <action selector="plusBeverageButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KN1-yX-2Ww"/>
+                                                </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cantata-primiumLatte-275ml" translatesAutoresizingMaskIntoConstraints="NO" id="dfS-Dn-qd5">
                                                 <rect key="frame" x="0.0" y="38" width="256" height="253.5"/>
@@ -101,6 +113,9 @@
                                             <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="auh-iv-pma" customClass="PlusBalanceButton" customModule="VendingMachineApp" customModuleProvider="target">
                                                 <rect key="frame" x="108" y="0.0" width="30" height="30"/>
                                                 <state key="normal" title="추가"/>
+                                                <connections>
+                                                    <action selector="plusBeverageButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="u00-nN-EjC"/>
+                                                </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pepsi-dietCola-591ml" translatesAutoresizingMaskIntoConstraints="NO" id="PkB-JY-7jR">
                                                 <rect key="frame" x="0.0" y="38" width="246" height="246"/>
@@ -119,6 +134,9 @@
                                             <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tJA-sw-xgO" customClass="PlusBalanceButton" customModule="VendingMachineApp" customModuleProvider="target">
                                                 <rect key="frame" x="38" y="0.0" width="30" height="30"/>
                                                 <state key="normal" title="추가"/>
+                                                <connections>
+                                                    <action selector="plusBeverageButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UFX-Ii-l2y"/>
+                                                </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hershey-cookieAndCream-350ml" translatesAutoresizingMaskIntoConstraints="NO" id="vae-pn-KOc">
                                                 <rect key="frame" x="0.0" y="38" width="106" height="145"/>
@@ -143,6 +161,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outletCollection property="beverageNumberLabels" destination="Ah1-gN-xIW" collectionClass="NSMutableArray" id="f7V-7n-DSC"/>
+                        <outletCollection property="beverageNumberLabels" destination="RDK-m8-b8V" collectionClass="NSMutableArray" id="NOj-5W-8xZ"/>
+                        <outletCollection property="beverageNumberLabels" destination="Utr-Kd-MDb" collectionClass="NSMutableArray" id="zik-XM-6ol"/>
+                        <outletCollection property="beverageNumberLabels" destination="Ac4-Pf-xnj" collectionClass="NSMutableArray" id="zrX-WM-yhc"/>
+                        <outletCollection property="beverageNumberLabels" destination="LWo-qD-x4n" collectionClass="NSMutableArray" id="nH7-ii-acG"/>
+                        <outletCollection property="beverageNumberLabels" destination="l3o-C3-mPe" collectionClass="NSMutableArray" id="Ojm-CE-XJY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

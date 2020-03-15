@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
     
     private var vendingMachine = VendingMachine(stock: [Cantata(cantataBuilder:
                                                                 Cantatas.builderPrimiumLatte175ml,

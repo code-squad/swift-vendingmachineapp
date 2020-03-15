@@ -12,12 +12,19 @@ extension Beverage {
     
     struct Kind: Hashable {
         
+        private let brand: String
         private let name: String
         private let volume: Int
+        let price: Int
         
-        init(name: String, volume: Int) {
+        init(brand: String,
+             name: String,
+             volume: Int,
+             price: Int) {
+            self.brand = brand
             self.name = name
             self.volume = volume
+            self.price = price
         }
         
         func hash(into hasher: inout Hasher) {
@@ -51,7 +58,10 @@ class Beverage {
         self.price = price
         self.name = name
         self.manufacturingDate = manufacturingDate
-        self.kind = Kind(name: self.name, volume: self.volume)
+        self.kind = Kind(brand: self.brand,
+                         name: self.name,
+                         volume: self.volume,
+                         price: self.price)
     }
     
 }
@@ -72,4 +82,3 @@ extension Beverage: CustomStringConvertible {
     }
     
 }
-

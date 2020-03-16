@@ -10,38 +10,64 @@ import UIKit
 
 protocol BeverageTagControl {
     
+    var beverageItemByTag: BeverageItemByTag? {get set}
+
     func beverage() -> Beverage?
+    
+}
+
+extension BeverageTagControl {
+    
+    func beverage() -> Beverage? {
+        return beverageItemByTag?.beverage()
+    }
     
 }
 
 final class PlusBeverageButton: UIButton, BeverageTagControl {
     
+    var beverageItemByTag: BeverageItemByTag?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
+        setup()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+        setup()
     }
     
-    func beverage() -> Beverage? {
-        return BeverageItemByTag(rawValue: tag)?.beverage()
+    private func setup() {
+        initBeverageItemByTag()
+    }
+    
+    private func initBeverageItemByTag() {
+        beverageItemByTag = BeverageItemByTag(rawValue: tag)
     }
     
 }
 
 final class BeverageNumberLabel: UILabel, BeverageTagControl {
     
+    var beverageItemByTag: BeverageItemByTag?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
+        setup()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+        setup()
     }
     
-    func beverage() -> Beverage? {
-        return BeverageItemByTag(rawValue: tag)?.beverage()
+    private func setup() {
+        initBeverageItemByTag()
+    }
+    
+    private func initBeverageItemByTag() {
+        beverageItemByTag = BeverageItemByTag(rawValue: tag)
     }
     
     func update(number: Int) {

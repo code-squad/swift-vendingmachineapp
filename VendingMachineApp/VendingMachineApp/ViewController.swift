@@ -30,7 +30,7 @@ final class ViewController: UIViewController {
         ) { [weak self] _ in self?.updateBalanceLabel() }
     }
     
-    @IBOutlet var beverageNumberLabels: [BeverageNumberLabel]!
+    @IBOutlet var beverageNumberLabels: [BeverageLabel]!
     @IBAction func plusBeverageButtonTapped(_ sender: BeverageButton) {
         if let beverage = sender.beverage() {
             vendingMachine.addToStock(beverage: beverage)

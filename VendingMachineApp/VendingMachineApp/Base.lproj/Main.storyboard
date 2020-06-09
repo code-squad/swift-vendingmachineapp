@@ -21,7 +21,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="iCF-Ro-dVy" userLabel="First Beverage Stack">
                                         <rect key="frame" x="0.0" y="0.0" width="945" height="293"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xVk-Po-L09">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xVk-Po-L09" customClass="CornerRoundedView" customModule="VendingMachineApp" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="292.5" height="293"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cantata-primiumlatte-175ml-removebg-preview" translatesAutoresizingMaskIntoConstraints="NO" id="BpW-vl-Zjd">
@@ -55,8 +55,13 @@
                                                     <constraint firstItem="HMB-a2-S56" firstAttribute="top" secondItem="BpW-vl-Zjd" secondAttribute="bottom" constant="20" id="wkA-Vq-MhA"/>
                                                     <constraint firstAttribute="width" secondItem="xVk-Po-L09" secondAttribute="height" multiplier="1:1" id="zsL-1l-V5n"/>
                                                 </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="40"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iGI-xm-Nw9">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iGI-xm-Nw9" customClass="CornerRoundedView" customModule="VendingMachineApp" customModuleProvider="target">
                                                 <rect key="frame" x="326" y="0.0" width="293" height="293"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cantata-primiumlatte-275ml-removebg-preview" translatesAutoresizingMaskIntoConstraints="NO" id="68U-zj-W9I">
@@ -90,8 +95,13 @@
                                                     <constraint firstItem="4FQ-w3-2pT" firstAttribute="centerX" secondItem="68U-zj-W9I" secondAttribute="centerX" multiplier="1.4" id="iIv-8W-uvP"/>
                                                     <constraint firstItem="vCp-4I-hII" firstAttribute="top" secondItem="68U-zj-W9I" secondAttribute="bottom" constant="20" id="t5v-la-tFn"/>
                                                 </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="40"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dGg-Ww-3OJ">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dGg-Ww-3OJ" customClass="CornerRoundedView" customModule="VendingMachineApp" customModuleProvider="target">
                                                 <rect key="frame" x="652.5" y="0.0" width="292.5" height="293"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hershey-cookieAndCream-235ml-removebg-preview" translatesAutoresizingMaskIntoConstraints="NO" id="z28-yq-KJm">
@@ -125,13 +135,18 @@
                                                     <constraint firstItem="z28-yq-KJm" firstAttribute="centerX" secondItem="dGg-Ww-3OJ" secondAttribute="centerX" id="rVs-0s-het"/>
                                                     <constraint firstItem="z28-yq-KJm" firstAttribute="top" secondItem="dGg-Ww-3OJ" secondAttribute="top" constant="20" id="tIP-hb-BRX"/>
                                                 </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="40"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </view>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="D2V-FY-9qM" userLabel="Second Beverages Stack">
                                         <rect key="frame" x="0.0" y="319" width="945" height="293"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="59X-cm-8xW">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="59X-cm-8xW" customClass="CornerRoundedView" customModule="VendingMachineApp" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="292.5" height="293"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hershey-cookieAndCream-350ml-removebg-preview" translatesAutoresizingMaskIntoConstraints="NO" id="i6l-ZG-sEI">
@@ -165,8 +180,13 @@
                                                     <constraint firstAttribute="width" secondItem="59X-cm-8xW" secondAttribute="height" id="Y6g-ZI-5Oh"/>
                                                     <constraint firstItem="i6l-ZG-sEI" firstAttribute="centerX" secondItem="59X-cm-8xW" secondAttribute="centerX" id="fcu-v4-mch"/>
                                                 </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="40"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rAr-wX-dif">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rAr-wX-dif" customClass="CornerRoundedView" customModule="VendingMachineApp" customModuleProvider="target">
                                                 <rect key="frame" x="326" y="0.0" width="293" height="293"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pepsi-dietCola-250ml-removebg-preview" translatesAutoresizingMaskIntoConstraints="NO" id="0Da-FC-A7a">
@@ -201,8 +221,13 @@
                                                     <constraint firstItem="0Da-FC-A7a" firstAttribute="centerX" secondItem="rAr-wX-dif" secondAttribute="centerX" id="rGy-HV-8sJ"/>
                                                     <constraint firstItem="009-KQ-5iF" firstAttribute="top" secondItem="0Da-FC-A7a" secondAttribute="bottom" constant="20" id="u0g-Kw-T28"/>
                                                 </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="40"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nZA-Br-mgH">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nZA-Br-mgH" customClass="CornerRoundedView" customModule="VendingMachineApp" customModuleProvider="target">
                                                 <rect key="frame" x="652.5" y="0.0" width="292.5" height="293"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pepsi-dietCola-591ml-removebg-preview" translatesAutoresizingMaskIntoConstraints="NO" id="X3k-fh-Nfb">
@@ -237,6 +262,11 @@
                                                     <constraint firstItem="T1U-DM-QZ1" firstAttribute="centerX" secondItem="X3k-fh-Nfb" secondAttribute="centerX" multiplier="1.4" id="pu6-LD-8YI"/>
                                                     <constraint firstItem="X3k-fh-Nfb" firstAttribute="centerX" secondItem="nZA-Br-mgH" secondAttribute="centerX" id="wRF-vr-yue"/>
                                                 </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="40"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </view>
                                         </subviews>
                                     </stackView>

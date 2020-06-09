@@ -14,16 +14,19 @@ enum SellError: Error {
 }
 
 final class VendingMachine {
+    enum Notification {
+        static let beveragesDidChange = Foundation.Notification.Name("beveragesDidChange")
+        static let balanceDidChange = Foundation.Notification.Name("balanceDidChange")
+    }
+    
     private var stock: [Beverage] {
         didSet {
-            NotificationCenter.default.post(name: Notification.Name.beveragesChanged,
-                                            object: self)
+            NotificationCenter.default.post(name: Notification.beveragesDidChange, object: self)
         }
     }
     private var cashier: Calculable {
         didSet {
-            NotificationCenter.default.post(name: Notification.Name.balanceChanged,
-                                            object: self)
+            NotificationCenter.default.post(name: Notification.balanceDidChange, object: self)
         }
     }
     

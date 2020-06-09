@@ -273,31 +273,26 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="15L-PT-9Ck">
                                         <rect key="frame" x="0.0" y="638" width="945" height="113"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nf4-ky-L1q">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nf4-ky-L1q" customClass="CornerRoundedView" customModule="VendingMachineApp" customModuleProvider="target">
                                                 <rect key="frame" x="378" y="11.5" width="189" height="90"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="goM-GG-ohe" customClass="BalanceButton" customModule="VendingMachineApp" customModuleProvider="target">
-                                                        <rect key="frame" x="25" y="7.5" width="44" height="30"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="goM-GG-ohe" customClass="Balance1000Button" customModule="VendingMachineApp" customModuleProvider="target">
+                                                        <rect key="frame" x="16" y="3.5" width="62" height="38"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                         <state key="normal" title="+1000"/>
-                                                        <connections>
-                                                            <action selector="plusBalanceButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CxO-Cy-8bO"/>
-                                                        </connections>
                                                     </button>
-                                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EtE-d8-nF1" customClass="BalanceButton" customModule="VendingMachineApp" customModuleProvider="target">
-                                                        <rect key="frame" x="118.5" y="7.5" width="47" height="30"/>
+                                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EtE-d8-nF1" customClass="Balance5000Button" customModule="VendingMachineApp" customModuleProvider="target">
+                                                        <rect key="frame" x="109.5" y="3.5" width="65" height="38"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                         <state key="normal" title="+5000"/>
-                                                        <connections>
-                                                            <action selector="plusBalanceButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lxQ-uH-tsB"/>
-                                                        </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="잔액 : 0원 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KQN-oq-VMf" customClass="BalanceLabel" customModule="VendingMachineApp" customModuleProvider="target">
-                                                        <rect key="frame" x="58.5" y="57.5" width="72.5" height="20.5"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
+                                                        <rect key="frame" x="42.5" y="52.5" width="104" height="30"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                        <color key="textColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
-                                                <color key="backgroundColor" red="0.39637178020000002" green="0.79289596709999999" blue="0.78547235550000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
                                                     <constraint firstItem="goM-GG-ohe" firstAttribute="centerX" secondItem="Nf4-ky-L1q" secondAttribute="centerX" multiplier="0.5" id="0PS-Jq-bwd"/>
                                                     <constraint firstItem="KQN-oq-VMf" firstAttribute="centerY" secondItem="Nf4-ky-L1q" secondAttribute="centerY" multiplier="1.5" id="4Bq-M4-gX8"/>
@@ -306,6 +301,11 @@
                                                     <constraint firstItem="EtE-d8-nF1" firstAttribute="centerX" secondItem="Nf4-ky-L1q" secondAttribute="centerX" multiplier="1.5" id="mq6-SN-ZaL"/>
                                                     <constraint firstItem="EtE-d8-nF1" firstAttribute="centerY" secondItem="Nf4-ky-L1q" secondAttribute="centerY" multiplier="0.5" id="wuD-zi-q7U"/>
                                                 </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="15"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </view>
                                         </subviews>
                                         <constraints>
@@ -340,6 +340,8 @@
                         <outletCollection property="beverageNumberLabels" destination="oTL-ks-4Si" collectionClass="NSMutableArray" id="vci-6d-cnJ"/>
                         <outletCollection property="beverageNumberLabels" destination="CaR-Yv-rvA" collectionClass="NSMutableArray" id="opn-nH-7Ij"/>
                         <outletCollection property="beverageNumberLabels" destination="T1U-DM-QZ1" collectionClass="NSMutableArray" id="puw-Cf-q32"/>
+                        <outletCollection property="balanceButtons" destination="goM-GG-ohe" collectionClass="NSMutableArray" id="0vr-uT-D0v"/>
+                        <outletCollection property="balanceButtons" destination="EtE-d8-nF1" collectionClass="NSMutableArray" id="bT1-ao-g2I"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

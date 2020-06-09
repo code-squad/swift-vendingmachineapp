@@ -8,34 +8,26 @@
 
 import UIKit
 
-protocol BalanceTagControl {
-    func money() -> Int?
-}
-
-final class BalanceButton: UIButton, BalanceTagControl {
+class BalanceButton: UIButton {
+    var action: ((Int) -> (Void))?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
+        configureTarget()
     }
-
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+        configureTarget()
     }
     
-    func money() -> Int? {
-        return BalanceItemByTag(rawValue: tag)?.money()
+    deinit {
+        removeTarget(self, action: #selector(invokeAction(sender:)), for: .touchUpInside)
     }
-}
-
-enum BalanceItemByTag: Int {
-    case oneThousand = 0
-    case fiveThousand
     
-    func money() -> Int {
-        switch self {
-        case .oneThousand:
-            return 1000
-        case .fiveThousand:
-            return 5000
-        }
+    private func configureTarget() {
+        addTarget(self, action: #selector(invokeAction(sender:)), for: .touchUpInside)
     }
+    
+    @objc func invokeAction(sender: BalanceButton) { }
 }

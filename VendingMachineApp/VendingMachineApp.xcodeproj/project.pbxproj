@@ -35,6 +35,8 @@
 		5ACB7BA7248FA77800ACA0E2 /* BeverageTagControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACB7BA6248FA77800ACA0E2 /* BeverageTagControl.swift */; };
 		5ACB7BA9248FA7BB00ACA0E2 /* BeverageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACB7BA8248FA7BB00ACA0E2 /* BeverageButton.swift */; };
 		5ACB7BAD248FADB200ACA0E2 /* CornerRoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACB7BAC248FADB200ACA0E2 /* CornerRoundedView.swift */; };
+		5ACB7BAF248FB63100ACA0E2 /* Balance5000Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACB7BAE248FB63100ACA0E2 /* Balance5000Button.swift */; };
+		5ACB7BB1248FBB1000ACA0E2 /* Balance1000Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACB7BB0248FBB1000ACA0E2 /* Balance1000Button.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +91,8 @@
 		5ACB7BA6248FA77800ACA0E2 /* BeverageTagControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageTagControl.swift; sourceTree = "<group>"; };
 		5ACB7BA8248FA7BB00ACA0E2 /* BeverageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageButton.swift; sourceTree = "<group>"; };
 		5ACB7BAC248FADB200ACA0E2 /* CornerRoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerRoundedView.swift; sourceTree = "<group>"; };
+		5ACB7BAE248FB63100ACA0E2 /* Balance5000Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Balance5000Button.swift; sourceTree = "<group>"; };
+		5ACB7BB0248FBB1000ACA0E2 /* Balance1000Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Balance1000Button.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +140,8 @@
 			children = (
 				5A834188241E117F00F20FAA /* BeverageLabel.swift */,
 				5A83418A241E11D900F20FAA /* BalanceButton.swift */,
+				5ACB7BAE248FB63100ACA0E2 /* Balance5000Button.swift */,
+				5ACB7BB0248FBB1000ACA0E2 /* Balance1000Button.swift */,
 				5ACB7BA8248FA7BB00ACA0E2 /* BeverageButton.swift */,
 				5ACB7BA6248FA77800ACA0E2 /* BeverageTagControl.swift */,
 				5A834194241E5C1800F20FAA /* BalanceLabel.swift */,
@@ -357,6 +363,7 @@
 				5ACB7BA7248FA77800ACA0E2 /* BeverageTagControl.swift in Sources */,
 				5A91FD06240FE0BE00884D64 /* Soda.swift in Sources */,
 				5A834195241E5C1800F20FAA /* BalanceLabel.swift in Sources */,
+				5ACB7BB1248FBB1000ACA0E2 /* Balance1000Button.swift in Sources */,
 				5A7EFBC2241631860018710C /* Date.swift in Sources */,
 				5A91FD02240FDFE900884D64 /* Milk.swift in Sources */,
 				5A83418B241E11D900F20FAA /* BalanceButton.swift in Sources */,
@@ -364,6 +371,7 @@
 				5A91FD0C240FEC6500884D64 /* Pepsi.swift in Sources */,
 				5A91FD04240FE04400884D64 /* Coffee.swift in Sources */,
 				5A834183241DEB1C00F20FAA /* Beverages.swift in Sources */,
+				5ACB7BAF248FB63100ACA0E2 /* Balance5000Button.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

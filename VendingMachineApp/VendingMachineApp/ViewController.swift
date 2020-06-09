@@ -15,6 +15,7 @@ final class ViewController: UIViewController {
         super.viewDidLoad()
         balanceLabel.update(currentMoney: vendingMachine.currentMoney())
         configureObservers()
+        confiureBalanceButtons()
     }
     
     private func configureObservers() {
@@ -48,9 +49,15 @@ final class ViewController: UIViewController {
     }
     
     @IBOutlet weak var balanceLabel: BalanceLabel!
-    @IBAction func plusBalanceButtonTapped(_ sender: BalanceButton) {
-        if let money = sender.money() {
-            vendingMachine.receive(insertedMoney: money)
+    @IBOutlet var balanceButtons: [BalanceButton]!
+    
+    private func confiureBalanceButtons() {
+        balanceButtons.forEach { configureBalanceAction($0) }
+    }
+    
+    private func configureBalanceAction(_ balanceButton: BalanceButton) {
+        balanceButton.action = { [weak self] money in
+            self?.vendingMachine.receive(insertedMoney: money)
         }
     }
     

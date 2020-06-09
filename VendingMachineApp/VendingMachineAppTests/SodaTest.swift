@@ -9,7 +9,7 @@
 import XCTest
 @testable import VendingMachineApp
 
-class SodaTest: XCTestCase {
+final class SodaTest: XCTestCase {
     
     var soda: Soda!
     

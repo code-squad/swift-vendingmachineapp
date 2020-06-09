@@ -9,7 +9,7 @@
 import XCTest
 @testable import VendingMachineApp
 
-class VendingMachineTest: XCTestCase {
+final class VendingMachineTest: XCTestCase {
     
     var vendingMachine: VendingMachine!
     let primiumLatte = Cantata(cantataBuilder: Cantatas.builderPrimiumLatte175ml,

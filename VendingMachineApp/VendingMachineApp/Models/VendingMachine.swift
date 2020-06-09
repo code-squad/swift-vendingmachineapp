@@ -15,7 +15,7 @@ enum SellError: Error {
     
 }
 
-class VendingMachine {
+final class VendingMachine {
     
     private var stock: [Beverage] {
         didSet {

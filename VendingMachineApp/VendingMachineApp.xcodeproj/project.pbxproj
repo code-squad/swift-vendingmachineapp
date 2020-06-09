@@ -34,6 +34,7 @@
 		5A91FD0C240FEC6500884D64 /* Pepsi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A91FD0B240FEC6500884D64 /* Pepsi.swift */; };
 		5ACB7BA7248FA77800ACA0E2 /* BeverageTagControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACB7BA6248FA77800ACA0E2 /* BeverageTagControl.swift */; };
 		5ACB7BA9248FA7BB00ACA0E2 /* BeverageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACB7BA8248FA7BB00ACA0E2 /* BeverageButton.swift */; };
+		5ACB7BAD248FADB200ACA0E2 /* CornerRoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACB7BAC248FADB200ACA0E2 /* CornerRoundedView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +88,7 @@
 		5A91FD0B240FEC6500884D64 /* Pepsi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pepsi.swift; sourceTree = "<group>"; };
 		5ACB7BA6248FA77800ACA0E2 /* BeverageTagControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageTagControl.swift; sourceTree = "<group>"; };
 		5ACB7BA8248FA7BB00ACA0E2 /* BeverageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageButton.swift; sourceTree = "<group>"; };
+		5ACB7BAC248FADB200ACA0E2 /* CornerRoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerRoundedView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +139,7 @@
 				5ACB7BA8248FA7BB00ACA0E2 /* BeverageButton.swift */,
 				5ACB7BA6248FA77800ACA0E2 /* BeverageTagControl.swift */,
 				5A834194241E5C1800F20FAA /* BalanceLabel.swift */,
+				5ACB7BAC248FADB200ACA0E2 /* CornerRoundedView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -343,6 +346,7 @@
 				5A91FD0A240FE92B00884D64 /* Cantata.swift in Sources */,
 				5A91FD00240FD7D100884D64 /* Beverage.swift in Sources */,
 				5ACB7BA9248FA7BB00ACA0E2 /* BeverageButton.swift in Sources */,
+				5ACB7BAD248FADB200ACA0E2 /* CornerRoundedView.swift in Sources */,
 				5A91FD08240FE2C800884D64 /* HersheyChocolateDrink.swift in Sources */,
 				5A7EFBCC241658C30018710C /* Quantity.swift in Sources */,
 				5A834189241E117F00F20FAA /* BeverageLabel.swift in Sources */,

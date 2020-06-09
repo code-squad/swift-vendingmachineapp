@@ -14,15 +14,20 @@ final class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         balanceLabel.update(currentMoney: vendingMachine.currentMoney())
-        NotificationCenter.default.addObserver(forName: Notification.Name.beveragesChanged,
-                                               object: vendingMachine,
-                                               queue: nil) { [weak self] _ in
-                                                self?.updateBeverageLabels() }
-        NotificationCenter.default.addObserver(forName: Notification.Name.balanceChanged,
-                                               object: vendingMachine,
-                                               queue: nil) { [weak self] _ in
-                                                self?.updateBalanceLabel()
-        }
+        configureObservers()
+    }
+    
+    private func configureObservers() {
+        NotificationCenter.default.addObserver(
+            forName: VendingMachine.Notification.beveragesDidChange,
+            object: vendingMachine,
+            queue: nil
+        ) { [weak self] _ in self?.updateBeverageLabels() }
+        NotificationCenter.default.addObserver(
+            forName: VendingMachine.Notification.balanceDidChange,
+            object: vendingMachine,
+            queue: nil
+        ) { [weak self] _ in self?.updateBalanceLabel() }
     }
     
     @IBOutlet var beverageNumberLabels: [BeverageNumberLabel]!
@@ -36,7 +41,7 @@ final class ViewController: UIViewController {
         let stockByKind = vendingMachine.stockByKind()
         beverageNumberLabels.forEach {
             if let beverage = $0.beverage(),
-            let beverageNumber = stockByKind[beverage.kind] {
+                let beverageNumber = stockByKind[beverage.kind] {
                 $0.update(number: beverageNumber)
             }
         }

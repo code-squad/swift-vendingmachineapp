@@ -37,8 +37,8 @@
                                                             <action selector="plusBeverageButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tZu-GO-03D"/>
                                                         </connections>
                                                     </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HMB-a2-S56" customClass="BeverageNumberLabel" customModule="VendingMachineApp" customModuleProvider="target">
-                                                        <rect key="frame" x="184" y="230.5" width="42" height="20.5"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HMB-a2-S56" customClass="BeverageLabel" customModule="VendingMachineApp" customModuleProvider="target">
+                                                        <rect key="frame" x="192" y="230.5" width="25.5" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -72,8 +72,8 @@
                                                             <action selector="plusBeverageButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CM0-9H-dtz"/>
                                                         </connections>
                                                     </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4FQ-w3-2pT" customClass="BeverageNumberLabel" customModule="VendingMachineApp" customModuleProvider="target">
-                                                        <rect key="frame" x="184" y="230.5" width="42" height="20.5"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4FQ-w3-2pT" customClass="BeverageLabel" customModule="VendingMachineApp" customModuleProvider="target">
+                                                        <rect key="frame" x="192.5" y="230.5" width="25.5" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -107,8 +107,8 @@
                                                             <action selector="plusBeverageButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="g7a-OF-YVN"/>
                                                         </connections>
                                                     </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SZe-Vw-ZhC" customClass="BeverageNumberLabel" customModule="VendingMachineApp" customModuleProvider="target">
-                                                        <rect key="frame" x="184" y="230.5" width="42" height="20.5"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SZe-Vw-ZhC" customClass="BeverageLabel" customModule="VendingMachineApp" customModuleProvider="target">
+                                                        <rect key="frame" x="192" y="230.5" width="25.5" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -147,8 +147,8 @@
                                                             <action selector="plusBeverageButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="x3D-np-tlD"/>
                                                         </connections>
                                                     </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oTL-ks-4Si" customClass="BeverageNumberLabel" customModule="VendingMachineApp" customModuleProvider="target">
-                                                        <rect key="frame" x="184" y="230.5" width="42" height="20.5"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oTL-ks-4Si" customClass="BeverageLabel" customModule="VendingMachineApp" customModuleProvider="target">
+                                                        <rect key="frame" x="192" y="230.5" width="25.5" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -183,8 +183,8 @@
                                                             <action selector="plusBeverageButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3GA-qK-MAa"/>
                                                         </connections>
                                                     </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" tag="4" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CaR-Yv-rvA" customClass="BeverageNumberLabel" customModule="VendingMachineApp" customModuleProvider="target">
-                                                        <rect key="frame" x="184" y="230.5" width="42" height="20.5"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" tag="4" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CaR-Yv-rvA" customClass="BeverageLabel" customModule="VendingMachineApp" customModuleProvider="target">
+                                                        <rect key="frame" x="192.5" y="230.5" width="25.5" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -219,8 +219,8 @@
                                                             <action selector="plusBeverageButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QHp-ed-A4z"/>
                                                         </connections>
                                                     </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" tag="5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T1U-DM-QZ1" customClass="BeverageNumberLabel" customModule="VendingMachineApp" customModuleProvider="target">
-                                                        <rect key="frame" x="184" y="230.5" width="42" height="20.5"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" tag="5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T1U-DM-QZ1" customClass="BeverageLabel" customModule="VendingMachineApp" customModuleProvider="target">
+                                                        <rect key="frame" x="192" y="230.5" width="25.5" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>

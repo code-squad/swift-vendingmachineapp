@@ -13,19 +13,15 @@ final class BeverageButton: UIButton, BeverageTagControl {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setup()
+        configureBeverageItemByTag()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        setup()
+        configureBeverageItemByTag()
     }
     
-    private func setup() {
-        initBeverageItemByTag()
-    }
-    
-    private func initBeverageItemByTag() {
+    private func configureBeverageItemByTag() {
         beverageItemByTag = BeverageItemByTag(rawValue: tag)
     }
 }

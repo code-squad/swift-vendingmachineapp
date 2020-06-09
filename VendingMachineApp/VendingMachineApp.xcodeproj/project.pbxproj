@@ -25,7 +25,6 @@
 		5A91FCD4240FCDFB00884D64 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A91FCD2240FCDFB00884D64 /* Main.storyboard */; };
 		5A91FCD6240FCE0000884D64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A91FCD5240FCE0000884D64 /* Assets.xcassets */; };
 		5A91FCD9240FCE0000884D64 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A91FCD7240FCE0000884D64 /* LaunchScreen.storyboard */; };
-		5A91FCE4240FCE0000884D64 /* VendingMachineAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A91FCE3240FCE0000884D64 /* VendingMachineAppTests.swift */; };
 		5A91FCEF240FCE0000884D64 /* VendingMachineAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A91FCEE240FCE0000884D64 /* VendingMachineAppUITests.swift */; };
 		5A91FCFE240FD6DE00884D64 /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A91FCFD240FD6DE00884D64 /* VendingMachine.swift */; };
 		5A91FD00240FD7D100884D64 /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A91FCFF240FD7D100884D64 /* Beverage.swift */; };
@@ -76,7 +75,6 @@
 		5A91FCD8240FCE0000884D64 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5A91FCDA240FCE0000884D64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5A91FCDF240FCE0000884D64 /* VendingMachineAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VendingMachineAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		5A91FCE3240FCE0000884D64 /* VendingMachineAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineAppTests.swift; sourceTree = "<group>"; };
 		5A91FCE5240FCE0000884D64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5A91FCEA240FCE0000884D64 /* VendingMachineAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VendingMachineAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A91FCEE240FCE0000884D64 /* VendingMachineAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineAppUITests.swift; sourceTree = "<group>"; };
@@ -185,7 +183,6 @@
 				5A7EFBC524163FE40018710C /* CoffeeTest.swift */,
 				5A7EFBC7241643E10018710C /* SodaTest.swift */,
 				5A91FCE5240FCE0000884D64 /* Info.plist */,
-				5A91FCE3240FCE0000884D64 /* VendingMachineAppTests.swift */,
 			);
 			path = VendingMachineAppTests;
 			sourceTree = "<group>";
@@ -372,7 +369,6 @@
 				5A7EFBC8241643E10018710C /* SodaTest.swift in Sources */,
 				5A7EFBC624163FE40018710C /* CoffeeTest.swift in Sources */,
 				5A7EFBC4241635390018710C /* MilkTest.swift in Sources */,
-				5A91FCE4240FCE0000884D64 /* VendingMachineAppTests.swift in Sources */,
 				5A7EFBCA24164EAC0018710C /* VendingMachineTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

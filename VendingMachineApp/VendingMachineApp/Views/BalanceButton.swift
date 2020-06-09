@@ -12,7 +12,7 @@ protocol BalanceTagControl {
     func money() -> Int?
 }
 
-final class PlusBalanceButton: UIButton, BalanceTagControl {
+final class BalanceButton: UIButton, BalanceTagControl {
     override init(frame: CGRect) {
         super.init(frame: frame)
     }

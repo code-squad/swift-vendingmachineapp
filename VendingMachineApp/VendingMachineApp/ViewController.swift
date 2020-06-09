@@ -26,7 +26,7 @@ final class ViewController: UIViewController {
     }
     
     @IBOutlet var beverageNumberLabels: [BeverageNumberLabel]!
-    @IBAction func plusBeverageButtonTapped(_ sender: PlusBeverageButton) {
+    @IBAction func plusBeverageButtonTapped(_ sender: BeverageButton) {
         if let beverage = sender.beverage() {
             vendingMachine.addToStock(beverage: beverage)
         }
@@ -43,7 +43,7 @@ final class ViewController: UIViewController {
     }
     
     @IBOutlet weak var balanceLabel: BalanceLabel!
-    @IBAction func plusBalanceButtonTapped(_ sender: PlusBalanceButton) {
+    @IBAction func plusBalanceButtonTapped(_ sender: BalanceButton) {
         if let money = sender.money() {
             vendingMachine.receive(insertedMoney: money)
         }

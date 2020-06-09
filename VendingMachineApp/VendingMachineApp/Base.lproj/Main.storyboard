@@ -30,7 +30,7 @@
                                                             <constraint firstAttribute="width" secondItem="BpW-vl-Zjd" secondAttribute="height" id="wPV-bZ-IL8"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U2V-cX-p4m" customClass="PlusBeverageButton" customModule="VendingMachineApp" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U2V-cX-p4m" customClass="BeverageButton" customModule="VendingMachineApp" customModuleProvider="target">
                                                         <rect key="frame" x="77.5" y="230.5" width="20" height="22"/>
                                                         <state key="normal" image="plus.circle" catalog="system"/>
                                                         <connections>
@@ -65,7 +65,7 @@
                                                             <constraint firstAttribute="width" secondItem="68U-zj-W9I" secondAttribute="height" id="hJQ-B1-eKa"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vCp-4I-hII" customClass="PlusBeverageButton" customModule="VendingMachineApp" customModuleProvider="target">
+                                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vCp-4I-hII" customClass="BeverageButton" customModule="VendingMachineApp" customModuleProvider="target">
                                                         <rect key="frame" x="78" y="230.5" width="20" height="22"/>
                                                         <state key="normal" image="plus.circle" catalog="system"/>
                                                         <connections>
@@ -100,7 +100,7 @@
                                                             <constraint firstAttribute="width" secondItem="z28-yq-KJm" secondAttribute="height" id="Em4-UC-cjZ"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W8x-FX-YRd" customClass="PlusBeverageButton" customModule="VendingMachineApp" customModuleProvider="target">
+                                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W8x-FX-YRd" customClass="BeverageButton" customModule="VendingMachineApp" customModuleProvider="target">
                                                         <rect key="frame" x="77.5" y="230.5" width="20" height="22"/>
                                                         <state key="normal" image="plus.circle" catalog="system"/>
                                                         <connections>
@@ -140,7 +140,7 @@
                                                             <constraint firstAttribute="width" secondItem="i6l-ZG-sEI" secondAttribute="height" id="BdU-GF-93B"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dU5-co-Bfx" customClass="PlusBeverageButton" customModule="VendingMachineApp" customModuleProvider="target">
+                                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dU5-co-Bfx" customClass="BeverageButton" customModule="VendingMachineApp" customModuleProvider="target">
                                                         <rect key="frame" x="77.5" y="230.5" width="20" height="22"/>
                                                         <state key="normal" image="plus.circle" catalog="system"/>
                                                         <connections>
@@ -175,7 +175,7 @@
                                                             <constraint firstAttribute="width" secondItem="0Da-FC-A7a" secondAttribute="height" id="Kh6-74-SEI"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="009-KQ-5iF" customClass="PlusBeverageButton" customModule="VendingMachineApp" customModuleProvider="target">
+                                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="009-KQ-5iF" customClass="BeverageButton" customModule="VendingMachineApp" customModuleProvider="target">
                                                         <rect key="frame" x="78" y="230.5" width="20" height="22"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                         <state key="normal" image="plus.circle" catalog="system"/>
@@ -211,7 +211,7 @@
                                                             <constraint firstAttribute="width" secondItem="X3k-fh-Nfb" secondAttribute="height" id="JVT-e1-T2w"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gXG-Nk-g7m" customClass="PlusBeverageButton" customModule="VendingMachineApp" customModuleProvider="target">
+                                                    <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gXG-Nk-g7m" customClass="BeverageButton" customModule="VendingMachineApp" customModuleProvider="target">
                                                         <rect key="frame" x="77.5" y="230.5" width="20" height="22"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                         <state key="normal" image="plus.circle" catalog="system"/>
@@ -246,14 +246,14 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nf4-ky-L1q">
                                                 <rect key="frame" x="378" y="11.5" width="189" height="90"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="goM-GG-ohe" customClass="PlusBalanceButton" customModule="VendingMachineApp" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="goM-GG-ohe" customClass="BalanceButton" customModule="VendingMachineApp" customModuleProvider="target">
                                                         <rect key="frame" x="25" y="7.5" width="44" height="30"/>
                                                         <state key="normal" title="+1000"/>
                                                         <connections>
                                                             <action selector="plusBalanceButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CxO-Cy-8bO"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EtE-d8-nF1" customClass="PlusBalanceButton" customModule="VendingMachineApp" customModuleProvider="target">
+                                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EtE-d8-nF1" customClass="BalanceButton" customModule="VendingMachineApp" customModuleProvider="target">
                                                         <rect key="frame" x="118.5" y="7.5" width="47" height="30"/>
                                                         <state key="normal" title="+5000"/>
                                                         <connections>

@@ -9,7 +9,6 @@
 import Foundation
 
 class Milk: Beverage {
-    
     private var expirationDate: Date!
     
     override init(builder: Beverage.Builder) {
@@ -21,13 +20,10 @@ class Milk: Beverage {
     func validate(with date:Date) -> Bool {
         return date < expirationDate
     }
-    
 }
 
 extension Milk {
-    
     override var description: String {
         return super.description + ", \(expirationDate.toStringYearMonthDay)"
     }
-    
 }

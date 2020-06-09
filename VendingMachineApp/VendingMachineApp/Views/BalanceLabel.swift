@@ -9,7 +9,6 @@
 import UIKit
 
 final class BalanceLabel: UILabel {
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
@@ -21,5 +20,4 @@ final class BalanceLabel: UILabel {
     func update(currentMoney :Int) {
         text = "잔액 : \(currentMoney)원"
     }
-    
 }

@@ -9,14 +9,11 @@
 import Foundation
 
 enum SellError: Error {
-    
     case insufficientMoneyError
     case nonExistentBeverageError
-    
 }
 
 final class VendingMachine {
-    
     private var stock: [Beverage] {
         didSet {
             NotificationCenter.default.post(name: Notification.Name.beveragesChanged,
@@ -72,11 +69,9 @@ final class VendingMachine {
         }
         return false
     }
-    
 }
 
 extension VendingMachine {
-    
     func searchSalesLog(handler: (Beverage) -> (Void)) {
         cashier.searchSalesLog { handler($0) }
     }
@@ -111,11 +106,9 @@ extension VendingMachine {
     func searchAllBeverages(handler: (Beverage) -> (Void)) {
         stock.forEach { handler($0) }
     }
-    
 }
 
 extension VendingMachine {
-
     func stockByKind() -> [Beverage.Kind: Int] {
         var stockByKind = [Beverage.Kind: Int]()
         stock.forEach {
@@ -145,5 +138,4 @@ extension VendingMachine {
         }
         return sellableBeverages
     }
-    
 }

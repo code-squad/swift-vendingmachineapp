@@ -10,7 +10,6 @@ import XCTest
 @testable import VendingMachineApp
 
 final class VendingMachineTest: XCTestCase {
-    
     var vendingMachine: VendingMachine!
     let primiumLatte = Cantata(cantataBuilder: Cantatas.builderPrimiumLatte175ml,
                                celsius: 65)
@@ -94,5 +93,4 @@ final class VendingMachineTest: XCTestCase {
             }
         }
     }
-    
 }

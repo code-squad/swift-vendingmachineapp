@@ -9,15 +9,12 @@
 import Foundation
 
 enum Package {
-    
     static let glass = "glass"
     static let can = "can"
     static let pet = "pet"
-    
 }
 
 final class Pepsi: Soda {
-    
     private let package: String
     
     init(pepsiBuilder: PepsiBuilder) {
@@ -28,19 +25,15 @@ final class Pepsi: Soda {
     func isFragile() -> Bool {
         return package == Package.glass
     }
-    
 }
 
 extension Pepsi {
-    
     override var description: String {
         return super.description + ", package: \(package.description)"
     }
-    
 }
 
 extension Pepsi {
-    
     class PepsiBuilder: Soda.SodaBuilder {
         
         let package: String
@@ -60,5 +53,4 @@ extension Pepsi {
         }
         
     }
-    
 }

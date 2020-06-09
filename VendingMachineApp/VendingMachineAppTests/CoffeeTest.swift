@@ -10,7 +10,6 @@ import XCTest
 @testable import VendingMachineApp
 
 final class CoffeeTest: XCTestCase {
-    
     var coffee: Coffee!
     
     override func setUp() {
@@ -33,5 +32,4 @@ final class CoffeeTest: XCTestCase {
                          celsius: 55)
         XCTAssertFalse(coffee.isHot())
     }
-    
 }

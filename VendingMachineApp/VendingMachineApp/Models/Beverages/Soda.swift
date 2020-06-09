@@ -9,7 +9,6 @@
 import Foundation
 
 class Soda: Beverage {
-    
     private let kiloCalorie: Int
     
     init(sodaBuilder: SodaBuilder) {
@@ -20,19 +19,15 @@ class Soda: Beverage {
     func isLowCalorie() -> Bool {
         return kiloCalorie <= Quantity.maxLowKiloCalorie
     }
-    
 }
 
 extension Soda {
-    
     override var description: String {
         return super.description + ", \(kiloCalorie)kcal"
     }
-    
 }
 
 extension Soda {
-    
     class SodaBuilder: Beverage.Builder {
         
         let kiloCalorie: Int
@@ -48,7 +43,5 @@ extension Soda {
                        volume: volume,
                        price: price)
         }
-        
     }
-    
 }

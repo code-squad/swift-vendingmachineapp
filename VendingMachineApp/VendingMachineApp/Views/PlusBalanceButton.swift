@@ -9,13 +9,10 @@
 import UIKit
 
 protocol BalanceTagControl {
-    
     func money() -> Int?
-    
 }
 
 final class PlusBalanceButton: UIButton, BalanceTagControl {
-
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
@@ -27,11 +24,9 @@ final class PlusBalanceButton: UIButton, BalanceTagControl {
     func money() -> Int? {
         return BalanceItemByTag(rawValue: tag)?.money()
     }
-    
 }
 
 enum BalanceItemByTag: Int {
-    
     case oneThousand = 0
     case fiveThousand
     
@@ -43,5 +38,4 @@ enum BalanceItemByTag: Int {
             return 5000
         }
     }
-    
 }

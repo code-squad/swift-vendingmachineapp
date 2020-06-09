@@ -9,7 +9,6 @@
 import Foundation
 
 final class Cantata: Coffee {
-    
     private let milkContentRate: Double
     private let sugarContentRate: Double
     
@@ -28,21 +27,17 @@ final class Cantata: Coffee {
     func isContainsSugar() -> Bool {
         return sugarContentRate == Quantity.minRate
     }
-    
 }
 
 extension Cantata {
-    
     override var description: String {
         return super.description +
             ", 우유: \(milkContentRate)%" +
         ", 설탕: \(sugarContentRate)%"
     }
-    
 }
 
 extension Cantata {
-    
     class CantataBuilder: Beverage.Builder {
         
         let milkContentRate: Double
@@ -61,7 +56,5 @@ extension Cantata {
                        volume: volume,
                        price: price)
         }
-       
     }
-    
 }

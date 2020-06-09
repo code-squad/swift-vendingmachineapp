@@ -9,23 +9,18 @@
 import UIKit
 
 protocol BeverageTagControl {
-    
     var beverageItemByTag: BeverageItemByTag? {get set}
 
     func beverage() -> Beverage?
-    
 }
 
 extension BeverageTagControl {
-    
     func beverage() -> Beverage? {
         return beverageItemByTag?.beverage()
     }
-    
 }
 
 final class PlusBeverageButton: UIButton, BeverageTagControl {
-    
     var beverageItemByTag: BeverageItemByTag?
     
     override init(frame: CGRect) {
@@ -45,11 +40,9 @@ final class PlusBeverageButton: UIButton, BeverageTagControl {
     private func initBeverageItemByTag() {
         beverageItemByTag = BeverageItemByTag(rawValue: tag)
     }
-    
 }
 
 final class BeverageNumberLabel: UILabel, BeverageTagControl {
-    
     var beverageItemByTag: BeverageItemByTag?
     
     override init(frame: CGRect) {
@@ -73,11 +66,9 @@ final class BeverageNumberLabel: UILabel, BeverageTagControl {
     func update(number: Int) {
         text = "\(number)개"
     }
-    
 }
 
 enum BeverageItemByTag: Int {
-    
     case cantataPrimiumLatte175ml = 0
     case cantataPrimiumLatte275ml
     case pepsiDietCola250ml
@@ -105,6 +96,4 @@ enum BeverageItemByTag: Int {
                 HersheyChocolateDrinks.builderCookieCream350ml)
         }
     }
-    
 }
-

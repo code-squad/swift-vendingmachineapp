@@ -9,7 +9,6 @@
 import Foundation
 
 class Coffee: Beverage {
-    
     private let celsius: Int
     
     init(builder: Beverage.Builder,
@@ -21,13 +20,10 @@ class Coffee: Beverage {
     func isHot() -> Bool {
         return celsius >= Quantity.minHotCelsius
     }
-    
 }
 
 extension Coffee {
-    
     override var description: String {
         return super.description + ", \(celsius)°C"
     }
-    
 }

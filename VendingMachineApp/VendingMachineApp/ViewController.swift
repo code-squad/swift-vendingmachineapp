@@ -9,7 +9,6 @@
 import UIKit
 
 final class ViewController: UIViewController {
-    
     private var vendingMachine = VendingMachine()
     
     override func viewDidLoad() {
@@ -54,5 +53,4 @@ final class ViewController: UIViewController {
         let currentMoney = vendingMachine.currentMoney()
         balanceLabel.update(currentMoney: currentMoney)
     }
-    
 }

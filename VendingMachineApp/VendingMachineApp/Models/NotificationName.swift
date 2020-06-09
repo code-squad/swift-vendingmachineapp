@@ -9,8 +9,6 @@
 import Foundation
 
 extension Notification.Name {
-    
     static let beveragesChanged = Notification.Name("beveragesChanged")
     static let balanceChanged = Notification.Name("balanceChanged")
-    
 }

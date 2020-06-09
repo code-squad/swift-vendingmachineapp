@@ -9,7 +9,6 @@
 import Foundation
 
 class Beverage {
-    
     private let brand: String
     private let name: String
     private let volume: Int
@@ -26,11 +25,9 @@ class Beverage {
                          price: self.price)
         self.manufacturingDate = Date()
     }
-    
 }
 
 extension Beverage: Equatable {
-    
     static func == (lhs: Beverage, rhs: Beverage) -> Bool {
         return lhs.kind == rhs.kind
     }
@@ -38,18 +35,14 @@ extension Beverage: Equatable {
 }
 
 extension Beverage: CustomStringConvertible {
-    
     @objc var description: String {
         return "\(brand), \(volume)ml, \(price)원, \(name)" +
         ", \(manufacturingDate.toStringYearMonthDay)"
     }
-    
 }
 
 extension Beverage {
-    
     class Builder {
-        
         let brand: String
         let name: String
         let volume: Int
@@ -64,15 +57,11 @@ extension Beverage {
             self.volume = volume
             self.price = price
         }
-        
     }
-    
 }
 
 extension Beverage {
-    
     struct Kind: Hashable {
-        
         private let name: String
         private let price: Int
         
@@ -84,7 +73,5 @@ extension Beverage {
         func hash(into hasher: inout Hasher) {
             return hasher.combine(name + String(price))
         }
-        
     }
-    
 }

@@ -10,7 +10,6 @@ import XCTest
 @testable import VendingMachineApp
 
 final class MilkTest: XCTestCase {
-    
     var milk: Milk!
     
     override func setUp() {
@@ -35,5 +34,4 @@ final class MilkTest: XCTestCase {
             XCTAssertFalse(milk.validate(with: date))
         }
     }
-    
 }

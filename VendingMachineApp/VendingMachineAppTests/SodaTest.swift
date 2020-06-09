@@ -10,7 +10,6 @@ import XCTest
 @testable import VendingMachineApp
 
 final class SodaTest: XCTestCase {
-    
     var soda: Soda!
     
     override func setUp() {
@@ -31,5 +30,4 @@ final class SodaTest: XCTestCase {
         soda = Pepsi(pepsiBuilder: Pepsis.builderDietCola591ml)
         XCTAssertFalse(soda.isLowCalorie())
     }
-    
 }

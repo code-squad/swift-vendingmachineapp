@@ -15,184 +15,301 @@
                         <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Cez-H5-jtY">
-                                <rect key="frame" x="20" y="0.0" width="766" height="316.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="zzs-ul-MSM">
+                                <rect key="frame" x="83.5" y="41.5" width="945" height="751"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Eic-Av-Q1m">
-                                        <rect key="frame" x="0.0" y="0.0" width="250" height="316.5"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="iCF-Ro-dVy" userLabel="First Beverage Stack">
+                                        <rect key="frame" x="0.0" y="0.0" width="945" height="293"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9eK-n3-QyH" customClass="PlusBeverageButton" customModule="VendingMachineApp" customModuleProvider="target">
-                                                <rect key="frame" x="110" y="0.0" width="30" height="30"/>
-                                                <state key="normal" title="추가"/>
-                                                <connections>
-                                                    <action selector="plusBeverageButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="86S-6M-oMv"/>
-                                                </connections>
-                                            </button>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cantata-primiumlatte-175ml" translatesAutoresizingMaskIntoConstraints="NO" id="ff3-gQ-vTN">
-                                                <rect key="frame" x="0.0" y="38" width="250" height="250"/>
-                                            </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ah1-gN-xIW" customClass="BeverageNumberLabel" customModule="VendingMachineApp" customModuleProvider="target">
-                                                <rect key="frame" x="112.5" y="296" width="25.5" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xVk-Po-L09">
+                                                <rect key="frame" x="0.0" y="0.0" width="292.5" height="293"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cantata-primiumlatte-175ml-removebg-preview" translatesAutoresizingMaskIntoConstraints="NO" id="BpW-vl-Zjd">
+                                                        <rect key="frame" x="51" y="20" width="190.5" height="190.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="BpW-vl-Zjd" secondAttribute="height" id="wPV-bZ-IL8"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U2V-cX-p4m" customClass="PlusBeverageButton" customModule="VendingMachineApp" customModuleProvider="target">
+                                                        <rect key="frame" x="77.5" y="230.5" width="20" height="22"/>
+                                                        <state key="normal" image="plus.circle" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="plusBeverageButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tZu-GO-03D"/>
+                                                        </connections>
+                                                    </button>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HMB-a2-S56" customClass="BeverageNumberLabel" customModule="VendingMachineApp" customModuleProvider="target">
+                                                        <rect key="frame" x="184" y="230.5" width="42" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="BpW-vl-Zjd" firstAttribute="centerX" secondItem="xVk-Po-L09" secondAttribute="centerX" id="7rg-Tc-tVo"/>
+                                                    <constraint firstItem="BpW-vl-Zjd" firstAttribute="width" secondItem="xVk-Po-L09" secondAttribute="width" multiplier="0.65" id="ErH-5Y-6Lm"/>
+                                                    <constraint firstItem="BpW-vl-Zjd" firstAttribute="top" secondItem="xVk-Po-L09" secondAttribute="top" constant="20" id="IhP-qs-zI6"/>
+                                                    <constraint firstItem="U2V-cX-p4m" firstAttribute="top" secondItem="BpW-vl-Zjd" secondAttribute="bottom" constant="20" id="Mmq-cv-M20"/>
+                                                    <constraint firstItem="U2V-cX-p4m" firstAttribute="centerX" secondItem="BpW-vl-Zjd" secondAttribute="centerX" multiplier="0.6" id="WPI-JB-m9G"/>
+                                                    <constraint firstItem="HMB-a2-S56" firstAttribute="centerX" secondItem="BpW-vl-Zjd" secondAttribute="centerX" multiplier="1.4" id="oSE-52-u9B"/>
+                                                    <constraint firstItem="HMB-a2-S56" firstAttribute="top" secondItem="BpW-vl-Zjd" secondAttribute="bottom" constant="20" id="wkA-Vq-MhA"/>
+                                                    <constraint firstAttribute="width" secondItem="xVk-Po-L09" secondAttribute="height" multiplier="1:1" id="zsL-1l-V5n"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iGI-xm-Nw9">
+                                                <rect key="frame" x="326" y="0.0" width="293" height="293"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cantata-primiumlatte-275ml-removebg-preview" translatesAutoresizingMaskIntoConstraints="NO" id="68U-zj-W9I">
+                                                        <rect key="frame" x="51.5" y="20" width="190" height="190.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="68U-zj-W9I" secondAttribute="height" id="hJQ-B1-eKa"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vCp-4I-hII" customClass="PlusBeverageButton" customModule="VendingMachineApp" customModuleProvider="target">
+                                                        <rect key="frame" x="78" y="230.5" width="20" height="22"/>
+                                                        <state key="normal" image="plus.circle" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="plusBeverageButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CM0-9H-dtz"/>
+                                                        </connections>
+                                                    </button>
+                                                    <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4FQ-w3-2pT" customClass="BeverageNumberLabel" customModule="VendingMachineApp" customModuleProvider="target">
+                                                        <rect key="frame" x="184" y="230.5" width="42" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="68U-zj-W9I" firstAttribute="centerX" secondItem="iGI-xm-Nw9" secondAttribute="centerX" id="COX-mZ-3lN"/>
+                                                    <constraint firstAttribute="width" secondItem="iGI-xm-Nw9" secondAttribute="height" multiplier="1:1" id="SDp-XO-byC"/>
+                                                    <constraint firstItem="68U-zj-W9I" firstAttribute="width" secondItem="iGI-xm-Nw9" secondAttribute="width" multiplier="0.65" id="ZjA-xu-mP3"/>
+                                                    <constraint firstItem="4FQ-w3-2pT" firstAttribute="top" secondItem="68U-zj-W9I" secondAttribute="bottom" constant="20" id="dfK-lk-8o3"/>
+                                                    <constraint firstItem="vCp-4I-hII" firstAttribute="centerX" secondItem="68U-zj-W9I" secondAttribute="centerX" multiplier="0.6" id="h41-FP-7e1"/>
+                                                    <constraint firstItem="68U-zj-W9I" firstAttribute="top" secondItem="iGI-xm-Nw9" secondAttribute="top" constant="20" id="hXG-kd-bFD"/>
+                                                    <constraint firstItem="4FQ-w3-2pT" firstAttribute="centerX" secondItem="68U-zj-W9I" secondAttribute="centerX" multiplier="1.4" id="iIv-8W-uvP"/>
+                                                    <constraint firstItem="vCp-4I-hII" firstAttribute="top" secondItem="68U-zj-W9I" secondAttribute="bottom" constant="20" id="t5v-la-tFn"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dGg-Ww-3OJ">
+                                                <rect key="frame" x="652.5" y="0.0" width="292.5" height="293"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hershey-cookieAndCream-235ml-removebg-preview" translatesAutoresizingMaskIntoConstraints="NO" id="z28-yq-KJm">
+                                                        <rect key="frame" x="51" y="20" width="190.5" height="190.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="z28-yq-KJm" secondAttribute="height" id="Em4-UC-cjZ"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W8x-FX-YRd" customClass="PlusBeverageButton" customModule="VendingMachineApp" customModuleProvider="target">
+                                                        <rect key="frame" x="77.5" y="230.5" width="20" height="22"/>
+                                                        <state key="normal" image="plus.circle" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="plusBeverageButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="g7a-OF-YVN"/>
+                                                        </connections>
+                                                    </button>
+                                                    <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SZe-Vw-ZhC" customClass="BeverageNumberLabel" customModule="VendingMachineApp" customModuleProvider="target">
+                                                        <rect key="frame" x="184" y="230.5" width="42" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="SZe-Vw-ZhC" firstAttribute="centerX" secondItem="z28-yq-KJm" secondAttribute="centerX" multiplier="1.4" id="EjL-e6-VwC"/>
+                                                    <constraint firstItem="SZe-Vw-ZhC" firstAttribute="top" secondItem="z28-yq-KJm" secondAttribute="bottom" constant="20" id="GCl-HP-ZA3"/>
+                                                    <constraint firstItem="z28-yq-KJm" firstAttribute="width" secondItem="dGg-Ww-3OJ" secondAttribute="width" multiplier="0.65" id="Nq6-xR-Ylc"/>
+                                                    <constraint firstItem="W8x-FX-YRd" firstAttribute="top" secondItem="z28-yq-KJm" secondAttribute="bottom" constant="20" id="OG4-2I-wnp"/>
+                                                    <constraint firstItem="W8x-FX-YRd" firstAttribute="centerX" secondItem="z28-yq-KJm" secondAttribute="centerX" multiplier="0.6" id="UCk-lX-9kU"/>
+                                                    <constraint firstAttribute="width" secondItem="dGg-Ww-3OJ" secondAttribute="height" id="cGu-Rl-khC"/>
+                                                    <constraint firstItem="z28-yq-KJm" firstAttribute="centerX" secondItem="dGg-Ww-3OJ" secondAttribute="centerX" id="rVs-0s-het"/>
+                                                    <constraint firstItem="z28-yq-KJm" firstAttribute="top" secondItem="dGg-Ww-3OJ" secondAttribute="top" constant="20" id="tIP-hb-BRX"/>
+                                                </constraints>
+                                            </view>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="iiX-Nj-9tZ">
-                                        <rect key="frame" x="258" y="0.0" width="250" height="316.5"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="D2V-FY-9qM" userLabel="Second Beverages Stack">
+                                        <rect key="frame" x="0.0" y="319" width="945" height="293"/>
                                         <subviews>
-                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mSq-Y1-KOQ" customClass="PlusBeverageButton" customModule="VendingMachineApp" customModuleProvider="target">
-                                                <rect key="frame" x="110" y="0.0" width="30" height="30"/>
-                                                <state key="normal" title="추가"/>
-                                                <connections>
-                                                    <action selector="plusBeverageButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0Is-VF-fD7"/>
-                                                </connections>
-                                            </button>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pepsi-dietCola-250ml" translatesAutoresizingMaskIntoConstraints="NO" id="4Pv-zd-DNJ">
-                                                <rect key="frame" x="0.0" y="38" width="250" height="250"/>
-                                            </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LWo-qD-x4n" customClass="BeverageNumberLabel" customModule="VendingMachineApp" customModuleProvider="target">
-                                                <rect key="frame" x="112.5" y="296" width="25.5" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="59X-cm-8xW">
+                                                <rect key="frame" x="0.0" y="0.0" width="292.5" height="293"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hershey-cookieAndCream-350ml-removebg-preview" translatesAutoresizingMaskIntoConstraints="NO" id="i6l-ZG-sEI">
+                                                        <rect key="frame" x="51" y="20" width="190.5" height="190.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="i6l-ZG-sEI" secondAttribute="height" id="BdU-GF-93B"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dU5-co-Bfx" customClass="PlusBeverageButton" customModule="VendingMachineApp" customModuleProvider="target">
+                                                        <rect key="frame" x="77.5" y="230.5" width="20" height="22"/>
+                                                        <state key="normal" image="plus.circle" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="plusBeverageButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="x3D-np-tlD"/>
+                                                        </connections>
+                                                    </button>
+                                                    <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oTL-ks-4Si" customClass="BeverageNumberLabel" customModule="VendingMachineApp" customModuleProvider="target">
+                                                        <rect key="frame" x="184" y="230.5" width="42" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="oTL-ks-4Si" firstAttribute="centerX" secondItem="i6l-ZG-sEI" secondAttribute="centerX" multiplier="1.4" id="8df-iD-1Pg"/>
+                                                    <constraint firstItem="dU5-co-Bfx" firstAttribute="top" secondItem="i6l-ZG-sEI" secondAttribute="bottom" constant="20" id="9V5-6r-QbG"/>
+                                                    <constraint firstItem="dU5-co-Bfx" firstAttribute="centerX" secondItem="i6l-ZG-sEI" secondAttribute="centerX" multiplier="0.6" id="Bnj-AJ-O10"/>
+                                                    <constraint firstItem="oTL-ks-4Si" firstAttribute="top" secondItem="i6l-ZG-sEI" secondAttribute="bottom" constant="20" id="DGg-Tk-VhK"/>
+                                                    <constraint firstItem="i6l-ZG-sEI" firstAttribute="width" secondItem="59X-cm-8xW" secondAttribute="width" multiplier="0.65" id="PxG-8o-zPG"/>
+                                                    <constraint firstItem="i6l-ZG-sEI" firstAttribute="top" secondItem="59X-cm-8xW" secondAttribute="top" constant="20" id="Tsr-dz-wwe"/>
+                                                    <constraint firstAttribute="width" secondItem="59X-cm-8xW" secondAttribute="height" id="Y6g-ZI-5Oh"/>
+                                                    <constraint firstItem="i6l-ZG-sEI" firstAttribute="centerX" secondItem="59X-cm-8xW" secondAttribute="centerX" id="fcu-v4-mch"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rAr-wX-dif">
+                                                <rect key="frame" x="326" y="0.0" width="293" height="293"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pepsi-dietCola-250ml-removebg-preview" translatesAutoresizingMaskIntoConstraints="NO" id="0Da-FC-A7a">
+                                                        <rect key="frame" x="51.5" y="20" width="190" height="190.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="0Da-FC-A7a" secondAttribute="height" id="Kh6-74-SEI"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="009-KQ-5iF" customClass="PlusBeverageButton" customModule="VendingMachineApp" customModuleProvider="target">
+                                                        <rect key="frame" x="78" y="230.5" width="20" height="22"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                        <state key="normal" image="plus.circle" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="plusBeverageButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3GA-qK-MAa"/>
+                                                        </connections>
+                                                    </button>
+                                                    <label opaque="NO" userInteractionEnabled="NO" tag="4" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CaR-Yv-rvA" customClass="BeverageNumberLabel" customModule="VendingMachineApp" customModuleProvider="target">
+                                                        <rect key="frame" x="184" y="230.5" width="42" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="CaR-Yv-rvA" firstAttribute="top" secondItem="0Da-FC-A7a" secondAttribute="bottom" constant="20" id="0I3-x6-LBj"/>
+                                                    <constraint firstItem="009-KQ-5iF" firstAttribute="centerX" secondItem="0Da-FC-A7a" secondAttribute="centerX" multiplier="0.6" id="XEH-YF-j76"/>
+                                                    <constraint firstAttribute="width" secondItem="rAr-wX-dif" secondAttribute="height" id="c9O-9i-kn5"/>
+                                                    <constraint firstItem="0Da-FC-A7a" firstAttribute="width" secondItem="rAr-wX-dif" secondAttribute="width" multiplier="0.65" id="gzl-G1-pPY"/>
+                                                    <constraint firstItem="0Da-FC-A7a" firstAttribute="top" secondItem="rAr-wX-dif" secondAttribute="top" constant="20" id="jGz-Ac-MZs"/>
+                                                    <constraint firstItem="CaR-Yv-rvA" firstAttribute="centerX" secondItem="0Da-FC-A7a" secondAttribute="centerX" multiplier="1.4" id="lbf-cQ-9nn"/>
+                                                    <constraint firstItem="0Da-FC-A7a" firstAttribute="centerX" secondItem="rAr-wX-dif" secondAttribute="centerX" id="rGy-HV-8sJ"/>
+                                                    <constraint firstItem="009-KQ-5iF" firstAttribute="top" secondItem="0Da-FC-A7a" secondAttribute="bottom" constant="20" id="u0g-Kw-T28"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nZA-Br-mgH">
+                                                <rect key="frame" x="652.5" y="0.0" width="292.5" height="293"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pepsi-dietCola-591ml-removebg-preview" translatesAutoresizingMaskIntoConstraints="NO" id="X3k-fh-Nfb">
+                                                        <rect key="frame" x="51" y="20" width="190.5" height="190.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="X3k-fh-Nfb" secondAttribute="height" id="JVT-e1-T2w"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gXG-Nk-g7m" customClass="PlusBeverageButton" customModule="VendingMachineApp" customModuleProvider="target">
+                                                        <rect key="frame" x="77.5" y="230.5" width="20" height="22"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                        <state key="normal" image="plus.circle" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="plusBeverageButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QHp-ed-A4z"/>
+                                                        </connections>
+                                                    </button>
+                                                    <label opaque="NO" userInteractionEnabled="NO" tag="5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T1U-DM-QZ1" customClass="BeverageNumberLabel" customModule="VendingMachineApp" customModuleProvider="target">
+                                                        <rect key="frame" x="184" y="230.5" width="42" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="gXG-Nk-g7m" firstAttribute="centerX" secondItem="X3k-fh-Nfb" secondAttribute="centerX" multiplier="0.6" id="0Gw-5N-q3m"/>
+                                                    <constraint firstAttribute="width" secondItem="nZA-Br-mgH" secondAttribute="height" id="6pq-rg-yc9"/>
+                                                    <constraint firstItem="X3k-fh-Nfb" firstAttribute="width" secondItem="nZA-Br-mgH" secondAttribute="width" multiplier="0.65" id="8xl-71-WXR"/>
+                                                    <constraint firstItem="X3k-fh-Nfb" firstAttribute="top" secondItem="nZA-Br-mgH" secondAttribute="top" constant="20" id="GcT-S3-t8s"/>
+                                                    <constraint firstItem="gXG-Nk-g7m" firstAttribute="top" secondItem="X3k-fh-Nfb" secondAttribute="bottom" constant="20" id="gvG-Cg-m0O"/>
+                                                    <constraint firstItem="T1U-DM-QZ1" firstAttribute="top" secondItem="X3k-fh-Nfb" secondAttribute="bottom" constant="20" id="kWN-Kw-wbH"/>
+                                                    <constraint firstItem="T1U-DM-QZ1" firstAttribute="centerX" secondItem="X3k-fh-Nfb" secondAttribute="centerX" multiplier="1.4" id="pu6-LD-8YI"/>
+                                                    <constraint firstItem="X3k-fh-Nfb" firstAttribute="centerX" secondItem="nZA-Br-mgH" secondAttribute="centerX" id="wRF-vr-yue"/>
+                                                </constraints>
+                                            </view>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="wt8-iH-hiL">
-                                        <rect key="frame" x="516" y="0.0" width="250" height="316.5"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="15L-PT-9Ck">
+                                        <rect key="frame" x="0.0" y="638" width="945" height="113"/>
                                         <subviews>
-                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Xp-uK-uZ1" customClass="PlusBeverageButton" customModule="VendingMachineApp" customModuleProvider="target">
-                                                <rect key="frame" x="110" y="0.0" width="30" height="30"/>
-                                                <state key="normal" title="추가"/>
-                                                <connections>
-                                                    <action selector="plusBeverageButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0z3-fB-Xel"/>
-                                                </connections>
-                                            </button>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hershey-cookieAndCream-235ml" translatesAutoresizingMaskIntoConstraints="NO" id="sMt-4x-HZk">
-                                                <rect key="frame" x="0.0" y="38" width="250" height="250"/>
-                                            </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RDK-m8-b8V" customClass="BeverageNumberLabel" customModule="VendingMachineApp" customModuleProvider="target">
-                                                <rect key="frame" x="112.5" y="296" width="25.5" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nf4-ky-L1q">
+                                                <rect key="frame" x="378" y="11.5" width="189" height="90"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="goM-GG-ohe" customClass="PlusBalanceButton" customModule="VendingMachineApp" customModuleProvider="target">
+                                                        <rect key="frame" x="25" y="7.5" width="44" height="30"/>
+                                                        <state key="normal" title="+1000"/>
+                                                        <connections>
+                                                            <action selector="plusBalanceButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CxO-Cy-8bO"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EtE-d8-nF1" customClass="PlusBalanceButton" customModule="VendingMachineApp" customModuleProvider="target">
+                                                        <rect key="frame" x="118.5" y="7.5" width="47" height="30"/>
+                                                        <state key="normal" title="+5000"/>
+                                                        <connections>
+                                                            <action selector="plusBalanceButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lxQ-uH-tsB"/>
+                                                        </connections>
+                                                    </button>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="잔액 : 0원 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KQN-oq-VMf" customClass="BalanceLabel" customModule="VendingMachineApp" customModuleProvider="target">
+                                                        <rect key="frame" x="58.5" y="57.5" width="72.5" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" red="0.39637178020000002" green="0.79289596709999999" blue="0.78547235550000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <constraints>
+                                                    <constraint firstItem="goM-GG-ohe" firstAttribute="centerX" secondItem="Nf4-ky-L1q" secondAttribute="centerX" multiplier="0.5" id="0PS-Jq-bwd"/>
+                                                    <constraint firstItem="KQN-oq-VMf" firstAttribute="centerY" secondItem="Nf4-ky-L1q" secondAttribute="centerY" multiplier="1.5" id="4Bq-M4-gX8"/>
+                                                    <constraint firstItem="goM-GG-ohe" firstAttribute="centerY" secondItem="Nf4-ky-L1q" secondAttribute="centerY" multiplier="0.5" id="Fdi-nl-Y9n"/>
+                                                    <constraint firstItem="KQN-oq-VMf" firstAttribute="centerX" secondItem="Nf4-ky-L1q" secondAttribute="centerX" id="avx-Ik-hoj"/>
+                                                    <constraint firstItem="EtE-d8-nF1" firstAttribute="centerX" secondItem="Nf4-ky-L1q" secondAttribute="centerX" multiplier="1.5" id="mq6-SN-ZaL"/>
+                                                    <constraint firstItem="EtE-d8-nF1" firstAttribute="centerY" secondItem="Nf4-ky-L1q" secondAttribute="centerY" multiplier="0.5" id="wuD-zi-q7U"/>
+                                                </constraints>
+                                            </view>
                                         </subviews>
-                                    </stackView>
+                                        <constraints>
+                                            <constraint firstItem="Nf4-ky-L1q" firstAttribute="centerY" secondItem="15L-PT-9Ck" secondAttribute="centerY" id="HIp-ez-6OW"/>
+                                            <constraint firstItem="Nf4-ky-L1q" firstAttribute="centerX" secondItem="15L-PT-9Ck" secondAttribute="centerX" id="Hja-Db-DHu"/>
+                                            <constraint firstItem="Nf4-ky-L1q" firstAttribute="width" secondItem="15L-PT-9Ck" secondAttribute="width" multiplier="0.2" id="l7c-ZS-esG"/>
+                                            <constraint firstItem="Nf4-ky-L1q" firstAttribute="height" secondItem="15L-PT-9Ck" secondAttribute="height" multiplier="0.8" id="ypH-aC-2hT"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
-                            </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" alignment="center" spacing="43" translatesAutoresizingMaskIntoConstraints="NO" id="Psm-gf-pU1">
-                                <rect key="frame" x="20" y="429" width="694" height="320"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Ff1-0F-qpY">
-                                        <rect key="frame" x="0.0" y="0.0" width="256" height="320"/>
-                                        <subviews>
-                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aW4-50-y8B" customClass="PlusBeverageButton" customModule="VendingMachineApp" customModuleProvider="target">
-                                                <rect key="frame" x="113" y="0.0" width="30" height="30"/>
-                                                <state key="normal" title="추가"/>
-                                                <connections>
-                                                    <action selector="plusBeverageButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KN1-yX-2Ww"/>
-                                                </connections>
-                                            </button>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cantata-primiumLatte-275ml" translatesAutoresizingMaskIntoConstraints="NO" id="dfS-Dn-qd5">
-                                                <rect key="frame" x="0.0" y="38" width="256" height="253.5"/>
-                                            </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Utr-Kd-MDb" customClass="BeverageNumberLabel" customModule="VendingMachineApp" customModuleProvider="target">
-                                                <rect key="frame" x="115.5" y="299.5" width="25.5" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Lbl-WF-sne">
-                                        <rect key="frame" x="299" y="4" width="246" height="312.5"/>
-                                        <subviews>
-                                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="auh-iv-pma" customClass="PlusBeverageButton" customModule="VendingMachineApp" customModuleProvider="target">
-                                                <rect key="frame" x="108" y="0.0" width="30" height="30"/>
-                                                <state key="normal" title="추가"/>
-                                                <connections>
-                                                    <action selector="plusBeverageButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="u00-nN-EjC"/>
-                                                </connections>
-                                            </button>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pepsi-dietCola-591ml" translatesAutoresizingMaskIntoConstraints="NO" id="PkB-JY-7jR">
-                                                <rect key="frame" x="0.0" y="38" width="246" height="246"/>
-                                            </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" tag="4" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l3o-C3-mPe" customClass="BeverageNumberLabel" customModule="VendingMachineApp" customModuleProvider="target">
-                                                <rect key="frame" x="110.5" y="292" width="25.5" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="6Zg-nK-zYq">
-                                        <rect key="frame" x="588" y="54.5" width="106" height="211.5"/>
-                                        <subviews>
-                                            <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tJA-sw-xgO" customClass="PlusBeverageButton" customModule="VendingMachineApp" customModuleProvider="target">
-                                                <rect key="frame" x="38" y="0.0" width="30" height="30"/>
-                                                <state key="normal" title="추가"/>
-                                                <connections>
-                                                    <action selector="plusBeverageButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UFX-Ii-l2y"/>
-                                                </connections>
-                                            </button>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hershey-cookieAndCream-350ml" translatesAutoresizingMaskIntoConstraints="NO" id="vae-pn-KOc">
-                                                <rect key="frame" x="0.0" y="38" width="106" height="145"/>
-                                            </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" tag="5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ac4-Pf-xnj" customClass="BeverageNumberLabel" customModule="VendingMachineApp" customModuleProvider="target">
-                                                <rect key="frame" x="40.5" y="191" width="25.5" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                    </stackView>
-                                </subviews>
-                            </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="hSG-Ze-5PG">
-                                <rect key="frame" x="993" y="286" width="118" height="58.5"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="27" translatesAutoresizingMaskIntoConstraints="NO" id="v5t-UE-a5L">
-                                        <rect key="frame" x="0.0" y="0.0" width="118" height="30"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="goM-GG-ohe" customClass="PlusBalanceButton" customModule="VendingMachineApp" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="44" height="30"/>
-                                                <state key="normal" title="+1000"/>
-                                                <connections>
-                                                    <action selector="plusBalanceButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CxO-Cy-8bO"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EtE-d8-nF1" customClass="PlusBalanceButton" customModule="VendingMachineApp" customModuleProvider="target">
-                                                <rect key="frame" x="71" y="0.0" width="47" height="30"/>
-                                                <state key="normal" title="+5000"/>
-                                                <connections>
-                                                    <action selector="plusBalanceButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lxQ-uH-tsB"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="잔액 : 0원 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KQN-oq-VMf" customClass="BalanceLabel" customModule="VendingMachineApp" customModuleProvider="target">
-                                        <rect key="frame" x="23" y="38" width="72.5" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="iCF-Ro-dVy" firstAttribute="height" secondItem="zzs-ul-MSM" secondAttribute="height" multiplier="0.39" id="3Bb-Uq-I7U"/>
+                                    <constraint firstItem="15L-PT-9Ck" firstAttribute="height" secondItem="zzs-ul-MSM" secondAttribute="height" multiplier="0.15" id="M8e-ZV-CaD"/>
+                                    <constraint firstItem="D2V-FY-9qM" firstAttribute="height" secondItem="zzs-ul-MSM" secondAttribute="height" multiplier="0.39" id="YAM-Ei-QxB"/>
+                                </constraints>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="0.27843137254901962" green="0.64313725490196072" blue="0.396078431372549" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="zzs-ul-MSM" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="MBh-3D-Yfr"/>
+                            <constraint firstItem="zzs-ul-MSM" firstAttribute="width" secondItem="6Tk-OE-BBY" secondAttribute="width" multiplier="0.85" id="fMC-bu-Li3"/>
+                            <constraint firstItem="zzs-ul-MSM" firstAttribute="height" secondItem="6Tk-OE-BBY" secondAttribute="height" multiplier="0.9" id="ity-Sw-3C0"/>
+                            <constraint firstItem="zzs-ul-MSM" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="wd5-ES-EZ8"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="balanceLabel" destination="KQN-oq-VMf" id="k2B-0l-74G"/>
-                        <outletCollection property="beverageNumberLabels" destination="Ah1-gN-xIW" collectionClass="NSMutableArray" id="f7V-7n-DSC"/>
-                        <outletCollection property="beverageNumberLabels" destination="RDK-m8-b8V" collectionClass="NSMutableArray" id="NOj-5W-8xZ"/>
-                        <outletCollection property="beverageNumberLabels" destination="Utr-Kd-MDb" collectionClass="NSMutableArray" id="zik-XM-6ol"/>
-                        <outletCollection property="beverageNumberLabels" destination="Ac4-Pf-xnj" collectionClass="NSMutableArray" id="zrX-WM-yhc"/>
-                        <outletCollection property="beverageNumberLabels" destination="LWo-qD-x4n" collectionClass="NSMutableArray" id="nH7-ii-acG"/>
-                        <outletCollection property="beverageNumberLabels" destination="l3o-C3-mPe" collectionClass="NSMutableArray" id="Ojm-CE-XJY"/>
+                        <outletCollection property="beverageNumberLabels" destination="HMB-a2-S56" collectionClass="NSMutableArray" id="Zjp-om-E7x"/>
+                        <outletCollection property="beverageNumberLabels" destination="4FQ-w3-2pT" collectionClass="NSMutableArray" id="Xy1-fm-A8N"/>
+                        <outletCollection property="beverageNumberLabels" destination="SZe-Vw-ZhC" collectionClass="NSMutableArray" id="jf3-YD-7l4"/>
+                        <outletCollection property="beverageNumberLabels" destination="oTL-ks-4Si" collectionClass="NSMutableArray" id="vci-6d-cnJ"/>
+                        <outletCollection property="beverageNumberLabels" destination="CaR-Yv-rvA" collectionClass="NSMutableArray" id="opn-nH-7Ij"/>
+                        <outletCollection property="beverageNumberLabels" destination="T1U-DM-QZ1" collectionClass="NSMutableArray" id="puw-Cf-q32"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -201,11 +318,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="cantata-primiumLatte-275ml" width="256" height="253.5"/>
-        <image name="cantata-primiumlatte-175ml" width="250" height="250"/>
-        <image name="hershey-cookieAndCream-235ml" width="250" height="250"/>
-        <image name="hershey-cookieAndCream-350ml" width="106" height="145"/>
-        <image name="pepsi-dietCola-250ml" width="250" height="250"/>
-        <image name="pepsi-dietCola-591ml" width="246" height="246"/>
+        <image name="cantata-primiumlatte-175ml-removebg-preview" width="250" height="250"/>
+        <image name="cantata-primiumlatte-275ml-removebg-preview" width="251" height="248.5"/>
+        <image name="hershey-cookieAndCream-235ml-removebg-preview" width="250" height="250"/>
+        <image name="hershey-cookieAndCream-350ml-removebg-preview" width="106" height="145"/>
+        <image name="pepsi-dietCola-250ml-removebg-preview" width="250" height="250"/>
+        <image name="pepsi-dietCola-591ml-removebg-preview" width="246" height="246"/>
+        <image name="plus.circle" catalog="system" width="128" height="121"/>
     </resources>
 </document>

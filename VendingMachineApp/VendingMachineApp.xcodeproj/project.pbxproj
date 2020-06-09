@@ -15,8 +15,8 @@
 		5A7EFBCC241658C30018710C /* Quantity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7EFBCB241658C30018710C /* Quantity.swift */; };
 		5A834174241900EC00F20FAA /* Cashier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A834173241900EC00F20FAA /* Cashier.swift */; };
 		5A834183241DEB1C00F20FAA /* Beverages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A834182241DEB1C00F20FAA /* Beverages.swift */; };
-		5A834189241E117F00F20FAA /* BeverageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A834188241E117F00F20FAA /* BeverageView.swift */; };
-		5A83418B241E11D900F20FAA /* PlusBalanceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A83418A241E11D900F20FAA /* PlusBalanceButton.swift */; };
+		5A834189241E117F00F20FAA /* BeverageNumberLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A834188241E117F00F20FAA /* BeverageNumberLabel.swift */; };
+		5A83418B241E11D900F20FAA /* BalanceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A83418A241E11D900F20FAA /* BalanceButton.swift */; };
 		5A834191241E463A00F20FAA /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A834190241E463A00F20FAA /* NotificationName.swift */; };
 		5A834195241E5C1800F20FAA /* BalanceLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A834194241E5C1800F20FAA /* BalanceLabel.swift */; };
 		5A91FCCD240FCDFB00884D64 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A91FCCC240FCDFB00884D64 /* AppDelegate.swift */; };
@@ -33,6 +33,8 @@
 		5A91FD08240FE2C800884D64 /* HersheyChocolateDrink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A91FD07240FE2C700884D64 /* HersheyChocolateDrink.swift */; };
 		5A91FD0A240FE92B00884D64 /* Cantata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A91FD09240FE92B00884D64 /* Cantata.swift */; };
 		5A91FD0C240FEC6500884D64 /* Pepsi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A91FD0B240FEC6500884D64 /* Pepsi.swift */; };
+		5ACB7BA7248FA77800ACA0E2 /* BeverageTagControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACB7BA6248FA77800ACA0E2 /* BeverageTagControl.swift */; };
+		5ACB7BA9248FA7BB00ACA0E2 /* BeverageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACB7BA8248FA7BB00ACA0E2 /* BeverageButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,8 +63,8 @@
 		5A7EFBCB241658C30018710C /* Quantity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quantity.swift; sourceTree = "<group>"; };
 		5A834173241900EC00F20FAA /* Cashier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cashier.swift; sourceTree = "<group>"; };
 		5A834182241DEB1C00F20FAA /* Beverages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beverages.swift; sourceTree = "<group>"; };
-		5A834188241E117F00F20FAA /* BeverageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageView.swift; sourceTree = "<group>"; };
-		5A83418A241E11D900F20FAA /* PlusBalanceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusBalanceButton.swift; sourceTree = "<group>"; };
+		5A834188241E117F00F20FAA /* BeverageNumberLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageNumberLabel.swift; sourceTree = "<group>"; };
+		5A83418A241E11D900F20FAA /* BalanceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceButton.swift; sourceTree = "<group>"; };
 		5A834190241E463A00F20FAA /* NotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationName.swift; sourceTree = "<group>"; };
 		5A834194241E5C1800F20FAA /* BalanceLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceLabel.swift; sourceTree = "<group>"; };
 		5A91FCC9240FCDFB00884D64 /* VendingMachineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendingMachineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,6 +87,8 @@
 		5A91FD07240FE2C700884D64 /* HersheyChocolateDrink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HersheyChocolateDrink.swift; sourceTree = "<group>"; };
 		5A91FD09240FE92B00884D64 /* Cantata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cantata.swift; sourceTree = "<group>"; };
 		5A91FD0B240FEC6500884D64 /* Pepsi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pepsi.swift; sourceTree = "<group>"; };
+		5ACB7BA6248FA77800ACA0E2 /* BeverageTagControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageTagControl.swift; sourceTree = "<group>"; };
+		5ACB7BA8248FA7BB00ACA0E2 /* BeverageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,9 +134,11 @@
 		5A834187241E115F00F20FAA /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				5A834188241E117F00F20FAA /* BeverageView.swift */,
-				5A83418A241E11D900F20FAA /* PlusBalanceButton.swift */,
+				5A834188241E117F00F20FAA /* BeverageNumberLabel.swift */,
+				5A83418A241E11D900F20FAA /* BalanceButton.swift */,
+				5ACB7BA8248FA7BB00ACA0E2 /* BeverageButton.swift */,
 				5A834194241E5C1800F20FAA /* BalanceLabel.swift */,
+				5ACB7BA6248FA77800ACA0E2 /* BeverageTagControl.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -339,19 +345,21 @@
 			files = (
 				5A91FD0A240FE92B00884D64 /* Cantata.swift in Sources */,
 				5A91FD00240FD7D100884D64 /* Beverage.swift in Sources */,
+				5ACB7BA9248FA7BB00ACA0E2 /* BeverageButton.swift in Sources */,
 				5A91FD08240FE2C800884D64 /* HersheyChocolateDrink.swift in Sources */,
 				5A7EFBCC241658C30018710C /* Quantity.swift in Sources */,
-				5A834189241E117F00F20FAA /* BeverageView.swift in Sources */,
+				5A834189241E117F00F20FAA /* BeverageNumberLabel.swift in Sources */,
 				5A91FCD1240FCDFB00884D64 /* ViewController.swift in Sources */,
 				5A834174241900EC00F20FAA /* Cashier.swift in Sources */,
 				5A91FCCD240FCDFB00884D64 /* AppDelegate.swift in Sources */,
 				5A91FCCF240FCDFB00884D64 /* SceneDelegate.swift in Sources */,
+				5ACB7BA7248FA77800ACA0E2 /* BeverageTagControl.swift in Sources */,
 				5A91FD06240FE0BE00884D64 /* Soda.swift in Sources */,
 				5A834195241E5C1800F20FAA /* BalanceLabel.swift in Sources */,
 				5A7EFBC2241631860018710C /* Date.swift in Sources */,
 				5A91FD02240FDFE900884D64 /* Milk.swift in Sources */,
 				5A834191241E463A00F20FAA /* NotificationName.swift in Sources */,
-				5A83418B241E11D900F20FAA /* PlusBalanceButton.swift in Sources */,
+				5A83418B241E11D900F20FAA /* BalanceButton.swift in Sources */,
 				5A91FCFE240FD6DE00884D64 /* VendingMachine.swift in Sources */,
 				5A91FD0C240FEC6500884D64 /* Pepsi.swift in Sources */,
 				5A91FD04240FE04400884D64 /* Coffee.swift in Sources */,

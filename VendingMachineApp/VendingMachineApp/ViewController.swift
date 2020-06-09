@@ -31,6 +31,22 @@ final class ViewController: UIViewController {
         ) { [weak self] _ in self?.updateBalanceLabel() }
     }
     
+    deinit {
+        removeObservers()
+    }
+    
+    private func removeObservers() {
+        NotificationCenter.default.removeObserver(
+            self,
+            name: VendingMachine.Notification.beveragesDidChange,
+            object: vendingMachine
+        )
+        NotificationCenter.default.removeObserver(
+            self,
+            name: VendingMachine.Notification.balanceDidChange,
+            object: vendingMachine)
+    }
+    
     @IBOutlet var beverageNumberLabels: [BeverageLabel]!
     @IBAction func plusBeverageButtonTapped(_ sender: BeverageButton) {
         if let beverage = sender.beverage() {

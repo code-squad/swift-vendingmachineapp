@@ -10,6 +10,29 @@ import UIKit
 
 final class ViewController: UIViewController {
     private var vendingMachine = VendingMachine()
+    private var beverageDidChangeToken: NSObjectProtocol?
+    private var balanceDidChangeToken: NSObjectProtocol?
+    
+    deinit {
+        removeObservers()
+    }
+    
+    private func removeObservers() {
+        guard let beverageDidChangeToken = beverageDidChangeToken else { return }
+        
+        NotificationCenter.default.removeObserver(
+            beverageDidChangeToken,
+            name: VendingMachine.Notification.beveragesDidChange,
+            object: vendingMachine
+        )
+        
+        guard let balanceDidChangeToken = balanceDidChangeToken else { return }
+        
+        NotificationCenter.default.removeObserver(
+            balanceDidChangeToken,
+            name: VendingMachine.Notification.balanceDidChange,
+            object: vendingMachine)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,32 +42,17 @@ final class ViewController: UIViewController {
     }
     
     private func configureObservers() {
-        NotificationCenter.default.addObserver(
+        beverageDidChangeToken = NotificationCenter.default.addObserver(
             forName: VendingMachine.Notification.beveragesDidChange,
             object: vendingMachine,
             queue: nil
         ) { [weak self] _ in self?.updateBeverageLabels() }
-        NotificationCenter.default.addObserver(
+        
+        balanceDidChangeToken = NotificationCenter.default.addObserver(
             forName: VendingMachine.Notification.balanceDidChange,
             object: vendingMachine,
             queue: nil
         ) { [weak self] _ in self?.updateBalanceLabel() }
-    }
-    
-    deinit {
-        removeObservers()
-    }
-    
-    private func removeObservers() {
-        NotificationCenter.default.removeObserver(
-            self,
-            name: VendingMachine.Notification.beveragesDidChange,
-            object: vendingMachine
-        )
-        NotificationCenter.default.removeObserver(
-            self,
-            name: VendingMachine.Notification.balanceDidChange,
-            object: vendingMachine)
     }
     
     @IBOutlet var beverageNumberLabels: [BeverageLabel]!

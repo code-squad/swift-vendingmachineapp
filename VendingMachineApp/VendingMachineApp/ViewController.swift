@@ -10,15 +10,15 @@ import UIKit
 
 final class ViewController: UIViewController {
     private var vendingMachine = VendingMachine()
-    private var beverageDidChangeToken: NSObjectProtocol?
-    private var balanceDidChangeToken: NSObjectProtocol?
+    private var beverageObserver: NSObjectProtocol?
+    private var balanceObsever: NSObjectProtocol?
     
     deinit {
         removeObservers()
     }
     
     private func removeObservers() {
-        guard let beverageDidChangeToken = beverageDidChangeToken else { return }
+        guard let beverageDidChangeToken = beverageObserver else { return }
         
         NotificationCenter.default.removeObserver(
             beverageDidChangeToken,
@@ -26,7 +26,7 @@ final class ViewController: UIViewController {
             object: vendingMachine
         )
         
-        guard let balanceDidChangeToken = balanceDidChangeToken else { return }
+        guard let balanceDidChangeToken = balanceObsever else { return }
         
         NotificationCenter.default.removeObserver(
             balanceDidChangeToken,
@@ -42,13 +42,13 @@ final class ViewController: UIViewController {
     }
     
     private func configureObservers() {
-        beverageDidChangeToken = NotificationCenter.default.addObserver(
+        beverageObserver = NotificationCenter.default.addObserver(
             forName: VendingMachine.Notification.beveragesDidChange,
             object: vendingMachine,
             queue: nil
         ) { [weak self] _ in self?.updateBeverageLabels() }
         
-        balanceDidChangeToken = NotificationCenter.default.addObserver(
+        balanceObsever = NotificationCenter.default.addObserver(
             forName: VendingMachine.Notification.balanceDidChange,
             object: vendingMachine,
             queue: nil

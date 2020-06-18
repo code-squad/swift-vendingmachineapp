@@ -16,11 +16,16 @@ class Beverage {
     let price: Int
     let kind: Kind
     
-    init(builder: Beverage.Builder) {
-        self.brand = builder.brand
-        self.name = builder.name
-        self.volume = builder.volume
-        self.price = builder.price
+    init(
+        brand: String,
+        name: String,
+        volume: Int,
+        price: Int
+    ) {
+        self.brand = brand
+        self.name = name
+        self.volume = volume
+        self.price = price
         self.kind = Kind(name: self.name,
                          price: self.price)
         self.manufacturingDate = Date()
@@ -38,25 +43,6 @@ extension Beverage: CustomStringConvertible {
     @objc var description: String {
         return "\(brand), \(volume)ml, \(price)원, \(name)" +
         ", \(manufacturingDate.toStringYearMonthDay)"
-    }
-}
-
-extension Beverage {
-    class Builder {
-        let brand: String
-        let name: String
-        let volume: Int
-        let price: Int
-        
-        init(brand: String,
-             name: String,
-             volume: Int,
-             price: Int) {
-            self.brand = brand
-            self.name = name
-            self.volume = volume
-            self.price = price
-        }
     }
 }
 

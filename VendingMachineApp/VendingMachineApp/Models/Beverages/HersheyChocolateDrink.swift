@@ -11,9 +11,18 @@ import Foundation
 final class HersheyChocolateDrink: Milk {
     private let cacaoContentRate: Double
     
-    init(hersheyBuilder: HersheyChocolateDrinks.HersheyBuilder) {
-        self.cacaoContentRate = hersheyBuilder.cacaoContentRate
-        super.init(builder: hersheyBuilder)
+    init(
+        cacaoContentRate: Double,
+        brand: String,
+        name: String,
+        volume: Int,
+        price: Int
+    ) {
+        self.cacaoContentRate = cacaoContentRate
+        super.init(brand: brand,
+                   name: name,
+                   volume: volume,
+                   price: price)
     }
     
     func isHighCacao() -> Bool {
@@ -24,24 +33,5 @@ final class HersheyChocolateDrink: Milk {
 extension HersheyChocolateDrink {
     override var description: String {
         return super.description + ", 카카오: \(cacaoContentRate)%"
-    }
-}
-
-extension HersheyChocolateDrinks {
-    class HersheyBuilder: Beverage.Builder {
-        
-        let cacaoContentRate: Double
-        
-        init(brand: String,
-             name: String,
-             volume: Int,
-             price: Int,
-             cacaoContentRate: Double) {
-            self.cacaoContentRate = cacaoContentRate
-            super.init(brand: brand,
-                       name: name,
-                       volume: volume,
-                       price: price)
-        }
     }
 }

@@ -20,9 +20,22 @@ final class Pepsi: Soda {
     }
     private let package: Package
     
-    init(pepsiBuilder: PepsiBuilder) {
-        self.package = pepsiBuilder.package
-        super.init(sodaBuilder: pepsiBuilder)
+    init(
+        package: Package,
+        kiloCalorie: Int,
+        brand: String,
+        name: String,
+        volume: Int,
+        price: Int
+    ) {
+        self.package = package
+        super.init(
+            kiloCalorie: kiloCalorie,
+            brand: brand,
+            name: name,
+            volume: volume,
+            price: price
+        )
     }
     
     func isFragile() -> Bool {
@@ -33,27 +46,5 @@ final class Pepsi: Soda {
 extension Pepsi {
     override var description: String {
         return super.description + ", package: \(package.description)"
-    }
-}
-
-extension Pepsi {
-    class PepsiBuilder: Soda.SodaBuilder {
-        
-        let package: Package
-        
-        init(brand: String,
-             name: String,
-             volume: Int,
-             price: Int,
-             kiloCalorie: Int,
-             package: Package) {
-            self.package = package
-            super.init(brand: brand,
-                       name: name,
-                       volume: volume,
-                       price: price,
-                       kiloCalorie: kiloCalorie)
-        }
-        
     }
 }

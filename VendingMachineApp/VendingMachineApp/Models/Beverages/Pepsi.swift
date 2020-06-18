@@ -8,14 +8,17 @@
 
 import Foundation
 
-enum Package {
-    static let glass = "glass"
-    static let can = "can"
-    static let pet = "pet"
-}
-
 final class Pepsi: Soda {
-    private let package: String
+    enum Package: String, CustomStringConvertible {
+        case glass
+        case can
+        case pet
+        
+        var description: String {
+            return self.rawValue
+        }
+    }
+    private let package: Package
     
     init(pepsiBuilder: PepsiBuilder) {
         self.package = pepsiBuilder.package
@@ -36,14 +39,14 @@ extension Pepsi {
 extension Pepsi {
     class PepsiBuilder: Soda.SodaBuilder {
         
-        let package: String
+        let package: Package
         
         init(brand: String,
              name: String,
              volume: Int,
              price: Int,
              kiloCalorie: Int,
-             package: String) {
+             package: Package) {
             self.package = package
             super.init(brand: brand,
                        name: name,

@@ -107,14 +107,14 @@ enum Pepsis {
         enum Volume250ml {
             static let volume = 250
             static let price = 1200
-            static let package = Package.can
+            static let package = Pepsi.Package.can
             static let kiloCalorie = 80
         }
         
         enum Volume591ml {
             static let volume = 591
             static let price = 2000
-            static let package = Package.pet
+            static let package = Pepsi.Package.pet
             static let kiloCalorie = 120
         }
     }

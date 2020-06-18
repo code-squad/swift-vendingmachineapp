@@ -8,20 +8,30 @@
 
 import UIKit
 
-final class BeverageButton: UIButton, BeverageTagControl {
-    var beverageItemByTag: BeverageItemByTag?
+class BeverageButton: UIButton {
+    var action: ((Beverage) -> Void)?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        configureTarget()
         configureImageView()
-        configureBeverageItemByTag()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+        configureTarget()
         configureImageView()
-        configureBeverageItemByTag()
     }
+    
+    deinit {
+        removeTarget(self, action: #selector(invokeAction(sender:)), for: .touchUpInside)
+    }
+    
+    private func configureTarget() {
+        addTarget(self, action: #selector(invokeAction(sender:)), for: .touchUpInside)
+    }
+    
+    @objc func invokeAction(sender: BeverageButton) { }
     
     private func configureImageView() {
         configureImage()
@@ -46,9 +56,5 @@ final class BeverageButton: UIButton, BeverageTagControl {
             bottom: constant,
             right: constant
         )
-    }
-    
-    private func configureBeverageItemByTag() {
-        beverageItemByTag = BeverageItemByTag(rawValue: tag)
     }
 }

@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A349104249BB0BC00A16D90 /* CantataPrimiumLatte175Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A349103249BB0BC00A16D90 /* CantataPrimiumLatte175Label.swift */; };
+		5A349106249BB13A00A16D90 /* CantataPrimiumLatte275Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A349105249BB13A00A16D90 /* CantataPrimiumLatte275Button.swift */; };
+		5A349108249BB15600A16D90 /* CantataPrimiumLatte175Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A349107249BB15600A16D90 /* CantataPrimiumLatte175Button.swift */; };
+		5A34910A249BB26A00A16D90 /* PepsiDietCola250Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A349109249BB26A00A16D90 /* PepsiDietCola250Button.swift */; };
+		5A34910C249BB28900A16D90 /* PepsiDietCola591Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A34910B249BB28900A16D90 /* PepsiDietCola591Button.swift */; };
+		5A34910E249BB2DC00A16D90 /* HersheyCookieCream235Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A34910D249BB2DC00A16D90 /* HersheyCookieCream235Button.swift */; };
+		5A349110249BB2F700A16D90 /* HersheyCookieCream350Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A34910F249BB2F700A16D90 /* HersheyCookieCream350Button.swift */; };
+		5A349112249BB5B600A16D90 /* CantataPrimiumLatte275Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A349111249BB5B500A16D90 /* CantataPrimiumLatte275Label.swift */; };
+		5A349114249BB60000A16D90 /* PepsiDietCola250Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A349113249BB60000A16D90 /* PepsiDietCola250Label.swift */; };
+		5A349116249BB62C00A16D90 /* PepsiDietCola591Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A349115249BB62C00A16D90 /* PepsiDietCola591Label.swift */; };
+		5A349118249BB65C00A16D90 /* HersheyCookieCream235Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A349117249BB65C00A16D90 /* HersheyCookieCream235Label.swift */; };
+		5A34911A249BB68F00A16D90 /* HersheyCookieCream350Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A349119249BB68F00A16D90 /* HersheyCookieCream350Label.swift */; };
 		5A7EFBC2241631860018710C /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7EFBC1241631860018710C /* Date.swift */; };
 		5A7EFBC4241635390018710C /* MilkTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7EFBC3241635390018710C /* MilkTest.swift */; };
 		5A7EFBC624163FE40018710C /* CoffeeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7EFBC524163FE40018710C /* CoffeeTest.swift */; };
@@ -32,7 +44,6 @@
 		5A91FD08240FE2C800884D64 /* HersheyChocolateDrink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A91FD07240FE2C700884D64 /* HersheyChocolateDrink.swift */; };
 		5A91FD0A240FE92B00884D64 /* Cantata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A91FD09240FE92B00884D64 /* Cantata.swift */; };
 		5A91FD0C240FEC6500884D64 /* Pepsi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A91FD0B240FEC6500884D64 /* Pepsi.swift */; };
-		5ACB7BA7248FA77800ACA0E2 /* BeverageTagControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACB7BA6248FA77800ACA0E2 /* BeverageTagControl.swift */; };
 		5ACB7BA9248FA7BB00ACA0E2 /* BeverageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACB7BA8248FA7BB00ACA0E2 /* BeverageButton.swift */; };
 		5ACB7BAD248FADB200ACA0E2 /* CornerRoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACB7BAC248FADB200ACA0E2 /* CornerRoundedView.swift */; };
 		5ACB7BAF248FB63100ACA0E2 /* Balance5000Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACB7BAE248FB63100ACA0E2 /* Balance5000Button.swift */; };
@@ -57,6 +68,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5A349103249BB0BC00A16D90 /* CantataPrimiumLatte175Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CantataPrimiumLatte175Label.swift; sourceTree = "<group>"; };
+		5A349105249BB13A00A16D90 /* CantataPrimiumLatte275Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CantataPrimiumLatte275Button.swift; sourceTree = "<group>"; };
+		5A349107249BB15600A16D90 /* CantataPrimiumLatte175Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CantataPrimiumLatte175Button.swift; sourceTree = "<group>"; };
+		5A349109249BB26A00A16D90 /* PepsiDietCola250Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PepsiDietCola250Button.swift; sourceTree = "<group>"; };
+		5A34910B249BB28900A16D90 /* PepsiDietCola591Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PepsiDietCola591Button.swift; sourceTree = "<group>"; };
+		5A34910D249BB2DC00A16D90 /* HersheyCookieCream235Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HersheyCookieCream235Button.swift; sourceTree = "<group>"; };
+		5A34910F249BB2F700A16D90 /* HersheyCookieCream350Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HersheyCookieCream350Button.swift; sourceTree = "<group>"; };
+		5A349111249BB5B500A16D90 /* CantataPrimiumLatte275Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CantataPrimiumLatte275Label.swift; sourceTree = "<group>"; };
+		5A349113249BB60000A16D90 /* PepsiDietCola250Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PepsiDietCola250Label.swift; sourceTree = "<group>"; };
+		5A349115249BB62C00A16D90 /* PepsiDietCola591Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PepsiDietCola591Label.swift; sourceTree = "<group>"; };
+		5A349117249BB65C00A16D90 /* HersheyCookieCream235Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HersheyCookieCream235Label.swift; sourceTree = "<group>"; };
+		5A349119249BB68F00A16D90 /* HersheyCookieCream350Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HersheyCookieCream350Label.swift; sourceTree = "<group>"; };
 		5A7EFBC1241631860018710C /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		5A7EFBC3241635390018710C /* MilkTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MilkTest.swift; sourceTree = "<group>"; };
 		5A7EFBC524163FE40018710C /* CoffeeTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeTest.swift; sourceTree = "<group>"; };
@@ -88,7 +111,6 @@
 		5A91FD07240FE2C700884D64 /* HersheyChocolateDrink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HersheyChocolateDrink.swift; sourceTree = "<group>"; };
 		5A91FD09240FE92B00884D64 /* Cantata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cantata.swift; sourceTree = "<group>"; };
 		5A91FD0B240FEC6500884D64 /* Pepsi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pepsi.swift; sourceTree = "<group>"; };
-		5ACB7BA6248FA77800ACA0E2 /* BeverageTagControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageTagControl.swift; sourceTree = "<group>"; };
 		5ACB7BA8248FA7BB00ACA0E2 /* BeverageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageButton.swift; sourceTree = "<group>"; };
 		5ACB7BAC248FADB200ACA0E2 /* CornerRoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerRoundedView.swift; sourceTree = "<group>"; };
 		5ACB7BAE248FB63100ACA0E2 /* Balance5000Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Balance5000Button.swift; sourceTree = "<group>"; };
@@ -120,6 +142,44 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5A349101249BAEF700A16D90 /* BeverageButtons */ = {
+			isa = PBXGroup;
+			children = (
+				5ACB7BA8248FA7BB00ACA0E2 /* BeverageButton.swift */,
+				5A349107249BB15600A16D90 /* CantataPrimiumLatte175Button.swift */,
+				5A349105249BB13A00A16D90 /* CantataPrimiumLatte275Button.swift */,
+				5A349109249BB26A00A16D90 /* PepsiDietCola250Button.swift */,
+				5A34910B249BB28900A16D90 /* PepsiDietCola591Button.swift */,
+				5A34910D249BB2DC00A16D90 /* HersheyCookieCream235Button.swift */,
+				5A34910F249BB2F700A16D90 /* HersheyCookieCream350Button.swift */,
+			);
+			path = BeverageButtons;
+			sourceTree = "<group>";
+		};
+		5A349102249BAF0600A16D90 /* BeverageLabels */ = {
+			isa = PBXGroup;
+			children = (
+				5A834188241E117F00F20FAA /* BeverageLabel.swift */,
+				5A349103249BB0BC00A16D90 /* CantataPrimiumLatte175Label.swift */,
+				5A349111249BB5B500A16D90 /* CantataPrimiumLatte275Label.swift */,
+				5A349113249BB60000A16D90 /* PepsiDietCola250Label.swift */,
+				5A349115249BB62C00A16D90 /* PepsiDietCola591Label.swift */,
+				5A349117249BB65C00A16D90 /* HersheyCookieCream235Label.swift */,
+				5A349119249BB68F00A16D90 /* HersheyCookieCream350Label.swift */,
+			);
+			path = BeverageLabels;
+			sourceTree = "<group>";
+		};
+		5A34911B249BB72300A16D90 /* BalanceButtons */ = {
+			isa = PBXGroup;
+			children = (
+				5A83418A241E11D900F20FAA /* BalanceButton.swift */,
+				5ACB7BAE248FB63100ACA0E2 /* Balance5000Button.swift */,
+				5ACB7BB0248FBB1000ACA0E2 /* Balance1000Button.swift */,
+			);
+			path = BalanceButtons;
+			sourceTree = "<group>";
+		};
 		5A8341722419002B00F20FAA /* Beverages */ = {
 			isa = PBXGroup;
 			children = (
@@ -138,12 +198,9 @@
 		5A834187241E115F00F20FAA /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				5A834188241E117F00F20FAA /* BeverageLabel.swift */,
-				5A83418A241E11D900F20FAA /* BalanceButton.swift */,
-				5ACB7BAE248FB63100ACA0E2 /* Balance5000Button.swift */,
-				5ACB7BB0248FBB1000ACA0E2 /* Balance1000Button.swift */,
-				5ACB7BA8248FA7BB00ACA0E2 /* BeverageButton.swift */,
-				5ACB7BA6248FA77800ACA0E2 /* BeverageTagControl.swift */,
+				5A349102249BAF0600A16D90 /* BeverageLabels */,
+				5A349101249BAEF700A16D90 /* BeverageButtons */,
+				5A34911B249BB72300A16D90 /* BalanceButtons */,
 				5A834194241E5C1800F20FAA /* BalanceLabel.swift */,
 				5ACB7BAC248FADB200ACA0E2 /* CornerRoundedView.swift */,
 			);
@@ -349,26 +406,37 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A34910E249BB2DC00A16D90 /* HersheyCookieCream235Button.swift in Sources */,
+				5A349118249BB65C00A16D90 /* HersheyCookieCream235Label.swift in Sources */,
+				5A349106249BB13A00A16D90 /* CantataPrimiumLatte275Button.swift in Sources */,
+				5A349110249BB2F700A16D90 /* HersheyCookieCream350Button.swift in Sources */,
 				5A91FD0A240FE92B00884D64 /* Cantata.swift in Sources */,
 				5A91FD00240FD7D100884D64 /* Beverage.swift in Sources */,
 				5ACB7BA9248FA7BB00ACA0E2 /* BeverageButton.swift in Sources */,
 				5ACB7BAD248FADB200ACA0E2 /* CornerRoundedView.swift in Sources */,
+				5A349112249BB5B600A16D90 /* CantataPrimiumLatte275Label.swift in Sources */,
 				5A91FD08240FE2C800884D64 /* HersheyChocolateDrink.swift in Sources */,
 				5A7EFBCC241658C30018710C /* Quantity.swift in Sources */,
+				5A34910C249BB28900A16D90 /* PepsiDietCola591Button.swift in Sources */,
 				5A834189241E117F00F20FAA /* BeverageLabel.swift in Sources */,
+				5A349114249BB60000A16D90 /* PepsiDietCola250Label.swift in Sources */,
+				5A34910A249BB26A00A16D90 /* PepsiDietCola250Button.swift in Sources */,
 				5A91FCD1240FCDFB00884D64 /* ViewController.swift in Sources */,
 				5A834174241900EC00F20FAA /* Cashier.swift in Sources */,
 				5A91FCCD240FCDFB00884D64 /* AppDelegate.swift in Sources */,
 				5A91FCCF240FCDFB00884D64 /* SceneDelegate.swift in Sources */,
-				5ACB7BA7248FA77800ACA0E2 /* BeverageTagControl.swift in Sources */,
 				5A91FD06240FE0BE00884D64 /* Soda.swift in Sources */,
+				5A349104249BB0BC00A16D90 /* CantataPrimiumLatte175Label.swift in Sources */,
 				5A834195241E5C1800F20FAA /* BalanceLabel.swift in Sources */,
+				5A34911A249BB68F00A16D90 /* HersheyCookieCream350Label.swift in Sources */,
 				5ACB7BB1248FBB1000ACA0E2 /* Balance1000Button.swift in Sources */,
 				5A7EFBC2241631860018710C /* Date.swift in Sources */,
 				5A91FD02240FDFE900884D64 /* Milk.swift in Sources */,
 				5A83418B241E11D900F20FAA /* BalanceButton.swift in Sources */,
 				5A91FCFE240FD6DE00884D64 /* VendingMachine.swift in Sources */,
 				5A91FD0C240FEC6500884D64 /* Pepsi.swift in Sources */,
+				5A349116249BB62C00A16D90 /* PepsiDietCola591Label.swift in Sources */,
+				5A349108249BB15600A16D90 /* CantataPrimiumLatte175Button.swift in Sources */,
 				5A91FD04240FE04400884D64 /* Coffee.swift in Sources */,
 				5A834183241DEB1C00F20FAA /* Beverages.swift in Sources */,
 				5ACB7BAF248FB63100ACA0E2 /* Balance5000Button.swift in Sources */,

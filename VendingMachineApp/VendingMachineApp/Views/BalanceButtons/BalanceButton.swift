@@ -9,7 +9,7 @@
 import UIKit
 
 class BalanceButton: UIButton {
-    var action: ((Int) -> (Void))?
+    var action: ((Int) -> Void)?
     
     override init(frame: CGRect) {
         super.init(frame: frame)

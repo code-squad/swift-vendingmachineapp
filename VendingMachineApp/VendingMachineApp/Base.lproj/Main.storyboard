@@ -30,14 +30,11 @@
                                                             <constraint firstAttribute="width" secondItem="BpW-vl-Zjd" secondAttribute="height" id="wPV-bZ-IL8"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U2V-cX-p4m" customClass="BeverageButton" customModule="VendingMachineApp" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U2V-cX-p4m" customClass="CantataPrimiumLatte175Button" customModule="VendingMachineApp" customModuleProvider="target">
                                                         <rect key="frame" x="77.5" y="230.5" width="20" height="22"/>
                                                         <state key="normal" image="plus.circle" catalog="system"/>
-                                                        <connections>
-                                                            <action selector="plusBeverageButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tZu-GO-03D"/>
-                                                        </connections>
                                                     </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HMB-a2-S56" customClass="BeverageLabel" customModule="VendingMachineApp" customModuleProvider="target">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HMB-a2-S56" customClass="CantataPrimiumLatte175Label" customModule="VendingMachineApp" customModuleProvider="target">
                                                         <rect key="frame" x="192" y="230.5" width="25.5" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -70,14 +67,11 @@
                                                             <constraint firstAttribute="width" secondItem="68U-zj-W9I" secondAttribute="height" id="hJQ-B1-eKa"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vCp-4I-hII" customClass="BeverageButton" customModule="VendingMachineApp" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vCp-4I-hII" customClass="CantataPrimiumLatte275Button" customModule="VendingMachineApp" customModuleProvider="target">
                                                         <rect key="frame" x="78" y="230.5" width="20" height="22"/>
                                                         <state key="normal" image="plus.circle" catalog="system"/>
-                                                        <connections>
-                                                            <action selector="plusBeverageButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CM0-9H-dtz"/>
-                                                        </connections>
                                                     </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4FQ-w3-2pT" customClass="BeverageLabel" customModule="VendingMachineApp" customModuleProvider="target">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4FQ-w3-2pT" customClass="CantataPrimiumLatte275Label" customModule="VendingMachineApp" customModuleProvider="target">
                                                         <rect key="frame" x="192.5" y="230.5" width="25.5" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -110,14 +104,11 @@
                                                             <constraint firstAttribute="width" secondItem="z28-yq-KJm" secondAttribute="height" id="Em4-UC-cjZ"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W8x-FX-YRd" customClass="BeverageButton" customModule="VendingMachineApp" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W8x-FX-YRd" customClass="HersheyCookieCream235Button" customModule="VendingMachineApp" customModuleProvider="target">
                                                         <rect key="frame" x="77.5" y="230.5" width="20" height="22"/>
                                                         <state key="normal" image="plus.circle" catalog="system"/>
-                                                        <connections>
-                                                            <action selector="plusBeverageButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="g7a-OF-YVN"/>
-                                                        </connections>
                                                     </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SZe-Vw-ZhC" customClass="BeverageLabel" customModule="VendingMachineApp" customModuleProvider="target">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SZe-Vw-ZhC" customClass="HersheyCookieCream235Label" customModule="VendingMachineApp" customModuleProvider="target">
                                                         <rect key="frame" x="192" y="230.5" width="25.5" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -155,14 +146,11 @@
                                                             <constraint firstAttribute="width" secondItem="i6l-ZG-sEI" secondAttribute="height" id="BdU-GF-93B"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dU5-co-Bfx" customClass="BeverageButton" customModule="VendingMachineApp" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dU5-co-Bfx" customClass="HersheyCookieCream350Button" customModule="VendingMachineApp" customModuleProvider="target">
                                                         <rect key="frame" x="77.5" y="230.5" width="20" height="22"/>
                                                         <state key="normal" image="plus.circle" catalog="system"/>
-                                                        <connections>
-                                                            <action selector="plusBeverageButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="x3D-np-tlD"/>
-                                                        </connections>
                                                     </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oTL-ks-4Si" customClass="BeverageLabel" customModule="VendingMachineApp" customModuleProvider="target">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oTL-ks-4Si" customClass="HersheyCookieCream350Label" customModule="VendingMachineApp" customModuleProvider="target">
                                                         <rect key="frame" x="192" y="230.5" width="25.5" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -195,15 +183,12 @@
                                                             <constraint firstAttribute="width" secondItem="0Da-FC-A7a" secondAttribute="height" id="Kh6-74-SEI"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="009-KQ-5iF" customClass="BeverageButton" customModule="VendingMachineApp" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="009-KQ-5iF" customClass="PepsiDietCola250Button" customModule="VendingMachineApp" customModuleProvider="target">
                                                         <rect key="frame" x="78" y="230.5" width="20" height="22"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                         <state key="normal" image="plus.circle" catalog="system"/>
-                                                        <connections>
-                                                            <action selector="plusBeverageButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3GA-qK-MAa"/>
-                                                        </connections>
                                                     </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" tag="4" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CaR-Yv-rvA" customClass="BeverageLabel" customModule="VendingMachineApp" customModuleProvider="target">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CaR-Yv-rvA" customClass="PepsiDietCola250Label" customModule="VendingMachineApp" customModuleProvider="target">
                                                         <rect key="frame" x="192.5" y="230.5" width="25.5" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -236,15 +221,12 @@
                                                             <constraint firstAttribute="width" secondItem="X3k-fh-Nfb" secondAttribute="height" id="JVT-e1-T2w"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gXG-Nk-g7m" customClass="BeverageButton" customModule="VendingMachineApp" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gXG-Nk-g7m" customClass="PepsiDietCola591Button" customModule="VendingMachineApp" customModuleProvider="target">
                                                         <rect key="frame" x="77.5" y="230.5" width="20" height="22"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                         <state key="normal" image="plus.circle" catalog="system"/>
-                                                        <connections>
-                                                            <action selector="plusBeverageButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QHp-ed-A4z"/>
-                                                        </connections>
                                                     </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" tag="5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T1U-DM-QZ1" customClass="BeverageLabel" customModule="VendingMachineApp" customModuleProvider="target">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T1U-DM-QZ1" customClass="PepsiDietCola591Label" customModule="VendingMachineApp" customModuleProvider="target">
                                                         <rect key="frame" x="192" y="230.5" width="25.5" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -342,6 +324,12 @@
                         <outletCollection property="beverageNumberLabels" destination="T1U-DM-QZ1" collectionClass="NSMutableArray" id="puw-Cf-q32"/>
                         <outletCollection property="balanceButtons" destination="goM-GG-ohe" collectionClass="NSMutableArray" id="0vr-uT-D0v"/>
                         <outletCollection property="balanceButtons" destination="EtE-d8-nF1" collectionClass="NSMutableArray" id="bT1-ao-g2I"/>
+                        <outletCollection property="beverageButtons" destination="U2V-cX-p4m" collectionClass="NSMutableArray" id="DnR-Am-MTX"/>
+                        <outletCollection property="beverageButtons" destination="vCp-4I-hII" collectionClass="NSMutableArray" id="8mT-WU-rjE"/>
+                        <outletCollection property="beverageButtons" destination="W8x-FX-YRd" collectionClass="NSMutableArray" id="5p7-lv-ULa"/>
+                        <outletCollection property="beverageButtons" destination="dU5-co-Bfx" collectionClass="NSMutableArray" id="6rV-j6-txd"/>
+                        <outletCollection property="beverageButtons" destination="009-KQ-5iF" collectionClass="NSMutableArray" id="bPN-Y8-yLn"/>
+                        <outletCollection property="beverageButtons" destination="gXG-Nk-g7m" collectionClass="NSMutableArray" id="j0I-3Q-err"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

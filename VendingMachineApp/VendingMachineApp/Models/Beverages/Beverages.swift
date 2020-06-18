@@ -33,25 +33,22 @@ enum HersheyChocolateDrinks {
 }
 
 extension HersheyChocolateDrinks {
-    static let builderCookieCream235ml = HersheyChocolateDrinks
-        .HersheyBuilder(brand: HersheyChocolateDrinks.brand,
-                        name: HersheyChocolateDrinks.CookieCream.name,
-                        volume: HersheyChocolateDrinks
-                            .CookieCream.Volume235ml.volume,
-                        price: HersheyChocolateDrinks
-                            .CookieCream.Volume235ml.price,
-                        cacaoContentRate: HersheyChocolateDrinks
-                            .CookieCream.cacaoContentRate)
+    static let builderCookieCream235ml = HersheyChocolateDrink(
+        cacaoContentRate: HersheyChocolateDrinks.CookieCream.cacaoContentRate,
+        brand: HersheyChocolateDrinks.brand,
+        name: HersheyChocolateDrinks.CookieCream.name,
+        volume: HersheyChocolateDrinks.CookieCream.Volume235ml.volume,
+        price: HersheyChocolateDrinks.CookieCream.Volume235ml.price
+    )
     
-    static let builderCookieCream350ml = HersheyChocolateDrinks
-        .HersheyBuilder(brand: HersheyChocolateDrinks.brand,
-                        name: HersheyChocolateDrinks.CookieCream.name,
-                        volume: HersheyChocolateDrinks
-                            .CookieCream.Volume350ml.volume,
-                        price: HersheyChocolateDrinks
-                            .CookieCream.Volume350ml.price,
-                        cacaoContentRate: HersheyChocolateDrinks
-                            .CookieCream.cacaoContentRate)
+    static let builderCookieCream350ml = HersheyChocolateDrink(
+        cacaoContentRate: HersheyChocolateDrinks
+        .CookieCream.cacaoContentRate,
+        brand: HersheyChocolateDrinks.brand,
+        name: HersheyChocolateDrinks.CookieCream.name,
+        volume: HersheyChocolateDrinks.CookieCream.Volume350ml.volume,
+        price: HersheyChocolateDrinks.CookieCream.Volume350ml.price
+    )
 }
 
 enum Cantatas {
@@ -75,27 +72,25 @@ enum Cantatas {
 }
 
 extension Cantatas {
-    static let builderPrimiumLatte175ml = Cantata.CantataBuilder(brand: Cantatas.brand,
-                                                          name: Cantatas.PriumLatte.name,
-                                                          volume: Cantatas.PriumLatte
-                                                            .Volume175ml.volume,
-                                                          price: Cantatas.PriumLatte
-                                                            .Volume175ml.price,
-                                                          milkContentRate: Cantatas.PriumLatte
-                                                            .milkContentRate,
-                                                          sugarContentRate: Cantatas.PriumLatte
-                                                            .sugarContentRate)
+    static let builderPrimiumLatte175ml = Cantata(
+        milkContentRate: Cantatas.PriumLatte.milkContentRate,
+        sugarContentRate: Cantatas.PriumLatte.milkContentRate,
+        celsius: 65,
+        brand: Cantatas.brand,
+        name: Cantatas.PriumLatte.name,
+        volume: Cantatas.PriumLatte.Volume175ml.volume,
+        price: Cantatas.PriumLatte.Volume175ml.price
+    )
     
-    static let builderPrimiumLatte275ml = Cantata.CantataBuilder(brand: Cantatas.brand,
-                                                          name: Cantatas.PriumLatte.name,
-                                                          volume: Cantatas.PriumLatte
-                                                            .Volume275ml.volume,
-                                                          price: Cantatas.PriumLatte
-                                                            .Volume275ml.price,
-                                                          milkContentRate: Cantatas.PriumLatte
-                                                            .milkContentRate,
-                                                          sugarContentRate: Cantatas.PriumLatte
-                                                            .sugarContentRate)
+    static let builderPrimiumLatte275ml = Cantata(
+        milkContentRate: Cantatas.PriumLatte.milkContentRate,
+        sugarContentRate: Cantatas.PriumLatte.sugarContentRate,
+        celsius: 65,
+        brand: Cantatas.brand,
+        name: Cantatas.PriumLatte.name,
+        volume: Cantatas.PriumLatte.Volume275ml.volume,
+        price: Cantatas.PriumLatte.Volume275ml.price
+    )
 }
 
 enum Pepsis {
@@ -121,18 +116,22 @@ enum Pepsis {
 }
 
 extension Pepsis {
-    static let builderDietCola250ml = Pepsi.PepsiBuilder(brand: Pepsis.brand,
-                                               name: Pepsis.DietCola.name,
-                                               volume: Pepsis.DietCola.Volume250ml.volume,
-                                               price: Pepsis.DietCola.Volume250ml.price,
-                                               kiloCalorie: Pepsis.DietCola
-                                                .Volume250ml.kiloCalorie,
-                                               package: Pepsis.DietCola.Volume250ml.package)
-    static let builderDietCola591ml = Pepsi.PepsiBuilder(brand: Pepsis.brand,
-                                               name: Pepsis.DietCola.name,
-                                               volume: Pepsis.DietCola.Volume591ml.volume,
-                                               price: Pepsis.DietCola.Volume591ml.price,
-                                               kiloCalorie: Pepsis.DietCola
-                                               .Volume591ml.kiloCalorie,
-                                               package: Pepsis.DietCola.Volume591ml.package)
+    static let builderDietCola250ml = Pepsi(
+        package: Pepsis.DietCola.Volume250ml.package,
+        kiloCalorie: Pepsis.DietCola
+            .Volume250ml.kiloCalorie,
+        brand: Pepsis.brand,
+        name: Pepsis.DietCola.name,
+        volume: Pepsis.DietCola.Volume250ml.volume,
+        price: Pepsis.DietCola.Volume250ml.price
+    )
+    
+    static let builderDietCola591ml = Pepsi(
+        package: Pepsis.DietCola.Volume591ml.package,
+        kiloCalorie: Pepsis.DietCola.Volume591ml.kiloCalorie,
+        brand: Pepsis.brand,
+        name: Pepsis.DietCola.name,
+        volume: Pepsis.DietCola.Volume591ml.volume,
+        price: Pepsis.DietCola.Volume591ml.price
+        )
 }

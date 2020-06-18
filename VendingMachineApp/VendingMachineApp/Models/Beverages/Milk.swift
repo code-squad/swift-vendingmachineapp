@@ -11,8 +11,17 @@ import Foundation
 class Milk: Beverage {
     private var expirationDate: Date!
     
-    override init(builder: Beverage.Builder) {
-        super.init(builder: builder)
+    override init(brand: String,
+         name: String,
+         volume: Int,
+         price: Int
+    ) {
+        super.init(
+            brand: brand,
+            name: name,
+            volume: volume,
+            price: price
+        )
         let oneWeekTime = TimeInterval(604800)
         self.expirationDate = manufacturingDate.addingTimeInterval(oneWeekTime)
     }

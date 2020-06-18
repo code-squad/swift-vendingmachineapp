@@ -12,12 +12,21 @@ final class Cantata: Coffee {
     private let milkContentRate: Double
     private let sugarContentRate: Double
     
-    init(cantataBuilder: Cantata.CantataBuilder,
-          celsius: Int) {
-        self.milkContentRate = cantataBuilder.milkContentRate
-        self.sugarContentRate = cantataBuilder.sugarContentRate
-        super.init(builder: cantataBuilder,
-                   celsius: celsius)
+    init(
+        milkContentRate: Double,
+        sugarContentRate: Double,
+        celsius: Int,
+        brand: String,
+        name: String,
+        volume: Int,
+        price: Int
+    ) {
+        self.milkContentRate = milkContentRate
+        self.sugarContentRate = sugarContentRate
+        super.init(celsius: celsius, brand: brand,
+                   name: name,
+                   volume: volume,
+                   price: price)
     }
     
     func isContainsMilk() -> Bool {
@@ -34,27 +43,5 @@ extension Cantata {
         return super.description +
             ", 우유: \(milkContentRate)%" +
         ", 설탕: \(sugarContentRate)%"
-    }
-}
-
-extension Cantata {
-    class CantataBuilder: Beverage.Builder {
-        
-        let milkContentRate: Double
-        let sugarContentRate: Double
-        
-        init(brand: String,
-             name: String,
-             volume: Int,
-             price: Int,
-             milkContentRate: Double,
-             sugarContentRate: Double) {
-            self.milkContentRate = milkContentRate
-            self.sugarContentRate = sugarContentRate
-            super.init(brand: brand,
-                       name: name,
-                       volume: volume,
-                       price: price)
-        }
     }
 }

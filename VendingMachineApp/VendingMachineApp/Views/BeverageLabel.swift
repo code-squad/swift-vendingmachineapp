@@ -41,21 +41,17 @@ enum BeverageItemByTag: Int {
     func beverage() -> Beverage {
         switch self {
         case .cantataPrimiumLatte175ml:
-            return Cantata(cantataBuilder: Cantatas.builderPrimiumLatte175ml,
-                           celsius: 65)
+            return Cantatas.builderPrimiumLatte175ml
         case .cantataPrimiumLatte275ml:
-            return Cantata(cantataBuilder: Cantatas.builderPrimiumLatte275ml,
-                           celsius: 65)
+            return Cantatas.builderPrimiumLatte275ml
         case .pepsiDietCola250ml:
-            return Pepsi(pepsiBuilder: Pepsis.builderDietCola250ml)
+            return Pepsis.builderDietCola250ml
         case .pepsiDietCola591ml:
-            return Pepsi(pepsiBuilder: Pepsis.builderDietCola591ml)
+            return Pepsis.builderDietCola591ml
         case .hersheyCookieCream235ml:
-            return HersheyChocolateDrink(hersheyBuilder:
-                HersheyChocolateDrinks.builderCookieCream235ml)
+            return HersheyChocolateDrinks.builderCookieCream235ml
         case .hersheyCookieCream350ml:
-            return HersheyChocolateDrink(hersheyBuilder:
-                HersheyChocolateDrinks.builderCookieCream350ml)
+            return HersheyChocolateDrinks.builderCookieCream350ml
         }
     }
 }

@@ -38,6 +38,7 @@ final class ViewController: UIViewController {
         super.viewDidLoad()
         balanceLabel.update(currentMoney: vendingMachine.currentMoney())
         configureObservers()
+        configureBeverageButtons()
         confiureBalanceButtons()
     }
     
@@ -56,16 +57,22 @@ final class ViewController: UIViewController {
     }
     
     @IBOutlet var beverageNumberLabels: [BeverageLabel]!
-    @IBAction func plusBeverageButtonTapped(_ sender: BeverageButton) {
-        if let beverage = sender.beverage() {
-            vendingMachine.addToStock(beverage: beverage)
+    
+    @IBOutlet var beverageButtons: [BeverageButton]!
+    private func configureBeverageButtons() {
+        beverageButtons.forEach { configureBeverageAction($0) }
+    }
+    
+    private func configureBeverageAction(_ beverageButton: BeverageButton) {
+        beverageButton.action = { [weak self] beverage in
+            self?.vendingMachine.addToStock(beverage: beverage)
         }
     }
     
     private func updateBeverageLabels() {
         let stockByKind = vendingMachine.stockByKind()
         beverageNumberLabels.forEach {
-            if let beverage = $0.beverage(),
+            if let beverage = $0.beverage,
                 let beverageNumber = stockByKind[beverage.kind] {
                 $0.update(number: beverageNumber)
             }

@@ -12,7 +12,6 @@ final class HersheyCookieCream235Button: BeverageButton {
     override func beverage() -> Beverage? {
         return HersheyChocolateDrink(
             cacaoContentRate: 0.03,
-            brand: "허쉬초콜릿드링크",
             name: "쿠키앤크림",
             volume: 235,
             price: 1300

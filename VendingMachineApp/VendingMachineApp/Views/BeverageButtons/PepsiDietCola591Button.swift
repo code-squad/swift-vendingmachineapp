@@ -13,7 +13,6 @@ final class PepsiDietCola591Button: BeverageButton {
         return Pepsi(
             package: Pepsi.Package.pet,
             kiloCalorie: 120,
-            brand: "팹시",
             name: "다이어트 콜라",
             volume: 591,
             price: 2000

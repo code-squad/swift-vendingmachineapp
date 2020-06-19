@@ -13,13 +13,12 @@ final class HersheyChocolateDrink: Milk {
     
     init(
         cacaoContentRate: Double,
-        brand: String,
         name: String,
         volume: Int,
         price: Int
     ) {
         self.cacaoContentRate = cacaoContentRate
-        super.init(brand: brand,
+        super.init(brand: "허쉬초콜릿드링크",
                    name: name,
                    volume: volume,
                    price: price)

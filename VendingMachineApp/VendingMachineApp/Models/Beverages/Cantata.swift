@@ -16,14 +16,14 @@ final class Cantata: Coffee {
         milkContentRate: Double,
         sugarContentRate: Double,
         celsius: Int,
-        brand: String,
         name: String,
         volume: Int,
         price: Int
     ) {
         self.milkContentRate = milkContentRate
         self.sugarContentRate = sugarContentRate
-        super.init(celsius: celsius, brand: brand,
+        super.init(celsius: celsius,
+                   brand: "칸타타",
                    name: name,
                    volume: volume,
                    price: price)

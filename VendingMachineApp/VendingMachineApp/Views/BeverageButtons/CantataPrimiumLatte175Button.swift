@@ -11,13 +11,13 @@ import UIKit
 final class CantataPrimiumLatte175Button: BeverageButton {
     override func beverage() -> Beverage? {
         return Cantata(
-            milkContentRate: Cantatas.PriumLatte.milkContentRate,
-            sugarContentRate: Cantatas.PriumLatte.milkContentRate,
+            milkContentRate: 0.15,
+            sugarContentRate: 0.05,
             celsius: 65,
-            brand: Cantatas.brand,
-            name: Cantatas.PriumLatte.name,
-            volume: Cantatas.PriumLatte.Volume175ml.volume,
-            price: Cantatas.PriumLatte.Volume175ml.price
+            brand: "칸타타",
+            name: "프리미엄 라떼",
+            volume: 175,
+            price: 1500
         )
     }
 }

@@ -13,7 +13,6 @@ final class PepsiDietCola250Label: BeverageLabel {
         return Pepsi(
             package: Pepsi.Package.can,
             kiloCalorie: 80,
-            brand: "팹시",
             name: "다이어트 콜라",
             volume: 250,
             price: 1200

@@ -14,7 +14,6 @@ final class CantataPrimiumLatte175Label: BeverageLabel {
             milkContentRate: 0.15,
             sugarContentRate: 0.05,
             celsius: 65,
-            brand: "칸타타",
             name: "프리미엄 라떼",
             volume: 175,
             price: 1500

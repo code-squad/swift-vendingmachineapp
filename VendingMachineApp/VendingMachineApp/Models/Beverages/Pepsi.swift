@@ -23,7 +23,6 @@ final class Pepsi: Soda {
     init(
         package: Package,
         kiloCalorie: Int,
-        brand: String,
         name: String,
         volume: Int,
         price: Int
@@ -31,7 +30,7 @@ final class Pepsi: Soda {
         self.package = package
         super.init(
             kiloCalorie: kiloCalorie,
-            brand: brand,
+            brand: "펩시",
             name: name,
             volume: volume,
             price: price

@@ -19,6 +19,7 @@
 		5A349116249BB62C00A16D90 /* PepsiDietCola591Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A349115249BB62C00A16D90 /* PepsiDietCola591Label.swift */; };
 		5A349118249BB65C00A16D90 /* HersheyCookieCream235Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A349117249BB65C00A16D90 /* HersheyCookieCream235Label.swift */; };
 		5A34911A249BB68F00A16D90 /* HersheyCookieCream350Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A349119249BB68F00A16D90 /* HersheyCookieCream350Label.swift */; };
+		5A34911D249C705300A16D90 /* BeverageGeneratable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A34911C249C705300A16D90 /* BeverageGeneratable.swift */; };
 		5A7EFBC2241631860018710C /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7EFBC1241631860018710C /* Date.swift */; };
 		5A7EFBC4241635390018710C /* MilkTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7EFBC3241635390018710C /* MilkTest.swift */; };
 		5A7EFBC624163FE40018710C /* CoffeeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7EFBC524163FE40018710C /* CoffeeTest.swift */; };
@@ -80,6 +81,7 @@
 		5A349115249BB62C00A16D90 /* PepsiDietCola591Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PepsiDietCola591Label.swift; sourceTree = "<group>"; };
 		5A349117249BB65C00A16D90 /* HersheyCookieCream235Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HersheyCookieCream235Label.swift; sourceTree = "<group>"; };
 		5A349119249BB68F00A16D90 /* HersheyCookieCream350Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HersheyCookieCream350Label.swift; sourceTree = "<group>"; };
+		5A34911C249C705300A16D90 /* BeverageGeneratable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageGeneratable.swift; sourceTree = "<group>"; };
 		5A7EFBC1241631860018710C /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		5A7EFBC3241635390018710C /* MilkTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MilkTest.swift; sourceTree = "<group>"; };
 		5A7EFBC524163FE40018710C /* CoffeeTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeTest.swift; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 		5A834187241E115F00F20FAA /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				5A34911C249C705300A16D90 /* BeverageGeneratable.swift */,
 				5A349102249BAF0600A16D90 /* BeverageLabels */,
 				5A349101249BAEF700A16D90 /* BeverageButtons */,
 				5A34911B249BB72300A16D90 /* BalanceButtons */,
@@ -422,6 +425,7 @@
 				5A349114249BB60000A16D90 /* PepsiDietCola250Label.swift in Sources */,
 				5A34910A249BB26A00A16D90 /* PepsiDietCola250Button.swift in Sources */,
 				5A91FCD1240FCDFB00884D64 /* ViewController.swift in Sources */,
+				5A34911D249C705300A16D90 /* BeverageGeneratable.swift in Sources */,
 				5A834174241900EC00F20FAA /* Cashier.swift in Sources */,
 				5A91FCCD240FCDFB00884D64 /* AppDelegate.swift in Sources */,
 				5A91FCCF240FCDFB00884D64 /* SceneDelegate.swift in Sources */,

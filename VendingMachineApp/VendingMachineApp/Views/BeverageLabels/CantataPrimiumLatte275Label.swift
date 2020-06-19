@@ -9,7 +9,7 @@
 import UIKit
 
 final class CantataPrimiumLatte275Label: BeverageLabel {
-    override var beverage: Beverage? {
+    override func beverage() -> Beverage? {
         return Cantata(
             milkContentRate: Cantatas.PriumLatte.milkContentRate,
             sugarContentRate: Cantatas.PriumLatte.sugarContentRate,

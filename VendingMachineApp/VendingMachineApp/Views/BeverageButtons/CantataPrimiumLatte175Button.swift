@@ -9,8 +9,8 @@
 import UIKit
 
 final class CantataPrimiumLatte175Button: BeverageButton {
-    override func invokeAction(sender: BeverageButton) {
-        action?(Cantata(
+    override func beverage() -> Beverage? {
+        return Cantata(
             milkContentRate: Cantatas.PriumLatte.milkContentRate,
             sugarContentRate: Cantatas.PriumLatte.milkContentRate,
             celsius: 65,
@@ -18,6 +18,6 @@ final class CantataPrimiumLatte175Button: BeverageButton {
             name: Cantatas.PriumLatte.name,
             volume: Cantatas.PriumLatte.Volume175ml.volume,
             price: Cantatas.PriumLatte.Volume175ml.price
-        ))
+        )
     }
 }

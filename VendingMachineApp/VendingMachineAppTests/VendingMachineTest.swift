@@ -11,11 +11,27 @@ import XCTest
 
 final class VendingMachineTest: XCTestCase {
     var vendingMachine: VendingMachine!
-    let primiumLatte = Cantata(cantataBuilder: Cantatas.builderPrimiumLatte175ml,
-                               celsius: 65)
-    let dietCola = Pepsi(pepsiBuilder: Pepsis.builderDietCola250ml)
-    let cookieCreamMilk = HersheyChocolateDrink(hersheyBuilder:
-                                                HersheyChocolateDrinks.builderCookieCream235ml)
+    let primiumLatte = Cantata(
+        milkContentRate: 0.15,
+        sugarContentRate: 0.05,
+        celsius: 65,
+        name: "프리미엄 라떼",
+        volume: 175,
+        price: 1500
+    )
+    let dietCola = Pepsi(
+        package: Pepsi.Package.can,
+        kiloCalorie: 80,
+        name: "다이어트 콜라",
+        volume: 250,
+        price: 1200
+    )
+    let cookieCreamMilk = HersheyChocolateDrink(
+        cacaoContentRate: 0.03,
+        name: "쿠키앤크림",
+        volume: 235,
+        price: 1300
+    )
     
     override func setUp() {
         super.setUp()
@@ -40,16 +56,16 @@ final class VendingMachineTest: XCTestCase {
     func testStockByKind() {
         let stockByKind = vendingMachine.stockByKind()
         XCTAssertEqual(stockByKind,
-                       [primiumLatte.kind: 1,
-                        dietCola.kind: 1,
-                        cookieCreamMilk.kind: 1])
+                       [primiumLatte: 1,
+                        dietCola: 1,
+                        cookieCreamMilk: 1])
     }
     
     func testSellableBeverages() {
         vendingMachine.receive(insertedMoney: 1200)
         let sellableBeverages = vendingMachine.sellableBeverages()
         XCTAssertEqual(sellableBeverages,
-                       [dietCola.kind: 1])
+                       [dietCola: 1])
     }
     
     func testSell() {
@@ -59,8 +75,12 @@ final class VendingMachineTest: XCTestCase {
     
     func testAdd() {
         vendingMachine = VendingMachine()
-        let otherCookieCreamMilk = HersheyChocolateDrink(hersheyBuilder:
-            HersheyChocolateDrinks.builderCookieCream235ml)
+        let otherCookieCreamMilk = HersheyChocolateDrink(
+            cacaoContentRate: 0.03,
+            name: "쿠키앤크림",
+            volume: 235,
+            price: 1300
+        )
         vendingMachine.addToStock(beverage: otherCookieCreamMilk)
         vendingMachine.searchAllBeverages { (beverage) -> (Void) in
             XCTAssertEqual(beverage, otherCookieCreamMilk)

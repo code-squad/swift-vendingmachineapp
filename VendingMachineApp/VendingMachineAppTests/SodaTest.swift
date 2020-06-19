@@ -14,7 +14,13 @@ final class SodaTest: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        soda = Pepsi(pepsiBuilder: Pepsis.builderDietCola250ml)
+        soda = Pepsi(
+            package: Pepsi.Package.can,
+            kiloCalorie: 80,
+            name: "다이어트 콜라",
+            volume: 250,
+            price: 1200
+        )
     }
     
     override func tearDown() {
@@ -27,7 +33,13 @@ final class SodaTest: XCTestCase {
     }
     
     func testIsLowCalorieFalse() {
-        soda = Pepsi(pepsiBuilder: Pepsis.builderDietCola591ml)
+        soda = Pepsi(
+            package: Pepsi.Package.pet,
+            kiloCalorie: 120,
+            name: "다이어트 콜라",
+            volume: 591,
+            price: 2000
+        )
         XCTAssertFalse(soda.isLowCalorie())
     }
 }

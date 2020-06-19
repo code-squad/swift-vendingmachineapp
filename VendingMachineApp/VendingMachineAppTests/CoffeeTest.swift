@@ -14,8 +14,14 @@ final class CoffeeTest: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        coffee = Cantata(cantataBuilder: Cantatas.builderPrimiumLatte175ml,
-                         celsius: 65)
+        coffee = Cantata(
+            milkContentRate: 0.15,
+            sugarContentRate: 0.05,
+            celsius: 65,
+            name: "프리미엄 라떼",
+            volume: 175,
+            price: 1500
+        )
     }
     
     override func tearDown() {
@@ -28,8 +34,14 @@ final class CoffeeTest: XCTestCase {
     }
     
     func testIsHotFalse() {
-        coffee = Cantata(cantataBuilder: Cantatas.builderPrimiumLatte175ml,
-                         celsius: 55)
+        coffee = Cantata(
+            milkContentRate: 0.15,
+            sugarContentRate: 0.05,
+            celsius: 55,
+            name: "프리미엄 라떼",
+            volume: 175,
+            price: 1500
+        )
         XCTAssertFalse(coffee.isHot())
     }
 }

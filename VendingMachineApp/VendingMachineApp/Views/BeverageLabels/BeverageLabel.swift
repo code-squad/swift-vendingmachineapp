@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BeverageLabel: UILabel {
+class BeverageLabel: UILabel, BeverageGeneratable {
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
@@ -21,5 +21,5 @@ class BeverageLabel: UILabel {
         text = "\(number)개"
     }
     
-    var beverage: Beverage? { return nil }
+    func beverage() -> Beverage? { return nil }
 }

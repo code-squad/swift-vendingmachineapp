@@ -9,7 +9,7 @@
 import UIKit
 
 final class PepsiDietCola250Label: BeverageLabel {
-    override var beverage: Beverage? {
+    override func beverage() -> Beverage? {
         return Pepsi(
             package: Pepsis.DietCola.Volume250ml.package,
             kiloCalorie: Pepsis.DietCola

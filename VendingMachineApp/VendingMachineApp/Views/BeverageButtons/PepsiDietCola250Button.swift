@@ -9,8 +9,8 @@
 import UIKit
 
 final class PepsiDietCola250Button: BeverageButton {
-    override func invokeAction(sender: BeverageButton) {
-        action?(Pepsi(
+    override func beverage() -> Beverage? {
+        return Pepsi(
             package: Pepsis.DietCola.Volume250ml.package,
             kiloCalorie: Pepsis.DietCola
                 .Volume250ml.kiloCalorie,
@@ -18,6 +18,6 @@ final class PepsiDietCola250Button: BeverageButton {
             name: Pepsis.DietCola.name,
             volume: Pepsis.DietCola.Volume250ml.volume,
             price: Pepsis.DietCola.Volume250ml.price
-        ))
+        )
     }
 }

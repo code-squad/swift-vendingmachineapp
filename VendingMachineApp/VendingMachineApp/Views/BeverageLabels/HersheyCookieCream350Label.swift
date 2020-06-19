@@ -9,7 +9,7 @@
 import UIKit
 
 final class HersheyCookieCream350Label: BeverageLabel {
-    override var beverage: Beverage? {
+    override func beverage() -> Beverage? {
         return HersheyChocolateDrink(
             cacaoContentRate: HersheyChocolateDrinks
             .CookieCream.cacaoContentRate,

@@ -8,30 +8,16 @@
 
 import UIKit
 
-class BeverageButton: UIButton {
-    var action: ((Beverage) -> Void)?
-    
+class BeverageButton: UIButton, BeverageGeneratable {
     override init(frame: CGRect) {
         super.init(frame: frame)
-        configureTarget()
         configureImageView()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        configureTarget()
         configureImageView()
     }
-    
-    deinit {
-        removeTarget(self, action: #selector(invokeAction(sender:)), for: .touchUpInside)
-    }
-    
-    private func configureTarget() {
-        addTarget(self, action: #selector(invokeAction(sender:)), for: .touchUpInside)
-    }
-    
-    @objc func invokeAction(sender: BeverageButton) { }
     
     private func configureImageView() {
         configureImage()
@@ -57,4 +43,6 @@ class BeverageButton: UIButton {
             right: constant
         )
     }
+    
+    func beverage() -> Beverage? { return nil }
 }

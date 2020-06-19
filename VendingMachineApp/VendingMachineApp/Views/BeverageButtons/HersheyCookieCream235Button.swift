@@ -11,11 +11,11 @@ import UIKit
 final class HersheyCookieCream235Button: BeverageButton {
     override func beverage() -> Beverage? {
         return HersheyChocolateDrink(
-            cacaoContentRate: HersheyChocolateDrinks.CookieCream.cacaoContentRate,
-            brand: HersheyChocolateDrinks.brand,
-            name: HersheyChocolateDrinks.CookieCream.name,
-            volume: HersheyChocolateDrinks.CookieCream.Volume235ml.volume,
-            price: HersheyChocolateDrinks.CookieCream.Volume235ml.price
+            cacaoContentRate: 0.03,
+            brand: "허쉬초콜릿드링크",
+            name: "쿠키앤크림",
+            volume: 235,
+            price: 1300
         )
     }
 }

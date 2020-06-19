@@ -27,7 +27,6 @@
 		5A7EFBCA24164EAC0018710C /* VendingMachineTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7EFBC924164EAC0018710C /* VendingMachineTest.swift */; };
 		5A7EFBCC241658C30018710C /* Quantity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7EFBCB241658C30018710C /* Quantity.swift */; };
 		5A834174241900EC00F20FAA /* Cashier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A834173241900EC00F20FAA /* Cashier.swift */; };
-		5A834183241DEB1C00F20FAA /* Beverages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A834182241DEB1C00F20FAA /* Beverages.swift */; };
 		5A834189241E117F00F20FAA /* BeverageLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A834188241E117F00F20FAA /* BeverageLabel.swift */; };
 		5A83418B241E11D900F20FAA /* BalanceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A83418A241E11D900F20FAA /* BalanceButton.swift */; };
 		5A834195241E5C1800F20FAA /* BalanceLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A834194241E5C1800F20FAA /* BalanceLabel.swift */; };
@@ -89,7 +88,6 @@
 		5A7EFBC924164EAC0018710C /* VendingMachineTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineTest.swift; sourceTree = "<group>"; };
 		5A7EFBCB241658C30018710C /* Quantity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quantity.swift; sourceTree = "<group>"; };
 		5A834173241900EC00F20FAA /* Cashier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cashier.swift; sourceTree = "<group>"; };
-		5A834182241DEB1C00F20FAA /* Beverages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beverages.swift; sourceTree = "<group>"; };
 		5A834188241E117F00F20FAA /* BeverageLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageLabel.swift; sourceTree = "<group>"; };
 		5A83418A241E11D900F20FAA /* BalanceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceButton.swift; sourceTree = "<group>"; };
 		5A834194241E5C1800F20FAA /* BalanceLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceLabel.swift; sourceTree = "<group>"; };
@@ -186,7 +184,6 @@
 			isa = PBXGroup;
 			children = (
 				5A91FCFF240FD7D100884D64 /* Beverage.swift */,
-				5A834182241DEB1C00F20FAA /* Beverages.swift */,
 				5A91FD01240FDFE800884D64 /* Milk.swift */,
 				5A91FD07240FE2C700884D64 /* HersheyChocolateDrink.swift */,
 				5A91FD03240FE04400884D64 /* Coffee.swift */,
@@ -442,7 +439,6 @@
 				5A349116249BB62C00A16D90 /* PepsiDietCola591Label.swift in Sources */,
 				5A349108249BB15600A16D90 /* CantataPrimiumLatte175Button.swift in Sources */,
 				5A91FD04240FE04400884D64 /* Coffee.swift in Sources */,
-				5A834183241DEB1C00F20FAA /* Beverages.swift in Sources */,
 				5ACB7BAF248FB63100ACA0E2 /* Balance5000Button.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

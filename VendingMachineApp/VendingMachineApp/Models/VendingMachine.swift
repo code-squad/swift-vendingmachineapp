@@ -112,32 +112,32 @@ extension VendingMachine {
 }
 
 extension VendingMachine {
-    func stockByKind() -> [Beverage.Kind: Int] {
-        var stockByKind = [Beverage.Kind: Int]()
+    func stockByKind() -> [Beverage: Int] {
+        var stockByKind = [Beverage: Int]()
         stock.forEach {
-            guard !stockByKind.keys.contains($0.kind)
+            guard !stockByKind.keys.contains($0)
                 else {
-                    stockByKind[$0.kind]? += 1
+                    stockByKind[$0]? += 1
                     return
             }
-            stockByKind[$0.kind] = 1
+            stockByKind[$0] = 1
         }
         return stockByKind
     }
     
-    func sellableBeverages() -> [Beverage.Kind: Int] {
-        var sellableBeverages = [Beverage.Kind: Int]()
+    func sellableBeverages() -> [Beverage: Int] {
+        var sellableBeverages = [Beverage: Int]()
         stock.forEach {
-            guard !sellableBeverages.keys.contains($0.kind)
+            guard !sellableBeverages.keys.contains($0)
                 else {
-                    sellableBeverages[$0.kind]? += 1
+                    sellableBeverages[$0]? += 1
                     return
             }
             guard cashier.isEnoughToBuy(price: $0.price)
                 else {
                     return
             }
-            sellableBeverages[$0.kind] = 1
+            sellableBeverages[$0] = 1
         }
         return sellableBeverages
     }

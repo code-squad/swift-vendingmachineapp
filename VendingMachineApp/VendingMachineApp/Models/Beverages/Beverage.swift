@@ -8,13 +8,12 @@
 
 import Foundation
 
-class Beverage {
+class Beverage: Hashable {
     private let brand: String
     private let name: String
     private let volume: Int
     let manufacturingDate: Date
     let price: Int
-    let kind: Kind
     
     init(
         brand: String,
@@ -26,38 +25,25 @@ class Beverage {
         self.name = name
         self.volume = volume
         self.price = price
-        self.kind = Kind(name: self.name,
-                         price: self.price)
         self.manufacturingDate = Date()
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(brand)
+        hasher.combine(name)
+        hasher.combine(volume)
+        hasher.combine(price)
+    }
+    
+    static func == (lhs: Beverage, rhs: Beverage) -> Bool {
+        return lhs.hashValue == rhs.hashValue
     }
 }
 
-extension Beverage: Equatable {
-    static func == (lhs: Beverage, rhs: Beverage) -> Bool {
-        return lhs.kind == rhs.kind
-    }
-    
-}
 
 extension Beverage: CustomStringConvertible {
     @objc var description: String {
         return "\(brand), \(volume)ml, \(price)원, \(name)" +
         ", \(manufacturingDate.toStringYearMonthDay)"
-    }
-}
-
-extension Beverage {
-    struct Kind: Hashable {
-        private let name: String
-        private let price: Int
-        
-        init(name: String, price: Int) {
-            self.name = name
-            self.price = price
-        }
-        
-        func hash(into hasher: inout Hasher) {
-            return hasher.combine(name + String(price))
-        }
     }
 }

@@ -29,6 +29,12 @@ final class Cantata: Coffee {
                    price: price)
     }
     
+    override func hash(into hasher: inout Hasher) {
+        super.hash(into: &hasher)
+        hasher.combine(milkContentRate)
+        hasher.combine(sugarContentRate)
+    }
+    
     func isContainsMilk() -> Bool {
         return milkContentRate == Quantity.minRate
     }

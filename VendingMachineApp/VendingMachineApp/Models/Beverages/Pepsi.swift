@@ -38,6 +38,11 @@ final class Pepsi: Soda {
         )
     }
     
+    override func hash(into hasher: inout Hasher) {
+        super.hash(into: &hasher)
+        hasher.combine(package)
+    }
+    
     func isFragile() -> Bool {
         return package == Package.glass
     }

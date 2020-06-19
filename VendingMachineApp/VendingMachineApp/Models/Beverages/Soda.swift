@@ -27,6 +27,11 @@ class Soda: Beverage {
         )
     }
     
+    override func hash(into hasher: inout Hasher) {
+        super.hash(into: &hasher)
+        hasher.combine(kiloCalorie)
+    }
+    
     func isLowCalorie() -> Bool {
         return kiloCalorie <= Quantity.maxLowKiloCalorie
     }

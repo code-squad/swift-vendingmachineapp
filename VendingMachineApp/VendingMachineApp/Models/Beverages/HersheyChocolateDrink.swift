@@ -25,6 +25,11 @@ final class HersheyChocolateDrink: Milk {
                    price: price)
     }
     
+    override func hash(into hasher: inout Hasher) {
+        super.hash(into: &hasher)
+        hasher.combine(cacaoContentRate)
+    }
+    
     func isHighCacao() -> Bool {
         return cacaoContentRate >= Quantity.minHighCacaoRate
     }

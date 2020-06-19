@@ -67,7 +67,7 @@ final class ViewController: UIViewController {
         let stockByKind = vendingMachine.stockByKind()
         beverageNumberLabels.forEach {
             if let beverage = $0.beverage(),
-                let beverageNumber = stockByKind[beverage.kind] {
+                let beverageNumber = stockByKind[beverage] {
                 $0.update(number: beverageNumber)
             }
         }

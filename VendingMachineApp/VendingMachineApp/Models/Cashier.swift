@@ -12,14 +12,11 @@ protocol Calculable {
     mutating func subtract(price: Int)
     mutating func plus(money: Int)
     func isEnoughToBuy(price: Int) -> Bool
-    mutating func addToSalesLog(beverage: Beverage)
     func currentBalance() -> Int
-    func searchSalesLog(handler: (Beverage) -> (Void))
 }
 
 struct Cashier: Calculable {
     private var balance = Quantity.zero
-    private var salesLog = [Beverage]()
     
     func currentBalance() -> Int {
         return balance
@@ -35,15 +32,5 @@ struct Cashier: Calculable {
     
     func isEnoughToBuy(price: Int) -> Bool {
         return balance >= price
-    }
-    
-    mutating func addToSalesLog(beverage: Beverage) {
-        salesLog.append(beverage)
-    }
-}
-
-extension Cashier {
-    func searchSalesLog(handler: (Beverage) -> (Void)) {
-        salesLog.forEach { handler($0) }
     }
 }

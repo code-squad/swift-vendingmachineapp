@@ -52,11 +52,11 @@ final class VendingMachine {
 }
 
 extension VendingMachine {
-    func searchSalesLog(handler: (Beverage) -> (Void)) {
+    func repeatSalesLog(handler: (Beverage) -> (Void)) {
         stockable.repeatSalesLog { handler($0) }
     }
     
-    func searchHotCoffees(handler: (Coffee) -> (Void)) {
+    func repeatHotCoffees(handler: (Coffee) -> (Void)) {
         stockable.repeatBeverages { beverage in
             guard let hotCoffee = beverage as? Coffee, hotCoffee.isHot() else { return }
             
@@ -64,7 +64,7 @@ extension VendingMachine {
         }
     }
     
-    func searchMilksPassed(expirationDate: Date, handler: (Milk) -> (Void)) {
+    func repeatMilksPassed(expirationDate: Date, handler: (Milk) -> (Void)) {
         stockable.repeatBeverages { beverage in
             guard let passedExpirationDateMilk = beverage as? Milk,
                 !passedExpirationDateMilk.validate(with: expirationDate) else { return }
@@ -73,7 +73,7 @@ extension VendingMachine {
         }
     }
     
-    func searchAllBeverages(handler: (Beverage) -> (Void)) {
+    func repeatAllBeverages(handler: (Beverage) -> (Void)) {
         stockable.repeatBeverages { handler($0) }
     }
 }

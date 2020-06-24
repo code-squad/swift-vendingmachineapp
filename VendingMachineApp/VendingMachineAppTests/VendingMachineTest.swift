@@ -94,7 +94,7 @@ final class VendingMachineTest: XCTestCase {
             price: 1300
         )
         vendingMachine.addToStock(beverage: otherCookieCreamMilk)
-        vendingMachine.searchAllBeverages { (beverage) -> (Void) in
+        vendingMachine.repeatAllBeverages { (beverage) -> (Void) in
             XCTAssertEqual(beverage, otherCookieCreamMilk)
         }
     }
@@ -106,21 +106,21 @@ final class VendingMachineTest: XCTestCase {
         case .failure(let error):
             print(error.localizedDescription)
         case .success(let beverage):
-            vendingMachine.searchSalesLog {
+            vendingMachine.repeatSalesLog {
                 XCTAssertEqual($0, beverage)
             }
         }
     }
     
     func testSearchHotCoffees() {
-        vendingMachine.searchHotCoffees {
+        vendingMachine.repeatHotCoffees {
             XCTAssertEqual($0, primiumLatte)
         }
     }
     
     func testSearchMilksPassed() {
         if let date = Date.dateFormatter.date(from: "20191201") {
-            vendingMachine.searchMilksPassed(expirationDate: date) {
+            vendingMachine.repeatMilksPassed(expirationDate: date) {
                 XCTAssertEqual($0, cookieCreamMilk)
             }
         }

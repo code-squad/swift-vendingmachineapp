@@ -8,14 +8,7 @@
 
 import Foundation
 
-protocol Moneyable {
-    mutating func subtract(price: Money)
-    mutating func plus(money: Money)
-    func isMoreThan(money: Money) -> Bool
-    func currentMoney() -> Int 
-}
-
-struct Money: Moneyable {
+final class Money {
     enum Notification {
         static let balanceDidChange = Foundation.Notification.Name("balanceDidChange")
     }
@@ -26,27 +19,37 @@ struct Money: Moneyable {
     
     private var balance: Int {
         didSet {
-            NotificationCenter.default.post(
-                name: Notification.balanceDidChange,
-                object: self,
-                userInfo: ["balance": balance]
-            )
+            NotificationCenter.default.post(name: Notification.balanceDidChange, object: self)
         }
     }
     
-    func currentMoney() -> Int {
-        return balance
-    }
-    
-    mutating func subtract(price: Money) {
+    func subtract(price: Money) {
         balance -= price.balance
     }
     
-    mutating func plus(money: Money) {
+    func plus(money: Money) {
         balance += money.balance
     }
+}
+
+extension Money: Comparable {
+    static func == (lhs: Money, rhs: Money) -> Bool {
+        return lhs.balance == rhs.balance
+    }
     
-    func isMoreThan(money: Money) -> Bool {
-        return balance >= money.balance
+    static func < (lhs: Money, rhs: Money) -> Bool {
+        return lhs.balance < rhs.balance
+    }
+}
+
+extension Money: Hashable {
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(balance)
+    }
+}
+
+extension Money: CustomStringConvertible {
+    var description: String {
+        return String(balance)
     }
 }

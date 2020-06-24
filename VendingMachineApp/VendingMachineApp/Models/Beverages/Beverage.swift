@@ -13,7 +13,7 @@ class Beverage: Hashable {
     private let name: String
     private let volume: Int
     let manufacturingDate: Date
-    let price: Int
+    let price: Money
     
     init(
         brand: String,
@@ -24,7 +24,7 @@ class Beverage: Hashable {
         self.brand = brand
         self.name = name
         self.volume = volume
-        self.price = price
+        self.price = Money(balance: price)
         self.manufacturingDate = Date()
     }
     

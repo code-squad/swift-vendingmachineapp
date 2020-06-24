@@ -9,8 +9,8 @@
 import UIKit
 
 final class Balance1000Button: BalanceButton {
-    override var balance: Int? {
-        return 1000
+    override var balance: Money? {
+        return Money(balance: 1000)
     }
     
     override func invokeAction(sender: BalanceButton) {

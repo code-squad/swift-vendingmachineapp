@@ -82,6 +82,8 @@ final class ViewController: UIViewController {
     
     private func configureBalanceAction(_ balanceButton: BalanceButton) {
         balanceButton.action = { [weak self] money in
+            guard let money = money else { return }
+            
             self?.vendingMachine.receive(insertedMoney: money)
         }
     }

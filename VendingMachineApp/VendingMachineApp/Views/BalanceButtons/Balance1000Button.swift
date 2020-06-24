@@ -9,7 +9,11 @@
 import UIKit
 
 final class Balance1000Button: BalanceButton {
+    override var balance: Int? {
+        return 1000
+    }
+    
     override func invokeAction(sender: BalanceButton) {
-        action?(1000)
+        action?(balance)
     }
 }

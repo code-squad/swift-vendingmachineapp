@@ -21,5 +21,5 @@ class BeverageLabel: UILabel, BeverageGeneratable {
         text = "\(number)개"
     }
     
-    func beverage() -> Beverage? { return nil }
+    func instantiator() -> BeverageInstantiator? { return nil }
 }

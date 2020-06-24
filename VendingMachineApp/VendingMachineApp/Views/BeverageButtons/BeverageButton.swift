@@ -44,5 +44,5 @@ class BeverageButton: UIButton, BeverageGeneratable {
         )
     }
     
-    func beverage() -> Beverage? { return nil }
+    func instantiator() -> BeverageInstantiator? { return nil }
 }

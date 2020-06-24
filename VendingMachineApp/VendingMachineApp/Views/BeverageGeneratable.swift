@@ -9,5 +9,5 @@
 import Foundation
 
 protocol BeverageGeneratable {
-    func beverage() -> Beverage? 
+    func instantiator() -> BeverageInstantiator?
 }

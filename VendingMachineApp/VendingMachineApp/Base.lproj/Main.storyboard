@@ -276,15 +276,21 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nf4-ky-L1q" customClass="CornerRoundedView" customModule="VendingMachineApp" customModuleProvider="target">
                                                 <rect key="frame" x="378" y="11.5" width="189" height="90"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="goM-GG-ohe" customClass="Balance1000Button" customModule="VendingMachineApp" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="goM-GG-ohe" customClass="Money1000Button" customModule="VendingMachineApp" customModuleProvider="target">
                                                         <rect key="frame" x="16" y="3.5" width="62" height="38"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                         <state key="normal" title="+1000"/>
+                                                        <connections>
+                                                            <action selector="balanceButtonDidTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6CF-NE-UpI"/>
+                                                        </connections>
                                                     </button>
-                                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EtE-d8-nF1" customClass="Balance5000Button" customModule="VendingMachineApp" customModuleProvider="target">
+                                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EtE-d8-nF1" customClass="Money5000Button" customModule="VendingMachineApp" customModuleProvider="target">
                                                         <rect key="frame" x="109.5" y="3.5" width="65" height="38"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                         <state key="normal" title="+5000"/>
+                                                        <connections>
+                                                            <action selector="balanceButtonDidTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vA8-gA-qph"/>
+                                                        </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="잔액 : 0원 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KQN-oq-VMf" customClass="BalanceLabel" customModule="VendingMachineApp" customModuleProvider="target">
                                                         <rect key="frame" x="42.5" y="52.5" width="104" height="30"/>
@@ -340,8 +346,6 @@
                         <outletCollection property="beverageNumberLabels" destination="oTL-ks-4Si" collectionClass="NSMutableArray" id="vci-6d-cnJ"/>
                         <outletCollection property="beverageNumberLabels" destination="CaR-Yv-rvA" collectionClass="NSMutableArray" id="opn-nH-7Ij"/>
                         <outletCollection property="beverageNumberLabels" destination="T1U-DM-QZ1" collectionClass="NSMutableArray" id="puw-Cf-q32"/>
-                        <outletCollection property="balanceButtons" destination="goM-GG-ohe" collectionClass="NSMutableArray" id="0vr-uT-D0v"/>
-                        <outletCollection property="balanceButtons" destination="EtE-d8-nF1" collectionClass="NSMutableArray" id="bT1-ao-g2I"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

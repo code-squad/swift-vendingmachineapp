@@ -38,7 +38,6 @@ final class ViewController: UIViewController {
         super.viewDidLoad()
         balanceLabel.update(currentMoney: vendingMachine.money)
         configureObservers()
-        configureBalanceButtons()
     }
     
     private func configureObservers() {
@@ -76,18 +75,10 @@ final class ViewController: UIViewController {
     }
     
     @IBOutlet weak var balanceLabel: BalanceLabel!
-    @IBOutlet var balanceButtons: [BalanceButton]!
-    
-    private func configureBalanceButtons() {
-        balanceButtons.forEach { configureBalanceAction($0) }
-    }
-    
-    private func configureBalanceAction(_ balanceButton: BalanceButton) {
-        balanceButton.action = { [weak self] money in
-            guard let money = money else { return }
-            
-            self?.vendingMachine.receive(insertedMoney: money)
-        }
+    @IBAction func balanceButtonDidTouch(_ sender: MoneyButton) {
+        guard let money = sender.instantiator?.money else { return }
+        
+        vendingMachine.receive(insertedMoney: money)
     }
     
     private func updateBalanceLabel() {

@@ -30,15 +30,15 @@ final class ViewController: UIViewController {
         
         NotificationCenter.default.removeObserver(
             balanceDidChangeToken,
-            name: VendingMachine.Notification.balanceDidChange,
-            object: vendingMachine)
+            name: Cashier.Notification.balanceDidChange,
+            object: nil)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         balanceLabel.update(currentMoney: vendingMachine.currentMoney())
         configureObservers()
-        confiureBalanceButtons()
+        configureBalanceButtons()
     }
     
     private func configureObservers() {
@@ -46,13 +46,13 @@ final class ViewController: UIViewController {
             forName: Stock.Notification.beveragesDidChange,
             object: nil,
             queue: nil
-        ) { [weak self] _ in self?.updateBeverageLabels() }
+        ) { [weak self] notifiaction in self?.updateBeverageLabels(notifiaction) }
         
         balanceObsever = NotificationCenter.default.addObserver(
-            forName: VendingMachine.Notification.balanceDidChange,
-            object: vendingMachine,
+            forName: Cashier.Notification.balanceDidChange,
+            object: nil,
             queue: nil
-        ) { [weak self] _ in self?.updateBalanceLabel() }
+        ) { [weak self] notification in self?.updateBalanceLabel(notification) }
     }
     
     @IBOutlet var beverageNumberLabels: [BeverageLabel]!
@@ -63,20 +63,24 @@ final class ViewController: UIViewController {
         vendingMachine.addToStock(beverage: berverage)
     }
     
-    private func updateBeverageLabels() {
+    private func updateBeverageLabels(_ notification: Notification) {
+        guard let newBeverage = notification.userInfo?["beverage"] as? Beverage else { return }
+        
         let stockByKind = vendingMachine.stockByKind()
-        beverageNumberLabels.forEach {
-            if let beverage = $0.beverage(),
-                let beverageNumber = stockByKind[beverage] {
-                $0.update(number: beverageNumber)
-            }
+        for label in beverageNumberLabels {
+            guard let beverage = label.beverage(),
+                newBeverage == beverage,
+                let beverageNumber = stockByKind[beverage] else { continue }
+            
+            label.update(number: beverageNumber)
+            break
         }
     }
     
     @IBOutlet weak var balanceLabel: BalanceLabel!
     @IBOutlet var balanceButtons: [BalanceButton]!
     
-    private func confiureBalanceButtons() {
+    private func configureBalanceButtons() {
         balanceButtons.forEach { configureBalanceAction($0) }
     }
     
@@ -88,8 +92,9 @@ final class ViewController: UIViewController {
         }
     }
     
-    private func updateBalanceLabel() {
-        let currentMoney = vendingMachine.currentMoney()
+    private func updateBalanceLabel(_ notification: Notification) {
+        guard let currentMoney = notification.userInfo?["balance"] as? Int else { return }
+        
         balanceLabel.update(currentMoney: currentMoney)
     }
 }

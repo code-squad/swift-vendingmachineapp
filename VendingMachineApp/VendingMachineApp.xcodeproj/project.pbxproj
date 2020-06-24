@@ -28,7 +28,7 @@
 		5A7EFBCC241658C30018710C /* Quantity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7EFBCB241658C30018710C /* Quantity.swift */; };
 		5A834174241900EC00F20FAA /* Money.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A834173241900EC00F20FAA /* Money.swift */; };
 		5A834189241E117F00F20FAA /* BeverageLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A834188241E117F00F20FAA /* BeverageLabel.swift */; };
-		5A83418B241E11D900F20FAA /* BalanceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A83418A241E11D900F20FAA /* BalanceButton.swift */; };
+		5A83418B241E11D900F20FAA /* MoneyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A83418A241E11D900F20FAA /* MoneyButton.swift */; };
 		5A834195241E5C1800F20FAA /* BalanceLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A834194241E5C1800F20FAA /* BalanceLabel.swift */; };
 		5A91FCCD240FCDFB00884D64 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A91FCCC240FCDFB00884D64 /* AppDelegate.swift */; };
 		5A91FCCF240FCDFB00884D64 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A91FCCE240FCDFB00884D64 /* SceneDelegate.swift */; };
@@ -46,8 +46,8 @@
 		5A91FD0C240FEC6500884D64 /* Pepsi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A91FD0B240FEC6500884D64 /* Pepsi.swift */; };
 		5ACB7BA9248FA7BB00ACA0E2 /* BeverageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACB7BA8248FA7BB00ACA0E2 /* BeverageButton.swift */; };
 		5ACB7BAD248FADB200ACA0E2 /* CornerRoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACB7BAC248FADB200ACA0E2 /* CornerRoundedView.swift */; };
-		5ACB7BAF248FB63100ACA0E2 /* Balance5000Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACB7BAE248FB63100ACA0E2 /* Balance5000Button.swift */; };
-		5ACB7BB1248FBB1000ACA0E2 /* Balance1000Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACB7BB0248FBB1000ACA0E2 /* Balance1000Button.swift */; };
+		5ACB7BAF248FB63100ACA0E2 /* Money5000Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACB7BAE248FB63100ACA0E2 /* Money5000Button.swift */; };
+		5ACB7BB1248FBB1000ACA0E2 /* Money1000Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACB7BB0248FBB1000ACA0E2 /* Money1000Button.swift */; };
 		5ACEDD9324A31ECD001F9933 /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACEDD9224A31ECD001F9933 /* Stock.swift */; };
 		5ACEDD9824A37B74001F9933 /* BerverageInstantiator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACEDD9724A37B74001F9933 /* BerverageInstantiator.swift */; };
 		5ACEDD9B24A38526001F9933 /* CantataPrimiumLatte175Instantiator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACEDD9A24A38526001F9933 /* CantataPrimiumLatte175Instantiator.swift */; };
@@ -56,6 +56,9 @@
 		5ACEDDA124A38578001F9933 /* PepsiDietCola591Instantiator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACEDDA024A38578001F9933 /* PepsiDietCola591Instantiator.swift */; };
 		5ACEDDA324A38591001F9933 /* HersheyCookieCream235Instantiator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACEDDA224A38591001F9933 /* HersheyCookieCream235Instantiator.swift */; };
 		5ACEDDA524A385A8001F9933 /* HersheyCookieCream350Instantiator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACEDDA424A385A8001F9933 /* HersheyCookieCream350Instantiator.swift */; };
+		5ACEDDA924A38670001F9933 /* MoneyInstantiator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACEDDA824A38670001F9933 /* MoneyInstantiator.swift */; };
+		5ACEDDAB24A3869C001F9933 /* Money1000Instantiator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACEDDAA24A3869C001F9933 /* Money1000Instantiator.swift */; };
+		5ACEDDAD24A386D3001F9933 /* Money5000Instantiator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACEDDAC24A386D3001F9933 /* Money5000Instantiator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,7 +100,7 @@
 		5A7EFBCB241658C30018710C /* Quantity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quantity.swift; sourceTree = "<group>"; };
 		5A834173241900EC00F20FAA /* Money.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Money.swift; sourceTree = "<group>"; };
 		5A834188241E117F00F20FAA /* BeverageLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageLabel.swift; sourceTree = "<group>"; };
-		5A83418A241E11D900F20FAA /* BalanceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceButton.swift; sourceTree = "<group>"; };
+		5A83418A241E11D900F20FAA /* MoneyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyButton.swift; sourceTree = "<group>"; };
 		5A834194241E5C1800F20FAA /* BalanceLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceLabel.swift; sourceTree = "<group>"; };
 		5A91FCC9240FCDFB00884D64 /* VendingMachineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendingMachineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A91FCCC240FCDFB00884D64 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -121,8 +124,8 @@
 		5A91FD0B240FEC6500884D64 /* Pepsi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pepsi.swift; sourceTree = "<group>"; };
 		5ACB7BA8248FA7BB00ACA0E2 /* BeverageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageButton.swift; sourceTree = "<group>"; };
 		5ACB7BAC248FADB200ACA0E2 /* CornerRoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerRoundedView.swift; sourceTree = "<group>"; };
-		5ACB7BAE248FB63100ACA0E2 /* Balance5000Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Balance5000Button.swift; sourceTree = "<group>"; };
-		5ACB7BB0248FBB1000ACA0E2 /* Balance1000Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Balance1000Button.swift; sourceTree = "<group>"; };
+		5ACB7BAE248FB63100ACA0E2 /* Money5000Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Money5000Button.swift; sourceTree = "<group>"; };
+		5ACB7BB0248FBB1000ACA0E2 /* Money1000Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Money1000Button.swift; sourceTree = "<group>"; };
 		5ACEDD9224A31ECD001F9933 /* Stock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stock.swift; sourceTree = "<group>"; };
 		5ACEDD9724A37B74001F9933 /* BerverageInstantiator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BerverageInstantiator.swift; sourceTree = "<group>"; };
 		5ACEDD9A24A38526001F9933 /* CantataPrimiumLatte175Instantiator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CantataPrimiumLatte175Instantiator.swift; sourceTree = "<group>"; };
@@ -131,6 +134,9 @@
 		5ACEDDA024A38578001F9933 /* PepsiDietCola591Instantiator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PepsiDietCola591Instantiator.swift; sourceTree = "<group>"; };
 		5ACEDDA224A38591001F9933 /* HersheyCookieCream235Instantiator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HersheyCookieCream235Instantiator.swift; sourceTree = "<group>"; };
 		5ACEDDA424A385A8001F9933 /* HersheyCookieCream350Instantiator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HersheyCookieCream350Instantiator.swift; sourceTree = "<group>"; };
+		5ACEDDA824A38670001F9933 /* MoneyInstantiator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyInstantiator.swift; sourceTree = "<group>"; };
+		5ACEDDAA24A3869C001F9933 /* Money1000Instantiator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Money1000Instantiator.swift; sourceTree = "<group>"; };
+		5ACEDDAC24A386D3001F9933 /* Money5000Instantiator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Money5000Instantiator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,9 +195,9 @@
 		5A34911B249BB72300A16D90 /* BalanceButtons */ = {
 			isa = PBXGroup;
 			children = (
-				5A83418A241E11D900F20FAA /* BalanceButton.swift */,
-				5ACB7BAE248FB63100ACA0E2 /* Balance5000Button.swift */,
-				5ACB7BB0248FBB1000ACA0E2 /* Balance1000Button.swift */,
+				5A83418A241E11D900F20FAA /* MoneyButton.swift */,
+				5ACB7BAE248FB63100ACA0E2 /* Money5000Button.swift */,
+				5ACB7BB0248FBB1000ACA0E2 /* Money1000Button.swift */,
 			);
 			path = BalanceButtons;
 			sourceTree = "<group>";
@@ -283,9 +289,9 @@
 		5A91FCFC240FD6B700884D64 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				5ACEDDA724A3865F001F9933 /* Money */,
 				5A8341722419002B00F20FAA /* Beverages */,
 				5A91FCFD240FD6DE00884D64 /* VendingMachine.swift */,
-				5A834173241900EC00F20FAA /* Money.swift */,
 				5A7EFBC1241631860018710C /* Date.swift */,
 				5A7EFBCB241658C30018710C /* Quantity.swift */,
 				5ACEDD9224A31ECD001F9933 /* Stock.swift */,
@@ -303,6 +309,25 @@
 				5ACEDDA024A38578001F9933 /* PepsiDietCola591Instantiator.swift */,
 				5ACEDDA224A38591001F9933 /* HersheyCookieCream235Instantiator.swift */,
 				5ACEDDA424A385A8001F9933 /* HersheyCookieCream350Instantiator.swift */,
+			);
+			path = Instantiators;
+			sourceTree = "<group>";
+		};
+		5ACEDDA724A3865F001F9933 /* Money */ = {
+			isa = PBXGroup;
+			children = (
+				5ACEDDAE24A38A0F001F9933 /* Instantiators */,
+				5A834173241900EC00F20FAA /* Money.swift */,
+			);
+			path = Money;
+			sourceTree = "<group>";
+		};
+		5ACEDDAE24A38A0F001F9933 /* Instantiators */ = {
+			isa = PBXGroup;
+			children = (
+				5ACEDDA824A38670001F9933 /* MoneyInstantiator.swift */,
+				5ACEDDAA24A3869C001F9933 /* Money1000Instantiator.swift */,
+				5ACEDDAC24A386D3001F9933 /* Money5000Instantiator.swift */,
 			);
 			path = Instantiators;
 			sourceTree = "<group>";
@@ -449,6 +474,7 @@
 				5A91FD0A240FE92B00884D64 /* Cantata.swift in Sources */,
 				5A91FD00240FD7D100884D64 /* Beverage.swift in Sources */,
 				5ACB7BA9248FA7BB00ACA0E2 /* BeverageButton.swift in Sources */,
+				5ACEDDAB24A3869C001F9933 /* Money1000Instantiator.swift in Sources */,
 				5ACB7BAD248FADB200ACA0E2 /* CornerRoundedView.swift in Sources */,
 				5A349112249BB5B600A16D90 /* CantataPrimiumLatte275Label.swift in Sources */,
 				5A91FD08240FE2C800884D64 /* HersheyChocolateDrink.swift in Sources */,
@@ -467,10 +493,11 @@
 				5A349104249BB0BC00A16D90 /* CantataPrimiumLatte175Label.swift in Sources */,
 				5A834195241E5C1800F20FAA /* BalanceLabel.swift in Sources */,
 				5A34911A249BB68F00A16D90 /* HersheyCookieCream350Label.swift in Sources */,
-				5ACB7BB1248FBB1000ACA0E2 /* Balance1000Button.swift in Sources */,
+				5ACB7BB1248FBB1000ACA0E2 /* Money1000Button.swift in Sources */,
 				5A7EFBC2241631860018710C /* Date.swift in Sources */,
 				5A91FD02240FDFE900884D64 /* Milk.swift in Sources */,
-				5A83418B241E11D900F20FAA /* BalanceButton.swift in Sources */,
+				5A83418B241E11D900F20FAA /* MoneyButton.swift in Sources */,
+				5ACEDDA924A38670001F9933 /* MoneyInstantiator.swift in Sources */,
 				5A91FCFE240FD6DE00884D64 /* VendingMachine.swift in Sources */,
 				5A91FD0C240FEC6500884D64 /* Pepsi.swift in Sources */,
 				5ACEDD9D24A38545001F9933 /* CantataPrimiumLatte275Instantiator.swift in Sources */,
@@ -479,7 +506,8 @@
 				5A349108249BB15600A16D90 /* CantataPrimiumLatte175Button.swift in Sources */,
 				5ACEDD9F24A38563001F9933 /* PepsiDietCola250Instantiator.swift in Sources */,
 				5A91FD04240FE04400884D64 /* Coffee.swift in Sources */,
-				5ACB7BAF248FB63100ACA0E2 /* Balance5000Button.swift in Sources */,
+				5ACEDDAD24A386D3001F9933 /* Money5000Instantiator.swift in Sources */,
+				5ACB7BAF248FB63100ACA0E2 /* Money5000Button.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

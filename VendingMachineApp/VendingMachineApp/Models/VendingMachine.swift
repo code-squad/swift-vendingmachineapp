@@ -14,38 +14,38 @@ enum SellError: Error {
 }
 
 final class VendingMachine {
-    private var stock: Stockable
-    private var cashier: Calculable
+    private var stockable: Stockable
+    private var calculable: Calculable
     
-    init(stock: Stockable) {
-        self.stock = stock
-        self.cashier = Cashier()
+    init(stockable: Stockable, calculable: Calculable) {
+        self.stockable = stockable
+        self.calculable = calculable
     }
     
     func receive(insertedMoney: Int) {
-        cashier.plus(money: insertedMoney)
+        calculable.plus(money: insertedMoney)
     }
     
     func currentMoney() -> Int {
-        return cashier.currentBalance()
+        return calculable.currentBalance()
     }
     
     func addToStock(beverage: Beverage) {
-        stock.add(beverage: beverage)
+        stockable.add(beverage: beverage)
     }
     
     @discardableResult
     func sell(wantedBeverage: Beverage) -> Result<Beverage,SellError> {
-        guard cashier.isEnoughToBuy(price: wantedBeverage.price)
+        guard calculable.isEnoughToBuy(price: wantedBeverage.price)
             else {
                 return .failure(.insufficientMoneyError)
         }
-        guard stock.subtract(beverage: wantedBeverage)            else {
+        guard stockable.subtract(beverage: wantedBeverage)            else {
                 return .failure(.nonExistentBeverageError)
         }
         
-        stock.logSaled(beverage: wantedBeverage)
-        cashier.subtract(price: wantedBeverage.price)
+        stockable.logSaled(beverage: wantedBeverage)
+        calculable.subtract(price: wantedBeverage.price)
         return .success(wantedBeverage)
     }
 
@@ -53,11 +53,11 @@ final class VendingMachine {
 
 extension VendingMachine {
     func searchSalesLog(handler: (Beverage) -> (Void)) {
-        stock.repeatSalesLog { handler($0) }
+        stockable.repeatSalesLog { handler($0) }
     }
     
     func searchHotCoffees(handler: (Coffee) -> (Void)) {
-        stock.repeatBeverages { beverage in
+        stockable.repeatBeverages { beverage in
             guard let hotCoffee = beverage as? Coffee, hotCoffee.isHot() else { return }
             
             handler(hotCoffee)
@@ -65,7 +65,7 @@ extension VendingMachine {
     }
     
     func searchMilksPassed(expirationDate: Date, handler: (Milk) -> (Void)) {
-        stock.repeatBeverages { beverage in
+        stockable.repeatBeverages { beverage in
             guard let passedExpirationDateMilk = beverage as? Milk,
                 !passedExpirationDateMilk.validate(with: expirationDate) else { return }
             
@@ -74,14 +74,14 @@ extension VendingMachine {
     }
     
     func searchAllBeverages(handler: (Beverage) -> (Void)) {
-        stock.repeatBeverages { handler($0) }
+        stockable.repeatBeverages { handler($0) }
     }
 }
 
 extension VendingMachine {
     func stockByKind() -> [Beverage: Int] {
         var stockByKind = [Beverage: Int]()
-        stock.repeatBeverages {
+        stockable.repeatBeverages {
             if stockByKind.keys.contains($0) {
                 stockByKind[$0]? += 1
             } else {
@@ -93,8 +93,8 @@ extension VendingMachine {
     
     func sellableBeverages() -> [Beverage: Int] {
         var sellableBeverages = [Beverage: Int]()
-        stock.repeatBeverages {
-            guard cashier.isEnoughToBuy(price: $0.price) else { return }
+        stockable.repeatBeverages {
+            guard calculable.isEnoughToBuy(price: $0.price) else { return }
             
             if sellableBeverages.keys.contains($0) {
                 sellableBeverages[$0]? += 1

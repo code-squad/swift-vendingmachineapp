@@ -9,7 +9,7 @@
 import UIKit
 
 final class ViewController: UIViewController {
-    private var vendingMachine = VendingMachine(stock: Stock())
+    private var vendingMachine = VendingMachine(stockable: Stock(), calculable: Cashier())
     private var beverageObserver: NSObjectProtocol?
     private var balanceObsever: NSObjectProtocol?
     

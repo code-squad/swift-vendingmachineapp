@@ -66,10 +66,10 @@ extension VendingMachine {
     
     func repeatMilksPassed(expirationDate: Date, handler: (Milk) -> (Void)) {
         stockable.repeatBeverages { beverage in
-            guard let passedExpirationDateMilk = beverage as? Milk,
-                !passedExpirationDateMilk.validate(with: expirationDate) else { return }
+            guard let milk = beverage as? Milk,
+                !milk.validate(with: expirationDate) else { return }
             
-            handler(passedExpirationDateMilk)
+            handler(milk)
         }
     }
     

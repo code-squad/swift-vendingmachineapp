@@ -10,11 +10,6 @@ import UIKit
 
 final class HersheyCookieCream235Button: BeverageButton {
     override func beverage() -> Beverage? {
-        return HersheyChocolateDrink(
-            cacaoContentRate: 0.03,
-            name: "쿠키앤크림",
-            volume: 235,
-            price: 1300
-        )
+        return BeverageInstantiator().hersheyCookieCream235
     }
 }

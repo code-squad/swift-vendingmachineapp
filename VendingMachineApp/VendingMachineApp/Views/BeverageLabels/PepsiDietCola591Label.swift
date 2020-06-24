@@ -10,12 +10,6 @@ import UIKit
 
 final class PepsiDietCola591Label: BeverageLabel {
     override func beverage() -> Beverage? {
-        return Pepsi(
-            package: Pepsi.Package.pet,
-            kiloCalorie: 120,
-            name: "다이어트 콜라",
-            volume: 591,
-            price: 2000
-        )
+        return BeverageInstantiator().pepsiDietCola591
     }
 }

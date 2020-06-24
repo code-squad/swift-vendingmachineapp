@@ -44,7 +44,7 @@ final class VendingMachineTest: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        vendingMachine = VendingMachine(stock: [primiumLatte, dietCola, cookieCreamMilk, dietCola2])
+        vendingMachine = VendingMachine(stock: Stock(beverages: [primiumLatte, dietCola, cookieCreamMilk, dietCola2]))
     }
     
     override func tearDown() {
@@ -83,7 +83,7 @@ final class VendingMachineTest: XCTestCase {
     }
     
     func testAdd() {
-        vendingMachine = VendingMachine()
+        vendingMachine = VendingMachine(stock: Stock())
         let otherCookieCreamMilk = HersheyChocolateDrink(
             cacaoContentRate: 0.03,
             name: "쿠키앤크림",

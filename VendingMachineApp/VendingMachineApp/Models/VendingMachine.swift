@@ -15,22 +15,17 @@ enum SellError: Error {
 
 final class VendingMachine {
     enum Notification {
-        static let beveragesDidChange = Foundation.Notification.Name("beveragesDidChange")
         static let balanceDidChange = Foundation.Notification.Name("balanceDidChange")
     }
     
-    private var stock: [Beverage] {
-        didSet {
-            NotificationCenter.default.post(name: Notification.beveragesDidChange, object: self)
-        }
-    }
+    private var stock: Stockable
     private var cashier: Calculable {
         didSet {
             NotificationCenter.default.post(name: Notification.balanceDidChange, object: self)
         }
     }
     
-    init(stock: [Beverage] = []) {
+    init(stock: Stockable) {
         self.stock = stock
         self.cashier = Cashier()
     }
@@ -44,7 +39,7 @@ final class VendingMachine {
     }
     
     func addToStock(beverage: Beverage) {
-        stock.append(beverage)
+        stock.add(beverage: beverage)
     }
     
     @discardableResult
@@ -53,81 +48,60 @@ final class VendingMachine {
             else {
                 return .failure(.insufficientMoneyError)
         }
-        guard subtractFromStock(beverage: wantedBeverage)
-            else {
+        guard stock.subtract(beverage: wantedBeverage)            else {
                 return .failure(.nonExistentBeverageError)
         }
         
-        cashier.addToSalesLog(beverage: wantedBeverage)
+        stock.logSaled(beverage: wantedBeverage)
         cashier.subtract(price: wantedBeverage.price)
         return .success(wantedBeverage)
     }
-    
-    private func subtractFromStock(beverage: Beverage) -> Bool {
-        for index in 0 ..< stock.count {
-            if stock[index] === beverage {
-                stock.remove(at: index)
-                return true
-            }
-        }
-        return false
-    }
+
 }
 
 extension VendingMachine {
     func searchSalesLog(handler: (Beverage) -> (Void)) {
-        cashier.searchSalesLog { handler($0) }
+        stock.repeatSalesLog { handler($0) }
     }
     
     func searchHotCoffees(handler: (Coffee) -> (Void)) {
-        stock.filter { (beverage) -> Bool in
-            guard let hotCoffee = beverage as? Coffee, hotCoffee.isHot()
-                else {
-                    return false
-            }
-            return true
-        }.forEach {
-            let hotCoffee = $0 as! Coffee
+        stock.repeatBeverages { beverage in
+            guard let hotCoffee = beverage as? Coffee, hotCoffee.isHot() else { return }
+            
             handler(hotCoffee)
         }
     }
     
     func searchMilksPassed(expirationDate: Date, handler: (Milk) -> (Void)) {
-        stock.filter { (beverage) -> Bool in
-            guard let milkPassedExpirationDate = beverage as? Milk,
-                !milkPassedExpirationDate.validate(with: expirationDate)
-                else {
-                    return false
-            }
-            return true
-        }.forEach {
-            let verifiedMilk = $0 as! Milk
-            handler(verifiedMilk)
+        stock.repeatBeverages { beverage in
+            guard let passedExpirationDateMilk = beverage as? Milk,
+                !passedExpirationDateMilk.validate(with: expirationDate) else { return }
+            
+            handler(passedExpirationDateMilk)
         }
     }
     
     func searchAllBeverages(handler: (Beverage) -> (Void)) {
-        stock.forEach { handler($0) }
+        stock.repeatBeverages { handler($0) }
     }
 }
 
 extension VendingMachine {
     func stockByKind() -> [Beverage: Int] {
         var stockByKind = [Beverage: Int]()
-        stock.forEach {
-            guard !stockByKind.keys.contains($0)
-                else {
-                    stockByKind[$0]? += 1
-                    return
+        stock.repeatBeverages {
+            if stockByKind.keys.contains($0) {
+                stockByKind[$0]? += 1
+            } else {
+                stockByKind[$0] = 1
             }
-            stockByKind[$0] = 1
         }
         return stockByKind
     }
     
     func sellableBeverages() -> [Beverage: Int] {
         var sellableBeverages = [Beverage: Int]()
-        stock.forEach {
+        stock.repeatBeverages {
             guard cashier.isEnoughToBuy(price: $0.price) else { return }
             
             if sellableBeverages.keys.contains($0) {

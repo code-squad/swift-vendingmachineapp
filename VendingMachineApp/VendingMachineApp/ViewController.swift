@@ -9,7 +9,7 @@
 import UIKit
 
 final class ViewController: UIViewController {
-    private var vendingMachine = VendingMachine(stockable: Stock(), calculable: Cashier())
+    private var vendingMachine = VendingMachine(stock: Stock(), balance: Money())
     private var beverageObserver: NSObjectProtocol?
     private var balanceObsever: NSObjectProtocol?
     
@@ -30,7 +30,7 @@ final class ViewController: UIViewController {
         
         NotificationCenter.default.removeObserver(
             balanceDidChangeToken,
-            name: Cashier.Notification.balanceDidChange,
+            name: Money.Notification.balanceDidChange,
             object: nil)
     }
     
@@ -49,7 +49,7 @@ final class ViewController: UIViewController {
         ) { [weak self] notifiaction in self?.updateBeverageLabels(notifiaction) }
         
         balanceObsever = NotificationCenter.default.addObserver(
-            forName: Cashier.Notification.balanceDidChange,
+            forName: Money.Notification.balanceDidChange,
             object: nil,
             queue: nil
         ) { [weak self] notification in self?.updateBalanceLabel(notification) }
@@ -88,7 +88,7 @@ final class ViewController: UIViewController {
         balanceButton.action = { [weak self] money in
             guard let money = money else { return }
             
-            self?.vendingMachine.receive(insertedMoney: money)
+            self?.vendingMachine.receive(insertedMoney: Money(balance: money))
         }
     }
     

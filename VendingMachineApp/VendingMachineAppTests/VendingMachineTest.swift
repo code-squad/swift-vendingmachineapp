@@ -45,8 +45,8 @@ final class VendingMachineTest: XCTestCase {
     override func setUp() {
         super.setUp()
         vendingMachine = VendingMachine(
-            stockable: Stock(beverages: [primiumLatte, dietCola, cookieCreamMilk, dietCola2]),
-            calculable: Cashier()
+            stock: Stock(beverages: [primiumLatte, dietCola, cookieCreamMilk, dietCola2]),
+            balance: Money()
         )
     }
     
@@ -56,9 +56,9 @@ final class VendingMachineTest: XCTestCase {
     }
     
     func testReceive() {
-        let money = 2000
+        let money = Money(balance: 2000)
         vendingMachine.receive(insertedMoney: money)
-        XCTAssertEqual(vendingMachine.currentMoney(), money)
+        XCTAssertEqual(vendingMachine.currentMoney(), money.currentMoney())
     }
     
     func testCurrentMoney() {
@@ -74,19 +74,19 @@ final class VendingMachineTest: XCTestCase {
     }
     
     func testSellableBeverages() {
-        vendingMachine.receive(insertedMoney: 1500)
+        vendingMachine.receive(insertedMoney: Money(balance: 1500))
         let sellableBeverages = vendingMachine.sellableBeverages()
         XCTAssertEqual(sellableBeverages,
                        [dietCola: 2, primiumLatte: 1, cookieCreamMilk: 1])
     }
     
     func testSell() {
-        vendingMachine.receive(insertedMoney: 1500)
+        vendingMachine.receive(insertedMoney: Money(balance: 1500))
         vendingMachine.sell(wantedBeverage: cookieCreamMilk)
     }
     
     func testAdd() {
-        vendingMachine = VendingMachine(stockable: Stock(), calculable: Cashier())
+        vendingMachine = VendingMachine(stock: Stock(), balance: Money())
         let otherCookieCreamMilk = HersheyChocolateDrink(
             cacaoContentRate: 0.03,
             name: "쿠키앤크림",
@@ -100,7 +100,7 @@ final class VendingMachineTest: XCTestCase {
     }
     
     func testSearchSalesLog() {
-        vendingMachine.receive(insertedMoney: 1500)
+        vendingMachine.receive(insertedMoney: Money(balance: 1500))
         let result =  vendingMachine.sell(wantedBeverage: cookieCreamMilk)
         switch result {
         case .failure(let error):

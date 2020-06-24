@@ -9,7 +9,7 @@
 import Foundation
 
 struct BeverageInstantiator {
-    var cantataPrimiumLatte175: Beverage {
+    var cantataPrimiumLatte175: Cantata {
         return Cantata(
             milkContentRate: 0.15,
             sugarContentRate: 0.05,
@@ -20,7 +20,7 @@ struct BeverageInstantiator {
         )
     }
     
-    var cantataPrimiumLatte275: Beverage {
+    var cantataPrimiumLatte275: Cantata {
         return Cantata(
             milkContentRate: 0.15,
             sugarContentRate: 0.05,
@@ -31,7 +31,7 @@ struct BeverageInstantiator {
         )
     }
     
-    var pepsiDietCola250: Beverage {
+    var pepsiDietCola250: Pepsi {
         return Pepsi(
             package: Pepsi.Package.can,
             kiloCalorie: 80,
@@ -41,7 +41,7 @@ struct BeverageInstantiator {
         )
     }
     
-    var pepsiDietCola591: Beverage {
+    var pepsiDietCola591: Pepsi {
         return Pepsi(
             package: Pepsi.Package.pet,
             kiloCalorie: 120,
@@ -51,7 +51,7 @@ struct BeverageInstantiator {
         )
     }
     
-    var hersheyCookieCream235: Beverage {
+    var hersheyCookieCream235: HersheyChocolateDrink {
         return HersheyChocolateDrink(
             cacaoContentRate: 0.03,
             name: "쿠키앤크림",
@@ -61,7 +61,7 @@ struct BeverageInstantiator {
     }
     
     var hersheyCookieCream350:
-        Beverage {
+        HersheyChocolateDrink {
         return HersheyChocolateDrink(
             cacaoContentRate: 0.03,
             name: "쿠키앤크림",

@@ -9,7 +9,7 @@
 import UIKit
 
 final class HersheyCookieCream235Button: BeverageButton {
-    override func beverage() -> Beverage? {
-        return BeverageInstantiator().hersheyCookieCream235
+    override func instantiator() -> BeverageInstantiator? {
+        return HersheyCookieCream235Instantiator()
     }
 }

@@ -9,7 +9,7 @@
 import UIKit
 
 final class PepsiDietCola250Button: BeverageButton {
-    override func beverage() -> Beverage? {
-        return BeverageInstantiator().pepsiDietCola250
+    override func instantiator() -> BeverageInstantiator? {
+        return PepsiDietCola250Instantiator()
     }
 }

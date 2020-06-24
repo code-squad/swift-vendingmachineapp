@@ -9,7 +9,7 @@
 import UIKit
 
 final class CantataPrimiumLatte275Button: BeverageButton {
-    override func beverage() -> Beverage? {
-        return BeverageInstantiator().cantataPrimiumLatte275
+    override func instantiator() -> BeverageInstantiator? {
+        return CantataPrimiumLatte275Instantiator()
     }
 }

@@ -9,7 +9,7 @@
 import UIKit
 
 final class PepsiDietCola591Label: BeverageLabel {
-    override func beverage() -> Beverage? {
-        return BeverageInstantiator().pepsiDietCola591
+    override func instantiator() -> BeverageInstantiator? {
+        return PepsiDietCola591Instantiator()
     }
 }

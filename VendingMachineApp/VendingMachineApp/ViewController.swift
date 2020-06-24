@@ -58,7 +58,7 @@ final class ViewController: UIViewController {
     @IBOutlet var beverageNumberLabels: [BeverageLabel]!
     
     @IBAction func beverageButtonDidTouch(_ sender: BeverageButton) {
-        guard let berverage = sender.beverage() else { return }
+        guard let berverage = sender.instantiator()?.beverage else { return }
         
         vendingMachine.addToStock(beverage: berverage)
     }
@@ -67,7 +67,7 @@ final class ViewController: UIViewController {
         guard let newBeverage = notification.userInfo?["beverage"] as? Beverage else { return }
         
         for label in beverageNumberLabels {
-            guard let beverage = label.beverage(),
+            guard let beverage = label.instantiator()?.beverage,
                 newBeverage == beverage else { continue }
             
             label.update(number: vendingMachine.count(of: beverage))

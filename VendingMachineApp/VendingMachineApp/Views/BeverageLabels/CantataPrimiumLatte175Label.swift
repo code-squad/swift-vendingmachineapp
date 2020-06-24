@@ -9,7 +9,7 @@
 import UIKit
 
 final class CantataPrimiumLatte175Label: BeverageLabel {
-    override func beverage() -> Beverage? {
-        return BeverageInstantiator().cantataPrimiumLatte175
+    override func instantiator() -> BeverageInstantiator? {
+        return CantataPrimiumLatte175Instantiator()
     }
 }

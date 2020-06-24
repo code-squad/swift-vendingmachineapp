@@ -21,12 +21,7 @@ final class Stock: Stockable {
         static let beveragesDidChange = Foundation.Notification.Name("beveragesDidChange")
     }
     
-    private var beverages: [Beverage] {
-        didSet {
-            NotificationCenter.default.post(name: Notification.beveragesDidChange, object: self)
-        }
-    }
-    
+    private var beverages: [Beverage]
     private var salesLog = [Beverage]()
     
     init(beverages: [Beverage] = []) {
@@ -35,16 +30,26 @@ final class Stock: Stockable {
     
     func add(beverage: Beverage) {
         beverages.append(beverage)
+        post(beverage: beverage)
     }
     
     func subtract(beverage: Beverage) -> Bool {
         for index in 0 ..< beverages.count {
             if beverages[index] == beverage {
                 beverages.remove(at: index)
+                post(beverage: beverage)
                 return true
             }
         }
         return false
+    }
+    
+    private func post(beverage: Beverage) {
+        NotificationCenter.default.post(
+            name: Notification.beveragesDidChange,
+            object: self,
+            userInfo: ["beverage": beverage]
+        )
     }
     
     func logSaled(beverage: Beverage) {

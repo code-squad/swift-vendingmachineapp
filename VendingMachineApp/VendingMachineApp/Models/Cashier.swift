@@ -16,7 +16,19 @@ protocol Calculable {
 }
 
 struct Cashier: Calculable {
-    private var balance = Quantity.zero
+    enum Notification {
+        static let balanceDidChange = Foundation.Notification.Name("balanceDidChange")
+    }
+    
+    private var balance = Quantity.zero {
+        didSet {
+            NotificationCenter.default.post(
+                name: Notification.balanceDidChange,
+                object: self,
+                userInfo: ["balance": balance]
+            )
+        }
+    }
     
     func currentBalance() -> Int {
         return balance

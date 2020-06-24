@@ -66,13 +66,11 @@ final class ViewController: UIViewController {
     private func updateBeverageLabels(_ notification: Notification) {
         guard let newBeverage = notification.userInfo?["beverage"] as? Beverage else { return }
         
-        let stockByKind = vendingMachine.stockByKind()
         for label in beverageNumberLabels {
             guard let beverage = label.beverage(),
-                newBeverage == beverage,
-                let beverageNumber = stockByKind[beverage] else { continue }
+                newBeverage == beverage else { continue }
             
-            label.update(number: beverageNumber)
+            label.update(number: vendingMachine.count(of: beverage))
             break
         }
     }

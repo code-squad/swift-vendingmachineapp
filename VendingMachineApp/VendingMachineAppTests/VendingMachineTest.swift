@@ -26,6 +26,15 @@ final class VendingMachineTest: XCTestCase {
         volume: 250,
         price: 1200
     )
+    
+    let dietCola2 = Pepsi(
+        package: Pepsi.Package.can,
+        kiloCalorie: 80,
+        name: "다이어트 콜라",
+        volume: 250,
+        price: 1200
+    )
+    
     let cookieCreamMilk = HersheyChocolateDrink(
         cacaoContentRate: 0.03,
         name: "쿠키앤크림",
@@ -35,7 +44,7 @@ final class VendingMachineTest: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        vendingMachine = VendingMachine(stock: [primiumLatte, dietCola, cookieCreamMilk])
+        vendingMachine = VendingMachine(stock: [primiumLatte, dietCola, cookieCreamMilk, dietCola2])
     }
     
     override func tearDown() {
@@ -57,15 +66,15 @@ final class VendingMachineTest: XCTestCase {
         let stockByKind = vendingMachine.stockByKind()
         XCTAssertEqual(stockByKind,
                        [primiumLatte: 1,
-                        dietCola: 1,
+                        dietCola: 2,
                         cookieCreamMilk: 1])
     }
     
     func testSellableBeverages() {
-        vendingMachine.receive(insertedMoney: 1200)
+        vendingMachine.receive(insertedMoney: 1500)
         let sellableBeverages = vendingMachine.sellableBeverages()
         XCTAssertEqual(sellableBeverages,
-                       [dietCola: 1])
+                       [dietCola: 2, primiumLatte: 1, cookieCreamMilk: 1])
     }
     
     func testSell() {

@@ -10,11 +10,6 @@ import UIKit
 
 final class HersheyCookieCream350Label: BeverageLabel {
     override func beverage() -> Beverage? {
-        return HersheyChocolateDrink(
-            cacaoContentRate: 0.03,
-            name: "쿠키앤크림",
-            volume: 350,
-            price: 2000
-        )
+        return BeverageInstantiator().hersheyCookieCream350
     }
 }

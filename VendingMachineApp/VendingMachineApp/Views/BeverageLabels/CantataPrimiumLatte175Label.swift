@@ -10,13 +10,6 @@ import UIKit
 
 final class CantataPrimiumLatte175Label: BeverageLabel {
     override func beverage() -> Beverage? {
-        return Cantata(
-            milkContentRate: 0.15,
-            sugarContentRate: 0.05,
-            celsius: 65,
-            name: "프리미엄 라떼",
-            volume: 175,
-            price: 1500
-        )
+        return BeverageInstantiator().cantataPrimiumLatte175
     }
 }

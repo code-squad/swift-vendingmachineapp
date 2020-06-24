@@ -49,6 +49,7 @@
 		5ACB7BAF248FB63100ACA0E2 /* Balance5000Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACB7BAE248FB63100ACA0E2 /* Balance5000Button.swift */; };
 		5ACB7BB1248FBB1000ACA0E2 /* Balance1000Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACB7BB0248FBB1000ACA0E2 /* Balance1000Button.swift */; };
 		5ACEDD9324A31ECD001F9933 /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACEDD9224A31ECD001F9933 /* Stock.swift */; };
+		5ACEDD9824A37B74001F9933 /* BerverageInstantiator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACEDD9724A37B74001F9933 /* BerverageInstantiator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,6 +118,7 @@
 		5ACB7BAE248FB63100ACA0E2 /* Balance5000Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Balance5000Button.swift; sourceTree = "<group>"; };
 		5ACB7BB0248FBB1000ACA0E2 /* Balance1000Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Balance1000Button.swift; sourceTree = "<group>"; };
 		5ACEDD9224A31ECD001F9933 /* Stock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stock.swift; sourceTree = "<group>"; };
+		5ACEDD9724A37B74001F9933 /* BerverageInstantiator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BerverageInstantiator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +187,7 @@
 		5A8341722419002B00F20FAA /* Beverages */ = {
 			isa = PBXGroup;
 			children = (
+				5ACEDD9724A37B74001F9933 /* BerverageInstantiator.swift */,
 				5A91FCFF240FD7D100884D64 /* Beverage.swift */,
 				5A91FD01240FDFE800884D64 /* Milk.swift */,
 				5A91FD07240FE2C700884D64 /* HersheyChocolateDrink.swift */,
@@ -410,6 +413,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A34910E249BB2DC00A16D90 /* HersheyCookieCream235Button.swift in Sources */,
+				5ACEDD9824A37B74001F9933 /* BerverageInstantiator.swift in Sources */,
 				5A349118249BB65C00A16D90 /* HersheyCookieCream235Label.swift in Sources */,
 				5A349106249BB13A00A16D90 /* CantataPrimiumLatte275Button.swift in Sources */,
 				5ACEDD9324A31ECD001F9933 /* Stock.swift in Sources */,

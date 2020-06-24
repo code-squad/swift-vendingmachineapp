@@ -36,7 +36,7 @@ final class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        balanceLabel.update(currentMoney: vendingMachine.currentMoney())
+        balanceLabel.update(currentMoney: vendingMachine.money)
         configureObservers()
         configureBalanceButtons()
     }
@@ -52,7 +52,7 @@ final class ViewController: UIViewController {
             forName: Money.Notification.balanceDidChange,
             object: nil,
             queue: nil
-        ) { [weak self] notification in self?.updateBalanceLabel(notification) }
+        ) { [weak self] _ in self?.updateBalanceLabel() }
     }
     
     @IBOutlet var beverageNumberLabels: [BeverageLabel]!
@@ -86,13 +86,11 @@ final class ViewController: UIViewController {
         balanceButton.action = { [weak self] money in
             guard let money = money else { return }
             
-            self?.vendingMachine.receive(insertedMoney: Money(balance: money))
+            self?.vendingMachine.receive(insertedMoney: money)
         }
     }
     
-    private func updateBalanceLabel(_ notification: Notification) {
-        guard let currentMoney = notification.userInfo?["balance"] as? Int else { return }
-        
-        balanceLabel.update(currentMoney: currentMoney)
+    private func updateBalanceLabel() {
+        balanceLabel.update(currentMoney: vendingMachine.money)
     }
 }

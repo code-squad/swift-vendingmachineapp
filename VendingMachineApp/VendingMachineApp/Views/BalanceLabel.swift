@@ -17,7 +17,7 @@ final class BalanceLabel: UILabel {
         super.init(coder: coder)
     }
     
-    func update(currentMoney :Int) {
-        text = "잔액 : \(currentMoney)원"
+    func update(currentMoney : Money) {
+        text = "잔액 : \(currentMoney.description)원"
     }
 }

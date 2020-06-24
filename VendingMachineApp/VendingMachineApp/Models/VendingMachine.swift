@@ -15,19 +15,15 @@ enum SellError: Error {
 
 final class VendingMachine {
     private var stock: Stockable
-    private var balance: Moneyable
+    private(set) var money: Money
     
-    init(stock: Stockable, balance: Moneyable) {
+    init(stock: Stockable, balance: Money) {
         self.stock = stock
-        self.balance = balance
+        self.money = balance
     }
     
     func receive(insertedMoney: Money) {
-        balance.plus(money: insertedMoney)
-    }
-    
-    func currentMoney() -> Int {
-        return balance.currentMoney()
+        money.plus(money: insertedMoney)
     }
     
     func addToStock(beverage: Beverage) {
@@ -36,16 +32,15 @@ final class VendingMachine {
     
     @discardableResult
     func sell(wantedBeverage: Beverage) -> Result<Beverage,SellError> {
-        guard balance.isMoreThan(money: Money(balance: wantedBeverage.price))
-            else {
-                return .failure(.insufficientMoneyError)
+        guard money >= wantedBeverage.price else {
+            return .failure(.insufficientMoneyError)
         }
-        guard stock.subtract(beverage: wantedBeverage)            else {
+        guard stock.subtract(beverage: wantedBeverage) else {
             return .failure(.nonExistentBeverageError)
         }
         
         stock.logSaled(beverage: wantedBeverage)
-        balance.subtract(price: Money(balance: wantedBeverage.price))
+        money.subtract(price: wantedBeverage.price)
         return .success(wantedBeverage)
     }
     
@@ -103,7 +98,7 @@ extension VendingMachine {
     func sellableBeverages() -> [Beverage: Int] {
         var sellableBeverages = [Beverage: Int]()
         stock.repeatBeverages {
-            guard balance.isMoreThan(money: Money(balance: $0.price)) else { return }
+            guard money >= $0.price else { return }
             
             if sellableBeverages.keys.contains($0) {
                 sellableBeverages[$0]? += 1

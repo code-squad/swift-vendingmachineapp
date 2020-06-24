@@ -58,11 +58,11 @@ final class VendingMachineTest: XCTestCase {
     func testReceive() {
         let money = Money(balance: 2000)
         vendingMachine.receive(insertedMoney: money)
-        XCTAssertEqual(vendingMachine.currentMoney(), money.currentMoney())
+        XCTAssertEqual(vendingMachine.money, money)
     }
     
     func testCurrentMoney() {
-        XCTAssertEqual(vendingMachine.currentMoney(), Quantity.zero)
+        XCTAssertEqual(vendingMachine.money, Money())
     }
     
     func testStockByKind() {

@@ -128,16 +128,13 @@ extension VendingMachine {
     func sellableBeverages() -> [Beverage: Int] {
         var sellableBeverages = [Beverage: Int]()
         stock.forEach {
-            guard !sellableBeverages.keys.contains($0)
-                else {
-                    sellableBeverages[$0]? += 1
-                    return
+            guard cashier.isEnoughToBuy(price: $0.price) else { return }
+            
+            if sellableBeverages.keys.contains($0) {
+                sellableBeverages[$0]? += 1
+            } else {
+               sellableBeverages[$0] = 1
             }
-            guard cashier.isEnoughToBuy(price: $0.price)
-                else {
-                    return
-            }
-            sellableBeverages[$0] = 1
         }
         return sellableBeverages
     }

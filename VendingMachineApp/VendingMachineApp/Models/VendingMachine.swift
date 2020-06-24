@@ -41,14 +41,14 @@ final class VendingMachine {
                 return .failure(.insufficientMoneyError)
         }
         guard stock.subtract(beverage: wantedBeverage)            else {
-                return .failure(.nonExistentBeverageError)
+            return .failure(.nonExistentBeverageError)
         }
         
         stock.logSaled(beverage: wantedBeverage)
         balance.subtract(price: Money(balance: wantedBeverage.price))
         return .success(wantedBeverage)
     }
-
+    
 }
 
 extension VendingMachine {
@@ -79,6 +79,15 @@ extension VendingMachine {
 }
 
 extension VendingMachine {
+    func count(of beverage: Beverage) -> Int {
+        var count = 0
+        stock.repeatBeverages {
+            guard beverage == $0 else { return }
+            count += 1
+        }
+        return count
+    }
+    
     func stockByKind() -> [Beverage: Int] {
         var stockByKind = [Beverage: Int]()
         stock.repeatBeverages {
@@ -99,7 +108,7 @@ extension VendingMachine {
             if sellableBeverages.keys.contains($0) {
                 sellableBeverages[$0]? += 1
             } else {
-               sellableBeverages[$0] = 1
+                sellableBeverages[$0] = 1
             }
         }
         return sellableBeverages

@@ -13,6 +13,10 @@
 		88748A8D25E387B100E7DCB1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88748A8B25E387B100E7DCB1 /* Main.storyboard */; };
 		88748A8F25E387B200E7DCB1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88748A8E25E387B200E7DCB1 /* Assets.xcassets */; };
 		88748A9225E387B200E7DCB1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88748A9025E387B200E7DCB1 /* LaunchScreen.storyboard */; };
+		88748A9C25E38A4900E7DCB1 /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88748A9B25E38A4900E7DCB1 /* Beverage.swift */; };
+		88748AA025E394AA00E7DCB1 /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88748A9F25E394AA00E7DCB1 /* Milk.swift */; };
+		88748AA325E397B200E7DCB1 /* Soda.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88748AA225E397B200E7DCB1 /* Soda.swift */; };
+		88748AA625E397FE00E7DCB1 /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88748AA525E397FE00E7DCB1 /* Coffee.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		88748A8E25E387B200E7DCB1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		88748A9125E387B200E7DCB1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		88748A9325E387B200E7DCB1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		88748A9B25E38A4900E7DCB1 /* Beverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beverage.swift; sourceTree = "<group>"; };
+		88748A9F25E394AA00E7DCB1 /* Milk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Milk.swift; sourceTree = "<group>"; };
+		88748AA225E397B200E7DCB1 /* Soda.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Soda.swift; sourceTree = "<group>"; };
+		88748AA525E397FE00E7DCB1 /* Coffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +66,10 @@
 			children = (
 				88748A8525E387B100E7DCB1 /* AppDelegate.swift */,
 				88748A8725E387B100E7DCB1 /* SceneDelegate.swift */,
+				88748A9B25E38A4900E7DCB1 /* Beverage.swift */,
+				88748A9F25E394AA00E7DCB1 /* Milk.swift */,
+				88748AA225E397B200E7DCB1 /* Soda.swift */,
+				88748AA525E397FE00E7DCB1 /* Coffee.swift */,
 				88748A8925E387B100E7DCB1 /* ViewController.swift */,
 				88748A8B25E387B100E7DCB1 /* Main.storyboard */,
 				88748A8E25E387B200E7DCB1 /* Assets.xcassets */,
@@ -137,9 +149,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88748AA325E397B200E7DCB1 /* Soda.swift in Sources */,
 				88748A8A25E387B100E7DCB1 /* ViewController.swift in Sources */,
 				88748A8625E387B100E7DCB1 /* AppDelegate.swift in Sources */,
+				88748A9C25E38A4900E7DCB1 /* Beverage.swift in Sources */,
 				88748A8825E387B100E7DCB1 /* SceneDelegate.swift in Sources */,
+				88748AA025E394AA00E7DCB1 /* Milk.swift in Sources */,
+				88748AA625E397FE00E7DCB1 /* Coffee.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -22,17 +22,19 @@ class Beverage {
         name = itemName
         packDate = manufacturingDate
     }
-
-    private func generateDate(year newYear: Int, month newMonth: Int, day newDay: Int) -> Date {
-        var dateComponents = DateComponents()
-        dateComponents.year = newYear
-        dateComponents.month = newMonth
-        dateComponents.day = newDay
-        dateComponents.timeZone = TimeZone(abbreviation: "JST")
-        
-        let userCalendar = Calendar(identifier: .gregorian)
-        guard let someDateTime = userCalendar.date(from: dateComponents) else { return Date(timeIntervalSinceReferenceDate: -123456789.0)}
-        
-        return someDateTime
+    
+    convenience init(brandName: String, sizeInMilliliter: Int, itemPrice: Int, itemName: String) {
+        self.init(brandName: brandName, sizeInMilliliter: sizeInMilliliter, itemPrice: itemPrice, itemName: itemName, manufacturingDate: Date())
+    }
+    
+    private func format(date: Date) -> String {
+        let format = DateFormatter()
+        format.dateFormat = "yyyyMMdd"
+        return format.string(from: date)
+    }
+}
+extension Beverage: CustomStringConvertible {
+    var description: String {
+        return "\(brand), \(size)ml, \(price)원, \(name), \(format(date: packDate))"
     }
 }

@@ -8,12 +8,12 @@
 import Foundation
 
 class Coffee: Beverage {
-    enum CoffeeCategory{
+    public enum CoffeeCategory{
         case TOP
         case 칸타타
         case 조지아
     }
-    let coffeeBrand: CoffeeCategory
+    private let coffeeBrand: CoffeeCategory
     
     init(brandName: String, sizeInMilliliter: Int, itemPrice: Int, itemName: String, manufacturingDate: Date, coffeeCategory: CoffeeCategory) {
         coffeeBrand = coffeeCategory

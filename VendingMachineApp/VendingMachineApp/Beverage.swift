@@ -14,7 +14,6 @@ class Beverage {
     private let name: String
     private let packDate: Date
     
-    
     public init(brandName: String, sizeInMilliliter: Int, itemPrice: Int, itemName: String, manufacturingDate: Date) {
         brand = brandName
         size = sizeInMilliliter

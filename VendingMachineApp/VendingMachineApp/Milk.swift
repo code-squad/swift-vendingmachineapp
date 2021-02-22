@@ -13,7 +13,6 @@ class Milk: Beverage {
         case 초코우유
         case 바나나우유
     }
-    
     private let category: MilkCategory
     
     init(brandName: String, sizeInMilliliter: Int, itemPrice: Int, itemName: String, manufacturingDate: Date, milkCategory: MilkCategory) {

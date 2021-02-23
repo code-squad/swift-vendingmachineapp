@@ -32,16 +32,16 @@ class Soda: Beverage {
         func info() -> (brand: String, name: String, price: Int, size: Int, manufactureDate: Date) {
             switch self {
             case .cola:
-                return ("코카콜라", self.rawValue, 2000, 500, Date(timeIntervalSinceNow: 0))
+                return ("코카콜라", self.rawValue, 2000, 500, DateGenerator.randomDate())
             case .sprite:
-                return ("롯데칠성음료", self.rawValue, 1700, 500, Date(timeIntervalSinceNow: 0))
+                return ("롯데칠성음료", self.rawValue, 1700, 500, DateGenerator.randomDate())
             case .fanta:
-                return ("코카콜라", self.rawValue, 2100, 480, Date(timeIntervalSinceNow: 0))
+                return ("코카콜라", self.rawValue, 2100, 480, DateGenerator.randomDate())
             }
         }
     }
 
     var description: String {
-        return "[\(brand)] \(name): ₩\(price), \(size)ml (\(manufactureDate))"
+        return "[\(brand)] \(name): ₩\(price), \(size)ml (\(manufactureDate.description))"
     }
 }

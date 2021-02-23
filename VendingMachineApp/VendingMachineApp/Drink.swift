@@ -14,7 +14,7 @@ class Drink {
     private var dateOfManufacture: Date
     private var price: Int
     var description: String {
-        return "\(manufacturer), \(volume)ml, \(price)원, \(name), \(Utility.dateFormatter(date: dateOfManufacture))"
+        return "\(manufacturer), \(volume)ml, \(price)원, \(name), \(Date.dateFormatter(date: dateOfManufacture))"
     }
     
     init(manufacturer: String, volume: Int, name: String, dateOfManufacture: Date, price: Int) {

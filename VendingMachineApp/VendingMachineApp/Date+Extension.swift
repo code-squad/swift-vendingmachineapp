@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Utility {
+extension Date {
     static func dateFormatter(date: Date) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyyMMdd"

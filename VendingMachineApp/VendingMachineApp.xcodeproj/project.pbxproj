@@ -13,6 +13,7 @@
 		E4E22CE725E51B27008CA611 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4E22CE525E51B27008CA611 /* Main.storyboard */; };
 		E4E22CE925E51B28008CA611 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4E22CE825E51B28008CA611 /* Assets.xcassets */; };
 		E4E22CEC25E51B28008CA611 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4E22CEA25E51B28008CA611 /* LaunchScreen.storyboard */; };
+		E4E22CF625E51E11008CA611 /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E22CF525E51E11008CA611 /* Beverage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		E4E22CE825E51B28008CA611 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E4E22CEB25E51B28008CA611 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E4E22CED25E51B28008CA611 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E4E22CF525E51E11008CA611 /* Beverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beverage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				E4E22CDF25E51B27008CA611 /* AppDelegate.swift */,
 				E4E22CE125E51B27008CA611 /* SceneDelegate.swift */,
 				E4E22CE325E51B27008CA611 /* ViewController.swift */,
+				E4E22CF525E51E11008CA611 /* Beverage.swift */,
 				E4E22CE525E51B27008CA611 /* Main.storyboard */,
 				E4E22CE825E51B28008CA611 /* Assets.xcassets */,
 				E4E22CEA25E51B28008CA611 /* LaunchScreen.storyboard */,
@@ -139,6 +142,7 @@
 			files = (
 				E4E22CE425E51B27008CA611 /* ViewController.swift in Sources */,
 				E4E22CE025E51B27008CA611 /* AppDelegate.swift in Sources */,
+				E4E22CF625E51E11008CA611 /* Beverage.swift in Sources */,
 				E4E22CE225E51B27008CA611 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -25,6 +25,7 @@
 		BF53817B25E4D7130031EE39 /* DietCola.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF53817A25E4D7130031EE39 /* DietCola.swift */; };
 		BF53818025E4D7450031EE39 /* TopAmericano.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF53817F25E4D7450031EE39 /* TopAmericano.swift */; };
 		BF53818525E4D7A20031EE39 /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF53818425E4D7A20031EE39 /* VendingMachine.swift */; };
+		BF53818E25E4F1340031EE39 /* Brand.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF53818D25E4F1340031EE39 /* Brand.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		BF53817A25E4D7130031EE39 /* DietCola.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietCola.swift; sourceTree = "<group>"; };
 		BF53817F25E4D7450031EE39 /* TopAmericano.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopAmericano.swift; sourceTree = "<group>"; };
 		BF53818425E4D7A20031EE39 /* VendingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachine.swift; sourceTree = "<group>"; };
+		BF53818D25E4F1340031EE39 /* Brand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Brand.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 		BF53811225E4A09F0031EE39 /* VendingMachineApp */ = {
 			isa = PBXGroup;
 			children = (
+				BF53818C25E4F1260031EE39 /* Enum */,
 				BF53815525E4C70C0031EE39 /* Extension */,
 				BF53814C25E4A1940031EE39 /* Model */,
 				BF53811325E4A09F0031EE39 /* AppDelegate.swift */,
@@ -172,6 +175,14 @@
 				BF53815E25E4C7BE0031EE39 /* String.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		BF53818C25E4F1260031EE39 /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				BF53818D25E4F1340031EE39 /* Brand.swift */,
+			);
+			path = Enum;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -315,6 +326,7 @@
 				BF53816E25E4CB490031EE39 /* Coffee.swift in Sources */,
 				BF53811425E4A09F0031EE39 /* AppDelegate.swift in Sources */,
 				BF53814E25E4A19F0031EE39 /* Beverage.swift in Sources */,
+				BF53818E25E4F1340031EE39 /* Brand.swift in Sources */,
 				BF53811625E4A09F0031EE39 /* SceneDelegate.swift in Sources */,
 				BF53817B25E4D7130031EE39 /* DietCola.swift in Sources */,
 			);

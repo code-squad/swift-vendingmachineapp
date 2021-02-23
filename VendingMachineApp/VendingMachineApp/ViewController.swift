@@ -17,9 +17,11 @@ class ViewController: UIViewController {
         let soda = Soda(manufacturer: "펩시", volume: 350, brand: "다이어트콜라", dateOfManufacture: Date(), price: 2000)
         let coffee = Coffee(manufacturer: "맥심", volume: 400, brand: "아메리카노", dateOfManufacture: Date(), price: 3000)
         
-        [milk, milk2, soda, coffee].forEach { drink in
+        let drinks: [Drinkable] = [milk, milk2, soda, coffee]        
+        let vm = VendingMachine(drinks: Drinks(drinks: drinks))
+        vm.retrieveDrinks(completion: { drink in
             print(drink)
-        }
+        })
     }
 }
 

@@ -28,16 +28,22 @@ class BeverageStorage {
         }
     }
 
-    public func checkStock() {
-        for item in stock {
-            print(item)
+    public func showPurchasableBeverage(with money: Int) -> String {
+        var result: String = ""
+        stock.forEach { (item) in
+            guard item.bev.isPurchasable(with: money) else {return}
+            result.append("\(item.bev), 남은수량: \(item.amt)\n")
         }
+        return result
     }
-    public func showPurchasableBeverage(with money: Int) {
-        for item in stock {
-            if item.bev.isPurchasable(with: money) {
-                print(item)
-            }
+}
+
+extension BeverageStorage: CustomStringConvertible {
+    var description: String {
+        var result: String = ""
+        stock.forEach { (item) in
+            result.append("\(item.bev), 남은수량: \(item.amt)\n")
         }
+        return result
     }
 }

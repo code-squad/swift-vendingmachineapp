@@ -29,8 +29,15 @@ class BeverageStorage {
     }
 
     public func checkStock() {
-        for element in stock {
-            print(element)
+        for item in stock {
+            print(item)
+        }
+    }
+    public func showPurchasableBeverage(with money: Int) {
+        for item in stock {
+            if item.bev.isPurchasable(with: money) {
+                print(item)
+            }
         }
     }
 }

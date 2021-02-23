@@ -27,6 +27,7 @@
 		88748ADB25E4EECB00E7DCB1 /* Machine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88748ADA25E4EECB00E7DCB1 /* Machine.swift */; };
 		88748ADE25E4F09700E7DCB1 /* MoneyStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88748ADD25E4F09700E7DCB1 /* MoneyStorage.swift */; };
 		88748AE225E4F4E700E7DCB1 /* BeverageStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88748AE125E4F4E700E7DCB1 /* BeverageStorage.swift */; };
+		88748AE525E50BC500E7DCB1 /* PaymentValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88748AE425E50BC500E7DCB1 /* PaymentValidator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		88748ADA25E4EECB00E7DCB1 /* Machine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Machine.swift; sourceTree = "<group>"; };
 		88748ADD25E4F09700E7DCB1 /* MoneyStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyStorage.swift; sourceTree = "<group>"; };
 		88748AE125E4F4E700E7DCB1 /* BeverageStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageStorage.swift; sourceTree = "<group>"; };
+		88748AE425E50BC500E7DCB1 /* PaymentValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentValidator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 				88748A8725E387B100E7DCB1 /* SceneDelegate.swift */,
 				88748ADD25E4F09700E7DCB1 /* MoneyStorage.swift */,
 				88748AE125E4F4E700E7DCB1 /* BeverageStorage.swift */,
+				88748AE425E50BC500E7DCB1 /* PaymentValidator.swift */,
 				88748ADA25E4EECB00E7DCB1 /* Machine.swift */,
 				88748AAB25E4A2ED00E7DCB1 /* BeverageModel */,
 				88748A8925E387B100E7DCB1 /* ViewController.swift */,
@@ -236,6 +239,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				88748AA325E397B200E7DCB1 /* Soda.swift in Sources */,
+				88748AE525E50BC500E7DCB1 /* PaymentValidator.swift in Sources */,
 				88748AB425E4A3C700E7DCB1 /* StrawBerryMilk.swift in Sources */,
 				88748ADB25E4EECB00E7DCB1 /* Machine.swift in Sources */,
 				88748ABC25E4A48300E7DCB1 /* Cola.swift in Sources */,

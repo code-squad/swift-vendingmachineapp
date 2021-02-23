@@ -24,6 +24,8 @@ class ViewController: UIViewController {
         machine.addStock(beverage: soda, count: 5)
         machine.addStock(beverage: milk, count: 10)
         machine.checkStock()
+        machine.receiveMoney(amount: 1000)
+        machine.showPurchasables()
     }
 }
 

@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol Beverage {
+protocol Beverage: CustomStringConvertible {
     
     var brand: String { get }
     

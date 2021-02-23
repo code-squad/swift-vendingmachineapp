@@ -22,6 +22,8 @@
 		BF53816925E4CB360031EE39 /* Soda.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF53816825E4CB360031EE39 /* Soda.swift */; };
 		BF53816E25E4CB490031EE39 /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF53816D25E4CB490031EE39 /* Coffee.swift */; };
 		BF53817325E4CC920031EE39 /* strawberryMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF53817225E4CC920031EE39 /* strawberryMilk.swift */; };
+		BF53817B25E4D7130031EE39 /* DietCola.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF53817A25E4D7130031EE39 /* DietCola.swift */; };
+		BF53818025E4D7450031EE39 /* TopAmericano.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF53817F25E4D7450031EE39 /* TopAmericano.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +65,8 @@
 		BF53816825E4CB360031EE39 /* Soda.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Soda.swift; sourceTree = "<group>"; };
 		BF53816D25E4CB490031EE39 /* Coffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
 		BF53817225E4CC920031EE39 /* strawberryMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = strawberryMilk.swift; sourceTree = "<group>"; };
+		BF53817A25E4D7130031EE39 /* DietCola.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietCola.swift; sourceTree = "<group>"; };
+		BF53817F25E4D7450031EE39 /* TopAmericano.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopAmericano.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +156,8 @@
 				BF53816825E4CB360031EE39 /* Soda.swift */,
 				BF53816D25E4CB490031EE39 /* Coffee.swift */,
 				BF53817225E4CC920031EE39 /* strawberryMilk.swift */,
+				BF53817A25E4D7130031EE39 /* DietCola.swift */,
+				BF53817F25E4D7450031EE39 /* TopAmericano.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -298,6 +304,7 @@
 				BF53815F25E4C7BE0031EE39 /* String.swift in Sources */,
 				BF53811825E4A09F0031EE39 /* ViewController.swift in Sources */,
 				BF53815725E4C71A0031EE39 /* Date.swift in Sources */,
+				BF53818025E4D7450031EE39 /* TopAmericano.swift in Sources */,
 				BF53816425E4CB1B0031EE39 /* Milk.swift in Sources */,
 				BF53816925E4CB360031EE39 /* Soda.swift in Sources */,
 				BF53817325E4CC920031EE39 /* strawberryMilk.swift in Sources */,
@@ -305,6 +312,7 @@
 				BF53811425E4A09F0031EE39 /* AppDelegate.swift in Sources */,
 				BF53814E25E4A19F0031EE39 /* Beverage.swift in Sources */,
 				BF53811625E4A09F0031EE39 /* SceneDelegate.swift in Sources */,
+				BF53817B25E4D7130031EE39 /* DietCola.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

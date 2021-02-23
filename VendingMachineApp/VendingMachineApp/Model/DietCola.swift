@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  DietCola.swift
 //  VendingMachineApp
 //
 //  Created by HOONHA CHOI on 2021/02/23.
@@ -7,8 +7,8 @@
 
 import Foundation
 
-class strawberryMilk : Milk {
+class DietCola : Soda {
     init(liter: Int, price: Int, name: String, date: String) {
-        super.init(brand: MilkBrand.seoulMilk.description, liter: liter, price: price, name: name, date: date)
+        super.init(brand: SodaBrand.Pepsi.description, liter: liter, price: price, name: name, date: date)
     }
 }

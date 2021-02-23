@@ -25,15 +25,17 @@ class Beverage {
     convenience init(brandName: String, sizeInMilliliter: Int, itemPrice: Int, itemName: String) {
         self.init(brandName: brandName, sizeInMilliliter: sizeInMilliliter, itemPrice: itemPrice, itemName: itemName, manufacturingDate: Date())
     }
-    
-    private func format(date: Date) -> String {
-        let format = DateFormatter()
-        format.dateFormat = "yyyyMMdd"
-        return format.string(from: date)
-    }
 }
 extension Beverage: CustomStringConvertible {
     var description: String {
-        return "\(brand), \(size)ml, \(price)원, \(name), \(format(date: packDate))"
+        return "\(brand), \(size)ml, \(price)원, \(name), \(packDate.useSimpleFormat())"
+    }
+}
+
+extension Date {
+    func useSimpleFormat() -> String {
+        let format = DateFormatter()
+        format.dateFormat = "yyyyMMdd"
+        return format.string(from: self)
     }
 }

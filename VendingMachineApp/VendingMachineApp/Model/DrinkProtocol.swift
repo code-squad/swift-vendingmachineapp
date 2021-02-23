@@ -13,5 +13,5 @@ protocol DrinkProtocol : CustomStringConvertible{
     var volume : Int {get }
     var charge : Int {get }
     var name : String {get }
-    var manufacturingDate : Date {get }
+    var manufacturing : Date {get }
 }

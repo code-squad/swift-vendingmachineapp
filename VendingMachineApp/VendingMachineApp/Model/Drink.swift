@@ -7,31 +7,22 @@
 
 import Foundation
 
-class Drink: DrinkProtocol {
+class Drink: CustomStringConvertible {
     var description: String {
-        return "\(brand), \(volume)ml, \(charge)원, \(name), \(manufacturingDate.convertDate2yyyymmddString())"
+        return "\(brand), \(volume)ml, \(charge)원, \(name), \(manufacturing.convertToString())"
     }
     
-    let brand: String
-    let volume: Int
-    let charge: Int
-    let name: String
-    let manufacturingDate: Date
+    private let brand: String
+    private let volume: Int
+    private let charge: Int
+    private let name: String
+    private let manufacturing: Date
     
     init(brand : String, volume : Int, charge : Int, name :String, manufacturingDate : Date) {
         self.brand = brand
         self.volume = volume
         self.charge = charge
         self.name = name
-        self.manufacturingDate = manufacturingDate
+        self.manufacturing = manufacturingDate
     }
 }
-
-extension Date {
-    func convertDate2yyyymmddString() -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyyMMdd"
-        return dateFormatter.string(for: self) ?? "00000000"
-    }
-}
-

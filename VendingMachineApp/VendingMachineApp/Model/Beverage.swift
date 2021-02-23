@@ -14,12 +14,12 @@ class Beverage : CustomStringConvertible {
     private let name : String
     private let manufactured : Date
     
-    init(brand : Brand, liter : Int, price : Int, name : String, manufactured : String) {
+    init(brand : Brand, liter : Int, price : Int, name : String, manufactured : Date) {
         self.brand = brand
         self.liter = liter
         self.price = price
         self.name = name
-        self.manufactured = manufactured.convertDate()
+        self.manufactured = manufactured
     }
     
     var description: String {

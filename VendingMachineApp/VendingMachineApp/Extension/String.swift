@@ -7,8 +7,8 @@
 
 import Foundation
 
-extension String {
-    func convertDate() -> Date {
-        return Date.dateFommater.date(from: self) ?? Date()
-    }
-}
+//extension String {
+//    func convertDate() -> Date {
+//        return Date.dateFommater.date(from: self) ?? Date()
+//    }
+//}

@@ -8,7 +8,7 @@
 import Foundation
 
 class Milk : Beverage {
-    override init(brand: Brand, liter: Int, price: Int, name: String, manufactured: String) {
+    override init(brand: Brand, liter: Int, price: Int, name: String, manufactured: Date) {
         super.init(brand: brand, liter: liter, price: price, name: name, manufactured: manufactured)
     }
 }

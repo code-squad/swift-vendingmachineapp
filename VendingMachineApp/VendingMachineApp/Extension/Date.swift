@@ -14,6 +14,10 @@ extension Date {
         return datefommater
     }()
     
+    func inputDate(date : String) -> Date {
+        return Date.dateFommater.date(from: date) ?? Date()
+    }
+    
     var description : String {
         return "\(Date.dateFommater.string(from: self))"
     }

@@ -17,6 +17,7 @@
 		E4EB87E025E52B3E00F077D5 /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EB87DF25E52B3E00F077D5 /* Milk.swift */; };
 		E4EB87E325E52B4200F077D5 /* Soda.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EB87E225E52B4200F077D5 /* Soda.swift */; };
 		E4EB87E625E52B4B00F077D5 /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EB87E525E52B4B00F077D5 /* Coffee.swift */; };
+		E4EB87EA25E52EA700F077D5 /* DateGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EB87E925E52EA700F077D5 /* DateGenerator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		E4EB87DF25E52B3E00F077D5 /* Milk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Milk.swift; sourceTree = "<group>"; };
 		E4EB87E225E52B4200F077D5 /* Soda.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Soda.swift; sourceTree = "<group>"; };
 		E4EB87E525E52B4B00F077D5 /* Coffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
+		E4EB87E925E52EA700F077D5 /* DateGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateGenerator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 				E4EB87DF25E52B3E00F077D5 /* Milk.swift */,
 				E4EB87E225E52B4200F077D5 /* Soda.swift */,
 				E4EB87E525E52B4B00F077D5 /* Coffee.swift */,
+				E4EB87E925E52EA700F077D5 /* DateGenerator.swift */,
 				E4EB87BA25E4C83300F077D5 /* Main.storyboard */,
 				E4EB87BD25E4C83400F077D5 /* Assets.xcassets */,
 				E4EB87BF25E4C83400F077D5 /* LaunchScreen.storyboard */,
@@ -152,6 +155,7 @@
 				E4EB87E325E52B4200F077D5 /* Soda.swift in Sources */,
 				E4EB87B925E4C83300F077D5 /* ViewController.swift in Sources */,
 				E4EB87B525E4C83300F077D5 /* AppDelegate.swift in Sources */,
+				E4EB87EA25E52EA700F077D5 /* DateGenerator.swift in Sources */,
 				E4EB87CF25E4F88A00F077D5 /* Beverage.swift in Sources */,
 				E4EB87B725E4C83300F077D5 /* SceneDelegate.swift in Sources */,
 				E4EB87E025E52B3E00F077D5 /* Milk.swift in Sources */,

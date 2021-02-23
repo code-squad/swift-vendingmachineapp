@@ -15,6 +15,9 @@
 		BF53812025E4A0A20031EE39 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF53811E25E4A0A20031EE39 /* LaunchScreen.storyboard */; };
 		BF53812B25E4A0A20031EE39 /* VendingMachineAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF53812A25E4A0A20031EE39 /* VendingMachineAppTests.swift */; };
 		BF53813625E4A0A20031EE39 /* VendingMachineAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF53813525E4A0A20031EE39 /* VendingMachineAppUITests.swift */; };
+		BF53814E25E4A19F0031EE39 /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF53814D25E4A19F0031EE39 /* Beverage.swift */; };
+		BF53815725E4C71A0031EE39 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF53815625E4C71A0031EE39 /* Date.swift */; };
+		BF53815F25E4C7BE0031EE39 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF53815E25E4C7BE0031EE39 /* String.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,9 @@
 		BF53813125E4A0A20031EE39 /* VendingMachineAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VendingMachineAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF53813525E4A0A20031EE39 /* VendingMachineAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineAppUITests.swift; sourceTree = "<group>"; };
 		BF53813725E4A0A20031EE39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF53814D25E4A19F0031EE39 /* Beverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beverage.swift; sourceTree = "<group>"; };
+		BF53815625E4C71A0031EE39 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		BF53815E25E4C7BE0031EE39 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +105,8 @@
 		BF53811225E4A09F0031EE39 /* VendingMachineApp */ = {
 			isa = PBXGroup;
 			children = (
+				BF53815525E4C70C0031EE39 /* Extension */,
+				BF53814C25E4A1940031EE39 /* Model */,
 				BF53811325E4A09F0031EE39 /* AppDelegate.swift */,
 				BF53811525E4A09F0031EE39 /* SceneDelegate.swift */,
 				BF53811725E4A09F0031EE39 /* ViewController.swift */,
@@ -126,6 +134,23 @@
 				BF53813725E4A0A20031EE39 /* Info.plist */,
 			);
 			path = VendingMachineAppUITests;
+			sourceTree = "<group>";
+		};
+		BF53814C25E4A1940031EE39 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BF53814D25E4A19F0031EE39 /* Beverage.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BF53815525E4C70C0031EE39 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				BF53815625E4C71A0031EE39 /* Date.swift */,
+				BF53815E25E4C7BE0031EE39 /* String.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,8 +283,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF53815F25E4C7BE0031EE39 /* String.swift in Sources */,
 				BF53811825E4A09F0031EE39 /* ViewController.swift in Sources */,
+				BF53815725E4C71A0031EE39 /* Date.swift in Sources */,
 				BF53811425E4A09F0031EE39 /* AppDelegate.swift in Sources */,
+				BF53814E25E4A19F0031EE39 /* Beverage.swift in Sources */,
 				BF53811625E4A09F0031EE39 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

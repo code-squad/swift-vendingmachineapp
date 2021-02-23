@@ -7,7 +7,7 @@
 
 import Foundation
 
-class strawberryMilk : Milk {
+class StrawberryMilk : Milk {
     init(liter: Int, price: Int, name: String, date: String) {
         super.init(brand: MilkBrand.seoulMilk.description, liter: liter, price: price, name: name, date: date)
     }

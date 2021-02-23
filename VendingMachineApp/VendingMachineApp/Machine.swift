@@ -26,7 +26,7 @@ struct Machine {
     }
     
     func checkStock() {
-        beverageStorage.checkStock()
+        print(beverageStorage)
     }
     //MARK:- PAYMENT VALIDATOR BEHAVIORS
     func receiveMoney(amount: Int) {
@@ -36,6 +36,6 @@ struct Machine {
     //MARK:- COMBINED BEHAVIORS
     func showPurchasables() {
         let receivedMoney = paymentValidator.showsDeposit()
-        beverageStorage.showPurchasableBeverage(with: receivedMoney)
+        print(beverageStorage.showPurchasableBeverage(with: receivedMoney))
     }
 }

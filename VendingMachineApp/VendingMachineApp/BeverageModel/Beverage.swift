@@ -21,6 +21,14 @@ class Beverage {
         name = itemName
         packDate = Date()
     }
+    
+    public func isSameBeverage(with beverage: Beverage) -> Bool {
+        if self.name == beverage.name && self.size == beverage.size {
+            return true
+        } else {
+            return false
+        }
+    }
 }
 
 extension Beverage: CustomStringConvertible {

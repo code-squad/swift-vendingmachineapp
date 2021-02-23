@@ -9,6 +9,7 @@ import Foundation
 
 struct Machine {
     private var moneyStorage = MoneyStorage()
+    private var beverageStorage = BeverageStorage()
     
     func increaseMoney(by amount: Int) {
         moneyStorage.increaseMoney(amount)
@@ -16,5 +17,13 @@ struct Machine {
     
     func showBalance() {
         moneyStorage.exportCurrentBalance()
+    }
+    
+    func addStock(beverage: Beverage, count: Int) {
+        beverageStorage.addStock(with: beverage, amount: count)
+    }
+    
+    func checkStock() {
+        beverageStorage.checkStock()
     }
 }

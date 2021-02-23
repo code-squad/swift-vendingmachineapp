@@ -7,6 +7,33 @@
 
 import Foundation
 
+enum MilkBrand : String, CustomStringConvertible {
+    case seoulMilk = "서울우유"
+    case BINGGRAE = "빙그레"
+    case Maeil = "매일우유"
+    
+    var description: String {
+        return "\(self.rawValue)"
+    }
+}
+
+enum SodaBrand : String, CustomStringConvertible {
+    case Pepsi = "펩시"
+    case Coca = "코카"
+    
+    var description: String {
+        return "\(self.rawValue)"
+    }
+}
+
+enum CoffeeBrand : String, CustomStringConvertible {
+    case Maxim = "맥심"
+    
+    var description: String {
+        return "\(self.rawValue)"
+    }
+}
+
 class Beverage : CustomStringConvertible {
     private let brand : String
     private let liter : Int
@@ -23,6 +50,6 @@ class Beverage : CustomStringConvertible {
     }
     
     var description: String {
-        return "\(brand) \(liter) \(price) \(name) \(date.description)"
+        return "\(brand), \(liter)ml, \(price)원, \(name), \(date.description)"
     }
 }

@@ -7,22 +7,16 @@
 
 import Foundation
 
-class Soda: Drinkable, CustomStringConvertible {
-    var manufacturer: String
-    var volume: Int
-    var brand: String
-    var dateOfManufacture: Date
-    var price: Int
-    var description: String {
-        return "\(manufacturer), \(volume)ml, \(price)원, \(brand), \(Utility.dateFormatter(date: dateOfManufacture))"
+class Soda: Drink, CustomStringConvertible {
+    enum Kind {
+        case coke, cider, fanta
     }
     
-    init(manufacturer: String, volume: Int, brand: String, dateOfManufacture: Date, price: Int) {
-        self.manufacturer = manufacturer
-        self.volume = volume
-        self.brand = brand
-        self.dateOfManufacture = dateOfManufacture
-        self.price = price
+    private(set) var kind: Kind
+    
+    init(manufacturer: String, volume: Int, name: String, dateOfManufacture: Date, price: Int, kind: Kind) {
+        self.kind = kind
+        super.init(manufacturer: manufacturer, volume: volume, name: name, dateOfManufacture: dateOfManufacture, price: price)
     }
 }
 

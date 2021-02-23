@@ -17,7 +17,6 @@
 		BF53813625E4A0A20031EE39 /* VendingMachineAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF53813525E4A0A20031EE39 /* VendingMachineAppUITests.swift */; };
 		BF53814E25E4A19F0031EE39 /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF53814D25E4A19F0031EE39 /* Beverage.swift */; };
 		BF53815725E4C71A0031EE39 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF53815625E4C71A0031EE39 /* Date.swift */; };
-		BF53815F25E4C7BE0031EE39 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF53815E25E4C7BE0031EE39 /* String.swift */; };
 		BF53816425E4CB1B0031EE39 /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF53816325E4CB1B0031EE39 /* Milk.swift */; };
 		BF53816925E4CB360031EE39 /* Soda.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF53816825E4CB360031EE39 /* Soda.swift */; };
 		BF53816E25E4CB490031EE39 /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF53816D25E4CB490031EE39 /* Coffee.swift */; };
@@ -62,7 +61,6 @@
 		BF53813725E4A0A20031EE39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF53814D25E4A19F0031EE39 /* Beverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beverage.swift; sourceTree = "<group>"; };
 		BF53815625E4C71A0031EE39 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
-		BF53815E25E4C7BE0031EE39 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		BF53816325E4CB1B0031EE39 /* Milk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Milk.swift; sourceTree = "<group>"; };
 		BF53816825E4CB360031EE39 /* Soda.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Soda.swift; sourceTree = "<group>"; };
 		BF53816D25E4CB490031EE39 /* Coffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
@@ -172,7 +170,6 @@
 			isa = PBXGroup;
 			children = (
 				BF53815625E4C71A0031EE39 /* Date.swift */,
-				BF53815E25E4C7BE0031EE39 /* String.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -315,7 +312,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF53815F25E4C7BE0031EE39 /* String.swift in Sources */,
 				BF53811825E4A09F0031EE39 /* ViewController.swift in Sources */,
 				BF53818525E4D7A20031EE39 /* VendingMachine.swift in Sources */,
 				BF53815725E4C71A0031EE39 /* Date.swift in Sources */,

@@ -8,7 +8,7 @@
 import Foundation
 
 class TopAmericano : Coffee {
-    init(liter: Int, price: Int, name: String, manufactured: String) {
+    init(liter: Int, price: Int, name: String, manufactured: Date) {
         super.init(brand: Brand.Coffee(.Maxim), liter: liter, price: price, name: name, manufactured: manufactured)
     }
 }

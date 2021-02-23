@@ -10,7 +10,9 @@ import Foundation
 struct Machine {
     private var moneyStorage = MoneyStorage()
     private var beverageStorage = BeverageStorage()
+    private var paymentValidator = PaymentValidator()
     
+    //MARK:- MONEY STORAGE BEHAVIORS
     func increaseMoney(by amount: Int) {
         moneyStorage.increaseMoney(amount)
     }
@@ -18,12 +20,22 @@ struct Machine {
     func showBalance() {
         moneyStorage.exportCurrentBalance()
     }
-    
+    //MARK:- BEVERAGE STOCK BEHAVIORS
     func addStock(beverage: Beverage, count: Int) {
         beverageStorage.addStock(with: beverage, amount: count)
     }
     
     func checkStock() {
         beverageStorage.checkStock()
+    }
+    //MARK:- PAYMENT VALIDATOR BEHAVIORS
+    func receiveMoney(amount: Int) {
+        paymentValidator.receive(money: amount)
+    }
+    
+    //MARK:- COMBINED BEHAVIORS
+    func showPurchasables() {
+        let receivedMoney = paymentValidator.showsDeposit()
+        beverageStorage.showPurchasableBeverage(with: receivedMoney)
     }
 }

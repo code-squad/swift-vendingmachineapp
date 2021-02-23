@@ -29,6 +29,14 @@ class Beverage {
             return false
         }
     }
+    
+    public func isPurchasable(with money: Int) -> Bool {
+        if self.price <= money {
+            return true
+        } else {
+        return false
+        }
+    }
 }
 
 extension Beverage: CustomStringConvertible {

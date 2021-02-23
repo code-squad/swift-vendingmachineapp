@@ -14,6 +14,9 @@
 		E4EB87BE25E4C83400F077D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4EB87BD25E4C83400F077D5 /* Assets.xcassets */; };
 		E4EB87C125E4C83400F077D5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4EB87BF25E4C83400F077D5 /* LaunchScreen.storyboard */; };
 		E4EB87CF25E4F88A00F077D5 /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EB87CE25E4F88A00F077D5 /* Beverage.swift */; };
+		E4EB87E025E52B3E00F077D5 /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EB87DF25E52B3E00F077D5 /* Milk.swift */; };
+		E4EB87E325E52B4200F077D5 /* Soda.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EB87E225E52B4200F077D5 /* Soda.swift */; };
+		E4EB87E625E52B4B00F077D5 /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EB87E525E52B4B00F077D5 /* Coffee.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,9 @@
 		E4EB87C025E4C83400F077D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E4EB87C225E4C83400F077D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E4EB87CE25E4F88A00F077D5 /* Beverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beverage.swift; sourceTree = "<group>"; };
+		E4EB87DF25E52B3E00F077D5 /* Milk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Milk.swift; sourceTree = "<group>"; };
+		E4EB87E225E52B4200F077D5 /* Soda.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Soda.swift; sourceTree = "<group>"; };
+		E4EB87E525E52B4B00F077D5 /* Coffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +68,9 @@
 				E4EB87B625E4C83300F077D5 /* SceneDelegate.swift */,
 				E4EB87B825E4C83300F077D5 /* ViewController.swift */,
 				E4EB87CE25E4F88A00F077D5 /* Beverage.swift */,
+				E4EB87DF25E52B3E00F077D5 /* Milk.swift */,
+				E4EB87E225E52B4200F077D5 /* Soda.swift */,
+				E4EB87E525E52B4B00F077D5 /* Coffee.swift */,
 				E4EB87BA25E4C83300F077D5 /* Main.storyboard */,
 				E4EB87BD25E4C83400F077D5 /* Assets.xcassets */,
 				E4EB87BF25E4C83400F077D5 /* LaunchScreen.storyboard */,
@@ -140,10 +149,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4EB87E325E52B4200F077D5 /* Soda.swift in Sources */,
 				E4EB87B925E4C83300F077D5 /* ViewController.swift in Sources */,
 				E4EB87B525E4C83300F077D5 /* AppDelegate.swift in Sources */,
 				E4EB87CF25E4F88A00F077D5 /* Beverage.swift in Sources */,
 				E4EB87B725E4C83300F077D5 /* SceneDelegate.swift in Sources */,
+				E4EB87E025E52B3E00F077D5 /* Milk.swift in Sources */,
+				E4EB87E625E52B4B00F077D5 /* Coffee.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

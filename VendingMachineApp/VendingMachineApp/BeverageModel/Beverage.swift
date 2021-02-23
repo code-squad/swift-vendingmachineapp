@@ -14,18 +14,15 @@ class Beverage {
     private let name: String
     private let packDate: Date
     
-    public init(brandName: String, sizeInMilliliter: Int, itemPrice: Int, itemName: String, manufacturingDate: Date) {
+    public init(brandName: String, sizeInMilliliter: Int, itemPrice: Int, itemName: String) {
         brand = brandName
         size = sizeInMilliliter
         price = itemPrice
         name = itemName
-        packDate = manufacturingDate
-    }
-    
-    convenience init(brandName: String, sizeInMilliliter: Int, itemPrice: Int, itemName: String) {
-        self.init(brandName: brandName, sizeInMilliliter: sizeInMilliliter, itemPrice: itemPrice, itemName: itemName, manufacturingDate: Date())
+        packDate = Date()
     }
 }
+
 extension Beverage: CustomStringConvertible {
     var description: String {
         return "\(brand), \(size)ml, \(price)원, \(name), \(packDate.useSimpleFormat())"

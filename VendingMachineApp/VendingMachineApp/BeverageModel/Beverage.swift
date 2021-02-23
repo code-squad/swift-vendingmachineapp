@@ -29,6 +29,20 @@ extension Beverage: CustomStringConvertible {
     }
 }
 
+extension Beverage: Drinkable {
+    func validate(with date: Date) -> Bool {
+        return true
+    }
+    
+    func isHot() -> Bool {
+        return false
+    }
+    
+    func isLowCalorie() -> Bool {
+        return false
+    }
+}
+
 extension Date {
     func useSimpleFormat() -> String {
         let format = DateFormatter()

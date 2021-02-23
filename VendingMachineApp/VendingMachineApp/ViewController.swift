@@ -22,6 +22,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print(beverage, someMilk, strawBerryMilk, bananaMilk, soda, cola, fanta, coffee, americano, caffeLatte, separator: "\n")
+        print(beverage.isHot())
+        print(someMilk.isLowCalorie())
+        print(americano.validate(with: Date()))
     }
 }
 

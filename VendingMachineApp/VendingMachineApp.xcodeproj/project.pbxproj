@@ -23,6 +23,7 @@
 		88748ABF25E4A49900E7DCB1 /* Fanta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88748ABE25E4A49900E7DCB1 /* Fanta.swift */; };
 		88748AC925E4A56300E7DCB1 /* Americano.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88748AC825E4A56300E7DCB1 /* Americano.swift */; };
 		88748ACC25E4A57000E7DCB1 /* CaffeLatte.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88748ACB25E4A57000E7DCB1 /* CaffeLatte.swift */; };
+		88748AD725E4E9E000E7DCB1 /* Drinkable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88748AD625E4E9E000E7DCB1 /* Drinkable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		88748ABE25E4A49900E7DCB1 /* Fanta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fanta.swift; sourceTree = "<group>"; };
 		88748AC825E4A56300E7DCB1 /* Americano.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Americano.swift; sourceTree = "<group>"; };
 		88748ACB25E4A57000E7DCB1 /* CaffeLatte.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaffeLatte.swift; sourceTree = "<group>"; };
+		88748AD625E4E9E000E7DCB1 /* Drinkable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drinkable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 		88748AAB25E4A2ED00E7DCB1 /* BeverageModel */ = {
 			isa = PBXGroup;
 			children = (
+				88748AD625E4E9E000E7DCB1 /* Drinkable.swift */,
 				88748A9B25E38A4900E7DCB1 /* Beverage.swift */,
 				88748AAD25E4A31100E7DCB1 /* MilkModel */,
 				88748AAF25E4A32300E7DCB1 /* SodaModel */,
@@ -227,6 +230,7 @@
 				88748AB425E4A3C700E7DCB1 /* StrawBerryMilk.swift in Sources */,
 				88748ABC25E4A48300E7DCB1 /* Cola.swift in Sources */,
 				88748A8A25E387B100E7DCB1 /* ViewController.swift in Sources */,
+				88748AD725E4E9E000E7DCB1 /* Drinkable.swift in Sources */,
 				88748ACC25E4A57000E7DCB1 /* CaffeLatte.swift in Sources */,
 				88748A8625E387B100E7DCB1 /* AppDelegate.swift in Sources */,
 				88748A9C25E38A4900E7DCB1 /* Beverage.swift in Sources */,

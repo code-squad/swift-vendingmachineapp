@@ -8,7 +8,7 @@
 import Foundation
 
 class DietCola : Soda {
-    init(liter: Int, price: Int, name: String, date: String) {
-        super.init(brand: SodaBrand.Pepsi.description, liter: liter, price: price, name: name, date: date)
+    init(liter: Int, price: Int, name: String, manufactured: String) {
+        super.init(brand: Brand.Soda(.Pepsi) , liter: liter, price: price, name: name, manufactured: manufactured)
     }
 }

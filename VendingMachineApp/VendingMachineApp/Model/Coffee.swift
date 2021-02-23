@@ -16,4 +16,8 @@ class Coffee : Beverage {
         self.hotNCold = hotNCold
         super.init(brand: brand, liter: liter, price: price, name: name, manufactured: manufactured)
     }
+    
+    func isHot() -> Bool {
+        return hotNCold == "hot"
+    }
 }

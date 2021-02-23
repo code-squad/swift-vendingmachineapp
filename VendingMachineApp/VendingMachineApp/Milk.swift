@@ -33,16 +33,16 @@ class Milk: Beverage {
         func info() -> (brand: String, name: String, price: Int, size: Int, manufactureDate: Date) {
             switch self {
             case .strawberry:
-                return ("서울우유", self.rawValue, 1100, 200, Date(timeIntervalSinceNow: 0))
+                return ("서울우유", self.rawValue, 1100, 200, DateGenerator.randomDate())
             case .chocolate:
-                return ("허쉬", self.rawValue, 1500, 230, Date(timeIntervalSinceNow: 0))
+                return ("허쉬", self.rawValue, 1500, 230, DateGenerator.randomDate())
             case .banana:
-                return ("빙그레", self.rawValue, 1300, 250, Date(timeIntervalSinceNow: 0))
+                return ("빙그레", self.rawValue, 1300, 250, DateGenerator.randomDate())
             }
         }
     }
 
     var description: String {
-        return "[\(brand)] \(name): ₩\(price), \(size)ml (\(manufactureDate))"
+        return "[\(brand)] \(name): ₩\(price), \(size)ml (\(manufactureDate.description))"
     }
 }

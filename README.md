@@ -1,57 +1,30 @@
-# 진행 방법
+# VendingMachine
 
-- 음료수 자판기 iOS 앱에 요구사항을 파악한다.
-- 요구사항에 대한 구현을 완료한 후 자신의 github 아이디에 해당하는 브랜치에 Pull Request(이하 PR)를 통해 코드 리뷰 요청을 한다.
-- 코드 리뷰 피드백에 대한 개선 작업을 하고 다시 PUSH한다.
-- 모든 피드백을 완료하면 다음 단계를 도전하고 앞의 과정을 반복한다.
-
-# 코드 리뷰 과정
-> 저장소 브랜치에 자신의 github 아이디에 해당하는 브랜치가 존재해야 한다.
->
-> 자신의 github 아이디에 해당하는 브랜치가 있는지 확인한다.
-
-1. 자신의 github 아이디에 해당하는 브랜치가 없는 경우 브랜치 생성 요청 채널을 통해 브랜치 생성을 요청한다.
-프로젝트를 자신의 계정으로 fork한다. 저장소 우측 상단의 fork 버튼을 활용한다.
-
-2. fork한 프로젝트를 자신의 컴퓨터로 clone한다.
+## Step 1 - iPad App
+-  Project의 Devices 설정을 iPad로 변경, Device Orientation 설정을 Landscape Left, Landscape Right만 가능하도록 변경
+- Milk, Coffee, Soda 클래스를 정의하고, 공통 속성을 갖는 Drinkable 프로토콜 정의
+- VendingMachine이 음료 객체의 배열을 속성으로 갖고 있지 않도록 Drinks 타입의 하위 모듈 생성
+- ViewController 내에서 Milk, Coffee, Soda 객체를 생성하고, closure를 이용해 drinks 출력
 ```
-git clone https://github.com/{본인_아이디}/{저장소 아이디}
-ex) https://github.com/godrm/swift-vendingmachineapp
+서울우유, 200ml, 1000원, 날마다딸기우유, 20210223
+서울우유, 200ml, 1000원, 날마다딸기우유, 20210223
+펩시, 350ml, 2000원, 다이어트콜라, 20210223
+맥심, 400ml, 3000원, 아메리카노, 20210223
 ```
 
-3. clone한 프로젝트 이동
-```
-cd {저장소 아이디}
-ex) cd swift-vendingmachineapp
-```
+## Protocol
+- Protocol은 property를 선언할 때 var 만을 사용한다.
+- Protocol은 stored property 또는 computed property를 구분해서 명시하지 않는다. 프로퍼티 요구를 준수할 때 원하는대로 해석할 수 있다.
+- Protocol도 하나의 data type이다.
+- Protocol 정의 시, AnyObject을 상속하면 class만 채택할 수 있다.
+- 선택적(optional) 요구사항은 `@objc`를 Protocol과 요구사항 앞에 붙여야 한다.
+- associated types을 선언해서 Protocol 내에서 사용될 type의 placeholder를 작성할 수 있다. associated type의 실제 타입은 Protocol이 실제 채택되기 전까지는 정해지지 않는다.
 
-4. 본인 아이디로 브랜치를 만들기 위한 checkout
-```
-git checkout -t origin/본인_아이디
-ex) git checkout -t origin/godrm
-```
+## Protocol vs. Interface
+- Swift의 Protocol은 `optional` 키워드를 붙여서 선택적으로 준수(confrom)하도록 설계할 수 있지만, Interface를 구현한 class는 모든 요구사항을 필수적으로 구현해야 한다.
+- Protocol은 `static` 키워드로 타입 프로퍼티/메서드를 선언할 수 있다.
+- Protocol은 extension을 통해 초기 값을 지정할 수 있다(초기 구현).
 
-5. commit
-```
-git status //확인
-git rm 파일명 //삭제된 파일
-git add 파일명(or * 모두) // 추가/변경 파일
-git commit -m "메세지" // 커밋
-```
-
-6. 본인 원격 저장소에 올리기
-```
-git push origin 본인_아이디
-ex) git push origin godrm
-```
-
-7. pull request
-8. pull request는 github 서비스에서 진행할 수 있다.
-9. pull request는 반드시 original 저장소의 브랜치와 fork한 자신의 저장소 브랜치 이름이 같아야 하며, 브랜치 이름은 자신의 github 아이디여야 한다.
-10. code review 및 push
-11. pull request를 통해 피드백을 받는다.
-12. 코드 리뷰 피드백에 대한 개선 작업을 하고 다시 PUSH한다.
-
-## 앞의 코드 리뷰 과정은 [영상 보기](https://www.youtube.com/watch?v=ZSZoaG0PqLg) 를 통해 참고 가능
-
-## 실습 중 모든 질문은 슬랙 채널에서...
+## Protocol vs. Inheritance
+- Protocol은 Struct, Enum과 같은 값(value) 타입도 채택 가능하다.
+- 상속은 단일 상속만 가능하지만, Protocol은 다중 상속이 가능하다.

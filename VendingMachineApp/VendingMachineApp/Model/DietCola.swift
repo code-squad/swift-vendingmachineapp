@@ -8,7 +8,7 @@
 import Foundation
 
 class DietCola : Soda {
-    override init(brand : String, liter: Int, price: Int, name: String, manufactured: Date) {
-        super.init(brand: brand, liter: liter, price: price, name: name, manufactured: manufactured)
+    override init(brand: String, liter: Int, price: Int, name: String, manufactured: Date, calory: Int) {
+        super.init(brand: brand, liter: liter, price: price, name: name, manufactured: manufactured, calory: calory)
     }
 }

@@ -8,14 +8,14 @@
 import Foundation
 
 class Drinks {
-    private var dinks: [Drinkable]
+    private var drinks: [Drink]
     
-    init(drinks: [Drinkable]) {
-        self.dinks = drinks
+    init(drinks: [Drink]) {
+        self.drinks = drinks
     }
     
-    func retrieveDrinks(completion: (Drinkable) -> Void) {
-        dinks.forEach { drink in
+    func retrieveDrinks(completion: (Drink) -> Void) {
+        drinks.forEach { drink in
             completion(drink)
         }
     }

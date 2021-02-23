@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D0324E6F25E531F70098A066 /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0324E6E25E531F70098A066 /* Drink.swift */; };
 		D0636C2F25E4A7020087E3E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0636C2E25E4A7020087E3E8 /* AppDelegate.swift */; };
 		D0636C3125E4A7020087E3E8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0636C3025E4A7020087E3E8 /* SceneDelegate.swift */; };
 		D0636C3325E4A7020087E3E8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0636C3225E4A7020087E3E8 /* ViewController.swift */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D0324E6E25E531F70098A066 /* Drink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drink.swift; sourceTree = "<group>"; };
 		D0636C2B25E4A7020087E3E8 /* VendingMachineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendingMachineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0636C2E25E4A7020087E3E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0636C3025E4A7020087E3E8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 				D0F5E57325E4C721008D4C5D /* VendingMachine.swift */,
 				D0F5E57625E4C7A1008D4C5D /* Drinks.swift */,
 				D09C7B6125E4A79E00429153 /* Drinkable.swift */,
+				D0324E6E25E531F70098A066 /* Drink.swift */,
 				D09C7B6425E4A7B400429153 /* Coffee.swift */,
 				D0F5E57025E4A816008D4C5D /* Milk.swift */,
 				D0F5E56A25E4A7D3008D4C5D /* Soda.swift */,
@@ -159,6 +162,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0F5E56E25E4A7F5008D4C5D /* Utility.swift in Sources */,
+				D0324E6F25E531F70098A066 /* Drink.swift in Sources */,
 				D0F5E56B25E4A7D3008D4C5D /* Soda.swift in Sources */,
 				D0F5E57125E4A816008D4C5D /* Milk.swift in Sources */,
 				D0636C3325E4A7020087E3E8 /* ViewController.swift in Sources */,

@@ -14,7 +14,7 @@ class VendingMachine {
         self.drinks = drinks
     }
     
-    func retrieveDrinks(completion: (Drinkable) -> Void) {
+    func retrieveDrinks(completion: (Drink) -> Void) {
         drinks.retrieveDrinks(completion: completion)
     }
 }

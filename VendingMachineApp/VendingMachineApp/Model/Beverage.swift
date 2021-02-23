@@ -8,21 +8,21 @@
 import Foundation
 
 class Beverage : CustomStringConvertible {
-    private let brand : String
+    private let brand : Brand
     private let liter : Int
     private let price : Int
     private let name : String
-    private let date : Date
+    private let manufactured : Date
     
-    init(brand : String, liter : Int, price : Int, name : String, date : String) {
+    init(brand : Brand, liter : Int, price : Int, name : String, manufactured : String) {
         self.brand = brand
         self.liter = liter
         self.price = price
         self.name = name
-        self.date = date.convertDate()
+        self.manufactured = manufactured.convertDate()
     }
     
     var description: String {
-        return "\(brand), \(liter)ml, \(price)원, \(name), \(date.description)"
+        return "\(brand.printBrand()), \(liter)ml, \(price)원, \(name), \(manufactured.description)"
     }
 }

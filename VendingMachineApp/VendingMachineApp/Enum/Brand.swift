@@ -11,32 +11,19 @@ enum Brand {
     case Soda(_ select : SodaBrand)
     case Coffee(_ select : CoffeeBrand)
 
-    enum MilkBrand : String, CustomStringConvertible {
+    enum MilkBrand : String {
         case SeoulMilk = "서울우유"
         case BINGGRAE = "빙그레"
         case Maeil = "매일우유"
-
-
-        var description: String {
-            return self.rawValue
-        }
     }
 
-    enum SodaBrand : String, CustomStringConvertible {
+    enum SodaBrand : String {
         case Pepsi = "펩시"
         case Coca = "코카"
-
-        var description: String {
-            return "\(self.rawValue)"
-        }
     }
 
-    enum CoffeeBrand : String, CustomStringConvertible {
+    enum CoffeeBrand : String {
         case Maxim = "맥심"
-
-        var description: String {
-            return "\(self.rawValue)"
-        }
     }
     
     func printBrand() -> String {

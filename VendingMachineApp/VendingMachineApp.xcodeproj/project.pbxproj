@@ -23,6 +23,7 @@
 		B096F0C625E641AE00E98053 /* StrawberryMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = B096F0C525E641AE00E98053 /* StrawberryMilk.swift */; };
 		B096F0CA25E6449600E98053 /* Materials.swift in Sources */ = {isa = PBXBuildFile; fileRef = B096F0C925E6449600E98053 /* Materials.swift */; };
 		B096F0CE25E6465F00E98053 /* Cola.swift in Sources */ = {isa = PBXBuildFile; fileRef = B096F0CD25E6465F00E98053 /* Cola.swift */; };
+		B096F0D125E648D200E98053 /* Cider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B096F0D025E648D200E98053 /* Cider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		B096F0C525E641AE00E98053 /* StrawberryMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrawberryMilk.swift; sourceTree = "<group>"; };
 		B096F0C925E6449600E98053 /* Materials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Materials.swift; sourceTree = "<group>"; };
 		B096F0CD25E6465F00E98053 /* Cola.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cola.swift; sourceTree = "<group>"; };
+		B096F0D025E648D200E98053 /* Cider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 				B096F0C525E641AE00E98053 /* StrawberryMilk.swift */,
 				B096F09D25E4FFE600E98053 /* Soda.swift */,
 				B096F0CD25E6465F00E98053 /* Cola.swift */,
+				B096F0D025E648D200E98053 /* Cider.swift */,
 				B096F0A025E4FFF300E98053 /* coffee.swift */,
 				B096F0C925E6449600E98053 /* Materials.swift */,
 			);
@@ -204,6 +207,7 @@
 				B096F09B25E4FFA300E98053 /* Milk.swift in Sources */,
 				B096F0CE25E6465F00E98053 /* Cola.swift in Sources */,
 				B096F0B625E5110F00E98053 /* OutputView.swift in Sources */,
+				B096F0D125E648D200E98053 /* Cider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

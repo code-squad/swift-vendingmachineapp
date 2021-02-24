@@ -26,7 +26,7 @@ class Drink : CustomStringConvertible{
     
     
     var description: String {
-        return "\(brand), \(capacity)ml, \(price)원, \(name), \(manufacturedDate)"
+        return "\(brand), \(capacity)ml, \(price)원, \(name), \(manufacturedDate.description)"
     }
     
     

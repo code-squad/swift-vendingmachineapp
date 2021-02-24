@@ -19,6 +19,10 @@ class ViewController: UIViewController {
         ]
         
         let vendingMachine = VendingMachine(drinks: drinks)
+        
+        vendingMachine.show { drink in
+            print(drink)
+        }
     }
     
     

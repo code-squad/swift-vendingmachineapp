@@ -13,4 +13,10 @@ class VendingMachine {
     init(drinks: [Drink]) {
         self.drinks = drinks
     }
+    
+    func show(handler: (Drink) -> Void) {
+        drinks.forEach {
+            handler($0)
+        }
+    }
 }

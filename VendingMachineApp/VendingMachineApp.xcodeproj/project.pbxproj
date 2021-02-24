@@ -18,6 +18,7 @@
 		E4EB87E325E52B4200F077D5 /* Soda.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EB87E225E52B4200F077D5 /* Soda.swift */; };
 		E4EB87E625E52B4B00F077D5 /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EB87E525E52B4B00F077D5 /* Coffee.swift */; };
 		E4EB87EA25E52EA700F077D5 /* DateGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EB87E925E52EA700F077D5 /* DateGenerator.swift */; };
+		E4EB87F125E5D72400F077D5 /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EB87F025E5D72400F077D5 /* VendingMachine.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		E4EB87E225E52B4200F077D5 /* Soda.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Soda.swift; sourceTree = "<group>"; };
 		E4EB87E525E52B4B00F077D5 /* Coffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
 		E4EB87E925E52EA700F077D5 /* DateGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateGenerator.swift; sourceTree = "<group>"; };
+		E4EB87F025E5D72400F077D5 /* VendingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachine.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				E4EB87B425E4C83300F077D5 /* AppDelegate.swift */,
 				E4EB87B625E4C83300F077D5 /* SceneDelegate.swift */,
 				E4EB87B825E4C83300F077D5 /* ViewController.swift */,
+				E4EB87F025E5D72400F077D5 /* VendingMachine.swift */,
 				E4EB87CE25E4F88A00F077D5 /* Beverage.swift */,
 				E4EB87DF25E52B3E00F077D5 /* Milk.swift */,
 				E4EB87E225E52B4200F077D5 /* Soda.swift */,
@@ -160,6 +163,7 @@
 				E4EB87B725E4C83300F077D5 /* SceneDelegate.swift in Sources */,
 				E4EB87E025E52B3E00F077D5 /* Milk.swift in Sources */,
 				E4EB87E625E52B4B00F077D5 /* Coffee.swift in Sources */,
+				E4EB87F125E5D72400F077D5 /* VendingMachine.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

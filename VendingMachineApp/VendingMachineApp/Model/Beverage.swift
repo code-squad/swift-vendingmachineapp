@@ -7,19 +7,25 @@
 
 import Foundation
 
-class Beverage : CustomStringConvertible {
+class Beverage : CustomStringConvertible, Beveragable {
     private let brand : String
     private let liter : Int
     private(set) var price : Int
     private let name : String
     private let manufactured : Date
-    
-    init(brand : String, liter : Int, price : Int, name : String, manufactured : Date) {
+    private let expiryDate : Date
+    private let hot : Bool
+    private let calory : Int
+        
+    init(brand : String, liter : Int, price : Int, name : String, manufactured : Date, expiryDate : Date, hot : Bool, calory : Int) {
         self.brand = brand
         self.liter = liter
         self.price = price
         self.name = name
         self.manufactured = manufactured
+        self.expiryDate = expiryDate
+        self.hot = hot
+        self.calory = calory
     }
     
     var description: String {
@@ -28,6 +34,18 @@ class Beverage : CustomStringConvertible {
     
     func isPossible(money : Int) -> Bool {
         return self.price < money
+    }
+    
+    func validate(with date:Date) -> Bool {
+        return expiryDate < date
+    }
+    
+    func isHot() -> Bool {
+        return hot == true
+    }
+    
+    func isLowCalorie() -> Bool {
+        return calory > 10
     }
 }
 

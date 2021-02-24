@@ -49,6 +49,9 @@ class Drink {
         }
     }
     
+    func passExpiryDate() {
+        
+    }
     
     
 }

@@ -25,4 +25,8 @@ struct VendingMachine {
     func putPayMoney(money : Int) {
         payment.increaseMoney(money: money)
     }
+    
+    func addBevergeStock(beverage : Beverage) {
+        drink.addStock(beverage : beverage)
+    }
 }

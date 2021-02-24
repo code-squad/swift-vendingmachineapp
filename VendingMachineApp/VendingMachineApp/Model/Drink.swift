@@ -14,6 +14,10 @@ class Drink {
         self.drinks = []
     }
     
+    func addStock(beverage : Beverage) {
+        self.drinks.append(beverage)
+    }
+    
     func showBeverageList(hanlder : (Beverage) -> Void) {
         drinks.forEach {
             hanlder($0)

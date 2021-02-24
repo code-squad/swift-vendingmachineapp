@@ -19,6 +19,7 @@
 		D46F1A6225E6730200BFBD9C /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46F1A6125E6730200BFBD9C /* Coffee.swift */; };
 		D46F1A6525E6782F00BFBD9C /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46F1A6425E6782F00BFBD9C /* VendingMachine.swift */; };
 		D46F1A6C25E6813900BFBD9C /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46F1A6B25E6813900BFBD9C /* Date.swift */; };
+		D46F1A6F25E6A52B00BFBD9C /* Inventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46F1A6E25E6A52B00BFBD9C /* Inventory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		D46F1A6125E6730200BFBD9C /* Coffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
 		D46F1A6425E6782F00BFBD9C /* VendingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachine.swift; sourceTree = "<group>"; };
 		D46F1A6B25E6813900BFBD9C /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		D46F1A6E25E6A52B00BFBD9C /* Inventory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inventory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 				D46F1A6125E6730200BFBD9C /* Coffee.swift */,
 				D46F1A6425E6782F00BFBD9C /* VendingMachine.swift */,
 				D46F1A6B25E6813900BFBD9C /* Date.swift */,
+				D46F1A6E25E6A52B00BFBD9C /* Inventory.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -165,6 +168,7 @@
 			files = (
 				D46F1A5F25E671EF00BFBD9C /* Soda.swift in Sources */,
 				D46F1A4025E62A3200BFBD9C /* ViewController.swift in Sources */,
+				D46F1A6F25E6A52B00BFBD9C /* Inventory.swift in Sources */,
 				D46F1A3C25E62A3200BFBD9C /* AppDelegate.swift in Sources */,
 				D46F1A5325E6323700BFBD9C /* Beverage.swift in Sources */,
 				D46F1A3E25E62A3200BFBD9C /* SceneDelegate.swift in Sources */,

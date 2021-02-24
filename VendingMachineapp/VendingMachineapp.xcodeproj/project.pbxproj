@@ -13,6 +13,7 @@
 		D46F1A4325E62A3200BFBD9C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D46F1A4125E62A3200BFBD9C /* Main.storyboard */; };
 		D46F1A4525E62A3300BFBD9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D46F1A4425E62A3300BFBD9C /* Assets.xcassets */; };
 		D46F1A4825E62A3300BFBD9C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D46F1A4625E62A3300BFBD9C /* LaunchScreen.storyboard */; };
+		D46F1A5325E6323700BFBD9C /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46F1A5225E6323700BFBD9C /* Beverage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		D46F1A4425E62A3300BFBD9C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D46F1A4725E62A3300BFBD9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D46F1A4925E62A3300BFBD9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D46F1A5225E6323700BFBD9C /* Beverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beverage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 		D46F1A3A25E62A3200BFBD9C /* VendingMachineapp */ = {
 			isa = PBXGroup;
 			children = (
+				D46F1A5125E6321400BFBD9C /* Model */,
 				D46F1A3B25E62A3200BFBD9C /* AppDelegate.swift */,
 				D46F1A3D25E62A3200BFBD9C /* SceneDelegate.swift */,
 				D46F1A3F25E62A3200BFBD9C /* ViewController.swift */,
@@ -65,6 +68,14 @@
 				D46F1A4925E62A3300BFBD9C /* Info.plist */,
 			);
 			path = VendingMachineapp;
+			sourceTree = "<group>";
+		};
+		D46F1A5125E6321400BFBD9C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D46F1A5225E6323700BFBD9C /* Beverage.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,6 +150,7 @@
 			files = (
 				D46F1A4025E62A3200BFBD9C /* ViewController.swift in Sources */,
 				D46F1A3C25E62A3200BFBD9C /* AppDelegate.swift in Sources */,
+				D46F1A5325E6323700BFBD9C /* Beverage.swift in Sources */,
 				D46F1A3E25E62A3200BFBD9C /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -13,7 +13,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        outputView.test_Drink()
+        outputView.test_Machine()
     }
 
 

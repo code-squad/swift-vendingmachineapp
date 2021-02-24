@@ -29,4 +29,10 @@ struct VendingMachine {
     func addBevergeStock(beverage : Beverage) {
         drink.addStock(beverage : beverage)
     }
+    
+    func berageAvertList(handler : (Beverage) -> Void) {
+        payment.purchasePossibleList(drink: drink) {
+            handler($0)
+        }
+    }
 }

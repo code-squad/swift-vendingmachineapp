@@ -25,4 +25,8 @@ class Beverage : CustomStringConvertible {
     var description: String {
         return "\(brand), \(liter)ml, \(price)원, \(name), \(manufactured.description)"
     }
+    
+    func isPossible(money : Int) -> Bool {
+        return self.price < money
+    }
 }

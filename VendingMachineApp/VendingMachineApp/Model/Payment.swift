@@ -17,4 +17,10 @@ class Payment {
     func increaseMoney(money : Int) {
         self.amountMoney += money
     }
+    
+    func purchasePossibleList(drink : Drink, handler : (Beverage) -> Void) {
+        drink.purchasePossibleList(currentMoney: amountMoney) {
+            handler($0)
+        }
+    }
 }

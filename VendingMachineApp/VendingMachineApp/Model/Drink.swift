@@ -23,4 +23,12 @@ class Drink {
             hanlder($0)
         }
     }
+    
+    func purchasePossibleList(currentMoney : Int, handler : (Beverage) -> Void) {
+        let drink = drinks.filter { $0.isPossible(money: currentMoney) }
+        drink.forEach {
+            handler($0)
+        }
+    }
+    
 }

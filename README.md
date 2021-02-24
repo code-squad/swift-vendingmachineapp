@@ -1,57 +1,164 @@
-# 진행 방법
+# 자판기 앱 만들기
 
-- 음료수 자판기 iOS 앱에 요구사항을 파악한다.
-- 요구사항에 대한 구현을 완료한 후 자신의 github 아이디에 해당하는 브랜치에 Pull Request(이하 PR)를 통해 코드 리뷰 요청을 한다.
-- 코드 리뷰 피드백에 대한 개선 작업을 하고 다시 PUSH한다.
-- 모든 피드백을 완료하면 다음 단계를 도전하고 앞의 과정을 반복한다.
+## Step.1
 
-# 코드 리뷰 과정
-> 저장소 브랜치에 자신의 github 아이디에 해당하는 브랜치가 존재해야 한다.
->
-> 자신의 github 아이디에 해당하는 브랜치가 있는지 확인한다.
+#### Beverage Class 생성
+```swift
+import Foundation
 
-1. 자신의 github 아이디에 해당하는 브랜치가 없는 경우 브랜치 생성 요청 채널을 통해 브랜치 생성을 요청한다.
-프로젝트를 자신의 계정으로 fork한다. 저장소 우측 상단의 fork 버튼을 활용한다.
-
-2. fork한 프로젝트를 자신의 컴퓨터로 clone한다.
+class Beverage {
+    
+    private var brand: Brand
+    private var volume: Int
+    private var price: Int
+    private var productName: String
+    private var manufactureDate: Date
+    
+    init(brand:Brand, volume: Int, price: Int, productName: String, manufactureDate: Date) {
+        self.brand = brand
+        self.volume = volume
+        self.price = price
+        self.productName = productName
+        self.manufactureDate = manufactureDate
+    }
+}
 ```
-git clone https://github.com/{본인_아이디}/{저장소 아이디}
-ex) https://github.com/godrm/swift-vendingmachineapp
-```
+- 프로퍼티 선언 및 초기화 작업 완료
+- 브랜드는 별도로 구조체로 생성 예정
 
-3. clone한 프로젝트 이동
-```
-cd {저장소 아이디}
-ex) cd swift-vendingmachineapp
-```
+#### Brand 구조체 생성
+```swift
+import Foundation
 
-4. 본인 아이디로 브랜치를 만들기 위한 checkout
+struct Brand {
+    
+    enum Milk: String {
+        case seoul = "서울우유"
+        case bing = "빙그레"
+        case namyang = "남양유업"
+    }
+    
+    enum SoftDrik: String {
+        case coca = "코카콜라"
+        case pepsi = "펩시"
+        case lotte = "롯데칠성음료"
+    }
+    
+    enum Coffee: String {
+        case maxim = "맥심"
+        case lotte = "롯데칠성음료"
+        case coca = "코카롤라"
+    }
+}
 ```
-git checkout -t origin/본인_아이디
-ex) git checkout -t origin/godrm
-```
+- 브랜드는 구조체로 따로 분리하여 생성하였으나, 기타 Beverage 프로퍼티들에 대해서는 고민 중
+- 브랜드는 우유, 탄산음료, 커피 등에 따라 나눠서 enum으로 타입생성
 
-5. commit
+#### CustomStringConvertible 프로토콜 채택
+```swift
+extension Beverage: CustomStringConvertible {
+    var description: String {
+        return "\(brand), \(volume), \(price), \(productName), \(manufactureDate)"
+    }
+}
 ```
-git status //확인
-git rm 파일명 //삭제된 파일
-git add 파일명(or * 모두) // 추가/변경 파일
-git commit -m "메세지" // 커밋
+```swift
+enum Milk: String, CustomStringConvertible {
+    case seoul = "서울우유"
+    case bing = "빙그레"
+    case namyang = "남양유업"
+        
+    var description: String {return "\(rawValue)"}
+    }
 ```
-
-6. 본인 원격 저장소에 올리기
+```swift
+enum SoftDrik: String, CustomStringConvertible {
+    case coca = "코카콜라"
+    case pepsi = "펩시"
+    case lotte = "롯데칠성음료"
+        
+    var description: String {return "\(rawValue)"}
+    }
 ```
-git push origin 본인_아이디
-ex) git push origin godrm
+```swift
+enum Coffee: String, CustomStringConvertible {
+    case maxim = "맥심"
+    case lotte = "롯데칠성음료"
+    case coca = "코카롤라"
+        
+    var description: String {return "\(rawValue)"}
+    }
 ```
+- print() 함수 활용하여 콘솔 출력 예정으로 CustomStringConvertible 프로토콜을 채택
 
-7. pull request
-8. pull request는 github 서비스에서 진행할 수 있다.
-9. pull request는 반드시 original 저장소의 브랜치와 fork한 자신의 저장소 브랜치 이름이 같아야 하며, 브랜치 이름은 자신의 github 아이디여야 한다.
-10. code review 및 push
-11. pull request를 통해 피드백을 받는다.
-12. 코드 리뷰 피드백에 대한 개선 작업을 하고 다시 PUSH한다.
+#### Brand 구조체 enum 타입 수정
+```swift
+import Foundation
 
-## 앞의 코드 리뷰 과정은 [영상 보기](https://www.youtube.com/watch?v=ZSZoaG0PqLg) 를 통해 참고 가능
+struct Brand {
+    
+    enum Brand: String, CustomStringConvertible {
+        case seoul = "서울우유"
+        case bing = "빙그레"
+        case namyang = "남양유업"
+        case coca = "코카콜라"
+        case pepsi = "펩시"
+        case lotte = "롯데칠성음료"
+        case maxim = "맥심"
+        
+        var description: String {return "\(rawValue)"}
+    }
+    
+}
+```
+- 롯데칠성, 코카콜라 등 겹치는 요소가 있고 외부접근시 코드 가독성을 위하여 수정
 
-## 실습 중 모든 질문은 슬랙 채널에서...
+#### Beverage Class CustomStringConvertible 리턴값 수정
+```swift
+extension Beverage: CustomStringConvertible {
+    var description: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyyMMdd"
+        return "\(brand), \(volume)ml, \(price)원, \(productName), \(dateFormatter.string(from: manufactureDate))"
+    }
+}
+```
+- DateFormatter() 활용하여 202210224와 같은 형식으로 리턴값 수정
+
+#### ViewController에 print함수 추가하여 콘솔출력
+```swift
+class VendingMachineViewController: UIViewController {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        print(Beverage(brand: Brand.Brand.seoul, volume: 200, price: 1000, productName: "날마다딸기우유", manufactureDate: Date()))
+        print(Beverage(brand: Brand.Brand.lotte, volume: 500, price: 900, productName: "콘트라베이스 콜드브루 블랙", manufactureDate: Date(timeIntervalSinceNow: -86400 * 10)))
+        print(Beverage(brand: Brand.Brand.maxim, volume: 400, price: 3000, productName: "TOP아메리카노", manufactureDate: Date(timeIntervalSinceNow: -86400 * 2)))
+    }
+
+}
+```
+#### MVC
+- Model : 앱의 데이터와 비즈니스 로직을 관리한다.
+- View : 데이터를 시각화하여 보여준다.
+- Controller : Model과 View의 중간다리 역할을하며 둘 사이에서 데이터를 넘겨준다.
+
+#### UIApplicationMain()
+- 앱이 시작되면 시스템은 UIApplicationMain()을 호출
+- application객체와 application delegate를 만들고, 이벤트 사이클을 설정하는 역할
+- application객체의 주요역할은 들어오는 사용자 이벤트의 초기 라우팅을 처리하는 것
+- UIApplication클래스는 UIApplicationDelegate프로토콜을 준수
+- application객체는 delegate에게 중요한 런타임 이벤트(앱 시작, 메모리 부족, 앱 종료 등)를 알리고, 응답할 기회를 제공
+
+#### 프로토콜
+- 스위프트는 프로토콜 지향 언어
+- 중요한 키워드는 Protocol과 extension
+- 특정 역할을 하기 위한 메소드, 프로퍼티, 기타 요구사항 등의 청사진
+- 프로토콜은 정의를 하고 제시를 할 뿐, 스스로 기능을 구현하지 않음
+- 프로토콜은 구현해야 하는 동작을 지장하는데 사용되는 추상적 표현을 정의
+- extension은 프로토콜이 원하는 기능을 구현
+- POP(Protocal Oriented Programming Language)는 클래스의 추상적인 상속의 한계를 탈피
+- 의존성없이 유연하게 사용이 가능하고, 기능을 더욱 명확하게 해주는 목표를 가지고 있음
+
+#### 실행화면
+<img width="372" alt="스크린샷 2021-02-24 오전 11 44 24" src="https://user-images.githubusercontent.com/74946802/108939842-b55e6880-7695-11eb-81c6-fe58ed56dff1.png">

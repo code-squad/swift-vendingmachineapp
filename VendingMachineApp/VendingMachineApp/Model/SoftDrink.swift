@@ -1,6 +1,7 @@
 import Foundation
 
 class SoftDrink: Beverage {
+    
     private var zeroCalories: Bool
     
     init(brand: Brand.Name, volume: Int, price: Int, name: String, manufacturedDay: Date, zeroCalories: Bool) {

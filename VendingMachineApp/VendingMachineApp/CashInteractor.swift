@@ -16,6 +16,11 @@ class CashInteractor: MoneyExchangable {
         balance = 0
     }
     
+    func resetCashInteractor() {
+        money = 0
+        balance = 0
+    }
+    
     func increaseMoney(by amount: Int) {
         money += amount
     }
@@ -40,5 +45,9 @@ class CashInteractor: MoneyExchangable {
     
     public func deductBalance(with amount: Int) {
         self.balance -= amount
+    }
+    
+    public func returnChangeToCustomer() -> Int {
+        return money
     }
 }

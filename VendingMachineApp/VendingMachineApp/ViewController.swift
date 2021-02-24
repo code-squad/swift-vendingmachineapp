@@ -24,9 +24,8 @@ class ViewController: UIViewController {
         machine.addStock(beverage: milk, count: 10)
         machine.addStock(beverage: americano, count: 5)
         
-        DispatchQueue.init(label: "orderProcessingQueue").async {
-            self.machine.purchaseBeverage(insert: 2000, index: 1)
-        }
+        machine.purchaseBeverage(insert: 2000, index: 1)
+        machine.transactionStopButtonPressed()
     }
 }
 

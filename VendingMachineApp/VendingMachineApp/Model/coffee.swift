@@ -9,7 +9,11 @@ import Foundation
 
 //http://emart.ssg.com/item/itemView.ssg?itemId=0000007323904&siteNo=6001&salestrNo=2034&tlidSrchWd=TOP&srchPgNo=1&src_area=elist
 class Coffee: Drink {
+    
+    // 카페인 추가
+    // 하위 : 뜨거움 여부
+    
     init() {
-        super.init(brand: "Maxim", volume: 275, charge: 980, name: "TOP 스위트 아메리카노", manufacturingDate: Date.init()) //제조일자 : now
+        super.init(brand: "Maxim", volume: 275, charge: 980, name: "TOP 스위트 아메리카노", manufacturing: Date.init()) //제조일자 : now
     }
 }

@@ -13,4 +13,9 @@ extension Date {
         dateFormatter.dateFormat = "yyyyMMdd"
         return dateFormatter.string(from: self)
     }
+    
+    /// at least before 1 day
+    func createRandomIn7days() -> Date {
+        return Date.init(timeIntervalSinceNow: TimeInterval.random(in: (-3600 * 24 * 7)..<(-3600 * 24)))
+    }
 }

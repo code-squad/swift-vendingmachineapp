@@ -17,8 +17,8 @@ class SoftDrink: Beverage {
     
     private let type: SoftDrinkType
     
-    init(brand: String, volume: Int, price: Int, name: String, manufactureDate: Date, type: SoftDrinkType) {
+    init(brand: String, volume: Int, price: Int, name: String, manufactureDate: String, type: SoftDrinkType) throws {
         self.type = type
-        super.init(brand: brand, volume: volume, price: price, name: name, manufactureDate: manufactureDate)
+        try super.init(brand: brand, volume: volume, price: price, name: name, manufactureDate: manufactureDate)
     }
 }

@@ -13,6 +13,10 @@
 		FF2DBFCA25E3775F00D2A215 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF2DBFC825E3775F00D2A215 /* Main.storyboard */; };
 		FF2DBFCC25E3776000D2A215 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF2DBFCB25E3776000D2A215 /* Assets.xcassets */; };
 		FF2DBFCF25E3776000D2A215 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF2DBFCD25E3776000D2A215 /* LaunchScreen.storyboard */; };
+		FF2DBFDB25E3780B00D2A215 /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2DBFDA25E3780B00D2A215 /* Drink.swift */; };
+		FF2DBFDF25E5E22600D2A215 /* Soda.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2DBFDE25E5E22600D2A215 /* Soda.swift */; };
+		FF2DBFE325E5E22C00D2A215 /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2DBFE225E5E22C00D2A215 /* Milk.swift */; };
+		FF2DBFE625E5E23800D2A215 /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2DBFE525E5E23800D2A215 /* Coffee.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		FF2DBFCB25E3776000D2A215 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FF2DBFCE25E3776000D2A215 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FF2DBFD025E3776000D2A215 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FF2DBFDA25E3780B00D2A215 /* Drink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drink.swift; sourceTree = "<group>"; };
+		FF2DBFDE25E5E22600D2A215 /* Soda.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Soda.swift; sourceTree = "<group>"; };
+		FF2DBFE225E5E22C00D2A215 /* Milk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Milk.swift; sourceTree = "<group>"; };
+		FF2DBFE525E5E23800D2A215 /* Coffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,12 +67,24 @@
 				FF2DBFC225E3775F00D2A215 /* AppDelegate.swift */,
 				FF2DBFC425E3775F00D2A215 /* SceneDelegate.swift */,
 				FF2DBFC625E3775F00D2A215 /* ViewController.swift */,
+				FF2DBFDD25E5E21A00D2A215 /* Models */,
 				FF2DBFC825E3775F00D2A215 /* Main.storyboard */,
 				FF2DBFCB25E3776000D2A215 /* Assets.xcassets */,
 				FF2DBFCD25E3776000D2A215 /* LaunchScreen.storyboard */,
 				FF2DBFD025E3776000D2A215 /* Info.plist */,
 			);
 			path = VendingMachineApp;
+			sourceTree = "<group>";
+		};
+		FF2DBFDD25E5E21A00D2A215 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FF2DBFDA25E3780B00D2A215 /* Drink.swift */,
+				FF2DBFDE25E5E22600D2A215 /* Soda.swift */,
+				FF2DBFE225E5E22C00D2A215 /* Milk.swift */,
+				FF2DBFE525E5E23800D2A215 /* Coffee.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,7 +159,11 @@
 			files = (
 				FF2DBFC725E3775F00D2A215 /* ViewController.swift in Sources */,
 				FF2DBFC325E3775F00D2A215 /* AppDelegate.swift in Sources */,
+				FF2DBFDB25E3780B00D2A215 /* Drink.swift in Sources */,
 				FF2DBFC525E3775F00D2A215 /* SceneDelegate.swift in Sources */,
+				FF2DBFE325E5E22C00D2A215 /* Milk.swift in Sources */,
+				FF2DBFDF25E5E22600D2A215 /* Soda.swift in Sources */,
+				FF2DBFE625E5E23800D2A215 /* Coffee.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

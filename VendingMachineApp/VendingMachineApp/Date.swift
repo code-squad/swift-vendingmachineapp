@@ -8,11 +8,17 @@
 import Foundation
 
 extension Date {
-        static func change(_ date: String) -> Date {
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "yyyy-MM-dd"
-            if dateFormatter.date(from: date) != nil {
-                return dateFormatter.date(from: date)!
-            }
-        }
+    static let dateFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyyMMdd"
+        return dateFormatter
+    }()
+    
+    static func input(_ date: String) -> Date {
+        return Date.dateFormatter.date(from: date) ?? Date()
+    }
+    var description: String {
+        return "\(Date.dateFormatter.string(from: self))"
+    }
+    
 }

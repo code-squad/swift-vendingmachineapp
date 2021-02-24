@@ -15,9 +15,9 @@ class Soda: Drink {
     //사이다 - 칼로리 추가
     private let package : Materials
     
-    init() {
-        self.package = .steel
-        super.init(brand: "CoCa-Cola", volume: 215, charge: 574, name: "코카콜라제로", manufacturing: Date.init()) //제조일자 : now
+    init(brand : String, volume : Int, charge : Int, name :String, manufacturing : Date, package : Materials) {
+        self.package = package
+        super.init(brand: brand, volume: volume, charge: charge, name: name, manufacturing: manufacturing)
     }
     
     func packingMaterial() -> Materials {

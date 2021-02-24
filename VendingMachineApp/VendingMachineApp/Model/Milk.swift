@@ -7,9 +7,21 @@
 
 import Foundation
 
-//http://emart.ssg.com/item/itemView.ssg?itemId=0000007095603&siteNo=6001&salestrNo=2034
 class Milk: Drink {
-    init() {
-        super.init(brand: "서울우유", volume: 200, charge: 830, name: "초코우유", manufacturingDate: Date.init()) //제조일자 : now
+    
+    private let expirationLimit : Int //how many day after manufacturingDate
+    
+    init(brand : String, volume : Int, charge : Int, name :String, manufacturing : Date, expirationLimit : Int) {
+        self.expirationLimit = expirationLimit
+        super.init(brand: brand, volume: volume, charge: charge, name: name, manufacturing: manufacturing)
+    }
+    
+    convenience init() {
+        self.init(brand: "서울우유", volume: 200, charge: 830, name: "초코우유", manufacturing: Date.init().createRandomIn7days(), expirationLimit: 3)
+    }
+    
+    func validate() -> Bool {
+        let lastDay = afterManufacuring(days: expirationLimit)
+        return compareNowWith(date: lastDay)
     }
 }

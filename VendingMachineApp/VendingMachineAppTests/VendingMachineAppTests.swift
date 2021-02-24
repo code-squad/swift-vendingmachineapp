@@ -10,7 +10,7 @@ import XCTest
 
 class VendingMachineAppTests: XCTestCase {
     
-    func testbeverageClass() {
+    func testBeverageClass() {
         let strawberryMilk = StrawberryMilk.init(brand : "서울우유",
                                 liter: 200,
                                 price: 1000,
@@ -23,7 +23,7 @@ class VendingMachineAppTests: XCTestCase {
                       liter: 350,
                       price: 2000,
                       name: "다이어트콜라",
-                      manufactured: Date.inputDate(date: "20210222"),calory: 123)
+                      manufactured: Date.inputDate(date: "20210222"),sugar: true,calory: 123)
         
         let topAmericano = TopAmericano.init(brand : "맥심",
                           liter: 400,
@@ -31,10 +31,10 @@ class VendingMachineAppTests: XCTestCase {
                           name: "TOP아메리카노",
                           manufactured: Date.inputDate(date: "20210217"),
                           caffeineContent: 130,
-                          hotNCold: "hot")
+                          hot: false)
         
         XCTAssertEqual(strawberryMilk.validate(with: Date.inputDate(date: "20210209")), false)
         XCTAssertEqual(dietCola.isLowCalorie(), false)
-        XCTAssertEqual(topAmericano.isHot(), true)
+        XCTAssertEqual(topAmericano.isHot(), false)
     }
 }

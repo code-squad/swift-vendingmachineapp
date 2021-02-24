@@ -8,50 +8,52 @@
 import Foundation
 
 class Drink {
-    private var drinks : [Beverage : Int]
-    private var stock : [Beverage]
+    private var drinks : [Beverage]
+    private var purchasedList : [Beverage]
     
     init() {
-        self.drinks = [:]
-        self.stock = []
+        self.drinks = []
+        self.purchasedList = []
     }
     
     func addStock(beverage : Beverage) {
-        self.drinks[beverage] = (drinks[beverage] ?? 0) + 1
+        drinks.append(beverage)
     }
     
     func showBeverageList(hanlder : (Beverage) -> Void) {
         drinks.forEach {
-            hanlder($0.key)
+            hanlder($0)
         }
     }
     
-    func purchasePossibleList(currentMoney : Int, handler : (Beverage) -> Void) {
-        let drink = drinks.filter { $0.key.isPossible(money: currentMoney) }
-        drink.forEach {
-            handler($0.key)
-        }
+    func purchasePossibleList(currentMoney : Int, handler : ([Beverage]) -> Void) {
+        handler(drinks.filter { $0.isPossible(money: currentMoney) })
     }
     
     func purchaseBeverage(beverage : Beverage) {
-        drinks[beverage] = (drinks[beverage] ?? 0) - 1
-        stock.append(beverage)
-        
+        drinks.firstIndex(of: beverage).map { drinks.remove(at: $0) }
+        purchasedList.append(beverage)
     }
     
     func addStockPrice() -> Int {
-        return stock.reduce(0) { $1.price }
+        return purchasedList.reduce(0) { $1.price }
     }
     
     func showAllBeverage(hanlder : ([Beverage : Int]) -> Void){
-        drinks.forEach {
-            hanlder([$0.key:$0.value])
-        }
+//        drinks.forEach {
+//            hanlder([$0.key:$0.value])
+//        }
     }
     
-    func passExpiryDate() {
-        
+    func passExpiryDate(expiryDate : Date, handler : ([Beverage]) -> Void) {
+        handler(drinks.filter { $0.validate(with: expiryDate) })
     }
     
+    func hotDrink(expiryDate : Date, handler : ([Beverage]) -> Void) {
+        handler(drinks.filter { $0.isHot() })
+    }
     
+    func purchaseHistory() -> [Beverage] {
+        return purchasedList
+    }
 }

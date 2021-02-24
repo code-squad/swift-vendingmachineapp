@@ -39,10 +39,7 @@ class ViewController: UIViewController {
                                                        hotNCold: "hot")
         ]
         
-        let vendingMachine = VendingMachine(beverage: beverage)
-        vendingMachine.showBeverageList { (beverage) in
-            print(beverage.description)
-        }
+        let vendingMachine = VendingMachine()
     }
     
 }

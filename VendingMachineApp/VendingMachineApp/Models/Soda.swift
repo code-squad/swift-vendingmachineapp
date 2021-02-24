@@ -9,7 +9,14 @@ import Foundation
 
 class Soda: Drink {
     
-    override init(brand: String, capacity: Int, price: Int, name: String, date: Date) {
+    private var zeroCalorie: Bool
+    
+    init(brand: String, capacity: Int, price: Int, name: String, date: Date, isZero: Bool) {
+        self.zeroCalorie = isZero
         super.init(brand: brand, capacity: capacity, price: price, name: name, date: date)
+    }
+    
+    func isZeroCalorie() -> Bool {
+        return zeroCalorie
     }
 }

@@ -9,7 +9,14 @@ import Foundation
 
 class Coffee: Drink {
     
-    override init(brand: String, capacity: Int, price: Int, name: String, date: Date) {
+    private var decaffein: Bool
+    
+    init(brand: String, capacity: Int, price: Int, name: String, date: Date, decaffein: Bool) {
+        self.decaffein = decaffein
         super.init(brand: brand, capacity: capacity, price: price, name: name, date: date)
+    }
+    
+    func isDecaffein() -> Bool {
+        return decaffein
     }
 }

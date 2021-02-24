@@ -8,7 +8,7 @@
 import Foundation
 
 //http://emart.ssg.com/item/itemView.ssg?itemId=0000007095603&siteNo=6001&salestrNo=2034
-class chocoMilk: Milk {
+class ChocoMilk: Milk {
     
     private let realChocolate : Bool //how many day after manufacturingDate
     

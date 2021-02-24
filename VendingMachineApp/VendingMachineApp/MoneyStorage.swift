@@ -11,7 +11,7 @@ class MoneyStorage: MoneyExchangable {
     var money: Int
     
     init() {
-        money = 100_000
+        money = 0
     }
     
     func increaseMoney(by amount: Int) {
@@ -22,8 +22,8 @@ class MoneyStorage: MoneyExchangable {
         money -= amount
     }
     
-    public func exportCurrentBalance() {
-        print("\(money)")
+    public func exportCurrentBalance() -> Int {
+        return money
     }
     
     func sendMoney(amount: Int, to counterPart: MoneyExchangable) {

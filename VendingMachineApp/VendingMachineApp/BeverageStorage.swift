@@ -26,39 +26,36 @@ class BeverageStorage {
         }
     }
 
-    public func showStock() -> [String:Int] {
-        var result = [String:Int]()
-        stock.forEach { (item) in
-            result[item.showItemDetails().beverage] = item.showItemDetails().amount
+    public func showStock() -> String {
+        var result = ""
+        stock.enumerated().forEach { (index, item) in
+            result.append("\(index)번 슬롯: \(item)\n")
         }
         return result
     }
     
-    public func showPurchasableBeverages(with money: Int = 999_999_999) -> [String:Int] {
-        var result = [String:Int]()
-        stock.forEach { (item) in
-            guard item.isSoldOut() == false else { return }
-            result[item.showItemDetails().beverage] = item.showItemDetails().amount
+    public func showPurchasableBeverages(with money: Int = 999_999_999) -> String {
+        var result = "구매 가능한 음료 목록 ----\n"
+        stock.enumerated().forEach { (index, item) in
+            guard item.isAvailable(with: money) else { return }
+            result.append("\(index)번 슬롯: \(item)\n")
         }
         return result
     }
     
-    public func showExpiredBeverages() -> [String:Int] {
-        var result = [String:Int]()
-        stock.forEach { (item) in
-            guard item.isSoldOut() == false else { return }
+    public func showExpiredBeverages() -> String {
+        var result = "유통기한 지난 음료 목록 ----\n"
+        stock.enumerated().forEach { (index, item) in
             guard item.isExpiredItem() else { return }
-            result[item.showItemDetails().beverage] = item.showItemDetails().amount
+            result.append("\(index)번 슬롯: \(item)\n")
         }
         return result
     }
     
     public func putSelectedBeverageOut(at index: Int) -> Beverage? {
-        if stock[index].isSoldOut() || index >= stock.count {
-            return nil
-        } else {
-            return stock[index].isPurchased()
-        }
+        guard index < stock.count else { return nil }
+        guard index > -1 else { return nil }
+        return stock[index].isPurchased()
     }
 }
 

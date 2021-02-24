@@ -41,11 +41,29 @@ class Item {
         return self.beverage
     }
     
+    public func isAffrodable(with amount: Int) -> Bool {
+        self.beverage.isPurchasable(with: amount)
+    }
+    
     public func isExpiredItem() -> Bool {
         self.beverage.isExpired(by: Date())
     }
     
-    public func showItemDetails() -> (beverage: String, amount: Int) {
-        return ("\(beverage)", amount)
+    public func isAvailable(with money: Int) -> Bool {
+        if isSoldOut() {
+            return false
+        } else if !isAffrodable(with: money) {
+            return false
+        } else if isExpiredItem() {
+            return false
+        } else {
+            return true
+        }
+    }
+}
+
+extension Item: CustomStringConvertible {
+    var description: String {
+        return "음료정보: \(beverage) 남은 재고: \(amount)"
     }
 }

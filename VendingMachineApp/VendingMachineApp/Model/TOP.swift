@@ -18,7 +18,7 @@ class TOP: Coffee {
     }
     
     convenience init() {
-        self.init(brand: "Maxim", volume: 275, charge: 980, name: "TOP 스위트 아메리카노", manufacturing: Date.init(), caffeine : 123.45, hot: true) //제조일자 : now
+        self.init(brand: "Maxim", volume: 275, charge: 980, name: "TOP 스위트 아메리카노", manufacturing: Date.init(), caffeine : 123.45, hot: true)
     }
     
     func isHot() -> Bool {

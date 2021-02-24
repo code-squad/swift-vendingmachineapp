@@ -31,4 +31,17 @@ class Item {
             return false
         }
     }
+    
+    public func isSoldOut() -> Bool {
+        self.amount == 0 ? true : false
+    }
+    
+    public func isPurchased(by amount: Int = 1) -> Beverage {
+        decreaseAmount()
+        return self.beverage
+    }
+    
+    public func showItemDetails() -> (beverage: String, amount: Int) {
+        return ("\(beverage)", amount)
+    }
 }

@@ -32,4 +32,13 @@ extension Date {
         return formatter.string(from: self)
         
     }
+    
+    func add(amount: Int) -> Date {
+        let today = Date()
+        let expiryDate = Calendar.current.date(byAdding: .day,
+                                               value: amount,
+                                               to: today)
+        return expiryDate ?? today
+    }
 }
+

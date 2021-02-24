@@ -8,19 +8,17 @@
 import Foundation
 
 class VendingMachine {
-    private var drinks: [Beverage]
+    private var drinks: Drinks
     
-    init() {
-        drinks = []
+    init(drinks: Drinks) {
+        self.drinks = drinks
     }
     
-    func add(with beverage: Beverage) {
-        self.drinks.append(beverage)
+    func add(beverage: Beverage) {
+        drinks.add(with: beverage)
     }
     
-    func printDrinks() {
-        drinks.forEach { (beverage) in
-            print(beverage)
-        }
+    func printDrinks(completion: (Beverage)->Void) {
+        drinks.printDrinks(completion: completion)
     }
 }

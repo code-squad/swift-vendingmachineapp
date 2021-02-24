@@ -53,14 +53,6 @@ extension Beverage: Drinkable {
     func isExpired(by date: Date) -> Bool {
         return date > packDate.addingTimeInterval(86400 * 60)
     }
-    
-    func isHot() -> Bool {
-        return false
-    }
-    
-    func isLowCalorie() -> Bool {
-        return false
-    }
 }
 
 extension Date {

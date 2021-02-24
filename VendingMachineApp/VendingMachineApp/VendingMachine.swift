@@ -7,14 +7,28 @@
 
 import Foundation
 
-class VendingMachine {
+struct VendingMachine {
     private var drinks: Drinks
+    private var chargedCoins: Int = 0
     
     init(drinks: Drinks) {
         self.drinks = drinks
     }
     
-    func retrieveDrinks(completion: (Drink) -> Void) {
-        drinks.retrieveDrinks(completion: completion)
+    mutating func charge(coins: Int) {
+        chargedCoins += coins
+    }
+    
+    mutating func addStock(for drink: Drink) {
+        drinks.add(drink: drink)
+    }
+    
+    mutating func getAvailableDrinks() -> [Drink] {
+        return drinks.getAvailableDrinks(with: chargedCoins)
+    }
+    
+    mutating func purchase(drink: Drink) {
+        chargedCoins -= drink.price
+        drinks.remove(drink: drink)
     }
 }

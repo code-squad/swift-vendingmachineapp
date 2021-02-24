@@ -17,7 +17,6 @@ class Beverage: CustomStringConvertible {
     private var price: Int
     private var name: String
     private var date: Date
-    
     init(brand: String, capacity: Int, price: Int, name: String, date: Date) {
         self.brand = brand
         self.capacity = capacity

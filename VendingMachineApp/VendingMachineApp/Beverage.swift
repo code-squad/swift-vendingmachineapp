@@ -24,6 +24,6 @@ class Beverage: CustomStringConvertible {
     }
 
     var description: String {
-        return "[\(brand)] \(name): ₩\(price), \(size)ml (\(manufactured.description))"
+        return "[\(brand)] \(name): ₩\(price), \(size)ml (\(manufactured.inFormat("yyMMdd")))"
     }
 }

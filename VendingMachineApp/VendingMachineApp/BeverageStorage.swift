@@ -8,8 +8,6 @@
 import Foundation
 
 class BeverageStorage {
-    //FIXME:- Item 데이터 타입 만들기
-    typealias Item = (bev: Beverage, amt: Int)
     private var stock: [Item]
     
     init() {
@@ -17,16 +15,16 @@ class BeverageStorage {
     }
     
     public func addStock(with beverage: Beverage, amount: Int) {
-        let stockIndex = stock.firstIndex { (item) -> Bool in
-            item.bev.isSameBeverage(with: beverage)
+        let newItem = Item(with: beverage, of: amount)
+        
+        let itemIndex = stock.firstIndex { (alreadyStoredItem) -> Bool in
+            alreadyStoredItem.isSameItem(with: newItem)
         }
         
-        if stockIndex != nil {
-            let remainingAmount = stock[stockIndex!].amt
-            stock.remove(at: stockIndex!)
-            stock.insert((bev: beverage, amt: amount + remainingAmount), at: stockIndex!)
+        if itemIndex != nil {
+            stock[itemIndex!].increaseAmount(by: amount)
         } else {
-            stock.append((bev: beverage, amt: amount))
+            stock.append(newItem)
         }
     }
     

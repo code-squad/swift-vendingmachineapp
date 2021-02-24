@@ -1,12 +1,14 @@
 import Foundation
 
-class Milk: Beverage {
+class Milk: Beverage, SellByDate {
     
     private var farmCode: String
+    private(set) var sellByDate: Date
     
-    init(brand: Brand.Name, volume: Int, price: Int, name: String, manufacturedDay: Date, farmCode: String) {
+    init(brand: Brand.Name, volume: Int, price: Int, productName: String, manufacturedDay: Date, farmCode: String, sellByDate: Date) {
         self.farmCode = farmCode
-        super.init(brand: brand, volume: volume, price: price, productName: name, manufacturedDay: manufacturedDay)
+        self.sellByDate = sellByDate
+        super.init(brand: brand, volume: volume, price: price, productName: productName, manufacturedDay: manufacturedDay)
     }
     
     func origin() -> String {

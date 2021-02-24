@@ -8,14 +8,13 @@
 import Foundation
 
 class Milk: Drink, CustomStringConvertible {
-    enum Flavor {
-        case straberry, banana, choco
-    }
+    private var farmCode: String
+    private var expriryDate: Date
     
-    private(set) var flavor: Flavor
-    
-    init(manufacturer: String, volume: Int, name: String, dateOfManufacture: Date, price: Int, flavor: Flavor) {
-        self.flavor = flavor
+    init(manufacturer: String, volume: Int, name: String,
+         dateOfManufacture: Date, price: Int, farmCode: String, expriryDate: Date) {
+        self.farmCode = farmCode
+        self.expriryDate = expriryDate
         super.init(manufacturer: manufacturer, volume: volume, name: name, dateOfManufacture: dateOfManufacture, price: price)
     }
 }

@@ -21,6 +21,7 @@
 		B096F0BA25E52D9D00E98053 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = B096F0B925E52D9C00E98053 /* Date.swift */; };
 		B096F0BF25E6394400E98053 /* ChocoMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = B096F0BE25E6394400E98053 /* ChocoMilk.swift */; };
 		B096F0C625E641AE00E98053 /* StrawberryMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = B096F0C525E641AE00E98053 /* StrawberryMilk.swift */; };
+		B096F0CA25E6449600E98053 /* Materials.swift in Sources */ = {isa = PBXBuildFile; fileRef = B096F0C925E6449600E98053 /* Materials.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		B096F0B925E52D9C00E98053 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		B096F0BE25E6394400E98053 /* ChocoMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChocoMilk.swift; sourceTree = "<group>"; };
 		B096F0C525E641AE00E98053 /* StrawberryMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrawberryMilk.swift; sourceTree = "<group>"; };
+		B096F0C925E6449600E98053 /* Materials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Materials.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 				B096F0C525E641AE00E98053 /* StrawberryMilk.swift */,
 				B096F09D25E4FFE600E98053 /* Soda.swift */,
 				B096F0A025E4FFF300E98053 /* coffee.swift */,
+				B096F0C925E6449600E98053 /* Materials.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -186,6 +189,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B096F09E25E4FFE600E98053 /* Soda.swift in Sources */,
+				B096F0CA25E6449600E98053 /* Materials.swift in Sources */,
 				B096F0BA25E52D9D00E98053 /* Date.swift in Sources */,
 				B096F08425E4FA5800E98053 /* ViewController.swift in Sources */,
 				B096F08025E4FA5800E98053 /* AppDelegate.swift in Sources */,

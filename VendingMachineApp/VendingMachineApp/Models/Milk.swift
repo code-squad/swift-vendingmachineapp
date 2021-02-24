@@ -9,7 +9,14 @@ import Foundation
 
 class Milk: Drink {
     
-    override init(brand: String, capacity: Int, price: Int, name: String, date: Date) {
+    private var lowFat: Bool
+    
+    init(brand: String, capacity: Int, price: Int, name: String, date: Date, lowFat: Bool) {
+        self.lowFat = lowFat
         super.init(brand: brand, capacity: capacity, price: price, name: name, date: date)
+    }
+    
+    func isLowFat() -> Bool {
+        return lowFat
     }
 }

@@ -5,20 +5,20 @@ class Beverage {
     private var capacity: Int
     private var price: Int
     private var name: String
-    private var dateOfManufacture: Date
+    private var date: Date
     
-    init(brand: String, capacity: Int, price: Int, name: String, dateOfManufacture: Date = Date()) {
+    init(brand: String, capacity: Int, price: Int, name: String, date: Date = Date()) {
         self.brand = brand
         self.capacity = capacity
         self.price = price
         self.name = name
-        self.dateOfManufacture = dateOfManufacture
+        self.date = date
     }
 }
 
 extension Beverage: CustomStringConvertible {
     var description: String {
-        let formattedDate = Utility.formatDate(self.dateOfManufacture)
+        let formattedDate = Utility.formatDate(from: self.date)
         return "\(brand), \(capacity)ml, \(price)원, \(name), \(formattedDate)"
     }
 }

@@ -8,7 +8,7 @@
 import Foundation
 
 struct Utility {
-    static public func formatDate(_ date: Date) -> String {
+    static public func formatDate(from date: Date) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyyMMdd"
         let formattedDate = dateFormatter.string(from: date)

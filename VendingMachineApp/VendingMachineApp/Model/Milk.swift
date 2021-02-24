@@ -9,8 +9,8 @@ enum MilkFlavor: String {
 class Milk: Beverage {
     private var milkFlavor: MilkFlavor
     
-    init(brand: String, capacity: Int, price: Int, name: String, milkFlavor: MilkFlavor, dateOfManufacture: Date = Date()) {
+    init(brand: String, capacity: Int, price: Int, name: String, milkFlavor: MilkFlavor, date: Date = Date()) {
         self.milkFlavor = milkFlavor
-        super.init(brand: brand, capacity: capacity, price: price, name: name, dateOfManufacture: dateOfManufacture)
+        super.init(brand: brand, capacity: capacity, price: price, name: name, date: date)
     }
 }

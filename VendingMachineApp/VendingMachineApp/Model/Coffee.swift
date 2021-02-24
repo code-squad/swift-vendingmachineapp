@@ -9,7 +9,7 @@ enum CoffeeBrand: String {
 class Coffee: Beverage {
     private var coffeeBrand: CoffeeBrand
     
-    init(brand: String, capacity: Int, price: Int, name: String, date: Date, coffeeBrand: CoffeeBrand) {
+    init(brand: String, capacity: Int, price: Int, name: String, coffeeBrand: CoffeeBrand, date: Date = Date()) {
         self.coffeeBrand = coffeeBrand
         super.init(brand: brand, capacity: capacity, price: price, name: name, date: date)
     }

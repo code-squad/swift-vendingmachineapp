@@ -8,27 +8,28 @@
 import Foundation
 
 class Drink {
-    private var drinks : [Beverage]
+    private var drinks : [Beverage : Int]
+    private var skock : [Beverage]
     
     init() {
-        self.drinks = []
+        self.drinks = [:]
+        self.skock = []
     }
     
     func addStock(beverage : Beverage) {
-        self.drinks.append(beverage)
+        self.drinks[beverage] = (drinks[beverage] ?? 0) + 1
     }
     
     func showBeverageList(hanlder : (Beverage) -> Void) {
         drinks.forEach {
-            hanlder($0)
+            hanlder($0.key)
         }
     }
     
     func purchasePossibleList(currentMoney : Int, handler : (Beverage) -> Void) {
-        let drink = drinks.filter { $0.isPossible(money: currentMoney) }
+        let drink = drinks.filter { $0.key.isPossible(money: currentMoney) }
         drink.forEach {
-            handler($0)
+            handler($0.key)
         }
     }
-    
 }

@@ -37,7 +37,12 @@ class ViewController: UIViewController {
         vendingMachine.addBevergeStock(beverage: strStrawberryMilk)
         vendingMachine.addBevergeStock(beverage: dietCola)
         vendingMachine.addBevergeStock(beverage: topAmericano)
+        vendingMachine.addBevergeStock(beverage: topAmericano)
+        vendingMachine.addBevergeStock(beverage: topAmericano)
         
+        vendingMachine.showBeverageList {
+            print($0)
+        }
     }
     
 }

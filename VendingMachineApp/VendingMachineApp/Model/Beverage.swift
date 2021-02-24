@@ -30,3 +30,16 @@ class Beverage : CustomStringConvertible {
         return self.price < money
     }
 }
+
+extension Beverage : Equatable {
+    static func == (lhs: Beverage, rhs: Beverage) -> Bool {
+        return lhs.name == rhs.name && lhs.price == rhs.price
+    }
+}
+
+extension Beverage : Hashable {
+    func hash(into hasher: inout Hasher) {
+           hasher.combine(name)
+           hasher.combine(price)
+        }
+}

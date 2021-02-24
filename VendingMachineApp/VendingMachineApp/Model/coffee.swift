@@ -14,7 +14,22 @@ class Coffee: Drink {
     // 하위 : 원두 품종
     //  뜨거움 여부
     
-    init() {
-        super.init(brand: "Maxim", volume: 275, charge: 980, name: "TOP 스위트 아메리카노", manufacturing: Date.init()) //제조일자 : now
+    private let caffeine : Double?
+    
+    init(brand : String, volume : Int, charge : Int, name :String, manufacturing : Date, caffeine : Double?) {
+        self.caffeine = caffeine
+        super.init(brand: brand, volume: volume, charge: charge, name: name, manufacturing: manufacturing)
+    }
+    
+    convenience init() {
+        self.init(brand: "Maxim", volume: 275, charge: 980, name: "TOP 스위트 아메리카노", manufacturing: Date.init(), caffeine : 123.45) //제조일자 : now
+    }
+    
+    func productCaffeine() -> String {
+        guard let nonOptional = caffeine else {
+            return "deCaffeine"
+        }
+        
+        return "\(nonOptional) mg"
     }
 }

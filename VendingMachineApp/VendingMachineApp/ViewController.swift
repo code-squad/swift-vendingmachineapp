@@ -12,20 +12,35 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         machine.showBalance()
         machine.increaseCashInMoneyStorage(by: 1000)
         machine.showBalance()
-        let soda = Soda(brandName: "코카콜라", sizeInMilliliter: 100, itemPrice: 1000, itemName: "코카콜라")
-        let milk = Milk(brandName: "남양유업", sizeInMilliliter: 400, itemPrice: 1500, itemName: "초코에몽")
-        let americano = Americano(brandName: "스타벅스", sizeInMilliliter: 500, itemPrice: 4500, itemName: "콜드브루아메리카노", caffeine: 234)
-        machine.addStock(beverage: soda, count: 2)
-        machine.addStock(beverage: soda, count: 5)
-        machine.addStock(beverage: milk, count: 10)
-        machine.addStock(beverage: americano, count: 5)
+    
+        let someSoda = Soda(brandName: "코카콜라", sizeInMilliliter: 500, itemPrice: 1000, itemName: "코카콜라", manufacturingDate: generateDate(year: 1999, month: 04, day: 32))
+        let someMilk = Soda(brandName: "서울우유", sizeInMilliliter: 250, itemPrice: 3000, itemName: "딸기맛우유", manufacturingDate: generateDate(year: 2020, month: 02, day: 01))
+        let someAmericano = Americano(brandName: "스타벅스", sizeInMilliliter: 450, itemPrice: 4500, itemName: "콜드브루", manufacturingDate: Date(), coffeeBean: .로부스타원두, caffeine: 400)
+        
+        machine.addStock(beverage: someSoda, count: 2)
+        machine.addStock(beverage: someMilk, count: 5)
+        machine.addStock(beverage: someAmericano, count: 10)
         
         machine.purchaseBeverage(insert: 2000, index: 1)
         machine.transactionStopButtonPressed()
+        machine.showExpired()
+        
+    }
+    
+    func generateDate(year newYear: Int, month newMonth: Int, day newDay: Int) -> Date {
+        var dateComponents = DateComponents()
+        dateComponents.year = newYear
+        dateComponents.month = newMonth
+        dateComponents.day = newDay
+        dateComponents.timeZone = TimeZone(abbreviation: "JST")
+        
+        let userCalendar = Calendar(identifier: .gregorian)
+        guard let someDateTime = userCalendar.date(from: dateComponents) else { return Date(timeIntervalSinceReferenceDate: -123456789.0)}
+        
+        return someDateTime
     }
 }
 

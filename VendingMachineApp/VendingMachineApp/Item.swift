@@ -41,6 +41,10 @@ class Item {
         return self.beverage
     }
     
+    public func isExpiredItem() -> Bool {
+        self.beverage.isExpired(by: Date())
+    }
+    
     public func showItemDetails() -> (beverage: String, amount: Int) {
         return ("\(beverage)", amount)
     }

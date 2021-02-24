@@ -43,6 +43,10 @@ struct Machine {
         print(beverageStorage.showPurchasableBeverages(with: receivedMoney))
     }
     
+    func showExpired() {
+        print(beverageStorage.showExpiredBeverages())
+    }
+    
     func transactionStopButtonPressed() {
         let balance = cashInteractor.showBalance()
         moneyStorage.sendMoney(amount: balance, to: cashInteractor)

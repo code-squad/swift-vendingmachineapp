@@ -14,12 +14,12 @@ class Beverage {
     private let name: String
     private let packDate: Date
     
-    public init(brandName: String, sizeInMilliliter: Int, itemPrice: Int, itemName: String) {
+    public init(brandName: String, sizeInMilliliter: Int, itemPrice: Int, itemName: String, manufacturingDate: Date) {
         brand = brandName
         size = sizeInMilliliter
         price = itemPrice
         name = itemName
-        packDate = Date()
+        packDate = manufacturingDate
     }
     
     public func isSameBeverage(with beverage: Beverage) -> Bool {
@@ -50,8 +50,8 @@ extension Beverage: CustomStringConvertible {
 }
 
 extension Beverage: Drinkable {
-    func validate(with date: Date) -> Bool {
-        return true
+    func isExpired(by date: Date) -> Bool {
+        return date > packDate.addingTimeInterval(86400 * 60)
     }
     
     func isHot() -> Bool {

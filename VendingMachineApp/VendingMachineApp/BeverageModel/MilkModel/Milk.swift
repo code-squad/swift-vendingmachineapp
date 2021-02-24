@@ -14,12 +14,12 @@ class Milk: Beverage {
     }
     private let isFrom: FarmLocation
     
-    public init(brandName: String, sizeInMilliliter: Int, itemPrice: Int, itemName: String, farmLocation: FarmLocation) {
+    public init(brandName: String, sizeInMilliliter: Int, itemPrice: Int, itemName: String, manufacturingDate: Date, farmLocation: FarmLocation) {
         isFrom = farmLocation
-        super.init(brandName: brandName, sizeInMilliliter: sizeInMilliliter, itemPrice: itemPrice, itemName: itemName)
+        super.init(brandName: brandName, sizeInMilliliter: sizeInMilliliter, itemPrice: itemPrice, itemName: itemName, manufacturingDate: manufacturingDate)
     }
     
-    convenience override init(brandName: String, sizeInMilliliter: Int, itemPrice: Int, itemName: String) {
-        self.init(brandName: brandName, sizeInMilliliter: sizeInMilliliter, itemPrice: itemPrice, itemName:itemName, farmLocation: .domesticFarm)
+    convenience override init(brandName: String, sizeInMilliliter: Int, itemPrice: Int, itemName: String, manufacturingDate: Date) {
+        self.init(brandName: brandName, sizeInMilliliter: sizeInMilliliter, itemPrice: itemPrice, itemName:itemName, manufacturingDate: manufacturingDate, farmLocation: .domesticFarm)
     }
 }

@@ -12,8 +12,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var a = Beverage()
-        print(a)
     }
 
 

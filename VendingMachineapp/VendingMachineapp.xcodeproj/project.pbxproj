@@ -14,6 +14,7 @@
 		D46F1A4525E62A3300BFBD9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D46F1A4425E62A3300BFBD9C /* Assets.xcassets */; };
 		D46F1A4825E62A3300BFBD9C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D46F1A4625E62A3300BFBD9C /* LaunchScreen.storyboard */; };
 		D46F1A5325E6323700BFBD9C /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46F1A5225E6323700BFBD9C /* Beverage.swift */; };
+		D46F1A5C25E6675E00BFBD9C /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46F1A5B25E6675E00BFBD9C /* Milk.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		D46F1A4725E62A3300BFBD9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D46F1A4925E62A3300BFBD9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D46F1A5225E6323700BFBD9C /* Beverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beverage.swift; sourceTree = "<group>"; };
+		D46F1A5B25E6675E00BFBD9C /* Milk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Milk.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				D46F1A5225E6323700BFBD9C /* Beverage.swift */,
+				D46F1A5B25E6675E00BFBD9C /* Milk.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -152,6 +155,7 @@
 				D46F1A3C25E62A3200BFBD9C /* AppDelegate.swift in Sources */,
 				D46F1A5325E6323700BFBD9C /* Beverage.swift in Sources */,
 				D46F1A3E25E62A3200BFBD9C /* SceneDelegate.swift in Sources */,
+				D46F1A5C25E6675E00BFBD9C /* Milk.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

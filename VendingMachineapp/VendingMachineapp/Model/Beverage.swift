@@ -14,12 +14,12 @@ class Beverage{
     private var brand: String
     private var manufactoringDate: Date
     
-    init() {
-        self.manufacturer = ""
-        self.volume = 0
-        self.price = 0
-        self.brand = ""
-        self.manufactoringDate = Date()
+    init(manufacturer: String, volume: Int, price: Int, brand: String, manufactoringDate: Date) {
+        self.manufacturer = manufacturer
+        self.volume = volume
+        self.price = price
+        self.brand = brand
+        self.manufactoringDate = manufactoringDate
     }
 }
 

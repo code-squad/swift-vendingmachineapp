@@ -24,4 +24,5 @@ class Beverage: CustomStringConvertible {
         self.name = name
         self.date = date
     }
+
 }

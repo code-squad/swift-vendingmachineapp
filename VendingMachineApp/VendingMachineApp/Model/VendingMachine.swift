@@ -10,7 +10,7 @@ import Foundation
 class VendingMachine {
     private var drinks: Drinks
     
-    init(drinks: Drinks) {
+    init(drinks: Drinks = Drinks()) {
         self.drinks = drinks
     }
     

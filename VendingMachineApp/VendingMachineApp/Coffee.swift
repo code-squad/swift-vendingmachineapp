@@ -1,0 +1,24 @@
+//
+//  Coffee.swift
+//  VendingMachineApp
+//
+//  Created by Song on 2021/02/24.
+//
+
+import Foundation
+
+class Coffee: Beverage {
+    
+    enum CoffeeType {
+        case top
+        case cantata
+        case georgia
+    }
+    
+    private let type: CoffeeType
+    
+    init(brand: String, volume: Int, price: Int, name: String, manufactureDate: Date, type: CoffeeType) {
+        self.type = type
+        super.init(brand: brand, volume: volume, price: price, name: name, manufactureDate: manufactureDate)
+    }
+}

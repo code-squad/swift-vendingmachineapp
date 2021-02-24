@@ -16,6 +16,10 @@ class StrawberryMilk: Milk {
         super.init(brand: brand, volume: volume, charge: charge, name: name, manufacturing: manufacturing, expirationLimit: expirationLimit)
     }
     
+    convenience init() {
+        self.init(brand: "서울우유", volume: 200, charge: 840, name: "딸기우유", manufacturing: Date.init().createRandomIn7days(), expirationLimit: 3, cochineal: true)
+    }
+    
     func isCochineal() -> Bool {
         return self.cochineal
     }

@@ -11,6 +11,6 @@ extension Date {
     func convertToString() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyyMMdd"
-        return dateFormatter.string(for: self) ?? "00000000"
+        return dateFormatter.string(from: self)
     }
 }

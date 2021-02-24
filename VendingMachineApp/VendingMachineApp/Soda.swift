@@ -9,19 +9,13 @@ import Foundation
 
 class Soda: Beverage {
 
-    let brand: String
-    let name: String
-    let price: Int
-    let size: Int
-    let manufactureDate: Date
-
     init(kind: Kind) {
         let info = kind.info()
-        self.brand = info.brand
-        self.name = info.name
-        self.price = info.price
-        self.size = info.size
-        self.manufactureDate = info.manufactureDate
+        super.init(brand: info.brand,
+                   name: info.name,
+                   price: info.price,
+                   size: info.size,
+                   manufactured: info.manufactured)
     }
 
     enum Kind: String {
@@ -29,7 +23,7 @@ class Soda: Beverage {
         case sprite = "칠성사이다"
         case fanta = "환타오렌지"
 
-        func info() -> (brand: String, name: String, price: Int, size: Int, manufactureDate: Date) {
+        func info() -> (brand: String, name: String, price: Int, size: Int, manufactured: Date) {
             switch self {
             case .cola:
                 return ("코카콜라", self.rawValue, 2000, 500, DateGenerator.randomDate())
@@ -39,9 +33,5 @@ class Soda: Beverage {
                 return ("코카콜라", self.rawValue, 2100, 480, DateGenerator.randomDate())
             }
         }
-    }
-
-    var description: String {
-        return "[\(brand)] \(name): ₩\(price), \(size)ml (\(manufactureDate.description))"
     }
 }

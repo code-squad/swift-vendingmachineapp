@@ -7,16 +7,23 @@
 
 import Foundation
 
-protocol Beverage: CustomStringConvertible {
+class Beverage: CustomStringConvertible {
     
-    var brand: String { get }
+    private let brand: String
+    private let name: String
+    private let price: Int
+    private let size: Int
+    private let manufactured: Date
     
-    var name: String { get }
-    
-    var price: Int { get }
-    
-    var size: Int { get }
-    
-    var manufactureDate: Date { get }
-    
+    init(brand: String, name: String, price: Int, size: Int, manufactured: Date) {
+        self.brand = brand
+        self.name = name
+        self.price = price
+        self.size = size
+        self.manufactured = manufactured
+    }
+
+    var description: String {
+        return "[\(brand)] \(name): ₩\(price), \(size)ml (\(manufactured.description))"
+    }
 }

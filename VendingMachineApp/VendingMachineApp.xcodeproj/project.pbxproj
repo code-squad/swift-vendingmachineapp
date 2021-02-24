@@ -18,6 +18,7 @@
 		FF2DBFE325E5E22C00D2A215 /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2DBFE225E5E22C00D2A215 /* Milk.swift */; };
 		FF2DBFE625E5E23800D2A215 /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2DBFE525E5E23800D2A215 /* Coffee.swift */; };
 		FFCB249125E5E8410028AD95 /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCB249025E5E8410028AD95 /* VendingMachine.swift */; };
+		FFCB249625E5E9D80028AD95 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCB249525E5E9D80028AD95 /* Date.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		FF2DBFE225E5E22C00D2A215 /* Milk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Milk.swift; sourceTree = "<group>"; };
 		FF2DBFE525E5E23800D2A215 /* Coffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
 		FFCB249025E5E8410028AD95 /* VendingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachine.swift; sourceTree = "<group>"; };
+		FFCB249525E5E9D80028AD95 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 				FF2DBFC425E3775F00D2A215 /* SceneDelegate.swift */,
 				FF2DBFC625E3775F00D2A215 /* ViewController.swift */,
 				FF2DBFDD25E5E21A00D2A215 /* Models */,
+				FFCB249425E5E9C60028AD95 /* Extension */,
 				FF2DBFC825E3775F00D2A215 /* Main.storyboard */,
 				FF2DBFCB25E3776000D2A215 /* Assets.xcassets */,
 				FF2DBFCD25E3776000D2A215 /* LaunchScreen.storyboard */,
@@ -88,6 +91,14 @@
 				FFCB249025E5E8410028AD95 /* VendingMachine.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		FFCB249425E5E9C60028AD95 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				FFCB249525E5E9D80028AD95 /* Date.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -164,6 +175,7 @@
 				FF2DBFC325E3775F00D2A215 /* AppDelegate.swift in Sources */,
 				FF2DBFDB25E3780B00D2A215 /* Drink.swift in Sources */,
 				FF2DBFC525E3775F00D2A215 /* SceneDelegate.swift in Sources */,
+				FFCB249625E5E9D80028AD95 /* Date.swift in Sources */,
 				FF2DBFE325E5E22C00D2A215 /* Milk.swift in Sources */,
 				FF2DBFDF25E5E22600D2A215 /* Soda.swift in Sources */,
 				FF2DBFE625E5E23800D2A215 /* Coffee.swift in Sources */,

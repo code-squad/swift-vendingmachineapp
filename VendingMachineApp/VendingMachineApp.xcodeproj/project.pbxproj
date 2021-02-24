@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E4D472A725E5ED65007FAAA0 /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D472A625E5ED65007FAAA0 /* VendingMachine.swift */; };
 		E4E22CE025E51B27008CA611 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E22CDF25E51B27008CA611 /* AppDelegate.swift */; };
 		E4E22CE225E51B27008CA611 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E22CE125E51B27008CA611 /* SceneDelegate.swift */; };
 		E4E22CE425E51B27008CA611 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E22CE325E51B27008CA611 /* ViewController.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E4D472A625E5ED65007FAAA0 /* VendingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachine.swift; sourceTree = "<group>"; };
 		E4E22CDC25E51B27008CA611 /* VendingMachineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendingMachineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4E22CDF25E51B27008CA611 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E4E22CE125E51B27008CA611 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 				E4E22D1A25E5EAEB008CA611 /* Milk.swift */,
 				E4E22D1D25E5EC53008CA611 /* SoftDrink.swift */,
 				E4E22D2025E5ECC6008CA611 /* Coffee.swift */,
+				E4D472A625E5ED65007FAAA0 /* VendingMachine.swift */,
 				E4E22CE525E51B27008CA611 /* Main.storyboard */,
 				E4E22CE825E51B28008CA611 /* Assets.xcassets */,
 				E4E22CEA25E51B28008CA611 /* LaunchScreen.storyboard */,
@@ -156,6 +159,7 @@
 				E4E22D1E25E5EC53008CA611 /* SoftDrink.swift in Sources */,
 				E4E22D1B25E5EAEB008CA611 /* Milk.swift in Sources */,
 				E4E22D2125E5ECC6008CA611 /* Coffee.swift in Sources */,
+				E4D472A725E5ED65007FAAA0 /* VendingMachine.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

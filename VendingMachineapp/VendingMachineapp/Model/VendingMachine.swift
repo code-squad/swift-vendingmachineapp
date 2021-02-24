@@ -8,14 +8,14 @@
 import Foundation
 
 class VendingMachine {
-    private var inventory: [Beverage] = []
+    private var inventory = Inventory()
     
     func addBeverage(beverage: Beverage) {
-        inventory.append(beverage)
+        inventory.addBeverage(beverage: beverage)
     }
     func printList() {
-        inventory.forEach({ (item) in
-            print(item)
+        inventory.eachBeverage(handler: { (beverage) in
+            print(beverage)
         })
     }
 }

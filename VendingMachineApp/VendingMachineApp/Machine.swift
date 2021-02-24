@@ -45,7 +45,12 @@ struct Machine {
     }
     
     func transactionStopButtonPressed() {
-    
+        let balance = cashInteractor.showBalance()
+        moneyStorage.sendMoney(amount: balance, to: cashInteractor)
+        let change = cashInteractor.returnChangeToCustomer()
+        print("\(change)를 반환하였습니다.")
+        cashInteractor.resetCashInteractor()
+        print("거래 끝")
     }
     
     //사용자는 현금과 특정버튼을 입력

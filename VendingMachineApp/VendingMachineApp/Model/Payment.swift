@@ -23,4 +23,19 @@ class Payment {
             handler($0)
         }
     }
+    
+    func purchaseBeverage(beverage : Beverage, drink : Drink) {
+        if checkBalance(beverage: beverage) {
+            subtractAmountMoney(beverage: beverage)
+            drink.purchaseBeverage(beverage: beverage)
+        }
+    }
+    
+    private func checkBalance(beverage : Beverage) -> Bool {
+        return amountMoney > beverage.price
+    }
+    
+    private func subtractAmountMoney(beverage : Beverage) {
+        return amountMoney -= beverage.price
+    }
 }

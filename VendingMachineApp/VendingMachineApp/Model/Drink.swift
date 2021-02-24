@@ -36,14 +36,19 @@ class Drink {
     func purchaseBeverage(beverage : Beverage) {
         drinks[beverage] = (drinks[beverage] ?? 0) - 1
         stock.append(beverage)
-    }
-    
-    func addStockPrice() {
         
     }
     
-    func showAllBeverage(){
-        
+    func addStockPrice() -> Int {
+        return stock.reduce(0) { $1.price }
     }
+    
+    func showAllBeverage(hanlder : ([Beverage : Int]) -> Void){
+        drinks.forEach {
+            hanlder([$0.key:$0.value])
+        }
+    }
+    
+    
     
 }

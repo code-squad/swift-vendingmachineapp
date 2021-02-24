@@ -26,8 +26,7 @@ struct Machine {
     }
     
     func checkStock() {
-        beverageStorage.checkStock()
-        print(beverageStorage)
+        print(beverageStorage.showStock())
     }
     
     //사용자가 현금 투입
@@ -41,7 +40,7 @@ struct Machine {
     
     func showPurchasables() {
         let receivedMoney = cashInteractor.showBalance()
-        print(beverageStorage.showPurchasableBeverage(with: receivedMoney))
+        print(beverageStorage.showPurchasableBeverages(with: receivedMoney))
     }
     
     func transactionStopButtonPressed() {
@@ -61,7 +60,7 @@ struct Machine {
         if let beverage = beverageStorage.putSelectedBeverageOut(at: index) {
             print("\(beverage)가 나왔습니다")
             cashInteractor.deductBalance(with: beverage.checkPrice())
-        } else {print("올바른 인덱스를 입력해 주세요")}
+        } else { print("올바른 인덱스를 입력해 주세요") }
         showBalanceInCashInteractor()
         print()
         showPurchasables()

@@ -11,9 +11,18 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        let machine = VendingMachine()
+        
+        machine.addBeverage(Milk(kind: .banana))
+        machine.addBeverage(Soda(kind: .sprite))
+        machine.addBeverage(Coffee(kind: .cantata))
+        
+        machine.beverageInfo(printBeverage(beverage:))
     }
-
-
+    
+    private func printBeverage(beverage: Beverage) {
+        print(beverage)
+    }
 }
 

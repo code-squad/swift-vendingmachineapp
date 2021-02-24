@@ -7,7 +7,11 @@
 
 import Foundation
 
-class Beverage {
+class Beverage: CustomStringConvertible {
+    var description: String {
+        return "\(brand), \(capacity), \(price), \(name), \(date)"
+    }
+    
     private var brand: String
     private var capacity: Int
     private var price: Int

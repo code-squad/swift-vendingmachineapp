@@ -7,31 +7,42 @@
 
 import Foundation
 
-class Soda: Beverage {
-
-    init(kind: Kind) {
-        let info = kind.info()
-        super.init(brand: info.brand,
-                   name: info.name,
-                   price: info.price,
-                   size: info.size,
-                   manufactured: info.manufactured)
+class Soda: Beverage, SugarFreeable, Transportable {
+    
+    private let container: Container
+    private let sugar: Int
+    
+    init(brand: String, name: String, price: Int, size: Int, manufactured: Date,
+         container: Container, sugar: Int) {
+        
+        self.container = container
+        self.sugar = sugar
+        
+        super.init(brand: brand, name: name, price: price, size: size, manufactured: manufactured)
     }
-
-    enum Kind: String {
-        case cola = "코카콜라"
-        case sprite = "칠성사이다"
-        case fanta = "환타오렌지"
-
-        func info() -> (brand: String, name: String, price: Int, size: Int, manufactured: Date) {
-            switch self {
-            case .cola:
-                return ("코카콜라", self.rawValue, 2000, 500, DateGenerator.randomDate())
-            case .sprite:
-                return ("롯데칠성음료", self.rawValue, 1700, 500, DateGenerator.randomDate())
-            case .fanta:
-                return ("코카콜라", self.rawValue, 2100, 480, DateGenerator.randomDate())
-            }
+    
+    func isSugarFree() -> Bool {
+        return sugar == 0 ? true : false
+    }
+    
+    func containerType() -> Container {
+        return container
+    }
+    
+    func isTransportable() -> Bool {
+        switch container {
+        case .bottle:
+            return true
+        case .can:
+            return false
         }
     }
+}
+
+class coke: Soda {
+    
+}
+
+class sprite: Soda {
+    
 }

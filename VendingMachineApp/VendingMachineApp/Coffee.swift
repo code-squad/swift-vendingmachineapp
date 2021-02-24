@@ -7,31 +7,50 @@
 
 import Foundation
 
-class Coffee: Beverage {
+class Coffee: Beverage, Hotable, Transportable, Expirable {
     
-    init(kind: Kind) {
-        let info = kind.info()
-        super.init(brand: info.brand,
-                   name: info.name,
-                   price: info.price,
-                   size: info.size,
-                   manufactured: info.manufactured)
+    private let isHot: Bool
+    private let container: Container
+    private let expiry: Date
+    
+    init(brand: String, name: String, price: Int, size: Int, manufactured: Date,
+         isHot: Bool, container: Container, expireAfter: Int) {
+        
+        self.isHot = isHot
+        self.container = container
+        self.expiry = manufactured.add(amount: expireAfter)
+        
+        super.init(brand: brand, name: name, price: price, size: size, manufactured: manufactured)
     }
-
-    enum Kind: String {
-        case top = "TOP더블랙"
-        case georgia = "조지아카페라떼"
-        case cantata = "칸타타아메리카노"
-
-        func info() -> (brand: String, name: String, price: Int, size: Int, manufactured: Date) {
-            switch self {
-            case .top:
-                return ("맥심", self.rawValue, 1500, 250, DateGenerator.randomDate())
-            case .georgia:
-                return ("코카콜라", self.rawValue, 900, 200, DateGenerator.randomDate())
-            case .cantata:
-                return ("롯데", self.rawValue, 1400, 250, DateGenerator.randomDate())
-            }
+    
+    func isHotable() -> Bool {
+        return isHot
+    }
+    
+    func containerType() -> Container {
+        return container
+    }
+    
+    func isTransportable() -> Bool {
+        switch container {
+        case .bottle:
+            return true
+        case .can:
+            return false
         }
     }
+    
+    func isExpired() -> Bool {
+        let today = Date()
+        let isExpired = expiry < today
+        return isExpired
+    }
+}
+
+class Cantata: Coffee {
+    
+}
+
+class Georgia: Coffee {
+    
 }

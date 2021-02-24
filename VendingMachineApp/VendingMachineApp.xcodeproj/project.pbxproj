@@ -27,6 +27,7 @@
 		B096F0D425E6560400E98053 /* TOP.swift in Sources */ = {isa = PBXBuildFile; fileRef = B096F0D325E6560400E98053 /* TOP.swift */; };
 		B096F0D825E6757200E98053 /* Cantata.swift in Sources */ = {isa = PBXBuildFile; fileRef = B096F0D725E6757200E98053 /* Cantata.swift */; };
 		B096F0DB25E676FE00E98053 /* Beans.swift in Sources */ = {isa = PBXBuildFile; fileRef = B096F0DA25E676FE00E98053 /* Beans.swift */; };
+		B096F0DF25E67E9D00E98053 /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = B096F0DE25E67E9D00E98053 /* VendingMachine.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		B096F0D325E6560400E98053 /* TOP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOP.swift; sourceTree = "<group>"; };
 		B096F0D725E6757200E98053 /* Cantata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cantata.swift; sourceTree = "<group>"; };
 		B096F0DA25E676FE00E98053 /* Beans.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beans.swift; sourceTree = "<group>"; };
+		B096F0DE25E67E9D00E98053 /* VendingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachine.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 		B096F07E25E4FA5800E98053 /* VendingMachineApp */ = {
 			isa = PBXGroup;
 			children = (
+				B096F0DD25E67E0A00E98053 /* enum */,
 				B096F0B825E52D8E00E98053 /* extention */,
 				B096F0B425E510EE00E98053 /* View */,
 				B096F09525E4FB5B00E98053 /* Model */,
@@ -110,8 +113,7 @@
 				B096F0A025E4FFF300E98053 /* Coffee.swift */,
 				B096F0D325E6560400E98053 /* TOP.swift */,
 				B096F0D725E6757200E98053 /* Cantata.swift */,
-				B096F0C925E6449600E98053 /* Materials.swift */,
-				B096F0DA25E676FE00E98053 /* Beans.swift */,
+				B096F0DE25E67E9D00E98053 /* VendingMachine.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -131,6 +133,15 @@
 				B096F0B925E52D9C00E98053 /* Date.swift */,
 			);
 			path = extention;
+			sourceTree = "<group>";
+		};
+		B096F0DD25E67E0A00E98053 /* enum */ = {
+			isa = PBXGroup;
+			children = (
+				B096F0C925E6449600E98053 /* Materials.swift */,
+				B096F0DA25E676FE00E98053 /* Beans.swift */,
+			);
+			path = enum;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -220,6 +231,7 @@
 				B096F0B625E5110F00E98053 /* OutputView.swift in Sources */,
 				B096F0D425E6560400E98053 /* TOP.swift in Sources */,
 				B096F0D125E648D200E98053 /* Cider.swift in Sources */,
+				B096F0DF25E67E9D00E98053 /* VendingMachine.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

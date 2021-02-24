@@ -32,4 +32,18 @@ class Drink {
             handler($0.key)
         }
     }
+    
+    func purchaseBeverage(beverage : Beverage) {
+        drinks[beverage] = (drinks[beverage] ?? 0) - 1
+        stock.append(beverage)
+    }
+    
+    func addStockPrice() {
+        
+    }
+    
+    func showAllBeverage(){
+        
+    }
+    
 }

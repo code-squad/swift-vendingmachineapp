@@ -9,11 +9,11 @@ import Foundation
 
 class Drink {
     private var drinks : [Beverage : Int]
-    private var skock : [Beverage]
+    private var stock : [Beverage]
     
     init() {
         self.drinks = [:]
-        self.skock = []
+        self.stock = []
     }
     
     func addStock(beverage : Beverage) {

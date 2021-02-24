@@ -22,14 +22,14 @@ class ViewController: UIViewController {
                                       liter: 350,
                                       price: 2000,
                                       name: "다이어트콜라",
-                                      manufactured: Date.inputDate(date: "20210222"),calory: 123)
+                                      manufactured: Date.inputDate(date: "20210222"),sugar: false,calory: 123)
         let topAmericano =  TopAmericano.init(brand : "맥심",
                                               liter: 400,
                                               price: 3000,
                                               name: "TOP아메리카노",
                                               manufactured: Date.inputDate(date: "20210217"),
                                               caffeineContent: 130,
-                                              hotNCold: "hot")
+                                              hot: true)
         
         
         let vendingMachine = VendingMachine()

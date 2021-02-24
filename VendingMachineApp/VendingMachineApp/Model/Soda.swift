@@ -8,14 +8,10 @@
 import Foundation
 
 class Soda : Beverage {
-    private let calory : Int
+    private let sugar : Bool
     
-    init(brand: String, liter: Int, price: Int, name: String, manufactured: Date, calory : Int) {
-        self.calory = calory
+    init(brand: String, liter: Int, price: Int, name: String, manufactured: Date, sugar : Bool) {
+        self.sugar = sugar
         super.init(brand: brand, liter: liter, price: price, name: name, manufactured: manufactured)
-    }
-    
-    func isLowCalorie() -> Bool {
-        return calory < 5
     }
 }

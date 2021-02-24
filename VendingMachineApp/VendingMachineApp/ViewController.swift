@@ -14,18 +14,19 @@ class ViewController: UIViewController {
         super.viewDidLoad()
 
         machine.showBalance()
-        machine.increaseMoney(by: 1000)
+        machine.increaseCashInMoneyStorage(by: 1000)
         machine.showBalance()
-        
         let soda = Soda(brandName: "코카콜라", sizeInMilliliter: 100, itemPrice: 1000, itemName: "코카콜라")
-        let milk = Milk(brandName: "남양유업", sizeInMilliliter: 123, itemPrice: 1234, itemName: "초코에몽")
+        let milk = Milk(brandName: "남양유업", sizeInMilliliter: 400, itemPrice: 1500, itemName: "초코에몽")
+        let americano = Americano(brandName: "스타벅스", sizeInMilliliter: 500, itemPrice: 4500, itemName: "콜드브루아메리카노", caffeine: 234)
         machine.addStock(beverage: soda, count: 2)
-        machine.checkStock()
         machine.addStock(beverage: soda, count: 5)
         machine.addStock(beverage: milk, count: 10)
-        machine.checkStock()
-        machine.receiveMoney(amount: 1000)
-        machine.showPurchasables()
+        machine.addStock(beverage: americano, count: 5)
+        
+        DispatchQueue.init(label: "orderProcessingQueue").async {
+            self.machine.purchaseBeverage(insert: 2000, index: 1)
+        }
     }
 }
 

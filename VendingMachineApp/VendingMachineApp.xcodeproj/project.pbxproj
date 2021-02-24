@@ -16,7 +16,7 @@
 		B096F09725E4FBF300E98053 /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = B096F09625E4FBF300E98053 /* Drink.swift */; };
 		B096F09B25E4FFA300E98053 /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = B096F09A25E4FFA300E98053 /* Milk.swift */; };
 		B096F09E25E4FFE600E98053 /* Soda.swift in Sources */ = {isa = PBXBuildFile; fileRef = B096F09D25E4FFE600E98053 /* Soda.swift */; };
-		B096F0A125E4FFF300E98053 /* coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = B096F0A025E4FFF300E98053 /* coffee.swift */; };
+		B096F0A125E4FFF300E98053 /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = B096F0A025E4FFF300E98053 /* Coffee.swift */; };
 		B096F0B625E5110F00E98053 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B096F0B525E5110F00E98053 /* OutputView.swift */; };
 		B096F0BA25E52D9D00E98053 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = B096F0B925E52D9C00E98053 /* Date.swift */; };
 		B096F0BF25E6394400E98053 /* ChocoMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = B096F0BE25E6394400E98053 /* ChocoMilk.swift */; };
@@ -24,6 +24,7 @@
 		B096F0CA25E6449600E98053 /* Materials.swift in Sources */ = {isa = PBXBuildFile; fileRef = B096F0C925E6449600E98053 /* Materials.swift */; };
 		B096F0CE25E6465F00E98053 /* Cola.swift in Sources */ = {isa = PBXBuildFile; fileRef = B096F0CD25E6465F00E98053 /* Cola.swift */; };
 		B096F0D125E648D200E98053 /* Cider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B096F0D025E648D200E98053 /* Cider.swift */; };
+		B096F0D425E6560400E98053 /* TOP.swift in Sources */ = {isa = PBXBuildFile; fileRef = B096F0D325E6560400E98053 /* TOP.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,7 +39,7 @@
 		B096F09625E4FBF300E98053 /* Drink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drink.swift; sourceTree = "<group>"; };
 		B096F09A25E4FFA300E98053 /* Milk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Milk.swift; sourceTree = "<group>"; };
 		B096F09D25E4FFE600E98053 /* Soda.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Soda.swift; sourceTree = "<group>"; };
-		B096F0A025E4FFF300E98053 /* coffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = coffee.swift; sourceTree = "<group>"; };
+		B096F0A025E4FFF300E98053 /* Coffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
 		B096F0B525E5110F00E98053 /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
 		B096F0B925E52D9C00E98053 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		B096F0BE25E6394400E98053 /* ChocoMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChocoMilk.swift; sourceTree = "<group>"; };
@@ -46,6 +47,7 @@
 		B096F0C925E6449600E98053 /* Materials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Materials.swift; sourceTree = "<group>"; };
 		B096F0CD25E6465F00E98053 /* Cola.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cola.swift; sourceTree = "<group>"; };
 		B096F0D025E648D200E98053 /* Cider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cider.swift; sourceTree = "<group>"; };
+		B096F0D325E6560400E98053 /* TOP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOP.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,7 +103,8 @@
 				B096F09D25E4FFE600E98053 /* Soda.swift */,
 				B096F0CD25E6465F00E98053 /* Cola.swift */,
 				B096F0D025E648D200E98053 /* Cider.swift */,
-				B096F0A025E4FFF300E98053 /* coffee.swift */,
+				B096F0A025E4FFF300E98053 /* Coffee.swift */,
+				B096F0D325E6560400E98053 /* TOP.swift */,
 				B096F0C925E6449600E98053 /* Materials.swift */,
 			);
 			path = Model;
@@ -202,11 +205,12 @@
 				B096F09725E4FBF300E98053 /* Drink.swift in Sources */,
 				B096F0BF25E6394400E98053 /* ChocoMilk.swift in Sources */,
 				B096F08225E4FA5800E98053 /* SceneDelegate.swift in Sources */,
-				B096F0A125E4FFF300E98053 /* coffee.swift in Sources */,
+				B096F0A125E4FFF300E98053 /* Coffee.swift in Sources */,
 				B096F0C625E641AE00E98053 /* StrawberryMilk.swift in Sources */,
 				B096F09B25E4FFA300E98053 /* Milk.swift in Sources */,
 				B096F0CE25E6465F00E98053 /* Cola.swift in Sources */,
 				B096F0B625E5110F00E98053 /* OutputView.swift in Sources */,
+				B096F0D425E6560400E98053 /* TOP.swift in Sources */,
 				B096F0D125E648D200E98053 /* Cider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

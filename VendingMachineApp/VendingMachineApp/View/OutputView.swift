@@ -38,4 +38,11 @@ struct OutputView {
         print("productCaffeine: \(testCantata.productCaffeine())")
         
     }
+    
+    func test_Machine() {
+        var testMachine = VendingMachine()
+        testMachine.addStock(what: ChocoMilk.init())
+        testMachine.addStock(what: TOP.init())
+        print(testMachine.availableList())
+    }
 }

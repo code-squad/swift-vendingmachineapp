@@ -39,4 +39,16 @@ class Drink: CustomStringConvertible {
         
         return bool
     }
+    
+    func canBuy(have money : Int) -> Bool {
+        return self.charge < money
+    }
+    
+    func isSameName(with product: Drink) -> Bool {
+        return self.name == product.name
+    }
+    
+    func payFor(with money : Int) -> Int {
+        return money - charge
+    }
 }

@@ -17,8 +17,8 @@ struct Machine {
         moneyStorage.increaseMoney(by: amount)
     }
     
-    func showBalance() {
-        moneyStorage.exportCurrentBalance()
+    func showMoneyStorageDeposit() {
+        print("현재 자판기 안의 현금은 \(moneyStorage.exportCurrentBalance())")
     }
     
     func addStock(beverage: Beverage, count: Int) {
@@ -32,10 +32,11 @@ struct Machine {
     //사용자가 현금 투입
     func receiveMoney(amount: Int) {
         cashInteractor.dispositCash(money: amount)
+        cashInteractor.sendMoney(amount: amount, to: moneyStorage)
     }
     
-    func showBalanceInCashInteractor() {
-        print(cashInteractor.showBalance())
+    func showInsertedCashBalance() {
+        print("현재 사용자의 투입 금액 잔액은 \(cashInteractor.showBalance())")
     }
     
     func showPurchasables() {
@@ -47,28 +48,21 @@ struct Machine {
         print(beverageStorage.showExpiredBeverages())
     }
     
+    //사용자는 특정버튼을 입력
+    func purchaseBeverage(index: Int) {
+        if let beverage = beverageStorage.putSelectedBeverageOut(at: index) {
+            print("\(beverage)가 나왔습니다")
+            cashInteractor.deductBalance(with: beverage.checkPrice())
+        } else {
+            print("올바른 인덱스를 입력해 주세요")
+        }
+    }
+
     func transactionStopButtonPressed() {
         let balance = cashInteractor.showBalance()
         moneyStorage.sendMoney(amount: balance, to: cashInteractor)
         let change = cashInteractor.returnChangeToCustomer()
         print("\(change)를 반환하였습니다.")
         cashInteractor.resetCashInteractor()
-        print("거래 끝")
-    }
-    
-    //사용자는 현금과 특정버튼을 입력
-    func purchaseBeverage(insert money: Int, index: Int) {
-        receiveMoney(amount: money)
-        cashInteractor.sendMoney(amount: money, to: moneyStorage)
-        showPurchasables()
-        if let beverage = beverageStorage.putSelectedBeverageOut(at: index) {
-            print("\(beverage)가 나왔습니다")
-            cashInteractor.deductBalance(with: beverage.checkPrice())
-        } else { print("올바른 인덱스를 입력해 주세요") }
-        showBalanceInCashInteractor()
-        print()
-        showPurchasables()
-        print()
-        checkStock()
     }
 }

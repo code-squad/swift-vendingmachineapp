@@ -16,3 +16,9 @@ class Beverage {
         self.manufactureDate = manufactureDate
     }
 }
+
+extension Beverage: CustomStringConvertible {
+    var description: String {
+        return "\(brand), \(volume), \(price), \(productName), \(manufactureDate)"
+    }
+}

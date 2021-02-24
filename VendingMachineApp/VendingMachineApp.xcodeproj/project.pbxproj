@@ -15,6 +15,9 @@
 		717DE50825E5E0A8004B2269 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 717DE50625E5E0A8004B2269 /* LaunchScreen.storyboard */; };
 		717DE51325E5E26F004B2269 /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717DE51225E5E26F004B2269 /* Beverage.swift */; };
 		717DE51B25E5E369004B2269 /* Brand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717DE51A25E5E369004B2269 /* Brand.swift */; };
+		719783E425E638AE001D428C /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719783E325E638AE001D428C /* Milk.swift */; };
+		719783E725E638C6001D428C /* SoftDrink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719783E625E638C6001D428C /* SoftDrink.swift */; };
+		719783EA25E638DE001D428C /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719783E925E638DE001D428C /* Coffee.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +31,9 @@
 		717DE50925E5E0A8004B2269 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		717DE51225E5E26F004B2269 /* Beverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beverage.swift; sourceTree = "<group>"; };
 		717DE51A25E5E369004B2269 /* Brand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Brand.swift; sourceTree = "<group>"; };
+		719783E325E638AE001D428C /* Milk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Milk.swift; sourceTree = "<group>"; };
+		719783E625E638C6001D428C /* SoftDrink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoftDrink.swift; sourceTree = "<group>"; };
+		719783E925E638DE001D428C /* Coffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +82,9 @@
 			isa = PBXGroup;
 			children = (
 				717DE51225E5E26F004B2269 /* Beverage.swift */,
+				719783E325E638AE001D428C /* Milk.swift */,
+				719783E625E638C6001D428C /* SoftDrink.swift */,
+				719783E925E638DE001D428C /* Coffee.swift */,
 				717DE51A25E5E369004B2269 /* Brand.swift */,
 			);
 			path = Model;
@@ -151,11 +160,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				719783E725E638C6001D428C /* SoftDrink.swift in Sources */,
 				717DE50025E5E0A6004B2269 /* VendingMachineViewController.swift in Sources */,
 				717DE4FC25E5E0A6004B2269 /* AppDelegate.swift in Sources */,
 				717DE51325E5E26F004B2269 /* Beverage.swift in Sources */,
 				717DE51B25E5E369004B2269 /* Brand.swift in Sources */,
+				719783E425E638AE001D428C /* Milk.swift in Sources */,
 				717DE4FE25E5E0A6004B2269 /* SceneDelegate.swift in Sources */,
+				719783EA25E638DE001D428C /* Coffee.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

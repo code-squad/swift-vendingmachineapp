@@ -15,11 +15,11 @@ class Beverage {
     private let name: String
     private let manufactureDate: Date
     
-    init(brand: String, volume: Int, price: Int, name: String, manufactureDate: Date) {
+    init(brand: String, volume: Int, price: Int, name: String, manufactureDate: String) throws {
         self.brand = brand
         self.volume = volume
         self.price = price
         self.name = name
-        self.manufactureDate = manufactureDate
+        self.manufactureDate = try DateUtility.getDate(from: manufactureDate)
     }
 }

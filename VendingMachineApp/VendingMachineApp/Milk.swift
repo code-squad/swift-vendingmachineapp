@@ -17,8 +17,8 @@ class Milk: Beverage {
     
     private let type: MilkType
     
-    init(brand: String, volume: Int, price: Int, name: String, manufactureDate: Date, type: MilkType) {
+    init(brand: String, volume: Int, price: Int, name: String, manufactureDate: String, type: MilkType) throws {
         self.type = type
-        super.init(brand: brand, volume: volume, price: price, name: name, manufactureDate: manufactureDate)
+        try super.init(brand: brand, volume: volume, price: price, name: name, manufactureDate: manufactureDate)
     }
 }

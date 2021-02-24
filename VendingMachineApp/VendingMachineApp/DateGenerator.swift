@@ -20,14 +20,16 @@ struct DateGenerator {
 }
 
 extension Date {
-    var description: String {
+    
+    func inFormat(_ format: String) -> String {
         let formatter = DateFormatter()
         
         formatter.locale = Locale(identifier: "ko_kr")
         formatter.timeZone = TimeZone(abbreviation: "KST")
         
-        formatter.dateFormat = "yyMMdd"
+        formatter.dateFormat = format
         
         return formatter.string(from: self)
+        
     }
 }

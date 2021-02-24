@@ -34,8 +34,12 @@ class Beverage {
         if self.price <= money {
             return true
         } else {
-        return false
+            return false
         }
+    }
+    
+    public func checkPrice() -> Int {
+        return self.price
     }
 }
 

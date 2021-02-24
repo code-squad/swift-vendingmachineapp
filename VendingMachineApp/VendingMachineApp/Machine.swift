@@ -10,32 +10,57 @@ import Foundation
 struct Machine {
     private var moneyStorage = MoneyStorage()
     private var beverageStorage = BeverageStorage()
-    private var paymentValidator = PaymentValidator()
+    private var cashInteractor = CashInteractor()
     
-    //MARK:- MONEY STORAGE BEHAVIORS
-    func increaseMoney(by amount: Int) {
-        moneyStorage.increaseMoney(amount)
+    //현금보관소에 현금 충전
+    func increaseCashInMoneyStorage(by amount: Int) {
+        moneyStorage.increaseMoney(by: amount)
     }
     
     func showBalance() {
         moneyStorage.exportCurrentBalance()
     }
-    //MARK:- BEVERAGE STOCK BEHAVIORS
+    
     func addStock(beverage: Beverage, count: Int) {
         beverageStorage.addStock(with: beverage, amount: count)
     }
     
     func checkStock() {
+        beverageStorage.checkStock()
         print(beverageStorage)
     }
-    //MARK:- PAYMENT VALIDATOR BEHAVIORS
+    
+    //사용자가 현금 투입
     func receiveMoney(amount: Int) {
-        paymentValidator.receive(money: amount)
+        cashInteractor.dispositCash(money: amount)
     }
     
-    //MARK:- COMBINED BEHAVIORS
+    func showBalanceInCashInteractor() {
+        print(cashInteractor.showBalance())
+    }
+    
     func showPurchasables() {
-        let receivedMoney = paymentValidator.showsDeposit()
+        let receivedMoney = cashInteractor.showBalance()
         print(beverageStorage.showPurchasableBeverage(with: receivedMoney))
+    }
+    
+    func transactionStopButtonPressed() {
+    
+    }
+    
+    //사용자는 현금과 특정버튼을 입력
+    func purchaseBeverage(insert money: Int, index: Int) {
+        receiveMoney(amount: money)
+        cashInteractor.sendMoney(amount: money, to: moneyStorage)
+        showPurchasables()
+        if let beverage = beverageStorage.putSelectedBeverageOut(at: index) {
+            print("\(beverage)가 나왔습니다")
+            cashInteractor.deductBalance(with: beverage.checkPrice())
+        } else {print("올바른 인덱스를 입력해 주세요")}
+        showBalanceInCashInteractor()
+        print()
+        showPurchasables()
+        print()
+        checkStock()
     }
 }

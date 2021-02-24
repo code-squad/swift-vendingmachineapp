@@ -14,34 +14,31 @@ enum CoffeeType: String {
 }
 
 class Coffee: Beverage {
-    override init(manufacturer: String, volume: Int, price: Int, brand: String, manufactoringDate: Date) {
+    private var type: CoffeeType
+    
+    init(manufacturer: String, volume: Int, price: Int, brand: String, manufactoringDate: Date, type: CoffeeType) {
+        self.type = type
         super.init(manufacturer: manufacturer, volume: volume, price: price, brand: brand, manufactoringDate: manufactoringDate)
     }
 }
 
 class Top: Coffee {
-    private var type: CoffeeType
     
-    init(manufacturer: String, volume: Int, price: Int, brand: String, manufactoringDate: Date, type: CoffeeType) {
-        self.type = type
-        super.init(manufacturer: manufacturer, volume: volume, price: price, brand: brand, manufactoringDate: manufactoringDate)
+    override init(manufacturer: String, volume: Int, price: Int, brand: String, manufactoringDate: Date, type: CoffeeType) {
+        super.init(manufacturer: manufacturer, volume: volume, price: price, brand: brand, manufactoringDate: manufactoringDate, type: type)
     }
 }
 
 class Cantata: Coffee {
-    private var type: CoffeeType
     
-    init(manufacturer: String, volume: Int, price: Int, brand: String, manufactoringDate: Date, type: CoffeeType) {
-        self.type = type
-        super.init(manufacturer: manufacturer, volume: volume, price: price, brand: brand, manufactoringDate: manufactoringDate)
+    override init(manufacturer: String, volume: Int, price: Int, brand: String, manufactoringDate: Date, type: CoffeeType) {
+        super.init(manufacturer: manufacturer, volume: volume, price: price, brand: brand, manufactoringDate: manufactoringDate, type: type)
     }
 }
 
 class Georgia: Coffee {
-    private var type: CoffeeType
     
-    init(manufacturer: String, volume: Int, price: Int, brand: String, manufactoringDate: Date, type: CoffeeType) {
-        self.type = type
-        super.init(manufacturer: manufacturer, volume: volume, price: price, brand: brand, manufactoringDate: manufactoringDate)
+    override init(manufacturer: String, volume: Int, price: Int, brand: String, manufactoringDate: Date, type: CoffeeType) {
+        super.init(manufacturer: manufacturer, volume: volume, price: price, brand: brand, manufactoringDate: manufactoringDate, type: type)
     }
 }

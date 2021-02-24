@@ -2,7 +2,7 @@ import Foundation
 
 struct Brand {
     
-    enum Brand: String, CustomStringConvertible {
+    enum Name: String, CustomStringConvertible {
         case seoul = "서울우유"
         case bing = "빙그레"
         case namyang = "남양유업"

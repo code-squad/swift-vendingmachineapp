@@ -7,27 +7,13 @@
 
 import Foundation
 
-class StrawberryMilk : Milk , Beveragable {
-    private let expiryDate : Date
-    private let hot : Bool
-    private let calory : Int
+class StrawberryMilk : Milk {
+    private let productCode : Int
     
-    init(brand: String, liter: Int, price: Int, name: String, manufactured: Date, mlikFarmCode: Int, expiryDate: Date,hot : Bool, calory : Int) {
-        self.expiryDate = expiryDate
-        self.hot = hot
-        self.calory = calory
-        super.init(brand: brand, liter: liter, price: price, name: name, manufactured: manufactured, mlikFarmCode: mlikFarmCode)
+    init(brand: String, liter: Int, price: Int, name: String, manufactured: Date, mlikFarmCode : Int ,expiryDate : Date, hot : Bool, calory : Int, productCode : Int) {
+        self.productCode = productCode
+        super.init(brand: brand, liter: liter, price: price, name: name, manufactured: manufactured, mlikFarmCode: mlikFarmCode, expiryDate: expiryDate, hot: hot, calory: calory)
     }
     
-    func validate(with date:Date) -> Bool {
-        return expiryDate < date
-    }
     
-    func isHot() -> Bool {
-        return hot == true
-    }
-    
-    func isLowCalorie() -> Bool {
-        return calory > 10
-    }
 }

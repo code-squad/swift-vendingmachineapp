@@ -7,16 +7,22 @@
 
 import Foundation
 
-class VendingMachine {
-    private var vendingMachine : [Beverage]
+struct VendingMachine {
+    private var drink : Drink
+    private var payment : Payment
     
-    init(beverage : [Beverage]) {
-        vendingMachine = beverage
+    init() {
+        self.drink = Drink()
+        self.payment = Payment()
     }
     
-    func showBeverageList(handler : (Beverage) -> ()) {
-        vendingMachine.forEach {
+    func showBeverageList(handler : (Beverage) -> Void) {
+        drink.showBeverageList {
             handler($0)
         }
+    }
+    
+    func putPayMoney(money : Int) {
+        payment.increaseMoney(money: money)
     }
 }

@@ -24,6 +24,8 @@
 		BF53817B25E4D7130031EE39 /* DietCola.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF53817A25E4D7130031EE39 /* DietCola.swift */; };
 		BF53818025E4D7450031EE39 /* TopAmericano.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF53817F25E4D7450031EE39 /* TopAmericano.swift */; };
 		BF53818525E4D7A20031EE39 /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF53818425E4D7A20031EE39 /* VendingMachine.swift */; };
+		BF5381BA25E549780031EE39 /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5381B925E549780031EE39 /* Drink.swift */; };
+		BF5381BF25E5EEF90031EE39 /* Payment.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5381BE25E5EEF80031EE39 /* Payment.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +69,8 @@
 		BF53817A25E4D7130031EE39 /* DietCola.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietCola.swift; sourceTree = "<group>"; };
 		BF53817F25E4D7450031EE39 /* TopAmericano.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopAmericano.swift; sourceTree = "<group>"; };
 		BF53818425E4D7A20031EE39 /* VendingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachine.swift; sourceTree = "<group>"; };
+		BF5381B925E549780031EE39 /* Drink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drink.swift; sourceTree = "<group>"; };
+		BF5381BE25E5EEF80031EE39 /* Payment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Payment.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +163,8 @@
 				BF53817A25E4D7130031EE39 /* DietCola.swift */,
 				BF53817F25E4D7450031EE39 /* TopAmericano.swift */,
 				BF53818425E4D7A20031EE39 /* VendingMachine.swift */,
+				BF5381BE25E5EEF80031EE39 /* Payment.swift */,
+				BF5381B925E549780031EE39 /* Drink.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -303,11 +309,13 @@
 			files = (
 				BF53811825E4A09F0031EE39 /* ViewController.swift in Sources */,
 				BF53818525E4D7A20031EE39 /* VendingMachine.swift in Sources */,
+				BF5381BF25E5EEF90031EE39 /* Payment.swift in Sources */,
 				BF53815725E4C71A0031EE39 /* Date.swift in Sources */,
 				BF53818025E4D7450031EE39 /* TopAmericano.swift in Sources */,
 				BF53816425E4CB1B0031EE39 /* Milk.swift in Sources */,
 				BF53816925E4CB360031EE39 /* Soda.swift in Sources */,
 				BF53817325E4CC920031EE39 /* StrawberryMilk.swift in Sources */,
+				BF5381BA25E549780031EE39 /* Drink.swift in Sources */,
 				BF53816E25E4CB490031EE39 /* Coffee.swift in Sources */,
 				BF53811425E4A09F0031EE39 /* AppDelegate.swift in Sources */,
 				BF53814E25E4A19F0031EE39 /* Beverage.swift in Sources */,

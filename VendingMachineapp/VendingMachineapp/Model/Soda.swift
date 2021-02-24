@@ -19,29 +19,29 @@ class Soda: Beverage {
     }
 }
 
-class Coke: Beverage {
-    private var name: SodaType
+class Coke: Soda {
+    private var type: SodaType
     
-    init(manufacturer: String, volume: Int, price: Int, brand: String, manufactoringDate: Date, name: SodaType) {
-        self.name = name
+    init(manufacturer: String, volume: Int, price: Int, brand: String, manufactoringDate: Date, type: SodaType) {
+        self.type = type
         super.init(manufacturer: manufacturer, volume: volume, price: price, brand: brand, manufactoringDate: manufactoringDate)
     }
 }
 
-class Sprite: Beverage {
-    private var name: SodaType
+class Sprite: Soda {
+    private var type: SodaType
     
-    init(manufacturer: String, volume: Int, price: Int, brand: String, manufactoringDate: Date, name: SodaType) {
-        self.name = name
+    init(manufacturer: String, volume: Int, price: Int, brand: String, manufactoringDate: Date, type: SodaType) {
+        self.type = type
         super.init(manufacturer: manufacturer, volume: volume, price: price, brand: brand, manufactoringDate: manufactoringDate)
     }
 }
 
-class Hwanta: Beverage {
-    private var name: SodaType
+class Hwanta: Soda {
+    private var type: SodaType
     
-    init(manufacturer: String, volume: Int, price: Int, brand: String, manufactoringDate: Date, name: SodaType) {
-        self.name = name
+    init(manufacturer: String, volume: Int, price: Int, brand: String, manufactoringDate: Date, type: SodaType) {
+        self.type = type
         super.init(manufacturer: manufacturer, volume: volume, price: price, brand: brand, manufactoringDate: manufactoringDate)
     }
 }

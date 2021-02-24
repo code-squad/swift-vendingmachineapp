@@ -14,36 +14,36 @@ enum MilkType: String {
     case unknown = ""
 }
 
-class milk: Beverage {
+class Milk: Beverage {
     
     override init(manufacturer: String, volume: Int, price: Int, brand: String, manufactoringDate: Date) {
         super.init(manufacturer: manufacturer, volume: volume, price: price, brand: brand, manufactoringDate: manufactoringDate)
     }
 }
 
-class StrawberryMilk: milk {
-    private var name: MilkType
+class StrawberryMilk: Milk {
+    private var type: MilkType
     
-    init(manufacturer: String, volume: Int, price: Int, brand: String, manufactoringDate: Date, name: MilkType) {
-        self.name = name
+    init(manufacturer: String, volume: Int, price: Int, brand: String, manufactoringDate: Date, type: MilkType) {
+        self.type = type
         super.init(manufacturer: manufacturer, volume: volume, price: price, brand: brand, manufactoringDate: manufactoringDate)
     }
 }
 
-class ChocoMilk: milk {
-    private var name: MilkType
+class ChocoMilk: Milk {
+    private var type: MilkType
     
-    init(manufacturer: String, volume: Int, price: Int, brand: String, manufactoringDate: Date, name: MilkType) {
-        self.name = name
+    init(manufacturer: String, volume: Int, price: Int, brand: String, manufactoringDate: Date, type: MilkType) {
+        self.type = type
         super.init(manufacturer: manufacturer, volume: volume, price: price, brand: brand, manufactoringDate: manufactoringDate)
     }
 }
 
-class BananaMilk: milk {
-    private var name: MilkType
+class BananaMilk: Milk {
+    private var type: MilkType
     
-    init(manufacturer: String, volume: Int, price: Int, brand: String, manufactoringDate: Date, name: MilkType) {
-        self.name = name
+    init(manufacturer: String, volume: Int, price: Int, brand: String, manufactoringDate: Date, type: MilkType) {
+        self.type = type
         super.init(manufacturer: manufacturer, volume: volume, price: price, brand: brand, manufactoringDate: manufactoringDate)
     }
 }

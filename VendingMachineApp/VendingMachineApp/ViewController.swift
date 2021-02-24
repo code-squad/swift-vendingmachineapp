@@ -24,21 +24,21 @@ class ViewController: UIViewController {
                                    price: 1000,
                                    name: "날마다딸기우유",
                                    milkFlavor: .strawberry,
-                                   dateOfManufacture: Date() - 30)
+                                   date: Date() - 30)
         
         let coke = Milk(brand: "펩시",
                         capacity: 350,
                         price: 2000,
                         name: "다이어트콜라",
                         milkFlavor: .strawberry,
-                        dateOfManufacture: Date() - 15)
+                        date: Date() - 15)
         
         let coffee = Coffee(brand: "맥심",
                             capacity: 400,
                             price: 3000,
                             name: "TOP아메리카노",
                             coffeeBrand: .top,
-                            dateOfManufacture: Date() - 50)
+                            date: Date() - 50)
         
         vendingMachine.appendBeverage(strawberryMileA)
         vendingMachine.appendBeverage(strawberryMileB)

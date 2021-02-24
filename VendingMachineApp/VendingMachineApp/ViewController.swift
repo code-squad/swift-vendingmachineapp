@@ -27,7 +27,6 @@ class ViewController: UIViewController {
         machine.purchaseBeverage(insert: 2000, index: 1)
         machine.transactionStopButtonPressed()
         machine.showExpired()
-        
     }
     
     func generateDate(year newYear: Int, month newMonth: Int, day newDay: Int) -> Date {

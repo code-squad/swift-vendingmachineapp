@@ -43,6 +43,16 @@ class BeverageStorage {
         return result
     }
     
+    public func showExpiredBeverages() -> [String:Int] {
+        var result = [String:Int]()
+        stock.forEach { (item) in
+            guard item.isSoldOut() == false else { return }
+            guard item.isExpiredItem() else { return }
+            result[item.showItemDetails().beverage] = item.showItemDetails().amount
+        }
+        return result
+    }
+    
     public func putSelectedBeverageOut(at index: Int) -> Beverage? {
         if stock[index].isSoldOut() || index >= stock.count {
             return nil

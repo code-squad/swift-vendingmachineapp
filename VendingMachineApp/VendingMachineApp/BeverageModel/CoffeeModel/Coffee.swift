@@ -14,12 +14,12 @@ class Coffee: Beverage {
     }
     private let bean: CoffeeBean
     
-    init(brandName: String, sizeInMilliliter: Int, itemPrice: Int, itemName: String, coffeeBean: CoffeeBean) {
+    init(brandName: String, sizeInMilliliter: Int, itemPrice: Int, itemName: String, manufacturingDate: Date, coffeeBean: CoffeeBean) {
         bean = coffeeBean
-        super.init(brandName: brandName, sizeInMilliliter: sizeInMilliliter, itemPrice: itemPrice, itemName: itemName)
+        super.init(brandName: brandName, sizeInMilliliter: sizeInMilliliter, itemPrice: itemPrice, itemName: itemName, manufacturingDate: manufacturingDate)
     }
     
-    convenience override init(brandName: String, sizeInMilliliter: Int, itemPrice: Int, itemName: String) {
-        self.init(brandName: brandName, sizeInMilliliter: sizeInMilliliter, itemPrice: itemPrice, itemName: itemName, coffeeBean: .로부스타원두)
+    convenience override init(brandName: String, sizeInMilliliter: Int, itemPrice: Int, itemName: String, manufacturingDate: Date) {
+        self.init(brandName: brandName, sizeInMilliliter: sizeInMilliliter, itemPrice: itemPrice, itemName: itemName, manufacturingDate: manufacturingDate, coffeeBean: .로부스타원두)
     }
 }

@@ -15,7 +15,7 @@
 
     class Milk: Drink {
         
-        override init(brand: String, weight: Int, price: Int, name: String, madeDate: Date) {
-            super.init(brand: brand, weight: weight, price: price, name: name, madeDate: madeDate)
+        override init(brand: String, capacity: Int, price: Int, name: String, madeDate: Date) {
+            super.init(brand: brand, capacity: capacity, price: price, name: name, madeDate: madeDate)
         }
     }

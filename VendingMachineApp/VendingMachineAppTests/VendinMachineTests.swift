@@ -17,12 +17,12 @@ class VendingMachineTests: XCTestCase {
                                                     name: "딸기우유",
                                                     manufactured: Date.inputDate(date: "20210207"),
                                                     mlikFarmCode: 023,
-                                                    expiryDate: Date.inputDate(date: "20210210"), hot: false ,calory: 150, productCode: 001)
+                                                    expiryDate: Date.inputDate(date: "20210210"), hot: false ,calory: 150, strawberryContent: 10)
         let dietCola =  DietCola.init(brand : "팹시",
                                       liter: 350,
                                       price: 2000,
                                       name: "다이어트콜라",
-                                      manufactured: Date.inputDate(date: "20210222"),sugar: false,expiryDate: Date.inputDate(date: "20210303"),hot: false,calory: 123,taste: "lemon")
+                                      manufactured: Date.inputDate(date: "20210222"),sugar: false,expiryDate: Date.inputDate(date: "20210303"),hot: false,calory: 123,taste: .lemon)
         
         let topAmericano =  TopAmericano.init(brand : "맥심",
                                               liter: 400,
@@ -31,9 +31,9 @@ class VendingMachineTests: XCTestCase {
                                               manufactured: Date.inputDate(date: "20210217"),
                                               caffeineContent: 130,
                                               expiryDate: Date.inputDate(date: "20210227"),
-                                              hot: true, calory : 100,isPream: false)
+                                              hot: true, calory : 100,coffeeSolids: 0.7)
         
-        var vendingMachine = VendingMachine()
+        let vendingMachine = VendingMachine()
         vendingMachine.putPayMoney(money: 1000)
         vendingMachine.addBevergeStock(beverage: strawberryMilk)
         vendingMachine.addBevergeStock(beverage: dietCola)

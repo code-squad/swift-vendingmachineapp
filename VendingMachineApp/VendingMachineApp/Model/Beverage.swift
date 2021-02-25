@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Beverage : CustomStringConvertible, Beveragable {
+class Beverage : CustomStringConvertible {
     private let brand : String
     private let liter : Int
     private(set) var price : Int
@@ -37,7 +37,7 @@ class Beverage : CustomStringConvertible, Beveragable {
     }
     
     func validate(with date:Date) -> Bool {
-        return expiryDate > date
+        return expiryDate < date
     }
     
     func isHot() -> Bool {

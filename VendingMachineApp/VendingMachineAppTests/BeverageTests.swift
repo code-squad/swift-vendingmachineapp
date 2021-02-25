@@ -33,7 +33,7 @@ class BeverageTests: XCTestCase {
                                               expiryDate: Date.inputDate(date: "20210227"),
                                               hot: true, calory : 100,isPream: false)
         
-        XCTAssertEqual(strawberryMilk.validate(with: Date.inputDate(date: "20210209")), true)
+        XCTAssertEqual(strawberryMilk.validate(with: Date.inputDate(date: "20210209")), false)
         XCTAssertEqual(dietCola.isLowCalorie(), true)
         XCTAssertEqual(topAmericano.isHot(), true)
     }

@@ -36,7 +36,7 @@ struct VendingMachine {
         return payment.purchasePossibleList(drink: drink)
     }
     
-    mutating func purchaseBeverage(beverage : Beverage) {
+    func purchaseBeverage(beverage : Beverage) {
         if payment.checkBalance(beverage: beverage) {
             payment.decreaseAmountMoney(beverage: beverage)
             drink.purchaseBeverage(beverage: beverage)

@@ -51,6 +51,6 @@ class VendingMachineTests: XCTestCase {
         XCTAssertEqual(vendingMachine.purchaseHistory(), [strawberryMilk])
         
         XCTAssertEqual(vendingMachine.verifyHotBeverages(), [topAmericano,topAmericano,topAmericano])
-        XCTAssertEqual(vendingMachine.outOfDateinventory(), [dietCola,topAmericano,topAmericano,topAmericano])
+        XCTAssertEqual(vendingMachine.outOfDateinventory(), [])
     }
 }

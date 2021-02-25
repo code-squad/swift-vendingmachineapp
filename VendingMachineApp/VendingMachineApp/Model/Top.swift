@@ -1,5 +1,5 @@
 import Foundation
 
-class Top {
+class Top: Coffee {
     
 }

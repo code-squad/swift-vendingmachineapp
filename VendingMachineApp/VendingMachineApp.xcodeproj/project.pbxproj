@@ -20,7 +20,6 @@
 		719783EA25E638DE001D428C /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719783E925E638DE001D428C /* Coffee.swift */; };
 		719783ED25E641BC001D428C /* StrawBerryMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719783EC25E641BC001D428C /* StrawBerryMilk.swift */; };
 		719783F025E641E7001D428C /* ChocolateMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719783EF25E641E7001D428C /* ChocolateMilk.swift */; };
-		719783F325E64268001D428C /* SellByDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719783F225E64268001D428C /* SellByDate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,7 +38,6 @@
 		719783E925E638DE001D428C /* Coffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
 		719783EC25E641BC001D428C /* StrawBerryMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrawBerryMilk.swift; sourceTree = "<group>"; };
 		719783EF25E641E7001D428C /* ChocolateMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChocolateMilk.swift; sourceTree = "<group>"; };
-		719783F225E64268001D428C /* SellByDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellByDate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,7 +86,6 @@
 			isa = PBXGroup;
 			children = (
 				717DE51225E5E26F004B2269 /* Beverage.swift */,
-				719783F225E64268001D428C /* SellByDate.swift */,
 				719783E325E638AE001D428C /* Milk.swift */,
 				719783EC25E641BC001D428C /* StrawBerryMilk.swift */,
 				719783EF25E641E7001D428C /* ChocolateMilk.swift */,
@@ -174,7 +171,6 @@
 				717DE50025E5E0A6004B2269 /* VendingMachineViewController.swift in Sources */,
 				717DE4FC25E5E0A6004B2269 /* AppDelegate.swift in Sources */,
 				717DE51325E5E26F004B2269 /* Beverage.swift in Sources */,
-				719783F325E64268001D428C /* SellByDate.swift in Sources */,
 				717DE51B25E5E369004B2269 /* Brand.swift in Sources */,
 				719783E425E638AE001D428C /* Milk.swift in Sources */,
 				719783F025E641E7001D428C /* ChocolateMilk.swift in Sources */,

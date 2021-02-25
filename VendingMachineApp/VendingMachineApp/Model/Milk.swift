@@ -1,9 +1,9 @@
 import Foundation
 
-class Milk: Beverage, SellByDate {
+class Milk: Beverage {
     
     private var farmCode: String
-    private(set) var sellByDate: Date
+    private var sellByDate: Date
     
     init(brand: Brand.Name, volume: Int, price: Int, productName: String, manufacturedDay: Date, farmCode: String, sellByDate: Date) {
         self.farmCode = farmCode
@@ -14,4 +14,5 @@ class Milk: Beverage, SellByDate {
     func origin() -> String {
         return farmCode
     }
+    
 }

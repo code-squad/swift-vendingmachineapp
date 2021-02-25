@@ -9,4 +9,7 @@ class ChocolateMilk: Milk {
         super.init(brand: brand, volume: volume, price: price, productName: productName, manufacturedDay: manufacturedDay, farmCode: farmCode, sellByDate: sellByDate)
     }
     
+    func checkAdditive() -> String {
+        return additive
+    }
 }

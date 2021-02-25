@@ -12,13 +12,13 @@ class MainHomeController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let drinks: [Drink] = [ Milk.init(brand: "서울우유",
+        let drinks: [Drink] = [ Milk.init(farmCode: "001", brand: "서울우유",
                                           weight: 200,
                                           price: 1000,
                                           name: "날마다딸기우유",
                                           madeDate: Date()),
                                 
-                                Milk.init(brand: "서울우유",
+                                Milk.init(farmCode: "002", brand: "서울우유",
                                           weight: 200,
                                           price: 1000,
                                           name: "날마다딸기우유",

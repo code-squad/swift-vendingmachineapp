@@ -15,7 +15,13 @@
 
     class Milk: Drink {
         
-        override init(brand: String, weight: Int, price: Int, name: String, madeDate: Date) {
+        private var farmCode: String
+        
+        init(farmCode:String, brand: String, weight: Int, price: Int, name: String, madeDate: Date) {
+            self.farmCode = farmCode
             super.init(brand: brand, weight: weight, price: price, name: name, madeDate: madeDate)
         }
+        
+        
+        
     }

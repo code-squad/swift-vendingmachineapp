@@ -20,6 +20,7 @@
 		10F5F08525E7845B00B70881 /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F5F08025E7845B00B70881 /* Milk.swift */; };
 		10F5F08625E7845B00B70881 /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F5F08125E7845B00B70881 /* VendingMachine.swift */; };
 		10F5F08725E7845B00B70881 /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F5F08225E7845B00B70881 /* Coffee.swift */; };
+		10F5F08C25E7A1B900B70881 /* DateUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F5F08B25E7A1B900B70881 /* DateUtility.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		10F5F08025E7845B00B70881 /* Milk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Milk.swift; sourceTree = "<group>"; };
 		10F5F08125E7845B00B70881 /* VendingMachine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VendingMachine.swift; sourceTree = "<group>"; };
 		10F5F08225E7845B00B70881 /* Coffee.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
+		10F5F08B25E7A1B900B70881 /* DateUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtility.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 				10F5F04A25E782C500B70881 /* Assets.xcassets */,
 				10F5F04C25E782C500B70881 /* LaunchScreen.storyboard */,
 				10F5F04F25E782C500B70881 /* Info.plist */,
+				10F5F09025E7A1C100B70881 /* Utility */,
 				10F5F07D25E7845B00B70881 /* Models */,
 			);
 			path = VendingMachineApp;
@@ -149,6 +152,14 @@
 				10F5F08225E7845B00B70881 /* Coffee.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		10F5F09025E7A1C100B70881 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				10F5F08B25E7A1B900B70881 /* DateUtility.swift */,
+			);
+			path = Utility;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -288,6 +299,7 @@
 				10F5F08525E7845B00B70881 /* Milk.swift in Sources */,
 				10F5F08425E7845B00B70881 /* Soda.swift in Sources */,
 				10F5F08625E7845B00B70881 /* VendingMachine.swift in Sources */,
+				10F5F08C25E7A1B900B70881 /* DateUtility.swift in Sources */,
 				10F5F08725E7845B00B70881 /* Coffee.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

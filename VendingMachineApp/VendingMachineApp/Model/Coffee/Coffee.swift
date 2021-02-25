@@ -8,7 +8,12 @@
 import Foundation
 
 class Coffee: Beverage {
-    override init(brand: String, capacity: Int, price: Int, name: String, date: Date) {
+    private var caffeineContent: Double
+    init(brand: String, capacity: Int, price: Int, name: String, date: Date, caffeineContent: Double) {
+        self.caffeineContent = caffeineContent
         super.init(brand: brand, capacity: capacity, price: price, name: name, date: date)
+    }
+    func isHighCaffeine() -> Bool {
+        return self.caffeineContent >= 0.15
     }
 }

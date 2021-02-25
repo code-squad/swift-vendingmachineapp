@@ -17,7 +17,7 @@ extension Date {
     static func input(_ date: String) -> Date {
         return Date.dateFormatter.date(from: date) ?? Date()
     }
-    var description: String {
+    var anotherDescription: String {
         return "\(Date.dateFormatter.string(from: self))"
     }
     

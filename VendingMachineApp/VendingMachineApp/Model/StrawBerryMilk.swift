@@ -1,6 +1,6 @@
 import Foundation
 
-class StrawBerryMilk: Milk {
+class StrawBerryMilk: Milk, CheckAdditive {
     
     private var additive: String
     

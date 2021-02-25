@@ -17,6 +17,8 @@
 		7663A7C025E642A70034156D /* VendingMachineAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7663A7BF25E642A70034156D /* VendingMachineAppUITests.swift */; };
 		7663A7E625E6A29B0034156D /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7663A7E525E6A29B0034156D /* VendingMachine.swift */; };
 		7663A7EE25E6A2A80034156D /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7663A7ED25E6A2A80034156D /* Beverage.swift */; };
+		7663A7F325E7E0A60034156D /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7663A7F225E7E0A60034156D /* Stock.swift */; };
+		7663A7F825E8081C0034156D /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7663A7F725E8081C0034156D /* Milk.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		7663A7C125E642A70034156D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7663A7E525E6A29B0034156D /* VendingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachine.swift; sourceTree = "<group>"; };
 		7663A7ED25E6A2A80034156D /* Beverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beverage.swift; sourceTree = "<group>"; };
+		7663A7F225E7E0A60034156D /* Stock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stock.swift; sourceTree = "<group>"; };
+		7663A7F725E8081C0034156D /* Milk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Milk.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,7 +141,9 @@
 			isa = PBXGroup;
 			children = (
 				7663A7E525E6A29B0034156D /* VendingMachine.swift */,
+				7663A7F225E7E0A60034156D /* Stock.swift */,
 				7663A7ED25E6A2A80034156D /* Beverage.swift */,
+				7663A7F725E8081C0034156D /* Milk.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -274,6 +280,8 @@
 			files = (
 				7663A7EE25E6A2A80034156D /* Beverage.swift in Sources */,
 				7663A7A225E642A60034156D /* ViewController.swift in Sources */,
+				7663A7F325E7E0A60034156D /* Stock.swift in Sources */,
+				7663A7F825E8081C0034156D /* Milk.swift in Sources */,
 				7663A79E25E642A60034156D /* AppDelegate.swift in Sources */,
 				7663A7A025E642A60034156D /* SceneDelegate.swift in Sources */,
 				7663A7E625E6A29B0034156D /* VendingMachine.swift in Sources */,

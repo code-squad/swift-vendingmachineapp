@@ -31,7 +31,7 @@ class Drink {
     }
     
     func purchaseBeverage(beverage : Beverage) {
-        drinks.firstIndex(of: beverage).map { drinks.remove(at: $0) }
+        let _ = drinks.firstIndex(of: beverage).map { drinks.remove(at: $0) }
         purchasedList.append(beverage)
     }
     
@@ -39,10 +39,11 @@ class Drink {
         return purchasedList.reduce(0) { $1.price }
     }
     
-    func showAllBeverage(hanlder : ([Beverage : Int]) -> Void){
-//        drinks.forEach {
-//            hanlder([$0.key:$0.value])
-//        }
+    func showAllBeverage(handler : ([Beverage : Int]) -> Void) {
+        let stockList = drinks.reduce(into: [:]) { goods, beverage in
+            goods[beverage, default: 0] += 1
+        }
+        handler(stockList)
     }
     
     func passExpiryDate(expiryDate : Date, handler : ([Beverage]) -> Void) {

@@ -13,17 +13,17 @@ class Beverage : CustomStringConvertible {
     private let volume : Int
     private let price : Int
     private let name : String
-    private let manufactureddate : Date
+    private let manufactured : Date
     
-    init(brand : String, volume : Int, price : Int, name: String, manufactureddate : Date){
+    init(brand : String, volume : Int, price : Int, name: String, manufactured : Date){
         self.brand = brand
         self.volume = volume
         self.price = price
         self.name = name
-        self.manufactureddate = manufactureddate
+        self.manufactured = manufactured
     }
     
     var description: String {
-        return "\(self.name), \(self.volume)ml \(self.price)원 \(self.brand) \(self.manufactureddate)"
+        return "\(self.brand), \(self.volume)ml, \(self.price)원, \(self.name), \(self.manufactured)"
     }
 }

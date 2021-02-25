@@ -13,23 +13,23 @@ class MainHomeController: UIViewController {
         super.viewDidLoad()
         
         let drinks: [Drink] = [ Milk.init(farmCode: "001", brand: "서울우유",
-                                          weight: 200,
+                                          capacity: 200,
                                           price: 1000,
                                           name: "날마다딸기우유",
                                           madeDate: Date()),
                                 
                                 Milk.init(farmCode: "002", brand: "서울우유",
-                                          weight: 200,
+                                          capacity: 200,
                                           price: 1000,
                                           name: "날마다딸기우유",
                                           madeDate: Date()),
                                 Soda.init(brand: "팹시",
-                                          weight: 350,
+                                          capacity: 350,
                                           price: 2000,
                                           name: "다이어트콜라",
                                           madeDate: Date()),
                                 Coffee.init(brand: "맥심",
-                                            weight: 4000,
+                                            capacity: 4000,
                                             price: 3000,
                                             name: "TOP아메리카노",
                                             madeDate: Date())]

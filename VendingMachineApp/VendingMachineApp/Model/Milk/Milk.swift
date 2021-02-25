@@ -17,9 +17,9 @@
         
         private var farmCode: String
         
-        init(farmCode:String, brand: String, weight: Int, price: Int, name: String, madeDate: Date) {
+        init(farmCode:String, brand: String, capacity: Int, price: Int, name: String, madeDate: Date) {
             self.farmCode = farmCode
-            super.init(brand: brand, weight: weight, price: price, name: name, madeDate: madeDate)
+            super.init(brand: brand, capacity: capacity, price: price, name: name, madeDate: madeDate)
         }
         
         

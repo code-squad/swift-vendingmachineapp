@@ -7,42 +7,62 @@
 
 import Foundation
 
-class Soda: Beverage, SugarFreeable, Transportable {
+class Soda: Beverage, Transportable {
     
-    private let container: Container
-    private let sugar: Int
+    private let package: Package
     
-    init(brand: String, name: String, price: Int, size: Int, manufactured: Date,
-         container: Container, sugar: Int) {
+    init(brand: String, name: String, price: Int, size: Int,
+         manufactured: Date, package: Package) {
         
-        self.container = container
-        self.sugar = sugar
+        self.package = package
         
         super.init(brand: brand, name: name, price: price, size: size, manufactured: manufactured)
     }
     
-    func isSugarFree() -> Bool {
-        return sugar == 0 ? true : false
-    }
-    
-    func containerType() -> Container {
-        return container
-    }
-    
     func isTransportable() -> Bool {
-        switch container {
+        switch package {
         case .bottle:
             return true
-        case .can:
+        default:
             return false
         }
     }
 }
 
-class coke: Soda {
+
+class Coke: Soda, SugarFreeable {
     
+    private let isSugarAdded: Bool
+    
+    init(brand: String, name: String, price: Int, size: Int, manufactured: Date,
+         package: Package, isSugarAdded: Bool) {
+        
+        self.isSugarAdded = isSugarAdded
+        
+        super.init(brand: brand, name: name, price: price, size: size,
+                   manufactured: manufactured, package: package)
+    }
+    
+    func isSugarFree() -> Bool {
+        return !isSugarAdded
+    }
 }
 
-class sprite: Soda {
+
+class Milkis: Soda, LactoFreeable {
     
+    private let lactose: Float
+    
+    init(brand: String, name: String, price: Int, size: Int, manufactured: Date,
+         package: Package, lactose: Float) {
+        
+        self.lactose = lactose
+        
+        super.init(brand: brand, name: name, price: price, size: size,
+                   manufactured: manufactured, package: package)
+    }
+    
+    func isLactoFree() -> Bool {
+        return lactose <= 0.5 ? true : false
+    }
 }

@@ -9,7 +9,7 @@ import Foundation
 
 class Beverage: CustomStringConvertible {
     var description: String {
-        return "\(brand), \(capacity)ml, \(price)원, \(name), \(dateOfManufacture.description)"
+        return "\(brand), \(capacity)ml, \(price)원, \(name), \(dateOfManufacture.anotherDescription)"
     }
     
     private var brand: String

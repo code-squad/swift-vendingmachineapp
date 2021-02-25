@@ -48,4 +48,8 @@ class VendingMachine {
     func possibleDrinks() -> Drinks {
         return stock.possibleDrinks(with: credit)
     }
+    
+    func nowCredit() -> Int {
+        return credit
+    }
 }

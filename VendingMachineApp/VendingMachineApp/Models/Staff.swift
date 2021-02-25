@@ -6,3 +6,13 @@
 //
 
 import Foundation
+
+class Staff {
+    func fill(vendingMachine: VendingMachine, beverage: Beverage) {
+        vendingMachine.add(beverage: beverage)
+    }
+    
+    func checkStock(vendingMachine: VendingMachine) {
+        vendingMachine.showStock()
+    }
+}

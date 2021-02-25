@@ -18,6 +18,7 @@
 		B36A87D925E636B7002C4432 /* Drinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36A87D825E636B7002C4432 /* Drinks.swift */; };
 		B36A87DD25E63E14002C4432 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36A87DC25E63E14002C4432 /* Date.swift */; };
 		B3B3DD3025E7D8450022465D /* EnergyDrink.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B3DD2F25E7D8450022465D /* EnergyDrink.swift */; };
+		B3B3DD3525E7EF620022465D /* CashManagementSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B3DD3425E7EF620022465D /* CashManagementSystem.swift */; };
 		B3F5728625E3629300CFF095 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F5728525E3629300CFF095 /* AppDelegate.swift */; };
 		B3F5728825E3629300CFF095 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F5728725E3629300CFF095 /* SceneDelegate.swift */; };
 		B3F5728A25E3629300CFF095 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F5728925E3629300CFF095 /* ViewController.swift */; };
@@ -38,6 +39,7 @@
 		B36A87D825E636B7002C4432 /* Drinks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drinks.swift; sourceTree = "<group>"; };
 		B36A87DC25E63E14002C4432 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		B3B3DD2F25E7D8450022465D /* EnergyDrink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnergyDrink.swift; sourceTree = "<group>"; };
+		B3B3DD3425E7EF620022465D /* CashManagementSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashManagementSystem.swift; sourceTree = "<group>"; };
 		B3F5728225E3629300CFF095 /* VendingMachineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendingMachineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3F5728525E3629300CFF095 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B3F5728725E3629300CFF095 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				B36A87D325E62EAB002C4432 /* VendingMachine.swift */,
+				B3B3DD3425E7EF620022465D /* CashManagementSystem.swift */,
 				B36A87D825E636B7002C4432 /* Drinks.swift */,
 				B36A87B025E61F1B002C4432 /* Beverage.swift */,
 				B3B3DD2F25E7D8450022465D /* EnergyDrink.swift */,
@@ -210,6 +213,7 @@
 				B3F5728A25E3629300CFF095 /* ViewController.swift in Sources */,
 				B3B3DD3025E7D8450022465D /* EnergyDrink.swift in Sources */,
 				B36A87D925E636B7002C4432 /* Drinks.swift in Sources */,
+				B3B3DD3525E7EF620022465D /* CashManagementSystem.swift in Sources */,
 				B36A87B125E61F1B002C4432 /* Beverage.swift in Sources */,
 				B3F5728625E3629300CFF095 /* AppDelegate.swift in Sources */,
 				B3F5728825E3629300CFF095 /* SceneDelegate.swift in Sources */,

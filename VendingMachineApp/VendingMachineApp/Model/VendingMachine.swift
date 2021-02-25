@@ -9,9 +9,10 @@ import Foundation
 
 class VendingMachine {
     private var drinks: Drinks
-    
-    init(drinks: Drinks = Drinks()) {
-        self.drinks = drinks
+    private var cashManagementSystem: CashManagementSystem
+    init() {
+        self.drinks = Drinks()
+        self.cashManagementSystem = CashManagementSystem()
     }
     
     func add(beverage: Beverage) {

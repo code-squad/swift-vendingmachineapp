@@ -14,4 +14,11 @@ class Milk: Beverage {
         case chocolateMilk
         case bananaMilk
     }
+    
+    private var kind: KindOfMilk
+    
+    init(brand: String, volume: Int, price: Int, name: String, manufacturedDate: Date, kind: KindOfMilk) {
+        self.kind = kind
+        super.init(brand: brand, volume: volume, price: price, name: name, manufacturedDate: manufacturedDate)
+    }
 }

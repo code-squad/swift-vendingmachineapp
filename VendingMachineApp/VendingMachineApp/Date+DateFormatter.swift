@@ -17,10 +17,10 @@ extension Date {
         return dateFormatter.string(from: date)
     }
     
-    static func getDate(from dateString: String) -> Date {
+    static func getDate(from dateString: String) -> Date? {
         dateFormatter.dateFormat = validFormat
         guard let date = dateFormatter.date(from: dateString) else {
-            fatalError()
+            return nil
         }
         return date
     }

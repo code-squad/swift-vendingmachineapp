@@ -9,9 +9,9 @@ import Foundation
 
 class Sprite: Soda {
     enum Flavor: String {
-        case Original = "오리지널 스프라이트"
-        case Ginger = "진저 스프라이트"
-        case Tropical = "트로피칼 스프라이트"
+        case Original = "Original Sprite"
+        case Ginger = "Ginger Sprite"
+        case Tropical = "Tropical Sprite"
         
         func capacity() -> Int {
             switch self {

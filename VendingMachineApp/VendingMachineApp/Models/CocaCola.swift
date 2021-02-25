@@ -9,9 +9,9 @@ import Foundation
 
 class CocaCola: Soda {
     enum Flavor: String {
-        case Original = "오리지널 콜리"
-        case Cherry = "체리맛 콜라"
-        case Vanilla = "바닐라맛 콜라"
+        case Original = "Original Cola"
+        case Cherry = "Cherry Cola"
+        case Vanilla = "Vanilla Cola"
         
         func capacity() -> Int {
             switch self {

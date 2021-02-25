@@ -23,12 +23,11 @@ class Drink : CustomStringConvertible{
         self.manufacturedDate = date
     }
     
-    
-    
     var description: String {
         return "\(brand), \(capacity)ml, \(price)원, \(name), \(manufacturedDate.description)"
     }
     
-    
-
+    func canBuy(with credit: Int) -> Bool {
+        return credit > price
+    }
 }

@@ -44,4 +44,8 @@ class VendingMachine {
     func append(drinks: [Drink]) {
         stock.append(drinks)
     }
+    
+    func possibleDrinks() -> Drinks {
+        return stock.possibleDrinks(with: credit)
+    }
 }

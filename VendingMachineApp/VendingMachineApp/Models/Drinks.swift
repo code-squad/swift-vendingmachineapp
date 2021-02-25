@@ -19,19 +19,11 @@ class Drinks {
         self.drinks = drinks
     }
     
-    
-    func possibleDrink(with credit: Int) -> Drinks {
-        return Drinks(drinks.filter {
-            $0.canBuy(with: credit)
-        })
-    }
-    
     func show(handler: (Drink) -> Void) {
         drinks.forEach {
             handler($0)
         }
     }
-    
     
     func append(_ drink: Drink) {
         drinks.append(drink)
@@ -43,4 +35,9 @@ class Drinks {
         }
     }
     
+    func possibleDrinks(with credit: Int) -> Drinks {
+        return Drinks(drinks.filter {
+            $0.canBuy(with: credit)
+        })
+    }
 }

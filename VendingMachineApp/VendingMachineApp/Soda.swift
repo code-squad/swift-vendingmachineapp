@@ -14,4 +14,11 @@ class Soda: Beverage {
         case fanta
         case cider
     }
+    
+    private var kind: KindOfSoda
+    
+    init(brand: String, volume: Int, price: Int, name: String, manufacturedDate: Date, kind: KindOfSoda) {
+        self.kind = kind
+        super.init(brand: brand, volume: volume, price: price, name: name, manufacturedDate: manufacturedDate)
+    }
 }

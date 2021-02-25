@@ -14,6 +14,10 @@ class VendingMachine {
         self.beverages = beverages
     }
     
+    func addBeverage(beverage: Beverage) {
+        beverages.append(beverage)
+    }
+    
     func retrieveBeverage(completion: (Beverage) -> Void) {
         beverages.forEach{
             completion($0)

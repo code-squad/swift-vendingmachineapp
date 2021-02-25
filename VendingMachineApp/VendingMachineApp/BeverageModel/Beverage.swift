@@ -51,6 +51,8 @@ extension Beverage: CustomStringConvertible {
 
 extension Beverage: Drinkable {
     func isExpired(by date: Date) -> Bool {
-        return date > packDate.addingTimeInterval(86400 * 60)
+        let oneDayInSeconds: Double = 86400
+        let expiringDateFromPackDate: Double = 60
+        return date > packDate.addingTimeInterval(oneDayInSeconds * expiringDateFromPackDate)
     }
 }

@@ -3,12 +3,10 @@ import Foundation
 class Milk: Beverage {
     
     private var farmCode: String
-    private var sellByDate: Date
     
-    init(brand: Brand.Name, volume: Int, price: Int, productName: String, manufacturedDay: Date, farmCode: String, sellByDate: Date) {
+    init(brand: Brand.Name, volume: Int, price: Int, productName: String, manufacturedDay: Date, sellByDate: Date, lowCalories: Bool, isHot: Bool, farmCode: String) {
         self.farmCode = farmCode
-        self.sellByDate = sellByDate
-        super.init(brand: brand, volume: volume, price: price, productName: productName, manufacturedDay: manufacturedDay)
+        super.init(brand: brand, volume: volume, price: price, productName: productName, manufacturedDay: manufacturedDay, sellByDate: sellByDate, lowCalories: lowCalories, isHot: isHot)
     }
     
     func origin() -> String {

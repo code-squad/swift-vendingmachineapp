@@ -7,13 +7,19 @@ class Beverage {
     private var price: Int
     private var productName: String
     private var manufacturedDay: Date
+    private var sellByDate: Date
+    private var lowCalories: Bool
+    private var isHot: Bool
     
-    init(brand:Brand.Name, volume: Int, price: Int, productName: String, manufacturedDay: Date) {
+    init(brand:Brand.Name, volume: Int, price: Int, productName: String, manufacturedDay: Date, sellByDate: Date, lowCalories: Bool, isHot: Bool) {
         self.brand = brand
         self.volume = volume
         self.price = price
         self.productName = productName
         self.manufacturedDay = manufacturedDay
+        self.sellByDate = sellByDate
+        self.lowCalories = lowCalories
+        self.isHot = isHot
     }
     
     private func checkManufacturedDayOfProducts() -> String {

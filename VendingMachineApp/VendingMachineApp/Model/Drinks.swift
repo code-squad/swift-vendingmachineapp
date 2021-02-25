@@ -8,6 +8,11 @@
 import Foundation
 
 class Drinks {
+    
+    enum errorCase : Error {
+        case outOfIndex
+    }
+    
     private var drinks : [Drink]
     
     init() {
@@ -23,15 +28,15 @@ class Drinks {
     }
     
     /// if fail -> return false.
-    func remove(at product : Drink) -> Bool {
+    func remove(at product : Drink) throws -> Drink {
         guard let removeTarget = drinks.firstIndex(where: {
             $0.isSameName(with: product)
         })
         else {
-            return false
+            throw errorCase.outOfIndex
         }
-        drinks.remove(at: removeTarget)
+        return drinks.remove(at: removeTarget)
         
-        return true
+        
     }
 }

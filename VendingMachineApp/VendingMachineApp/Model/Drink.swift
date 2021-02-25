@@ -7,7 +7,21 @@
 
 import Foundation
 
-class Drink: CustomStringConvertible {
+class Drink: CustomStringConvertible, Hashable {
+    
+    var hashValue: Int {
+        return brand.hashValue ^ charge.hashValue ^ manufacturing.hashValue ^ name.hashValue ^ volume.hashValue &* 16777619
+    }
+    
+    
+    static func == (lhs: Drink, rhs: Drink) -> Bool {
+        return lhs.brand == rhs.brand &&
+            lhs.charge == rhs.charge &&
+            lhs.manufacturing == rhs.manufacturing &&
+            lhs.name == rhs.name &&
+            lhs.volume == lhs.volume
+    }
+    
     var description: String {
         return "\(brand), \(volume)ml, \(charge)원, \(name), \(manufacturing.convertToString())"
     }

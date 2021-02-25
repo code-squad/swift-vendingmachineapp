@@ -38,7 +38,11 @@ struct VendingMachine {
     
     /// if fail, return false
     mutating func buyProduct(what product : Drink) -> Bool{
-        if !stock.remove(at: product) {
+        do {
+            let purchasedItem = try stock.remove(at: product)
+            purchased.addDrink(what: purchasedItem)
+        }
+        catch {
             return false
         }
         money = product.payFor(with: money)
@@ -47,5 +51,22 @@ struct VendingMachine {
     
     func checkMoney() -> Int {
         return money
+    }
+    
+    func showStock() -> Dictionary<Drink,Int> {
+        var returnDic = Dictionary<Drink,Int>()
+        
+        stock.doClosure(closure: { drinks in
+            drinks.forEach({
+                if returnDic[$0] == nil {
+                    returnDic.updateValue(1, forKey: $0)
+                }
+                else {
+                    returnDic.updateValue(returnDic[$0]! + 1, forKey: $0)
+                }
+            })
+        })
+        
+        return returnDic
     }
 }

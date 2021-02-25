@@ -14,18 +14,13 @@ class Stock {
         self.beverages = []
     }
     
-    func isOutOfStock(beverage: Beverage) -> Bool {
-        return true
-    }
-    
     func add(beverage: Beverage) {
         beverages.append(beverage)
     }
     
-    func show() {
-        for beverage in beverages {
-            print(beverage)
-            
+    func show(handler: (Beverage) -> Void) {
+        self.beverages.forEach { 
+            handler($0)
         }
     }
 }

@@ -1,12 +1,12 @@
 import Foundation
 
-enum SodaType: String {
-    case coke
-    case cider
-    case fanta
-}
-
 class Soda: Beverage {
+    enum SodaType: String {
+        case coke
+        case cider
+        case fanta
+    }
+    
     private var sodaType: SodaType
     
     init(brand: String, capacity: Int, price: Int, name: String, sodaType: SodaType, date: Date = Date()) {

@@ -8,19 +8,14 @@
 import Foundation
 
 extension Date {
-    static func getDate(with str : String) -> Date{
-        let dateFormatter = setDateFormat(with: "yyyyMMdd")
-        let date = dateFormatter.date(from: str) ?? Date()
-        return date
-    }
-    
-    static func setDateFormat(with str : String) -> DateFormatter{
+    static func setDateFormat(with str : String) -> DateFormatter {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = str
         return dateFormatter
     }
-    static func toString(date : Date) -> String{
-        let dateFormatter = setDateFormat(with: "yyyyMMdd")
-        return dateFormatter.string(from: date)
+    func toString() -> String {
+        let dateFormatter = Date.setDateFormat(with: "yyyyMMdd")
+        return dateFormatter.string(from: self)
     }
 }
+

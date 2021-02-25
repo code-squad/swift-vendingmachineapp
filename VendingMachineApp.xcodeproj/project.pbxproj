@@ -21,6 +21,7 @@
 		10F5F08625E7845B00B70881 /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F5F08125E7845B00B70881 /* VendingMachine.swift */; };
 		10F5F08725E7845B00B70881 /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F5F08225E7845B00B70881 /* Coffee.swift */; };
 		10F5F08C25E7A1B900B70881 /* DateUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F5F08B25E7A1B900B70881 /* DateUtility.swift */; };
+		10F5F09825E7D2EE00B70881 /* StringUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F5F09725E7D2EE00B70881 /* StringUtility.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		10F5F08125E7845B00B70881 /* VendingMachine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VendingMachine.swift; sourceTree = "<group>"; };
 		10F5F08225E7845B00B70881 /* Coffee.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
 		10F5F08B25E7A1B900B70881 /* DateUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtility.swift; sourceTree = "<group>"; };
+		10F5F09725E7D2EE00B70881 /* StringUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringUtility.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				10F5F08B25E7A1B900B70881 /* DateUtility.swift */,
+				10F5F09725E7D2EE00B70881 /* StringUtility.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -295,6 +298,7 @@
 				10F5F04625E782C400B70881 /* ViewController.swift in Sources */,
 				10F5F04225E782C400B70881 /* AppDelegate.swift in Sources */,
 				10F5F08325E7845B00B70881 /* Beverage.swift in Sources */,
+				10F5F09825E7D2EE00B70881 /* StringUtility.swift in Sources */,
 				10F5F04425E782C400B70881 /* SceneDelegate.swift in Sources */,
 				10F5F08525E7845B00B70881 /* Milk.swift in Sources */,
 				10F5F08425E7845B00B70881 /* Soda.swift in Sources */,

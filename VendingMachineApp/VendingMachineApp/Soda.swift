@@ -7,6 +7,11 @@
 
 import Foundation
 
-class Soda {
+class Soda: Beverage {
     
+    enum KindOfSoda {
+        case coke
+        case fanta
+        case cider
+    }
 }

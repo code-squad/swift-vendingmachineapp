@@ -7,6 +7,12 @@
 
 import Foundation
 
-class Coffee {
+class Coffee: Beverage {
+    
+    enum KindOfCoffee {
+        case cantata
+        case top
+        case georgia
+    }
     
 }

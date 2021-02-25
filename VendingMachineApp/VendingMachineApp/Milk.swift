@@ -7,6 +7,11 @@
 
 import Foundation
 
-class Milk {
+class Milk: Beverage {
     
+    enum KindOfMilk {
+        case strawberryMilk
+        case chocolateMilk
+        case bananaMilk
+    }
 }

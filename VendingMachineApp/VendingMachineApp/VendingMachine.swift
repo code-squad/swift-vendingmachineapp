@@ -6,3 +6,13 @@
 //
 
 import Foundation
+
+class VendingMachine {
+    func printBeverage(_ beverage : CustomStringConvertible ){
+        print(beverage.description)
+    }
+    
+    func printBeverages(_ beverages : [CustomStringConvertible] ){
+        beverages.forEach{ print($0.description) }
+    }
+}

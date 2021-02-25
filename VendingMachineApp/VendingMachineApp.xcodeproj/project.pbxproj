@@ -19,6 +19,7 @@
 		7663A7EE25E6A2A80034156D /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7663A7ED25E6A2A80034156D /* Beverage.swift */; };
 		7663A7F325E7E0A60034156D /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7663A7F225E7E0A60034156D /* Stock.swift */; };
 		7663A7F825E8081C0034156D /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7663A7F725E8081C0034156D /* Milk.swift */; };
+		7663A80925E80BA80034156D /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7663A80825E80BA80034156D /* Coffee.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		7663A7ED25E6A2A80034156D /* Beverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beverage.swift; sourceTree = "<group>"; };
 		7663A7F225E7E0A60034156D /* Stock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stock.swift; sourceTree = "<group>"; };
 		7663A7F725E8081C0034156D /* Milk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Milk.swift; sourceTree = "<group>"; };
+		7663A80825E80BA80034156D /* Coffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +146,7 @@
 				7663A7F225E7E0A60034156D /* Stock.swift */,
 				7663A7ED25E6A2A80034156D /* Beverage.swift */,
 				7663A7F725E8081C0034156D /* Milk.swift */,
+				7663A80825E80BA80034156D /* Coffee.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -285,6 +288,7 @@
 				7663A79E25E642A60034156D /* AppDelegate.swift in Sources */,
 				7663A7A025E642A60034156D /* SceneDelegate.swift in Sources */,
 				7663A7E625E6A29B0034156D /* VendingMachine.swift in Sources */,
+				7663A80925E80BA80034156D /* Coffee.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -18,7 +18,7 @@ class Drinks {
         drinks.append(beverage)
     }
     
-    func printDrinks(completion: (Beverage)->Void) {
+    func retrieveBeverage(completion: (Beverage)->Void) {
         drinks.forEach { (beverage) in
             completion(beverage)
         }

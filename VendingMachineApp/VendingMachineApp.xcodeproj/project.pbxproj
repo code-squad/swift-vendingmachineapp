@@ -25,6 +25,7 @@
 		719F18B825E76E4800671D77 /* Sprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719F18B725E76E4800671D77 /* Sprite.swift */; };
 		719F18BB25E76F0300671D77 /* Top.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719F18BA25E76F0300671D77 /* Top.swift */; };
 		719F18C225E76F2100671D77 /* Cantata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719F18C125E76F2100671D77 /* Cantata.swift */; };
+		719F18C525E774F800671D77 /* IsDairyProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719F18C425E774F800671D77 /* IsDairyProducts.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		719F18B725E76E4800671D77 /* Sprite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sprite.swift; sourceTree = "<group>"; };
 		719F18BA25E76F0300671D77 /* Top.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Top.swift; sourceTree = "<group>"; };
 		719F18C125E76F2100671D77 /* Cantata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cantata.swift; sourceTree = "<group>"; };
+		719F18C425E774F800671D77 /* IsDairyProducts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsDairyProducts.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				719783E925E638DE001D428C /* Coffee.swift */,
 				719F18BA25E76F0300671D77 /* Top.swift */,
 				719F18C125E76F2100671D77 /* Cantata.swift */,
+				719F18C425E774F800671D77 /* IsDairyProducts.swift */,
 				717DE51A25E5E369004B2269 /* Brand.swift */,
 			);
 			path = Model;
@@ -190,6 +193,7 @@
 				717DE4FC25E5E0A6004B2269 /* AppDelegate.swift in Sources */,
 				717DE51325E5E26F004B2269 /* Beverage.swift in Sources */,
 				717DE51B25E5E369004B2269 /* Brand.swift in Sources */,
+				719F18C525E774F800671D77 /* IsDairyProducts.swift in Sources */,
 				719783E425E638AE001D428C /* Milk.swift in Sources */,
 				719783F025E641E7001D428C /* ChocolateMilk.swift in Sources */,
 				717DE4FE25E5E0A6004B2269 /* SceneDelegate.swift in Sources */,

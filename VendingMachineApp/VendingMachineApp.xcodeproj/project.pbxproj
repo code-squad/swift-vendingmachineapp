@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		882A589425E7A84800BCAF67 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882A589325E7A84800BCAF67 /* DateExtension.swift */; };
 		88748A8625E387B100E7DCB1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88748A8525E387B100E7DCB1 /* AppDelegate.swift */; };
 		88748A8825E387B100E7DCB1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88748A8725E387B100E7DCB1 /* SceneDelegate.swift */; };
 		88748A8A25E387B100E7DCB1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88748A8925E387B100E7DCB1 /* ViewController.swift */; };
@@ -33,6 +34,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		882A589325E7A84800BCAF67 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		88748A8225E387B100E7DCB1 /* VendingMachineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendingMachineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88748A8525E387B100E7DCB1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		88748A8725E387B100E7DCB1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -71,6 +73,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		882A589625E7A87500BCAF67 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				882A589325E7A84800BCAF67 /* DateExtension.swift */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
 		88748A7925E387B100E7DCB1 = {
 			isa = PBXGroup;
 			children = (
@@ -92,6 +102,7 @@
 			children = (
 				88748A8525E387B100E7DCB1 /* AppDelegate.swift */,
 				88748A8725E387B100E7DCB1 /* SceneDelegate.swift */,
+				882A589625E7A87500BCAF67 /* SupportingFiles */,
 				88748AE925E56ADA00E7DCB1 /* MoneyExchangable.swift */,
 				88748ADD25E4F09700E7DCB1 /* MoneyStorage.swift */,
 				88748AE425E50BC500E7DCB1 /* CashInteractor.swift */,
@@ -245,6 +256,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				88748AF025E62BAA00E7DCB1 /* Item.swift in Sources */,
+				882A589425E7A84800BCAF67 /* DateExtension.swift in Sources */,
 				88748AA325E397B200E7DCB1 /* Soda.swift in Sources */,
 				88748AE525E50BC500E7DCB1 /* CashInteractor.swift in Sources */,
 				88748AB425E4A3C700E7DCB1 /* StrawBerryMilk.swift in Sources */,

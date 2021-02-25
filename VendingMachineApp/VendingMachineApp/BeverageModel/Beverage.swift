@@ -45,20 +45,12 @@ class Beverage {
 
 extension Beverage: CustomStringConvertible {
     var description: String {
-        return "\(brand), \(size)ml, \(price)원, \(name), \(packDate.useSimpleFormat())"
+        return "\(brand), \(size)ml, \(price)원, \(name), \(packDate.useSimpleFormat(dateFormat:"yyyyMMdd"))"
     }
 }
 
 extension Beverage: Drinkable {
     func isExpired(by date: Date) -> Bool {
         return date > packDate.addingTimeInterval(86400 * 60)
-    }
-}
-
-extension Date {
-    func useSimpleFormat() -> String {
-        let format = DateFormatter()
-        format.dateFormat = "yyyyMMdd"
-        return format.string(from: self)
     }
 }

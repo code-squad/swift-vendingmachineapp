@@ -21,4 +21,5 @@ class VendingMachine {
     func retreiveDrinks(completion: (Beverage)->Void) {
         drinks.retrieveBeverage(completion: completion)
     }
+    
 }

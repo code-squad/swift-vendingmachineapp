@@ -8,4 +8,8 @@ class StrawBerryMilk: Milk {
         self.additive = additive
         super.init(brand: brand, volume: volume, price: price, productName: productName, manufacturedDay: manufacturedDay, farmCode: farmCode, sellByDate: sellByDate)
     }
+    
+    func checkAdditive() -> String {
+        return additive
+    }
 }

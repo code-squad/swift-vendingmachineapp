@@ -13,7 +13,7 @@ class Soda : Beverage {
         case Sprite
     }
     
-    var kind : Kind
+    private var kind : Kind
     
     init(brand : String, capacity : Int, price : Int, name : String, createDate : String, kind : Soda.Kind){
         self.kind = kind

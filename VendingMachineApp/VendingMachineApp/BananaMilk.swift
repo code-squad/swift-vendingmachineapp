@@ -8,11 +8,9 @@
 import Foundation
 
 class BananaMilk: Milk {
-    private var isUnsweetened: Bool
+    private let isUnsweetened: Bool
     
-    init(manufacturer: String, volume: Int, name: String,
-         dateOfManufacture: Date, price: Int, farmCode: String,
-         expriryDate: Date, isUnsweetened: Bool) {
+    init(manufacturer: String, volume: Int, name: String, dateOfManufacture: Date, price: Int, farmCode: String, expriryDate: Date, isUnsweetened: Bool) {
         self.isUnsweetened = isUnsweetened
         super.init(manufacturer: manufacturer, volume: volume, name: name, dateOfManufacture: dateOfManufacture, price: price, farmCode: farmCode, expriryDate: expriryDate)
     }

@@ -8,7 +8,7 @@
 import Foundation
 
 class Soda: Drink, CustomStringConvertible {
-    private var calorie: Int
+    private let calorie: Int
     
     init(manufacturer: String, volume: Int, name: String,
          dateOfManufacture: Date, price: Int, calorie: Int) {

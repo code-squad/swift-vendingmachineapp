@@ -16,36 +16,32 @@ class VendingMachine {
         case fifvethousand = 5000
     }
     
-    private var stock: [Drink]
+    private var stock: Drinks
     private var credit: Int
     
     init() {
-        self.stock = []
+        self.stock = Drinks()
         self.credit = 0
     }
     
-    init(drinks: [Drink]) {
+    init(drinks: Drinks) {
         self.stock = drinks
         self.credit = 0
     }
     
     func show(handler: (Drink) -> Void) {
-        stock.forEach {
-            handler($0)
-        }
+        stock.show(handler: handler)
     }
     
     func insertCoin(coin: Coin) {
         credit += coin.rawValue
     }
     
-    func append(drink: Drink) {
+    func append(_ drink: Drink) {
         stock.append(drink)
     }
     
     func append(drinks: [Drink]) {
-        drinks.forEach {
-            stock.append($0)
-        }
+        stock.append(drinks)
     }
 }

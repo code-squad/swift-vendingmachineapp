@@ -25,6 +25,7 @@
 		FFCB24A625E643900028AD95 /* Sprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCB24A525E643900028AD95 /* Sprite.swift */; };
 		FFCB24AB25E643A80028AD95 /* Top.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCB24AA25E643A80028AD95 /* Top.swift */; };
 		FFCB24AE25E643AE0028AD95 /* Cantata.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCB24AD25E643AE0028AD95 /* Cantata.swift */; };
+		FFCB24B725E772580028AD95 /* Drinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCB24B625E772580028AD95 /* Drinks.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		FFCB24A525E643900028AD95 /* Sprite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sprite.swift; sourceTree = "<group>"; };
 		FFCB24AA25E643A80028AD95 /* Top.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Top.swift; sourceTree = "<group>"; };
 		FFCB24AD25E643AE0028AD95 /* Cantata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cantata.swift; sourceTree = "<group>"; };
+		FFCB24B625E772580028AD95 /* Drinks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drinks.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				FFCB249025E5E8410028AD95 /* VendingMachine.swift */,
+				FFCB24B625E772580028AD95 /* Drinks.swift */,
 				FF2DBFDA25E3780B00D2A215 /* Drink.swift */,
 				FF2DBFDE25E5E22600D2A215 /* Soda.swift */,
 				FF2DBFE225E5E22C00D2A215 /* Milk.swift */,
@@ -191,6 +194,7 @@
 			files = (
 				FFCB24A325E6438A0028AD95 /* CocaCola.swift in Sources */,
 				FF2DBFC725E3775F00D2A215 /* ViewController.swift in Sources */,
+				FFCB24B725E772580028AD95 /* Drinks.swift in Sources */,
 				FF2DBFC325E3775F00D2A215 /* AppDelegate.swift in Sources */,
 				FF2DBFDB25E3780B00D2A215 /* Drink.swift in Sources */,
 				FFCB24A625E643900028AD95 /* Sprite.swift in Sources */,

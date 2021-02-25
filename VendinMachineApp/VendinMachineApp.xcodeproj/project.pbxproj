@@ -16,6 +16,7 @@
 		CE95481325E777380020A333 /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE95481225E777380020A333 /* Beverage.swift */; };
 		CE95481625E7E31E0020A333 /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE95481525E7E31E0020A333 /* Milk.swift */; };
 		CE95481925E7EC840020A333 /* Soda.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE95481825E7EC840020A333 /* Soda.swift */; };
+		CE95481C25E7ECDC0020A333 /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE95481B25E7ECDC0020A333 /* Coffee.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		CE95481225E777380020A333 /* Beverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beverage.swift; sourceTree = "<group>"; };
 		CE95481525E7E31E0020A333 /* Milk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Milk.swift; sourceTree = "<group>"; };
 		CE95481825E7EC840020A333 /* Soda.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Soda.swift; sourceTree = "<group>"; };
+		CE95481B25E7ECDC0020A333 /* Coffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 		CE9547F725E76D5E0020A333 /* VendinMachineApp */ = {
 			isa = PBXGroup;
 			children = (
+				CE95481E25E7ED1F0020A333 /* Model */,
 				CE9547F825E76D5E0020A333 /* AppDelegate.swift */,
 				CE9547FA25E76D5E0020A333 /* SceneDelegate.swift */,
 				CE9547FC25E76D5E0020A333 /* ViewController.swift */,
@@ -69,11 +72,19 @@
 				CE95480125E76D5F0020A333 /* Assets.xcassets */,
 				CE95480325E76D5F0020A333 /* LaunchScreen.storyboard */,
 				CE95480625E76D5F0020A333 /* Info.plist */,
-				CE95481225E777380020A333 /* Beverage.swift */,
-				CE95481525E7E31E0020A333 /* Milk.swift */,
-				CE95481825E7EC840020A333 /* Soda.swift */,
 			);
 			path = VendinMachineApp;
+			sourceTree = "<group>";
+		};
+		CE95481E25E7ED1F0020A333 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CE95481225E777380020A333 /* Beverage.swift */,
+				CE95481825E7EC840020A333 /* Soda.swift */,
+				CE95481525E7E31E0020A333 /* Milk.swift */,
+				CE95481B25E7ECDC0020A333 /* Coffee.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,6 +163,7 @@
 				CE95481325E777380020A333 /* Beverage.swift in Sources */,
 				CE9547FB25E76D5E0020A333 /* SceneDelegate.swift in Sources */,
 				CE95481625E7E31E0020A333 /* Milk.swift in Sources */,
+				CE95481C25E7ECDC0020A333 /* Coffee.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

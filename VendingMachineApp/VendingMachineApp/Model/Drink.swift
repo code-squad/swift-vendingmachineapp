@@ -39,7 +39,7 @@ class Drink: CustomStringConvertible, Hashable {
     private let brand: String
     private let volume: Int
     private let charge: Int
-    private let name: String
+    private (set) var name: String
     private let manufacturing: Date
     
     init(brand : String, volume : Int, charge : Int, name :String, manufacturing : Date) {
@@ -68,8 +68,8 @@ class Drink: CustomStringConvertible, Hashable {
         return self.charge < money
     }
     
-    func isSameName(with product: Drink) -> Bool {
-        return self.name == product.name
+    func isSameType(with productType: Drink.Type) -> Bool {
+        return type(of: self) == productType
     }
     
     func payFor(with money : Int) -> Int {

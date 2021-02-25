@@ -15,13 +15,17 @@ class Beverage {
         self.productName = productName
         self.manufacturedDay = manufacturedDay
     }
+    
+    private func checkManufacturedDayOfProducts() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyyMMDD"
+        return dateFormatter.string(from: manufacturedDay)
+    }
 }
 
 extension Beverage: CustomStringConvertible {
     var description: String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyyMMdd"
-        return "\(brand), \(volume)ml, \(price)원, \(productName), \(dateFormatter.string(from: manufacturedDay))"
+        return "\(brand), \(volume)ml, \(price)원, \(productName), \(checkManufacturedDayOfProducts())"
     }
 }
 

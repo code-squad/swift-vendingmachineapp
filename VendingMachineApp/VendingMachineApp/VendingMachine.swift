@@ -7,7 +7,7 @@
 
 import Foundation
 
-class BeverageInventory {
+class VendingMachine {
     
     private var inventoryList = [Beverage]()
     
@@ -16,7 +16,7 @@ class BeverageInventory {
     }
     
     public func printInventoryList() {
-        print(inventoryList)
+        inventoryList.forEach( { print($0) } )
     }
     
 }

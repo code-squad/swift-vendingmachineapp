@@ -7,6 +7,7 @@ class Coke: SoftDrink {
         self.flavor = flavor
         super.init(brand: brand, volume: volume, price: price, productName: productName, manufacturedDay: manufacturedDay, zeroCalories: zeroCalories)
     }
+    
     enum Flavor {
         case Lime
         case Cherry

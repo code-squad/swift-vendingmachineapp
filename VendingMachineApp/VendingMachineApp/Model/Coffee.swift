@@ -1,12 +1,12 @@
 import Foundation
 
-enum CoffeeBrand: String {
-    case top
-    case cantata
-    case georgia
-}
-
 class Coffee: Beverage {
+    enum CoffeeBrand: String {
+        case top
+        case cantata
+        case georgia
+    }
+
     private var coffeeBrand: CoffeeBrand
     
     init(brand: String, capacity: Int, price: Int, name: String, coffeeBrand: CoffeeBrand, date: Date = Date()) {

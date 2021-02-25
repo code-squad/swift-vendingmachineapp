@@ -1,17 +1,13 @@
 //
-//  DateUtility.swift
+//  Date+DateFormatter.swift
 //  VendingMachineApp
 //
-//  Created by Song on 2021/02/24.
+//  Created by Song on 2021/02/25.
 //
 
 import Foundation
 
-enum DateError: Error {
-    case invalidInputFormat(validFormat: String)
-}
-
-struct DateUtility {
+extension Date {
     
     static private let dateFormatter = DateFormatter()
     static private let validFormat: String = "yyyyMMdd"
@@ -21,10 +17,10 @@ struct DateUtility {
         return dateFormatter.string(from: date)
     }
     
-    static func getDate(from dateString: String) throws -> Date {
+    static func getDate(from dateString: String) -> Date {
         dateFormatter.dateFormat = validFormat
         guard let date = dateFormatter.date(from: dateString) else {
-            throw DateError.invalidInputFormat(validFormat: validFormat)
+            fatalError()
         }
         return date
     }

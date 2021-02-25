@@ -10,7 +10,7 @@ import Foundation
 class Milk: CustomStringConvertible {
     
     var description: String {
-        return "\(brand), \(miliLiter)ml, \(price)원, \(name), \(dateOfManufacture)"
+        return "\(brand), \(miliLiter)ml, \(price)원, \(name), \(DateConverter.toString(dateOfManufacture))"
     }
     
     private var brand: String

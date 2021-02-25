@@ -13,7 +13,7 @@ class Beverage: CustomStringConvertible {
     private let volume: Int
     private let price: Int
     private let name: String
-    private let manufactured: Date
+    private let manufactured: Date?
     var description: String {
         return "\(brand), \(volume)ml, \(price)원, \(name), \(Date.getString(from: manufactured))"
     }

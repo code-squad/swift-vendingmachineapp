@@ -24,15 +24,15 @@ class Beverage: CustomStringConvertible {
         self.capacity = capacity
         self.price = price
         self.name = name
-        self.manufactureDate = dateString.converToDate(from: dateString)
+        self.manufactureDate = dateString.converToDate()
     }
 }
 
 extension String {
-    func converToDate(from manufactureDate: String) -> Date {
+    func converToDate() -> Date {
         let manufactureDateFormatter = DateFormatter()
         manufactureDateFormatter.dateFormat = "yyyyMMdd"
-        return manufactureDateFormatter.date(from: manufactureDate)!
+        return manufactureDateFormatter.date(from: self)!
     }
 }
 

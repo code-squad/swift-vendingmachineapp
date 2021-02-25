@@ -8,7 +8,5 @@
 import Foundation
 
 class Milk: Beverage {
-    enum taste {
-        case strawberry, banana, choco
-    }
+
 }

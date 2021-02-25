@@ -29,14 +29,50 @@ class Milk: Beverage, Expirable, LactoFreeable {
     }
     
     func isLactoFree() -> Bool {
-        return lactose == 0 ? true : false
+        return lactose <= 0.5 ? true : false
+    }
+    
+}
+
+
+class Chocolate: Milk, Transportable {
+    
+    private let package: Package
+    
+    init(brand: String, name: String, price: Int, size: Int, manufactured: Date,
+         expireAfter: Int, lactose: Float, package: Package) {
+        
+        self.package = package
+        
+        super.init(brand: brand, name: name, price: price, size: size, manufactured: manufactured,
+                   expireAfter: expireAfter, lactose: lactose)
+    }
+    
+    func isTransportable() -> Bool {
+        switch package {
+        case .bottle:
+            return true
+        default:
+            return false
+        }
     }
 }
 
-class Chocolate: Milk{
-    
-}
 
-class Plain: Milk {
+class Plain: Milk, SugarFreeable {
     
+    private let isSugarAdded: Bool
+    
+    init(brand: String, name: String, price: Int, size: Int, manufactured: Date,
+         expireAfter: Int, lactose: Float, isSugarAdded: Bool) {
+        
+        self.isSugarAdded = isSugarAdded
+        
+        super.init(brand: brand, name: name, price: price, size: size, manufactured: manufactured,
+                   expireAfter: expireAfter, lactose: lactose)
+    }
+    
+    func isSugarFree() -> Bool {
+        return !isSugarAdded
+    }
 }

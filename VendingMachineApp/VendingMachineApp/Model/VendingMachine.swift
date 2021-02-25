@@ -30,9 +30,13 @@ struct VendingMachine {
         drink.addStock(beverage : beverage)
     }
     
-    func berageAvertList(handler : (Beverage) -> Void) {
+    func beverageAvertList(handler : ([Beverage]) -> Void) {
         payment.purchasePossibleList(drink: drink) {
             handler($0)
         }
+    }
+    
+    func checkBalance() -> Int {
+        return payment.amountMoney
     }
 }

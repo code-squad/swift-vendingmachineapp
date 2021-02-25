@@ -8,7 +8,7 @@
 import Foundation
 
 class Payment {
-    private var amountMoney : Int
+    private(set) var amountMoney : Int
     
     init() {
         self.amountMoney = 0
@@ -18,7 +18,7 @@ class Payment {
         self.amountMoney += money
     }
     
-    func purchasePossibleList(drink : Drink, handler : (Beverage) -> Void) {
+    func purchasePossibleList(drink : Drink, handler : ([Beverage]) -> Void) {
         drink.purchasePossibleList(currentMoney: amountMoney) {
             handler($0)
         }

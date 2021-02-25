@@ -19,6 +19,10 @@ class VendingMachine {
     private var stock: [Drink]
     private var credit: Int
     
+    init() {
+        self.stock = []
+        self.credit = 0
+    }
     
     init(drinks: [Drink]) {
         self.stock = drinks

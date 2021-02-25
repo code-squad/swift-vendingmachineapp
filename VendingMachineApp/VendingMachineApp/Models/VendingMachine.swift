@@ -7,28 +7,20 @@
 
 import Foundation
 
-class VendingMachine { // 아이템에 대한 상세한 사항을 알지 못하도록 구현 (추상화) 
-
-    private let stock = Stock()
+class VendingMachine {
+    private let stock: Stock
     
-    func addBeverage(brand: String, capacity: Int, price: Int, name: String, dateString: String){
-        let newBeverage = Beverage(brand: brand, capacity: capacity, price: price, name: name, dateString: dateString)
-        stock.add(beverage: newBeverage)
+    init() {
+        stock = Stock()
     }
     
-    func showStock() -> [Beverage] {
-        return stock.beverages
-    }
-}
-
-class Stock {
-    var beverages = [Beverage]()
-    
-    func isOutOfStock(beverage: Beverage) -> Bool {
-        return true
+    func add(beverage: Beverage){
+        stock.add(beverage: beverage)
     }
     
-    func add(beverage: Beverage) {
-        beverages.append(beverage)
+    func showStock() {
+        stock.show { print($0) }
     }
 }
+
+

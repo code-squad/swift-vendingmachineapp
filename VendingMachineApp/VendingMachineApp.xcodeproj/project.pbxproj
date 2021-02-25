@@ -15,6 +15,8 @@
 		7663A7AA25E642A60034156D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7663A7A825E642A60034156D /* LaunchScreen.storyboard */; };
 		7663A7B525E642A70034156D /* VendingMachineAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7663A7B425E642A70034156D /* VendingMachineAppTests.swift */; };
 		7663A7C025E642A70034156D /* VendingMachineAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7663A7BF25E642A70034156D /* VendingMachineAppUITests.swift */; };
+		7663A7E625E6A29B0034156D /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7663A7E525E6A29B0034156D /* VendingMachine.swift */; };
+		7663A7EE25E6A2A80034156D /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7663A7ED25E6A2A80034156D /* Beverage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		7663A7BB25E642A70034156D /* VendingMachineAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VendingMachineAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7663A7BF25E642A70034156D /* VendingMachineAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineAppUITests.swift; sourceTree = "<group>"; };
 		7663A7C125E642A70034156D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7663A7E525E6A29B0034156D /* VendingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachine.swift; sourceTree = "<group>"; };
+		7663A7ED25E6A2A80034156D /* Beverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beverage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +136,8 @@
 		7663A7E425E64D080034156D /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				7663A7E525E6A29B0034156D /* VendingMachine.swift */,
+				7663A7ED25E6A2A80034156D /* Beverage.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -266,9 +272,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7663A7EE25E6A2A80034156D /* Beverage.swift in Sources */,
 				7663A7A225E642A60034156D /* ViewController.swift in Sources */,
 				7663A79E25E642A60034156D /* AppDelegate.swift in Sources */,
 				7663A7A025E642A60034156D /* SceneDelegate.swift in Sources */,
+				7663A7E625E6A29B0034156D /* VendingMachine.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

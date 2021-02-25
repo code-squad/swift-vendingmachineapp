@@ -1,57 +1,60 @@
-# 진행 방법
+# 음료 자판기 앱
 
-- 음료수 자판기 iOS 앱에 요구사항을 파악한다.
-- 요구사항에 대한 구현을 완료한 후 자신의 github 아이디에 해당하는 브랜치에 Pull Request(이하 PR)를 통해 코드 리뷰 요청을 한다.
-- 코드 리뷰 피드백에 대한 개선 작업을 하고 다시 PUSH한다.
-- 모든 피드백을 완료하면 다음 단계를 도전하고 앞의 과정을 반복한다.
 
-# 코드 리뷰 과정
-> 저장소 브랜치에 자신의 github 아이디에 해당하는 브랜치가 존재해야 한다.
->
-> 자신의 github 아이디에 해당하는 브랜치가 있는지 확인한다.
 
-1. 자신의 github 아이디에 해당하는 브랜치가 없는 경우 브랜치 생성 요청 채널을 통해 브랜치 생성을 요청한다.
-프로젝트를 자신의 계정으로 fork한다. 저장소 우측 상단의 fork 버튼을 활용한다.
+## step1
 
-2. fork한 프로젝트를 자신의 컴퓨터로 clone한다.
-```
-git clone https://github.com/{본인_아이디}/{저장소 아이디}
-ex) https://github.com/godrm/swift-vendingmachineapp
-```
+ViewController 클래스에 VendingMachine 객체를 변수로 추가하고 viewDidLoad() 함수에서 음료수 객체 3종류를 추가하고 재고 목록을 print() 한다.
 
-3. clone한 프로젝트 이동
-```
-cd {저장소 아이디}
-ex) cd swift-vendingmachineapp
-```
+* Device Orientation
 
-4. 본인 아이디로 브랜치를 만들기 위한 checkout
-```
-git checkout -t origin/본인_아이디
-ex) git checkout -t origin/godrm
-```
+  Home Button의 위치로 구분한다!
 
-5. commit
-```
-git status //확인
-git rm 파일명 //삭제된 파일
-git add 파일명(or * 모두) // 추가/변경 파일
-git commit -m "메세지" // 커밋
-```
+![스크린샷 2021-02-24 오후 5.36.26](/Users/kimjisun/Library/Application Support/typora-user-images/스크린샷 2021-02-24 오후 5.36.26.png)
 
-6. 본인 원격 저장소에 올리기
-```
-git push origin 본인_아이디
-ex) git push origin godrm
-```
+[`case portrait`](https://developer.apple.com/documentation/uikit/uideviceorientation/portrait)
 
-7. pull request
-8. pull request는 github 서비스에서 진행할 수 있다.
-9. pull request는 반드시 original 저장소의 브랜치와 fork한 자신의 저장소 브랜치 이름이 같아야 하며, 브랜치 이름은 자신의 github 아이디여야 한다.
-10. code review 및 push
-11. pull request를 통해 피드백을 받는다.
-12. 코드 리뷰 피드백에 대한 개선 작업을 하고 다시 PUSH한다.
+The device is in portrait mode, with the device held upright and the **Home button at the bottom.**
 
-## 앞의 코드 리뷰 과정은 [영상 보기](https://www.youtube.com/watch?v=ZSZoaG0PqLg) 를 통해 참고 가능
+홈버튼이 아래쪽으로 고정되어있는 모드
 
-## 실습 중 모든 질문은 슬랙 채널에서...
+[`case portraitUpsideDown`](https://developer.apple.com/documentation/uikit/uideviceorientation/portraitupsidedown) (<-> case portrait)
+
+The device is in portrait mode but upside down, with the device held upright and the **Home button at the top.**
+
+[`case landscapeLeft`](https://developer.apple.com/documentation/uikit/uideviceorientation/landscapeleft)
+
+The device is in landscape mode, with the device held upright and the **Home button on the right side.**
+
+[`case landscapeRight`](https://developer.apple.com/documentation/uikit/uideviceorientation/landscaperight)
+
+The device is in landscape mode, with the device held upright and the **Home button on the left side.**
+
+
+
+* [Date 타입](https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/DataFormatting/Articles/dfDateFormatting10_4.html#//apple_ref/doc/uid/TP40002369-SW1)
+
+  * Date
+
+  * DateFormatter: Date타입과 문자열을 양방향으로 변환
+
+    ( Formatter: 특정한 타입의 값과 문자열을 양방향으로 변환하는 도구) 
+
+    
+
+  * Calendar: 달력과 관련된 정보를 담는 구조체
+
+  * DateComponent: 각 달력의 요소 (ex. day, month)
+
+* extension
+
+  * 상수인 저장프로퍼티를 추가할 수는 없다 -> 타입 전체에 적용하기 위해 타입 프로퍼티를 선언해야한다
+  * 연산 프로퍼티를 추가할 수 있다
+
+## 고민
+
+* 상속과 확장을 비교해보면, 확장이 응집도를 높이고 결합성을 낮추는 데에 더욱 좋다??
+
+  왜냐하면, 확장은 상속받지 않고 기존타입에 기능을 추가하기에 응집도가 높아지고 재정의가 되지 않기에 기존 타입과 결합성이 낮다! 
+
+-> DateFormatter 구현할 때, Date구조체를 상속받고 싶지만 구조체를 상속받는 것은 불가능했다. -> extension으로 확장

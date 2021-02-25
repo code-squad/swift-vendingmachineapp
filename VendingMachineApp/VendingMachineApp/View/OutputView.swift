@@ -41,8 +41,23 @@ struct OutputView {
     
     func test_Machine() {
         var testMachine = VendingMachine()
-        testMachine.addStock(what: ChocoMilk.init())
-        testMachine.addStock(what: TOP.init())
-        print(testMachine.availableList())
+        print("money : \(testMachine.checkMoney())")
+        testMachine.insertMoney(howMuch: 1000)
+        print("money : \(testMachine.checkMoney())")
+        for _ in 0...4 {
+            testMachine.addStock(what: StrawberryMilk.init())
+            testMachine.addStock(what: Cola.init())
+            testMachine.addStock(what: Cider.init())
+            testMachine.addStock(what: Cantata.init())
+            testMachine.addStock(what: ChocoMilk.init())
+            testMachine.addStock(what: TOP.init())
+        }
+        print("stock : \(testMachine.showStock())")
+        print("hot is : \(testMachine.hotDrinks())")
+        print("expiredStock : \(testMachine.expiredStock())")
+        print("availableList : \(testMachine.availableList())")
+        testMachine.buyProduct(what: StrawberryMilk.self)
+        print("purchased : \(testMachine.purchasedList())")
+        
     }
 }

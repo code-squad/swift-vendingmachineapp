@@ -13,7 +13,7 @@ struct VendingMachine {
     private var purchased : Drinks
     
     init() {
-        self.money = 900
+        self.money = 0
         self.stock = Drinks.init()
         self.purchased = Drinks.init()
     }
@@ -26,26 +26,26 @@ struct VendingMachine {
         stock.addDrink(what: product)
     }
     
-    func availableList() -> [String] {
+    func availableList() -> Set<String> {
         var canBuyArray = [Drink]()
         stock.doClosure(closure: { drinks in
             canBuyArray = drinks.filter() {
                 $0.canBuy(have: self.money)
             }
         })
-        return canBuyArray.map(){String($0.description)} // name만 나오도록 수정해야 함.
+        return Set(canBuyArray.map(){String($0.name)}) // name만 나오도록 수정해야 함.
     }
     
     /// if fail, return false
-    mutating func buyProduct(what product : Drink) -> Bool{
+    mutating func buyProduct(what productType : Drink.Type) -> Bool{
         do {
-            let purchasedItem = try stock.remove(at: product)
+            let purchasedItem = try stock.remove(at: productType)
             purchased.addDrink(what: purchasedItem)
+            money = purchasedItem.payFor(with: money)
         }
         catch {
             return false
         }
-        money = product.payFor(with: money)
         return true
     }
     
@@ -53,16 +53,16 @@ struct VendingMachine {
         return money
     }
     
-    func showStock() -> Dictionary<Drink,Int> {
-        var returnDic = Dictionary<Drink,Int>()
+    func showStock() -> Dictionary<String,Int> {
+        var returnDic = Dictionary<String,Int>()
         
         stock.doClosure(closure: { drinks in
             drinks.forEach({
-                if returnDic[$0] == nil {
-                    returnDic.updateValue(1, forKey: $0)
+                if returnDic[$0.name] == nil {
+                    returnDic.updateValue(1, forKey: $0.name)
                 }
                 else {
-                    returnDic.updateValue(returnDic[$0]! + 1, forKey: $0)
+                    returnDic.updateValue(returnDic[$0.name]! + 1, forKey: $0.name)
                 }
             })
         })
@@ -74,7 +74,7 @@ struct VendingMachine {
         var returnArr = [String]()
         purchased.doClosure(closure: { drinks in
             drinks.forEach({
-                returnArr.append($0.description)
+                returnArr.append($0.name)
             })
         })
         
@@ -96,13 +96,13 @@ struct VendingMachine {
         return returnDrinkArr
     }
     
-    func hotDrinks() -> [Drink] {
-        var returnDrinkArr = [Drink]()
+    func hotDrinks() -> Set<String> {
+        var returnDrinkArr = Set<String>()
         stock.doClosure(closure: { drinks in
             drinks.forEach({
                 if let downCasting = $0 as? TOP {
                     if downCasting.isHot() == true {
-                        returnDrinkArr.append(downCasting)
+                        returnDrinkArr.insert(downCasting.name)
                     }
                 }
             })

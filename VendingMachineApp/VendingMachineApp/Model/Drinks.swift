@@ -28,9 +28,9 @@ class Drinks {
     }
     
     /// if fail -> return false.
-    func remove(at product : Drink) throws -> Drink {
+    func remove(at productType : Drink.Type) throws -> Drink {
         guard let removeTarget = drinks.firstIndex(where: {
-            $0.isSameName(with: product)
+            $0.isSameType(with: productType)
         })
         else {
             throw errorCase.outOfIndex

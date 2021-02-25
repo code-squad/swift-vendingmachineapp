@@ -17,6 +17,7 @@
 		CE95481625E7E31E0020A333 /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE95481525E7E31E0020A333 /* Milk.swift */; };
 		CE95481925E7EC840020A333 /* Soda.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE95481825E7EC840020A333 /* Soda.swift */; };
 		CE95481C25E7ECDC0020A333 /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE95481B25E7ECDC0020A333 /* Coffee.swift */; };
+		CE95482025E7F0F10020A333 /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE95481F25E7F0F10020A333 /* VendingMachine.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		CE95481525E7E31E0020A333 /* Milk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Milk.swift; sourceTree = "<group>"; };
 		CE95481825E7EC840020A333 /* Soda.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Soda.swift; sourceTree = "<group>"; };
 		CE95481B25E7ECDC0020A333 /* Coffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
+		CE95481F25E7F0F10020A333 /* VendingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachine.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				CE95481825E7EC840020A333 /* Soda.swift */,
 				CE95481525E7E31E0020A333 /* Milk.swift */,
 				CE95481B25E7ECDC0020A333 /* Coffee.swift */,
+				CE95481F25E7F0F10020A333 /* VendingMachine.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -164,6 +167,7 @@
 				CE9547FB25E76D5E0020A333 /* SceneDelegate.swift in Sources */,
 				CE95481625E7E31E0020A333 /* Milk.swift in Sources */,
 				CE95481C25E7ECDC0020A333 /* Coffee.swift in Sources */,
+				CE95482025E7F0F10020A333 /* VendingMachine.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

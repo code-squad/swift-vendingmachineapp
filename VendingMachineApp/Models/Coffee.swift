@@ -14,7 +14,7 @@ class Coffee : Beverage{
         case Georgia
     }
     
-    var kind : Kind
+    private var kind : Kind
     
     init(brand : String, capacity : Int, price : Int, name : String, createDate : String, kind : Coffee.Kind){
         self.kind = kind

@@ -8,11 +8,11 @@
 import Foundation
 
 class Beverage : CustomStringConvertible {
-    var brand : String
-    var capacity :  Int
-    var price : Int
-    var name : String
-    var createDate : Date
+    private var brand : String
+    private var capacity :  Int
+    private var price : Int
+    private var name : String
+    private var createDate : Date
     
     var description: String {
         return "\(brand), \(capacity)ml, \(price)원, \(name), \(createDate.toString())"

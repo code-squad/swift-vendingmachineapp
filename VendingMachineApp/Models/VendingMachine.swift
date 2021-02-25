@@ -14,6 +14,6 @@ class VendingMachine {
         products.append(drink)
     }
     public func showElements(){
-        print(products)
+        products.forEach{print($0)}
     }
 }

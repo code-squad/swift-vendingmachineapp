@@ -20,6 +20,11 @@
 		719783EA25E638DE001D428C /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719783E925E638DE001D428C /* Coffee.swift */; };
 		719783ED25E641BC001D428C /* StrawBerryMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719783EC25E641BC001D428C /* StrawBerryMilk.swift */; };
 		719783F025E641E7001D428C /* ChocolateMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719783EF25E641E7001D428C /* ChocolateMilk.swift */; };
+		719F18B225E769B900671D77 /* CheckAdditive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719F18B125E769B900671D77 /* CheckAdditive.swift */; };
+		719F18B525E76E0E00671D77 /* Coke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719F18B425E76E0E00671D77 /* Coke.swift */; };
+		719F18B825E76E4800671D77 /* Sprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719F18B725E76E4800671D77 /* Sprite.swift */; };
+		719F18BB25E76F0300671D77 /* Top.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719F18BA25E76F0300671D77 /* Top.swift */; };
+		719F18C225E76F2100671D77 /* Cantata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719F18C125E76F2100671D77 /* Cantata.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +43,11 @@
 		719783E925E638DE001D428C /* Coffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
 		719783EC25E641BC001D428C /* StrawBerryMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrawBerryMilk.swift; sourceTree = "<group>"; };
 		719783EF25E641E7001D428C /* ChocolateMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChocolateMilk.swift; sourceTree = "<group>"; };
+		719F18B125E769B900671D77 /* CheckAdditive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckAdditive.swift; sourceTree = "<group>"; };
+		719F18B425E76E0E00671D77 /* Coke.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coke.swift; sourceTree = "<group>"; };
+		719F18B725E76E4800671D77 /* Sprite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sprite.swift; sourceTree = "<group>"; };
+		719F18BA25E76F0300671D77 /* Top.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Top.swift; sourceTree = "<group>"; };
+		719F18C125E76F2100671D77 /* Cantata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cantata.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,10 +97,15 @@
 			children = (
 				717DE51225E5E26F004B2269 /* Beverage.swift */,
 				719783E325E638AE001D428C /* Milk.swift */,
+				719F18B125E769B900671D77 /* CheckAdditive.swift */,
 				719783EC25E641BC001D428C /* StrawBerryMilk.swift */,
 				719783EF25E641E7001D428C /* ChocolateMilk.swift */,
 				719783E625E638C6001D428C /* SoftDrink.swift */,
+				719F18B425E76E0E00671D77 /* Coke.swift */,
+				719F18B725E76E4800671D77 /* Sprite.swift */,
 				719783E925E638DE001D428C /* Coffee.swift */,
+				719F18BA25E76F0300671D77 /* Top.swift */,
+				719F18C125E76F2100671D77 /* Cantata.swift */,
 				717DE51A25E5E369004B2269 /* Brand.swift */,
 			);
 			path = Model;
@@ -169,6 +184,9 @@
 				719783E725E638C6001D428C /* SoftDrink.swift in Sources */,
 				719783ED25E641BC001D428C /* StrawBerryMilk.swift in Sources */,
 				717DE50025E5E0A6004B2269 /* VendingMachineViewController.swift in Sources */,
+				719F18B525E76E0E00671D77 /* Coke.swift in Sources */,
+				719F18B825E76E4800671D77 /* Sprite.swift in Sources */,
+				719F18C225E76F2100671D77 /* Cantata.swift in Sources */,
 				717DE4FC25E5E0A6004B2269 /* AppDelegate.swift in Sources */,
 				717DE51325E5E26F004B2269 /* Beverage.swift in Sources */,
 				717DE51B25E5E369004B2269 /* Brand.swift in Sources */,
@@ -176,6 +194,8 @@
 				719783F025E641E7001D428C /* ChocolateMilk.swift in Sources */,
 				717DE4FE25E5E0A6004B2269 /* SceneDelegate.swift in Sources */,
 				719783EA25E638DE001D428C /* Coffee.swift in Sources */,
+				719F18B225E769B900671D77 /* CheckAdditive.swift in Sources */,
+				719F18BB25E76F0300671D77 /* Top.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

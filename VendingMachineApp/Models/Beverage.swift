@@ -15,13 +15,13 @@ class Beverage : CustomStringConvertible {
     var createDate : Date
     
     var description: String {
-        return "\(brand), \(capacity)ml, \(price)원, \(name), \(Date.toString(date : createDate))"
+        return "\(brand), \(capacity)ml, \(price)원, \(name), \(createDate.toString())"
     }
     init(brand : String, capacity : Int, price : Int, name : String, createDate : String){
         self.brand = brand
         self.capacity = capacity
         self.price = price
         self.name = name
-        self.createDate = Date.getDate(with: createDate)
+        self.createDate = createDate.toDate()
     }
 }

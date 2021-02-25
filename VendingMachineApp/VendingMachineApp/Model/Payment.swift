@@ -13,29 +13,22 @@ class Payment {
     init() {
         self.amountMoney = 0
     }
-    
-    func increaseMoney(money : Int) {
-        self.amountMoney += money
-    }
-    
+        
     func purchasePossibleList(drink : Drink, handler : ([Beverage]) -> Void) {
         drink.purchasePossibleList(currentMoney: amountMoney) {
             handler($0)
         }
     }
     
-    func purchaseBeverage(beverage : Beverage, drink : Drink) {
-        if checkBalance(beverage: beverage) {
-            subtractAmountMoney(beverage: beverage)
-            drink.purchaseBeverage(beverage: beverage)
-        }
-    }
-    
-    private func checkBalance(beverage : Beverage) -> Bool {
+    func checkBalance(beverage : Beverage) -> Bool {
         return amountMoney > beverage.price
     }
     
-    private func subtractAmountMoney(beverage : Beverage) {
+    func increaseAmountMoney(money : Int) {
+        self.amountMoney += money
+    }
+    
+    func decreaseAmountMoney(beverage : Beverage) {
         return amountMoney -= beverage.price
     }
 }

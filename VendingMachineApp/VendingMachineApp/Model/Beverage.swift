@@ -33,11 +33,11 @@ class Beverage : CustomStringConvertible, Beveragable {
     }
     
     func isPossible(money : Int) -> Bool {
-        return self.price < money
+        return self.price <= money
     }
     
     func validate(with date:Date) -> Bool {
-        return expiryDate < date
+        return expiryDate > date
     }
     
     func isHot() -> Bool {

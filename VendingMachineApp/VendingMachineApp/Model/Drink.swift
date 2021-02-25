@@ -24,26 +24,25 @@ class Drink {
         }
     }
     
-    func purchasePossibleList(currentMoney : Int, handler : ([Beverage]) -> Void) {
-        handler(drinks.filter { $0.isPossible(money: currentMoney) })
+    func purchasePossibleList(currentMoney : Int) -> [Beverage] {
+        return drinks.filter { $0.isPossible(money: currentMoney) }
     }
     
     func purchaseBeverage(beverage : Beverage) {
         let _ = drinks.firstIndex(of: beverage).map { drinks.remove(at: $0) }
     }
     
-    func showAllBeverage(handler : ([Beverage : Int]) -> Void) {
-        let stockList = drinks.reduce(into: [:]) { goods, beverage in
+    func showAllBeverage() -> [Beverage : Int] {
+       return drinks.reduce(into: [:]) { goods, beverage in
             goods[beverage, default: 0] += 1
         }
-        handler(stockList)
     }
     
-    func passExpiryDate(expiryDate : Date, handler : ([Beverage]) -> Void) {
-        handler(drinks.filter { $0.validate(with: expiryDate) })
+    func passExpiryDate() -> [Beverage] {
+        return drinks.filter { $0.validate(with: Date()) }
     }
     
-    func hotDrink(expiryDate : Date, handler : ([Beverage]) -> Void) {
-        handler(drinks.filter { $0.isHot() })
+    func hotDrink() -> [Beverage] {
+        drinks.filter { $0.isHot() }
     }
 }

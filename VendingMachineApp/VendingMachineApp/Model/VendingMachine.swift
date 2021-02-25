@@ -32,10 +32,8 @@ struct VendingMachine {
         drink.addStock(beverage : beverage)
     }
     
-    func showPurchasePossibleList(handler : ([Beverage]) -> Void) {
-        payment.purchasePossibleList(drink: drink) {
-            handler($0)
-        }
+    func showPurchasePossibleList() -> [Beverage] {
+        return payment.purchasePossibleList(drink: drink)
     }
     
     mutating func purchaseBeverage(beverage : Beverage) {
@@ -44,6 +42,18 @@ struct VendingMachine {
             drink.purchaseBeverage(beverage: beverage)
             purchasedList.addBeverage(beverage: beverage)
         }
+    }
+    
+    func showAllBeverageStock() -> [Beverage : Int] {
+        return drink.showAllBeverage()
+    }
+    
+    func outOfDateinventory() -> [Beverage] {
+        return drink.passExpiryDate()
+    }
+    
+    func verifyHotBeverages() -> [Beverage] {
+        return drink.hotDrink()
     }
     
     func checkCurrentBalance() -> Int {

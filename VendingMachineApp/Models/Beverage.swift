@@ -12,16 +12,16 @@ class Beverage : CustomStringConvertible {
     private var capacity :  Int
     private var price : Int
     private var name : String
-    private var createDate : Date
+    private var create : Date
     
     var description: String {
-        return "\(brand), \(capacity)ml, \(price)원, \(name), \(createDate.toString())"
+        return "\(brand), \(capacity)ml, \(price)원, \(name), \(create.toString())"
     }
-    init(brand : String, capacity : Int, price : Int, name : String, createDate : String){
+    init(brand : String, capacity : Int, price : Int, name : String, create : String){
         self.brand = brand
         self.capacity = capacity
         self.price = price
         self.name = name
-        self.createDate = createDate.toDate()
+        self.create = create.toDate()
     }
 }

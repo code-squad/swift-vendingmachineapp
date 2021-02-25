@@ -35,4 +35,15 @@ class Drinks {
         }
         stock -= 1
     }
+    
+    func getAllDrinks() -> [Drink: Int] {
+        return drinks
+    }
+    
+    func getExpiredDrinks() -> [Drink: Int] {
+        let expiredDrinks = drinks.filter {
+            return $0.key.dateOfManufacture < Date()
+        }
+        return expiredDrinks
+    }
 }

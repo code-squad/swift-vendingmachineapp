@@ -9,8 +9,18 @@ import Foundation
 
 class Drink: CustomStringConvertible, Hashable {
     
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(self.brand)
+        hasher.combine(self.charge)
+        hasher.combine(self.manufacturing)
+        hasher.combine(self.name)
+        hasher.combine(self.volume)
+    }
+    
     var hashValue: Int {
-        return brand.hashValue ^ charge.hashValue ^ manufacturing.hashValue ^ name.hashValue ^ volume.hashValue &* 16777619
+        var hasher = Hasher()
+        self.hash(into: &hasher)
+        return hasher.finalize()
     }
     
     

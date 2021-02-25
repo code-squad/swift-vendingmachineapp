@@ -16,7 +16,7 @@ class Coffee : Beverage{
     
     var kind : Kind
     
-    init(brand : String, capacity : Int, price : Int, name : String, createDate : Date, kind : Coffee.Kind){
+    init(brand : String, capacity : Int, price : Int, name : String, createDate : String, kind : Coffee.Kind){
         self.kind = kind
         super.init(brand: brand,
                    capacity: capacity,

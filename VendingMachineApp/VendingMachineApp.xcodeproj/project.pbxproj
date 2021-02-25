@@ -13,6 +13,9 @@
 		A0915E6825E76B20008CFD5D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0915E6625E76B20008CFD5D /* Main.storyboard */; };
 		A0915E6A25E76B20008CFD5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0915E6925E76B20008CFD5D /* Assets.xcassets */; };
 		A0915E6D25E76B20008CFD5D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0915E6B25E76B20008CFD5D /* LaunchScreen.storyboard */; };
+		A0915E7725E76CC7008CFD5D /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0915E7625E76CC7008CFD5D /* Beverage.swift */; };
+		A0915E7A25E76E07008CFD5D /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0915E7925E76E07008CFD5D /* VendingMachine.swift */; };
+		A0915E8725E784F9008CFD5D /* BeverageClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0915E8625E784F9008CFD5D /* BeverageClass.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		A0915E6925E76B20008CFD5D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A0915E6C25E76B20008CFD5D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A0915E6E25E76B20008CFD5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A0915E7625E76CC7008CFD5D /* Beverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beverage.swift; sourceTree = "<group>"; };
+		A0915E7925E76E07008CFD5D /* VendingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachine.swift; sourceTree = "<group>"; };
+		A0915E8625E784F9008CFD5D /* BeverageClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageClass.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +65,9 @@
 				A0915E6025E76B20008CFD5D /* AppDelegate.swift */,
 				A0915E6225E76B20008CFD5D /* SceneDelegate.swift */,
 				A0915E6425E76B20008CFD5D /* ViewController.swift */,
+				A0915E7625E76CC7008CFD5D /* Beverage.swift */,
+				A0915E8625E784F9008CFD5D /* BeverageClass.swift */,
+				A0915E7925E76E07008CFD5D /* VendingMachine.swift */,
 				A0915E6625E76B20008CFD5D /* Main.storyboard */,
 				A0915E6925E76B20008CFD5D /* Assets.xcassets */,
 				A0915E6B25E76B20008CFD5D /* LaunchScreen.storyboard */,
@@ -137,8 +146,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0915E8725E784F9008CFD5D /* BeverageClass.swift in Sources */,
 				A0915E6525E76B20008CFD5D /* ViewController.swift in Sources */,
+				A0915E7A25E76E07008CFD5D /* VendingMachine.swift in Sources */,
 				A0915E6125E76B20008CFD5D /* AppDelegate.swift in Sources */,
+				A0915E7725E76CC7008CFD5D /* Beverage.swift in Sources */,
 				A0915E6325E76B20008CFD5D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -295,7 +307,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = asd.VendingMachineApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -313,7 +325,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = asd.VendingMachineApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};

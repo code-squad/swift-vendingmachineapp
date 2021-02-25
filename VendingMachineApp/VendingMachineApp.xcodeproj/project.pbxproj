@@ -21,6 +21,7 @@
 		E4EB87F125E5D72400F077D5 /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EB87F025E5D72400F077D5 /* VendingMachine.swift */; };
 		E4EB87F625E782A100F077D5 /* BeverageProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EB87F525E782A100F077D5 /* BeverageProtocols.swift */; };
 		E4EB87FA25E782C000F077D5 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EB87F925E782C000F077D5 /* Package.swift */; };
+		E4EB87FE25E7BA6A00F077D5 /* Beverages.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EB87FD25E7BA6A00F077D5 /* Beverages.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		E4EB87F025E5D72400F077D5 /* VendingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachine.swift; sourceTree = "<group>"; };
 		E4EB87F525E782A100F077D5 /* BeverageProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageProtocols.swift; sourceTree = "<group>"; };
 		E4EB87F925E782C000F077D5 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
+		E4EB87FD25E7BA6A00F077D5 /* Beverages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beverages.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 				E4EB87B625E4C83300F077D5 /* SceneDelegate.swift */,
 				E4EB87B825E4C83300F077D5 /* ViewController.swift */,
 				E4EB87F025E5D72400F077D5 /* VendingMachine.swift */,
+				E4EB87FD25E7BA6A00F077D5 /* Beverages.swift */,
 				E4EB87CE25E4F88A00F077D5 /* Beverage.swift */,
 				E4EB87F525E782A100F077D5 /* BeverageProtocols.swift */,
 				E4EB87F925E782C000F077D5 /* Package.swift */,
@@ -167,6 +170,7 @@
 				E4EB87EA25E52EA700F077D5 /* DateGenerator.swift in Sources */,
 				E4EB87CF25E4F88A00F077D5 /* Beverage.swift in Sources */,
 				E4EB87B725E4C83300F077D5 /* SceneDelegate.swift in Sources */,
+				E4EB87FE25E7BA6A00F077D5 /* Beverages.swift in Sources */,
 				E4EB87F625E782A100F077D5 /* BeverageProtocols.swift in Sources */,
 				E4EB87E025E52B3E00F077D5 /* Milk.swift in Sources */,
 				E4EB87E625E52B4B00F077D5 /* Coffee.swift in Sources */,

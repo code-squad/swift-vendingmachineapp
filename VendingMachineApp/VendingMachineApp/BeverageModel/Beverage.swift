@@ -22,14 +22,6 @@ class Beverage {
         packDate = manufacturingDate
     }
     
-    public func isSameBeverage(with beverage: Beverage) -> Bool {
-        if self.name == beverage.name && self.size == beverage.size {
-            return true
-        } else {
-            return false
-        }
-    }
-    
     public func isPurchasable(with money: Int) -> Bool {
         if self.price <= money {
             return true
@@ -54,5 +46,15 @@ extension Beverage: Drinkable {
         let oneDayInSeconds: Double = 86400
         let expiringDateFromPackDate: Double = 60
         return date > packDate.addingTimeInterval(oneDayInSeconds * expiringDateFromPackDate)
+    }
+}
+
+extension Beverage: Equatable {
+    static func == (lhs: Beverage, rhs: Beverage) -> Bool {
+        return lhs.brand == rhs.brand &&
+            lhs.size == rhs.size &&
+            lhs.price == rhs.price &&
+            lhs.name == rhs.name &&
+            lhs.packDate == rhs.packDate
     }
 }

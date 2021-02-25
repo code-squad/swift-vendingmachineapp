@@ -25,11 +25,7 @@ class Item {
     }
     
     public func isSameItem(with item: Item) -> Bool {
-        if self.beverage.isSameBeverage(with: item.beverage) {
-            return true
-        } else {
-            return false
-        }
+        self.beverage == item.beverage ? true : false
     }
     
     public func isSoldOut() -> Bool {

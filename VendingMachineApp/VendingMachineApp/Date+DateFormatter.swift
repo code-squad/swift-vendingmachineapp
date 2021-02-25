@@ -12,9 +12,13 @@ extension Date {
     static private let dateFormatter = DateFormatter()
     static private let validFormat: String = "yyyyMMdd"
     
-    static func getString(from date: Date) -> String {
+    static func getString(from date: Date?) -> String? {
         dateFormatter.dateFormat = validFormat
-        return dateFormatter.string(from: date)
+        if let date = date {
+            return dateFormatter.string(from: date)
+        } else {
+            return nil
+        }
     }
     
     static func getDate(from dateString: String) -> Date? {

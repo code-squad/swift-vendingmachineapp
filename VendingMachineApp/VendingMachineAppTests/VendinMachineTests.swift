@@ -45,6 +45,7 @@ class VendingMachineTests: XCTestCase {
         
         vendingMachine.purchaseBeverage(beverage: strawberryMilk)
         
+        XCTAssertEqual(vendingMachine.checkCurrentBalance(), 0)
         
         XCTAssertEqual(vendingMachine.showAllBeverageStock(), [dietCola : 1 , topAmericano : 3])
         

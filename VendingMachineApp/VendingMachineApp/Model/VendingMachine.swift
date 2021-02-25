@@ -69,4 +69,45 @@ struct VendingMachine {
         
         return returnDic
     }
+    
+    func purchasedList() -> [String] {
+        var returnArr = [String]()
+        purchased.doClosure(closure: { drinks in
+            drinks.forEach({
+                returnArr.append($0.description)
+            })
+        })
+        
+        return returnArr
+    }
+    
+    func expiredStock() -> [Drink] {
+        var returnDrinkArr = [Drink]()
+        stock.doClosure(closure: { drinks in
+            drinks.forEach({
+                if let downCasting = $0 as? Milk {
+                    if downCasting.validate() == false {
+                        returnDrinkArr.append(downCasting)
+                    }
+                }
+            })
+        })
+        
+        return returnDrinkArr
+    }
+    
+    func hotDrinks() -> [Drink] {
+        var returnDrinkArr = [Drink]()
+        stock.doClosure(closure: { drinks in
+            drinks.forEach({
+                if let downCasting = $0 as? TOP {
+                    if downCasting.isHot() == true {
+                        returnDrinkArr.append(downCasting)
+                    }
+                }
+            })
+        })
+        
+        return returnDrinkArr
+    }
 }

@@ -18,7 +18,7 @@ class VendingMachine {
         drinks.add(with: beverage)
     }
     
-    func printDrinks(completion: (Beverage)->Void) {
-        drinks.printDrinks(completion: completion)
+    func retreiveDrinks(completion: (Beverage)->Void) {
+        drinks.retrieveBeverage(completion: completion)
     }
 }

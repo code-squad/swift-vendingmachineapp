@@ -8,11 +8,7 @@
 import Foundation
 
 class Drinks {
-    private var drinks: [Drink: Int]
-    
-    init(drinks: [Drink: Int]) {
-        self.drinks = drinks
-    }
+    private var drinks: [Drink: Int] = [:]
     
     func add(drink: Drink) {
         guard var stock = drinks[drink] else {

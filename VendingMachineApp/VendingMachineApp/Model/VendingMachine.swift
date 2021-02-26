@@ -1,8 +1,13 @@
 import Foundation
 
 struct VendingMachine {
-    private var insertedMoney: Int
-    private var beverages: Beverages
+    var insertedMoney: Int
+    var beverages: Beverages
+    
+    init() {
+        insertedMoney = 0
+        beverages = Beverages()
+    }
     
     let beverageList = [ChocolateMilk(brand: .namyang, volume: 180, price: 1000, productName: "초코에몽", manufacturedDay: Date(), sellByDate: Date(), lowCalories: false, isHot: false, farmCode: "1111", additive: "Chocolate"),
                         StrawBerryMilk(brand: .seoul, volume: 180, price: 700, productName: "딸기꿀단지", manufacturedDay: Date(), sellByDate: Date(), lowCalories: false, isHot: false, farmCode: "1111", additive: "StrawBerry"),
@@ -32,12 +37,13 @@ struct VendingMachine {
         return availableList
     }
     
-    func buyBeverage(productName: String) -> [Beverage]{
+    mutating func buyBeverage(productName: String) -> [Beverage]{
         var buyingProduct = [Beverage]()
         beverages.forEachBeverage{
             if $0.canbuy() == productName {
                 if $0.checkPrice() <= insertedMoney {
                     beverages.removeProduct($0)
+                    insertedMoney -= $0.checkPrice()
                     buyingProduct.append($0)
                 }
             }

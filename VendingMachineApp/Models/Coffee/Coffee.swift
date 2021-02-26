@@ -8,20 +8,19 @@
 import Foundation
 
 class Coffee : Beverage{
-    enum Kind {
-        case Cantata
-        case Top
-        case Georgia
-    }
+    private var caffeine : Int
+    private let hot : Bool
     
-    private var kind : Kind
-    
-    init(brand : String, capacity : Int, price : Int, name : String, create : String, kind : Coffee.Kind){
-        self.kind = kind
+    init(brand : String, capacity : Int, price : Int, name : String, create : String, caffeine : Int, hot : Bool){
+        self.caffeine = caffeine
+        self.hot = hot
         super.init(brand: brand,
                    capacity: capacity,
                    price: price,
                    name: name,
                    create: create)
+    }
+    override var description: String {
+        return super.description + ", \(caffeine)mg"
     }
 }

@@ -7,10 +7,16 @@
 
 import Foundation
 
-class VendingMachine {
+class VendingMachine: OutputViewPrintable {
     private let products: [Beverage]
     
     init(products: [Beverage]) {
         self.products = products
+    }
+    
+    func printBeverage(handler: (Beverage) -> ()) {
+        products.forEach {
+            handler($0)
+        }
     }
 }

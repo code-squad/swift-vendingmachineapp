@@ -64,4 +64,6 @@ class VendingMachine {
     func validateDrinks(when date: Date) -> Drinks {
         return stock.validateDrinks(when: date)
     }
+    
+    
 }

@@ -29,6 +29,7 @@ class ViewController: UIViewController {
         vendingMachine.addBeverage(beverage: milk2)
         vendingMachine.addBeverage(beverage: soda)
         vendingMachine.addBeverage(beverage: coffee)
+        
     }
 }
 

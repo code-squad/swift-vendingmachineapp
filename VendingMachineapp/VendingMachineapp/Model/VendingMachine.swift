@@ -53,7 +53,7 @@ struct VendingMachine {
         })
     }
     
-    func wholeBeverage() -> [String:Int] {
+    func wholeBeverage() -> [Beverage:Int] {
         return inventory.wholeBeverage()
     }
     

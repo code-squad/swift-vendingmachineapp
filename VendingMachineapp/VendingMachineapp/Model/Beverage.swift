@@ -13,7 +13,7 @@ class Beverage{
     private var manufacturer: String
     private var volume: Int
     private var price: Int
-    private(set) var brand: String
+    private var brand: String
     private var manufactured: Date
     private var expirydate: Date
     private var calorie: Int
@@ -52,10 +52,18 @@ extension Beverage: CustomStringConvertible {
         return "\(manufacturer), \(volume)ml, \(price)원, \(brand), \(manufactured.description)"
     }
 }
-extension Beverage: Equatable {
+
+extension Beverage: Hashable {
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(self.brand)
+    }
     static func == (lhs: Beverage, rhs: Beverage) -> Bool {
         return lhs.brand == rhs.brand
     }
     
-    
+    var hashValue: Int {
+        var hasher = Hasher()
+        self.hash(into: &hasher)
+        return hasher.finalize()
+    }
 }

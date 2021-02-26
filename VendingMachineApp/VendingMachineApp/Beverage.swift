@@ -45,3 +45,9 @@ extension Beverage: Hashable {
       hasher.combine(name)
     }
 }
+
+extension Beverage: Comparable {
+    static func < (lhs: Beverage, rhs: Beverage) -> Bool {
+        return lhs.name > rhs.name
+    }
+}

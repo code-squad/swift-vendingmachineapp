@@ -12,20 +12,23 @@ class VendingMachineTests: XCTestCase {
     
     func testVendingMachine() {
         let strawberryMilk = StrawberryMilk.init(brand : "서울우유",
-                                                    liter: 200,
+                                                    amount : 200,
+                                                    unit : .Milliliter,
                                                     price: 1000,
                                                     name: "딸기우유",
                                                     manufactured: Date().insert(date: "20210207"),
                                                     mlikFarmCode: 023,
                                                     expiration: Date().insert(date: "20210210"), temperature : 10 ,calorie: 150, strawberryContent: 10)
         let dietCola =  DietCola.init(brand : "팹시",
-                                      liter: 350,
+                                      amount : 350,
+                                      unit : .Milliliter,
                                       price: 2000,
                                       name: "다이어트콜라",
                                       manufactured: Date().insert(date: "20210222"),sugarContent: 5,expiration: Date().insert(date: "20210303"),temperature : 10,calorie: 123,taste: .lemon)
         
         let topAmericano =  TopAmericano.init(brand : "맥심",
-                                              liter: 400,
+                                              amount : 400,
+                                              unit : .Milliliter,
                                               price: 3000,
                                               name: "TOP아메리카노",
                                               manufactured: Date().insert(date: "20210217"),

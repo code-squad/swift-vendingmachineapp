@@ -10,8 +10,8 @@ import Foundation
 class Coffee : Beverage {
     private let caffeineContent : Int
     
-    init(brand: String, liter: Int, price: Int, name: String, manufactured: Date, caffeineContent : Int, expiration : Date, temperature : Int, calorie : Int) {
+    init(brand: String, amount : Int, unit : Unit, price: Int, name: String, manufactured: Date, caffeineContent : Int, expiration : Date, temperature : Int, calorie : Int) {
         self.caffeineContent = caffeineContent
-        super.init(brand: brand, liter: liter, price: price, name: name, manufactured: manufactured, expiration : expiration, temperature : temperature, calorie : calorie)
+        super.init(brand: brand, amount : amount, unit : unit, price: price, name: name, manufactured: manufactured, expiration : expiration, temperature : temperature, calorie : calorie)
     }
 }

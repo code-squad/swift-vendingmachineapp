@@ -27,6 +27,10 @@ class Beverage {
         dateFormatter.dateFormat = "yyyyMMDD"
         return dateFormatter.string(from: date)
     }
+    
+    func  checkPrice() -> Int {
+        return price
+    }
 }
 
 extension Beverage: CustomStringConvertible {
@@ -36,6 +40,7 @@ extension Beverage: CustomStringConvertible {
 }
 
 extension Beverage: CheckBeverageInfo {
+    
     func validate(with date: Date) -> Bool {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyyMMDD"

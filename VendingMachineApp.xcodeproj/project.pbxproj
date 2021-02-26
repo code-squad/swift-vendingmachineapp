@@ -12,6 +12,9 @@
 		105EE26B25E8D0CD00E6D2E2 /* StroberryMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105EE26A25E8D0CD00E6D2E2 /* StroberryMilk.swift */; };
 		105EE27025E8D0D800E6D2E2 /* ChocolateMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105EE26F25E8D0D800E6D2E2 /* ChocolateMilk.swift */; };
 		105EE27525E8D0E300E6D2E2 /* BananaMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105EE27425E8D0E300E6D2E2 /* BananaMilk.swift */; };
+		105EE27A25E8D61000E6D2E2 /* Top.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105EE27925E8D61000E6D2E2 /* Top.swift */; };
+		105EE27F25E8D62200E6D2E2 /* Georgia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105EE27E25E8D62200E6D2E2 /* Georgia.swift */; };
+		105EE28425E8D63600E6D2E2 /* Cantata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105EE28325E8D63600E6D2E2 /* Cantata.swift */; };
 		10F5F04225E782C400B70881 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F5F04125E782C400B70881 /* AppDelegate.swift */; };
 		10F5F04425E782C400B70881 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F5F04325E782C400B70881 /* SceneDelegate.swift */; };
 		10F5F04625E782C400B70881 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F5F04525E782C400B70881 /* ViewController.swift */; };
@@ -52,6 +55,9 @@
 		105EE26A25E8D0CD00E6D2E2 /* StroberryMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StroberryMilk.swift; sourceTree = "<group>"; };
 		105EE26F25E8D0D800E6D2E2 /* ChocolateMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChocolateMilk.swift; sourceTree = "<group>"; };
 		105EE27425E8D0E300E6D2E2 /* BananaMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BananaMilk.swift; sourceTree = "<group>"; };
+		105EE27925E8D61000E6D2E2 /* Top.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Top.swift; sourceTree = "<group>"; };
+		105EE27E25E8D62200E6D2E2 /* Georgia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Georgia.swift; sourceTree = "<group>"; };
+		105EE28325E8D63600E6D2E2 /* Cantata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cantata.swift; sourceTree = "<group>"; };
 		10F5F03E25E782C400B70881 /* VendingMachineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendingMachineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		10F5F04125E782C400B70881 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		10F5F04325E782C400B70881 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -104,6 +110,9 @@
 			isa = PBXGroup;
 			children = (
 				10F5F08225E7845B00B70881 /* Coffee.swift */,
+				105EE27925E8D61000E6D2E2 /* Top.swift */,
+				105EE27E25E8D62200E6D2E2 /* Georgia.swift */,
+				105EE28325E8D63600E6D2E2 /* Cantata.swift */,
 			);
 			path = Coffee;
 			sourceTree = "<group>";
@@ -354,9 +363,12 @@
 				105EE25825E8CCD000E6D2E2 /* EnergyDrink.swift in Sources */,
 				10F5F04225E782C400B70881 /* AppDelegate.swift in Sources */,
 				10F5F08325E7845B00B70881 /* Beverage.swift in Sources */,
+				105EE27F25E8D62200E6D2E2 /* Georgia.swift in Sources */,
 				10F5F09825E7D2EE00B70881 /* StringUtility.swift in Sources */,
 				10F5F04425E782C400B70881 /* SceneDelegate.swift in Sources */,
 				10F5F08525E7845B00B70881 /* Milk.swift in Sources */,
+				105EE28425E8D63600E6D2E2 /* Cantata.swift in Sources */,
+				105EE27A25E8D61000E6D2E2 /* Top.swift in Sources */,
 				105EE27025E8D0D800E6D2E2 /* ChocolateMilk.swift in Sources */,
 				10F5F08425E7845B00B70881 /* Soda.swift in Sources */,
 				105EE26B25E8D0CD00E6D2E2 /* StroberryMilk.swift in Sources */,

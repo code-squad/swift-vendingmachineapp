@@ -28,3 +28,14 @@
 ## Protocol vs. Inheritance
 - Protocol은 Struct, Enum과 같은 값(value) 타입도 채택 가능하다.
 - 상속은 단일 상속만 가능하지만, Protocol은 다중 상속이 가능하다.
+
+## Step 2 - Vending Machine
+- 3단계로 객체 생성
+```
+Drinks (1단계)
+Coffee Milk Soda (2단계)
+Cantata BananaMilk Fanta (3단계)
+```
+- `Drink` 클래스에 Hashable 프로토콜 채택해서 Dictionary의 key로 사용할 수 있도록 변경
+- VendingMachine에 자판기 기능을 위한 method 추가
+- 단위 테스트를 위해 XCTest를 추가하고, 테스트 코드를 추가

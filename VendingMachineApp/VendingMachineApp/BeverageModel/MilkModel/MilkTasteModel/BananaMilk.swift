@@ -7,19 +7,17 @@
 
 import Foundation
 
-class BananaMilk: Milk {
-    private let usageOfColoring: Bool
+class BananaMilk: Milk & FoodColoringApplicable {
+    private let bananaFarm: LocationTrackable
+    var foodColoring: Bool
     
-    init(brand: String, size: Milli_Liter, price: Int, name: String, packDate: Date, farmLocation: FarmLocation, usageOfColoring: Bool) {
-        self.usageOfColoring = usageOfColoring
-        super.init(brand: brand, size: size, price: price, name: name, packDate: packDate, farmLocation: farmLocation)
+    init(brand: String, size: Milli_Liter, price: Int, name: String, packDate: Date, milkFarm: LocationTrackable, bananaFarm: LocationTrackable, foodColoring: Bool) {
+        self.bananaFarm = bananaFarm
+        self.foodColoring = foodColoring
+        super.init(brand: brand, size: size, price: price, name: name, packDate: packDate, farm: milkFarm)
     }
     
-    convenience override init(brand: String, size: Milli_Liter, price: Int, name: String, packDate: Date, farmLocation: FarmLocation) {
-        self.init(brand: brand, size: size, price: price, name: name, packDate: packDate, farmLocation: farmLocation, usageOfColoring: true)
-    }
-    
-    convenience init(brand: String, size: Milli_Liter, price: Int, name: String, packDate: Date) {
-        self.init(brand: brand, size: size, price: price, name: name, packDate: packDate, farmLocation: .domesticFarm, usageOfColoring: true)
+    func isUsingFoodColoring() -> Bool {
+        return foodColoring
     }
 }

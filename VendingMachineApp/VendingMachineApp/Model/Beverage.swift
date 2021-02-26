@@ -22,17 +22,39 @@ class Beverage {
         self.isHot = isHot
     }
     
-    private func checkManufacturedDayOfProducts() -> String {
+    private func dateToString(with date: Date) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyyMMDD"
-        return dateFormatter.string(from: manufacturedDay)
+        return dateFormatter.string(from: date)
     }
 }
 
 extension Beverage: CustomStringConvertible {
     var description: String {
-        return "\(brand), \(volume)ml, \(price)원, \(productName), \(checkManufacturedDayOfProducts())"
+        return "제조사: \(brand), 용량: \(volume)ml, 가격: \(price)원, 제품명: \(productName), 제조일자: \(dateToString(with: manufacturedDay)), 유통기한: \(dateToString(with: sellByDate)), 저칼로리: \(lowCalories), Hot: \(isHot)"
     }
 }
 
+extension Beverage: CheckBeverageInfo {
+    func validate(with date: Date) -> Bool {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyyMMDD"
+        formatter.locale = Locale(identifier: "ko_KR")
+        let nowDate = formatter.date(from: dateToString(with: date))!
+        let sellDate = formatter.date(from: dateToString(with: sellByDate))!
+        switch nowDate.compare(sellDate) {
+        case .orderedDescending:
+            return false
+        default:
+            return true
+        }
+    }
+    
+    func isHotBeverage() -> Bool {
+        return isHot
+    }
 
+    func isLowCalorie() -> Bool {
+        return lowCalories
+    }
+}

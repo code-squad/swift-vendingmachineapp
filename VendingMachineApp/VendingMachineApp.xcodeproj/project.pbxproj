@@ -30,10 +30,8 @@
 		88748ACC25E4A57000E7DCB1 /* CaffeLatte.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88748ACB25E4A57000E7DCB1 /* CaffeLatte.swift */; };
 		88748AD725E4E9E000E7DCB1 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88748AD625E4E9E000E7DCB1 /* Protocols.swift */; };
 		88748ADB25E4EECB00E7DCB1 /* Machine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88748ADA25E4EECB00E7DCB1 /* Machine.swift */; };
-		88748ADE25E4F09700E7DCB1 /* MoneyStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88748ADD25E4F09700E7DCB1 /* MoneyStorage.swift */; };
+		88748ADE25E4F09700E7DCB1 /* MoneyProcessingUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88748ADD25E4F09700E7DCB1 /* MoneyProcessingUnit.swift */; };
 		88748AE225E4F4E700E7DCB1 /* BeverageStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88748AE125E4F4E700E7DCB1 /* BeverageStorage.swift */; };
-		88748AE525E50BC500E7DCB1 /* CashInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88748AE425E50BC500E7DCB1 /* CashInteractor.swift */; };
-		88748AEA25E56ADA00E7DCB1 /* MoneyExchangable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88748AE925E56ADA00E7DCB1 /* MoneyExchangable.swift */; };
 		88748AF025E62BAA00E7DCB1 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88748AEF25E62BAA00E7DCB1 /* Item.swift */; };
 /* End PBXBuildFile section */
 
@@ -63,10 +61,8 @@
 		88748ACB25E4A57000E7DCB1 /* CaffeLatte.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaffeLatte.swift; sourceTree = "<group>"; };
 		88748AD625E4E9E000E7DCB1 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		88748ADA25E4EECB00E7DCB1 /* Machine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Machine.swift; sourceTree = "<group>"; };
-		88748ADD25E4F09700E7DCB1 /* MoneyStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyStorage.swift; sourceTree = "<group>"; };
+		88748ADD25E4F09700E7DCB1 /* MoneyProcessingUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyProcessingUnit.swift; sourceTree = "<group>"; };
 		88748AE125E4F4E700E7DCB1 /* BeverageStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageStorage.swift; sourceTree = "<group>"; };
-		88748AE425E50BC500E7DCB1 /* CashInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashInteractor.swift; sourceTree = "<group>"; };
-		88748AE925E56ADA00E7DCB1 /* MoneyExchangable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyExchangable.swift; sourceTree = "<group>"; };
 		88748AEF25E62BAA00E7DCB1 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -116,11 +112,9 @@
 				88748A8525E387B100E7DCB1 /* AppDelegate.swift */,
 				88748A8725E387B100E7DCB1 /* SceneDelegate.swift */,
 				882A589625E7A87500BCAF67 /* SupportingFiles */,
-				88748AE925E56ADA00E7DCB1 /* MoneyExchangable.swift */,
-				88748ADD25E4F09700E7DCB1 /* MoneyStorage.swift */,
-				88748AE425E50BC500E7DCB1 /* CashInteractor.swift */,
 				88748AEF25E62BAA00E7DCB1 /* Item.swift */,
 				88748AE125E4F4E700E7DCB1 /* BeverageStorage.swift */,
+				88748ADD25E4F09700E7DCB1 /* MoneyProcessingUnit.swift */,
 				88748ADA25E4EECB00E7DCB1 /* Machine.swift */,
 				88748AAB25E4A2ED00E7DCB1 /* BeverageModel */,
 				88748A8925E387B100E7DCB1 /* ViewController.swift */,
@@ -270,7 +264,6 @@
 				88748AF025E62BAA00E7DCB1 /* Item.swift in Sources */,
 				882A589425E7A84800BCAF67 /* DateExtension.swift in Sources */,
 				88748AA325E397B200E7DCB1 /* Soda.swift in Sources */,
-				88748AE525E50BC500E7DCB1 /* CashInteractor.swift in Sources */,
 				88748AB425E4A3C700E7DCB1 /* StrawBerryMilk.swift in Sources */,
 				88748ADB25E4EECB00E7DCB1 /* Machine.swift in Sources */,
 				88748ABC25E4A48300E7DCB1 /* Cola.swift in Sources */,
@@ -279,11 +272,10 @@
 				880B9ABF25E8D32C008B02BB /* FoodColoring.swift in Sources */,
 				88748ACC25E4A57000E7DCB1 /* CaffeLatte.swift in Sources */,
 				88748A8625E387B100E7DCB1 /* AppDelegate.swift in Sources */,
-				88748AEA25E56ADA00E7DCB1 /* MoneyExchangable.swift in Sources */,
 				88748A9C25E38A4900E7DCB1 /* Beverage.swift in Sources */,
 				88748AB725E4A3E600E7DCB1 /* BananaMilk.swift in Sources */,
 				882A589F25E8AB4200BCAF67 /* DomesticLocation.swift in Sources */,
-				88748ADE25E4F09700E7DCB1 /* MoneyStorage.swift in Sources */,
+				88748ADE25E4F09700E7DCB1 /* MoneyProcessingUnit.swift in Sources */,
 				88748ABF25E4A49900E7DCB1 /* Fanta.swift in Sources */,
 				88748A8825E387B100E7DCB1 /* SceneDelegate.swift in Sources */,
 				882A58A325E8B66700BCAF67 /* OverseasLocation.swift in Sources */,

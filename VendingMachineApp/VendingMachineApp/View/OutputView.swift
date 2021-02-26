@@ -30,13 +30,23 @@ struct OutputView {
         let testTOP = TOP()
         print(testTOP)
         print("isHot: \(testTOP.isHot())")
-        print("productCaffeine: \(testTOP.productCaffeine())")
+        if testTOP.productCaffeine() < 10.0 {
+            print("\(testTOP.name) is deCaffeine")
+        }
+        else {
+            print("productCaffeine: \(testTOP.productCaffeine())ml")
+        }
+        
         
         let testCantata = Cantata()
         print(testCantata)
         print("productCalorie: \(testCantata.productBeans())")
-        print("productCaffeine: \(testCantata.productCaffeine())")
-        
+        if testCantata.productCaffeine() < 10.0 {
+            print("\(testCantata.name) is deCaffeine")
+        }
+        else {
+            print("productCaffeine: \(testCantata.productCaffeine())ml")
+        }
     }
     
     func test_Machine() {

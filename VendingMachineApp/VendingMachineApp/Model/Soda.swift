@@ -7,7 +7,6 @@
 
 import Foundation
 
-//http://emart.ssg.com/item/itemView.ssg?itemId=1000049176186&siteNo=6001&salestrNo=2034&tlidSrchWd=%EC%BD%9C%EB%9D%BC&srchPgNo=1&src_area=elist
 class Soda: Drink {
     
     private let package : Materials

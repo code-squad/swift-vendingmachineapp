@@ -22,11 +22,11 @@ class Payment {
         return beverage.isPossiblePurchase(money: amountMoney)
     }
     
-    func increaseAmountMoney(money : Int) {
+    func increase(money : Int) {
         self.amountMoney += money
     }
     
-    func decreaseAmountMoney(beverage : Beverage) {
+    func decrease(beverage : Beverage) {
         return amountMoney -= beverage.price
     }
 }

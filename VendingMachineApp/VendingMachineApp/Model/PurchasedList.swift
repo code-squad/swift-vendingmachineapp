@@ -14,7 +14,7 @@ class PurchasedList {
         self.beverages = []
     }
     
-    func addBeverage(beverage : Beverage) {
+    func addHistory(beverage : Beverage) {
         beverages.append(beverage)
     }
     

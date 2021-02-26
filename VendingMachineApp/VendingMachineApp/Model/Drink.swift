@@ -28,8 +28,9 @@ class Drink {
         return drinks.filter { $0.isPossiblePurchase(money: currentMoney) }
     }
     
-    func purchaseBeverage(beverage : Beverage) {
-        let _ = drinks.firstIndex(of: beverage).map { drinks.remove(at: $0) }
+    func purchase(beverage : Beverage) {
+        guard let index = drinks.firstIndex(of: beverage) else { return }
+        drinks.remove(at: index)
     }
     
     func showAllBeverage() -> [Beverage : Int] {
@@ -38,8 +39,8 @@ class Drink {
         }
     }
     
-    func passExpiryDate() -> [Beverage] {
-        return drinks.filter { $0.validate(with: Date()) }
+    func passExpiryDate(standard : Date) -> [Beverage] {
+        return drinks.filter { $0.validate(with: standard) }
     }
     
     func hotDrink() -> [Beverage] {

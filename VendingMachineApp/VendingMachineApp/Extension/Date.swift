@@ -14,7 +14,7 @@ extension Date {
         return datefommater
     }()
     
-    func insert(date : String) -> Date {
+    static func make(date : String) -> Date {
         return Date.dateFommater.date(from: date) ?? Date()
     }
     

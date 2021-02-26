@@ -37,7 +37,7 @@ struct VendingMachine {
     }
     
     func purchaseBeverage(beverage : Beverage) {
-        if payment.checkPossiblePurchase(beverage: beverage) {
+        if payment.canPurchase(beverage: beverage) {
             payment.decrease(beverage: beverage)
             drinks.purchase(beverage: beverage)
             purchasedList.add(beverage: beverage)
@@ -52,8 +52,8 @@ struct VendingMachine {
         return drinks.passExpiryDate(standard: standard)
     }
     
-    func verifyHotBeverages() -> [Beverage] {
-        return drinks.hotDrink()
+    func verifyHotBeverages(standard : Int) -> [Beverage] {
+        return drinks.hotDrink(standard: standard)
     }
     
     func checkCurrentBalance() -> Int {

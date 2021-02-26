@@ -40,10 +40,10 @@ class Drinks {
     }
     
     func passExpiryDate(standard : Date) -> [Beverage] {
-        return drinks.filter { $0.validate(with: standard) }
+        return drinks.filter { $0.isExpiryDate(with: standard) }
     }
     
-    func hotDrink() -> [Beverage] {
-        return drinks.filter { $0.isHot(standard : 65) }
+    func hotDrink(standard : Int) -> [Beverage] {
+        return drinks.filter { $0.isHot(standard : standard) }
     }
 }

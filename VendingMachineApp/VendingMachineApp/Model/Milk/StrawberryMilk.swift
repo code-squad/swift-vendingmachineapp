@@ -6,3 +6,13 @@
 //
 
 import Foundation
+
+class StrawberryMilk : Milk {
+    
+    private let isContainStrawberry: Bool
+        
+    init(isContainStrawberry:Bool, farmCode: String, brand: String, capacity: Int, price: Int, name: String, madeDate: Date) {
+        self.isContainStrawberry = isContainStrawberry
+        super.init(farmCode: farmCode, brand: brand, capacity: capacity, price: price, name: name, madeDate: madeDate)
+    }
+}

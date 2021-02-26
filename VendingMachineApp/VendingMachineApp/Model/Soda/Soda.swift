@@ -7,16 +7,20 @@
 
 import Foundation
 
-enum SodaType : String {
-    case Cola = "콜라"
-    case Sprite = "사이다"
-    case Fanta = "환타"
+enum SodaType  {
+    case Cola
+    case Sprite
+    case Fanta
 }
-
 
 class Soda :Drink {
     
-    override init(brand: String, capacity: Int, price: Int, name: String, madeDate: Date) {
+    private var factoryCode: String
+    private var isSodaType: SodaType
+    
+    init(isSodaType:SodaType, factoryCode:String, brand: String, capacity: Int, price: Int, name: String, madeDate: Date) {
+        self.factoryCode = factoryCode
+        self.isSodaType = isSodaType
         super.init(brand: brand, capacity: capacity, price: price, name: name, madeDate: madeDate)
     }
 }

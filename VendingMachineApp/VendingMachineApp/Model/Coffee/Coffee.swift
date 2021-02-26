@@ -7,15 +7,19 @@
 
 import Foundation
 
-enum CoffeeType : String {
-    case Top = "Top"
-    case Cantata = "칸타타"
-    case Georgia = "조지아"
+enum CoffeeBrandName {
+    
+    case Top
+    case Cantata
+    case Georgia
 }
 
 class Coffee : Drink {
     
-    override init(brand: String, capacity: Int, price: Int, name: String, madeDate: Date) {
+    private var isCoffeeBrandName: CoffeeBrandName
+    
+    init(isCoffeeBrandName: CoffeeBrandName, brand: String, capacity: Int, price: Int, name: String, madeDate: Date) {
+        self.isCoffeeBrandName = isCoffeeBrandName
         super.init(brand: brand, capacity: capacity, price: price, name: name, madeDate: madeDate)
     }
 }

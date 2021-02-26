@@ -7,8 +7,7 @@
 
 import Foundation
 
-class Drink : CustomStringConvertible{
-    
+class Drink : CustomStringConvertible, Hashable {
     private var brand: String
     private var capacity: Int
     private var price: Int
@@ -47,5 +46,14 @@ class Drink : CustomStringConvertible{
     
     func validate(date: Date) -> Bool {
         return expiration < date
+    }
+    
+    static func == (lhs: Drink, rhs: Drink) -> Bool {
+        return lhs.name == rhs.name
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(name)
+        hasher.combine(brand)
     }
 }

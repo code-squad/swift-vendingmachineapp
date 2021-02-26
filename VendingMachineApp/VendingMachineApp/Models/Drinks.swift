@@ -40,4 +40,22 @@ class Drinks {
             $0.canBuy(with: credit)
         })
     }
+    
+    func validateDrinks(when date: Date) -> Drinks {
+        return Drinks(drinks.filter {
+            $0.validate(date: date)
+        })
+    }
+    
+    func hotDrinks() -> Drinks {
+        return Drinks(drinks.filter {
+            $0.isHot()
+        })
+    }
+    
+    func lowCalorieDrinks() -> Drinks {
+        return Drinks(drinks.filter {
+            $0.isLowCalore()
+        })
+    }
 }

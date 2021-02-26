@@ -10,12 +10,16 @@ import Foundation
 class BananaMilk: Milk {
     private let usageOfColoring: Bool
     
-    init(brandName: String, sizeInMilliliter: Int, itemPrice: Int, itemName: String, manufacturingDate: Date, farmLocation: Milk.FarmLocation, coloring: Bool) {
-        usageOfColoring = coloring
-        super.init(brandName: brandName, sizeInMilliliter: sizeInMilliliter, itemPrice: itemPrice, itemName: itemName, manufacturingDate: manufacturingDate, farmLocation: farmLocation)
+    init(brand: String, size: Milli_Liter, price: Int, name: String, packDate: Date, farmLocation: FarmLocation, usageOfColoring: Bool) {
+        self.usageOfColoring = usageOfColoring
+        super.init(brand: brand, size: size, price: price, name: name, packDate: packDate, farmLocation: farmLocation)
     }
     
-    convenience init(brandName: String, sizeInMilliliter: Int, itemPrice: Int, itemName: String, manufacturingDate: Date) {
-        self.init(brandName: brandName, sizeInMilliliter: sizeInMilliliter, itemPrice: itemPrice, itemName: itemName, manufacturingDate: manufacturingDate, farmLocation: .domesticFarm, coloring: true)
+    convenience override init(brand: String, size: Milli_Liter, price: Int, name: String, packDate: Date, farmLocation: FarmLocation) {
+        self.init(brand: brand, size: size, price: price, name: name, packDate: packDate, farmLocation: farmLocation, usageOfColoring: true)
+    }
+    
+    convenience init(brand: String, size: Milli_Liter, price: Int, name: String, packDate: Date) {
+        self.init(brand: brand, size: size, price: price, name: name, packDate: packDate, farmLocation: .domesticFarm, usageOfColoring: true)
     }
 }

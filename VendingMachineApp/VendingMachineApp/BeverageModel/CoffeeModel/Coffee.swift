@@ -8,18 +8,18 @@
 import Foundation
 
 class Coffee: Beverage {
-    public enum CoffeeBean {
+    public enum Bean {
         case 아라비카원두
         case 로부스타원두
     }
-    private let bean: CoffeeBean
+    private let bean: Bean
     
-    init(brandName: String, sizeInMilliliter: Int, itemPrice: Int, itemName: String, manufacturingDate: Date, coffeeBean: CoffeeBean) {
-        bean = coffeeBean
-        super.init(brandName: brandName, sizeInMilliliter: sizeInMilliliter, itemPrice: itemPrice, itemName: itemName, manufacturingDate: manufacturingDate)
+    init(brand: String, size: Milli_Liter, price: Int, name: String, packDate: Date, bean: Bean) {
+        self.bean = bean
+        super.init(brand: brand, size: size, price: price, name: name, packDate: packDate)
     }
     
-    convenience override init(brandName: String, sizeInMilliliter: Int, itemPrice: Int, itemName: String, manufacturingDate: Date) {
-        self.init(brandName: brandName, sizeInMilliliter: sizeInMilliliter, itemPrice: itemPrice, itemName: itemName, manufacturingDate: manufacturingDate, coffeeBean: .로부스타원두)
+    convenience override init(brand: String, size: Milli_Liter, price: Int, name: String, packDate: Date) {
+        self.init(brand: brand, size: size, price: price, name: name, packDate: packDate, bean: .로부스타원두)
     }
 }

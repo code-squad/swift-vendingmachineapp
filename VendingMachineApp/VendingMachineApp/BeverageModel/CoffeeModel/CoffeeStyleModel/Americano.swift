@@ -8,14 +8,14 @@
 import Foundation
 
 class Americano: Coffee {
-    private let isHighCaffeine: Bool
+    private let caffeine: Int
     
-    init(brandName: String, sizeInMilliliter: Int, itemPrice: Int, itemName: String, manufacturingDate: Date, coffeeBean: CoffeeBean, caffeine: Int) {
-        isHighCaffeine = (caffeine > 150)
-        super.init(brandName: brandName, sizeInMilliliter: sizeInMilliliter, itemPrice: itemPrice, itemName: itemName, manufacturingDate: manufacturingDate, coffeeBean: coffeeBean)
+    init(brand: String, size: Milli_Liter, price: Int, name: String, packDate: Date, bean: Bean, caffeine: Int) {
+        self.caffeine = caffeine
+        super.init(brand: brand, size: size, price: price, name: name, packDate: packDate, bean: bean)
     }
     
-    convenience init(brandName: String, sizeInMilliliter: Int, itemPrice: Int, itemName: String, manufacturingDate: Date, caffeine: Int) {
-        self.init(brandName: brandName, sizeInMilliliter: sizeInMilliliter, itemPrice: itemPrice, itemName: itemName, manufacturingDate: manufacturingDate,coffeeBean: .로부스타원두, caffeine: caffeine)
+    convenience init(brand: String, size: Milli_Liter, price: Int, name: String, packDate: Date, caffeine: Int){
+        self.init(brand: brand, size: size, price: price, name: name, packDate: packDate, bean: .로부스타원두, caffeine: caffeine)
     }
 }

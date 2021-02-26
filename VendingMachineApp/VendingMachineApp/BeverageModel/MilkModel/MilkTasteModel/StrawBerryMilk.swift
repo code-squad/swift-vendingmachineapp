@@ -8,14 +8,18 @@
 import Foundation
 
 class StrawBerryMilk: Milk {
-    private let containingRealStrawBerry: Bool
+    private let actualStrawBerry: Bool
     
-    init(brandName: String, sizeInMilliliter: Int, itemPrice: Int, itemName: String, manufacturingDate: Date, farmLocation: Milk.FarmLocation, actualStrawBerry: Bool) {
-        containingRealStrawBerry = actualStrawBerry
-        super.init(brandName: brandName, sizeInMilliliter: sizeInMilliliter, itemPrice: itemPrice, itemName: itemName, manufacturingDate: manufacturingDate, farmLocation: farmLocation)
+    init(brand: String, size: Milli_Liter, price: Int, name: String, packDate: Date, farmLocation: FarmLocation, actualStrawBerry: Bool) {
+        self.actualStrawBerry = actualStrawBerry
+        super.init(brand: brand, size: size, price: price, name: name, packDate: packDate, farmLocation: farmLocation)
     }
     
-    convenience init(brandName: String, sizeInMilliliter: Int, itemPrice: Int, itemName: String, manufacturingDate: Date) {
-        self.init(brandName: brandName, sizeInMilliliter: sizeInMilliliter, itemPrice: itemPrice, itemName: itemName, manufacturingDate: manufacturingDate, farmLocation: .domesticFarm, actualStrawBerry: true)
+    convenience override init(brand: String, size: Milli_Liter, price: Int, name: String, packDate: Date, farmLocation: FarmLocation) {
+        self.init(brand: brand, size: size, price: price, name: name, packDate: packDate, farmLocation: farmLocation, actualStrawBerry: false)
+    }
+    
+    convenience init(brand: String, size: Milli_Liter, price: Int, name: String, packDate: Date) {
+        self.init(brand: brand, size: size, price: price, name: name, packDate: packDate, farmLocation: .domesticFarm, actualStrawBerry: false)
     }
 }

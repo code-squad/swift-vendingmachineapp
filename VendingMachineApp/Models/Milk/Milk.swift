@@ -8,21 +8,19 @@
 import Foundation
 
 class Milk : Beverage {
-    enum Kind {
-        case Stroberry
-        case Chocolate
-        case Banana
-    }
     
-    private var kind : Kind
+    private let expire : Date
     
-    init(brand : String, capacity : Int, price : Int, name : String, create : String, kind : Milk.Kind){
-        self.kind = kind
+    init(brand : String, capacity : Int, price : Int, name : String, create : String, expire : String){
+        
+        self.expire = expire.toDate()
         super.init(brand: brand,
                    capacity: capacity,
                    price: price,
                    name: name,
                    create: create)
     }
-    
+    override var description: String {
+        return super.description + ", \(expire.toString())"
+    }
 }

@@ -7,24 +7,24 @@
 
 import Foundation
 
-protocol DrinkFactory {
-    func produce(brand: String, volume: Int, price: Int, name: String, date: Date) -> Beverage
+protocol BeverageFactory {
+    func produce() -> Beverage
 }
 
-class MilkFactory: DrinkFactory {
-    func produce(brand: String, volume: Int, price: Int, name: String, date: Date) -> Beverage {
-        return Milk(brand: brand, volume: volume, price: price, name: name, date: date)
+class MilkFactory: BeverageFactory {
+    func produce() -> Beverage {
+        return Banana()
     }
 }
 
-class SoftDrinkFactory: DrinkFactory {
-    func produce(brand: String, volume: Int, price: Int, name: String, date: Date) -> Beverage {
-        return SoftDrink(brand: brand, volume: volume, price: price, name: name, date: date)
+class SoftDrinkFactory: BeverageFactory {
+    func produce() -> Beverage {
+        return Cola()
     }
 }
 
-class CoffeeFactory: DrinkFactory {
-    func produce(brand: String, volume: Int, price: Int, name: String, date: Date) -> Beverage {
-        return Coffee(brand: brand, volume: volume, price: price, name: name, date: date)
+class CoffeeFactory: BeverageFactory {
+    func produce() -> Beverage {
+        return TOP()
     }
 }

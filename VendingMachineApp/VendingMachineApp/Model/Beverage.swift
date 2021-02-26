@@ -63,7 +63,8 @@ class Beverage : CustomStringConvertible {
 extension Beverage : Hashable {
     static func == (lhs: Beverage, rhs: Beverage) -> Bool {
         return lhs.name == rhs.name && lhs.price == rhs.price &&
-               lhs.brand == rhs.brand
+            lhs.brand == rhs.brand && lhs.amount == rhs.amount &&
+            lhs.unit == rhs.unit && lhs.calorie == rhs.calorie
     }
     
     func hash(into hasher: inout Hasher) {

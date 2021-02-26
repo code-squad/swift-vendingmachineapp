@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+class Cola: SoftDrink {
+    init() {
+        super.init(brand: "pepsi", volume: 250, price: 1000, name: "pepsi 콜라", manufacturedAt: Date())
+    }
+}

@@ -15,30 +15,11 @@ enum SodaType: String {
 
 class Soda: Beverage {
     private var type: SodaType
+    private var flavor: Int
     
-    init(manufacturer: String, volume: Int, price: Int, brand: String, manufactured: Date, type: SodaType) {
+    init(manufacturer: String, volume: Int, price: Int, brand: String, manufactured: Date, type: SodaType, flavor: Int) {
         self.type = type
+        self.flavor = flavor
         super.init(manufacturer: manufacturer, volume: volume, price: price, brand: brand, manufactured: manufactured)
-    }
-}
-
-class Coke: Soda {
-    
-    override init(manufacturer: String, volume: Int, price: Int, brand: String, manufactured: Date, type: SodaType) {
-        super.init(manufacturer: manufacturer, volume: volume, price: price, brand: brand, manufactured: manufactured, type: type)
-    }
-}
-
-class Sprite: Soda {
-    
-    override init(manufacturer: String, volume: Int, price: Int, brand: String, manufactured: Date, type: SodaType) {
-        super.init(manufacturer: manufacturer, volume: volume, price: price, brand: brand, manufactured: manufactured, type: type)
-    }
-}
-
-class Hwanta: Soda {
-    
-    override init(manufacturer: String, volume: Int, price: Int, brand: String, manufactured: Date, type: SodaType) {
-        super.init(manufacturer: manufacturer, volume: volume, price: price, brand: brand, manufactured: manufactured, type: type)
     }
 }

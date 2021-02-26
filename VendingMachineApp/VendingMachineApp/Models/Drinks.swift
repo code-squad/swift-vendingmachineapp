@@ -36,9 +36,9 @@ class Drinks {
         return drinks
     }
     
-    func getExpiredDrinks() -> [Drink: Int] {
+    func getExpiredDrinks(date: Date) -> [Drink: Int] {
         let expiredDrinks = drinks.filter {
-            return $0.key.dateOfManufacture < Date()
+            return $0.key.validate(with: date)
         }
         return expiredDrinks
     }

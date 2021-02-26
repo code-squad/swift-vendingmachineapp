@@ -42,7 +42,7 @@ struct VendingMachine {
         return drinks.getAllDrinks()
     }
     
-    mutating func getExpiredDrinks() -> [Drink: Int] {
-        return drinks.getExpiredDrinks()
+    mutating func getExpiredDrinks(date: Date) -> [Drink: Int] {
+        return drinks.getExpiredDrinks(date: date)
     }
 }

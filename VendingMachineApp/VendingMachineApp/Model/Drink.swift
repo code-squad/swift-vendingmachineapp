@@ -1,6 +1,6 @@
 import Foundation
 
-class Beverage {
+class Drink: Hashable {
     private(set) var brand: String
     private(set) var capacity: Int
     private(set) var price: Int
@@ -14,9 +14,17 @@ class Beverage {
         self.name = name
         self.manufacture = manufacture
     }
+    
+    static func == (lhs: Drink, rhs: Drink) -> Bool {
+        return lhs.name == rhs.name
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(name)
+    }
 }
 
-extension Beverage: CustomStringConvertible {
+extension Drink: CustomStringConvertible {
     var description: String {
         let formattedDate = self.manufacture.toString()
         return "\(brand), \(capacity)ml, \(price)원, \(name), \(formattedDate)"

@@ -1,13 +1,13 @@
 //
-//  Coffee.swift
+//  Beverage.swift
 //  VendingMachineApp
 //
-//  Created by 오킹 on 2021/02/24.
+//  Created by 오킹 on 2021/02/25.
 //
 
 import Foundation
 
-class Coffee: CustomStringConvertible {
+class Beverage {
     
     var description: String {
         return "\(brand), \(miliLiter)ml, \(price)원, \(name), \(dateOfManufacture.toString())"

@@ -10,12 +10,12 @@ import Foundation
 class Soda: Beverage {
     private var zeroCalories: Bool
    
-    init(brandName: String, sizeInMilliliter: Int, itemPrice: Int, itemName: String, manufacturingDate: Date, isZeroCalories: Bool) {
-        zeroCalories = isZeroCalories
-        super.init(brandName: brandName, sizeInMilliliter: sizeInMilliliter, itemPrice: itemPrice, itemName: itemName, manufacturingDate: manufacturingDate)
+    init(brand: String, size: Milli_Liter, price: Int, name: String, packDate: Date, zeroCalories: Bool) {
+        self.zeroCalories = zeroCalories
+        super.init(brand: brand, size: size, price: price, name: name, packDate: packDate)
     }
     
-    convenience override init(brandName: String, sizeInMilliliter: Int, itemPrice: Int, itemName: String, manufacturingDate: Date) {
-        self.init(brandName: brandName, sizeInMilliliter: sizeInMilliliter, itemPrice: itemPrice, itemName: itemName, manufacturingDate: manufacturingDate, isZeroCalories: false)
+    convenience override init(brand: String, size: Milli_Liter, price: Int, name: String, packDate: Date) {
+        self.init(brand: brand, size: size, price: price, name: name, packDate: packDate, zeroCalories: false)
     }
 }

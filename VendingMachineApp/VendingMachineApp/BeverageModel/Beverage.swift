@@ -9,17 +9,17 @@ import Foundation
 
 class Beverage {
     private let brand: String
-    private let size: Int
+    private let size: Milli_Liter
     private let price: Int
     private let name: String
     private let packDate: Date
     
-    public init(brandName: String, sizeInMilliliter: Int, itemPrice: Int, itemName: String, manufacturingDate: Date) {
-        brand = brandName
-        size = sizeInMilliliter
-        price = itemPrice
-        name = itemName
-        packDate = manufacturingDate
+    public init(brand: String, size: Milli_Liter, price: Int, name: String, packDate: Date) {
+        self.brand = brand
+        self.size = size
+        self.price = price
+        self.name = name
+        self.packDate = packDate
     }
     
     public func isPurchasable(with money: Int) -> Bool {

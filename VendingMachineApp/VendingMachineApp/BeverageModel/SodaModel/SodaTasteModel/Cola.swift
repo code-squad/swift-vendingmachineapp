@@ -15,12 +15,16 @@ class Cola: Soda {
     }
     private let bottle: BottleType
     
-    init(brandName: String, sizeInMilliliter: Int, itemPrice: Int, itemName: String, manufacturingDate: Date, isZeroCalories: Bool, bottleType: BottleType) {
-        bottle = bottleType
-        super.init(brandName: brandName, sizeInMilliliter: sizeInMilliliter, itemPrice: itemPrice, itemName: itemName, manufacturingDate: manufacturingDate, isZeroCalories: isZeroCalories)
+    init(brand: String, size: Milli_Liter, price: Int, name: String, packDate: Date, zeroCalories: Bool, bottle: BottleType) {
+        self.bottle = bottle
+        super.init(brand: brand, size: size, price: price, name: name, packDate: packDate, zeroCalories: zeroCalories)
     }
     
-    convenience init(brandName: String, sizeInMilliliter: Int, itemPrice: Int, itemName: String, manufacturingDate: Date) {
-        self.init(brandName: brandName, sizeInMilliliter: sizeInMilliliter, itemPrice: itemPrice, itemName: itemName, manufacturingDate: manufacturingDate, isZeroCalories: false, bottleType: .알루미늄)
+    convenience override init(brand: String, size: Milli_Liter, price: Int, name: String, packDate: Date, zeroCalories: Bool) {
+        self.init(brand: brand, size: size, price: price, name: name, packDate: packDate, zeroCalories: zeroCalories, bottle: .알루미늄)
+    }
+    
+    convenience init(brand: String, size: Milli_Liter, price: Int, name: String, packDate: Date) {
+        self.init(brand: brand, size: size, price: price, name: name, packDate: packDate, zeroCalories: false, bottle: .알루미늄)
     }
 }

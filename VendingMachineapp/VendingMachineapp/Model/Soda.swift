@@ -16,29 +16,29 @@ enum SodaType: String {
 class Soda: Beverage {
     private var type: SodaType
     
-    init(manufacturer: String, volume: Int, price: Int, brand: String, manufactoringDate: Date, type: SodaType) {
+    init(manufacturer: String, volume: Int, price: Int, brand: String, manufactured: Date, type: SodaType) {
         self.type = type
-        super.init(manufacturer: manufacturer, volume: volume, price: price, brand: brand, manufactoringDate: manufactoringDate)
+        super.init(manufacturer: manufacturer, volume: volume, price: price, brand: brand, manufactured: manufactured)
     }
 }
 
 class Coke: Soda {
     
-    override init(manufacturer: String, volume: Int, price: Int, brand: String, manufactoringDate: Date, type: SodaType) {
-        super.init(manufacturer: manufacturer, volume: volume, price: price, brand: brand, manufactoringDate: manufactoringDate, type: type)
+    override init(manufacturer: String, volume: Int, price: Int, brand: String, manufactured: Date, type: SodaType) {
+        super.init(manufacturer: manufacturer, volume: volume, price: price, brand: brand, manufactured: manufactured, type: type)
     }
 }
 
 class Sprite: Soda {
     
-    override init(manufacturer: String, volume: Int, price: Int, brand: String, manufactoringDate: Date, type: SodaType) {
-        super.init(manufacturer: manufacturer, volume: volume, price: price, brand: brand, manufactoringDate: manufactoringDate, type: type)
+    override init(manufacturer: String, volume: Int, price: Int, brand: String, manufactured: Date, type: SodaType) {
+        super.init(manufacturer: manufacturer, volume: volume, price: price, brand: brand, manufactured: manufactured, type: type)
     }
 }
 
 class Hwanta: Soda {
     
-    override init(manufacturer: String, volume: Int, price: Int, brand: String, manufactoringDate: Date, type: SodaType) {
-        super.init(manufacturer: manufacturer, volume: volume, price: price, brand: brand, manufactoringDate: manufactoringDate, type: type)
+    override init(manufacturer: String, volume: Int, price: Int, brand: String, manufactured: Date, type: SodaType) {
+        super.init(manufacturer: manufacturer, volume: volume, price: price, brand: brand, manufactured: manufactured, type: type)
     }
 }

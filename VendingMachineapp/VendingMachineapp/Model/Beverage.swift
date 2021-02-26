@@ -12,19 +12,19 @@ class Beverage{
     private var volume: Int
     private var price: Int
     private var brand: String
-    private var manufactoringDate: Date
+    private var manufactured: Date
     
-    init(manufacturer: String, volume: Int, price: Int, brand: String, manufactoringDate: Date) {
+    init(manufacturer: String, volume: Int, price: Int, brand: String, manufactured: Date) {
         self.manufacturer = manufacturer
         self.volume = volume
         self.price = price
         self.brand = brand
-        self.manufactoringDate = manufactoringDate
+        self.manufactured = manufactured
     }
 }
 
 extension Beverage: CustomStringConvertible {
     var description: String {
-        return "\(manufacturer), \(volume)ml, \(price)원, \(brand), \(manufactoringDate.description)"
+        return "\(manufacturer), \(volume)ml, \(price)원, \(brand), \(manufactured.description)"
     }
 }

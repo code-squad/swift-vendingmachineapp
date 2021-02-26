@@ -9,8 +9,8 @@ class Soda: Beverage {
     
     private var sodaType: SodaType
     
-    init(brand: String, capacity: Int, price: Int, name: String, sodaType: SodaType, date: Date = Date()) {
+    init(brand: String, capacity: Int, price: Int, name: String, sodaType: SodaType, manufacture: Date = Date()) {
         self.sodaType = sodaType
-        super.init(brand: brand, capacity: capacity, price: price, name: name, date: date)
+        super.init(brand: brand, capacity: capacity, price: price, name: name, manufacture: manufacture)
     }
 }

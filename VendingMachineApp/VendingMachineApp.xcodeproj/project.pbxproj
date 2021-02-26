@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		880B9ABF25E8D32C008B02BB /* FoodColoring.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880B9ABE25E8D32C008B02BB /* FoodColoring.swift */; };
 		882A589425E7A84800BCAF67 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882A589325E7A84800BCAF67 /* DateExtension.swift */; };
 		882A589925E8926A00BCAF67 /* Milli_Liter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882A589825E8926A00BCAF67 /* Milli_Liter.swift */; };
 		882A589F25E8AB4200BCAF67 /* DomesticLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882A589E25E8AB4200BCAF67 /* DomesticLocation.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		880B9ABE25E8D32C008B02BB /* FoodColoring.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodColoring.swift; sourceTree = "<group>"; };
 		882A589325E7A84800BCAF67 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		882A589825E8926A00BCAF67 /* Milli_Liter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Milli_Liter.swift; sourceTree = "<group>"; };
 		882A589E25E8AB4200BCAF67 /* DomesticLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomesticLocation.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 				882A589325E7A84800BCAF67 /* DateExtension.swift */,
 				882A589E25E8AB4200BCAF67 /* DomesticLocation.swift */,
 				882A58A225E8B66700BCAF67 /* OverseasLocation.swift */,
+				880B9ABE25E8D32C008B02BB /* FoodColoring.swift */,
 			);
 			path = SupportingFiles;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 				88748ABC25E4A48300E7DCB1 /* Cola.swift in Sources */,
 				88748A8A25E387B100E7DCB1 /* ViewController.swift in Sources */,
 				88748AD725E4E9E000E7DCB1 /* Protocols.swift in Sources */,
+				880B9ABF25E8D32C008B02BB /* FoodColoring.swift in Sources */,
 				88748ACC25E4A57000E7DCB1 /* CaffeLatte.swift in Sources */,
 				88748A8625E387B100E7DCB1 /* AppDelegate.swift in Sources */,
 				88748AEA25E56ADA00E7DCB1 /* MoneyExchangable.swift in Sources */,

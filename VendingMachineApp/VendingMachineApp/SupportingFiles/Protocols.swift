@@ -16,6 +16,6 @@ protocol LocationTrackable {
 }
 
 protocol FoodColoringApplicable {
-    var foodColoring: Bool {get set}
+    var foodColoring: FoodColoring? { get }
     func isUsingFoodColoring() -> Bool
 }

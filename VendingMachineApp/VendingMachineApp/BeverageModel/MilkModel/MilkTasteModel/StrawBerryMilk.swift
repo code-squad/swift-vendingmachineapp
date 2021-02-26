@@ -9,16 +9,16 @@ import Foundation
 
 class StrawBerryMilk: Milk & FoodColoringApplicable {
     private let strawBerryFarm: LocationTrackable
-    var foodColoring: Bool
+    var foodColoring: FoodColoring?
     
-    init(brand: String, size: Milli_Liter, price: Int, name: String, packDate: Date, milkFarm: LocationTrackable, strawBerryFarm: LocationTrackable, foodColoring: Bool) {
+    init(brand: String, size: Milli_Liter, price: Int, name: String, packDate: Date, milkFarm: LocationTrackable, strawBerryFarm: LocationTrackable, foodColoring: FoodColoring?) {
         self.strawBerryFarm = strawBerryFarm
         self.foodColoring = foodColoring
         super.init(brand: brand, size: size, price: price, name: name, packDate: packDate, farm: milkFarm)
     }
     
     func isUsingFoodColoring() -> Bool {
-        return foodColoring
+        return foodColoring != nil
     }
 }
 

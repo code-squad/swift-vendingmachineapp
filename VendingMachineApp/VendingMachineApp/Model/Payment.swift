@@ -14,11 +14,11 @@ class Payment {
         self.amountMoney = 0
     }
         
-    func purchasePossibleList(drink : Drink) -> [Beverage] {
-        return drink.purchasePossibleList(currentMoney: amountMoney)
+    func purchasePossibleList(drinks : Drinks) -> [Beverage] {
+        return drinks.purchasePossibleList(money: amountMoney)
     }
     
-    func checkBalance(beverage : Beverage) -> Bool {
+    func checkPossiblePurchase(beverage : Beverage) -> Bool {
         return beverage.isPossiblePurchase(money: amountMoney)
     }
     

@@ -8,18 +8,18 @@
 import Foundation
 
 struct VendingMachine {
-    private var drink : Drink
+    private var drinks : Drinks
     private var payment : Payment
     private var purchasedList : PurchasedList
     
     init() {
-        self.drink = Drink()
+        self.drinks = Drinks()
         self.payment = Payment()
         self.purchasedList = PurchasedList()
     }
     
     func showBeverageList(handler : (Beverage) -> Void) {
-        drink.showBeverageList {
+        drinks.showBeverageList {
             handler($0)
         }
     }
@@ -29,31 +29,31 @@ struct VendingMachine {
     }
     
     func addBevergeStock(beverage : Beverage) {
-        drink.addStock(beverage : beverage)
+        drinks.addStock(beverage : beverage)
     }
     
     func showPurchasePossibleList() -> [Beverage] {
-        return payment.purchasePossibleList(drink: drink)
+        return payment.purchasePossibleList(drinks : drinks)
     }
     
     func purchaseBeverage(beverage : Beverage) {
-        if payment.checkBalance(beverage: beverage) {
+        if payment.checkPossiblePurchase(beverage: beverage) {
             payment.decrease(beverage: beverage)
-            drink.purchase(beverage: beverage)
+            drinks.purchase(beverage: beverage)
             purchasedList.addHistory(beverage: beverage)
         }
     }
     
     func showAllBeverageStock() -> [Beverage : Int] {
-        return drink.showAllBeverage()
+        return drinks.showAllBeverage()
     }
     
     func outOfDateInventory(standard : Date) -> [Beverage] {
-        return drink.passExpiryDate(standard: standard)
+        return drinks.passExpiryDate(standard: standard)
     }
     
     func verifyHotBeverages() -> [Beverage] {
-        return drink.hotDrink()
+        return drinks.hotDrink()
     }
     
     func checkCurrentBalance() -> Int {

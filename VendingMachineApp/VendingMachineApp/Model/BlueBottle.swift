@@ -6,7 +6,7 @@ class BlueBottle: Coffee {
         case bold
     }
     
-    private var flavor: Flavor
+    private(set) var flavor: Flavor
     
     init(brand: String, capacity: Int, price: Int, name: String, isDecaffeinated: Bool, flavor: Flavor, manufacture: Date = Date()) {
         self.flavor = flavor

@@ -8,7 +8,7 @@
 import Foundation
 
 class StarbucksColdBrew: Coffee {
-    private var isBlack: Bool
+    private(set) var isBlack: Bool
     
     init(brand: String, capacity: Int, price: Int, name: String, isDecaffeinated: Bool, isBlack: Bool, manufacture: Date = Date()) {
         self.isBlack = isBlack

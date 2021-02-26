@@ -7,7 +7,7 @@ class Pepsi: Soda{
         case blue
     }
     
-    private var flavor: Flavor
+    private(set) var flavor: Flavor
     
     init(brand: String, capacity: Int, price: Int, name: String, isZeroCalorie: Bool, flavor: Flavor, isPackageRenewal: Bool, manufacture: Date = Date()) {
         self.flavor = flavor

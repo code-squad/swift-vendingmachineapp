@@ -8,7 +8,7 @@
 import Foundation
 
 class VendingMachine {
-    private var stockBeverages: [Beverage]
+    private(set) var stockBeverages: [Beverage]
     
     init() {
         self.stockBeverages = [Beverage]()

@@ -25,7 +25,7 @@ class Drink {
     }
     
     func purchasePossibleList(currentMoney : Int) -> [Beverage] {
-        return drinks.filter { $0.isPossible(money: currentMoney) }
+        return drinks.filter { $0.isPossiblePurchase(money: currentMoney) }
     }
     
     func purchaseBeverage(beverage : Beverage) {
@@ -43,6 +43,6 @@ class Drink {
     }
     
     func hotDrink() -> [Beverage] {
-        return drinks.filter { $0.isHot() }
+        return drinks.filter { $0.isHot(standard : 65) }
     }
 }

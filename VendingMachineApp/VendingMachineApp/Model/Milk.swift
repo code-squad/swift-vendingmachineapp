@@ -12,6 +12,6 @@ class Milk : Beverage {
     
     init(brand: String, liter: Int, price: Int, name: String, manufactured: Date, mlikFarmCode : Int ,expiration : Date, temperature : Int, calorie : Int) {
         self.milkFarmCode = mlikFarmCode
-        super.init(brand: brand, liter: liter, price: price, name: name, manufactured: manufactured, expiration: expiryDate, temperature : temperature, calorie: calorie)
+        super.init(brand: brand, liter: liter, price: price, name: name, manufactured: manufactured, expiration: expiration, temperature : temperature, calorie: calorie)
     }
 }

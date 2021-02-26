@@ -32,20 +32,20 @@ class Beverage : CustomStringConvertible {
         return "\(brand), \(liter)ml, \(price)원, \(name), \(manufactured.description)"
     }
     
-    func isPossible(money : Int) -> Bool {
-        return self.price <= money
+    func isPossiblePurchase(money : Int) -> Bool {
+        return price <= money
     }
     
     func validate(with date:Date) -> Bool {
         return expiration < date
     }
     
-    func isHot() -> Bool {
-        return temperature >= 65
+    func isHot(standard : Int) -> Bool {
+        return temperature >= standard
     }
     
-    func isLowCalorie() -> Bool {
-        return calorie > 10
+    func isLowCalorie(standard : Int) -> Bool {
+        return calorie > standard
     }
 }
 

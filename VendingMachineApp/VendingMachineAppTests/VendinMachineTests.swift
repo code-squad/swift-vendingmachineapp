@@ -17,12 +17,12 @@ class VendingMachineTests: XCTestCase {
                                                     name: "딸기우유",
                                                     manufactured: Date().insert(date: "20210207"),
                                                     mlikFarmCode: 023,
-                                                    expiryDate: Date().insert(date: "20210210"), temperature : 10 ,calorie: 150, strawberryContent: 10)
+                                                    expiration: Date().insert(date: "20210210"), temperature : 10 ,calorie: 150, strawberryContent: 10)
         let dietCola =  DietCola.init(brand : "팹시",
                                       liter: 350,
                                       price: 2000,
                                       name: "다이어트콜라",
-                                      manufactured: Date().insert(date: "20210222"),sugar: false,expiryDate: Date().insert(date: "20210303"),temperature : 10,calorie: 123,taste: .lemon)
+                                      manufactured: Date().insert(date: "20210222"),sugar: false,expiration: Date().insert(date: "20210303"),temperature : 10,calorie: 123,taste: .lemon)
         
         let topAmericano =  TopAmericano.init(brand : "맥심",
                                               liter: 400,
@@ -30,7 +30,7 @@ class VendingMachineTests: XCTestCase {
                                               name: "TOP아메리카노",
                                               manufactured: Date().insert(date: "20210217"),
                                               caffeineContent: 130,
-                                              expiryDate: Date().insert(date: "20210227"),
+                                              expiration: Date().insert(date: "20210227"),
                                               temperature : 70, calorie : 100,coffeeSolids: 0.7)
         
         let vendingMachine = VendingMachine()

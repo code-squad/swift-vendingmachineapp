@@ -19,7 +19,7 @@ class Payment {
     }
     
     func checkBalance(beverage : Beverage) -> Bool {
-        return amountMoney >= beverage.price
+        return beverage.isPossiblePurchase(money: amountMoney)
     }
     
     func increaseAmountMoney(money : Int) {

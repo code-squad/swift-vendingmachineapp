@@ -9,8 +9,8 @@ class Coffee: Beverage {
 
     private var coffeeBrand: CoffeeBrand
     
-    init(brand: String, capacity: Int, price: Int, name: String, coffeeBrand: CoffeeBrand, date: Date = Date()) {
+    init(brand: String, capacity: Int, price: Int, name: String, coffeeBrand: CoffeeBrand, manufacture: Date = Date()) {
         self.coffeeBrand = coffeeBrand
-        super.init(brand: brand, capacity: capacity, price: price, name: name, date: date)
+        super.init(brand: brand, capacity: capacity, price: price, name: name, manufacture: manufacture)
     }
 }

@@ -41,8 +41,4 @@ class MoneyProcessingUnit {
         moneyOnTransaction = 0
         return change
     }
-    
-    public func exitTransaction() {
-        
-    }
 }

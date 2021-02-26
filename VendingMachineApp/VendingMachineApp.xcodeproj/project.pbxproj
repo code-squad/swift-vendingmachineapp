@@ -32,7 +32,6 @@
 		88748ADB25E4EECB00E7DCB1 /* Machine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88748ADA25E4EECB00E7DCB1 /* Machine.swift */; };
 		88748ADE25E4F09700E7DCB1 /* MoneyProcessingUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88748ADD25E4F09700E7DCB1 /* MoneyProcessingUnit.swift */; };
 		88748AE225E4F4E700E7DCB1 /* BeverageStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88748AE125E4F4E700E7DCB1 /* BeverageStorage.swift */; };
-		88748AF025E62BAA00E7DCB1 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88748AEF25E62BAA00E7DCB1 /* Item.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,7 +62,6 @@
 		88748ADA25E4EECB00E7DCB1 /* Machine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Machine.swift; sourceTree = "<group>"; };
 		88748ADD25E4F09700E7DCB1 /* MoneyProcessingUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyProcessingUnit.swift; sourceTree = "<group>"; };
 		88748AE125E4F4E700E7DCB1 /* BeverageStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageStorage.swift; sourceTree = "<group>"; };
-		88748AEF25E62BAA00E7DCB1 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,7 +110,6 @@
 				88748A8525E387B100E7DCB1 /* AppDelegate.swift */,
 				88748A8725E387B100E7DCB1 /* SceneDelegate.swift */,
 				882A589625E7A87500BCAF67 /* SupportingFiles */,
-				88748AEF25E62BAA00E7DCB1 /* Item.swift */,
 				88748AE125E4F4E700E7DCB1 /* BeverageStorage.swift */,
 				88748ADD25E4F09700E7DCB1 /* MoneyProcessingUnit.swift */,
 				88748ADA25E4EECB00E7DCB1 /* Machine.swift */,
@@ -261,7 +258,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				88748AF025E62BAA00E7DCB1 /* Item.swift in Sources */,
 				882A589425E7A84800BCAF67 /* DateExtension.swift in Sources */,
 				88748AA325E397B200E7DCB1 /* Soda.swift in Sources */,
 				88748AB425E4A3C700E7DCB1 /* StrawBerryMilk.swift in Sources */,

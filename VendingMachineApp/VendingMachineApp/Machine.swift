@@ -30,38 +30,39 @@ struct Machine {
     }
     
     //MARK:- Beverage storage related methods
-    func addStock(beverage: Beverage, count: Int) {
-        beverageStorage.addStock(with: beverage, amount: count)
+    func addStock(beverage: Beverage, amount: Int) {
+        beverageStorage.increaseStock(beverage: beverage, by: amount)
     }
     
     func checkStock() {
-        print(beverageStorage.showStock())
+        let stock = beverageStorage.checkStock()
+        print(stock)
     }
     
-    func showPurchasables() {
-        let receivedMoney = cashValidator.showBalance()
-        print(beverageStorage.showPurchasableBeverages(with: receivedMoney))
+    func showPurchasables(with money: Int) {
+        let purchasables = beverageStorage.checkPurchasables(with: money)
+        print(purchasables)
     }
     
     func showExpired() {
-        print(beverageStorage.showExpiredBeverages())
+        let expired = beverageStorage.checkExpired()
+        print(expired)
     }
     
     //사용자는 특정버튼을 입력
-    func purchaseBeverage(index: Int) {
-        if let beverage = beverageStorage.putSelectedBeverageOut(at: index) {
-            print("\(beverage)가 나왔습니다")
-            cashValidator.deductBalance(with: beverage.checkPrice())
-        } else {
-            print("올바른 인덱스를 입력해 주세요")
+    func purchaseBeverage(beverage: Beverage) {
+        let itemPrice = beverage.checkPrice()
+        moneyProccesor.deductMoneyOnTransaction(by: itemPrice)
+        moneyProccesor.increaseHolding(by: itemPrice)
+        do {
+            try beverageStorage.decreaseStock(beverage: beverage)
+        } catch {
+            print("Invalid beverage info")
         }
+        
     }
 
     func transactionStopButtonPressed() {
-        let balance = cashValidator.showBalance()
-        moneyStorage.sendMoney(amount: balance, to: cashValidator)
-        let change = cashValidator.returnChangeToCustomer()
-        print("\(change)를 반환하였습니다.")
-        cashValidator.resetCashInteractor()
+        print("잔돈 \(moneyProccesor.returnChanges())원을 반환합니다.")
     }
 }

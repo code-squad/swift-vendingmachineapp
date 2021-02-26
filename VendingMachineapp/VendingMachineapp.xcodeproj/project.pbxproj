@@ -26,6 +26,9 @@
 		D46F1A8225E8BE8A00BFBD9C /* Top.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46F1A8125E8BE8A00BFBD9C /* Top.swift */; };
 		D46F1A8525E8BE9200BFBD9C /* Cantata.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46F1A8425E8BE9200BFBD9C /* Cantata.swift */; };
 		D46F1A8825E8BE9C00BFBD9C /* Georgia.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46F1A8725E8BE9C00BFBD9C /* Georgia.swift */; };
+		D46F1A8B25E8C1D000BFBD9C /* Hwanta.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46F1A8A25E8C1D000BFBD9C /* Hwanta.swift */; };
+		D46F1A8E25E8C1D900BFBD9C /* Sprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46F1A8D25E8C1D900BFBD9C /* Sprite.swift */; };
+		D46F1A9125E8C1E000BFBD9C /* Coke.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46F1A9025E8C1E000BFBD9C /* Coke.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +53,9 @@
 		D46F1A8125E8BE8A00BFBD9C /* Top.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Top.swift; sourceTree = "<group>"; };
 		D46F1A8425E8BE9200BFBD9C /* Cantata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cantata.swift; sourceTree = "<group>"; };
 		D46F1A8725E8BE9C00BFBD9C /* Georgia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Georgia.swift; sourceTree = "<group>"; };
+		D46F1A8A25E8C1D000BFBD9C /* Hwanta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hwanta.swift; sourceTree = "<group>"; };
+		D46F1A8D25E8C1D900BFBD9C /* Sprite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sprite.swift; sourceTree = "<group>"; };
+		D46F1A9025E8C1E000BFBD9C /* Coke.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coke.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +116,9 @@
 				D46F1A8125E8BE8A00BFBD9C /* Top.swift */,
 				D46F1A8425E8BE9200BFBD9C /* Cantata.swift */,
 				D46F1A8725E8BE9C00BFBD9C /* Georgia.swift */,
+				D46F1A8A25E8C1D000BFBD9C /* Hwanta.swift */,
+				D46F1A8D25E8C1D900BFBD9C /* Sprite.swift */,
+				D46F1A9025E8C1E000BFBD9C /* Coke.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -185,14 +194,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				D46F1A5F25E671EF00BFBD9C /* Soda.swift in Sources */,
+				D46F1A8B25E8C1D000BFBD9C /* Hwanta.swift in Sources */,
 				D46F1A4025E62A3200BFBD9C /* ViewController.swift in Sources */,
 				D46F1A6F25E6A52B00BFBD9C /* Inventory.swift in Sources */,
+				D46F1A9125E8C1E000BFBD9C /* Coke.swift in Sources */,
 				D46F1A3C25E62A3200BFBD9C /* AppDelegate.swift in Sources */,
 				D46F1A5325E6323700BFBD9C /* Beverage.swift in Sources */,
 				D46F1A8525E8BE9200BFBD9C /* Cantata.swift in Sources */,
 				D46F1A8825E8BE9C00BFBD9C /* Georgia.swift in Sources */,
 				D46F1A7F25E8BC2400BFBD9C /* ChocoMilk.swift in Sources */,
 				D46F1A7C25E8BC1800BFBD9C /* BananaMilk.swift in Sources */,
+				D46F1A8E25E8C1D900BFBD9C /* Sprite.swift in Sources */,
 				D46F1A3E25E62A3200BFBD9C /* SceneDelegate.swift in Sources */,
 				D46F1A5C25E6675E00BFBD9C /* Milk.swift in Sources */,
 				D46F1A6225E6730200BFBD9C /* Coffee.swift in Sources */,

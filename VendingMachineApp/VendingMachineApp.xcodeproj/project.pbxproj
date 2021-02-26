@@ -22,12 +22,14 @@
 		FE8B8D5425E3CFAD00EF304F /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8B8D5325E3CFAD00EF304F /* Utility.swift */; };
 		FE8B8D6C25E64F1C00EF304F /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8B8D6B25E64F1B00EF304F /* VendingMachine.swift */; };
 		FE8B8D7225E6685B00EF304F /* StrawberryMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8B8D7125E6685B00EF304F /* StrawberryMilk.swift */; };
-		FE8B8D7725E6686D00EF304F /* ChocolaMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8B8D7625E6686D00EF304F /* ChocolaMilk.swift */; };
+		FE8B8D7725E6686D00EF304F /* ChocolateMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8B8D7625E6686D00EF304F /* ChocolateMilk.swift */; };
 		FE8B8D7D25E6688300EF304F /* Cola.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8B8D7C25E6688300EF304F /* Cola.swift */; };
 		FE8B8D8225E6689300EF304F /* Sprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8B8D8125E6689300EF304F /* Sprite.swift */; };
 		FE8B8D8825E668A400EF304F /* Top.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8B8D8725E668A400EF304F /* Top.swift */; };
 		FE8B8D8D25E668CA00EF304F /* Cantata.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8B8D8C25E668CA00EF304F /* Cantata.swift */; };
 		FE8B8D9225E668D300EF304F /* Georgia.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8B8D9125E668D300EF304F /* Georgia.swift */; };
+		FE8B8DAA25E7F2B700EF304F /* DrinkableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8B8DA925E7F2B700EF304F /* DrinkableProtocol.swift */; };
+		FE8B8DB025E8111900EF304F /* DrinkStock.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8B8DAF25E8111900EF304F /* DrinkStock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,12 +71,14 @@
 		FE8B8D5325E3CFAD00EF304F /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		FE8B8D6B25E64F1B00EF304F /* VendingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachine.swift; sourceTree = "<group>"; };
 		FE8B8D7125E6685B00EF304F /* StrawberryMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrawberryMilk.swift; sourceTree = "<group>"; };
-		FE8B8D7625E6686D00EF304F /* ChocolaMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChocolaMilk.swift; sourceTree = "<group>"; };
+		FE8B8D7625E6686D00EF304F /* ChocolateMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChocolateMilk.swift; sourceTree = "<group>"; };
 		FE8B8D7C25E6688300EF304F /* Cola.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cola.swift; sourceTree = "<group>"; };
 		FE8B8D8125E6689300EF304F /* Sprite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sprite.swift; sourceTree = "<group>"; };
 		FE8B8D8725E668A400EF304F /* Top.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Top.swift; sourceTree = "<group>"; };
 		FE8B8D8C25E668CA00EF304F /* Cantata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cantata.swift; sourceTree = "<group>"; };
 		FE8B8D9125E668D300EF304F /* Georgia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Georgia.swift; sourceTree = "<group>"; };
+		FE8B8DA925E7F2B700EF304F /* DrinkableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkableProtocol.swift; sourceTree = "<group>"; };
+		FE8B8DAF25E8111900EF304F /* DrinkStock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkStock.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,8 +129,10 @@
 		FE8B8C8F25E3931C00EF304F /* VendingMachineApp */ = {
 			isa = PBXGroup;
 			children = (
+				FE8B8DA825E7F28900EF304F /* Protocol */,
 				FE8B8D3C25E3C95800EF304F /* Model */,
 				FE8B8C9025E3931C00EF304F /* AppDelegate.swift */,
+				FE8B8DAF25E8111900EF304F /* DrinkStock.swift */,
 				FE8B8D6B25E64F1B00EF304F /* VendingMachine.swift */,
 				FE8B8C9225E3931C00EF304F /* SceneDelegate.swift */,
 				FE8B8C9425E3931C00EF304F /* MainHomeController.swift */,
@@ -181,7 +187,7 @@
 			children = (
 				FE8B8D3D25E3C96F00EF304F /* Milk.swift */,
 				FE8B8D7125E6685B00EF304F /* StrawberryMilk.swift */,
-				FE8B8D7625E6686D00EF304F /* ChocolaMilk.swift */,
+				FE8B8D7625E6686D00EF304F /* ChocolateMilk.swift */,
 			);
 			path = Milk;
 			sourceTree = "<group>";
@@ -205,6 +211,14 @@
 				FE8B8D8725E668A400EF304F /* Top.swift */,
 			);
 			path = Coffee;
+			sourceTree = "<group>";
+		};
+		FE8B8DA825E7F28900EF304F /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				FE8B8DA925E7F2B700EF304F /* DrinkableProtocol.swift */,
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -346,11 +360,13 @@
 				FE8B8D9225E668D300EF304F /* Georgia.swift in Sources */,
 				FE8B8C9125E3931C00EF304F /* AppDelegate.swift in Sources */,
 				FE8B8D5425E3CFAD00EF304F /* Utility.swift in Sources */,
+				FE8B8DAA25E7F2B700EF304F /* DrinkableProtocol.swift in Sources */,
 				FE8B8D3825E3C7DD00EF304F /* Drink.swift in Sources */,
 				FE8B8C9325E3931C00EF304F /* SceneDelegate.swift in Sources */,
 				FE8B8D3E25E3C96F00EF304F /* Milk.swift in Sources */,
+				FE8B8DB025E8111900EF304F /* DrinkStock.swift in Sources */,
 				FE8B8D4B25E3C98600EF304F /* Coffee.swift in Sources */,
-				FE8B8D7725E6686D00EF304F /* ChocolaMilk.swift in Sources */,
+				FE8B8D7725E6686D00EF304F /* ChocolateMilk.swift in Sources */,
 				FE8B8D6C25E64F1C00EF304F /* VendingMachine.swift in Sources */,
 				FE8B8D8825E668A400EF304F /* Top.swift in Sources */,
 			);

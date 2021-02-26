@@ -15,3 +15,21 @@ protocol FoodColoringApplicable {
     var foodColoring: FoodColoring? { get }
     func isUsingFoodColoring() -> Bool
 }
+
+protocol CaffeineSuppliable {
+    var caffeine: Int { get }
+    func highCaffeine() -> Bool
+}
+
+protocol HotBeverageAvailable {
+    var inHeatingCabinet: Bool { get }
+    func isHot() -> Bool
+}
+
+protocol IsHazardous: CaffeineSuppliable & FoodColoringApplicable {
+    func isBadForBody() -> Bool
+}
+
+protocol EnergyBoostable: CaffeineSuppliable & HotBeverageAvailable {
+    func boostEnerge() -> Bool
+}

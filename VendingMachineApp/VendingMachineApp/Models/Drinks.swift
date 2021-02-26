@@ -29,6 +29,20 @@ class Drinks {
         }
     }
     
+    //음료를 하나하나 출력하는 show 메소드가 불필요해지면 show로 바꿀 예정
+    func showStock() -> Dictionary<Drink, Int>{
+        return dictionry.drinkDictionary
+    }
+    
+    //show 메소드와 유사
+    func getList() ->  [String]{
+        var list = [String]()
+        drinks.forEach {
+            list.append($0.description)
+        }
+        return list
+    }
+    
     func append(_ drink: Drink) {
         drinks.append(drink)
         classify(with: drink)
@@ -73,10 +87,5 @@ class Drinks {
         drinks.forEach {
             dictionry.append($0)
         }
-    }
-    
-    //음료를 하나하나 출력하는 show 메소드가 불필요해지면 show로 바꿀 예정
-    func showStock() -> Dictionary<Drink, Int>{
-        return dictionry.drinkDictionary
     }
 }

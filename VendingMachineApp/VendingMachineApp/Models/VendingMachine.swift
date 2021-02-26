@@ -18,15 +18,18 @@ class VendingMachine {
     
     private var stock: Drinks
     private var credit: Int
+    private var log: SalesLog
     
     init() {
         self.stock = Drinks()
         self.credit = 0
+        self.log = SalesLog()
     }
     
     init(drinks: Drinks) {
         self.stock = drinks
         self.credit = 0
+        self.log = SalesLog()
     }
     
     func show(handler: (Drink) -> Void) {
@@ -64,6 +67,4 @@ class VendingMachine {
     func validateDrinks(when date: Date) -> Drinks {
         return stock.validateDrinks(when: date)
     }
-    
-    
 }

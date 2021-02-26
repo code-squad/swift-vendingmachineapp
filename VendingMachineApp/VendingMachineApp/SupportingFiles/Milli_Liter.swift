@@ -18,9 +18,12 @@ struct Milli_Liter: ExpressibleByIntegerLiteral {
     }
 }
 
-extension Milli_Liter: Equatable {
+extension Milli_Liter: Equatable & Hashable {
     static func == (lhs: Milli_Liter, rhs: Milli_Liter) -> Bool {
         return lhs.value == rhs.value
+    }
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(value)
     }
 }
 

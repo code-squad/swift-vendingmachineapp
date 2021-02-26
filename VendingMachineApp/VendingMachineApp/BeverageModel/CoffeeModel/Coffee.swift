@@ -9,8 +9,8 @@ import Foundation
 
 class Coffee: Beverage {
     public enum Bean {
-        case 아라비카원두
-        case 로부스타원두
+        case arabica
+        case robusta
     }
     private let bean: Bean
     
@@ -20,6 +20,6 @@ class Coffee: Beverage {
     }
     
     convenience override init(brand: String, size: Milli_Liter, price: Int, name: String, packDate: Date) {
-        self.init(brand: brand, size: size, price: price, name: name, packDate: packDate, bean: .로부스타원두)
+        self.init(brand: brand, size: size, price: price, name: name, packDate: packDate, bean: .robusta)
     }
 }

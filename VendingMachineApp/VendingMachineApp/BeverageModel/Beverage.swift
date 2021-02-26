@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Beverage {
+class Beverage  {
     private let brand: String
     private let size: Milli_Liter
     private let price: Int
@@ -54,5 +54,15 @@ extension Beverage: Equatable {
             lhs.price == rhs.price &&
             lhs.name == rhs.name &&
             lhs.packDate == rhs.packDate
+    }
+}
+
+extension Beverage: Hashable {
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(brand)
+        hasher.combine(size)
+        hasher.combine(price)
+        hasher.combine(name)
+        hasher.combine(packDate)
     }
 }

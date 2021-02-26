@@ -16,30 +16,15 @@ enum MilkType: String {
 
 class Milk: Beverage {
     private var type: MilkType
+    private var lowFat: Bool
     
-    init(manufacturer: String, volume: Int, price: Int, brand: String, manufactured: Date, type: MilkType) {
+    init(manufacturer: String, volume: Int, price: Int, brand: String, manufactured: Date, type: MilkType, lowFat: Bool) {
         self.type = type
+        self.lowFat = lowFat
         super.init(manufacturer: manufacturer, volume: volume, price: price, brand: brand, manufactured: manufactured)
     }
-}
-
-class StrawberryMilk: Milk {
-
-    override init(manufacturer: String, volume: Int, price: Int, brand: String, manufactured: Date, type: MilkType) {
-        super.init(manufacturer: manufacturer, volume: volume, price: price, brand: brand, manufactured: manufactured, type: type)
-    }
-}
-
-class ChocoMilk: Milk {
     
-    override init(manufacturer: String, volume: Int, price: Int, brand: String, manufactured: Date, type: MilkType) {
-        super.init(manufacturer: manufacturer, volume: volume, price: price, brand: brand, manufactured: manufactured, type: type)
-    }
-}
-
-class BananaMilk: Milk {
-    
-    override init(manufacturer: String, volume: Int, price: Int, brand: String, manufactured: Date, type: MilkType) {
-        super.init(manufacturer: manufacturer, volume: volume, price: price, brand: brand, manufactured: manufactured, type: type)
+    func isLowFat() -> Bool {
+        return self.lowFat
     }
 }

@@ -8,6 +8,7 @@
 import Foundation
 
 struct VendingMachine {
+    private let standardHotTempertaure = 70
     private var drinks: Drinks
     private var chargedCoins: Int = 0
     private var purchaseHistory = [Drink]()
@@ -44,5 +45,9 @@ struct VendingMachine {
     
     mutating func getExpiredDrinks(date: Date) -> [Drink: Int] {
         return drinks.getExpiredDrinks(date: date)
+    }
+    
+    mutating func getHotDrinks() -> [Drink] {
+        return drinks.getHotDrinks(for: standardHotTempertaure)
     }
 }

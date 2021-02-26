@@ -14,7 +14,9 @@ class ViewController: UIViewController {
         vendingMachine.addBeverage(Coke(brand: "코카콜라", size: 500, price: 1500, name: "코카콜라", manufactureDate: Date()))
         vendingMachine.addBeverage(TOP(brand: "맥심", size: 300, price: 2000, name: "TOP 스위트 아메리카노", manufactureDate: Date()))
         
-        vendingMachine.checkStock()
+        vendingMachine.stockList { beverage in
+            print(beverage)
+        }
     }
 
 

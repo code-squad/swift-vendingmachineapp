@@ -12,9 +12,9 @@ class VendingMachine {
         self.beverageStock.append(beverage)
     }
     
-    func checkStock() {
+    func stockList(closure: (Beverage) -> Void) {
         self.beverageStock.forEach { beverage in
-            print(beverage)
+            closure(beverage)
         }
     }
 }

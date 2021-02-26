@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Drink {
+class Drinks {
     private var drinks : [Beverage]
     
     init() {
@@ -24,8 +24,8 @@ class Drink {
         }
     }
     
-    func purchasePossibleList(currentMoney : Int) -> [Beverage] {
-        return drinks.filter { $0.isPossiblePurchase(money: currentMoney) }
+    func purchasePossibleList(money : Int) -> [Beverage] {
+        return drinks.filter { $0.isPossiblePurchase(money: money) }
     }
     
     func purchase(beverage : Beverage) {

@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     }
     
     func run() {
-        let vendingMachine = VendingMachine()
+        let vendingMachine = VendingMachine(money: 1000)
         
         let milk1: Milk = StrawberryMilk(manufacturer: "서울우유", volume: 200, price: 1000, brand: "날마다딸기우유", manufactured: Date.stringToDate(date: "20171009"), expirydate: Date.stringToDate(date: "20210228"), calorie: 200, hot: false, type: .strawberry, lowFat: false)
         
@@ -29,8 +29,6 @@ class ViewController: UIViewController {
         vendingMachine.addBeverage(beverage: milk2)
         vendingMachine.addBeverage(beverage: soda)
         vendingMachine.addBeverage(beverage: coffee)
-
-        vendingMachine.printList()
     }
 }
 

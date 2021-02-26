@@ -13,7 +13,7 @@ class Beverage{
     private var manufacturer: String
     private var volume: Int
     private var price: Int
-    private var brand: String
+    private(set) var brand: String
     private var manufactured: Date
     private var expirydate: Date
     private var calorie: Int
@@ -33,11 +33,17 @@ class Beverage{
     func isLowCalorie() -> Bool {
         return calorie < compareCalorie
     }
+    
     func isHot() -> Bool {
         return hot
     }
+    
     func validate(with date: Date) -> Bool {
         return expirydate > date
+    }
+    
+    func isAvailablePurchase(with money: Int) -> Bool {
+        return money > price
     }
 }
 
@@ -45,4 +51,11 @@ extension Beverage: CustomStringConvertible {
     var description: String {
         return "\(manufacturer), \(volume)ml, \(price)원, \(brand), \(manufactured.description)"
     }
+}
+extension Beverage: Equatable {
+    static func == (lhs: Beverage, rhs: Beverage) -> Bool {
+        return lhs.brand == rhs.brand
+    }
+    
+    
 }

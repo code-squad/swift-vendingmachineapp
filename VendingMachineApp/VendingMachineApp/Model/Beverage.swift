@@ -9,7 +9,8 @@ import Foundation
 
 class Beverage : CustomStringConvertible {
     private let brand : String
-    private let liter : Int
+    private let amount : Int
+    private let unit : Unit
     private let price : Int
     private let name : String
     private let manufactured : Date
@@ -17,9 +18,15 @@ class Beverage : CustomStringConvertible {
     private let temperature : Int
     private let calorie : Int
     
-    init(brand : String, liter : Int, price : Int, name : String, manufactured : Date, expiration : Date, temperature : Int, calorie : Int) {
+    enum Unit {
+        case Liter
+        case Milliliter
+    }
+    
+    init(brand : String, amount : Int, unit : Unit, price : Int, name : String, manufactured : Date, expiration : Date, temperature : Int, calorie : Int) {
         self.brand = brand
-        self.liter = liter
+        self.amount = amount
+        self.unit = unit
         self.price = price
         self.name = name
         self.manufactured = manufactured
@@ -29,7 +36,7 @@ class Beverage : CustomStringConvertible {
     }
     
     var description: String {
-        return "\(brand), \(liter)ml, \(price)원, \(name), \(manufactured.description)"
+        return "\(brand), \(amount)\(unit), \(price)원, \(name), \(manufactured.description)"
     }
     
     func isPossiblePurchase(money : Int) -> Bool {
@@ -56,7 +63,7 @@ class Beverage : CustomStringConvertible {
 extension Beverage : Hashable {
     static func == (lhs: Beverage, rhs: Beverage) -> Bool {
         return lhs.name == rhs.name && lhs.price == rhs.price &&
-               lhs.brand == rhs.brand && lhs.liter == rhs.liter
+               lhs.brand == rhs.brand
     }
     
     func hash(into hasher: inout Hasher) {

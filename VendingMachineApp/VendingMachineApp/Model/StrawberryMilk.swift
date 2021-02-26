@@ -9,7 +9,7 @@ import Foundation
 
 class StrawberryMilk: Milk {
     
-    private let cochineal : Bool //how many day after manufacturingDate
+    private let cochineal : Bool
     
     init(brand : String, volume : Int, charge : Int, name :String, manufacturing : Date, expirationLimit : Int, cochineal : Bool) {
         self.cochineal = cochineal

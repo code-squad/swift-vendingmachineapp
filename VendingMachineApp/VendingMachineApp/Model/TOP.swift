@@ -7,7 +7,6 @@
 
 import Foundation
 
-//http://emart.ssg.com/item/itemView.ssg?itemId=0000007323904&siteNo=6001&salestrNo=2034&tlidSrchWd=TOP&srchPgNo=1&src_area=elist
 class TOP: Coffee {
     
     private let hot : Bool

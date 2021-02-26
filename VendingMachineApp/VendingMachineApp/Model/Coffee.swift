@@ -10,10 +10,6 @@ import Foundation
 
 class Coffee: Drink {
     
-    // 카페인 추가 -> optional 선언으로 decaffein 구현
-    // 하위 : 원두 품종
-    //  뜨거움 여부
-    
     private let caffeine : Double?
     
     init(brand : String, volume : Int, charge : Int, name :String, manufacturing : Date, caffeine : Double?) {
@@ -21,11 +17,11 @@ class Coffee: Drink {
         super.init(brand: brand, volume: volume, charge: charge, name: name, manufacturing: manufacturing)
     }
     
-    func productCaffeine() -> String {
+    func productCaffeine() -> Double {
         guard let nonOptional = caffeine else {
-            return "deCaffeine"
+            return 0
         }
         
-        return "\(nonOptional) mg"
+        return nonOptional
     }
 }

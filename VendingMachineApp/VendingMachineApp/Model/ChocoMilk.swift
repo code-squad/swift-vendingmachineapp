@@ -7,10 +7,9 @@
 
 import Foundation
 
-//http://emart.ssg.com/item/itemView.ssg?itemId=0000007095603&siteNo=6001&salestrNo=2034
 class ChocoMilk: Milk {
     
-    private let realChocolate : Bool //how many day after manufacturingDate
+    private let realChocolate : Bool 
     
     init(brand : String, volume : Int, charge : Int, name :String, manufacturing : Date, expirationLimit : Int, realChoco : Bool) {
         self.realChocolate = realChoco

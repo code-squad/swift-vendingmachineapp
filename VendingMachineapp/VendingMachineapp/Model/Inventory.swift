@@ -70,8 +70,8 @@ class Inventory {
         return list
     }
     
-    func wholeBeverage() -> [String:Int] {
-        let list = inventory.map({$0.brand}).reduce(into: [:]) { counts, name in
+    func wholeBeverage() -> [Beverage:Int] {
+        let list = inventory.map({$0}).reduce(into: [:]) { counts, name in
             counts[name, default: 0] += 1
         }
         return list

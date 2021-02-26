@@ -7,8 +7,9 @@
 
 import Foundation
 
-protocol BeverageDescripting {
+protocol Productization {
     func validate(with date:Date) -> Bool
     func isHot() -> Bool
     func isLowCalorie() -> Bool
 }
+

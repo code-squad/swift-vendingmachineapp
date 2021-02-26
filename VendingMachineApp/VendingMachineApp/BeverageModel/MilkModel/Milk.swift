@@ -8,18 +8,10 @@
 import Foundation
 
 class Milk: Beverage {
-    public enum FarmLocation {
-        case domesticFarm
-        case overseasFarm
-    }
-    private let isFrom: FarmLocation
+    private let farm: LocationTrackable
     
-    public init(brand: String, size: Milli_Liter, price: Int, name: String, packDate: Date, farmLocation: FarmLocation) {
-        isFrom = farmLocation
+    public init(brand: String, size: Milli_Liter, price: Int, name: String, packDate: Date, farm: LocationTrackable) {
+        self.farm = farm
         super.init(brand: brand, size: size, price: price, name: name, packDate: packDate)
-    }
-    
-    convenience override init(brand: String, size: Milli_Liter, price: Int, name: String, packDate: Date) {
-        self.init(brand: brand, size: size, price: price, name: name, packDate: packDate, farmLocation: .domesticFarm)
     }
 }

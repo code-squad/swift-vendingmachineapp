@@ -30,18 +30,9 @@ class ViewController: UIViewController {
         
         machine.increaseCashInMoneyStorage(by: 100_000)
         
-        let someSoda = Soda(brandName: "코카콜라", sizeInMilliliter: 500, itemPrice: 1000, itemName: "코카콜라", manufacturingDate: generateDate(year: 1999, month: 04, day: 32))
-        let someMilk = Soda(brandName: "서울우유", sizeInMilliliter: 250, itemPrice: 3000, itemName: "딸기맛우유", manufacturingDate: generateDate(year: 2020, month: 02, day: 01))
-        let someAmericano = Americano(brandName: "스타벅스", sizeInMilliliter: 450, itemPrice: 4500, itemName: "콜드브루", manufacturingDate: Date(), coffeeBean: .로부스타원두, caffeine: 400)
-        let someFanta = Fanta(brandName: "코카콜라", sizeInMilliliter: 1000, itemPrice: 20_000, itemName: "판타트로피컬후르츠", manufacturingDate: generateDate(year: 2021, month: 1, day: 1), isZeroCalories: true, isUsingNaturalFruit: false)
-        let someSoda2 = Soda(brandName: "코카콜라", sizeInMilliliter: 500, itemPrice: 1000, itemName: "코카콜라", manufacturingDate: generateDate(year: 1999, month: 04, day: 32))
+        let lowFatMilk = Milk(brand: "서울우유", size: 1000, price: 1500, name: "저지방우유", packDate: Date(), farm: DomesticLocation(province: "경상북도"))
         
-        machine.addStock(beverage: someSoda, count: 5)
         machine.addStock(beverage: someMilk, count: 10)
-        machine.addStock(beverage: someAmericano, count: 25)
-        machine.addStock(beverage: someFanta, count: 100)
-        machine.addStock(beverage: someSoda2, count: 30)
-    
         machine.receiveMoney(amount: 10_000)
         machine.showExpired()
         machine.showPurchasables()

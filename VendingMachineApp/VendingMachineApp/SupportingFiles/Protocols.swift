@@ -10,3 +10,12 @@ import Foundation
 protocol Drinkable {
     func isExpired(by date: Date) -> Bool
 }
+
+protocol LocationTrackable {
+    func isDomestic() -> Bool
+}
+
+protocol FoodColoringApplicable {
+    var foodColoring: Bool {get set}
+    func isUsingFoodColoring() -> Bool
+}

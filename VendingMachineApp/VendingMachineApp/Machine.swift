@@ -8,19 +8,28 @@
 import Foundation
 
 struct Machine {
-    private var moneyStorage = MoneyStorage()
+    private var moneyProccesor = MoneyProcessingUnit()
     private var beverageStorage = BeverageStorage()
-    private var cashInteractor = CashInteractor()
     
-    //현금보관소에 현금 충전
-    func increaseCashInMoneyStorage(by amount: Int) {
-        moneyStorage.increaseMoney(by: amount)
+    //MARK:- Money processor related methods
+    func increaseHolding(by amount: Int) {
+        moneyProccesor.increaseHolding(by: amount)
     }
     
-    func showMoneyStorageDeposit() {
-        print("현재 자판기 안의 현금은 \(moneyStorage.exportCurrentBalance())")
+    func showMoneyHolding() {
+        print("현재 자판기 안의 현금은 \(moneyProccesor.holdingAmount())")
     }
     
+    //사용자가 현금 투입
+    func receiveMoney(amount: Int) {
+        moneyProccesor.increaseMoneyOnTransaction(by: amount)
+    }
+    
+    func showInsertedCashBalance() {
+        print("현재 사용자의 투입 금액 잔액은 \(moneyProccesor.moneyOnTransactionAmount())")
+    }
+    
+    //MARK:- Beverage storage related methods
     func addStock(beverage: Beverage, count: Int) {
         beverageStorage.addStock(with: beverage, amount: count)
     }
@@ -29,18 +38,8 @@ struct Machine {
         print(beverageStorage.showStock())
     }
     
-    //사용자가 현금 투입
-    func receiveMoney(amount: Int) {
-        cashInteractor.dispositCash(money: amount)
-        cashInteractor.sendMoney(amount: amount, to: moneyStorage)
-    }
-    
-    func showInsertedCashBalance() {
-        print("현재 사용자의 투입 금액 잔액은 \(cashInteractor.showBalance())")
-    }
-    
     func showPurchasables() {
-        let receivedMoney = cashInteractor.showBalance()
+        let receivedMoney = cashValidator.showBalance()
         print(beverageStorage.showPurchasableBeverages(with: receivedMoney))
     }
     
@@ -52,17 +51,17 @@ struct Machine {
     func purchaseBeverage(index: Int) {
         if let beverage = beverageStorage.putSelectedBeverageOut(at: index) {
             print("\(beverage)가 나왔습니다")
-            cashInteractor.deductBalance(with: beverage.checkPrice())
+            cashValidator.deductBalance(with: beverage.checkPrice())
         } else {
             print("올바른 인덱스를 입력해 주세요")
         }
     }
 
     func transactionStopButtonPressed() {
-        let balance = cashInteractor.showBalance()
-        moneyStorage.sendMoney(amount: balance, to: cashInteractor)
-        let change = cashInteractor.returnChangeToCustomer()
+        let balance = cashValidator.showBalance()
+        moneyStorage.sendMoney(amount: balance, to: cashValidator)
+        let change = cashValidator.returnChangeToCustomer()
         print("\(change)를 반환하였습니다.")
-        cashInteractor.resetCashInteractor()
+        cashValidator.resetCashInteractor()
     }
 }

@@ -2,7 +2,6 @@ import Foundation
 
 struct VendingMachine {
     private var insertedMoney: Int
-    private var numsOfBeverages: Int
     private var beverages: Beverages
     
     let beverageList = [ChocolateMilk(brand: .namyang, volume: 180, price: 1000, productName: "초코에몽", manufacturedDay: Date(), sellByDate: Date(), lowCalories: false, isHot: false, farmCode: "1111", additive: "Chocolate"),
@@ -31,6 +30,47 @@ struct VendingMachine {
             }
         }
         return availableList
+    }
+    
+    func buyBeverage(productName: String) -> [Beverage]{
+        var buyingProduct = [Beverage]()
+        beverages.forEachBeverage{
+            if $0.canbuy() == productName {
+                if $0.checkPrice() <= insertedMoney {
+                    beverages.removeProduct($0)
+                    buyingProduct.append($0)
+                }
+            }
+        }
+        return buyingProduct
+    }
+    
+    func checkBalance() -> Int{
+        return insertedMoney
+    }
+    
+    func checkStock() -> [String: Int] {
+        return beverages.countOfBeverages()
+    }
+    
+    func expiredProducts() -> [Beverage] {
+        var expired = [Beverage]()
+        beverages.forEachBeverage{
+            if !$0.validate(with: Date()) {
+                expired.append($0)
+            }
+        }
+        return expired
+    }
+    
+    func isHotProducts() -> [Beverage] {
+        var hotProducts = [Beverage]()
+        beverages.forEachBeverage{
+            if $0.isHotBeverage() {
+                hotProducts.append($0)
+            }
+        }
+        return hotProducts
     }
 }
 

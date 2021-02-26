@@ -28,9 +28,14 @@ class Beverage {
         return dateFormatter.string(from: date)
     }
     
-    func  checkPrice() -> Int {
+    func checkPrice() -> Int {
         return price
     }
+    
+    func canbuy() -> String {
+        return productName
+    }
+    
 }
 
 extension Beverage: CustomStringConvertible {
@@ -61,5 +66,12 @@ extension Beverage: CheckBeverageInfo {
 
     func isLowCalorie() -> Bool {
         return lowCalories
+    }
+}
+
+extension Beverage: Equatable {
+    
+    public static func == (lhs: Beverage, rhs: Beverage) -> Bool {
+        return lhs.canbuy() == rhs.canbuy()
     }
 }

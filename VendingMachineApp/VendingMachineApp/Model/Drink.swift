@@ -43,6 +43,6 @@ class Drink {
     }
     
     func hotDrink() -> [Beverage] {
-        drinks.filter { $0.isHot() }
+        return drinks.filter { $0.isHot() }
     }
 }

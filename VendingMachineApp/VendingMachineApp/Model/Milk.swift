@@ -10,8 +10,8 @@ import Foundation
 class Milk : Beverage {
     private let milkFarmCode : Int
     
-    init(brand: String, liter: Int, price: Int, name: String, manufactured: Date, mlikFarmCode : Int ,expiryDate : Date, hot : Bool, calory : Int) {
+    init(brand: String, liter: Int, price: Int, name: String, manufactured: Date, mlikFarmCode : Int ,expiration : Date, temperature : Int, calorie : Int) {
         self.milkFarmCode = mlikFarmCode
-        super.init(brand: brand, liter: liter, price: price, name: name, manufactured: manufactured, expiryDate: expiryDate, hot: hot, calory: calory)
+        super.init(brand: brand, liter: liter, price: price, name: name, manufactured: manufactured, expiration: expiryDate, temperature : temperature, calorie: calorie)
     }
 }

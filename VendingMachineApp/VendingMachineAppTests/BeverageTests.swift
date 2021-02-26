@@ -17,12 +17,12 @@ class BeverageTests: XCTestCase {
                                                  name: "딸기우유",
                                                  manufactured: Date().insert(date: "20210207"),
                                                  mlikFarmCode: 023,
-                                                 expiryDate: Date().insert(date: "20210210"), hot: false ,calory: 150, strawberryContent: 10)
+                                                 expiryDate: Date().insert(date: "20210210"), temperature : 10, calorie: 150, strawberryContent: 10)
         let dietCola =  DietCola.init(brand : "팹시",
                                       liter: 350,
                                       price: 2000,
                                       name: "다이어트콜라",
-                                      manufactured: Date().insert(date: "20210222"),sugar: false,expiryDate: Date().insert(date: "20210303"),hot: false,calory: 123,taste: .lemon)
+                                      manufactured: Date().insert(date: "20210222"),sugar: false,expiryDate: Date().insert(date: "20210303"),temperature : 10, calorie: 123,taste: .lemon)
         
         let topAmericano =  TopAmericano.init(brand : "맥심",
                                               liter: 400,
@@ -31,7 +31,7 @@ class BeverageTests: XCTestCase {
                                               manufactured: Date().insert(date: "20210217"),
                                               caffeineContent: 130,
                                               expiryDate: Date().insert(date: "20210227"),
-                                              hot: true, calory : 100,coffeeSolids: 0.7)
+                                              temperature : 70, calorie : 100,coffeeSolids: 0.7)
         
         XCTAssertEqual(strawberryMilk.validate(with: Date().insert(date: "20210209")), false)
         XCTAssertEqual(dietCola.isLowCalorie(), true)

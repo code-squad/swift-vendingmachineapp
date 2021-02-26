@@ -13,16 +13,22 @@ class Drink {
     private let name: String
     private(set) var dateOfManufacture: Date
     private(set) var price: Int
+    private var temperature: Int
     var description: String {
         return "\(manufacturer), \(volume)ml, \(price)원, \(name), \(Date.dateFormatter(date: dateOfManufacture))"
     }
     
-    init(manufacturer: String, volume: Int, name: String, dateOfManufacture: Date, price: Int) {
+    init(manufacturer: String, volume: Int, name: String, dateOfManufacture: Date, price: Int, temperature: Int) {
         self.manufacturer = manufacturer
         self.volume = volume
         self.name = name
         self.dateOfManufacture = dateOfManufacture
         self.price = price
+        self.temperature = temperature
+    }
+    
+    func compare(with temperature: Int) -> Int {
+        return self.temperature - temperature
     }
 }
 

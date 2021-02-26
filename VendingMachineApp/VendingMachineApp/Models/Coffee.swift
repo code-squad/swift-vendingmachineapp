@@ -10,8 +10,8 @@ import Foundation
 class Coffee: Drink, CustomStringConvertible {
     private let caffeineContent: Int
     
-    init(manufacturer: String, volume: Int, name: String, dateOfManufacture: Date, price: Int, caffeineContent: Int) {
+    init(manufacturer: String, volume: Int, name: String, dateOfManufacture: Date, price: Int, caffeineContent: Int, temperature: Int) {
         self.caffeineContent = caffeineContent
-        super.init(manufacturer: manufacturer, volume: volume, name: name, dateOfManufacture: dateOfManufacture, price: price)
+        super.init(manufacturer: manufacturer, volume: volume, name: name, dateOfManufacture: dateOfManufacture, price: price, temperature: temperature)
     }
 }

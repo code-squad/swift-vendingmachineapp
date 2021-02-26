@@ -9,140 +9,68 @@ import Foundation
 
 struct VendingMachine {
     
-    private var beverages: [Beverage]
-    private var stockList: [Beverage: Int]
-    private var money: Int
-    private var outList: [Beverage]
+    private var inList: Beverages
+    private var outList: Beverages
+    private var moneyBox: MoneyBox
+    private var organizer: Organizer
     
     init() {
-        beverages = []
-        stockList = [:]
-        money = 0
-        outList = []
+        inList = Beverages()
+        outList = Beverages()
+        moneyBox = MoneyBox()
+        organizer = Organizer(with: moneyBox)
     }
     
-    mutating func addStock(of beverage: Beverage) {
-        beverages.append(beverage)
-        updateStockList(of: beverage, by: 1)
+    func addStock(of beverage: Beverage) {
+        inList.add(beverage)
     }
     
-    private mutating func updateStockList(of beverage: Beverage, by amount: Int) {
-        if stockList[beverage] != nil {
-            stockList[beverage]! += amount
-        } else {
-            stockList[beverage] = amount
+    func insert(money: Int) {
+        moneyBox.update(amount: money)
+    }
+
+    func moneyLeft() -> Int {
+        return moneyBox.balance()
+    }
+    
+    func buy(beverage: Beverage) {
+        guard beverage.isPurchashable(with: moneyBox.balance()) else { return }
+        
+        if let beverageToSell = inList.pullOut(beverage) {
+            outList.add(beverageToSell)
+            beverage.bought(moneyBox.update(amount:))
         }
-        checkSoldout(for: beverage)
     }
+}
+
+//MARK: - 상품정보 반환 관련 
+extension VendingMachine {
     
-    private mutating func checkSoldout(for beverage: Beverage) {
-        if stockList[beverage] == 0 {
-            stockList[beverage] = nil
-        }
-    }
-    
-    func allStocks() -> Dictionary<Beverage, Int> {
-        return stockList
+    func allStocks() -> [Beverage: Int] {
+        return inList.listByType(filter: nil)
     }
     
     func purchased() -> [Beverage] {
-        return outList
-    }
-}
-
-
-//MARK: - 이용자 관련
-extension VendingMachine {
-    mutating func insert(money: Int) {
-        self.money = moneyUpdator(amount: money)
+        return outList.listByTime(filter: nil)
     }
     
-    private func moneyUpdator(amount: Int) -> Int {
-        return money + amount
+    func affordables() -> [Beverage] {
+        return organizer.affordables(from: inList)
     }
     
-    func moneyLeft() -> Int {
-        return money
+    func expiredItems() -> [Beverage: Int] {
+        return organizer.expiredItems(from: inList)
     }
     
-    func purchashables() -> [Beverage] {
-        var purchashableList = [Beverage]()
-        
-        stockList.forEach { (beverage: Beverage, _: Int) in
-            if beverage.isPurchashable(with: money){
-                purchashableList.append(beverage)
-            }
-        }
-        return purchashableList
-    }
-    
-    mutating func buy(beverage: Beverage) {
-        if stockList[beverage] != nil,
-           beverage.isPurchashable(with: money) {
-            
-            if let targetIdx = beverages.firstIndex(of: beverage) {
-                outList.append(beverages[targetIdx])
-                beverages.remove(at: targetIdx)
-                updateStockList(of: beverage, by: -1)
-                money = beverage.bought(moneyUpdator: moneyUpdator(amount:))
-            }
-        }
-    }
-}
-
-
-//MARK: - 특정 콘디션에 맞는 음료수 반환
-extension VendingMachine {
-    
-    func expiredStocks() -> Dictionary<Beverage, Int> {
-        var expiredList = Dictionary<Beverage, Int>()
-        
-        beverages.forEach { (bev) in
-            if let beverage = bev as? Beverage & Expirable,
-               beverage.isExpired() {
-                if expiredList[beverage] != nil {
-                    expiredList[beverage]! += 1
-                } else {
-                    expiredList[beverage] = 1
-                }
-            }
-        }
-        return expiredList
-    }
-    
-    func hotBeverages() -> [Beverage] {
-        var beverageList = [Beverage]()
-        
-        stockList.forEach { (bev: Beverage, _: Int) in
-            if let beverage = bev as? Beverage & Hotable,
-               beverage.isHotable() {
-                beverageList.append(beverage)
-            }
-        }
-        return beverageList
+    func hotItems() -> [Beverage] {
+        return organizer.hotItems(from: inList)
     }
     
     func transportables() -> [Beverage] {
-        var beverageList = [Beverage]()
-        
-        stockList.forEach { (bev: Beverage, _: Int) in
-            if let beverage = bev as? Beverage & Transportable,
-               beverage.isTransportable() {
-                beverageList.append(beverage)
-            }
-        }
-        return beverageList
+        return organizer.transportables(from: inList)
     }
     
-    func healthyBeverages() -> [Beverage] {
-        var beverageList = [Beverage]()
-        
-        stockList.forEach { (bev: Beverage, _: Int) in
-            if let beverage = bev as? Beverage & SugarFreeable & LactoFreeable,
-               beverage.isSugarFree(), beverage.isLactoFree() {
-                beverageList.append(beverage)
-            }
-        }
-        return beverageList
+    func healthyItems() -> [Beverage] {
+        return organizer.healthyItems(from: inList)
     }
 }

@@ -65,15 +65,4 @@ class Beverages {
             return stockList
         }
     }
-    
-    func affordable(with money: Int) -> [Beverage] {
-        var purchashableList = [Beverage]()
-        
-        stockList.forEach { (beverage: Beverage, _: Int) in
-            if beverage.isPurchashable(with: money){
-                purchashableList.append(beverage)
-            }
-        }
-        return purchashableList
-    }
 }

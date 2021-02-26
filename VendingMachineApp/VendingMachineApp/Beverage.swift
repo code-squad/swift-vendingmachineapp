@@ -27,7 +27,7 @@ class Beverage: CustomStringConvertible {
         return money >= price
     }
     
-    func bought(moneyUpdator: (Int) -> (Int)) -> Int {
+    func bought(_ moneyUpdator: (Int) -> ()) {
         return moneyUpdator(-price)
     }
 

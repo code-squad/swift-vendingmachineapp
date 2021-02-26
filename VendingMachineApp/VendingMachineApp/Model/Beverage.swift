@@ -13,19 +13,19 @@ class Beverage : CustomStringConvertible {
     private(set) var price : Int
     private let name : String
     private let manufactured : Date
-    private let expiryDate : Date
-    private let hot : Bool
-    private let calory : Int
+    private let expiration : Date
+    private let temperature : Int
+    private let calorie : Int
         
-    init(brand : String, liter : Int, price : Int, name : String, manufactured : Date, expiryDate : Date, hot : Bool, calory : Int) {
+    init(brand : String, liter : Int, price : Int, name : String, manufactured : Date, expiration : Date, temperature : Int, calorie : Int) {
         self.brand = brand
         self.liter = liter
         self.price = price
         self.name = name
         self.manufactured = manufactured
-        self.expiryDate = expiryDate
-        self.hot = hot
-        self.calory = calory
+        self.expiration = expiration
+        self.temperature = temperature
+        self.calorie = calorie
     }
     
     var description: String {
@@ -37,15 +37,15 @@ class Beverage : CustomStringConvertible {
     }
     
     func validate(with date:Date) -> Bool {
-        return expiryDate < date
+        return expiration < date
     }
     
     func isHot() -> Bool {
-        return hot == true
+        return temperature >= 65
     }
     
     func isLowCalorie() -> Bool {
-        return calory > 10
+        return calorie > 10
     }
 }
 

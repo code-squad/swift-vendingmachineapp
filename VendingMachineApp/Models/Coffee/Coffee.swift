@@ -23,4 +23,7 @@ class Coffee : Beverage{
     override var description: String {
         return super.description + ", \(caffeine)mg"
     }
+    func isHot() -> Bool{
+        return hot
+    }
 }

@@ -22,7 +22,6 @@
 		D0636C3B25E4A7030087E3E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0636C3925E4A7030087E3E8 /* LaunchScreen.storyboard */; };
 		D09C7B6525E4A7B400429153 /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09C7B6425E4A7B400429153 /* Coffee.swift */; };
 		D0A3FABF25E79882004FF690 /* Warmable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A3FABE25E79882004FF690 /* Warmable.swift */; };
-		D0A3FAC325E7E650004FF690 /* ChocoletMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A3FAC225E7E650004FF690 /* ChocoletMilk.swift */; };
 		D0F5E56B25E4A7D3008D4C5D /* Soda.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F5E56A25E4A7D3008D4C5D /* Soda.swift */; };
 		D0F5E56E25E4A7F5008D4C5D /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F5E56D25E4A7F5008D4C5D /* Date+Extension.swift */; };
 		D0F5E57125E4A816008D4C5D /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F5E57025E4A816008D4C5D /* Milk.swift */; };
@@ -59,7 +58,6 @@
 		D0636C3C25E4A7030087E3E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D09C7B6425E4A7B400429153 /* Coffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
 		D0A3FABE25E79882004FF690 /* Warmable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Warmable.swift; sourceTree = "<group>"; };
-		D0A3FAC225E7E650004FF690 /* ChocoletMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChocoletMilk.swift; sourceTree = "<group>"; };
 		D0F5E56A25E4A7D3008D4C5D /* Soda.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Soda.swift; sourceTree = "<group>"; };
 		D0F5E56D25E4A7F5008D4C5D /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		D0F5E57025E4A816008D4C5D /* Milk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Milk.swift; sourceTree = "<group>"; };
@@ -127,7 +125,6 @@
 				D055C62F25E62DDE00C4D1C3 /* Cantata.swift */,
 				D0F5E57025E4A816008D4C5D /* Milk.swift */,
 				D055C63B25E62F9800C4D1C3 /* BananaMilk.swift */,
-				D0A3FAC225E7E650004FF690 /* ChocoletMilk.swift */,
 				D0F5E56A25E4A7D3008D4C5D /* Soda.swift */,
 				D055C64125E62FD800C4D1C3 /* Fanta.swift */,
 				D0F5E56D25E4A7F5008D4C5D /* Date+Extension.swift */,
@@ -259,7 +256,6 @@
 				D0636C3325E4A7020087E3E8 /* ViewController.swift in Sources */,
 				D055C63C25E62F9800C4D1C3 /* BananaMilk.swift in Sources */,
 				D0636C2F25E4A7020087E3E8 /* AppDelegate.swift in Sources */,
-				D0A3FAC325E7E650004FF690 /* ChocoletMilk.swift in Sources */,
 				D0F5E57725E4C7A1008D4C5D /* Drinks.swift in Sources */,
 				D0636C3125E4A7020087E3E8 /* SceneDelegate.swift in Sources */,
 				D09C7B6525E4A7B400429153 /* Coffee.swift in Sources */,

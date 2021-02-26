@@ -9,7 +9,7 @@ import Foundation
 
 class BananaMilk: Milk {
     
-    override init(manufacturer: String, volume: Int, price: Int, brand: String, manufactured: Date, type: MilkType, lowFat: Bool) {
-        super.init(manufacturer: manufacturer, volume: volume, price: price, brand: brand, manufactured: manufactured, type: type, lowFat: lowFat)
+    override init(manufacturer: String, volume: Int, price: Int, brand: String, manufactured: Date, expirydate: Date, calorie: Int, hot: Bool, type: MilkType, lowFat: Bool) {
+        super.init(manufacturer: manufacturer, volume: volume, price: price, brand: brand, manufactured: manufactured, expirydate: expirydate, calorie: calorie, hot: hot, type: type, lowFat: lowFat)
     }
 }

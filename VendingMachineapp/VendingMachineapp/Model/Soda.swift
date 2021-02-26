@@ -15,11 +15,11 @@ enum SodaType: String {
 
 class Soda: Beverage {
     private var type: SodaType
-    private var flavor: Int
+    private var flavor: String
     
-    init(manufacturer: String, volume: Int, price: Int, brand: String, manufactured: Date, type: SodaType, flavor: Int) {
+    init(manufacturer: String, volume: Int, price: Int, brand: String, manufactured: Date, expirydate: Date, calorie: Int, hot: Bool, type: SodaType, flavor: String) {
         self.type = type
         self.flavor = flavor
-        super.init(manufacturer: manufacturer, volume: volume, price: price, brand: brand, manufactured: manufactured)
+        super.init(manufacturer: manufacturer, volume: volume, price: price, brand: brand, manufactured: manufactured, expirydate: expirydate, calorie: calorie, hot: hot)
     }
 }

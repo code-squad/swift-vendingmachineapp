@@ -17,9 +17,9 @@ class Coffee: Beverage {
     private var type: CoffeeType
     private var caffeineContent: Int
     
-    init(manufacturer: String, volume: Int, price: Int, brand: String, manufactured: Date, type: CoffeeType, caffeineContent: Int) {
+    init(manufacturer: String, volume: Int, price: Int, brand: String, manufactured: Date, expirydate: Date, calorie: Int, hot: Bool, type: CoffeeType, caffeineContent: Int) {
         self.type = type
         self.caffeineContent = caffeineContent
-        super.init(manufacturer: manufacturer, volume: volume, price: price, brand: brand, manufactured: manufactured)
+        super.init(manufacturer: manufacturer, volume: volume, price: price, brand: brand, manufactured: manufactured, expirydate: expirydate, calorie: calorie, hot: hot)
     }
 }

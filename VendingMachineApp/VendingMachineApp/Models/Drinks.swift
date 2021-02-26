@@ -88,4 +88,12 @@ class Drinks {
             dictionry.append($0)
         }
     }
+    
+    func hasDrink(with drink: Drink) -> Bool {
+        return true
+    }
+    
+    func diconaryUpdate(with drink: Drink) {
+        dictionry.pop(drink)
+    }
 }

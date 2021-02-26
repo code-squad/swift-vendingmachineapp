@@ -10,12 +10,23 @@ import Foundation
 class Drink : CustomStringConvertible, Hashable {
     private var brand: String
     private var capacity: Int
-    private var price: Int
+    private (set) var price: Int
     private var name: String
     private var manufacturedDate: Date
     private var expiration: Date
     private var hot: Bool
     private var calorie: Int
+    
+    init() {
+        self.brand = ""
+        self.capacity = 0
+        self.price = 0
+        self.name = ""
+        self.manufacturedDate = Date()
+        self.expiration = Date()
+        self.hot = false
+        self.calorie = 0
+    }
     
     init(brand: String, capacity: Int, price: Int, name: String, date: Date, expiration: Date, hot: Bool, calorie: Int){
         self.brand = brand

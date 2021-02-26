@@ -67,4 +67,34 @@ class VendingMachine {
     func validateDrinks(when date: Date) -> Drinks {
         return stock.validateDrinks(when: date)
     }
+    
+    func canBuy(with drink: Drink) -> Bool {
+        return credit > drink.price
+    }
+    
+    func buy(with drink: Drink) -> Drink {
+        if !hasDrink(with: drink) || canBuy(with: drink){
+            return Drink()
+        }
+        credit -= drink.price
+        update(with: drink)
+        return drink
+    }
+    
+    func hasDrink(with drink: Drink) -> Bool {
+        return stock.hasDrink(with: drink)
+    }
+    
+    func update(with drink: Drink) {
+        logUpdate(drink)
+        dictionaryUpdate(drink)
+    }
+    
+    func dictionaryUpdate(_ drink: Drink) {
+        stock.diconaryUpdate(with: drink)
+    }
+    
+    func logUpdate(_ drink: Drink) {
+        log.update(drink)
+    }
 }

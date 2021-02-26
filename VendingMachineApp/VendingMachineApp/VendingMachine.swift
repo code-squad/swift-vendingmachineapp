@@ -47,11 +47,11 @@ struct VendingMachine {
 extension VendingMachine {
     
     func allStocks() -> [Beverage: Int] {
-        return inList.listByType(filter: nil)
+        return inList.listTypeCount(filter: nil)
     }
     
     func purchased() -> [Beverage] {
-        return outList.listByTime(filter: nil)
+        return outList.listTypeOnly(filter: nil)
     }
     
     func affordables() -> [Beverage] {

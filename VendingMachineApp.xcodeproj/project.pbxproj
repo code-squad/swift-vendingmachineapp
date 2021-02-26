@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		105EE25825E8CCD000E6D2E2 /* EnergyDrink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105EE25725E8CCD000E6D2E2 /* EnergyDrink.swift */; };
 		105EE26325E8CE1F00E6D2E2 /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105EE26225E8CE1F00E6D2E2 /* Info.swift */; };
+		105EE26B25E8D0CD00E6D2E2 /* StroberryMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105EE26A25E8D0CD00E6D2E2 /* StroberryMilk.swift */; };
+		105EE27025E8D0D800E6D2E2 /* ChocolateMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105EE26F25E8D0D800E6D2E2 /* ChocolateMilk.swift */; };
+		105EE27525E8D0E300E6D2E2 /* BananaMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105EE27425E8D0E300E6D2E2 /* BananaMilk.swift */; };
 		10F5F04225E782C400B70881 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F5F04125E782C400B70881 /* AppDelegate.swift */; };
 		10F5F04425E782C400B70881 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F5F04325E782C400B70881 /* SceneDelegate.swift */; };
 		10F5F04625E782C400B70881 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F5F04525E782C400B70881 /* ViewController.swift */; };
@@ -46,6 +49,9 @@
 /* Begin PBXFileReference section */
 		105EE25725E8CCD000E6D2E2 /* EnergyDrink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnergyDrink.swift; sourceTree = "<group>"; };
 		105EE26225E8CE1F00E6D2E2 /* Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
+		105EE26A25E8D0CD00E6D2E2 /* StroberryMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StroberryMilk.swift; sourceTree = "<group>"; };
+		105EE26F25E8D0D800E6D2E2 /* ChocolateMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChocolateMilk.swift; sourceTree = "<group>"; };
+		105EE27425E8D0E300E6D2E2 /* BananaMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BananaMilk.swift; sourceTree = "<group>"; };
 		10F5F03E25E782C400B70881 /* VendingMachineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendingMachineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		10F5F04125E782C400B70881 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		10F5F04325E782C400B70881 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -114,6 +120,9 @@
 			isa = PBXGroup;
 			children = (
 				10F5F08025E7845B00B70881 /* Milk.swift */,
+				105EE26A25E8D0CD00E6D2E2 /* StroberryMilk.swift */,
+				105EE26F25E8D0D800E6D2E2 /* ChocolateMilk.swift */,
+				105EE27425E8D0E300E6D2E2 /* BananaMilk.swift */,
 			);
 			path = Milk;
 			sourceTree = "<group>";
@@ -348,8 +357,11 @@
 				10F5F09825E7D2EE00B70881 /* StringUtility.swift in Sources */,
 				10F5F04425E782C400B70881 /* SceneDelegate.swift in Sources */,
 				10F5F08525E7845B00B70881 /* Milk.swift in Sources */,
+				105EE27025E8D0D800E6D2E2 /* ChocolateMilk.swift in Sources */,
 				10F5F08425E7845B00B70881 /* Soda.swift in Sources */,
+				105EE26B25E8D0CD00E6D2E2 /* StroberryMilk.swift in Sources */,
 				10F5F08625E7845B00B70881 /* VendingMachine.swift in Sources */,
+				105EE27525E8D0E300E6D2E2 /* BananaMilk.swift in Sources */,
 				105EE26325E8CE1F00E6D2E2 /* Info.swift in Sources */,
 				10F5F08C25E7A1B900B70881 /* DateUtility.swift in Sources */,
 				10F5F08725E7845B00B70881 /* Coffee.swift in Sources */,

@@ -16,7 +16,7 @@ class Beverage : CustomStringConvertible {
     private let expiration : Date
     private let temperature : Int
     private let calorie : Int
-        
+    
     init(brand : String, liter : Int, price : Int, name : String, manufactured : Date, expiration : Date, temperature : Int, calorie : Int) {
         self.brand = brand
         self.liter = liter
@@ -49,13 +49,12 @@ class Beverage : CustomStringConvertible {
     }
 }
 
-extension Beverage : Equatable {
-    static func == (lhs: Beverage, rhs: Beverage) -> Bool {
-        return lhs.name == rhs.name && lhs.price == rhs.price
-    }
-}
-
 extension Beverage : Hashable {
+    static func == (lhs: Beverage, rhs: Beverage) -> Bool {
+        return lhs.name == rhs.name && lhs.price == rhs.price &&
+               lhs.brand == rhs.brand && lhs.liter == rhs.liter
+    }
+    
     func hash(into hasher: inout Hasher) {
            hasher.combine(name)
            hasher.combine(price)

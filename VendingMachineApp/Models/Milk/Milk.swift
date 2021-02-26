@@ -23,4 +23,9 @@ class Milk : Beverage {
     override var description: String {
         return super.description + ", \(expire.toString())"
     }
+    //유통기한 확인
+    func checkExpiredate(with date:Date) -> Bool {
+        let calendar = Calendar.current
+        return calendar.compare(date, to: expire, toGranularity: .day) == .orderedAscending
+    }
 }

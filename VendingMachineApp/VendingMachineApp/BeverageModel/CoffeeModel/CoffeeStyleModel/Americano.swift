@@ -16,6 +16,6 @@ class Americano: Coffee {
     }
     
     convenience init(brand: String, size: Milli_Liter, price: Int, name: String, packDate: Date, caffeine: Int){
-        self.init(brand: brand, size: size, price: price, name: name, packDate: packDate, bean: .로부스타원두, caffeine: caffeine)
+        self.init(brand: brand, size: size, price: price, name: name, packDate: packDate, bean: .robusta, caffeine: caffeine)
     }
 }

@@ -9,9 +9,9 @@ import Foundation
 
 class Cola: Soda {
     public enum BottleType {
-        case 알루미늄
-        case 유리
-        case 플라스틱
+        case aluminum
+        case glass
+        case plastic
     }
     private let bottle: BottleType
     
@@ -21,10 +21,10 @@ class Cola: Soda {
     }
     
     convenience override init(brand: String, size: Milli_Liter, price: Int, name: String, packDate: Date, zeroCalories: Bool) {
-        self.init(brand: brand, size: size, price: price, name: name, packDate: packDate, zeroCalories: zeroCalories, bottle: .알루미늄)
+        self.init(brand: brand, size: size, price: price, name: name, packDate: packDate, zeroCalories: zeroCalories, bottle: .aluminum)
     }
     
     convenience init(brand: String, size: Milli_Liter, price: Int, name: String, packDate: Date) {
-        self.init(brand: brand, size: size, price: price, name: name, packDate: packDate, zeroCalories: false, bottle: .알루미늄)
+        self.init(brand: brand, size: size, price: price, name: name, packDate: packDate, zeroCalories: false, bottle: .aluminum)
     }
 }

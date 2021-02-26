@@ -13,6 +13,18 @@
 		93C07F5125E88D100037570E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93C07F4F25E88D100037570E /* Main.storyboard */; };
 		93C07F5325E88D120037570E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93C07F5225E88D120037570E /* Assets.xcassets */; };
 		93C07F5625E88D120037570E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93C07F5425E88D120037570E /* LaunchScreen.storyboard */; };
+		93C07F5F25E88DBF0037570E /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C07F5E25E88DBF0037570E /* Beverage.swift */; };
+		93C07F6325E88FFF0037570E /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C07F6225E88FFF0037570E /* Milk.swift */; };
+		93C07F6625E890F80037570E /* SoftDrink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C07F6525E890F80037570E /* SoftDrink.swift */; };
+		93C07F6925E891020037570E /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C07F6825E891020037570E /* Coffee.swift */; };
+		93C07F6C25E8B96D0037570E /* BeverageFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C07F6B25E8B96D0037570E /* BeverageFactory.swift */; };
+		93C07F7125E8C4F80037570E /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C07F7025E8C4F80037570E /* VendingMachine.swift */; };
+		93C07F7525E8CDA00037570E /* TOP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C07F7425E8CDA00037570E /* TOP.swift */; };
+		93C07F7825E8CE690037570E /* Banana.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C07F7725E8CE690037570E /* Banana.swift */; };
+		93C07F7B25E8CE9F0037570E /* Cola.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C07F7A25E8CE9F0037570E /* Cola.swift */; };
+		93C07F7E25E8CF8A0037570E /* OutputViewPrintable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C07F7D25E8CF8A0037570E /* OutputViewPrintable.swift */; };
+		93C07F8125E8CFF30037570E /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C07F8025E8CFF30037570E /* OutputView.swift */; };
+		93C07F8525E8D4650037570E /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C07F8425E8D4650037570E /* DateExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +36,18 @@
 		93C07F5225E88D120037570E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		93C07F5525E88D120037570E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		93C07F5725E88D120037570E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		93C07F5E25E88DBF0037570E /* Beverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beverage.swift; sourceTree = "<group>"; };
+		93C07F6225E88FFF0037570E /* Milk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Milk.swift; sourceTree = "<group>"; };
+		93C07F6525E890F80037570E /* SoftDrink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoftDrink.swift; sourceTree = "<group>"; };
+		93C07F6825E891020037570E /* Coffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
+		93C07F6B25E8B96D0037570E /* BeverageFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageFactory.swift; sourceTree = "<group>"; };
+		93C07F7025E8C4F80037570E /* VendingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachine.swift; sourceTree = "<group>"; };
+		93C07F7425E8CDA00037570E /* TOP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOP.swift; sourceTree = "<group>"; };
+		93C07F7725E8CE690037570E /* Banana.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Banana.swift; sourceTree = "<group>"; };
+		93C07F7A25E8CE9F0037570E /* Cola.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cola.swift; sourceTree = "<group>"; };
+		93C07F7D25E8CF8A0037570E /* OutputViewPrintable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputViewPrintable.swift; sourceTree = "<group>"; };
+		93C07F8025E8CFF30037570E /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
+		93C07F8425E8D4650037570E /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +87,18 @@
 				93C07F5225E88D120037570E /* Assets.xcassets */,
 				93C07F5425E88D120037570E /* LaunchScreen.storyboard */,
 				93C07F5725E88D120037570E /* Info.plist */,
+				93C07F5E25E88DBF0037570E /* Beverage.swift */,
+				93C07F6225E88FFF0037570E /* Milk.swift */,
+				93C07F6525E890F80037570E /* SoftDrink.swift */,
+				93C07F6825E891020037570E /* Coffee.swift */,
+				93C07F6B25E8B96D0037570E /* BeverageFactory.swift */,
+				93C07F7025E8C4F80037570E /* VendingMachine.swift */,
+				93C07F7425E8CDA00037570E /* TOP.swift */,
+				93C07F7725E8CE690037570E /* Banana.swift */,
+				93C07F7A25E8CE9F0037570E /* Cola.swift */,
+				93C07F7D25E8CF8A0037570E /* OutputViewPrintable.swift */,
+				93C07F8025E8CFF30037570E /* OutputView.swift */,
+				93C07F8425E8D4650037570E /* DateExtension.swift */,
 			);
 			path = VendingMachineApp;
 			sourceTree = "<group>";
@@ -137,9 +173,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93C07F7B25E8CE9F0037570E /* Cola.swift in Sources */,
+				93C07F8525E8D4650037570E /* DateExtension.swift in Sources */,
 				93C07F4E25E88D100037570E /* ViewController.swift in Sources */,
 				93C07F4A25E88D100037570E /* AppDelegate.swift in Sources */,
+				93C07F5F25E88DBF0037570E /* Beverage.swift in Sources */,
+				93C07F7825E8CE690037570E /* Banana.swift in Sources */,
+				93C07F7525E8CDA00037570E /* TOP.swift in Sources */,
+				93C07F7E25E8CF8A0037570E /* OutputViewPrintable.swift in Sources */,
 				93C07F4C25E88D100037570E /* SceneDelegate.swift in Sources */,
+				93C07F6625E890F80037570E /* SoftDrink.swift in Sources */,
+				93C07F6C25E8B96D0037570E /* BeverageFactory.swift in Sources */,
+				93C07F8125E8CFF30037570E /* OutputView.swift in Sources */,
+				93C07F6325E88FFF0037570E /* Milk.swift in Sources */,
+				93C07F6925E891020037570E /* Coffee.swift in Sources */,
+				93C07F7125E8C4F80037570E /* VendingMachine.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

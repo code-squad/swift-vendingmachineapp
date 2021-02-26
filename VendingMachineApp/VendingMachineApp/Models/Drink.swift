@@ -28,7 +28,7 @@ class Drink {
 
 extension Drink: Drinkable {
     func validate(with date: Date) -> Bool {
-        return dateOfManufacture <= date
+        return dateOfManufacture >= date
     }
 }
 

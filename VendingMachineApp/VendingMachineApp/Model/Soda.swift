@@ -1,16 +1,16 @@
 import Foundation
 
+protocol BeverageCertified {
+    func validate(with date: Date) -> Bool
+    func isHot() -> Bool
+    func isLowCalorie() -> Bool
+}
+
 class Soda: Beverage {
-    enum SodaType: String {
-        case coke
-        case cider
-        case fanta
-    }
+    private var isZeroCalorie: Bool
     
-    private var sodaType: SodaType
-    
-    init(brand: String, capacity: Int, price: Int, name: String, sodaType: SodaType, manufacture: Date = Date()) {
-        self.sodaType = sodaType
+    init(brand: String, capacity: Int, price: Int, name: String, isZeroCalorie: Bool, manufacture: Date = Date()) {
+        self.isZeroCalorie = isZeroCalorie
         super.init(brand: brand, capacity: capacity, price: price, name: name, manufacture: manufacture)
     }
 }

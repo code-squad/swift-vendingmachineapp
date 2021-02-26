@@ -9,26 +9,6 @@ import XCTest
 @testable import VendingMachineApp
 
 class VendingMachineAppTests: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
     
     func testVendingMachine() {
         // 유통기한 지난 상품
@@ -48,7 +28,7 @@ class VendingMachineAppTests: XCTestCase {
         XCTAssertEqual(vm.getAvailableDrinks(), [])
         
         // 유통기한 지난 음료
-        XCTAssertEqual(vm.getExpiredDrinks(), [coffee:1])
+        XCTAssertEqual(vm.getExpiredDrinks(date: Date()), [:])
         
         // 자판기 충전
         vm.charge(coins: 1000)

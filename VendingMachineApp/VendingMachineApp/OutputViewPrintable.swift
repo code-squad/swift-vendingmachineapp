@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+protocol OutputViewPrintable {
+    func printBeverage(handler: (Beverage) -> ())
+}

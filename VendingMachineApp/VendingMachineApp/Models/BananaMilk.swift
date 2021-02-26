@@ -12,6 +12,6 @@ class BananaMilk: Milk {
     
     init(manufacturer: String, volume: Int, name: String, dateOfManufacture: Date, price: Int, farmCode: String, expriryDate: Date, isUnsweetened: Bool, temperature: Int) {
         self.isUnsweetened = isUnsweetened
-        super.init(manufacturer: manufacturer, volume: volume, name: name, dateOfManufacture: dateOfManufacture, price: price, farmCode: farmCode, expriryDate: expriryDate, temperature: temperature)
+        super.init(manufacturer: manufacturer, volume: volume, name: name, dateOfManufacture: dateOfManufacture, price: price, farmCode: farmCode, temperature: temperature)
     }
 }

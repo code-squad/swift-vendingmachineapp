@@ -20,6 +20,9 @@
 		D46F1A6525E6782F00BFBD9C /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46F1A6425E6782F00BFBD9C /* VendingMachine.swift */; };
 		D46F1A6C25E6813900BFBD9C /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46F1A6B25E6813900BFBD9C /* Date.swift */; };
 		D46F1A6F25E6A52B00BFBD9C /* Inventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46F1A6E25E6A52B00BFBD9C /* Inventory.swift */; };
+		D46F1A7925E8BC0000BFBD9C /* StrawberryMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46F1A7825E8BBFF00BFBD9C /* StrawberryMilk.swift */; };
+		D46F1A7C25E8BC1800BFBD9C /* BananaMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46F1A7B25E8BC1800BFBD9C /* BananaMilk.swift */; };
+		D46F1A7F25E8BC2400BFBD9C /* ChocoMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46F1A7E25E8BC2400BFBD9C /* ChocoMilk.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +41,9 @@
 		D46F1A6425E6782F00BFBD9C /* VendingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachine.swift; sourceTree = "<group>"; };
 		D46F1A6B25E6813900BFBD9C /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		D46F1A6E25E6A52B00BFBD9C /* Inventory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inventory.swift; sourceTree = "<group>"; };
+		D46F1A7825E8BBFF00BFBD9C /* StrawberryMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrawberryMilk.swift; sourceTree = "<group>"; };
+		D46F1A7B25E8BC1800BFBD9C /* BananaMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BananaMilk.swift; sourceTree = "<group>"; };
+		D46F1A7E25E8BC2400BFBD9C /* ChocoMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChocoMilk.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +98,9 @@
 				D46F1A6425E6782F00BFBD9C /* VendingMachine.swift */,
 				D46F1A6B25E6813900BFBD9C /* Date.swift */,
 				D46F1A6E25E6A52B00BFBD9C /* Inventory.swift */,
+				D46F1A7825E8BBFF00BFBD9C /* StrawberryMilk.swift */,
+				D46F1A7B25E8BC1800BFBD9C /* BananaMilk.swift */,
+				D46F1A7E25E8BC2400BFBD9C /* ChocoMilk.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -171,9 +180,12 @@
 				D46F1A6F25E6A52B00BFBD9C /* Inventory.swift in Sources */,
 				D46F1A3C25E62A3200BFBD9C /* AppDelegate.swift in Sources */,
 				D46F1A5325E6323700BFBD9C /* Beverage.swift in Sources */,
+				D46F1A7F25E8BC2400BFBD9C /* ChocoMilk.swift in Sources */,
+				D46F1A7C25E8BC1800BFBD9C /* BananaMilk.swift in Sources */,
 				D46F1A3E25E62A3200BFBD9C /* SceneDelegate.swift in Sources */,
 				D46F1A5C25E6675E00BFBD9C /* Milk.swift in Sources */,
 				D46F1A6225E6730200BFBD9C /* Coffee.swift in Sources */,
+				D46F1A7925E8BC0000BFBD9C /* StrawberryMilk.swift in Sources */,
 				D46F1A6C25E6813900BFBD9C /* Date.swift in Sources */,
 				D46F1A6525E6782F00BFBD9C /* VendingMachine.swift in Sources */,
 			);

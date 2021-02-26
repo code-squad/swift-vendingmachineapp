@@ -8,13 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		2255F0A925E8BCA90044B872 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2255F0A825E8BCA90044B872 /* Date.swift */; };
-		2255F0B025E8C2370044B872 /* Brand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2255F0AF25E8C2370044B872 /* Brand.swift */; };
 		2255F0BC25E8D5C50044B872 /* Sanpellegrino.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2255F0BB25E8D5C50044B872 /* Sanpellegrino.swift */; };
 		2255F0C025E8D9120044B872 /* Pepsi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2255F0BF25E8D9120044B872 /* Pepsi.swift */; };
 		2255F0C725E8DA2F0044B872 /* SeoulStrawberryMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2255F0C625E8DA2F0044B872 /* SeoulStrawberryMilk.swift */; };
 		2255F0CE25E8DBE10044B872 /* BingBananaMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2255F0CD25E8DBE10044B872 /* BingBananaMilk.swift */; };
 		2255F0D425E8DCEB0044B872 /* BlueBottle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2255F0D325E8DCEB0044B872 /* BlueBottle.swift */; };
 		2255F0DB25E8DDCD0044B872 /* StarbucksColdBrew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2255F0DA25E8DDCD0044B872 /* StarbucksColdBrew.swift */; };
+		2255F0E125E8E0C20044B872 /* BeverageDescripting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2255F0E025E8E0C20044B872 /* BeverageDescripting.swift */; };
 		22E4753625E60FFA00417A37 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E4753525E60FFA00417A37 /* AppDelegate.swift */; };
 		22E4753825E60FFA00417A37 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E4753725E60FFA00417A37 /* SceneDelegate.swift */; };
 		22E4753A25E60FFA00417A37 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E4753925E60FFA00417A37 /* ViewController.swift */; };
@@ -30,13 +30,13 @@
 
 /* Begin PBXFileReference section */
 		2255F0A825E8BCA90044B872 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
-		2255F0AF25E8C2370044B872 /* Brand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Brand.swift; sourceTree = "<group>"; };
 		2255F0BB25E8D5C50044B872 /* Sanpellegrino.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sanpellegrino.swift; sourceTree = "<group>"; };
 		2255F0BF25E8D9120044B872 /* Pepsi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pepsi.swift; sourceTree = "<group>"; };
 		2255F0C625E8DA2F0044B872 /* SeoulStrawberryMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeoulStrawberryMilk.swift; sourceTree = "<group>"; };
 		2255F0CD25E8DBE10044B872 /* BingBananaMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BingBananaMilk.swift; sourceTree = "<group>"; };
 		2255F0D325E8DCEB0044B872 /* BlueBottle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueBottle.swift; sourceTree = "<group>"; };
 		2255F0DA25E8DDCD0044B872 /* StarbucksColdBrew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarbucksColdBrew.swift; sourceTree = "<group>"; };
+		2255F0E025E8E0C20044B872 /* BeverageDescripting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageDescripting.swift; sourceTree = "<group>"; };
 		22E4753225E60FFA00417A37 /* VendingMachineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendingMachineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22E4753525E60FFA00417A37 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		22E4753725E60FFA00417A37 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -101,8 +101,8 @@
 				22E4756825E6288E00417A37 /* Soda.swift */,
 				22E4756525E6288600417A37 /* Coffee.swift */,
 				22E4756225E6287F00417A37 /* Milk.swift */,
+				2255F0E025E8E0C20044B872 /* BeverageDescripting.swift */,
 				2255F0A825E8BCA90044B872 /* Date.swift */,
-				2255F0AF25E8C2370044B872 /* Brand.swift */,
 				2255F0BB25E8D5C50044B872 /* Sanpellegrino.swift */,
 				2255F0BF25E8D9120044B872 /* Pepsi.swift */,
 				2255F0C625E8DA2F0044B872 /* SeoulStrawberryMilk.swift */,
@@ -187,7 +187,7 @@
 				22E4756925E6288E00417A37 /* Soda.swift in Sources */,
 				2255F0A925E8BCA90044B872 /* Date.swift in Sources */,
 				22E4753A25E60FFA00417A37 /* ViewController.swift in Sources */,
-				2255F0B025E8C2370044B872 /* Brand.swift in Sources */,
+				2255F0E125E8E0C20044B872 /* BeverageDescripting.swift in Sources */,
 				2255F0BC25E8D5C50044B872 /* Sanpellegrino.swift in Sources */,
 				22E4753625E60FFA00417A37 /* AppDelegate.swift in Sources */,
 				2255F0DB25E8DDCD0044B872 /* StarbucksColdBrew.swift in Sources */,

@@ -1,13 +1,7 @@
 import Foundation
 
-protocol BeverageCertified {
-    func validate(with date: Date) -> Bool
-    func isHot() -> Bool
-    func isLowCalorie() -> Bool
-}
-
 class Soda: Beverage {
-    private var isZeroCalorie: Bool
+    private(set) var isZeroCalorie: Bool
     
     init(brand: String, capacity: Int, price: Int, name: String, isZeroCalorie: Bool, manufacture: Date = Date()) {
         self.isZeroCalorie = isZeroCalorie

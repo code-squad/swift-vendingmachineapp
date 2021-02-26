@@ -6,7 +6,7 @@ class BingBananaMilk: Milk {
         case forKids
     }
     
-    private var target: Target
+    private(set) var target: Target
     
     init(brand: String, capacity: Int, price: Int, name: String, isLowFatMilk: Bool, target: Target, manufacture: Date = Date()) {
         self.target = target

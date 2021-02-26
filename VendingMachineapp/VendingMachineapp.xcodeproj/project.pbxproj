@@ -23,6 +23,9 @@
 		D46F1A7925E8BC0000BFBD9C /* StrawberryMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46F1A7825E8BBFF00BFBD9C /* StrawberryMilk.swift */; };
 		D46F1A7C25E8BC1800BFBD9C /* BananaMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46F1A7B25E8BC1800BFBD9C /* BananaMilk.swift */; };
 		D46F1A7F25E8BC2400BFBD9C /* ChocoMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46F1A7E25E8BC2400BFBD9C /* ChocoMilk.swift */; };
+		D46F1A8225E8BE8A00BFBD9C /* Top.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46F1A8125E8BE8A00BFBD9C /* Top.swift */; };
+		D46F1A8525E8BE9200BFBD9C /* Cantata.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46F1A8425E8BE9200BFBD9C /* Cantata.swift */; };
+		D46F1A8825E8BE9C00BFBD9C /* Georgia.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46F1A8725E8BE9C00BFBD9C /* Georgia.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +47,9 @@
 		D46F1A7825E8BBFF00BFBD9C /* StrawberryMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrawberryMilk.swift; sourceTree = "<group>"; };
 		D46F1A7B25E8BC1800BFBD9C /* BananaMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BananaMilk.swift; sourceTree = "<group>"; };
 		D46F1A7E25E8BC2400BFBD9C /* ChocoMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChocoMilk.swift; sourceTree = "<group>"; };
+		D46F1A8125E8BE8A00BFBD9C /* Top.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Top.swift; sourceTree = "<group>"; };
+		D46F1A8425E8BE9200BFBD9C /* Cantata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cantata.swift; sourceTree = "<group>"; };
+		D46F1A8725E8BE9C00BFBD9C /* Georgia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Georgia.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +107,9 @@
 				D46F1A7825E8BBFF00BFBD9C /* StrawberryMilk.swift */,
 				D46F1A7B25E8BC1800BFBD9C /* BananaMilk.swift */,
 				D46F1A7E25E8BC2400BFBD9C /* ChocoMilk.swift */,
+				D46F1A8125E8BE8A00BFBD9C /* Top.swift */,
+				D46F1A8425E8BE9200BFBD9C /* Cantata.swift */,
+				D46F1A8725E8BE9C00BFBD9C /* Georgia.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -180,6 +189,8 @@
 				D46F1A6F25E6A52B00BFBD9C /* Inventory.swift in Sources */,
 				D46F1A3C25E62A3200BFBD9C /* AppDelegate.swift in Sources */,
 				D46F1A5325E6323700BFBD9C /* Beverage.swift in Sources */,
+				D46F1A8525E8BE9200BFBD9C /* Cantata.swift in Sources */,
+				D46F1A8825E8BE9C00BFBD9C /* Georgia.swift in Sources */,
 				D46F1A7F25E8BC2400BFBD9C /* ChocoMilk.swift in Sources */,
 				D46F1A7C25E8BC1800BFBD9C /* BananaMilk.swift in Sources */,
 				D46F1A3E25E62A3200BFBD9C /* SceneDelegate.swift in Sources */,
@@ -188,6 +199,7 @@
 				D46F1A7925E8BC0000BFBD9C /* StrawberryMilk.swift in Sources */,
 				D46F1A6C25E6813900BFBD9C /* Date.swift in Sources */,
 				D46F1A6525E6782F00BFBD9C /* VendingMachine.swift in Sources */,
+				D46F1A8225E8BE8A00BFBD9C /* Top.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

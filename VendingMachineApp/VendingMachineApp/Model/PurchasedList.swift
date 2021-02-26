@@ -14,11 +14,7 @@ class PurchasedList {
         self.beverages = []
     }
     
-    func addHistory(beverage : Beverage) {
+    func add(beverage : Beverage) {
         beverages.append(beverage)
-    }
-    
-    func sumBeveragesPrice() -> Int {
-        return beverages.reduce(0) { $1.price }
     }
 }

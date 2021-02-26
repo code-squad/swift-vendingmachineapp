@@ -7,10 +7,6 @@
 
 import Foundation
 
-protocol Drinkable {
-    func isExpired(by date: Date) -> Bool
-}
-
 protocol LocationTrackable {
     func isDomestic() -> Bool
 }

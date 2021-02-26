@@ -8,54 +8,48 @@
 import Foundation
 
 class BeverageStorage {
-    private var stock: [Item]
+    private var stock: [Beverage:Int]
     
-    init() {
-        stock = []
+    enum StockError: Error {
+        case noStock
     }
     
-    public func addStock(with beverage: Beverage, amount: Int) {
-        let newItem = Item(with: beverage, of: amount)
-        let itemIndex = stock.firstIndex { (alreadyStoredItem) -> Bool in
-            alreadyStoredItem.isSameItem(with: newItem)
-        }
-        if itemIndex != nil {
-            stock[itemIndex!].increaseAmount(by: amount)
+    init() {
+        stock = [:]
+    }
+    
+    public func increaseStock(beverage: Beverage, by amount: Int) {
+        if stock[beverage] != nil {
+            stock[beverage]! += 1
         } else {
-            stock.append(newItem)
+            stock[beverage] = amount
         }
     }
 
-    public func showStock() -> String {
-        var result = ""
-        stock.enumerated().forEach { (index, item) in
-            result.append("\(index)번 슬롯: \(item)\n")
-        }
-        return result
+    public func checkStock() -> [Beverage:Int] {
+       return stock
     }
     
-    public func showPurchasableBeverages(with money: Int = 999_999_999) -> String {
-        var result = "구매 가능한 음료 목록 ----\n"
-        stock.enumerated().forEach { (index, item) in
-            guard item.isAvailable(with: money) else { return }
-            result.append("\(index)번 슬롯: \(item)\n")
+    public func checkPurchasables(with money: Int) -> [Beverage:Int] {
+        let purchasableBeverages = stock.filter { (bev, amt) -> Bool in
+            bev.isPurchasable(with: money)
         }
-        return result
+        return purchasableBeverages
     }
     
-    public func showExpiredBeverages() -> String {
-        var result = "유통기한 지난 음료 목록 ----\n"
-        stock.enumerated().forEach { (index, item) in
-            guard item.isExpiredItem() else { return }
-            result.append("\(index)번 슬롯: \(item)\n")
+    public func checkExpired() -> [Beverage:Int] {
+        let purchasableBeverages = stock.filter { (bev, amt) -> Bool in
+            bev.isExpired()
         }
-        return result
+        return purchasableBeverages
     }
     
-    public func putSelectedBeverageOut(at index: Int) -> Beverage? {
-        guard index < stock.count else { return nil }
-        guard index > -1 else { return nil }
-        return stock[index].isPurchased()
+    public func decreaseStock(beverage: Beverage) throws {
+        if stock[beverage] != nil {
+            stock[beverage]! -= 1
+        } else {
+            throw StockError.noStock
+        }
     }
 }
 

@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Beverage  {
+class Beverage {
     private let brand: String
     private let size: Milli_Liter
     private let price: Int

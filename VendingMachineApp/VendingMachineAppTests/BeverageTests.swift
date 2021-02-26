@@ -16,27 +16,27 @@ class BeverageTests: XCTestCase {
                                                  unit : .Milliliter,
                                                  price: 1000,
                                                  name: "딸기우유",
-                                                 manufactured: Date().insert(date: "20210207"),
+                                                 manufactured: Date.make(date: "20210207"),
                                                  mlikFarmCode: 023,
-                                                 expiration: Date().insert(date: "20210210"), temperature : 10, calorie: 150, strawberryContent: 10)
+                                                 expiration: Date.make(date: "20210210"), temperature : 10, calorie: 150, strawberryContent: 10)
         let dietCola =  DietCola.init(brand : "팹시",
                                       amount : 350,
                                       unit : .Milliliter,
                                       price: 2000,
                                       name: "다이어트콜라",
-                                      manufactured: Date().insert(date: "20210222"),sugarContent: 5,expiration: Date().insert(date: "20210303"),temperature : 10, calorie: 123,taste: .lemon)
+                                      manufactured: Date.make(date: "20210222"),sugarContent: 5,expiration: Date.make(date: "20210303"),temperature : 10, calorie: 123,taste: .lemon)
         
         let topAmericano =  TopAmericano.init(brand : "맥심",
                                               amount : 400,
                                               unit : .Milliliter,
                                               price: 3000,
                                               name: "TOP아메리카노",
-                                              manufactured: Date().insert(date: "20210217"),
+                                              manufactured: Date.make(date: "20210217"),
                                               caffeineContent: 130,
-                                              expiration: Date().insert(date: "20210227"),
+                                              expiration: Date.make(date: "20210227"),
                                               temperature : 70, calorie : 100,coffeeSolids: 0.7)
         
-        XCTAssertEqual(strawberryMilk.validate(with: Date().insert(date: "20210209")), false)
+        XCTAssertEqual(strawberryMilk.isExpiryDate(with: Date.make(date: "20210209")), false)
         XCTAssertEqual(dietCola.isLowCalorie(standard : 10), true)
         XCTAssertEqual(topAmericano.isHot(standard : 65), true)
     }

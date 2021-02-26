@@ -43,7 +43,7 @@ class Beverage : CustomStringConvertible {
         return price <= money
     }
     
-    func validate(with date:Date) -> Bool {
+    func isExpiryDate(with date:Date) -> Bool {
         return expiration < date
     }
     

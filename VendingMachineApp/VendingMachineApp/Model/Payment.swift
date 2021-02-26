@@ -18,7 +18,7 @@ class Payment {
         return drinks.purchasePossibleList(money: amountMoney)
     }
     
-    func checkPossiblePurchase(beverage : Beverage) -> Bool {
+    func canPurchase(beverage : Beverage) -> Bool {
         return beverage.isPossiblePurchase(money: amountMoney)
     }
     

@@ -9,7 +9,7 @@ import Foundation
 
 class Cantata: Coffee {
     
-    override init(manufacturer: String, volume: Int, price: Int, brand: String, manufactured: Date, type: CoffeeType, caffeineContent: Int) {
-        super.init(manufacturer: manufacturer, volume: volume, price: price, brand: brand, manufactured: manufactured, type: type, caffeineContent: caffeineContent)
+    override init(manufacturer: String, volume: Int, price: Int, brand: String, manufactured: Date, expirydate: Date, calorie: Int, hot: Bool, type: CoffeeType, caffeineContent: Int) {
+        super.init(manufacturer: manufacturer, volume: volume, price: price, brand: brand, manufactured: manufactured, expirydate: expirydate, calorie: calorie, hot: hot, type: type, caffeineContent: caffeineContent)
     }
 }

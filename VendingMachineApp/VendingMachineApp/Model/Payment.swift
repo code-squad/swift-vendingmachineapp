@@ -27,6 +27,6 @@ class Payment {
     }
     
     func decrease(beverage : Beverage) {
-        return amountMoney -= beverage.price
+        amountMoney = beverage.decreaseBlance(money: amountMoney)
     }
 }

@@ -40,7 +40,7 @@ struct VendingMachine {
         if payment.checkPossiblePurchase(beverage: beverage) {
             payment.decrease(beverage: beverage)
             drinks.purchase(beverage: beverage)
-            purchasedList.addHistory(beverage: beverage)
+            purchasedList.add(beverage: beverage)
         }
     }
     

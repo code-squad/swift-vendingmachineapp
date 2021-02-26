@@ -52,4 +52,16 @@ class VendingMachine {
     func nowCredit() -> Int {
         return credit
     }
+    
+    func hotDrinks() -> Drinks {
+        return stock.hotDrinks()
+    }
+    
+    func lowCalorieDrinks() -> Drinks {
+        return stock.lowCalorieDrinks()
+    }
+    
+    func validateDrinks(when date: Date) -> Drinks {
+        return stock.validateDrinks(when: date)
+    }
 }

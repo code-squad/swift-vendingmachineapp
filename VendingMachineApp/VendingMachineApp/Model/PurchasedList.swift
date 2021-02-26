@@ -8,17 +8,17 @@
 import Foundation
 
 class PurchasedList {
-    private(set) var purchasedList : [Beverage]
+    private(set) var beverages : [Beverage]
     
     init() {
-        self.purchasedList = []
+        self.beverages = []
     }
     
     func addBeverage(beverage : Beverage) {
-        purchasedList.append(beverage)
+        beverages.append(beverage)
     }
     
     func sumBeveragesPrice() -> Int {
-        return purchasedList.reduce(0) { $1.price }
+        return beverages.reduce(0) { $1.price }
     }
 }

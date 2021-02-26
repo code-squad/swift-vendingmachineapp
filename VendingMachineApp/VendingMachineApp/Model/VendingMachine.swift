@@ -61,6 +61,6 @@ struct VendingMachine {
     }
     
     func purchaseHistory() -> [Beverage] {
-        return purchasedList.purchasedList
+        return purchasedList.beverages
     }
 }

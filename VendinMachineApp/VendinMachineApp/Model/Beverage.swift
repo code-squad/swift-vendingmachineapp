@@ -12,7 +12,7 @@ class Beverage : CustomStringConvertible {
         return "\(brand), \(size)ml, \(price)원, \(name), \(manufacturedAt.toString(with: Date.manufacturedFormat()))"
     }
     
-    init(_ brand: String, _ size: Int, _ price: Int, _ name: String, _ manufactureDate: Date) {
+    init(brand: String, size: Int, price: Int, name: String, manufactureDate: Date) {
         self.brand = brand
         self.size = size
         self.price = price

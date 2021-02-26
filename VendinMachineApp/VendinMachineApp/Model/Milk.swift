@@ -3,13 +3,13 @@ import Foundation
 
 class Milk : Beverage {
     
-    override init(_ brand: String, _ size: Int, _ price: Int, _ name: String, _ manufactureDate: Date) {
-        super.init(brand, size, price, name, manufactureDate)
+    override init(brand: String, size: Int, price: Int, name: String, manufactureDate: Date) {
+        super.init(brand: brand, size: size, price: price, name: name, manufactureDate: manufactureDate)
     }
 }
 
 class BananaMilk : Milk {
     
-    override init(_ brand: String, _ size: Int, _ price: Int, _ name: String, _ manufactureDate: Date) {
-        super.init(brand, size, price, name, manufactureDate)
+    override init(brand: String, size: Int, price: Int, name: String, manufactureDate: Date) {
+        super.init(brand: brand, size: size, price: price, name: name, manufactureDate: manufactureDate)
     }}

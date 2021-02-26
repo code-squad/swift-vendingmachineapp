@@ -7,11 +7,14 @@
 
 import Foundation
 
-struct Milli_Liter {
+struct Milli_Liter: ExpressibleByIntegerLiteral {
     private let value: Int
     
     init(_ value: Int) {
         self.value = value
+    }
+    init(integerLiteral val: Int) {
+              self.value = val
     }
 }
 

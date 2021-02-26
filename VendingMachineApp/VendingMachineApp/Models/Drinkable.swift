@@ -8,5 +8,5 @@
 import Foundation
 
 protocol Drinkable {
-    func validate(with date: Date) -> Bool
+    func validateManufacturedAt(with date: Date) -> Bool
 }

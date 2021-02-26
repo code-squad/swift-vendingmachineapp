@@ -11,18 +11,19 @@ class Drink {
     private let manufacturer: String
     private let volume: Int
     private let name: String
-    private(set) var dateOfManufacture: Date
+    private let manufacturedAt: Date
+    private lazy var expiredAt: Date = manufacturedAt 
     private(set) var price: Int
     private var temperature: Int
     var description: String {
-        return "\(manufacturer), \(volume)ml, \(price)원, \(name), \(Date.dateFormatter(date: dateOfManufacture))"
+        return "\(manufacturer), \(volume)ml, \(price)원, \(name), \(Date.dateFormatter(date: manufacturedAt))"
     }
     
     init(manufacturer: String, volume: Int, name: String, dateOfManufacture: Date, price: Int, temperature: Int) {
         self.manufacturer = manufacturer
         self.volume = volume
         self.name = name
-        self.dateOfManufacture = dateOfManufacture
+        self.manufacturedAt = dateOfManufacture
         self.price = price
         self.temperature = temperature
     }
@@ -33,8 +34,8 @@ class Drink {
 }
 
 extension Drink: Drinkable {
-    func validate(with date: Date) -> Bool {
-        return dateOfManufacture >= date
+    func validateManufacturedAt(with date: Date) -> Bool {
+        return expiredAt <= date
     }
 }
 

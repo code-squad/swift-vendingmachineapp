@@ -17,29 +17,29 @@ enum MilkType: String {
 class Milk: Beverage {
     private var type: MilkType
     
-    init(manufacturer: String, volume: Int, price: Int, brand: String, manufactoringDate: Date, type: MilkType) {
+    init(manufacturer: String, volume: Int, price: Int, brand: String, manufactured: Date, type: MilkType) {
         self.type = type
-        super.init(manufacturer: manufacturer, volume: volume, price: price, brand: brand, manufactoringDate: manufactoringDate)
+        super.init(manufacturer: manufacturer, volume: volume, price: price, brand: brand, manufactured: manufactured)
     }
 }
 
 class StrawberryMilk: Milk {
 
-    override init(manufacturer: String, volume: Int, price: Int, brand: String, manufactoringDate: Date, type: MilkType) {
-        super.init(manufacturer: manufacturer, volume: volume, price: price, brand: brand, manufactoringDate: manufactoringDate, type: type)
+    override init(manufacturer: String, volume: Int, price: Int, brand: String, manufactured: Date, type: MilkType) {
+        super.init(manufacturer: manufacturer, volume: volume, price: price, brand: brand, manufactured: manufactured, type: type)
     }
 }
 
 class ChocoMilk: Milk {
     
-    override init(manufacturer: String, volume: Int, price: Int, brand: String, manufactoringDate: Date, type: MilkType) {
-        super.init(manufacturer: manufacturer, volume: volume, price: price, brand: brand, manufactoringDate: manufactoringDate, type: type)
+    override init(manufacturer: String, volume: Int, price: Int, brand: String, manufactured: Date, type: MilkType) {
+        super.init(manufacturer: manufacturer, volume: volume, price: price, brand: brand, manufactured: manufactured, type: type)
     }
 }
 
 class BananaMilk: Milk {
     
-    override init(manufacturer: String, volume: Int, price: Int, brand: String, manufactoringDate: Date, type: MilkType) {
-        super.init(manufacturer: manufacturer, volume: volume, price: price, brand: brand, manufactoringDate: manufactoringDate, type: type)
+    override init(manufacturer: String, volume: Int, price: Int, brand: String, manufactured: Date, type: MilkType) {
+        super.init(manufacturer: manufacturer, volume: volume, price: price, brand: brand, manufactured: manufactured, type: type)
     }
 }

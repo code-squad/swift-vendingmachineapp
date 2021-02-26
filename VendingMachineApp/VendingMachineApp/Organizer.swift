@@ -16,7 +16,7 @@ class Organizer {
     }
     
     func affordables(from list: Beverages) -> [Beverage] {
-        return list.listByTime(filter: affordable(_:))
+        return list.listTypeOnly(filter: affordable(_:))
     }
     
     private func affordable(_ beverages: [Beverage: Int]) -> [Beverage] {
@@ -31,7 +31,7 @@ class Organizer {
     }
     
     func expiredItems(from list: Beverages) -> [Beverage: Int] {
-        return list.listByType(filter: expired(_:))
+        return list.listTypeCount(filter: expired(_:))
     }
 
     private func expired(_ beverages: [Beverage]) -> [Beverage: Int] {
@@ -51,7 +51,7 @@ class Organizer {
     }
     
     func hotItems(from list: Beverages) -> [Beverage] {
-        return list.listByTime(filter: hot(_:))
+        return list.listTypeOnly(filter: hot(_:))
     }
 
     private func hot(_ stockList: [Beverage: Int]) -> [Beverage] {
@@ -67,7 +67,7 @@ class Organizer {
     }
     
     func transportables(from list: Beverages) -> [Beverage] {
-        return list.listByTime(filter: transportable(_:))
+        return list.listTypeOnly(filter: transportable(_:))
     }
 
     private func transportable(_ stockList: [Beverage: Int]) -> [Beverage] {
@@ -83,7 +83,7 @@ class Organizer {
     }
     
     func healthyItems(from list: Beverages) -> [Beverage] {
-        return list.listByTime(filter: healthy(_:))
+        return list.listTypeOnly(filter: healthy(_:))
     }
 
     private func healthy(_ stockList: [Beverage: Int]) -> [Beverage] {

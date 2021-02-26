@@ -50,7 +50,7 @@ class Beverages {
         }
     }
     
-    func listByTime(filter: (([Beverage: Int]) -> [Beverage])?) -> [Beverage] {
+    func listTypeOnly(filter: (([Beverage: Int]) -> [Beverage])?) -> [Beverage] {
         if let filter = filter {
             return filter(stockList)
         } else {
@@ -58,7 +58,7 @@ class Beverages {
         }
     }
     
-    func listByType(filter: (([Beverage]) -> [Beverage: Int])?) -> [Beverage: Int] {
+    func listTypeCount(filter: (([Beverage]) -> [Beverage: Int])?) -> [Beverage: Int] {
         if let filter = filter {
             return filter(storage)
         } else {

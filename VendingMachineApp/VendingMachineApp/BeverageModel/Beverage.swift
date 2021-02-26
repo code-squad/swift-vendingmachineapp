@@ -33,19 +33,17 @@ class Beverage {
     public func checkPrice() -> Int {
         return self.price
     }
+    
+    public func isExpired() -> Bool {
+        let oneDayInSeconds: Double = 86400
+        let expiringDateFromPackDate: Double = 60
+        return Date() > packDate.addingTimeInterval(oneDayInSeconds * expiringDateFromPackDate)
+    }
 }
 
 extension Beverage: CustomStringConvertible {
     var description: String {
         return "\(brand), \(size)ml, \(price)원, \(name), \(packDate.useSimpleFormat(dateFormat:"yyyyMMdd"))"
-    }
-}
-
-extension Beverage: Drinkable {
-    func isExpired(by date: Date) -> Bool {
-        let oneDayInSeconds: Double = 86400
-        let expiringDateFromPackDate: Double = 60
-        return date > packDate.addingTimeInterval(oneDayInSeconds * expiringDateFromPackDate)
     }
 }
 

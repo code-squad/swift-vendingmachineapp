@@ -40,7 +40,9 @@ class Inventory {
         
         eachBeverage(handler: { (beverage) in
             if beverage.isAvailablePurchase(with: money) {
-                purchaseList.append(beverage)
+                if !purchaseList.contains(beverage) {
+                    purchaseList.append(beverage)
+                }
             }
         })
         return purchaseList
@@ -60,10 +62,10 @@ class Inventory {
         return list
     }
     
-    func validateList(with date: Date) -> [Beverage] {
+    func invalidateList(with date: Date) -> [Beverage] {
         var list: [Beverage] = []
         eachBeverage(handler: { (beverage) in
-            if beverage.validate(with: date) {
+            if !beverage.validate(with: date) {
                 list.append(beverage)
             }
         })

@@ -12,7 +12,7 @@ let compareCalorie = 300
 class Beverage{
     private var manufacturer: String
     private var volume: Int
-    private var price: Int
+    private(set) var price: Int
     private var brand: String
     private var manufactured: Date
     private var expirydate: Date
@@ -31,7 +31,7 @@ class Beverage{
     }
     
     func isLowCalorie() -> Bool {
-        return calorie < compareCalorie
+        return calorie <= compareCalorie
     }
     
     func isHot() -> Bool {
@@ -39,11 +39,11 @@ class Beverage{
     }
     
     func validate(with date: Date) -> Bool {
-        return expirydate > date
+        return expirydate >= date
     }
     
     func isAvailablePurchase(with money: Int) -> Bool {
-        return money > price
+        return money >= price
     }
 }
 

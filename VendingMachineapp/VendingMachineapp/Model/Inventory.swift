@@ -20,7 +20,7 @@ class Inventory {
     func subtractBeverage(beverage: Beverage) {
         purchaseHistory.append( inventory.remove(at: searchBeverage(beverage: beverage)!) )
     }
-    // 더 나은 방법이 없을까..
+    
     func searchBeverage(beverage: Beverage) -> Int? {
         for index in 0..<inventory.count {
             if beverage == inventory[index]{
@@ -35,6 +35,7 @@ class Inventory {
             handler(beverage)
         })
     }
+    
     func availablePurchaseList(money: Int) -> [Beverage] {
         purchaseList.removeAll()
         

@@ -12,6 +12,14 @@ class Coke: Soda {
     
     override init(manufacturer: String, volume: Int, price: Int, brand: String, manufactured: Date, expirydate: Date, calorie: Int, hot: Bool, flavor: String) {
         self.type = "Coke"
-        super.init(manufacturer: manufacturer, volume: volume, price: price, brand: brand, manufactured: manufactured, expirydate: expirydate, calorie: calorie, hot: hot, flavor: flavor)
+        super.init(manufacturer: manufacturer,
+                   volume: volume,
+                   price: price,
+                   brand: brand,
+                   manufactured: manufactured,
+                   expirydate: expirydate,
+                   calorie: calorie,
+                   hot: hot,
+                   flavor: flavor)
     }
 }

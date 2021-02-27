@@ -21,7 +21,7 @@ class StarbucksColdBrew: Coffee, Productization {
         super.init(brand: "StarBucks",
                    capacity: 240,
                    price: 1150,
-                   name: "StarBucks Cold Brew \(self.flavor.rawValue)",
+                   name: "StarBucks Cold Brew",
                    isDecaffeinated: false,
                    manufacture: manufacture)
     }

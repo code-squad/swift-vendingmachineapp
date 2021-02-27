@@ -14,7 +14,7 @@ class BingBananaMilk: Milk, Productization {
         super.init(brand: "빙그레",
                    capacity: 240,
                    price: 1150,
-                   name: "빙그레 바나나우유 \(self.target.rawValue)",
+                   name: "빙그레 바나나우유",
                    isLowFatMilk: false,
                    manufacture: manufacture)
     }

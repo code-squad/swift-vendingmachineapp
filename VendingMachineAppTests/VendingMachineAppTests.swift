@@ -14,11 +14,13 @@ class VendingMachineAppTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
+    
         vendinMachine = VendingMachine(coins: 10000)
-        vendinMachine.append(drink: StroberryMilk(brand: "서울우유", capacity: 200, price: 2500, name: "딸기우유", create:"20210403", expire: "20210412", content: 1.0))
-        vendinMachine.append(drink: ChocolateMilk(brand: "서울우유", capacity: 500, price: 1800, name: "초코우유", create: "20200211", expire: "20200220", content: 2.0))
-        vendinMachine.append(drink: Georgia(brand: "스타벅스", capacity: 350, price: 3000, name: "조지아", create: "20210202", expire: "20210210", caffeine: 150, hot: true))
-        vendinMachine.append(drink: Soda(brand: "팹시", capacity: 500, price: 3500, name: "제로콜라", create: "20200101", expire: "20200824", kind: .Coke))
+        vendinMachine.append(drink: StroberryMilk(create:"20210403", expire: "20210412"))
+        vendinMachine.append(drink: ChocolateMilk(create: "20200211", expire: "20200220"))
+        vendinMachine.append(drink: Georgia(create :"20210202", expire: "20210210", hot: true))
+        vendinMachine.append(drink: Coke(create: "20200101", expire: "20200824", flaver: .cherry))
+
     }
 
     func testGetBalance() {
@@ -38,7 +40,7 @@ class VendingMachineAppTests: XCTestCase {
     }
     
     func testBuyProduct(){
-        let georgia = Georgia(brand: "스타벅스", capacity: 350, price: 3000, name: "조지아", create: "20210202", expire: "20210210", caffeine: 150, hot: false)
+        let georgia = Georgia(create: "20210202", expire: "20210210")
         vendinMachine.buyProduct(drink: georgia)
         
         let expect = 3
@@ -59,12 +61,9 @@ class VendingMachineAppTests: XCTestCase {
     }
     func testGetSoldProducts(){
         vendinMachine.charge(coins: 10000)
-        
-        vendinMachine.buyProduct(drink: StroberryMilk(brand: "서울우유", capacity: 200, price: 2500, name: "딸기우유", create:"20210403", expire: "20210412", content: 1.0))
-        vendinMachine.buyProduct(drink: Georgia(brand: "스타벅스", capacity: 350, price: 3000, name: "조지아", create: "20210202", expire: "20210210", caffeine: 150, hot: true))
-        vendinMachine.buyProduct(drink: Soda(brand: "팹시", capacity: 500, price: 3500, name: "제로콜라", create: "20200101", expire: "20200824", kind: .Coke))
-        
-        let expect = 3
+    
+        vendinMachine.buyProduct(drink: StroberryMilk(create:"20210403", expire: "20210412"))
+        let expect = 1
         let actual = vendinMachine.getSoldProducts().count
         
         XCTAssertEqual(expect, actual, "구매 이력을 받아오지 못하였습니다.")

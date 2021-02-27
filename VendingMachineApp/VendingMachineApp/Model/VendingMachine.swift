@@ -9,56 +9,59 @@ import Foundation
 
 class VendingMachine {
     // class 구현
-    private(set) var stockDrink: StockDrink
+    private(set) var stock: StockFactory
     private var coin: Int
+    private var purchasehistory: [Drink]
     
-    init() {
-        self.stockDrink = StockDrink()
+    init(stock: StockFactory) {
+        self.stock = stock
         self.coin = 0
+        self.purchasehistory = [Drink]()
     }
-    // 1단계 이후 지워질 것
-//    public func printStockBeverages() {
-//        stockBeverages.forEach { (beverage) in
-//            print(beverage)
-//        }
-//    }
-    
-    public func addBeverage(_ drink: Drink) {
-        stockDrink.add(drink)
+
+    private func checkProductization(of drink: Drink) -> Bool {
+        return stock.checkProductization(of: drink)
     }
-    
+
+    public func addDrink(_ drink: Drink) {
+        if !checkProductization(of: drink) { return }
+        stock.addDrink(drink)
+    }
+
     public func insertCoin(_ coin: Int) {
         self.coin += coin
     }
     
-    public func bargainousBeverage() -> [Drink] {
-        var bargainousDrink = Set<Drink>()
-        stockDrink.checkBeverage { (drink) in
-            bargainousDrink.update(with: drink)
+    public func availableDrink() -> [Drink] {
+        stock.availableDrink()
+    }
+
+    public func buy(_ drink: Drink) -> Drink? {
+        return stock.buy(drink) { (drink) -> Drink? in
+            if self.coin < drink.price { return nil }
+            self.purchasehistory.append(drink)
+            self.coin -= drink.price
+            return drink
         }
-        return Array(bargainousDrink)
     }
-    
-    public func buy(_ productization: Productization) -> Drink? {
-        guard let drink = productization as? Drink else { return nil }
-        if self.coin < drink.price { return nil }
-        
-        self.coin -= drink.price
-        return drink
-    }
-    
+
     public func leftCoin() -> Int {
         return self.coin
     }
     
     public func showStock() -> [Drink: UInt] {
-        var stock = Dictionary<Drink, UInt>()
-        
-        stockDrink.checkBeverage { (drink) in
-            stock[drink, default: 0] += 1
-        }
-        return stock
+        return stock.showStock()
+    }
+
+    public func findExpiredDrinks() -> [Drink] {
+        return stock.findExpiredDrinks()
     }
     
+    public func findWarmDrinks() -> [Drink] {
+        return stock.findWarmDrinks()
+    }
     
+    public func showPurchasehistory() -> [Drink] {
+        return purchasehistory
+    }
 }

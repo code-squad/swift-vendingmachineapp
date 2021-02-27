@@ -10,6 +10,7 @@
 		220AFCD425E94FA400FDADEB /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220AFCD325E94FA400FDADEB /* Drink.swift */; };
 		220AFCE025E9513C00FDADEB /* StockDrink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220AFCDF25E9513C00FDADEB /* StockDrink.swift */; };
 		220AFCE425E9539600FDADEB /* Productization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220AFCE325E9539600FDADEB /* Productization.swift */; };
+		221A9EC925EA64AA00ADEE1E /* StockFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221A9EC825EA64AA00ADEE1E /* StockFactory.swift */; };
 		2255F0A925E8BCA90044B872 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2255F0A825E8BCA90044B872 /* Date.swift */; };
 		2255F0BC25E8D5C50044B872 /* Sanpellegrino.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2255F0BB25E8D5C50044B872 /* Sanpellegrino.swift */; };
 		2255F0C725E8DA2F0044B872 /* SeoulStrawberryMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2255F0C625E8DA2F0044B872 /* SeoulStrawberryMilk.swift */; };
@@ -34,6 +35,7 @@
 		220AFCD325E94FA400FDADEB /* Drink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drink.swift; sourceTree = "<group>"; };
 		220AFCDF25E9513C00FDADEB /* StockDrink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockDrink.swift; sourceTree = "<group>"; };
 		220AFCE325E9539600FDADEB /* Productization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Productization.swift; sourceTree = "<group>"; };
+		221A9EC825EA64AA00ADEE1E /* StockFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockFactory.swift; sourceTree = "<group>"; };
 		2255F0A825E8BCA90044B872 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		2255F0BB25E8D5C50044B872 /* Sanpellegrino.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sanpellegrino.swift; sourceTree = "<group>"; };
 		2255F0C625E8DA2F0044B872 /* SeoulStrawberryMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeoulStrawberryMilk.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				220AFCE325E9539600FDADEB /* Productization.swift */,
+				221A9EC825EA64AA00ADEE1E /* StockFactory.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -239,6 +242,7 @@
 				22E4756625E6288600417A37 /* Coffee.swift in Sources */,
 				22E4757325E650C400417A37 /* VendingMachine.swift in Sources */,
 				220AFCE025E9513C00FDADEB /* StockDrink.swift in Sources */,
+				221A9EC925EA64AA00ADEE1E /* StockFactory.swift in Sources */,
 				22C52CB225E9180800A56884 /* BlueBottleColdBrew.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

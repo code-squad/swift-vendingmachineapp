@@ -3,7 +3,6 @@ import Foundation
 class SeoulStrawberryMilk: Milk, Productization {
     private(set) var isWithStraw: Bool
     
-    
     init(isWithStraw: Bool = true, manufacture: Date = Date()) {
         self.isWithStraw = isWithStraw
         

@@ -8,10 +8,12 @@
 import UIKit
 
 class ViewController: UIViewController {
-    var vendingMachine = VendingMachine()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let stock = StockDrink()
+        var vendingMachine = VendingMachine(stock: stock)
 //
 //        let strawberryMileA = Milk(brand: "서울우유",
 //                                   capacity: 200,

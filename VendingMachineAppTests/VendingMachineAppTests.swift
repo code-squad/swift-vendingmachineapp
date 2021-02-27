@@ -41,7 +41,7 @@ class VendingMachineAppTests: XCTestCase {
     
     func testBuyProduct(){
         let georgia = Georgia(create: "20210202", expire: "20210210")
-        vendinMachine.buyProduct(drink: georgia)
+        vendinMachine.buyProduct(product: georgia)
         
         let expect = 3
         let actual = vendinMachine.getTotalStock().count
@@ -62,7 +62,7 @@ class VendingMachineAppTests: XCTestCase {
     func testGetSoldProducts(){
         vendinMachine.charge(coins: 10000)
     
-        vendinMachine.buyProduct(drink: StroberryMilk(create:"20210403", expire: "20210412"))
+        vendinMachine.buyProduct(product: StroberryMilk(create:"20210403", expire: "20210412"))
         let expect = 1
         let actual = vendinMachine.getSoldProducts().count
         

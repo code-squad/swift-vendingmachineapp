@@ -11,7 +11,7 @@ struct VendingMachine {
     private let standardHotTempertaure = 70
     private var drinks: Drinks
     private var chargedCoins: Int = 0
-    private var purchaseHistory = [Drink]()
+    private var purchaseHistory = PurchaseHistory()
     
     init(drinks: Drinks) {
         self.drinks = drinks
@@ -32,7 +32,7 @@ struct VendingMachine {
     mutating func purchase(drink: Drink) {
         chargedCoins -= drink.price
         drinks.remove(drink: drink)
-        purchaseHistory.append(drink)
+        purchaseHistory.add(drink: drink)
     }
     
     mutating func checkRemainCoins() -> Int {
@@ -49,5 +49,9 @@ struct VendingMachine {
     
     mutating func getHotDrinks() -> [Drink] {
         return drinks.getHotDrinks(for: standardHotTempertaure)
+    }
+    
+    mutating func getPurchaseHistory() -> [Drink] {
+        return purchaseHistory.purchasedDrinks
     }
 }

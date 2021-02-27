@@ -7,19 +7,14 @@
 
 import Foundation
 
-enum CoffeeKind : String {
-    case cantata = "Cantata"
-    case top = "TOP"
-    case georiga = "Georgia"
-}
 class CoffeeFactory : BeverageFactory{
     func createBeverage(with name: String) -> Beverage {
-        let drink = CoffeeKind(rawValue: name)
+        let drink = Coffee.Kind(rawValue: name)
         switch drink {
-        case .cantata: return Cantata(create: "20210214", expire: "20210216")
-        case .georiga: return Georgia(create: "20210214", expire: "20210216")
+        case .cantata: return Cantata(create: Date().toString(), expire: Date().toString())
+        case .georiga: return Georgia(create: Date().toString(), expire: Date().toString())
         default:
-            return Top(create: "20210214", expire: "20210216")
+            return Top(create: Date().toString(), expire: Date().toString())
         }
     }
 }

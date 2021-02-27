@@ -11,9 +11,14 @@ class ChocolateMilk : Milk {
     
     private let chocolateContent : Float
     
-    init(brand : String, capacity : Int, price : Int, name : String, create : String, expire : String, content : Float){
-        self.chocolateContent = content
-        super.init(brand: brand, capacity: capacity, price: price, name: name, create: create, expire: expire)
+    init(create : String, expire : String){
+        self.chocolateContent = 1.0
+        super.init(brand: "서울우유",
+                   capacity: 200,
+                   price: 900,
+                   name: "초코맛 우유",
+                   create: create,
+                   expire: expire)
     }
     override var description: String {
         return super.description + ", (\(chocolateContent)%)"

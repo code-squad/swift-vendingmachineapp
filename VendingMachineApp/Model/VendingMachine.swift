@@ -9,19 +9,15 @@ import Foundation
 
 class VendingMachine {
     private var coins : Int = 0
-    private var products = Dictionary<Beverage,Int>()
+    private var stocks = Dictionary<Beverage,Int>()
     private var soldProducts = [Beverage]()
-
-    init(coins : Int = 0){
-        self.coins = coins
-    }
     
     private func updateMachineState(buy product : Beverage){
-        products.updateValue(products[product]!-1, forKey: product)
+        stocks.updateValue(stocks[product]!-1, forKey: product)
         charge(coins: product.price*(-1))
         soldProducts.append(product)
-        if products[product]! == 0 {
-            products.removeValue(forKey: product)
+        if stocks[product]! == 0 {
+            stocks.removeValue(forKey: product)
         }
     }
 //  자판기 금액을 원하는 금액만큼 올리는 메소드
@@ -29,18 +25,18 @@ class VendingMachine {
         self.coins += coins
     }
 //  특정 상품 인스턴스를 넘겨서 재고를 추가하는 메소드
-    public func append(drink : Beverage){
-        if products[drink] == nil{
-            products[drink] = 0
+    public func append(product : Beverage){
+        if stocks[product] == nil{
+            stocks[product] = 0
         }
-        let value = products[drink]
-        products.updateValue(value! + 1, forKey: drink)
+        let value = stocks[product]
+        stocks.updateValue(value! + 1, forKey: product)
     }
 //  현재 금액으로 구매가능한 음료수 목록을 리턴하는 메소드
     public func availableProducts() -> [Beverage]{
         var list = Array<Beverage>()
-        products.forEach{ (product, count) in
-            if product.available(with : coins) {
+        stocks.forEach{ (product, count) in
+            if product.availablePrice(with : coins) {
                 list.append(product)
             }
         }
@@ -49,7 +45,7 @@ class VendingMachine {
     
 //  음료수를 구매하는 메소드
     public func buyProduct(product : Beverage){
-        if products[product] == nil || products[product]! < 1{ // 상품이 존재하지 않음
+        if stocks[product] == nil || stocks[product]! < 1{ // 상품이 존재하지 않음
             return
         }
         if product.price > coins { // 잔액 부족
@@ -65,13 +61,13 @@ class VendingMachine {
     
 //  전체 상품 재고를 (사전으로 표현하는) 종류별로 리턴하는 메소드
     public func getTotalStock() -> Dictionary<Beverage,Int> {
-        return products
+        return stocks
     }
     
 //  유통기한이 지난 재고만 리턴하는 메소드
     public func expiredProduct () -> [Beverage] {
         var list = [Beverage]()
-        products.forEach{ (product, count) in
+        stocks.forEach{ (product, count) in
             if !product.didExpiredate() {
                 list.append(product)
             }
@@ -82,7 +78,7 @@ class VendingMachine {
 //  따뜻한 음료만 리턴하는 메소드
     public func getHotDrink() -> [Beverage] {
         var list = [Beverage]()
-        products.forEach{ (product, count) in
+        stocks.forEach{ (product, count) in
             if let coffee = product as? Coffee {
                 if coffee.isHot() { list.append(coffee)}
             }

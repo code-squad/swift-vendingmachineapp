@@ -8,5 +8,11 @@
 import Foundation
 
 class EnergyDrink : Beverage {
-
+    
+    private let caffeine : Int
+    
+    init(brand: String, capacity: Int, price: Int, name: String, create: String, expire: String , caffeine : Int){
+        self.caffeine = caffeine
+        super.init(brand: brand, capacity: capacity, price: price, name: name, create: create, expire: expire)
+    }
 }

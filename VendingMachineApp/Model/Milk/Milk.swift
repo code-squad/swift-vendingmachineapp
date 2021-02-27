@@ -9,4 +9,9 @@ import Foundation
 
 class Milk : Beverage {
 
+    enum Kind : String {
+        case chocolate = "Chocolate"
+        case stroberry = "Stroberry"
+        case banana = "Banana"
+    }
 }

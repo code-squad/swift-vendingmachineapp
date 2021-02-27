@@ -8,5 +8,8 @@
 import Foundation
 
 class Soda : Beverage {
-
+    enum Kind : String {
+        case sprite = "Sprite"
+        case coke = "Coke"
+    }
 }

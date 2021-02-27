@@ -53,3 +53,8 @@ extension Beverage : Hashable {
         hasher.combine(name)
     }
 }
+extension Beverage {
+    func compare(with name :String) -> Bool{
+        return self.name == name
+    }
+}

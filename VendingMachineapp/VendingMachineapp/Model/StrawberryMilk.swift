@@ -8,8 +8,10 @@
 import Foundation
 
 class StrawberryMilk: Milk {
-
-    override init(manufacturer: String, volume: Int, price: Int, brand: String, manufactured: Date, expirydate: Date, calorie: Int, hot: Bool, type: MilkType, lowFat: Bool) {
-        super.init(manufacturer: manufacturer, volume: volume, price: price, brand: brand, manufactured: manufactured, expirydate: expirydate, calorie: calorie, hot: hot, type: type, lowFat: lowFat)
+    private var type: String
+    
+    override init(manufacturer: String, volume: Int, price: Int, brand: String, manufactured: Date, expirydate: Date, calorie: Int, hot: Bool, lowFat: Bool) {
+        self.type = "Strawberry"
+        super.init(manufacturer: manufacturer, volume: volume, price: price, brand: brand, manufactured: manufactured, expirydate: expirydate, calorie: calorie, hot: hot, lowFat: lowFat)
     }
 }

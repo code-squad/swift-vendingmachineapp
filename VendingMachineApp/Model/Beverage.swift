@@ -26,11 +26,11 @@ class Beverage : CustomStringConvertible {
         self.create = create.toDate()
         self.expire = expire.toDate()
     }
-    func available(with coins: Int) -> Bool {
+    public func availablePrice(with coins: Int) -> Bool {
         return price <= coins
     }
     
-    func didExpiredate() -> Bool {
+    public func didExpiredate() -> Bool {
         let calendar = Calendar.current
         return calendar.compare(Date(), to: expire, toGranularity: .day) == .orderedAscending
     }

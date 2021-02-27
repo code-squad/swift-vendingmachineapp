@@ -16,10 +16,10 @@ class VendingMachineAppTests: XCTestCase {
         super.setUp()
     
         vendinMachine = VendingMachine(coins: 10000)
-        vendinMachine.append(drink: StroberryMilk(create:"20210403", expire: "20210412"))
-        vendinMachine.append(drink: ChocolateMilk(create: "20200211", expire: "20200220"))
-        vendinMachine.append(drink: Georgia(create :"20210202", expire: "20210210", hot: true))
-        vendinMachine.append(drink: Coke(create: "20200101", expire: "20200824", flaver: .cherry))
+        vendinMachine.append(product: StroberryMilk(create:"20210403", expire: "20210412"))
+        vendinMachine.append(product: ChocolateMilk(create: "20200211", expire: "20200220"))
+        vendinMachine.append(product: Georgia(create :"20210202", expire: "20210210", hot: true))
+        vendinMachine.append(product: Coke(create: "20200101", expire: "20200824", flaver: .cherry))
 
     }
 

@@ -22,12 +22,11 @@ class Inventory {
     }
     
     func searchBeverage(beverage: Beverage) -> Int? {
-        for index in 0..<inventory.count {
-            if beverage == inventory[index]{
-                return index
-            }
+        if let index = inventory.firstIndex(of: beverage) {
+            return index
+        } else {
+            return nil
         }
-        return nil
     }
     
     func eachBeverage(handler: (Beverage) -> ()) {

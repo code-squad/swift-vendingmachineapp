@@ -10,12 +10,12 @@ import Foundation
 class StroberryMilk : Milk {
     private let stroberryContent : Float
     
-    init(brand : String, capacity : Int, price : Int, name : String, create : String, expire : String, content : Float){
-        self.stroberryContent = content
-        super.init(brand: brand,
-                   capacity: capacity,
-                   price: price,
-                   name: name,
+    init(create : String, expire : String){
+        self.stroberryContent = 1.0
+        super.init(brand: "서울우유",
+                   capacity: 200,
+                   price: 900,
+                   name: "딸기맛 우유",
                    create: create,
                    expire: expire)
     }

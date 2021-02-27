@@ -9,4 +9,5 @@ import Foundation
 
 protocol Drinkable {
     func validateManufacturedAt(with date: Date) -> Bool
+    func isHot(with temperature: Int) -> Bool
 }

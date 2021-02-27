@@ -27,15 +27,16 @@ class Drink {
         self.price = price
         self.temperature = temperature
     }
-    
-    func compare(with temperature: Int) -> Int {
-        return self.temperature - temperature
-    }
 }
 
 extension Drink: Drinkable {
     func validateManufacturedAt(with date: Date) -> Bool {
         return expiredAt <= date
+    }
+    
+    func isHot(with temperature: Int) -> Bool {
+        let gap = self.temperature - temperature
+        return gap > 0 ? true : false
     }
 }
 

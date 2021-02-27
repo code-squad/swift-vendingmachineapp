@@ -21,6 +21,7 @@
 		D0636C3825E4A7030087E3E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0636C3725E4A7030087E3E8 /* Assets.xcassets */; };
 		D0636C3B25E4A7030087E3E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0636C3925E4A7030087E3E8 /* LaunchScreen.storyboard */; };
 		D09C7B6525E4A7B400429153 /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09C7B6425E4A7B400429153 /* Coffee.swift */; };
+		D0A3FADA25E8ED64004FF690 /* PurchaseHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A3FAD925E8ED64004FF690 /* PurchaseHistory.swift */; };
 		D0F5E56B25E4A7D3008D4C5D /* Soda.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F5E56A25E4A7D3008D4C5D /* Soda.swift */; };
 		D0F5E56E25E4A7F5008D4C5D /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F5E56D25E4A7F5008D4C5D /* Date+Extension.swift */; };
 		D0F5E57125E4A816008D4C5D /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F5E57025E4A816008D4C5D /* Milk.swift */; };
@@ -56,6 +57,7 @@
 		D0636C3A25E4A7030087E3E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D0636C3C25E4A7030087E3E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D09C7B6425E4A7B400429153 /* Coffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
+		D0A3FAD925E8ED64004FF690 /* PurchaseHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseHistory.swift; sourceTree = "<group>"; };
 		D0F5E56A25E4A7D3008D4C5D /* Soda.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Soda.swift; sourceTree = "<group>"; };
 		D0F5E56D25E4A7F5008D4C5D /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		D0F5E57025E4A816008D4C5D /* Milk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Milk.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				D0F5E57325E4C721008D4C5D /* VendingMachine.swift */,
+				D0A3FAD925E8ED64004FF690 /* PurchaseHistory.swift */,
 				D0F5E57625E4C7A1008D4C5D /* Drinks.swift */,
 				D0324E6E25E531F70098A066 /* Drink.swift */,
 				D055C62925E62B6D00C4D1C3 /* Drinkable.swift */,
@@ -258,6 +261,7 @@
 				D055C62A25E62B6D00C4D1C3 /* Drinkable.swift in Sources */,
 				D055C63025E62DDE00C4D1C3 /* Cantata.swift in Sources */,
 				D0636C3325E4A7020087E3E8 /* ViewController.swift in Sources */,
+				D0A3FADA25E8ED64004FF690 /* PurchaseHistory.swift in Sources */,
 				D055C63C25E62F9800C4D1C3 /* BananaMilk.swift in Sources */,
 				D0636C2F25E4A7020087E3E8 /* AppDelegate.swift in Sources */,
 				D0F5E57725E4C7A1008D4C5D /* Drinks.swift in Sources */,

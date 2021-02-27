@@ -7,18 +7,10 @@
 
 import Foundation
 
-enum CoffeeType: String {
-    case top = "TOP"
-    case cantata = "칸타타"
-    case georgia = "조지아"
-}
-
 class Coffee: Beverage {
-    private var type: CoffeeType
     private var caffeineContent: Int
     
-    init(manufacturer: String, volume: Int, price: Int, brand: String, manufactured: Date, expirydate: Date, calorie: Int, hot: Bool, type: CoffeeType, caffeineContent: Int) {
-        self.type = type
+    init(manufacturer: String, volume: Int, price: Int, brand: String, manufactured: Date, expirydate: Date, calorie: Int, hot: Bool, caffeineContent: Int) {
         self.caffeineContent = caffeineContent
         super.init(manufacturer: manufacturer, volume: volume, price: price, brand: brand, manufactured: manufactured, expirydate: expirydate, calorie: calorie, hot: hot)
     }

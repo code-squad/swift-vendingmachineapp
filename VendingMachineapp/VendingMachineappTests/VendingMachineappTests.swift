@@ -19,7 +19,6 @@ class VendingMachineappTests: XCTestCase {
                                          expirydate: Date.stringToDate(date: "20210227"),
                                          calorie: 200,
                                          hot: false,
-                                         type: .strawberry,
                                          lowFat: false)
         
         let chocoMilk = ChocoMilk(manufacturer: "서울우유",
@@ -29,7 +28,6 @@ class VendingMachineappTests: XCTestCase {
                                          expirydate: Date.stringToDate(date: "20210115"),
                                          calorie: 200,
                                          hot: false,
-                                         type: .choco,
                                          lowFat: false)
         
         let bananaMilk = BananaMilk(manufacturer: "서울우유",
@@ -39,7 +37,6 @@ class VendingMachineappTests: XCTestCase {
                                          expirydate: Date.stringToDate(date: "20200228"),
                                          calorie: 200,
                                          hot: false,
-                                         type: .banana,
                                          lowFat: true)
         
         let coke = Coke(manufacturer: "팹시",
@@ -50,7 +47,6 @@ class VendingMachineappTests: XCTestCase {
                               expirydate: Date.stringToDate(date: "20221005"),
                               calorie: 100,
                               hot: false,
-                              type: .coke,
                               flavor: "콜라맛")
         
         let sprite = Sprite(manufacturer: "팹시",
@@ -61,7 +57,6 @@ class VendingMachineappTests: XCTestCase {
                               expirydate: Date.stringToDate(date: "20221005"),
                               calorie: 250,
                               hot: false,
-                              type: .sprite,
                               flavor: "사이다맛")
         
         let hwanta = Hwanta(manufacturer: "팹시",
@@ -72,7 +67,6 @@ class VendingMachineappTests: XCTestCase {
                               expirydate: Date.stringToDate(date: "20221005"),
                               calorie: 300,
                               hot: false,
-                              type: .hwanta,
                               flavor: "환타맛")
         
         let top = Top(manufacturer: "맥심",
@@ -83,7 +77,6 @@ class VendingMachineappTests: XCTestCase {
                                  expirydate: Date.stringToDate(date: "20210330"),
                                  calorie: 350,
                                  hot: true,
-                                 type: .top,
                                  caffeineContent: 20)
         
         let cantata = Cantata(manufacturer: "맥심",
@@ -94,7 +87,6 @@ class VendingMachineappTests: XCTestCase {
                                  expirydate: Date.stringToDate(date: "20211231"),
                                  calorie: 350,
                                  hot: true,
-                                 type: .cantata,
                                  caffeineContent: 40)
         
         let georgia = Georgia(manufacturer: "맥심",
@@ -105,7 +97,6 @@ class VendingMachineappTests: XCTestCase {
                                  expirydate: Date.stringToDate(date: "20210227"),
                                  calorie: 400,
                                  hot: true,
-                                 type: .georgia,
                                  caffeineContent: 50)
         
         let beverageList: [Beverage:Int] = [
@@ -141,6 +132,7 @@ class VendingMachineappTests: XCTestCase {
         XCTAssertEqual(machine.availablePurchaseList(), [strawberryMilk, georgia])
         
         machine.increaseMoney(money: 10000)
+
         machine.purchaseBeverage(beverage: strawberryMilk)
         machine.purchaseBeverage(beverage: strawberryMilk)
         machine.purchaseBeverage(beverage: top)

@@ -12,6 +12,7 @@
 		220AFCE425E9539600FDADEB /* Productization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220AFCE325E9539600FDADEB /* Productization.swift */; };
 		221A9EC925EA64AA00ADEE1E /* StockFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221A9EC825EA64AA00ADEE1E /* StockFactory.swift */; };
 		221A9ED225EA7FEC00ADEE1E /* VendingMachineAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221A9ED125EA7FEC00ADEE1E /* VendingMachineAppTests.swift */; };
+		221A9EEC25EABCFC00ADEE1E /* OutPut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221A9EEB25EABCFC00ADEE1E /* OutPut.swift */; };
 		2255F0A925E8BCA90044B872 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2255F0A825E8BCA90044B872 /* Date.swift */; };
 		2255F0BC25E8D5C50044B872 /* Sanpellegrino.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2255F0BB25E8D5C50044B872 /* Sanpellegrino.swift */; };
 		2255F0C725E8DA2F0044B872 /* SeoulStrawberryMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2255F0C625E8DA2F0044B872 /* SeoulStrawberryMilk.swift */; };
@@ -49,6 +50,7 @@
 		221A9ECF25EA7FEC00ADEE1E /* VendingMachineAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VendingMachineAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		221A9ED125EA7FEC00ADEE1E /* VendingMachineAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineAppTests.swift; sourceTree = "<group>"; };
 		221A9ED325EA7FEC00ADEE1E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		221A9EEB25EABCFC00ADEE1E /* OutPut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutPut.swift; sourceTree = "<group>"; };
 		2255F0A825E8BCA90044B872 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		2255F0BB25E8D5C50044B872 /* Sanpellegrino.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sanpellegrino.swift; sourceTree = "<group>"; };
 		2255F0C625E8DA2F0044B872 /* SeoulStrawberryMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeoulStrawberryMilk.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 				220AFCDC25E950D500FDADEB /* SodaDrink */,
 				22E4757225E650C400417A37 /* VendingMachine.swift */,
 				220AFCDF25E9513C00FDADEB /* StockDrink.swift */,
+				221A9EEB25EABCFC00ADEE1E /* OutPut.swift */,
 				2255F0A825E8BCA90044B872 /* Date.swift */,
 			);
 			path = Model;
@@ -306,6 +309,7 @@
 				22E4756325E6287F00417A37 /* Milk.swift in Sources */,
 				2255F0CE25E8DBE10044B872 /* BingBananaMilk.swift in Sources */,
 				22E4756625E6288600417A37 /* Coffee.swift in Sources */,
+				221A9EEC25EABCFC00ADEE1E /* OutPut.swift in Sources */,
 				22E4757325E650C400417A37 /* VendingMachine.swift in Sources */,
 				220AFCE025E9513C00FDADEB /* StockDrink.swift in Sources */,
 				221A9EC925EA64AA00ADEE1E /* StockFactory.swift in Sources */,

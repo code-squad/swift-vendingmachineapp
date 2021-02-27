@@ -15,7 +15,7 @@ class BlueBottleColdBrew: Coffee, Productization {
         super.init(brand: "BlueBottle",
                    capacity: 240,
                    price: 1150,
-                   name: "BlueBottle Cold Brew \(self.flavor.rawValue)",
+                   name: "BlueBottle Cold Brew",
                    isDecaffeinated: false,
                    manufacture: manufacture)
     }

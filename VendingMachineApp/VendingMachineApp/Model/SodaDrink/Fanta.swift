@@ -14,7 +14,7 @@ class Fanta: Soda, Productization {
         super.init(brand: "Coca-Cola",
                    capacity: 600,
                    price: 1330,
-                   name: "Fanta \(flavor.rawValue)",
+                   name: "Fanta",
                    isZeroCalorie: false,
                    manufacture: manufacture)
     }

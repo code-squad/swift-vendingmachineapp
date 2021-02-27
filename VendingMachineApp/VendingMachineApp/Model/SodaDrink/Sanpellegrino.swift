@@ -14,7 +14,7 @@ class Sanpellegrino: Soda, Productization {
     }
     
     func validate(with date: Date) -> Bool {
-        return manufacture - 180 < date
+        return manufacture + 180 >= date
     }
     
     func isHot() -> Bool {

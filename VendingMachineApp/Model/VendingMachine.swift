@@ -15,6 +15,15 @@ class VendingMachine {
     init(coins : Int = 0){
         self.coins = coins
     }
+    
+    private func updateMachineState(buy product : Beverage){
+        products.updateValue(products[product]!-1, forKey: product)
+        charge(coins: product.price*(-1))
+        soldProducts.append(product)
+        if products[product]! == 0 {
+            products.removeValue(forKey: product)
+        }
+    }
 //  자판기 금액을 원하는 금액만큼 올리는 메소드
     public func charge(coins : Int){
         self.coins += coins
@@ -39,19 +48,14 @@ class VendingMachine {
     }
     
 //  음료수를 구매하는 메소드
-    public func buyProduct(drink : Beverage){
-        if products[drink] == nil || products[drink]! < 1{ // 상품이 존재하지 않음
+    public func buyProduct(product : Beverage){
+        if products[product] == nil || products[product]! < 1{ // 상품이 존재하지 않음
             return
         }
-        if drink.price > coins { // 잔액 부족
+        if product.price > coins { // 잔액 부족
             return
         }
-        products.updateValue(products[drink]!-1, forKey: drink)
-        charge(coins: drink.price*(-1))
-        soldProducts.append(drink)
-        if products[drink]! == 0 {
-            products.removeValue(forKey: drink)
-        }
+        updateMachineState(buy: product)
     }
     
 //  잔액을 확인하는 메소드

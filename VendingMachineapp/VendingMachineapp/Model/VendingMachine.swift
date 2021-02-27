@@ -15,7 +15,7 @@ struct VendingMachine {
         self.money = money
     }
     
-    mutating func increaseMoney(moeny: Int) {
+    mutating func increaseMoney(money: Int) {
         self.money += money
     }
     
@@ -27,8 +27,9 @@ struct VendingMachine {
         return inventory.availablePurchaseList(money: money)
     }
     
-    func purchaseBeverage(beverage: Beverage) {
+    mutating func purchaseBeverage(beverage: Beverage) {
         inventory.subtractBeverage(beverage: beverage)
+        money -= beverage.price
     }
     
     func checkChagne() -> Int {
@@ -43,14 +44,8 @@ struct VendingMachine {
         return inventory.hotBeverageList()
     }
     
-    func validateList(with date: Date) -> [Beverage] {
-        return inventory.validateList(with: date)
-    }
-    
-    func printList() {
-        inventory.eachBeverage(handler: { (beverage) in
-            print(beverage)
-        })
+    func invalidateList(with date: Date) -> [Beverage] {
+        return inventory.invalidateList(with: date)
     }
     
     func wholeBeverage() -> [Beverage:Int] {

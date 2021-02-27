@@ -7,17 +7,13 @@
 
 import Foundation
 
-enum SodaKind : String {
-    case sprite = "Sprite"
-    case coke = "Coke"
-}
 class SodaFactory : BeverageFactory{
     func createBeverage(with name: String) -> Beverage {
-        let drink = SodaKind(rawValue: name)
+        let drink = Soda.Kind(rawValue: name)
         switch drink {
-        case .coke: return Coke(create: "20210214", expire: "20210216", flaver: .vanilla)
+        case .coke: return Coke(create: Date().toString(), expire: Date().toString(), flaver: .vanilla)
         default:
-            return Sprite(create: "20210214", expire: "20210216", lowSuger: false)
+            return Sprite(create: Date().toString(), expire: Date().toString(), lowSuger: false)
         }
     }
 }

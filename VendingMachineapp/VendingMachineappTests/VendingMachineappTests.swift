@@ -110,6 +110,7 @@ class VendingMachineappTests: XCTestCase {
             sprite : 2,
             hwanta : 1
         ]
+        
         machine.addBeverage(beverage: strawberryMilk)
         machine.addBeverage(beverage: strawberryMilk)
         machine.addBeverage(beverage: strawberryMilk)

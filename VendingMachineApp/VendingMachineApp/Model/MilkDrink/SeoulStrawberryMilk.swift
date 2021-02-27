@@ -15,7 +15,7 @@ class SeoulStrawberryMilk: Milk, Productization {
     }
     
     func validate(with date: Date) -> Bool {
-        return manufacture - 14 < date
+        return manufacture + 14 >= date
     }
     
     func isHot() -> Bool {

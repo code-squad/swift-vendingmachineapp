@@ -8,8 +8,7 @@
 import Foundation
 
 class VendingMachine {
-    // class 구현
-    private(set) var stock: StockFactory
+    private var stock: StockFactory
     private var coin: Int
     private var purchasehistory: [Drink]
     
@@ -19,12 +18,7 @@ class VendingMachine {
         self.purchasehistory = [Drink]()
     }
 
-    private func checkProductization(of drink: Drink) -> Bool {
-        return stock.checkProductization(of: drink)
-    }
-
     public func addDrink(_ drink: Drink) {
-        if !checkProductization(of: drink) { return }
         stock.addDrink(drink)
     }
 
@@ -33,7 +27,7 @@ class VendingMachine {
     }
     
     public func availableDrink() -> [Drink] {
-        stock.availableDrink()
+        return stock.availableDrink(coin: self.coin)
     }
 
     public func buy(_ drink: Drink) -> Drink? {

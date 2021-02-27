@@ -11,6 +11,12 @@ class Coffee : Beverage{
     private var caffeine : Int
     private let hot : Bool
     
+    enum Kind : String {
+        case cantata = "Cantata"
+        case top = "TOP"
+        case georiga = "Georgia"
+    }
+    
     init(brand : String, capacity : Int, price : Int, name : String, create : String, expire: String, caffeine : Int, hot : Bool = false){
         self.caffeine = caffeine
         self.hot = hot

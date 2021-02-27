@@ -45,7 +45,7 @@ class Drinks {
     
     func getHotDrinks(for temperture: Int) -> [Drink] {
         let hotDrinks = drinks.keys.filter {
-            return $0.compare(with: temperture) > 0
+            return $0.isHot(with: temperture)
         }
         return hotDrinks
     }

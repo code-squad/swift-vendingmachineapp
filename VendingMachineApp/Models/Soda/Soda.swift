@@ -15,12 +15,13 @@ class Soda : Beverage {
     
     private var kind : Kind
     
-    init(brand : String, capacity : Int, price : Int, name : String, create : String, kind : Soda.Kind){
+    init(brand : String, capacity : Int, price : Int, name : String, create : String, expire: String, kind : Soda.Kind){
         self.kind = kind
         super.init(brand: brand,
                    capacity: capacity,
                    price: price,
                    name: name,
-                   create: create)
+                   create: create,
+                   expire: expire)
     }
 }

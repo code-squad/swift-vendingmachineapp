@@ -11,7 +11,7 @@ class Coffee : Beverage{
     private var caffeine : Int
     private let hot : Bool
     
-    init(brand : String, capacity : Int, price : Int, name : String, create : String, expire: String, caffeine : Int, hot : Bool){
+    init(brand : String, capacity : Int, price : Int, name : String, create : String, expire: String, caffeine : Int, hot : Bool = false){
         self.caffeine = caffeine
         self.hot = hot
         super.init(brand: brand,

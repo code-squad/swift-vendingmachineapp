@@ -36,4 +36,4 @@
 
 ### Class Diagram
 
-<img width="1172" alt="Screen Shot 2021-02-27 at 10 32 20 PM" src="https://user-images.githubusercontent.com/60229909/109388631-a9033580-794b-11eb-8d8a-a3bcdc73f92d.png">
+<img width="963" alt="Screen Shot 2021-02-27 at 11 14 30 PM" src="https://user-images.githubusercontent.com/60229909/109389838-8f64ec80-7951-11eb-86f4-a07e32a2385b.png">

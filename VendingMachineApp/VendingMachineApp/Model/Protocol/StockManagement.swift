@@ -7,8 +7,7 @@
 
 import Foundation
 
-//FIXME: 네이밍 변경
-protocol StockManager {
+protocol StockManagement {
     func checkProductization(of drink: Drink) -> Bool
     func addedDrink(_ drink: Drink)
     func availableForDrinks(coin: Int) -> [Drink]

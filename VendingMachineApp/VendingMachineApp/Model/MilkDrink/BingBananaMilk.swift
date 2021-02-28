@@ -8,7 +8,7 @@ class BingBananaMilk: Milk, Productization {
     
     private(set) var target: Target
     
-    init(target: Target = .all, manufacture: Date = Date()) {
+    init(target: Target = .all, manufactured: Date = Date()) {
         self.target = target
         
         super.init(brand: "빙그레",
@@ -16,11 +16,11 @@ class BingBananaMilk: Milk, Productization {
                    price: 1150,
                    name: "빙그레 바나나우유",
                    isLowFatMilk: false,
-                   manufacture: manufacture)
+                   manufactured: manufactured)
     }
     
     func validate(with date: Date) -> Bool {
-        return manufacture + 14 >= date
+        return manufactured + 14 >= date
     }
     
     func isHot() -> Bool {

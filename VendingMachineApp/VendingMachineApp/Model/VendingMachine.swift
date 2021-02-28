@@ -19,7 +19,7 @@ class VendingMachine {
     }
 
     public func addDrink(_ drink: Drink) {
-        stock.addDrink(drink)
+        stock.addedDrink(drink)
     }
 
     public func insertCoin(_ coin: Int) {
@@ -27,11 +27,11 @@ class VendingMachine {
     }
     
     public func availableDrink() -> [Drink] {
-        return stock.availableDrink(coin: self.coin)
+        return stock.availableForDrinks(coin: self.coin)
     }
 
     public func buy(_ drink: Drink) -> Drink? {
-        return stock.buy(drink) { (drink) -> Drink? in
+        return stock.purchased(drink) { (drink) -> Drink? in
             if self.coin < drink.price { return nil }
             self.purchasehistory.append(drink)
             self.coin -= drink.price
@@ -44,15 +44,15 @@ class VendingMachine {
     }
     
     public func showStock() -> [Drink: UInt] {
-        return stock.showStock()
+        return stock.toShowStock()
     }
 
     public func findExpiredDrinks() -> [Drink] {
-        return stock.findExpiredDrinks()
+        return stock.lookingForExpiredDrinks()
     }
     
     public func findWarmDrinks() -> [Drink] {
-        return stock.findWarmDrinks()
+        return stock.lookingForWarmDrinks()
     }
     
     public func showPurchasehistory() -> [Drink] {

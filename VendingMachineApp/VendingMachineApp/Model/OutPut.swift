@@ -18,14 +18,14 @@ struct Output {
     }
     
     
-    static func makeDrink(of drink: KinkOfDrink, manufacture: Date = Date()) -> Drink {
+    static func makeDrink(of drink: KinkOfDrink, manufactured: Date = Date()) -> Drink {
         switch drink {
-        case .blueBottleColdBrew: return BlueBottleColdBrew(flavor: .bold, manufacture: manufacture)
-        case .starBucksColdBrew: return StarbucksColdBrew(flavor: .black, manufacture: manufacture)
-        case .seoulStrawberryMilk: return SeoulStrawberryMilk(manufacture: manufacture)
-        case .bingBananaMilk: return BingBananaMilk(manufacture: manufacture)
-        case .sanpellegrino: return Sanpellegrino(manufacture: manufacture)
-        case .fanta: return Fanta(manufacture: manufacture)
+        case .blueBottleColdBrew: return BlueBottleColdBrew(manufactured: manufactured)
+        case .starBucksColdBrew: return StarbucksColdBrew(manufactured: manufactured)
+        case .seoulStrawberryMilk: return SeoulStrawberryMilk(manufactured: manufactured)
+        case .bingBananaMilk: return BingBananaMilk(manufactured: manufactured)
+        case .sanpellegrino: return Sanpellegrino(manufactured: manufactured)
+        case .fanta: return Fanta(manufactured: manufactured)
         }
     }
 }

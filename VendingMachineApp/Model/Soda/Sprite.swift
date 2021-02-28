@@ -13,6 +13,11 @@ class Sprite : Soda {
     
     init(create: String, expire: String, lowSuger : Bool){
         self.lowSuger = lowSuger
-        super.init(brand: "칠성사이다", capacity: 350, price: 3500, name: "코카콜라", create: create, expire: expire)
+        super.init(brand: "칠성사이다",
+                   capacity: 350,
+                   price: 3500,
+                   name: "코카콜라",
+                   create: create,
+                   expire: expire)
     }
 }

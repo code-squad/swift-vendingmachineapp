@@ -16,6 +16,11 @@ class Coke : Soda {
     
     init(create: String, expire: String, flaver : Coke.Flaver){
         self.faver = flaver
-        super.init(brand: "팹시", capacity: 350, price: 3500, name: "코카콜라", create: create, expire: expire)
+        super.init(brand: "팹시",
+                   capacity: 350,
+                   price: 3500,
+                   name: "코카콜라",
+                   create: create,
+                   expire: expire)
     }
 }

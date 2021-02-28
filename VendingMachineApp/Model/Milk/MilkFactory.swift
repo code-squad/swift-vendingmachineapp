@@ -15,7 +15,7 @@ class MilkFactory : BeverageFactory{
         case .chocolate: return ChocolateMilk(create: Date().toString(), expire: Date().toString())
         case .stroberry: return StroberryMilk(create: Date().toString(), expire: Date().toString())
         default:
-            return BananaMilk(create: "20210214", expire: "20210216")
+            return BananaMilk(create: Date().toString(), expire: Date().toString())
         }
     }
 }

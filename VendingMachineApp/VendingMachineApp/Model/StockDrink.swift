@@ -18,12 +18,12 @@ class StockDrink: StockFactory {
         return (drink as? Productization) != nil ? true : false
     }
 
-    public func addDrink(_ drink: Drink) {
+    public func addedDrink(_ drink: Drink) {
         if !checkProductization(of: drink) { return }
         stock.append(drink)
     }
 
-    public func availableDrink(coin: Int) -> [Drink] {
+    public func availableForDrinks(coin: Int) -> [Drink] {
         var availableDrinks = Set<Drink>()
         for drink in self.stock where drink.price <= coin {
             availableDrinks.update(with: drink)
@@ -31,12 +31,12 @@ class StockDrink: StockFactory {
         return Array(availableDrinks)
     }
 
-    public func buy(_ drink: Drink, checkCoin: (Drink) -> Drink?) -> Drink? {
+    public func purchased(_ drink: Drink, checkCoin: (Drink) -> Drink?) -> Drink? {
         if !checkProductization(of: drink) { return nil }
         return checkCoin(drink)
     }
 
-    public func findExpiredDrinks() -> [Drink] {
+    public func lookingForExpiredDrinks() -> [Drink] {
         var disuseStock = Array<Drink>()
         for drink in self.stock {
             guard let drinkProduct = drink as? Productization else { continue }
@@ -48,7 +48,7 @@ class StockDrink: StockFactory {
         return disuseStock
     }
 
-    public func findWarmDrinks() -> [Drink] {
+    public func lookingForWarmDrinks() -> [Drink] {
         var warmDrinks = Array<Drink>()
         for drink in stock {
             guard let drinkProduct = drink as? Productization else { continue }
@@ -60,7 +60,7 @@ class StockDrink: StockFactory {
     }
     
     
-    public func showStock() -> [Drink: UInt] {
+    public func toShowStock() -> [Drink: UInt] {
         var eachStock = Dictionary<Drink, UInt>()
         for drink in stock {
             eachStock[drink, default: 0] += 1

@@ -15,7 +15,7 @@ class StarbucksColdBrew: Coffee, Productization {
     
     private(set) var flavor: Flavor
     
-    init(flavor: Flavor, manufacture: Date = Date()) {
+    init(flavor: Flavor = .black, manufactured: Date = Date()) {
         self.flavor = flavor
         
         super.init(brand: "StarBucks",
@@ -23,11 +23,11 @@ class StarbucksColdBrew: Coffee, Productization {
                    price: 1150,
                    name: "StarBucks Cold Brew",
                    isDecaffeinated: false,
-                   manufacture: manufacture)
+                   manufactured: manufactured)
     }
     
     func validate(with date: Date) -> Bool {
-        return manufacture + 180 >= date
+        return manufactured + 180 >= date
     }
     
     func isHot() -> Bool {

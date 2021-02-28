@@ -25,6 +25,7 @@
 		B3F5728D25E3629300CFF095 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3F5728B25E3629300CFF095 /* Main.storyboard */; };
 		B3F5728F25E3629400CFF095 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3F5728E25E3629400CFF095 /* Assets.xcassets */; };
 		B3F5729225E3629400CFF095 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3F5729025E3629400CFF095 /* LaunchScreen.storyboard */; };
+		B3FC892F25EBEA1500E70D38 /* RedBull.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FC892E25EBEA1500E70D38 /* RedBull.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		B3F5728E25E3629400CFF095 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B3F5729125E3629400CFF095 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B3F5729325E3629400CFF095 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B3FC892E25EBEA1500E70D38 /* RedBull.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedBull.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,7 +70,7 @@
 				B3B3DD3425E7EF620022465D /* CashManagementSystem.swift */,
 				B36A87D825E636B7002C4432 /* Drinks.swift */,
 				B36A87B025E61F1B002C4432 /* Beverage.swift */,
-				B3B3DD2F25E7D8450022465D /* EnergyDrink.swift */,
+				B3FC893125EBEA1E00E70D38 /* EnergyDrink */,
 				B36A87C825E62353002C4432 /* Coffee */,
 				B36A87C625E6234B002C4432 /* Soda */,
 				B36A87BE25E622E0002C4432 /* Milk */,
@@ -133,6 +135,15 @@
 				B3F5729325E3629400CFF095 /* Info.plist */,
 			);
 			path = VendingMachineApp;
+			sourceTree = "<group>";
+		};
+		B3FC893125EBEA1E00E70D38 /* EnergyDrink */ = {
+			isa = PBXGroup;
+			children = (
+				B3B3DD2F25E7D8450022465D /* EnergyDrink.swift */,
+				B3FC892E25EBEA1500E70D38 /* RedBull.swift */,
+			);
+			path = EnergyDrink;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -207,6 +218,7 @@
 			files = (
 				B36A87C425E6233C002C4432 /* Cola.swift in Sources */,
 				B36A87D425E62EAB002C4432 /* VendingMachine.swift in Sources */,
+				B3FC892F25EBEA1500E70D38 /* RedBull.swift in Sources */,
 				B36A87AA25E61BA1002C4432 /* Soda.swift in Sources */,
 				B36A87B625E62256002C4432 /* StrawberryMilk.swift in Sources */,
 				B36A87C125E6232E002C4432 /* TOP.swift in Sources */,

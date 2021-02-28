@@ -10,8 +10,8 @@ import Foundation
 class Milk: Drink, CustomStringConvertible {
     private let farmCode: String
     
-    init(manufacturer: String, volume: Int, name: String, dateOfManufacture: Date, price: Int, farmCode: String, temperature: Int) {
+    init(manufacturer: String, volume: Int, name: String, dateOfManufacture: Date, price: Int, farmCode: String, temperature: Int, calorie: Int) {
         self.farmCode = farmCode
-        super.init(manufacturer: manufacturer, volume: volume, name: name, dateOfManufacture: dateOfManufacture, price: price, temperature: temperature)
+        super.init(manufacturer: manufacturer, volume: volume, name: name, dateOfManufacture: dateOfManufacture, price: price, temperature: temperature, calorie: calorie)
     }
 }

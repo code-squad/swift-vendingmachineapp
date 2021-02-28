@@ -15,17 +15,19 @@ class Drink {
     private lazy var expiredAt: Date = manufacturedAt 
     private(set) var price: Int
     private var temperature: Int
+    private var calorie: Int
     var description: String {
         return "\(manufacturer), \(volume)ml, \(price)원, \(name), \(Date.dateFormatter(date: manufacturedAt))"
     }
     
-    init(manufacturer: String, volume: Int, name: String, dateOfManufacture: Date, price: Int, temperature: Int) {
+    init(manufacturer: String, volume: Int, name: String, dateOfManufacture: Date, price: Int, temperature: Int, calorie: Int) {
         self.manufacturer = manufacturer
         self.volume = volume
         self.name = name
         self.manufacturedAt = dateOfManufacture
         self.price = price
         self.temperature = temperature
+        self.calorie = calorie
     }
 }
 
@@ -37,6 +39,11 @@ extension Drink: Drinkable {
     func isHot(with temperature: Int) -> Bool {
         let gap = self.temperature - temperature
         return gap > 0 ? true : false
+    }
+    
+    func isLowCalorie(with calorie: Int) -> Bool {
+        let gap = self.calorie - calorie
+        return gap > 0 ? false : true
     }
 }
 

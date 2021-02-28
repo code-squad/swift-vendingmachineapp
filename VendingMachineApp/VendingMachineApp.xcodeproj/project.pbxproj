@@ -12,12 +12,13 @@
 		220AFCE425E9539600FDADEB /* Productization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220AFCE325E9539600FDADEB /* Productization.swift */; };
 		221A9EC925EA64AA00ADEE1E /* StockManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221A9EC825EA64AA00ADEE1E /* StockManagement.swift */; };
 		221A9ED225EA7FEC00ADEE1E /* VendingMachineAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221A9ED125EA7FEC00ADEE1E /* VendingMachineAppTests.swift */; };
-		221A9EEC25EABCFC00ADEE1E /* OutPut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221A9EEB25EABCFC00ADEE1E /* OutPut.swift */; };
 		2255F0A925E8BCA90044B872 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2255F0A825E8BCA90044B872 /* Date.swift */; };
 		2255F0BC25E8D5C50044B872 /* Sanpellegrino.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2255F0BB25E8D5C50044B872 /* Sanpellegrino.swift */; };
 		2255F0C725E8DA2F0044B872 /* SeoulStrawberryMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2255F0C625E8DA2F0044B872 /* SeoulStrawberryMilk.swift */; };
 		2255F0CE25E8DBE10044B872 /* BingBananaMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2255F0CD25E8DBE10044B872 /* BingBananaMilk.swift */; };
 		2255F0DB25E8DDCD0044B872 /* StarbucksColdBrew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2255F0DA25E8DDCD0044B872 /* StarbucksColdBrew.swift */; };
+		226CAB4625EBC60600196488 /* enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226CAB4525EBC60600196488 /* enum.swift */; };
+		226CAB5225EBCB0D00196488 /* DrinkFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226CAB5125EBCB0D00196488 /* DrinkFactory.swift */; };
 		22C52CAE25E910EA00A56884 /* Fanta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C52CAD25E910EA00A56884 /* Fanta.swift */; };
 		22C52CB225E9180800A56884 /* BlueBottleColdBrew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C52CB125E9180800A56884 /* BlueBottleColdBrew.swift */; };
 		22E4753625E60FFA00417A37 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E4753525E60FFA00417A37 /* AppDelegate.swift */; };
@@ -50,12 +51,13 @@
 		221A9ECF25EA7FEC00ADEE1E /* VendingMachineAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VendingMachineAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		221A9ED125EA7FEC00ADEE1E /* VendingMachineAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineAppTests.swift; sourceTree = "<group>"; };
 		221A9ED325EA7FEC00ADEE1E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		221A9EEB25EABCFC00ADEE1E /* OutPut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutPut.swift; sourceTree = "<group>"; };
 		2255F0A825E8BCA90044B872 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		2255F0BB25E8D5C50044B872 /* Sanpellegrino.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sanpellegrino.swift; sourceTree = "<group>"; };
 		2255F0C625E8DA2F0044B872 /* SeoulStrawberryMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeoulStrawberryMilk.swift; sourceTree = "<group>"; };
 		2255F0CD25E8DBE10044B872 /* BingBananaMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BingBananaMilk.swift; sourceTree = "<group>"; };
 		2255F0DA25E8DDCD0044B872 /* StarbucksColdBrew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarbucksColdBrew.swift; sourceTree = "<group>"; };
+		226CAB4525EBC60600196488 /* enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enum.swift; sourceTree = "<group>"; };
+		226CAB5125EBCB0D00196488 /* DrinkFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkFactory.swift; sourceTree = "<group>"; };
 		22C52CAD25E910EA00A56884 /* Fanta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fanta.swift; sourceTree = "<group>"; };
 		22C52CB125E9180800A56884 /* BlueBottleColdBrew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueBottleColdBrew.swift; sourceTree = "<group>"; };
 		22E4753225E60FFA00417A37 /* VendingMachineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendingMachineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -126,6 +128,17 @@
 			path = VendingMachineAppTests;
 			sourceTree = "<group>";
 		};
+		226CAB4425EBC5DF00196488 /* Productization */ = {
+			isa = PBXGroup;
+			children = (
+				220AFCDE25E950E700FDADEB /* CoffeeDrink */,
+				220AFCDD25E950E000FDADEB /* MilkDrink */,
+				220AFCDC25E950D500FDADEB /* SodaDrink */,
+				226CAB4525EBC60600196488 /* enum.swift */,
+			);
+			path = Productization;
+			sourceTree = "<group>";
+		};
 		22C52CC325E937C900A56884 /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
@@ -161,7 +174,7 @@
 				22E4754C25E621F900417A37 /* Model */,
 				22E4753925E60FFA00417A37 /* ViewController.swift */,
 				22E4753B25E60FFA00417A37 /* Main.storyboard */,
-				221A9EEB25EABCFC00ADEE1E /* OutPut.swift */,
+				226CAB5125EBCB0D00196488 /* DrinkFactory.swift */,
 				22E4753E25E6100000417A37 /* Assets.xcassets */,
 				22E4754025E6100000417A37 /* LaunchScreen.storyboard */,
 				22E4754325E6100000417A37 /* Info.plist */,
@@ -177,9 +190,7 @@
 				22E4756825E6288E00417A37 /* Soda.swift */,
 				22E4756525E6288600417A37 /* Coffee.swift */,
 				22E4756225E6287F00417A37 /* Milk.swift */,
-				220AFCDE25E950E700FDADEB /* CoffeeDrink */,
-				220AFCDD25E950E000FDADEB /* MilkDrink */,
-				220AFCDC25E950D500FDADEB /* SodaDrink */,
+				226CAB4425EBC5DF00196488 /* Productization */,
 				22E4757225E650C400417A37 /* VendingMachine.swift */,
 				220AFCDF25E9513C00FDADEB /* StockDrink.swift */,
 				2255F0A825E8BCA90044B872 /* Date.swift */,
@@ -305,15 +316,16 @@
 				2255F0DB25E8DDCD0044B872 /* StarbucksColdBrew.swift in Sources */,
 				220AFCE425E9539600FDADEB /* Productization.swift in Sources */,
 				2255F0C725E8DA2F0044B872 /* SeoulStrawberryMilk.swift in Sources */,
+				226CAB4625EBC60600196488 /* enum.swift in Sources */,
 				22E4753825E60FFA00417A37 /* SceneDelegate.swift in Sources */,
 				22E4756325E6287F00417A37 /* Milk.swift in Sources */,
 				2255F0CE25E8DBE10044B872 /* BingBananaMilk.swift in Sources */,
 				22E4756625E6288600417A37 /* Coffee.swift in Sources */,
-				221A9EEC25EABCFC00ADEE1E /* OutPut.swift in Sources */,
 				22E4757325E650C400417A37 /* VendingMachine.swift in Sources */,
 				220AFCE025E9513C00FDADEB /* StockDrink.swift in Sources */,
 				221A9EC925EA64AA00ADEE1E /* StockManagement.swift in Sources */,
 				22C52CB225E9180800A56884 /* BlueBottleColdBrew.swift in Sources */,
+				226CAB5225EBCB0D00196488 /* DrinkFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

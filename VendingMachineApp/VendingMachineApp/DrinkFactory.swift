@@ -7,17 +7,7 @@
 
 import Foundation
 
-struct Output {
-    enum KinkOfDrink: String {
-        case blueBottleColdBrew = "BlueBottle Cold Brew"
-        case starBucksColdBrew = "StarBucks Cold Brew"
-        case seoulStrawberryMilk = "서울 우유 딸기맛"
-        case bingBananaMilk = "빙그레 바나나우유"
-        case sanpellegrino = "Sanpellegrino"
-        case fanta = "Fanta"
-    }
-    
-    
+class DrinkFactory: DrinkProduceable {
     static func makeDrink(of drink: KinkOfDrink, manufactured: Date = Date()) -> Drink {
         switch drink {
         case .blueBottleColdBrew: return BlueBottleColdBrew(manufactured: manufactured)
@@ -28,4 +18,8 @@ struct Output {
         case .fanta: return Fanta(manufactured: manufactured)
         }
     }
+}
+
+protocol DrinkProduceable {
+    static func makeDrink(of drink: KinkOfDrink, manufactured: Date) -> Drink
 }

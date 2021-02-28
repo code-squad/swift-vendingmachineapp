@@ -25,12 +25,12 @@ class VendingMachineAppTests: XCTestCase {
     }
     
     func testVendingMachineScenario() {
-        let blueBottle = Output.makeDrink(of: .blueBottleColdBrew)
-        let starbucks = Output.makeDrink(of: .starBucksColdBrew)
-        let seoulMilk = Output.makeDrink(of: .seoulStrawberryMilk)
-        let bananaMilk = Output.makeDrink(of: .bingBananaMilk)
-        let sanpellegrino = Output.makeDrink(of: .sanpellegrino)
-        let fanta = Output.makeDrink(of: .fanta, manufactured: Date() - 365)
+        let blueBottle = DrinkFactory.makeDrink(of: .blueBottleColdBrew)
+        let starbucks = DrinkFactory.makeDrink(of: .starBucksColdBrew)
+        let seoulMilk = DrinkFactory.makeDrink(of: .seoulStrawberryMilk)
+        let bananaMilk = DrinkFactory.makeDrink(of: .bingBananaMilk)
+        let sanpellegrino = DrinkFactory.makeDrink(of: .sanpellegrino)
+        let fanta = DrinkFactory.makeDrink(of: .fanta, manufactured: Date() - 365)
         let weirdSoda = Soda(brand: "탄산회사", capacity: 500, price: 1500, name: "정체모를 탄산수", isZeroCalorie: true)
         
         vendingMachine.addDrink(blueBottle)

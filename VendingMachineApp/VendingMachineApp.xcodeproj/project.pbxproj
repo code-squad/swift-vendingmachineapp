@@ -10,7 +10,7 @@
 		220AFCD425E94FA400FDADEB /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220AFCD325E94FA400FDADEB /* Drink.swift */; };
 		220AFCE025E9513C00FDADEB /* StockDrink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220AFCDF25E9513C00FDADEB /* StockDrink.swift */; };
 		220AFCE425E9539600FDADEB /* Productization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220AFCE325E9539600FDADEB /* Productization.swift */; };
-		221A9EC925EA64AA00ADEE1E /* StockFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221A9EC825EA64AA00ADEE1E /* StockFactory.swift */; };
+		221A9EC925EA64AA00ADEE1E /* StockManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221A9EC825EA64AA00ADEE1E /* StockManagement.swift */; };
 		221A9ED225EA7FEC00ADEE1E /* VendingMachineAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221A9ED125EA7FEC00ADEE1E /* VendingMachineAppTests.swift */; };
 		221A9EEC25EABCFC00ADEE1E /* OutPut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221A9EEB25EABCFC00ADEE1E /* OutPut.swift */; };
 		2255F0A925E8BCA90044B872 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2255F0A825E8BCA90044B872 /* Date.swift */; };
@@ -46,7 +46,7 @@
 		220AFCD325E94FA400FDADEB /* Drink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drink.swift; sourceTree = "<group>"; };
 		220AFCDF25E9513C00FDADEB /* StockDrink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockDrink.swift; sourceTree = "<group>"; };
 		220AFCE325E9539600FDADEB /* Productization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Productization.swift; sourceTree = "<group>"; };
-		221A9EC825EA64AA00ADEE1E /* StockFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockFactory.swift; sourceTree = "<group>"; };
+		221A9EC825EA64AA00ADEE1E /* StockManagement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockManagement.swift; sourceTree = "<group>"; };
 		221A9ECF25EA7FEC00ADEE1E /* VendingMachineAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VendingMachineAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		221A9ED125EA7FEC00ADEE1E /* VendingMachineAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineAppTests.swift; sourceTree = "<group>"; };
 		221A9ED325EA7FEC00ADEE1E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -130,7 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				220AFCE325E9539600FDADEB /* Productization.swift */,
-				221A9EC825EA64AA00ADEE1E /* StockFactory.swift */,
+				221A9EC825EA64AA00ADEE1E /* StockManagement.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -161,6 +161,7 @@
 				22E4754C25E621F900417A37 /* Model */,
 				22E4753925E60FFA00417A37 /* ViewController.swift */,
 				22E4753B25E60FFA00417A37 /* Main.storyboard */,
+				221A9EEB25EABCFC00ADEE1E /* OutPut.swift */,
 				22E4753E25E6100000417A37 /* Assets.xcassets */,
 				22E4754025E6100000417A37 /* LaunchScreen.storyboard */,
 				22E4754325E6100000417A37 /* Info.plist */,
@@ -181,7 +182,6 @@
 				220AFCDC25E950D500FDADEB /* SodaDrink */,
 				22E4757225E650C400417A37 /* VendingMachine.swift */,
 				220AFCDF25E9513C00FDADEB /* StockDrink.swift */,
-				221A9EEB25EABCFC00ADEE1E /* OutPut.swift */,
 				2255F0A825E8BCA90044B872 /* Date.swift */,
 			);
 			path = Model;
@@ -312,7 +312,7 @@
 				221A9EEC25EABCFC00ADEE1E /* OutPut.swift in Sources */,
 				22E4757325E650C400417A37 /* VendingMachine.swift in Sources */,
 				220AFCE025E9513C00FDADEB /* StockDrink.swift in Sources */,
-				221A9EC925EA64AA00ADEE1E /* StockFactory.swift in Sources */,
+				221A9EC925EA64AA00ADEE1E /* StockManagement.swift in Sources */,
 				22C52CB225E9180800A56884 /* BlueBottleColdBrew.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

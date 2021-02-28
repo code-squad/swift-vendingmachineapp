@@ -7,7 +7,7 @@
 
 import Foundation
 
-class StockDrink: StockFactory {
+class StockDrink: StockManagement {
     private(set) var stock: [Drink]
     
     init() {

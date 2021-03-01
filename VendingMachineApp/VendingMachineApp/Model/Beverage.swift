@@ -8,22 +8,29 @@
 import Foundation
 
 class Beverage {
+
+    enum Kind {
+        case milk
+        case soda
+        case coke
+    }
     
     var description: String {
-        return "\(brand), \(miliLiter)ml, \(price)원, \(name), \(dateOfManufacture.toString())"
+        return "\(brand), \(capacity)ml, \(price)원, \(name), \(manufacture.toString())"
     }
     
     private var brand: String
-    private var miliLiter: Int
+    private var capacity: Int
     private var price: Int
-    private var name: String
-    private var dateOfManufacture: Date
+    private(set) var name: String
+    private var manufacture: Date
     
-    init(brand: String, miliLiter: Int, price: Int, name: String, dateOfManufacture: Date) {
+    init(brand: String, capacity: Int, price: Int, name: String, manufacture: Date) {
         self.brand = brand
-        self.miliLiter = miliLiter
+        self.capacity = capacity
         self.price = price
         self.name = name
-        self.dateOfManufacture = dateOfManufacture
+        self.manufacture = manufacture
     }
+    
 }

@@ -10,8 +10,8 @@ import Foundation
 class BananaMilk: Milk {
     private var hasDoraemonSticker: Bool
     
-    init(brand: String, miliLiter: Int, price: Int, name: String, dateOfManufacture: Date, farmCode: String, hasDoraemonSticker: Bool) {
+    init(brand: String, capacity: Int, price: Int, name: String, manufacture: Date, farmCode: String, hasDoraemonSticker: Bool) {
         self.hasDoraemonSticker = hasDoraemonSticker
-        super.init(brand: brand, miliLiter: miliLiter, price: price, name: name, dateOfManufacture: dateOfManufacture, farmCode: farmCode)
+        super.init(brand: brand, capacity: capacity, price: price, name: "바나나유유", manufacture: manufacture, farmCode: farmCode)
     }
 }

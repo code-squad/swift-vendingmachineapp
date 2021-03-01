@@ -10,17 +10,17 @@ import Foundation
 class VendingMachine: CustomStringConvertible {
     
     var description: String {
-        return "\(Inventory)"
+        return "\(inventory)"
     }
     
-    private var Inventory: [Beverage]
+    private var inventory: [Beverage]
 
  
     init() {
-        Inventory = []
+        inventory = []
     }
     
     public func appendBeverage(kindOfBeverage: Beverage) {
-        self.Inventory.append(kindOfBeverage)
+        self.inventory.append(kindOfBeverage)
     }
 }

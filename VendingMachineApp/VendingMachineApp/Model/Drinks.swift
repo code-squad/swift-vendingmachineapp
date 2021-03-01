@@ -23,4 +23,9 @@ class Drinks {
             completion(beverage)
         }
     }
+    func showListForPurchase(with cash: Int) -> [Beverage]{
+        return drinks.filter { (beverage) in
+            return beverage.isAvailablePurchase(with: cash)
+        }
+    }
 }

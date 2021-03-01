@@ -10,11 +10,11 @@ import Foundation
 class CashManagementSystem {
     private var cash: Int = 0
     
-    func recharge() {
-        
+    func recharge(with cash: Int) {
+        self.cash = cash
     }
-    func checkAvailableForPurchase() {
-        
+    func showListForPurchase(with drinks: Drinks) ->[Beverage] {
+        return drinks.showListForPurchase(with: cash)
     }
     
     func checkBalance() {

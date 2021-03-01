@@ -24,5 +24,8 @@ class Beverage: CustomStringConvertible {
         self.name = name
         self.dateOfManufacture = date
     }
-
+    
+    func isAvailablePurchase(with cash: Int) -> Bool{
+        return self.price <= cash
+    }
 }

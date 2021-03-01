@@ -39,4 +39,8 @@ class VendingMachine {
     func showBalance() -> Int {
         return cashManagementSystem.checkBalance()
     }
+    
+    func showStock() -> [Beverage:Int] {
+        drinks.giveStockList()
+    }
 }

@@ -33,4 +33,15 @@ class Drinks {
             return beverage.isAvailablePurchase(with: cash)
         }
     }
+    func giveStockList() -> [Beverage:Int] {
+        var result = [Beverage:Int]()
+        drinks.forEach { (beverage) in
+            if result[beverage] == nil {
+                result[beverage] = 1
+            } else {
+                result[beverage]! += 1
+            }
+        }
+        return result
+    }
 }

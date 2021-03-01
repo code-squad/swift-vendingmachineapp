@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Soda: Drink, CustomStringConvertible {
+class Soda: Drink {
     
     init(manufacturer: String, volume: Int, name: String,
          dateOfManufacture: Date, price: Int, calorie: Int, temperature: Int) {

@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Milk: Drink, CustomStringConvertible {
+class Milk: Drink {
     private let farmCode: String
     
     init(manufacturer: String, volume: Int, name: String, dateOfManufacture: Date, price: Int, farmCode: String, temperature: Int, calorie: Int) {

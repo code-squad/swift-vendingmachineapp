@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Coffee: Drink, CustomStringConvertible {
+class Coffee: Drink {
     private let caffeineContent: Int
     
     init(manufacturer: String, volume: Int, name: String, dateOfManufacture: Date, price: Int, caffeineContent: Int, temperature: Int, calorie: Int) {

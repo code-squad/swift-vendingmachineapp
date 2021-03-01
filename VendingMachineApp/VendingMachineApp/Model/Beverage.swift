@@ -9,12 +9,6 @@ import Foundation
 
 class Beverage {
 
-    enum Kind {
-        case milk
-        case soda
-        case coke
-    }
-    
     var description: String {
         return "\(brand), \(capacity)ml, \(price)원, \(name), \(manufacture.toString())"
     }

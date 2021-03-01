@@ -23,6 +23,7 @@
 		1E3D23B925E79D310096DE7B /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3D23B825E79D310096DE7B /* Date.swift */; };
 		1E3D23C025E7F1360096DE7B /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3D23BF25E7F1360096DE7B /* Beverage.swift */; };
 		1E66F51225ECC044006A2D4B /* BeverageFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E66F51125ECC044006A2D4B /* BeverageFactory.swift */; };
+		1E66F51A25ECC95E006A2D4B /* Inventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E66F51925ECC95E006A2D4B /* Inventory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		1E3D23B825E79D310096DE7B /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		1E3D23BF25E7F1360096DE7B /* Beverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beverage.swift; sourceTree = "<group>"; };
 		1E66F51125ECC044006A2D4B /* BeverageFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageFactory.swift; sourceTree = "<group>"; };
+		1E66F51925ECC95E006A2D4B /* Inventory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inventory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				1E3D239925E696240096DE7B /* VendingMachine.swift */,
+				1E66F51925ECC95E006A2D4B /* Inventory.swift */,
 				1E3D23BF25E7F1360096DE7B /* Beverage.swift */,
 				1E3D23B825E79D310096DE7B /* Date.swift */,
 				1E3D23C525E8C2320096DE7B /* Level2 */,
@@ -193,6 +196,7 @@
 			files = (
 				1E66F51225ECC044006A2D4B /* BeverageFactory.swift in Sources */,
 				1E3D23AE25E6A9390096DE7B /* Coke.swift in Sources */,
+				1E66F51A25ECC95E006A2D4B /* Inventory.swift in Sources */,
 				1E3D238425E688D30096DE7B /* ViewController.swift in Sources */,
 				1E3D23A625E697C30096DE7B /* BananaMilk.swift in Sources */,
 				1E3D23B125E6A9680096DE7B /* Top.swift in Sources */,

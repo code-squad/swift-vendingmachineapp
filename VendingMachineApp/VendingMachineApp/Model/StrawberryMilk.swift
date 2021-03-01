@@ -15,5 +15,18 @@ class StrawberryMilk : Milk {
         super.init(brand: brand, amount : amount, unit : unit, price: price, name: name, manufactured: manufactured, mlikFarmCode: mlikFarmCode, expiration: expiration, temperature : temperature, calorie: calorie)
     }
     
+    convenience init() {
+        self.init(brand: "서울우유",
+                  amount: 200,
+                  unit: .Milliliter,
+                  price: 1000,
+                  name: "딸기우유",
+                  manufactured: Date.make(date: "20210207"),
+                  mlikFarmCode: 023,
+                  expiration: Date.make(date: "20210210"),
+                  temperature: 10,
+                  calorie: 150,
+                  strawberryContent: 10)
+    }
     
 }

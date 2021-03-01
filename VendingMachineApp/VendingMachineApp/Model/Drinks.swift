@@ -17,6 +17,11 @@ class Drinks {
     func add(with beverage: Beverage) {
         drinks.append(beverage)
     }
+    func remove(with beverage: Beverage) {
+        if let beverageIndex = drinks.firstIndex(of: beverage) {
+            drinks.remove(at: beverageIndex)
+        }
+    }
     
     func retrieveBeverage(completion: (Beverage)->Void) {
         drinks.forEach { (beverage) in

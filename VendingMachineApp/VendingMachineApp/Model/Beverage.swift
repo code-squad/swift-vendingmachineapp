@@ -7,7 +7,11 @@
 
 import Foundation
 
-class Beverage: CustomStringConvertible {
+class Beverage: CustomStringConvertible, Equatable {
+    static func == (lhs: Beverage, rhs: Beverage) -> Bool {
+        return lhs.description == rhs.description
+    }
+    
     var description: String {
         return "\(brand), \(capacity)ml, \(price)원, \(name), \(dateOfManufacture.anotherDescription)"
     }
@@ -27,5 +31,8 @@ class Beverage: CustomStringConvertible {
     
     func isAvailablePurchase(with cash: Int) -> Bool{
         return self.price <= cash
+    }
+    func calculateChange(with cash: Int) -> Int {
+        return cash - self.price
     }
 }

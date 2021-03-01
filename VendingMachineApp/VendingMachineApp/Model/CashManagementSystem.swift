@@ -24,4 +24,15 @@ class CashManagementSystem {
     func printPurchasedDrinks() {
         
     }
+    
+    func isAvailableForPurchase(with beverage: Beverage) -> Bool {
+        beverage.isAvailablePurchase(with: self.cash)
+    }
+    
+    func increaseCash(with amount: Int) {
+        self.cash += amount
+    }
+    func decreaseCash(with beverage: Beverage) {
+        self.cash = beverage.calculateChange(with: cash)
+    }
 }

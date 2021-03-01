@@ -17,7 +17,6 @@ class FactoryTest: XCTestCase {
     }
     
     func testEnergyDrinkFactory(){
-        let energyDrinkFactory = EnergyDrinkFactory()
         
         let monster = EnergyDrinkFactory.createBeverage(with : "Monster")
         let hot6ix = EnergyDrinkFactory.createBeverage(with: "Hot6ix")
@@ -26,7 +25,6 @@ class FactoryTest: XCTestCase {
         vendingMachine.append(product: hot6ix)
     }
     func testSodaFactory(){
-        let sodaFactory = SodaFactory()
         
         let sprite = SodaFactory.createBeverage(with: "Sprite")
         let coke = SodaFactory.createBeverage(with: "Coke")
@@ -36,7 +34,6 @@ class FactoryTest: XCTestCase {
     }
 
     func testMilkFactory(){
-        let milkFactory = MilkFactory()
         
         let chocolateMilk = MilkFactory.createBeverage(with: "Chocolate")
         let stroberryMilk = MilkFactory.createBeverage(with: "Stroberry")
@@ -48,7 +45,6 @@ class FactoryTest: XCTestCase {
     }
     
     func testCoffeeFactory(){
-        let coffeeFactory = CoffeeFactory()
         
         let top = CoffeeFactory.createBeverage(with: "TOP")
         let cantata = CoffeeFactory.createBeverage(with: "Cantata")

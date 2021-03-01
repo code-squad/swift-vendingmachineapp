@@ -53,6 +53,8 @@ extension Beverage : Hashable {
         hasher.combine(capacity)
         hasher.combine(price)
         hasher.combine(name)
+        hasher.combine(create)
+        hasher.combine(expire)
     }
 }
 extension Beverage {

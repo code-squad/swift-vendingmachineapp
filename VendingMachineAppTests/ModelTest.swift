@@ -10,12 +10,18 @@ import XCTest
 
 class ModelTest: XCTestCase {
 
-    func testHashable(){
+    func testEquatable(){
         let milk = Milk(brand: "서울우유", capacity: 100, price: 2500, name: "초코", create: "20210202", expire: "20210215")
         let secondMilk = Milk(brand: "서울우유", capacity: 100, price: 2500, name: "초코", create: "20200202", expire: "20200215")
         
         let expect : Bool = true
         let actual : Bool = (milk == secondMilk)
         XCTAssertEqual(expect, actual)
+    }
+    func testHashable(){
+        let milk = Milk(brand: "서울우유", capacity: 100, price: 2500, name: "초코", create: "20210202", expire: "20210215")
+        let secondMilk = Milk(brand: "서울우유", capacity: 100, price: 2500, name: "초코", create: "20200202", expire: "20200215")
+        
+        XCTAssertNotEqual(milk.hashValue, secondMilk.hashValue)
     }
 }

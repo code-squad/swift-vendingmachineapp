@@ -7,11 +7,7 @@
 
 import Foundation
 
-class Beverage: CustomStringConvertible, Equatable {
-    static func == (lhs: Beverage, rhs: Beverage) -> Bool {
-        return lhs.description == rhs.description
-    }
-    
+class Beverage: CustomStringConvertible {
     var description: String {
         return "\(brand), \(capacity)ml, \(price)원, \(name), \(dateOfManufacture.anotherDescription)"
     }
@@ -34,5 +30,21 @@ class Beverage: CustomStringConvertible, Equatable {
     }
     func calculateChange(with cash: Int) -> Int {
         return cash - self.price
+    }
+}
+
+extension Beverage: Equatable {
+    static func == (lhs: Beverage, rhs: Beverage) -> Bool {
+        return lhs.description == rhs.description
+    }
+}
+
+extension Beverage: Hashable {
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(brand)
+        hasher.combine(capacity)
+        hasher.combine(price)
+        hasher.combine(name)
+        hasher.combine(dateOfManufacture)
     }
 }

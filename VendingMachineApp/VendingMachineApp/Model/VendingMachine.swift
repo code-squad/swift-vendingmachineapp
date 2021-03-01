@@ -22,5 +22,7 @@ class VendingMachine {
     func retreiveDrinks(completion: (Beverage)->Void) {
         drinks.retrieveBeverage(completion: completion)
     }
-    
+    func showListForPurchase() -> [Beverage] {
+        return cashManagementSystem.showListForPurchase(with: drinks)
+    }
 }

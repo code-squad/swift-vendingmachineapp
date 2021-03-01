@@ -13,26 +13,18 @@ class VendingMachineAppTests: XCTestCase {
     var vendingMachine : VendingMachine!
     
     var energyDrinkFactory : EnergyDrinkFactory!
-    var coffeeFactory : CoffeeFactory!
-    var sodaFactory : SodaFactory!
-    var milkFactory : MilkFactory!
     
     override func setUp() {
         super.setUp()
         vendingMachine = VendingMachine()
-        
-        energyDrinkFactory = EnergyDrinkFactory()
-        coffeeFactory = CoffeeFactory()
-        sodaFactory = SodaFactory()
-        milkFactory = MilkFactory()
     }
     
     func testsSenario(){
         // 재고를 추가한다.
-        vendingMachine.append(product: coffeeFactory.createBeverage(with: "Top"))
-        vendingMachine.append(product: milkFactory.createBeverage(with: "Chocolate"))
-        vendingMachine.append(product: coffeeFactory.createBeverage(with: "Georgia"))
-        vendingMachine.append(product: sodaFactory.createBeverage(with: "Sprite"))
+        vendingMachine.append(product: CoffeeFactory.createBeverage(with: "Top"))
+        vendingMachine.append(product: MilkFactory.createBeverage(with: "Chocolate"))
+        vendingMachine.append(product: CoffeeFactory.createBeverage(with: "Georgia"))
+        vendingMachine.append(product: SodaFactory.createBeverage(with: "Sprite"))
         
         // 잔액을 추가한다.
         vendingMachine.charge(coins: 10000)

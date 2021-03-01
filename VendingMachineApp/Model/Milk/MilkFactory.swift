@@ -9,7 +9,7 @@ import Foundation
 
 class MilkFactory : BeverageFactory{
     
-    func createBeverage(with name: String) -> Beverage {
+    static func createBeverage(with name: String) -> Beverage {
         let drink = Milk.Kind(rawValue: name)
         switch drink {
         case .chocolate: return ChocolateMilk(create: Date().toString(), expire: Date().toString())

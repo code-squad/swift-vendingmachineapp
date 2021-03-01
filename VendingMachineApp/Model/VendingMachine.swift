@@ -14,7 +14,7 @@ class VendingMachine {
     
     private func updateMachineState(with product : Beverage){
         stocks.updateValue(stocks[product]!-1, forKey: product)
-        charge(coins: product.price*(-1))
+        uncharge(coins: product.price)
         soldHistory.append(product)
         if stocks[product]! == 0 {
             stocks.removeValue(forKey: product)
@@ -24,6 +24,10 @@ class VendingMachine {
     //  자판기 금액을 원하는 금액만큼 올리는 메소드
     public func charge(coins : Int){
         self.coins += coins
+    }
+    //  자판기 금액을 원하는 금액만큼 내리는 메소드
+    public func uncharge(coins : Int){
+        self.coins -= coins
     }
     
     //  특정 상품 인스턴스를 넘겨서 재고를 추가하는 메소드
@@ -63,7 +67,7 @@ class VendingMachine {
         return coins
     }
     
-    //잔액을 돌려주는 메소드
+    //  잔액을 돌려주는 메소드
     public func returnCoins() -> Int {
         let remain = getbalance()
         self.coins = 0

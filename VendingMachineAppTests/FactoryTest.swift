@@ -11,10 +11,6 @@ import XCTest
 class FactoryTest: XCTestCase {
     
     var vendingMachine : VendingMachine!
-    var energyDrinkFactory : EnergyDrinkFactory!
-    var coffeeFactory : CoffeeFactory!
-    var sodaFactory : SodaFactory!
-    var milkFactory : MilkFactory!
     
     override func setUp() {
         vendingMachine = VendingMachine()
@@ -23,8 +19,8 @@ class FactoryTest: XCTestCase {
     func testEnergyDrinkFactory(){
         let energyDrinkFactory = EnergyDrinkFactory()
         
-        let monster = energyDrinkFactory.createBeverage(with : "Monster")
-        let hot6ix = energyDrinkFactory.createBeverage(with: "Hot6ix")
+        let monster = EnergyDrinkFactory.createBeverage(with : "Monster")
+        let hot6ix = EnergyDrinkFactory.createBeverage(with: "Hot6ix")
 
         vendingMachine.append(product: monster)
         vendingMachine.append(product: hot6ix)
@@ -32,8 +28,8 @@ class FactoryTest: XCTestCase {
     func testSodaFactory(){
         let sodaFactory = SodaFactory()
         
-        let sprite = sodaFactory.createBeverage(with: "Sprite")
-        let coke = sodaFactory.createBeverage(with: "Coke")
+        let sprite = SodaFactory.createBeverage(with: "Sprite")
+        let coke = SodaFactory.createBeverage(with: "Coke")
         
         vendingMachine.append(product: sprite)
         vendingMachine.append(product: coke)
@@ -42,9 +38,9 @@ class FactoryTest: XCTestCase {
     func testMilkFactory(){
         let milkFactory = MilkFactory()
         
-        let chocolateMilk = milkFactory.createBeverage(with: "Chocolate")
-        let stroberryMilk = milkFactory.createBeverage(with: "Stroberry")
-        let bananaMilk = milkFactory.createBeverage(with: "Banana")
+        let chocolateMilk = MilkFactory.createBeverage(with: "Chocolate")
+        let stroberryMilk = MilkFactory.createBeverage(with: "Stroberry")
+        let bananaMilk = MilkFactory.createBeverage(with: "Banana")
         
         vendingMachine.append(product: chocolateMilk)
         vendingMachine.append(product: stroberryMilk)
@@ -54,9 +50,9 @@ class FactoryTest: XCTestCase {
     func testCoffeeFactory(){
         let coffeeFactory = CoffeeFactory()
         
-        let top = coffeeFactory.createBeverage(with: "TOP")
-        let cantata = coffeeFactory.createBeverage(with: "Cantata")
-        let georgia = coffeeFactory.createBeverage(with: "Georgia")
+        let top = CoffeeFactory.createBeverage(with: "TOP")
+        let cantata = CoffeeFactory.createBeverage(with: "Cantata")
+        let georgia = CoffeeFactory.createBeverage(with: "Georgia")
         
         vendingMachine.append(product: top)
         vendingMachine.append(product: cantata)

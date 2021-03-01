@@ -18,8 +18,8 @@ class VendingMachineTest: XCTestCase {
         vendingMachine.charge(coins: 10000)
         vendingMachine.append(product: StroberryMilk(create:"20210403", expire: "20210412"))
         vendingMachine.append(product: ChocolateMilk(create: "20200211", expire: "20200220"))
-        vendingMachine.append(product: Georgia(create :"20210202", expire: "20210210", hot: true))
         vendingMachine.append(product: Coke(create: "20200101", expire: "20200824", flaver: .cherry))
+        vendingMachine.append(product: Top(create: "20210101", expire: "20210101", hot: true))
 
     }
 
@@ -40,10 +40,11 @@ class VendingMachineTest: XCTestCase {
     }
     
     func testSellProduct(){
-        let expect = 3
+        let georgia = Georgia(create :"20210202", expire: "20210210", hot: true)
+        vendingMachine.append(product: georgia)
         
-        vendingMachine.sellProduct(with: "조지아오리지널")
-        let actual = vendingMachine.getTotalStock().count
+        let expect = georgia
+        let actual = vendingMachine.sellProduct(with: "조지아오리지널")
         
         XCTAssertEqual(expect, actual, "음료를 구매할 수 없습니다.")
     }
@@ -61,7 +62,7 @@ class VendingMachineTest: XCTestCase {
     }
     func testGetSoldProducts(){
     
-        vendingMachine.sellProduct(with: "조지아오리지널")
+        vendingMachine.sellProduct(with: "맥심TOP")
         let expect = 1
         let actual = vendingMachine.getSoldProducts().count
         

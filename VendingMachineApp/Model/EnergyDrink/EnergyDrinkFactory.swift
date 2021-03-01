@@ -8,7 +8,7 @@
 import Foundation
 
 class EnergyDrinkFactory : BeverageFactory{
-    func createBeverage(with name: String) -> Beverage {
+    static func createBeverage(with name: String) -> Beverage {
         let drink = EnergyDrink.Kind(rawValue: name)
         switch drink {
         case .monster: return Monster(create: Date().toString(), expire: Date().toString())

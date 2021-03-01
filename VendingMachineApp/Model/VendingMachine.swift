@@ -83,7 +83,7 @@ class VendingMachine {
     public func expiredProduct () -> [Beverage] {
         var list = [Beverage]()
         stocks.forEach{ (product, count) in
-            if !product.didExpiredate() {
+            if !product.isExpired() {
                 list.append(product)
             }
         }

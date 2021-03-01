@@ -29,8 +29,10 @@ class Beverage : CustomStringConvertible {
     public func availablePrice(with coins: Int) -> Bool {
         return price <= coins
     }
-    
-    public func didExpiredate() -> Bool {
+}
+
+extension Beverage : Drinkable {
+    func isExpired() -> Bool {
         let calendar = Calendar.current
         return calendar.compare(Date(), to: expire, toGranularity: .day) == .orderedAscending
     }

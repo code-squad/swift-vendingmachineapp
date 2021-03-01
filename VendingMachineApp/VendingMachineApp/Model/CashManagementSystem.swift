@@ -17,8 +17,8 @@ class CashManagementSystem {
         return drinks.showListForPurchase(with: cash)
     }
     
-    func checkBalance() {
-        
+    func checkBalance() -> Int{
+        return self.cash
     }
     
     func printPurchasedDrinks() {

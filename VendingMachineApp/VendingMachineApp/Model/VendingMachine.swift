@@ -36,4 +36,7 @@ class VendingMachine {
             drinks.remove(with: beverage)
         }
     }
+    func showBalance() -> Int {
+        return cashManagementSystem.checkBalance()
+    }
 }

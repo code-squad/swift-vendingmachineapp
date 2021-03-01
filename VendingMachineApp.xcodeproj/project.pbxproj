@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1004F55425ECB7C5006666EA /* Drinkable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1004F55325ECB7C5006666EA /* Drinkable.swift */; };
 		105EE25825E8CCD000E6D2E2 /* EnergyDrink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105EE25725E8CCD000E6D2E2 /* EnergyDrink.swift */; };
 		105EE26B25E8D0CD00E6D2E2 /* StroberryMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105EE26A25E8D0CD00E6D2E2 /* StroberryMilk.swift */; };
 		105EE27025E8D0D800E6D2E2 /* ChocolateMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105EE26F25E8D0D800E6D2E2 /* ChocolateMilk.swift */; };
@@ -63,6 +64,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1004F55325ECB7C5006666EA /* Drinkable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drinkable.swift; sourceTree = "<group>"; };
 		105EE25725E8CCD000E6D2E2 /* EnergyDrink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnergyDrink.swift; sourceTree = "<group>"; };
 		105EE26A25E8D0CD00E6D2E2 /* StroberryMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StroberryMilk.swift; sourceTree = "<group>"; };
 		105EE26F25E8D0D800E6D2E2 /* ChocolateMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChocolateMilk.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 		105EE26125E8CDE900E6D2E2 /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
+				1004F55325ECB7C5006666EA /* Drinkable.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -416,6 +419,7 @@
 				10C692B225EA2D0F009F6AEF /* Coke.swift in Sources */,
 				105EE27025E8D0D800E6D2E2 /* ChocolateMilk.swift in Sources */,
 				10C692AD25EA2CE1009F6AEF /* Hot6ix.swift in Sources */,
+				1004F55425ECB7C5006666EA /* Drinkable.swift in Sources */,
 				1061002525EA1FA600D07810 /* CoffeeFactory.swift in Sources */,
 				10F5F08425E7845B00B70881 /* Soda.swift in Sources */,
 				105EE26B25E8D0CD00E6D2E2 /* StroberryMilk.swift in Sources */,

@@ -13,14 +13,14 @@ class VendingMachine: CustomStringConvertible {
         return "\(inventory)"
     }
     
-    private var inventory: [Beverage]
+    private var inventory: Inventory
 
  
     init() {
-        inventory = []
+        self.inventory = Inventory()
     }
     
-    public func appendBeverage(kindOfBeverage: Beverage) {
-        self.inventory.append(kindOfBeverage)
+    public func appendBeverage(beverage: Beverage) {
+        inventory.appendBeverage(beverage: beverage)
     }
 }

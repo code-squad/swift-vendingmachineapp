@@ -47,6 +47,6 @@ class VendingMachine {
         drinks.giveExpiredList()
     }
     func showHotBeverageList() -> [Beverage] {
-        
+        drinks.giveHotBeverageList()
     }
 }

@@ -45,8 +45,9 @@ class Drinks {
         return result
     }
     func giveExpiredList() -> [Beverage] {
-        drinks.filter { (beverage) in
-            return beverage.isExpired()
-        }
+        return drinks.filter{$0.isExpired(on: Date())}
+    }
+    func giveHotBeverageList() -> [Beverage] {
+        return drinks.filter{$0.isHot(at: 65)}
     }
 }

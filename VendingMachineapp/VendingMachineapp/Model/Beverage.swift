@@ -8,6 +8,7 @@
 import Foundation
 
 let compareCalorie = 300
+let compareHot = 50
 
 class Beverage{
     private var manufacturer: String
@@ -15,17 +16,17 @@ class Beverage{
     private(set) var price: Int
     private var brand: String
     private var manufactured: Date
-    private var expirydate: Date
+    private var expiryTime: Date
     private var calorie: Int
-    private var hot: Bool
+    private var hot: Int
     
-    init(manufacturer: String, volume: Int, price: Int, brand: String, manufactured: Date, expirydate: Date, calorie: Int, hot: Bool) {
+    init(manufacturer: String, volume: Int, price: Int, brand: String, manufactured: Date, expirydate: Date, calorie: Int, hot: Int) {
         self.manufacturer = manufacturer
         self.volume = volume
         self.price = price
         self.brand = brand
         self.manufactured = manufactured
-        self.expirydate = expirydate
+        self.expiryTime = expirydate
         self.calorie = calorie
         self.hot = hot
     }
@@ -35,11 +36,11 @@ class Beverage{
     }
     
     func isHot() -> Bool {
-        return hot
+        return hot >= compareHot
     }
     
-    func validate(with date: Date) -> Bool {
-        return expirydate >= date
+    func validateExpiryTime(with date: Date) -> Bool {
+        return expiryTime >= date
     }
     
     func isAvailablePurchase(with money: Int) -> Bool {
@@ -59,11 +60,5 @@ extension Beverage: Hashable {
     }
     static func == (lhs: Beverage, rhs: Beverage) -> Bool {
         return lhs.brand == rhs.brand
-    }
-    
-    var hashValue: Int {
-        var hasher = Hasher()
-        self.hash(into: &hasher)
-        return hasher.finalize()
     }
 }

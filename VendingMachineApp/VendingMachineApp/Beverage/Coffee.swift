@@ -8,11 +8,11 @@
 import Foundation
 
 class Coffee: Beverage {
-    private let isDecaffein: Bool
+    private let caffeinContent: Int
 
-    init(brand: String, volume: Int, price: Int, name: String, manufacturedAt: Date, isDecaffein
-         : Bool) {
-        self.isDecaffein = isDecaffein
+    init(brand: String, volume: Int, price: Int, name: String, manufacturedAt: Date, caffeinContent
+         : Int) {
+        self.caffeinContent = caffeinContent
         super.init(brand: brand, volume: volume, price: price, name: name, manufacturedAt: manufacturedAt)
     }
 }

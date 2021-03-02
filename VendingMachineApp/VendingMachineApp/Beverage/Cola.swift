@@ -8,7 +8,11 @@
 import Foundation
 
 class Cola: SoftDrink {
-    init() {
+    
+    private let sugarFree: Bool
+    
+    init(sugarFree: Bool) {
+        self.sugarFree = sugarFree
         super.init(brand: "pepsi", volume: 250, price: 1000, name: "pepsi 콜라", manufacturedAt: Date(), package: .can)
     }
 }

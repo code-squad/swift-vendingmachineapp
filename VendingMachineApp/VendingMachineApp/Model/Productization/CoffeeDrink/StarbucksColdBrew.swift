@@ -53,7 +53,7 @@ class StarbucksColdBrew: Coffee, Productization {
                    calorie: 8)
     }
     
-    func isPastManufactured(with date: Date) -> Bool {
-        return compareManufactured(during: 180, compareDate: date)
+    func validManufactured(with date: Date) -> Bool {
+        return isDrinkableFromManufactured(during: 180, compareDate: date)
     }
 }

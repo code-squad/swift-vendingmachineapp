@@ -37,8 +37,8 @@ class Drink {
         }
     }
     
-    public func compareManufactured(during: TimeInterval, compareDate: Date) -> Bool {
-        return manufactured + during >= compareDate
+    public func isDrinkableFromManufactured(pastDate: TimeInterval, compareDate: Date) -> Bool {
+        return manufactured + pastDate < compareDate
     }
     
     public func perCapacity(of unit: Double) -> Double {

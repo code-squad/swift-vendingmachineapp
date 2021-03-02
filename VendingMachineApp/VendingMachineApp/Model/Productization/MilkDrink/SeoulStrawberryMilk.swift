@@ -40,7 +40,7 @@ class SeoulStrawberryMilk: Milk, Productization {
                    calorie: 130)
     }
     
-    func isPastManufactured(with date: Date) -> Bool {
-        return compareManufactured(during: 14, compareDate: date)
+    func validManufactured(with date: Date) -> Bool {
+        return isDrinkableFromManufactured(during: 14, compareDate: date)
     }
 }

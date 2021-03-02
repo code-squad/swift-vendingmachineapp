@@ -11,6 +11,7 @@
 		220AFCE425E9539600FDADEB /* Productization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220AFCE325E9539600FDADEB /* Productization.swift */; };
 		221A9EC925EA64AA00ADEE1E /* StockManageable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221A9EC825EA64AA00ADEE1E /* StockManageable.swift */; };
 		223A6BC925EEF89900AA3483 /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223A6BC825EEF89900AA3483 /* Stock.swift */; };
+		223A6BD225EEFB4E00AA3483 /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223A6BC825EEF89900AA3483 /* Stock.swift */; };
 		2255F0A925E8BCA90044B872 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2255F0A825E8BCA90044B872 /* Date.swift */; };
 		2255F0BC25E8D5C50044B872 /* Sanpellegrino.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2255F0BB25E8D5C50044B872 /* Sanpellegrino.swift */; };
 		2255F0C725E8DA2F0044B872 /* SeoulStrawberryMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2255F0C625E8DA2F0044B872 /* SeoulStrawberryMilk.swift */; };
@@ -313,6 +314,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				223A6BD225EEFB4E00AA3483 /* Stock.swift in Sources */,
 				22A0198725EDE9CD009115D9 /* AppDelegate.swift in Sources */,
 				22A0198825EDE9CD009115D9 /* SceneDelegate.swift in Sources */,
 				22A0198925EDE9CD009115D9 /* Productization.swift in Sources */,

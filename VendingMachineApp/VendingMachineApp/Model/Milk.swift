@@ -24,18 +24,18 @@ class Milk: Beverage {
 
 class StrawberryMilk: Milk {
     override init(brand: String, volume: Int, price: Int, name: String, manufacturingDate: Date) {
-        super.init(brand: "서울우유", volume: 200, price: 1000, name: "딸기우유", manufacturingDate: date)
+        super.init(brand: "서울우유", volume: 200, price: 600, name: "딸기우유", manufacturingDate: date)
     }
 }
 
 class ChocoMilk: Milk {
     override init(brand: String, volume: Int, price: Int, name: String, manufacturingDate: Date) {
-        super.init(brand: "서울우유", volume: 200, price: 1000, name: "초코우유", manufacturingDate: date)
+        super.init(brand: "서울우유", volume: 200, price: 600, name: "초코우유", manufacturingDate: date)
     }
 }
 
 class BananaMilk: Milk {
     override init(brand: String, volume: Int, price: Int, name: String, manufacturingDate: Date) {
-        super.init(brand: "서울우유", volume: 200, price: 1000, name: "바나나우유", manufacturingDate: date)
+        super.init(brand: "서울우유", volume: 200, price: 600, name: "바나나우유", manufacturingDate: date)
     }
 }

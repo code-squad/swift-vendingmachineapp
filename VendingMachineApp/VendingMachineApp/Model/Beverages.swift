@@ -22,7 +22,7 @@ class Beverages {
     func countOfBeverages() -> [String: Int]{
         var stockList = [String:Int]()
         for beverage in beverages {
-            let productName = beverage.canbuy()
+            let productName = beverage.productName
             if stockList[productName] == nil {
                 stockList[productName] = 1
             } else {

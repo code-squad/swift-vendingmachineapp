@@ -35,7 +35,7 @@ class VendingMachineAppTests: XCTestCase {
         guard let fanta = DrinkFactory.makeDrink(of: Fanta.self, manufactured: Date() - 365) else { return }
         
         // Productization을 채택하지 않은 Soda 클래스
-        let weirdSoda = Soda(brand: "탄산회사", capacity: 500, price: 1500, name: "정체모를 탄산수", isZeroCalorie: true, manufactured: Date())
+        let weirdSoda = Soda(brand: "탄산회사", capacity: 500, price: 1500, name: "정체모를 탄산수", isZeroCalorie: true, manufactured: Date(), temperature: 15, calorie: 150)
         
         vendingMachine.addDrink(blueBottle)
         vendingMachine.addDrink(starbucks)

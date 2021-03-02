@@ -15,6 +15,11 @@ class StarbucksColdBrew: Coffee, Productization {
     
     private var flavor: Flavor
     
+    init(brand: String, capacity: Int, price: Int, name: String, caffeineContent: UInt, flavor: Flavor, manufactured: Date, temperature: Double, calorie: Double) {
+        self.flavor = flavor
+        super.init(brand: brand, capacity: capacity, price: price, name: name, caffeineContent: caffeineContent, manufactured: manufactured, temperature: temperature, calorie: calorie)
+    }
+    
     init(flavor: Flavor, manufactured: Date) {
         self.flavor = flavor
         
@@ -23,11 +28,21 @@ class StarbucksColdBrew: Coffee, Productization {
                    price: 1150,
                    name: "StarBucks Cold Brew",
                    caffeineContent: 80,
-                   manufactured: manufactured)
+                   manufactured: manufactured,
+                   temperature: 8,
+                   calorie: 8)
     }
     
     convenience init() {
-        self.init(flavor: .black, manufactured: Date())
+        self.init(brand: "StarBucks",
+                   capacity: 240,
+                   price: 1150,
+                   name: "StarBucks Cold Brew",
+                   caffeineContent: 80,
+                   flavor: .black,
+                   manufactured: Date(),
+                   temperature: 8,
+                   calorie: 8)
     }
     
     func isPastManufactured(with date: Date) -> Bool {

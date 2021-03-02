@@ -10,7 +10,7 @@ import Foundation
 class DrinkFactory: DrinkProduceable {
     static func makeDrink(of drink: Productization.Type, manufactured: Date = Date()) -> Drink? {
         switch drink {
-        case is BlueBottleColdBrew.Type: return BlueBottleColdBrew(flavor: .bold, manufactured: manufactured)
+        case is BlueBottleColdBrew.Type: return BlueBottleColdBrew()
         case is StarbucksColdBrew.Type: return StarbucksColdBrew(flavor: .black, manufactured: manufactured)
         case is SeoulStrawberryMilk.Type: return SeoulStrawberryMilk(isWithStraw: true, manufactured: manufactured)
         case is BingBananaMilk.Type: return BingBananaMilk(target: .all, manufactured: manufactured)

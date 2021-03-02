@@ -9,9 +9,11 @@ import Foundation
 
 class Drinks {
     private var drinks: [Beverage]
+    private var purchasedDrinks: [Beverage]
     
     init() {
         self.drinks = []
+        self.purchasedDrinks = []
     }
     
     func add(with beverage: Beverage) {
@@ -19,15 +21,10 @@ class Drinks {
     }
     func remove(with beverage: Beverage) {
         if let beverageIndex = drinks.firstIndex(of: beverage) {
-            drinks.remove(at: beverageIndex)
+            purchasedDrinks.append(drinks.remove(at: beverageIndex))
         }
     }
-    
-    func retrieveBeverage(completion: (Beverage)->Void) {
-        drinks.forEach { (beverage) in
-            completion(beverage)
-        }
-    }
+
     func showListForPurchase(with cash: Int) -> [Beverage]{
         return drinks.filter { (beverage) in
             return beverage.isAvailablePurchase(with: cash)
@@ -49,5 +46,8 @@ class Drinks {
     }
     func giveHotBeverageList() -> [Beverage] {
         return drinks.filter{$0.isHot(at: 65)}
+    }
+    func givePurchasedList() -> [Beverage] {
+        return self.purchasedDrinks
     }
 }

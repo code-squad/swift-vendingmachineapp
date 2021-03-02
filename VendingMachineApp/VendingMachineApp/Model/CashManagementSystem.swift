@@ -21,10 +21,6 @@ class CashManagementSystem {
         return self.cash
     }
     
-    func printPurchasedDrinks() {
-        
-    }
-    
     func isAvailableForPurchase(with beverage: Beverage) -> Bool {
         beverage.isAvailablePurchase(with: self.cash)
     }

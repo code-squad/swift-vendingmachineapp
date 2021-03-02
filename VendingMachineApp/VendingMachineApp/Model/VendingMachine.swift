@@ -18,10 +18,7 @@ class VendingMachine {
     func addStock(beverage: Beverage) {
         drinks.add(with: beverage)
     }
-    
-    func retreiveDrinks(completion: (Beverage)->Void) {
-        drinks.retrieveBeverage(completion: completion)
-    }
+
     func rechargeCash(with cash: Int) {
         cashManagementSystem.recharge(with: cash)
     }
@@ -48,5 +45,8 @@ class VendingMachine {
     }
     func showHotBeverageList() -> [Beverage] {
         drinks.giveHotBeverageList()
+    }
+    func showPurchasedList() -> [Beverage] {
+        drinks.givePurchasedList()
     }
 }

@@ -1,11 +1,11 @@
 import Foundation
 
 struct VendingMachine {
-    var insertedMoney: Int
+    var insertedMoney: InsertedMoney
     var beverages: Beverages
     
     init() {
-        insertedMoney = 0
+        insertedMoney = InsertedMoney()
         beverages = Beverages()
     }
     
@@ -24,7 +24,7 @@ struct VendingMachine {
     }
     
     mutating func getTheMoney(from customer: Int) {
-        insertedMoney += customer
+        insertedMoney.insertMoney(from: customer)
     }
     
     func nowAvailableList() -> [Beverage] {
@@ -51,7 +51,7 @@ struct VendingMachine {
         return buyingProduct
     }
     
-    func checkBalance() -> Int{
+    func checkBalance() -> InsertedMoney{
         return insertedMoney
     }
     

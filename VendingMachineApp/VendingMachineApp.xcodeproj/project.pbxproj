@@ -47,6 +47,7 @@
 		719F18C525E774F800671D77 /* IsDairyProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719F18C425E774F800671D77 /* IsDairyProducts.swift */; };
 		719F18C825E7777D00671D77 /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719F18C725E7777D00671D77 /* VendingMachine.swift */; };
 		719F18CB25E7972D00671D77 /* CheckBeverageInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719F18CA25E7972D00671D77 /* CheckBeverageInfo.swift */; };
+		71D1B81F25EE0745000E9142 /* InsertedMoney.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D1B81E25EE0745000E9142 /* InsertedMoney.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +89,7 @@
 		719F18C425E774F800671D77 /* IsDairyProducts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsDairyProducts.swift; sourceTree = "<group>"; };
 		719F18C725E7777D00671D77 /* VendingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachine.swift; sourceTree = "<group>"; };
 		719F18CA25E7972D00671D77 /* CheckBeverageInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBeverageInfo.swift; sourceTree = "<group>"; };
+		71D1B81E25EE0745000E9142 /* InsertedMoney.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsertedMoney.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				719F18C725E7777D00671D77 /* VendingMachine.swift */,
+				71D1B81E25EE0745000E9142 /* InsertedMoney.swift */,
 				717DE51225E5E26F004B2269 /* Beverage.swift */,
 				7197E3D725E88F450055EC73 /* Beverages.swift */,
 				719F18CA25E7972D00671D77 /* CheckBeverageInfo.swift */,
@@ -282,6 +285,7 @@
 				719F18B825E76E4800671D77 /* Sprite.swift in Sources */,
 				719F18C225E76F2100671D77 /* Cantata.swift in Sources */,
 				717DE4FC25E5E0A6004B2269 /* AppDelegate.swift in Sources */,
+				71D1B81F25EE0745000E9142 /* InsertedMoney.swift in Sources */,
 				717DE51325E5E26F004B2269 /* Beverage.swift in Sources */,
 				717DE51B25E5E369004B2269 /* Brand.swift in Sources */,
 				719F18C825E7777D00671D77 /* VendingMachine.swift in Sources */,

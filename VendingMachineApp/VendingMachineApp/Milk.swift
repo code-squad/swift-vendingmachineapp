@@ -13,13 +13,13 @@ class Milk: Beverage, Expirable, LactoFreeable {
     private let expiry: Date
     private let lactose: Float
     
-    init(brand: String, name: String, price: Int, size: Int, manufactured: Date,
+    init(brand: String, name: String, price: Int, size: Int, dateFactory: DateFactory, manufacturedInString: String,
          expireAfter: Int, lactose: Float) {
         
-        self.expiry = manufactured.add(amount: expireAfter)
+        self.expiry = dateFactory.create(from: manufacturedInString).add(days: expireAfter)
         self.lactose = lactose
         
-        super.init(brand: brand, name: name, price: price, size: size, manufactured: manufactured)
+        super.init(brand: brand, name: name, price: price, size: size, dateFactory: dateFactory, manufacturedInString: manufacturedInString)
     }
     
     func isExpired(compareTo date: Date) -> Bool {
@@ -37,13 +37,12 @@ class Chocolate: Milk, Transportable {
     
     private let package: Package
     
-    init(brand: String, name: String, price: Int, size: Int, manufactured: Date,
+    init(brand: String, name: String, price: Int, size: Int, dateFactory: DateFactory, manufacturedInString: String,
          expireAfter: Int, lactose: Float, package: Package) {
         
         self.package = package
         
-        super.init(brand: brand, name: name, price: price, size: size, manufactured: manufactured,
-                   expireAfter: expireAfter, lactose: lactose)
+        super.init(brand: brand, name: name, price: price, size: size, dateFactory: dateFactory, manufacturedInString: manufacturedInString, expireAfter: expireAfter, lactose: lactose)
     }
     
     func isTransportable() -> Bool {
@@ -61,13 +60,12 @@ class Plain: Milk, SugarFreeable {
     
     private let sugar: Float
     
-    init(brand: String, name: String, price: Int, size: Int, manufactured: Date,
+    init(brand: String, name: String, price: Int, size: Int, dateFactory: DateFactory, manufacturedInString: String,
          expireAfter: Int, lactose: Float, sugar: Float) {
         
         self.sugar = sugar
         
-        super.init(brand: brand, name: name, price: price, size: size, manufactured: manufactured,
-                   expireAfter: expireAfter, lactose: lactose)
+        super.init(brand: brand, name: name, price: price, size: size, dateFactory: dateFactory, manufacturedInString: manufacturedInString, expireAfter: expireAfter, lactose: lactose)
     }
     
     func isSugarFree(basedOn sugarStandard: Float) -> Bool {

@@ -11,12 +11,12 @@ class Soda: Beverage, Transportable {
     
     private let package: Package
     
-    init(brand: String, name: String, price: Int, size: Int,
-         manufactured: Date, package: Package) {
+    init(brand: String, name: String, price: Int, size: Int, dateFactory: DateFactory, manufacturedInString: String,
+         package: Package) {
         
         self.package = package
         
-        super.init(brand: brand, name: name, price: price, size: size, manufactured: manufactured)
+        super.init(brand: brand, name: name, price: price, size: size, dateFactory: dateFactory, manufacturedInString: manufacturedInString)
     }
     
     func isTransportable() -> Bool {
@@ -34,13 +34,12 @@ class Coke: Soda, SugarFreeable {
     
     private let sugar: Float
     
-    init(brand: String, name: String, price: Int, size: Int, manufactured: Date,
+    init(brand: String, name: String, price: Int, size: Int, dateFactory: DateFactory, manufacturedInString: String,
          package: Package, sugar: Float) {
         
         self.sugar = sugar
         
-        super.init(brand: brand, name: name, price: price, size: size,
-                   manufactured: manufactured, package: package)
+        super.init(brand: brand, name: name, price: price, size: size, dateFactory: dateFactory, manufacturedInString: manufacturedInString, package: package)
     }
     
     func isSugarFree(basedOn sugarStandard: Float) -> Bool {
@@ -53,13 +52,12 @@ class Milkis: Soda, LactoFreeable {
     
     private let lactose: Float
     
-    init(brand: String, name: String, price: Int, size: Int, manufactured: Date,
+    init(brand: String, name: String, price: Int, size: Int, dateFactory: DateFactory, manufacturedInString: String,
          package: Package, lactose: Float) {
         
         self.lactose = lactose
         
-        super.init(brand: brand, name: name, price: price, size: size,
-                   manufactured: manufactured, package: package)
+        super.init(brand: brand, name: name, price: price, size: size, dateFactory: dateFactory, manufacturedInString: manufacturedInString, package: package)
     }
     
     func isLactoFree(basedOn lactoStandard: Float) -> Bool {

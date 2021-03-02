@@ -15,12 +15,12 @@ class Beverage: CustomStringConvertible {
     private let size: Int
     private let manufactured: Date
     
-    init(brand: String, name: String, price: Int, size: Int, manufactured: Date) {
+    init(brand: String, name: String, price: Int, size: Int, dateFactory: DateFactory, manufacturedInString: String) {
         self.brand = brand
         self.name = name
         self.price = price
         self.size = size
-        self.manufactured = manufactured
+        self.manufactured = dateFactory.create(from: manufacturedInString)
     }
     
     func isPurchashable(with money: Int) -> Bool {

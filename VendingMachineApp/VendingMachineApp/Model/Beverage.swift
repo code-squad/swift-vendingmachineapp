@@ -16,7 +16,7 @@ class Beverage {
     private var brand: String
     private var capacity: Int
     private var price: Int
-    private(set) var name: String
+    private var name: String
     private var manufacture: Date
     
     init(brand: String, capacity: Int, price: Int, name: String, manufacture: Date) {
@@ -27,4 +27,16 @@ class Beverage {
         self.manufacture = manufacture
     }
     
+}
+
+protocol Hotable {
+    func checkHot() -> Bool
+}
+
+protocol SafeDateChecker {
+    func expirationValidate(with date:Date) -> Bool
+}
+
+protocol LowCalorieChecker {
+    func isLowCalorie() -> Bool
 }

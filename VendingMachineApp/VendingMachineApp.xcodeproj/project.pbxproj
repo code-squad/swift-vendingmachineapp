@@ -108,7 +108,7 @@
 			children = (
 				1E3D239C25E6962D0096DE7B /* Milk.swift */,
 				1E3D239F25E6965D0096DE7B /* Soda.swift */,
-				1E3D23AD25E6A9390096DE7B /* Coke.swift */,
+				1E3D23A225E696AB0096DE7B /* Coffee.swift */,
 				1E3D23C625E8C2450096DE7B /* Level3 */,
 			);
 			path = Level2;
@@ -117,7 +117,7 @@
 		1E3D23C625E8C2450096DE7B /* Level3 */ = {
 			isa = PBXGroup;
 			children = (
-				1E3D23A225E696AB0096DE7B /* Coffee.swift */,
+				1E3D23AD25E6A9390096DE7B /* Coke.swift */,
 				1E3D23A525E697C30096DE7B /* BananaMilk.swift */,
 				1E3D23B025E6A9680096DE7B /* Top.swift */,
 			);

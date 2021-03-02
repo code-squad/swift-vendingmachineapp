@@ -9,18 +9,18 @@ import Foundation
 
 class ChocoMilk: Milk {
     
-    private let realChocolate : Bool 
+    private let chocolateContent : Double // percent
     
-    init(brand : String, volume : Int, charge : Int, name :String, manufacturing : Date, expirationLimit : Int, realChoco : Bool) {
-        self.realChocolate = realChoco
+    init(brand : String, volume : Int, charge : Int, name :String, manufacturing : Date, expirationLimit : Int, chocolateContent : Double) {
+        self.chocolateContent = chocolateContent
         super.init(brand: brand, volume: volume, charge: charge, name: name, manufacturing: manufacturing, expirationLimit: expirationLimit)
     }
     
     convenience init() {
-        self.init(brand: "서울우유", volume: 200, charge: 830, name: "초코우유", manufacturing: Date.init().createRandomIn7days(), expirationLimit: 3, realChoco: false)
+        self.init(brand: "서울우유", volume: 200, charge: 830, name: "초코우유", manufacturing: Date.init().createRandomIn7days(), expirationLimit: 3, chocolateContent: 8)
     }
     
     func isRealCholate() -> Bool {
-        return realChocolate
+        return chocolateContent > 20
     }
 }

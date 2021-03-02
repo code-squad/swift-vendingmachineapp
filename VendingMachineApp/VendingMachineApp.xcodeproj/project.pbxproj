@@ -13,7 +13,6 @@
 		FE8B8C9825E3931C00EF304F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE8B8C9625E3931C00EF304F /* Main.storyboard */; };
 		FE8B8C9A25E3932000EF304F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE8B8C9925E3932000EF304F /* Assets.xcassets */; };
 		FE8B8C9D25E3932000EF304F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE8B8C9B25E3932000EF304F /* LaunchScreen.storyboard */; };
-		FE8B8CA825E3932100EF304F /* VendingMachineAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8B8CA725E3932100EF304F /* VendingMachineAppTests.swift */; };
 		FE8B8CB325E3932100EF304F /* VendingMachineAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8B8CB225E3932100EF304F /* VendingMachineAppUITests.swift */; };
 		FE8B8D3825E3C7DD00EF304F /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8B8D3725E3C7DD00EF304F /* Drink.swift */; };
 		FE8B8D3E25E3C96F00EF304F /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8B8D3D25E3C96F00EF304F /* Milk.swift */; };
@@ -31,6 +30,8 @@
 		FE8B8DB025E8111900EF304F /* Drinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8B8DAF25E8111900EF304F /* Drinks.swift */; };
 		FE8B8DC425E9036D00EF304F /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8B8DC325E9036D00EF304F /* Protocols.swift */; };
 		FE8B8DD925E9972C00EF304F /* Payment.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8B8DD825E9972B00EF304F /* Payment.swift */; };
+		FE8B8E0C25EDE1E600EF304F /* VendingMachineAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8B8CA725E3932100EF304F /* VendingMachineAppTests.swift */; };
+		FE8B8E1025EDE1E700EF304F /* VendingMachineAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8B8CA725E3932100EF304F /* VendingMachineAppTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -380,7 +381,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FE8B8CA825E3932100EF304F /* VendingMachineAppTests.swift in Sources */,
+				FE8B8E0C25EDE1E600EF304F /* VendingMachineAppTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -389,6 +390,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FE8B8CB325E3932100EF304F /* VendingMachineAppUITests.swift in Sources */,
+				FE8B8E1025EDE1E700EF304F /* VendingMachineAppTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

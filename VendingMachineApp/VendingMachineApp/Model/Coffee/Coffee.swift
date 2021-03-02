@@ -29,8 +29,7 @@ class Coffee : Drink {
     func isLowCalorie() -> Bool {
         return isDecaffeinated
     }
-    
-    
+
 }
 
 

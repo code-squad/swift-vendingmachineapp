@@ -78,7 +78,7 @@ class Drinks {
         })
     }
     
-    func classify(with drink: Drink) {
+    private func classify(with drink: Drink) {
         dictionry.append(drink)
     }
     

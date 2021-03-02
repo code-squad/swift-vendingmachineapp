@@ -13,4 +13,10 @@ extension Date {
         let dateFormatter = dateFormat
         return dateFormatter.string(from: self)
     }
+    
+    func add(days: Int) -> Date {
+        let day: TimeInterval = 86400
+        let added: Date = self.addingTimeInterval(day * Double(days))
+        return added
+    }
 }

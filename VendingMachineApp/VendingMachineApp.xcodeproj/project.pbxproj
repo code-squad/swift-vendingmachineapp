@@ -32,6 +32,7 @@
 		B3EF2CFB25EE228600FBA7CC /* Cola.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36A87C325E6233C002C4432 /* Cola.swift */; };
 		B3EF2CFC25EE228600FBA7CC /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36A87A625E61B9A002C4432 /* Milk.swift */; };
 		B3EF2CFD25EE228600FBA7CC /* StrawberryMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36A87B525E62256002C4432 /* StrawberryMilk.swift */; };
+		B3EF2D0025EE2DAB00FBA7CC /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36A87DC25E63E14002C4432 /* Date.swift */; };
 		B3F5728625E3629300CFF095 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F5728525E3629300CFF095 /* AppDelegate.swift */; };
 		B3F5728825E3629300CFF095 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F5728725E3629300CFF095 /* SceneDelegate.swift */; };
 		B3F5728A25E3629300CFF095 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F5728925E3629300CFF095 /* ViewController.swift */; };
@@ -299,6 +300,7 @@
 				B3EF2CFC25EE228600FBA7CC /* Milk.swift in Sources */,
 				B3EF2CFD25EE228600FBA7CC /* StrawberryMilk.swift in Sources */,
 				B3EF2CF025EE227C00FBA7CC /* VendingMachine.swift in Sources */,
+				B3EF2D0025EE2DAB00FBA7CC /* Date.swift in Sources */,
 				B3EF2CF125EE227C00FBA7CC /* CashManagementSystem.swift in Sources */,
 				B3EF2CF225EE227C00FBA7CC /* Drinks.swift in Sources */,
 				B3EF2CF325EE227C00FBA7CC /* Beverage.swift in Sources */,

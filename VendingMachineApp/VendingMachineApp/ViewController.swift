@@ -8,10 +8,19 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    private var vendingMachine: VendingMachine
+    
+    required init?(coder: NSCoder) {
+        let list = [StrawberryMilk(), Fanta() , Cantata()]
+        self.vendingMachine = VendingMachine(beverages: list)
+        
+        super.init(coder: coder)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        vendingMachine.printBeverages()
     }
 
 

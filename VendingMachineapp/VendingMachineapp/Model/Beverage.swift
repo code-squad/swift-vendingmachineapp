@@ -7,9 +7,6 @@
 
 import Foundation
 
-let compareCalorie = 300
-let compareHot = 50
-
 class Beverage{
     private var manufacturer: String
     private var volume: Int
@@ -18,9 +15,9 @@ class Beverage{
     private var manufactured: Date
     private var expiryTime: Date
     private var calorie: Int
-    private var hot: Int
+    private var temperature: Int
     
-    init(manufacturer: String, volume: Int, price: Int, brand: String, manufactured: Date, expirydate: Date, calorie: Int, hot: Int) {
+    init(manufacturer: String, volume: Int, price: Int, brand: String, manufactured: Date, expirydate: Date, calorie: Int, temperature: Int) {
         self.manufacturer = manufacturer
         self.volume = volume
         self.price = price
@@ -28,15 +25,15 @@ class Beverage{
         self.manufactured = manufactured
         self.expiryTime = expirydate
         self.calorie = calorie
-        self.hot = hot
+        self.temperature = temperature
     }
     
-    func isLowCalorie() -> Bool {
-        return calorie <= compareCalorie
+    func isLowCalorie(with compare: Int) -> Bool {
+        return self.calorie <= compare
     }
     
-    func isHot() -> Bool {
-        return hot >= compareHot
+    func isHot(with compare: Int) -> Bool {
+        return self.temperature >= compare
     }
     
     func validateExpiryTime(with date: Date) -> Bool {

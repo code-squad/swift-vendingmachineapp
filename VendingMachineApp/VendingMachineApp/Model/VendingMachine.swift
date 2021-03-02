@@ -55,11 +55,11 @@ struct VendingMachine {
         return nil
     }
     
-    func checkBalance() -> InsertedMoney{
+    func nowBalanceOfVendingMachine() -> InsertedMoney{
         return insertedMoney
     }
     
-    func checkStock() -> [String: Int] {
+    func stockOfBeverages() -> [String: Int] {
         return beverages.countOfBeverages()
     }
     

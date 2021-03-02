@@ -20,7 +20,6 @@ class Milk: Drink {
         self.init(brand: "서울우유", volume: 200, charge: 830, name: "초코우유", manufacturing: Date.init().createRandomIn7days(), expirationLimit: 3)
     }
     
-    /// 지금과, date를 second까지 비교, date가 더 미래라면 true, else = false. 낮은 경우의 수로 지금과 date가 동일 시간이어도, false로 처리함.
     func isWithInExpiration() -> Bool {
         let lastDay = manufacturing.afterDays(days: expirationLimit)
         return lastDay.compareNowWith()

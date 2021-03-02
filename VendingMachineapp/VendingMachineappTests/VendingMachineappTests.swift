@@ -18,7 +18,7 @@ class VendingMachineappTests: XCTestCase {
                                          manufactured: Date.stringToDate(date: "20171009"),
                                          expirydate: Date.stringToDate(date: "20210227"),
                                          calorie: 200,
-                                         hot: false,
+                                         temperature: 10,
                                          lowFat: false)
         
         let chocoMilk = ChocoMilk(manufacturer: "서울우유",
@@ -27,7 +27,7 @@ class VendingMachineappTests: XCTestCase {
                                          manufactured: Date.stringToDate(date: "20201231"),
                                          expirydate: Date.stringToDate(date: "20210115"),
                                          calorie: 200,
-                                         hot: false,
+                                         temperature: 10,
                                          lowFat: false)
         
         let bananaMilk = BananaMilk(manufacturer: "서울우유",
@@ -36,7 +36,7 @@ class VendingMachineappTests: XCTestCase {
                                          manufactured: Date.stringToDate(date: "20210201"),
                                          expirydate: Date.stringToDate(date: "20200228"),
                                          calorie: 200,
-                                         hot: false,
+                                         temperature: 10,
                                          lowFat: true)
         
         let coke = Coke(manufacturer: "팹시",
@@ -46,7 +46,7 @@ class VendingMachineappTests: XCTestCase {
                               manufactured: Date.stringToDate(date: "20171005"),
                               expirydate: Date.stringToDate(date: "20221005"),
                               calorie: 100,
-                              hot: false,
+                              temperature: 10,
                               flavor: "콜라맛")
         
         let sprite = Sprite(manufacturer: "팹시",
@@ -56,7 +56,7 @@ class VendingMachineappTests: XCTestCase {
                               manufactured: Date.stringToDate(date: "20171005"),
                               expirydate: Date.stringToDate(date: "20221005"),
                               calorie: 250,
-                              hot: false,
+                              temperature: 10,
                               flavor: "사이다맛")
         
         let hwanta = Hwanta(manufacturer: "팹시",
@@ -66,7 +66,7 @@ class VendingMachineappTests: XCTestCase {
                               manufactured: Date.stringToDate(date: "20171005"),
                               expirydate: Date.stringToDate(date: "20221005"),
                               calorie: 300,
-                              hot: false,
+                              temperature: 10,
                               flavor: "환타맛")
         
         let top = Top(manufacturer: "맥심",
@@ -76,7 +76,7 @@ class VendingMachineappTests: XCTestCase {
                                  manufactured: Date.stringToDate(date: "20210110"),
                                  expirydate: Date.stringToDate(date: "20210330"),
                                  calorie: 350,
-                                 hot: true,
+                                 temperature: 20,
                                  caffeineContent: 20)
         
         let cantata = Cantata(manufacturer: "맥심",
@@ -86,7 +86,7 @@ class VendingMachineappTests: XCTestCase {
                                  manufactured: Date.stringToDate(date: "20171010"),
                                  expirydate: Date.stringToDate(date: "20211231"),
                                  calorie: 350,
-                                 hot: true,
+                                 temperature: 50,
                                  caffeineContent: 40)
         
         let georgia = Georgia(manufacturer: "맥심",
@@ -96,7 +96,7 @@ class VendingMachineappTests: XCTestCase {
                                  manufactured: Date.stringToDate(date: "20210203"),
                                  expirydate: Date.stringToDate(date: "20210227"),
                                  calorie: 400,
-                                 hot: true,
+                                 temperature: 10,
                                  caffeineContent: 50)
         
         let beverageList: [Beverage:Int] = [

@@ -17,26 +17,21 @@ class Drink : CustomStringConvertible, Hashable {
     private var hot: Bool
     private var calorie: Int
     
-    init() {
-        self.brand = ""
-        self.capacity = 0
-        self.price = 0
-        self.name = ""
-        self.manufacturedDate = Date()
-        self.expiration = Date()
-        self.hot = false
-        self.calorie = 0
-    }
+
     
-    init(brand: String, capacity: Int, price: Int, name: String, date: Date, expiration: Date, hot: Bool, calorie: Int){
+    init(brand: String, capacity: Int, price: Int, name: String, manufacturedDate: Date, expiration: Date, hot: Bool, calorie: Int){
         self.brand = brand
         self.capacity = capacity
         self.price = price
         self.name = name
-        self.manufacturedDate = date
+        self.manufacturedDate = manufacturedDate
         self.expiration = expiration
         self.hot = hot
         self.calorie = calorie
+    }
+    
+    convenience init() {
+        self.init(brand: "", capacity: 0, price: 0, name: "", manufacturedDate: Date(), expiration: Date(), hot: false, calorie: 0)
     }
     
     var description: String {

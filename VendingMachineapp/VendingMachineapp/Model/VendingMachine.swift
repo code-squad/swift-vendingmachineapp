@@ -8,15 +8,17 @@
 import Foundation
 
 struct VendingMachine {
+    
+    private var manager = VendingMachineManager()
     private var inventory = Inventory()
-    private var money: Int
+    private var money: Money
     
     init(money: Int) {
-        self.money = money
+        self.money = Money(with: money)
     }
     
     mutating func increaseMoney(money: Int) {
-        self.money += money
+        self.money.changeMoney(with: money)
     }
     
     func addBeverage(beverage: Beverage) {
@@ -24,28 +26,28 @@ struct VendingMachine {
     }
     
     func availablePurchaseList() -> [Beverage] {
-        return inventory.availablePurchaseList(money: money)
+        return manager.availablePurchaseList(inventory: inventory, money: money.checkChange())
     }
     
     mutating func purchaseBeverage(beverage: Beverage) {
-        inventory.subtractBeverage(beverage: beverage)
-        money -= beverage.price
+        manager.updatePurchaseList(inventory: inventory, beverage: beverage)
+        self.money.changeMoney(with: -beverage.price)
     }
     
     func checkChagne() -> Int {
-        return money
+        return money.checkChange()
     }
     
     func purchasedList() -> [Beverage] {
-        return inventory.purchasedList()
+        return manager.purchasedList()
     }
     
     func hotBeverageList() -> [Beverage] {
-        return inventory.hotBeverageList()
+        return manager.hotBeverageList(inventory: inventory)
     }
     
     func invalidateList(with date: Date) -> [Beverage] {
-        return inventory.invalidateList(with: date)
+        return manager.invalidateList(inventory: inventory, with: date)
     }
     
     func wholeBeverage() -> [Beverage:Int] {

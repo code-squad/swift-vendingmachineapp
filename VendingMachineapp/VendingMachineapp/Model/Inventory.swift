@@ -10,15 +10,13 @@ import Foundation
 class Inventory {
     
     private var inventory: [Beverage] = []
-    private var purchaseList: [Beverage] = []
-    private var purchaseHistory: [Beverage] = []
     
     func addBeverage(beverage: Beverage) {
         inventory.append(beverage)
     }
     
-    func subtractBeverage(beverage: Beverage) {
-        purchaseHistory.append( inventory.remove(at: searchBeverage(beverage: beverage)!) )
+    func subtractBeverage(beverage: Beverage) -> Beverage? {
+        return inventory.remove(at: searchBeverage(beverage: beverage)!)
     }
     
     func searchBeverage(beverage: Beverage) -> Int? {
@@ -35,48 +33,10 @@ class Inventory {
         })
     }
     
-    func availablePurchaseList(money: Int) -> [Beverage] {
-        purchaseList.removeAll()
-        
-        eachBeverage(handler: { (beverage) in
-            if beverage.isAvailablePurchase(with: money) {
-                if !purchaseList.contains(beverage) {
-                    purchaseList.append(beverage)
-                }
-            }
-        })
-        return purchaseList
-    }
-    
-    func purchasedList() -> [Beverage] {
-        return purchaseHistory
-    }
-    
-    func hotBeverageList() -> [Beverage] {
-        var list: [Beverage] = []
-        eachBeverage(handler: { (beverage) in
-            if beverage.isHot(with: 50) {
-                list.append(beverage)
-            }
-        })
-        return list
-    }
-    
-    func invalidateList(with date: Date) -> [Beverage] {
-        var list: [Beverage] = []
-        eachBeverage(handler: { (beverage) in
-            if !beverage.validateExpiryTime(with: date) {
-                list.append(beverage)
-            }
-        })
-        return list
-    }
-    
     func wholeBeverage() -> [Beverage:Int] {
         let list = inventory.map({$0}).reduce(into: [:]) { counts, name in
             counts[name, default: 0] += 1
         }
         return list
     }
-    
 }

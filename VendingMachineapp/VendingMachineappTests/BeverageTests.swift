@@ -21,7 +21,7 @@ class BeverageTests: XCTestCase {
                                          manufactured: Date.stringToDate(date: "20171009"),
                                          expirydate: Date.stringToDate(date: "20210228"),
                                          calorie: 200,
-                                         hot: false,
+                                         temperature: 10,
                                          lowFat: false)
         
         let milk2: Milk = StrawberryMilk(manufacturer: "서울우유",
@@ -30,7 +30,7 @@ class BeverageTests: XCTestCase {
                                          manufactured: Date.stringToDate(date: "20171009"),
                                          expirydate: Date.stringToDate(date: "20210220"),
                                          calorie: 200,
-                                         hot: false,
+                                         temperature: 10,
                                          lowFat: false)
         
         let soda: Soda = Coke(manufacturer: "팹시",
@@ -40,7 +40,7 @@ class BeverageTests: XCTestCase {
                               manufactured: Date.stringToDate(date: "20171005"),
                               expirydate: Date.stringToDate(date: "20221005"),
                               calorie: 100,
-                              hot: false,
+                              temperature: 10,
                               flavor: "콜라맛")
 
         let coffee: Coffee = Top(manufacturer: "맥심",
@@ -50,12 +50,12 @@ class BeverageTests: XCTestCase {
                                  manufactured: Date.stringToDate(date: "20171010"),
                                  expirydate: Date.stringToDate(date: "20211231"),
                                  calorie: 350,
-                                 hot: false,
+                                 temperature: 10,
                                  caffeineContent: 20)
         
-        XCTAssertEqual(milk1.isHot(), false)
+        XCTAssertEqual(milk1.isHot(with: 50), false)
         XCTAssertEqual(milk2.isLowFat(), false)
-        XCTAssertEqual(soda.isLowCalorie(), true)
-        XCTAssertEqual(coffee.validate(with: Date()), true)
+        XCTAssertEqual(soda.isLowCalorie(with: 300), true)
+        XCTAssertEqual(coffee.validateExpiryTime(with: Date()), true)
     }
 }

@@ -9,13 +9,6 @@ struct VendingMachine {
         beverages = Beverages()
     }
     
-    let beverageList = [ChocolateMilk(brand: .namyang, volume: 180, price: 1000, productName: "초코에몽", manufacturedDay: Date(), sellByDate: Date(), calories: 100, temparature: 0, farmCode: "1111", additive: "Chocolate"),
-                        StrawBerryMilk(brand: .seoul, volume: 180, price: 700, productName: "딸기꿀단지", manufacturedDay: Date(), sellByDate: Date(), calories: 90, temparature: 0, farmCode: "1111", additive: "StrawBerry"),
-                        Coke(brand: .coca, volume: 250, price: 1500, productName: "코카콜라 제로", manufacturedDay: Date(), sellByDate: Date(), calories: 0, temparature: 0, zeroCalories: true, flavor: .Original),
-                        Sprite(brand: .coca, volume: 190, price: 340, productName: "스프라이트", manufacturedDay: Date(), sellByDate: Date(), calories: 90, temparature: 0, zeroCalories: false, container: .Can),
-                        Top(brand: .maxim, volume: 380, price: 990, productName: "맥심TOP", manufacturedDay: Date(), sellByDate: Date(), calories: 80, temparature: 100, decaffeinated: false, dairyProducts: false),
-                        Cantata(brand: .lotte, volume: 500, price: 2000, productName: "칸타타콘트라베이스블랙", manufacturedDay: Date(), sellByDate: Date(), calories: 20, temparature: 100, decaffeinated: true, dairyProducts: false)]
-    
     mutating func addBeverage(beverage: Beverage) {
         beverages.append(from: beverage)
     }

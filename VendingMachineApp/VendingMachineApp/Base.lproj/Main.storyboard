@@ -88,6 +88,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MOY-4j-Cn9">
                                         <rect key="frame" x="370" y="0.0" width="30" height="30"/>
                                         <state key="normal" title="추가"/>
+                                        <connections>
+                                            <action selector="buttonForCokeStock:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8WT-pp-Caw"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -97,14 +100,23 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s72-Du-KQp">
                                         <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                         <state key="normal" title="추가"/>
+                                        <connections>
+                                            <action selector="buttonForSpriteStock:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Gx2-vG-Unp"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yIK-9J-sXw">
                                         <rect key="frame" x="185" y="0.0" width="30" height="30"/>
                                         <state key="normal" title="추가"/>
+                                        <connections>
+                                            <action selector="buttonForTOPStock:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ow7-p8-1pm"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="THj-TH-8lX">
                                         <rect key="frame" x="370" y="0.0" width="30" height="30"/>
                                         <state key="normal" title="추가"/>
+                                        <connections>
+                                            <action selector="buttonForCantataStock:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vVu-Tl-HHL"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -171,8 +183,12 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="stockInfoOfCantata" destination="Y4K-Xq-2Y2" id="4nQ-6J-1hp"/>
                         <outlet property="stockInfoOfChocolateMilk" destination="HEO-vW-Fx0" id="fyx-ni-awC"/>
+                        <outlet property="stockInfoOfCokeZero" destination="Si9-RU-5NP" id="it2-Rv-eSE"/>
+                        <outlet property="stockInfoOfSprite" destination="eBa-QO-jif" id="NgF-We-wt4"/>
                         <outlet property="stockInfoOfStrawBerryMilk" destination="OIL-eW-gw2" id="ZPk-we-jqL"/>
+                        <outlet property="stockInfoOfTOP" destination="uXJ-yv-dzt" id="cWu-KY-IOR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

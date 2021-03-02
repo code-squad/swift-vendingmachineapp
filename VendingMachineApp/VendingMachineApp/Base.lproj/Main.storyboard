@@ -74,10 +74,16 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P2r-Ob-5tv">
                                         <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                         <state key="normal" title="추가"/>
+                                        <connections>
+                                            <action selector="buttonForChocolateMilkStock:" destination="BYZ-38-t0r" eventType="touchUpInside" id="llH-u7-5VX"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DAh-os-nMQ">
                                         <rect key="frame" x="185" y="0.0" width="30" height="30"/>
                                         <state key="normal" title="추가"/>
+                                        <connections>
+                                            <action selector="buttonForStrawBerryMilkStock:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cyj-5R-npq"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MOY-4j-Cn9">
                                         <rect key="frame" x="370" y="0.0" width="30" height="30"/>
@@ -164,6 +170,10 @@
                             <constraint firstItem="NtE-Pt-fvL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="60" id="wtf-WV-jNn"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="stockInfoOfChocolateMilk" destination="HEO-vW-Fx0" id="fyx-ni-awC"/>
+                        <outlet property="stockInfoOfStrawBerryMilk" destination="OIL-eW-gw2" id="ZPk-we-jqL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

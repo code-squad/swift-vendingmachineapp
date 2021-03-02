@@ -11,8 +11,8 @@ struct VendingMachine {
     
     private var drinks : [Drink]
     
-    init() {
-        self.drinks = []
+    init(drinks: [Drink]) {
+        self.drinks = drinks
     }
     
     //MARK: 출력

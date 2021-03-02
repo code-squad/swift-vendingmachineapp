@@ -42,10 +42,6 @@ struct Machine {
         return beverageStorage.checkPurchasables(with: money)
     }
     
-    func showPurchasables2(handler: (Beverage) -> Void) {
-        beverageStorage.checkPurchasables2(handler: handler)
-    }
-    
     func showExpired() -> [Beverage: Int] {
         return beverageStorage.checkExpired()
     }

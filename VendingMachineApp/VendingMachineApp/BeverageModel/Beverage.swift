@@ -23,11 +23,8 @@ class Beverage {
     }
     
     public func isPurchasable(with money: Int) -> Bool {
-        if self.price <= money {
-            return true
-        } else {
-            return false
-        }
+        let result = self.price <= money ? true : false
+        return result
     }
     
     public func checkPrice() -> Int {

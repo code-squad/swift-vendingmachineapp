@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AEA4E0F925EE488700132E4E /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA4E0F825EE488700132E4E /* Milk.swift */; };
-		AEA4E0FC25EE48E800132E4E /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA4E0FB25EE48E800132E4E /* DateFormatter.swift */; };
+		AEA4E0FC25EE48E800132E4E /* DateConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA4E0FB25EE48E800132E4E /* DateConverter.swift */; };
 		AEA4E0FF25EE4A0B00132E4E /* Soda.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA4E0FE25EE4A0B00132E4E /* Soda.swift */; };
 		AEA4E10225EE611700132E4E /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA4E10125EE611700132E4E /* Coffee.swift */; };
 		AEA4E10625EE666500132E4E /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA4E10525EE666500132E4E /* VendingMachine.swift */; };
@@ -23,7 +23,7 @@
 
 /* Begin PBXFileReference section */
 		AEA4E0F825EE488700132E4E /* Milk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Milk.swift; sourceTree = "<group>"; };
-		AEA4E0FB25EE48E800132E4E /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
+		AEA4E0FB25EE48E800132E4E /* DateConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateConverter.swift; sourceTree = "<group>"; };
 		AEA4E0FE25EE4A0B00132E4E /* Soda.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Soda.swift; sourceTree = "<group>"; };
 		AEA4E10125EE611700132E4E /* Coffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
 		AEA4E10525EE666500132E4E /* VendingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachine.swift; sourceTree = "<group>"; };
@@ -57,7 +57,7 @@
 				AEA4E0F825EE488700132E4E /* Milk.swift */,
 				AEA4E0FE25EE4A0B00132E4E /* Soda.swift */,
 				AEA4E10125EE611700132E4E /* Coffee.swift */,
-				AEA4E0FB25EE48E800132E4E /* DateFormatter.swift */,
+				AEA4E0FB25EE48E800132E4E /* DateConverter.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -164,7 +164,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AEA4E0FF25EE4A0B00132E4E /* Soda.swift in Sources */,
-				AEA4E0FC25EE48E800132E4E /* DateFormatter.swift in Sources */,
+				AEA4E0FC25EE48E800132E4E /* DateConverter.swift in Sources */,
 				AEF6E0CA25E33FF500BBCFB9 /* ViewController.swift in Sources */,
 				AEF6E0C625E33FF500BBCFB9 /* AppDelegate.swift in Sources */,
 				AED7177525EE2B0E00655D88 /* Beverage.swift in Sources */,

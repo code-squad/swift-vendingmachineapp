@@ -31,4 +31,15 @@ class Beverages {
         }
         return stockList
     }
+    
+    func filterAvailable() -> [Beverage] {
+        let machine = VendingMachine()
+        var availableList = [Beverage]()
+        machine.beverages.forEachBeverage{ beverage in
+            if beverage.availableForBeverage() {
+                availableList.append(beverage)
+            }
+        }
+        return availableList
+    }
 }

@@ -36,7 +36,7 @@ extension VendingMachineViewController {
     }
     
     @IBAction func buttonForChocolateMilkStock(_ sender: Any) {
-        machine.addBeverage(beverage: Beverage(brand: .namyang, volume: 200, price: 1000, productName: "초코에몽", manufacturedDay: Date(), sellByDate: Date(), calories: 100, temparatureOfBeverage: 0))
+        machine.addBeverage(beverage: Beverage(brand: .namyang, volume: 200, price: 1000, productName: "초코에몽", manufacturedDay: Date(), sellByDate: Date(), calories: 100, temparature: 0))
         chocolateMilkeStockCount()
     }
     
@@ -52,7 +52,7 @@ extension VendingMachineViewController {
     }
     
     @IBAction func buttonForStrawBerryMilkStock(_ sender: Any) {
-        machine.addBeverage(beverage: Beverage(brand: .seoul, volume: 180, price: 900, productName: "딸기꿀단지", manufacturedDay: Date(), sellByDate: Date(), calories: 110, temparatureOfBeverage: 0))
+        machine.addBeverage(beverage: Beverage(brand: .seoul, volume: 180, price: 900, productName: "딸기꿀단지", manufacturedDay: Date(), sellByDate: Date(), calories: 110, temparature: 0))
         strawBerryMilkeStockCount()
     }
     

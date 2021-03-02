@@ -15,5 +15,6 @@ protocol BeverageFactory {
                                manufactured: Date,
                                expiryTime: Date,
                                calorie: Int,
-                               temperature: Int) -> Beverage?
+                               temperature: Int,
+                               ofType: Beverage.Type) -> Beverage?
 }

@@ -19,7 +19,8 @@ class VendingMachineappTests: XCTestCase {
                                          manufactured: Date.stringToDate(date: "20171009"),
                                          expiryTime: Date.stringToDate(date: "20210227"),
                                          calorie: 200,
-                                         temperature: 10)!
+                                         temperature: 10,
+                                         ofType: StrawberryMilk.self)!
         
         let chocoMilk = MilkFactory.createBeverage(
                                          manufacturer: "서울우유",
@@ -28,7 +29,8 @@ class VendingMachineappTests: XCTestCase {
                                          manufactured: Date.stringToDate(date: "20201231"),
                                          expiryTime: Date.stringToDate(date: "20210115"),
                                          calorie: 200,
-                                         temperature: 10)!
+                                         temperature: 10,
+                                         ofType: ChocoMilk.self)!
         
         let bananaMilk = MilkFactory.createBeverage(
                                          manufacturer: "서울우유",
@@ -37,7 +39,8 @@ class VendingMachineappTests: XCTestCase {
                                          manufactured: Date.stringToDate(date: "20210201"),
                                          expiryTime: Date.stringToDate(date: "20200228"),
                                          calorie: 200,
-                                         temperature: 10)!
+                                         temperature: 10,
+                                         ofType: BananaMilk.self)!
         
         let coke = SodaFactory.createBeverage(
                               manufacturer: "팹시",
@@ -47,7 +50,8 @@ class VendingMachineappTests: XCTestCase {
                               manufactured: Date.stringToDate(date: "20171005"),
                               expiryTime: Date.stringToDate(date: "20221005"),
                               calorie: 100,
-                              temperature: 10)!
+                              temperature: 10,
+                              ofType: Coke.self)!
         
         let sprite = SodaFactory.createBeverage(
                               manufacturer: "팹시",
@@ -57,9 +61,10 @@ class VendingMachineappTests: XCTestCase {
                               manufactured: Date.stringToDate(date: "20171005"),
                               expiryTime: Date.stringToDate(date: "20221005"),
                               calorie: 250,
-                              temperature: 10)!
+                              temperature: 10,
+                              ofType: Sprite.self)!
         
-        let hwanta = SodaFactory.createBeverage(
+        let fanta = SodaFactory.createBeverage(
                               manufacturer: "팹시",
                               volume: 350,
                               price: 1700,
@@ -67,7 +72,8 @@ class VendingMachineappTests: XCTestCase {
                               manufactured: Date.stringToDate(date: "20171005"),
                               expiryTime: Date.stringToDate(date: "20221005"),
                               calorie: 300,
-                              temperature: 10)!
+                              temperature: 10,
+                              ofType: Fanta.self)!
         
         let top = CoffeeFactory.createBeverage(
                                  manufacturer: "맥심",
@@ -77,7 +83,8 @@ class VendingMachineappTests: XCTestCase {
                                  manufactured: Date.stringToDate(date: "20210110"),
                                  expiryTime: Date.stringToDate(date: "20210330"),
                                  calorie: 350,
-                                 temperature: 20)!
+                                 temperature: 20,
+                                 ofType: Top.self)!
         
         let cantata = CoffeeFactory.createBeverage(manufacturer: "맥심",
                                  volume: 400,
@@ -86,7 +93,8 @@ class VendingMachineappTests: XCTestCase {
                                  manufactured: Date.stringToDate(date: "20171010"),
                                  expiryTime: Date.stringToDate(date: "20211231"),
                                  calorie: 350,
-                                 temperature: 50)!
+                                 temperature: 50,
+                                 ofType: Cantata.self)!
         
         let georgia = CoffeeFactory.createBeverage(manufacturer: "맥심",
                                  volume: 400,
@@ -95,7 +103,8 @@ class VendingMachineappTests: XCTestCase {
                                  manufactured: Date.stringToDate(date: "20210203"),
                                  expiryTime: Date.stringToDate(date: "20210227"),
                                  calorie: 400,
-                                 temperature: 10)!
+                                 temperature: 10,
+                                 ofType: Georgia.self)!
         
         let beverageList: [Beverage:Int] = [
             strawberryMilk : 3,
@@ -106,7 +115,7 @@ class VendingMachineappTests: XCTestCase {
             georgia : 1,
             coke : 2,
             sprite : 2,
-            hwanta : 1
+            fanta : 1
         ]
         machine.addBeverage(beverage: strawberryMilk)
         machine.addBeverage(beverage: strawberryMilk)
@@ -123,7 +132,7 @@ class VendingMachineappTests: XCTestCase {
         machine.addBeverage(beverage: coke)
         machine.addBeverage(beverage: sprite)
         machine.addBeverage(beverage: sprite)
-        machine.addBeverage(beverage: hwanta)
+        machine.addBeverage(beverage: fanta)
         
         XCTAssertEqual(machine.wholeBeverage(), beverageList)
 

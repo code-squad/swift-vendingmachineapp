@@ -22,7 +22,8 @@ class BeverageTests: XCTestCase {
                              manufactured: Date.stringToDate(date: "20171009"),
                              expiryTime: Date.stringToDate(date: "20210227"),
                              calorie: 200,
-                             temperature: 10)!
+                             temperature: 10,
+                             ofType: StrawberryMilk.self)!
         
         let coke = SodaFactory.createBeverage(
                             manufacturer: "팹시",
@@ -32,7 +33,8 @@ class BeverageTests: XCTestCase {
                             manufactured: Date.stringToDate(date: "20171005"),
                             expiryTime: Date.stringToDate(date: "20221005"),
                             calorie: 100,
-                            temperature: 10)!
+                            temperature: 10,
+                            ofType: Coke.self)!
 
         let top = CoffeeFactory.createBeverage(
                              manufacturer: "맥심",
@@ -42,7 +44,8 @@ class BeverageTests: XCTestCase {
                              manufactured: Date.stringToDate(date: "20210110"),
                              expiryTime: Date.stringToDate(date: "20210330"),
                              calorie: 350,
-                             temperature: 20)!
+                             temperature: 20,
+                             ofType: Top.self)!
         
         XCTAssertEqual(milk.isHot(with: 50), false)
         //XCTAssertEqual(milk.isLowFat(with: 200), false)

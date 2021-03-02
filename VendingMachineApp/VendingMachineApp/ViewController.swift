@@ -40,5 +40,11 @@ class ViewController: UIViewController {
             image.layer.cornerRadius = 30
         }
     }
+    
+    @IBAction func BalanceIncreaseButtonTouched(_ sender: BalanceIncreasable) {
+        sender.increase { money in
+            self.vendingMachine.putPayMoney(money: money)
+        }
+    }
 }
 

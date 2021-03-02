@@ -36,12 +36,4 @@ class SeoulStrawberryMilk: Milk, Productization {
     func isPastManufactured(with date: Date) -> Bool {
         return compareManufactured(during: 14, compareDate: date)
     }
-    
-    func isHot() -> Bool {
-        return false
-    }
-    
-    func isLowCalorie() -> Bool {
-        return false
-    }
 }

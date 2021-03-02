@@ -75,7 +75,7 @@ class VendingMachine {
     }
     
     func buy(with drink: Drink) -> Drink {
-        if !hasDrink(with: drink) || canBuy(with: drink){
+        if !hasDrink(with: drink) || !canBuy(with: drink){
             return Drink()
         }
         credit -= drink.price

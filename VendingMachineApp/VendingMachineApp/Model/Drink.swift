@@ -44,6 +44,14 @@ class Drink {
     public func perCapacity(of unit: Double) -> Double {
         return (unit / Double(capacity)) * 100
     }
+    
+    public func isHot() -> Bool {
+        return temperature >= 65
+    }
+    
+    public func isLowCalorie() -> Bool {
+        return (capacity / 100) * 20 < self.capacity
+    }
 }
 
 extension Drink: Hashable {

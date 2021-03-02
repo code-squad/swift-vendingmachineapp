@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE91CEB525EE5E8600515DF2 /* ChocoMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE91CEB425EE5E8600515DF2 /* ChocoMilk.swift */; };
+		CE91CEB825EEA5B400515DF2 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE91CEB725EEA5B400515DF2 /* Country.swift */; };
 		CE9547F925E76D5E0020A333 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9547F825E76D5E0020A333 /* AppDelegate.swift */; };
 		CE9547FB25E76D5E0020A333 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9547FA25E76D5E0020A333 /* SceneDelegate.swift */; };
 		CE9547FD25E76D5E0020A333 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9547FC25E76D5E0020A333 /* ViewController.swift */; };
@@ -25,6 +27,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE91CEB425EE5E8600515DF2 /* ChocoMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChocoMilk.swift; sourceTree = "<group>"; };
+		CE91CEB725EEA5B400515DF2 /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		CE9547F525E76D5E0020A333 /* VendinMachineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendinMachineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE9547F825E76D5E0020A333 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE9547FA25E76D5E0020A333 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -91,6 +95,7 @@
 			children = (
 				CE95481F25E7F0F10020A333 /* VendingMachine.swift */,
 				CE95482325E9611D0020A333 /* DateExtension.swift */,
+				CE91CEB725EEA5B400515DF2 /* Country.swift */,
 				CE95482625E974350020A333 /* Beverages */,
 			);
 			path = Model;
@@ -106,6 +111,7 @@
 				CE95482725E9747C0020A333 /* Coke.swift */,
 				CE95482A25E974A00020A333 /* BananaMilk.swift */,
 				CE95482D25E974C10020A333 /* TOP.swift */,
+				CE91CEB425EE5E8600515DF2 /* ChocoMilk.swift */,
 			);
 			path = Beverages;
 			sourceTree = "<group>";
@@ -180,11 +186,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE91CEB825EEA5B400515DF2 /* Country.swift in Sources */,
 				CE95481925E7EC840020A333 /* Soda.swift in Sources */,
 				CE9547FD25E76D5E0020A333 /* ViewController.swift in Sources */,
 				CE9547F925E76D5E0020A333 /* AppDelegate.swift in Sources */,
 				CE95482825E9747C0020A333 /* Coke.swift in Sources */,
 				CE95481325E777380020A333 /* Beverage.swift in Sources */,
+				CE91CEB525EE5E8600515DF2 /* ChocoMilk.swift in Sources */,
 				CE95482425E9611D0020A333 /* DateExtension.swift in Sources */,
 				CE95482B25E974A00020A333 /* BananaMilk.swift in Sources */,
 				CE95482E25E974C10020A333 /* TOP.swift in Sources */,

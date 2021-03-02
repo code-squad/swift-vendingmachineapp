@@ -30,7 +30,7 @@ class Drink: Hashable {
 
 extension Drink: CustomStringConvertible {
     var description: String {
-        let formattedDate = self.manufactured.toString()
+        let formattedDate = self.manufactured.toString(format: "yyyyMMdd")
         return "\(brand), \(capacity)ml, \(price)원, \(name), \(formattedDate)"
     }
 }

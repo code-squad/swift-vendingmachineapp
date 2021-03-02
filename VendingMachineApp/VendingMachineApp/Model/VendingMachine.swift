@@ -8,18 +8,18 @@
 import Foundation
 
 struct VendingMachine {
-    private var money : Int
+    private var money : SafeBox
     private var stock : Drinks
     private var purchased : Drinks
     
     init() {
-        self.money = 0
+        self.money = SafeBox.init(money: 0)
         self.stock = Drinks.init()
         self.purchased = Drinks.init()
     }
     
     mutating func insertMoney(howMuch inserted : Int) {
-        money += inserted
+        money.deposit(howMuch: inserted)
     }
     
     mutating func addStock(what product : Drink) {
@@ -30,7 +30,7 @@ struct VendingMachine {
         var canBuyArray = [Drink]()
         stock.doClosure(closure: { drinks in
             canBuyArray = drinks.filter() {
-                $0.canBuy(have: self.money)
+                $0.canBuy(have: money.checkBalance())
             }
         })
         return Set(canBuyArray.map(){String($0.name)}) // name만 나오도록 수정해야 함.
@@ -41,7 +41,7 @@ struct VendingMachine {
         do {
             let purchasedItem = try stock.remove(at: productType)
             purchased.addDrink(what: purchasedItem)
-            money = purchasedItem.payFor(with: money)
+            money.withdrawal(howMuch: purchasedItem.payFor())
         }
         catch {
             return false
@@ -50,7 +50,7 @@ struct VendingMachine {
     }
     
     func checkMoney() -> Int {
-        return money
+        return money.checkBalance()
     }
     
     func showStock() -> Dictionary<String,Int> {

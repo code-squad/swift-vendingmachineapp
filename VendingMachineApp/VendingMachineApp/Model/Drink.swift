@@ -51,7 +51,7 @@ class Drink: CustomStringConvertible, Hashable {
         return type(of: self) == productType
     }
     
-    func payFor(with money : Int) -> Int {
-        return money - charge
+    func payFor() -> Int {
+        return charge
     }
 }

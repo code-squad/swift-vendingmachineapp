@@ -17,13 +17,6 @@ class Drink: CustomStringConvertible, Hashable {
         hasher.combine(self.volume)
     }
     
-    var hashValue: Int {
-        var hasher = Hasher()
-        self.hash(into: &hasher)
-        return hasher.finalize()
-    }
-    
-    
     static func == (lhs: Drink, rhs: Drink) -> Bool {
         return lhs.brand == rhs.brand &&
             lhs.charge == rhs.charge &&

@@ -14,8 +14,8 @@ class Fanta: Soda {
     
     private let packageMaterial: PackageMaterial
     
-    init(manufacturer: String, volume: Int, name: String, dateOfManufacture: Date, price: Int, calorie: Int, packageMaterial: PackageMaterial, temperature: Int) {
+    init(manufacturer: String, volume: Int, name: String, dateOfManufacture: Date, price: Int, calorie: Int, packageMaterial: PackageMaterial, temperature: Int, sugarContent: Int, expiredAt: Date) {
         self.packageMaterial = packageMaterial
-        super.init(manufacturer: manufacturer, volume: volume, name: name, dateOfManufacture: dateOfManufacture, price: price, calorie: calorie, temperature: temperature)
+        super.init(manufacturer: manufacturer, volume: volume, name: name, dateOfManufacture: dateOfManufacture, price: price, calorie: calorie, temperature: temperature, sugarContent: sugarContent, expiredAt: expiredAt)
     }
 }

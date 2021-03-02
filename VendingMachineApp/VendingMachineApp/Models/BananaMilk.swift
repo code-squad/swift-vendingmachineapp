@@ -7,11 +7,11 @@
 
 import Foundation
 
-class BananaMilk: Milk {
-    private let isUnsweetened: Bool
+class BananaMilk: Milk  {
+    private let farmCode: String
     
-    init(manufacturer: String, volume: Int, name: String, dateOfManufacture: Date, price: Int, farmCode: String, expriryDate: Date, isUnsweetened: Bool, temperature: Int, calorie: Int) {
-        self.isUnsweetened = isUnsweetened
-        super.init(manufacturer: manufacturer, volume: volume, name: name, dateOfManufacture: dateOfManufacture, price: price, farmCode: farmCode, temperature: temperature, calorie: calorie)
+    init(manufacturer: String, volume: Int, name: String, dateOfManufacture: Date, price: Int, temperature: Int, calorie: Int, fatContent: Int, farmCode: String, expiredAt: Date) {
+        self.farmCode = farmCode
+        super.init(manufacturer: manufacturer, volume: volume, name: name, dateOfManufacture: dateOfManufacture, price: price, temperature: temperature, calorie: calorie, fatContent: fatContent, expiredAt: expiredAt)
     }
 }

@@ -14,7 +14,7 @@ extension Date {
         return dateFormatter
     }()
     
-    static func input(_ date: String) -> Date {
+    static func convertToDate(_ date: String) -> Date {
         return Date.dateFormatter.date(from: date) ?? Date()
     }
     var description: String {

@@ -5,7 +5,7 @@ class Beverage {
     private var brand: Brand.Name
     private var volume: Int
     private var price: Int
-    private var productName: String
+    private(set) var productName: String
     private var manufacturedAt: Date
     private var sellByDate: Date
     private var calories: Int
@@ -22,12 +22,6 @@ class Beverage {
         self.temparatureOfBeverage = temparatureOfBeverage
     }
     
-    private func dateToString(with date: Date) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyyMMDD"
-        return dateFormatter.string(from: date)
-    }
-    
     func availableForBeverage() -> Bool {
         let machine = VendingMachine()
         return machine.insertedMoney >= price ? true : false
@@ -38,8 +32,8 @@ class Beverage {
         machine.insertedMoney -= price
     }
     
-    func canbuy() -> String {
-        return productName
+    func sellingBeverageList(compare product: String) -> Bool {
+        return product == productName ? true : false
     }
     
 }
@@ -78,6 +72,16 @@ extension Beverage: CheckBeverageInfo {
 extension Beverage: Equatable {
     
     public static func == (lhs: Beverage, rhs: Beverage) -> Bool {
-        return lhs.canbuy() == rhs.canbuy()
+        return lhs.productName == rhs.productName
     }
+}
+
+extension Beverage {
+    
+    private func dateToString(with date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyyMMDD"
+        return dateFormatter.string(from: date)
+    }
+    
 }

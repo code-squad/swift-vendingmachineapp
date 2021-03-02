@@ -40,7 +40,7 @@ struct VendingMachine {
     mutating func buyBeverage(productName: String) -> [Beverage]{
         var buyingProduct = [Beverage]()
         beverages.forEachBeverage{
-            if $0.canbuy() == productName {
+            if $0.sellingBeverageList(compare: productName){
                 if $0.availableForBeverage() {
                     beverages.removeProduct($0)
                     $0.afterBuyingBeverage()

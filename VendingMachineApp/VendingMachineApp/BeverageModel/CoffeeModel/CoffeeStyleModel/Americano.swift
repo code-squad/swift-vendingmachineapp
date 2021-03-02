@@ -25,7 +25,7 @@ class Americano: Coffee & EnergyBoostable {
         return inHeatingCabinet
     }
     
-    func boostEnerge() -> Bool {
+    func isEnergyBoosting() -> Bool {
         return highCaffeine() && isHot()
     }
 }

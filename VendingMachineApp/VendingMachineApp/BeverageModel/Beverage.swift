@@ -37,7 +37,7 @@ class Beverage {
     public func isExpired() -> Bool {
         let oneDayInSeconds: Double = 86400
         let expiringDateFromPackDate: Double = 60
-        return Date() > packDate.addingTimeInterval(oneDayInSeconds * expiringDateFromPackDate)
+        return Date() >= packDate.addingTimeInterval(oneDayInSeconds * expiringDateFromPackDate)
     }
 }
 

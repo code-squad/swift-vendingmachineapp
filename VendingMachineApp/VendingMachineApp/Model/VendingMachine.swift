@@ -16,11 +16,8 @@ struct VendingMachine {
                         Top(brand: .maxim, volume: 380, price: 990, productName: "맥심TOP", manufacturedDay: Date(), sellByDate: Date(), calories: 80, temparatureOfBeverage: 100, decaffeinated: false, dairyProducts: false),
                         Cantata(brand: .lotte, volume: 500, price: 2000, productName: "칸타타콘트라베이스블랙", manufacturedDay: Date(), sellByDate: Date(), calories: 20, temparatureOfBeverage: 100, decaffeinated: true, dairyProducts: false)]
     
-    mutating func addBeverage(count: Int) {
-        for i in 0..<count {
-            let idx = i % beverageList.count
-            beverages.append(from: beverageList[idx])
-        }
+    mutating func addBeverage(beverage: Beverage) {
+        beverages.append(from: beverage)
     }
     
     mutating func getTheMoney(from customer: Int) {

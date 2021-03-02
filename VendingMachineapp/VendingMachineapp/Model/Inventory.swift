@@ -65,7 +65,7 @@ class Inventory {
     func invalidateList(with date: Date) -> [Beverage] {
         var list: [Beverage] = []
         eachBeverage(handler: { (beverage) in
-            if !beverage.validate(with: date) {
+            if !beverage.validateExpiryTime(with: date) {
                 list.append(beverage)
             }
         })

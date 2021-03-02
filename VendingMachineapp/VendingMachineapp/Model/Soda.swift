@@ -10,7 +10,7 @@ import Foundation
 class Soda: Beverage {
     private var flavor: String
     
-    init(manufacturer: String, volume: Int, price: Int, brand: String, manufactured: Date, expirydate: Date, calorie: Int, hot: Bool, flavor: String) {
+    init(manufacturer: String, volume: Int, price: Int, brand: String, manufactured: Date, expirydate: Date, calorie: Int, hot: Int, flavor: String) {
         self.flavor = flavor
         super.init(manufacturer: manufacturer,
                    volume: volume,

@@ -17,12 +17,17 @@ class Beverage: CustomStringConvertible {
     private var price: Int
     private var name: String
     private var dateOfManufacture: Date
-    init(brand: String, capacity: Int, price: Int, name: String, date: Date) {
+    private var expirationDate: Date
+    private var temperature: Double
+    
+    init(brand: String, capacity: Int, price: Int, name: String, dateOfManufacture: Date, expirationDate: Date, temperature: Double) {
         self.brand = brand
         self.capacity = capacity
         self.price = price
         self.name = name
-        self.dateOfManufacture = date
+        self.dateOfManufacture = dateOfManufacture
+        self.expirationDate = expirationDate
+        self.temperature = temperature
     }
     
     func isAvailablePurchase(with cash: Int) -> Bool{

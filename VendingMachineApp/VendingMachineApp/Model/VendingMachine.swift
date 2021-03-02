@@ -46,4 +46,7 @@ class VendingMachine {
     func showExpiredStock() -> [Beverage] {
         drinks.giveExpiredList()
     }
+    func showHotBeverageList() -> [Beverage] {
+        
+    }
 }

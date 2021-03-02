@@ -8,9 +8,9 @@
 import Foundation
 
 enum BeverageCategory {
-    case milk
-    case softDrink
-    case coffee
+    case Milk
+    case Soda
+    case Coffee
 }
 
 class Beverage: CustomStringConvertible {

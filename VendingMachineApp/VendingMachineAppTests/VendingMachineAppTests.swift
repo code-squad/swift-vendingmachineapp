@@ -8,25 +8,51 @@
 import XCTest
 
 class VendingMachineAppTests: XCTestCase {
-
+    var vendingMachine = VendingMachine()
+    
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        vendingMachine = VendingMachine()
     }
 
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
     func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
 
     func testPerformanceExample() throws {
-        // This is an example of a performance test case.
         measure {
-            // Put the code you want to measure the time of here.
         }
+    }
+    
+    func test_50원입력_남은크레딧출력() {
+        vendingMachine.insertCoin(coin: .fifty)
+        XCTAssertEqual(vendingMachine.nowCredit(), 50)
+    }
+    
+    func test_50원입력_다른크레딧출력() {
+        vendingMachine.insertCoin(coin: .fifty)
+        XCTAssertNotEqual(vendingMachine.nowCredit(), 100)
+        XCTAssertNotEqual(vendingMachine.nowCredit(), 500)
+    }
+    
+    
+    func test_딸기우유입력후구매() {
+        let drink = StrawberryMilk(date: Date().date("20210220"), lowFat: false, container: .bottle, expiration: Date().date("20210310"), hot: false, calorie: 250)
+        vendingMachine.append(drink)
+        vendingMachine.insertCoin(coin: .fifvethousand)
+        let buyDrink = vendingMachine.buy(with: drink)
+        
+        XCTAssertEqual(buyDrink, drink)
+    }
+    
+    
+    func test_상품구매로그() {
+        let drink = StrawberryMilk(date: Date().date("20210220"), lowFat: false, container: .bottle, expiration: Date().date("20210310"), hot: false, calorie: 250)
+        vendingMachine.append(drink)
+        vendingMachine.insertCoin(coin: .fifvethousand)
+        _ = vendingMachine.buy(with: drink)
+        XCTAssertEqual(vendingMachine.showLog(), ["서울우유, 300ml, 1800원, Strawberry Milk Bottle, 20210220"])
     }
 
 }

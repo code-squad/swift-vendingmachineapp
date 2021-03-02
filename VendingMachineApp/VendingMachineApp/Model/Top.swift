@@ -9,4 +9,10 @@ import Foundation
 
 class Top: Coffee {
     
+    private var temperature: Double
+    
+    init(brand: String, volume: Int, price: Int, name: String, manufacturedAt: Date, caffeineContent: Int, temperature: Double) {
+        self.temperature = temperature
+        super.init(brand: brand, volume: volume, price: price, name: name, manufacturedAt: manufacturedAt, caffeineContent: caffeineContent)
+    }
 }

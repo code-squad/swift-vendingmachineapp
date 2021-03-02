@@ -39,6 +39,7 @@
 		7197E41525E8CDDB0055EC73 /* Top.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719F18BA25E76F0300671D77 /* Top.swift */; };
 		7197E41825E8CDDE0055EC73 /* IsDairyProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719F18C425E774F800671D77 /* IsDairyProducts.swift */; };
 		7197E41B25E8CDE10055EC73 /* Brand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717DE51A25E5E369004B2269 /* Brand.swift */; };
+		719D9A8025EE1ED000785009 /* Image in Resources */ = {isa = PBXBuildFile; fileRef = 719D9A7F25EE1ED000785009 /* Image */; };
 		719F18B225E769B900671D77 /* CheckAdditive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719F18B125E769B900671D77 /* CheckAdditive.swift */; };
 		719F18B525E76E0E00671D77 /* Coke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719F18B425E76E0E00671D77 /* Coke.swift */; };
 		719F18B825E76E4800671D77 /* Sprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719F18B725E76E4800671D77 /* Sprite.swift */; };
@@ -81,6 +82,7 @@
 		7197E3E025E8BD4E0055EC73 /* VendingMachineAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineAppTests.swift; sourceTree = "<group>"; };
 		7197E3E225E8BD4E0055EC73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7197E3ED25E8CB650055EC73 /* VendingMachineTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineTest.swift; sourceTree = "<group>"; };
+		719D9A7F25EE1ED000785009 /* Image */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Image; path = ../../Image; sourceTree = "<group>"; };
 		719F18B125E769B900671D77 /* CheckAdditive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckAdditive.swift; sourceTree = "<group>"; };
 		719F18B425E76E0E00671D77 /* Coke.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coke.swift; sourceTree = "<group>"; };
 		719F18B725E76E4800671D77 /* Sprite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sprite.swift; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 		717DE4FA25E5E0A6004B2269 /* VendingMachineApp */ = {
 			isa = PBXGroup;
 			children = (
+				719D9A7F25EE1ED000785009 /* Image */,
 				717DE51125E5E254004B2269 /* Model */,
 				717DE4FB25E5E0A6004B2269 /* AppDelegate.swift */,
 				717DE4FD25E5E0A6004B2269 /* SceneDelegate.swift */,
@@ -257,6 +260,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				719D9A8025EE1ED000785009 /* Image in Resources */,
 				717DE50825E5E0A8004B2269 /* LaunchScreen.storyboard in Resources */,
 				717DE50525E5E0A8004B2269 /* Assets.xcassets in Resources */,
 				717DE50325E5E0A6004B2269 /* Main.storyboard in Resources */,

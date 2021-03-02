@@ -35,6 +35,7 @@
 		D46F1B1125EE16BE00BFBD9C /* Money.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46F1B1025EE16BE00BFBD9C /* Money.swift */; };
 		D46F1B1525EE220E00BFBD9C /* BeverageFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46F1B1425EE220E00BFBD9C /* BeverageFactory.swift */; };
 		D46F1B1925EE223A00BFBD9C /* MilkFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46F1B1825EE223A00BFBD9C /* MilkFactory.swift */; };
+		D46F1B1D25EE2A3900BFBD9C /* CoffeeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46F1B1C25EE2A3900BFBD9C /* CoffeeFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,7 @@
 		D46F1B1025EE16BE00BFBD9C /* Money.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Money.swift; sourceTree = "<group>"; };
 		D46F1B1425EE220E00BFBD9C /* BeverageFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageFactory.swift; sourceTree = "<group>"; };
 		D46F1B1825EE223A00BFBD9C /* MilkFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MilkFactory.swift; sourceTree = "<group>"; };
+		D46F1B1C25EE2A3900BFBD9C /* CoffeeFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +158,7 @@
 				D46F1B1025EE16BE00BFBD9C /* Money.swift */,
 				D46F1B1425EE220E00BFBD9C /* BeverageFactory.swift */,
 				D46F1B1825EE223A00BFBD9C /* MilkFactory.swift */,
+				D46F1B1C25EE2A3900BFBD9C /* CoffeeFactory.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 				D46F1A4025E62A3200BFBD9C /* ViewController.swift in Sources */,
 				D46F1A6F25E6A52B00BFBD9C /* Inventory.swift in Sources */,
 				D46F1A9125E8C1E000BFBD9C /* Coke.swift in Sources */,
+				D46F1B1D25EE2A3900BFBD9C /* CoffeeFactory.swift in Sources */,
 				D46F1A3C25E62A3200BFBD9C /* AppDelegate.swift in Sources */,
 				D46F1A5325E6323700BFBD9C /* Beverage.swift in Sources */,
 				D46F1A8525E8BE9200BFBD9C /* Cantata.swift in Sources */,

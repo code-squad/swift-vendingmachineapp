@@ -30,7 +30,7 @@ struct VendingMachine {
     func nowAvailableList() -> [Beverage] {
         var availableList = [Beverage]()
         beverages.forEachBeverage{
-            if $0.checkPrice() <= insertedMoney {
+            if $0.availableForBeverage() {
                 availableList.append($0)
             }
         }
@@ -41,9 +41,9 @@ struct VendingMachine {
         var buyingProduct = [Beverage]()
         beverages.forEachBeverage{
             if $0.canbuy() == productName {
-                if $0.checkPrice() <= insertedMoney {
+                if $0.availableForBeverage() {
                     beverages.removeProduct($0)
-                    insertedMoney -= $0.checkPrice()
+                    $0.afterBuyingBeverage()
                     buyingProduct.append($0)
                 }
             }

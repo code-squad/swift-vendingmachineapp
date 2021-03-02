@@ -24,12 +24,12 @@ class Beverage {
     
     func availableForBeverage() -> Bool {
         let machine = VendingMachine()
-        return machine.insertedMoney >= price ? true : false
+        return machine.insertedMoney.compareMoney(to: price) == true ? true : false
     }
     
     func afterBuyingBeverage() {
-        var machine = VendingMachine()
-        machine.insertedMoney -= price
+        let machine = VendingMachine()
+        machine.insertedMoney.afterBuyingProduct(minus: price)
     }
     
     func sellingBeverageList(compare product: String) -> Bool {

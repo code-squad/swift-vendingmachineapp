@@ -17,7 +17,7 @@ class VendingMachineappTests: XCTestCase {
                                          volume: 200, price: 1000,
                                          brand: "날마다딸기우유",
                                          manufactured: Date.stringToDate(date: "20171009"),
-                                         expiryTime: Date.stringToDate(date: "20210227"),
+                                         expiry: Date.stringToDate(date: "20210227"),
                                          calorie: 200,
                                          temperature: 10,
                                          ofType: StrawberryMilk.self)!
@@ -27,7 +27,7 @@ class VendingMachineappTests: XCTestCase {
                                          volume: 200, price: 1100,
                                          brand: "날마다초코우유",
                                          manufactured: Date.stringToDate(date: "20201231"),
-                                         expiryTime: Date.stringToDate(date: "20210115"),
+                                         expiry: Date.stringToDate(date: "20210115"),
                                          calorie: 200,
                                          temperature: 10,
                                          ofType: ChocoMilk.self)!
@@ -37,7 +37,7 @@ class VendingMachineappTests: XCTestCase {
                                          volume: 200, price: 1200,
                                          brand: "날마다바나나우유",
                                          manufactured: Date.stringToDate(date: "20210201"),
-                                         expiryTime: Date.stringToDate(date: "20200228"),
+                                         expiry: Date.stringToDate(date: "20200228"),
                                          calorie: 200,
                                          temperature: 10,
                                          ofType: BananaMilk.self)!
@@ -48,7 +48,7 @@ class VendingMachineappTests: XCTestCase {
                               price: 2000,
                               brand: "다이어트콜라",
                               manufactured: Date.stringToDate(date: "20171005"),
-                              expiryTime: Date.stringToDate(date: "20221005"),
+                              expiry: Date.stringToDate(date: "20221005"),
                               calorie: 100,
                               temperature: 10,
                               ofType: Coke.self)!
@@ -59,7 +59,7 @@ class VendingMachineappTests: XCTestCase {
                               price: 1500,
                               brand: "스프라이트",
                               manufactured: Date.stringToDate(date: "20171005"),
-                              expiryTime: Date.stringToDate(date: "20221005"),
+                              expiry: Date.stringToDate(date: "20221005"),
                               calorie: 250,
                               temperature: 10,
                               ofType: Sprite.self)!
@@ -70,7 +70,7 @@ class VendingMachineappTests: XCTestCase {
                               price: 1700,
                               brand: "환타",
                               manufactured: Date.stringToDate(date: "20171005"),
-                              expiryTime: Date.stringToDate(date: "20221005"),
+                              expiry: Date.stringToDate(date: "20221005"),
                               calorie: 300,
                               temperature: 10,
                               ofType: Fanta.self)!
@@ -81,7 +81,7 @@ class VendingMachineappTests: XCTestCase {
                                  price: 3500,
                                  brand: "TOP아메리카노",
                                  manufactured: Date.stringToDate(date: "20210110"),
-                                 expiryTime: Date.stringToDate(date: "20210330"),
+                                 expiry: Date.stringToDate(date: "20210330"),
                                  calorie: 350,
                                  temperature: 20,
                                  ofType: Top.self)!
@@ -91,7 +91,7 @@ class VendingMachineappTests: XCTestCase {
                                  price: 3000,
                                  brand: "칸타타",
                                  manufactured: Date.stringToDate(date: "20171010"),
-                                 expiryTime: Date.stringToDate(date: "20211231"),
+                                 expiry: Date.stringToDate(date: "20211231"),
                                  calorie: 350,
                                  temperature: 50,
                                  ofType: Cantata.self)!
@@ -101,7 +101,7 @@ class VendingMachineappTests: XCTestCase {
                                  price: 500,
                                  brand: "조지아",
                                  manufactured: Date.stringToDate(date: "20210203"),
-                                 expiryTime: Date.stringToDate(date: "20210227"),
+                                 expiry: Date.stringToDate(date: "20210227"),
                                  calorie: 400,
                                  temperature: 10,
                                  ofType: Georgia.self)!

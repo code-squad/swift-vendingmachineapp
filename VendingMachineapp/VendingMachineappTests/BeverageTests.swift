@@ -20,7 +20,7 @@ class BeverageTests: XCTestCase {
                              volume: 200, price: 1000,
                              brand: "날마다딸기우유",
                              manufactured: Date.stringToDate(date: "20171009"),
-                             expiryTime: Date.stringToDate(date: "20210227"),
+                             expiry: Date.stringToDate(date: "20210227"),
                              calorie: 200,
                              temperature: 10,
                              ofType: StrawberryMilk.self)!
@@ -31,7 +31,7 @@ class BeverageTests: XCTestCase {
                             price: 2000,
                             brand: "다이어트콜라",
                             manufactured: Date.stringToDate(date: "20171005"),
-                            expiryTime: Date.stringToDate(date: "20221005"),
+                            expiry: Date.stringToDate(date: "20221005"),
                             calorie: 100,
                             temperature: 10,
                             ofType: Coke.self)!
@@ -42,7 +42,7 @@ class BeverageTests: XCTestCase {
                              price: 3500,
                              brand: "TOP아메리카노",
                              manufactured: Date.stringToDate(date: "20210110"),
-                             expiryTime: Date.stringToDate(date: "20210330"),
+                             expiry: Date.stringToDate(date: "20210330"),
                              calorie: 350,
                              temperature: 20,
                              ofType: Top.self)!

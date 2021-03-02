@@ -13,7 +13,7 @@ protocol BeverageFactory {
                                price: Int,
                                brand: String,
                                manufactured: Date,
-                               expiryTime: Date,
+                               expiry: Date,
                                calorie: Int,
                                temperature: Int,
                                ofType: Beverage.Type) -> Beverage?

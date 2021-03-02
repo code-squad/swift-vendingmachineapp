@@ -10,14 +10,14 @@ import Foundation
 class Fanta: Soda {
     private var color: String
     
-    init(manufacturer: String, volume: Int, price: Int, brand: String, manufactured: Date, expiryTime: Date, calorie: Int, temperature: Int, flavor: String, color: String) {
+    init(manufacturer: String, volume: Int, price: Int, brand: String, manufactured: Date, expiry: Date, calorie: Int, temperature: Int, flavor: String, color: String) {
         self.color = color
         super.init(manufacturer: manufacturer,
                    volume: volume,
                    price: price,
                    brand: brand,
                    manufactured: manufactured,
-                   expiryTime: expiryTime,
+                   expiry: expiry,
                    calorie: calorie,
                    temperature: temperature,
                    flavor: flavor)

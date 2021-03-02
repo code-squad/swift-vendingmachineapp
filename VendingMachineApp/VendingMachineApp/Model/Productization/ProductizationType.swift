@@ -1,6 +1,6 @@
 import Foundation
 
-enum KinkOfDrink: String {
+enum ProductizationType: String {
     case blueBottleColdBrew = "BlueBottle Cold Brew"
     case starBucksColdBrew = "StarBucks Cold Brew"
     case seoulStrawberryMilk = "서울 우유 딸기맛"

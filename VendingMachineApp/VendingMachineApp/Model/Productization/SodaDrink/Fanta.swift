@@ -8,7 +8,7 @@ class Fanta: Soda, Productization {
     
     private(set) var flavor: Flavor
     
-    init(flavor: Flavor = .orange, manufactured: Date = Date()) {
+    init(flavor: Flavor, manufactured: Date) {
         self.flavor = flavor
         
         super.init(brand: "Coca-Cola",
@@ -17,6 +17,10 @@ class Fanta: Soda, Productization {
                    name: "Fanta",
                    isZeroCalorie: false,
                    manufactured: manufactured)
+    }
+    
+    convenience init() {
+        self.init(flavor: .orange, manufactured: Date())
     }
     
     func validate(with date: Date) -> Bool {

@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import VendingMachineApp
+//@testable import VendingMachineApp
 
 class VendingMachineAppTests: XCTestCase {
     var stock: StockDrink!
@@ -24,6 +24,7 @@ class VendingMachineAppTests: XCTestCase {
         super.tearDown()
     }
     
+    // 통합 테스트 시나리오
     func testVendingMachineScenario() {
         let blueBottle = DrinkFactory.makeDrink(of: .blueBottleColdBrew)
         let starbucks = DrinkFactory.makeDrink(of: .starBucksColdBrew)
@@ -31,7 +32,9 @@ class VendingMachineAppTests: XCTestCase {
         let bananaMilk = DrinkFactory.makeDrink(of: .bingBananaMilk)
         let sanpellegrino = DrinkFactory.makeDrink(of: .sanpellegrino)
         let fanta = DrinkFactory.makeDrink(of: .fanta, manufactured: Date() - 365)
-        let weirdSoda = Soda(brand: "탄산회사", capacity: 500, price: 1500, name: "정체모를 탄산수", isZeroCalorie: true)
+        
+        // Productization을 채택하지 않은 Soda 클래스
+        let weirdSoda = Soda(brand: "탄산회사", capacity: 500, price: 1500, name: "정체모를 탄산수", isZeroCalorie: true, manufactured: Date())
         
         vendingMachine.addDrink(blueBottle)
         vendingMachine.addDrink(starbucks)
@@ -44,11 +47,9 @@ class VendingMachineAppTests: XCTestCase {
         XCTAssertEqual(vendingMachine.showStock(),
                        [blueBottle: 1, starbucks: 1, seoulMilk: 1, bananaMilk: 1, sanpellegrino: 1, fanta: 1])
         
-        XCTAssertEqual(vendingMachine.findWarmDrinks(),
-                       [])
+        XCTAssertEqual(vendingMachine.findWarmDrinks(), [])
         
-        XCTAssertEqual(vendingMachine.findExpiredDrinks(),
-                       [fanta])
+        XCTAssertEqual(vendingMachine.findExpiredDrinks(), [fanta])
         
         vendingMachine.insertCoin(1000)
         

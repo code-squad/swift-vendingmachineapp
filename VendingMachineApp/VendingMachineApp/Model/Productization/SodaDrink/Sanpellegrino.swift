@@ -3,7 +3,7 @@ import Foundation
 class Sanpellegrino: Soda, Productization {
     private(set) var isPackageRenewaled: Bool
     
-    init(isPackageRenewaled: Bool = true, manufactured: Date = Date()) {
+    init(isPackageRenewaled: Bool, manufactured: Date) {
         self.isPackageRenewaled = isPackageRenewaled
         super.init(brand: "Sanpellegrino S.P.A",
                    capacity: 750,
@@ -11,6 +11,10 @@ class Sanpellegrino: Soda, Productization {
                    name: "Sanpellegrino",
                    isZeroCalorie: true,
                    manufactured: manufactured)
+    }
+    
+    convenience init() {
+        self.init(isPackageRenewaled: true, manufactured: Date())
     }
     
     func validate(with date: Date) -> Bool {

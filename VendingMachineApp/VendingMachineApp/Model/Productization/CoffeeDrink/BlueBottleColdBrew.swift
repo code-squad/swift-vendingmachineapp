@@ -9,7 +9,7 @@ class BlueBottleColdBrew: Coffee, Productization {
     private(set) var flavor: Flavor
     
     
-    init(flavor: Flavor = .bold, manufactured: Date = Date()) {
+    init(flavor: Flavor, manufactured: Date) {
         self.flavor = flavor
         
         super.init(brand: "BlueBottle",
@@ -18,6 +18,10 @@ class BlueBottleColdBrew: Coffee, Productization {
                    name: "BlueBottle Cold Brew",
                    isDecaffeinated: false,
                    manufactured: manufactured)
+    }
+    
+    convenience init() {
+        self.init(flavor: .bright, manufactured: Date())
     }
     
     func validate(with date: Date) -> Bool {

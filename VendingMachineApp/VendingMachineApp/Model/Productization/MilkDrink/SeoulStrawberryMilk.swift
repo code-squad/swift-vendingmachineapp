@@ -3,7 +3,7 @@ import Foundation
 class SeoulStrawberryMilk: Milk, Productization {
     private(set) var isWithStraw: Bool
     
-    init(isWithStraw: Bool = true, manufactured: Date = Date()) {
+    init(isWithStraw: Bool, manufactured: Date) {
         self.isWithStraw = isWithStraw
         
         super.init(brand: "서울 우유",
@@ -12,6 +12,10 @@ class SeoulStrawberryMilk: Milk, Productization {
                    name: "서울 우유 딸기맛",
                    isLowFatMilk: false,
                    manufactured: manufactured)
+    }
+    
+    convenience init() {
+        self.init(isWithStraw: false, manufactured: Date())
     }
     
     func validate(with date: Date) -> Bool {

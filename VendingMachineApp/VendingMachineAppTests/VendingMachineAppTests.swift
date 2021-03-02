@@ -9,12 +9,12 @@ import XCTest
 //@testable import VendingMachineApp
 
 class VendingMachineAppTests: XCTestCase {
-    var stock: StockDrink!
+    var stock: StockManageable!
     var vendingMachine: VendingMachine!
     
     override func setUp() {
         super.setUp()
-        stock = StockDrink()
+        stock = Stock()
         vendingMachine = VendingMachine(stock: stock)
     }
     

@@ -12,7 +12,7 @@ class Stock: StockManageable {
     }
 
     public func addedDrink(_ drink: Drink) {
-        if !checkProductization(of: drink) { return }
+        guard checkProductization(of: drink) else { return }
         stock.append(drink)
     }
 
@@ -25,7 +25,7 @@ class Stock: StockManageable {
     }
 
     public func purchased(_ drink: Drink, checkCoin: (Drink) -> Drink?) -> Drink? {
-        if !checkProductization(of: drink) { return nil }
+        guard checkProductization(of: drink) else { return nil }
         return checkCoin(drink)
     }
 
@@ -34,7 +34,7 @@ class Stock: StockManageable {
         for drink in self.stock {
             guard let drinkProduct = drink as? Productization else { continue }
             let now = Date()
-            if !drinkProduct.isPastManufactured(with: now) {
+            if drinkProduct.validManufactured(with: now) {
                 disuseStock.append(drink)
             }
         }

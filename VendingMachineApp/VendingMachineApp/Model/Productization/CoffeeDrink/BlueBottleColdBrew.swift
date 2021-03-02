@@ -45,8 +45,8 @@ class BlueBottleColdBrew: Coffee, Productization {
                    calorie: 0)
     }
     
-    func isPastManufactured(with date: Date) -> Bool {
-        return compareManufactured(during: 180, compareDate: date)
+    func validManufactured(with date: Date) -> Bool {
+        return isDrinkableFromManufactured(during: 180, compareDate: date)
     }
 }
 

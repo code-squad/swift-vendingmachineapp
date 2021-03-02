@@ -45,7 +45,7 @@ class Fanta: Soda, Productization {
                   calorie: 310)
     }
     
-    func isPastManufactured(with date: Date) -> Bool {
-        return compareManufactured(during: 180, compareDate: date)
+    func validManufactured(with date: Date) -> Bool {
+        return isDrinkableFromManufactured(during: 180, compareDate: date)
     }
 }

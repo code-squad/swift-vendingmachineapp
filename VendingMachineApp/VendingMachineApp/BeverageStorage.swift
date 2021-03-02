@@ -21,7 +21,7 @@ class BeverageStorage {
     
     public func increaseStock(beverage: Beverage, by amount: Int) {
         if stock[beverage] != nil {
-            stock[beverage]! += 1
+            stock[beverage]! += amount
         } else {
             stock[beverage] = amount
         }

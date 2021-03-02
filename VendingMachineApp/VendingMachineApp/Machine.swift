@@ -16,8 +16,8 @@ struct Machine {
         moneyProccesor.increaseHolding(by: amount)
     }
     
-    func showMoneyHolding() {
-        print("현재 자판기 안의 현금은 \(moneyProccesor.holdingAmount())")
+    func showMoneyHolding() -> Int {
+        return moneyProccesor.holdingAmount()
     }
     
     //사용자가 현금 투입
@@ -25,8 +25,8 @@ struct Machine {
         moneyProccesor.increaseMoneyOnTransaction(by: amount)
     }
     
-    func showInsertedCashBalance() {
-        print("현재 사용자의 투입 금액 잔액은 \(moneyProccesor.moneyOnTransactionAmount())")
+    func showInsertedCashBalance() -> Int {
+        return moneyProccesor.moneyOnTransactionAmount()
     }
     
     //MARK:- Beverage storage related methods
@@ -34,29 +34,29 @@ struct Machine {
         beverageStorage.increaseStock(beverage: beverage, by: amount)
     }
     
-    func checkStock() {
-        let stock = beverageStorage.checkStock()
-        print(stock)
+    func checkStock() -> [Beverage: Int] {
+        return beverageStorage.checkStock()
     }
     
-    func showPurchasables(with money: Int) {
-        let purchasables = beverageStorage.checkPurchasables(with: money)
-        print(purchasables)
+    func showPurchasables(with money: Int) -> [Beverage: Int] {
+        return beverageStorage.checkPurchasables(with: money)
     }
     
     func showPurchasables2(handler: (Beverage) -> Void) {
         beverageStorage.checkPurchasables2(handler: handler)
     }
     
-    func showExpired() {
-        let expired = beverageStorage.checkExpired()
-        print(expired)
+    func showExpired() -> [Beverage: Int] {
+        return beverageStorage.checkExpired()
     }
     
-    //사용자는 특정버튼을 입력
     func purchaseBeverage(beverage: Beverage) {
         let itemPrice = beverage.checkPrice()
-        moneyProccesor.deductMoneyOnTransaction(by: itemPrice)
+        do {
+            try moneyProccesor.deductMoneyOnTransaction(by: itemPrice)
+        } catch {
+            return
+        }
         moneyProccesor.increaseHolding(by: itemPrice)
         do {
             try beverageStorage.decreaseStock(beverage: beverage)
@@ -65,7 +65,7 @@ struct Machine {
         }
     }
 
-    func transactionStopButtonPressed() {
-        print("잔돈 \(moneyProccesor.returnChanges())원을 반환합니다.")
+    func transactionStopButtonPressed() -> Int {
+        return moneyProccesor.returnChanges()
     }
 }

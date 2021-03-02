@@ -30,6 +30,10 @@
 		8849844A25EDF24B002C71F5 /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88748AA525E397FE00E7DCB1 /* Coffee.swift */; };
 		8849844B25EDF24B002C71F5 /* Americano.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88748AC825E4A56300E7DCB1 /* Americano.swift */; };
 		8849844C25EDF24B002C71F5 /* CaffeLatte.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88748ACB25E4A57000E7DCB1 /* CaffeLatte.swift */; };
+		8849845025EE2947002C71F5 /* MachineUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8849844F25EE2947002C71F5 /* MachineUnitTest.swift */; };
+		8849845525EE2986002C71F5 /* BeverageStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88748AE125E4F4E700E7DCB1 /* BeverageStorage.swift */; };
+		8849845625EE2986002C71F5 /* MoneyProcessingUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88748ADD25E4F09700E7DCB1 /* MoneyProcessingUnit.swift */; };
+		8849845725EE2986002C71F5 /* Machine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88748ADA25E4EECB00E7DCB1 /* Machine.swift */; };
 		88748A8625E387B100E7DCB1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88748A8525E387B100E7DCB1 /* AppDelegate.swift */; };
 		88748A8825E387B100E7DCB1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88748A8725E387B100E7DCB1 /* SceneDelegate.swift */; };
 		88748A8A25E387B100E7DCB1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88748A8925E387B100E7DCB1 /* ViewController.swift */; };
@@ -71,6 +75,7 @@
 		882A589825E8926A00BCAF67 /* Milli_Liter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Milli_Liter.swift; sourceTree = "<group>"; };
 		882A589E25E8AB4200BCAF67 /* DomesticLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomesticLocation.swift; sourceTree = "<group>"; };
 		882A58A225E8B66700BCAF67 /* OverseasLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverseasLocation.swift; sourceTree = "<group>"; };
+		8849844F25EE2947002C71F5 /* MachineUnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MachineUnitTest.swift; sourceTree = "<group>"; };
 		88748A8225E387B100E7DCB1 /* VendingMachineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendingMachineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88748A8525E387B100E7DCB1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		88748A8725E387B100E7DCB1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -239,6 +244,7 @@
 				88D67CE625EBC27E0033BF57 /* Info.plist */,
 				88D67CF525ED02C40033BF57 /* BeverageFactory.swift */,
 				88D67CF125EBC4A80033BF57 /* BeverageUnitTest.swift */,
+				8849844F25EE2947002C71F5 /* MachineUnitTest.swift */,
 			);
 			path = VendingMachineAppTests;
 			sourceTree = "<group>";
@@ -374,6 +380,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8849845525EE2986002C71F5 /* BeverageStorage.swift in Sources */,
+				8849845625EE2986002C71F5 /* MoneyProcessingUnit.swift in Sources */,
+				8849845725EE2986002C71F5 /* Machine.swift in Sources */,
 				8849844525EDF24B002C71F5 /* StrawBerryMilk.swift in Sources */,
 				8849844625EDF24B002C71F5 /* BananaMilk.swift in Sources */,
 				8849844725EDF24B002C71F5 /* Soda.swift in Sources */,
@@ -383,6 +392,7 @@
 				8849844B25EDF24B002C71F5 /* Americano.swift in Sources */,
 				8849844C25EDF24B002C71F5 /* CaffeLatte.swift in Sources */,
 				8849844225EDF204002C71F5 /* Milk.swift in Sources */,
+				8849845025EE2947002C71F5 /* MachineUnitTest.swift in Sources */,
 				8849843825EDF101002C71F5 /* GlobalFunctions.swift in Sources */,
 				8849843925EDF101002C71F5 /* Protocols.swift in Sources */,
 				8849843A25EDF101002C71F5 /* Milli_Liter.swift in Sources */,
@@ -595,7 +605,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jjstudio.VendingMachineAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "VendingMachineAppTests/VendingMachineAppTests-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -618,7 +628,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jjstudio.VendingMachineAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "VendingMachineAppTests/VendingMachineAppTests-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VendingMachineApp.app/VendingMachineApp";

@@ -95,4 +95,8 @@ class VendingMachine {
     private func logUpdate(_ drink: Drink) {
         log.update(drink)
     }
+    
+    func showLog() -> [String] {
+        return log.get()
+    }
 }

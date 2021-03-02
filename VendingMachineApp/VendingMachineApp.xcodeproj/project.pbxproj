@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AEA4E0F925EE488700132E4E /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA4E0F825EE488700132E4E /* Milk.swift */; };
+		AEA4E0FC25EE48E800132E4E /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA4E0FB25EE48E800132E4E /* DateFormatter.swift */; };
 		AED7177525EE2B0E00655D88 /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED7177425EE2B0E00655D88 /* Beverage.swift */; };
 		AEF6E0C625E33FF500BBCFB9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF6E0C525E33FF500BBCFB9 /* AppDelegate.swift */; };
 		AEF6E0C825E33FF500BBCFB9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF6E0C725E33FF500BBCFB9 /* SceneDelegate.swift */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AEA4E0F825EE488700132E4E /* Milk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Milk.swift; sourceTree = "<group>"; };
+		AEA4E0FB25EE48E800132E4E /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		AED7177425EE2B0E00655D88 /* Beverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beverage.swift; sourceTree = "<group>"; };
 		AEF6E0C225E33FF500BBCFB9 /* VendingMachineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendingMachineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEF6E0C525E33FF500BBCFB9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -62,6 +66,8 @@
 				AEF6E0C725E33FF500BBCFB9 /* SceneDelegate.swift */,
 				AEF6E0C925E33FF500BBCFB9 /* ViewController.swift */,
 				AED7177425EE2B0E00655D88 /* Beverage.swift */,
+				AEA4E0F825EE488700132E4E /* Milk.swift */,
+				AEA4E0FB25EE48E800132E4E /* DateFormatter.swift */,
 				AEF6E0CB25E33FF500BBCFB9 /* Main.storyboard */,
 				AEF6E0CE25E33FF600BBCFB9 /* Assets.xcassets */,
 				AEF6E0D025E33FF600BBCFB9 /* LaunchScreen.storyboard */,
@@ -140,10 +146,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AEA4E0FC25EE48E800132E4E /* DateFormatter.swift in Sources */,
 				AEF6E0CA25E33FF500BBCFB9 /* ViewController.swift in Sources */,
 				AEF6E0C625E33FF500BBCFB9 /* AppDelegate.swift in Sources */,
 				AED7177525EE2B0E00655D88 /* Beverage.swift in Sources */,
 				AEF6E0C825E33FF500BBCFB9 /* SceneDelegate.swift in Sources */,
+				AEA4E0F925EE488700132E4E /* Milk.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

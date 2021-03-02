@@ -12,13 +12,16 @@ struct VendingMachine {
     private var inList: Beverages
     private var outList: Beverages
     private var moneyBox: MoneyBox
-    private var organizer: Organizer
+    private var filterer: Filterer
     
-    init() {
+    init(dateStandard: Date, temperatureStandard: Float, sugarStandard: Float, lactoStandard: Float) {
         inList = Beverages()
         outList = Beverages()
         moneyBox = MoneyBox()
-        organizer = Organizer(with: moneyBox)
+        filterer = Filterer(dateStandard: dateStandard,
+                              temperatureStandard: temperatureStandard,
+                              sugarStandard: sugarStandard,
+                              lactoStandard: lactoStandard)
     }
     
     func addStock(of beverage: Beverage) {
@@ -38,7 +41,9 @@ struct VendingMachine {
         
         if let beverageToSell = inList.pullOut(beverage) {
             outList.add(beverageToSell)
-            beverage.bought(moneyBox.update(amount:))
+            
+            let moneyAfterPurchase = beverage.subtractPrice(from: moneyBox.balance())
+            moneyBox.update(to: moneyAfterPurchase)
         }
     }
 }
@@ -47,30 +52,30 @@ struct VendingMachine {
 extension VendingMachine {
     
     func allStocks() -> [Beverage: Int] {
-        return inList.listTypeCount(filter: nil)
+        return inList.listTypeCount()
     }
     
     func purchased() -> [Beverage] {
-        return outList.listTypeOnly(filter: nil)
+        return outList.listTypeOnly()
     }
     
     func affordables() -> [Beverage] {
-        return organizer.affordables(from: inList)
+        return moneyBox.affordableList(from: inList)
     }
     
     func expiredItems() -> [Beverage: Int] {
-        return organizer.expiredItems(from: inList)
+        return filterer.expiredItems(from: inList)
     }
     
     func hotItems() -> [Beverage] {
-        return organizer.hotItems(from: inList)
+        return filterer.hotItems(from: inList)
     }
     
     func transportables() -> [Beverage] {
-        return organizer.transportables(from: inList)
+        return filterer.transportables(from: inList)
     }
     
     func healthyItems() -> [Beverage] {
-        return organizer.healthyItems(from: inList)
+        return filterer.healthyItems(from: inList)
     }
 }

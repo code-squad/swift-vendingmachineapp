@@ -11,20 +11,38 @@ protocol BeverageFactory {
     func produce() -> Beverage
 }
 
-class MilkFactory: BeverageFactory {
+class BananaMilkFactory: BeverageFactory {
     func produce() -> Beverage {
-        return Banana()
+        return Banana(countryOfOrigin: "필리핀")
     }
 }
 
-class SoftDrinkFactory: BeverageFactory {
+class StrawberryMilkFactory: BeverageFactory {
     func produce() -> Beverage {
-        return Cola()
+        return Strawberry(strawberryContent: 15)
     }
 }
 
-class CoffeeFactory: BeverageFactory {
+class ColaFactory: BeverageFactory {
     func produce() -> Beverage {
-        return TOP()
+        return Cola(sugarFree: false)
+    }
+}
+
+class CiderFactory: BeverageFactory {
+    func produce() -> Beverage {
+        return Cider(sugars: 32)
+    }
+}
+
+class TopCoffeeFactory: BeverageFactory {
+    func produce() -> Beverage {
+        return TOP(calorie: 3)
+    }
+}
+
+class CantataCoffeeFactory: BeverageFactory {
+    func produce() -> Beverage {
+        return Cantata(milkContent: 15)
     }
 }

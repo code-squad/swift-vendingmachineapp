@@ -16,22 +16,29 @@ class ViewController: UIViewController {
     private let dietCola =  DietCola()
     private let topAmericano = TopAmericano()
     
+    @IBOutlet var addStockButton: [UIButton]!
+    @IBOutlet var beverageImages: [UIImageView]!
+    @IBOutlet var numberOfStock: [UILabel]!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        setImageCornerRadius()
         addBeverage()
         
     }
     
-    private func startVendingMachine() {
-        
+    private func addBeverage() {
+        vendingMachine.addStock(beverage: strawberryMilk)
+        vendingMachine.addStock(beverage: dietCola)
+        vendingMachine.addStock(beverage: topAmericano)
+        vendingMachine.addStock(beverage: topAmericano)
+        vendingMachine.addStock(beverage: topAmericano)
     }
     
-    private func addBeverage() {
-        vendingMachine.addBevergeStock(beverage: strawberryMilk)
-        vendingMachine.addBevergeStock(beverage: dietCola)
-        vendingMachine.addBevergeStock(beverage: topAmericano)
-        vendingMachine.addBevergeStock(beverage: topAmericano)
-        vendingMachine.addBevergeStock(beverage: topAmericano)
+    private func setImageCornerRadius() {
+        beverageImages.forEach { (image) in
+            image.layer.cornerRadius = 30
+        }
     }
 }
 

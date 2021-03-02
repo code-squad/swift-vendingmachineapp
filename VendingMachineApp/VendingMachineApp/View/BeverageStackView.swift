@@ -1,13 +1,13 @@
 //
-//  VendingStackView.swift
+//  BeverageStackView.swift
 //  VendingMachineApp
 //
-//  Created by HOONHA CHOI on 2021/02/27.
+//  Created by HOONHA CHOI on 2021/03/01.
 //
 
 import UIKit
 
-class VendingStackView : UIStackView {
+class BeverageStackView : UIStackView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -17,13 +17,13 @@ class VendingStackView : UIStackView {
     required init(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    func configure() {
-        self.axis = .horizontal
+ 
+    private func configure() {
+        self.axis = .vertical
         self.spacing = 10
         self.alignment = .fill
         self.distribution = .fillEqually
         self.translatesAutoresizingMaskIntoConstraints = false
     }
-    
 }
+

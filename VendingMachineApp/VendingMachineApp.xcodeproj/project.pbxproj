@@ -30,6 +30,7 @@
 		BF5381D525E7828C0031EE39 /* VendinMachineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5381D425E7828C0031EE39 /* VendinMachineTests.swift */; };
 		BF5381DA25E78BF00031EE39 /* BeverageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5381D925E78BF00031EE39 /* BeverageTests.swift */; };
 		BF5381EF25EA2C4D0031EE39 /* VendingStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5381EE25EA2C4D0031EE39 /* VendingStackView.swift */; };
+		BFCA483A25ECC630003D4844 /* BeverageStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCA483925ECC630003D4844 /* BeverageStackView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		BF5381D425E7828C0031EE39 /* VendinMachineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendinMachineTests.swift; sourceTree = "<group>"; };
 		BF5381D925E78BF00031EE39 /* BeverageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageTests.swift; sourceTree = "<group>"; };
 		BF5381EE25EA2C4D0031EE39 /* VendingStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingStackView.swift; sourceTree = "<group>"; };
+		BFCA483925ECC630003D4844 /* BeverageStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageStackView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,10 +176,10 @@
 				BF53817225E4CC920031EE39 /* StrawberryMilk.swift */,
 				BF53817A25E4D7130031EE39 /* DietCola.swift */,
 				BF53817F25E4D7450031EE39 /* TopAmericano.swift */,
-				BF53818425E4D7A20031EE39 /* VendingMachine.swift */,
 				BF5381CC25E77B4C0031EE39 /* PurchasedList.swift */,
 				BF5381BE25E5EEF80031EE39 /* Payment.swift */,
 				BF5381B925E549780031EE39 /* Drinks.swift */,
+				BF53818425E4D7A20031EE39 /* VendingMachine.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -201,6 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				BF5381EE25EA2C4D0031EE39 /* VendingStackView.swift */,
+				BFCA483925ECC630003D4844 /* BeverageStackView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -339,6 +342,7 @@
 				BF53818525E4D7A20031EE39 /* VendingMachine.swift in Sources */,
 				BF5381BF25E5EEF90031EE39 /* Payment.swift in Sources */,
 				BF53815725E4C71A0031EE39 /* Date.swift in Sources */,
+				BFCA483A25ECC630003D4844 /* BeverageStackView.swift in Sources */,
 				BF53818025E4D7450031EE39 /* TopAmericano.swift in Sources */,
 				BF53816425E4CB1B0031EE39 /* Milk.swift in Sources */,
 				BF53816925E4CB360031EE39 /* Soda.swift in Sources */,

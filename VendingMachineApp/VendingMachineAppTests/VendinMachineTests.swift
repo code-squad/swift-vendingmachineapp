@@ -38,11 +38,11 @@ class VendingMachineTests: XCTestCase {
         
         let vendingMachine = VendingMachine()
         vendingMachine.putPayMoney(money: 1000)
-        vendingMachine.addBevergeStock(beverage: strawberryMilk)
-        vendingMachine.addBevergeStock(beverage: dietCola)
-        vendingMachine.addBevergeStock(beverage: topAmericano)
-        vendingMachine.addBevergeStock(beverage: topAmericano)
-        vendingMachine.addBevergeStock(beverage: topAmericano)
+        vendingMachine.addStock(beverage: strawberryMilk)
+        vendingMachine.addStock(beverage: dietCola)
+        vendingMachine.addStock(beverage: topAmericano)
+        vendingMachine.addStock(beverage: topAmericano)
+        vendingMachine.addStock(beverage: topAmericano)
         
         XCTAssertEqual(vendingMachine.showPurchasePossibleList(), [strawberryMilk])
         

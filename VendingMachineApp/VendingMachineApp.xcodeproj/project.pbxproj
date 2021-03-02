@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9394C9DC25ED24D3009E9780 /* Strawberry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9394C9DB25ED24D3009E9780 /* Strawberry.swift */; };
+		9394C9DF25ED250B009E9780 /* Cider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9394C9DE25ED250B009E9780 /* Cider.swift */; };
+		9394C9E225ED2541009E9780 /* Cantata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9394C9E125ED2541009E9780 /* Cantata.swift */; };
 		93C07F4A25E88D100037570E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C07F4925E88D100037570E /* AppDelegate.swift */; };
 		93C07F4C25E88D100037570E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C07F4B25E88D100037570E /* SceneDelegate.swift */; };
 		93C07F4E25E88D100037570E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C07F4D25E88D100037570E /* ViewController.swift */; };
@@ -28,6 +31,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9394C9DB25ED24D3009E9780 /* Strawberry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strawberry.swift; sourceTree = "<group>"; };
+		9394C9DE25ED250B009E9780 /* Cider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cider.swift; sourceTree = "<group>"; };
+		9394C9E125ED2541009E9780 /* Cantata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cantata.swift; sourceTree = "<group>"; };
 		93C07F4625E88D100037570E /* VendingMachineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendingMachineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93C07F4925E88D100037570E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		93C07F4B25E88D100037570E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -84,23 +90,34 @@
 				93C07F4B25E88D100037570E /* SceneDelegate.swift */,
 				93C07F4D25E88D100037570E /* ViewController.swift */,
 				93C07F4F25E88D100037570E /* Main.storyboard */,
+				93C07F8A25EA7EC40037570E /* Beverage */,
 				93C07F5225E88D120037570E /* Assets.xcassets */,
 				93C07F5425E88D120037570E /* LaunchScreen.storyboard */,
 				93C07F5725E88D120037570E /* Info.plist */,
-				93C07F5E25E88DBF0037570E /* Beverage.swift */,
-				93C07F6225E88FFF0037570E /* Milk.swift */,
-				93C07F6525E890F80037570E /* SoftDrink.swift */,
-				93C07F6825E891020037570E /* Coffee.swift */,
 				93C07F6B25E8B96D0037570E /* BeverageFactory.swift */,
 				93C07F7025E8C4F80037570E /* VendingMachine.swift */,
-				93C07F7425E8CDA00037570E /* TOP.swift */,
-				93C07F7725E8CE690037570E /* Banana.swift */,
-				93C07F7A25E8CE9F0037570E /* Cola.swift */,
 				93C07F7D25E8CF8A0037570E /* OutputViewPrintable.swift */,
 				93C07F8025E8CFF30037570E /* OutputView.swift */,
 				93C07F8425E8D4650037570E /* DateExtension.swift */,
 			);
 			path = VendingMachineApp;
+			sourceTree = "<group>";
+		};
+		93C07F8A25EA7EC40037570E /* Beverage */ = {
+			isa = PBXGroup;
+			children = (
+				93C07F5E25E88DBF0037570E /* Beverage.swift */,
+				93C07F6225E88FFF0037570E /* Milk.swift */,
+				93C07F7725E8CE690037570E /* Banana.swift */,
+				9394C9DB25ED24D3009E9780 /* Strawberry.swift */,
+				93C07F6825E891020037570E /* Coffee.swift */,
+				93C07F7425E8CDA00037570E /* TOP.swift */,
+				9394C9E125ED2541009E9780 /* Cantata.swift */,
+				93C07F6525E890F80037570E /* SoftDrink.swift */,
+				93C07F7A25E8CE9F0037570E /* Cola.swift */,
+				9394C9DE25ED250B009E9780 /* Cider.swift */,
+			);
+			path = Beverage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -173,12 +190,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9394C9DC25ED24D3009E9780 /* Strawberry.swift in Sources */,
 				93C07F7B25E8CE9F0037570E /* Cola.swift in Sources */,
 				93C07F8525E8D4650037570E /* DateExtension.swift in Sources */,
 				93C07F4E25E88D100037570E /* ViewController.swift in Sources */,
+				9394C9DF25ED250B009E9780 /* Cider.swift in Sources */,
 				93C07F4A25E88D100037570E /* AppDelegate.swift in Sources */,
 				93C07F5F25E88DBF0037570E /* Beverage.swift in Sources */,
 				93C07F7825E8CE690037570E /* Banana.swift in Sources */,
+				9394C9E225ED2541009E9780 /* Cantata.swift in Sources */,
 				93C07F7525E8CDA00037570E /* TOP.swift in Sources */,
 				93C07F7E25E8CF8A0037570E /* OutputViewPrintable.swift in Sources */,
 				93C07F4C25E88D100037570E /* SceneDelegate.swift in Sources */,

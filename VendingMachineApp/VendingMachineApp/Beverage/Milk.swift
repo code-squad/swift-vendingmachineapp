@@ -9,7 +9,10 @@ import Foundation
 
 class Milk: Beverage {
     
-    override init(brand: String, volume: Int, price: Int, name: String, manufacturedAt: Date) {
+    private let isLowfat: Bool
+    
+    init(brand: String, volume: Int, price: Int, name: String, manufacturedAt: Date, isLowfat: Bool) {
+        self.isLowfat = isLowfat
         super.init(brand: brand, volume: volume, price: price, name: name, manufacturedAt: manufacturedAt)
     }
 }

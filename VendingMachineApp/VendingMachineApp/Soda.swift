@@ -32,19 +32,19 @@ class Soda: Beverage, Transportable {
 
 class Coke: Soda, SugarFreeable {
     
-    private let isSugarAdded: Bool
+    private let sugar: Float
     
     init(brand: String, name: String, price: Int, size: Int, manufactured: Date,
-         package: Package, isSugarAdded: Bool) {
+         package: Package, sugar: Float) {
         
-        self.isSugarAdded = isSugarAdded
+        self.sugar = sugar
         
         super.init(brand: brand, name: name, price: price, size: size,
                    manufactured: manufactured, package: package)
     }
     
-    func isSugarFree() -> Bool {
-        return !isSugarAdded
+    func isSugarFree(basedOn sugarStandard: Float) -> Bool {
+        return sugar <= sugarStandard ? true : false
     }
 }
 
@@ -62,7 +62,7 @@ class Milkis: Soda, LactoFreeable {
                    manufactured: manufactured, package: package)
     }
     
-    func isLactoFree() -> Bool {
-        return lactose <= 0.5 ? true : false
+    func isLactoFree(basedOn lactoStandard: Float) -> Bool {
+        return lactose <= lactoStandard ? true : false
     }
 }

@@ -16,23 +16,23 @@ protocol Transportable {
 
 protocol Expirable {
     
-    func isExpired() -> Bool
+    func isExpired(compareTo date: Date) -> Bool
     
 }
 
 protocol LactoFreeable {
     
-    func isLactoFree() -> Bool
+    func isLactoFree(basedOn lactoStandard: Float) -> Bool
 }
 
 protocol SugarFreeable {
     
-    func isSugarFree() -> Bool
+    func isSugarFree(basedOn sugarStandard: Float) -> Bool
     
 }
 
 protocol Hotable {
     
-    func isHotable() -> Bool
+    func isHot(basedOn temperature: Float) -> Bool
     
 }

@@ -9,20 +9,20 @@ import Foundation
 
 class Coffee: Beverage, Hotable, Transportable {
     
-    private let isHot: Bool
+    private let temperature: Float
     private let package: Package
     
     init(brand: String, name: String, price: Int, size: Int, manufactured: Date,
-         isHot: Bool, package: Package) {
+         temperature: Float, package: Package) {
         
-        self.isHot = isHot
+        self.temperature = temperature
         self.package = package
         
         super.init(brand: brand, name: name, price: price, size: size, manufactured: manufactured)
     }
     
-    func isHotable() -> Bool {
-        return isHot
+    func isHot(basedOn temperature: Float) -> Bool {
+        return self.temperature >= temperature ? true : false
     }
 
     func isTransportable() -> Bool {
@@ -37,20 +37,20 @@ class Coffee: Beverage, Hotable, Transportable {
 
 
 class Americano: Coffee, SugarFreeable {
-    
-    private let isSugarAdded: Bool
+
+    private let sugar: Float
     
     init(brand: String, name: String, price: Int, size: Int, manufactured: Date,
-         isHot: Bool, package: Package, isSugarAdded: Bool) {
+         temperature: Float, package: Package, sugar: Float) {
         
-        self.isSugarAdded = isSugarAdded
+        self.sugar = sugar
         
         super.init(brand: brand, name: name, price: price, size: size, manufactured: manufactured,
-                   isHot: isHot, package: package)
+                   temperature: temperature, package: package)
     }
     
-    func isSugarFree() -> Bool {
-        return !isSugarAdded
+    func isSugarFree(basedOn sugarStandard: Float) -> Bool {
+        return sugar <= sugarStandard ? true : false
     }
 }
 
@@ -61,22 +61,20 @@ class CafeLatte: Coffee, Expirable, LactoFreeable {
     private let lactose: Float
     
     init(brand: String, name: String, price: Int, size: Int, manufactured: Date,
-         isHot: Bool, package: Package, expireAfter: Int, lactose: Float) {
+         temperature: Float, package: Package, expireAfter: Int, lactose: Float) {
         
         self.expiry = manufactured.add(amount: expireAfter)
         self.lactose = lactose
         
         super.init(brand: brand, name: name, price: price, size: size, manufactured: manufactured,
-                   isHot: isHot, package: package)
+                   temperature: temperature, package: package)
     }
     
-    func isExpired() -> Bool {
-        let today = Date()
-        let isExpired = expiry < today
-        return isExpired
+    func isExpired(compareTo date: Date) -> Bool {
+        return expiry < date ? true : false
     }
     
-    func isLactoFree() -> Bool {
-        return lactose <= 0.5 ? true : false
+    func isLactoFree(basedOn lactoStandard: Float) -> Bool {
+        return lactose <= lactoStandard ? true : false
     }
 }

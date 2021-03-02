@@ -8,5 +8,5 @@
 import Foundation
 
 protocol BeverageFactory {
-    static func createBeverage(with name : String) -> Beverage
+    static func createBeverage<T>(type value : T) -> Beverage?
 }

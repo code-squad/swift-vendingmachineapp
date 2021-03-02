@@ -8,12 +8,12 @@
 import Foundation
 
 class SodaFactory : BeverageFactory{
-    static func createBeverage(with name: String) -> Beverage {
-        let drink = Soda.Kind(rawValue: name)
-        switch drink {
-        case .coke: return Coke(create: Date().toString(), expire: Date().toString(), flaver: .vanilla)
+    static func createBeverage<T>(type value: T) -> Beverage? {
+        switch value {
+        case is Coke.Type : return Coke(create: Date().toString(), expire: Date().toString(), flaver: .vanilla)
+        case is Sprite.Type : return Sprite(create: Date().toString(), expire: Date().toString(), lowSuger: false)
         default:
-            return Sprite(create: Date().toString(), expire: Date().toString(), lowSuger: false)
+            return nil
         }
     }
 }

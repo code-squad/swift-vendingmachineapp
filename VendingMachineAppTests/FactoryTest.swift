@@ -10,48 +10,38 @@ import XCTest
 
 class FactoryTest: XCTestCase {
     
-    var vendingMachine : VendingMachine!
-    
-    override func setUp() {
-        vendingMachine = VendingMachine()
-    }
-    
     func testEnergyDrinkFactory(){
+        let monster = EnergyDrinkFactory.createBeverage(type : Monster.self)
+        let hot6ix = EnergyDrinkFactory.createBeverage(type : Hot6ix.self)
         
-        let monster = EnergyDrinkFactory.createBeverage(with : "Monster")
-        let hot6ix = EnergyDrinkFactory.createBeverage(with: "Hot6ix")
-
-        vendingMachine.append(product: monster)
-        vendingMachine.append(product: hot6ix)
+        XCTAssertNotNil(monster, "Monster 객체를 생성하지 못했습니다.")
+        XCTAssertNotNil(hot6ix, "Hot6ix 객체를 생성하지 못했습니다.")
     }
     func testSodaFactory(){
+        let sprite = SodaFactory.createBeverage(type: Sprite.self)
+        let coke = SodaFactory.createBeverage(type: Coke.self)
         
-        let sprite = SodaFactory.createBeverage(with: "Sprite")
-        let coke = SodaFactory.createBeverage(with: "Coke")
-        
-        vendingMachine.append(product: sprite)
-        vendingMachine.append(product: coke)
+        XCTAssertNotNil(sprite, "Sprite 객체를 생성하지 못했습니다.")
+        XCTAssertNotNil(coke, "Coke 객체를 생성하지 못했습니다.")
     }
 
     func testMilkFactory(){
+        let chocolateMilk = MilkFactory.createBeverage(type: ChocolateMilk.self)
+        let stroberryMilk = MilkFactory.createBeverage(type: StroberryMilk.self)
+        let bananaMilk = MilkFactory.createBeverage(type: BananaMilk.self)
         
-        let chocolateMilk = MilkFactory.createBeverage(with: "Chocolate")
-        let stroberryMilk = MilkFactory.createBeverage(with: "Stroberry")
-        let bananaMilk = MilkFactory.createBeverage(with: "Banana")
-        
-        vendingMachine.append(product: chocolateMilk)
-        vendingMachine.append(product: stroberryMilk)
-        vendingMachine.append(product: bananaMilk)
+        XCTAssertNotNil(chocolateMilk, "ChocolateMilk 객체를 생성하지 못했습니다.")
+        XCTAssertNotNil(stroberryMilk, "StroberryMilk 객체를 생성하지 못했습니다.")
+        XCTAssertNotNil(bananaMilk, "BananaMilk 객체를 생성하지 못했습니다.")
     }
     
     func testCoffeeFactory(){
+        let top = CoffeeFactory.createBeverage(type: Top.self)
+        let cantata = CoffeeFactory.createBeverage(type: Cantata.self)
+        let georgia = CoffeeFactory.createBeverage(type: Georgia.self)
         
-        let top = CoffeeFactory.createBeverage(with: "TOP")
-        let cantata = CoffeeFactory.createBeverage(with: "Cantata")
-        let georgia = CoffeeFactory.createBeverage(with: "Georgia")
-        
-        vendingMachine.append(product: top)
-        vendingMachine.append(product: cantata)
-        vendingMachine.append(product: georgia)
+        XCTAssertNotNil(top, "Top 객체를 생성하지 못했습니다.")
+        XCTAssertNotNil(cantata, "Cantata 객체를 생성하지 못했습니다.")
+        XCTAssertNotNil(georgia, "Georgia 객체를 생성하지 못했습니다.")
     }
 }

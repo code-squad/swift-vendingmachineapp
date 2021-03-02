@@ -16,7 +16,7 @@ class BlueBottleColdBrew: Coffee, Productization {
                    capacity: 240,
                    price: 1150,
                    name: "BlueBottle Cold Brew",
-                   isDecaffeinated: false,
+                   caffeineContent: 80,
                    manufactured: manufactured)
     }
     

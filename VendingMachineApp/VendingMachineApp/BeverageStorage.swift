@@ -9,6 +9,7 @@ import Foundation
 
 class BeverageStorage {
     private var stock: [Beverage:Int]
+    var purchasables: (() -> [Beverage:Int])?
     
     enum StockError: Error {
         case noStock
@@ -30,6 +31,13 @@ class BeverageStorage {
        return stock
     }
     
+    // make it into closure?
+    public func checkPurchasables2(handler: (Beverage) -> Void) {
+        stock.keys.forEach { (beverage) in
+            handler(beverage)
+        }
+    }
+
     public func checkPurchasables(with money: Int) -> [Beverage:Int] {
         let purchasableBeverages = stock.filter { (bev, amt) -> Bool in
             bev.isPurchasable(with: money)

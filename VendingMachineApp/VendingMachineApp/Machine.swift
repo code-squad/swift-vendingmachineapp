@@ -12,7 +12,7 @@ struct Machine {
     private var beverageStorage = BeverageStorage()
     
     //MARK:- Money processor related methods
-    func increaseHolding(by amount: Int) {
+    func addMoneyHolding(by amount: Int) {
         moneyProccesor.increaseHolding(by: amount)
     }
     
@@ -44,6 +44,10 @@ struct Machine {
         print(purchasables)
     }
     
+    func showPurchasables2(handler: (Beverage) -> Void) {
+        beverageStorage.checkPurchasables2(handler: handler)
+    }
+    
     func showExpired() {
         let expired = beverageStorage.checkExpired()
         print(expired)
@@ -59,7 +63,6 @@ struct Machine {
         } catch {
             print("Invalid beverage info")
         }
-        
     }
 
     func transactionStopButtonPressed() {

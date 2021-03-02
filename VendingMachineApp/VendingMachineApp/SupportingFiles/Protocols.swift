@@ -31,5 +31,5 @@ protocol IsHazardous: CaffeineSuppliable & FoodColoringApplicable {
 }
 
 protocol EnergyBoostable: CaffeineSuppliable & HotBeverageAvailable {
-    func boostEnerge() -> Bool
+    func isEnergyBoosting() -> Bool
 }

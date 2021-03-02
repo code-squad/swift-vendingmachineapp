@@ -55,7 +55,7 @@ class Inventory {
     func hotBeverageList() -> [Beverage] {
         var list: [Beverage] = []
         eachBeverage(handler: { (beverage) in
-            if beverage.isHot() {
+            if beverage.isHot(with: 50) {
                 list.append(beverage)
             }
         })

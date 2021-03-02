@@ -10,7 +10,7 @@ import Foundation
 class Sprite: Soda {
     private var type: String
     
-    override init(manufacturer: String, volume: Int, price: Int, brand: String, manufactured: Date, expirydate: Date, calorie: Int, hot: Int, flavor: String) {
+    override init(manufacturer: String, volume: Int, price: Int, brand: String, manufactured: Date, expirydate: Date, calorie: Int, temperature: Int, flavor: String) {
         self.type = "Sprite"
         super.init(manufacturer: manufacturer,
                    volume: volume,
@@ -19,7 +19,7 @@ class Sprite: Soda {
                    manufactured: manufactured,
                    expirydate: expirydate,
                    calorie: calorie,
-                   hot: hot,
+                   temperature: temperature,
                    flavor: flavor)
     }
 }

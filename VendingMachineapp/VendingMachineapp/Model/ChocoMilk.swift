@@ -10,7 +10,7 @@ import Foundation
 class ChocoMilk: Milk {
     private var type: String
     
-    override init(manufacturer: String, volume: Int, price: Int, brand: String, manufactured: Date, expirydate: Date, calorie: Int, hot: Int, lowFat: Bool) {
+    override init(manufacturer: String, volume: Int, price: Int, brand: String, manufactured: Date, expirydate: Date, calorie: Int, temperature: Int, lowFat: Bool) {
         self.type = "Choco"
         super.init(manufacturer: manufacturer,
                    volume: volume,
@@ -19,7 +19,7 @@ class ChocoMilk: Milk {
                    manufactured: manufactured,
                    expirydate: expirydate,
                    calorie: calorie,
-                   hot: hot,
+                   temperature: temperature,
                    lowFat: lowFat)
     }
 }

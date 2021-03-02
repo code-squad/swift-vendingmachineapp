@@ -6,20 +6,20 @@ class Beverage {
     private var volume: Int
     private var price: Int
     private var productName: String
-    private var manufacturedDay: Date
+    private var manufacturedAt: Date
     private var sellByDate: Date
-    private var lowCalories: Bool
-    private var isHot: Bool
+    private var calories: Int
+    private var temparatureOfBeverage: Int
     
-    init(brand:Brand.Name, volume: Int, price: Int, productName: String, manufacturedDay: Date, sellByDate: Date, lowCalories: Bool, isHot: Bool) {
+    init(brand:Brand.Name, volume: Int, price: Int, productName: String, manufacturedDay: Date, sellByDate: Date, calories: Int, temparatureOfBeverage: Int) {
         self.brand = brand
         self.volume = volume
         self.price = price
         self.productName = productName
-        self.manufacturedDay = manufacturedDay
+        self.manufacturedAt = manufacturedDay
         self.sellByDate = sellByDate
-        self.lowCalories = lowCalories
-        self.isHot = isHot
+        self.calories = calories
+        self.temparatureOfBeverage = temparatureOfBeverage
     }
     
     private func dateToString(with date: Date) -> String {
@@ -40,7 +40,7 @@ class Beverage {
 
 extension Beverage: CustomStringConvertible {
     var description: String {
-        return "제조사: \(brand), 용량: \(volume)ml, 가격: \(price)원, 제품명: \(productName), 제조일자: \(dateToString(with: manufacturedDay)), 유통기한: \(dateToString(with: sellByDate)), 저칼로리: \(lowCalories), Hot: \(isHot)"
+        return "제조사: \(brand), 용량: \(volume)ml, 가격: \(price)원, 제품명: \(productName), 제조일자: \(dateToString(with: manufacturedAt)), 유통기한: \(dateToString(with: sellByDate)), 저칼로리: \(calories), Hot: \(temparatureOfBeverage)"
     }
 }
 
@@ -61,11 +61,11 @@ extension Beverage: CheckBeverageInfo {
     }
     
     func isHotBeverage() -> Bool {
-        return isHot
+        return temparatureOfBeverage >= 100 ? true : false
     }
 
     func isLowCalorie() -> Bool {
-        return lowCalories
+        return calories <= 50 ? false : true
     }
 }
 

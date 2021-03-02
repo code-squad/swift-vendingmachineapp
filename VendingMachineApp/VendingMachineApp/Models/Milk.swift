@@ -13,7 +13,7 @@ class Milk: Drink {
     
     init(brand: String, capacity: Int, price: Int, name: String, date: Date, lowFat: Bool, expiration: Date, hot: Bool, calorie: Int) {
         self.lowFat = lowFat
-        super.init(brand: brand, capacity: capacity, price: price, name: name, date: date, expiration: expiration, hot: hot, calorie: calorie )
+        super.init(brand: brand, capacity: capacity, price: price, name: name, manufacturedDate: date, expiration: expiration, hot: hot, calorie: calorie )
     }
     
     func isLowFat() -> Bool {

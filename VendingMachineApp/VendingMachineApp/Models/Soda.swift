@@ -13,7 +13,7 @@ class Soda: Drink {
     
     init(brand: String, capacity: Int, price: Int, name: String, date: Date, isZero: Bool, expiration: Date, hot: Bool, calorie: Int) {
         self.zeroCalorie = isZero
-        super.init(brand: brand, capacity: capacity, price: price, name: name, date: date, expiration: expiration, hot: hot, calorie: calorie )
+        super.init(brand: brand, capacity: capacity, price: price, name: name, manufacturedDate: date, expiration: expiration, hot: hot, calorie: calorie )
     }
     
     func isZeroCalorie() -> Bool {

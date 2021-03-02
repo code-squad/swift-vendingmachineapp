@@ -9,14 +9,14 @@ import Foundation
 
 struct VendingMachine {
     
-    private var inList: Beverages
-    private var outList: Beverages
+    private var productList: Beverages
+    private var soldList: Beverages
     private var moneyBox: MoneyBox
     private var filterer: Filterer
     
     init(dateStandard: Date, temperatureStandard: Float, sugarStandard: Float, lactoStandard: Float) {
-        inList = Beverages()
-        outList = Beverages()
+        productList = Beverages()
+        soldList = Beverages()
         moneyBox = MoneyBox()
         filterer = Filterer(dateStandard: dateStandard,
                               temperatureStandard: temperatureStandard,
@@ -25,7 +25,7 @@ struct VendingMachine {
     }
     
     func addStock(of beverage: Beverage) {
-        inList.add(beverage)
+        productList.add(beverage)
     }
     
     func insert(money: Int) {
@@ -39,8 +39,8 @@ struct VendingMachine {
     func buy(beverage: Beverage) {
         guard beverage.isPurchashable(with: moneyBox.balance()) else { return }
         
-        if let beverageToSell = inList.pullOut(beverage) {
-            outList.add(beverageToSell)
+        if let beverageToSell = productList.pullOut(beverage) {
+            soldList.add(beverageToSell)
             
             let moneyAfterPurchase = beverage.subtractPrice(from: moneyBox.balance())
             moneyBox.update(to: moneyAfterPurchase)
@@ -52,30 +52,30 @@ struct VendingMachine {
 extension VendingMachine {
     
     func allStocks() -> [Beverage: Int] {
-        return inList.listTypeCount()
+        return productList.listTypeCount()
     }
     
     func purchased() -> [Beverage] {
-        return outList.listTypeOnly()
+        return soldList.listTypeOnly()
     }
     
     func affordables() -> [Beverage] {
-        return moneyBox.affordableList(from: inList)
+        return moneyBox.affordableList(from: productList)
     }
     
     func expiredItems() -> [Beverage: Int] {
-        return filterer.expiredItems(from: inList)
+        return filterer.expiredItems(from: productList)
     }
     
     func hotItems() -> [Beverage] {
-        return filterer.hotItems(from: inList)
+        return filterer.hotItems(from: productList)
     }
     
     func transportables() -> [Beverage] {
-        return filterer.transportables(from: inList)
+        return filterer.transportables(from: productList)
     }
     
     func healthyItems() -> [Beverage] {
-        return filterer.healthyItems(from: inList)
+        return filterer.healthyItems(from: productList)
     }
 }

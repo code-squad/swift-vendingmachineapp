@@ -27,8 +27,8 @@ class Beverage: CustomStringConvertible {
         return money >= price
     }
     
-    func bought(_ moneyUpdator: (Int) -> ()) {
-        return moneyUpdator(-price)
+    func subtractPrice(from balance: Int) -> Int {
+        return balance - price
     }
 
     var description: String {
@@ -48,6 +48,6 @@ extension Beverage: Hashable {
 
 extension Beverage: Comparable {
     static func < (lhs: Beverage, rhs: Beverage) -> Bool {
-        return lhs.name > rhs.name
+        return lhs.name < rhs.name
     }
 }

@@ -10,7 +10,14 @@ class Fanta: Soda, Productization {
     
     init(brand: String, capacity: Int, price: Int, name: String, isZeroCalorie: Bool, flavor: Flavor, manufactured: Date, temperature: Double, calorie: Double) {
         self.flavor = flavor
-        super.init(brand: brand, capacity: capacity, price: price, name: name, isZeroCalorie: isZeroCalorie, manufactured: manufactured, temperature: temperature, calorie: calorie)
+        super.init(brand: brand,
+                   capacity: capacity,
+                   price: price,
+                   name: "\(name) \(self.flavor.rawValue)",
+                   isZeroCalorie: isZeroCalorie,
+                   manufactured: manufactured,
+                   temperature: temperature,
+                   calorie: calorie)
     }
     
     init(flavor: Flavor, manufactured: Date) {
@@ -19,7 +26,7 @@ class Fanta: Soda, Productization {
         super.init(brand: "Coca-Cola",
                    capacity: 600,
                    price: 1330,
-                   name: "Fanta",
+                   name: "Fanta \(flavor.rawValue)",
                    isZeroCalorie: false,
                    manufactured: manufactured,
                    temperature: 8,
@@ -30,7 +37,7 @@ class Fanta: Soda, Productization {
         self.init(brand: "Coca-Cola",
                   capacity: 600,
                   price: 1330,
-                  name: "Fanta",
+                  name: "Fanta orange",
                   isZeroCalorie: false,
                   flavor: .orange,
                   manufactured: Date(),

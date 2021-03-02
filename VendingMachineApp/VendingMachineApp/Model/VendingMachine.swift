@@ -34,18 +34,25 @@ struct VendingMachine {
         return availableList
     }
     
-    mutating func buyBeverage(productName: String) -> [Beverage]{
-        var buyingProduct = [Beverage]()
+    func buyingList(productName: String) -> [Beverage] {
+        var buyingList = [Beverage]()
         beverages.forEachBeverage{
             if $0.sellingBeverageList(compare: productName){
-                if $0.availableForBeverage() {
-                    beverages.removeProduct($0)
-                    $0.afterBuyingBeverage()
-                    buyingProduct.append($0)
+                if let item = buyBeverage(product: $0) {
+                    buyingList.append(item)
                 }
             }
         }
-        return buyingProduct
+        return buyingList
+    }
+    
+    func buyBeverage(product: Beverage)  -> Beverage? {
+        if product.availableForBeverage() {
+            beverages.removeProduct(product)
+            product.afterBuyingBeverage()
+            return product
+        }
+        return nil
     }
     
     func checkBalance() -> InsertedMoney{

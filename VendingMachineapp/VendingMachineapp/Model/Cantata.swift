@@ -10,14 +10,14 @@ import Foundation
 class Cantata: Coffee {
     private var type: String
     
-    override init(manufacturer: String, volume: Int, price: Int, brand: String, manufactured: Date, expirydate: Date, calorie: Int, temperature: Int, caffeineContent: Int) {
+    override init(manufacturer: String, volume: Int, price: Int, brand: String, manufactured: Date, expiryTime: Date, calorie: Int, temperature: Int, caffeineContent: Int) {
         self.type = "Cantata"
         super.init(manufacturer: manufacturer,
                    volume: volume,
                    price: price,
                    brand: brand,
                    manufactured: manufactured,
-                   expirydate: expirydate,
+                   expiryTime: expiryTime,
                    calorie: calorie,
                    temperature: temperature,
                    caffeineContent: caffeineContent)

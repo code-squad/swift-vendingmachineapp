@@ -10,14 +10,14 @@ import Foundation
 class Coffee: Beverage {
     private var caffeineContent: Int
     
-    init(manufacturer: String, volume: Int, price: Int, brand: String, manufactured: Date, expirydate: Date, calorie: Int, temperature: Int, caffeineContent: Int) {
+    init(manufacturer: String, volume: Int, price: Int, brand: String, manufactured: Date, expiryTime: Date, calorie: Int, temperature: Int, caffeineContent: Int) {
         self.caffeineContent = caffeineContent
         super.init(manufacturer: manufacturer,
                    volume: volume,
                    price: price,
                    brand: brand,
                    manufactured: manufactured,
-                   expirydate: expirydate,
+                   expiryTime: expiryTime,
                    calorie: calorie,
                    temperature: temperature)
     }

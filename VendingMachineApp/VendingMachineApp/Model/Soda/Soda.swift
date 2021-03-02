@@ -9,9 +9,9 @@ import Foundation
 
 class Soda: Beverage {
     private var glycemicIndex: Int
-    init(brand: String, capacity: Int, price: Int, name: String, date: Date, glycemicIndex: Int) {
+    init(brand: String, capacity: Int, price: Int, name: String, dateOfManufacture: Date, expirationDate: Date, temperature: Double, glycemicIndex: Int) {
         self.glycemicIndex = glycemicIndex
-        super.init(brand: brand, capacity: capacity, price: price, name: name, date: date)
+        super.init(brand: brand, capacity: capacity, price: price, name: name, dateOfManufacture: dateOfManufacture, expirationDate: expirationDate, temperature: temperature)
     }
     func isHighGI() -> Bool {
         return self.glycemicIndex >= 70

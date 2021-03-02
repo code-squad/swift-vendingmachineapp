@@ -9,9 +9,9 @@ import Foundation
 
 class EnergyDrink: Beverage {
     private var taurineContent: Int
-    init(brand: String, capacity: Int, price: Int, name: String, date: Date, taurineContent: Int) {
+    init(brand: String, capacity: Int, price: Int, name: String, dateOfManufacture: Date, expirationDate: Date, temperature: Double, taurineContent: Int) {
         self.taurineContent = taurineContent
-        super.init(brand: brand, capacity: capacity, price: price, name: name, date: date)
+        super.init(brand: brand, capacity: capacity, price: price, name: name, dateOfManufacture: dateOfManufacture, expirationDate: expirationDate, temperature: temperature)
     }
     func isHighTaurine() -> Bool {
         return self.taurineContent > 1000

@@ -9,16 +9,11 @@ import Foundation
 
 class Coffee: Beverage {
     
-    enum KindOfCoffee {
-        case cantata
-        case top
-        case georgia
-    }
+    private var caffeineContent: Int
     
-    private var kind: KindOfCoffee
-    
-    init(brand: String, volume: Int, price: Int, name: String, manufacturedAt: Date, kind: KindOfCoffee) {
-        self.kind = kind
+    init(brand: String, volume: Int, price: Int, name: String, manufacturedAt: Date, caffeineContent: Int) {
+        self.caffeineContent = caffeineContent
         super.init(brand: brand, volume: volume, price: price, name: name, manufacturedAt: manufacturedAt)
     }
+    
 }

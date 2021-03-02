@@ -8,10 +8,10 @@
 import Foundation
 
 class Georgia: Coffee {
-    private var type: String
+    private var condensedMilkContent: Int
     
-    override init(manufacturer: String, volume: Int, price: Int, brand: String, manufactured: Date, expiryTime: Date, calorie: Int, temperature: Int, caffeineContent: Int) {
-        self.type = "Georgia"
+    init(manufacturer: String, volume: Int, price: Int, brand: String, manufactured: Date, expiryTime: Date, calorie: Int, temperature: Int, caffeineContent: Int, condensedMilkContent: Int) {
+        self.condensedMilkContent = condensedMilkContent
         super.init(manufacturer: manufacturer,
                    volume: volume,
                    price: price,

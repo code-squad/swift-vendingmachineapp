@@ -59,7 +59,7 @@ class VendingMachineappTests: XCTestCase {
                               temperature: 10,
                               flavor: "사이다맛")
         
-        let hwanta = Hwanta(manufacturer: "팹시",
+        let hwanta = Fanta(manufacturer: "팹시",
                               volume: 350,
                               price: 1700,
                               brand: "환타",

@@ -12,13 +12,13 @@ class Coffee: Beverage, Hotable, Transportable {
     private let temperature: Float
     private let package: Package
     
-    init(brand: String, name: String, price: Int, size: Int, manufactured: Date,
+    init(brand: String, name: String, price: Int, size: Int, dateFactory: DateFactory, manufacturedInString: String,
          temperature: Float, package: Package) {
         
         self.temperature = temperature
         self.package = package
         
-        super.init(brand: brand, name: name, price: price, size: size, manufactured: manufactured)
+        super.init(brand: brand, name: name, price: price, size: size, dateFactory: dateFactory, manufacturedInString: manufacturedInString)
     }
     
     func isHot(basedOn temperature: Float) -> Bool {
@@ -40,12 +40,12 @@ class Americano: Coffee, SugarFreeable {
 
     private let sugar: Float
     
-    init(brand: String, name: String, price: Int, size: Int, manufactured: Date,
+    init(brand: String, name: String, price: Int, size: Int, dateFactory: DateFactory, manufacturedInString: String,
          temperature: Float, package: Package, sugar: Float) {
         
         self.sugar = sugar
         
-        super.init(brand: brand, name: name, price: price, size: size, manufactured: manufactured,
+        super.init(brand: brand, name: name, price: price, size: size, dateFactory: dateFactory, manufacturedInString: manufacturedInString,
                    temperature: temperature, package: package)
     }
     
@@ -60,13 +60,13 @@ class CafeLatte: Coffee, Expirable, LactoFreeable {
     private let expiry: Date
     private let lactose: Float
     
-    init(brand: String, name: String, price: Int, size: Int, manufactured: Date,
+    init(brand: String, name: String, price: Int, size: Int, dateFactory: DateFactory, manufacturedInString: String,
          temperature: Float, package: Package, expireAfter: Int, lactose: Float) {
         
-        self.expiry = manufactured.add(amount: expireAfter)
+        self.expiry = dateFactory.create(from: manufacturedInString).add(days: expireAfter)
         self.lactose = lactose
         
-        super.init(brand: brand, name: name, price: price, size: size, manufactured: manufactured,
+        super.init(brand: brand, name: name, price: price, size: size, dateFactory: dateFactory, manufacturedInString: manufacturedInString,
                    temperature: temperature, package: package)
     }
     

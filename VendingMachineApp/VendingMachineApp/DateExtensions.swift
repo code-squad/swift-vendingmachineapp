@@ -25,9 +25,9 @@ extension Date {
         return formatter.string(from: self)
     }
     
-    func add(amount: Int) -> Date {
+    func add(days: Int) -> Date {
         let expiryDate = Calendar.current.date(byAdding: .day,
-                                               value: amount,
+                                               value: days,
                                                to: self)
         return expiryDate ?? self
     }

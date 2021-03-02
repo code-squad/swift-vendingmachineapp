@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E412600625EE28C9003ED8A7 /* DateFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E412600525EE28C9003ED8A7 /* DateFactory.swift */; };
 		E4C499ED25E8716C008449D6 /* Filterer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C499EC25E8716C008449D6 /* Filterer.swift */; };
 		E4C49A0125E89FEB008449D6 /* VendingMachineAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C49A0025E89FEB008449D6 /* VendingMachineAppTests.swift */; };
 		E4EB87B525E4C83300F077D5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EB87B425E4C83300F077D5 /* AppDelegate.swift */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E412600525EE28C9003ED8A7 /* DateFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFactory.swift; sourceTree = "<group>"; };
 		E4C499EC25E8716C008449D6 /* Filterer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filterer.swift; sourceTree = "<group>"; };
 		E4C499FE25E89FEB008449D6 /* VendingMachineAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VendingMachineAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4C49A0025E89FEB008449D6 /* VendingMachineAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineAppTests.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				E4EB87E225E52B4200F077D5 /* Soda.swift */,
 				E4EB87E525E52B4B00F077D5 /* Coffee.swift */,
 				E4EB87E925E52EA700F077D5 /* DateExtensions.swift */,
+				E412600525EE28C9003ED8A7 /* DateFactory.swift */,
 				E4EB87BA25E4C83300F077D5 /* Main.storyboard */,
 				E4EB87BD25E4C83400F077D5 /* Assets.xcassets */,
 				E4EB87BF25E4C83400F077D5 /* LaunchScreen.storyboard */,
@@ -252,6 +255,7 @@
 				E4EB87E025E52B3E00F077D5 /* Milk.swift in Sources */,
 				E4EB87E625E52B4B00F077D5 /* Coffee.swift in Sources */,
 				E4EB87FA25E782C000F077D5 /* Package.swift in Sources */,
+				E412600625EE28C9003ED8A7 /* DateFactory.swift in Sources */,
 				E4EB87F125E5D72400F077D5 /* VendingMachine.swift in Sources */,
 				E4EB880325E7CE1500F077D5 /* MoneyBox.swift in Sources */,
 			);

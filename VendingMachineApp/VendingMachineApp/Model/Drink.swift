@@ -33,7 +33,7 @@ class Drink: CustomStringConvertible, Hashable {
     private let volume: Int
     private let charge: Int
     private (set) var name: String
-    private let manufacturing: Date
+    private (set) var manufacturing: Date
     
     init(brand : String, volume : Int, charge : Int, name :String, manufacturing : Date) {
         self.brand = brand
@@ -41,20 +41,6 @@ class Drink: CustomStringConvertible, Hashable {
         self.charge = charge
         self.name = name
         self.manufacturing = manufacturing
-    }
-    
-    func afterManufacuring(days : Int) -> Date {
-        return Date.init(timeInterval: TimeInterval(days * 3600 * 24), since: manufacturing)
-    }
-    
-    /// 지금과, date를 second까지 비교, date가 더 미래라면 true, else = false. 낮은 경우의 수로 지금과 date가 동일 시간이어도, false로 처리함.
-    func compareNowWith(date : Date) -> Bool {
-        var bool = false
-        if Date.init().compare(date) == .orderedAscending {
-            bool = true
-        }
-        
-        return bool
     }
     
     func canBuy(have money : Int) -> Bool {

@@ -38,7 +38,7 @@ class DrinksDictionary {
         checkZero(stock, drink)
     }
     
-    func checkZero(_ stock:Int, _ drink: Drink) {
+    private func checkZero(_ stock:Int, _ drink: Drink) {
         if stock == 0 {
             drinkDictionary.removeValue(forKey: drink)
         }

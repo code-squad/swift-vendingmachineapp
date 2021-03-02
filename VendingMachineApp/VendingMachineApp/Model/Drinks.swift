@@ -44,4 +44,9 @@ class Drinks {
         }
         return result
     }
+    func giveExpiredList() -> [Beverage] {
+        drinks.filter { (beverage) in
+            return beverage.isExpired()
+        }
+    }
 }

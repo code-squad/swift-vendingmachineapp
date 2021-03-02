@@ -31,6 +31,9 @@ class Beverage: CustomStringConvertible {
     func calculateChange(with cash: Int) -> Int {
         return cash - self.price
     }
+    func isExpired() -> Bool {
+        return self.dateOfManufacture < Date()
+    }
 }
 
 extension Beverage: Equatable {

@@ -30,7 +30,7 @@ class VendingMachine {
         return cashManagementSystem.showListForPurchase(with: drinks)
     }
     
-    func buy(with beverage: Beverage) {
+    func buy(_ beverage: Beverage) {
         if cashManagementSystem.isAvailableForPurchase(with: beverage) {
             cashManagementSystem.decreaseCash(with: beverage)
             drinks.remove(with: beverage)
@@ -42,5 +42,8 @@ class VendingMachine {
     
     func showStock() -> [Beverage:Int] {
         drinks.giveStockList()
+    }
+    func showExpiredStock() -> [Beverage] {
+        drinks.giveExpiredList()
     }
 }

@@ -7,12 +7,16 @@ class Drink: Hashable {
     private(set) var name: String
     private(set) var manufactured: Date
     
-    init(brand: String, capacity: Int, price: Int, name: String, manufactured: Date = Date()) {
+    init(brand: String, capacity: Int, price: Int, name: String, manufactured: Date) {
         self.brand = brand
         self.capacity = capacity
         self.price = price
         self.name = name
         self.manufactured = manufactured
+    }
+    
+    convenience init(brand: String, capacity: Int, price: Int, name: String) {
+        self.init(brand: brand, capacity: capacity, price: price, name: name, manufactured: Date())
     }
     
     static func == (lhs: Drink, rhs: Drink) -> Bool {

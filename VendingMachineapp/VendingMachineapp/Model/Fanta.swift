@@ -7,11 +7,11 @@
 
 import Foundation
 
-class Hwanta: Soda {
-    private var type: String
+class Fanta: Soda {
+    private var color: String
     
-    override init(manufacturer: String, volume: Int, price: Int, brand: String, manufactured: Date, expiryTime: Date, calorie: Int, temperature: Int, flavor: String) {
-        self.type = "Hwanta"
+    init(manufacturer: String, volume: Int, price: Int, brand: String, manufactured: Date, expiryTime: Date, calorie: Int, temperature: Int, flavor: String, color: String) {
+        self.color = color
         super.init(manufacturer: manufacturer,
                    volume: volume,
                    price: price,

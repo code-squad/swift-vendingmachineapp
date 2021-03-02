@@ -16,7 +16,7 @@ struct OutputView {
         let testStrawBerryMilk = StrawberryMilk.init()
         print(testStrawBerryMilk)
         print("isCochineal: \(testStrawBerryMilk.isCochineal())")
-        print("validate: \(testStrawBerryMilk.validate())")
+        print("validate: \(testStrawBerryMilk.isWithInExpiration())")
         
         let testCola = Cola()
         print(testCola)

@@ -86,7 +86,7 @@ struct VendingMachine {
         stock.doClosure(closure: { drinks in
             drinks.forEach({
                 if let downCasting = $0 as? Milk {
-                    if downCasting.validate() == false {
+                    if downCasting.isWithInExpiration() == false {
                         returnDrinkArr.append(downCasting)
                     }
                 }

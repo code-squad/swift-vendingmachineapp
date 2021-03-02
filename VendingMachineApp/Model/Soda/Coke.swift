@@ -12,15 +12,26 @@ class Coke : Soda {
         case cherry
         case vanilla
     }
-    let faver : Coke.Flaver
+    let faver : Flaver
     
-    init(create: String, expire: String, flaver : Coke.Flaver){
+    
+    init(brand: String, capacity: Int, price: Int, name: String, createdAt: String, expiredAt: String, flaver : Coke.Flaver) {
         self.faver = flaver
-        super.init(brand: "팹시",
+        super.init(brand: brand,
+                   capacity: capacity,
+                   price: price,
+                   name: name,
+                   createdAt: createdAt,
+                   expiredAt: expiredAt)
+    }
+    
+    convenience init(createdAt : String, expiredAt : String) {
+        self.init(brand: "팹시",
                    capacity: 350,
                    price: 3500,
                    name: "코카콜라",
-                   create: create,
-                   expire: expire)
+                   createdAt: createdAt,
+                   expiredAt: expiredAt,
+                   flaver : .cherry)
     }
 }

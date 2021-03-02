@@ -8,8 +8,28 @@
 import Foundation
 
 class Monster : EnergyDrink {
+    enum Kind {
+        case original
+        case paradise
+        case ultra
+        case citra
+    }
     
-    init(create : String, expire: String){
-        super.init(brand: "몬스터음료주식회사", capacity: 473, price: 1500, name: "몬스터", create: create, expire: expire, caffeine: 140)
+    let kind : Kind
+    
+    init(brand: String, capacity: Int, price: Int, name: String, createdAt: String, expiredAt: String, caffeine: Int, kind : Monster.Kind){
+        self.kind = kind
+        super.init(brand: brand, capacity: capacity, price: price, name: name, createdAt: createdAt, expiredAt: expiredAt, caffeine: caffeine)
+    }
+    
+    convenience init(createdAt : String, expiredAt : String) {
+        self.init(brand: "몬스터음료주식회사",
+                   capacity: 473,
+                   price: 1500,
+                   name: "몬스터",
+                   createdAt: createdAt,
+                   expiredAt: expiredAt,
+                   caffeine: 140,
+                   kind : .original)
     }
 }

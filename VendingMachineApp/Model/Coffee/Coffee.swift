@@ -11,21 +11,10 @@ class Coffee : Beverage{
     private var caffeine : Int
     private let hot : Bool
     
-    enum Kind : String {
-        case cantata = "Cantata"
-        case top = "TOP"
-        case georiga = "Georgia"
-    }
-    
-    init(brand : String, capacity : Int, price : Int, name : String, create : String, expire: String, caffeine : Int, hot : Bool = false){
+    init(brand : String, capacity : Int, price : Int, name : String, createdAt : String, expiredAt: String, caffeine : Int, hot : Bool){
         self.caffeine = caffeine
         self.hot = hot
-        super.init(brand: brand,
-                   capacity: capacity,
-                   price: price,
-                   name: name,
-                   create: create,
-                   expire: expire)
+        super.init(brand: brand, capacity: capacity, price: price, name: name, createdAt: createdAt, expiredAt: expiredAt)
     }
     override var description: String {
         return super.description + ", \(caffeine)mg"

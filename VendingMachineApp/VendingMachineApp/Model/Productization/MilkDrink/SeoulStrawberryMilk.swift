@@ -5,7 +5,14 @@ class SeoulStrawberryMilk: Milk, Productization {
     
     init(brand: String, capacity: Int, price: Int, name: String, fat: Double, isWithStraw: Bool, manufactured: Date, temperature: Double, calorie: Double) {
         self.isWithStraw = isWithStraw
-        super.init(brand: brand, capacity: capacity, price: price, name: name, fat: fat, manufactured: manufactured, temperature: temperature, calorie: calorie)
+        super.init(brand: brand,
+                   capacity: capacity,
+                   price: price,
+                   name: name,
+                   fat: fat,
+                   manufactured: manufactured,
+                   temperature: temperature,
+                   calorie: calorie)
     }
     
     init(isWithStraw: Bool, manufactured: Date) {

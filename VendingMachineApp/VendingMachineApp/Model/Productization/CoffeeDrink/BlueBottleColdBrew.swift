@@ -11,7 +11,14 @@ class BlueBottleColdBrew: Coffee, Productization {
     
     init(brand: String, capacity: Int, price: Int, name: String, caffeineContent: UInt, flavor: Flavor, manufactured: Date, temperature: Double, calorie: Double) {
         self.flavor = flavor
-        super.init(brand: brand, capacity: capacity, price: price, name: name, caffeineContent: caffeineContent, manufactured: manufactured, temperature: temperature, calorie: calorie)
+        super.init(brand: brand,
+                   capacity: capacity,
+                   price: price,
+                   name: "\(name)(\(self.flavor.rawValue))",
+                   caffeineContent: caffeineContent,
+                   manufactured: manufactured,
+                   temperature: temperature,
+                   calorie: calorie)
     }
     
     init(flavor: Flavor, manufactured: Date) {
@@ -19,7 +26,7 @@ class BlueBottleColdBrew: Coffee, Productization {
         super.init(brand: "BlueBottle",
                    capacity: 240,
                    price: 1150,
-                   name: "BlueBottle Cold Brew",
+                   name: "BlueBottle Cold Brew(\(self.flavor.rawValue))",
                    caffeineContent: 80,
                    manufactured: Date(),
                    temperature: 8,
@@ -30,7 +37,7 @@ class BlueBottleColdBrew: Coffee, Productization {
         self.init(brand: "BlueBottle",
                    capacity: 240,
                    price: 1150,
-                   name: "BlueBottle Cold Brew",
+                   name: "BlueBottle Cold Brew(Bright)",
                    caffeineContent: 80,
                    flavor: .bright,
                    manufactured: Date(),

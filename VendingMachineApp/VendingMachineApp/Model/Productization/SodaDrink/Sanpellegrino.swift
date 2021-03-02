@@ -5,7 +5,14 @@ class Sanpellegrino: Soda, Productization {
     
     init(brand: String, capacity: Int, price: Int, name: String, isZeroCalorie: Bool, isPackageRenewaled: Bool, manufactured: Date, temperature: Double, calorie: Double) {
         self.isPackageRenewaled = isPackageRenewaled
-        super.init(brand: brand, capacity: capacity, price: price, name: name, isZeroCalorie: isZeroCalorie, manufactured: manufactured, temperature: temperature, calorie: calorie)
+        super.init(brand: brand,
+                   capacity: capacity,
+                   price: price,
+                   name: name,
+                   isZeroCalorie: isZeroCalorie,
+                   manufactured: manufactured,
+                   temperature: temperature,
+                   calorie: calorie)
     }
     
     init(isPackageRenewaled: Bool, manufactured: Date) {

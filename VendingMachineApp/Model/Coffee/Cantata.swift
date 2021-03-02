@@ -8,14 +8,35 @@
 import Foundation
 
 class Cantata : Coffee {
-    init(create : String, expire : String, hot : Bool = false){
-        super.init(brand: "롯데칠성음료",
+    
+    enum Kind {
+        case sweetAmericano
+        case premiumLette
+        case caramelMacchiato
+    }
+    
+    let kind : Kind
+
+    init(brand: String, capacity: Int, price: Int, name: String, createdAt: String, expiredAt: String, caffeine: Int, hot: Bool, kind: Cantata.Kind) {
+        self.kind = kind
+        super.init(brand: brand,
+                   capacity: capacity,
+                   price: price,
+                   name: name,
+                   createdAt: createdAt,
+                   expiredAt: expiredAt,
+                   caffeine: caffeine,
+                   hot: hot)
+    }
+    convenience init(createdAt : String, expiredAt : String, hot : Bool = false, kind : Cantata.Kind = .sweetAmericano){
+        self.init(brand: "롯데칠성음료",
                    capacity: 275,
                    price: 1000,
                    name: "칸타타",
-                   create: create,
-                   expire: expire,
+                   createdAt: createdAt,
+                   expiredAt: expiredAt,
                    caffeine: 100,
-                   hot: hot)
+                   hot: hot,
+                   kind: kind)
     }
 }

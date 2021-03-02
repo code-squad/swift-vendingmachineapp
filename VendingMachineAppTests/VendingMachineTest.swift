@@ -16,11 +16,10 @@ class VendingMachineTest: XCTestCase {
     
         vendingMachine = VendingMachine()
         vendingMachine.charge(coins: 10000)
-        vendingMachine.append(product: StroberryMilk(create:"20210403", expire: "20210412"))
-        vendingMachine.append(product: ChocolateMilk(create: "20200211", expire: "20200220"))
-        vendingMachine.append(product: Coke(create: "20200101", expire: "20200824", flaver: .cherry))
-        vendingMachine.append(product: Top(create: "20210101", expire: "20210101", hot: true))
-
+        vendingMachine.append(product: StroberryMilk(createdAt:"20210403", expiredAt: "20210412"))
+        vendingMachine.append(product: ChocolateMilk(createdAt: "20200211", expiredAt: "20200220"))
+        vendingMachine.append(product: Coke(createdAt: "20200101", expiredAt: "20200824"))
+        vendingMachine.append(product: Top(createdAt: "20210101", expiredAt: "20210101", hot: true))
     }
 
     func testGetBalance() {
@@ -40,7 +39,7 @@ class VendingMachineTest: XCTestCase {
     }
     
     func testSellProduct(){
-        let georgia = Georgia(create :"20210202", expire: "20210210", hot: true)
+        let georgia = Georgia(createdAt :"20210202", expiredAt: "20210210")
         vendingMachine.append(product: georgia)
         
         let expect = georgia
@@ -55,6 +54,7 @@ class VendingMachineTest: XCTestCase {
         XCTAssertEqual(expect, actual, "유통기한 체크 목록이 올바르지 않습니다.")
     }
     func testGetHotDrink(){
+        
         let actual = vendingMachine.getHotDrink().count
         let expect = 1
         
@@ -62,7 +62,7 @@ class VendingMachineTest: XCTestCase {
     }
     func testGetSoldProducts(){
     
-        vendingMachine.sellProduct(with: "맥심TOP")
+        vendingMachine.sellProduct(with: "초코맛 우유")
         let expect = 1
         let actual = vendingMachine.getSoldProducts().count
         

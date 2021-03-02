@@ -12,19 +12,19 @@ class Beverage : CustomStringConvertible {
     private var capacity :  Int
     private(set) var price : Int
     private var name : String
-    private var create : Date
-    private let expire : Date
+    private var createdAt : Date
+    private let expiredAt : Date
     
     var description: String {
-        return "\(brand), \(capacity)ml, \(price)원, \(name), \(create.toString()), \(expire.toString())"
+        return "\(brand), \(capacity)ml, \(price)원, \(name), \(createdAt.toString()), \(expiredAt.toString())"
     }
-    init(brand : String, capacity : Int, price : Int, name : String, create : String, expire : String){
+    init(brand : String, capacity : Int, price : Int, name : String, createdAt : String, expiredAt : String){
         self.brand = brand
         self.capacity = capacity
         self.price = price
         self.name = name
-        self.create = create.toDate()
-        self.expire = expire.toDate()
+        self.createdAt = createdAt.toDate()
+        self.expiredAt = expiredAt.toDate()
     }
     public func availablePrice(with coins: Int) -> Bool {
         return price <= coins
@@ -34,7 +34,7 @@ class Beverage : CustomStringConvertible {
 extension Beverage : Drinkable {
     func isExpired() -> Bool {
         let calendar = Calendar.current
-        return calendar.compare(Date(), to: expire, toGranularity: .day) == .orderedAscending
+        return calendar.compare(Date(), to: expiredAt, toGranularity: .day) == .orderedAscending
     }
 }
 
@@ -53,8 +53,8 @@ extension Beverage : Hashable {
         hasher.combine(capacity)
         hasher.combine(price)
         hasher.combine(name)
-        hasher.combine(create)
-        hasher.combine(expire)
+        hasher.combine(createdAt)
+        hasher.combine(expiredAt)
     }
 }
 extension Beverage {

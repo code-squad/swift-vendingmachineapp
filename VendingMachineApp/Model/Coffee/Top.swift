@@ -8,15 +8,36 @@
 import Foundation
 
 class Top : Coffee {
+    
+    enum Kind {
+        case caffelatte
+        case americano
+        case black
+    }
+    
+    let kind : Kind
 
-    init(create : String, expire : String, hot : Bool = false){
-        super.init(brand: "맥심",
+    init(brand: String, capacity: Int, price: Int, name: String, createdAt: String, expiredAt: String, caffeine: Int, hot: Bool, kind: Top.Kind) {
+        self.kind = kind
+        super.init(brand: brand,
+                   capacity: capacity,
+                   price: price,
+                   name: name,
+                   createdAt: createdAt,
+                   expiredAt: expiredAt,
+                   caffeine: caffeine,
+                   hot : hot)
+    }
+    
+    convenience init(createdAt : String, expiredAt : String, hot: Bool = false, kind : Top.Kind = .black){
+        self.init(brand: "맥심",
                    capacity: 275,
                    price: 1700,
                    name: "맥심TOP",
-                   create: create,
-                   expire: expire,
+                   createdAt: createdAt,
+                   expiredAt: expiredAt,
                    caffeine: 100,
-                   hot: hot)
+                   hot: hot,
+                   kind: kind)
     }
 }

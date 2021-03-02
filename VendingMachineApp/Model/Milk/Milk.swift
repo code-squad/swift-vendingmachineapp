@@ -8,10 +8,10 @@
 import Foundation
 
 class Milk : Beverage {
-
-    enum Kind : String {
-        case chocolate = "Chocolate"
-        case stroberry = "Stroberry"
-        case banana = "Banana"
+    private var lowFat : Bool
+    
+    init(brand : String, capacity : Int, price : Int, name : String, createdAt : String, expiredAt : String, lowFat : Bool){
+        self.lowFat = lowFat
+        super.init(brand: brand, capacity: capacity, price: price, name: name, createdAt: createdAt, expiredAt: expiredAt)
     }
 }

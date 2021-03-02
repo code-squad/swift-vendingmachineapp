@@ -28,8 +28,14 @@ class Beverage {
         return dateFormatter.string(from: date)
     }
     
-    func checkPrice() -> Int {
-        return price
+    func availableForBeverage() -> Bool {
+        let machine = VendingMachine()
+        return machine.insertedMoney >= price ? true : false
+    }
+    
+    func afterBuyingBeverage() {
+        var machine = VendingMachine()
+        machine.insertedMoney -= price
     }
     
     func canbuy() -> String {

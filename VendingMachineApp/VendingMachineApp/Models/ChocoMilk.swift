@@ -29,8 +29,8 @@ class ChocoMilk: Milk {
     
     private var cacao: Cacao
     
-    init(date: Date, lowFat: Bool, cacao: Cacao) {
+    init(date: Date, lowFat: Bool, cacao: Cacao, expiration: Date, hot: Bool, calorie: Int) {
         self.cacao = cacao
-        super.init(brand: "매일우유", capacity: 550, price: cacao.price(), name: cacao.rawValue, date: date, lowFat: lowFat)
+        super.init(brand: "매일우유", capacity: 550, price: cacao.price(), name: cacao.rawValue, date: date, lowFat: lowFat, expiration: expiration, hot: hot, calorie: calorie)
     }
 }

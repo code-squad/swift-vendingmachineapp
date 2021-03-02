@@ -13,6 +13,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         let drinks = Drinks([
+            StrawberryMilk(date: Date().date("20210220"), lowFat: false, container: .bottle, expiration: Date().date("20210310"), hot: false, calorie: 175)
         ])
         
         let vendingMachine = VendingMachine(drinks: drinks)

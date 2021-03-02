@@ -8,13 +8,13 @@
 import Foundation
 
 class CoffeeFactory : BeverageFactory{
-    static func createBeverage(with name: String) -> Beverage {
-        let drink = Coffee.Kind(rawValue: name)
-        switch drink {
-        case .cantata: return Cantata(create: Date().toString(), expire: Date().toString())
-        case .georiga: return Georgia(create: Date().toString(), expire: Date().toString())
+    static func createBeverage<T>(type value: T) -> Beverage? {
+        switch value {
+        case is Top.Type : return Top(create: Date().toString(), expire: Date().toString())
+        case is Georgia.Type : return Georgia(create: Date().toString(), expire: Date().toString())
+        case is Cantata.Type : return Cantata(create: Date().toString(), expire: Date().toString())
         default:
-            return Top(create: Date().toString(), expire: Date().toString())
+            return nil
         }
     }
 }

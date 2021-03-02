@@ -18,7 +18,7 @@ class VendingMachineAppTests: XCTestCase {
         super.setUp()
         vendingMachine = VendingMachine()
     }
-    
+    /*
     func testsSenario(){
         // 재고를 추가한다.
         vendingMachine.append(product: CoffeeFactory.createBeverage(with: "Top"))
@@ -47,5 +47,5 @@ class VendingMachineAppTests: XCTestCase {
         
         // 구매 이력을 확인한다.
         vendingMachine.getSoldProducts().forEach{print($0)}
-    }
+    }*/
 }

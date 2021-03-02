@@ -10,7 +10,7 @@ import Foundation
 class Inventory: CustomStringConvertible {
     
     var description: String {
-        return "\(milkInventory), \(sodaInventory), \(coffeeInventory)"
+        return "\(milkInventory)일, \(sodaInventory)이, \(coffeeInventory)삼"
     }
     
     private var milkInventory: [Milk]

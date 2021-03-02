@@ -14,7 +14,7 @@ protocol BeverageFactory {
 
 class MilkFactory: BeverageFactory {
     func create() -> Beverage {
-        BananaMilk(brand: "빙그레", capacity: 400, price: 2000, name: "바나나우유",manufacture: Date(), farmCode: "A", hasDoraemonSticker: false)
+        BananaMilk(brand: "빙그레", capacity: 400, price: 2000, name: "바나나우유",manufacture: Date(), farmCode: "A", hasDoraemonSticker: false, expiry: Date()+1)
     }
 }
 

@@ -13,7 +13,7 @@ class Milk : Beverage, Drinkable {
         self.init(brand: brand, size: size, price: price, name: name, manufactureAt: Date(), validWithin: days)
     }
     
-    func validate(with date: Date) -> Bool {
+    func isDrinkable(on date: Date) -> Bool {
         return expiredAt > date ? true : false
     }
     
@@ -21,6 +21,6 @@ class Milk : Beverage, Drinkable {
 
 
 protocol Drinkable {
-    func validate(with date: Date) -> Bool
+    func isDrinkable(on date: Date) -> Bool
 }
 

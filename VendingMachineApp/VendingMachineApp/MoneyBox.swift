@@ -23,4 +23,23 @@ class MoneyBox {
     func update(amount: Int) {
         money += amount
     }
+    
+    func update(to money: Int) {
+        self.money = money
+    }
+    
+    func affordableList(from list: Beverages) -> [Beverage] {
+        return list.listTypeOnly(filter: affordable(_:))
+    }
+    
+    private func affordable(_ beverages: [Beverage: Int]) -> [Beverage] {
+        var purchashableList = [Beverage]()
+        
+        beverages.forEach { (beverage: Beverage, _: Int) in
+            if beverage.isPurchashable(with: money){
+                purchashableList.append(beverage)
+            }
+        }
+        return purchashableList
+    }
 }

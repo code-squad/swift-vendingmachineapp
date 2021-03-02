@@ -7,27 +7,18 @@
 
 import Foundation
 
-class Organizer {
+class Filterer {
+
+    private let dateStandard: Date
+    private let temperatureStandard: Float
+    private let sugarStandard: Float
+    private let lactoStandard: Float
     
-    private var moneyBox: MoneyBox
-    
-    init(with moneyBox: MoneyBox) {
-        self.moneyBox = moneyBox
-    }
-    
-    func affordables(from list: Beverages) -> [Beverage] {
-        return list.listTypeOnly(filter: affordable(_:))
-    }
-    
-    private func affordable(_ beverages: [Beverage: Int]) -> [Beverage] {
-        var purchashableList = [Beverage]()
-        
-        beverages.forEach { (beverage: Beverage, _: Int) in
-            if beverage.isPurchashable(with: moneyBox.balance()){
-                purchashableList.append(beverage)
-            }
-        }
-        return purchashableList
+    init(dateStandard: Date, temperatureStandard: Float, sugarStandard: Float, lactoStandard: Float) {
+        self.dateStandard = dateStandard
+        self.temperatureStandard = temperatureStandard
+        self.sugarStandard = sugarStandard
+        self.lactoStandard = lactoStandard
     }
     
     func expiredItems(from list: Beverages) -> [Beverage: Int] {
@@ -39,7 +30,7 @@ class Organizer {
 
         beverages.forEach { (bev) in
             if let beverage = bev as? Beverage & Expirable,
-               beverage.isExpired() {
+               beverage.isExpired(compareTo: dateStandard) {
                 if expiredList[beverage] != nil {
                     expiredList[beverage]! += 1
                 } else {
@@ -59,7 +50,7 @@ class Organizer {
 
         stockList.forEach { (bev: Beverage, _: Int) in
             if let beverage = bev as? Beverage & Hotable,
-               beverage.isHotable() {
+               beverage.isHot(basedOn: temperatureStandard){
                 beverageList.append(beverage)
             }
         }
@@ -91,7 +82,8 @@ class Organizer {
 
         stockList.forEach { (bev: Beverage, _: Int) in
             if let beverage = bev as? Beverage & SugarFreeable & LactoFreeable,
-               beverage.isSugarFree(), beverage.isLactoFree() {
+               beverage.isSugarFree(basedOn: sugarStandard),
+               beverage.isLactoFree(basedOn: lactoStandard) {
                 beverageList.append(beverage)
             }
         }

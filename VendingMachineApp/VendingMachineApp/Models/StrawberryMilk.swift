@@ -37,8 +37,8 @@ class StrawberryMilk: Milk {
     
     private var container: Container
     
-    init(date: Date, lowFat: Bool, container: Container) {
+    init(date: Date, lowFat: Bool, container: Container, expiration: Date, hot: Bool, calorie: Int) {
         self.container = container
-        super.init(brand: "서울우유", capacity: container.capacity(), price: container.price(), name: container.rawValue, date: date, lowFat: lowFat)
+        super.init(brand: "서울우유", capacity: container.capacity(), price: container.price(), name: container.rawValue, date: date, lowFat: lowFat, expiration: expiration, hot: hot, calorie: calorie)
     }
 }

@@ -38,8 +38,8 @@ class Sprite: Soda {
     
     private var flavor: Flavor
     
-    init(date: Date, isZero: Bool, flavor: Flavor) {
+    init(date: Date, isZero: Bool, flavor: Flavor, expiration: Date, hot: Bool, calorie: Int) {
         self.flavor = flavor
-        super.init(brand: "스프라이트", capacity: flavor.capacity(), price: flavor.price(), name: flavor.rawValue, date: date, isZero: isZero)
+        super.init(brand: "스프라이트", capacity: flavor.capacity(), price: flavor.price(), name: flavor.rawValue, date: date, isZero: isZero, expiration: expiration, hot: hot, calorie: calorie)
     }
 }

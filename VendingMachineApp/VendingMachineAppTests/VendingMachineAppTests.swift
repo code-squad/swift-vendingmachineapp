@@ -26,12 +26,13 @@ class VendingMachineAppTests: XCTestCase {
     
     // 통합 테스트 시나리오
     func testVendingMachineScenario() {
-        let blueBottle = DrinkFactory.makeDrink(of: .blueBottleColdBrew)
-        let starbucks = DrinkFactory.makeDrink(of: .starBucksColdBrew)
-        let seoulMilk = DrinkFactory.makeDrink(of: .seoulStrawberryMilk)
-        let bananaMilk = DrinkFactory.makeDrink(of: .bingBananaMilk)
-        let sanpellegrino = DrinkFactory.makeDrink(of: .sanpellegrino)
-        let fanta = DrinkFactory.makeDrink(of: .fanta, manufactured: Date() - 365)
+        
+        guard let blueBottle = DrinkFactory.makeDrink(of: BlueBottleColdBrew.self) else { return }
+        guard let starbucks = DrinkFactory.makeDrink(of: StarbucksColdBrew.self) else { return }
+        guard let seoulMilk = DrinkFactory.makeDrink(of: SeoulStrawberryMilk.self) else { return }
+        guard let bananaMilk = DrinkFactory.makeDrink(of: BingBananaMilk.self) else { return }
+        guard let sanpellegrino = DrinkFactory.makeDrink(of: Sanpellegrino.self) else { return }
+        guard let fanta = DrinkFactory.makeDrink(of: Fanta.self, manufactured: Date() - 365) else { return }
         
         // Productization을 채택하지 않은 Soda 클래스
         let weirdSoda = Soda(brand: "탄산회사", capacity: 500, price: 1500, name: "정체모를 탄산수", isZeroCalorie: true, manufactured: Date())

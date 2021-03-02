@@ -46,7 +46,7 @@ struct Machine {
         return beverageStorage.checkExpired()
     }
     
-    func purchaseBeverage(beverage: Beverage) {
+    func purchaseBeverage(beverage: Beverage, completionHandler: (Beverage) -> Void) {
         let itemPrice = beverage.checkPrice()
         do {
             try moneyProccesor.deductMoneyOnTransaction(by: itemPrice)
@@ -59,6 +59,7 @@ struct Machine {
         } catch {
             print("Invalid beverage info")
         }
+        completionHandler(beverage)
     }
 
     func transactionStopButtonPressed() -> Int {

@@ -22,6 +22,7 @@ class MachineUnitTest: XCTestCase {
     var cheapAndFreshHotAmericanoWithLowCaffeine: Americano!
     var expensiveAndOldHotCaffeeLatteWithHighCaffeine: CaffeLatte!
     var expensiveAndOldColdCaffeeLatteWithHighCaffeine: CaffeLatte!
+    var purchaseHistory: [Beverage]!
     
     override func setUpWithError() throws {
         testMachine = Machine()
@@ -38,6 +39,7 @@ class MachineUnitTest: XCTestCase {
         cheapAndFreshHotAmericanoWithLowCaffeine = BeverageFactory.makeAmericano(price: .low, packDate: .fresh, caffeine: .low, inHeatingCabinet: true)
         expensiveAndOldHotCaffeeLatteWithHighCaffeine = BeverageFactory.makeCaffeLatte(price: .high, packDate: .old, caffeine: .high, inHeatingCabinet: true)
         expensiveAndOldColdCaffeeLatteWithHighCaffeine = BeverageFactory.makeCaffeLatte(price: .high, packDate: .old, caffeine: .high, inHeatingCabinet: false)
+        purchaseHistory = []
     }
 
     override func tearDownWithError() throws {
@@ -93,15 +95,23 @@ class MachineUnitTest: XCTestCase {
         testMachine.receiveMoney(amount: 1_000_000)
         testMachine.addStock(beverage: expensiveAndOldBeverage, amount: 10)
         let itemPrice = expensiveAndOldBeverage.checkPrice()
-        testMachine.purchaseBeverage(beverage: expensiveAndOldBeverage)
-        XCTAssertEqual(testMachine.checkStock()[expensiveAndOldBeverage], 9)
-        XCTAssertEqual(testMachine.showMoneyHolding(), itemPrice)
+        testMachine.purchaseBeverage(beverage: expensiveAndOldBeverage) { (beverage) in
+            purchaseHistory.append(beverage)
+        }
+        testMachine.purchaseBeverage(beverage: expensiveAndOldBeverage) { (beverage) in
+            purchaseHistory.append(beverage)
+        }
+        XCTAssertEqual(testMachine.checkStock()[expensiveAndOldBeverage], 8)
+        XCTAssertEqual(testMachine.showMoneyHolding(), itemPrice * 2)
+        XCTAssertEqual(purchaseHistory, [expensiveAndOldBeverage,expensiveAndOldBeverage])
     }
     
     func test_fail_purchase_beverage_with_not_enough_money() {
         testMachine.receiveMoney(amount: 10)
         testMachine.addStock(beverage: expensiveAndOldBeverage, amount: 10)
-        testMachine.purchaseBeverage(beverage: expensiveAndOldBeverage)
+        testMachine.purchaseBeverage(beverage: expensiveAndOldBeverage) { (beverage) in
+            purchaseHistory.append(beverage)
+        }
         XCTAssertEqual(testMachine.checkStock()[expensiveAndOldBeverage], 10)
         XCTAssertEqual(testMachine.showMoneyHolding(), 0)
     }
@@ -110,7 +120,9 @@ class MachineUnitTest: XCTestCase {
         let insertedMoney = 100_000
         testMachine.receiveMoney(amount: insertedMoney)
         testMachine.addStock(beverage: expensiveAndOldBeverage, amount: 10)
-        testMachine.purchaseBeverage(beverage: expensiveAndOldBeverage)
+        testMachine.purchaseBeverage(beverage: expensiveAndOldBeverage) { (beverage) in
+            purchaseHistory.append(beverage)
+        }
         let itemPrice = expensiveAndOldBeverage.checkPrice()
         XCTAssertEqual(testMachine.transactionStopButtonPressed(), insertedMoney - itemPrice)
     }

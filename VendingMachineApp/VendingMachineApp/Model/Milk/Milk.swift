@@ -10,7 +10,7 @@
     enum MilkFlavor {
         case normal
         case Strawberry
-        case Chocola
+        case Chocolate
         case Banana
     }
     
@@ -19,9 +19,9 @@
         private var farmCode: String
         private var isMilkFlavor: MilkFlavor
         
-        init(isMilkFlavor:MilkFlavor, farmCode:String, brand: String, capacity: Int, price: Int, name: String, madeDate: Date) {
+        init(isMilkFlavor:MilkFlavor, farmCode:String, brand: String, capacity: Int, price: Int, name: String, madeDate: Date,isHot: Bool, beverageType:BeverageType) {
             self.farmCode = farmCode
             self.isMilkFlavor = isMilkFlavor
-            super.init(brand: brand, capacity: capacity, price: price, name: name, madeDate: madeDate)
+            super.init(brand: brand, capacity: capacity, price: price, name: name, madeDate: madeDate,isHot: isHot, beverageType: BeverageType.Milk)
         }
     }

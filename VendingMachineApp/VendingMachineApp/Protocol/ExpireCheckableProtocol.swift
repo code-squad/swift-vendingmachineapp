@@ -7,9 +7,7 @@
 
 import Foundation
 
-protocol DrinkableProtocol {
+protocol ExpireCheckableProtocol {
     
-    func validate(date: Date) -> Bool
-    func isHot() -> Bool
-    func isLowCalorie() -> Bool
+    func isExpireDate(itemDate: Date) -> Bool
 }

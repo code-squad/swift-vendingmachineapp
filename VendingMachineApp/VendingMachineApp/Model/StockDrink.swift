@@ -25,7 +25,7 @@ class StockDrink: StockManagement {
 
     public func availableForDrinks(coin: Int) -> [Drink] {
         var availableDrinks = Set<Drink>()
-        for drink in self.stock where drink.isPurchaseableCoin(coin) {
+        for drink in self.stock where drink.isPurchaseable(coin: coin) {
             availableDrinks.update(with: drink)
         }
         return Array(availableDrinks)

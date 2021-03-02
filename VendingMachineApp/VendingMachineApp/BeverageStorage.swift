@@ -30,13 +30,6 @@ class BeverageStorage {
     public func checkStock() -> [Beverage:Int] {
        return stock
     }
-    
-    // make it into closure?
-    public func checkPurchasables2(handler: (Beverage) -> Void) {
-        stock.keys.forEach { (beverage) in
-            handler(beverage)
-        }
-    }
 
     public func checkPurchasables(with money: Int) -> [Beverage:Int] {
         let purchasableBeverages = stock.filter { (bev, amt) -> Bool in

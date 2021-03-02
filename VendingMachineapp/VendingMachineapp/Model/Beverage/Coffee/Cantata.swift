@@ -10,14 +10,14 @@ import Foundation
 class Cantata: Coffee {
     private var coldBrew: Bool
     
-    init(manufacturer: String, volume: Int, price: Int, brand: String, manufactured: Date, expiryTime: Date, calorie: Int, temperature: Int, caffeineContent: Int, coldBrew: Bool) {
+    init(manufacturer: String, volume: Int, price: Int, brand: String, manufactured: Date, expiry: Date, calorie: Int, temperature: Int, caffeineContent: Int, coldBrew: Bool) {
         self.coldBrew = coldBrew
         super.init(manufacturer: manufacturer,
                    volume: volume,
                    price: price,
                    brand: brand,
                    manufactured: manufactured,
-                   expiryTime: expiryTime,
+                   expiry: expiry,
                    calorie: calorie,
                    temperature: temperature,
                    caffeineContent: caffeineContent)

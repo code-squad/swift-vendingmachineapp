@@ -13,17 +13,17 @@ class Beverage{
     private(set) var price: Int
     private var brand: String
     private var manufactured: Date
-    private var expiryTime: Date
+    private var expiry: Date
     private var calorie: Int
     private var temperature: Int
     
-    init(manufacturer: String, volume: Int, price: Int, brand: String, manufactured: Date, expiryTime: Date, calorie: Int, temperature: Int) {
+    init(manufacturer: String, volume: Int, price: Int, brand: String, manufactured: Date, expiry: Date, calorie: Int, temperature: Int) {
         self.manufacturer = manufacturer
         self.volume = volume
         self.price = price
         self.brand = brand
         self.manufactured = manufactured
-        self.expiryTime = expiryTime
+        self.expiry = expiry
         self.calorie = calorie
         self.temperature = temperature
     }
@@ -37,7 +37,7 @@ class Beverage{
     }
     
     func validateExpiryTime(with date: Date) -> Bool {
-        return expiryTime >= date
+        return expiry >= date
     }
     
     func isAvailablePurchase(with money: Int) -> Bool {

@@ -15,5 +15,4 @@ class Coffee: Beverage {
         self.caffeineContent = caffeineContent
         super.init(brand: brand, volume: volume, price: price, name: name, manufacturedAt: manufacturedAt)
     }
-    
 }

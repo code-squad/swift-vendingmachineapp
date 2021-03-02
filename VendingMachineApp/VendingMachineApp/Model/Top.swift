@@ -9,10 +9,10 @@ import Foundation
 
 class Top: Coffee {
     
-    private var temperature: Double
+    private var category: String
     
-    init(brand: String, volume: Int, price: Int, name: String, manufacturedAt: Date, caffeineContent: Int, temperature: Double) {
-        self.temperature = temperature
+    override init(brand: String, volume: Int, price: Int, name: String, manufacturedAt: Date, caffeineContent: Int) {
+        self.category = "TOP"
         super.init(brand: brand, volume: volume, price: price, name: name, manufacturedAt: manufacturedAt, caffeineContent: caffeineContent)
     }
 }

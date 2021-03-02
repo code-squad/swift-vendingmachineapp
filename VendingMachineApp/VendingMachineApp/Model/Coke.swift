@@ -9,4 +9,10 @@ import Foundation
 
 class Coke: Soda {
     
+    private var category: String
+    
+    override init(brand: String, volume: Int, price: Int, name: String, manufacturedAt: Date, unsweetened: Bool) {
+        self.category = "콜라"
+        super.init(brand: brand, volume: volume, price: price, name: name, manufacturedAt: manufacturedAt, unsweetened: unsweetened)
+    }
 }

@@ -32,9 +32,12 @@ class VendingMachine {
 
     public func buy(_ drink: Drink) -> Drink? {
         return stock.purchased(drink) { (drink) -> Drink? in
-            if self.coin < drink.price { return nil }
-            self.purchasehistory.append(drink)
-            self.coin -= drink.price
+            guard drink.tryPurchased(coin, handle: { (price) in
+                self.purchasehistory.append(drink)
+                self.coin -= price
+            }) else {
+                return nil
+            }
             return drink
         }
     }

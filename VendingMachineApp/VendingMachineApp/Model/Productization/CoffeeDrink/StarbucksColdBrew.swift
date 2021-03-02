@@ -13,7 +13,7 @@ class StarbucksColdBrew: Coffee, Productization {
         case withMilk = "With Milk"
     }
     
-    private(set) var flavor: Flavor
+    private var flavor: Flavor
     
     init(flavor: Flavor, manufactured: Date) {
         self.flavor = flavor
@@ -30,8 +30,8 @@ class StarbucksColdBrew: Coffee, Productization {
         self.init(flavor: .black, manufactured: Date())
     }
     
-    func validate(with date: Date) -> Bool {
-        return manufactured + 180 >= date
+    func isPastManufactured(with date: Date) -> Bool {
+        return compareManufactured(during: 180, compareDate: date)
     }
     
     func isHot() -> Bool {

@@ -6,7 +6,7 @@ class BingBananaMilk: Milk, Productization {
         case forKids = "kids"
     }
     
-    private(set) var target: Target
+    private var target: Target
     
     init(target: Target, manufactured: Date) {
         self.target = target
@@ -23,8 +23,8 @@ class BingBananaMilk: Milk, Productization {
         self.init(target: .all, manufactured: Date())
     }
     
-    func validate(with date: Date) -> Bool {
-        return manufactured + 14 >= date
+    func isPastManufactured(with date: Date) -> Bool {
+        return compareManufactured(during: 14, compareDate: date)
     }
     
     func isHot() -> Bool {

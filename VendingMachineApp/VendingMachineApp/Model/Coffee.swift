@@ -1,7 +1,7 @@
 import Foundation
 
 class Coffee: Drink {
-    private(set) var caffeineContent: UInt
+    private var caffeineContent: UInt
     
     init(brand: String, capacity: Int, price: Int, name: String, caffeineContent: UInt, manufactured: Date) {
         self.caffeineContent = caffeineContent

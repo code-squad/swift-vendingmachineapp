@@ -8,7 +8,7 @@
 import Foundation
 
 protocol Productization {
-    func validate(with date:Date) -> Bool
+    func isPastManufactured(with date:Date) -> Bool
     func isHot() -> Bool
     func isLowCalorie() -> Bool
 }

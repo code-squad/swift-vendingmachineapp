@@ -6,7 +6,7 @@ class Fanta: Soda, Productization {
         case pineapple
     }
     
-    private(set) var flavor: Flavor
+    private var flavor: Flavor
     
     init(flavor: Flavor, manufactured: Date) {
         self.flavor = flavor
@@ -23,8 +23,8 @@ class Fanta: Soda, Productization {
         self.init(flavor: .orange, manufactured: Date())
     }
     
-    func validate(with date: Date) -> Bool {
-        return manufactured + 180 >= date
+    func isPastManufactured(with date: Date) -> Bool {
+        return compareManufactured(during: 180, compareDate: date)
     }
     
     func isHot() -> Bool {

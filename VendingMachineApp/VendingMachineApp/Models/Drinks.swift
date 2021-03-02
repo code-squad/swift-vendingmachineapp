@@ -11,11 +11,7 @@ class Drinks {
     private var drinks: [Drink: Int] = [:]
     
     func add(drink: Drink) {
-        guard var stock = drinks[drink] else {
-            drinks[drink] = 1
-            return
-        }
-        stock += 1
+        drinks[drink] = (drinks[drink] ?? 0) + 1
     }
     
     func getAvailableDrinks(with coins: Int) -> [Drink] {
@@ -26,10 +22,7 @@ class Drinks {
     }
     
     func remove(drink: Drink) {
-        guard var stock = drinks[drink] else {
-            return
-        }
-        stock -= 1
+        drinks[drink] = (drinks[drink] ?? 0) - 1
     }
     
     func getAllDrinks() -> [Drink: Int] {

@@ -20,7 +20,7 @@ class Drink {
         return "\(manufacturer), \(volume)ml, \(price)원, \(name), \(Date.dateFormatter(date: manufacturedAt))"
     }
     
-    init(manufacturer: String, volume: Int, name: String, dateOfManufacture: Date, price: Int, temperature: Int, calorie: Int) {
+    init(manufacturer: String, volume: Int, name: String, dateOfManufacture: Date, price: Int, temperature: Int, calorie: Int, expiredAt: Date) {
         self.manufacturer = manufacturer
         self.volume = volume
         self.name = name
@@ -28,11 +28,12 @@ class Drink {
         self.price = price
         self.temperature = temperature
         self.calorie = calorie
+        self.expiredAt = expiredAt
     }
 }
 
 extension Drink: Drinkable {
-    func validateManufacturedAt(with date: Date) -> Bool {
+    func validateExpiredAt(with date: Date) -> Bool {
         return expiredAt <= date
     }
     

@@ -22,14 +22,12 @@ class Milk: Beverage, Expirable, LactoFreeable {
         super.init(brand: brand, name: name, price: price, size: size, manufactured: manufactured)
     }
     
-    func isExpired() -> Bool {
-        let today = Date()
-        let isExpired = expiry < today
-        return isExpired
+    func isExpired(compareTo date: Date) -> Bool {
+        return expiry < date ? true : false
     }
     
-    func isLactoFree() -> Bool {
-        return lactose <= 0.5 ? true : false
+    func isLactoFree(basedOn lactoStandard: Float) -> Bool {
+        return lactose <= lactoStandard ? true : false
     }
     
 }
@@ -61,18 +59,18 @@ class Chocolate: Milk, Transportable {
 
 class Plain: Milk, SugarFreeable {
     
-    private let isSugarAdded: Bool
+    private let sugar: Float
     
     init(brand: String, name: String, price: Int, size: Int, manufactured: Date,
-         expireAfter: Int, lactose: Float, isSugarAdded: Bool) {
+         expireAfter: Int, lactose: Float, sugar: Float) {
         
-        self.isSugarAdded = isSugarAdded
+        self.sugar = sugar
         
         super.init(brand: brand, name: name, price: price, size: size, manufactured: manufactured,
                    expireAfter: expireAfter, lactose: lactose)
     }
     
-    func isSugarFree() -> Bool {
-        return !isSugarAdded
+    func isSugarFree(basedOn sugarStandard: Float) -> Bool {
+        return sugar <= sugarStandard ? true : false
     }
 }

@@ -73,7 +73,7 @@ struct VendingMachine {
         return expired
     }
     
-    func isHotProducts() -> [Beverage] {
+    func hotBeverages() -> [Beverage] {
         var hotProducts = [Beverage]()
         beverages.forEachBeverage{
             if $0.isHotBeverage() {

@@ -29,6 +29,7 @@
 		B096F0DB25E676FE00E98053 /* Beans.swift in Sources */ = {isa = PBXBuildFile; fileRef = B096F0DA25E676FE00E98053 /* Beans.swift */; };
 		B096F0DF25E67E9D00E98053 /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = B096F0DE25E67E9D00E98053 /* VendingMachine.swift */; };
 		B096F0E325E689E100E98053 /* Drinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = B096F0E225E689E100E98053 /* Drinks.swift */; };
+		B096F0F125EE4DE900E98053 /* SafeBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = B096F0F025EE4DE900E98053 /* SafeBox.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		B096F0DA25E676FE00E98053 /* Beans.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beans.swift; sourceTree = "<group>"; };
 		B096F0DE25E67E9D00E98053 /* VendingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachine.swift; sourceTree = "<group>"; };
 		B096F0E225E689E100E98053 /* Drinks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drinks.swift; sourceTree = "<group>"; };
+		B096F0F025EE4DE900E98053 /* SafeBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeBox.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 				B096F0D725E6757200E98053 /* Cantata.swift */,
 				B096F0DE25E67E9D00E98053 /* VendingMachine.swift */,
 				B096F0E225E689E100E98053 /* Drinks.swift */,
+				B096F0F025EE4DE900E98053 /* SafeBox.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -221,6 +224,7 @@
 				B096F0CA25E6449600E98053 /* Materials.swift in Sources */,
 				B096F0DB25E676FE00E98053 /* Beans.swift in Sources */,
 				B096F0BA25E52D9D00E98053 /* Date.swift in Sources */,
+				B096F0F125EE4DE900E98053 /* SafeBox.swift in Sources */,
 				B096F08425E4FA5800E98053 /* ViewController.swift in Sources */,
 				B096F0D825E6757200E98053 /* Cantata.swift in Sources */,
 				B096F08025E4FA5800E98053 /* AppDelegate.swift in Sources */,

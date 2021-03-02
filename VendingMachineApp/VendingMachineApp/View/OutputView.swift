@@ -68,6 +68,7 @@ struct OutputView {
         print("availableList : \(testMachine.availableList())")
         testMachine.buyProduct(what: StrawberryMilk.self)
         print("purchased : \(testMachine.purchasedList())")
+        print("money : \(testMachine.checkMoney())")
         
     }
 }

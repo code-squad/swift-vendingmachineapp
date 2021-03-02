@@ -28,10 +28,10 @@ class Beverages {
         } else {
             stockList[beverage] = amount
         }
-        checkSoldout(for: beverage)
+        updateToSoldout(for: beverage)
     }
     
-    private func checkSoldout(for beverage: Beverage) {
+    private func updateToSoldout(for beverage: Beverage) {
         if stockList[beverage] == 0 {
             stockList[beverage] = nil
         }
@@ -49,20 +49,24 @@ class Beverages {
             return nil
         }
     }
+}
+
+//MARK: - 목록 반환 관련
+extension Beverages {
     
-    func listTypeOnly(filter: (([Beverage: Int]) -> [Beverage])?) -> [Beverage] {
-        if let filter = filter {
-            return filter(stockList)
-        } else {
-            return storage
-        }
+    func listTypeOnly() -> [Beverage] {
+        return storage
     }
     
-    func listTypeCount(filter: (([Beverage]) -> [Beverage: Int])?) -> [Beverage: Int] {
-        if let filter = filter {
-            return filter(storage)
-        } else {
-            return stockList
-        }
+    func listTypeOnly(filter: (([Beverage: Int]) -> [Beverage])) -> [Beverage] {
+        return filter(stockList)
+    }
+    
+    func listTypeCount() -> [Beverage: Int] {
+        return stockList
+    }
+    
+    func listTypeCount(filter: (([Beverage]) -> [Beverage: Int])) -> [Beverage: Int] {
+        return filter(storage)
     }
 }

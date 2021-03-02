@@ -29,6 +29,8 @@
 		FFCB24C125E88D160028AD95 /* DrinkDictionry.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCB24C025E88D160028AD95 /* DrinkDictionry.swift */; };
 		FFCB24C525E8AC870028AD95 /* SalesLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCB24C425E8AC870028AD95 /* SalesLog.swift */; };
 		FFCB24DF25EE18FA0028AD95 /* VendingMachineAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCB24DE25EE18FA0028AD95 /* VendingMachineAppTests.swift */; };
+		FFCB24F025EE1B6F0028AD95 /* TestScenario.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCB24EF25EE1B6F0028AD95 /* TestScenario.swift */; };
+		FFCB24F725EE24330028AD95 /* Testable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCB24F625EE24330028AD95 /* Testable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +70,8 @@
 		FFCB24DC25EE18FA0028AD95 /* VendingMachineAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VendingMachineAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFCB24DE25EE18FA0028AD95 /* VendingMachineAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineAppTests.swift; sourceTree = "<group>"; };
 		FFCB24E025EE18FA0028AD95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FFCB24EF25EE1B6F0028AD95 /* TestScenario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestScenario.swift; sourceTree = "<group>"; };
+		FFCB24F625EE24330028AD95 /* Testable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Testable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +116,8 @@
 				FF2DBFC225E3775F00D2A215 /* AppDelegate.swift */,
 				FF2DBFC425E3775F00D2A215 /* SceneDelegate.swift */,
 				FF2DBFC625E3775F00D2A215 /* ViewController.swift */,
+				FFCB24EF25EE1B6F0028AD95 /* TestScenario.swift */,
+				FFCB24F525EE24270028AD95 /* Protocol */,
 				FF2DBFDD25E5E21A00D2A215 /* Models */,
 				FFCB249425E5E9C60028AD95 /* Extension */,
 				FF2DBFC825E3775F00D2A215 /* Main.storyboard */,
@@ -158,6 +164,14 @@
 				FFCB24E025EE18FA0028AD95 /* Info.plist */,
 			);
 			path = VendingMachineAppTests;
+			sourceTree = "<group>";
+		};
+		FFCB24F525EE24270028AD95 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				FFCB24F625EE24330028AD95 /* Testable.swift */,
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,6 +279,7 @@
 				FFCB24B725E772580028AD95 /* Drinks.swift in Sources */,
 				FF2DBFC325E3775F00D2A215 /* AppDelegate.swift in Sources */,
 				FF2DBFDB25E3780B00D2A215 /* Drink.swift in Sources */,
+				FFCB24F725EE24330028AD95 /* Testable.swift in Sources */,
 				FFCB24A625E643900028AD95 /* Sprite.swift in Sources */,
 				FFCB24AE25E643AE0028AD95 /* Cantata.swift in Sources */,
 				FFCB24C525E8AC870028AD95 /* SalesLog.swift in Sources */,
@@ -276,6 +291,7 @@
 				FFCB24C125E88D160028AD95 /* DrinkDictionry.swift in Sources */,
 				FF2DBFDF25E5E22600D2A215 /* Soda.swift in Sources */,
 				FF2DBFE625E5E23800D2A215 /* Coffee.swift in Sources */,
+				FFCB24F025EE1B6F0028AD95 /* TestScenario.swift in Sources */,
 				FFCB249F25E6435D0028AD95 /* StrawberryMilk.swift in Sources */,
 				FFCB249125E5E8410028AD95 /* VendingMachine.swift in Sources */,
 			);

@@ -21,6 +21,9 @@ class ViewController: UIViewController {
         vendingMachine.show { drink in
             print(drink)
         }
+        
+        let scenario = TestScenario(vendingMachine)
+        scenario.run()
     }
     
     

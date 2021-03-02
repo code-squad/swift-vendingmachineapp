@@ -12,7 +12,7 @@ class VendingMachineManager {
     private var purchaseList: [Beverage] = []
     private var purchaseHistory: [Beverage] = []
     
-    func availablePurchaseList(inventory: Inventory, money: Int) -> [Beverage] {
+    func availablePurchaseList(inventory: Inventory, money: Money) -> [Beverage] {
         purchaseList.removeAll()
         
         inventory.eachBeverage(handler: { (beverage) in

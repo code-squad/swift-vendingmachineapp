@@ -26,7 +26,7 @@ struct VendingMachine {
     }
     
     func availablePurchaseList() -> [Beverage] {
-        return manager.availablePurchaseList(inventory: inventory, money: money.checkChange())
+        return manager.availablePurchaseList(inventory: inventory, money: money)
     }
     
     mutating func purchaseBeverage(beverage: Beverage) {
@@ -34,7 +34,7 @@ struct VendingMachine {
         self.money.changeMoney(with: -beverage.price)
     }
     
-    func checkChagne() -> Int {
+    func checkChagne() -> Money {
         return money.checkChange()
     }
     

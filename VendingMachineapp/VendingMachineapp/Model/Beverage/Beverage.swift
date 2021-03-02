@@ -40,8 +40,8 @@ class Beverage{
         return expiry >= date
     }
     
-    func isAvailablePurchase(with money: Int) -> Bool {
-        return money >= price
+    func isAvailablePurchase(with money: Money) -> Bool {
+        return money.money >= price
     }
 }
 

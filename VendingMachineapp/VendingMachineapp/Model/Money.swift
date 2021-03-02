@@ -18,7 +18,7 @@ class Money {
         self.money += money
     }
     
-    func checkChange() -> Int{
-        return self.money
+    func checkChange() -> Money{
+        return self
     }
 }

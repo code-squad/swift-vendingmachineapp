@@ -12,15 +12,14 @@ class Drinks {
     private var drinks: [Drink]
     private var dictionry: DrinksDictionary
     
-    init() {
-        self.drinks = []
-        self.dictionry = DrinksDictionary()
-    }
-    
     init(_ drinks: [Drink]) {
         self.drinks = drinks
         self.dictionry = DrinksDictionary()
         classify(with: drinks)
+    }
+    
+    convenience init() {
+        self.init([])
     }
     
     func show(handler: (Drink) -> Void) {

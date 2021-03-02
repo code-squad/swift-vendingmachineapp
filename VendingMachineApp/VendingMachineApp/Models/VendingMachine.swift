@@ -19,17 +19,15 @@ class VendingMachine {
     private var stock: Drinks
     private var credit: Int
     private var log: SalesLog
-    
-    init() {
-        self.stock = Drinks()
-        self.credit = 0
-        self.log = SalesLog()
-    }
-    
+
     init(drinks: Drinks) {
         self.stock = drinks
         self.credit = 0
         self.log = SalesLog()
+    }
+    
+    convenience init() {
+        self.init(drinks: Drinks())
     }
     
     func show(handler: (Drink) -> Void) {

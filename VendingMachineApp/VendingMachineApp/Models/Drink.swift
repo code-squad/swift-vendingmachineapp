@@ -12,7 +12,7 @@ class Drink {
     private let volume: Int
     private let name: String
     private let manufacturedAt: Date
-    private lazy var expiredAt: Date = manufacturedAt 
+    private let expiredAt: Date
     private(set) var price: Int
     private var temperature: Int
     private var calorie: Int
@@ -20,11 +20,11 @@ class Drink {
         return "\(manufacturer), \(volume)ml, \(price)원, \(name), \(Date.dateFormatter(date: manufacturedAt))"
     }
     
-    init(manufacturer: String, volume: Int, name: String, dateOfManufacture: Date, price: Int, temperature: Int, calorie: Int, expiredAt: Date) {
+    init(manufacturer: String, volume: Int, name: String, manufacturedAt: Date, price: Int, temperature: Int, calorie: Int, expiredAt: Date) {
         self.manufacturer = manufacturer
         self.volume = volume
         self.name = name
-        self.manufacturedAt = dateOfManufacture
+        self.manufacturedAt = manufacturedAt
         self.price = price
         self.temperature = temperature
         self.calorie = calorie

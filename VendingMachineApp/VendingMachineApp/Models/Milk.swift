@@ -10,9 +10,9 @@ import Foundation
 class Milk: Drink {
     private let fatContent: Int
     
-    init(manufacturer: String, volume: Int, name: String, dateOfManufacture: Date, price: Int, temperature: Int, calorie: Int, fatContent: Int, expiredAt: Date) {
+    init(manufacturer: String, volume: Int, name: String, manufacturedAt: Date, price: Int, temperature: Int, calorie: Int, fatContent: Int, expiredAt: Date) {
         self.fatContent = fatContent
-        super.init(manufacturer: manufacturer, volume: volume, name: name, dateOfManufacture: dateOfManufacture, price: price, temperature: temperature, calorie: calorie, expiredAt: expiredAt)
+        super.init(manufacturer: manufacturer, volume: volume, name: name, manufacturedAt: manufacturedAt, price: price, temperature: temperature, calorie: calorie, expiredAt: expiredAt)
     }
     
     func isLowFat() -> Bool {

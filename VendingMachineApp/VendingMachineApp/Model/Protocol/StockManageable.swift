@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol StockManagement {
+protocol StockManageable {
     func checkProductization(of drink: Drink) -> Bool
     func addedDrink(_ drink: Drink)
     func availableForDrinks(coin: Int) -> [Drink]

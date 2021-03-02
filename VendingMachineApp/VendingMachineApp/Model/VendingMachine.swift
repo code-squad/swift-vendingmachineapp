@@ -8,11 +8,11 @@
 import Foundation
 
 class VendingMachine {
-    private var stock: StockManagement
+    private var stock: StockManageable
     private var coin: Int
     private var purchasehistory: [Drink]
     
-    init(stock: StockManagement) {
+    init(stock: StockManageable) {
         self.stock = stock
         self.coin = 0
         self.purchasehistory = [Drink]()

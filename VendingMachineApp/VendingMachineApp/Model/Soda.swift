@@ -1,7 +1,7 @@
 import Foundation
 
 class Soda: Drink {
-    private(set) var isZeroCalorie: Bool
+    private var isZeroCalorie: Bool
     
     init(brand: String, capacity: Int, price: Int, name: String, isZeroCalorie: Bool, manufactured: Date) {
         self.isZeroCalorie = isZeroCalorie

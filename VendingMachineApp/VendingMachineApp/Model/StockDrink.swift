@@ -8,7 +8,7 @@
 import Foundation
 
 class StockDrink: StockManagement {
-    private(set) var stock: [Drink]
+    private var stock: [Drink]
     
     init() {
         stock = [Drink]()
@@ -25,7 +25,7 @@ class StockDrink: StockManagement {
 
     public func availableForDrinks(coin: Int) -> [Drink] {
         var availableDrinks = Set<Drink>()
-        for drink in self.stock where drink.price <= coin {
+        for drink in self.stock where drink.isPurchaseableCoin(coin) {
             availableDrinks.update(with: drink)
         }
         return Array(availableDrinks)
@@ -41,7 +41,7 @@ class StockDrink: StockManagement {
         for drink in self.stock {
             guard let drinkProduct = drink as? Productization else { continue }
             let now = Date()
-            if !drinkProduct.validate(with: now) {
+            if !drinkProduct.isPastManufactured(with: now) {
                 disuseStock.append(drink)
             }
         }

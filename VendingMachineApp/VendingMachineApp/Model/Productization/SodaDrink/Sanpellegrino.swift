@@ -1,7 +1,7 @@
 import Foundation
 
 class Sanpellegrino: Soda, Productization {
-    private(set) var isPackageRenewaled: Bool
+    private var isPackageRenewaled: Bool
     
     init(isPackageRenewaled: Bool, manufactured: Date) {
         self.isPackageRenewaled = isPackageRenewaled
@@ -17,8 +17,8 @@ class Sanpellegrino: Soda, Productization {
         self.init(isPackageRenewaled: true, manufactured: Date())
     }
     
-    func validate(with date: Date) -> Bool {
-        return manufactured + 180 >= date
+    func isPastManufactured(with date: Date) -> Bool {
+        return compareManufactured(during: 180, compareDate: date)
     }
     
     func isHot() -> Bool {

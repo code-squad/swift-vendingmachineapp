@@ -1,7 +1,7 @@
 import Foundation
 
 class SeoulStrawberryMilk: Milk, Productization {
-    private(set) var isWithStraw: Bool
+    private var isWithStraw: Bool
     
     init(isWithStraw: Bool, manufactured: Date) {
         self.isWithStraw = isWithStraw
@@ -18,8 +18,8 @@ class SeoulStrawberryMilk: Milk, Productization {
         self.init(isWithStraw: false, manufactured: Date())
     }
     
-    func validate(with date: Date) -> Bool {
-        return manufactured + 14 >= date
+    func isPastManufactured(with date: Date) -> Bool {
+        return compareManufactured(during: 14, compareDate: date)
     }
     
     func isHot() -> Bool {

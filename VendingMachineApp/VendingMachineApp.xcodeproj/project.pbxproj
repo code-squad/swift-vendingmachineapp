@@ -46,6 +46,7 @@
 		FFCB252325EE28B10028AD95 /* Soda.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2DBFDE25E5E22600D2A215 /* Soda.swift */; };
 		FFCB252625EE28B70028AD95 /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2DBFE225E5E22C00D2A215 /* Milk.swift */; };
 		FFCB252925EE28BC0028AD95 /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2DBFE525E5E23800D2A215 /* Coffee.swift */; };
+		FFD6172425EF1FD700B97347 /* Money.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD6172325EF1FD700B97347 /* Money.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +88,7 @@
 		FFCB24E025EE18FA0028AD95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FFCB24EF25EE1B6F0028AD95 /* TestScenario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestScenario.swift; sourceTree = "<group>"; };
 		FFCB24F625EE24330028AD95 /* Testable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Testable.swift; sourceTree = "<group>"; };
+		FFD6172325EF1FD700B97347 /* Money.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Money.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +152,7 @@
 				FFCB24C425E8AC870028AD95 /* SalesLog.swift */,
 				FFCB24C025E88D160028AD95 /* DrinkDictionry.swift */,
 				FFCB24B625E772580028AD95 /* Drinks.swift */,
+				FFD6172325EF1FD700B97347 /* Money.swift */,
 				FF2DBFDA25E3780B00D2A215 /* Drink.swift */,
 				FF2DBFDE25E5E22600D2A215 /* Soda.swift */,
 				FF2DBFE225E5E22C00D2A215 /* Milk.swift */,
@@ -298,6 +301,7 @@
 				FFCB24A625E643900028AD95 /* Sprite.swift in Sources */,
 				FFCB24AE25E643AE0028AD95 /* Cantata.swift in Sources */,
 				FFCB24C525E8AC870028AD95 /* SalesLog.swift in Sources */,
+				FFD6172425EF1FD700B97347 /* Money.swift in Sources */,
 				FF2DBFC525E3775F00D2A215 /* SceneDelegate.swift in Sources */,
 				FFCB249625E5E9D80028AD95 /* Date.swift in Sources */,
 				FFCB24AB25E643A80028AD95 /* Top.swift in Sources */,

@@ -17,8 +17,8 @@ class Milk: Beverage, CustomStringConvertible, SafeDateChecker {
         self.expiry = expiry
         super.init(brand: brand, capacity: capacity, price: price, name: name, manufacture: manufacture)
     }
-    
-    public func expirationValidate(with date: Date) -> Bool {
-        return expiry > date
+ 
+    public func expirationValidate() -> Bool {
+        return expiry <= manufacture
     }
 }

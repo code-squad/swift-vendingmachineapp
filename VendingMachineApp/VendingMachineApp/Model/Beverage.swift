@@ -15,9 +15,9 @@ class Beverage {
     
     private var brand: String
     private var capacity: Int
-    private var price: Int
-    private var name: String
-    private var manufacture: Date
+    private(set) var price: Int
+    private(set) var name: String
+    private(set) var manufacture: Date
     
     init(brand: String, capacity: Int, price: Int, name: String, manufacture: Date) {
         self.brand = brand
@@ -26,7 +26,6 @@ class Beverage {
         self.name = name
         self.manufacture = manufacture
     }
-    
 }
 
 protocol Hotable {
@@ -34,9 +33,26 @@ protocol Hotable {
 }
 
 protocol SafeDateChecker {
-    func expirationValidate(with date:Date) -> Bool
+    func expirationValidate() -> Bool
 }
 
 protocol LowCalorieChecker {
     func isLowCalorie() -> Bool
+}
+
+extension Beverage: Hashable {
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(capacity)
+        hasher.combine(price)
+        hasher.combine(name)
+        hasher.combine(brand)
+    }
+ 
+    static func == (lhs: Beverage, rhs: Beverage) -> Bool {
+        return lhs.name == rhs.name &&
+            lhs.capacity == rhs.capacity &&
+            lhs.brand == rhs.brand &&
+            lhs.price == rhs.price
+    }
 }

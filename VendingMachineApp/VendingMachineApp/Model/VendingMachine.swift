@@ -9,13 +9,13 @@ import Foundation
 
 class VendingMachine {
     private var stock: StockManageable
-    private var coin: Int
     private var purchasehistory: [Drink]
+    private var coins: CoinManageable
     
-    init(stock: StockManageable) {
+    init(stock: StockManageable, coinCounter: CoinCounter) {
         self.stock = stock
-        self.coin = 0
         self.purchasehistory = [Drink]()
+        self.coins = coinCounter
     }
 
     public func addDrink(_ drink: Drink) {
@@ -23,18 +23,26 @@ class VendingMachine {
     }
 
     public func insertCoin(_ coin: Int) {
-        self.coin += coin
+        self.coins.inserted(coin)
     }
     
     public func availableDrink() -> [Drink] {
-        return stock.availableForDrinks(coin: self.coin)
+        var drinks = [Drink]()
+        coins.CheckCoins { (coin) in
+            drinks = stock.availableForDrinks(coin: coin)
+        }
+        return drinks
     }
 
     public func buy(_ drink: Drink) -> Drink? {
         return stock.purchased(drink) { (drink) -> Drink? in
-            guard drink.tryPurchased(coin: coin, handle: { (price) in
+            var haveCoin = 0
+            coins.CheckCoins { (coin) in
+                haveCoin = coin
+            }
+            guard drink.tryPurchased(coin: haveCoin, handle: { (price) in
                 self.purchasehistory.append(drink)
-                self.coin -= price
+                self.coins.expended(to: price)
             }) else {
                 return nil
             }
@@ -43,10 +51,14 @@ class VendingMachine {
     }
 
     public func leftCoin() -> Int {
-        return self.coin
+        var leftCoins = 0
+        coins.CheckCoins { (coin) in
+            leftCoins = coin
+        }
+        return leftCoins
     }
     
-    public func showStock() -> [Drink: UInt] {
+    public func showStock() -> [String: UInt] {
         return stock.toShowStock()
     }
 

@@ -10,17 +10,20 @@ import XCTest
 
 class VendingMachineAppTests: XCTestCase {
     var stock: StockManageable!
+    var coinCounter: CoinCounter!
     var vendingMachine: VendingMachine!
     
     override func setUp() {
         super.setUp()
         stock = Stock()
-        vendingMachine = VendingMachine(stock: stock)
+        coinCounter = CoinCounter()
+        vendingMachine = VendingMachine(stock: stock, coinCounter: coinCounter)
     }
     
     override func tearDown() {
         stock = nil
         vendingMachine = nil
+        coinCounter = nil
         super.tearDown()
     }
     
@@ -46,7 +49,12 @@ class VendingMachineAppTests: XCTestCase {
         vendingMachine.addDrink(weirdSoda)
         
         XCTAssertEqual(vendingMachine.showStock(),
-                       [blueBottle: 1, starbucks: 1, seoulMilk: 1, bananaMilk: 1, sanpellegrino: 1, fanta: 1])
+                       ["StarBucks Cold Brew(Black)": 1,
+                        "Sanpellegrino": 1,
+                        "Fanta orange": 1,
+                        "서울 우유 딸기맛": 1,
+                        "빙그레 바나나우유": 1,
+                        "BlueBottle Cold Brew(Bright)": 1])
         
         XCTAssertEqual(vendingMachine.findWarmDrinks(), [])
         

@@ -40,8 +40,11 @@ struct VendingMachine {
     mutating func buyProduct(what productType : Drink.Type) -> Bool{
         do {
             let purchasedItem = try stock.remove(at: productType)
+            if money.withdrawal(howMuch: purchasedItem.payFor()) == false {
+                stock.addDrink(what: purchasedItem)
+                return false
+            }
             purchased.addDrink(what: purchasedItem)
-            money.withdrawal(howMuch: purchasedItem.payFor())
         }
         catch {
             return false

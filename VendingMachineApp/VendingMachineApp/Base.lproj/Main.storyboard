@@ -166,29 +166,64 @@
                                     </label>
                                 </subviews>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zi5-of-dAM">
+                                <rect key="frame" x="736.5" y="300" width="59" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cc3-q6-uez">
+                                <rect key="frame" x="604" y="250" width="149" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="+1000"/>
+                                <connections>
+                                    <action selector="button1000ForBalance:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XEP-yl-FEU"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Tu-yq-1oA">
+                                <rect key="frame" x="788" y="250" width="149" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="+5000"/>
+                                <connections>
+                                    <action selector="button5000ForBalance:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jjW-B7-j5h"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="4Tu-yq-1oA" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="250" id="0VR-b2-pz1"/>
                             <constraint firstItem="TB7-tP-mzQ" firstAttribute="top" secondItem="RvC-dR-Jcm" secondAttribute="bottom" constant="5" id="2ZM-2n-0WJ"/>
+                            <constraint firstItem="zi5-of-dAM" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="300" id="7Wn-Dk-vNT"/>
+                            <constraint firstItem="zi5-of-dAM" firstAttribute="leading" secondItem="NtE-Pt-fvL" secondAttribute="trailing" constant="250" id="9va-bc-7Eb"/>
+                            <constraint firstItem="4Tu-yq-1oA" firstAttribute="leading" secondItem="Cc3-q6-uez" secondAttribute="trailing" constant="100" id="NhS-au-Rcj"/>
                             <constraint firstItem="Yao-da-aj6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="67" id="Pfr-lG-KvG"/>
                             <constraint firstItem="8qW-hN-SpH" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="150" id="SqU-F8-d5k"/>
                             <constraint firstItem="TB7-tP-mzQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="60" id="aH3-uY-taa"/>
+                            <constraint firstItem="Cc3-q6-uez" firstAttribute="leading" secondItem="8qW-hN-SpH" secondAttribute="trailing" constant="100" id="aT5-Ze-voC"/>
                             <constraint firstItem="FIu-Aq-tqu" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="110" id="bPA-G5-1A7"/>
                             <constraint firstItem="NtE-Pt-fvL" firstAttribute="top" secondItem="8qW-hN-SpH" secondAttribute="bottom" constant="5" id="h2n-Z9-Sbp"/>
                             <constraint firstItem="Yao-da-aj6" firstAttribute="top" secondItem="8qW-hN-SpH" secondAttribute="bottom" constant="170" id="hQb-oP-uKD"/>
                             <constraint firstItem="FIu-Aq-tqu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="67" id="lGG-SO-hNB"/>
                             <constraint firstItem="RvC-dR-Jcm" firstAttribute="top" secondItem="8qW-hN-SpH" secondAttribute="bottom" constant="200" id="tCm-o2-Fm1"/>
+                            <constraint firstItem="Cc3-q6-uez" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="250" id="v98-BY-Qei"/>
                             <constraint firstItem="NtE-Pt-fvL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="60" id="wtf-WV-jNn"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="balanceInfo" destination="zi5-of-dAM" id="otK-Hw-YpI"/>
                         <outlet property="stockInfoOfCantata" destination="Y4K-Xq-2Y2" id="4nQ-6J-1hp"/>
                         <outlet property="stockInfoOfChocolateMilk" destination="HEO-vW-Fx0" id="fyx-ni-awC"/>
                         <outlet property="stockInfoOfCokeZero" destination="Si9-RU-5NP" id="it2-Rv-eSE"/>
                         <outlet property="stockInfoOfSprite" destination="eBa-QO-jif" id="NgF-We-wt4"/>
                         <outlet property="stockInfoOfStrawBerryMilk" destination="OIL-eW-gw2" id="ZPk-we-jqL"/>
                         <outlet property="stockInfoOfTOP" destination="uXJ-yv-dzt" id="cWu-KY-IOR"/>
+                        <outletCollection property="imagesOfBeverages" destination="Mz6-tu-l0B" collectionClass="NSMutableArray" id="Q81-Us-Gku"/>
+                        <outletCollection property="imagesOfBeverages" destination="uRy-T6-mb1" collectionClass="NSMutableArray" id="Rtc-Nn-AMZ"/>
+                        <outletCollection property="imagesOfBeverages" destination="Cfs-RF-Iuz" collectionClass="NSMutableArray" id="J8b-iq-cwA"/>
+                        <outletCollection property="imagesOfBeverages" destination="zuL-LH-Poe" collectionClass="NSMutableArray" id="GQz-Ub-AAA"/>
+                        <outletCollection property="imagesOfBeverages" destination="EDK-Pk-LbT" collectionClass="NSMutableArray" id="eBR-gh-oi2"/>
+                        <outletCollection property="imagesOfBeverages" destination="09s-cN-WB7" collectionClass="NSMutableArray" id="cyC-kH-2Yd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

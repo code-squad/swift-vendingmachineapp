@@ -21,3 +21,8 @@ class InsertedMoney {
     }
 }
 
+extension InsertedMoney: CustomStringConvertible {
+    var description: String {
+        return "\(insertedMoney)"
+    }
+}

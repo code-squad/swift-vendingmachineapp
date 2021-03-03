@@ -20,7 +20,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        vendingMachine.printDrinks()
+//        vendingMachine.printDrinks()
     }
 
 

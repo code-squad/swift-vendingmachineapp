@@ -17,14 +17,14 @@ class Consumer {
         self.purchaseList = [Beverage]()
     }
     
-    @discardableResult
+/*
     func buy(with name : String, from vendingMachine : VendingMachine) -> Bool{
         if let product = vendingMachine.sellProduct(with: name) {
             purchaseList.append(product)
             return true
         }
         return false
-    }
+    }*/
     func putCoinsToVendingMachine(with coins : Int){
         self.coins -= coins
     }

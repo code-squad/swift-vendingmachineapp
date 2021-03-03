@@ -26,15 +26,13 @@ class Beverage : CustomStringConvertible {
         self.createdAt = createdAt.toDate()
         self.expiredAt = expiredAt.toDate()
     }
-    public func availablePrice(with coins: Int) -> Bool {
-        return price <= coins
-    }
 }
 
 extension Beverage : Drinkable {
+    // 유통기한이 지난 경우 true를 반환
     func isExpired() -> Bool {
         let calendar = Calendar.current
-        return calendar.compare(Date(), to: expiredAt, toGranularity: .day) == .orderedAscending
+        return calendar.compare(expiredAt, to: Date(), toGranularity: .day) == .orderedAscending
     }
 }
 
@@ -53,8 +51,6 @@ extension Beverage : Hashable {
         hasher.combine(capacity)
         hasher.combine(price)
         hasher.combine(name)
-        hasher.combine(createdAt)
-        hasher.combine(expiredAt)
     }
 }
 extension Beverage {

@@ -15,7 +15,7 @@ class Beverage: CustomStringConvertible {
     private let name: String
     private let manufactured: Date?
     var description: String {
-        return "\(brand), \(volume)ml, \(price)원, \(name), \(Date.getString(from: manufactured) ?? "")"
+        return "\(brand), \(volume)ml, \(price)원, \(name), \(manufactured?.formattedString ?? "")"
     }
     
     init(brand: String, volume: Int, price: Int, name: String, manufactured: String) {
@@ -23,6 +23,6 @@ class Beverage: CustomStringConvertible {
         self.volume = volume
         self.price = price
         self.name = name
-        self.manufactured = Date.getDate(from: manufactured)
+        self.manufactured = manufactured.formattedDate
     }
 }

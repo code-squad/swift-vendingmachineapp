@@ -15,4 +15,12 @@ class Inventory {
         self.numberOfProductTypes = numberOfProductTypes
         self.slots = (0..<numberOfProductTypes).map { _ in Slot() }
     }
+    
+    func add(_ item: Beverage, at slotNumber: Int) {
+        slots.enumerated().forEach { (index, slot) in
+            if index == slotNumber - 1 {
+                slot.stock(item)
+            }
+        }
+    }
 }

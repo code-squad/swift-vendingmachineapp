@@ -23,4 +23,8 @@ struct VendingMachine {
     mutating func insertMoney(amount: Int) {
         moneyDeposited += amount
     }
+    
+    func add(item: Beverage, slotNumber: Int) {
+        inventory.add(item, at: slotNumber)
+    }
 }

@@ -10,11 +10,11 @@ import Foundation
 class Drinks {
     
     private var drinks: [Drink]
-    private var dictionry: DrinksInventory
+    private var inventory: DrinksInventory
     
     init(_ drinks: [Drink]) {
         self.drinks = drinks
-        self.dictionry = DrinksInventory()
+        self.inventory = DrinksInventory()
         classify(with: drinks)
     }
     
@@ -29,8 +29,8 @@ class Drinks {
     }
     
     //음료를 하나하나 출력하는 show 메소드가 불필요해지면 show로 바꿀 예정
-    func showStock() -> Dictionary<Drink, Int>{
-        return dictionry.drinksInventory
+    func showStock() -> Dictionary<String, Int>{
+        return inventory.drinksInventory
     }
     
     //show 메소드와 유사
@@ -79,12 +79,12 @@ class Drinks {
     }
     
     private func classify(with drink: Drink) {
-        dictionry.append(drink)
+        inventory.append(drink)
     }
     
     func classify(with drinks: [Drink]){
         drinks.forEach {
-            dictionry.append($0)
+            inventory.append($0)
         }
     }
     
@@ -93,6 +93,6 @@ class Drinks {
     }
     
     func diconaryUpdate(with drink: Drink) {
-        dictionry.pop(drink)
+        inventory.pop(drink)
     }
 }

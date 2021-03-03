@@ -38,7 +38,7 @@ class VendingMachineAppTests: XCTestCase {
     
     
     func test_딸기우유입력후구매() {
-        let drink = StrawberryMilk(date: Date().date("20210220"), lowFat: false, container: .bottle, expiration: Date().date("20210310"), hot: false, calorie: 250)
+        let drink = StrawberryMilk(date: Date().date("20210220"), fat: 30, container: .bottle, expiration: Date().date("20210310"), hot: false, calorie: 250)
         vendingMachine.append(drink)
         vendingMachine.insertCoin(coin: .fifvethousand)
         let buyDrink = vendingMachine.buy(with: drink)
@@ -48,7 +48,7 @@ class VendingMachineAppTests: XCTestCase {
     
     
     func test_상품구매로그() {
-        let drink = StrawberryMilk(date: Date().date("20210220"), lowFat: false, container: .bottle, expiration: Date().date("20210310"), hot: false, calorie: 250)
+        let drink = StrawberryMilk(date: Date().date("20210220"), fat: 10, container: .bottle, expiration: Date().date("20210310"), hot: false, calorie: 250)
         vendingMachine.append(drink)
         vendingMachine.insertCoin(coin: .fifvethousand)
         _ = vendingMachine.buy(with: drink)

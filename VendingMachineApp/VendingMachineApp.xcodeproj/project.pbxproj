@@ -35,6 +35,10 @@
 		BFCA484725EE3C83003D4844 /* BalancePut5000Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCA484625EE3C83003D4844 /* BalancePut5000Button.swift */; };
 		BFCA484F25EE3E6E003D4844 /* BalanceIncreasable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCA484E25EE3E6E003D4844 /* BalanceIncreasable.swift */; };
 		BFCA485425EE527E003D4844 /* BeverageImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCA485325EE527E003D4844 /* BeverageImageView.swift */; };
+		BFCA485925EE63DB003D4844 /* StrawberryMilkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCA485825EE63DB003D4844 /* StrawberryMilkButton.swift */; };
+		BFCA487225EE7259003D4844 /* DietColaButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCA487125EE7259003D4844 /* DietColaButton.swift */; };
+		BFCA487A25EE72A4003D4844 /* TopAmericanoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCA487925EE72A4003D4844 /* TopAmericanoButton.swift */; };
+		BFCA488425EE7B1E003D4844 /* BeveragesButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCA488325EE7B1E003D4844 /* BeveragesButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +93,10 @@
 		BFCA484625EE3C83003D4844 /* BalancePut5000Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalancePut5000Button.swift; sourceTree = "<group>"; };
 		BFCA484E25EE3E6E003D4844 /* BalanceIncreasable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceIncreasable.swift; sourceTree = "<group>"; };
 		BFCA485325EE527E003D4844 /* BeverageImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageImageView.swift; sourceTree = "<group>"; };
+		BFCA485825EE63DB003D4844 /* StrawberryMilkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrawberryMilkButton.swift; sourceTree = "<group>"; };
+		BFCA487125EE7259003D4844 /* DietColaButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietColaButton.swift; sourceTree = "<group>"; };
+		BFCA487925EE72A4003D4844 /* TopAmericanoButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopAmericanoButton.swift; sourceTree = "<group>"; };
+		BFCA488325EE7B1E003D4844 /* BeveragesButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeveragesButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,6 +224,10 @@
 				BFCA484125EE118F003D4844 /* BalancePut1000Button.swift */,
 				BFCA484625EE3C83003D4844 /* BalancePut5000Button.swift */,
 				BFCA485325EE527E003D4844 /* BeverageImageView.swift */,
+				BFCA485825EE63DB003D4844 /* StrawberryMilkButton.swift */,
+				BFCA487125EE7259003D4844 /* DietColaButton.swift */,
+				BFCA487925EE72A4003D4844 /* TopAmericanoButton.swift */,
+				BFCA488325EE7B1E003D4844 /* BeveragesButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -351,6 +363,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF53811825E4A09F0031EE39 /* ViewController.swift in Sources */,
+				BFCA487A25EE72A4003D4844 /* TopAmericanoButton.swift in Sources */,
 				BF53818525E4D7A20031EE39 /* VendingMachine.swift in Sources */,
 				BF5381BF25E5EEF90031EE39 /* Payment.swift in Sources */,
 				BFCA484225EE118F003D4844 /* BalancePut1000Button.swift in Sources */,
@@ -365,11 +378,14 @@
 				BF5381BA25E549780031EE39 /* Drinks.swift in Sources */,
 				BFCA485425EE527E003D4844 /* BeverageImageView.swift in Sources */,
 				BF53816E25E4CB490031EE39 /* Coffee.swift in Sources */,
+				BFCA487225EE7259003D4844 /* DietColaButton.swift in Sources */,
+				BFCA485925EE63DB003D4844 /* StrawberryMilkButton.swift in Sources */,
 				BF53811425E4A09F0031EE39 /* AppDelegate.swift in Sources */,
 				BF53814E25E4A19F0031EE39 /* Beverage.swift in Sources */,
 				BF5381EF25EA2C4D0031EE39 /* VendingStackView.swift in Sources */,
 				BF53811625E4A09F0031EE39 /* SceneDelegate.swift in Sources */,
 				BFCA484F25EE3E6E003D4844 /* BalanceIncreasable.swift in Sources */,
+				BFCA488425EE7B1E003D4844 /* BeveragesButton.swift in Sources */,
 				BF53817B25E4D7130031EE39 /* DietCola.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

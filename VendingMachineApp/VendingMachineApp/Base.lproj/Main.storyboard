@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -16,23 +17,26 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ig4-dG-eot">
-                                <rect key="frame" x="20" y="50" width="640" height="290.5"/>
+                                <rect key="frame" x="20" y="50" width="640" height="282.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="51L-Pz-136">
-                                        <rect key="frame" x="0.0" y="0.0" width="200" height="290.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="282.5"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2u6-M8-4ho">
-                                                <rect key="frame" x="0.0" y="0.0" width="200" height="30"/>
-                                                <state key="normal" title="Button"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2u6-M8-4ho" customClass="StrawberryMilkButton" customModule="VendingMachineApp" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="200" height="22"/>
+                                                <state key="normal" image="plus" catalog="system"/>
+                                                <connections>
+                                                    <action selector="buyBeverageButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="m9H-Iy-NX0"/>
+                                                </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="StrawBerryMilk" translatesAutoresizingMaskIntoConstraints="NO" id="I3Q-OX-WJz" customClass="BeverageImageView" customModule="VendingMachineApp" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="50" width="200" height="200"/>
+                                                <rect key="frame" x="0.0" y="42" width="200" height="200"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="I3Q-OX-WJz" secondAttribute="height" multiplier="1:1" id="DpH-Lc-M5N"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="waM-8c-DSU">
-                                                <rect key="frame" x="0.0" y="270" width="200" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="262" width="200" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -40,20 +44,23 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="gTe-ZN-QS3">
-                                        <rect key="frame" x="220" y="0.0" width="200" height="290.5"/>
+                                        <rect key="frame" x="220" y="0.0" width="200" height="282.5"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DQe-7E-ptl">
-                                                <rect key="frame" x="0.0" y="0.0" width="200" height="30"/>
-                                                <state key="normal" title="Button"/>
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DQe-7E-ptl" customClass="DietColaButton" customModule="VendingMachineApp" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="200" height="22"/>
+                                                <state key="normal" image="plus" catalog="system"/>
+                                                <connections>
+                                                    <action selector="buyBeverageButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Wa9-eg-pfT"/>
+                                                </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DietCola" translatesAutoresizingMaskIntoConstraints="NO" id="9g7-ko-X0y" customClass="BeverageImageView" customModule="VendingMachineApp" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="50" width="200" height="200"/>
+                                                <rect key="frame" x="0.0" y="42" width="200" height="200"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="9g7-ko-X0y" secondAttribute="height" multiplier="1:1" id="wj0-XW-prN"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qkK-iP-uU7">
-                                                <rect key="frame" x="0.0" y="270" width="200" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="262" width="200" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -61,20 +68,23 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="V3V-y5-vFj">
-                                        <rect key="frame" x="440" y="0.0" width="200" height="290.5"/>
+                                        <rect key="frame" x="440" y="0.0" width="200" height="282.5"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yDF-bM-nON">
-                                                <rect key="frame" x="0.0" y="0.0" width="200" height="30"/>
-                                                <state key="normal" title="Button"/>
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yDF-bM-nON" customClass="TopAmericanoButton" customModule="VendingMachineApp" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="200" height="22"/>
+                                                <state key="normal" image="plus" catalog="system"/>
+                                                <connections>
+                                                    <action selector="buyBeverageButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Il9-i6-Ezq"/>
+                                                </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TopAmericano" translatesAutoresizingMaskIntoConstraints="NO" id="nmc-dc-3HB" customClass="BeverageImageView" customModule="VendingMachineApp" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="50" width="200" height="200"/>
+                                                <rect key="frame" x="0.0" y="42" width="200" height="200"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="nmc-dc-3HB" secondAttribute="height" multiplier="1:1" id="ONZ-3h-hAL"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i4b-rz-Hj2">
-                                                <rect key="frame" x="0.0" y="270" width="200" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="262" width="200" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -84,7 +94,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="k1r-XJ-Tnc">
-                                <rect key="frame" x="832" y="145" width="198" height="100.5"/>
+                                <rect key="frame" x="832" y="141" width="198" height="100.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="dhI-BG-qXN">
                                         <rect key="frame" x="0.0" y="0.0" width="198" height="30"/>
@@ -105,17 +115,28 @@
                                             </button>
                                         </subviews>
                                     </stackView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XWd-W2-ald">
-                                        <rect key="frame" x="94" y="80" width="10.5" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="AYg-OU-wIO">
+                                        <rect key="frame" x="65" y="80" width="68.5" height="20.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="잔액 : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yFb-jT-dnv">
+                                                <rect key="frame" x="0.0" y="0.0" width="43" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XWd-W2-ald">
+                                                <rect key="frame" x="58" y="0.0" width="10.5" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemGreenColor"/>
                         <constraints>
                             <constraint firstItem="ig4-dG-eot" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="AFb-Vm-haT"/>
                             <constraint firstItem="k1r-XJ-Tnc" firstAttribute="centerY" secondItem="ig4-dG-eot" secondAttribute="centerY" id="K5d-ub-HGh"/>
@@ -145,5 +166,9 @@
         <image name="DietCola" width="166.5" height="166.5"/>
         <image name="StrawBerryMilk" width="200" height="200"/>
         <image name="TopAmericano" width="200" height="200"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>

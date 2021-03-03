@@ -8,30 +8,22 @@
 import UIKit
 
 class ViewController: UIViewController {
+    private var vendingMachine = VendingMachine()
     
-    private let vendingMachine = VendingMachine()
-    
-    private let strawberryMilk = StrawberryMilk()
-    private let dietCola =  DietCola()
-    private let topAmericano = TopAmericano()
-    
-    @IBOutlet var addStockButton: [UIButton]!
+    @IBOutlet var addStockButton: [BeveragesButton]!
     @IBOutlet var beverageImages: [BeverageImageView]!
     @IBOutlet var numberOfStock: [UILabel]!
-    
     @IBOutlet weak var BalanceLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        addBeverage()
     }
     
-    private func addBeverage() {
-        vendingMachine.addStock(beverage: strawberryMilk)
-        vendingMachine.addStock(beverage: dietCola)
-        vendingMachine.addStock(beverage: topAmericano)
-        vendingMachine.addStock(beverage: topAmericano)
-        vendingMachine.addStock(beverage: topAmericano)
+    @IBAction func buyBeverageButtonTouched(_ sender: BeveragesButton) {
+        sender.increase(action: { (beverage) in
+            self.vendingMachine.addStock(beverage: beverage)
+            self.numberOfStock[sender.tag].text = String(self.vendingMachine.countDrink(beverage: beverage))
+        })
     }
     
     @IBAction func BalanceIncreaseButtonTouched(_ sender: BalanceIncreasable) {
@@ -41,9 +33,8 @@ class ViewController: UIViewController {
         }
     }
     
-    func changeBalanceLabel() {
-        self.BalanceLabel.text = self.vendingMachine.checkCurrentBalance().description
+    private func changeBalanceLabel() {
+        self.BalanceLabel.text = String(self.vendingMachine.checkCurrentBalance())
     }
-    
 }
 

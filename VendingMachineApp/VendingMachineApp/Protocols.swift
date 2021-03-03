@@ -14,3 +14,7 @@ protocol SafelyDrinkable {
 protocol LactoseFree {
     func isLactoseFree() -> Bool
 }
+
+protocol HotServable {
+    func isHot() -> Bool
+}

@@ -13,21 +13,21 @@ struct OutputView {
         print(testChocoMilk)
         print("isRealCholate: \(testChocoMilk.isRealCholate())")
 
-        let testStrawBerryMilk = BeverageFactory.shared().getBeverage(DrinkType: StrawberryMilk.self)
+        let testStrawBerryMilk = BeverageFactory.shared().getBeverage(DrinkType: StrawberryMilk.self) as! StrawberryMilk
         print(testStrawBerryMilk)
         print("isCochineal: \(testStrawBerryMilk.isCochineal())")
         print("validate: \(testStrawBerryMilk.isWithInExpiration())")
 
-        let testCola = BeverageFactory.shared().getBeverage(DrinkType: Cola.self)
+        let testCola = BeverageFactory.shared().getBeverage(DrinkType: Cola.self) as! Cola
         print(testCola)
         print("isUnsweetened: \(testCola.isUnsweetened())")
 
-        let testCider = BeverageFactory.shared().getBeverage(DrinkType: Cider.self)
+        let testCider = BeverageFactory.shared().getBeverage(DrinkType: Cider.self) as! Cider
         print(testCider)
         print("productCalorie: \(testCider.productCalorie())")
         print("packingMaterial: \(testCider.packingMaterial())")
 
-        let testTOP = BeverageFactory.shared().getBeverage(DrinkType: TOP.self)
+        let testTOP = BeverageFactory.shared().getBeverage(DrinkType: TOP.self) as! TOP
         print(testTOP)
         print("isHot: \(testTOP.isHot())")
         if testTOP.productCaffeine() < 10.0 {
@@ -38,7 +38,7 @@ struct OutputView {
         }
 
 
-        let testCantata = BeverageFactory.shared().getBeverage(DrinkType: Cantata.self)
+        let testCantata = BeverageFactory.shared().getBeverage(DrinkType: Cantata.self) as! Cantata
         print(testCantata)
         print("productCalorie: \(testCantata.productBeans())")
         if testCantata.productCaffeine() < 10.0 {
@@ -55,12 +55,12 @@ struct OutputView {
         testMachine.insertMoney(howMuch: 1000)
         print("money : \(testMachine.checkMoney())")
         for _ in 0...4 {
-            testMachine.addStock(what: StrawberryMilk.init())
-            testMachine.addStock(what: Cola.init())
-            testMachine.addStock(what: Cider.init())
-            testMachine.addStock(what: Cantata.init())
-            testMachine.addStock(what: ChocoMilk.init())
-            testMachine.addStock(what: TOP.init())
+            testMachine.addStock(what: BeverageFactory.shared().getBeverage(DrinkType: ChocoMilk.self))
+            testMachine.addStock(what: BeverageFactory.shared().getBeverage(DrinkType: StrawberryMilk.self))
+            testMachine.addStock(what: BeverageFactory.shared().getBeverage(DrinkType: Cola.self))
+            testMachine.addStock(what: BeverageFactory.shared().getBeverage(DrinkType: Cider.self))
+            testMachine.addStock(what: BeverageFactory.shared().getBeverage(DrinkType: TOP.self))
+            testMachine.addStock(what: BeverageFactory.shared().getBeverage(DrinkType: Cantata.self))
         }
         print("stock : \(testMachine.showStock())")
         print("hot is : \(testMachine.hotDrinks())")

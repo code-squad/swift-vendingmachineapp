@@ -10,15 +10,18 @@ import Foundation
 class PurchasedList {
     private var purchasedDrinks: [Beverage]
     
-    init() {
-        purchasedDrinks = []
+    init(_ purchasedDrinks: [Beverage]) {
+        self.purchasedDrinks = purchasedDrinks
+    }
+    convenience init() {
+        self.init([])
     }
     
     func add(with beverage: Beverage) {
         self.purchasedDrinks.append(beverage)
     }
     
-    func givePurchasedList() -> [Beverage] {
-        return self.purchasedDrinks
+    func givePurchasedList() -> PurchasedList {
+        return PurchasedList(purchasedDrinks)
     }
 }

@@ -54,20 +54,7 @@ struct VendingMachine {
     }
     
     func showStock() -> Dictionary<String,Int> {
-        var returnDic = Dictionary<String,Int>()
-        
-        stock.doClosure(closure: { drinks in
-            drinks.forEach({
-                if returnDic[$0.name] == nil {
-                    returnDic.updateValue(1, forKey: $0.name)
-                }
-                else {
-                    returnDic.updateValue(returnDic[$0.name]! + 1, forKey: $0.name)
-                }
-            })
-        })
-        
-        return returnDic
+        return stock.showDrinks()
     }
     
     func purchasedList() -> [String] {

@@ -19,4 +19,8 @@ class VendingMachine {
         self.numberOfSlots = numberOfSlots
         self.inventory = Inventory(numberOfProductTypes: numberOfSlots)
     }
+    
+    func insertMoney(amount: Int) {
+        moneyDeposited += amount
+    }
 }

@@ -13,6 +13,6 @@ class Cantata: Coffee {
     
     init(milkContent: Int) {
         self.milkContent = milkContent
-        super.init(brand: "롯데", volume: 350, price: 2000, name: "콘트라베이스 콜드브루", manufacturedAt: Date(), caffeinContent: 200)
+        super.init(brand: "롯데", volume: 350, price: 2000, name: "콘트라베이스 콜드브루", manufacturedAt: Date(), temparature: 2, calories: 3, isLowfat: false, caffeinContent: 90)
     }
 }

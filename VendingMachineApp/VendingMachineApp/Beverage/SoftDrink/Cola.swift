@@ -13,6 +13,6 @@ class Cola: SoftDrink {
     
     init(sugarFree: Bool) {
         self.sugarFree = sugarFree
-        super.init(brand: "pepsi", volume: 250, price: 1000, name: "pepsi 콜라", manufacturedAt: Date(), package: .can)
+        super.init(brand: "코카콜라", volume: 250, price: 1000, name: "코카콜라", manufacturedAt: Date(), temparature: 2, calories: 90, isLowfat: false, package: .can)
     }
 }

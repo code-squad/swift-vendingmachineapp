@@ -13,7 +13,7 @@ class Strawberry: Milk {
     
     init(strawberryContent: Int) {
         self.strawberryContent = strawberryContent
-        super.init(brand: "서울우유", volume: 240, price: 1000, name: "딸기 우유", manufacturedAt: Date(), isLowfat: false)
+        super.init(brand: "서울우유", volume: 240, price: 1000, name: "딸기 우유", manufacturedAt: Date(), temparature: 3, calories: 80, isLowfat: false)
     }
 }
 

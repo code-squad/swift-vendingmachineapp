@@ -15,9 +15,9 @@ class StrawBerryMilk: Milk {
     }
     private var color: Color
     
-    init(brand: String, capacity: Int, price: Int, name: String, manufacture: Date, expirationDate: Date, temperature: Double, pH: Double, color: Color) {
+    init(brand: String, capacity: Int, price: Int, name: String, manufacturedAt: Date, expirationAt: Date, temperature: Double, pH: Double, color: Color) {
         self.color = color
-        super.init(brand: brand, capacity: capacity, price: price, name: name, manufacture: manufacture, expirationDate: expirationDate, temperature: temperature, pH: pH)
+        super.init(brand: brand, capacity: capacity, price: price, name: name, manufacturedAt: manufacturedAt, expirationAt: expirationAt, temperature: temperature, pH: pH)
     }
     
     func isRed() -> Bool {

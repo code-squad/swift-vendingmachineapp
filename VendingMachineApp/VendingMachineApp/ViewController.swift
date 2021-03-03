@@ -12,12 +12,16 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let coffee : Beverage = Beverage.init(brand: "스타벅스", volume: 255, price: 4100, name: "아메리카노", manufactured: Date().returnStringDate("20210101"))
-        let milk : Beverage = Beverage.init(brand: "매일우유", volume: 180, price: 1300, name: "흰 우유", manufactured: Date().returnStringDate("20210102"))
-        let soda : Beverage = Beverage.init(brand: "롯데칠성음료", volume: 330, price: 2500, name: "트레비", manufactured: Date().returnStringDate("20210103"))
-        
         let beverageFactroy : BeverageCreater = BeverageCreater()
-        let milk2 : Beverage = beverageFactroy.makeBeverage(Milk.init(brand: "", volume: 255, price: 4100, name: "아메리카노", manufactured: Date().returnStringDate("20210103")))
+        let seoulMilk : Beverage = beverageFactroy.makeBeverage(Milk.init(kcal: 255, taste: .strawberry, brand: "서울우유", volume: 236, price: 1600, name: "딸기는 원래 빨갛다", manufactured: Date().stringTodate("20200101")))
+        let starbucks : Beverage = Coffee.init(caffeineContent: 79, caffeine: false, brand: "맥심", price: 900, name: "카누", manufactured: Date().stringTodate("20200302"))
+        let Monster : Beverage = beverageFactroy.makeBeverage(Energydrink.init(kcal: 70, flavor: .monster, brand: "HOT6", volume: 355, price: 2100, name: "몬스터", manufactured: Date().stringTodate("20200301")))
+        
+        let beverges : [Beverage] = [seoulMilk, starbucks, Monster]
+        beverges.forEach{
+            print($0.description)
+       }
+        
     }
 }
 

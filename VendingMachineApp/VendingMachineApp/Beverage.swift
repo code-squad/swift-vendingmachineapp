@@ -8,10 +8,7 @@
 import Foundation
 
 class Beverage : CustomStringConvertible {
-    
-    func makeBeverage(_ product : BeverageFactroy) {
-    }
-    
+        
     private let brand : String
     private let volume : Int
     private let price : Int
@@ -27,6 +24,6 @@ class Beverage : CustomStringConvertible {
     }
     
     var description: String {
-        return "\(self.brand), \(self.volume)ml, \(self.price)원, \(self.name), \(self.manufactured)"
+        return "\(self.brand), \(self.volume)ml, \(self.price)원, \(self.name), \(Date().yyyyMMddFormat(date: manufactured))"
     }
 }

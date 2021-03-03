@@ -7,17 +7,16 @@
 
 import Foundation
 
-class VendingMachine: OutputViewPrintable {
+class VendingMachine {
     
-    private let inventory: [Beverage]
+    private let numberOfSlots: Int
+    private var inventory: Inventory
+    private var moneyDeposited: Int = 0
     
-    init(inventory: [Beverage]) {
-        self.inventory = inventory
-    }
+    private var soldItems: [Date : Beverage] = [:]
     
-    func printBeverage(handler: (Beverage) -> ()) {
-        inventory.forEach {
-            handler($0)
-        }
+    init(numberOfSlots: Int) {
+        self.numberOfSlots = numberOfSlots
+        self.inventory = Inventory(numberOfProductTypes: numberOfSlots)
     }
 }

@@ -15,8 +15,3 @@ class Milk : Beverage, Drinkable {
     
 }
 
-
-protocol Drinkable {
-    func isDrinkable(on date: Date) -> Bool
-}
-

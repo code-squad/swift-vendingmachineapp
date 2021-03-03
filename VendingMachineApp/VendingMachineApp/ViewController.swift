@@ -11,7 +11,7 @@ class ViewController: UIViewController {
     private var vendingMachine: VendingMachine
     
     required init?(coder: NSCoder) {
-        let list = [StrawberryMilk(), Fanta() , Cantata()]
+        let list = [StrawberryMilk(), Fanta(), Cantata()]
         self.vendingMachine = VendingMachine(drinks: list)
         
         super.init(coder: coder)

@@ -30,24 +30,24 @@ class VendingMachineAppTests: XCTestCase {
         vendingMachine.addStock(beverage: top)
         
         // 구매가능한 음료수 목록
-        XCTAssertEqual(vendingMachine.showListForPurchase(), [strawberryMilk, redBull, top])
+        XCTAssertEqual(vendingMachine.showListForPurchase(), Drinks([strawberryMilk, redBull, top]))
         
         vendingMachine.buy(redBull)
         
         // 잔액확인
-        XCTAssertEqual(vendingMachine.showBalance(), 9000)
+        XCTAssertEqual(vendingMachine.showBalance(), CashManagementSystem(9000))
         
         // 전체 상품 재고를 종류별로 확인
         XCTAssertEqual(vendingMachine.showStock(), [strawberryMilk:1, top:1])
         
         // 유통기한이 지난 재고 확인
-        XCTAssertEqual(vendingMachine.showExpiredStock(), [top])
+        XCTAssertEqual(vendingMachine.showExpiredStock(), Drinks([top]))
         
         // 남은 재고중에서 따뜻한 음료확인
-        XCTAssertEqual(vendingMachine.showHotBeverageList(), [top])
+        XCTAssertEqual(vendingMachine.showHotBeverageList(), Drinks([top]))
         
         // 구매 상품 이력 확인
-        XCTAssertEqual(vendingMachine.showPurchasedList(), [redBull])
+        XCTAssertEqual(vendingMachine.showPurchasedList(), PurchasedList([redBull]))
         
     }
 

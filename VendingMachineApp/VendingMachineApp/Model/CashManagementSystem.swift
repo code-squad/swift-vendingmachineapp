@@ -41,3 +41,9 @@ class CashManagementSystem {
         self.cash = beverage.calculateChange(with: cash)
     }
 }
+
+extension CashManagementSystem: Equatable {
+    static func == (lhs: CashManagementSystem, rhs: CashManagementSystem) -> Bool {
+        return lhs.cash == rhs.cash
+    }
+}

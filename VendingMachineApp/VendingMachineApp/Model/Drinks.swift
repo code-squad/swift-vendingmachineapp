@@ -53,3 +53,9 @@ class Drinks {
         return Drinks(drinks.filter{$0.isHot(at: 65)})
     }
 }
+
+extension Drinks: Equatable {
+    static func == (lhs: Drinks, rhs: Drinks) -> Bool {
+        return lhs.drinks == rhs.drinks
+    }
+}

@@ -29,14 +29,14 @@
                                                 <rect key="frame" x="20" y="20" width="180" height="180"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="5개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HYv-y2-u8A">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" restorationIdentifier="americano" text="5개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HYv-y2-u8A">
                                                 <rect key="frame" x="20" y="222" width="44" height="36"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vFw-Am-o7q" userLabel="add">
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="addAmericano" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vFw-Am-o7q">
                                                 <rect key="frame" x="175" y="222" width="25" height="34"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
@@ -44,6 +44,9 @@
                                                 <state key="normal">
                                                     <imageReference key="image" image="plus.circle.fill" catalog="system" symbolScale="large"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="addStockTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WDm-TW-M5g"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </view>
@@ -55,14 +58,14 @@
                                                 <rect key="frame" x="20" y="20" width="180" height="180"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="5개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9k4-l7-f4l">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" restorationIdentifier="cafelatte" text="5개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9k4-l7-f4l">
                                                 <rect key="frame" x="20" y="222" width="44" height="36"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="THQ-so-UoQ" userLabel="add">
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="addCafelatte" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="THQ-so-UoQ">
                                                 <rect key="frame" x="175" y="222" width="25" height="34"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
@@ -70,6 +73,9 @@
                                                 <state key="normal">
                                                     <imageReference key="image" image="plus.circle.fill" catalog="system" symbolScale="large"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="addStockTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YFK-5p-KyM"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </view>
@@ -81,14 +87,14 @@
                                                 <rect key="frame" x="20" y="20" width="180" height="180"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="5개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UmJ-t5-fDR">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" restorationIdentifier="chocolateMilk" text="5개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UmJ-t5-fDR">
                                                 <rect key="frame" x="20" y="222" width="44" height="36"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FRb-h9-jaV" userLabel="add">
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="addChocolateMilk" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FRb-h9-jaV">
                                                 <rect key="frame" x="175" y="222" width="25" height="34"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
@@ -96,6 +102,9 @@
                                                 <state key="normal">
                                                     <imageReference key="image" image="plus.circle.fill" catalog="system" symbolScale="large"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="addStockTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LfJ-sS-VU1"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </view>
@@ -107,14 +116,14 @@
                                                 <rect key="frame" x="20" y="20" width="180" height="180"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="5개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yAR-iB-SaQ">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" restorationIdentifier="coke" text="5개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yAR-iB-SaQ">
                                                 <rect key="frame" x="20" y="222" width="44" height="36"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B2w-yY-1x5" userLabel="add">
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="addCoke" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B2w-yY-1x5">
                                                 <rect key="frame" x="175" y="222" width="25" height="34"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
@@ -122,6 +131,9 @@
                                                 <state key="normal">
                                                     <imageReference key="image" image="plus.circle.fill" catalog="system" symbolScale="large"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="addStockTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0Kz-dT-Qa7"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </view>
@@ -133,14 +145,14 @@
                                                 <rect key="frame" x="20" y="20" width="180" height="180"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="5개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tt0-TP-OtO">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" restorationIdentifier="milkis" text="5개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tt0-TP-OtO">
                                                 <rect key="frame" x="20" y="222" width="44" height="36"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nbu-nF-hYU" userLabel="add">
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="addMilkis" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nbu-nF-hYU">
                                                 <rect key="frame" x="175" y="222" width="25" height="34"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
@@ -148,6 +160,9 @@
                                                 <state key="normal">
                                                     <imageReference key="image" image="plus.circle.fill" catalog="system" symbolScale="large"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="addStockTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sOO-DJ-Pdh"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </view>
@@ -159,14 +174,14 @@
                                                 <rect key="frame" x="20" y="20" width="180" height="180"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="5개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zxr-kp-XGG">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" restorationIdentifier="plainMilk" text="5개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zxr-kp-XGG">
                                                 <rect key="frame" x="20" y="222" width="44" height="36"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Zy-Vc-njO" userLabel="add">
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="addPlainMilk" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Zy-Vc-njO">
                                                 <rect key="frame" x="175" y="222" width="25" height="34"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
@@ -174,6 +189,9 @@
                                                 <state key="normal">
                                                     <imageReference key="image" image="plus.circle.fill" catalog="system" symbolScale="large"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="addStockTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7ss-A0-xsO"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </view>
@@ -191,7 +209,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4WP-sC-sIY">
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="add5K" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4WP-sC-sIY">
                                         <rect key="frame" x="28" y="156" width="225" height="80"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" systemColor="systemYellowColor"/>
@@ -199,8 +217,11 @@
                                         <state key="normal" title="+ 5000">
                                             <color key="titleColor" systemColor="labelColor"/>
                                         </state>
+                                        <connections>
+                                            <action selector="addMoneyTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6Z2-XV-Atf"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jIr-pK-zRD">
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="add1K" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jIr-pK-zRD">
                                         <rect key="frame" x="28" y="58" width="225" height="80"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" systemColor="systemTealColor"/>
@@ -208,6 +229,9 @@
                                         <state key="normal" title="+ 1000">
                                             <color key="titleColor" systemColor="systemGray6Color"/>
                                         </state>
+                                        <connections>
+                                            <action selector="addMoneyTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="w5O-oa-Rwy"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
@@ -217,8 +241,20 @@
                         <color key="backgroundColor" systemColor="systemOrangeColor"/>
                     </view>
                     <connections>
+                        <outlet property="moneyLabel" destination="zjw-Sh-mGe" id="N9q-ly-Uud"/>
                         <outletCollection property="countCollection" destination="Tt0-TP-OtO" collectionClass="NSMutableArray" id="JM6-Si-JMz"/>
                         <outletCollection property="beverageCollection" destination="D1n-lN-zQx" collectionClass="NSMutableArray" id="75w-hE-t0B"/>
+                        <outletCollection property="countCollection" destination="HYv-y2-u8A" collectionClass="NSMutableArray" id="1kF-Bv-cnU"/>
+                        <outletCollection property="countCollection" destination="9k4-l7-f4l" collectionClass="NSMutableArray" id="IS7-cb-bvn"/>
+                        <outletCollection property="countCollection" destination="UmJ-t5-fDR" collectionClass="NSMutableArray" id="8hu-yK-GMR"/>
+                        <outletCollection property="countCollection" destination="yAR-iB-SaQ" collectionClass="NSMutableArray" id="4mg-24-XmY"/>
+                        <outletCollection property="countCollection" destination="Zxr-kp-XGG" collectionClass="NSMutableArray" id="0e9-Om-F4j"/>
+                        <outletCollection property="beverageCollection" destination="5TY-YP-WDk" collectionClass="NSMutableArray" id="WuK-c3-puN"/>
+                        <outletCollection property="beverageCollection" destination="iTV-N9-JyM" collectionClass="NSMutableArray" id="kxb-gQ-48y"/>
+                        <outletCollection property="beverageCollection" destination="CmG-mW-MKL" collectionClass="NSMutableArray" id="5Vv-Do-z7m"/>
+                        <outletCollection property="beverageCollection" destination="7XR-xS-aF4" collectionClass="NSMutableArray" id="5Fa-ZR-Muj"/>
+                        <outletCollection property="beverageCollection" destination="D1n-lN-zQx" collectionClass="NSMutableArray" id="dcc-98-TqR"/>
+                        <outletCollection property="beverageCollection" destination="pjx-DG-Gy3" collectionClass="NSMutableArray" id="tFw-ey-2aU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

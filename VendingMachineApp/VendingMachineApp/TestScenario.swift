@@ -55,7 +55,11 @@ struct TestScenario: Testable {
         print("\n====Now Your Credit====")
         print(vendingMachine.nowCredit())
         print("\n======Buy======")
-        print(vendingMachine.buy(with: StrawberryMilk(date: Date().date("20210220"), lowFat: false, container: .bottle, expiration: Date().date("20210310"), hot: false, calorie: 250)))
+        if let newDrink = vendingMachine.buy(with: StrawberryMilk(date: Date().date("20210220"), lowFat: false, container: .bottle, expiration: Date().date("20210310"), hot: false, calorie: 250)) {
+            print(newDrink)
+        } else {
+            print("You can't buy this berverage")
+        }
         print("\n====Now Your Credit====")
         print(vendingMachine.nowCredit())
     }

@@ -31,11 +31,9 @@ class Beverage : CustomStringConvertible {
 extension Beverage : Drinkable {
     // 유통기한이 지난 경우 true를 반환
     func isExpired() -> Bool {
-        let calendar = Calendar.current
-        return calendar.compare(expiredAt, to: Date(), toGranularity: .day) == .orderedAscending
+        return expiredAt.isExpired()
     }
 }
-
 extension Beverage : Equatable {
     static func == (lhs: Beverage, rhs: Beverage) -> Bool {
         return lhs.brand == rhs.brand &&

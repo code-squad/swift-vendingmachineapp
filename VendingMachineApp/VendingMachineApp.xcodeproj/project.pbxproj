@@ -23,6 +23,7 @@
 		BDB00DD525EE094800189286 /* StrawberryMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB00DD425EE094800189286 /* StrawberryMilk.swift */; };
 		BDB00DDE25EE097A00189286 /* Cantata.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB00DDD25EE097A00189286 /* Cantata.swift */; };
 		BDF11B4725EF2E680027FB8F /* Beveragable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF11B4625EF2E680027FB8F /* Beveragable.swift */; };
+		BDF11B4E25EF65EF0027FB8F /* Beverages.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF11B4D25EF65EF0027FB8F /* Beverages.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		BDB00DD425EE094800189286 /* StrawberryMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrawberryMilk.swift; sourceTree = "<group>"; };
 		BDB00DDD25EE097A00189286 /* Cantata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cantata.swift; sourceTree = "<group>"; };
 		BDF11B4625EF2E680027FB8F /* Beveragable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beveragable.swift; sourceTree = "<group>"; };
+		BDF11B4D25EF65EF0027FB8F /* Beverages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beverages.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 			children = (
 				BD34A5E725E7725900FBB9E2 /* VendingMachine.swift */,
 				BD34A5E425E771DA00FBB9E2 /* Beverage.swift */,
+				BDF11B4D25EF65EF0027FB8F /* Beverages.swift */,
 				BD91BE4425E64042009DCFD3 /* Soda.swift */,
 				BDB00DCB25EE08EA00189286 /* Coke.swift */,
 				BD91BE3E25E6401B009DCFD3 /* Milk.swift */,
@@ -197,6 +200,7 @@
 				BDB00DDE25EE097A00189286 /* Cantata.swift in Sources */,
 				BDB00DCC25EE08EA00189286 /* Coke.swift in Sources */,
 				BD91BE3F25E6401B009DCFD3 /* Milk.swift in Sources */,
+				BDF11B4E25EF65EF0027FB8F /* Beverages.swift in Sources */,
 				BD91BE2B25E63C8B009DCFD3 /* SceneDelegate.swift in Sources */,
 				BD91BE4225E64024009DCFD3 /* Coffee.swift in Sources */,
 				BD34A5ED25E79AE300FBB9E2 /* ConvertDate.swift in Sources */,

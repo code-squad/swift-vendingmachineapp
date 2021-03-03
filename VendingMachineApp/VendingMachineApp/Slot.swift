@@ -52,4 +52,10 @@ class Slot: CustomStringConvertible {
     func dropFirstItem(named name: String) -> Beverage? {
         return !items.isEmpty ? items.removeFirst() : nil
     }
+    
+    func getExpiredItems() -> [Beverage] {
+        return items.filter {
+            $0.validate(with: Date())
+        }
+    }
 }

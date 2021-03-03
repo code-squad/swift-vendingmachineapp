@@ -15,3 +15,6 @@ protocol Drinkable {
     func isDrinkable(on date: Date) -> Bool
 }
 
+protocol Shot {
+    func isMoreThan(shot: Int) -> Bool
+}

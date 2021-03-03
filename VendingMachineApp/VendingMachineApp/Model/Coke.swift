@@ -17,8 +17,8 @@ class Coke: Soda {
     
     private var package: Package
     
-    init(brand: String, volume: Int, price: Int, name: String, manufacturedAt: Date, sugarContent: Int, package: Package) {
+    init(brand: String, volume: Int, price: Int, name: String, manufacturedAt: Date, temperature: Double, expirationDate: Date, calory: Int, sugarContent: Int, package: Package) {
         self.package = package
-        super.init(brand: brand, volume: volume, price: price, name: name, manufacturedAt: manufacturedAt, sugarContent: sugarContent)
+        super.init(brand: brand, volume: volume, price: price, name: name, manufacturedAt: manufacturedAt, temperature: temperature, expirationDate: expirationDate, calory: calory, sugarContent: sugarContent)
     }
 }

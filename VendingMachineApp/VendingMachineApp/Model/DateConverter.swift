@@ -34,12 +34,3 @@ struct DateConverter {
 }
 
 let date = DateConverter.makeDate(year: 2020, month: 12, day: 20)
-
-//func dateFormatter(with date: String) {
-//    let dateFormatter = DateFormatter()
-//    dateFormatter.dateFormat = "YY년 MM월 dd일"
-//
-//    //    let string1 = "18년 2월 1일"
-//
-//    let day = dateFormatter.date(from: date)
-//}

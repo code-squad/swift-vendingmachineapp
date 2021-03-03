@@ -47,13 +47,10 @@ class Beverage: CustomStringConvertible {
     }
 }
 
-extension Beverage: Equatable {
-    static func == (lhs: Beverage, rhs: Beverage) -> Bool {
-        return lhs.description == rhs.description
-    }
-}
-
 extension Beverage: Hashable {
+    static func == (lhs: Beverage, rhs: Beverage) -> Bool {
+        return lhs.brand == rhs.brand && lhs.capacity == rhs.capacity && lhs.price == rhs.price && lhs.name == rhs.name && lhs.manufacture == rhs.manufacture && lhs.expirationDate == rhs.expirationDate && lhs.temperature == rhs.temperature
+    }
     func hash(into hasher: inout Hasher) {
         hasher.combine(brand)
         hasher.combine(capacity)

@@ -10,3 +10,7 @@ import Foundation
 protocol SafelyDrinkable {
     func validate(with date: Date) -> Bool
 }
+
+protocol LactoseFree {
+    func isLactoseFree() -> Bool
+}

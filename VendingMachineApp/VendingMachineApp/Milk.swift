@@ -7,9 +7,16 @@
 
 import Foundation
 
-class Milk: Beverage {
+class Milk: Beverage, LactoseFree {
     
-    override init(brand: String, volume: Int, price: Int, name: String, calorie: Int, manufactured: String, expiredAfter: String) {
+    private let hasLactose: Bool
+    
+    init(brand: String, volume: Int, price: Int, name: String, calorie: Int, manufactured: String, expiredAfter: String, hasLactose: Bool) {
+        self.hasLactose = hasLactose
         super.init(brand: brand, volume: volume, price: price, name: name, calorie: calorie, manufactured: manufactured, expiredAfter: expiredAfter)
+    }
+    
+    func isLactoseFree() -> Bool {
+        return !hasLactose
     }
 }

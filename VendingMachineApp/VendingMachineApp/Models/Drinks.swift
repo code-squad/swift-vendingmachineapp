@@ -10,11 +10,11 @@ import Foundation
 class Drinks {
     
     private var drinks: [Drink]
-    private var dictionry: DrinksDictionary
+    private var dictionry: DrinksInventory
     
     init(_ drinks: [Drink]) {
         self.drinks = drinks
-        self.dictionry = DrinksDictionary()
+        self.dictionry = DrinksInventory()
         classify(with: drinks)
     }
     

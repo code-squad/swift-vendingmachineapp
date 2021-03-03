@@ -9,25 +9,25 @@ import Foundation
 
 struct OutputView {
     func test_Drink() {
-        let testChocoMilk = ChocoMilk.init()
+        let testChocoMilk = BeverageFactory.shared().getBeverage(DrinkType: ChocoMilk.self) as! ChocoMilk
         print(testChocoMilk)
         print("isRealCholate: \(testChocoMilk.isRealCholate())")
-        
-        let testStrawBerryMilk = StrawberryMilk.init()
+
+        let testStrawBerryMilk = BeverageFactory.shared().getBeverage(DrinkType: StrawberryMilk.self)
         print(testStrawBerryMilk)
         print("isCochineal: \(testStrawBerryMilk.isCochineal())")
         print("validate: \(testStrawBerryMilk.isWithInExpiration())")
-        
-        let testCola = Cola()
+
+        let testCola = BeverageFactory.shared().getBeverage(DrinkType: Cola.self)
         print(testCola)
         print("isUnsweetened: \(testCola.isUnsweetened())")
-        
-        let testCider = Cider()
+
+        let testCider = BeverageFactory.shared().getBeverage(DrinkType: Cider.self)
         print(testCider)
         print("productCalorie: \(testCider.productCalorie())")
         print("packingMaterial: \(testCider.packingMaterial())")
-        
-        let testTOP = TOP()
+
+        let testTOP = BeverageFactory.shared().getBeverage(DrinkType: TOP.self)
         print(testTOP)
         print("isHot: \(testTOP.isHot())")
         if testTOP.productCaffeine() < 10.0 {
@@ -36,9 +36,9 @@ struct OutputView {
         else {
             print("productCaffeine: \(testTOP.productCaffeine())ml")
         }
-        
-        
-        let testCantata = Cantata()
+
+
+        let testCantata = BeverageFactory.shared().getBeverage(DrinkType: Cantata.self)
         print(testCantata)
         print("productCalorie: \(testCantata.productBeans())")
         if testCantata.productCaffeine() < 10.0 {
@@ -48,7 +48,7 @@ struct OutputView {
             print("productCaffeine: \(testCantata.productCaffeine())ml")
         }
     }
-    
+
     func test_Machine() {
         var testMachine = VendingMachine()
         print("money : \(testMachine.checkMoney())")
@@ -69,6 +69,6 @@ struct OutputView {
         testMachine.buyProduct(what: StrawberryMilk.self)
         print("purchased : \(testMachine.purchasedList())")
         print("money : \(testMachine.checkMoney())")
-        
+
     }
 }

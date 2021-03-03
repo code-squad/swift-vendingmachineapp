@@ -10,9 +10,12 @@ import Foundation
 class VendingMachine {
     private var drinks: Drinks
     private var cashManagementSystem: CashManagementSystem
+    private var purchasedList: PurchasedList
+    
     init() {
         self.drinks = Drinks()
         self.cashManagementSystem = CashManagementSystem()
+        self.purchasedList = PurchasedList()
     }
     
     func addStock(beverage: Beverage) {
@@ -30,7 +33,7 @@ class VendingMachine {
     func buy(_ beverage: Beverage) {
         if cashManagementSystem.isAvailableForPurchase(with: beverage) {
             cashManagementSystem.decreaseCash(with: beverage)
-            drinks.remove(with: beverage)
+            purchasedList.add(with: drinks.remove(with: beverage))
         }
     }
     
@@ -51,6 +54,6 @@ class VendingMachine {
     }
     
     func showPurchasedList() -> [Beverage] {
-        drinks.givePurchasedList()
+        purchasedList.givePurchasedList()
     }
 }

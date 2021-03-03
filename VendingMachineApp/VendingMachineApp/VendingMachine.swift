@@ -8,11 +8,17 @@
 import Foundation
 
 class VendingMachine {
-    func printBeverage(_ beverage : CustomStringConvertible ){
-        print(beverage.description)
-    }
+    private var money : Money
+    private var milk : [Milk]
+    private var soda : [Soda]
+    private var energydrink : [Energydrink]
+    private var coffee : [Coffee]
     
-    func printBeverages(_ beverages : [CustomStringConvertible] ){
-        beverages.forEach{ print($0.description) }
+    init(Money : Money){
+        self.money = Money
+        self.milk = []
+        self.soda = []
+        self.energydrink = []
+        self.coffee = []
     }
 }

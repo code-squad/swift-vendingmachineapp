@@ -26,8 +26,4 @@ class Energydrink : Beverage {
     convenience init(kcal : Int, flavor: Flavor, brand: String, volume: Int, price: Int, name: String, manufactured: Date){ //카페인 있는 에너지 드링크
         self.init(caffeine: true, kcal: kcal, flavor: flavor, brand: brand, volume: volume, price: price, name: name, manufactured: manufactured)
     }
-    
-    override var description: String{
-        return super.description + ", \(flavor)맛 \(kcal)kcal, \(caffeine)"
-    }
 }

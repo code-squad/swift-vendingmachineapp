@@ -24,6 +24,7 @@ class VendingMachineManager {
         })
         return purchaseList
     }
+    
     func updatePurchaseList(inventory: Inventory, beverage: Beverage) {
         purchaseHistory.append(inventory.subtractBeverage(beverage: beverage)!)
     }
@@ -31,5 +32,4 @@ class VendingMachineManager {
     func purchasedList() -> [Beverage] {
         return purchaseHistory
     }
-    
 }

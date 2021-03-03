@@ -15,7 +15,7 @@ class Coffee: Beverage {
         super.init(brand: brand, capacity: capacity, price: price, name: name, manufacture: manufacture, expirationDate: expirationDate, temperature: temperature)
     }
     
-    func isHighCaffeine() -> Bool {
-        return self.caffeineContent >= 0.15
+    func isHighCaffeine(with standard: Double) -> Bool {
+        return String(format: "%.2f", self.caffeineContent) >= String(format: "%.2f", standard)
     }
 }

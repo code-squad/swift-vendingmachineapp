@@ -18,6 +18,6 @@ class StrawberryMilk: Milk {
     
     init(date: Date, fat: Int, container: Container, expiration: Date, hot: Bool, calorie: Int) {
         self.container = container
-        super.init(brand: "서울우유", capacity: 480, price: 1500, name: container.rawValue, date: date, fat: fat, expiration: expiration, hot: hot, calorie: calorie)
+        super.init(brand: "서울우유", capacity: 480, price: Money(how: 1500), name: container.rawValue, date: date, fat: fat, expiration: expiration, hot: hot, calorie: calorie)
     }
 }

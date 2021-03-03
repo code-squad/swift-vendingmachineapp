@@ -11,7 +11,7 @@ class Soda: Drink {
     
     private var zeroCalorie: Bool
     
-    init(brand: String, capacity: Int, price: Int, name: String, date: Date, expiration: Date, hot: Bool, calorie: Int) {
+    init(brand: String, capacity: Int, price: Money, name: String, date: Date, expiration: Date, hot: Bool, calorie: Int) {
         self.zeroCalorie = false
         super.init(brand: brand, capacity: capacity, price: price, name: name, manufacturedDate: date, expiration: expiration, hot: hot, calorie: calorie )
         self.zeroCalorie = self.isZeroCalorie(unit: calorie)

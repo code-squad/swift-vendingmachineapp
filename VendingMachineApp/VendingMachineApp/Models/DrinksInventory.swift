@@ -15,7 +15,7 @@ class DrinksInventory {
     }
     
     func append(_ drink: Drink) {
-        guard var stock = drinkInventory[drink] else {
+        guard var stock = drinksInventory[drink] else {
             drinksInventory[drink] = 1
             return
         }

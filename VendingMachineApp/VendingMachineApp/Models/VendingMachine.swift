@@ -47,11 +47,11 @@ class VendingMachine {
     }
     
     func possibleDrinks() -> Drinks {
-        return stock.possibleDrinks(with: credit.property)
+        return stock.possibleDrinks(with: credit)
     }
     
-    func nowCredit() -> Int {
-        return credit.property
+    func nowCredit() -> Money {
+        return credit
     }
     
     func hotDrinks() -> Drinks {
@@ -67,7 +67,7 @@ class VendingMachine {
     }
     
     private func canBuy(with drink: Drink) -> Bool {
-        return credit.property > drink.price
+        return credit > drink.price
     }
     
     private func hasDrink(with drink: Drink) -> Bool {
@@ -78,7 +78,7 @@ class VendingMachine {
         if !hasDrink(with: drink) || !canBuy(with: drink){
             return nil
         }
-        credit.withdrawl(unit: drink.price)
+        credit -= drink.price
         update(with: drink)
         return drink
     }

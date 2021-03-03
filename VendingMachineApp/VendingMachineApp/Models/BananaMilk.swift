@@ -14,4 +14,8 @@ class BananaMilk: Milk  {
         self.farmCode = farmCode
         super.init(manufacturer: manufacturer, volume: volume, name: name, manufacturedAt: manufacturedAt, price: price, temperature: temperature, calorie: calorie, fatContent: fatContent, expiredAt: expiredAt)
     }
+    
+    convenience init() {
+        self.init(manufacturer: "빙그레", volume: 200, name: "빙그레바나나우유", manufacturedAt: Date(), price: 1000, temperature: 20, calorie: 200, fatContent: 5, farmCode: "B", expiredAt: Date())
+    }
 }

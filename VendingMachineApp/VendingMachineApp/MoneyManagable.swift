@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+protocol MoneyManagable {
+    func readBalance() -> Int
+    func increaseBalance(_ price: Int)
+    func decreaseBalance(_ price: Int)
+}

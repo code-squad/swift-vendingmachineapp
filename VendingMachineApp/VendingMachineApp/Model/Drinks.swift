@@ -9,21 +9,18 @@ import Foundation
 
 class Drinks {
     private var drinks: [Beverage]
-    private var purchasedDrinks: [Beverage]
     
     init() {
         self.drinks = []
-        self.purchasedDrinks = []
     }
     
     func add(with beverage: Beverage) {
         drinks.append(beverage)
     }
     
-    func remove(with beverage: Beverage) {
-        if let beverageIndex = drinks.firstIndex(of: beverage) {
-            purchasedDrinks.append(drinks.remove(at: beverageIndex))
-        }
+    func remove(with beverage: Beverage) -> Beverage {
+        let beverageIndex = drinks.firstIndex(of: beverage) ?? -1
+        return drinks.remove(at: beverageIndex)
     }
 
     func showListForPurchase(with cashManagementSystem: CashManagementSystem) -> [Beverage] {
@@ -51,9 +48,5 @@ class Drinks {
     
     func giveHotBeverageList() -> [Beverage] {
         return drinks.filter{$0.isHot(at: 65)}
-    }
-    
-    func givePurchasedList() -> [Beverage] {
-        return self.purchasedDrinks
     }
 }

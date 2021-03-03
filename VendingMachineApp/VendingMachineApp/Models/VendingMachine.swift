@@ -74,9 +74,9 @@ class VendingMachine {
         return stock.hasDrink(with: drink)
     }
     
-    func buy(with drink: Drink) -> Drink {
+    func buy(with drink: Drink) -> Drink? {
         if !hasDrink(with: drink) || !canBuy(with: drink){
-            return Drink()
+            return nil
         }
         credit.withdrawl(unit: drink.price)
         update(with: drink)

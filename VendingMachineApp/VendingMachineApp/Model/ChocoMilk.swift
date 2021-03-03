@@ -9,9 +9,9 @@ import Foundation
 
 class ChocoMilk: Milk {
     
-    private let chocolateContent : Double // percent
+    private let chocolateContent : Float // percent
     
-    init(brand : String, volume : Int, charge : Int, name :String, manufacturing : Date, expirationLimit : Int, chocolateContent : Double) {
+    init(brand : String, volume : Int, charge : Int, name :String, manufacturing : Date, expirationLimit : Int, chocolateContent : Float) {
         self.chocolateContent = chocolateContent
         super.init(brand: brand, volume: volume, charge: charge, name: name, manufacturing: manufacturing, expirationLimit: expirationLimit)
     }
@@ -21,6 +21,6 @@ class ChocoMilk: Milk {
     }
     
     func isRealCholate() -> Bool {
-        return chocolateContent > 20
+        return chocolateContent > 1
     }
 }

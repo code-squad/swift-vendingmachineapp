@@ -10,3 +10,4 @@
 - XCTest
 - SOLID Principles of OOP
 - Protocols
+- Equatable, Hashable Protocols

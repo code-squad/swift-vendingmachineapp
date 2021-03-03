@@ -17,12 +17,12 @@ class VendingMachine {
     }
     
     private var stock: Drinks
-    private var credit: Int
+    private var credit: Money
     private var log: SalesLog
 
     init(drinks: Drinks) {
         self.stock = drinks
-        self.credit = 0
+        self.credit = Money()
         self.log = SalesLog()
     }
     
@@ -35,7 +35,7 @@ class VendingMachine {
     }
     
     func insertCoin(coin: Coin) {
-        credit += coin.rawValue
+        credit.deposit(unit: coin.rawValue)
     }
     
     func append(_ drink: Drink) {
@@ -47,11 +47,11 @@ class VendingMachine {
     }
     
     func possibleDrinks() -> Drinks {
-        return stock.possibleDrinks(with: credit)
+        return stock.possibleDrinks(with: credit.property)
     }
     
     func nowCredit() -> Int {
-        return credit
+        return credit.property
     }
     
     func hotDrinks() -> Drinks {
@@ -67,7 +67,7 @@ class VendingMachine {
     }
     
     private func canBuy(with drink: Drink) -> Bool {
-        return credit > drink.price
+        return credit.property > drink.price
     }
     
     private func hasDrink(with drink: Drink) -> Bool {
@@ -78,7 +78,7 @@ class VendingMachine {
         if !hasDrink(with: drink) || !canBuy(with: drink){
             return Drink()
         }
-        credit -= drink.price
+        credit.withdrawl(unit: drink.price)
         update(with: drink)
         return drink
     }

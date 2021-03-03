@@ -44,4 +44,12 @@ class Slot: CustomStringConvertible {
             return false
         }
     }
+    
+    func compareName(with name: String) -> Bool {
+        return !items.isEmpty ? firstItem?.name == name : false
+    }
+    
+    func dropFirstItem(named name: String) -> Beverage? {
+        return !items.isEmpty ? items.removeFirst() : nil
+    }
 }

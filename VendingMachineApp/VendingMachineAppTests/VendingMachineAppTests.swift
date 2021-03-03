@@ -65,8 +65,7 @@ class VendingMachineAppTests: XCTestCase {
         
         XCTAssertEqual(vendingMachine.showAllBeverageList(), [beverage:1,beverage2:1,beverage3:1])
     }
-    
-    //TODO: Bug 수정
+
     func test_유통기한_넘은_재고목록() throws {
         var fakeBananaMilk = BananaMilk(brand: "테스트", capacity: 200, price: 1000, name: "바나나우유_테스트", manufacture: Date(), farmCode: "A_테스트", hasDoraemonSticker: true, expiry: Calendar.current.date(byAdding: .day, value: -5, to: Date())!)
     
@@ -83,7 +82,6 @@ class VendingMachineAppTests: XCTestCase {
             XCTAssertEqual(vendingMachine.showHotBeverage().map{$0 as! Beverage}, [fakeTop])
     }
     
-    //TODO: Bug 수정
     func test_상품_구매_이력() throws {
         vendingMachine.showPurchaseHistory()
         vendingMachine.appendBeverage(beverage: beverage)
@@ -93,5 +91,31 @@ class VendingMachineAppTests: XCTestCase {
         vendingMachine.buyBeverage(beverage: beverage2)
         
         XCTAssertEqual(vendingMachine.showPurchaseHistory(), [])
+    }
+    
+    func test_통합_테스트_시나리오() throws {
+        //음료 재고 넣기
+        vendingMachine.appendBeverage(beverage: beverage)
+        vendingMachine.appendBeverage(beverage: beverage2)
+        vendingMachine.appendBeverage(beverage: beverage3)
+        
+        //금액 투입
+        vendingMachine.putInMoney(3000)
+        XCTAssertEqual(vendingMachine.showCurrentMoney(), 3000)
+        
+        //구매 가능한 상품 확인
+        XCTAssertEqual(vendingMachine.beverageListForPurchase(), [beverage,beverage2,beverage3])
+        
+        //구매
+        vendingMachine.buyBeverage(beverage: beverage)
+        
+        //잔액 확인
+        XCTAssertEqual(vendingMachine.showCurrentMoney(), 1000)
+        
+        //재고 상태 확인
+        XCTAssertEqual(vendingMachine.showAllBeverageList(), [beverage2:1,beverage3:1])
+        
+        //구매 상품 이력 확인
+        XCTAssertEqual(vendingMachine.showPurchaseHistory(), [beverage])
     }
 }

@@ -25,11 +25,11 @@ struct TestScenario: Testable {
     
     func inputDrink() {
         let drinks: [Drink] = [
-            StrawberryMilk(date: Date().date("20210220"), lowFat: false, container: .bottle, expiration: Date().date("20210310"), hot: false, calorie: 250),
+            StrawberryMilk(date: Date().date("20210220"), fat: 45, container: .bottle, expiration: Date().date("20210310"), hot: false, calorie: 250),
                                 CocaCola(date: Date().date("20180220"), isZero: true, flavor: .Original, expiration: Date().date("20210228"), hot: false, calorie: 0),
-            Top(date: Date().date("20190317"), decaffein: false, flavor: .Black, expiration: Date().date("20210101"), hot: true, calorie: 100),
-            Cantata(date: Date().date("20201003"), decaffein: true, flavor: .KaramelMacchiato, expiration: Date().date("20210707"), hot: true, calorie: 100),
-            ChocoMilk(date: Date().date("20210101"), lowFat: true, cacao: .NinetyPercent, expiration: Date().date("20210304"), hot: false, calorie: 150),
+            Top(date: Date().date("20190317"), caffein: 20, flavor: .Black, expiration: Date().date("20210101"), hot: true, calorie: 100),
+            Cantata(date: Date().date("20201003"), caffein: 8, flavor: .KaramelMacchiato, expiration: Date().date("20210707"), hot: true, calorie: 100),
+            ChocoMilk(date: Date().date("20210101"), fat: 20, cacao: .NinetyPercent, expiration: Date().date("20210304"), hot: false, calorie: 150),
             Sprite(date: Date().date("20210202"), isZero: false, flavor: .Ginger, expiration: Date().date("20210608"), hot: false, calorie: 500)
         ]
         
@@ -55,7 +55,7 @@ struct TestScenario: Testable {
         print("\n====Now Your Credit====")
         print(vendingMachine.nowCredit())
         print("\n======Buy======")
-        if let newDrink = vendingMachine.buy(with: StrawberryMilk(date: Date().date("20210220"), lowFat: false, container: .bottle, expiration: Date().date("20210310"), hot: false, calorie: 250)) {
+        if let newDrink = vendingMachine.buy(with: StrawberryMilk(date: Date().date("20210220"), fat: 29, container: .bottle, expiration: Date().date("20210310"), hot: false, calorie: 250)) {
             print(newDrink)
         } else {
             print("You can't buy this berverage")

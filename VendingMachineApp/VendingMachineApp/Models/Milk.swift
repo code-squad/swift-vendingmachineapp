@@ -9,14 +9,14 @@ import Foundation
 
 class Milk: Drink {
     
-    private var lowFat: Bool
+    private var fat: Int
     
-    init(brand: String, capacity: Int, price: Int, name: String, date: Date, lowFat: Bool, expiration: Date, hot: Bool, calorie: Int) {
-        self.lowFat = lowFat
+    init(brand: String, capacity: Int, price: Int, name: String, date: Date, fat: Int, expiration: Date, hot: Bool, calorie: Int) {
+        self.fat = fat
         super.init(brand: brand, capacity: capacity, price: price, name: name, manufacturedDate: date, expiration: expiration, hot: hot, calorie: calorie )
     }
     
     func isLowFat() -> Bool {
-        return lowFat
+        return fat < 30
     }
 }

@@ -12,34 +12,12 @@ class CocaCola: Soda {
         case Original = "Original Cola"
         case Cherry = "Cherry Cola"
         case Vanilla = "Vanilla Cola"
-        
-        func capacity() -> Int {
-            switch self {
-            case .Original:
-                return 500
-            case .Cherry:
-                return 550
-            case .Vanilla:
-                return 600
-            }
-        }
-        
-        func price() -> Int {
-            switch self {
-            case .Original:
-                return 2000
-            case .Cherry:
-                return 2500
-            case .Vanilla:
-                return 3000
-            }
-        }
     }
     
     private var flavor: Flavor
     
     init(date: Date, isZero: Bool, flavor: Flavor, expiration: Date, hot: Bool, calorie: Int) {
         self.flavor = flavor
-        super.init(brand: "코카콜라", capacity: flavor.capacity(), price: flavor.price(), name: flavor.rawValue, date: date, isZero: isZero, expiration: expiration, hot: hot, calorie: calorie)
+        super.init(brand: "코카콜라", capacity: 333, price: 2200, name: flavor.rawValue, date: date, expiration: expiration, hot: hot, calorie: calorie)
     }
 }

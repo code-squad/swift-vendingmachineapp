@@ -12,33 +12,12 @@ class StrawberryMilk: Milk {
         case box = "Strawberry Milk Box"
         case bottle = "Strawberry Milk Bottle"
         case stick = "Strawberry Milk Stick"
-        
-        func capacity() -> Int {
-            switch self {
-            case .box:
-                return 250
-            case .bottle:
-                return 300
-            case .stick:
-                return 50
-            }
-        }
-        func price() -> Int{
-            switch self {
-            case .box:
-                return 1000
-            case .bottle:
-                return 1800
-            case .stick:
-                return 800
-            }
-        }
     }
     
     private var container: Container
     
-    init(date: Date, lowFat: Bool, container: Container, expiration: Date, hot: Bool, calorie: Int) {
+    init(date: Date, fat: Int, container: Container, expiration: Date, hot: Bool, calorie: Int) {
         self.container = container
-        super.init(brand: "서울우유", capacity: container.capacity(), price: container.price(), name: container.rawValue, date: date, lowFat: lowFat, expiration: expiration, hot: hot, calorie: calorie)
+        super.init(brand: "서울우유", capacity: 480, price: 1500, name: container.rawValue, date: date, fat: fat, expiration: expiration, hot: hot, calorie: calorie)
     }
 }

@@ -16,8 +16,8 @@ class Top: Coffee {
     
     private var flavor: Flavor
     
-    init(date: Date, decaffein: Bool, flavor: Flavor, expiration: Date, hot: Bool, calorie: Int) {
+    init(date: Date, caffein: Int, flavor: Flavor, expiration: Date, hot: Bool, calorie: Int) {
         self.flavor = flavor
-        super.init(brand: "TOP", capacity: 275, price: 1800, name: flavor.rawValue, date: date, decaffein: decaffein, expiration: expiration, hot: hot, calorie: calorie)
+        super.init(brand: "TOP", capacity: 275, price: 1800, name: flavor.rawValue, date: date, caffein: caffein, expiration: expiration, hot: hot, calorie: calorie)
     }
 }

@@ -9,14 +9,14 @@ import Foundation
 
 class Coffee: Drink {
     
-    private var decaffein: Bool
+    private var caffein:  Int
     
-    init(brand: String, capacity: Int, price: Int, name: String, date: Date, decaffein: Bool, expiration: Date, hot: Bool, calorie: Int) {
-        self.decaffein = decaffein
+    init(brand: String, capacity: Int, price: Int, name: String, date: Date, caffein: Int, expiration: Date, hot: Bool, calorie: Int) {
+        self.caffein = caffein
         super.init(brand: brand, capacity: capacity, price: price, name: name, manufacturedDate: date, expiration: expiration, hot: hot, calorie: calorie )
     }
     
     func isDecaffein() -> Bool {
-        return decaffein
+        return caffein < 10
     }
 }

@@ -52,6 +52,10 @@ class Drink {
     public func isLowCalorie() -> Bool {
         return (capacity / 100) * 20 < self.capacity
     }
+    
+    public func checkName(handle: (String) -> ()) {
+        handle(self.name)
+    }
 }
 
 extension Drink: Hashable {

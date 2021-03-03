@@ -38,13 +38,11 @@ extension Drink: Drinkable {
     }
     
     func isHot(with temperature: Int) -> Bool {
-        let gap = self.temperature - temperature
-        return gap > 0 ? true : false
+        return self.temperature - temperature > 0
     }
     
     func isLowCalorie(with calorie: Int) -> Bool {
-        let gap = self.calorie - calorie
-        return gap > 0 ? false : true
+        return self.calorie - calorie > 0
     }
 }
 
@@ -55,5 +53,8 @@ extension Drink: Hashable {
     
     func hash(into hasher: inout Hasher) {
         hasher.combine(manufacturer)
+        hasher.combine(volume)
+        hasher.combine(name)
+        hasher.combine(price)
     }
 }

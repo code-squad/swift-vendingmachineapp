@@ -9,6 +9,7 @@ import Foundation
 
 class RedBull: EnergyDrink {
     private var vitaminB: Int
+    private var image = "HotSix"
     
     init(brand: String, capacity: Int, price: Int, name: String, manufacturedAt: Date, expirationAt: Date, temperature: Double, taurineContent: Int, vitaminB: Int) {
         self.vitaminB = vitaminB

@@ -108,6 +108,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		B30C143725EFA89B0095CA19 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				B36A87DC25E63E14002C4432 /* Date.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		B36A87A425E61B84002C4432 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -183,8 +191,8 @@
 			children = (
 				B3F5728525E3629300CFF095 /* AppDelegate.swift */,
 				B3F5728725E3629300CFF095 /* SceneDelegate.swift */,
+				B30C143725EFA89B0095CA19 /* Extension */,
 				B30C143425EFA3760095CA19 /* View */,
-				B36A87DC25E63E14002C4432 /* Date.swift */,
 				B36A87A425E61B84002C4432 /* Model */,
 				B3F5728B25E3629300CFF095 /* Main.storyboard */,
 				B3F5728E25E3629400CFF095 /* Assets.xcassets */,

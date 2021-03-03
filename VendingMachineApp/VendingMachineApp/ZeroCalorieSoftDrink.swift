@@ -10,6 +10,6 @@ import Foundation
 class ZeroCalorieSoftDrink: SoftDrink {
     
     init(brand: String, volume: Int, price: Int, name: String, manufactured: String, expiredAfter: String, isCarbonated: Bool) {
-        super.init(brand: brand, volume: volume, price: price, name: name, calorie: 0, manufactured: manufactured, expiredAfter: expiredAfter)
+        super.init(brand: brand, volume: volume, price: price, name: name, calorie: 0, manufactured: manufactured, expiredAfter: expiredAfter, isCarbonated: isCarbonated)
     }
 }

@@ -60,4 +60,12 @@ struct VendingMachine {
     func takeInventory() -> [Int : (Slot, Int)] {
         return inventory.takeStock()
     }
+    
+    func showExpiredItems() -> [Beverage] {
+        var expiredItems: [Beverage] = []
+        inventory.showItems {
+            expiredItems += $0.getExpiredItems()
+        }
+        return expiredItems
+    }
 }

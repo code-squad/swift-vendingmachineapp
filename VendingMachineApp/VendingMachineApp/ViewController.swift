@@ -19,10 +19,21 @@ class ViewController: UIViewController {
                                         lactoStandard: 0.5)
     
     private var vendingMachineDelegate = VendingMachineUpdator()
+    private var beverageList = [Beverage]()
+    private let beverageFactory = BeverageFactory0303.self
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        vendingMachineDelegate.didTurnOn(images: beverageCollection, countLabels: countCollection, machine: vendingMachine, moneyLabel: moneyLabel)
+        
+        listUp()
+        
+        vendingMachineDelegate.didTurnOn(images: beverageCollection, countLabels: countCollection, machine: vendingMachine, moneyLabel: moneyLabel, beverageList: beverageList)
+    }
+    
+    private func listUp() {
+        beverageFactory.allCases.forEach { (beverage) in
+            beverageList.append(beverage.create())
+        }
     }
     
     @IBAction func addMoneyTouched(_ sender: UIButton) {
@@ -30,6 +41,6 @@ class ViewController: UIViewController {
     }
     
     @IBAction func addStockTouched(_ sender: UIButton) {
-        vendingMachineDelegate.didAddStockTouched(sender: sender, machine: vendingMachine, labels: countCollection)
+        vendingMachineDelegate.didAddStockTouched(sender: sender, machine: vendingMachine, labels: countCollection, beverageList: beverageList)
     }
 }

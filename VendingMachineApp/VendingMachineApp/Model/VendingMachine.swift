@@ -71,3 +71,8 @@ struct VendingMachine {
     }
 }
 
+extension VendingMachine: CustomStringConvertible {
+    var description: String {
+        return "\(insertedMoney)"
+    }
+}

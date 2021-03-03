@@ -10,10 +10,21 @@ class VendingMachineViewController: UIViewController {
     @IBOutlet weak var stockInfoOfSprite: UILabel!
     @IBOutlet weak var stockInfoOfTOP: UILabel!
     @IBOutlet weak var stockInfoOfCantata: UILabel!
+    @IBOutlet weak var balanceInfo: UILabel!
+    @IBOutlet var imagesOfBeverages: [UIImageView]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         beveragesStockCount()
+        balanceInfoLabel()
+        setUpImageView()
+        view.backgroundColor = UIColor.systemGray5
+    }
+    
+    private func setUpImageView() {
+        for beverage in imagesOfBeverages {
+            beverage.layer.cornerRadius = beverage.frame.height / 4
+        }
     }
 }
 
@@ -74,6 +85,25 @@ extension VendingMachineViewController {
     @IBAction func buttonForCantataStock(_ sender: Any) {
         machine.addBeverage(beverage: Beverage(brand: .lotte, volume: 150, price: 1300, productName: "칸타타", manufacturedDay: Date(), sellByDate: Date(), calories: 20, temparature: 100))
         beveragesStockCount()
+    }
+    
+}
+
+extension VendingMachineViewController {
+    
+    private func balanceInfoLabel() {
+        let balance = machine.insertedMoney
+        balanceInfo.text = "잔액:\(balance)"
+    }
+    
+    @IBAction func button1000ForBalance(_ sender: Any) {
+        machine.getTheMoney(from: 1000)
+        balanceInfoLabel()
+    }
+    
+    @IBAction func button5000ForBalance(_ sender: Any) {
+        machine.getTheMoney(from: 5000)
+        balanceInfoLabel()
     }
     
 }

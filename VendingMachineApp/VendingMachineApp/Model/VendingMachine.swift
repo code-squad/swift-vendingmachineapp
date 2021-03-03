@@ -33,6 +33,7 @@ class VendingMachine {
             drinks.remove(with: beverage)
         }
     }
+    
     func showBalance() -> Int {
         return cashManagementSystem.checkBalance()
     }
@@ -40,12 +41,15 @@ class VendingMachine {
     func showStock() -> [Beverage:Int] {
         drinks.giveStockList()
     }
+    
     func showExpiredStock() -> [Beverage] {
         drinks.giveExpiredList()
     }
+    
     func showHotBeverageList() -> [Beverage] {
         drinks.giveHotBeverageList()
     }
+    
     func showPurchasedList() -> [Beverage] {
         drinks.givePurchasedList()
     }

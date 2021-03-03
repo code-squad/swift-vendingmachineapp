@@ -30,15 +30,18 @@ class Beverage: CustomStringConvertible {
         self.temperature = temperature
     }
     
-    func isAvailablePurchase(with cash: Int) -> Bool{
+    func isAvailablePurchase(with cash: Int) -> Bool {
         return self.price <= cash
     }
+    
     func calculateChange(with cash: Int) -> Int {
         return cash - self.price
     }
+    
     func isExpired(on standard: Date) -> Bool {
         return self.expirationDate < standard
     }
+    
     func isHot(at standard: Double) -> Bool {
         return self.temperature >= standard
     }

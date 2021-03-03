@@ -30,7 +30,7 @@ class Drinks {
     
     //음료를 하나하나 출력하는 show 메소드가 불필요해지면 show로 바꿀 예정
     func showStock() -> Dictionary<Drink, Int>{
-        return dictionry.drinkDictionary
+        return dictionry.drinksInventory
     }
     
     //show 메소드와 유사

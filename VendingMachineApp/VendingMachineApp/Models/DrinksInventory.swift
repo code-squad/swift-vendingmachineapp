@@ -8,22 +8,22 @@
 import Foundation
 
 class DrinksInventory {
-    private (set) var drinkInventory: Dictionary<Drink, Int>
+    private (set) var drinksInventory: Dictionary<Drink, Int>
     
     init(){
-        drinkInventory = [:]
+        drinksInventory = [:]
     }
     
     func append(_ drink: Drink) {
         guard var stock = drinkInventory[drink] else {
-            drinkInventory[drink] = 1
+            drinksInventory[drink] = 1
             return
         }
         stock += 1
     }
     
     func hasDrink(_ drink: Drink) ->  Bool {
-        if let _ = drinkInventory[drink] {
+        if let _ = drinksInventory[drink] {
             return true
         } else {
             return false
@@ -31,7 +31,7 @@ class DrinksInventory {
     }
     
     func pop(_ drink: Drink) {
-        guard var stock = drinkInventory[drink] else {
+        guard var stock = drinksInventory[drink] else {
             return
         }
         stock -= 1
@@ -40,7 +40,7 @@ class DrinksInventory {
     
     private func checkZero(_ stock:Int, _ drink: Drink) {
         if stock == 0 {
-            drinkInventory.removeValue(forKey: drink)
+            drinksInventory.removeValue(forKey: drink)
         }
     }
     

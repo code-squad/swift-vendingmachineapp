@@ -8,7 +8,7 @@
 import Foundation
 
 class Milk: Beverage, CustomStringConvertible, SafeDateChecker {
-
+ 
     private var farmCode: String
     private var expiry: Date
     

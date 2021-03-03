@@ -10,9 +10,9 @@ import Foundation
 class RedBull: EnergyDrink {
     private var vitaminB: Int
     
-    init(brand: String, capacity: Int, price: Int, name: String, manufacture: Date, expirationDate: Date, temperature: Double, taurineContent: Int, vitaminB: Int) {
+    init(brand: String, capacity: Int, price: Int, name: String, manufacturedAt: Date, expirationAt: Date, temperature: Double, taurineContent: Int, vitaminB: Int) {
         self.vitaminB = vitaminB
-        super.init(brand: brand, capacity: capacity, price: price, name: name, manufacture: manufacture, expirationDate: expirationDate, temperature: temperature, taurineContent: taurineContent)
+        super.init(brand: brand, capacity: capacity, price: price, name: name, manufacturedAt: manufacturedAt, expirationAt: expirationAt, temperature: temperature, taurineContent: taurineContent)
     }
     
     func hasVitaminB() -> Bool {

@@ -10,9 +10,9 @@ import Foundation
 class Milk: Beverage {
     private var pH: Double = 0
     
-    init(brand: String, capacity: Int, price: Int, name: String, manufacture: Date, expirationDate: Date, temperature: Double, pH: Double) {
+    init(brand: String, capacity: Int, price: Int, name: String, manufacturedAt: Date, expirationAt: Date, temperature: Double, pH: Double) {
         self.pH = pH
-        super.init(brand: brand, capacity: capacity, price: price, name: name, manufacture: manufacture, expirationDate: expirationDate, temperature: temperature)
+        super.init(brand: brand, capacity: capacity, price: price, name: name, manufacturedAt: manufacturedAt, expirationAt: expirationAt, temperature: temperature)
     }
     
     func isFresh() -> Bool {

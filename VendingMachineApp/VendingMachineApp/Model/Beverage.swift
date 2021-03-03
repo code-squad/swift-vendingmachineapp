@@ -9,24 +9,24 @@ import Foundation
 
 class Beverage: CustomStringConvertible {
     var description: String {
-        return "\(brand), \(capacity)ml, \(price)원, \(name), \(manufacture.anotherDescription)"
+        return "\(brand), \(capacity)ml, \(price)원, \(name), \(manufacturedAt.anotherDescription)"
     }
     
     private var brand: String
     private var capacity: Int
     private var price: Int
     private var name: String
-    private var manufacture: Date
-    private var expirationDate: Date
+    private var manufacturedAt: Date
+    private var expirationAt: Date
     private var temperature: Double
     
-    init(brand: String, capacity: Int, price: Int, name: String, manufacture: Date, expirationDate: Date, temperature: Double) {
+    init(brand: String, capacity: Int, price: Int, name: String, manufacturedAt: Date, expirationAt: Date, temperature: Double) {
         self.brand = brand
         self.capacity = capacity
         self.price = price
         self.name = name
-        self.manufacture = manufacture
-        self.expirationDate = expirationDate
+        self.manufacturedAt = manufacturedAt
+        self.expirationAt = expirationAt
         self.temperature = temperature
     }
     
@@ -39,7 +39,7 @@ class Beverage: CustomStringConvertible {
     }
     
     func isExpired(on standard: Date) -> Bool {
-        return self.expirationDate < standard
+        return self.expirationAt < standard
     }
     
     func isHot(at standard: Double) -> Bool {
@@ -49,13 +49,13 @@ class Beverage: CustomStringConvertible {
 
 extension Beverage: Hashable {
     static func == (lhs: Beverage, rhs: Beverage) -> Bool {
-        return lhs.brand == rhs.brand && lhs.capacity == rhs.capacity && lhs.price == rhs.price && lhs.name == rhs.name && lhs.manufacture == rhs.manufacture && lhs.expirationDate == rhs.expirationDate && lhs.temperature == rhs.temperature
+        return lhs.brand == rhs.brand && lhs.capacity == rhs.capacity && lhs.price == rhs.price && lhs.name == rhs.name && lhs.manufacturedAt == rhs.manufacturedAt && lhs.expirationAt == rhs.expirationAt && lhs.temperature == rhs.temperature
     }
     func hash(into hasher: inout Hasher) {
         hasher.combine(brand)
         hasher.combine(capacity)
         hasher.combine(price)
         hasher.combine(name)
-        hasher.combine(manufacture)
+        hasher.combine(manufacturedAt)
     }
 }

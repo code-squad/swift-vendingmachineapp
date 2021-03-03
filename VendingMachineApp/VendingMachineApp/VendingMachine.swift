@@ -56,4 +56,8 @@ struct VendingMachine {
     func showBalance() -> Int {
         return moneyDeposited
     }
+    
+    func takeInventory() -> [Int : (Slot, Int)] {
+        return inventory.takeStock()
+    }
 }

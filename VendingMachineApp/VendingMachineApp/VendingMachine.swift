@@ -52,4 +52,8 @@ struct VendingMachine {
         }
         return vendedItem
     }
+    
+    func showBalance() -> Int {
+        return moneyDeposited
+    }
 }

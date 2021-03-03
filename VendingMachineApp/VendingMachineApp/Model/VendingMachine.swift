@@ -63,4 +63,8 @@ struct VendingMachine {
     func purchaseHistory() -> [Beverage] {
         return purchasedList.beverages
     }
+    
+    func countDrink(beverage : Beverage) -> Int {
+        drinks.count(beverage: beverage)
+    }
 }

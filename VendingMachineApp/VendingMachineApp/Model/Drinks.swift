@@ -33,6 +33,10 @@ class Drinks {
         drinks.remove(at: index)
     }
     
+    func count(beverage : Beverage) -> Int {
+        return drinks.filter { $0 == beverage }.count
+    }
+    
     func showAllBeverage() -> [Beverage : Int] {
        return drinks.reduce(into: [:]) { goods, beverage in
             goods[beverage, default: 0] += 1

@@ -9,10 +9,6 @@ class Milk : Beverage, Drinkable {
         super.init(brand: brand, size: size, price: price, name: name, manufactureAt: manufactureAt)
     }
     
-    convenience init(brand: String, size: Int, price: Int, name: String, validWithin days: Int) {
-        self.init(brand: brand, size: size, price: price, name: name, manufactureAt: Date(), validWithin: days)
-    }
-    
     func isDrinkable(on date: Date) -> Bool {
         return expiredAt > date ? true : false
     }

@@ -11,6 +11,9 @@ class Inventory {
     private let numberOfProductTypes: Int
     private let slots: [Slot]
     
+    typealias SlotIndex = Int
+    typealias ItemQuantity = Int
+    
     init(numberOfProductTypes: Int) {
         self.numberOfProductTypes = numberOfProductTypes
         self.slots = (0..<numberOfProductTypes).map { _ in Slot() }
@@ -28,5 +31,13 @@ class Inventory {
         return self.slots.forEach {
             handler($0)
         }
+    }
+    
+    func takeStock() -> [SlotIndex : (Slot, ItemQuantity)] {
+        var inventoryDictionary: [SlotIndex : (Slot, ItemQuantity)] = [:]
+        slots.enumerated().forEach { (index, slot) in
+            inventoryDictionary[index + 1] = (slot, slot.itemCount)
+        }
+        return inventoryDictionary
     }
 }

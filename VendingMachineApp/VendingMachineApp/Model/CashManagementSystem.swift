@@ -26,7 +26,7 @@ class CashManagementSystem {
     }
     
     func checkBalance() -> CashManagementSystem {
-        return CashManagementSystem(0)
+        return CashManagementSystem(cash)
     }
     
     func isAvailableForPurchase(with beverage: Beverage) -> Bool {

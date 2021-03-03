@@ -7,9 +7,16 @@
 
 import Foundation
 
-class SoftDrink: Beverage {
+class SoftDrink: Beverage, CarbonationHavable {
     
-    override init(brand: String, volume: Int, price: Int, name: String, calorie: Int, manufactured: String, expiredAfter: String) {
+    private let isCarbonated: Bool
+    
+    init(brand: String, volume: Int, price: Int, name: String, calorie: Int, manufactured: String, expiredAfter: String, isCarbonated: Bool) {
+        self.isCarbonated = isCarbonated
         super.init(brand: brand, volume: volume, price: price, name: name, calorie: calorie, manufactured: manufactured, expiredAfter: expiredAfter)
+    }
+    
+    func hasCarbonation() -> Bool {
+        return isCarbonated
     }
 }

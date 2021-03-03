@@ -22,3 +22,7 @@ protocol HotServable {
 protocol CaffeineContainable {
     func hasCaffeine() -> Bool
 }
+
+protocol CarbonationHavable {
+    func hasCarbonation() -> Bool
+}

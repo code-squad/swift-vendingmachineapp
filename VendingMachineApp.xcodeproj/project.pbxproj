@@ -29,7 +29,7 @@
 		10C692C225EA3525009F6AEF /* FactoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C692C125EA3525009F6AEF /* FactoryTest.swift */; };
 		10C692CA25EA4FE7009F6AEF /* VendingMachineTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C692C925EA4FE7009F6AEF /* VendingMachineTest.swift */; };
 		10CC271225E932C000C70F6E /* ModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CC271125E932C000C70F6E /* ModelTest.swift */; };
-		10ED09C725EA69D600569FE6 /* Consumer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10ED09C625EA69D600569FE6 /* Consumer.swift */; };
+		10ED09C725EA69D600569FE6 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10ED09C625EA69D600569FE6 /* Customer.swift */; };
 		10ED09D725EA750700569FE6 /* ConsumerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10ED09D625EA750700569FE6 /* ConsumerTest.swift */; };
 		10ED70B725EF68E80038BED9 /* ArrayUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10ED70B625EF68E80038BED9 /* ArrayUtility.swift */; };
 		10F5F04225E782C400B70881 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F5F04125E782C400B70881 /* AppDelegate.swift */; };
@@ -89,7 +89,7 @@
 		10C692C125EA3525009F6AEF /* FactoryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactoryTest.swift; sourceTree = "<group>"; };
 		10C692C925EA4FE7009F6AEF /* VendingMachineTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineTest.swift; sourceTree = "<group>"; };
 		10CC271125E932C000C70F6E /* ModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTest.swift; sourceTree = "<group>"; };
-		10ED09C625EA69D600569FE6 /* Consumer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Consumer.swift; sourceTree = "<group>"; };
+		10ED09C625EA69D600569FE6 /* Customer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
 		10ED09D625EA750700569FE6 /* ConsumerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsumerTest.swift; sourceTree = "<group>"; };
 		10ED70B625EF68E80038BED9 /* ArrayUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayUtility.swift; sourceTree = "<group>"; };
 		10F5F03E25E782C400B70881 /* VendingMachineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendingMachineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -263,7 +263,7 @@
 				10F5F07E25E7845B00B70881 /* Beverage.swift */,
 				10C6929F25EA2B5C009F6AEF /* BeverageFactory.swift */,
 				10F5F08125E7845B00B70881 /* VendingMachine.swift */,
-				10ED09C625EA69D600569FE6 /* Consumer.swift */,
+				10ED09C625EA69D600569FE6 /* Customer.swift */,
 				1087276525EE15A500F260A2 /* Money.swift */,
 				108B4FA725EE290B00658B66 /* Stock.swift */,
 			);
@@ -410,7 +410,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				10ED09C725EA69D600569FE6 /* Consumer.swift in Sources */,
+				10ED09C725EA69D600569FE6 /* Customer.swift in Sources */,
 				10F5F04625E782C400B70881 /* ViewController.swift in Sources */,
 				105EE25825E8CCD000E6D2E2 /* EnergyDrink.swift in Sources */,
 				10C692A825EA2CC7009F6AEF /* Monster.swift in Sources */,

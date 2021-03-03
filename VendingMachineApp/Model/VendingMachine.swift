@@ -41,11 +41,13 @@ class VendingMachine {
      }
      */
     // 음료수를 판매하는 메소드
-    public func sellProduct(product : Beverage){
+    public func sellProduct(product : Beverage) -> Beverage?{
         if stock.remove(item: product) {
             soldHistory.append(item: product)
             uncharge(coins: product.price)
+            return product
         }
+        return nil
     }
     
     //  잔액을 돌려주는 메소드

@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Beverage: CustomStringConvertible {
+class Beverage: CustomStringConvertible, SafelyDrinkable {
     
     private let brand: String
     private let volume: Int
@@ -28,5 +28,12 @@ class Beverage: CustomStringConvertible {
         self.calorie = calorie
         self.manufactured = manufactured.formattedDate
         self.expiredAfter = expiredAfter.formattedDate
+    }
+    
+    func validate(with date: Date) -> Bool {
+        if let expiredAfter = expiredAfter {
+            return expiredAfter < date
+        }
+        return false
     }
 }

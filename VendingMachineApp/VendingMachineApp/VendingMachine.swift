@@ -68,4 +68,14 @@ struct VendingMachine {
         }
         return expiredItems
     }
+    
+    func showHotDrinks() -> [Slot] {
+        var hotDrinks: [Slot] = []
+        inventory.showItems {
+            if $0.isHotDrink() {
+                hotDrinks.append($0)
+            }
+        }
+        return hotDrinks
+    }
 }

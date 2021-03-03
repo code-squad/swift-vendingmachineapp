@@ -58,4 +58,8 @@ class Slot: CustomStringConvertible {
             $0.validate(with: Date())
         }
     }
+    
+    func isHotDrink() -> Bool {
+        return items.first(where: { ($0 as! HotServable).isHot() }) != nil
+    }
 }

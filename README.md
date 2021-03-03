@@ -162,3 +162,24 @@ class VendingMachineViewController: UIViewController {
 
 #### 실행화면
 <img width="372" alt="스크린샷 2021-02-24 오전 11 44 24" src="https://user-images.githubusercontent.com/74946802/108939842-b55e6880-7695-11eb-81c6-fe58ed56dff1.png">
+
+## Step3.
+
+#### IBOutlet Collection 활용하기
+```swift
+@IBOutlet var imagesOfBeverages: [UIImageView]!
+```
+- 이런 방식으로 IBOutlet Collection을 활용하여 여러 뷰를 한데 묶어주면 동일처리에 용이
+
+```swift
+private func setUpImageView() {
+    for beverage in imagesOfBeverages {
+        beverage.layer.cornerRadius = beverage.frame.height / 4
+    }
+}
+```
+- for-loop를 통해서 각 이미지뷰에 대해 코너를 동그랗게 처리할 수 있음
+
+#### 실행화면
+
+<img src="https://user-images.githubusercontent.com/74946802/109743005-56f43580-7c13-11eb-822f-5181cb22d6e2.png" width="500" height="300">

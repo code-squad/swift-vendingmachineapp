@@ -8,22 +8,57 @@
 import Foundation
 
 class Beverage : CustomStringConvertible {
-        
+    
     private let brand : String
     private let volume : Int
     private let price : Int
     private let name : String
     private let manufactured : Date
+    private let temperature : Int
+    private let kcal : Int
     
-    init(brand : String, volume : Int, price : Int, name: String, manufactured : Date){
+    init(brand : String, volume : Int, price : Int, name: String, manufactured : Date, temperature : Int, kcal : Int){
         self.brand = brand
         self.volume = volume
         self.price = price
         self.name = name
         self.manufactured = manufactured
+        self.temperature = temperature
+        self.kcal = kcal
     }
     
     var description: String {
         return "\(self.brand), \(self.volume)ml, \(self.price)원, \(self.name), \(Date().yyyyMMddFormat(date: manufactured))"
     }
+    
+    func isValidate(with date: Date) -> Bool{
+        if let valiDate = Calendar.current.date(byAdding: .day, value: 30, to: date){
+            if valiDate > date {
+                return true
+            }
+        }
+        return false
+    }
+    
+    func canBuybeverage(money : Money) -> Bool{
+        if money.currentMoney() > self.price {
+            return true
+        }
+        return false
+    }
+    
+    func isHot() -> Bool{
+        if temperature > 70{
+            return true
+        }
+        return false
+    }
+    
+    func isLowCalorie() -> Bool{
+        if kcal > 100 {
+            return true
+        }
+        return false
+    }
 }
+

@@ -9,21 +9,19 @@ import Foundation
 
 class Energydrink : Beverage {
     private var caffeine : Bool
-    private var kcal : Int
     private var flavor : Flavor
     
     enum Flavor {
         case monster, diablo
     }
     
-    init(caffeine : Bool, kcal : Int, flavor: Flavor, brand: String, volume: Int, price: Int, name: String, manufactured: Date){
+    init(caffeine : Bool, flavor: Flavor, brand: String, volume: Int, price: Int, name: String, manufactured: Date, temperature : Int, kcal : Int){
         self.caffeine = caffeine
-        self.kcal = kcal
         self.flavor = flavor
-        super.init(brand: brand, volume: volume, price: price, name: name, manufactured: manufactured)
+        super.init(brand: brand, volume: volume, price: price, name: name, manufactured: manufactured, temperature: temperature, kcal: kcal)
     }
     
-    convenience init(kcal : Int, flavor: Flavor, brand: String, volume: Int, price: Int, name: String, manufactured: Date){ //카페인 있는 에너지 드링크
-        self.init(caffeine: true, kcal: kcal, flavor: flavor, brand: brand, volume: volume, price: price, name: name, manufactured: manufactured)
+    convenience init(flavor: Flavor, brand: String, volume: Int, price: Int, name: String, manufactured: Date, temperature : Int, kcal : Int){ //카페인 있는 에너지 드링크
+        self.init(caffeine: true, flavor: flavor, brand: brand, volume: volume, price: price, name: name, manufactured: manufactured, temperature: temperature, kcal: kcal)
     }
 }

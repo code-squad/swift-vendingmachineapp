@@ -14,7 +14,7 @@ class BlueBottleColdBrew: Coffee, Productization {
         super.init(brand: brand,
                    capacity: capacity,
                    price: price,
-                   name: "\(name)(\(self.flavor.rawValue))",
+                   name: name,
                    caffeineContent: caffeineContent,
                    manufactured: manufactured,
                    temperature: temperature,
@@ -46,7 +46,7 @@ class BlueBottleColdBrew: Coffee, Productization {
     }
     
     func validManufactured(with date: Date) -> Bool {
-        return isDrinkableFromManufactured(during: 180, compareDate: date)
+        return isDrinkableFromManufactured(pastDate: 180, compareDate: date)
     }
 }
 

@@ -12,3 +12,4 @@ protocol Productization {
     func isHot() -> Bool
     func isLowCalorie() -> Bool
 }
+

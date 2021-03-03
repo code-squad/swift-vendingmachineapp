@@ -72,32 +72,10 @@ struct VendingMachine {
     }
     
     func expiredStock() -> [Drink] {
-        var returnDrinkArr = [Drink]()
-        stock.doClosure(closure: { drinks in
-            drinks.forEach({
-                if let downCasting = $0 as? Milk {
-                    if downCasting.isWithInExpiration() == false {
-                        returnDrinkArr.append(downCasting)
-                    }
-                }
-            })
-        })
-        
-        return returnDrinkArr
+        return stock.showExpired()
     }
     
     func hotDrinks() -> Set<String> {
-        var returnDrinkArr = Set<String>()
-        stock.doClosure(closure: { drinks in
-            drinks.forEach({
-                if let downCasting = $0 as? TOP {
-                    if downCasting.isHot() == true {
-                        returnDrinkArr.insert(downCasting.name)
-                    }
-                }
-            })
-        })
-        
-        return returnDrinkArr
+        return stock.showHotDrinks()
     }
 }

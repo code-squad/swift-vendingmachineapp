@@ -52,4 +52,31 @@ class Drinks {
         
         return returnDic
     }
+    
+    func showExpired() -> [Drink] {
+        var returnDrinkArr = [Drink]()
+        
+        drinks.forEach({
+            if let downCasting = $0 as? Milk {
+                if downCasting.isWithInExpiration() == false {
+                    returnDrinkArr.append(downCasting)
+                }
+            }
+        })
+        
+        return returnDrinkArr
+    }
+    
+    func showHotDrinks() -> Set<String> {
+        var returnDrinkArr = Set<String>()
+            drinks.forEach({
+                if let downCasting = $0 as? TOP {
+                    if downCasting.isHot() == true {
+                        returnDrinkArr.insert(downCasting.name)
+                    }
+                }
+            })
+        
+        return returnDrinkArr
+    }
 }

@@ -13,8 +13,9 @@ class CashManagementSystem {
     func recharge(with cash: Int) {
         self.cash = cash
     }
-    func showListForPurchase(with drinks: Drinks) -> [Beverage] {
-        return drinks.showListForPurchase(with: cash)
+    
+    func retrieveCash(completion: (Int) -> [Beverage]) -> [Beverage] {
+        return completion(cash)
     }
     
     func checkBalance() -> Int {

@@ -24,7 +24,7 @@ class VendingMachine {
     }
     
     func showListForPurchase() -> [Beverage] {
-        return cashManagementSystem.showListForPurchase(with: drinks)
+        return drinks.showListForPurchase(with: cashManagementSystem)
     }
     
     func buy(_ beverage: Beverage) {

@@ -26,10 +26,11 @@ class Drinks {
         }
     }
 
-    func showListForPurchase(with cash: Int) -> [Beverage] {
-        return drinks.filter { (beverage) in
-            return beverage.isAvailablePurchase(with: cash)
+    func showListForPurchase(with cashManagementSystem: CashManagementSystem) -> [Beverage] {
+        return cashManagementSystem.retrieveCash { (cash) in
+            drinks.filter{$0.isAvailablePurchase(with: cash)}
         }
+                
     }
     
     func giveStockList() -> [Beverage:Int] {

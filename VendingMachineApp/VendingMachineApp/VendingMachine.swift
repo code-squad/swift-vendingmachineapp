@@ -37,4 +37,19 @@ struct VendingMachine {
         }
         return purchasableItems
     }
+    
+    mutating func vend(itemNamed name: String) -> Beverage? {
+        var vendedItem: Beverage?
+        inventory.showItems {
+            if $0.compareName(with: name) {
+                vendedItem = $0.dropFirstItem(named: name)
+            }
+        }
+        if let vendedItem = vendedItem {
+            moneyDeposited -= vendedItem.price
+            let now = Date()
+            soldItems[now] = vendedItem
+        }
+        return vendedItem
+    }
 }

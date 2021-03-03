@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Consumer {
+class Customer {
     
     private(set) var coins : Int
     private var purchaseList : [Beverage]
@@ -17,14 +17,13 @@ class Consumer {
         self.purchaseList = [Beverage]()
     }
     
-/*
-    func buy(with name : String, from vendingMachine : VendingMachine) -> Bool{
-        if let product = vendingMachine.sellProduct(with: name) {
+    func buy(product : Beverage, from vendingMachine : VendingMachine) -> Bool{
+        if let product = vendingMachine.sellProduct(product: product){
             purchaseList.append(product)
             return true
         }
         return false
-    }*/
+    }
     func putCoinsToVendingMachine(with coins : Int){
         self.coins -= coins
     }

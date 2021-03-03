@@ -9,10 +9,10 @@ import Foundation
 
 class Beverage: CustomStringConvertible, SafelyDrinkable {
     
-    private let brand: String
-    private let volume: Int
-    private let price: Int
-    private let name: String
+    private(set) var brand: String
+    private(set) var volume: Int
+    private(set) var price: Int
+    private(set) var name: String
     private let calorie: Int
     private let manufactured: Date?
     private let expiredAfter: Date?

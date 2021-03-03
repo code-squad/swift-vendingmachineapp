@@ -13,14 +13,12 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let beverage = MilkFactory()
-        let beverage2 = SodaFactory()
-        let beverage3 = CoffeeFactory()
-
-        vendingMachine.appendBeverage(beverage: beverage.create())
-        vendingMachine.appendBeverage(beverage: beverage2.create())
-        vendingMachine.appendBeverage(beverage: beverage3.create())
- 
-        print(vendingMachine)
+        let beverage = MilkFactory().create()
+        let beverage2 = SodaFactory().create()
+        let beverage3 = CoffeeFactory().create()
+        
+        vendingMachine.appendBeverage(beverage: beverage)
+        vendingMachine.appendBeverage(beverage: beverage2)
+        vendingMachine.appendBeverage(beverage: beverage3)
     }
 }

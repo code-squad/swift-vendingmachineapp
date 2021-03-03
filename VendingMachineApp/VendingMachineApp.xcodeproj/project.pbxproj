@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E3B48C625EE759000903D6E /* PurchaseHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3B48C525EE759000903D6E /* PurchaseHistory.swift */; };
+		1E3B48CA25EE895700903D6E /* PaymentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3B48C925EE895700903D6E /* PaymentManager.swift */; };
 		1E3D238025E688D30096DE7B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3D237F25E688D30096DE7B /* AppDelegate.swift */; };
 		1E3D238225E688D30096DE7B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3D238125E688D30096DE7B /* SceneDelegate.swift */; };
 		1E3D238425E688D30096DE7B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3D238325E688D30096DE7B /* ViewController.swift */; };
@@ -27,6 +29,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1E3B48C525EE759000903D6E /* PurchaseHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseHistory.swift; sourceTree = "<group>"; };
+		1E3B48C925EE895700903D6E /* PaymentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentManager.swift; sourceTree = "<group>"; };
 		1E3D237C25E688D30096DE7B /* VendingMachineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendingMachineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E3D237F25E688D30096DE7B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1E3D238125E688D30096DE7B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -96,6 +100,8 @@
 			children = (
 				1E3D239925E696240096DE7B /* VendingMachine.swift */,
 				1E66F51925ECC95E006A2D4B /* Inventory.swift */,
+				1E3B48C925EE895700903D6E /* PaymentManager.swift */,
+				1E3B48C525EE759000903D6E /* PurchaseHistory.swift */,
 				1E3D23BF25E7F1360096DE7B /* Beverage.swift */,
 				1E3D23B825E79D310096DE7B /* Date.swift */,
 				1E3D23C525E8C2320096DE7B /* Level2 */,
@@ -202,6 +208,8 @@
 				1E3D23B125E6A9680096DE7B /* Top.swift in Sources */,
 				1E3D23B925E79D310096DE7B /* Date.swift in Sources */,
 				1E3D238025E688D30096DE7B /* AppDelegate.swift in Sources */,
+				1E3B48CA25EE895700903D6E /* PaymentManager.swift in Sources */,
+				1E3B48C625EE759000903D6E /* PurchaseHistory.swift in Sources */,
 				1E3D23C025E7F1360096DE7B /* Beverage.swift in Sources */,
 				1E3D238225E688D30096DE7B /* SceneDelegate.swift in Sources */,
 				1E3D23A025E6965D0096DE7B /* Soda.swift in Sources */,

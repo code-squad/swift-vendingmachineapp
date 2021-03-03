@@ -19,5 +19,4 @@ class Coffee: Beverage, CustomStringConvertible, Hotable {
     public func checkHot() -> Bool {
         return isHot
     }
-    
 }

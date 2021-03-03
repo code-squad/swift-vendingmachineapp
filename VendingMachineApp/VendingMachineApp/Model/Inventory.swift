@@ -10,30 +10,82 @@ import Foundation
 class Inventory: CustomStringConvertible {
     
     var description: String {
-        return "\(milkInventory)일, \(sodaInventory)이, \(coffeeInventory)삼"
+        return "\(beverages)"
     }
-    
-    private var milkInventory: [Milk]
-    private var sodaInventory: [Soda]
-    private var coffeeInventory: [Coffee]
+
+    private var beverages: [Beverage]
     
     init() {
-        milkInventory = []
-        sodaInventory = []
-        coffeeInventory = []
+        beverages = []
     }
     
     public func appendBeverage(beverage: Beverage) {
+        beverages.append(beverage)
+    }
+    
+    public func buyableBeverageList(buyer paymentManager: PaymentManager) -> [Beverage] {
+        var list = [Beverage]()
         
-        switch beverage {
-        case is Milk:
-            milkInventory.append(MilkFactory().create() as! Milk)
-        case is Soda:
-            sodaInventory.append(SodaFactory().create() as! Soda)
-        case is Coffee:
-            coffeeInventory.append(CoffeeFactory().create() as! Coffee)
-        default:
-            break
+        beverages.forEach { (beverage) in
+            if beverage.price <= paymentManager.money {
+                list.append(beverage)
+            }
         }
+        
+        return list
+    }
+
+    public func takeOutBeverage(_ beverage: Beverage, paymentManager: PaymentManager) -> Beverage? {
+        let pickedBeverage: Beverage?
+      
+        if let firstIndex = beverages.firstIndex(where: { $0 === beverage }) {
+            pickedBeverage = beverages.remove(at: firstIndex)
+            paymentManager.minusMoney(beverage: beverage)
+            return pickedBeverage
+        }
+
+        return nil
+    }
+    
+    public func showAllBeverageList() -> [Beverage: Int] {
+        var allList = [Beverage: Int]()
+        
+        beverages.forEach { (beverage) in
+            if allList[beverage] != nil {
+                allList[beverage]! += 1
+            } else {
+                allList[beverage] = 1
+            }
+        }
+
+        return allList
+    }
+    
+    public func showExpiryDateBeverage() -> [SafeDateChecker] {
+        var list = [SafeDateChecker]()
+        
+        beverages.forEach { (beverage) in
+            if let safeBeverage = beverage as? SafeDateChecker {
+                if !safeBeverage.expirationValidate() {
+                    list.append(safeBeverage)
+                }
+            }
+        }
+        
+        return list
+    }
+    
+    public func showHotBeverage() -> [Hotable] {
+        var list = [Hotable]()
+
+        beverages.forEach { (beverage) in
+            if let hotableBeverage = beverage as? Hotable {
+                if hotableBeverage.checkHot() {
+                    list.append(hotableBeverage)
+                }
+            }
+        }
+
+        return list
     }
 }

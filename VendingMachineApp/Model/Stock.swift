@@ -8,62 +8,50 @@
 import Foundation
 
 class Stock {
-    private var products = Dictionary<Beverage,Int>()
+    private(set) var products = [Beverage]()
     
     public func append(item : Beverage){
-        if products[item] == nil{
-            products[item] = 0
-        }
-        let value = products[item]
-        products.updateValue(value! + 1, forKey: item)
+        products.append(item)
     }
     
     public func remove(item : Beverage) -> Bool {
-        guard let removeOne = products[item] else {
-            return false
+        if let index = products.firstIndex(where: {$0 == item}) {
+            products.remove(at: index)
+            return true
         }
-        if removeOne < 1 {
-            return false
-        }
-        products.updateValue(removeOne - 1,forKey: item)
-        return true
+        return false
     }
-    /*
-    public func getProduct<T>(type target : T) -> Beverage?{
-//        let value = products.first(where: {$0.key as? item})
-        var item : Beverage
-        for product in products.keys { 
-            if type(of: product) as? target {
+/*
+    public func getProduct<T>(type element : T.Type) -> Beverage?{
+        for (product, _) in products {
+            if element == type(of: product) {
                 return product
             }
         }
         return nil
     }
-    */
-    
-    public func availableProducts(with money : Money) -> [Beverage]{
-        return products.filter{ $0.key.price <= money.coins }.map{$0.key}
+*/
+    public func getAvailableProducts(with money : Money) -> [Beverage]{
+        return products.filter{ $0.price <= money.coins }.map{$0}
     }
     
-    public func expiredProducts() -> [Beverage] {
-        return products.filter{ $0.key.isExpired() }.map{$0.key}
+    public func getExpiredProducts() -> [Beverage] {
+        return products.filter{ $0.isExpired() }.map{$0}
     }
     
     public func getHotDrink() -> [Beverage] {
-        var list = [Beverage]()
-        products.forEach{ (item, count) in
+        let filtered = products.filter{ item in
             if let coffee = item as? Coffee {
-                if coffee.isHot() { list.append(coffee) }
+                if coffee.isHot() {
+                    return true
+                }
             }
+            return false
         }
-        return list
+        return filtered
     }
     
-    public func toArray() -> [Beverage]{
-        var list = [Beverage]()
-        products.forEach{ (item, count) in
-            list.append(item)
-        }
-        return list
+    public func toDictionary() -> Dictionary<Beverage, Int>{
+        return products.toDictionary(with : {$0.self})
     }
 }

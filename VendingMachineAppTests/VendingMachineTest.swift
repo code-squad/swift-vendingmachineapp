@@ -37,15 +37,7 @@ class VendingMachineTest: XCTestCase {
         
         XCTAssertEqual(expect, actual, "구매 가능한 음료 목록이 올바르지 않습니다.")
     }
-    /*
-    func testSellProduct(){
-        let georgia = Georgia(createdAt :"20210202", expiredAt: "20210210")
-        vendingMachine.append(product: georgia)
-        
-        vendingMachine.sellProduct(product : georgia)
-        
-        XCTAssertEqual(expect, actual, "음료를 구매할 수 없습니다.")
-    }*/
+
     func testExpiredProduct(){
         let actual = vendingMachine.expiredProduct().count
         let expect = 3
@@ -59,11 +51,23 @@ class VendingMachineTest: XCTestCase {
         
         XCTAssertEqual(expect, actual, "뜨거운 음료 목록을 받아오지 못하였습니다.")
     }
+    func testSellProductsFail(){
+    
+        let sprite = SodaFactory.createBeverage(type: Sprite.self)
+        vendingMachine.sellProduct(product: sprite!)
+        let expect = [sprite]
+        let actual = vendingMachine.getSoldProducts()
+        
+        XCTAssertNotEqual(expect, actual, "재고가 없는 물품을 구매하였습니다.")
+    }
     func testGetSoldProducts(){
     
-        vendingMachine.sellProduct(product: ChocolateMilk(createdAt: "20200211", expiredAt: "20200220"))
-        let expect = 1
-        let actual = vendingMachine.getSoldProducts().count
+        let sprite = SodaFactory.createBeverage(type: Sprite.self)!
+        vendingMachine.append(product: sprite)
+        
+        vendingMachine.sellProduct(product: sprite)
+        let expect = [sprite]
+        let actual = vendingMachine.getSoldProducts()
         
         XCTAssertEqual(expect, actual, "구매 이력을 받아오지 못하였습니다.")
     }

@@ -27,4 +27,14 @@ struct VendingMachine {
     func add(item: Beverage, slotNumber: Int) {
         inventory.add(item, at: slotNumber)
     }
+    
+    func showPurchasableItemsWithDeposit() -> [Slot] {
+        var purchasableItems: [Slot] = []
+        inventory.showItems {
+            if $0.isCheaper(than: moneyDeposited) {
+                purchasableItems.append($0)
+            }
+        }
+        return purchasableItems
+    }
 }

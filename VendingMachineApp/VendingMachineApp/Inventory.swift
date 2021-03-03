@@ -23,4 +23,10 @@ class Inventory {
             }
         }
     }
+    
+    func showItems(handler: (Slot) -> ()) {
+        return self.slots.forEach {
+            handler($0)
+        }
+    }
 }

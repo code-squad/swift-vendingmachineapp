@@ -36,4 +36,12 @@ class Slot: CustomStringConvertible {
             items.append(item)
         }
     }
+    
+    func isCheaper(than price: Int) -> Bool {
+        if let slotPrice = firstItem?.price {
+            return slotPrice <= price
+        } else {
+            return false
+        }
+    }
 }

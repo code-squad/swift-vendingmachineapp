@@ -16,9 +16,9 @@ class SoftDrink: Beverage {
         case can = "can"
         case plastic = "plastic"
     }
-
-    init(brand: String, volume: Int, price: Int, name: String, manufacturedAt: Date, package: Packages) {
+    
+    init(brand: String, volume: Int, price: Int, name: String, manufacturedAt: Date, temparature: Int, calories: Int, isLowfat: Bool, package: Packages) {
         self.package = package
-        super.init(brand: brand, volume: volume, price: price, name: name, manufacturedAt: manufacturedAt)
+        super.init(brand: brand, volume: volume, price: price, name: name, manufacturedAt: manufacturedAt, temparature: temparature, calories: calories)
     }
 }

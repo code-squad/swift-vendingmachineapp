@@ -8,19 +8,26 @@
 import Foundation
 
 class VendingMachine {
-    private var beverages: [Beverage]
     
-    init(beverages: [Beverage]) {
+    private var beverages: Beverages
+    private var currentAmount: Int = 0
+    
+    init(beverages: Beverages) {
         self.beverages = beverages
     }
     
-    func addBeverage(beverage: Beverage) {
-        beverages.append(beverage)
+    // 재고를 추가하는 메소드
+    func addStock(beverage: Beverage) {
+        beverages.addBeverage(beverage: beverage)
     }
     
-    func retrieveBeverage(completion: (Beverage) -> Void) {
-        beverages.forEach{
-            completion($0)
-        }
+    // 금액을 올리는 메소드
+    func IncreaseAmount(additionalAmount: Int)  {
+        currentAmount += additionalAmount
+    }
+    
+    // 잔액을 확인하는 메소드
+    func showCurrentAmount() -> Int {
+        return currentAmount
     }
 }

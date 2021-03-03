@@ -7,7 +7,7 @@
 
 import Foundation
 
-class VendingMachine {
+struct VendingMachine {
     
     private let numberOfSlots: Int
     private var inventory: Inventory
@@ -20,7 +20,7 @@ class VendingMachine {
         self.inventory = Inventory(numberOfProductTypes: numberOfSlots)
     }
     
-    func insertMoney(amount: Int) {
+    mutating func insertMoney(amount: Int) {
         moneyDeposited += amount
     }
 }

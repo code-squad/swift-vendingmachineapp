@@ -7,7 +7,11 @@
 
 import Foundation
 
-class Beverage: CustomStringConvertible, SafelyDrinkable {
+class Beverage: CustomStringConvertible, Hashable, SafelyDrinkable {
+    
+    static func == (lhs: Beverage, rhs: Beverage) -> Bool {
+        return lhs.brand == rhs.brand && lhs.volume == rhs.volume && lhs.price == rhs.price && lhs.name == rhs.name && lhs.calorie == rhs.calorie
+    }
     
     private(set) var brand: String
     private(set) var volume: Int
@@ -28,6 +32,14 @@ class Beverage: CustomStringConvertible, SafelyDrinkable {
         self.calorie = calorie
         self.manufactured = manufactured.formattedDate
         self.expiredAfter = expiredAfter.formattedDate
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(brand)
+        hasher.combine(volume)
+        hasher.combine(price)
+        hasher.combine(name)
+        hasher.combine(calorie)
     }
     
     func validate(with date: Date) -> Bool {

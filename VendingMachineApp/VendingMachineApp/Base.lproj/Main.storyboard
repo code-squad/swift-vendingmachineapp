@@ -1,24 +1,103 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="ipad9_7" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="VendingMachineApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="5pE-gc-dH9">
+                                <rect key="frame" x="0.0" y="0.0" width="668" height="240"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="kwS-fw-cVG">
+                                        <rect key="frame" x="0.0" y="0.0" width="668" height="200"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="banana_milk" translatesAutoresizingMaskIntoConstraints="NO" id="N58-bC-3EY">
+                                                <rect key="frame" x="0.0" y="0.0" width="202.5" height="200"/>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cantata_coffee" translatesAutoresizingMaskIntoConstraints="NO" id="uo8-H2-XEP">
+                                                <rect key="frame" x="232.5" y="0.0" width="203" height="200"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="200" id="bl3-uf-SlM"/>
+                                                </constraints>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fanta" translatesAutoresizingMaskIntoConstraints="NO" id="OQD-GD-Qgq">
+                                                <rect key="frame" x="465.5" y="0.0" width="202.5" height="200"/>
+                                            </imageView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="uo8-H2-XEP" firstAttribute="top" secondItem="kwS-fw-cVG" secondAttribute="top" id="NiG-8q-nCz"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="yjp-oI-Slr">
+                                        <rect key="frame" x="0.0" y="210" width="668" height="30"/>
+                                        <subviews>
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BZA-RC-Srq">
+                                                <rect key="frame" x="0.0" y="0.0" width="222.5" height="30"/>
+                                                <state key="normal" title="추가"/>
+                                                <connections>
+                                                    <action selector="addStock:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LZP-me-cZs"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SSQ-gt-i1A">
+                                                <rect key="frame" x="222.5" y="0.0" width="223" height="30"/>
+                                                <state key="normal" title="추가"/>
+                                                <connections>
+                                                    <action selector="addStock:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SZ6-V8-ZB6"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a0G-P6-ygs">
+                                                <rect key="frame" x="445.5" y="0.0" width="222.5" height="30"/>
+                                                <state key="normal" title="추가"/>
+                                                <connections>
+                                                    <action selector="addStock:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5w2-In-EUW"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="yjp-oI-Slr" secondAttribute="trailing" id="KDW-Jo-ihC"/>
+                                    <constraint firstItem="yjp-oI-Slr" firstAttribute="leading" secondItem="5pE-gc-dH9" secondAttribute="leading" id="N7A-Q7-AuH"/>
+                                    <constraint firstItem="yjp-oI-Slr" firstAttribute="top" secondItem="kwS-fw-cVG" secondAttribute="bottom" constant="10" id="Xjx-SZ-Up3"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                        <constraints>
+                            <constraint firstItem="5pE-gc-dH9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Kqm-tf-E5k"/>
+                            <constraint firstAttribute="trailing" secondItem="5pE-gc-dH9" secondAttribute="trailing" constant="100" id="PFo-xC-Mr8"/>
+                            <constraint firstItem="5pE-gc-dH9" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="asM-jf-ai8"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outletCollection property="drinkImages" destination="N58-bC-3EY" collectionClass="NSMutableArray" id="TDp-ox-35P"/>
+                        <outletCollection property="drinkImages" destination="OQD-GD-Qgq" collectionClass="NSMutableArray" id="Ede-nL-Ofd"/>
+                        <outletCollection property="drinkImages" destination="uo8-H2-XEP" collectionClass="NSMutableArray" id="Q13-Jh-SQS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-203.125" y="84.9609375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="banana_milk" width="460" height="460"/>
+        <image name="cantata_coffee" width="512" height="507"/>
+        <image name="fanta" width="270" height="343"/>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>

@@ -28,7 +28,7 @@ class Drinks {
 
     func showListForPurchase(with cashManagementSystem: CashManagementSystem) -> [Beverage] {
         return cashManagementSystem.retrieveCash { (cash) in
-            drinks.filter{$0.isAvailablePurchase(with: cash)}
+            return drinks.filter{$0.isAvailablePurchase(with: cash)}
         }
                 
     }

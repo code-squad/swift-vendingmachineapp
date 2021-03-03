@@ -8,15 +8,15 @@
 import Foundation
 
 class VendingMachine {
-    private let beverages: [Beverage]
+    private let drinks: [Beverage]
     
-    init(beverages: [Beverage]) {
-        self.beverages = beverages
+    init(drinks: [Beverage]) {
+        self.drinks = drinks
     }
     
-    func printBeverages() {
-        beverages.forEach { beverage in
-            print(beverage)
+    func printDrinks() {
+        drinks.forEach { drink in
+            print(drink)
         }
     }
 }

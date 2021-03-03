@@ -20,14 +20,8 @@
 		BD91BE4225E64024009DCFD3 /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD91BE4125E64024009DCFD3 /* Coffee.swift */; };
 		BD91BE4525E64042009DCFD3 /* Soda.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD91BE4425E64042009DCFD3 /* Soda.swift */; };
 		BDB00DCC25EE08EA00189286 /* Coke.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB00DCB25EE08EA00189286 /* Coke.swift */; };
-		BDB00DCF25EE08F100189286 /* Cider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB00DCE25EE08F100189286 /* Cider.swift */; };
-		BDB00DD225EE08FC00189286 /* Fanta.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB00DD125EE08FC00189286 /* Fanta.swift */; };
 		BDB00DD525EE094800189286 /* StrawberryMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB00DD425EE094800189286 /* StrawberryMilk.swift */; };
-		BDB00DD825EE095700189286 /* ChocolateMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB00DD725EE095700189286 /* ChocolateMilk.swift */; };
-		BDB00DDB25EE096300189286 /* BananaMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB00DDA25EE096300189286 /* BananaMilk.swift */; };
 		BDB00DDE25EE097A00189286 /* Cantata.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB00DDD25EE097A00189286 /* Cantata.swift */; };
-		BDB00DE125EE098500189286 /* Top.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB00DE025EE098500189286 /* Top.swift */; };
-		BDB00DE425EE099000189286 /* Georgia.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB00DE325EE099000189286 /* Georgia.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,14 +40,8 @@
 		BD91BE4125E64024009DCFD3 /* Coffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
 		BD91BE4425E64042009DCFD3 /* Soda.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Soda.swift; sourceTree = "<group>"; };
 		BDB00DCB25EE08EA00189286 /* Coke.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coke.swift; sourceTree = "<group>"; };
-		BDB00DCE25EE08F100189286 /* Cider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cider.swift; sourceTree = "<group>"; };
-		BDB00DD125EE08FC00189286 /* Fanta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fanta.swift; sourceTree = "<group>"; };
 		BDB00DD425EE094800189286 /* StrawberryMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrawberryMilk.swift; sourceTree = "<group>"; };
-		BDB00DD725EE095700189286 /* ChocolateMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChocolateMilk.swift; sourceTree = "<group>"; };
-		BDB00DDA25EE096300189286 /* BananaMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BananaMilk.swift; sourceTree = "<group>"; };
 		BDB00DDD25EE097A00189286 /* Cantata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cantata.swift; sourceTree = "<group>"; };
-		BDB00DE025EE098500189286 /* Top.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Top.swift; sourceTree = "<group>"; };
-		BDB00DE325EE099000189286 /* Georgia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Georgia.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,15 +94,9 @@
 				BD34A5E425E771DA00FBB9E2 /* Beverage.swift */,
 				BD91BE4425E64042009DCFD3 /* Soda.swift */,
 				BDB00DCB25EE08EA00189286 /* Coke.swift */,
-				BDB00DD125EE08FC00189286 /* Fanta.swift */,
-				BDB00DCE25EE08F100189286 /* Cider.swift */,
 				BD91BE3E25E6401B009DCFD3 /* Milk.swift */,
-				BDB00DDA25EE096300189286 /* BananaMilk.swift */,
-				BDB00DD725EE095700189286 /* ChocolateMilk.swift */,
 				BDB00DD425EE094800189286 /* StrawberryMilk.swift */,
 				BD91BE4125E64024009DCFD3 /* Coffee.swift */,
-				BDB00DE325EE099000189286 /* Georgia.swift */,
-				BDB00DE025EE098500189286 /* Top.swift */,
 				BDB00DDD25EE097A00189286 /* Cantata.swift */,
 			);
 			path = Model;
@@ -201,18 +183,12 @@
 				BD91BE4525E64042009DCFD3 /* Soda.swift in Sources */,
 				BD91BE2D25E63C8B009DCFD3 /* VendingMachineViewController.swift in Sources */,
 				BD91BE2925E63C8B009DCFD3 /* AppDelegate.swift in Sources */,
-				BDB00DCF25EE08F100189286 /* Cider.swift in Sources */,
 				BDB00DDE25EE097A00189286 /* Cantata.swift in Sources */,
-				BDB00DD225EE08FC00189286 /* Fanta.swift in Sources */,
 				BDB00DCC25EE08EA00189286 /* Coke.swift in Sources */,
 				BD91BE3F25E6401B009DCFD3 /* Milk.swift in Sources */,
-				BDB00DD825EE095700189286 /* ChocolateMilk.swift in Sources */,
 				BD91BE2B25E63C8B009DCFD3 /* SceneDelegate.swift in Sources */,
 				BD91BE4225E64024009DCFD3 /* Coffee.swift in Sources */,
 				BD34A5ED25E79AE300FBB9E2 /* ConvertDate.swift in Sources */,
-				BDB00DDB25EE096300189286 /* BananaMilk.swift in Sources */,
-				BDB00DE125EE098500189286 /* Top.swift in Sources */,
-				BDB00DE425EE099000189286 /* Georgia.swift in Sources */,
 				BD34A5E525E771DA00FBB9E2 /* Beverage.swift in Sources */,
 				BDB00DD525EE094800189286 /* StrawberryMilk.swift in Sources */,
 				BD34A5E825E7725900FBB9E2 /* VendingMachine.swift in Sources */,

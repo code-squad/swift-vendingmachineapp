@@ -9,10 +9,16 @@ import Foundation
 
 class Cantata: Coffee {
     
-    private var category: String
+    enum BeanOrigin {
+        case colombia
+        case ethiopia
+        case congo
+    }
     
-    override init(brand: String, volume: Int, price: Int, name: String, manufacturedAt: Date, caffeineContent: Int) {
-        self.category = "칸타타"
+    private var beanOrigin: BeanOrigin
+    
+    init(brand: String, volume: Int, price: Int, name: String, manufacturedAt: Date, caffeineContent: Int, beanOrigin: BeanOrigin) {
+        self.beanOrigin = beanOrigin
         super.init(brand: brand, volume: volume, price: price, name: name, manufacturedAt: manufacturedAt, caffeineContent: caffeineContent)
     }
 }

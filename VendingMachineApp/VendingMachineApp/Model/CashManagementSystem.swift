@@ -8,18 +8,25 @@
 import Foundation
 
 class CashManagementSystem {
-    private var cash: Int = 0
+    private var cash: Int
+    
+    init(_ cash: Int) {
+        self.cash = cash
+    }
+    convenience init() {
+        self.init(0)
+    }
     
     func recharge(with cash: Int) {
         self.cash = cash
     }
     
-    func retrieveCash(completion: (Int) -> [Beverage]) -> [Beverage] {
+    func retrieveCash(completion: (Int) -> Drinks) -> Drinks {
         return completion(cash)
     }
     
-    func checkBalance() -> Int {
-        return self.cash
+    func checkBalance() -> CashManagementSystem {
+        return CashManagementSystem(0)
     }
     
     func isAvailableForPurchase(with beverage: Beverage) -> Bool {

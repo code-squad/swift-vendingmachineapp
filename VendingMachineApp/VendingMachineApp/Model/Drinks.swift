@@ -10,8 +10,11 @@ import Foundation
 class Drinks {
     private var drinks: [Beverage]
     
-    init() {
-        self.drinks = []
+    init(_ drinks: [Beverage]) {
+        self.drinks = drinks
+    }
+    convenience init() {
+        self.init([])
     }
     
     func add(with beverage: Beverage) {
@@ -23,9 +26,9 @@ class Drinks {
         return drinks.remove(at: beverageIndex)
     }
 
-    func showListForPurchase(with cashManagementSystem: CashManagementSystem) -> [Beverage] {
+    func showListForPurchase(with cashManagementSystem: CashManagementSystem) -> Drinks {
         return cashManagementSystem.retrieveCash { (cash) in
-            return drinks.filter{$0.isAvailablePurchase(with: cash)}
+            return Drinks(drinks.filter{$0.isAvailablePurchase(with: cash)})
         }
                 
     }
@@ -42,11 +45,11 @@ class Drinks {
         return result
     }
     
-    func giveExpiredList() -> [Beverage] {
-        return drinks.filter{$0.isExpired(on: Date())}
+    func giveExpiredList() -> Drinks {
+        return Drinks(drinks.filter{$0.isExpired(on: Date())})
     }
     
-    func giveHotBeverageList() -> [Beverage] {
-        return drinks.filter{$0.isHot(at: 65)}
+    func giveHotBeverageList() -> Drinks {
+        return Drinks(drinks.filter{$0.isHot(at: 65)})
     }
 }

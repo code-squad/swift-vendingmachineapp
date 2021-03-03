@@ -26,7 +26,7 @@ class VendingMachine {
         cashManagementSystem.recharge(with: cash)
     }
     
-    func showListForPurchase() -> [Beverage] {
+    func showListForPurchase() -> Drinks {
         return drinks.showListForPurchase(with: cashManagementSystem)
     }
     
@@ -37,7 +37,7 @@ class VendingMachine {
         }
     }
     
-    func showBalance() -> Int {
+    func showBalance() -> CashManagementSystem {
         return cashManagementSystem.checkBalance()
     }
     
@@ -45,15 +45,15 @@ class VendingMachine {
         drinks.giveStockList()
     }
     
-    func showExpiredStock() -> [Beverage] {
+    func showExpiredStock() -> Drinks {
         drinks.giveExpiredList()
     }
     
-    func showHotBeverageList() -> [Beverage] {
+    func showHotBeverageList() -> Drinks {
         drinks.giveHotBeverageList()
     }
     
-    func showPurchasedList() -> [Beverage] {
+    func showPurchasedList() -> PurchasedList {
         purchasedList.givePurchasedList()
     }
 }

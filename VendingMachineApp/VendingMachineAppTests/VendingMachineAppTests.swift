@@ -91,6 +91,7 @@ class VendingMachineAppTests: XCTestCase {
         vendingMachine.appendBeverage(beverage: beverage3)
         vendingMachine.buyBeverage(beverage: beverage)
         vendingMachine.buyBeverage(beverage: beverage2)
+        
         XCTAssertEqual(vendingMachine.showPurchaseHistory(), [])
     }
 }

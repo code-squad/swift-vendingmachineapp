@@ -38,7 +38,7 @@ class Inventory: CustomStringConvertible {
     public func takeOutBeverage(_ beverage: Beverage, paymentManager: PaymentManager) -> Beverage? {
         let pickedBeverage: Beverage?
       
-        if let firstIndex = beverages.firstIndex(where: { $0 === beverage }) {
+        if let firstIndex = buyableBeverageList(buyer: paymentManager).firstIndex(where: { $0 === beverage }) {
             pickedBeverage = beverages.remove(at: firstIndex)
             paymentManager.minusMoney(beverage: beverage)
             return pickedBeverage
@@ -66,7 +66,7 @@ class Inventory: CustomStringConvertible {
         
         beverages.forEach { (beverage) in
             if let safeBeverage = beverage as? SafeDateChecker {
-                if !safeBeverage.expirationValidate() {
+                if safeBeverage.expirationValidate() {
                     list.append(safeBeverage)
                 }
             }

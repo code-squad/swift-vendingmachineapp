@@ -36,7 +36,20 @@ class Drinks {
             throw errorCase.outOfIndex
         }
         return drinks.remove(at: removeTarget)
+    }
+    
+    func showDrinks() -> Dictionary<String,Int> {
+        var returnDic = Dictionary<String,Int>()
         
+        drinks.forEach({
+            if returnDic[$0.name] == nil {
+                returnDic.updateValue(1, forKey: $0.name)
+            }
+            else {
+                returnDic.updateValue(returnDic[$0.name]! + 1, forKey: $0.name)
+            }
+        })
         
+        return returnDic
     }
 }

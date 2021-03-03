@@ -9,13 +9,28 @@
 /* Begin PBXBuildFile section */
 		1E3B48C625EE759000903D6E /* PurchaseHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3B48C525EE759000903D6E /* PurchaseHistory.swift */; };
 		1E3B48CA25EE895700903D6E /* PaymentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3B48C925EE895700903D6E /* PaymentManager.swift */; };
+		1E3B48D425EF63C200903D6E /* VendingMachineAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3B48D325EF63C200903D6E /* VendingMachineAppTests.swift */; };
+		1E3B48E125EF667400903D6E /* FakeBananaMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3B48E025EF667400903D6E /* FakeBananaMilk.swift */; };
+		1E3B48FA25EF6CC000903D6E /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3D239925E696240096DE7B /* VendingMachine.swift */; };
+		1E3B48FF25EF6CE300903D6E /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3D239925E696240096DE7B /* VendingMachine.swift */; };
+		1E3B490225EF6CF400903D6E /* Inventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E66F51925ECC95E006A2D4B /* Inventory.swift */; };
+		1E3B490525EF6CFA00903D6E /* PaymentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3B48C925EE895700903D6E /* PaymentManager.swift */; };
+		1E3B490825EF6CFD00903D6E /* PurchaseHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3B48C525EE759000903D6E /* PurchaseHistory.swift */; };
+		1E3B490B25EF6D0800903D6E /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3D23BF25E7F1360096DE7B /* Beverage.swift */; };
+		1E3B490E25EF6D1E00903D6E /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3D23B825E79D310096DE7B /* Date.swift */; };
+		1E3B491125EF6F1E00903D6E /* Coke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3D23AD25E6A9390096DE7B /* Coke.swift */; };
+		1E3B491425EF6F2500903D6E /* BananaMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3D23A525E697C30096DE7B /* BananaMilk.swift */; };
+		1E3B491725EF6F2700903D6E /* Top.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3D23B025E6A9680096DE7B /* Top.swift */; };
+		1E3B491A25EF6F3D00903D6E /* BeverageFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E66F51125ECC044006A2D4B /* BeverageFactory.swift */; };
+		1E3B491D25EF720500903D6E /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3D23A225E696AB0096DE7B /* Coffee.swift */; };
+		1E3B492025EF720700903D6E /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3D239C25E6962D0096DE7B /* Milk.swift */; };
+		1E3B492325EF720900903D6E /* Soda.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3D239F25E6965D0096DE7B /* Soda.swift */; };
 		1E3D238025E688D30096DE7B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3D237F25E688D30096DE7B /* AppDelegate.swift */; };
 		1E3D238225E688D30096DE7B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3D238125E688D30096DE7B /* SceneDelegate.swift */; };
 		1E3D238425E688D30096DE7B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3D238325E688D30096DE7B /* ViewController.swift */; };
 		1E3D238725E688D30096DE7B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E3D238525E688D30096DE7B /* Main.storyboard */; };
 		1E3D238925E688D50096DE7B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E3D238825E688D50096DE7B /* Assets.xcassets */; };
 		1E3D238C25E688D50096DE7B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E3D238A25E688D50096DE7B /* LaunchScreen.storyboard */; };
-		1E3D239A25E696240096DE7B /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3D239925E696240096DE7B /* VendingMachine.swift */; };
 		1E3D239D25E6962D0096DE7B /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3D239C25E6962D0096DE7B /* Milk.swift */; };
 		1E3D23A025E6965D0096DE7B /* Soda.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3D239F25E6965D0096DE7B /* Soda.swift */; };
 		1E3D23A325E696AB0096DE7B /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3D23A225E696AB0096DE7B /* Coffee.swift */; };
@@ -28,9 +43,23 @@
 		1E66F51A25ECC95E006A2D4B /* Inventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E66F51925ECC95E006A2D4B /* Inventory.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		1E3B48D625EF63C200903D6E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1E3D237425E688D30096DE7B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1E3D237B25E688D30096DE7B;
+			remoteInfo = VendingMachineApp;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		1E3B48C525EE759000903D6E /* PurchaseHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseHistory.swift; sourceTree = "<group>"; };
 		1E3B48C925EE895700903D6E /* PaymentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentManager.swift; sourceTree = "<group>"; };
+		1E3B48D125EF63C200903D6E /* VendingMachineAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VendingMachineAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1E3B48D325EF63C200903D6E /* VendingMachineAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineAppTests.swift; sourceTree = "<group>"; };
+		1E3B48D525EF63C200903D6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1E3B48E025EF667400903D6E /* FakeBananaMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeBananaMilk.swift; sourceTree = "<group>"; };
 		1E3D237C25E688D30096DE7B /* VendingMachineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendingMachineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E3D237F25E688D30096DE7B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1E3D238125E688D30096DE7B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -53,6 +82,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		1E3B48CE25EF63C200903D6E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1E3D237925E688D30096DE7B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -63,10 +99,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1E3B48D225EF63C200903D6E /* VendingMachineAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				1E3B48D325EF63C200903D6E /* VendingMachineAppTests.swift */,
+				1E3B48D525EF63C200903D6E /* Info.plist */,
+				1E3B48E025EF667400903D6E /* FakeBananaMilk.swift */,
+			);
+			path = VendingMachineAppTests;
+			sourceTree = "<group>";
+		};
 		1E3D237325E688D30096DE7B = {
 			isa = PBXGroup;
 			children = (
 				1E3D237E25E688D30096DE7B /* VendingMachineApp */,
+				1E3B48D225EF63C200903D6E /* VendingMachineAppTests */,
 				1E3D237D25E688D30096DE7B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -75,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				1E3D237C25E688D30096DE7B /* VendingMachineApp.app */,
+				1E3B48D125EF63C200903D6E /* VendingMachineAppTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -133,6 +181,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		1E3B48D025EF63C200903D6E /* VendingMachineAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1E3B48D825EF63C200903D6E /* Build configuration list for PBXNativeTarget "VendingMachineAppTests" */;
+			buildPhases = (
+				1E3B48CD25EF63C200903D6E /* Sources */,
+				1E3B48CE25EF63C200903D6E /* Frameworks */,
+				1E3B48CF25EF63C200903D6E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1E3B48D725EF63C200903D6E /* PBXTargetDependency */,
+			);
+			name = VendingMachineAppTests;
+			productName = VendingMachineAppTests;
+			productReference = 1E3B48D125EF63C200903D6E /* VendingMachineAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		1E3D237B25E688D30096DE7B /* VendingMachineApp */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1E3D239025E688D50096DE7B /* Build configuration list for PBXNativeTarget "VendingMachineApp" */;
@@ -159,6 +225,10 @@
 				LastSwiftUpdateCheck = 1230;
 				LastUpgradeCheck = 1230;
 				TargetAttributes = {
+					1E3B48D025EF63C200903D6E = {
+						CreatedOnToolsVersion = 12.3;
+						TestTargetID = 1E3D237B25E688D30096DE7B;
+					};
 					1E3D237B25E688D30096DE7B = {
 						CreatedOnToolsVersion = 12.3;
 					};
@@ -178,11 +248,19 @@
 			projectRoot = "";
 			targets = (
 				1E3D237B25E688D30096DE7B /* VendingMachineApp */,
+				1E3B48D025EF63C200903D6E /* VendingMachineAppTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		1E3B48CF25EF63C200903D6E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1E3D237A25E688D30096DE7B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -196,6 +274,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		1E3B48CD25EF63C200903D6E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1E3B491125EF6F1E00903D6E /* Coke.swift in Sources */,
+				1E3B491A25EF6F3D00903D6E /* BeverageFactory.swift in Sources */,
+				1E3B491425EF6F2500903D6E /* BananaMilk.swift in Sources */,
+				1E3B490225EF6CF400903D6E /* Inventory.swift in Sources */,
+				1E3B490525EF6CFA00903D6E /* PaymentManager.swift in Sources */,
+				1E3B48D425EF63C200903D6E /* VendingMachineAppTests.swift in Sources */,
+				1E3B490E25EF6D1E00903D6E /* Date.swift in Sources */,
+				1E3B48E125EF667400903D6E /* FakeBananaMilk.swift in Sources */,
+				1E3B48FF25EF6CE300903D6E /* VendingMachine.swift in Sources */,
+				1E3B492325EF720900903D6E /* Soda.swift in Sources */,
+				1E3B491725EF6F2700903D6E /* Top.swift in Sources */,
+				1E3B492025EF720700903D6E /* Milk.swift in Sources */,
+				1E3B491D25EF720500903D6E /* Coffee.swift in Sources */,
+				1E3B490825EF6CFD00903D6E /* PurchaseHistory.swift in Sources */,
+				1E3B490B25EF6D0800903D6E /* Beverage.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1E3D237825E688D30096DE7B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -213,13 +313,21 @@
 				1E3D23C025E7F1360096DE7B /* Beverage.swift in Sources */,
 				1E3D238225E688D30096DE7B /* SceneDelegate.swift in Sources */,
 				1E3D23A025E6965D0096DE7B /* Soda.swift in Sources */,
-				1E3D239A25E696240096DE7B /* VendingMachine.swift in Sources */,
 				1E3D239D25E6962D0096DE7B /* Milk.swift in Sources */,
 				1E3D23A325E696AB0096DE7B /* Coffee.swift in Sources */,
+				1E3B48FA25EF6CC000903D6E /* VendingMachine.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1E3B48D725EF63C200903D6E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1E3D237B25E688D30096DE7B /* VendingMachineApp */;
+			targetProxy = 1E3B48D625EF63C200903D6E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		1E3D238525E688D30096DE7B /* Main.storyboard */ = {
@@ -241,6 +349,44 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		1E3B48D925EF63C200903D6E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = VendingMachineAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = HongzCloud.VendingMachineAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VendingMachineApp.app/VendingMachineApp";
+			};
+			name = Debug;
+		};
+		1E3B48DA25EF63C200903D6E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = VendingMachineAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = HongzCloud.VendingMachineAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VendingMachineApp.app/VendingMachineApp";
+			};
+			name = Release;
+		};
 		1E3D238E25E688D50096DE7B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -396,6 +542,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		1E3B48D825EF63C200903D6E /* Build configuration list for PBXNativeTarget "VendingMachineAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1E3B48D925EF63C200903D6E /* Debug */,
+				1E3B48DA25EF63C200903D6E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		1E3D237725E688D30096DE7B /* Build configuration list for PBXProject "VendingMachineApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

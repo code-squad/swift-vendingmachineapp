@@ -27,7 +27,7 @@ class VendingMachineTest: XCTestCase {
         vendingMachine.charge(coins: coins)
         let expect = 20000
         
-        XCTAssertEqual(expect, vendingMachine.getbalance(), "잔액이 일치하지 않습니다.")
+        XCTAssertEqual(expect, vendingMachine.getCoins(), "잔액이 일치하지 않습니다.")
     }
     
     func testAvailableProducts(){
@@ -37,16 +37,15 @@ class VendingMachineTest: XCTestCase {
         
         XCTAssertEqual(expect, actual, "구매 가능한 음료 목록이 올바르지 않습니다.")
     }
-    
+    /*
     func testSellProduct(){
         let georgia = Georgia(createdAt :"20210202", expiredAt: "20210210")
         vendingMachine.append(product: georgia)
         
-        let expect = georgia
-        let actual = vendingMachine.sellProduct(with: "조지아오리지널")
+        vendingMachine.sellProduct(product : georgia)
         
         XCTAssertEqual(expect, actual, "음료를 구매할 수 없습니다.")
-    }
+    }*/
     func testExpiredProduct(){
         let actual = vendingMachine.expiredProduct().count
         let expect = 3
@@ -62,7 +61,7 @@ class VendingMachineTest: XCTestCase {
     }
     func testGetSoldProducts(){
     
-        vendingMachine.sellProduct(with: "초코맛 우유")
+        vendingMachine.sellProduct(product: ChocolateMilk(createdAt: "20200211", expiredAt: "20200220"))
         let expect = 1
         let actual = vendingMachine.getSoldProducts().count
         

@@ -33,17 +33,17 @@ class VendingMachineAppTests: XCTestCase {
     }
     
     func test_음료_재고_추가() throws {
-        vendingMachine.appendBeverage(beverage: beverage)
-        vendingMachine.appendBeverage(beverage: beverage2)
-        vendingMachine.appendBeverage(beverage: beverage3)
+        vendingMachine.appendBeverage(beverage)
+        vendingMachine.appendBeverage(beverage2)
+        vendingMachine.appendBeverage(beverage3)
     }
     
     func test_구매_가능_음료목록() throws {
         vendingMachine.putInMoney(3000)
         
-        vendingMachine.appendBeverage(beverage: beverage)
-        vendingMachine.appendBeverage(beverage: beverage2)
-        vendingMachine.appendBeverage(beverage: beverage3)
+        vendingMachine.appendBeverage(beverage)
+        vendingMachine.appendBeverage(beverage2)
+        vendingMachine.appendBeverage(beverage3)
         
         XCTAssertEqual(vendingMachine.beverageListForPurchase(), [beverage,beverage2,beverage3])
     }
@@ -51,53 +51,52 @@ class VendingMachineAppTests: XCTestCase {
     func test_음료_구매() throws {
         vendingMachine.putInMoney(3000)
         
-        vendingMachine.appendBeverage(beverage: beverage)
-        vendingMachine.appendBeverage(beverage: beverage2)
-        vendingMachine.appendBeverage(beverage: beverage3)
+        vendingMachine.appendBeverage(beverage)
+        vendingMachine.appendBeverage(beverage2)
+        vendingMachine.appendBeverage(beverage3)
         
-        vendingMachine.buyBeverage(beverage: beverage)
+        vendingMachine.buyBeverage(beverage)
     }
     
     func test_전체상품_재고_확인() throws {
-        vendingMachine.appendBeverage(beverage: beverage)
-        vendingMachine.appendBeverage(beverage: beverage2)
-        vendingMachine.appendBeverage(beverage: beverage3)
+        vendingMachine.appendBeverage(beverage)
+        vendingMachine.appendBeverage(beverage2)
+        vendingMachine.appendBeverage(beverage3)
         
         XCTAssertEqual(vendingMachine.showAllBeverageList(), [beverage:1,beverage2:1,beverage3:1])
     }
 
     func test_유통기한_넘은_재고목록() throws {
-        var fakeBananaMilk = BananaMilk(brand: "테스트", capacity: 200, price: 1000, name: "바나나우유_테스트", manufacture: Date(), farmCode: "A_테스트", hasDoraemonSticker: true, expiry: Calendar.current.date(byAdding: .day, value: -5, to: Date())!)
+        let fakeBananaMilk = BananaMilk(brand: "테스트", capacity: 200, price: 1000, name: "바나나우유_테스트", manufacture: Date(), farmCode: "A_테스트", hasDoraemonSticker: true, expiry: Calendar.current.date(byAdding: .day, value: -5, to: Date())!)
     
-            vendingMachine.appendBeverage(beverage: fakeBananaMilk)
+            vendingMachine.appendBeverage(fakeBananaMilk)
     
             XCTAssertEqual(vendingMachine.showExpiryDateBeverage().map{$0 as! Beverage}, [fakeBananaMilk])
     }
     
     func test_따뜻한_음료_목록() throws {
-        var fakeTop = Top(brand: "테스트", capacity: 300, price: 1000, name: "테스트", manufacture: Date(), isHot: true, hasSugar: true)
+        let fakeTop = Top(brand: "테스트", capacity: 300, price: 1000, name: "테스트", manufacture: Date(), isHot: true, hasSugar: true)
     
-            vendingMachine.appendBeverage(beverage: fakeTop)
+            vendingMachine.appendBeverage(fakeTop)
     
             XCTAssertEqual(vendingMachine.showHotBeverage().map{$0 as! Beverage}, [fakeTop])
     }
     
     func test_상품_구매_이력() throws {
-        vendingMachine.showPurchaseHistory()
-        vendingMachine.appendBeverage(beverage: beverage)
-        vendingMachine.appendBeverage(beverage: beverage2)
-        vendingMachine.appendBeverage(beverage: beverage3)
-        vendingMachine.buyBeverage(beverage: beverage)
-        vendingMachine.buyBeverage(beverage: beverage2)
+        vendingMachine.appendBeverage(beverage)
+        vendingMachine.appendBeverage(beverage2)
+        vendingMachine.appendBeverage(beverage3)
+        vendingMachine.buyBeverage(beverage)
+        vendingMachine.buyBeverage(beverage2)
         
         XCTAssertEqual(vendingMachine.showPurchaseHistory(), [])
     }
     
     func test_통합_테스트_시나리오() throws {
         //음료 재고 넣기
-        vendingMachine.appendBeverage(beverage: beverage)
-        vendingMachine.appendBeverage(beverage: beverage2)
-        vendingMachine.appendBeverage(beverage: beverage3)
+        vendingMachine.appendBeverage(beverage)
+        vendingMachine.appendBeverage(beverage2)
+        vendingMachine.appendBeverage(beverage3)
         
         //금액 투입
         vendingMachine.putInMoney(3000)
@@ -107,7 +106,7 @@ class VendingMachineAppTests: XCTestCase {
         XCTAssertEqual(vendingMachine.beverageListForPurchase(), [beverage,beverage2,beverage3])
         
         //구매
-        vendingMachine.buyBeverage(beverage: beverage)
+        vendingMachine.buyBeverage(beverage)
         
         //잔액 확인
         XCTAssertEqual(vendingMachine.showCurrentMoney(), 1000)

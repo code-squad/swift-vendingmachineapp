@@ -24,8 +24,8 @@ struct VendingMachine: CustomStringConvertible {
     }
     
     //특정 상품 인스턴스를 넘겨서 재고를 추가하는 기능
-    public func appendBeverage(beverage: Beverage) {
-        inventory.appendBeverage(beverage: beverage)
+    public func appendBeverage(_ beverage: Beverage) {
+        inventory.appendBeverage(beverage)
     }
     
     //현재 금액으로 구매가능한 음료수 목록을 리턴하는 기능
@@ -39,7 +39,7 @@ struct VendingMachine: CustomStringConvertible {
     }
     
     //음료수를 구매하는 기능
-    public func buyBeverage(beverage: Beverage) {
+    public func buyBeverage(_ beverage: Beverage) {
         purchaseHistory.appendPurchaseHistory(beverage: inventory.takeOutBeverage(beverage, paymentManager: paymentManager))
     }
     

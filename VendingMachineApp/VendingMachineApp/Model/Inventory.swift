@@ -19,7 +19,7 @@ class Inventory: CustomStringConvertible {
         beverages = []
     }
     
-    public func appendBeverage(beverage: Beverage) {
+    public func appendBeverage(_ beverage: Beverage) {
         beverages.append(beverage)
     }
     

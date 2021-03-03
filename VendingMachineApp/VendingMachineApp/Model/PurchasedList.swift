@@ -25,3 +25,9 @@ class PurchasedList {
         return PurchasedList(purchasedDrinks)
     }
 }
+
+extension PurchasedList: Equatable {
+    static func == (lhs: PurchasedList, rhs: PurchasedList) -> Bool {
+        return lhs.purchasedDrinks == rhs.purchasedDrinks
+    }
+}

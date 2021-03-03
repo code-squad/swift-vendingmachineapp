@@ -7,12 +7,6 @@
 
 import Foundation
 
-enum BeverageCategory {
-    case Milk
-    case Soda
-    case Coffee
-}
-
 class Beverage: CustomStringConvertible {
     private let brand: String
     private let volume: Int

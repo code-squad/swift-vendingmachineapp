@@ -8,12 +8,11 @@
 import Foundation
 
 class BeverageStorage {
-    private var stock: [Beverage:Int]
-    var purchasables: (() -> [Beverage:Int])?
-    
-    enum StockError: Error {
+    enum StorageError: Error {
         case noStock
     }
+    
+    private var stock: [Beverage:Int]
     
     init() {
         stock = [:]
@@ -45,11 +44,12 @@ class BeverageStorage {
         return purchasableBeverages
     }
     
-    public func decreaseStock(beverage: Beverage) throws {
+    public func decreaseStock(beverage: Beverage, completionHandlerWhenStockIsDecreased: () -> Void) throws {
         if stock[beverage] != nil {
             stock[beverage]! -= 1
+            completionHandlerWhenStockIsDecreased()
         } else {
-            throw StockError.noStock
+            throw StorageError.noStock
         }
     }
 }

@@ -10,8 +10,8 @@ import Foundation
 class Milk: Beverage {
     private let farm: LocationTrackable
     
-    public init(brand: String, size: Milli_Liter, price: Int, name: String, packDate: Date, farm: LocationTrackable) {
+    public init(brand: String, size: Milliliter, price: Int, name: String, packageTime: Date, farm: LocationTrackable) {
         self.farm = farm
-        super.init(brand: brand, size: size, price: price, name: name, packDate: packDate)
+        super.init(brand: brand, size: size, price: price, name: name, packageTime: packageTime)
     }
 }

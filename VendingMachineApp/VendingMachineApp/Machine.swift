@@ -47,19 +47,17 @@ struct Machine {
     }
     
     mutating func purchaseBeverage(beverage: Beverage) {
-        let itemPrice = beverage.checkPrice()
+        let itemPrice = beverage.showPrice()
+        guard itemPrice <= moneyProccesor.moneyOnTransactionAmount() else { return }
         do {
-            try moneyProccesor.deductMoneyOnTransaction(by: itemPrice)
+            try beverageStorage.decreaseStock(beverage: beverage) {
+                moneyProccesor.deductMoneyOnTransaction(with: itemPrice)
+                moneyProccesor.increaseHolding(by: itemPrice)
+                savePurchaseHistory(beverage: beverage)
+            }
         } catch {
-            return
+            print(error)
         }
-        moneyProccesor.increaseHolding(by: itemPrice)
-        do {
-            try beverageStorage.decreaseStock(beverage: beverage)
-        } catch {
-            print("Invalid beverage info")
-        }
-        savePurchaseHistory(beverage: beverage)
     }
 
     mutating func transactionStopButtonPressed() -> Int {
@@ -67,15 +65,15 @@ struct Machine {
         return moneyProccesor.returnChanges()
     }
     
-    mutating public func savePurchaseHistory(beverage: Beverage) {
+    mutating private func savePurchaseHistory(beverage: Beverage) {
         purchaseHistory.append(beverage)
     }
     
-    private mutating func resetPurchaseHistory() {
+    mutating private func resetPurchaseHistory() {
         purchaseHistory = []
     }
     
-    func showPurchaseHistory() -> [Beverage] {
+    mutating public func showPurchaseHistory() -> [Beverage] {
         return purchaseHistory
     }
 }

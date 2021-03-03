@@ -8,14 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		880B9ABF25E8D32C008B02BB /* FoodColoring.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880B9ABE25E8D32C008B02BB /* FoodColoring.swift */; };
-		880B9AC825E93C64008B02BB /* GlobalFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880B9AC725E93C64008B02BB /* GlobalFunctions.swift */; };
 		882A589425E7A84800BCAF67 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882A589325E7A84800BCAF67 /* DateExtension.swift */; };
-		882A589925E8926A00BCAF67 /* Milli_Liter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882A589825E8926A00BCAF67 /* Milli_Liter.swift */; };
+		882A589925E8926A00BCAF67 /* Milliliter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882A589825E8926A00BCAF67 /* Milliliter.swift */; };
 		882A589F25E8AB4200BCAF67 /* DomesticLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882A589E25E8AB4200BCAF67 /* DomesticLocation.swift */; };
 		882A58A325E8B66700BCAF67 /* OverseasLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882A58A225E8B66700BCAF67 /* OverseasLocation.swift */; };
-		8849843825EDF101002C71F5 /* GlobalFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880B9AC725E93C64008B02BB /* GlobalFunctions.swift */; };
 		8849843925EDF101002C71F5 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88748AD625E4E9E000E7DCB1 /* Protocols.swift */; };
-		8849843A25EDF101002C71F5 /* Milli_Liter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882A589825E8926A00BCAF67 /* Milli_Liter.swift */; };
+		8849843A25EDF101002C71F5 /* Milliliter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882A589825E8926A00BCAF67 /* Milliliter.swift */; };
 		8849843B25EDF101002C71F5 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882A589325E7A84800BCAF67 /* DateExtension.swift */; };
 		8849843C25EDF101002C71F5 /* DomesticLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882A589E25E8AB4200BCAF67 /* DomesticLocation.swift */; };
 		8849843D25EDF101002C71F5 /* OverseasLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882A58A225E8B66700BCAF67 /* OverseasLocation.swift */; };
@@ -70,9 +68,8 @@
 
 /* Begin PBXFileReference section */
 		880B9ABE25E8D32C008B02BB /* FoodColoring.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodColoring.swift; sourceTree = "<group>"; };
-		880B9AC725E93C64008B02BB /* GlobalFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalFunctions.swift; sourceTree = "<group>"; };
 		882A589325E7A84800BCAF67 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
-		882A589825E8926A00BCAF67 /* Milli_Liter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Milli_Liter.swift; sourceTree = "<group>"; };
+		882A589825E8926A00BCAF67 /* Milliliter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Milliliter.swift; sourceTree = "<group>"; };
 		882A589E25E8AB4200BCAF67 /* DomesticLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomesticLocation.swift; sourceTree = "<group>"; };
 		882A58A225E8B66700BCAF67 /* OverseasLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverseasLocation.swift; sourceTree = "<group>"; };
 		8849844F25EE2947002C71F5 /* MachineUnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MachineUnitTest.swift; sourceTree = "<group>"; };
@@ -125,9 +122,8 @@
 		882A589625E7A87500BCAF67 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
-				880B9AC725E93C64008B02BB /* GlobalFunctions.swift */,
 				88748AD625E4E9E000E7DCB1 /* Protocols.swift */,
-				882A589825E8926A00BCAF67 /* Milli_Liter.swift */,
+				882A589825E8926A00BCAF67 /* Milliliter.swift */,
 				882A589325E7A84800BCAF67 /* DateExtension.swift */,
 				882A589E25E8AB4200BCAF67 /* DomesticLocation.swift */,
 				882A58A225E8B66700BCAF67 /* OverseasLocation.swift */,
@@ -365,13 +361,12 @@
 				882A589F25E8AB4200BCAF67 /* DomesticLocation.swift in Sources */,
 				88748ADE25E4F09700E7DCB1 /* MoneyProcessingUnit.swift in Sources */,
 				88748ABF25E4A49900E7DCB1 /* Fanta.swift in Sources */,
-				880B9AC825E93C64008B02BB /* GlobalFunctions.swift in Sources */,
 				88748A8825E387B100E7DCB1 /* SceneDelegate.swift in Sources */,
 				882A58A325E8B66700BCAF67 /* OverseasLocation.swift in Sources */,
 				88748AC925E4A56300E7DCB1 /* Americano.swift in Sources */,
 				88748AA025E394AA00E7DCB1 /* Milk.swift in Sources */,
 				88748AE225E4F4E700E7DCB1 /* BeverageStorage.swift in Sources */,
-				882A589925E8926A00BCAF67 /* Milli_Liter.swift in Sources */,
+				882A589925E8926A00BCAF67 /* Milliliter.swift in Sources */,
 				88748AA625E397FE00E7DCB1 /* Coffee.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -393,9 +388,8 @@
 				8849844C25EDF24B002C71F5 /* CaffeLatte.swift in Sources */,
 				8849844225EDF204002C71F5 /* Milk.swift in Sources */,
 				8849845025EE2947002C71F5 /* MachineUnitTest.swift in Sources */,
-				8849843825EDF101002C71F5 /* GlobalFunctions.swift in Sources */,
 				8849843925EDF101002C71F5 /* Protocols.swift in Sources */,
-				8849843A25EDF101002C71F5 /* Milli_Liter.swift in Sources */,
+				8849843A25EDF101002C71F5 /* Milliliter.swift in Sources */,
 				8849843B25EDF101002C71F5 /* DateExtension.swift in Sources */,
 				8849843C25EDF101002C71F5 /* DomesticLocation.swift in Sources */,
 				8849843D25EDF101002C71F5 /* OverseasLocation.swift in Sources */,

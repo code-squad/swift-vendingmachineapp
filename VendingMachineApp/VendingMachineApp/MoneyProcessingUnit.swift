@@ -8,11 +8,6 @@
 import Foundation
 
 class MoneyProcessingUnit {
-    enum MoneyProcessingError: Error {
-        case notEnoughMoneyOnTransactionError
-    }
-    
-    
     private var holding: Int
     private var moneyOnTransaction: Int
     
@@ -29,12 +24,8 @@ class MoneyProcessingUnit {
         moneyOnTransaction += amount
     }
     
-    public func deductMoneyOnTransaction(by amount: Int) throws {
-        if moneyOnTransaction - amount < 0 {
-            throw MoneyProcessingError.notEnoughMoneyOnTransactionError
-        } else {
-            moneyOnTransaction -= amount
-        }
+    public func deductMoneyOnTransaction(with amount: Int) {
+        moneyOnTransaction -= amount
     }
     
     public func holdingAmount() -> Int {

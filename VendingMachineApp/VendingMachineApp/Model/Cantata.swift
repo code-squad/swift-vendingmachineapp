@@ -16,10 +16,6 @@ class Cantata: Coffee {
         super.init(brand: brand, volume: volume, charge: charge, name: name, manufacturing: manufacturing, caffeine: caffeine)
     }
     
-    convenience init() {
-        self.init(brand: "롯데칠성음료", volume: 430, charge: 1400, name: "칸타타 콘트라베이스", manufacturing: Date.init(), caffeine : nil, bean: .arabica)
-    }
-    
     func productBeans() -> Beans {
         return self.bean
     }

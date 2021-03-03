@@ -16,10 +16,6 @@ class TOP: Coffee {
         super.init(brand: brand, volume: volume, charge: charge, name: name, manufacturing: manufacturing, caffeine: caffeine)
     }
     
-    convenience init() {
-        self.init(brand: "Maxim", volume: 275, charge: 980, name: "TOP 스위트 아메리카노", manufacturing: Date.init(), caffeine : 123.45, temperature: 73.3)
-    }
-    
     func isHot() -> Bool {
         return temperature > 70
     }

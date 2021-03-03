@@ -8,13 +8,13 @@
 import Foundation
 
 class CaffeLatte: Coffee & EnergyBoostable {
-    var inHeatingCabinet: Bool
+    var isHeated: Bool
     var caffeine: Int
     
-    init(brand: String, size: Milli_Liter, price: Int, name: String, packDate: Date, bean: Bean, caffeine: Int, inHeatingCabinet: Bool) {
+    init(brand: String, size: Milliliter, price: Int, name: String, packageTime: Date, bean: Bean, caffeine: Int, inHeatingCabinet: Bool) {
         self.caffeine = caffeine
-        self.inHeatingCabinet = inHeatingCabinet
-        super.init(brand: brand, size: size, price: price, name: name, packDate: packDate, bean: bean)
+        self.isHeated = inHeatingCabinet
+        super.init(brand: brand, size: size, price: price, name: name, packageTime: packageTime, bean: bean)
     }
     
     func highCaffeine() -> Bool {
@@ -22,7 +22,7 @@ class CaffeLatte: Coffee & EnergyBoostable {
     }
     
     func isHot() -> Bool {
-        return inHeatingCabinet
+        return isHeated
     }
     
     func isEnergyBoosting() -> Bool {

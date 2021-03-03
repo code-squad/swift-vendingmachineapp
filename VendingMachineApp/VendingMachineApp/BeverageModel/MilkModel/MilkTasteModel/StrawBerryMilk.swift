@@ -11,10 +11,10 @@ class StrawBerryMilk: Milk & FoodColoringApplicable {
     private let strawBerryFarm: LocationTrackable
     var foodColoring: FoodColoring?
     
-    init(brand: String, size: Milli_Liter, price: Int, name: String, packDate: Date, milkFarm: LocationTrackable, strawBerryFarm: LocationTrackable, foodColoring: FoodColoring?) {
+    init(brand: String, size: Milliliter, price: Int, name: String, packageTime: Date, milkFarm: LocationTrackable, strawBerryFarm: LocationTrackable, foodColoring: FoodColoring?) {
         self.strawBerryFarm = strawBerryFarm
         self.foodColoring = foodColoring
-        super.init(brand: brand, size: size, price: price, name: name, packDate: packDate, farm: milkFarm)
+        super.init(brand: brand, size: size, price: price, name: name, packageTime: packageTime, farm: milkFarm)
     }
     
     func isUsingFoodColoring() -> Bool {

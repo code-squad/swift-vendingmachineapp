@@ -22,7 +22,7 @@ protocol CaffeineSuppliable {
 }
 
 protocol HotBeverageAvailable {
-    var inHeatingCabinet: Bool { get }
+    var isHeated: Bool { get }
     func isHot() -> Bool
 }
 

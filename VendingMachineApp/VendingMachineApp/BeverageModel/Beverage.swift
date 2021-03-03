@@ -9,38 +9,35 @@ import Foundation
 
 class Beverage {
     private let brand: String
-    private let size: Milli_Liter
+    private let size: Milliliter
     private let price: Int
     private let name: String
-    private let packDate: Date
+    private let packageTime: Date
     
-    public init(brand: String, size: Milli_Liter, price: Int, name: String, packDate: Date) {
+    public init(brand: String, size: Milliliter, price: Int, name: String, packageTime: Date) {
         self.brand = brand
         self.size = size
         self.price = price
         self.name = name
-        self.packDate = packDate
+        self.packageTime = packageTime
     }
     
     public func isPurchasable(with money: Int) -> Bool {
-        let result = self.price <= money ? true : false
-        return result
+        return self.price <= money
     }
     
-    public func checkPrice() -> Int {
+    public func showPrice() -> Int {
         return self.price
     }
     
     public func isExpired() -> Bool {
-        let oneDayInSeconds: Double = 86400
-        let expiringDateFromPackDate: Double = 60
-        return Date() >= packDate.addingTimeInterval(oneDayInSeconds * expiringDateFromPackDate)
+        return self.packageTime.isOld()
     }
 }
 
 extension Beverage: CustomStringConvertible {
     var description: String {
-        return "\(brand), \(size)ml, \(price)원, \(name), \(packDate.useSimpleFormat(dateFormat:"yyyyMMdd"))"
+        return "\(brand), \(size)ml, \(price)원, \(name), \(packageTime.useSimpleFormat(dateFormat:"yyyyMMdd"))"
     }
 }
 
@@ -50,7 +47,7 @@ extension Beverage: Equatable {
             lhs.size == rhs.size &&
             lhs.price == rhs.price &&
             lhs.name == rhs.name &&
-            lhs.packDate == rhs.packDate
+            lhs.packageTime == rhs.packageTime
     }
 }
 
@@ -60,6 +57,6 @@ extension Beverage: Hashable {
         hasher.combine(size)
         hasher.combine(price)
         hasher.combine(name)
-        hasher.combine(packDate)
+        hasher.combine(packageTime)
     }
 }

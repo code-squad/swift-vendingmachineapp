@@ -13,4 +13,10 @@ extension Date {
         format.dateFormat = dateFormat
         return format.string(from: self)
     }
+    
+    func isOld() -> Bool {
+        let oneDayInSeconds: Double = 86400
+        let expiringDateFromPackDate: Double = 60
+        return Date() >= self.addingTimeInterval(oneDayInSeconds * expiringDateFromPackDate)
+    }
 }

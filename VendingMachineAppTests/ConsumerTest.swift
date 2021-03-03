@@ -10,40 +10,53 @@ import XCTest
 
 class ConsumerTest: XCTestCase {
 
-    var consumer : Consumer!
+    var customer : Customer!
     var vendingMachine : VendingMachine!
+    var georgia : Georgia!
     
     override func setUp() {
         vendingMachine = VendingMachine()
-        vendingMachine.append(product: Georgia(createdAt: "20210228", expiredAt: "20210304"))
-        consumer = Consumer(coins: 10000)
+        georgia = Georgia(createdAt: "20210228", expiredAt: "20210304")
+        vendingMachine.append(product: georgia)
+    
+        customer = Customer(coins: 10000)
     }
     func testPutcoins(){
         let coin = 5000
-        consumer.putCoinsToVendingMachine(with: coin)
+        customer.putCoinsToVendingMachine(with: coin)
         vendingMachine.charge(coins: coin)
         
         XCTAssertEqual(vendingMachine.getCoins(), coin, "돈이 자판기에 투입되지 않았습니다")
-        XCTAssertEqual(consumer.coins, coin, "돈이 자판기에 투입되지 않았습니다")
+        XCTAssertEqual(customer.coins, coin, "돈이 자판기에 투입되지 않았습니다")
         
     }
-    /*
+
     func testBuy(){
-        let actual = consumer.buy(with: "조지아오리지널", from: vendingMachine)
-        
-        XCTAssertTrue(actual, "음료수를 구매할 수 없습니다.")
+        let product = vendingMachine.sellProduct(product: georgia)
+
+        XCTAssertNotNil(product, "음료수를 구매할 수 없습니다.")
     }
     
-    func testTakeBalance(){
+    func testPutCoinsToVendingMachine(){
         let coin = 3000
-        consumer.putCoinsToVendingMachine(with: coin) // consumer.coins = 7000
-        vendingMachine.charge(coins: coin) // vending.coins = 3000
-//        consumer.buy(with: "조지아오리지널", from: vendingMachine)
-        consumer.takeBalance(from: vendingMachine) // consumer.coins = 90000, vendin.coins = 0
         
-        let expect = 9000
-        XCTAssertEqual(consumer.coins, expect, "돈을 회수하지 못하였습니다.")
-        XCTAssertEqual(vendingMachine.getCoins(), 0, "돈을 회수하지 못하였습니다.")
+        customer.putCoinsToVendingMachine(with: coin) // consumer.coins = 7000
+        vendingMachine.charge(coins: coin) // vending.coins = 3000
+        
+        let customerCoinGuess = 7000
+        let machineCoinsGuess = 3000
+        
+        XCTAssertEqual(customer.coins, customerCoinGuess, "자판기에 돈을 넣지 않았습니다.")
+        XCTAssertEqual(vendingMachine.getCoins(), machineCoinsGuess, "자판기에 돈이 들어가지 않았습니다.")
     }
-     */
+    
+    func testReturnBalance(){
+        
+        vendingMachine.charge(coins: 5000)
+        customer.takeBalance(from: vendingMachine) 
+        
+        let expect = 15000
+        XCTAssertEqual(customer.coins, expect, "돈을 회수하지 못하였습니다.")
+        XCTAssertEqual(vendingMachine.getCoins(), 0, "돈을 반환하지 못하였습니다.")
+    }
 }

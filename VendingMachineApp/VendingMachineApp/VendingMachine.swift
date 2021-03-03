@@ -78,4 +78,8 @@ struct VendingMachine {
         }
         return hotDrinks
     }
+    
+    func showPurchaseHistory() -> [Date : Beverage] {
+        return soldItems
+    }
 }

@@ -9,23 +9,23 @@ import Foundation
 
 class Beverage: CustomStringConvertible {
     var description: String {
-        return "\(brand), \(capacity)ml, \(price)원, \(name), \(dateOfManufacture.anotherDescription)"
+        return "\(brand), \(capacity)ml, \(price)원, \(name), \(manufacture.anotherDescription)"
     }
     
     private var brand: String
     private var capacity: Int
     private var price: Int
     private var name: String
-    private var dateOfManufacture: Date
+    private var manufacture: Date
     private var expirationDate: Date
     private var temperature: Double
     
-    init(brand: String, capacity: Int, price: Int, name: String, dateOfManufacture: Date, expirationDate: Date, temperature: Double) {
+    init(brand: String, capacity: Int, price: Int, name: String, manufacture: Date, expirationDate: Date, temperature: Double) {
         self.brand = brand
         self.capacity = capacity
         self.price = price
         self.name = name
-        self.dateOfManufacture = dateOfManufacture
+        self.manufacture = manufacture
         self.expirationDate = expirationDate
         self.temperature = temperature
     }
@@ -56,6 +56,6 @@ extension Beverage: Hashable {
         hasher.combine(capacity)
         hasher.combine(price)
         hasher.combine(name)
-        hasher.combine(dateOfManufacture)
+        hasher.combine(manufacture)
     }
 }

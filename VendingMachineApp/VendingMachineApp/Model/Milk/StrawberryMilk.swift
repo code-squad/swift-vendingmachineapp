@@ -14,9 +14,9 @@ class StrawBerryMilk: Milk {
         case red
     }
     private var color: Color
-    init(brand: String, capacity: Int, price: Int, name: String, dateOfManufacture: Date, expirationDate: Date, temperature: Double, pH: Double, color: Color) {
+    init(brand: String, capacity: Int, price: Int, name: String, manufacture: Date, expirationDate: Date, temperature: Double, pH: Double, color: Color) {
         self.color = color
-        super.init(brand: brand, capacity: capacity, price: price, name: name, dateOfManufacture: dateOfManufacture, expirationDate: expirationDate, temperature: temperature, pH: pH)
+        super.init(brand: brand, capacity: capacity, price: price, name: name, manufacture: manufacture, expirationDate: expirationDate, temperature: temperature, pH: pH)
     }
     func isRed() -> Bool {
         return self.color == Color.red

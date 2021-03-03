@@ -14,9 +14,9 @@ class Cola: Soda {
         case glass
     }
     private var packageAttribute: Package
-    init(brand: String, capacity: Int, price: Int, name: String, dateOfManufacture: Date, expirationDate: Date, temperature: Double, glycemicIndex: Int, packageAttribute: Package) {
+    init(brand: String, capacity: Int, price: Int, name: String, manufacture: Date, expirationDate: Date, temperature: Double, glycemicIndex: Int, packageAttribute: Package) {
         self.packageAttribute = packageAttribute
-        super.init(brand: brand, capacity: capacity, price: price, name: name, dateOfManufacture: dateOfManufacture, expirationDate: expirationDate, temperature: temperature, glycemicIndex: glycemicIndex)
+        super.init(brand: brand, capacity: capacity, price: price, name: name, manufacture: manufacture, expirationDate: expirationDate, temperature: temperature, glycemicIndex: glycemicIndex)
     }
     func isPet() -> Bool{
         return self.packageAttribute == Package.pet

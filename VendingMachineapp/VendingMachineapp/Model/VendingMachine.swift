@@ -34,20 +34,34 @@ struct VendingMachine {
         self.money.changeMoney(with: -beverage.price)
     }
     
+    func hotBeverageList() -> [Beverage] {
+        var list: [Beverage] = []
+        
+        inventory.eachBeverage(handler: { (beverage) in
+            if beverage.isHot(with: 50) {
+                list.append(beverage)
+            }
+        })
+        return list
+    }
+    
+    func invalidateList(with date: Date) -> [Beverage] {
+        var list: [Beverage] = []
+        
+        inventory.eachBeverage(handler: { (beverage) in
+            if !beverage.validateExpiryTime(with: date) {
+                list.append(beverage)
+            }
+        })
+        return list
+    }
+    
     func checkChagne() -> Money {
         return money.checkChange()
     }
     
     func purchasedList() -> [Beverage] {
         return manager.purchasedList()
-    }
-    
-    func hotBeverageList() -> [Beverage] {
-        return manager.hotBeverageList(inventory: inventory)
-    }
-    
-    func invalidateList(with date: Date) -> [Beverage] {
-        return manager.invalidateList(inventory: inventory, with: date)
     }
     
     func wholeBeverage() -> [Beverage:Int] {

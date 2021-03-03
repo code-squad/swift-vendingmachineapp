@@ -32,25 +32,4 @@ class VendingMachineManager {
         return purchaseHistory
     }
     
-    func hotBeverageList(inventory: Inventory) -> [Beverage] {
-        var list: [Beverage] = []
-        
-        inventory.eachBeverage(handler: { (beverage) in
-            if beverage.isHot(with: 50) {
-                list.append(beverage)
-            }
-        })
-        return list
-    }
-    
-    func invalidateList(inventory: Inventory, with date: Date) -> [Beverage] {
-        var list: [Beverage] = []
-        
-        inventory.eachBeverage(handler: { (beverage) in
-            if !beverage.validateExpiryTime(with: date) {
-                list.append(beverage)
-            }
-        })
-        return list
-    }
 }

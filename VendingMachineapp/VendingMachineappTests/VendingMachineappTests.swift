@@ -145,7 +145,7 @@ class VendingMachineappTests: XCTestCase {
         machine.purchaseBeverage(beverage: top)
         
         XCTAssertEqual(machine.purchasedList(), [strawberryMilk, strawberryMilk, top])
-        XCTAssertEqual(machine.checkChagne(), 5500)
+        XCTAssertEqual(machine.checkChagne().money, 5500)
         
         XCTAssertEqual(machine.invalidateList(with: Date.stringToDate(date: "20210227")), [chocoMilk, chocoMilk, bananaMilk])
 

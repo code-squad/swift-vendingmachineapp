@@ -19,6 +19,6 @@ class FlavoredMilk: Milk {
     
     init(brand: String, volume: Int, price: Int, name: String, calorie: Int, manufactured: String, expiredAfter: String, hasLactose: Bool, flavor: MilkFlavor) {
         self.flavor = flavor
-        super.init(brand: brand, volume: volume, price: price, name: name, calorie: calorie, manufactured: manufactured, expiredAfter: expiredAfter)
+        super.init(brand: brand, volume: volume, price: price, name: name, calorie: calorie, manufactured: manufactured, expiredAfter: expiredAfter, hasLactose: hasLactose)
     }
 }

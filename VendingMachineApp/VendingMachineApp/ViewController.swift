@@ -17,8 +17,8 @@ class ViewController: UIViewController {
         let beverage2 = SodaFactory().create()
         let beverage3 = CoffeeFactory().create()
         
-        vendingMachine.appendBeverage(beverage: beverage)
-        vendingMachine.appendBeverage(beverage: beverage2)
-        vendingMachine.appendBeverage(beverage: beverage3)
+        vendingMachine.appendBeverage(beverage)
+        vendingMachine.appendBeverage(beverage2)
+        vendingMachine.appendBeverage(beverage3)
     }
 }

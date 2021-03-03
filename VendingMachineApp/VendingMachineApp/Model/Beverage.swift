@@ -10,21 +10,21 @@ import Foundation
 class Beverage {
 
     var description: String {
-        return "\(brand), \(capacity)ml, \(price)원, \(name), \(manufacture.toString())"
+        return "\(brand), \(capacity)ml, \(price)원, \(name), \(manufacturedAt.toString())"
     }
     
     private var brand: String
     private var capacity: Int
     private(set) var price: Int
     private(set) var name: String
-    private(set) var manufacture: Date
+    private(set) var manufacturedAt: Date
     
     init(brand: String, capacity: Int, price: Int, name: String, manufacture: Date) {
         self.brand = brand
         self.capacity = capacity
         self.price = price
         self.name = name
-        self.manufacture = manufacture
+        self.manufacturedAt = manufacture
     }
 }
 

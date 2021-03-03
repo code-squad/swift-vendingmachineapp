@@ -14,6 +14,7 @@
 		E4D4733625EF7B88007FAAA0 /* FlavoredMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D4733525EF7B88007FAAA0 /* FlavoredMilk.swift */; };
 		E4D4733925EF7CC4007FAAA0 /* ZeroCalorieSoftDrink.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D4733825EF7CC4007FAAA0 /* ZeroCalorieSoftDrink.swift */; };
 		E4D4733C25EF7EAA007FAAA0 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D4733B25EF7EAA007FAAA0 /* Protocols.swift */; };
+		E4D4733F25EF83C4007FAAA0 /* EnergyDrink.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D4733E25EF83C4007FAAA0 /* EnergyDrink.swift */; };
 		E4E22CE025E51B27008CA611 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E22CDF25E51B27008CA611 /* AppDelegate.swift */; };
 		E4E22CE225E51B27008CA611 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E22CE125E51B27008CA611 /* SceneDelegate.swift */; };
 		E4E22CE425E51B27008CA611 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E22CE325E51B27008CA611 /* ViewController.swift */; };
@@ -34,6 +35,7 @@
 		E4D4733525EF7B88007FAAA0 /* FlavoredMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlavoredMilk.swift; sourceTree = "<group>"; };
 		E4D4733825EF7CC4007FAAA0 /* ZeroCalorieSoftDrink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeroCalorieSoftDrink.swift; sourceTree = "<group>"; };
 		E4D4733B25EF7EAA007FAAA0 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		E4D4733E25EF83C4007FAAA0 /* EnergyDrink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnergyDrink.swift; sourceTree = "<group>"; };
 		E4E22CDC25E51B27008CA611 /* VendingMachineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendingMachineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4E22CDF25E51B27008CA611 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E4E22CE125E51B27008CA611 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 				E4E22D1D25E5EC53008CA611 /* SoftDrink.swift */,
 				E4D4733825EF7CC4007FAAA0 /* ZeroCalorieSoftDrink.swift */,
 				E4E22D2025E5ECC6008CA611 /* Coffee.swift */,
+				E4D4733E25EF83C4007FAAA0 /* EnergyDrink.swift */,
 				E4D472A625E5ED65007FAAA0 /* VendingMachine.swift */,
 				E4D472A925E5F15E007FAAA0 /* OutputView.swift */,
 				E4D4733B25EF7EAA007FAAA0 /* Protocols.swift */,
@@ -179,6 +182,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4D472B825E76C51007FAAA0 /* Date+DateFormatter.swift in Sources */,
+				E4D4733F25EF83C4007FAAA0 /* EnergyDrink.swift in Sources */,
 				E4D4733625EF7B88007FAAA0 /* FlavoredMilk.swift in Sources */,
 				E4E22CE425E51B27008CA611 /* ViewController.swift in Sources */,
 				E4E22CE025E51B27008CA611 /* AppDelegate.swift in Sources */,

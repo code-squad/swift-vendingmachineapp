@@ -30,6 +30,6 @@ extension Date {
     }
     
     func afterDays(days : Int) -> Date {
-        return Date.init(timeInterval: TimeInterval(days * 3600 * 24), since: self)
+        return Calendar.current.date(byAdding: .day, value: days, to: self) ?? Date.init(timeIntervalSince1970: 0)
     }
 }

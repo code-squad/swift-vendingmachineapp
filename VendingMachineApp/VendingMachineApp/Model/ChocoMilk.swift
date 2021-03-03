@@ -10,7 +10,7 @@ import Foundation
 class ChocoMilk: Milk {
     
     private let chocolateContent : Float // percent
-    private let thickChocolateCriteria = 1
+    private let thickChocolateCriteria : Float = 1
     
     init(brand : String, volume : Int, charge : Int, name :String, manufacturing : Date, expirationLimit : Int, chocolateContent : Float) {
         self.chocolateContent = chocolateContent

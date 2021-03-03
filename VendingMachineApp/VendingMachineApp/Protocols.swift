@@ -18,3 +18,7 @@ protocol LactoseFree {
 protocol HotServable {
     func isHot() -> Bool
 }
+
+protocol CaffeineContainable {
+    func hasCaffeine() -> Bool
+}

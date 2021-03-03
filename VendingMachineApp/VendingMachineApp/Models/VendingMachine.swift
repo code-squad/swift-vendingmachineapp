@@ -19,7 +19,7 @@ class VendingMachine {
     private var stock: Drinks
     private var credit: Money
     private var log: SalesLog
-
+    
     init(drinks: Drinks) {
         self.stock = drinks
         self.credit = Money()
@@ -98,5 +98,11 @@ class VendingMachine {
     
     func showLog() -> [String] {
         return log.get()
+    }
+    
+    func inventory(handler: (String,Int) -> Void) {
+        stock.showStock().forEach { key,value in
+            handler(key, value)
+        }
     }
 }

@@ -21,16 +21,22 @@ struct TestScenario: Testable {
         따듯한음료만출력()
         현재금액과음료구매_음료출력_남은금액출력()
         상품구매이력출력()
+        인벤토리확인하기()
     }
     
     func inputDrink() {
         let drinks: [Drink] = [
             StrawberryMilk(date: Date().date("20210220"), fat: 45, container: .bottle, expiration: Date().date("20210310"), hot: false, calorie: 250),
                                 CocaCola(date: Date().date("20180220"), isZero: true, flavor: .Original, expiration: Date().date("20210228"), hot: false, calorie: 0),
+            StrawberryMilk(date: Date().date("20210220"), fat: 45, container: .bottle, expiration: Date().date("20210309"), hot: false, calorie: 250),
+                                CocaCola(date: Date().date("20180220"), isZero: true, flavor: .Original, expiration: Date().date("20210228"), hot: false, calorie: 0),
+            StrawberryMilk(date: Date().date("20210220"), fat: 45, container: .bottle, expiration: Date().date("20210309"), hot: false, calorie: 250),
+            CocaCola(date: Date().date("20180217"), isZero: true, flavor: .Original, expiration: Date().date("20210228"), hot: false, calorie: 0),
             Top(date: Date().date("20190317"), caffein: 20, flavor: .Black, expiration: Date().date("20210101"), hot: true, calorie: 100),
             Cantata(date: Date().date("20201003"), caffein: 8, flavor: .KaramelMacchiato, expiration: Date().date("20210707"), hot: true, calorie: 100),
             ChocoMilk(date: Date().date("20210101"), fat: 20, cacao: .NinetyPercent, expiration: Date().date("20210304"), hot: false, calorie: 150),
-            Sprite(date: Date().date("20210202"), isZero: false, flavor: .Ginger, expiration: Date().date("20210608"), hot: false, calorie: 500)
+            Sprite(date: Date().date("20210202"), isZero: false, flavor: .Ginger, expiration: Date().date("20210608"), hot: false, calorie: 500),
+            Sprite(date: Date().date("20210201"), isZero: false, flavor: .Ginger, expiration: Date().date("20210608"), hot: false, calorie: 500)
         ]
         
         vendingMachine.append(drinks: drinks)
@@ -68,6 +74,13 @@ struct TestScenario: Testable {
         print("\n====Sales Log=====")
         vendingMachine.showLog().forEach {
             print($0)
+        }
+    }
+    
+    func 인벤토리확인하기() {
+        print("\n=====Show Inventory=====")
+        vendingMachine.inventory {
+            print("\($0): \($1)\n")
         }
     }
 }

@@ -10,7 +10,7 @@ import Foundation
 struct Machine {
     private var moneyProccesor = MoneyProcessingUnit()
     private var beverageStorage = BeverageStorage()
-    
+    private var purchaseHistory = [Beverage]()
     //MARK:- Money processor related methods
     func addMoneyHolding(by amount: Int) {
         moneyProccesor.increaseHolding(by: amount)
@@ -46,7 +46,7 @@ struct Machine {
         return beverageStorage.checkExpired()
     }
     
-    func purchaseBeverage(beverage: Beverage, completionHandler: (Beverage) -> Void) {
+    mutating func purchaseBeverage(beverage: Beverage) {
         let itemPrice = beverage.checkPrice()
         do {
             try moneyProccesor.deductMoneyOnTransaction(by: itemPrice)
@@ -59,10 +59,23 @@ struct Machine {
         } catch {
             print("Invalid beverage info")
         }
-        completionHandler(beverage)
+        savePurchaseHistory(beverage: beverage)
     }
 
-    func transactionStopButtonPressed() -> Int {
+    mutating func transactionStopButtonPressed() -> Int {
+        resetPurchaseHistory()
         return moneyProccesor.returnChanges()
+    }
+    
+    mutating public func savePurchaseHistory(beverage: Beverage) {
+        purchaseHistory.append(beverage)
+    }
+    
+    private mutating func resetPurchaseHistory() {
+        purchaseHistory = []
+    }
+    
+    func showPurchaseHistory() -> [Beverage] {
+        return purchaseHistory
     }
 }

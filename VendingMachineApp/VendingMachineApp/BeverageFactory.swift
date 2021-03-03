@@ -37,7 +37,7 @@ class CiderFactory: BeverageFactory {
 
 class TopCoffeeFactory: BeverageFactory {
     func produce() -> Beverage {
-        return TOP(calorie: 3)
+        return TOP(taste: .sweatAmericano)
     }
 }
 

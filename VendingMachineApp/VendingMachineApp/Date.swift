@@ -10,6 +10,7 @@ import Foundation
 extension Date{
     func returnStringDate(_ stringdate : String) -> Date {
         let tempdateFormatter = DateFormatter()
+        tempdateFormatter.timeZone = TimeZone(abbreviation: "UTC")
         tempdateFormatter.dateFormat = "yyyyMMdd"
         return tempdateFormatter.date(from: stringdate) ?? Date()
     }

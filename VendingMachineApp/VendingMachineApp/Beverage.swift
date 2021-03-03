@@ -9,6 +9,9 @@ import Foundation
 
 class Beverage : CustomStringConvertible {
     
+    func makeBeverage(_ product : BeverageFactroy) {
+    }
+    
     private let brand : String
     private let volume : Int
     private let price : Int

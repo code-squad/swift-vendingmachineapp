@@ -45,6 +45,12 @@ class Chocolate: Milk, Transportable {
         super.init(brand: brand, name: name, price: price, size: size, dateFactory: dateFactory, manufacturedInString: manufacturedInString, expireAfter: expireAfter, lactose: lactose)
     }
     
+    convenience init() {
+        self.init(brand: "푸르밀", name: "가나 초코우유", price: 1300, size: 225,
+                  dateFactory: SixDigitFactory(), manufacturedInString: "210303",
+                  expireAfter: 10, lactose: 3.5, package: .bottle)
+    }
+    
     func isTransportable() -> Bool {
         switch package {
         case .bottle:
@@ -66,6 +72,12 @@ class Plain: Milk, SugarFreeable {
         self.sugar = sugar
         
         super.init(brand: brand, name: name, price: price, size: size, dateFactory: dateFactory, manufacturedInString: manufacturedInString, expireAfter: expireAfter, lactose: lactose)
+    }
+    
+    convenience init() {
+        self.init(brand: "매일", name: "소화가 잘되는 우유", price: 850, size: 190,
+                  dateFactory: SixDigitFactory(), manufacturedInString: "210303",
+                  expireAfter: 7, lactose: 0.2, sugar: 0.2)
     }
     
     func isSugarFree(basedOn sugarStandard: Float) -> Bool {

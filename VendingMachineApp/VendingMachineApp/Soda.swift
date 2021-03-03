@@ -42,6 +42,12 @@ class Coke: Soda, SugarFreeable {
         super.init(brand: brand, name: name, price: price, size: size, dateFactory: dateFactory, manufacturedInString: manufacturedInString, package: package)
     }
     
+    convenience init() {
+        self.init(brand: "코카콜라", name: "코카콜라 제로", price: 2000, size: 500,
+                  dateFactory: SixDigitFactory(), manufacturedInString: "210303",
+                  package: .bottle , sugar: 0.0)
+    }
+    
     func isSugarFree(basedOn sugarStandard: Float) -> Bool {
         return sugar <= sugarStandard ? true : false
     }
@@ -58,6 +64,12 @@ class Milkis: Soda, LactoFreeable {
         self.lactose = lactose
         
         super.init(brand: brand, name: name, price: price, size: size, dateFactory: dateFactory, manufacturedInString: manufacturedInString, package: package)
+    }
+    
+    convenience init() {
+        self.init(brand: "", name: "밀키스", price: 1500, size: 340,
+                  dateFactory: SixDigitFactory(), manufacturedInString: "210303",
+                  package: .can, lactose: 3.5)
     }
     
     func isLactoFree(basedOn lactoStandard: Float) -> Bool {

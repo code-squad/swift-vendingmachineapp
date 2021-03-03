@@ -49,6 +49,12 @@ class Americano: Coffee, SugarFreeable {
                    temperature: temperature, package: package)
     }
     
+    convenience init() {
+        self.init(brand: "스타벅스", name: "블랙커피", price: 1800, size: 275,
+                  dateFactory: SixDigitFactory(), manufacturedInString: "210303",
+                  temperature: 75.5, package: .bottle, sugar: 0.0)
+    }
+    
     func isSugarFree(basedOn sugarStandard: Float) -> Bool {
         return sugar <= sugarStandard ? true : false
     }
@@ -68,6 +74,12 @@ class CafeLatte: Coffee, Expirable, LactoFreeable {
         
         super.init(brand: brand, name: name, price: price, size: size, dateFactory: dateFactory, manufacturedInString: manufacturedInString,
                    temperature: temperature, package: package)
+    }
+    
+    convenience init() {
+        self.init(brand: "코카콜라", name: "조지아 카페라떼", price: 900, size: 240,
+                  dateFactory: SixDigitFactory(), manufacturedInString: "210303",
+                  temperature: 8.5, package: .can, expireAfter: 10, lactose: 3.5)
     }
     
     func isExpired(compareTo date: Date) -> Bool {

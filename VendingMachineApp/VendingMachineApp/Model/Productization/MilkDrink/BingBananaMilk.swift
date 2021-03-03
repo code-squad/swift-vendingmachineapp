@@ -14,7 +14,7 @@ class BingBananaMilk: Milk, Productization {
         super.init(brand: brand,
                    capacity: capacity,
                    price: price,
-                   name: target == .forKids ? "\(name) \(self.target.rawValue)" : name,
+                   name: name,
                    fat: fat,
                    manufactured: manufactured,
                    temperature: temperature,
@@ -47,6 +47,6 @@ class BingBananaMilk: Milk, Productization {
     }
     
     func validManufactured(with date: Date) -> Bool {
-        return isDrinkableFromManufactured(during: 14, compareDate: date)
+        return isDrinkableFromManufactured(pastDate: 14, compareDate: date)
     }
 }

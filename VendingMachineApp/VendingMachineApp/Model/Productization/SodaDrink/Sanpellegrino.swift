@@ -40,6 +40,6 @@ class Sanpellegrino: Soda, Productization {
     }
     
     func validManufactured(with date: Date) -> Bool {
-        return isDrinkableFromManufactured(during: 180, compareDate: date)
+        return isDrinkableFromManufactured(pastDate: 180, compareDate: date)
     }
 }

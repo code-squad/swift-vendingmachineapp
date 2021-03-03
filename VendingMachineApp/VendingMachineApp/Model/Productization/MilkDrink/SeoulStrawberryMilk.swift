@@ -41,6 +41,6 @@ class SeoulStrawberryMilk: Milk, Productization {
     }
     
     func validManufactured(with date: Date) -> Bool {
-        return isDrinkableFromManufactured(during: 14, compareDate: date)
+        return isDrinkableFromManufactured(pastDate: 14, compareDate: date)
     }
 }

@@ -54,7 +54,7 @@ class Drinks {
         classify(with: drinks)
     }
     
-    func possibleDrinks(with credit: Int) -> Drinks {
+    func possibleDrinks(with credit: Money) -> Drinks {
         return Drinks(drinks.filter {
             $0.canBuy(with: credit)
         })

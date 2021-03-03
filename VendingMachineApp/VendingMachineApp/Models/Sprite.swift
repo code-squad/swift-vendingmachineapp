@@ -18,6 +18,6 @@ class Sprite: Soda {
     
     init(date: Date, isZero: Bool, flavor: Flavor, expiration: Date, hot: Bool, calorie: Int) {
         self.flavor = flavor
-        super.init(brand: "스프라이트", capacity: 333, price: 1800, name: flavor.rawValue, date: date,expiration: expiration, hot: hot, calorie: calorie)
+        super.init(brand: "스프라이트", capacity: 333, price: Money(how: 1800), name: flavor.rawValue, date: date,expiration: expiration, hot: hot, calorie: calorie)
     }
 }

@@ -7,11 +7,15 @@
 
 import Foundation
 
-class Money {
-    private (set) var property: Int
+class Money: CustomStringConvertible {
+    private var property: Int
     
-    init() {
-        self.property = 0
+    init(how property: Int) {
+        self.property = property
+    }
+    
+    convenience init() {
+        self.init(how: 0)
     }
     
     func deposit(unit: Int) {
@@ -21,4 +25,41 @@ class Money {
     func withdrawl(unit: Int) {
         property -= unit
     }
+    
+    func count() -> Int {
+        return property
+    }
+    
+    var description: String {
+        return "\(property)"
+    }
 }
+
+extension Money: Comparable {
+    static func < (lhs: Money, rhs: Money) -> Bool {
+        return lhs.property < rhs.property
+    }
+    
+    static func == (lhs: Money, rhs: Money) -> Bool {
+        return lhs.property == rhs.property
+    }
+    
+   static func + (lhs: Money, rhs: Money) -> Money {
+        let newProperty:Int = lhs.property + rhs.property
+        return Money(how: newProperty)
+    }
+    
+    static func - (lhs: Money, rhs: Money) -> Money {
+        let newProperty:Int = lhs.property - rhs.property
+        return Money(how: newProperty)
+    }
+    
+    static func += (lhs: inout Money, rhs: Money) {
+        lhs.property = lhs.property + rhs.property
+    }
+    
+    static func -= (lhs: inout Money, rhs: Money) {
+        lhs.property = lhs.property - rhs.property
+    }
+}
+

@@ -18,6 +18,6 @@ class CocaCola: Soda {
     
     init(date: Date, isZero: Bool, flavor: Flavor, expiration: Date, hot: Bool, calorie: Int) {
         self.flavor = flavor
-        super.init(brand: "코카콜라", capacity: 333, price: 2200, name: flavor.rawValue, date: date, expiration: expiration, hot: hot, calorie: calorie)
+        super.init(brand: "코카콜라", capacity: 333, price: Money(how: 2200), name: flavor.rawValue, date: date, expiration: expiration, hot: hot, calorie: calorie)
     }
 }

@@ -10,7 +10,7 @@ import Foundation
 class Drink : CustomStringConvertible, Hashable {
     private var brand: String
     private var capacity: Int
-    private (set) var price: Int
+    private (set) var price: Money
     private var name: String
     private var manufacturedDate: Date
     private var expiration: Date
@@ -19,7 +19,7 @@ class Drink : CustomStringConvertible, Hashable {
     
 
     
-    init(brand: String, capacity: Int, price: Int, name: String, manufacturedDate: Date, expiration: Date, hot: Bool, calorie: Int){
+    init(brand: String, capacity: Int, price: Money, name: String, manufacturedDate: Date, expiration: Date, hot: Bool, calorie: Int){
         self.brand = brand
         self.capacity = capacity
         self.price = price
@@ -31,14 +31,14 @@ class Drink : CustomStringConvertible, Hashable {
     }
     
     convenience init() {
-        self.init(brand: "", capacity: 0, price: 0, name: "", manufacturedDate: Date(), expiration: Date(), hot: false, calorie: 0)
+        self.init(brand: "", capacity: 0, price: Money(), name: "", manufacturedDate: Date(), expiration: Date(), hot: false, calorie: 0)
     }
     
     var description: String {
         return "\(brand), \(capacity)ml, \(price)원, \(name), \(manufacturedDate.description)"
     }
     
-    func canBuy(with credit: Int) -> Bool {
+    func canBuy(with credit: Money) -> Bool {
         return credit > price
     }
     
@@ -59,7 +59,6 @@ class Drink : CustomStringConvertible, Hashable {
     }
     
     func hash(into hasher: inout Hasher) {
-        hasher.combine(self)
         hasher.combine(name)
         hasher.combine(brand)
     }

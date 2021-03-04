@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-protocol VendingMachineDelegate {
+protocol VendingMachinePresenter {
     
     func didTurnOn(images: [UIImageView], countLabels: [UILabel], machine: VendingMachine, moneyLabel: UILabel, beverageList: [Beverage])
     
@@ -18,7 +18,7 @@ protocol VendingMachineDelegate {
     
 }
 
-class VendingMachineUpdator: VendingMachineDelegate {
+class VendingMachineUpdator: VendingMachinePresenter {
     
     func didTurnOn(images: [UIImageView], countLabels: [UILabel], machine: VendingMachine, moneyLabel: UILabel, beverageList: [Beverage]) {
         

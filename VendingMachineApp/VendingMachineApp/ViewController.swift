@@ -18,7 +18,7 @@ class ViewController: UIViewController {
                                         sugarStandard: 1.0,
                                         lactoStandard: 0.5)
     
-    private var vendingMachineDelegate = VendingMachineUpdator()
+    private var presenter = VendingMachineUpdator()
     private var beverageList = [Beverage]()
     private let beverageFactory = BeverageFactory0303()
     
@@ -27,14 +27,14 @@ class ViewController: UIViewController {
         
         beverageList = beverageFactory.createAll()
         
-        vendingMachineDelegate.didTurnOn(images: beverageCollection, countLabels: countCollection, machine: vendingMachine, moneyLabel: moneyLabel, beverageList: beverageList)
+        presenter.didTurnOn(images: beverageCollection, countLabels: countCollection, machine: vendingMachine, moneyLabel: moneyLabel, beverageList: beverageList)
     }
     
     @IBAction func addMoneyTouched(_ sender: UIButton) {
-        vendingMachineDelegate.didAddMoneyTouched(sender: sender, machine: vendingMachine, label: moneyLabel)
+        presenter.didAddMoneyTouched(sender: sender, machine: vendingMachine, label: moneyLabel)
     }
     
     @IBAction func addStockTouched(_ sender: UIButton) {
-        vendingMachineDelegate.didAddStockTouched(sender: sender, machine: vendingMachine, labels: countCollection, beverageList: beverageList)
+        presenter.didAddStockTouched(sender: sender, machine: vendingMachine, labels: countCollection, beverageList: beverageList)
     }
 }

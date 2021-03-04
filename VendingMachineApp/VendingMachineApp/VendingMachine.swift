@@ -32,7 +32,7 @@ struct VendingMachine {
     func showPurchasableItemsWithDeposit() -> [Slot] {
         var purchasableItems: [Slot] = []
         inventory.showSlots {
-            if $0.isCheaper(than: moneyDeposited) {
+            if $0.isSameOrCheaper(than: moneyDeposited) {
                 purchasableItems.append($0)
             }
         }

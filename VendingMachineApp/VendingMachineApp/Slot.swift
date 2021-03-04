@@ -37,7 +37,7 @@ class Slot: CustomStringConvertible {
         }
     }
     
-    func isCheaper(than price: Int) -> Bool {
+    func isSameOrCheaper(than price: Int) -> Bool {
         if let slotPrice = firstItem?.price {
             return slotPrice <= price
         } else {
@@ -60,8 +60,6 @@ class Slot: CustomStringConvertible {
     }
     
     func isHotDrinkSlot() -> Bool {
-        return items.first {
-            type(of: $0) == HotServable.self && ($0 as! HotServable).isHot()
-        } != nil
+        return items.first { $0 is HotServable && ($0 as! HotServable).isHot() } != nil
     }
 }

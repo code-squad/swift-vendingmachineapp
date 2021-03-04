@@ -8,9 +8,9 @@
 import Foundation
 
 class VendingMachine {
-    private let moneyManager: MoneyManagable
-    private let inventoryManager: InventoryManagable
-    private let purchaseHistoryManager: PurchaseHistoryManagable
+    private (set) var moneyManager: MoneyManagable
+    private (set) var inventoryManager: InventoryManagable
+    private (set) var purchaseHistoryManager: PurchaseHistoryManagable
     
     init(moneyManager: MoneyManagable, inventoryManager: InventoryManagable, purchaseHistoryManager: PurchaseHistoryManagable) {
         self.moneyManager = moneyManager

@@ -35,7 +35,7 @@ class VendingMachineTests: XCTestCase {
         inventoryManager.addInventory(cantatacoffeeFactory.produce())
         inventoryManager.addInventory(ciderFactory.produce())
         
-        XCTAssertEqual(inventoryManager.readInventores().count, 6)
+        XCTAssertEqual(inventoryManager.readInventores().count, 3)
     }
     
     private func assertIncreaseBalance() {
@@ -45,7 +45,7 @@ class VendingMachineTests: XCTestCase {
     
     private func assertPurchasable() {
         let purchasable = inventoryManager.isPurchasableInventory(balance: moneyManager.readBalance())
-        XCTAssertEqual(purchasable.readInventores().count, 2)
+        XCTAssertEqual(purchasable.readInventores().count, 1)
     }
     
     private func assertPurchase() {
@@ -53,10 +53,10 @@ class VendingMachineTests: XCTestCase {
         let bananaMilkFactory = BananaMilkFactory()
         let bananaMilk = bananaMilkFactory.produce()
         inventoryManager.addInventory(bananaMilk)
-        XCTAssertEqual(inventoryManager.readInventores().count, 7)
+        XCTAssertEqual(inventoryManager.readInventores().count, 3)
         
         vendingMachine.purchaseBeverage(beverage: bananaMilk)
-        XCTAssertEqual(inventoryManager.readInventores().count, 6)
+        XCTAssertEqual(inventoryManager.readInventores().count, 3)
     }
     
     private func assertPurchasedHistory() {
@@ -67,12 +67,21 @@ class VendingMachineTests: XCTestCase {
         XCTAssertEqual(moneyManager.readBalance(), 100)
     }
     
-    func testMilkDetail() {
+    func testBananaMilk() {
         let bananaMilkFactory = BananaMilkFactory()
         let bananaMilk = bananaMilkFactory.produce()
         XCTAssertTrue(!bananaMilk.isExpired(now: Date()))
         XCTAssertTrue(bananaMilk.isHot(temparature: 2))
         XCTAssertTrue(!bananaMilk.isLowCalorie(calories: 60))
         XCTAssertTrue(bananaMilk.isPurchasable(balance: 1000))
+    }
+    
+    func testCider() {
+        let ciderFactory = CiderFactory()
+        let cider = ciderFactory.produce()
+        XCTAssertTrue(!cider.isExpired(now: Date()))
+        XCTAssertTrue(cider.isHot(temparature: 2))
+        XCTAssertTrue(!cider.isLowCalorie(calories: 60))
+        XCTAssertTrue(cider.isPurchasable(balance: 2000))
     }
 }

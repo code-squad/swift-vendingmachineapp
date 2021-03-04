@@ -8,12 +8,18 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    let vendingMachine = VendingMachine()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let vendingMachine = VendingMachine()
     }
+    
     @IBAction func addStock(_ sender: UIButton) {
+        
+    }
+    
+    @IBAction func rechargeCash(_ sender: UIButton) {
     }
     
 }

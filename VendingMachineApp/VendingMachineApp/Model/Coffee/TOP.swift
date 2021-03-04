@@ -20,6 +20,9 @@ class TOP: Coffee {
         self.flavor = flavor
         super.init(brand: brand, capacity: capacity, price: price, name: name, manufacturedAt: manufacturedAt, expirationAt: expirationAt, temperature: temperature, caffeineContent: caffeineContent)
     }
+    convenience init() {
+        self.init(brand: "동서식품", capacity: 380, price: 2000, name: "TOP", manufacturedAt: Date.input("20210222"), expirationAt: Date.input("20210301"), temperature: 65, caffeineContent: 94, flavor: TOP.Flavor.americano)
+    }
     
     func isEspresso() -> Bool {
         return self.flavor == Flavor.espresso

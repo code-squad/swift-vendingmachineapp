@@ -59,7 +59,9 @@ class Slot: CustomStringConvertible {
         }
     }
     
-    func isHotDrink() -> Bool {
-        return items.first(where: { ($0 as! HotServable).isHot() }) != nil
+    func isHotDrinkSlot() -> Bool {
+        return items.first {
+            type(of: $0) == HotServable.self && ($0 as! HotServable).isHot()
+        } != nil
     }
 }

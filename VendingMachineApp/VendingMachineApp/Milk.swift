@@ -23,11 +23,11 @@ class Milk: Beverage, Expirable, LactoFreeable {
     }
     
     func isExpired(compareTo date: Date) -> Bool {
-        return expiry < date ? true : false
+        return expiry < date
     }
     
     func isLactoFree(basedOn lactoStandard: Float) -> Bool {
-        return lactose <= lactoStandard ? true : false
+        return lactose <= lactoStandard
     }
     
 }
@@ -69,6 +69,6 @@ class Plain: Milk, SugarFreeable {
     }
     
     func isSugarFree(basedOn sugarStandard: Float) -> Bool {
-        return sugar <= sugarStandard ? true : false
+        return sugar <= sugarStandard
     }
 }

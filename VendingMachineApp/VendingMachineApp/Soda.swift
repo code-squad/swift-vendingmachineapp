@@ -43,7 +43,7 @@ class Coke: Soda, SugarFreeable {
     }
 
     func isSugarFree(basedOn sugarStandard: Float) -> Bool {
-        return sugar <= sugarStandard ? true : false
+        return sugar <= sugarStandard
     }
 }
 
@@ -61,6 +61,6 @@ class Milkis: Soda, LactoFreeable {
     }
     
     func isLactoFree(basedOn lactoStandard: Float) -> Bool {
-        return lactose <= lactoStandard ? true : false
+        return lactose <= lactoStandard
     }
 }

@@ -22,7 +22,7 @@ class Coffee: Beverage, Hotable, Transportable {
     }
     
     func isHot(basedOn temperature: Float) -> Bool {
-        return self.temperature >= temperature ? true : false
+        return self.temperature >= temperature
     }
 
     func isTransportable() -> Bool {
@@ -50,7 +50,7 @@ class Americano: Coffee, SugarFreeable {
     }
 
     func isSugarFree(basedOn sugarStandard: Float) -> Bool {
-        return sugar <= sugarStandard ? true : false
+        return sugar <= sugarStandard
     }
 }
 
@@ -71,10 +71,10 @@ class CafeLatte: Coffee, Expirable, LactoFreeable {
     }
     
     func isExpired(compareTo date: Date) -> Bool {
-        return expiry < date ? true : false
+        return expiry < date
     }
     
     func isLactoFree(basedOn lactoStandard: Float) -> Bool {
-        return lactose <= lactoStandard ? true : false
+        return lactose <= lactoStandard
     }
 }

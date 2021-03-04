@@ -58,7 +58,7 @@ class VendingMachineAppTests: XCTestCase {
         vendingMachine.insertCoin(1000)
         
         XCTAssertEqual(vendingMachine.availableDrink(), [seoulMilk])
-        _ = vendingMachine.buy(seoulMilk)
+        _ = vendingMachine.buy(typeOf: SeoulStrawberryMilk.self)
         XCTAssertEqual(vendingMachine.showPurchasehistory(), [seoulMilk])
         
     }

@@ -34,8 +34,8 @@ class VendingMachine {
         return drinks
     }
 
-    public func buy(_ drink: Drink) -> Drink? {
-        return stock.purchased(drink) { (drink) -> Drink? in
+    public func buy(typeOf drinkType: Drink.Type) -> Drink? {
+        return stock.purchased(drinkType) { (drink) -> Drink? in
             var haveCoin = 0
             coins.CheckCoins { (coin) in
                 haveCoin = coin

@@ -24,9 +24,9 @@ class Stock: StockManageable {
         return Array(availableDrinks)
     }
 
-    public func purchased(_ drink: Drink, checkCoin: (Drink) -> Drink?) -> Drink? {
-        guard checkProductization(of: drink) else { return nil }
-        return checkCoin(drink)
+    public func purchased(drinkType: Drink.Type, checkCoin: (Drink) -> Drink?) -> Drink? {
+        guard let firstDrink = stock.first(where: { type(of:$0) == drinkType }) else { return nil }
+        return checkCoin(firstDrink)
     }
 
     public func lookingForExpiredDrinks() -> [Drink] {

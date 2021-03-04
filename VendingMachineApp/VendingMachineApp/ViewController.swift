@@ -20,20 +20,14 @@ class ViewController: UIViewController {
     
     private var vendingMachineDelegate = VendingMachineUpdator()
     private var beverageList = [Beverage]()
-    private let beverageFactory = BeverageFactory0303.self
+    private let beverageFactory = BeverageFactory0303()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        listUp()
+        beverageList = beverageFactory.createAll()
         
         vendingMachineDelegate.didTurnOn(images: beverageCollection, countLabels: countCollection, machine: vendingMachine, moneyLabel: moneyLabel, beverageList: beverageList)
-    }
-    
-    private func listUp() {
-        beverageFactory.allCases.forEach { (beverage) in
-            beverageList.append(beverage.create())
-        }
     }
     
     @IBAction func addMoneyTouched(_ sender: UIButton) {

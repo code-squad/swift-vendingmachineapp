@@ -43,7 +43,7 @@ struct VendingMachine {
         var vendedItem: Beverage?
         inventory.showSlots {
             if $0.compareName(with: name) {
-                vendedItem = $0.dropFirstItem(named: name)
+                vendedItem = $0.dropFirstItem()
             }
         }
         if let vendedItem = vendedItem {

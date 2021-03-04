@@ -49,7 +49,7 @@ class Slot: CustomStringConvertible {
         return !items.isEmpty ? firstItem?.name == name : false
     }
     
-    func dropFirstItem(named name: String) -> Beverage? {
+    func dropFirstItem() -> Beverage? {
         return !items.isEmpty ? items.removeFirst() : nil
     }
     

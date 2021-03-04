@@ -45,7 +45,7 @@ class Inventory: InventoryManagable {
     }
     
     func hotBeverages() -> InventoryManagable {
-        return Inventory(inventory: self.inventory.filter { $0.isHot() })
+        return Inventory(inventory: self.inventory.filter { $0.isHot(temparature: 60) })
     }
     
     func readInventores() -> [Beverage: Int] {

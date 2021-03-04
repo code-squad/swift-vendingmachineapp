@@ -12,7 +12,7 @@
 		BD34A5ED25E79AE300FBB9E2 /* ConvertDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD34A5EC25E79AE300FBB9E2 /* ConvertDate.swift */; };
 		BD91BE2925E63C8B009DCFD3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD91BE2825E63C8B009DCFD3 /* AppDelegate.swift */; };
 		BD91BE2B25E63C8B009DCFD3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD91BE2A25E63C8B009DCFD3 /* SceneDelegate.swift */; };
-		BD91BE2D25E63C8B009DCFD3 /* VendingMachineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD91BE2C25E63C8B009DCFD3 /* VendingMachineViewController.swift */; };
+		BD91BE2D25E63C8B009DCFD3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD91BE2C25E63C8B009DCFD3 /* ViewController.swift */; };
 		BD91BE3025E63C8B009DCFD3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD91BE2E25E63C8B009DCFD3 /* Main.storyboard */; };
 		BD91BE3225E63C8C009DCFD3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD91BE3125E63C8C009DCFD3 /* Assets.xcassets */; };
 		BD91BE3525E63C8C009DCFD3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD91BE3325E63C8C009DCFD3 /* LaunchScreen.storyboard */; };
@@ -24,6 +24,7 @@
 		BDB00DDE25EE097A00189286 /* Cantata.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB00DDD25EE097A00189286 /* Cantata.swift */; };
 		BDF11B4725EF2E680027FB8F /* Beveragable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF11B4625EF2E680027FB8F /* Beveragable.swift */; };
 		BDF11B4E25EF65EF0027FB8F /* Beverages.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF11B4D25EF65EF0027FB8F /* Beverages.swift */; };
+		BDF11B5125EF80C10027FB8F /* Money.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF11B5025EF80C10027FB8F /* Money.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,7 +34,7 @@
 		BD91BE2525E63C8B009DCFD3 /* VendingMachineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendingMachineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD91BE2825E63C8B009DCFD3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BD91BE2A25E63C8B009DCFD3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		BD91BE2C25E63C8B009DCFD3 /* VendingMachineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineViewController.swift; sourceTree = "<group>"; };
+		BD91BE2C25E63C8B009DCFD3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BD91BE2F25E63C8B009DCFD3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BD91BE3125E63C8C009DCFD3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BD91BE3425E63C8C009DCFD3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -46,6 +47,7 @@
 		BDB00DDD25EE097A00189286 /* Cantata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cantata.swift; sourceTree = "<group>"; };
 		BDF11B4625EF2E680027FB8F /* Beveragable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beveragable.swift; sourceTree = "<group>"; };
 		BDF11B4D25EF65EF0027FB8F /* Beverages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beverages.swift; sourceTree = "<group>"; };
+		BDF11B5025EF80C10027FB8F /* Money.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Money.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,7 +84,7 @@
 				BDFB962525E8EF2400A7B0FF /* Date */,
 				BDFB962425E8EF0600A7B0FF /* Model */,
 				BD91BE2A25E63C8B009DCFD3 /* SceneDelegate.swift */,
-				BD91BE2C25E63C8B009DCFD3 /* VendingMachineViewController.swift */,
+				BD91BE2C25E63C8B009DCFD3 /* ViewController.swift */,
 				BD91BE2825E63C8B009DCFD3 /* AppDelegate.swift */,
 				BD91BE2E25E63C8B009DCFD3 /* Main.storyboard */,
 				BD91BE3125E63C8C009DCFD3 /* Assets.xcassets */,
@@ -109,6 +111,7 @@
 				BD91BE4425E64042009DCFD3 /* Soda.swift */,
 				BDB00DCB25EE08EA00189286 /* Coke.swift */,
 				BD91BE3E25E6401B009DCFD3 /* Milk.swift */,
+				BDF11B5025EF80C10027FB8F /* Money.swift */,
 				BDB00DD425EE094800189286 /* StrawberryMilk.swift */,
 				BD91BE4125E64024009DCFD3 /* Coffee.swift */,
 				BDB00DDD25EE097A00189286 /* Cantata.swift */,
@@ -195,10 +198,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD91BE4525E64042009DCFD3 /* Soda.swift in Sources */,
-				BD91BE2D25E63C8B009DCFD3 /* VendingMachineViewController.swift in Sources */,
+				BD91BE2D25E63C8B009DCFD3 /* ViewController.swift in Sources */,
 				BD91BE2925E63C8B009DCFD3 /* AppDelegate.swift in Sources */,
 				BDB00DDE25EE097A00189286 /* Cantata.swift in Sources */,
 				BDB00DCC25EE08EA00189286 /* Coke.swift in Sources */,
+				BDF11B5125EF80C10027FB8F /* Money.swift in Sources */,
 				BD91BE3F25E6401B009DCFD3 /* Milk.swift in Sources */,
 				BDF11B4E25EF65EF0027FB8F /* Beverages.swift in Sources */,
 				BD91BE2B25E63C8B009DCFD3 /* SceneDelegate.swift in Sources */,

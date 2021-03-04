@@ -15,7 +15,7 @@ class Beverage: CustomStringConvertible, Beveragable  {
     
     private var brand: String
     private var volume: Int
-    private var price: Int
+    private(set) var price: Int
     private var name: String
     private var manufacturedAt: Date
     private var temperature: Double
@@ -33,6 +33,10 @@ class Beverage: CustomStringConvertible, Beveragable  {
         self.calory = calory
     }
     
+    func availableBeverage(currentAmount: Int) -> Bool {
+        return price <= currentAmount
+    }
+    
     func isExpired(with date: Date) -> Bool {
         return expirationDate < date
     }
@@ -43,5 +47,10 @@ class Beverage: CustomStringConvertible, Beveragable  {
     
     func isLowCalorie() -> Bool {
         return calory < 50
+    }
+}
+extension Beverage {
+    static func == (lhs: Beverage, rhs: Beverage) -> Bool{
+        return (lhs.brand == rhs.brand) && (lhs.volume == rhs.volume) && (lhs.price) == (rhs.price) && (lhs.name) == (rhs.name) && (lhs.manufacturedAt == rhs.manufacturedAt) && (lhs.temperature == rhs.temperature) && (lhs.expirationDate == rhs.expirationDate) && (lhs.calory == rhs.calory)
     }
 }

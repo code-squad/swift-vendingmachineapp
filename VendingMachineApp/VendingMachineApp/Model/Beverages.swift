@@ -24,4 +24,15 @@ class Beverages {
             completion($0)
         )}
     }
+    
+    func removeBeverage(beverage: Beverage) {
+        for beverageIndex in 0 ..< beverages.count {
+            if beverages[beverageIndex] == beverage {
+                beverages.remove(at: beverageIndex)
+                break
+            }
+        }
+    }
+    
 }
+

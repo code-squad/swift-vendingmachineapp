@@ -38,7 +38,7 @@ class VendingMachine {
         money.addMoney(money: money)
     }
     
-    func addBeverage(beverage : Beverage){ //다형성으로 해결할 수 있을 각인데.. 오버라이드 하고 각 객체로 보내고.. 매개변수로 밴딩머신 넣어주고..
+    func addBeverage(beverage : Beverage){
         beverage.addtoVendingMachine(vendingMachine: self)
     }
     

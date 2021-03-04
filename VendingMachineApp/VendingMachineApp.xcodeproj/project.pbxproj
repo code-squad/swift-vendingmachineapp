@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D0324E6F25E531F70098A066 /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0324E6E25E531F70098A066 /* Drink.swift */; };
+		D0396B6F25EF4F3000E7D06E /* DrinkFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0396B6E25EF4F3000E7D06E /* DrinkFactory.swift */; };
 		D055C61A25E5ED6000C4D1C3 /* VendingMachineAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D055C61925E5ED6000C4D1C3 /* VendingMachineAppTests.swift */; };
 		D055C63025E62DDE00C4D1C3 /* Cantata.swift in Sources */ = {isa = PBXBuildFile; fileRef = D055C62F25E62DDE00C4D1C3 /* Cantata.swift */; };
 		D055C63C25E62F9800C4D1C3 /* BananaMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = D055C63B25E62F9800C4D1C3 /* BananaMilk.swift */; };
@@ -41,6 +42,7 @@
 
 /* Begin PBXFileReference section */
 		D0324E6E25E531F70098A066 /* Drink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drink.swift; sourceTree = "<group>"; };
+		D0396B6E25EF4F3000E7D06E /* DrinkFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkFactory.swift; sourceTree = "<group>"; };
 		D055C61725E5ED6000C4D1C3 /* VendingMachineAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VendingMachineAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D055C61925E5ED6000C4D1C3 /* VendingMachineAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineAppTests.swift; sourceTree = "<group>"; };
 		D055C61B25E5ED6000C4D1C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 				D0636C3225E4A7020087E3E8 /* ViewController.swift */,
 				D0C3DA9125EE042A0019C643 /* Drinkable.swift */,
 				D0C3DA9225EE042A0019C643 /* Sweetable.swift */,
+				D0396B6E25EF4F3000E7D06E /* DrinkFactory.swift */,
 				D0A3FAD025E88DEF004FF690 /* Models */,
 				D0F5E56D25E4A7F5008D4C5D /* Date+Extension.swift */,
 				D0636C3425E4A7020087E3E8 /* Main.storyboard */,
@@ -258,6 +261,7 @@
 				D0F5E56E25E4A7F5008D4C5D /* Date+Extension.swift in Sources */,
 				D0324E6F25E531F70098A066 /* Drink.swift in Sources */,
 				D0F5E56B25E4A7D3008D4C5D /* Soda.swift in Sources */,
+				D0396B6F25EF4F3000E7D06E /* DrinkFactory.swift in Sources */,
 				D0F5E57125E4A816008D4C5D /* Milk.swift in Sources */,
 				D055C63025E62DDE00C4D1C3 /* Cantata.swift in Sources */,
 				D0C3DA9425EE042A0019C643 /* Sweetable.swift in Sources */,

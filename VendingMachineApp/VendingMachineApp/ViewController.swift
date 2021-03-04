@@ -13,15 +13,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var remainCoinsLabel: UILabel!
     @IBOutlet var drinkStockLabels: [UILabel]!
     
-    var drinks: [Drink: Int] = [:]
-    var vendingMachine: VendingMachine? {
-        didSet {
-            if var vm = vendingMachine {
-                drinks = vm.getAllDrinks()
-            }
-        }
-    }
-
+    var vendingMachine: VendingMachine?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupDrinkImage()

@@ -20,7 +20,7 @@ class MilkFactory: BeverageFactory {
 
 class SodaFactory: BeverageFactory {
     func create() -> Beverage {
-        Coke(brand: "코카콜라", capacity: 200, price: 1000, name: "콜라",manufacture: Date(), taste: .lemon, hasCalorie: true, expiredAt: Calendar.current.date(byAdding: .day, value: 180, to: Date())!)
+        Coke(brand: "코카콜라", capacity: 200, price: 1000, name: "콜라",manufacture: Date(), taste: .lemon, calorie: 5, expiredAt: Calendar.current.date(byAdding: .day, value: 180, to: Date())!)
     }
 }
 

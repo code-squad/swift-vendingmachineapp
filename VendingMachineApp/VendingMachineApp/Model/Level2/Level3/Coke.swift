@@ -9,14 +9,16 @@ import Foundation
 
 class Coke: Soda, LowCalorieChecker {
     
-    private var hasCalorie: Bool
+    private var calorie: Int
     
-    init(brand: String, capacity: Int, price: Int, name: String, manufacture: Date, taste: Taste, hasCalorie: Bool, expiredAt: Date) {
-        self.hasCalorie = hasCalorie
+    init(brand: String, capacity: Int, price: Int, name: String, manufacture: Date, taste: Taste, calorie: Int, expiredAt: Date) {
+        self.calorie = calorie
         super.init(brand: brand, capacity: capacity, price: price, name: name, manufacture: manufacture, taste: taste, expiredAt: expiredAt)
     }
     
     func isLowCalorie() -> Bool {
-        return hasCalorie
+        let lowCalorie = 10
+        
+        return calorie < lowCalorie
     }
 }

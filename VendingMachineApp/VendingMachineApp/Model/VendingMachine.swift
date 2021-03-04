@@ -58,7 +58,7 @@ class VendingMachine {
         return leftCoins
     }
     
-    public func showStock() -> [String: UInt] {
+    public func showStock() -> [ObjectIdentifier: [Drink]] {
         return stock.toShowStock()
     }
 

@@ -53,12 +53,11 @@ class Stock: StockManageable {
     }
     
     
-    public func toShowStock() -> [String: UInt] {
-        var eachStock = Dictionary<String, UInt>()
+    public func toShowStock() -> [ObjectIdentifier: [Drink]] {
+        var eachStock = Dictionary<ObjectIdentifier, [Drink]>()
         for drink in stock {
-            drink.checkName { (name) in
-                eachStock[name, default: 0] += 1
-            }
+            let key = ObjectIdentifier(type(of: drink))
+            eachStock[key, default: [Drink]()].append(drink)
         }
         return eachStock
     }

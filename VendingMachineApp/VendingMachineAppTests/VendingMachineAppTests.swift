@@ -48,13 +48,8 @@ class VendingMachineAppTests: XCTestCase {
         vendingMachine.addDrink(fanta)
         vendingMachine.addDrink(weirdSoda)
         
-        XCTAssertEqual(vendingMachine.showStock(),
-                       ["StarBucks Cold Brew(Black)": 1,
-                        "Sanpellegrino": 1,
-                        "Fanta orange": 1,
-                        "서울 우유 딸기맛": 1,
-                        "빙그레 바나나우유": 1,
-                        "BlueBottle Cold Brew(Bright)": 1])
+        XCTAssertEqual(vendingMachine.showStock().count,
+                       6)
         
         XCTAssertEqual(vendingMachine.findWarmDrinks(), [])
         

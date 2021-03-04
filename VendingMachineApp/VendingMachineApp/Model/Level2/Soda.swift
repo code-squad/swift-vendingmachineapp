@@ -15,8 +15,8 @@ class Soda: Beverage, CustomStringConvertible {
     
     private var taste: Taste
     
-    init(brand: String, capacity: Int, price: Int, name: String, manufacture: Date, taste: Taste) {
+    init(brand: String, capacity: Int, price: Int, name: String, manufacture: Date, taste: Taste, expiredAt: Date) {
         self.taste = taste
-        super.init(brand: brand, capacity: capacity, price: price, name: name, manufacture: manufacture)
+        super.init(brand: brand, capacity: capacity, price: price, name: name, manufacture: manufacture, expiredAt: expiredAt)
     }
 }

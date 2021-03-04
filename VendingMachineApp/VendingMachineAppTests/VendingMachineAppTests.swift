@@ -67,7 +67,7 @@ class VendingMachineAppTests: XCTestCase {
     }
 
     func test_유통기한_넘은_재고목록() throws {
-        let fakeBananaMilk = BananaMilk(brand: "테스트", capacity: 200, price: 1000, name: "바나나우유_테스트", manufacture: Date(), farmCode: "A_테스트", hasDoraemonSticker: true, expiry: Calendar.current.date(byAdding: .day, value: -5, to: Date())!)
+        let fakeBananaMilk = BananaMilk(brand: "테스트", capacity: 200, price: 1000, name: "바나나우유_테스트", manufacture: Date(), farmCode: "A_테스트", hasDoraemonSticker: true, expiredAt: Calendar.current.date(byAdding: .day, value: -5, to: Date())!)
     
             vendingMachine.appendBeverage(fakeBananaMilk)
     
@@ -75,7 +75,7 @@ class VendingMachineAppTests: XCTestCase {
     }
     
     func test_따뜻한_음료_목록() throws {
-        let fakeTop = Top(brand: "테스트", capacity: 300, price: 1000, name: "테스트", manufacture: Date(), isHot: true, hasSugar: true)
+        let fakeTop = Top(brand: "테스트", capacity: 300, price: 1000, name: "테스트", manufacture: Date(), isHot: true, hasSugar: true, expiredAt: Date())
     
             vendingMachine.appendBeverage(fakeTop)
     

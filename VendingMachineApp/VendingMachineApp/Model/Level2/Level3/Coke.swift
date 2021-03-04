@@ -11,9 +11,9 @@ class Coke: Soda, LowCalorieChecker {
     
     private var hasCalorie: Bool
     
-    init(brand: String, capacity: Int, price: Int, name: String, manufacture: Date, taste: Taste, hasCalorie: Bool) {
+    init(brand: String, capacity: Int, price: Int, name: String, manufacture: Date, taste: Taste, hasCalorie: Bool, expiredAt: Date) {
         self.hasCalorie = hasCalorie
-        super.init(brand: brand, capacity: capacity, price: price, name: name, manufacture: manufacture, taste: taste)
+        super.init(brand: brand, capacity: capacity, price: price, name: name, manufacture: manufacture, taste: taste, expiredAt: expiredAt)
     }
     
     func isLowCalorie() -> Bool {

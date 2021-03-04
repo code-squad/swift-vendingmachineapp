@@ -13,9 +13,6 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        outputView.test_Drink()
-        print("@@@@@@@@@@@@@@@@@@@@@@@@@@@")
-        outputView.test_Machine()
     }
 
 

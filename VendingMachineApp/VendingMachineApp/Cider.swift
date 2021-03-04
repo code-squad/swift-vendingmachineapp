@@ -8,14 +8,10 @@
 import Foundation
 
 class Cider : Soda{
-    let flavor : Flavor
+    let appleContent : Int
     
-    enum Flavor {
-        case lime, lemon
-    }
-    
-    init(flavor:Flavor, sugar: Bool, brand: String, volume: Int, price: Int, name: String, manufactured: Date, temperature: Int, kcal: Int) {
-        self.flavor = flavor
+    init(appleContent: Int, sugar: Bool, brand: String, volume: Int, price: Int, name: String, manufactured: Date, temperature: Int, kcal: Int) {
+        self.appleContent = appleContent
         super.init(sugar: sugar, brand: brand, volume: volume, price: price, name: name, manufactured: manufactured, temperature: temperature, kcal: kcal)
     }
 }

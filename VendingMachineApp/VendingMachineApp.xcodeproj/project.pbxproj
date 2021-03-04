@@ -15,6 +15,7 @@
 		717DE50825E5E0A8004B2269 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 717DE50625E5E0A8004B2269 /* LaunchScreen.storyboard */; };
 		717DE51325E5E26F004B2269 /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717DE51225E5E26F004B2269 /* Beverage.swift */; };
 		717DE51B25E5E369004B2269 /* Brand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717DE51A25E5E369004B2269 /* Brand.swift */; };
+		71977F7F25F0ABEE0006A44C /* BeverageFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71977F7E25F0ABEE0006A44C /* BeverageFactory.swift */; };
 		719783E425E638AE001D428C /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719783E325E638AE001D428C /* Milk.swift */; };
 		719783E725E638C6001D428C /* SoftDrink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719783E625E638C6001D428C /* SoftDrink.swift */; };
 		719783EA25E638DE001D428C /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719783E925E638DE001D428C /* Coffee.swift */; };
@@ -72,6 +73,7 @@
 		717DE50925E5E0A8004B2269 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		717DE51225E5E26F004B2269 /* Beverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beverage.swift; sourceTree = "<group>"; };
 		717DE51A25E5E369004B2269 /* Brand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Brand.swift; sourceTree = "<group>"; };
+		71977F7E25F0ABEE0006A44C /* BeverageFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageFactory.swift; sourceTree = "<group>"; };
 		719783E325E638AE001D428C /* Milk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Milk.swift; sourceTree = "<group>"; };
 		719783E625E638C6001D428C /* SoftDrink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoftDrink.swift; sourceTree = "<group>"; };
 		719783E925E638DE001D428C /* Coffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 				719F18C125E76F2100671D77 /* Cantata.swift */,
 				719F18C425E774F800671D77 /* IsDairyProducts.swift */,
 				717DE51A25E5E369004B2269 /* Brand.swift */,
+				71977F7E25F0ABEE0006A44C /* BeverageFactory.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -294,6 +297,7 @@
 				717DE51B25E5E369004B2269 /* Brand.swift in Sources */,
 				719F18C825E7777D00671D77 /* VendingMachine.swift in Sources */,
 				719F18C525E774F800671D77 /* IsDairyProducts.swift in Sources */,
+				71977F7F25F0ABEE0006A44C /* BeverageFactory.swift in Sources */,
 				719783E425E638AE001D428C /* Milk.swift in Sources */,
 				719783F025E641E7001D428C /* ChocolateMilk.swift in Sources */,
 				719F18CB25E7972D00671D77 /* CheckBeverageInfo.swift in Sources */,

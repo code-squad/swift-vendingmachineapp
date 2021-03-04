@@ -60,19 +60,24 @@ extension Beverage: CheckBeverageInfo {
         }
     }
     
-    func isHotBeverage() -> Bool {
-        return temparature >= 100 ? true : false
+    func isHotBeverage(over: Int) -> Bool {
+        return temparature >= over
     }
 
-    func isLowCalorie() -> Bool {
-        return calories <= 50 ? false : true
+    func isLowCalorie(under: Int) -> Bool {
+        return calories <= under
     }
 }
 
-extension Beverage: Equatable {
+extension Beverage: Hashable {
     
     public static func == (lhs: Beverage, rhs: Beverage) -> Bool {
-        return lhs.productName == rhs.productName
+        return type(of: lhs) == type(of: rhs) && lhs.productName == rhs.productName
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(productName)
+        hasher.combine(price)
     }
 }
 
@@ -85,3 +90,4 @@ extension Beverage {
     }
     
 }
+

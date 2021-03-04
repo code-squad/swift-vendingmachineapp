@@ -3,6 +3,7 @@ import UIKit
 class VendingMachineViewController: UIViewController {
     
     private var machine = VendingMachine()
+    let factory = BeverageFactory()
     
     @IBOutlet weak var stockInfoOfChocolateMilk: UILabel!
     @IBOutlet weak var stockInfoOfStrawBerryMilk: UILabel!
@@ -32,20 +33,12 @@ class VendingMachineViewController: UIViewController {
 extension VendingMachineViewController {
     
     private func beveragesStockCount() {
-        let stockOfBeverages = machine.beverages.countOfBeverages()
-        var (chocoMilke, strawberryMilk) = (0, 0)
-        var (coke, sprite) = (0, 0)
-        var (top, cantata) = (0, 0)
-        
-        for beverage in stockOfBeverages {
-            if beverage.key == "초코에몽" { chocoMilke += beverage.value }
-            else if beverage.key == "딸기꿀단지" { strawberryMilk += beverage.value }
-            else if beverage.key == "코카콜라제로" { coke += beverage.value }
-            else if beverage.key == "스프라이트" { sprite += beverage.value }
-            else if beverage.key == "TOP" { top += beverage.value }
-            else if beverage.key == "칸타타" { cantata += beverage.value }
-        }
-        
+        let chocoMilke = machine.stockOf(beverage: factory.chocoMilk)
+        let strawberryMilk = machine.stockOf(beverage: factory.strawberryMilk)
+        let coke = machine.stockOf(beverage: factory.coke)
+        let sprite = machine.stockOf(beverage: factory.sprite)
+        let top = machine.stockOf(beverage: factory.top)
+        let cantata = machine.stockOf(beverage: factory.cantata)
         stockInfoOfChocolateMilk.text = "\(chocoMilke)개"
         stockInfoOfStrawBerryMilk.text = "\(strawberryMilk)개"
         stockInfoOfCokeZero.text = "\(coke)개"
@@ -55,35 +48,35 @@ extension VendingMachineViewController {
     }
     
     @IBAction func buttonForChocolateMilkStock(_ sender: Any) {
-        machine.addBeverage(beverage: Beverage(brand: .namyang, volume: 200, price: 1000, productName: "초코에몽", manufacturedDay: Date(), sellByDate: Date(), calories: 100, temparature: 0))
+        machine.addBeverage(beverage:factory.chocoMilk)
         beveragesStockCount()
     }
     
     
     @IBAction func buttonForStrawBerryMilkStock(_ sender: Any) {
-        machine.addBeverage(beverage: Beverage(brand: .seoul, volume: 180, price: 900, productName: "딸기꿀단지", manufacturedDay: Date(), sellByDate: Date(), calories: 110, temparature: 0))
+        machine.addBeverage(beverage: factory.strawberryMilk)
         beveragesStockCount()
     }
 
     
     @IBAction func buttonForCokeStock(_ sender: Any) {
-        machine.addBeverage(beverage: Beverage(brand: .coca, volume: 200, price: 1000, productName: "코카콜라제로", manufacturedDay: Date(), sellByDate: Date(), calories: 0, temparature: 0))
+        machine.addBeverage(beverage: factory.coke)
         beveragesStockCount()
     }
     
     
     @IBAction func buttonForSpriteStock(_ sender: Any) {
-        machine.addBeverage(beverage: Beverage(brand: .coca, volume: 250, price: 1200, productName: "스프라이트", manufacturedDay: Date(), sellByDate: Date(), calories: 100, temparature: 0))
+        machine.addBeverage(beverage: factory.sprite)
         beveragesStockCount()
     }
     
     @IBAction func buttonForTOPStock(_ sender: Any) {
-        machine.addBeverage(beverage: Beverage(brand: .maxim, volume: 100, price: 1500, productName: "TOP", manufacturedDay: Date(), sellByDate: Date(), calories: 200, temparature: 100))
+        machine.addBeverage(beverage: factory.top)
         beveragesStockCount()
     }
     
     @IBAction func buttonForCantataStock(_ sender: Any) {
-        machine.addBeverage(beverage: Beverage(brand: .lotte, volume: 150, price: 1300, productName: "칸타타", manufacturedDay: Date(), sellByDate: Date(), calories: 20, temparature: 100))
+        machine.addBeverage(beverage: factory.cantata)
         beveragesStockCount()
     }
     

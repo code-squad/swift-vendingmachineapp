@@ -25,7 +25,7 @@ class StrawberryMilkFactory: BeverageFactory {
 
 class ColaFactory: BeverageFactory {
     func produce() -> Beverage {
-        return Cola(sugarFree: false)
+        return Cola(transFat: 2)
     }
 }
 

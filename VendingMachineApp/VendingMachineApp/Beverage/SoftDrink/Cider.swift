@@ -15,4 +15,8 @@ class Cider: SoftDrink {
         self.sugars = sugars
         super.init(brand: "코카콜라", volume: 500, price: 1200, name: "스프라이트", manufacturedAt: Date().addingTimeInterval(800000), temparature: 3, calories: 90, isLowfat: false, package: .plastic)
     }
+    
+    func isSugarFree() -> Bool {
+        return self.sugars == 0.0
+    }
 }

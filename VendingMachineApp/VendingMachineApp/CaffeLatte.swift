@@ -14,4 +14,8 @@ class CaffeeLatte : Coffee{
         self.sugar = sugar
         super.init(caffeineContent: caffeineContent, caffeine: caffeine, brand: brand, volume: volume, price: price, name: name, manufactured: manufactured, temperature: temperature, kcal: kcal)
     }
+    
+    override func addtoVendingMachine(vendingMachine: VendingMachine) {
+        vendingMachine.addCaffeLatte(caffeLatte: self)
+    }
 }

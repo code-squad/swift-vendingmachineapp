@@ -14,4 +14,8 @@ class Cider : Soda{
         self.appleContent = appleContent
         super.init(sugar: sugar, brand: brand, volume: volume, price: price, name: name, manufactured: manufactured, temperature: temperature, kcal: kcal)
     }
+    
+    override func addtoVendingMachine(vendingMachine: VendingMachine) {
+        vendingMachine.addCider(cider: self)
+    }
 }

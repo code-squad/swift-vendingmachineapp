@@ -60,6 +60,10 @@ class Beverage : CustomStringConvertible {
         }
         return false
     }
+    
+    func addtoVendingMachine(vendingMachine : VendingMachine) -> Void{
+        //override subclass
+    }
 }
 
 extension Beverage : Equatable{

@@ -14,4 +14,8 @@ class Diablo : Energydrink {
         self.taurine = taurine
         super.init(caffeine: caffeine, brand: brand, volume: volume, price: price, name: name, manufactured: manufactured, temperature: temperature, kcal: kcal)
     }
+    
+    override func addtoVendingMachine(vendingMachine: VendingMachine) {
+        vendingMachine.addDiablo(diablo: self)
+    }
 }

@@ -14,4 +14,8 @@ class CaffeMocha : Coffee{
         self.cream = cream
         super.init(caffeineContent: caffeineContent, caffeine: caffeine, brand: brand, volume: volume, price: price, name: name, manufactured: manufactured, temperature: temperature, kcal: kcal)
     }
+    
+    override func addtoVendingMachine(vendingMachine: VendingMachine) {
+        vendingMachine.addCaffeMocha(caffeMocha: self)
+    }
 }

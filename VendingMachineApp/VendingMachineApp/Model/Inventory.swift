@@ -31,7 +31,7 @@ class Inventory {
         return list
     }
 
-    public func takeOutBeverage(_ beverage: Beverage, paymentManager: PaymentManager) -> Beverage? {
+    public func take(out beverage: Beverage, for paymentManager: PaymentManager) -> Beverage? {
         let pickedBeverage: Beverage?
       
         if let firstIndex = buyableBeverageList(buyer: paymentManager).firstIndex(where: { $0 === beverage }) {

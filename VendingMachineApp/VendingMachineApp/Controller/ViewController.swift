@@ -10,6 +10,7 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet var beverageLabels: [UILabel]!
+    @IBOutlet var balanceLabel: UILabel!
     
     let vendingMachine = VendingMachine()
 
@@ -28,6 +29,16 @@ class ViewController: UIViewController {
     }
     
     @IBAction func rechargeCash(_ sender: UIButton) {
+        guard let id = sender.restorationIdentifier else {return}
+        switch id {
+        case "1000":
+            vendingMachine.rechargeCash(with: 1000)
+        case "5000":
+            vendingMachine.rechargeCash(with: 5000)
+        default:
+            break
+        }
+        balanceLabel.text = "잔액: \(vendingMachine.showBalance().description)원"
     }
     
 }

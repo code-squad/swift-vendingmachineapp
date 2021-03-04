@@ -25,9 +25,9 @@ class VendingMachineAppTests: XCTestCase {
         vendingMachine.rechargeCash(with: 10000)
         
         //재고추가
-        vendingMachine.addStock(beverage: strawberryMilk)
-        vendingMachine.addStock(beverage: redBull)
-        vendingMachine.addStock(beverage: top)
+        vendingMachine.addStock(as: strawberryMilk)
+        vendingMachine.addStock(as: redBull)
+        vendingMachine.addStock(as: top)
         
         // 구매가능한 음료수 목록
         XCTAssertEqual(vendingMachine.showListForPurchase(), Drinks([strawberryMilk, redBull, top]))

@@ -114,14 +114,14 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="Mvr-Ii-njW">
                                                 <rect key="frame" x="0.0" y="0.0" width="116" height="30"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ISw-Z9-8Ki">
+                                                    <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ISw-Z9-8Ki">
                                                         <rect key="frame" x="0.0" y="0.0" width="44" height="30"/>
                                                         <state key="normal" title="+1000"/>
                                                         <connections>
                                                             <action selector="rechargeCash:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BjI-xm-ci4"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uwl-Aj-cV8">
+                                                    <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="5000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uwl-Aj-cV8">
                                                         <rect key="frame" x="70" y="0.0" width="46" height="30"/>
                                                         <state key="normal" title="+5000"/>
                                                         <connections>
@@ -145,6 +145,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
+                        <outlet property="balanceLabel" destination="UVR-cJ-PpM" id="cnp-bX-UtN"/>
                         <outletCollection property="beverageLabels" destination="Vvs-f6-LWd" collectionClass="NSMutableArray" id="Jl6-de-zuU"/>
                         <outletCollection property="beverageLabels" destination="8IX-lC-lZ9" collectionClass="NSMutableArray" id="bFn-4g-r5h"/>
                         <outletCollection property="beverageLabels" destination="JDb-0g-sEv" collectionClass="NSMutableArray" id="Mc6-lU-ZKf"/>

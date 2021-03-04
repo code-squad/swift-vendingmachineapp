@@ -46,8 +46,8 @@ struct VendingMachine {
         return insertedMoney
     }
     
-    func stockOfBeverages() -> [String: Int] {
-        return beverages.countOfBeverages()
+    func stockOf(beverage: Beverage) -> Int {
+        return beverages.stockOfEach(beverage: beverage)
     }
     
     func expiredProducts() -> [Beverage] {

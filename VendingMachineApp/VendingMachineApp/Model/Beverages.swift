@@ -19,10 +19,10 @@ class Beverages {
         beverages.remove(at: beverages.firstIndex(of: product)!)
     }
     
-    func countOfBeverages() -> [String: Int]{
-        var stockList = [String:Int]()
+    func stockListOfBeverages() -> [Beverage: Int]{
+        var stockList = [Beverage:Int]()
         for beverage in beverages {
-            let productName = beverage.productName
+            let productName = beverage
             if stockList[productName] == nil {
                 stockList[productName] = 1
             } else {
@@ -41,5 +41,9 @@ class Beverages {
             }
         }
         return availableList
+    }
+    
+    func stockOfEach(beverage: Beverage) -> Int{
+        return beverages.filter { $0 == beverage}.count
     }
 }

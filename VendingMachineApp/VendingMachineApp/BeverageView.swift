@@ -31,7 +31,7 @@ class BeverageView: UIView {
             let label = UILabel()
             label.translatesAutoresizingMaskIntoConstraints = false
             label.backgroundColor = UIColor.green
-            label.text = "개"
+            label.textAlignment = .center
             return label
         }()
         super.init(frame: frame)

@@ -47,13 +47,13 @@
                                                 <rect key="frame" x="0.0" y="86" width="185" height="24"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="잔액 : " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hd6-H7-4Je">
-                                                        <rect key="frame" x="0.0" y="0.0" width="48" height="24"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="88" height="24"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="잔액표시레이블" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0EI-TS-PSS">
-                                                        <rect key="frame" x="68" y="0.0" width="117" height="24"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 원" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0EI-TS-PSS">
+                                                        <rect key="frame" x="108" y="0.0" width="77" height="24"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -76,7 +76,7 @@
                                     <stackView opaque="NO" contentMode="scaleAspectFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="OOY-Ku-411">
                                         <rect key="frame" x="0.0" y="0.0" width="768" height="230.5"/>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="53T-pR-MBD">
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="53T-pR-MBD">
                                         <rect key="frame" x="0.0" y="230.5" width="768" height="230.5"/>
                                     </stackView>
                                 </subviews>
@@ -84,6 +84,7 @@
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="53T-pR-MBD" secondAttribute="trailing" id="NQe-B0-WQY"/>
                                     <constraint firstAttribute="trailing" secondItem="OOY-Ku-411" secondAttribute="trailing" id="rqQ-hn-JkG"/>
+                                    <constraint firstAttribute="trailing" secondItem="53T-pR-MBD" secondAttribute="trailing" id="xxS-JS-Jdd"/>
                                 </constraints>
                             </stackView>
                         </subviews>

@@ -55,6 +55,7 @@
 		88748AE225E4F4E700E7DCB1 /* BeverageStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88748AE125E4F4E700E7DCB1 /* BeverageStorage.swift */; };
 		88846F3125F0BF6900333AE3 /* BeverageFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D67CF525ED02C40033BF57 /* BeverageFactory.swift */; };
 		88846F3925F0D31400333AE3 /* BeverageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8849846B25EF85DC002C71F5 /* BeverageView.swift */; };
+		88846F4125F0E4B000333AE3 /* NotificationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88846F4025F0E4B000333AE3 /* NotificationExtension.swift */; };
 		88D67CF225EBC4A80033BF57 /* BeverageUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D67CF125EBC4A80033BF57 /* BeverageUnitTest.swift */; };
 /* End PBXBuildFile section */
 
@@ -98,6 +99,7 @@
 		88748ADA25E4EECB00E7DCB1 /* Machine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Machine.swift; sourceTree = "<group>"; };
 		88748ADD25E4F09700E7DCB1 /* MoneyProcessingUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyProcessingUnit.swift; sourceTree = "<group>"; };
 		88748AE125E4F4E700E7DCB1 /* BeverageStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageStorage.swift; sourceTree = "<group>"; };
+		88846F4025F0E4B000333AE3 /* NotificationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationExtension.swift; sourceTree = "<group>"; };
 		88D67CE225EBC27E0033BF57 /* VendingMachineAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VendingMachineAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		88D67CE625EBC27E0033BF57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		88D67CF125EBC4A80033BF57 /* BeverageUnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageUnitTest.swift; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 				88748ADA25E4EECB00E7DCB1 /* Machine.swift */,
 				88748AAB25E4A2ED00E7DCB1 /* BeverageModel */,
 				8849846B25EF85DC002C71F5 /* BeverageView.swift */,
+				88846F4025F0E4B000333AE3 /* NotificationExtension.swift */,
 				88748A8925E387B100E7DCB1 /* ViewController.swift */,
 				88748A8B25E387B100E7DCB1 /* Main.storyboard */,
 				88748A8E25E387B200E7DCB1 /* Assets.xcassets */,
@@ -368,6 +371,7 @@
 				88748ABF25E4A49900E7DCB1 /* Fanta.swift in Sources */,
 				88748A8825E387B100E7DCB1 /* SceneDelegate.swift in Sources */,
 				882A58A325E8B66700BCAF67 /* OverseasLocation.swift in Sources */,
+				88846F4125F0E4B000333AE3 /* NotificationExtension.swift in Sources */,
 				88748AC925E4A56300E7DCB1 /* Americano.swift in Sources */,
 				88748AA025E394AA00E7DCB1 /* Milk.swift in Sources */,
 				88748AE225E4F4E700E7DCB1 /* BeverageStorage.swift in Sources */,

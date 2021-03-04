@@ -50,7 +50,7 @@ class ViewController: UIViewController {
         let tag = sender.tag
         vendingMachine?.charge(coins: tag)
         if let coins = vendingMachine?.checkRemainCoins() {
-            remainCoinsLabel.text = String(coins)
+            remainCoinsLabel.text = "\(String(coins))원"
         }
     }
 }

@@ -7,12 +7,8 @@
 
 import Foundation
 
-struct VendingMachine: CustomStringConvertible {
-    
-    var description: String {
-        return "\(inventory)"
-    }
-    
+struct VendingMachine {
+  
     private var inventory: Inventory
     private var paymentManager: PaymentManager
     private var purchaseHistory: PurchaseHistory

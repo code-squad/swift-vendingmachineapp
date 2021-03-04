@@ -66,7 +66,7 @@ class Inventory: CustomStringConvertible {
         
         beverages.forEach { (beverage) in
             if let safeBeverage = beverage as? SafeDateChecker {
-                if safeBeverage.expirationValidate() {
+                if safeBeverage.isExpired() {
                     list.append(safeBeverage)
                 }
             }
@@ -80,7 +80,7 @@ class Inventory: CustomStringConvertible {
 
         beverages.forEach { (beverage) in
             if let hotableBeverage = beverage as? Hotable {
-                if hotableBeverage.checkHot() {
+                if hotableBeverage.isHot() {
                     list.append(hotableBeverage)
                 }
             }

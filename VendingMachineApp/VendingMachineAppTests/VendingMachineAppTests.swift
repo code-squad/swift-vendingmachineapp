@@ -75,7 +75,7 @@ class VendingMachineAppTests: XCTestCase {
     }
     
     func test_따뜻한_음료_목록() throws {
-        let fakeTop = Top(brand: "테스트", capacity: 300, price: 1000, name: "테스트", manufacture: Date(), isHot: true, hasSugar: true, expiredAt: Date())
+        let fakeTop = Top(brand: "테스트", capacity: 300, price: 1000, name: "테스트", manufacture: Date(), temperature: 70, hasSugar: true, expiredAt: Date())
     
             vendingMachine.appendBeverage(fakeTop)
     

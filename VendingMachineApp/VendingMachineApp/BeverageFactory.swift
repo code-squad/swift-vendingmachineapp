@@ -26,6 +26,6 @@ class SodaFactory: BeverageFactory {
 
 class CoffeeFactory: BeverageFactory {
     func create() -> Beverage {
-        Top(brand: "맥심", capacity: 300, price: 1000, name: "탑",manufacture: Date(), isHot: true, hasSugar: false, expiredAt: Calendar.current.date(byAdding: .day, value: 30, to: Date())!)
+        Top(brand: "맥심", capacity: 300, price: 1000, name: "탑",manufacture: Date(), temperature: 70, hasSugar: false, expiredAt: Calendar.current.date(byAdding: .day, value: 30, to: Date())!)
     }
 }

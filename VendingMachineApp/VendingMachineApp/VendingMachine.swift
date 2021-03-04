@@ -16,7 +16,7 @@ struct VendingMachine {
     
     init(numberOfSlots: Int) {
         self.numberOfSlots = numberOfSlots
-        self.inventory = Inventory(numberOfProductTypes: numberOfSlots)
+        self.inventory = Inventory(for: numberOfSlots)
         self.moneyDeposited = 0
         self.soldItems = PurchaseHistory()
     }
@@ -31,7 +31,7 @@ struct VendingMachine {
     
     func showPurchasableItemsWithDeposit() -> [Slot] {
         var purchasableItems: [Slot] = []
-        inventory.showItems {
+        inventory.showSlots {
             if $0.isCheaper(than: moneyDeposited) {
                 purchasableItems.append($0)
             }
@@ -41,7 +41,7 @@ struct VendingMachine {
     
     mutating func vend(itemNamed name: String) -> Beverage? {
         var vendedItem: Beverage?
-        inventory.showItems {
+        inventory.showSlots {
             if $0.compareName(with: name) {
                 vendedItem = $0.dropFirstItem(named: name)
             }
@@ -65,7 +65,7 @@ struct VendingMachine {
     
     func showExpiredItems() -> [Beverage] {
         var expiredItems: [Beverage] = []
-        inventory.showItems {
+        inventory.showSlots {
             expiredItems += $0.getExpiredItems()
         }
         return expiredItems
@@ -73,7 +73,7 @@ struct VendingMachine {
     
     func showHotDrinks() -> [Slot] {
         var hotDrinks: [Slot] = []
-        inventory.showItems {
+        inventory.showSlots {
             if $0.isHotDrink() {
                 hotDrinks.append($0)
             }

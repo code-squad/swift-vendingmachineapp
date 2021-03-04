@@ -8,34 +8,38 @@
 import Foundation
 
 class Inventory {
-    private let numberOfProductTypes: Int
     private let slots: [Slot]
     
     typealias SlotIndex = Int
     typealias ItemQuantity = Int
     
-    init(numberOfProductTypes: Int) {
-        self.numberOfProductTypes = numberOfProductTypes
-        self.slots = (0..<numberOfProductTypes).map { _ in Slot() }
+    init(for numberOfSlots: Int) {
+        self.slots = (0..<numberOfSlots).map { _ in Slot() }
     }
     
     func add(_ item: Beverage, at slotNumber: Int) {
-        slots.enumerated().forEach { (index, slot) in
+        enumerateSlots { (index, slot) in
             if index == slotNumber - 1 {
                 slot.stock(item)
             }
         }
     }
     
-    func showItems(handler: (Slot) -> ()) {
-        return self.slots.forEach {
+    func showSlots(handler: (Slot) -> ()) {
+        return slots.forEach {
             handler($0)
+        }
+    }
+    
+    func enumerateSlots(handler: (Int, Slot) -> ()) {
+        return slots.enumerated().forEach { (index, slot) in
+            handler(index, slot)
         }
     }
     
     func takeStock() -> [SlotIndex : (Slot, ItemQuantity)] {
         var inventoryDictionary: [SlotIndex : (Slot, ItemQuantity)] = [:]
-        slots.enumerated().forEach { (index, slot) in
+        enumerateSlots { (index, slot) in
             inventoryDictionary[index + 1] = (slot, slot.itemCount)
         }
         return inventoryDictionary

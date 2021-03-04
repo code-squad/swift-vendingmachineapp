@@ -100,12 +100,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		B30C143425EFA3760095CA19 /* View */ = {
+		B30C143425EFA3760095CA19 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				B3F5728925E3629300CFF095 /* ViewController.swift */,
 			);
-			path = View;
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		B30C143725EFA89B0095CA19 /* Extension */ = {
@@ -159,6 +159,14 @@
 			path = Coffee;
 			sourceTree = "<group>";
 		};
+		B3A1C61A25F0B356004D3611 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B3F5728B25E3629300CFF095 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		B3EF2CE525EE1B5B00FBA7CC /* VendingMachineAppTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -192,9 +200,9 @@
 				B3F5728525E3629300CFF095 /* AppDelegate.swift */,
 				B3F5728725E3629300CFF095 /* SceneDelegate.swift */,
 				B30C143725EFA89B0095CA19 /* Extension */,
-				B30C143425EFA3760095CA19 /* View */,
+				B30C143425EFA3760095CA19 /* Controller */,
 				B36A87A425E61B84002C4432 /* Model */,
-				B3F5728B25E3629300CFF095 /* Main.storyboard */,
+				B3A1C61A25F0B356004D3611 /* View */,
 				B3F5728E25E3629400CFF095 /* Assets.xcassets */,
 				B3F5729025E3629400CFF095 /* LaunchScreen.storyboard */,
 				B3F5729325E3629400CFF095 /* Info.plist */,

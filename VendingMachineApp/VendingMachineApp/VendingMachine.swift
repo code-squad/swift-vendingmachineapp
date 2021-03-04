@@ -38,31 +38,8 @@ class VendingMachine {
         money.addMoney(money: money)
     }
     
-    func addBeverage(beverage : Beverage){
-        if let tempbeverage = beverage as? BananaMilk{
-            addBananaMilk(bananaMilk: tempbeverage)
-        }
-        else if let tempbeverage = beverage as? StrawBerryMilk{
-            addStrawBerryMilk(strawBerryMilk: tempbeverage)
-        }
-        else if let tempbeverage = beverage as? Cider{
-            addCider(cider: tempbeverage)
-        }
-        else if let tempbeverage = beverage as? Coke{
-            addCoke(coke: tempbeverage)
-        }
-        else if let tempbeverage = beverage as? CaffeMocha{
-            addCaffeMocha(caffeMocha: tempbeverage)
-        }
-        else if let tempbeverage = beverage as? CaffeeLatte{
-            addCaffeLatte(caffeLatte: tempbeverage)
-        }
-        else if let tempbeverage = beverage as? Monster{
-            addMonster(monster: tempbeverage)
-        }
-        else if let tempbeverage = beverage as? Diablo{
-            addDiablo(diablo: tempbeverage)
-        }
+    func addBeverage(beverage : Beverage){ //다형성으로 해결할 수 있을 각인데.. 오버라이드 하고 각 객체로 보내고.. 매개변수로 밴딩머신 넣어주고..
+        beverage.addtoVendingMachine(vendingMachine: self)
     }
     
     func canBuyBeverage() -> [Beverage]{
@@ -179,35 +156,35 @@ class VendingMachine {
         diablo.forEach{beverages.append($0)}
     }
     
-    private func addBananaMilk(bananaMilk : BananaMilk){
+    func addBananaMilk(bananaMilk : BananaMilk){
         bought.append(bananaMilk)
         self.bananaMilk.append(bananaMilk)
     }
-    private func addStrawBerryMilk(strawBerryMilk : StrawBerryMilk){
+    func addStrawBerryMilk(strawBerryMilk : StrawBerryMilk){
         bought.append(strawBerryMilk)
         self.strawBerryMilk.append(strawBerryMilk)
     }
-    private func addCider(cider : Cider){
+    func addCider(cider : Cider){
         bought.append(cider)
         self.cider.append(cider)
     }
-    private func addCoke(coke : Coke){
+    func addCoke(coke : Coke){
         bought.append(coke)
         self.coke.append(coke)
     }
-    private func addCaffeMocha(caffeMocha: CaffeMocha){
+    func addCaffeMocha(caffeMocha: CaffeMocha){
         bought.append(caffeMocha)
         self.caffeMocha.append(caffeMocha)
     }
-    private func addCaffeLatte(caffeLatte : CaffeeLatte){
+    func addCaffeLatte(caffeLatte : CaffeeLatte){
         bought.append(caffeLatte)
         self.caffeLatte.append(caffeLatte)
     }
-    private func addDiablo(diablo : Diablo){
+    func addDiablo(diablo : Diablo){
         bought.append(diablo)
         self.diablo.append(diablo)
     }
-    private func addMonster(monster : Monster){
+    func addMonster(monster : Monster){
         bought.append(monster)
         self.monster.append(monster)
     }

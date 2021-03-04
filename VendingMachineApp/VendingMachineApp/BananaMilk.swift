@@ -14,4 +14,8 @@ class BananaMilk : Milk{
         self.sugarContent = sugarContent
         super.init(lowfat: lowfat, brand: brand, volume: volume, price: price, name: name, manufactured: manufactured, temperature: temperature, kcal: kcal)
     }
+    
+    override func addtoVendingMachine(vendingMachine: VendingMachine) {
+        vendingMachine.addBananaMilk(bananaMilk: self)
+    }
 }

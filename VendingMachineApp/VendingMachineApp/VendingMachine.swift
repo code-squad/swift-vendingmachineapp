@@ -11,13 +11,14 @@ struct VendingMachine {
     
     private let numberOfSlots: Int
     private var inventory: Inventory
-    private var moneyDeposited: Int = 0
-    
-    private var soldItems: [Date : Beverage] = [:]
+    private var moneyDeposited: Int
+    private var soldItems: PurchaseHistory
     
     init(numberOfSlots: Int) {
         self.numberOfSlots = numberOfSlots
         self.inventory = Inventory(numberOfProductTypes: numberOfSlots)
+        self.moneyDeposited = 0
+        self.soldItems = PurchaseHistory()
     }
     
     mutating func insertMoney(amount: Int) {
@@ -48,7 +49,8 @@ struct VendingMachine {
         if let vendedItem = vendedItem {
             moneyDeposited -= vendedItem.price
             let now = Date()
-            soldItems[now] = vendedItem
+            let newOrder = Order(purchased: now, item: vendedItem)
+            soldItems.add(newOrder)
         }
         return vendedItem
     }
@@ -79,7 +81,7 @@ struct VendingMachine {
         return hotDrinks
     }
     
-    func showPurchaseHistory() -> [Date : Beverage] {
+    func showPurchaseHistory() -> PurchaseHistory {
         return soldItems
     }
 }

@@ -12,11 +12,9 @@ typealias InventoryWithCount = [Beverage: Int]
 class Inventory: InventoryManagable {
 
     private var inventory: [Beverage]
-    private (set) var count: Int
     
     init(inventory: [Beverage]) {
         self.inventory = inventory
-        self.count = 0
     }
     
     convenience init() {
@@ -24,13 +22,8 @@ class Inventory: InventoryManagable {
         self.init(inventory: inventory)
     }
     
-    private func updateCount() {
-        self.count = inventory.count
-    }
-    
     func addInventory(_ beverage: Beverage) {
         self.inventory.append(beverage)
-        self.updateCount()
     }
     
     func isPurchasableInventory(balance: Int) -> Inventory {

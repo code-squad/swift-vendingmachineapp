@@ -14,8 +14,11 @@ class DomesticLocation: LocationTrackable {
         self.province = province.lowercased()
     }
     
+    convenience init() {
+        self.init(province: "미표기")
+    }
+    
     func isDomestic() -> Bool {
         return true
     }
-    
 }

@@ -17,4 +17,8 @@ class FoodColoring {
         self.chemicalConcentration = chemicalConcentration
         self.isHazardous = chemicalConcentration > 100
     }
+    
+    convenience init(color: String) {
+        self.init(color: color, chemicalConcentration: 0)
+    }
 }

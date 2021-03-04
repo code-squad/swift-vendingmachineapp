@@ -31,12 +31,12 @@ extension Beverage: BeverageDetail {
         return manufacturedAt < date ? true : false
     }
     
-    func isHot() -> Bool {
-        return self.temparature > 40 ? true : false
+    func isHot(temparature standard: Int) -> Bool {
+        return self.temparature > standard ? true : false
     }
     
-    func isLowCalorie() -> Bool {
-        return self.calories < 30 ? true : false
+    func isLowCalorie(calories standard: Int) -> Bool {
+        return self.calories < standard ? true : false
     }
     
     func isPurchasable(balance: Int) -> Bool {

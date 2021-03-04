@@ -27,6 +27,10 @@ class ViewController: UIViewController {
         scenario.run()
     }
     
+    let center = NotificationCenter()
     
+    func add(){
+        center.addObserver(<#T##observer: Any##Any#>, selector: <#T##Selector#>, name: <#T##NSNotification.Name?#>, object: <#T##Any?#>)
+    }
 }
 

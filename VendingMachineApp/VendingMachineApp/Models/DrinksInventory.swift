@@ -8,24 +8,25 @@
 import Foundation
 
 class DrinksInventory {
-    private (set) var drinksInventory: Dictionary<String, Int>
+    private (set) var drinksInventory: Dictionary<ObjectIdentifier, Int>
+    
     init(){
         drinksInventory = [:]
     }
     
     func append(_ drink: Drink) {
-        let drinkType = String(describing: type(of: drink))
-        if drinksInventory[drinkType] != nil {
-            drinksInventory[drinkType]? += 1
+        let obj = ObjectIdentifier(type(of: drink))
+        if drinksInventory[obj] != nil {
+            drinksInventory[obj]? += 1
         } else {
-            drinksInventory[drinkType] = 1
+            drinksInventory[obj] = 1
             return
         }
     }
     
     func hasDrink(_ drink: Drink) ->  Bool {
-        let drinkType = String(describing: type(of: drink))
-        if let _ = drinksInventory[drinkType] {
+        let obj = ObjectIdentifier(type(of: drink))
+        if let _ = drinksInventory[obj] {
             return true
         } else {
             return false
@@ -33,20 +34,20 @@ class DrinksInventory {
     }
     
     func pop(_ drink: Drink) {
-        let drinkType = String(describing: type(of: drink))
-        if let stock = drinksInventory[drinkType] {
-            drinksInventory[drinkType]? -= 1
+        let obj = ObjectIdentifier(type(of: drink))
+        if let stock = drinksInventory[obj] {
+            drinksInventory[obj]? -= 1
             checkZero(stock, drink)
         } else {
-            drinksInventory[drinkType] = 1
+            drinksInventory[obj] = 1
             return
         }
     }
     
     private func checkZero(_ stock:Int, _ drink: Drink) {
         if stock == 0 {
-            let drinkType = String(describing: type(of: drink))
-            drinksInventory.removeValue(forKey: drinkType)
+            let obj = ObjectIdentifier(type(of: drink))
+            drinksInventory.removeValue(forKey: obj)
         }
     }
 }

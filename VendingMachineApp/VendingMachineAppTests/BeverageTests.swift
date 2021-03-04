@@ -13,6 +13,6 @@ class BeverageTests: XCTestCase {
         let ciderFactory = CiderFactory()
         XCTAssertFalse(ciderFactory.produce().isHot())
         XCTAssertFalse(ciderFactory.produce().isLowCalorie())
-        XCTAssertFalse(ciderFactory.produce().validate(with: Date()))
+        XCTAssertFalse(ciderFactory.produce().isExpired(now: Date()))
     }
 }

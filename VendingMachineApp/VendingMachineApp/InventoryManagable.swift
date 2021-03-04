@@ -8,11 +8,11 @@
 import Foundation
 
 protocol InventoryManagable {
-    func expiredBeverages(current: Date) -> Inventory
-    func hotBeverages() -> Inventory
+    func expiredBeverages(current: Date) -> InventoryManagable
+    func hotBeverages() -> InventoryManagable
     func readInventores() -> [Beverage: Int]
     func addInventory(_ beverage: Beverage)
     func removeInventory(_ beverage: Beverage) -> Beverage?
     func fotEachBeverage(handler: (Beverage) -> ())
-    func isPurchasableInventory(balance: Int) -> Inventory
+    func isPurchasableInventory(balance: Int) -> InventoryManagable
 }

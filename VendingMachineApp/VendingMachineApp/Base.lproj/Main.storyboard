@@ -106,11 +106,9 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0원" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vek-Ty-oqk">
-                                <rect key="frame" x="507" y="490" width="100" height="20.5"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="Vc5-W1-MuS"/>
-                                </constraints>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0원" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vek-Ty-oqk">
+                                <rect key="frame" x="457" y="490" width="25" height="20.5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -122,8 +120,6 @@
                             <constraint firstAttribute="trailing" secondItem="1Wa-hW-was" secondAttribute="trailing" id="098-ct-D8F"/>
                             <constraint firstItem="1Wa-hW-was" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="EiT-QJ-c99"/>
                             <constraint firstItem="A3D-PA-Qbg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="K0y-ay-6GC"/>
-                            <constraint firstItem="Vek-Ty-oqk" firstAttribute="leading" secondItem="A3D-PA-Qbg" secondAttribute="trailing" constant="100" id="McD-FV-Pfu"/>
-                            <constraint firstItem="Vek-Ty-oqk" firstAttribute="centerY" secondItem="A3D-PA-Qbg" secondAttribute="centerY" id="MiW-1w-B9d"/>
                             <constraint firstItem="1Wa-hW-was" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="nAZ-zM-TFD"/>
                             <constraint firstItem="A3D-PA-Qbg" firstAttribute="top" secondItem="1Wa-hW-was" secondAttribute="bottom" constant="60" id="oQ4-Ab-WbY"/>
                         </constraints>

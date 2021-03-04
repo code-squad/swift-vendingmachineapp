@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		B30C142B25EF31E80095CA19 /* PurchasedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30C142A25EF31E80095CA19 /* PurchasedList.swift */; };
 		B30C142E25EF38570095CA19 /* PurchasedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30C142A25EF31E80095CA19 /* PurchasedList.swift */; };
+		B32ECEA825F12B900066C473 /* DrinkFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32ECEA725F12B900066C473 /* DrinkFactory.swift */; };
+		B32ECEAB25F12BE50066C473 /* DrinkFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32ECEA725F12B900066C473 /* DrinkFactory.swift */; };
 		B36A87A725E61B9A002C4432 /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36A87A625E61B9A002C4432 /* Milk.swift */; };
 		B36A87AA25E61BA1002C4432 /* Soda.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36A87A925E61BA1002C4432 /* Soda.swift */; };
 		B36A87AD25E61BAA002C4432 /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36A87AC25E61BAA002C4432 /* Coffee.swift */; };
@@ -56,6 +58,7 @@
 
 /* Begin PBXFileReference section */
 		B30C142A25EF31E80095CA19 /* PurchasedList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasedList.swift; sourceTree = "<group>"; };
+		B32ECEA725F12B900066C473 /* DrinkFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkFactory.swift; sourceTree = "<group>"; };
 		B36A87A625E61B9A002C4432 /* Milk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Milk.swift; sourceTree = "<group>"; };
 		B36A87A925E61BA1002C4432 /* Soda.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Soda.swift; sourceTree = "<group>"; };
 		B36A87AC25E61BAA002C4432 /* Coffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
@@ -124,6 +127,7 @@
 				B36A87D825E636B7002C4432 /* Drinks.swift */,
 				B30C142A25EF31E80095CA19 /* PurchasedList.swift */,
 				B36A87B025E61F1B002C4432 /* Beverage.swift */,
+				B32ECEA725F12B900066C473 /* DrinkFactory.swift */,
 				B3FC893125EBEA1E00E70D38 /* EnergyDrink */,
 				B36A87C825E62353002C4432 /* Coffee */,
 				B36A87C625E6234B002C4432 /* Soda */,
@@ -332,6 +336,7 @@
 				B3EF2D0025EE2DAB00FBA7CC /* Date.swift in Sources */,
 				B3EF2CF125EE227C00FBA7CC /* CashManagementSystem.swift in Sources */,
 				B3EF2CF225EE227C00FBA7CC /* Drinks.swift in Sources */,
+				B32ECEAB25F12BE50066C473 /* DrinkFactory.swift in Sources */,
 				B3EF2CF325EE227C00FBA7CC /* Beverage.swift in Sources */,
 				B3EF2CE725EE1B5B00FBA7CC /* VendingMachineAppTests.swift in Sources */,
 			);
@@ -352,6 +357,7 @@
 				B36A87D925E636B7002C4432 /* Drinks.swift in Sources */,
 				B3B3DD3525E7EF620022465D /* CashManagementSystem.swift in Sources */,
 				B36A87B125E61F1B002C4432 /* Beverage.swift in Sources */,
+				B32ECEA825F12B900066C473 /* DrinkFactory.swift in Sources */,
 				B3F5728625E3629300CFF095 /* AppDelegate.swift in Sources */,
 				B3F5728825E3629300CFF095 /* SceneDelegate.swift in Sources */,
 				B30C142B25EF31E80095CA19 /* PurchasedList.swift in Sources */,

@@ -18,7 +18,7 @@ class VendingMachine {
         self.purchasedList = PurchasedList()
     }
     
-    func addStock(beverage: Beverage) {
+    func addStock(as beverage: Beverage) {
         drinks.add(with: beverage)
     }
 

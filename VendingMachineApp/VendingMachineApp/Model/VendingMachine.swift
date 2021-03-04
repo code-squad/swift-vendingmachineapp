@@ -36,7 +36,8 @@ struct VendingMachine {
     
     //음료수를 구매하는 기능
     public func buyBeverage(_ beverage: Beverage) {
-        purchaseHistory.appendPurchaseHistory(beverage: inventory.takeOutBeverage(beverage, paymentManager: paymentManager))
+        guard let beverage = inventory.take(out: beverage, for: paymentManager) else { return }
+        purchaseHistory.append(item: beverage)
     }
     
     //잔액을 확인하는 기능
@@ -61,6 +62,6 @@ struct VendingMachine {
     
     //구매이력 확인 기능
     public func showPurchaseHistory() -> [Beverage] {
-        return purchaseHistory.beverages.compactMap{ $0 }
+        return purchaseHistory.beverages
     }
 }

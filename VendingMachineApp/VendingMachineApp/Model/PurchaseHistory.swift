@@ -8,13 +8,13 @@
 import Foundation
 
 class PurchaseHistory {
-    private(set) var beverages: [Beverage?]
+    private(set) var beverages: [Beverage]
     
     init() {
         self.beverages = []
     }
     
-    public func appendPurchaseHistory(beverage: Beverage?) {
+    public func append(item beverage: Beverage) {
         beverages.append(beverage)
     }
 }

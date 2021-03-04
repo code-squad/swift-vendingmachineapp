@@ -12,7 +12,7 @@ protocol StockManageable {
     func addedDrink(_ drink: Drink)
     func availableForDrinks(coin: Int) -> [Drink]
     func purchased(_ drink: Drink, checkCoin: (Drink) -> Drink?) -> Drink?
-    func toShowStock() -> [String: UInt]
+    func toShowStock() -> [ObjectIdentifier: [Drink]]
     func lookingForExpiredDrinks() -> [Drink]
     func lookingForWarmDrinks() -> [Drink]
 }

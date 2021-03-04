@@ -2,8 +2,8 @@ import Foundation
 
 class Fanta: Soda, Productization {
     enum Flavor: String {
-        case orange
-        case pineapple
+        case orange = "Orange"
+        case pineapple = "Pineapple"
     }
     
     private var flavor: Flavor

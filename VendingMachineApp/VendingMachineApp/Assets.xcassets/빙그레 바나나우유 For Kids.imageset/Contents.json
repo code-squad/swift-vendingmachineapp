@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "빙그레 바나나우유 For Kids.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "빙그레 바나나우유 For Kids-1.jpg",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "빙그레 바나나우유 For Kids-2.jpg",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

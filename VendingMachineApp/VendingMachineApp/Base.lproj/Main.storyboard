@@ -72,7 +72,19 @@
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="29T-r4-j9f">
                                 <rect key="frame" x="20" y="38.5" width="768" height="461"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleAspectFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="OOY-Ku-411">
+                                        <rect key="frame" x="0.0" y="0.0" width="768" height="230.5"/>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="53T-pR-MBD">
+                                        <rect key="frame" x="0.0" y="230.5" width="768" height="230.5"/>
+                                    </stackView>
+                                </subviews>
                                 <color key="backgroundColor" red="1" green="0.51064854449999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="53T-pR-MBD" secondAttribute="trailing" id="NQe-B0-WQY"/>
+                                    <constraint firstAttribute="trailing" secondItem="OOY-Ku-411" secondAttribute="trailing" id="rqQ-hn-JkG"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -89,6 +101,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="beverageDisplayStackViewFirstRow" destination="OOY-Ku-411" id="K4E-p3-XBd"/>
+                        <outlet property="beverageDisplayStackViewSecondRow" destination="53T-pR-MBD" id="q2P-7h-5ma"/>
                         <outlet property="moneyOnTransactionLabel" destination="0EI-TS-PSS" id="sQ9-QE-PA5"/>
                     </connections>
                 </viewController>

@@ -32,7 +32,7 @@ class Beverage : CustomStringConvertible {
     }
     
     func isValidate(with date: Date) -> Bool{
-        if let valiDate = Calendar.current.date(byAdding: .day, value: 30, to: date){
+        if let valiDate = Calendar.current.date(byAdding: .day, value: 30, to: self.manufactured){
             if valiDate > date {
                 return true
             }
@@ -62,3 +62,8 @@ class Beverage : CustomStringConvertible {
     }
 }
 
+extension Beverage : Equatable{
+    static func == (lhs: Beverage, rhs: Beverage) -> Bool {
+        return lhs.brand == rhs.brand && lhs.volume == rhs.volume && lhs.price == rhs.price && lhs.name == rhs.name
+    }
+}

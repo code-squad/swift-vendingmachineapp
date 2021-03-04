@@ -30,16 +30,31 @@ class VendingMachine {
         money.addMoney(money: money)
     }
     
-    func addMilk(milk : Milk){
+    private func addMilk(milk : Milk){
         self.milk.append(milk)
     }
     
-    func addSoda(soda : Soda){
+    private func addSoda(soda : Soda){
         self.soda.append(soda)
     }
     
-    func addCoffee(coffee : Coffee){
+    private func addCoffee(coffee : Coffee){
         self.coffee.append(coffee)
+    }
+    
+    func addBeverage(beverage : Beverage){
+        if let tempbeverage = beverage as? Milk{
+            addMilk(milk: tempbeverage)
+        }
+        else if let tempbeverage = beverage as? Soda{
+            addSoda(soda: tempbeverage)
+        }
+        else if let tempbeverage = beverage as? Coffee{
+            addCoffee(coffee: tempbeverage)
+        }
+        else if let tempbeverage = beverage as? Energydrink{
+            addEnergydrink(energyDrink: tempbeverage)
+        }
     }
     
     func addEnergydrink(energyDrink : Energydrink){
@@ -57,7 +72,6 @@ class VendingMachine {
         return tempbeverages
     }
     
-    //음료를 구매하는 메소드
     func buyMilk(){
         if let temp = milk.first{
             bought.append(temp)
@@ -128,6 +142,5 @@ class VendingMachine {
         energydrink.forEach{beverages.append($0)}
         coffee.forEach{beverages.append($0)}
     }
-    
     
 }

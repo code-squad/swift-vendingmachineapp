@@ -10,8 +10,8 @@ import Foundation
 class Money {
     private var Money : Int
     
-    init() {
-        Money = 0
+    init(money : Int) {
+        self.Money = money
     }
     
     func addMoney(money : Money) -> Void{

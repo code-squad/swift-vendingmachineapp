@@ -10,19 +10,14 @@ import Foundation
 class Coffee : Beverage {
     private var caffeineContent : Int
     private var caffeine : Bool
-    private var taste : Taste
-    enum Taste {
-        case americano, latte
-    }
     
-    init(caffeineContent : Int, caffeine : Bool, taste : Taste, brand: String, volume: Int, price: Int, name: String, manufactured: Date, temperature : Int, kcal : Int) {
+    init(caffeineContent : Int, caffeine : Bool, brand: String, volume: Int, price: Int, name: String, manufactured: Date, temperature : Int, kcal : Int) {
         self.caffeineContent = caffeineContent
         self.caffeine = caffeine
-        self.taste = taste
         super.init(brand: brand, volume: volume, price: price, name: name, manufactured: manufactured, temperature:temperature, kcal: kcal)
     }
     
-    convenience init(caffeineContent : Int, caffeine : Bool, taste : Taste, brand: String, price: Int, name: String, manufactured: Date, temperature : Int, kcal : Int){ //short size coffee
-        self.init(caffeineContent : caffeineContent, caffeine : caffeine, taste: taste, brand: brand, volume: 236, price: price, name: name, manufactured: manufactured, temperature:temperature, kcal: kcal)
+    convenience init(caffeineContent : Int, caffeine : Bool, brand: String, price: Int, name: String, manufactured: Date, temperature : Int, kcal : Int){ //short size coffee
+        self.init(caffeineContent : caffeineContent, caffeine : caffeine, brand: brand, volume: 236, price: price, name: name, manufactured: manufactured, temperature:temperature, kcal: kcal)
     }
 }

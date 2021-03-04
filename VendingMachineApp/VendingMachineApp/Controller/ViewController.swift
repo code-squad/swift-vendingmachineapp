@@ -13,5 +13,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         let vendingMachine = VendingMachine()
     }
+    @IBAction func addStock(_ sender: UIButton) {
+    }
+    
 }
 

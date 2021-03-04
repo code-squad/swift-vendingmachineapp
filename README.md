@@ -39,3 +39,9 @@ Cantata BananaMilk Fanta (3단계)
 - `Drink` 클래스에 Hashable 프로토콜 채택해서 Dictionary의 key로 사용할 수 있도록 변경
 - VendingMachine에 자판기 기능을 위한 method 추가
 - 단위 테스트를 위해 XCTest를 추가하고, 테스트 코드를 추가
+
+## Step 3 - MVC
+- main 스토리보드에 음료 ImageView와 Button, Label UI 추가
+- IBOutlet Collection으로 outlet을 묶고, UIButton.tag을 이용해서 각 버튼 객체를 구분하도록 구현
+- 음료 객체 생성을 위한 DrinkFactory 추가
+<img width="812" alt="" src="https://user-images.githubusercontent.com/75113784/109928382-bda74b00-7d08-11eb-893b-de88d6cffb68.png">

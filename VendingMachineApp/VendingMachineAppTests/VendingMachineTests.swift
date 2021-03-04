@@ -8,13 +8,6 @@
 import XCTest
 @testable import VendingMachineApp
 
-/*
- 각 메소드 동작을 검증할 수 있는 테스트 함수를 작성한다.
- 테스트가 가능하다면 위에 동작 규칙을 다르게 구현해도 된다.
- 전체 코드를 확인할 수 있는 통합 테스트 시나리오를 가지고 동작을 확인한다.
- 예를 들어서, 재고 몇 개 추가하고 잔액 얼마 추가하면 어떤 상품 구매가능, 불가능인지 확인하고 가능한 상품 구매하고, 잔액 바뀌고 재고 상태 바뀌고, 구매 상품 이력을 확인한다.
- */
-
 class VendingMachineTests: XCTestCase {
     
     let moneyManager = Money()
@@ -72,5 +65,14 @@ class VendingMachineTests: XCTestCase {
     
     private func assertDecreaseBalance() {
         XCTAssertEqual(moneyManager.readBalance(), 100)
+    }
+    
+    func testMilkDetail() {
+        let bananaMilkFactory = BananaMilkFactory()
+        let bananaMilk = bananaMilkFactory.produce()
+        XCTAssertTrue(!bananaMilk.isExpired(now: Date()))
+        XCTAssertTrue(bananaMilk.isHot(temparature: 2))
+        XCTAssertTrue(!bananaMilk.isLowCalorie(calories: 60))
+        XCTAssertTrue(bananaMilk.isPurchasable(balance: 1000))
     }
 }

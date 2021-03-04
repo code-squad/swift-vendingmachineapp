@@ -19,6 +19,6 @@ class Money {
     }
     
     func currentMoney() -> Int{
-        return Money
+        return self.Money
     }
 }

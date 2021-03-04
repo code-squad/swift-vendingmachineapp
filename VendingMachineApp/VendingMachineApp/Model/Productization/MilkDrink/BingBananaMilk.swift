@@ -3,7 +3,7 @@ import Foundation
 class BingBananaMilk: Milk, Productization {
     enum Target: String {
         case all
-        case forKids = "for kids"
+        case forKids = "For Kids"
     }
     
     private var target: Target

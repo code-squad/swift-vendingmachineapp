@@ -80,10 +80,6 @@ extension VendingMachineViewController {
         beveragesStockCount()
     }
     
-}
-
-extension VendingMachineViewController {
-    
     private func balanceInfoLabel() {
         let balance = machine.insertedMoney
         balanceInfo.text = "잔액:\(balance)"

@@ -63,15 +63,14 @@ class VendingMachine {
         else if let tempbeverage = beverage as? Diablo{
             addDiablo(diablo: tempbeverage)
         }
-        
     }
     
     func canBuyBeverage() -> [Beverage]{
         addAllCurrentBeverages()
-        var tempbeverages : [Beverage] = beverages
-        for i in 0..<tempbeverages.count{
-            if tempbeverages[i].canBuybeverage(money: money) {
-                tempbeverages.remove(at: i)
+        var tempbeverages : [Beverage] = []
+        for i in 0..<beverages.count{
+            if beverages[i].canBuybeverage(money: self.money) {
+                tempbeverages.append(beverages[i])
             }
         }
         return tempbeverages
@@ -144,10 +143,10 @@ class VendingMachine {
     
     func isValidate() -> [Beverage]{
         addAllCurrentBeverages()
-        var tempBeverages : [Beverage] = beverages
-        for i in 0..<tempBeverages.count{
-            if !tempBeverages[i].isValidate(with: Date()){
-                tempBeverages.remove(at: i)
+        var tempBeverages : [Beverage] = []
+        for i in 0..<beverages.count{
+            if beverages[i].isValidate(with: Date()){
+                tempBeverages.append(beverages[i])
             }
         }
         return tempBeverages
@@ -155,10 +154,10 @@ class VendingMachine {
     
     func isHot() -> [Beverage]{
         addAllCurrentBeverages()
-        var tempBeverages : [Beverage] = beverages
-        for i in 0..<tempBeverages.count{
-            if !tempBeverages[i].isHot(){
-                tempBeverages.remove(at: i)
+        var tempBeverages : [Beverage] = []
+        for i in 0..<beverages.count{
+            if beverages[i].isHot(){
+                tempBeverages.append(beverages[i])
             }
         }
         return tempBeverages

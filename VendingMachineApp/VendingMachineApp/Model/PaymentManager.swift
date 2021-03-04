@@ -15,11 +15,11 @@ class PaymentManager {
         money = 0
     }
     
-    public func putInMoney(_ money: Int) {
+    public func increase(_ money: Int) {
         self.money += money
     }
     
-    public func minusMoney(beverage: Beverage) {
+    public func decreaseMoney(by beverage: Beverage) {
         self.money -= beverage.price
     }
 }

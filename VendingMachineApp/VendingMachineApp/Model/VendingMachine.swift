@@ -20,8 +20,8 @@ struct VendingMachine {
     }
     
     //특정 상품 인스턴스를 넘겨서 재고를 추가하는 기능
-    public func appendBeverage(_ beverage: Beverage) {
-        inventory.appendBeverage(beverage)
+    public func appendInventory(_ beverage: Beverage) {
+        inventory.append(beverage)
     }
     
     //현재 금액으로 구매가능한 음료수 목록을 리턴하는 기능
@@ -30,12 +30,12 @@ struct VendingMachine {
     }
     
     //자판기 금액을 원하는 금액만큼 올리는 기능
-    public func putInMoney(_ money: Int) {
-        paymentManager.putInMoney(money)
+    public func put(in money: Int) {
+        paymentManager.increase(money)
     }
     
     //음료수를 구매하는 기능
-    public func buyBeverage(_ beverage: Beverage) {
+    public func buy(_ beverage: Beverage) {
         guard let beverage = inventory.take(out: beverage, for: paymentManager) else { return }
         purchaseHistory.append(item: beverage)
     }

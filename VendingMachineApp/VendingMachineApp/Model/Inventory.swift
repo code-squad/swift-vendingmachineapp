@@ -15,7 +15,7 @@ class Inventory {
         beverages = []
     }
     
-    public func appendBeverage(_ beverage: Beverage) {
+    public func append(_ beverage: Beverage) {
         beverages.append(beverage)
     }
     
@@ -36,7 +36,7 @@ class Inventory {
       
         if let firstIndex = buyableBeverageList(buyer: paymentManager).firstIndex(where: { $0 === beverage }) {
             pickedBeverage = beverages.remove(at: firstIndex)
-            paymentManager.minusMoney(beverage: beverage)
+            paymentManager.decreaseMoney(by: beverage)
             return pickedBeverage
         }
 

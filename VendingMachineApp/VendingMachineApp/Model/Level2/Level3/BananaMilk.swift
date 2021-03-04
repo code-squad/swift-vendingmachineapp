@@ -10,13 +10,13 @@ import Foundation
 class BananaMilk: Milk {
     private var hasDoraemonSticker: Bool
     
-    init(brand: String, capacity: Int, price: Int, name: String, manufacture: Date, farmCode: String, hasDoraemonSticker: Bool, expiry: Date) {
+    init(brand: String, capacity: Int, price: Int, name: String, manufacture: Date, farmCode: String, hasDoraemonSticker: Bool, expiredAt: Date) {
         self.hasDoraemonSticker = hasDoraemonSticker
-        super.init(brand: brand, capacity: capacity, price: price, name: name, manufacture: manufacture, farmCode: farmCode, expiry: expiry)
+        super.init(brand: brand, capacity: capacity, price: price, name: name, manufacture: manufacture, farmCode: farmCode, expiredAt: expiredAt)
     }
     
     convenience init (brand: String, capacity: Int, price: Int, name: String, manufacture: Date, farmCode: String, hasDoraemonSticker: Bool) {
         
-        self.init(brand: brand, capacity: capacity, price: price, name: name, manufacture: manufacture, farmCode: farmCode, hasDoraemonSticker: hasDoraemonSticker, expiry: Calendar.current.date(byAdding: .day, value: 5, to: Date())!)
+        self.init(brand: brand, capacity: capacity, price: price, name: name, manufacture: manufacture, farmCode: farmCode, hasDoraemonSticker: hasDoraemonSticker, expiredAt: Calendar.current.date(byAdding: .day, value: 5, to: Date())!)
     }
 }

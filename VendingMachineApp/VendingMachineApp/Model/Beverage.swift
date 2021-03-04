@@ -7,24 +7,34 @@
 
 import Foundation
 
-class Beverage {
+class Beverage: SafeDateChecker {
 
     var description: String {
-        return "\(brand), \(capacity)ml, \(price)원, \(name), \(manufacturedAt.toString())"
+        return "\(brand), \(capacity)ml, \(price)원, \(name), \(manufacturedAt.toString()), \(expiredAt.toString())"
     }
     
     private var brand: String
     private var capacity: Int
     private(set) var price: Int
-    private(set) var name: String
-    private(set) var manufacturedAt: Date
+    private var name: String
+    private var manufacturedAt: Date
+    private var expiredAt: Date
     
-    init(brand: String, capacity: Int, price: Int, name: String, manufacture: Date) {
+    init(brand: String, capacity: Int, price: Int, name: String, manufacture: Date, expiredAt: Date) {
         self.brand = brand
         self.capacity = capacity
         self.price = price
         self.name = name
         self.manufacturedAt = manufacture
+        self.expiredAt = expiredAt
+    }
+    
+    public func expirationValidate() -> Bool {
+        return expiredAt <= manufacturedAt
+    }
+    
+    public func canSell(to buyer: PaymentManager) -> Bool {
+        price <= buyer.money
     }
 }
 

@@ -27,7 +27,7 @@ class Inventory: CustomStringConvertible {
         var list = [Beverage]()
         
         beverages.forEach { (beverage) in
-            if beverage.price <= paymentManager.money {
+            if beverage.canSell(to: paymentManager) {
                 list.append(beverage)
             }
         }

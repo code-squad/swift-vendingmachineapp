@@ -21,8 +21,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupBalanceLabel()
         configureSubscriber()
-        print(vendingMachine.inventoryManager.readInventores())
     }
     
     @IBAction func addBalanceButtonTapped(_ sender: UIButton) {
@@ -35,9 +35,13 @@ class ViewController: UIViewController {
             .publisher(for: Money.Notification.DidChangeBalance)
             .sink { notification in
                 DispatchQueue.main.async {
-                    self.balanceLabel.text = "잔액: \(self.vendingMachine.moneyManager.readBalance())원"
+                    self.setupBalanceLabel()
                 }
             }
+    }
+    
+    private func setupBalanceLabel() {
+        self.balanceLabel.text = "잔액: \(self.vendingMachine.moneyManager.readBalance()) 원"
     }
 }
 

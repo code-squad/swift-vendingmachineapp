@@ -7,11 +7,7 @@
 
 import Foundation
 
-class Inventory: CustomStringConvertible {
-    
-    var description: String {
-        return "\(beverages)"
-    }
+class Inventory {
 
     private var beverages: [Beverage]
     

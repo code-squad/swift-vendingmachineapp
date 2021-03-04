@@ -22,3 +22,13 @@
   - `Beverages`: 음료 창고 역할을 하는 클래스. 재고 관리 동작을 하며, 상품 리스트를 가지고 있다. 해당 타입의 productList, soldList 객체를 생성하여 상품 리스트와 팔린 리스트를 각각 관리하도록 하였다.
   - `MoneyBox`: 투입한 금액과 관련된 책임을 모아 둔 클래스. 금액 입출, 현재 금액으로 살 수 있는 음료 리스트를 반환하는 일을 한다.
   - `Filterer`: 특정 조건에 따라 필터된 음료수의 목록을 불러오는 역할을 한다.
+
+<br>
+
+## Step 3 - View: Stock & Balance Update (🎉 Mar 3)
+
+- 스토리보드에 자판기의 기본 View를 구성하고 재고와 잔액 관련 기능을 구현하였다.
+  - `VendingMachineUpdator`를 생성하고, 정보를 받아 View를 구성하는 역할을 수행하도록 했다. `ViewController`는 해당 class의 인스턴스를 가지고, 정보를 넘겨주게 된다.
+  - **IBOutletCollection**을 통해 같은 기능을 하는 스토리보드 요소들을 묶고, **identifier**를 설정하여 구분할 수 있도록 했다.
+
+![step 3](https://user-images.githubusercontent.com/72188416/109918719-cabd3d80-7cfa-11eb-88db-ee8562c429a1.gif)

@@ -19,8 +19,8 @@ class PurchaseHistory: PurchaseHistoryManagable {
         self.purchased.addInventory(beverage)
     }
     
-    func readHistory() -> InventoryWithCount {
-        var purchasedList = InventoryWithCount()
+    func readHistory() -> [Beverage: Int] {
+        var purchasedList = [Beverage: Int]()
         
         self.purchased.fotEachBeverage { beverage in
             purchasedList[beverage, default: 0] += 1

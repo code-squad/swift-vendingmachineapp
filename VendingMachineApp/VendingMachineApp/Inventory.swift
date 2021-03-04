@@ -7,10 +7,8 @@
 
 import Foundation
 
-typealias InventoryWithCount = [Beverage: Int]
-
 class Inventory: InventoryManagable {
-
+    
     private var inventory: [Beverage]
     
     init(inventory: [Beverage]) {
@@ -50,8 +48,8 @@ class Inventory: InventoryManagable {
         return Inventory(inventory: self.inventory.filter { $0.isHot() })
     }
     
-    func readInventores() -> InventoryWithCount {
-        var allInventores = InventoryWithCount()
+    func readInventores() -> [Beverage: Int] {
+        var allInventores = [Beverage: Int]()
         
         self.inventory.forEach { beverage in
             allInventores[beverage, default: 0] += 1

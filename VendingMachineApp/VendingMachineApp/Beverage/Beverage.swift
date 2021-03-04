@@ -46,14 +46,10 @@ extension Beverage: BeverageDetail {
 
 extension Beverage: Hashable {
     static func == (lhs: Beverage, rhs: Beverage) -> Bool {
-        return lhs.name == rhs.name && lhs.price == rhs.price
-            && lhs.brand == rhs.brand && lhs.calories == rhs.calories
-            && lhs.manufacturedAt == rhs.manufacturedAt && lhs.temparature == rhs.temparature
-            && lhs.volume == rhs.volume
+        return lhs.name == rhs.name
     }
     
     func hash(into hasher: inout Hasher) {
         hasher.combine(name)
-        hasher.combine(price)
     }
 }

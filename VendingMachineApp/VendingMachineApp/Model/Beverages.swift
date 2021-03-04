@@ -34,5 +34,17 @@ class Beverages {
         }
     }
     
+    func checkBeverageStock() -> [Beverage:Int] {
+        var result = [Beverage:Int]()
+        beverages.forEach { (beverage) in
+            if result[beverage] == nil {
+                result[beverage] = 1
+            } else {
+                result[beverage]! += 1
+            }
+        }
+        return result
+    }
+    
 }
 

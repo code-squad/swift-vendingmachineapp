@@ -49,8 +49,15 @@ class Beverage: CustomStringConvertible, Beveragable  {
         return calory < 50
     }
 }
-extension Beverage {
+extension Beverage: Hashable {
     static func == (lhs: Beverage, rhs: Beverage) -> Bool{
         return (lhs.brand == rhs.brand) && (lhs.volume == rhs.volume) && (lhs.price) == (rhs.price) && (lhs.name) == (rhs.name) && (lhs.manufacturedAt == rhs.manufacturedAt) && (lhs.temperature == rhs.temperature) && (lhs.expirationDate == rhs.expirationDate) && (lhs.calory == rhs.calory)
+    }
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(brand)
+        hasher.combine(volume)
+        hasher.combine(price)
+        hasher.combine(name)
+        hasher.combine(manufacturedAt)
     }
 }

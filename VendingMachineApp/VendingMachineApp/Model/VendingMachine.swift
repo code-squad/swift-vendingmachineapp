@@ -23,7 +23,7 @@ class VendingMachine {
     }
 
     func rechargeCash(with cash: Int) {
-        cashManagementSystem.recharge(with: cash)
+        cashManagementSystem.increaseCash(with: cash)
     }
     
     func showListForPurchase() -> Drinks {

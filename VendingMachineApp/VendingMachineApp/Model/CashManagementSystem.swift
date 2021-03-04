@@ -10,15 +10,15 @@ import Foundation
 class CashManagementSystem {
     private var cash: Int
     
+    var description : String {
+        return "\(self.cash)"
+    }
+    
     init(_ cash: Int) {
         self.cash = cash
     }
     convenience init() {
         self.init(0)
-    }
-    
-    func recharge(with cash: Int) {
-        self.cash = cash
     }
     
     func retrieveCash(completion: (Int) -> Drinks) -> Drinks {

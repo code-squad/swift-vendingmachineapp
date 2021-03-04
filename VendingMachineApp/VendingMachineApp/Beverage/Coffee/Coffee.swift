@@ -14,4 +14,8 @@ class Coffee: Beverage {
         self.caffeinContent = caffeinContent
         super.init(brand: brand, volume: volume, price: price, name: name, manufacturedAt: manufacturedAt, temparature: temparature, calories: calories)
     }
+    
+    func isDecaffeined(standard: Int) -> Bool {
+        return self.caffeinContent < standard ? true : false
+    }
 }

@@ -10,55 +10,60 @@ import Foundation
 class VendingMachine {
     private var money : Money
     private var beverages : [Beverage]
-    private var milk : [Milk]
-    private var soda : [Soda]
-    private var energydrink : [Energydrink]
-    private var coffee : [Coffee]
+    private var bananaMilk : [BananaMilk]
+    private var strawBerryMilk : [StrawBerryMilk]
+    private var cider : [Cider]
+    private var coke : [Coke]
+    private var monster : [Monster]
+    private var diablo : [Diablo]
+    private var caffeMocha : [CaffeMocha]
+    private var caffeLatte : [CaffeeLatte]
     private var bought : [Beverage]
     
     init(Money : Money){
         self.money = Money
         self.beverages = []
-        self.milk = []
-        self.soda = []
-        self.energydrink = []
-        self.coffee = []
+        self.bananaMilk = []
+        self.strawBerryMilk = []
+        self.cider = []
+        self.coke = []
+        self.monster = []
+        self.diablo = []
         self.bought = []
+        self.caffeLatte = []
+        self.caffeMocha = []
     }
     
     func addMoney(money : Money){
         money.addMoney(money: money)
     }
     
-    private func addMilk(milk : Milk){
-        self.milk.append(milk)
-    }
-    
-    private func addSoda(soda : Soda){
-        self.soda.append(soda)
-    }
-    
-    private func addCoffee(coffee : Coffee){
-        self.coffee.append(coffee)
-    }
-    
     func addBeverage(beverage : Beverage){
-        if let tempbeverage = beverage as? Milk{
-            addMilk(milk: tempbeverage)
+        if let tempbeverage = beverage as? BananaMilk{
+            addBananaMilk(bananaMilk: tempbeverage)
         }
-        else if let tempbeverage = beverage as? Soda{
-            addSoda(soda: tempbeverage)
+        else if let tempbeverage = beverage as? StrawBerryMilk{
+            addStrawBerryMilk(strawBerryMilk: tempbeverage)
         }
-        else if let tempbeverage = beverage as? Coffee{
-            addCoffee(coffee: tempbeverage)
+        else if let tempbeverage = beverage as? Cider{
+            addCider(cider: tempbeverage)
         }
-        else if let tempbeverage = beverage as? Energydrink{
-            addEnergydrink(energyDrink: tempbeverage)
+        else if let tempbeverage = beverage as? Coke{
+            addCoke(coke: tempbeverage)
         }
-    }
-    
-    func addEnergydrink(energyDrink : Energydrink){
-        self.energydrink.append(energyDrink)
+        else if let tempbeverage = beverage as? CaffeMocha{
+            addCaffeMocha(caffeMocha: tempbeverage)
+        }
+        else if let tempbeverage = beverage as? CaffeeLatte{
+            addCaffeLatte(caffeLatte: tempbeverage)
+        }
+        else if let tempbeverage = beverage as? Monster{
+            addMonster(monster: tempbeverage)
+        }
+        else if let tempbeverage = beverage as? Diablo{
+            addDiablo(diablo: tempbeverage)
+        }
+        
     }
     
     func canBuyBeverage() -> [Beverage]{
@@ -72,31 +77,59 @@ class VendingMachine {
         return tempbeverages
     }
     
-    func buyMilk(){
-        if let temp = milk.first{
+    func buybananMilk(){
+        if let temp = bananaMilk.first{
             bought.append(temp)
-            milk.removeFirst()
+            bananaMilk.removeFirst()
         }
     }
     
-    func buySoda(){
-        if let temp = soda.first{
+    func buyStrawberryMilk(){
+        if let temp = strawBerryMilk.first{
             bought.append(temp)
-            milk.removeFirst()
+            strawBerryMilk.removeFirst()
         }
     }
     
-    func buyCoffee(){
-        if let temp = coffee.first{
+    func buyCaffeLatte(){
+        if let temp = caffeLatte.first{
             bought.append(temp)
-            coffee.removeFirst()
+            caffeLatte.removeFirst()
         }
     }
     
-    func buyEnergyDrink(){
-        if let temp = coffee.first{
+    func buyCaffeMocha(){
+        if let temp = caffeMocha.first{
             bought.append(temp)
-            energydrink.removeFirst()
+            caffeMocha.removeFirst()
+        }
+    }
+    
+    func buyCider(){
+        if let temp = cider.first{
+            bought.append(temp)
+            cider.removeFirst()
+        }
+    }
+    
+    func buyCoke(){
+        if let temp = coke.first{
+            bought.append(temp)
+            coke.removeFirst()
+        }
+    }
+     
+    func buyMonster(){
+        if let temp = monster.first{
+            bought.append(temp)
+            monster.removeFirst()
+        }
+    }
+    
+    func buyDiablo(){
+        if let temp = diablo.first{
+            bought.append(temp)
+            diablo.removeFirst()
         }
     }
     
@@ -137,10 +170,46 @@ class VendingMachine {
     
     private func addAllCurrentBeverages(){
         beverages.removeAll()
-        milk.forEach{beverages.append($0)}
-        soda.forEach{beverages.append($0)}
-        energydrink.forEach{beverages.append($0)}
-        coffee.forEach{beverages.append($0)}
+        bananaMilk.forEach{beverages.append($0)}
+        strawBerryMilk.forEach{beverages.append($0)}
+        cider.forEach{beverages.append($0)}
+        coke.forEach{beverages.append($0)}
+        caffeMocha.forEach{beverages.append($0)}
+        caffeLatte.forEach{beverages.append($0)}
+        monster.forEach{beverages.append($0)}
+        diablo.forEach{beverages.append($0)}
     }
     
+    private func addBananaMilk(bananaMilk : BananaMilk){
+        bought.append(bananaMilk)
+        self.bananaMilk.append(bananaMilk)
+    }
+    private func addStrawBerryMilk(strawBerryMilk : StrawBerryMilk){
+        bought.append(strawBerryMilk)
+        self.strawBerryMilk.append(strawBerryMilk)
+    }
+    private func addCider(cider : Cider){
+        bought.append(cider)
+        self.cider.append(cider)
+    }
+    private func addCoke(coke : Coke){
+        bought.append(coke)
+        self.coke.append(coke)
+    }
+    private func addCaffeMocha(caffeMocha: CaffeMocha){
+        bought.append(caffeMocha)
+        self.caffeMocha.append(caffeMocha)
+    }
+    private func addCaffeLatte(caffeLatte : CaffeeLatte){
+        bought.append(caffeLatte)
+        self.caffeLatte.append(caffeLatte)
+    }
+    private func addDiablo(diablo : Diablo){
+        bought.append(diablo)
+        self.diablo.append(diablo)
+    }
+    private func addMonster(monster : Monster){
+        bought.append(monster)
+        self.monster.append(monster)
+    }
 }

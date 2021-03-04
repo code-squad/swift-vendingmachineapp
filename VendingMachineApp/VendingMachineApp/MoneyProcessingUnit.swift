@@ -22,6 +22,7 @@ class MoneyProcessingUnit {
     
     public func increaseMoneyOnTransaction(by amount: Int) {
         moneyOnTransaction += amount
+        NotificationCenter.default.post(name: .didIncreaseMoneyOnTransaction, object: nil)
     }
     
     public func deductMoneyOnTransaction(with amount: Int) {

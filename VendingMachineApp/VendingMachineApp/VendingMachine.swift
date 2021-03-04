@@ -74,7 +74,7 @@ struct VendingMachine {
     func showHotDrinks() -> [Slot] {
         var hotDrinks: [Slot] = []
         inventory.showSlots {
-            if $0.isHotDrink() {
+            if $0.isHotDrinkSlot() {
                 hotDrinks.append($0)
             }
         }

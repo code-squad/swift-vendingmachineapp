@@ -16,8 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" alignment="center" spacing="176" translatesAutoresizingMaskIntoConstraints="NO" id="1Pv-g3-aXj">
-                                <rect key="frame" x="40" y="67" width="962" height="212.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="176" translatesAutoresizingMaskIntoConstraints="NO" id="1Pv-g3-aXj">
+                                <rect key="frame" x="40" y="100" width="962" height="212.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="69" translatesAutoresizingMaskIntoConstraints="NO" id="1sL-ff-nNv">
                                         <rect key="frame" x="0.0" y="0.0" width="670" height="212.5"/>
@@ -143,6 +143,11 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="1Pv-g3-aXj" secondAttribute="trailing" constant="22" id="2Q1-Om-v9P"/>
+                            <constraint firstItem="1Pv-g3-aXj" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="DTd-e6-pG1"/>
+                            <constraint firstItem="1Pv-g3-aXj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="ZYe-iF-tK7"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="balanceLabel" destination="UVR-cJ-PpM" id="cnp-bX-UtN"/>

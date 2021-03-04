@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "fanta.png",
+      "filename" : "fanta.jpg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "fanta@2x.jpg",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "fanta@3x.jpg",
       "idiom" : "universal",
       "scale" : "3x"
     }

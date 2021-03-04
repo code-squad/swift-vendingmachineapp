@@ -10,6 +10,8 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet var drinkImages: [UIImageView]!
+    @IBOutlet weak var remainCoinsLabel: UILabel!
+    @IBOutlet var drinkStockLabels: [UILabel]!
     
     var drinks: [Drink: Int] = [:]
     var vendingMachine: VendingMachine? {
@@ -44,7 +46,19 @@ class ViewController: UIViewController {
             return
         }
         vm.addStock(for: drink)
-        print(vm.getAllDrinks().keys, vm.getAllDrinks().values)
+        
+        let drinks = vm.getAllDrinks()
+        if let stock = drinks[drink] {
+            drinkStockLabels[tag - 1].text = "\(String(stock))개"
+        }
+    }
+    
+    @IBAction func charge(_ sender: UIButton) {
+        let tag = sender.tag
+        vendingMachine?.charge(coins: tag)
+        if let coins = vendingMachine?.checkRemainCoins() {
+            remainCoinsLabel.text = String(coins)
+        }
     }
 }
 

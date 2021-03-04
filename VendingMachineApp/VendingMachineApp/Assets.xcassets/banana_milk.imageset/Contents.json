@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "bananaMilk.jpg",
+      "filename" : "banana_milk.jpg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "banana_milk@2x.jpg",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "banana_milk@3x.jpg",
       "idiom" : "universal",
       "scale" : "3x"
     }

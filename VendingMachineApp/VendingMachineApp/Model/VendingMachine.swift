@@ -18,7 +18,13 @@ struct VendingMachine {
     }
     
     func nowAvailableList() -> [Beverage] {
-        return beverages.filterAvailable()
+        var availableList = [Beverage]()
+        beverages.forEachBeverage { beverage in
+            if beverage.availableForBeverage() {
+                availableList.append(beverage)
+            }
+        }
+        return availableList
     }
     
     func buyingList(productName: String) -> [Beverage] {
@@ -60,10 +66,10 @@ struct VendingMachine {
         return expired
     }
     
-    func hotBeverages() -> [Beverage] {
+    func hotBeverages(temparatue: Int) -> [Beverage] {
         var hotProducts = [Beverage]()
         beverages.forEachBeverage{
-            if $0.isHotBeverage() {
+            if $0.isHotBeverage(over: temparatue) {
                 hotProducts.append($0)
             }
         }

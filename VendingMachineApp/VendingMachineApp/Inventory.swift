@@ -24,7 +24,7 @@ class Inventory: InventoryManagable {
         self.inventory.append(beverage)
     }
     
-    func isPurchasableInventory(balance: Int) -> Inventory {
+    func isPurchasableInventory(balance: Int) -> InventoryManagable {
         return Inventory(inventory: self.inventory.filter { $0.isPurchasable(balance: balance) })
     }
     
@@ -40,11 +40,11 @@ class Inventory: InventoryManagable {
         }
     }
     
-    func expiredBeverages(current: Date) -> Inventory {
-        return Inventory(inventory: self.inventory.filter { $0.validate(with: Date()) })
+    func expiredBeverages(current: Date) -> InventoryManagable {
+        return Inventory(inventory: self.inventory.filter { $0.isExpired(now: Date()) })
     }
     
-    func hotBeverages() -> Inventory {
+    func hotBeverages() -> InventoryManagable {
         return Inventory(inventory: self.inventory.filter { $0.isHot() })
     }
     

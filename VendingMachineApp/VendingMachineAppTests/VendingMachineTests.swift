@@ -51,7 +51,7 @@ class VendingMachineTests: XCTestCase {
     }
     
     private func assertPurchasable() {
-        let purchasable: Inventory = inventoryManager.isPurchasableInventory(balance: moneyManager.readBalance())
+        let purchasable = inventoryManager.isPurchasableInventory(balance: moneyManager.readBalance())
         XCTAssertEqual(purchasable.readInventores().count, 2)
     }
     

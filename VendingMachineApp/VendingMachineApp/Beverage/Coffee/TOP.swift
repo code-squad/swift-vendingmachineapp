@@ -19,6 +19,6 @@ class TOP: Coffee {
     
     init(taste: Taste) {
         self.taste = taste
-        super.init(brand: "Maxim", volume: 275, price: 2000, name: "T.O.P 에스프레소", manufacturedAt: Date(), temparature: 3, calories: 10, isLowfat: true, caffeinContent: 100)
+        super.init(brand: "Maxim", volume: 275, price: 2000, name: "T.O.P 에스프레소", manufacturedAt: Date().addingTimeInterval(800000), temparature: 3, calories: 10, isLowfat: true, caffeinContent: 100)
     }
 }

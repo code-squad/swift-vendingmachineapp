@@ -27,8 +27,8 @@ class Beverage {
 }
 
 extension Beverage: BeverageDetail {
-    func validate(with date: Date) -> Bool {
-        return manufacturedAt > date ? true : false
+    func isExpired(now date: Date) -> Bool {
+        return manufacturedAt < date ? true : false
     }
     
     func isHot() -> Bool {

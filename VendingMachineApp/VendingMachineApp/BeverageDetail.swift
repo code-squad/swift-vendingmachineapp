@@ -8,7 +8,7 @@
 import Foundation
 
 protocol BeverageDetail {
-    func validate(with date:Date) -> Bool
+    func isExpired(now date: Date) -> Bool
     func isHot() -> Bool
     func isLowCalorie() -> Bool
     func isPurchasable(balance: Int) -> Bool

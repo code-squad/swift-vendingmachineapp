@@ -22,11 +22,11 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="loN-N6-x8H">
                                         <rect key="frame" x="0.0" y="0.0" width="256" height="400"/>
                                         <subviews>
-                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BZA-RC-Srq">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BZA-RC-Srq">
                                                 <rect key="frame" x="113" y="0.0" width="30" height="126.5"/>
                                                 <state key="normal" title="추가"/>
                                                 <connections>
-                                                    <action selector="addStock:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LZP-me-cZs"/>
+                                                    <action selector="addFantaStock:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8ym-q4-JzV"/>
                                                 </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="banana_milk" translatesAutoresizingMaskIntoConstraints="NO" id="N58-bC-3EY">
@@ -43,11 +43,11 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="uiN-ce-wM2">
                                         <rect key="frame" x="256" y="0.0" width="256" height="400"/>
                                         <subviews>
-                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SSQ-gt-i1A">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SSQ-gt-i1A">
                                                 <rect key="frame" x="113" y="0.0" width="30" height="126.5"/>
                                                 <state key="normal" title="추가"/>
                                                 <connections>
-                                                    <action selector="addStock:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SZ6-V8-ZB6"/>
+                                                    <action selector="addFantaStock:" destination="BYZ-38-t0r" eventType="touchUpInside" id="c6k-EL-TnC"/>
                                                 </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cantata_coffee" translatesAutoresizingMaskIntoConstraints="NO" id="uo8-H2-XEP">
@@ -64,11 +64,11 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="lEm-H9-HkC">
                                         <rect key="frame" x="512" y="0.0" width="256" height="400"/>
                                         <subviews>
-                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a0G-P6-ygs">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a0G-P6-ygs">
                                                 <rect key="frame" x="113" y="0.0" width="30" height="126.5"/>
                                                 <state key="normal" title="추가"/>
                                                 <connections>
-                                                    <action selector="addStock:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5w2-In-EUW"/>
+                                                    <action selector="addFantaStock:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MY6-mH-tTj"/>
                                                 </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fanta" translatesAutoresizingMaskIntoConstraints="NO" id="OQD-GD-Qgq">
@@ -133,6 +133,9 @@
                         <outletCollection property="drinkImages" destination="uo8-H2-XEP" collectionClass="NSMutableArray" id="Q13-Jh-SQS"/>
                         <outletCollection property="drinkStockLabels" destination="vFf-uw-w7G" collectionClass="NSMutableArray" id="pi1-MX-4G9"/>
                         <outletCollection property="drinkImages" destination="OQD-GD-Qgq" collectionClass="NSMutableArray" id="Ede-nL-Ofd"/>
+                        <outletCollection property="addButtons" destination="BZA-RC-Srq" collectionClass="NSMutableArray" id="YRL-Yf-d1j"/>
+                        <outletCollection property="addButtons" destination="SSQ-gt-i1A" collectionClass="NSMutableArray" id="Zh2-2K-nqn"/>
+                        <outletCollection property="addButtons" destination="a0G-P6-ygs" collectionClass="NSMutableArray" id="Gkk-kC-fhl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

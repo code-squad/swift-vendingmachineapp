@@ -12,8 +12,19 @@ class ViewController: UIViewController {
     @IBOutlet var drinkImages: [UIImageView]!
     @IBOutlet weak var remainCoinsLabel: UILabel!
     @IBOutlet var drinkStockLabels: [UILabel]!
+    @IBOutlet var addButtons: [UIButton]! {
+        didSet {
+            var i = 0
+            let drinks = [BananaMilk.self, Cantata.self, Fanta.self]
+            addButtons.forEach { button in
+                buttonsForDrink[button] = drinks[i]
+                i += 1
+            }
+        }
+    }
     
     var vendingMachine: VendingMachine?
+    var buttonsForDrink: [UIButton: Drink.Type] = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,16 +44,13 @@ class ViewController: UIViewController {
         vendingMachine = VendingMachine(drinks: drinks)
     }
     
-    @IBAction func addStock(_ sender: UIButton) {
-        let tag = sender.tag
-        guard var vm = vendingMachine, let drink = DrinkFactory.createDrink(tag: tag) else {
+    // MARK: IBActions
+    @IBAction func addDrinkStock(_ sender: UIButton) {
+        guard var vm = vendingMachine, let type = buttonsForDrink[sender] else {
             return
         }
-        vm.addStock(for: drink)
-        
-        let drinks = vm.getAllDrinks()
-        if let stock = drinks[drink] {
-            drinkStockLabels[tag - 1].text = "\(String(stock))개"
+        if let drink = DrinkFactory.createDrink(for: type) {
+            vm.addStock(for: drink)
         }
     }
     

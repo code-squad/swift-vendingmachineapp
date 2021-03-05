@@ -18,8 +18,4 @@ class Cantata: Coffee {
         self.flavor = flavor
         super.init(manufacturer: manufacturer, volume: volume, name: name, manufacturedAt: manufacturedAt, price: price, caffeineContent: caffeineContent, temperature: temperature, calorie: calorie, expiredAt: expiredAt)
     }
-    
-    convenience init() {
-        self.init(manufacturer: "롯데칠성음료", volume: 200, name: "칸타타프리미엄라떼", manufacturedAt: Date(), price: 2000, caffeineContent: 10, temperature: 100, calorie: 100, flavor: .latte, expiredAt: Date())
-    }
 }

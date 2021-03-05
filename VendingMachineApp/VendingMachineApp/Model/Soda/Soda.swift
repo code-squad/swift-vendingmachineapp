@@ -9,12 +9,19 @@ import Foundation
 
 class Soda: Beverage {
     
-    override init(brand: String, volume: Int, price: Int, name: String, manufacturedAt: Date) {
-        super.init(brand: brand, volume: volume, price: price, name: name, manufacturedAt: manufacturedAt)
+    private let sugarPercent: Int
+    
+    init(brand: String, volume: Int, price: Int, name: String, createdAt: Date, expiredAt: Date, sugarPercent: Int) {
+        self.sugarPercent = sugarPercent
+        super.init(brand: brand, volume: volume, price: price, name: name, createdAt: createdAt, expiredAt: expiredAt)
     }
     
     convenience init() {
-        self.init(brand: "brand", volume: 0, price: 0, name: "name", manufacturedAt: Date())
+        self.init(brand: "brand", volume: 0, price: 0, name: "name", createdAt: Date(), expiredAt: Date(), sugarPercent: 0)
     }
     
+    func isLowSugar() -> Bool {
+        let criteria = 2
+        return sugarPercent <= criteria
+    }
 }

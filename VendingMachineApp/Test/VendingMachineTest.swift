@@ -8,7 +8,11 @@
 import XCTest
 @testable import VendingMachineApp
 
+<<<<<<< HEAD
 class VendingMachineTest: XCTestCase {
+=======
+class test: XCTestCase {
+>>>>>>> 7d448ba3... 학습한 내용을 요약해서 추가했습니다.
     
     var vendingMachine: VendingMachine!
     
@@ -16,6 +20,7 @@ class VendingMachineTest: XCTestCase {
         super.setUp()
         vendingMachine = VendingMachine()
     }
+<<<<<<< HEAD
     
     
     
@@ -235,4 +240,14 @@ class VendingMachineTest: XCTestCase {
         XCTAssertEqual(expectation2, vendingMachine.showInventory(), "Panther")
     }
     
+=======
+
+    func testExample() {
+        let cash = 100
+        vendingMachine.insertCash(cash: cash)
+        let expect = 100
+        XCTAssertEqual(expect, vendingMachine.showAccount(), "not equal")
+    }
+
+>>>>>>> 7d448ba3... 학습한 내용을 요약해서 추가했습니다.
 }

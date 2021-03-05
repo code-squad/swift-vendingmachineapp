@@ -57,5 +57,7 @@ extension Beverage: Hashable {
         hasher.combine(price)
         hasher.combine(name)
         hasher.combine(manufacturedAt)
+        hasher.combine(expirationAt)
+        hasher.combine(temperature)
     }
 }

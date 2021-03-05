@@ -7,7 +7,7 @@
 
 import Foundation
 
-class MoneyBox {
+class MoneyBox: MoneyManagable {
     
     private var money: Int
     
@@ -15,7 +15,6 @@ class MoneyBox {
         money = 0
     }
     
-    //이렇게 리턴하지 않고 잔액을 받아올 수 있는 방법을 모르겠습니다ㅠㅠ
     func balance() -> Int {
         return money
     }
@@ -28,11 +27,11 @@ class MoneyBox {
         self.money = money
     }
     
-    func affordableList(from list: BeverageStorage) -> [ObjectIdentifier] {
-        return list.listTypeOnly(filter: affordable(_:))
+    func affordables(fromItemsIn storage: Storage) -> [ObjectIdentifier] {
+        return storage.listTypeOnly(filter: affordable(_:))
     }
     
-    private func affordable(_ beverages: [ObjectIdentifier: [Beverage]]) -> [ObjectIdentifier] {
+    private func affordable(_ beverages: [ObjectIdentifier: [Shopable]]) -> [ObjectIdentifier] {
         var purchashableList = [ObjectIdentifier]()
         
         beverages.forEach { (id, list) in

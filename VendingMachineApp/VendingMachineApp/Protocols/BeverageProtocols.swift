@@ -1,5 +1,5 @@
 //
-//  Protocols.swift
+//  BeverageProtocols.swift
 //  VendingMachineApp
 //
 //  Created by Song on 2021/03/03.

@@ -9,31 +9,35 @@ import Foundation
 
 struct VendingMachine {
     
-    private var drinks : [Drink]
+    private var drinks: Drinks
+    private var payment : Payment
     
-    init(drinks: [Drink]) {
+    init(drinks: Drinks, payment: Payment) {
         self.drinks = drinks
+        self.payment = payment
     }
     
-    //MARK: 출력
+    //MARK: 현재 자판기 음료수 출력
     func showVendingMachine(handler: (Drink) -> ()) {
-        drinks.forEach {
+        let printDrinks = drinks.showNowDrinkList()
+        printDrinks.forEach {
             handler($0)
         }
     }
     
     //MARK: 현재 금액으로 구매가능한 음료수 목록 메소드
-    func showPurchasableDrinks(with nowMoney: Int) -> [Drink]{
-        return drinks.filter({$0.isPurchasableDrink(money: nowMoney)})
+    mutating func showPurchasableDrinks() -> [Drink]{
+        let nowMoney = payment.nowMoney()
+        return drinks.getPurchasableDrinks(with: nowMoney)
     }
     
     //MARK: 음료수 구매
-    mutating func purcahseDrink(with nowMoney: Int, drink: Drink){
-        var canBuyDrink = drinks.filter({$0.isPurchasableDrink(money: nowMoney)})
-        if let firstIndex = canBuyDrink.firstIndex(of: drink){
-            canBuyDrink.remove(at: firstIndex)
-            drinks.remove(at: firstIndex)
-            //drinksHistory.append(drink)
+    mutating func purcahseDrink(drink: Drink){
+        let nowMoney = payment.nowMoney()
+        var canBuyDrinks = drinks.getPurchasableDrinks(with: nowMoney)
+        if let firstIndex = canBuyDrinks.firstIndex(of: drink){
+            canBuyDrinks.remove(at: firstIndex)
+            drinks.removeDrink(at: drink)
         }
     }
 }

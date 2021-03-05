@@ -45,13 +45,14 @@ class ViewController: UIViewController {
     }
     
     // MARK: IBActions
-    @IBAction func addDrinkStock(_ sender: UIButton) {
+    @IBAction func addStockButton(_ sender: UIButton) {
         guard var vm = vendingMachine, let type = buttonsForDrink[sender] else {
             return
         }
         if let drink = DrinkFactory.createDrink(for: type) {
             vm.addStock(for: drink)
         }
+        print(vm.getAllDrinks().keys)
     }
     
     @IBAction func charge(_ sender: UIButton) {

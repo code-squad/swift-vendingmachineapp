@@ -17,7 +17,7 @@ class Soda: Drink, Sweetable {
     }
     
     func isUnSweetened() -> Bool {
-        return sugarContent < 100 ? true : false
+        return sugarContent < 100
     }
 }
 

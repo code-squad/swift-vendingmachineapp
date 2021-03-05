@@ -13,19 +13,20 @@ struct VendingMachine {
     private var account = 0
     private var purchaseHistory = [Beverage]()
     
-    // 금액 올리기
-    public mutating func insertCash(cash: Int) -> Int {
-        return account + cash
-    }
-    
+    // 현금 투입
     public mutating func addCash(cash: Int) {
         self.account += cash
     }
     
+    // 앞서 현금 투입 함수가 있지만, 개인적으로 정리할 내용이 있어 남겨뒀습니다.
+    // Test에 내용을 다시 남기겠습니다.
+    public mutating func insertCash(cash: Int) -> Int {
+        return account + cash
+    }
+    
     // 재고 추가
-    public mutating func addBeverage(variety: Category) {
-        let factory = BeverageFactory()
-        inventoryList.append(factory.addBeverage(variety: variety))
+    public mutating func addBeverage(beverage: Beverage) {
+        inventoryList.append(beverage)
     }
     
     // 구매 가능 음료 목록
@@ -41,11 +42,9 @@ struct VendingMachine {
     }
     
     // 음료 구매
-    public mutating func purchaseEvent() {
-        if let selected = showPurchasable().randomElement() {
-            purchaseHistory.append(selected)
-            remove(one: selected)
-        }
+    public mutating func sell(one : Beverage) {
+        remove(one: one)
+        purchaseHistory.append(one)
     }
     
     // 잔액 확인
@@ -53,27 +52,27 @@ struct VendingMachine {
         return account
     }
     
-    // 전체 재고 리턴
+    // 전체 재고 확인
     public mutating func showInventory() -> [Beverage] {
         return inventoryList
     }
     
     // 유통기한 만료 제품
     public mutating func showExpired() -> [Beverage] {
-        return inventoryList.filter( {$0.showExpiration() < Date()} )
+        return inventoryList.filter( { $0.isNotExpired() == false } )
     }
     
-    // 뜨뜻
+    // 따뜻한 음료만 배열로
     public mutating func hotBeverage() -> [Beverage] {
-        var list = [Beverage]()
-        inventoryList.forEach{ (product) in
-            if let coffee = product as? CoffeeSKU {
-                if coffee.isHot() == true {
-                    list.append(coffee)
+        let hotBeverage = inventoryList.filter{ sku in
+            if let coffee = sku as? Coffee {
+                if coffee.hot() {
+                    return true
                 }
             }
+            return false
         }
-        return list
+        return hotBeverage
     }
     
     // 시작 이후 구매 상품 이력을 배열로
@@ -83,19 +82,3 @@ struct VendingMachine {
     
 }
 
-extension VendingMachine {
-    
-    public mutating func findCoffee() -> [Beverage] {
-        var coffeeList: [Beverage] = [CoffeeSKU]()
-        let coffee = inventoryList.filter{ $0 is CoffeeSKU }
-        coffeeList.append(contentsOf: coffee)
-        return coffeeList
-    }
-    
-//    public mutating func findHotCoffee() -> [Beverage] {
-//        var coffeeList: [Beverage] = [CoffeeSKU]()
-//        coffeeList.append(contentsOf: findCoffee())
-//        coffeeList.filter{ $0.isHot == true } // Value of type 'Beverage' has no member 'isHot'
-//    }
-    
-}

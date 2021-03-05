@@ -33,9 +33,7 @@ class Slot: CustomStringConvertible {
     
     func stock(_ item: Beverage) {
         if let firstItem = firstItem {
-            let addedItemType = type(of: item)
-            let firstItemType = type(of: firstItem)
-            if addedItemType == firstItemType {
+            if item.name == firstItem.name {
                 items.append(item)
             }
         } else {

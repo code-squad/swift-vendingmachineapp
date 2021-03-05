@@ -19,4 +19,23 @@ class Beverage : CustomStringConvertible {
         self.name = name
         self.manufacturedAt = manufactureAt
     }
+    
+    func isPriced(under price: Int) -> Bool {
+        return self.price <= price ? true : false
+    }
+}
+
+extension Beverage : Hashable {
+    static func == (lhs: Beverage, rhs: Beverage) -> Bool {
+        return lhs.brand == rhs.brand && lhs.size == rhs.size &&
+            lhs.price == rhs.price && lhs.name == rhs.name
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(brand)
+        hasher.combine(size)
+        hasher.combine(price)
+        hasher.combine(name)
+    }
+    
 }

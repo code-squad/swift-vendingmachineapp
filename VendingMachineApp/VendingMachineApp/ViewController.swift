@@ -11,8 +11,7 @@ class ViewController: UIViewController {
     private var vendingMachine: VendingMachine
     
     required init?(coder: NSCoder) {
-        let list = [StrawberryMilk(), Fanta(), Cantata()]
-        self.vendingMachine = VendingMachine(drinks: list)
+        self.vendingMachine = VendingMachine()
         
         super.init(coder: coder)
     }
@@ -20,7 +19,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        vendingMachine.printDrinks()
     }
 
 

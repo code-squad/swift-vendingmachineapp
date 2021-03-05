@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AE1CCD2A25F2BAAB0035CF4D /* VendingMachineTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1CCD2925F2BA980035CF4D /* VendingMachineTest.swift */; };
+		AE1CCD2D25F2BB590035CF4D /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA4E10525EE666500132E4E /* VendingMachine.swift */; };
+		AE1CCD4225F2BCD40035CF4D /* Cantata.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE34724225EF811C006986F2 /* Cantata.swift */; };
+		AE1CCD4325F2BCD40035CF4D /* Georgia.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE34724825EF8144006986F2 /* Georgia.swift */; };
 		AE34722F25EF8049006986F2 /* StrawberryMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE34722E25EF8049006986F2 /* StrawberryMilk.swift */; };
 		AE34723225EF8061006986F2 /* ChocoMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE34723125EF8061006986F2 /* ChocoMilk.swift */; };
 		AE34723525EF807B006986F2 /* BananaMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE34723425EF807B006986F2 /* BananaMilk.swift */; };
@@ -50,6 +54,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AE1CCD2925F2BA980035CF4D /* VendingMachineTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineTest.swift; sourceTree = "<group>"; };
 		AE34722E25EF8049006986F2 /* StrawberryMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrawberryMilk.swift; sourceTree = "<group>"; };
 		AE34723125EF8061006986F2 /* ChocoMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChocoMilk.swift; sourceTree = "<group>"; };
 		AE34723425EF807B006986F2 /* BananaMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BananaMilk.swift; sourceTree = "<group>"; };
@@ -150,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				AEC8737D25F0395E00486A26 /* InventoryTest.swift */,
+				AE1CCD2925F2BA980035CF4D /* VendingMachineTest.swift */,
 				AEC8737F25F0395E00486A26 /* Info.plist */,
 			);
 			path = VendingMachineAppTests;
@@ -288,9 +294,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE1CCD4225F2BCD40035CF4D /* Cantata.swift in Sources */,
+				AE1CCD4325F2BCD40035CF4D /* Georgia.swift in Sources */,
+				AE1CCD2D25F2BB590035CF4D /* VendingMachine.swift in Sources */,
 				AEB1927225F29D19006C2671 /* toDictionary.swift in Sources */,
 				AEB1927325F29D19006C2671 /* Inventory.swift in Sources */,
 				AEB1927425F29D19006C2671 /* Beverage.swift in Sources */,
+				AE1CCD2A25F2BAAB0035CF4D /* VendingMachineTest.swift in Sources */,
 				AEB1927525F29D19006C2671 /* Coffee.swift in Sources */,
 				AEB1928625F29E43006C2671 /* InventoryTest.swift in Sources */,
 				AEB1927625F29D19006C2671 /* TOP.swift in Sources */,

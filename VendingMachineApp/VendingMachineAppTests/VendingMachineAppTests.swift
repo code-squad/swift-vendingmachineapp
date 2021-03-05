@@ -10,9 +10,9 @@ import XCTest
 class VendingMachineAppTests: XCTestCase {
     
     var vendingMachine = VendingMachine()
-    var beverage = MilkFactory().create()
-    var beverage2 = SodaFactory().create()
-    var beverage3 = CoffeeFactory().create()
+    var beverage = MilkFactory.create()
+    var beverage2 = SodaFactory.create()
+    var beverage3 = CoffeeFactory.create()
     
     override func setUpWithError() throws {
         

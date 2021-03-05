@@ -23,6 +23,10 @@ class Beverage : CustomStringConvertible {
     func isPriced(under price: Int) -> Bool {
         return self.price <= price ? true : false
     }
+    
+    func howMuch(closure: (Int) -> Void) {
+        closure(self.price)
+    }
 }
 
 extension Beverage : Hashable {

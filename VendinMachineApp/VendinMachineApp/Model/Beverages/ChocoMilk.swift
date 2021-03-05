@@ -13,7 +13,7 @@ class ChocoMilk : Milk, Country {
     }
     
     convenience init(brand: String, size: Int, price: Int, name: String, manufactureAt: Date, madeIn: Country) {
-        self.init(brand: brand, size: size, price: price, name: name, manufactureAt: manufactureAt, validWithin: 3, madeIn: madeIn)
+        self.init(brand: brand, size: size, price: price, name: name, manufactureAt: manufactureAt, validWithin: 7, madeIn: madeIn)
     }
     
     func madeIn() -> Country {

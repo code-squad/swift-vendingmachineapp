@@ -10,6 +10,9 @@ class Beverages {
     
     func remove(element: Beverage) -> Beverage {
         self.beverages[element] = (beverages[element] ?? 0) - 1
+        if let outOfStock = self.beverages[element], outOfStock == 0 {
+            beverages.removeValue(forKey: element)
+        }
         return element
     }
     
@@ -80,7 +83,7 @@ class Beverages {
         let sameOriginBeverages = Beverages()
         
         self.beverages.forEach { (beverage, count) in
-            if let beverageCountry = beverage as? Country, type(of: beverageCountry) == type(of: country) {
+            if let beverageCountry = beverage as? Country, type(of: beverageCountry.madeIn()) == type(of: country.madeIn()) {
                 sameOriginBeverages.addSome(beverage, count)
             }
         }
@@ -107,5 +110,11 @@ class Beverages {
             }
         }
         return beveragesOfTransparentPackage
+    }
+}
+
+extension Beverages : Equatable {
+    static func == (lhs: Beverages, rhs: Beverages) -> Bool {
+        lhs.beverages == rhs.beverages
     }
 }

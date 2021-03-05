@@ -21,70 +21,73 @@ class Filterer {
         self.lactoStandard = lactoStandard
     }
     
-    func expiredItems(from list: Beverages) -> [Beverage: Int] {
+    func expiredItems(from list: BeverageStorage) -> [ObjectIdentifier: Int] {
         return list.listTypeCount(filter: expired(_:))
     }
 
-    private func expired(_ beverages: [Beverage]) -> [Beverage: Int] {
-        var expiredList = [Beverage: Int]()
+    private func expired(_ beverages: [ObjectIdentifier: [Beverage]]) -> [ObjectIdentifier: Int] {
+        var expiredList = [ObjectIdentifier: Int]()
 
-        beverages.forEach { (bev) in
-            if let beverage = bev as? Beverage & Expirable,
-               beverage.isExpired(compareTo: dateStandard) {
-                if expiredList[beverage] != nil {
-                    expiredList[beverage]! += 1
-                } else {
-                    expiredList[beverage] = 1
+        beverages.forEach { (id, list) in
+            for item in list {
+                if let beverage = item as? Beverage & Expirable,
+                   beverage.isExpired(compareTo: dateStandard) {
+                    
+                    if expiredList[id] != nil {
+                        expiredList[id]! += 1
+                    } else {
+                        expiredList[id] = 1
+                    }
                 }
             }
         }
         return expiredList
     }
     
-    func hotItems(from list: Beverages) -> [Beverage] {
+    func hotItems(from list: BeverageStorage) -> [ObjectIdentifier] {
         return list.listTypeOnly(filter: hot(_:))
     }
 
-    private func hot(_ stockList: [Beverage: Int]) -> [Beverage] {
-        var beverageList = [Beverage]()
+    private func hot(_ stockList: [ObjectIdentifier: [Beverage]]) -> [ObjectIdentifier] {
+        var beverageList = [ObjectIdentifier]()
 
-        stockList.forEach { (bev: Beverage, _: Int) in
-            if let beverage = bev as? Beverage & Hotable,
+        stockList.forEach { (id, list) in
+            if let beverage = list[0] as? Beverage & Hotable,
                beverage.isHot(basedOn: temperatureStandard){
-                beverageList.append(beverage)
+                beverageList.append(id)
             }
         }
         return beverageList
     }
     
-    func transportables(from list: Beverages) -> [Beverage] {
+    func transportables(from list: BeverageStorage) -> [ObjectIdentifier] {
         return list.listTypeOnly(filter: transportable(_:))
     }
 
-    private func transportable(_ stockList: [Beverage: Int]) -> [Beverage] {
-        var beverageList = [Beverage]()
+    private func transportable(_ stockList: [ObjectIdentifier: [Beverage]]) -> [ObjectIdentifier] {
+        var beverageList = [ObjectIdentifier]()
 
-        stockList.forEach { (bev: Beverage, _: Int) in
-            if let beverage = bev as? Beverage & Transportable,
+        stockList.forEach { (id, list) in
+            if let beverage = list[0] as? Beverage & Transportable,
                beverage.isTransportable() {
-                beverageList.append(beverage)
+                beverageList.append(id)
             }
         }
         return beverageList
     }
     
-    func healthyItems(from list: Beverages) -> [Beverage] {
+    func healthyItems(from list: BeverageStorage) -> [ObjectIdentifier] {
         return list.listTypeOnly(filter: healthy(_:))
     }
 
-    private func healthy(_ stockList: [Beverage: Int]) -> [Beverage] {
-        var beverageList = [Beverage]()
+    private func healthy(_ stockList: [ObjectIdentifier: [Beverage]]) -> [ObjectIdentifier] {
+        var beverageList = [ObjectIdentifier]()
 
-        stockList.forEach { (bev: Beverage, _: Int) in
-            if let beverage = bev as? Beverage & SugarFreeable & LactoFreeable,
+        stockList.forEach { (id, list) in
+            if let beverage = list[0] as? Beverage & SugarFreeable & LactoFreeable,
                beverage.isSugarFree(basedOn: sugarStandard),
                beverage.isLactoFree(basedOn: lactoStandard) {
-                beverageList.append(beverage)
+                beverageList.append(id)
             }
         }
         return beverageList

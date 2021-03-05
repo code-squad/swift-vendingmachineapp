@@ -28,16 +28,16 @@ class MoneyBox {
         self.money = money
     }
     
-    func affordableList(from list: Beverages) -> [Beverage] {
+    func affordableList(from list: BeverageStorage) -> [ObjectIdentifier] {
         return list.listTypeOnly(filter: affordable(_:))
     }
     
-    private func affordable(_ beverages: [Beverage: Int]) -> [Beverage] {
-        var purchashableList = [Beverage]()
+    private func affordable(_ beverages: [ObjectIdentifier: [Beverage]]) -> [ObjectIdentifier] {
+        var purchashableList = [ObjectIdentifier]()
         
-        beverages.forEach { (beverage: Beverage, _: Int) in
-            if beverage.isPurchashable(with: money){
-                purchashableList.append(beverage)
+        beverages.forEach { (id, list) in
+            if list[0].isPurchashable(with: money){
+                purchashableList.append(id)
             }
         }
         return purchashableList

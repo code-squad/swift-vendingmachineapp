@@ -10,7 +10,7 @@ import Foundation
 class Beverage: CustomStringConvertible, Hashable {
     private let brand: String
     private let volume: Int
-    private let price: Int
+    let price: Int
     private let name: String
     private let createdAt: Date
     private let expiredAt: Date

@@ -18,7 +18,7 @@ class Inventory : Equatable {
         return lhs.stocks == rhs.stocks
     }
     
-    func append(item: Beverage) {
+    func append(with item: Beverage) {
         stocks.append(item)
     }
     
@@ -50,6 +50,11 @@ class Inventory : Equatable {
             }
         }
         return lowCaffeine
+    }
+    
+    func cheapItems(with money: Int) -> [Beverage] {
+        let cheap = stocks.filter{ $0.price <= money }
+        return cheap
     }
     
 }

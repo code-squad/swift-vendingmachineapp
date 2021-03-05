@@ -15,7 +15,7 @@ class Inventory : Equatable {
     }
     
     public static func == (lhs: Inventory, rhs: Inventory) -> Bool{
-        return lhs === rhs
+        return lhs.stocks == rhs.stocks
     }
     
     func append(item: Beverage) {
@@ -23,7 +23,12 @@ class Inventory : Equatable {
     }
     
     func remove(item: Beverage) {
-        stocks.removeFirst()
+        for (i, drink) in stocks.enumerated() {
+            if item == drink {
+                stocks.remove(at: i)
+                break
+            }
+        }
     }
     
     func getStockList() -> [Beverage : Int] {

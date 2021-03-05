@@ -7,18 +7,31 @@
 
 import XCTest
 
-class VendingMachineAppTests: XCTestCase {
+class InventoryTests: XCTestCase {
+    
+    private var inventory: Inventory!
+    private var drink: Beverage!
+    
+    override func setUp() {
+        inventory = Inventory()
+        drink = TOP()
+    }
 
-    override func setUpWithError() throws {
+    override func tearDown() {
         
     }
 
-    override func tearDownWithError() throws {
+    func test_Inventory_생성_및_append() {
+        inventory.append(item: drink)
         
+        XCTAssertNotEqual(inventory, Inventory(), "Inventory 생성 및 append 성공")
     }
-
-    func testExample() throws {
+    
+    func test_Inventory_삭제() {
+        inventory.append(item: drink)
+        inventory.remove(item: drink)
         
+        XCTAssertEqual(inventory, Inventory(), "Inventory 삭제 성공")
     }
 
 }

@@ -67,21 +67,21 @@ class VendingMachineUpdator: VendingMachinePresenter {
         updateCounts(for: labels, stockList: machine.allStocks(), beverageList: beverageList)
     }
     
-    private func updateCounts(for labels: [UILabel], stockList: [Beverage: Int], beverageList: [Beverage]) {
+    private func updateCounts(for labels: [UILabel], stockList: [ObjectIdentifier: Int], beverageList: [Beverage]) {
         for label in labels {
             switch label.restorationIdentifier {
             case "americano":
-                label.text = countValidation(for: stockList[beverageList[0]])
+                label.text = countValidation(for: stockList[ObjectIdentifier(beverageList[0])])
             case "cafelatte":
-                label.text = countValidation(for: stockList[beverageList[1]])
+                label.text = countValidation(for: stockList[ObjectIdentifier(beverageList[1])])
             case "chocolateMilk":
-                label.text = countValidation(for: stockList[beverageList[2]])
+                label.text = countValidation(for: stockList[ObjectIdentifier(beverageList[2])])
             case "coke":
-                label.text = countValidation(for: stockList[beverageList[3]])
+                label.text = countValidation(for: stockList[ObjectIdentifier(beverageList[3])])
             case "milkis":
-                label.text = countValidation(for: stockList[beverageList[4]])
+                label.text = countValidation(for: stockList[ObjectIdentifier(beverageList[4])])
             case "plainMilk":
-                label.text = countValidation(for: stockList[beverageList[5]])
+                label.text = countValidation(for: stockList[ObjectIdentifier(beverageList[5])])
             default:
                 return
             }

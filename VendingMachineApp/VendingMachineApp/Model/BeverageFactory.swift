@@ -7,6 +7,7 @@
 
 import Foundation
 
+<<<<<<< HEAD
 class BeverageFactory: addBeverage {
     
     static func addBeverage<T>(type sku: T, manufacturedAt: Date, expiration: Date) -> Beverage? {
@@ -32,10 +33,21 @@ class BeverageFactory: addBeverage {
         default:
             return nil
         }
+=======
+class BeverageFactory {
+    
+    func addBeverage(manufacturedAt: Date, expiration: Date) -> Beverage {
+        
+        return CantataAmericano(manufacturedAt: manufacturedAt, expiration: expiration)
+>>>>>>> 7d448ba3... 학습한 내용을 요약해서 추가했습니다.
     }
     
 }
 
 protocol addBeverage {
+<<<<<<< HEAD
     static func addBeverage<T>(type sku: T, manufacturedAt: Date, expiration: Date) -> Beverage?
+=======
+    func addBeverage(specific: a.Type, manufacturedAt: Date, expiration: Date) -> Beverage?
+>>>>>>> 7d448ba3... 학습한 내용을 요약해서 추가했습니다.
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Beverage: CustomStringConvertible {
+class Beverage: Shopable, CustomStringConvertible {
     
     private let brand: String
     private let name: String

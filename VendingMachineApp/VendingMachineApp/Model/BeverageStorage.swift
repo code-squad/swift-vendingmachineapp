@@ -7,7 +7,7 @@
 
 import Foundation
 
-class BeverageStorage {
+class BeverageStorage: Storage {
 
     private var stockList: [ObjectIdentifier: [Beverage]]
     
@@ -15,8 +15,8 @@ class BeverageStorage {
         stockList = [:]
     }
     
-    func add(_ beverage: Beverage) {
-        updateStockList(of: beverage)
+    func add(_ item: Shopable) {
+        updateStockList(of: item as! Beverage)
     }
     
     private func updateStockList(of beverage: Beverage) {
@@ -29,8 +29,8 @@ class BeverageStorage {
         }
     }
     
-    func pullOut(_ beverageType: Beverage.Type) -> Beverage? {
-        let id = ObjectIdentifier(beverageType)
+    func pullOut(_ itemType: Shopable.Type) -> Shopable? {
+        let id = ObjectIdentifier(itemType)
         
         if let targetItem = stockList[id]?[0] {
             stockList[id]?.removeFirst()
@@ -57,7 +57,7 @@ extension BeverageStorage {
         return stockList.keys.map{ $0 }
     }
     
-    func listTypeOnly(filter: (([ObjectIdentifier: [Beverage]]) -> [ObjectIdentifier])) -> [ObjectIdentifier] {
+    func listTypeOnly(filter: (([ObjectIdentifier: [Shopable]]) -> [ObjectIdentifier])) -> [ObjectIdentifier] {
         return filter(stockList)
     }
     
@@ -70,7 +70,7 @@ extension BeverageStorage {
         return idCountList
     }
     
-    func listTypeCount(filter: (([ObjectIdentifier: [Beverage]]) -> [ObjectIdentifier: Int])) -> [ObjectIdentifier: Int] {
+    func listTypeCount(filter: (([ObjectIdentifier: [Shopable]]) -> [ObjectIdentifier: Int])) -> [ObjectIdentifier: Int] {
         return filter(stockList)
     }
 }

@@ -9,23 +9,23 @@ import Foundation
 
 struct VendingMachine {
     
-    private var storage: BeverageStorage
-    private var dispensedList: DispensedList
-    private var moneyBox: MoneyBox
-    private var filterer: Filterer
+    private var storage: Storage
+    private var dispensedList: OrderableList
+    private var moneyBox: MoneyManagable
+    private var beverageManager: FoodManagable
     
     init(dateStandard: Date, temperatureStandard: Float, sugarStandard: Float, lactoStandard: Float) {
         storage = BeverageStorage()
         dispensedList = DispensedList()
         moneyBox = MoneyBox()
-        filterer = Filterer(dateStandard: dateStandard,
+        beverageManager = BeverageManager(dateStandard: dateStandard,
                               temperatureStandard: temperatureStandard,
                               sugarStandard: sugarStandard,
                               lactoStandard: lactoStandard)
     }
     
-    func addStock(of beverage: Beverage) {
-        storage.add(beverage)
+    func addStock(of item: Shopable) {
+        storage.add(item)
     }
     
     func insert(money: Int) {
@@ -36,13 +36,13 @@ struct VendingMachine {
         return moneyBox.balance()
     }
     
-    func buy(beverage: Beverage) {
-        guard beverage.isPurchashable(with: moneyBox.balance()) else { return }
+    func buy(item: Shopable) {
+        guard item.isPurchashable(with: moneyBox.balance()) else { return }
         
-        if let beverageToSell = storage.pullOut(type(of: beverage)) {
-            dispensedList.update(soldItem: beverageToSell)
+        if let itemToSell = storage.pullOut(type(of: item)) {
+            dispensedList.push(item: itemToSell)
             
-            let moneyAfterPurchase = beverage.subtractPrice(from: moneyBox.balance())
+            let moneyAfterPurchase = item.subtractPrice(from: moneyBox.balance())
             moneyBox.update(to: moneyAfterPurchase)
         }
     }
@@ -55,27 +55,27 @@ extension VendingMachine {
         return storage.listTypeCount()
     }
     
-    func purchased() -> [Beverage] {
-        return dispensedList.items
+    func purchased() -> [Shopable] {
+        return dispensedList.listByOrder()
     }
     
     func affordables() -> [ObjectIdentifier] {
-        return moneyBox.affordableList(from: storage)
+        return moneyBox.affordables(fromItemsIn: storage)
     }
     
     func expiredItems() -> [ObjectIdentifier: Int] {
-        return filterer.expiredItems(from: storage)
+        return beverageManager.expiredItems(fromItemsIn: storage)
     }
     
     func hotItems() -> [ObjectIdentifier] {
-        return filterer.hotItems(from: storage)
+        return beverageManager.hotItems(fromItemsIn: storage)
     }
     
     func transportables() -> [ObjectIdentifier] {
-        return filterer.transportables(from: storage)
+        return beverageManager.transportables(fromItemsIn: storage)
     }
     
     func healthyItems() -> [ObjectIdentifier] {
-        return filterer.healthyItems(from: storage)
+        return beverageManager.healthyItems(fromItemsIn: storage)
     }
 }

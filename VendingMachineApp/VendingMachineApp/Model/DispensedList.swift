@@ -7,15 +7,19 @@
 
 import Foundation
 
-class DispensedList {
+class DispensedList: OrderableList {
     
-    private(set) var items: [Beverage]
+    private var items: [Shopable]
     
     init() {
         items = []
     }
     
-    func update(soldItem: Beverage) {
-        items.append(soldItem)
+    func push(item: Shopable) {
+        items.append(item)
+    }
+    
+    func listByOrder() -> [Shopable] {
+        return items
     }
 }

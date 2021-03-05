@@ -20,7 +20,7 @@ class VendingMachine {
     private var inventory: Inventory
     private var purchasedDrink: [Beverage]
     
-    init(drinks: [Beverage]) {
+    init() {
         self.money = 0
         self.inventory = Inventory()
         self.purchasedDrink = []
@@ -29,7 +29,7 @@ class VendingMachine {
     
     //MARK:- Human to VendingMachine Method
     
-    func collectingMoney(with money: Money) {
+    func collectMoney(with money: Money) {
         self.money += money.rawValue
     }
     

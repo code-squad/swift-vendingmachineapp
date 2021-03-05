@@ -6,10 +6,6 @@
 //
 
 import Foundation
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 6e8d230f... 음료를 카테고리와 SKU로 구분해서 추가했습니다.
 
 class FantaOrange: Soda {
     
@@ -25,8 +21,3 @@ class FantaOrange: Soda {
     }
     
 }
-<<<<<<< HEAD
-=======
->>>>>>> 7d448ba3... 학습한 내용을 요약해서 추가했습니다.
-=======
->>>>>>> 6e8d230f... 음료를 카테고리와 SKU로 구분해서 추가했습니다.

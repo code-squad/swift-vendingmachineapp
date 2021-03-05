@@ -16,8 +16,10 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(didChangeMoneyOnTransaction), name: .didIncreaseMoneyOnTransaction, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(didIncreaseStock), name: .didIncreaseStock, object: nil)
         
-        let someBeverage = Beverage(brand: "종근당", size: 120, price: 1082, name: "쌩강쌍원진액", packageTime: Date())
+        let someBeverage = Beverage(brand: "종근당", size: 120, price: 1082, name: "생강쌍원진액", packageTime: Date())
         let someStrawBerryMilk = StrawBerryMilk(brand: "남양유업", size: 180, price: 1000, name: "딸기에몽", packageTime: Date(), milkFarm: DomesticLocation(), strawBerryFarm: OverseasLocation(country: "이스라엘"), foodColoring: FoodColoring(color: "Red"))
         let someBananaMilk = BananaMilk(brand: "빙그레", size: 240, price: 1500, name: "바나나맛우유", packageTime: Date(), milkFarm: DomesticLocation(), bananaFarm: OverseasLocation(country: "인도"), foodColoring: FoodColoring(color: "Yellow"))
         let someCola = Cola(brand: "코카콜라", size: 190, price: 800, name: "코카-콜라", packageTime: Date())
@@ -31,9 +33,7 @@ class ViewController: UIViewController {
         machine.addStock(beverage: someAmericano, amount: 50)
         machine.addStock(beverage: someAmericano2, amount: 1000)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(DidChangeMoneyOnTransaction), name: .didIncreaseMoneyOnTransaction, object: nil)
-        
-        InitialBeverageSetting()
+        initialBeverageSetting()
     }
     
     @IBAction func thousandWonPlusButtonPressed(_ sender: UIButton) {
@@ -44,17 +44,22 @@ class ViewController: UIViewController {
         machine.receiveMoney(amount: 5_000)
     }
     
-    func createBeverageView(beveage: Beverage, count: Int) -> BeverageView {
+
+    func createBeverageView(beverage: Beverage, count: Int) -> BeverageView {
         let view = BeverageView()
-        view.setLabelText(with: "\(count)개")
+        view.setStockLabelText(with: count)
+        view.stockAddButton.addAction(for: .touchUpInside) { (uibutton) in
+            self.machine.addStock(beverage: beverage, amount: 1)
+        }
         return view
     }
     
-    func InitialBeverageSetting() {
+    func initialBeverageSetting() {
         let stock = machine.checkStock()
         
         for (index, item) in stock.enumerated() {
-            let view = createBeverageView(beveage: item.key, count: item.value)
+            let view = createBeverageView(beverage: item.key, count: item.value)
+            
             if index < 5 {
                 beverageDisplayStackViewFirstRow.addArrangedSubview(view)
             } else {
@@ -73,8 +78,16 @@ class ViewController: UIViewController {
         }
     }
     
-    @objc func DidChangeMoneyOnTransaction() {
+    @objc func didChangeMoneyOnTransaction() {
         self.moneyOnTransactionLabel.text = "\(machine.showInsertedCashBalance())원"
+    }
+    
+    @objc func didIncreaseStock() {
+        print("stock changed")
+    }
+    
+    func increaseStock(beverage: Beverage) {
+        machine.addStock(beverage: beverage, amount: 1)
     }
 }
 

@@ -21,6 +21,7 @@ class BeverageStorage {
     public func increaseStock(beverage: Beverage, by amount: Int) {
         if stock[beverage] != nil {
             stock[beverage]! += amount
+            NotificationCenter.default.post(name: .didIncreaseStock, object: nil)
         } else {
             stock[beverage] = amount
         }

@@ -19,10 +19,10 @@ class Coffee : Drink {
     private var isCoffeeBrandName: CoffeeBrandName
     private var isDecaffeinated: Int
     
-    init(isDecaffeinated: Int, isHot:Bool, isCoffeeBrandName: CoffeeBrandName, brand: String, capacity: Int, price: Int, name: String, madeDate: Date, beverageType:BeverageType) {
+    init(isDecaffeinated: Int, isHot:Bool, isCoffeeBrandName: CoffeeBrandName, brand: String, capacity: Int, price: Int, name: String, madeDate: Date) {
         self.isCoffeeBrandName = isCoffeeBrandName
         self.isDecaffeinated = isDecaffeinated
-        super.init(brand: brand, capacity: capacity, price: price, name: name, madeDate: madeDate, isHot: isHot, beverageType: BeverageType.Coffee)
+        super.init(brand: brand, capacity: capacity, price: price, name: name, madeDate: madeDate, isHot: isHot)
     }
     
     //MARK: 저지방음료 확인

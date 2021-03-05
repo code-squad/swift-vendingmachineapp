@@ -17,6 +17,10 @@ struct VendingMachine {
         self.money = Money(with: money)
     }
     
+    func initializeProductList() -> [Beverage] {
+        return inventory.initializeProductList()
+    }
+    
     mutating func increaseMoney(money: Int) {
         self.money.changeMoney(with: money)
     }

@@ -11,7 +11,7 @@ class Beverage {
     private let brand: String
     private let size: Milliliter
     private let price: Int
-    private let name: String
+    public let name: String
     private let packageTime: Date
     
     public init(brand: String, size: Milliliter, price: Int, name: String, packageTime: Date) {

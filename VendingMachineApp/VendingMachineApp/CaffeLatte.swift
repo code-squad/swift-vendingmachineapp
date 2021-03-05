@@ -8,14 +8,17 @@
 import Foundation
 
 class CaffeeLatte : Coffee{
-    let sugar : Bool
+    private let sugarContent : Int
+    private var sugar : Bool
     
-    init(sugar : Bool, caffeineContent: Int, caffeine: Bool, brand: String, volume: Int, price: Int, name: String, manufactured: Date, temperature: Int, kcal: Int) {
-        self.sugar = sugar
-        super.init(caffeineContent: caffeineContent, caffeine: caffeine, brand: brand, volume: volume, price: price, name: name, manufactured: manufactured, temperature: temperature, kcal: kcal)
+    init(sugarContent : Int, caffeineContent: Int, caffeine: Bool, brand: String, volume: Int, price: Int, name: String, manufactured: Date, temperature: Int, kcal: Int) {
+        self.sugarContent = sugarContent
+        sugar = false
+        super.init(caffeineContent: caffeineContent, brand: brand, volume: volume, price: price, name: name, manufactured: manufactured, temperature: temperature, kcal: kcal)
+        sugar = isSugarfree(sugarContent: sugarContent)
     }
     
-    override func addtoVendingMachine(vendingMachine: VendingMachine) {
-        vendingMachine.addCaffeLatte(caffeLatte: self)
+    func isSugarfree(sugarContent : Int) -> Bool {
+        return sugarContent < 1
     }
 }

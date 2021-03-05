@@ -20,4 +20,9 @@ extension Date{
         tempdateFormatter.dateFormat = "yyyyMMdd"
         return "\(tempdateFormatter.string(from: date))"
     }
+    
+    func expiration(_ date : Int, manufactured : Date) -> Date{
+        let expiration = Calendar.current.date(byAdding: .day, value: date, to: manufactured)
+        return expiration ?? Date()
+    }
 }

@@ -8,14 +8,20 @@
 import Foundation
 
 class Energydrink : Beverage {
-    private var caffeine : Bool
+    private var caffeineContent : Int
+    private var caffine : Bool = false // init에서 두번 호출하기 싫어서 기본적으로 카페인 없는 음료로 초기화
     
-    init(caffeine : Bool, brand: String, volume: Int, price: Int, name: String, manufactured: Date, temperature : Int, kcal : Int){
-        self.caffeine = caffeine
+    init(caffeineContent : Int, brand: String, volume: Int, price: Int, name: String, manufactured: Date, temperature : Int, kcal : Int){
+        self.caffeineContent = caffeineContent
         super.init(brand: brand, volume: volume, price: price, name: name, manufactured: manufactured, temperature: temperature, kcal: kcal)
+        self.caffine = isdecaffeine(caffeineContent)
     }
     
     convenience init(brand: String, volume: Int, price: Int, name: String, manufactured: Date, kcal : Int){ //카페인 있는 에너지 드링크
-        self.init(caffeine: true, brand: brand, volume: volume, price: price, name: name, manufactured: manufactured, temperature: 5, kcal: kcal)
+        self.init(caffeineContent: 30, brand: brand, volume: volume, price: price, name: name, manufactured: manufactured, temperature: 5, kcal: kcal)
+    }
+    
+    private func isdecaffeine(_ caffeineContent : Int) -> Bool{
+        return caffeineContent < 0
     }
 }

@@ -8,14 +8,16 @@
 import Foundation
 
 class StrawBerryMilk : Milk{
-    let StrawBerryContent : Int
+    private let StrawBerryContent : Int
+    private let HIGHCONTENT : Int
     
     init(StrawBerryContent : Int, lowfat: Bool, brand: String, volume: Int, price: Int, name: String, manufactured: Date, temperature: Int, kcal: Int) {
         self.StrawBerryContent = StrawBerryContent
+        self.HIGHCONTENT = 30
         super.init(lowfat: lowfat, brand: brand, volume: volume, price: price, name: name, manufactured: manufactured, temperature: temperature, kcal: kcal)
     }
-    
-    override func addtoVendingMachine(vendingMachine: VendingMachine) {
-        vendingMachine.addStrawBerryMilk(strawBerryMilk: self)
+
+    func isHighContent() -> Bool {
+        return self.StrawBerryContent > self.HIGHCONTENT
     }
 }

@@ -8,14 +8,11 @@
 import Foundation
 
 class Monster : Energydrink {
-    let glutamineContent : Int
+    private let glutamineContent : Int
     
-    init(glutamineContent : Int, caffeine: Bool, brand: String, volume: Int, price: Int, name: String, manufactured: Date, temperature: Int, kcal: Int) {
+    init(glutamineContent : Int, caffeineContent: Int, brand: String, volume: Int, price: Int, name: String, manufactured: Date, temperature: Int, kcal: Int) {
         self.glutamineContent = glutamineContent
-        super.init(caffeine: caffeine, brand: brand, volume: volume, price: price, name: name, manufactured: manufactured, temperature: temperature, kcal: kcal)
+        super.init(caffeineContent: caffeineContent, brand: brand, volume: volume, price: price, name: name, manufactured: manufactured, temperature: temperature, kcal: kcal)
     }
     
-    override func addtoVendingMachine(vendingMachine: VendingMachine) {
-        vendingMachine.addMonster(monster: self)
-    }
 }

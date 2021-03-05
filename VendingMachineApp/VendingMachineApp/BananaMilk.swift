@@ -8,14 +8,14 @@
 import Foundation
 
 class BananaMilk : Milk{
-    let sugarContent : Int
+    private let sugarContent : Int
     
     init(sugarContent : Int, lowfat: Bool, brand: String, volume: Int, price: Int, name: String, manufactured: Date, temperature: Int, kcal: Int) {
         self.sugarContent = sugarContent
         super.init(lowfat: lowfat, brand: brand, volume: volume, price: price, name: name, manufactured: manufactured, temperature: temperature, kcal: kcal)
     }
     
-    override func addtoVendingMachine(vendingMachine: VendingMachine) {
-        vendingMachine.addBananaMilk(bananaMilk: self)
+    func isSugarfree() -> Bool {
+        return sugarContent < 1
     }
 }

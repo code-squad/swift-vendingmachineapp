@@ -4,20 +4,28 @@ import Foundation
 struct VendingMachine {
     private var cashBox: Int
     private var beverages: Beverages
-    private var shoppingHistory: Beverages
+    private var shoppingHistoryData: Beverages
     
     init() {
         cashBox = 0
         beverages = Beverages()
-        shoppingHistory = Beverages()
+        shoppingHistoryData = Beverages()
     }
     
     func checkBalance() -> Int {
         return self.cashBox
     }
     
+    func shoppingHistory() -> Beverages {
+        return shoppingHistoryData
+    }
+    
     mutating func insertCash(amount: Int) {
         self.cashBox += amount
+    }
+    
+    mutating func reduceCash(amount: Int) {
+        self.cashBox -= amount
     }
     
     func addBeverageStock(_ element: Beverage) {
@@ -66,7 +74,10 @@ struct VendingMachine {
             return nil
         }
         let purchasedBeverage = self.beverages.remove(element: beverage)
-        self.shoppingHistory.addSome(purchasedBeverage)
+        purchasedBeverage.howMuch { price in
+            self.reduceCash(amount: price)
+        }
+        self.shoppingHistoryData.addSome(purchasedBeverage)
         return purchasedBeverage
     }
     

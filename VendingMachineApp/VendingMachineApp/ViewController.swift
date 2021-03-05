@@ -11,8 +11,8 @@ class ViewController: UIViewController {
     let machine = Machine()
     
     @IBOutlet weak var moneyOnTransactionLabel: UILabel!
-    @IBOutlet weak var beverageDisplayStackViewFirstRow: UIStackView!
-    @IBOutlet weak var beverageDisplayStackViewSecondRow: UIStackView!
+    @IBOutlet weak var beverageDisplaySlotsFirstRow: UIStackView!
+    @IBOutlet weak var beverageDisplaySlotsSecondRow: UIStackView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +33,8 @@ class ViewController: UIViewController {
         machine.addStock(beverage: someAmericano, amount: 50)
         machine.addStock(beverage: someAmericano2, amount: 1000)
         
-        initialBeverageSetting()
+        addBeveragesOnDisplaySlots()
+        addEmptyPlacesOnDisplaySlots()
     }
     
     @IBAction func thousandWonPlusButtonPressed(_ sender: UIButton) {
@@ -44,9 +45,8 @@ class ViewController: UIViewController {
         machine.receiveMoney(amount: 5_000)
     }
     
-
     func createBeverageView(beverage: Beverage, count: Int) -> BeverageView {
-        let view = BeverageView()
+        let view = BeverageView(with: beverage)
         view.setStockLabelText(with: count)
         view.stockAddButton.addAction(for: .touchUpInside) { (uibutton) in
             self.machine.addStock(beverage: beverage, amount: 1)
@@ -54,26 +54,30 @@ class ViewController: UIViewController {
         return view
     }
     
-    func initialBeverageSetting() {
+    func addBeveragesOnDisplaySlots() {
         let stock = machine.checkStock()
         
         for (index, item) in stock.enumerated() {
             let view = createBeverageView(beverage: item.key, count: item.value)
             
             if index < 5 {
-                beverageDisplayStackViewFirstRow.addArrangedSubview(view)
+                beverageDisplaySlotsFirstRow.addArrangedSubview(view)
             } else {
-                beverageDisplayStackViewSecondRow.addArrangedSubview(view)
+                beverageDisplaySlotsSecondRow.addArrangedSubview(view)
             }
         }
+    }
+    
+    func addEmptyPlacesOnDisplaySlots() {
+        let stock = machine.checkStock()
         
         if stock.count < 5 {
             for _ in 0..<(5 - stock.count) {
-                beverageDisplayStackViewFirstRow.addArrangedSubview(UIView())
+                beverageDisplaySlotsFirstRow.addArrangedSubview(UIView())
             }
         } else if stock.count < 10 {
             for _ in 0..<(10 - stock.count) {
-                beverageDisplayStackViewSecondRow.addArrangedSubview(UIView())
+                beverageDisplaySlotsSecondRow.addArrangedSubview(UIView())
             }
         }
     }
@@ -83,11 +87,19 @@ class ViewController: UIViewController {
     }
     
     @objc func didIncreaseStock() {
-        print("stock changed")
-    }
-    
-    func increaseStock(beverage: Beverage) {
-        machine.addStock(beverage: beverage, amount: 1)
+        for view in beverageDisplaySlotsFirstRow.arrangedSubviews {
+            guard let beverageView = view as? BeverageView else { continue }
+            guard let beverage = beverageView.boundBeverage else { continue }
+            guard let beverageCount = machine.checkStock()[beverage] else { continue }
+            beverageView.setStockLabelText(with: beverageCount)
+        }
+        
+        for view in beverageDisplaySlotsSecondRow.arrangedSubviews {
+            guard let beverageView = view as? BeverageView else { continue }
+            guard let beverage = beverageView.boundBeverage else { continue }
+            guard let beverageCount = machine.checkStock()[beverage] else { continue }
+            beverageView.setStockLabelText(with: beverageCount)
+        }
     }
 }
 

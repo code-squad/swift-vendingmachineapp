@@ -45,5 +45,3 @@ extension UIButton {
     }
 }
 
-// How To Use let button = UIButton() button.addAction(for: .touchUpInside) { button in // Do Something }
-

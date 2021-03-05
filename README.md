@@ -1,6 +1,6 @@
 # [okstring / Isaac] Step3 - MVC 패턴 중 View 구체화 및 연결
 
-
+![screenshot](https://user-images.githubusercontent.com/62657991/110096616-6f19af80-7de1-11eb-8185-4ca9f8c760d6.png)
 
 #### 스텝별 작업 목록
 

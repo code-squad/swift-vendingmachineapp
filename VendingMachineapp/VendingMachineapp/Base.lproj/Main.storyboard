@@ -24,6 +24,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5J7-mO-r96">
                                                 <rect key="frame" x="147.5" y="0.0" width="46" height="61.5"/>
                                                 <state key="normal" title="Button"/>
+                                                <connections>
+                                                    <action selector="addButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="psk-BU-x94"/>
+                                                </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fmd-Ku-11e">
                                                 <rect key="frame" x="50.5" y="61.5" width="240" height="61.5"/>
@@ -42,6 +45,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n7t-Fu-i01">
                                                 <rect key="frame" x="147.5" y="0.0" width="46" height="61.5"/>
                                                 <state key="normal" title="Button"/>
+                                                <connections>
+                                                    <action selector="addButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pvA-Wb-RAT"/>
+                                                </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wH7-zT-s6W">
                                                 <rect key="frame" x="50.5" y="61.5" width="240" height="61.5"/>
@@ -60,6 +66,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7lP-7B-iBU">
                                                 <rect key="frame" x="148" y="0.0" width="46" height="61.5"/>
                                                 <state key="normal" title="Button"/>
+                                                <connections>
+                                                    <action selector="addButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pd1-Y5-mHG"/>
+                                                </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Bfl-Jm-xcJ">
                                                 <rect key="frame" x="51" y="61.5" width="240" height="61.5"/>

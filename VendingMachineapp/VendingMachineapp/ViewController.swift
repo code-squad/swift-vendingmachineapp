@@ -29,17 +29,31 @@ class ViewController: UIViewController {
     @IBOutlet var imageViews: [UIImageView]!
     @IBOutlet var labels: [UILabel]!
     
+    var vendingMachine = VendingMachine(money: 1000)
     override func viewDidLoad() {
         super.viewDidLoad()
-        mainStackView.backgroundColor = .gray
+        mainStackView.backgroundColor = .systemGray2
         setImageViews()
+        setButtons()
+        
+        let productList = vendingMachine.initializeProductList()
+        print(productList)
     }
     
+    @IBAction func addButtonTouched(_ sender: UIButton) {
+        
+    }
     func setImageViews() {
         var index = 0
         for img in imageViews {
             img.image = UIImage(named: "\(imageArray[index])")
             index += 1
+        }
+    }
+    
+    func setButtons() {
+        for button in buttons {
+            button.setTitle("추가", for: .normal)
         }
     }
 

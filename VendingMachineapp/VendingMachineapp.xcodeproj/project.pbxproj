@@ -37,6 +37,7 @@
 		D46F1B1925EE223A00BFBD9C /* MilkFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46F1B1825EE223A00BFBD9C /* MilkFactory.swift */; };
 		D46F1B1D25EE2A3900BFBD9C /* CoffeeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46F1B1C25EE2A3900BFBD9C /* CoffeeFactory.swift */; };
 		D46F1B2325EE31CA00BFBD9C /* SodaFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46F1B2225EE31CA00BFBD9C /* SodaFactory.swift */; };
+		D4EC7A5725F1EC430013F504 /* BeverageStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EC7A5625F1EC430013F504 /* BeverageStackView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +85,7 @@
 		D46F1B1825EE223A00BFBD9C /* MilkFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MilkFactory.swift; sourceTree = "<group>"; };
 		D46F1B1C25EE2A3900BFBD9C /* CoffeeFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeFactory.swift; sourceTree = "<group>"; };
 		D46F1B2225EE31CA00BFBD9C /* SodaFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SodaFactory.swift; sourceTree = "<group>"; };
+		D4EC7A5625F1EC430013F504 /* BeverageStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageStackView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +127,7 @@
 		D46F1A3A25E62A3200BFBD9C /* VendingMachineapp */ = {
 			isa = PBXGroup;
 			children = (
+				D4EC7A5525F1EC2D0013F504 /* View */,
 				D46F1A5125E6321400BFBD9C /* Model */,
 				D46F1A3B25E62A3200BFBD9C /* AppDelegate.swift */,
 				D46F1A3D25E62A3200BFBD9C /* SceneDelegate.swift */,
@@ -206,6 +209,14 @@
 				D46F1B2625EE427B00BFBD9C /* Milk */,
 			);
 			path = Beverage;
+			sourceTree = "<group>";
+		};
+		D4EC7A5525F1EC2D0013F504 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D4EC7A5625F1EC430013F504 /* BeverageStackView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -324,6 +335,7 @@
 				D46F1A7F25E8BC2400BFBD9C /* ChocoMilk.swift in Sources */,
 				D46F1A7C25E8BC1800BFBD9C /* BananaMilk.swift in Sources */,
 				D46F1A8E25E8C1D900BFBD9C /* Sprite.swift in Sources */,
+				D4EC7A5725F1EC430013F504 /* BeverageStackView.swift in Sources */,
 				D46F1A3E25E62A3200BFBD9C /* SceneDelegate.swift in Sources */,
 				D46F1A5C25E6675E00BFBD9C /* Milk.swift in Sources */,
 				D46F1A6225E6730200BFBD9C /* Coffee.swift in Sources */,

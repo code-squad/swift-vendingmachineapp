@@ -13,7 +13,7 @@ class Drink : CustomStringConvertible {
     private let capacity: Int
     private let price: Int
     private let name : String
-    private let madeDate : Date
+    private let manufacturedAt : Date
     private var isHot: Bool
     
     init(brand: String, capacity: Int, price: Int, name: String, madeDate: Date,isHot:Bool) {
@@ -21,12 +21,12 @@ class Drink : CustomStringConvertible {
         self.capacity = capacity
         self.price = price
         self.name = name
-        self.madeDate = madeDate
+        self.manufacturedAt = madeDate
         self.isHot = isHot
     }
     
     var description: String {
-        return "\(brand), \(capacity)ml, \(price)원, \(name), \(madeDate.getStringFromDate())"
+        return "\(brand), \(capacity)ml, \(price)원, \(name), \(manufacturedAt.getStringFromDate())"
     }
     
     //MARK: 온음료 확인
@@ -44,7 +44,7 @@ extension Drink: ExpireCheckableProtocol {
     
     //MARK: 유통기한 확인
     func isExpireDate(with date: Date) -> Bool {
-        return madeDate < date
+        return manufacturedAt < date
     }  
 }
 
@@ -54,7 +54,7 @@ extension Drink: Equatable {
             && lhs.capacity == rhs.capacity
             && lhs.price == rhs.price
             && lhs.name == rhs.name
-            && lhs.madeDate == rhs.madeDate
+            && lhs.manufacturedAt == rhs.manufacturedAt
             && lhs.isHot == rhs.isHot
     }
 }

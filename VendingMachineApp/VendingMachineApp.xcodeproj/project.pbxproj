@@ -7,18 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A03D233225EF53AA0090DFFE /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0915E7925E76E07008CFD5D /* VendingMachine.swift */; };
-		A03D238025EF57B90090DFFE /* VendingMachineTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03D237F25EF57B90090DFFE /* VendingMachineTest.swift */; };
-		A07EE1B525F1266000A9BB70 /* SeoulSterilized.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07EE1B425F1266000A9BB70 /* SeoulSterilized.swift */; };
-		A07EE1BB25F1266D00A9BB70 /* SeoulStrawberry.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07EE1BA25F1266D00A9BB70 /* SeoulStrawberry.swift */; };
-		A07EE1BF25F1267600A9BB70 /* SeoulChoco.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07EE1BE25F1267600A9BB70 /* SeoulChoco.swift */; };
-		A07EE1C325F1268200A9BB70 /* DrPepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07EE1C225F1268200A9BB70 /* DrPepper.swift */; };
-		A07EE1C725F1268B00A9BB70 /* FantaOrange.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07EE1C625F1268B00A9BB70 /* FantaOrange.swift */; };
-		A07EE1CB25F1269200A9BB70 /* Sprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07EE1CA25F1269200A9BB70 /* Sprite.swift */; };
-		A07EE1CF25F1269D00A9BB70 /* CantataAmericano.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07EE1CE25F1269D00A9BB70 /* CantataAmericano.swift */; };
-		A07EE1D325F126A400A9BB70 /* CantataLatte.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07EE1D225F126A400A9BB70 /* CantataLatte.swift */; };
-		A07EE1D725F126AD00A9BB70 /* BlueBottle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07EE1D625F126AD00A9BB70 /* BlueBottle.swift */; };
-		A088053525ED0A0B00D6E34F /* BeverageFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A088053425ED0A0B00D6E34F /* BeverageFactory.swift */; };
 		A0915E6125E76B20008CFD5D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0915E6025E76B20008CFD5D /* AppDelegate.swift */; };
 		A0915E6325E76B20008CFD5D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0915E6225E76B20008CFD5D /* SceneDelegate.swift */; };
 		A0915E6525E76B20008CFD5D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0915E6425E76B20008CFD5D /* ViewController.swift */; };
@@ -26,36 +14,11 @@
 		A0915E6A25E76B20008CFD5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0915E6925E76B20008CFD5D /* Assets.xcassets */; };
 		A0915E6D25E76B20008CFD5D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0915E6B25E76B20008CFD5D /* LaunchScreen.storyboard */; };
 		A0915E7725E76CC7008CFD5D /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0915E7625E76CC7008CFD5D /* Beverage.swift */; };
-		A0915E8725E784F9008CFD5D /* Soda.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0915E8625E784F9008CFD5D /* Soda.swift */; };
-		A0945EAC25E8D4DB002E485E /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0945EAB25E8D4DB002E485E /* Extension.swift */; };
-		A0945EAF25E8D531002E485E /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0945EAE25E8D531002E485E /* Milk.swift */; };
-		A0945EB325E8D59F002E485E /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0945EB225E8D59F002E485E /* Coffee.swift */; };
+		A0915E7A25E76E07008CFD5D /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0915E7925E76E07008CFD5D /* VendingMachine.swift */; };
+		A0915E8725E784F9008CFD5D /* BeverageClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0915E8625E784F9008CFD5D /* BeverageClass.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		A03D237525EF578A0090DFFE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A0915E5525E76B20008CFD5D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = A0915E5C25E76B20008CFD5D;
-			remoteInfo = VendingMachineApp;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
-		A03D237025EF578A0090DFFE /* Test.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Test.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A03D237425EF578A0090DFFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A03D237F25EF57B90090DFFE /* VendingMachineTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineTest.swift; sourceTree = "<group>"; };
-		A07EE1B425F1266000A9BB70 /* SeoulSterilized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeoulSterilized.swift; sourceTree = "<group>"; };
-		A07EE1BA25F1266D00A9BB70 /* SeoulStrawberry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeoulStrawberry.swift; sourceTree = "<group>"; };
-		A07EE1BE25F1267600A9BB70 /* SeoulChoco.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeoulChoco.swift; sourceTree = "<group>"; };
-		A07EE1C225F1268200A9BB70 /* DrPepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrPepper.swift; sourceTree = "<group>"; };
-		A07EE1C625F1268B00A9BB70 /* FantaOrange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FantaOrange.swift; sourceTree = "<group>"; };
-		A07EE1CA25F1269200A9BB70 /* Sprite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sprite.swift; sourceTree = "<group>"; };
-		A07EE1CE25F1269D00A9BB70 /* CantataAmericano.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CantataAmericano.swift; sourceTree = "<group>"; };
-		A07EE1D225F126A400A9BB70 /* CantataLatte.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CantataLatte.swift; sourceTree = "<group>"; };
-		A07EE1D625F126AD00A9BB70 /* BlueBottle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueBottle.swift; sourceTree = "<group>"; };
-		A088053425ED0A0B00D6E34F /* BeverageFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageFactory.swift; sourceTree = "<group>"; };
 		A0915E5D25E76B20008CFD5D /* VendingMachineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendingMachineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0915E6025E76B20008CFD5D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A0915E6225E76B20008CFD5D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,20 +29,10 @@
 		A0915E6E25E76B20008CFD5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A0915E7625E76CC7008CFD5D /* Beverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beverage.swift; sourceTree = "<group>"; };
 		A0915E7925E76E07008CFD5D /* VendingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachine.swift; sourceTree = "<group>"; };
-		A0915E8625E784F9008CFD5D /* Soda.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Soda.swift; sourceTree = "<group>"; };
-		A0945EAB25E8D4DB002E485E /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
-		A0945EAE25E8D531002E485E /* Milk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Milk.swift; sourceTree = "<group>"; };
-		A0945EB225E8D59F002E485E /* Coffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
+		A0915E8625E784F9008CFD5D /* BeverageClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageClass.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		A03D236D25EF578A0090DFFE /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		A0915E5A25E76B20008CFD5D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -90,58 +43,10 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A03D237125EF578A0090DFFE /* Test */ = {
-			isa = PBXGroup;
-			children = (
-				A03D237F25EF57B90090DFFE /* VendingMachineTest.swift */,
-				A03D237425EF578A0090DFFE /* Info.plist */,
-			);
-			path = Test;
-			sourceTree = "<group>";
-		};
-		A07EE19F25F0C2EF00A9BB70 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				A0915E7625E76CC7008CFD5D /* Beverage.swift */,
-				A07EE1B325F1262B00A9BB70 /* BeverageCategory */,
-				A07EE1AE25F0C37E00A9BB70 /* SKUList */,
-				A088053425ED0A0B00D6E34F /* BeverageFactory.swift */,
-				A0915E7925E76E07008CFD5D /* VendingMachine.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		A07EE1AE25F0C37E00A9BB70 /* SKUList */ = {
-			isa = PBXGroup;
-			children = (
-				A07EE1B425F1266000A9BB70 /* SeoulSterilized.swift */,
-				A07EE1BA25F1266D00A9BB70 /* SeoulStrawberry.swift */,
-				A07EE1BE25F1267600A9BB70 /* SeoulChoco.swift */,
-				A07EE1C225F1268200A9BB70 /* DrPepper.swift */,
-				A07EE1C625F1268B00A9BB70 /* FantaOrange.swift */,
-				A07EE1CA25F1269200A9BB70 /* Sprite.swift */,
-				A07EE1CE25F1269D00A9BB70 /* CantataAmericano.swift */,
-				A07EE1D225F126A400A9BB70 /* CantataLatte.swift */,
-				A07EE1D625F126AD00A9BB70 /* BlueBottle.swift */,
-			);
-			path = SKUList;
-			sourceTree = "<group>";
-		};
-		A07EE1B325F1262B00A9BB70 /* BeverageCategory */ = {
-			isa = PBXGroup;
-			children = (
-				A0945EAE25E8D531002E485E /* Milk.swift */,
-				A0915E8625E784F9008CFD5D /* Soda.swift */,
-				A0945EB225E8D59F002E485E /* Coffee.swift */,
-			);
-			path = BeverageCategory;
-			sourceTree = "<group>";
-		};
 		A0915E5425E76B20008CFD5D = {
 			isa = PBXGroup;
 			children = (
 				A0915E5F25E76B20008CFD5D /* VendingMachineApp */,
-				A03D237125EF578A0090DFFE /* Test */,
 				A0915E5E25E76B20008CFD5D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -150,7 +55,6 @@
 			isa = PBXGroup;
 			children = (
 				A0915E5D25E76B20008CFD5D /* VendingMachineApp.app */,
-				A03D237025EF578A0090DFFE /* Test.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -158,11 +62,12 @@
 		A0915E5F25E76B20008CFD5D /* VendingMachineApp */ = {
 			isa = PBXGroup;
 			children = (
-				A07EE19F25F0C2EF00A9BB70 /* Model */,
-				A0945EAB25E8D4DB002E485E /* Extension.swift */,
 				A0915E6025E76B20008CFD5D /* AppDelegate.swift */,
 				A0915E6225E76B20008CFD5D /* SceneDelegate.swift */,
 				A0915E6425E76B20008CFD5D /* ViewController.swift */,
+				A0915E7625E76CC7008CFD5D /* Beverage.swift */,
+				A0915E8625E784F9008CFD5D /* BeverageClass.swift */,
+				A0915E7925E76E07008CFD5D /* VendingMachine.swift */,
 				A0915E6625E76B20008CFD5D /* Main.storyboard */,
 				A0915E6925E76B20008CFD5D /* Assets.xcassets */,
 				A0915E6B25E76B20008CFD5D /* LaunchScreen.storyboard */,
@@ -174,24 +79,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A03D236F25EF578A0090DFFE /* Test */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A03D237725EF578A0090DFFE /* Build configuration list for PBXNativeTarget "Test" */;
-			buildPhases = (
-				A03D236C25EF578A0090DFFE /* Sources */,
-				A03D236D25EF578A0090DFFE /* Frameworks */,
-				A03D236E25EF578A0090DFFE /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				A03D237625EF578A0090DFFE /* PBXTargetDependency */,
-			);
-			name = Test;
-			productName = Test;
-			productReference = A03D237025EF578A0090DFFE /* Test.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 		A0915E5C25E76B20008CFD5D /* VendingMachineApp */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A0915E7125E76B20008CFD5D /* Build configuration list for PBXNativeTarget "VendingMachineApp" */;
@@ -218,10 +105,6 @@
 				LastSwiftUpdateCheck = 1240;
 				LastUpgradeCheck = 1240;
 				TargetAttributes = {
-					A03D236F25EF578A0090DFFE = {
-						CreatedOnToolsVersion = 12.4;
-						TestTargetID = A0915E5C25E76B20008CFD5D;
-					};
 					A0915E5C25E76B20008CFD5D = {
 						CreatedOnToolsVersion = 12.4;
 					};
@@ -241,19 +124,11 @@
 			projectRoot = "";
 			targets = (
 				A0915E5C25E76B20008CFD5D /* VendingMachineApp */,
-				A03D236F25EF578A0090DFFE /* Test */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		A03D236E25EF578A0090DFFE /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		A0915E5B25E76B20008CFD5D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -267,49 +142,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		A03D236C25EF578A0090DFFE /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A03D238025EF57B90090DFFE /* VendingMachineTest.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		A0915E5925E76B20008CFD5D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A0915E8725E784F9008CFD5D /* Soda.swift in Sources */,
+				A0915E8725E784F9008CFD5D /* BeverageClass.swift in Sources */,
 				A0915E6525E76B20008CFD5D /* ViewController.swift in Sources */,
-				A0945EAF25E8D531002E485E /* Milk.swift in Sources */,
-				A07EE1CF25F1269D00A9BB70 /* CantataAmericano.swift in Sources */,
-				A07EE1C325F1268200A9BB70 /* DrPepper.swift in Sources */,
-				A07EE1D725F126AD00A9BB70 /* BlueBottle.swift in Sources */,
-				A07EE1C725F1268B00A9BB70 /* FantaOrange.swift in Sources */,
-				A0945EAC25E8D4DB002E485E /* Extension.swift in Sources */,
-				A03D233225EF53AA0090DFFE /* VendingMachine.swift in Sources */,
-				A07EE1CB25F1269200A9BB70 /* Sprite.swift in Sources */,
-				A0945EB325E8D59F002E485E /* Coffee.swift in Sources */,
+				A0915E7A25E76E07008CFD5D /* VendingMachine.swift in Sources */,
 				A0915E6125E76B20008CFD5D /* AppDelegate.swift in Sources */,
 				A0915E7725E76CC7008CFD5D /* Beverage.swift in Sources */,
-				A07EE1BF25F1267600A9BB70 /* SeoulChoco.swift in Sources */,
 				A0915E6325E76B20008CFD5D /* SceneDelegate.swift in Sources */,
-				A088053525ED0A0B00D6E34F /* BeverageFactory.swift in Sources */,
-				A07EE1BB25F1266D00A9BB70 /* SeoulStrawberry.swift in Sources */,
-				A07EE1D325F126A400A9BB70 /* CantataLatte.swift in Sources */,
-				A07EE1B525F1266000A9BB70 /* SeoulSterilized.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		A03D237625EF578A0090DFFE /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = A0915E5C25E76B20008CFD5D /* VendingMachineApp */;
-			targetProxy = A03D237525EF578A0090DFFE /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		A0915E6625E76B20008CFD5D /* Main.storyboard */ = {
@@ -331,44 +177,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		A03D237825EF578A0090DFFE /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Test/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = asd.Test;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VendingMachineApp.app/VendingMachineApp";
-			};
-			name = Debug;
-		};
-		A03D237925EF578A0090DFFE /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Test/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = asd.Test;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VendingMachineApp.app/VendingMachineApp";
-			};
-			name = Release;
-		};
 		A0915E6F25E76B20008CFD5D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -524,15 +332,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A03D237725EF578A0090DFFE /* Build configuration list for PBXNativeTarget "Test" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A03D237825EF578A0090DFFE /* Debug */,
-				A03D237925EF578A0090DFFE /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		A0915E5825E76B20008CFD5D /* Build configuration list for PBXProject "VendingMachineApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

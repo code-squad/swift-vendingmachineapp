@@ -16,20 +16,29 @@ enum DrinkTags: Int {
     case starbucksColdBrewBlack
 }
 
-class ViewController: UIViewController, SelectPanelStackViewDelegate {
+class ViewController: UIViewController, SelectPanelStackViewDelegate, TopPanelDelegate {
     @IBOutlet weak var selectPanelStackView: SelectPanelStackView!
+    @IBOutlet weak var topPanelView: TopPanel!
     var vendingMachine: VendingMachine!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         vendingMachine = VendingMachine()
         selectPanelStackView.delegate = self
+        topPanelView.delegate = self
+        selectPanelStackView.setDrinkImageViewsRadius(of: 5)
     }
     
-    func didAddDrink(typeOf drinkType: Drink.Type) {
+    func didAddedDrink(typeOf drinkType: Drink.Type) {
         vendingMachine.addDrink(drinkType)
         loadSelectPanelStackViewLabels()
     }
+    
+    func didInsertedCoin(amound: Int) {
+        vendingMachine.insertCoin(amound)
+        loadLeftCoinsLabel()
+    }
+    
 }
 
 extension ViewController {
@@ -43,6 +52,11 @@ extension ViewController {
         case 5: return StarbucksColdBrew.self
         default: return nil
         }
+    }
+    
+    private func loadLeftCoinsLabel() {
+        let leftCoin = vendingMachine.leftCoin()
+        topPanelView.leftCoinsLabel.text = "\(leftCoin)원"
     }
     
     private func loadSelectPanelStackViewLabels() {

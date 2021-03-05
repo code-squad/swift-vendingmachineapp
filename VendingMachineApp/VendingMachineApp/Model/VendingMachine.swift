@@ -15,7 +15,7 @@ class VendingMachine {
     
     init() {
         self.beverages = Beverages()
-        self.money = Money()
+        self.money = Money(inputAmount: 0)
         self.purchasedList = [Beverage]()
     }
     
@@ -33,7 +33,7 @@ class VendingMachine {
     func showAvailableBeverage() -> [Beverage] {
         var availableList = [Beverage]()
         beverages.retrieveBeverage(completion: {
-            if $0.availableBeverage(currentAmount: money.showCurrentAmount()){
+            if money.checkAvailability(beverage: $0){
                 availableList.append($0)
             }
         })
@@ -41,18 +41,15 @@ class VendingMachine {
     }
     
     //MARK: 음료수를 구매하는 메소드
-    func buyBeverage(beverage: Beverage) -> Beverage  {
-        if beverage.availableBeverage(currentAmount: money.showCurrentAmount()) {
+    func buyBeverage(beverage: Beverage){
+        if money.checkAvailability(beverage: beverage) {
             money.decreaseAmount(price: beverage.price)
-            purchasedList.append(beverage)
-            beverages.removeBeverage(beverage: beverage)
-            return beverage
+            purchasedList.append(beverages.removeBeverage(beverage: beverage))
         }
-        return beverage
     }
     
     //MARK: 잔액을 확인하는 메소드
-    func showCurrentInputAmount() -> Int {
+    func showCurrentInputAmount() -> Money {
         return money.showCurrentAmount()
     }
     
@@ -76,7 +73,7 @@ class VendingMachine {
     func checkHotBeverage() -> [Beverage] {
         var hotBeverageList = [Beverage]()
         beverages.retrieveBeverage(completion: {
-            if $0.isHot(){
+            if $0.isHot(referenceTemperature: 65.0){
                 hotBeverageList.append($0)
             }
         })

@@ -15,8 +15,8 @@ class StrawberryMilk: Milk {
     
     private var farmCode: FarmCode
     
-    init(brand: String, volume: Int, price: Int, name: String, manufacturedAt: Date, temperature: Double, expirationDate: Date, calory: Int, fatContent: Double, farmCode: FarmCode) {
+    init(brand: String, volume: Int, price: Int, name: String, manufacturedAt: Date, temperature: Double, expiredAt: Date, calory: Int, fatContent: Double, farmCode: FarmCode) {
         self.farmCode = farmCode
-        super.init(brand: brand, volume: volume, price: price, name: name, manufacturedAt: manufacturedAt, temperature: temperature, expirationDate: expirationDate, calory: calory, fatContent: fatContent)
+        super.init(brand: brand, volume: volume, price: price, name: name, manufacturedAt: manufacturedAt, temperature: temperature, expiredAt: expiredAt, calory: calory, fatContent: fatContent)
     }
 }

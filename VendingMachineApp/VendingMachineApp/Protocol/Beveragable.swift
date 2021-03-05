@@ -9,6 +9,6 @@ import Foundation
 
 protocol Beveragable {
     func isExpired(with date:Date) -> Bool
-    func isHot() -> Bool
-    func isLowCalorie() -> Bool
+    func isHot(referenceTemperature: Double) -> Bool
+    func isLowCalorie(referenceCalory: Int) -> Bool
 }

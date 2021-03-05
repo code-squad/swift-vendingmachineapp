@@ -25,13 +25,9 @@ class Beverages {
         )}
     }
     
-    func removeBeverage(beverage: Beverage) {
-        for beverageIndex in 0 ..< beverages.count {
-            if beverages[beverageIndex] == beverage {
-                beverages.remove(at: beverageIndex)
-                break
-            }
-        }
+    func removeBeverage(beverage: Beverage) -> Beverage {
+        let beverageIndex = beverages.firstIndex(of: beverage) ?? -1
+        return beverages.remove(at: beverageIndex)
     }
     
     func checkBeverageStock() -> [Beverage:Int] {

@@ -17,8 +17,8 @@ class Cantata: Coffee {
     
     private var beanOrigin: BeanOrigin
     
-    init(brand: String, volume: Int, price: Int, name: String, manufacturedAt: Date, temperature: Double, expirationDate: Date, calory: Int, caffeineContent: Int, beanOrigin: BeanOrigin) {
+    init(brand: String, volume: Int, price: Int, name: String, manufacturedAt: Date, temperature: Double, expiredAt: Date, calory: Int, caffeineContent: Int, beanOrigin: BeanOrigin) {
         self.beanOrigin = beanOrigin
-        super.init(brand: brand, volume: volume, price: price, name: name, manufacturedAt: manufacturedAt, temperature: temperature, expirationDate: expirationDate, calory: calory, caffeineContent: caffeineContent)
+        super.init(brand: brand, volume: volume, price: price, name: name, manufacturedAt: manufacturedAt, temperature: temperature, expiredAt: expiredAt, calory: calory, caffeineContent: caffeineContent)
     }
 }

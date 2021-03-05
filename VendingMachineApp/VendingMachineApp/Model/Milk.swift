@@ -11,12 +11,12 @@ class Milk: Beverage {
     
     private var fatContent: Double
     
-    init(brand: String, volume: Int, price: Int, name: String, manufacturedAt: Date, temperature: Double, expirationDate: Date, calory: Int, fatContent: Double) {
+    init(brand: String, volume: Int, price: Int, name: String, manufacturedAt: Date, temperature: Double, expiredAt: Date, calory: Int, fatContent: Double) {
         self.fatContent = fatContent
-        super.init(brand: brand, volume: volume, price: price, name: name, manufacturedAt: manufacturedAt, temperature: temperature, expirationDate: expirationDate, calory: calory)
+        super.init(brand: brand, volume: volume, price: price, name: name, manufacturedAt: manufacturedAt, temperature: temperature, expiredAt: expiredAt, calory: calory)
     }
     
-    func isLowFat() -> Bool {
-        return fatContent <= 2.6
+    func isLowFat(fat: Double) -> Bool {
+        return fatContent <= fat
     }
 }

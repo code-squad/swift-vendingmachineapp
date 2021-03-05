@@ -44,7 +44,7 @@ struct VendingMachine {
         }
     }
     
-    func showAllBeverageStock() -> [Beverage : Int] {
+    func showAllBeverageStock() -> [ObjectIdentifier : [Beverage]] {
         return drinks.showAllBeverage()
     }
     

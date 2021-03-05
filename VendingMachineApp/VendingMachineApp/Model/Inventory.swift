@@ -9,10 +9,10 @@ import Foundation
 
 class Inventory {
 
-    private var beverages: [Beverage]
+    private var beverages: Beverages
     
     init() {
-        beverages = []
+        self.beverages = Beverages()
     }
     
     public func append(_ beverage: Beverage) {
@@ -20,70 +20,26 @@ class Inventory {
     }
     
     public func buyableBeverageList(buyer paymentManager: PaymentManager) -> [Beverage] {
-        var list = [Beverage]()
-        
-        beverages.forEach { (beverage) in
-            if beverage.canSell(to: paymentManager) {
-                list.append(beverage)
-            }
-        }
-        
-        return list
+        return beverages.buyableBeverageList(buyer: paymentManager)
     }
 
     public func take(out beverage: Beverage, for paymentManager: PaymentManager) -> Beverage? {
-        let pickedBeverage: Beverage?
-      
-        if let firstIndex = buyableBeverageList(buyer: paymentManager).firstIndex(where: { $0 === beverage }) {
-            pickedBeverage = beverages.remove(at: firstIndex)
-            paymentManager.decreaseMoney(by: beverage)
-            return pickedBeverage
-        }
-
-        return nil
+        return beverages.take(out: beverage, for: paymentManager)
     }
     
     public func showAllBeverageList() -> [ObjectIdentifier : [Beverage]] {
-        var allList: [ObjectIdentifier : [Beverage]] = [:]
 
-        beverages.forEach { (beverage) in
-            if allList[ObjectIdentifier(type(of: beverage.self))] != nil {
-                allList[ObjectIdentifier(type(of: beverage.self))]! += [beverage]
-            }
-            else {
-                allList[ObjectIdentifier(type(of: beverage.self))] = [beverage]
-            }
-        }
-
-        return allList
+        return beverages.showAllBeverageList()
     }
     
     public func showExpiryDateBeverage() -> [SafeDateChecker] {
-        var list = [SafeDateChecker]()
         
-        beverages.forEach { (beverage) in
-            if let safeBeverage = beverage as? SafeDateChecker {
-                if safeBeverage.isExpired() {
-                    list.append(safeBeverage)
-                }
-            }
-        }
-        
-        return list
+        return beverages.showExpiryDateBeverage()
     }
     
     public func showHotBeverage() -> [Hotable] {
-        var list = [Hotable]()
 
-        beverages.forEach { (beverage) in
-            if let hotableBeverage = beverage as? Hotable {
-                if hotableBeverage.isHot() {
-                    list.append(hotableBeverage)
-                }
-            }
-        }
-
-        return list
+        return beverages.showHotBeverage()
     }
 }
 

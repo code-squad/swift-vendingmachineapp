@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E0505A225F202450082FAB4 /* Beverages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0505A125F202450082FAB4 /* Beverages.swift */; };
+		1E0505A725F20AE10082FAB4 /* Beverages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0505A125F202450082FAB4 /* Beverages.swift */; };
 		1E3B48C625EE759000903D6E /* PurchaseHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3B48C525EE759000903D6E /* PurchaseHistory.swift */; };
 		1E3B48CA25EE895700903D6E /* PaymentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3B48C925EE895700903D6E /* PaymentManager.swift */; };
 		1E3B48D425EF63C200903D6E /* VendingMachineAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3B48D325EF63C200903D6E /* VendingMachineAppTests.swift */; };
@@ -53,6 +55,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1E0505A125F202450082FAB4 /* Beverages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beverages.swift; sourceTree = "<group>"; };
 		1E3B48C525EE759000903D6E /* PurchaseHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseHistory.swift; sourceTree = "<group>"; };
 		1E3B48C925EE895700903D6E /* PaymentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentManager.swift; sourceTree = "<group>"; };
 		1E3B48D125EF63C200903D6E /* VendingMachineAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VendingMachineAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -147,6 +150,7 @@
 				1E66F51925ECC95E006A2D4B /* Inventory.swift */,
 				1E3B48C925EE895700903D6E /* PaymentManager.swift */,
 				1E3B48C525EE759000903D6E /* PurchaseHistory.swift */,
+				1E0505A125F202450082FAB4 /* Beverages.swift */,
 				1E3D23BF25E7F1360096DE7B /* Beverage.swift */,
 				1E3D23B825E79D310096DE7B /* Date.swift */,
 				1E3D23C525E8C2320096DE7B /* Level2 */,
@@ -281,6 +285,7 @@
 				1E3B490225EF6CF400903D6E /* Inventory.swift in Sources */,
 				1E3B490525EF6CFA00903D6E /* PaymentManager.swift in Sources */,
 				1E3B48D425EF63C200903D6E /* VendingMachineAppTests.swift in Sources */,
+				1E0505A725F20AE10082FAB4 /* Beverages.swift in Sources */,
 				1E3B490E25EF6D1E00903D6E /* Date.swift in Sources */,
 				1E3B48FF25EF6CE300903D6E /* VendingMachine.swift in Sources */,
 				1E3B492325EF720900903D6E /* Soda.swift in Sources */,
@@ -301,6 +306,7 @@
 				1E66F51A25ECC95E006A2D4B /* Inventory.swift in Sources */,
 				1E3D238425E688D30096DE7B /* ViewController.swift in Sources */,
 				1E3D23A625E697C30096DE7B /* BananaMilk.swift in Sources */,
+				1E0505A225F202450082FAB4 /* Beverages.swift in Sources */,
 				1E3D23B125E6A9680096DE7B /* Top.swift in Sources */,
 				1E3D23B925E79D310096DE7B /* Date.swift in Sources */,
 				1E3D238025E688D30096DE7B /* AppDelegate.swift in Sources */,

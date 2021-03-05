@@ -8,7 +8,7 @@
 import UIKit
 
 protocol SelectPanelStackViewDelegate: class {
-    func didAddDrink(typeOf: Drink.Type)
+    func didAddedDrink(typeOf: Drink.Type)
 }
 
 class SelectPanelStackView: UIStackView {
@@ -22,19 +22,26 @@ class SelectPanelStackView: UIStackView {
     @IBAction func touchAddDrinkButton(_ sender: UIButton) {
         switch sender.tag {
         case DrinkTags.blueBottleColdBrewBold.rawValue:
-            self.delegate?.didAddDrink(typeOf: BlueBottleColdBrew.self)
+            self.delegate?.didAddedDrink(typeOf: BlueBottleColdBrew.self)
         case DrinkTags.fantaOrange.rawValue:
-            self.delegate?.didAddDrink(typeOf: Fanta.self)
+            self.delegate?.didAddedDrink(typeOf: Fanta.self)
         case DrinkTags.bananaMilk.rawValue:
-            self.delegate?.didAddDrink(typeOf: BingBananaMilk.self)
+            self.delegate?.didAddedDrink(typeOf: BingBananaMilk.self)
         case DrinkTags.seoulStrawberryMilk.rawValue:
-            self.delegate?.didAddDrink(typeOf: SeoulStrawberryMilk.self)
+            self.delegate?.didAddedDrink(typeOf: SeoulStrawberryMilk.self)
         case DrinkTags.sanpellegrino.rawValue:
-            self.delegate?.didAddDrink(typeOf: Sanpellegrino.self)
+            self.delegate?.didAddedDrink(typeOf: Sanpellegrino.self)
         case DrinkTags.starbucksColdBrewBlack.rawValue:
-            self.delegate?.didAddDrink(typeOf: StarbucksColdBrew.self)
+            self.delegate?.didAddedDrink(typeOf: StarbucksColdBrew.self)
         default:
             break
+        }
+    }
+    
+    func setDrinkImageViewsRadius(of value: CGFloat) {
+        drinkImageViews.forEach { (imageView) in
+            imageView.layer.masksToBounds = true
+            imageView.layer.cornerRadius = value
         }
     }
     

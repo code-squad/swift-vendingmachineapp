@@ -18,7 +18,7 @@ class Money {
         self.Money = money.Money
     }
     
-    func currentMoney() -> Int{
-        return self.Money
+    func canBuybeverage(price : Int) -> Bool{
+        return self.Money > price
     }
 }

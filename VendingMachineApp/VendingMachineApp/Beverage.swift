@@ -16,6 +16,8 @@ class Beverage : CustomStringConvertible {
     private let manufactured : Date
     private let temperature : Int
     private let kcal : Int
+    private let HOTTEMSTANDARD : Int
+    private let HIGHCALSTANDARD : Int
     
     init(brand : String, volume : Int, price : Int, name: String, manufactured : Date, temperature : Int, kcal : Int){
         self.brand = brand
@@ -25,44 +27,29 @@ class Beverage : CustomStringConvertible {
         self.manufactured = manufactured
         self.temperature = temperature
         self.kcal = kcal
+        self.HOTTEMSTANDARD = 70
+        self.HIGHCALSTANDARD = 100
     }
     
     var description: String {
         return "\(self.brand), \(self.volume)ml, \(self.price)원, \(self.name), \(Date().yyyyMMddFormat(date: manufactured))"
     }
     
-    func isValidate(with date: Date) -> Bool{
-        if let valiDate = Calendar.current.date(byAdding: .day, value: 30, to: self.manufactured){
-            if valiDate > date {
-                return true
-            }
-        }
-        return false
+    func isValidate(_ standard: Date) -> Bool{
+        let valiDate = Date().expiration(30, manufactured: manufactured)
+        return valiDate > standard
     }
     
     func canBuybeverage(money : Money) -> Bool{
-        if money.currentMoney() > self.price {
-            return true
-        }
-        return false
+        money.canBuybeverage(price: self.price)
     }
     
     func isHot() -> Bool{
-        if temperature > 70{
-            return true
-        }
-        return false
+        return temperature > self.HOTTEMSTANDARD
     }
     
     func isLowCalorie() -> Bool{
-        if kcal > 100 {
-            return true
-        }
-        return false
-    }
-    
-    func addtoVendingMachine(vendingMachine : VendingMachine) -> Void{
-        //override subclass
+        return kcal > self.HIGHCALSTANDARD
     }
 }
 

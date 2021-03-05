@@ -7,6 +7,9 @@
 
 import UIKit
 
-protocol BeverageFactroy {
-    func makeBeverage(_ product : Beverage) -> Beverage
+protocol BeverageFactory {
+    func makebananaMilk(_ manufactured: Date) -> Milk
+    func makeStrawBerryMilk(_ manufactured: Date) -> Milk
+    func makeCider(_ manufactured: Date) -> Cider
+    func makeCoke(_ manufactured: Date) -> Coke
 }

@@ -8,14 +8,11 @@
 import Foundation
 
 class Diablo : Energydrink {
-    let taurine : Bool
+    private let taurine : Bool
     
-    init(taurine : Bool, caffeine: Bool, brand: String, volume: Int, price: Int, name: String, manufactured: Date, temperature: Int, kcal: Int) {
+    init(taurine : Bool, caffeineContent: Int, brand: String, volume: Int, price: Int, name: String, manufactured: Date, temperature: Int, kcal: Int) {
         self.taurine = taurine
-        super.init(caffeine: caffeine, brand: brand, volume: volume, price: price, name: name, manufactured: manufactured, temperature: temperature, kcal: kcal)
+        super.init(caffeineContent: caffeineContent, brand: brand, volume: volume, price: price, name: name, manufactured: manufactured, temperature: temperature, kcal: kcal)
     }
-    
-    override func addtoVendingMachine(vendingMachine: VendingMachine) {
-        vendingMachine.addDiablo(diablo: self)
-    }
+        
 }

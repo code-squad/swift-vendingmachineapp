@@ -9,15 +9,19 @@ import Foundation
 
 class Coffee : Beverage {
     private var caffeineContent : Int
-    private var caffeine : Bool
+    private var caffeine : Bool = false
     
-    init(caffeineContent : Int, caffeine : Bool, brand: String, volume: Int, price: Int, name: String, manufactured: Date, temperature : Int, kcal : Int) {
+    init(caffeineContent : Int, brand: String, volume: Int, price: Int, name: String, manufactured: Date, temperature : Int, kcal : Int) {
         self.caffeineContent = caffeineContent
-        self.caffeine = caffeine
         super.init(brand: brand, volume: volume, price: price, name: name, manufactured: manufactured, temperature:temperature, kcal: kcal)
+        self.caffeine = isCaffeine(caffeineContent: caffeineContent) //기본적으로 카페인 없지만 카페인 량에 따라 여기서 재정의
     }
     
     convenience init(caffeineContent : Int, caffeine : Bool, brand: String, price: Int, name: String, manufactured: Date, temperature : Int, kcal : Int){ //short size coffee
-        self.init(caffeineContent : caffeineContent, caffeine : caffeine, brand: brand, volume: 236, price: price, name: name, manufactured: manufactured, temperature:temperature, kcal: kcal)
+        self.init(caffeineContent : caffeineContent, brand: brand, volume: 236, price: price, name: name, manufactured: manufactured, temperature:temperature, kcal: kcal)
+    }
+    
+    func isCaffeine(caffeineContent : Int) -> Bool{
+        return caffeineContent > 0
     }
 }

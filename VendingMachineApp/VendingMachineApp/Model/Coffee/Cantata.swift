@@ -8,7 +8,24 @@
 import Foundation
 
 class Cantata: Coffee {
-    override init(brand: String, volume: Int, price: Int, name: String, manufacturedAt: Date) {
-        super.init(brand: "롯데칠성", volume: 275, price: 1000, name: "칸타타", manufacturedAt: date)
+    enum Color {
+        case brown
+        case redBlack
+        case orange
+    }
+    
+    private let design: Color
+    
+    init(brand: String, volume: Int, price: Int, name: String, createdAt: Date, expiredAt: Date, caffeine: Int, design: Color) {
+        self.design = design
+        super.init(brand: brand, volume: volume, price: price, name: name, createdAt: createdAt, expiredAt: expiredAt, caffeine: caffeine)
+    }
+    
+    convenience init() {
+        self.init(brand: "롯데칠성", volume: 275, price: 1000, name: "칸타타", createdAt: date, expiredAt: date, caffeine: 6, design: .brown)
+    }
+    
+    func isdesignNice() -> Bool {
+        return design == .brown
     }
 }

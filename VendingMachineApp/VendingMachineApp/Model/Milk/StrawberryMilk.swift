@@ -8,7 +8,19 @@
 import Foundation
 
 class StrawberryMilk: Milk {
-    override init(brand: String, volume: Int, price: Int, name: String, manufacturedAt: Date) {
-        super.init(brand: "서울우유", volume: 200, price: 600, name: "딸기우유", manufacturedAt: date)
+    
+    private let realFruit: Bool
+    
+    init(brand: String, volume: Int, price: Int, name: String, createdAt: Date, expiredAt: Date, fatPercent: Int, realFruit: Bool) {
+        self.realFruit = realFruit
+        super.init(brand: brand, volume: volume, price: price, name: name, createdAt: createdAt, expiredAt: expiredAt, fatPercent: fatPercent)
+    }
+    
+    convenience init() {
+        self.init(brand: "서울우유", volume: 200, price: 600, name: "딸기우유", createdAt: date, expiredAt: date, fatPercent: 6, realFruit: false)
+    }
+    
+    func isRealFruit() -> Bool {
+        return realFruit
     }
 }

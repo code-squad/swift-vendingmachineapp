@@ -12,9 +12,14 @@ class Drinks {
     private var drinks: [Drink]
     private var drinksHistory: [Drink]
     
-    init() {
-        self.drinks = []
-        self.drinksHistory = []
+    init(drinks: [Drink], drinksHistory: [Drink]) {
+        self.drinks = drinks
+        self.drinksHistory = drinksHistory
+    }
+    
+    //MARK: 현재 음료수 재고 리스트
+    func showNowDrinkList() -> [Drink] {
+        return drinks
     }
     
     //MARK: 음료수 총 갯수
@@ -54,24 +59,14 @@ class Drinks {
         return drinks.filter({$0.isExpireDate(with: date)})
     }
     
-    //MARK: 종류별 재고
-    func showMilkStorage(drinks:[Drink]) -> [String:Int]{
-        let milks = drinks.filter({$0.isBeverageType() == "우유"})
-        return ["우유":milks.count]
-    }
-    
-    func showSodaStorage(drinks:[Drink]) -> [String:Int]{
-        let sodas = drinks.filter({$0.isBeverageType() == "소다"})
-        return ["소다":sodas.count]
-    }
-    func showCoffeeStorage(drinks:[Drink]) -> [String:Int]{
-        let coffees = drinks.filter({$0.isBeverageType() == "커피"})
-        return ["커피":coffees.count]
-    }
-    
     //MARK: 시작이후 구매한 상품 이력
     func showPurchasedList() -> [Drink]{
         return drinksHistory
+    }
+    
+    //MARK: 현재금액으로 구매가능한 음료재고
+    func getPurchasableDrinks(with nowMoney: Int) -> [Drink] {
+        return drinks.filter({$0.isPurchasableDrink(money: nowMoney)})
     }
 }
 

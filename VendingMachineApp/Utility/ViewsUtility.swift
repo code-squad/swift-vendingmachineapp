@@ -8,7 +8,7 @@
 import UIKit
 
 class ViewsUtility {
-    static func getImageViews(names : [String]) -> [OneStockView] {
+    static func getStockCell(names : [String]) -> [OneStockView] {
         var list = [OneStockView]()
         for name in names {
             let imageView = OneStockView(frame : CGRect(x: 0, y: 0, width: 200, height: 200))

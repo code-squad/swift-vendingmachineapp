@@ -13,4 +13,14 @@ extension String {
         let date = dateFormatter.date(from: self) ?? Date()
         return date
     }
+    func extractUnsignedInteger() -> Int {
+        let stringArray = self.components(separatedBy: CharacterSet.decimalDigits.inverted)
+        
+        for item in stringArray {
+            if let number = Int(item) {
+                return number
+            }
+        }
+        return 0
+    }
 }

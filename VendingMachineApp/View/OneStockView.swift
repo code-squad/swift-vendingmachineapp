@@ -13,7 +13,7 @@ class OneStockView: UIView {
     var button : UIButton!
     var imageView : UIImageView!
     var count : Int = 0
-    var caption : String  = "재고량"
+    var caption : String  = ""
     
     var image : UIImage? {
         get { return imageView.image }
@@ -41,6 +41,7 @@ class OneStockView: UIView {
         imageView = UIImageView(frame: CGRect(x: 0, y: 40, width: bounds.width, height: bounds.height))
         imageView.contentMode = UIView.ContentMode.scaleAspectFill
         imageView.clipsToBounds = true
+        imageView.layer.cornerRadius = 10
         addSubview(imageView)
         
         let captionBackgroundView = UIView(frame: CGRect(x: 0, y: bounds.height, width: bounds.width, height: 30))
@@ -49,6 +50,7 @@ class OneStockView: UIView {
         
         label = UILabel(frame: captionBackgroundView.bounds.insetBy(dx: 10, dy: 5))
         label.textAlignment = .center
+        label.text = "재고량 : \(count)"
         label.textColor = UIColor(white: 0.9, alpha: 1.0)
         captionBackgroundView.addSubview(label)
     }

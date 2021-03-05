@@ -18,8 +18,4 @@ class Fanta: Soda {
         self.packageMaterial = packageMaterial
         super.init(manufacturer: manufacturer, volume: volume, name: name, manufacturedAt: manufacturedAt, price: price, calorie: calorie, temperature: temperature, sugarContent: sugarContent, expiredAt: expiredAt)
     }
-    
-    convenience init() {
-        self.init(manufacturer: "Fanta", volume: 200, name: "Fanta", manufacturedAt: Date(), price: 1000, calorie: 100, packageMaterial: .can, temperature: 10, sugarContent: 10, expiredAt: Date())
-    }
 }

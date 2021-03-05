@@ -28,7 +28,6 @@
                                                 <state key="normal" title="+1000"/>
                                                 <connections>
                                                     <action selector="touchAddCoinButton:" destination="1U7-rv-E3w" eventType="touchUpInside" id="KMv-CS-0a5"/>
-                                                    <action selector="touchOneThousandCoinButton:" destination="soI-kr-pGi" eventType="touchUpInside" id="t2z-O0-7Yh"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="5000" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8p6-cp-H7m">
@@ -37,7 +36,6 @@
                                                 <state key="normal" title="+5000"/>
                                                 <connections>
                                                     <action selector="touchAddCoinButton:" destination="1U7-rv-E3w" eventType="touchUpInside" id="xuZ-5b-k0A"/>
-                                                    <action selector="touchFiveThousandCoinButton:" destination="soI-kr-pGi" eventType="touchUpInside" id="now-5J-euI"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -268,7 +266,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <exit id="soI-kr-pGi" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="138.8671875" y="114.84375"/>
         </scene>

@@ -43,14 +43,15 @@ class Inventory {
         return nil
     }
     
-    public func showAllBeverageList() -> [Beverage: Int] {
-        var allList = [Beverage: Int]()
-        
+    public func showAllBeverageList() -> [ObjectIdentifier : [Beverage]] {
+        var allList: [ObjectIdentifier : [Beverage]] = [:]
+
         beverages.forEach { (beverage) in
-            if allList[beverage] != nil {
-                allList[beverage]! += 1
-            } else {
-                allList[beverage] = 1
+            if allList[ObjectIdentifier(type(of: beverage.self))] != nil {
+                allList[ObjectIdentifier(type(of: beverage.self))]! += [beverage]
+            }
+            else {
+                allList[ObjectIdentifier(type(of: beverage.self))] = [beverage]
             }
         }
 

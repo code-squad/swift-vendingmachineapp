@@ -9,6 +9,9 @@ import Foundation
 
 class PurchaseHistory {
     private var orderList: [Order]
+    var orderCount: Int {
+        orderList.count
+    }
     
     init(orderList: [Order]) {
         self.orderList = orderList

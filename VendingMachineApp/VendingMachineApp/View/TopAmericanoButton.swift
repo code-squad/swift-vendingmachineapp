@@ -10,12 +10,7 @@ import UIKit
 
 class TopAmericanoButton : BeveragesButton {
     
-    @objc override func touch(_ sender : UIButton) {
-        increase(action: action)
-    }
-    
-    override func increase(action : ((Beverage) -> Void)?) {
+    override func increase(action: ((Beverage) -> Void)?) {
         action?(TopAmericano())
     }
-    
 }

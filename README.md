@@ -32,3 +32,24 @@
 - 완성 날짜
 
   2021-03-02 19:55
+
+
+
+## step-3
+
+- 설명
+  - 상품 관련 객체들, 잔액 관련 객체들을 스택뷰로 묶어주었고 이 객체들 또한 전부 스택뷰로 묶어주었다. (상품, 잔액, 전체)
+  - IBAction은 재고 추가할 때, 금액 충전할 때, 이렇게 2가지로 작성하였다.
+  - 각 상품의 Label들, 잔액 Label들, 이미지들을 IBOutlet Collection을 생성하여 연결하였다.
+  - 각각 UI의 Label, Button들에 Restoration ID를 부여하여 data가 view의 ID를 식별하여 연결되도록 구현하였다.
+
+- 실행 화면
+
+  <img width="959" alt="스크린샷 2021-03-05 오후 4 05 48" src="https://user-images.githubusercontent.com/42647277/110080341-a4b49d80-7dcd-11eb-9672-0b6978f4de26.png">
+
+
+
+- 완성 날짜
+  - 2021-03-05 16:00
+
+

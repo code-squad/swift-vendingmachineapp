@@ -7,11 +7,15 @@
 
 import Foundation
 
-class Inventory {
+class Inventory : Equatable {
     private var stocks: [Beverage]
     
     init() {
         self.stocks = [Beverage]()
+    }
+    
+    public static func == (lhs: Inventory, rhs: Inventory) -> Bool{
+        return lhs === rhs
     }
     
     func append(item: Beverage) {

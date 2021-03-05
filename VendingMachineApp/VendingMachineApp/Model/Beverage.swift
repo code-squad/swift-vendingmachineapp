@@ -35,19 +35,3 @@ class Beverage: CustomStringConvertible {
         return "[\(brand)] \(name): ₩\(price), \(size)ml (\(manufactured.inFormat("yyMMdd")))"
     }
 }
-
-extension Beverage: Hashable {
-    static func == (lhs: Beverage, rhs: Beverage) -> Bool {
-        return lhs.name == rhs.name
-    }
-    
-    func hash(into hasher: inout Hasher) {
-      hasher.combine(name)
-    }
-}
-
-extension Beverage: Comparable {
-    static func < (lhs: Beverage, rhs: Beverage) -> Bool {
-        return lhs.name < rhs.name
-    }
-}

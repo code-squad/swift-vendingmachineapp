@@ -12,13 +12,15 @@ class VendingMachine {
     private var purchasehistory: [Drink]
     private var coins: CoinManageable
     
-    init(stock: StockManageable, coinCounter: CoinCounter) {
-        self.stock = stock
+    init() {
         self.purchasehistory = [Drink]()
-        self.coins = coinCounter
+        self.stock = Stock()
+        self.coins = CoinCounter()
     }
 
-    public func addDrink(_ drink: Drink) {
+    public func addDrink(_ drinkType: Drink.Type) {
+        guard let productizationType = drinkType as? Productization.Type else { return }
+        guard let drink = DrinkFactory.makeDrink(of: productizationType) else { return }
         stock.addedDrink(drink)
     }
 
@@ -35,7 +37,7 @@ class VendingMachine {
     }
 
     public func buy(typeOf drinkType: Drink.Type) -> Drink? {
-        return stock.purchased(drinkType) { (drink) -> Drink? in
+        return stock.purchased(drinkType: drinkType) { (drink) -> Drink? in
             var haveCoin = 0
             coins.CheckCoins { (coin) in
                 haveCoin = coin

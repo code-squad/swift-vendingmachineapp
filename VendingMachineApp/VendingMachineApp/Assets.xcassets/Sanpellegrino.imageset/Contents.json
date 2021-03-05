@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Fanta Fineapple.jpeg",
+      "filename" : "Sanpellegrino.jpg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Fanta Fineapple-1.jpeg",
+      "filename" : "Sanpellegrino-1.jpg",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Fanta Fineapple-2.jpeg",
+      "filename" : "Sanpellegrino-2.jpg",
       "idiom" : "universal",
       "scale" : "3x"
     }

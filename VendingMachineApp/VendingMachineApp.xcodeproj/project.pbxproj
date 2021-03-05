@@ -82,7 +82,7 @@
 		2255F0C625E8DA2F0044B872 /* SeoulStrawberryMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeoulStrawberryMilk.swift; sourceTree = "<group>"; };
 		2255F0CD25E8DBE10044B872 /* BingBananaMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BingBananaMilk.swift; sourceTree = "<group>"; };
 		2255F0DA25E8DDCD0044B872 /* StarbucksColdBrew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarbucksColdBrew.swift; sourceTree = "<group>"; };
-		226CAB5125EBCB0D00196488 /* DrinkFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkFactory.swift; sourceTree = "<group>"; };
+		226CAB5125EBCB0D00196488 /* DrinkFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DrinkFactory.swift; path = ../DrinkFactory.swift; sourceTree = "<group>"; };
 		22AD348625F1093A00D1A9D4 /* TopPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopPanel.swift; sourceTree = "<group>"; };
 		22AD348E25F10A4900D1A9D4 /* SelectPanelStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPanelStackView.swift; sourceTree = "<group>"; };
 		22C52CAD25E910EA00A56884 /* Fanta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fanta.swift; sourceTree = "<group>"; };
@@ -168,8 +168,8 @@
 		22AD348525F1091200D1A9D4 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				22AD348625F1093A00D1A9D4 /* TopPanel.swift */,
 				22AD348E25F10A4900D1A9D4 /* SelectPanelStackView.swift */,
+				22AD348625F1093A00D1A9D4 /* TopPanel.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -211,7 +211,6 @@
 				22E4753925E60FFA00417A37 /* ViewController.swift */,
 				22AD348525F1091200D1A9D4 /* View */,
 				22E4753B25E60FFA00417A37 /* Main.storyboard */,
-				226CAB5125EBCB0D00196488 /* DrinkFactory.swift */,
 				22E4753E25E6100000417A37 /* Assets.xcassets */,
 				22E4754025E6100000417A37 /* LaunchScreen.storyboard */,
 				22E4754325E6100000417A37 /* Info.plist */,
@@ -228,6 +227,7 @@
 				22E4756525E6288600417A37 /* Coffee.swift */,
 				22E4756225E6287F00417A37 /* Milk.swift */,
 				226CAB4425EBC5DF00196488 /* Productization */,
+				226CAB5125EBCB0D00196488 /* DrinkFactory.swift */,
 				22E4757225E650C400417A37 /* VendingMachine.swift */,
 				223A6BC825EEF89900AA3483 /* Stock.swift */,
 				223A6BD925EF236700AA3483 /* CoinCounter.swift */,

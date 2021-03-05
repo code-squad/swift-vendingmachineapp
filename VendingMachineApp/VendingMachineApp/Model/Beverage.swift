@@ -35,8 +35,13 @@ class Beverage: CustomStringConvertible, Equatable {
         return self.price
     }
     
+<<<<<<< HEAD
     public func isNotExpired() -> Bool {
         return expiration > Date()
+=======
+    public func showExpiration() -> Date {
+        return self.expiration
+>>>>>>> 7d448ba3... 학습한 내용을 요약해서 추가했습니다.
     }
     
     public static func == (lhs: Beverage, rhs: Beverage) -> Bool {

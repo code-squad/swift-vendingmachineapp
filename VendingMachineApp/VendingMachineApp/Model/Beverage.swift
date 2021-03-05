@@ -68,7 +68,7 @@ extension Beverage : Hashable {
     }
     
     func hash(into hasher: inout Hasher) {
-           hasher.combine(name)
-           hasher.combine(price)
-        }
+        hasher.combine(name)
+        hasher.combine(price)
+    }
 }

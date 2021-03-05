@@ -9,12 +9,19 @@ import Foundation
 
 class Inventory {
     private let slots: [Slot]
+    var slotCount: Int {
+        return slots.count
+    }
     
     typealias SlotIndex = Int
     typealias ItemQuantity = Int
     
-    init(for numberOfSlots: Int) {
-        self.slots = (0..<numberOfSlots).map { _ in Slot() }
+    init(slots: [Slot]) {
+        self.slots = slots
+    }
+    
+    convenience init(numberOfSlots: Int) {
+        self.init(slots: (0..<numberOfSlots).map { _ in Slot() })
     }
     
     func add(_ item: Beverage, at slotNumber: Int) {

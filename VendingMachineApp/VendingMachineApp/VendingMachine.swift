@@ -16,7 +16,7 @@ struct VendingMachine {
     
     init(numberOfSlots: Int) {
         self.numberOfSlots = numberOfSlots
-        self.inventory = Inventory(for: numberOfSlots)
+        self.inventory = Inventory(numberOfSlots: numberOfSlots)
         self.moneyDeposited = 0
         self.soldItems = PurchaseHistory()
     }

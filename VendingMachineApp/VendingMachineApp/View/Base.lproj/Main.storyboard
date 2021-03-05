@@ -46,7 +46,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="vSo-ir-Rof">
                                                 <rect key="frame" x="189" y="0.0" width="120" height="212.5"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="Redbull" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CzY-HW-62X">
+                                                    <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="RedBull" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CzY-HW-62X">
                                                         <rect key="frame" x="45" y="0.0" width="30" height="30"/>
                                                         <state key="normal" title="추가"/>
                                                         <connections>
@@ -56,7 +56,7 @@
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="4i88GgaV8qiGEw1xifwYz2xp7RJEnNpBZq7dn2K631YzoJ2i9AvRqNVmdt1ypQmie48JsQaiddLbme1nndpCFn4fJ3fEVJHJw4DL3HGNGxRuyhREER1X2kkbvN" translatesAutoresizingMaskIntoConstraints="NO" id="jPy-os-x4x">
                                                         <rect key="frame" x="0.0" y="51" width="120" height="120"/>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="RedBullLbel" text="0개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0oD-xh-kTo">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="RedBullLabel" text="0개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0oD-xh-kTo">
                                                         <rect key="frame" x="47.5" y="192" width="25" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -155,6 +155,10 @@
                         <outletCollection property="beverageLabels" destination="8IX-lC-lZ9" collectionClass="NSMutableArray" id="bFn-4g-r5h"/>
                         <outletCollection property="beverageLabels" destination="JDb-0g-sEv" collectionClass="NSMutableArray" id="Mc6-lU-ZKf"/>
                         <outletCollection property="beverageLabels" destination="0oD-xh-kTo" collectionClass="NSMutableArray" id="4p1-Ag-IiD"/>
+                        <outletCollection property="beverageImages" destination="ay7-p6-VKO" collectionClass="NSMutableArray" id="y7s-8g-GIQ"/>
+                        <outletCollection property="beverageImages" destination="jPy-os-x4x" collectionClass="NSMutableArray" id="tGB-nG-xfS"/>
+                        <outletCollection property="beverageImages" destination="H3R-Qn-GfN" collectionClass="NSMutableArray" id="szs-VW-fcF"/>
+                        <outletCollection property="beverageImages" destination="pf4-IR-rWP" collectionClass="NSMutableArray" id="HGT-7d-rOg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

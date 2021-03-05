@@ -11,16 +11,7 @@ struct Machine {
     private var moneyProccesor = MoneyProcessingUnit()
     private var beverageStorage = BeverageStorage()
     private var purchaseHistory = [Beverage]()
-    //MARK:- Money processor related methods
-    func addMoneyHolding(by amount: Int) {
-        moneyProccesor.increaseHolding(by: amount)
-    }
-    
-    func showMoneyHolding() -> Int {
-        return moneyProccesor.holdingAmount()
-    }
-    
-    //사용자가 현금 투입
+   
     func receiveMoney(amount: Int) {
         moneyProccesor.increaseMoneyOnTransaction(by: amount)
     }
@@ -52,7 +43,6 @@ struct Machine {
         do {
             try beverageStorage.decreaseStock(beverage: beverage) {
                 moneyProccesor.deductMoneyOnTransaction(with: itemPrice)
-                moneyProccesor.increaseHolding(by: itemPrice)
                 savePurchaseHistory(beverage: beverage)
             }
         } catch {

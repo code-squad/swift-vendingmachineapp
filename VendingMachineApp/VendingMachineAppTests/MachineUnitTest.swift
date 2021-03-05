@@ -49,12 +49,6 @@ class MachineUnitTest: XCTestCase {
         let machine = Machine()
     }
     
-    func test_add_money_to_moneyStorage() {
-        let holding = 100_000
-        testMachine.addMoneyHolding(by: holding)
-        XCTAssertEqual(testMachine.showMoneyHolding(), holding)
-    }
-    
     func test_add_4_different_beverages_in_stock() {
         testMachine.addStock(beverage: expensiveAndOldBeverage, amount: 10)
         testMachine.addStock(beverage: cheapAndFreshAndDomesticMilk, amount: 20)
@@ -97,7 +91,6 @@ class MachineUnitTest: XCTestCase {
         testMachine.purchaseBeverage(beverage: expensiveAndOldBeverage)
         testMachine.purchaseBeverage(beverage: expensiveAndOldBeverage)
         XCTAssertEqual(testMachine.checkStock()[expensiveAndOldBeverage], 8)
-        XCTAssertEqual(testMachine.showMoneyHolding(), itemPrice * 2)
         XCTAssertEqual(testMachine.showPurchaseHistory(), [expensiveAndOldBeverage,expensiveAndOldBeverage])
     }
     
@@ -106,7 +99,6 @@ class MachineUnitTest: XCTestCase {
         testMachine.addStock(beverage: expensiveAndOldBeverage, amount: 10)
         testMachine.purchaseBeverage(beverage: expensiveAndOldBeverage)
         XCTAssertEqual(testMachine.checkStock()[expensiveAndOldBeverage], 10)
-        XCTAssertEqual(testMachine.showMoneyHolding(), 0)
     }
     
     func test_return_change_to_customer_when_transaction_stop_button_pressed() {

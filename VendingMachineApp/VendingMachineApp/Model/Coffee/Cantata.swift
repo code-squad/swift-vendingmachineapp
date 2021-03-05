@@ -22,7 +22,7 @@ class Cantata: Coffee {
     }
     
     convenience init() {
-        self.init(brand: "롯데칠성", volume: 275, price: 1000, name: "칸타타", createdAt: date, expiredAt: date, caffeine: 6, design: .brown)
+        self.init(brand: "롯데칠성", volume: 275, price: 1000, name: "칸타타", createdAt: date, expiredAt: date, caffeine: 156, design: .brown)
     }
     
     func isdesignNice() -> Bool {

@@ -17,7 +17,7 @@ class TOP: Coffee {
     }
     
     convenience init() {
-        self.init(brand: "맥심", volume: 275, price: 900, name: "TOP", createdAt: date, expiredAt: date, caffeine: 6, adModel: "원빈")
+        self.init(brand: "맥심", volume: 275, price: 900, name: "TOP", createdAt: date, expiredAt: date, caffeine: 94, adModel: "원빈")
     }
     
     func isModelChanged(current: String) -> Bool {

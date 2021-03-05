@@ -17,7 +17,7 @@ class ChocoMilk: Milk {
     }
     
     convenience init() {
-        self.init(brand: "서울우유", volume: 200, price: 600, name: "초코우유", createdAt: date, expiredAt: date, fatPercent: 6, syrup: 3)
+        self.init(brand: "서울우유", volume: 200, price: 600, name: "초코우유", createdAt: date, expiredAt: date, fatPercent: 5, syrup: 3)
     }
     
     func isLowSyrup() -> Bool {

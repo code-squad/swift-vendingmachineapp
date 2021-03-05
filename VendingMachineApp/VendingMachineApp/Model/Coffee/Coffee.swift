@@ -21,7 +21,7 @@ class Coffee: Beverage {
     }
     
     func isLowCaffeine() -> Bool {
-        let criteria = 2
+        let criteria = 100
         return caffeine <= criteria
     }
 }

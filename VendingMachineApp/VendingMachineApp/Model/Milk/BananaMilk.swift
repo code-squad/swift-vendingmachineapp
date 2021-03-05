@@ -17,7 +17,7 @@ class BananaMilk: Milk {
     }
     
     convenience init() {
-        self.init(brand: "서울우유", volume: 200, price: 600, name: "바나나우유", createdAt: date, expiredAt: date, fatPercent: 6, colored: true)
+        self.init(brand: "서울우유", volume: 200, price: 600, name: "바나나우유", createdAt: date, expiredAt: date, fatPercent: 14, colored: true)
     }
     
     func isColored() -> Bool {

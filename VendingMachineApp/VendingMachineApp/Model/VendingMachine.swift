@@ -9,14 +9,14 @@ import Foundation
 
 struct VendingMachine {
     
-    private var productList: Beverages
-    private var soldList: Beverages
+    private var storage: BeverageStorage
+    private var dispensedList: DispensedList
     private var moneyBox: MoneyBox
     private var filterer: Filterer
     
     init(dateStandard: Date, temperatureStandard: Float, sugarStandard: Float, lactoStandard: Float) {
-        productList = Beverages()
-        soldList = Beverages()
+        storage = BeverageStorage()
+        dispensedList = DispensedList()
         moneyBox = MoneyBox()
         filterer = Filterer(dateStandard: dateStandard,
                               temperatureStandard: temperatureStandard,
@@ -25,7 +25,7 @@ struct VendingMachine {
     }
     
     func addStock(of beverage: Beverage) {
-        productList.add(beverage)
+        storage.add(beverage)
     }
     
     func insert(money: Int) {
@@ -39,8 +39,8 @@ struct VendingMachine {
     func buy(beverage: Beverage) {
         guard beverage.isPurchashable(with: moneyBox.balance()) else { return }
         
-        if let beverageToSell = productList.pullOut(beverage) {
-            soldList.add(beverageToSell)
+        if let beverageToSell = storage.pullOut(type(of: beverage)) {
+            dispensedList.update(soldItem: beverageToSell)
             
             let moneyAfterPurchase = beverage.subtractPrice(from: moneyBox.balance())
             moneyBox.update(to: moneyAfterPurchase)
@@ -51,31 +51,31 @@ struct VendingMachine {
 //MARK: - 상품정보 반환 관련 
 extension VendingMachine {
     
-    func allStocks() -> [Beverage: Int] {
-        return productList.listTypeCount()
+    func allStocks() -> [ObjectIdentifier: Int] {
+        return storage.listTypeCount()
     }
     
     func purchased() -> [Beverage] {
-        return soldList.listTypeOnly()
+        return dispensedList.items
     }
     
-    func affordables() -> [Beverage] {
-        return moneyBox.affordableList(from: productList)
+    func affordables() -> [ObjectIdentifier] {
+        return moneyBox.affordableList(from: storage)
     }
     
-    func expiredItems() -> [Beverage: Int] {
-        return filterer.expiredItems(from: productList)
+    func expiredItems() -> [ObjectIdentifier: Int] {
+        return filterer.expiredItems(from: storage)
     }
     
-    func hotItems() -> [Beverage] {
-        return filterer.hotItems(from: productList)
+    func hotItems() -> [ObjectIdentifier] {
+        return filterer.hotItems(from: storage)
     }
     
-    func transportables() -> [Beverage] {
-        return filterer.transportables(from: productList)
+    func transportables() -> [ObjectIdentifier] {
+        return filterer.transportables(from: storage)
     }
     
-    func healthyItems() -> [Beverage] {
-        return filterer.healthyItems(from: productList)
+    func healthyItems() -> [ObjectIdentifier] {
+        return filterer.healthyItems(from: storage)
     }
 }

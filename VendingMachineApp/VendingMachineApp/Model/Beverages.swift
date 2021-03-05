@@ -48,3 +48,8 @@ class Beverages {
     
 }
 
+extension Beverages: Equatable {
+    static func == (lhs: Beverages, rhs: Beverages) -> Bool{
+        return lhs.beverages == rhs.beverages
+    }
+}

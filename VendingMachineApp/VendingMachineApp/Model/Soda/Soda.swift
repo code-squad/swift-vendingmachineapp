@@ -18,9 +18,9 @@ class Soda :Drink {
     private var factoryCode: String
     private var isSodaType: SodaType
     
-    init(isSodaType:SodaType, factoryCode:String, brand: String, capacity: Int, price: Int, name: String, madeDate: Date,isHot:Bool, beverageType:BeverageType) {
+    init(isSodaType:SodaType, factoryCode:String, brand: String, capacity: Int, price: Int, name: String, madeDate: Date,isHot:Bool) {
         self.factoryCode = factoryCode
         self.isSodaType = isSodaType
-        super.init(brand: brand, capacity: capacity, price: price, name: name, madeDate: madeDate, isHot: isHot, beverageType: BeverageType.Soda)
+        super.init(brand: brand, capacity: capacity, price: price, name: name, madeDate: madeDate, isHot: isHot)
     }
 }

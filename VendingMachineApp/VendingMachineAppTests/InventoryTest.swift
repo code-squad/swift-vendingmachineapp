@@ -1,6 +1,6 @@
 //
-//  InventoryTests.swift
-//  InventoryTests
+//  InventoryTest.swift
+//  VendingMachineAppTests
 //
 //  Created by Lia on 2021/03/04.
 //

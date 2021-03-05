@@ -11,12 +11,12 @@ class Soda: Beverage {
 
     private var sugarContent: Int
     
-    init(brand: String, volume: Int, price: Int, name: String, manufacturedAt: Date, temperature: Double, expirationDate: Date, calory: Int, sugarContent: Int) {
+    init(brand: String, volume: Int, price: Int, name: String, manufacturedAt: Date, temperature: Double, expiredAt: Date, calory: Int, sugarContent: Int) {
         self.sugarContent = sugarContent
-        super.init(brand: brand, volume: volume, price: price, name: name, manufacturedAt: manufacturedAt, temperature: temperature, expirationDate: expirationDate, calory: calory)
+        super.init(brand: brand, volume: volume, price: price, name: name, manufacturedAt: manufacturedAt, temperature: temperature, expiredAt: expiredAt, calory: calory)
     }
     
-    func isUnsweetened() -> Bool {
-        return sugarContent < 1
+    func isUnsweetened(sugar: Int) -> Bool {
+        return sugarContent < sugar
     }
 }

@@ -11,8 +11,8 @@ class Money {
     
     private var inputAmount: Int
     
-    init() {
-        self.inputAmount = 0
+    init(inputAmount: Int) {
+        self.inputAmount = inputAmount
     }
     
     // 금액을 올리는 메소드
@@ -22,20 +22,20 @@ class Money {
     
     func decreaseAmount(price: Int) {
        inputAmount -= price
-    }
+    } 
     
     // 잔액을 확인하는 메소드
-    func showCurrentAmount() -> Int {
-        return inputAmount
+    func showCurrentAmount() -> Money {
+        return Money(inputAmount: inputAmount)
     }
     
-    // 금액 비교 메소드
-    func comparePrice(commodityPrice: Int) -> Bool {
-        return inputAmount >= commodityPrice
+    func checkAvailability(beverage: Beverage) -> Bool {
+        return beverage.availableBeverage(currentAmount: self.inputAmount)
     }
+    
 }
 
-extension Money {
+extension Money: Equatable {
     static func == (lhs: Money, rhs: Money) -> Bool {
         return lhs.inputAmount == rhs.inputAmount
     }

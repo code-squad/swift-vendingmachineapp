@@ -19,17 +19,17 @@ class Beverage: CustomStringConvertible, Beveragable  {
     private var name: String
     private var manufacturedAt: Date
     private var temperature: Double
-    private var expirationDate: Date
+    private var expiredAt: Date
     private var calory: Int
     
-    init(brand: String, volume: Int, price: Int, name: String, manufacturedAt: Date, temperature: Double, expirationDate: Date, calory: Int) {
+    init(brand: String, volume: Int, price: Int, name: String, manufacturedAt: Date, temperature: Double, expiredAt: Date, calory: Int) {
         self.brand = brand
         self.volume = volume
         self.price = price
         self.name = name
         self.manufacturedAt = manufacturedAt
         self.temperature = temperature
-        self.expirationDate = expirationDate
+        self.expiredAt = expiredAt
         self.calory = calory
     }
     
@@ -38,20 +38,20 @@ class Beverage: CustomStringConvertible, Beveragable  {
     }
     
     func isExpired(with date: Date) -> Bool {
-        return expirationDate < date
+        return expiredAt < date
     }
     
-    func isHot() -> Bool {
-        return temperature >= 65.0
+    func isHot(referenceTemperature: Double) -> Bool {
+        return temperature >= referenceTemperature
     }
     
-    func isLowCalorie() -> Bool {
-        return calory < 50
+    func isLowCalorie(referenceCalory: Int) -> Bool {
+        return calory < referenceCalory
     }
 }
 extension Beverage: Hashable {
     static func == (lhs: Beverage, rhs: Beverage) -> Bool{
-        return (lhs.brand == rhs.brand) && (lhs.volume == rhs.volume) && (lhs.price) == (rhs.price) && (lhs.name) == (rhs.name) && (lhs.manufacturedAt == rhs.manufacturedAt) && (lhs.temperature == rhs.temperature) && (lhs.expirationDate == rhs.expirationDate) && (lhs.calory == rhs.calory)
+        return (lhs.brand == rhs.brand) && (lhs.volume == rhs.volume) && (lhs.price) == (rhs.price) && (lhs.name) == (rhs.name) && (lhs.manufacturedAt == rhs.manufacturedAt) && (lhs.temperature == rhs.temperature) && (lhs.expiredAt == rhs.expiredAt) && (lhs.calory == rhs.calory)
     }
     func hash(into hasher: inout Hasher) {
         hasher.combine(brand)

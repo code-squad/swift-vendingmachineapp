@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "BlueBottle Cold Brew(Bright).png",
+      "filename" : "StarBucks Cold Brew(Black).png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "BlueBottle Cold Brew(Bright)-1.png",
+      "filename" : "StarBucks Cold Brew(Black)-1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "BlueBottle Cold Brew(Bright)-2.png",
+      "filename" : "StarBucks Cold Brew(Black)-2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

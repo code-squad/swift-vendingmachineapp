@@ -17,7 +17,7 @@ class VendingMachineAppTests: XCTestCase {
         super.setUp()
         stock = Stock()
         coinCounter = CoinCounter()
-        vendingMachine = VendingMachine(stock: stock, coinCounter: coinCounter)
+        vendingMachine = VendingMachine()
     }
     
     override func tearDown() {

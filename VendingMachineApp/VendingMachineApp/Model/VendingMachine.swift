@@ -23,6 +23,10 @@ class VendingMachine {
         guard let drink = DrinkFactory.makeDrink(of: productizationType) else { return }
         stock.addedDrink(drink)
     }
+    
+    public func addDrink(_ drink: Drink) {
+        stock.addedDrink(drink)
+    }
 
     public func insertCoin(_ coin: Int) {
         self.coins.inserted(coin)

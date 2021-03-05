@@ -38,7 +38,6 @@
 		B096F15125F0B6C900E98053 /* Materials.swift in Sources */ = {isa = PBXBuildFile; fileRef = B096F0C925E6449600E98053 /* Materials.swift */; };
 		B096F15425F0B6CC00E98053 /* Beans.swift in Sources */ = {isa = PBXBuildFile; fileRef = B096F0DA25E676FE00E98053 /* Beans.swift */; };
 		B096F15725F0B6D200E98053 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = B096F0B925E52D9C00E98053 /* Date.swift */; };
-		B096F15A25F0B6D400E98053 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B096F08325E4FA5800E98053 /* ViewController.swift */; };
 		B096F15D25F0B6D700E98053 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B096F0B525E5110F00E98053 /* OutputView.swift */; };
 		B096F16025F0B6DB00E98053 /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = B096F09A25E4FFA300E98053 /* Milk.swift */; };
 		B096F16325F0B6E000E98053 /* StrawberryMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = B096F0C525E641AE00E98053 /* StrawberryMilk.swift */; };
@@ -51,6 +50,10 @@
 		B096F17825F0B6F200E98053 /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = B096F0DE25E67E9D00E98053 /* VendingMachine.swift */; };
 		B096F17B25F0B6F500E98053 /* Drinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = B096F0E225E689E100E98053 /* Drinks.swift */; };
 		B096F17E25F0B6F700E98053 /* SafeBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = B096F0F025EE4DE900E98053 /* SafeBox.swift */; };
+		B096F18625F1C61400E98053 /* BeverageStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B096F18525F1C61400E98053 /* BeverageStackView.swift */; };
+		B096F18A25F1CA4400E98053 /* AddStockButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B096F18925F1CA4400E98053 /* AddStockButton.swift */; };
+		B096F19025F1CFC000E98053 /* StockLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B096F18F25F1CFBF00E98053 /* StockLabel.swift */; };
+		B096F19425F1D12E00E98053 /* BeverageImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B096F19325F1D12E00E98053 /* BeverageImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +96,10 @@
 		B096F12D25EFB5A300E98053 /* VendingMachineAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VendingMachineAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B096F12F25EFB5A300E98053 /* VendingMachineAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineAppTests.swift; sourceTree = "<group>"; };
 		B096F13125EFB5A300E98053 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B096F18525F1C61400E98053 /* BeverageStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageStackView.swift; sourceTree = "<group>"; };
+		B096F18925F1CA4400E98053 /* AddStockButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStockButton.swift; sourceTree = "<group>"; };
+		B096F18F25F1CFBF00E98053 /* StockLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockLabel.swift; sourceTree = "<group>"; };
+		B096F19325F1D12E00E98053 /* BeverageImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +146,7 @@
 				B096F0B425E510EE00E98053 /* View */,
 				B096F09525E4FB5B00E98053 /* Model */,
 				B096F07F25E4FA5800E98053 /* AppDelegate.swift */,
+				B096F08325E4FA5800E98053 /* ViewController.swift */,
 				B096F08125E4FA5800E98053 /* SceneDelegate.swift */,
 				B096F08525E4FA5800E98053 /* Main.storyboard */,
 				B096F08825E4FA5D00E98053 /* Assets.xcassets */,
@@ -172,8 +180,11 @@
 		B096F0B425E510EE00E98053 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				B096F08325E4FA5800E98053 /* ViewController.swift */,
 				B096F0B525E5110F00E98053 /* OutputView.swift */,
+				B096F18525F1C61400E98053 /* BeverageStackView.swift */,
+				B096F18925F1CA4400E98053 /* AddStockButton.swift */,
+				B096F18F25F1CFBF00E98053 /* StockLabel.swift */,
+				B096F19325F1D12E00E98053 /* BeverageImageView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -306,8 +317,10 @@
 			files = (
 				B096F09E25E4FFE600E98053 /* Soda.swift in Sources */,
 				B096F0CA25E6449600E98053 /* Materials.swift in Sources */,
+				B096F18A25F1CA4400E98053 /* AddStockButton.swift in Sources */,
 				B096F0DB25E676FE00E98053 /* Beans.swift in Sources */,
 				B096F0BA25E52D9D00E98053 /* Date.swift in Sources */,
+				B096F18625F1C61400E98053 /* BeverageStackView.swift in Sources */,
 				B096F0F125EE4DE900E98053 /* SafeBox.swift in Sources */,
 				B096F08425E4FA5800E98053 /* ViewController.swift in Sources */,
 				B096F0D825E6757200E98053 /* Cantata.swift in Sources */,
@@ -320,11 +333,13 @@
 				B096F09B25E4FFA300E98053 /* Milk.swift in Sources */,
 				B096F0CE25E6465F00E98053 /* Cola.swift in Sources */,
 				B096F0B625E5110F00E98053 /* OutputView.swift in Sources */,
+				B096F19425F1D12E00E98053 /* BeverageImageView.swift in Sources */,
 				B096F0D425E6560400E98053 /* TOP.swift in Sources */,
 				B096F0D125E648D200E98053 /* Cider.swift in Sources */,
 				B096F0E325E689E100E98053 /* Drinks.swift in Sources */,
 				B096F0DF25E67E9D00E98053 /* VendingMachine.swift in Sources */,
 				B096F0F525EF721F00E98053 /* BeverageFactory.swift in Sources */,
+				B096F19025F1CFC000E98053 /* StockLabel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,7 +357,6 @@
 				B096F15425F0B6CC00E98053 /* Beans.swift in Sources */,
 				B096F17225F0B6ED00E98053 /* TOP.swift in Sources */,
 				B096F14E25F0B6A500E98053 /* Drink.swift in Sources */,
-				B096F15A25F0B6D400E98053 /* ViewController.swift in Sources */,
 				B096F16325F0B6E000E98053 /* StrawberryMilk.swift in Sources */,
 				B096F14825EFB8D600E98053 /* BeverageFactory.swift in Sources */,
 				B096F16925F0B6E500E98053 /* Cola.swift in Sources */,

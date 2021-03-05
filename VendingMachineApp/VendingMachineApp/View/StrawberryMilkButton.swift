@@ -10,10 +10,6 @@ import UIKit
 
 class StrawberryMilkButton : BeveragesButton {
     
-    @objc override func touch(_ sender : UIButton) {
-        increase(action: action)
-    }
-    
     override func increase(action : ((Beverage) -> Void)?) {
         action?(StrawberryMilk())
     }

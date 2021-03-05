@@ -146,15 +146,15 @@
                     </view>
                     <connections>
                         <outlet property="BalanceLabel" destination="XWd-W2-ald" id="1a4-Jy-MZp"/>
-                        <outletCollection property="addStockButton" destination="2u6-M8-4ho" collectionClass="NSMutableArray" id="HyZ-Xn-z4d"/>
-                        <outletCollection property="addStockButton" destination="DQe-7E-ptl" collectionClass="NSMutableArray" id="UiR-fj-wTg"/>
-                        <outletCollection property="addStockButton" destination="yDF-bM-nON" collectionClass="NSMutableArray" id="D7W-sf-R3m"/>
                         <outletCollection property="numberOfStock" destination="waM-8c-DSU" collectionClass="NSMutableArray" id="jYm-q0-oUK"/>
                         <outletCollection property="numberOfStock" destination="qkK-iP-uU7" collectionClass="NSMutableArray" id="P5Q-gv-JfT"/>
                         <outletCollection property="numberOfStock" destination="i4b-rz-Hj2" collectionClass="NSMutableArray" id="5Jh-Kt-kqz"/>
                         <outletCollection property="beverageImages" destination="I3Q-OX-WJz" collectionClass="NSMutableArray" id="5bQ-OZ-ihV"/>
                         <outletCollection property="beverageImages" destination="9g7-ko-X0y" collectionClass="NSMutableArray" id="9oO-Ao-N0Z"/>
                         <outletCollection property="beverageImages" destination="nmc-dc-3HB" collectionClass="NSMutableArray" id="guG-tj-ejQ"/>
+                        <outletCollection property="addStockButton" destination="yDF-bM-nON" collectionClass="NSMutableArray" id="Pes-fn-SPD"/>
+                        <outletCollection property="addStockButton" destination="DQe-7E-ptl" collectionClass="NSMutableArray" id="hQH-sC-HVV"/>
+                        <outletCollection property="addStockButton" destination="2u6-M8-4ho" collectionClass="NSMutableArray" id="1N8-ya-UEu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

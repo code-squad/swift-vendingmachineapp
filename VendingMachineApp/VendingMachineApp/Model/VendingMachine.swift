@@ -46,7 +46,7 @@ struct VendingMachine {
     }
     
     //전체 상품 재고를 종류별로 리턴하는 기능
-    public func showAllBeverageList() -> [Beverage: Int] {
+    public func showAllBeverageList() -> [ObjectIdentifier: [Beverage]] {
         return inventory.showAllBeverageList()
     }
     

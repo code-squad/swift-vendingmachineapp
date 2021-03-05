@@ -23,7 +23,13 @@
 		AEA4E0FF25EE4A0B00132E4E /* Soda.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA4E0FE25EE4A0B00132E4E /* Soda.swift */; };
 		AEA4E10225EE611700132E4E /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA4E10125EE611700132E4E /* Coffee.swift */; };
 		AEA4E10625EE666500132E4E /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA4E10525EE666500132E4E /* VendingMachine.swift */; };
-		AEC8737E25F0395E00486A26 /* VendingMachineAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC8737D25F0395E00486A26 /* VendingMachineAppTests.swift */; };
+		AEB1927225F29D19006C2671 /* toDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7393F525F287E200CC7A4D /* toDictionary.swift */; };
+		AEB1927325F29D19006C2671 /* Inventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7393FD25F2886800CC7A4D /* Inventory.swift */; };
+		AEB1927425F29D19006C2671 /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED7177425EE2B0E00655D88 /* Beverage.swift */; };
+		AEB1927525F29D19006C2671 /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA4E10125EE611700132E4E /* Coffee.swift */; };
+		AEB1927625F29D19006C2671 /* TOP.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE34724525EF812D006986F2 /* TOP.swift */; };
+		AEB1927725F29D19006C2671 /* DateConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA4E0FB25EE48E800132E4E /* DateConverter.swift */; };
+		AEB1928625F29E43006C2671 /* VendingMachineAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC8737D25F0395E00486A26 /* VendingMachineAppTests.swift */; };
 		AED7177525EE2B0E00655D88 /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED7177425EE2B0E00655D88 /* Beverage.swift */; };
 		AEF6E0C625E33FF500BBCFB9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF6E0C525E33FF500BBCFB9 /* AppDelegate.swift */; };
 		AEF6E0C825E33FF500BBCFB9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF6E0C725E33FF500BBCFB9 /* SceneDelegate.swift */; };
@@ -282,7 +288,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AEC8737E25F0395E00486A26 /* VendingMachineAppTests.swift in Sources */,
+				AEB1927225F29D19006C2671 /* toDictionary.swift in Sources */,
+				AEB1927325F29D19006C2671 /* Inventory.swift in Sources */,
+				AEB1927425F29D19006C2671 /* Beverage.swift in Sources */,
+				AEB1927525F29D19006C2671 /* Coffee.swift in Sources */,
+				AEB1928625F29E43006C2671 /* VendingMachineAppTests.swift in Sources */,
+				AEB1927625F29D19006C2671 /* TOP.swift in Sources */,
+				AEB1927725F29D19006C2671 /* DateConverter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

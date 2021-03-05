@@ -9,18 +9,18 @@ import Foundation
 
 class TOP: Coffee {
     
-    private let adModel: String
+    private let hot: Bool
     
-    init(brand: String, volume: Int, price: Int, name: String, createdAt: Date, expiredAt: Date, caffeine: Int, adModel: String) {
-        self.adModel = adModel
+    init(brand: String, volume: Int, price: Int, name: String, createdAt: Date, expiredAt: Date, caffeine: Int, hot: Bool) {
+        self.hot = hot
         super.init(brand: brand, volume: volume, price: price, name: name, createdAt: createdAt, expiredAt: expiredAt, caffeine: caffeine)
     }
     
     convenience init() {
-        self.init(brand: "맥심", volume: 275, price: 900, name: "TOP", createdAt: date, expiredAt: date, caffeine: 94, adModel: "원빈")
+        self.init(brand: "맥심", volume: 275, price: 900, name: "TOP", createdAt: date, expiredAt: date, caffeine: 94, hot: false)
     }
     
-    func isModelChanged(current: String) -> Bool {
-        return current != adModel
+    func isHot() -> Bool {
+        return hot
     }
 }

@@ -2,13 +2,13 @@
 //  InventoryTest.swift
 //  VendingMachineAppTests
 //
-//  Created by Lia on 2021/03/04.
+//  Created by Lia on 2021/03/06.
 //
 
 import XCTest
 
-class InventoryTests: XCTestCase {
-    
+class InventoryTest: XCTestCase {
+
     private var inventory: Inventory!
     private var drink: Beverage!
     
@@ -67,4 +67,5 @@ class InventoryTests: XCTestCase {
         
         XCTAssertEqual(inventory.cheapItems(with: 800), [], "구매 가능 목록 리턴 실패")
     }
+
 }

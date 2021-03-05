@@ -15,6 +15,10 @@ class Payment {
         self.myMoney = 0
     }
     
+    func nowMoney() -> Int{
+        return self.myMoney
+    }
+        
     //MARK: 현금증가
     func increaseMoney(money:Int){
         self.myMoney += money

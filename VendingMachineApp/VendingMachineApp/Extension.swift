@@ -6,6 +6,7 @@
 //
 
 import Foundation
+<<<<<<< HEAD
 
 extension Date {
     
@@ -20,3 +21,5 @@ extension Date {
     }
     
 }
+=======
+>>>>>>> 7d448ba3... 학습한 내용을 요약해서 추가했습니다.

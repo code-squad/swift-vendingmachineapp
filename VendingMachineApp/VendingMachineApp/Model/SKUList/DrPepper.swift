@@ -6,6 +6,7 @@
 //
 
 import Foundation
+<<<<<<< HEAD
 
 class DrPepper: Soda {
     
@@ -21,3 +22,5 @@ class DrPepper: Soda {
     }
     
 }
+=======
+>>>>>>> 7d448ba3... 학습한 내용을 요약해서 추가했습니다.

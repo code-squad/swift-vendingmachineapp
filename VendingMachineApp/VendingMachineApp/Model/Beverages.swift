@@ -1,6 +1,6 @@
 import Foundation
 
-class Beverages {
+class Beverages: Codable {
     var beverages: [Beverage]
     
     init() {

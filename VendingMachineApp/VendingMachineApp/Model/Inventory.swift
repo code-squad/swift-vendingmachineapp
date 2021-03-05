@@ -86,3 +86,4 @@ class Inventory {
         return list
     }
 }
+

@@ -13,9 +13,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let beverage = MilkFactory().create()
-        let beverage2 = SodaFactory().create()
-        let beverage3 = CoffeeFactory().create()
+        let beverage = FactoryManager.create(type: MilkFactory.self)
+        let beverage2 = FactoryManager.create(type: SodaFactory.self)
+        let beverage3 = FactoryManager.create(type: CoffeeFactory.self)
         
         vendingMachine.appendInventory(beverage)
         vendingMachine.appendInventory(beverage2)

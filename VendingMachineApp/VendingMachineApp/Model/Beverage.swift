@@ -1,6 +1,6 @@
 import Foundation
 
-class Beverage {
+class Beverage: Codable {
     
     private var brand: Brand.Name
     private var volume: Int
@@ -11,6 +11,17 @@ class Beverage {
     private var calories: Int
     private var temparature: Int
     
+    enum BeverageCodingKey: String, CodingKey {
+        case brand
+        case volume
+        case price
+        case productName
+        case manufacturedAt
+        case sellByDate
+        case calories
+        case temparature
+    }
+    
     init(brand:Brand.Name, volume: Int, price: Int, productName: String, manufacturedDay: Date, sellByDate: Date, calories: Int, temparature: Int) {
         self.brand = brand
         self.volume = volume
@@ -20,6 +31,30 @@ class Beverage {
         self.sellByDate = sellByDate
         self.calories = calories
         self.temparature = temparature
+    }
+    
+    required init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: BeverageCodingKey.self)
+        brand = try values.decode(Brand.Name.self, forKey: .brand)
+        volume = try values.decode(Int.self, forKey: .volume)
+        price = try values.decode(Int.self, forKey: .price)
+        productName = try values.decode(String.self, forKey: .productName)
+        manufacturedAt = try values.decode(Date.self, forKey: .manufacturedAt)
+        sellByDate = try values.decode(Date.self, forKey: .sellByDate)
+        calories = try values.decode(Int.self, forKey: .calories)
+        temparature = try values.decode(Int.self, forKey: .temparature)
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: BeverageCodingKey.self)
+        try container.encode(brand, forKey: .brand)
+        try container.encode(volume, forKey: .volume)
+        try container.encode(price, forKey: .price)
+        try container.encode(productName, forKey: .productName)
+        try container.encode(manufacturedAt, forKey: .manufacturedAt)
+        try container.encode(sellByDate, forKey: .sellByDate)
+        try container.encode(calories, forKey: .calories)
+        try container.encode(temparature, forKey: .temparature)
     }
     
     func availableForBeverage() -> Bool {

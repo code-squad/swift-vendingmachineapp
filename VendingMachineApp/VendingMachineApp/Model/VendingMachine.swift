@@ -1,12 +1,28 @@
 import Foundation
 
-struct VendingMachine {
+struct VendingMachine: Codable {
     var insertedMoney: InsertedMoney
     var beverages: Beverages
     
+    enum VendingMachineCodingKey: String, CodingKey {
+        case insertedMoney
+        case beverages
+    }
     init() {
         insertedMoney = InsertedMoney()
         beverages = Beverages()
+    }
+    
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: VendingMachineCodingKey.self)
+        insertedMoney = try values.decode(InsertedMoney.self, forKey: .insertedMoney)
+        beverages = try values.decode(Beverages.self, forKey: .beverages)
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: VendingMachineCodingKey.self)
+        try container.encode(insertedMoney, forKey: .insertedMoney)
+        try container.encode(beverages, forKey: .beverages)
     }
     
     mutating func addBeverage(beverage: Beverage) {

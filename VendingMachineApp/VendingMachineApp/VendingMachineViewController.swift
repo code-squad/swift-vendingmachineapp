@@ -33,13 +33,13 @@ class VendingMachineViewController: UIViewController {
 extension VendingMachineViewController {
     
     private func beveragesStockCount() {
-        let chocoMilke = machine.stockOf(beverage: factory.chocoMilk)
+        let chocoMilk = machine.stockOf(beverage: factory.chocoMilk)
         let strawberryMilk = machine.stockOf(beverage: factory.strawberryMilk)
         let coke = machine.stockOf(beverage: factory.coke)
         let sprite = machine.stockOf(beverage: factory.sprite)
         let top = machine.stockOf(beverage: factory.top)
         let cantata = machine.stockOf(beverage: factory.cantata)
-        stockInfoOfChocolateMilk.text = "\(chocoMilke)개"
+        stockInfoOfChocolateMilk.text = "\(chocoMilk)개"
         stockInfoOfStrawBerryMilk.text = "\(strawberryMilk)개"
         stockInfoOfCokeZero.text = "\(coke)개"
         stockInfoOfSprite.text = "\(sprite)개"

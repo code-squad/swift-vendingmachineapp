@@ -1,6 +1,6 @@
 import Foundation
 
-class InsertedMoney {
+class InsertedMoney: Codable {
     
     private var insertedMoney: Int
     

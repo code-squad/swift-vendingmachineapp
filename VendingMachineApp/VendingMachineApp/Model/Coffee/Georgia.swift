@@ -24,7 +24,7 @@ class Georgia: Coffee {
     }
     
     convenience init() {
-        self.init(brand: "코카콜라", volume: 240, price: 1000, name: "조지아", createdAt: date, expiredAt: date, caffeine: 6, type: .original)
+        self.init(brand: "코카콜라", volume: 240, price: 1000, name: "조지아", createdAt: date, expiredAt: date, caffeine: 136, type: .original)
     }
     
     func isNewType() -> Bool {

@@ -9,19 +9,19 @@ import Foundation
 
 class Soda: Beverage {
     
-    private let sugarPercent: Int
+    private let suger: Int
     
-    init(brand: String, volume: Int, price: Int, name: String, createdAt: Date, expiredAt: Date, sugarPercent: Int) {
-        self.sugarPercent = sugarPercent
+    init(brand: String, volume: Int, price: Int, name: String, createdAt: Date, expiredAt: Date, suger: Int) {
+        self.suger = suger
         super.init(brand: brand, volume: volume, price: price, name: name, createdAt: createdAt, expiredAt: expiredAt)
     }
     
     convenience init() {
-        self.init(brand: "brand", volume: 0, price: 0, name: "name", createdAt: Date(), expiredAt: Date(), sugarPercent: 0)
+        self.init(brand: "brand", volume: 0, price: 0, name: "name", createdAt: Date(), expiredAt: Date(), suger: 0)
     }
     
     func isLowSugar() -> Bool {
-        let criteria = 2
-        return sugarPercent <= criteria
+        let criteria = 30
+        return suger <= criteria
     }
 }

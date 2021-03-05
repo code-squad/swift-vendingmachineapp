@@ -8,15 +8,7 @@
 import Foundation
 
 struct Inventory {
-    var strawberryMilk = 0
-    var chocoMilk = 0
-    var bananaMilk = 0
-    var cola = 0
-    var cider = 0
-    var fanta = 0
-    var cantata = 0
-    var top = 0
-    var georgia = 0
+    
 }
 
 
@@ -60,10 +52,10 @@ class VendingMachine {
         return money
     }
     
-    func inventoryList() -> [Beverage:Int] {
-        
-        return [:]
-    }
+//    func inventoryList() -> [Beverage:Int] {
+//
+//        return [:]
+//    }
     
     func expiredItems() -> [Beverage] {
         

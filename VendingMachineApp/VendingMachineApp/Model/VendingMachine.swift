@@ -11,12 +11,12 @@ class VendingMachine {
     
     private var beverages: Beverages
     private var money: Money
-    private var purchasedList: Beverages
+    private var purchasedList: [Beverage]
     
     init() {
         self.beverages = Beverages()
         self.money = Money()
-        self.purchasedList = Beverages()
+        self.purchasedList = [Beverage]()
     }
     
     //MARK: 자판기 금액을 원하는 금액만큼 올리는 메소드
@@ -44,7 +44,7 @@ class VendingMachine {
     func buyBeverage(beverage: Beverage) -> Beverage  {
         if beverage.availableBeverage(currentAmount: money.showCurrentAmount()) {
             money.decreaseAmount(price: beverage.price)
-            purchasedList.addBeverage(beverage: beverage)
+            purchasedList.append(beverage)
             beverages.removeBeverage(beverage: beverage)
             return beverage
         }
@@ -62,10 +62,10 @@ class VendingMachine {
     }
     
     //MARK: 유통기한 만료된 상품을 체크하는 메소드
-    func checkExpiredBeverage(date: Date) -> [Beverage] {
+    func checkExpiredBeverage() -> [Beverage] {
         var expriedBeverageList = [Beverage]()
         beverages.retrieveBeverage(completion: {
-            if !$0.isExpired(with: date){
+            if $0.isExpired(with: Date()){
                 expriedBeverageList.append($0)
             }
         })
@@ -84,7 +84,7 @@ class VendingMachine {
     }
     
     //MARK: 시작이후 구매 상품 이력을 배열로 리턴하는 메소드
-    func showPurchasedList() -> Beverages {
+    func showPurchasedList() -> [Beverage] {
         return purchasedList
     }
 }

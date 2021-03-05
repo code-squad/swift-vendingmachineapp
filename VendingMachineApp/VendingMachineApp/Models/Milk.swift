@@ -16,6 +16,6 @@ class Milk: Drink {
     }
     
     func isLowFat() -> Bool {
-        return fatContent < 3 ? true : false
+        return fatContent < 3
     }
 }

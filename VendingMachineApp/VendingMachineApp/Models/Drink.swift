@@ -38,11 +38,11 @@ extension Drink: Drinkable {
     }
     
     func isHot(with temperature: Int) -> Bool {
-        return self.temperature - temperature > 0
+        return self.temperature > temperature
     }
     
     func isLowCalorie(with calorie: Int) -> Bool {
-        return self.calorie - calorie > 0
+        return self.calorie > calorie
     }
 }
 

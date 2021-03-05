@@ -9,9 +9,9 @@ import UIKit
 
 class BeverageView: UIView {
     public var stockAddButton: UIButton
-    private var beverageImageView: UIImageView
+    private var itemImageView: UIImageView
     private var stockCountLabel: UILabel
-    public var boundBeverage: Beverage!
+    public var boundBeverage: Beverage
     
     init(with beverage: Beverage) {
         stockAddButton = {
@@ -21,17 +21,18 @@ class BeverageView: UIView {
             button.setTitleColor(UIColor.systemBlue, for: .normal)
             return button
         }()
-        beverageImageView = {
+        itemImageView = {
             let imageView = UIImageView()
             imageView.translatesAutoresizingMaskIntoConstraints = false
-            imageView.backgroundColor = UIColor.blue
-            imageView.contentMode = .scaleAspectFit
+            imageView.backgroundColor = UIColor.white
+            imageView.layer.cornerRadius = 10
+            imageView.layer.masksToBounds = true
+            imageView.contentMode = .scaleAspectFill
             return imageView
         }()
         stockCountLabel = {
             let label = UILabel()
             label.translatesAutoresizingMaskIntoConstraints = false
-            label.backgroundColor = UIColor.green
             label.textAlignment = .center
             return label
         }()
@@ -40,12 +41,14 @@ class BeverageView: UIView {
         super.init(frame: CGRect())
         
         addSubview(stockAddButton)
-        addSubview(beverageImageView)
+        addSubview(itemImageView)
         addSubview(stockCountLabel)
     
         configureStockAddButton()
         configureBeverageImageView()
         configureShowStockLabel()
+        
+        addImageToItemImageView()
     }
 
     required init(coder aDecoder: NSCoder) {
@@ -53,24 +56,28 @@ class BeverageView: UIView {
     }
     
     private func configureStockAddButton() {
-        stockAddButton.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.2).isActive = true
+        stockAddButton.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.25).isActive = true
         stockAddButton.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 1).isActive = true
         stockAddButton.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         stockAddButton.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
     }
     
     private func configureBeverageImageView() {
-        beverageImageView.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.6).isActive = true
-        beverageImageView.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 1).isActive = true
-        beverageImageView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-        beverageImageView.topAnchor.constraint(equalTo: stockAddButton.bottomAnchor).isActive = true
+        itemImageView.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.6).isActive = true
+        itemImageView.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 1).isActive = true
+        itemImageView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        itemImageView.topAnchor.constraint(equalTo: stockAddButton.bottomAnchor).isActive = true
     }
     
     private func configureShowStockLabel() {
-        stockCountLabel.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.2).isActive = true
+        stockCountLabel.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.15).isActive = true
         stockCountLabel.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 1).isActive = true
         stockCountLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-        stockCountLabel.topAnchor.constraint(equalTo: beverageImageView.bottomAnchor).isActive = true
+        stockCountLabel.topAnchor.constraint(equalTo: itemImageView.bottomAnchor).isActive = true
+    }
+    
+    private func addImageToItemImageView() {
+        itemImageView.image = UIImage(named: boundBeverage.name)
     }
     
     public func setStockLabelText(with amount: Int) {

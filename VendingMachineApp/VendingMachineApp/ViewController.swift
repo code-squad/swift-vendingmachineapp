@@ -19,22 +19,24 @@ class ViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(didChangeMoneyOnTransaction), name: .didIncreaseMoneyOnTransaction, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(didIncreaseStock), name: .didIncreaseStock, object: nil)
         
-        let someBeverage = Beverage(brand: "종근당", size: 120, price: 1082, name: "생강쌍원진액", packageTime: Date())
+        let someBeverage = Beverage(brand: "동아제약", size: 120, price: 1082, name: "박카스", packageTime: Date())
         let someStrawBerryMilk = StrawBerryMilk(brand: "남양유업", size: 180, price: 1000, name: "딸기에몽", packageTime: Date(), milkFarm: DomesticLocation(), strawBerryFarm: OverseasLocation(country: "이스라엘"), foodColoring: FoodColoring(color: "Red"))
         let someBananaMilk = BananaMilk(brand: "빙그레", size: 240, price: 1500, name: "바나나맛우유", packageTime: Date(), milkFarm: DomesticLocation(), bananaFarm: OverseasLocation(country: "인도"), foodColoring: FoodColoring(color: "Yellow"))
         let someCola = Cola(brand: "코카콜라", size: 190, price: 800, name: "코카-콜라", packageTime: Date())
         let someAmericano = Americano(brand: "스타벅스", size: 355, price: 4100, name: "아메리카노-톨", packageTime: Date(), bean: .robusta, caffeine: 150, inHeatingCabinet: false)
-        let someAmericano2 = Americano(brand: "스타sdfsdf벅스", size: 355, price: 4100, name: "아메리카sdfsdfsdf노-톨", packageTime: Date(), bean: .robusta, caffeine: 150, inHeatingCabinet: false)
+        let someAmericano2 = Americano(brand: "스타벅스", size: 355, price: 4100, name: "콜드브루블랙", packageTime: Date(), bean: .robusta, caffeine: 150, inHeatingCabinet: false)
         
         machine.addStock(beverage: someBeverage, amount: 10)
         machine.addStock(beverage: someStrawBerryMilk, amount: 20)
         machine.addStock(beverage: someBananaMilk, amount: 30)
         machine.addStock(beverage: someCola, amount: 40)
         machine.addStock(beverage: someAmericano, amount: 50)
-        machine.addStock(beverage: someAmericano2, amount: 1000)
+        machine.addStock(beverage: someAmericano2, amount: 60)
         
         addBeveragesOnDisplaySlots()
         addEmptyPlacesOnDisplaySlots()
+        updateBeverageDisplaySlotsFirstRow()
+        updateBeverageDisplaySlotsSecondRow()
     }
     
     @IBAction func thousandWonPlusButtonPressed(_ sender: UIButton) {
@@ -47,7 +49,6 @@ class ViewController: UIViewController {
     
     func createBeverageView(beverage: Beverage, count: Int) -> BeverageView {
         let view = BeverageView(with: beverage)
-        view.setStockLabelText(with: count)
         view.stockAddButton.addAction(for: .touchUpInside) { (uibutton) in
             self.machine.addStock(beverage: beverage, amount: 1)
         }
@@ -82,24 +83,31 @@ class ViewController: UIViewController {
         }
     }
     
+    func updateBeverageDisplaySlotsFirstRow() {
+        for view in beverageDisplaySlotsFirstRow.arrangedSubviews {
+            guard let beverageView = view as? BeverageView else { return }
+            let beverage = beverageView.boundBeverage
+            guard let beverageCount = machine.checkStock()[beverage] else { return }
+            beverageView.setStockLabelText(with: beverageCount)
+        }
+    }
+    
+    func updateBeverageDisplaySlotsSecondRow() {
+        for view in beverageDisplaySlotsSecondRow.arrangedSubviews {
+            guard let beverageView = view as? BeverageView else { return }
+            let beverage = beverageView.boundBeverage
+            guard let beverageCount = machine.checkStock()[beverage] else { return }
+            beverageView.setStockLabelText(with: beverageCount)
+        }
+    }
+    
     @objc func didChangeMoneyOnTransaction() {
         self.moneyOnTransactionLabel.text = "\(machine.showInsertedCashBalance())원"
     }
     
     @objc func didIncreaseStock() {
-        for view in beverageDisplaySlotsFirstRow.arrangedSubviews {
-            guard let beverageView = view as? BeverageView else { continue }
-            guard let beverage = beverageView.boundBeverage else { continue }
-            guard let beverageCount = machine.checkStock()[beverage] else { continue }
-            beverageView.setStockLabelText(with: beverageCount)
-        }
-        
-        for view in beverageDisplaySlotsSecondRow.arrangedSubviews {
-            guard let beverageView = view as? BeverageView else { continue }
-            guard let beverage = beverageView.boundBeverage else { continue }
-            guard let beverageCount = machine.checkStock()[beverage] else { continue }
-            beverageView.setStockLabelText(with: beverageCount)
-        }
+        updateBeverageDisplaySlotsFirstRow()
+        updateBeverageDisplaySlotsSecondRow()
     }
 }
 

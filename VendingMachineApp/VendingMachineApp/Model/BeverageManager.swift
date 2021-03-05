@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Filterer {
+class BeverageManager: FoodManagable {
 
     private let dateStandard: Date
     private let temperatureStandard: Float
@@ -21,11 +21,11 @@ class Filterer {
         self.lactoStandard = lactoStandard
     }
     
-    func expiredItems(from list: BeverageStorage) -> [ObjectIdentifier: Int] {
-        return list.listTypeCount(filter: expired(_:))
+    func expiredItems(fromItemsIn storage: Storage) -> [ObjectIdentifier: Int] {
+        return storage.listTypeCount(filter: expired(_:))
     }
 
-    private func expired(_ beverages: [ObjectIdentifier: [Beverage]]) -> [ObjectIdentifier: Int] {
+    private func expired(_ beverages: [ObjectIdentifier: [Shopable]]) -> [ObjectIdentifier: Int] {
         var expiredList = [ObjectIdentifier: Int]()
 
         beverages.forEach { (id, list) in
@@ -44,11 +44,11 @@ class Filterer {
         return expiredList
     }
     
-    func hotItems(from list: BeverageStorage) -> [ObjectIdentifier] {
-        return list.listTypeOnly(filter: hot(_:))
+    func hotItems(fromItemsIn storage: Storage) -> [ObjectIdentifier] {
+        return storage.listTypeOnly(filter: hot(_:))
     }
 
-    private func hot(_ stockList: [ObjectIdentifier: [Beverage]]) -> [ObjectIdentifier] {
+    private func hot(_ stockList: [ObjectIdentifier: [Shopable]]) -> [ObjectIdentifier] {
         var beverageList = [ObjectIdentifier]()
 
         stockList.forEach { (id, list) in
@@ -60,11 +60,11 @@ class Filterer {
         return beverageList
     }
     
-    func transportables(from list: BeverageStorage) -> [ObjectIdentifier] {
-        return list.listTypeOnly(filter: transportable(_:))
+    func transportables(fromItemsIn storage: Storage) -> [ObjectIdentifier] {
+        return storage.listTypeOnly(filter: transportable(_:))
     }
 
-    private func transportable(_ stockList: [ObjectIdentifier: [Beverage]]) -> [ObjectIdentifier] {
+    private func transportable(_ stockList: [ObjectIdentifier: [Shopable]]) -> [ObjectIdentifier] {
         var beverageList = [ObjectIdentifier]()
 
         stockList.forEach { (id, list) in
@@ -76,11 +76,11 @@ class Filterer {
         return beverageList
     }
     
-    func healthyItems(from list: BeverageStorage) -> [ObjectIdentifier] {
-        return list.listTypeOnly(filter: healthy(_:))
+    func healthyItems(fromItemsIn storage: Storage) -> [ObjectIdentifier] {
+        return storage.listTypeOnly(filter: healthy(_:))
     }
 
-    private func healthy(_ stockList: [ObjectIdentifier: [Beverage]]) -> [ObjectIdentifier] {
+    private func healthy(_ stockList: [ObjectIdentifier: [Shopable]]) -> [ObjectIdentifier] {
         var beverageList = [ObjectIdentifier]()
 
         stockList.forEach { (id, list) in

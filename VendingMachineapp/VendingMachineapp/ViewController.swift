@@ -19,6 +19,12 @@ class ViewController: UIViewController {
     @IBOutlet var lineStackView: [UIStackView]!
     @IBOutlet var beverageStackView: [UIStackView]!
     
+    @IBOutlet weak var informationStackView: UIStackView!
+    @IBOutlet weak var addThousandButton: UIButton!
+    @IBOutlet weak var addFiveThousandButton: UIButton!
+
+    @IBOutlet weak var currentChangeLabel: UILabel!
+    
     @IBOutlet var buttons: [UIButton]!
     @IBOutlet var imageViews: [UIImageView]!
     @IBOutlet var labels: [UILabel]!

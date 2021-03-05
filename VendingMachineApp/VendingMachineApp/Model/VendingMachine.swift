@@ -7,11 +7,6 @@
 
 import Foundation
 
-struct Inventory {
-    
-}
-
-
 class VendingMachine {
     
     private var money: Int
@@ -52,10 +47,10 @@ class VendingMachine {
         return money
     }
     
-//    func inventoryList() -> [Beverage:Int] {
-//
-//        return [:]
-//    }
+    func inventoryList() -> [Beverage:Int] {
+
+        return [:]
+    }
     
     func expiredItems() -> [Beverage] {
         

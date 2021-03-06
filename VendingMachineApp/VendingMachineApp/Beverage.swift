@@ -36,8 +36,8 @@ class Beverage : CustomStringConvertible {
     }
     
     func isValidate(_ standard: Date) -> Bool{
-        let valiDate = Date().expiration(30, manufactured: manufactured)
-        return valiDate > standard
+        let thirtydaysAfter = Date().expiration(30, manufactured: manufactured)
+        return thirtydaysAfter > standard
     }
     
     func canBuybeverage(money : Money) -> Bool{

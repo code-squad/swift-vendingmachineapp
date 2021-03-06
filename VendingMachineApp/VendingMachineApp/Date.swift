@@ -9,16 +9,13 @@ import Foundation
 
 extension Date{
     func stringTodate(_ stringdate : String) -> Date {
-        let tempdateFormatter = DateFormatter()
-        tempdateFormatter.dateFormat = "yyyyMMdd"
-        tempdateFormatter.timeZone = TimeZone(abbreviation: "UTC")
-        return tempdateFormatter.date(from: stringdate) ?? Date()
+        return Date().yyyyMMddFormat().date(from: stringdate) ?? Date()
     }
     
-    func yyyyMMddFormat(date : Date) -> String{
+    func yyyyMMddFormat() -> DateFormatter{
         let tempdateFormatter = DateFormatter()
         tempdateFormatter.dateFormat = "yyyyMMdd"
-        return "\(tempdateFormatter.string(from: date))"
+        return tempdateFormatter
     }
     
     func expiration(_ date : Int, manufactured : Date) -> Date{

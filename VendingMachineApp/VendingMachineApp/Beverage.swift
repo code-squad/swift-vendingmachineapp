@@ -32,7 +32,7 @@ class Beverage : CustomStringConvertible {
     }
     
     var description: String {
-        return "\(self.brand), \(self.volume)ml, \(self.price)원, \(self.name), \(Date().yyyyMMddFormat(date: manufactured))"
+        return "\(self.brand), \(self.volume)ml, \(self.price)원, \(self.name), \(Date().yyyyMMddFormat().string(from: manufactured))"
     }
     
     func isValidate(_ standard: Date) -> Bool{
@@ -50,6 +50,19 @@ class Beverage : CustomStringConvertible {
     
     func isLowCalorie() -> Bool{
         return kcal > self.HIGHCALSTANDARD
+    }
+    
+    func addProduct(productList : [String: Int]) -> [String:Int]{
+        var tempProductList : [String: Int] = productList
+        for _ in 0..<productList.count{
+            if productList[self.name] == nil{
+                tempProductList[self.name] = 1
+            }
+            else{
+                tempProductList[self.name]! += 1
+            }
+        }
+        return tempProductList
     }
 }
 

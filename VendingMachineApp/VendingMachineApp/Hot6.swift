@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Diablo : Energydrink {
+class Hot6 : Energydrink {
     private let taurine : Bool
     
     init(taurine : Bool, caffeineContent: Int, brand: String, volume: Int, price: Int, name: String, manufactured: Date, temperature: Int, kcal: Int) {

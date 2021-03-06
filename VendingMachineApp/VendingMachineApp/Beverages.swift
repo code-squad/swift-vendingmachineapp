@@ -57,7 +57,7 @@ class Beverages{
     func beveragesList() -> [String : Int]{
         var tempdictionary : [String : Int] = [:]
         for i in 0..<beverages.count{
-            tempdictionary = beverages[i].addProduct(productList: tempdictionary)
+            beverages[i].addProduct(productList: &tempdictionary)
         }
         return tempdictionary
     }

@@ -8,11 +8,11 @@
 import XCTest
 
 class VendingMachineAppTests: XCTestCase {
-
+    
     override func setUpWithError() throws {
         
     }
-
+    
     override func tearDownWithError() throws {
     }
     
@@ -39,5 +39,14 @@ class VendingMachineAppTests: XCTestCase {
         let vendingMachine : VendingMachine = VendingMachine.init(Money: Money.init(money: 2000))
         testclass.beverageList.forEach{vendingMachine.addBeverage(beverage: $0)}
         XCTAssertEqual(vendingMachine.canBuyBeverageList(), testArray)
+    }
+    
+    func testcurrentBeverage() throws{
+        let testArray : [String: Int] = ["HOT6": 1, "진짜 리얼 딸기 우유": 1, "바나나는 원래 하얗다.": 1, "카페라떼": 1, "카페모카": 1, "SOMERSBY": 1, "코카콜라제로": 2, "몬스터": 1]
+        let testclass : testClass = testClass()
+        let vendingMachine : VendingMachine = VendingMachine.init(Money: Money.init(money: 2000))
+        testclass.beverageList.forEach{vendingMachine.addBeverage(beverage: $0)}
+        vendingMachine.addBeverage(beverage: BeverageCreater().makeCoke(Date().stringTodate("20200227")))
+        XCTAssertEqual(vendingMachine.currentBeverages(), testArray)
     }
 }

@@ -52,17 +52,13 @@ class Beverage : CustomStringConvertible {
         return kcal > self.HIGHCALSTANDARD
     }
     
-    func addProduct(productList : [String: Int]) -> [String:Int]{
-        var tempProductList : [String: Int] = productList
-        for _ in 0..<productList.count{
-            if productList[self.name] == nil{
-                tempProductList[self.name] = 1
-            }
-            else{
-                tempProductList[self.name]! += 1
-            }
+    func addProduct( productList : inout [String: Int]){
+        if productList[self.name] == nil{
+            productList[self.name] = 1
         }
-        return tempProductList
+        else{
+            productList[self.name]! += 1
+        }        
     }
 }
 

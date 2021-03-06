@@ -9,62 +9,47 @@ import Foundation
 
 class VendingMachine {
     private var money : Money
-    private var beverages : [Beverage]
-    private var bought : [Beverage]
+    private var beverages : Beverages
+    private var bought : Beverages
     
     init(Money : Money){
         self.money = Money
-        self.beverages = []
-        self.bought = []
+        self.beverages = Beverages()
+        self.bought = Beverages()
+    }
+    
+    func addBeverage(beverage : Beverage){
+        beverages.addBeverage(beverage: beverage)
     }
     
     func addMoney(money : Money){
         money.addMoney(money: money)
     }
     
-    func canBuyBeverage() -> [Beverage]{
-        addAllCurrentBeverages()
-        var tempbeverages : [Beverage] = []
-        for i in 0..<beverages.count{
-            if beverages[i].canBuybeverage(money: self.money) {
-                tempbeverages.append(beverages[i])
-            }
+    func buyBeverage(beverage : Beverage){
+        if beverage.canBuybeverage(money: self.money){
+            bought.addBeverage(beverage: beverage)
+            self.beverages.takeBeverage(beverage: beverage)
         }
-        return tempbeverages
     }
     
-    func allBeverages() -> [Beverage]{
-        addAllCurrentBeverages()
-        return beverages
+    func currentBeverages() -> [String: Int]{
+        return beverages.beveragesList()
     }
     
-    func isValidate() -> [Beverage]{
-        addAllCurrentBeverages()
-        var tempBeverages : [Beverage] = []
-        for i in 0..<beverages.count{
-            if beverages[i].isValidate(Date()){
-                tempBeverages.append(beverages[i])
-            }
-        }
-        return tempBeverages
+    func canBuyBeverageList() -> [Beverage] {
+        return beverages.comparePrice(money: self.money)
     }
     
-    func isHot() -> [Beverage]{
-        addAllCurrentBeverages()
-        var tempBeverages : [Beverage] = []
-        for i in 0..<beverages.count{
-            if beverages[i].isHot(){
-                tempBeverages.append(beverages[i])
-            }
-        }
-        return tempBeverages
+    func isValidateList() -> [Beverage]{
+        return beverages.beverageValidate()
     }
     
-    func boughtList() -> [Beverage]{
-        return bought
+    func isHotList() -> [Beverage]{
+        return beverages.isHotBeverages()
     }
     
-    private func addAllCurrentBeverages(){
-        beverages.removeAll()
+    func boughtList() -> [String: Int]{
+        return bought.beveragesList()
     }
 }

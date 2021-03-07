@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Sanpellegrino.jpg",
+      "filename" : "Sanpellegrino.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Sanpellegrino-1.jpg",
+      "filename" : "Sanpellegrino-1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Sanpellegrino-2.jpg",
+      "filename" : "Sanpellegrino-2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

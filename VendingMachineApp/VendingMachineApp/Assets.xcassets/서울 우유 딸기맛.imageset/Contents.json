@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "서울 우유 딸기맛.jpg",
+      "filename" : "서울 우유 딸기맛.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "서울 우유 딸기맛-1.jpg",
+      "filename" : "서울 우유 딸기맛-1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "서울 우유 딸기맛-2.jpg",
+      "filename" : "서울 우유 딸기맛-2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

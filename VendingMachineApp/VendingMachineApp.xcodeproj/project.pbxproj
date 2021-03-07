@@ -32,6 +32,7 @@
 		FE8B8DD925E9972C00EF304F /* Payment.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8B8DD825E9972B00EF304F /* Payment.swift */; };
 		FE8B8E0C25EDE1E600EF304F /* VendingMachineAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8B8CA725E3932100EF304F /* VendingMachineAppTests.swift */; };
 		FE8B8E1025EDE1E700EF304F /* VendingMachineAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8B8CA725E3932100EF304F /* VendingMachineAppTests.swift */; };
+		FE8B8E7225F2AB3D00EF304F /* DrinksTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8B8E7125F2AB3D00EF304F /* DrinksTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +83,7 @@
 		FE8B8DAF25E8111900EF304F /* Drinks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drinks.swift; sourceTree = "<group>"; };
 		FE8B8DC325E9036D00EF304F /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		FE8B8DD825E9972B00EF304F /* Payment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Payment.swift; sourceTree = "<group>"; };
+		FE8B8E7125F2AB3D00EF304F /* DrinksTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinksTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				FE8B8CA725E3932100EF304F /* VendingMachineAppTests.swift */,
+				FE8B8E7125F2AB3D00EF304F /* DrinksTest.swift */,
 				FE8B8CA925E3932100EF304F /* Info.plist */,
 			);
 			path = VendingMachineAppTests;
@@ -381,6 +384,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE8B8E7225F2AB3D00EF304F /* DrinksTest.swift in Sources */,
 				FE8B8E0C25EDE1E600EF304F /* VendingMachineAppTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -588,7 +592,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = VendingMachineAppTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -609,7 +613,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = VendingMachineAppTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -12,9 +12,9 @@ class Drinks {
     private var drinks: [Drink]
     private var drinksHistory: [Drink]
     
-    init(drinks: [Drink], drinksHistory: [Drink]) {
-        self.drinks = drinks
-        self.drinksHistory = drinksHistory
+    init() {
+        self.drinks = []
+        self.drinksHistory = []
     }
     
     //MARK: 현재 음료수 재고 리스트
@@ -24,7 +24,7 @@ class Drinks {
     
     //MARK: 음료수 총 갯수
     func countDrinkStock() -> Int {
-        return drinks.count
+        return drinks.count 
     }
     
     //MARK: 음료수 추가
@@ -60,7 +60,8 @@ class Drinks {
     }
     
     //MARK: 시작이후 구매한 상품 이력
-    func showPurchasedList() -> [Drink]{
+    func addPurchasedList(with drink: Drink) -> [Drink]{
+        drinksHistory.append(drink)
         return drinksHistory
     }
     

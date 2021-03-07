@@ -7,8 +7,8 @@
 
 import Foundation
 
-class EnergyDrinkFactory : BeverageFactory{
-    static func createBeverage<T>(type value : T) -> Beverage? {
+class EnergyDrinkFactory : BeverageFactory {
+    func createBeverage<T>(type value : T) -> Beverage? {
         switch value {
         case is Monster.Type : return Monster(createdAt: Date().toString(), expiredAt: Date().toString())
         case is Hot6ix.Type : return Hot6ix(createdAt: Date().toString(), expiredAt: Date().toString())

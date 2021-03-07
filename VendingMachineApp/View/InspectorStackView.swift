@@ -9,8 +9,8 @@ import UIKit
 
 class InspectorStackView: UIStackView {
 
-    var oneThousandButton : UIButton!
-    var fiveThousandButton : UIButton!
+    var oneThousandButton : AddCoinUIButton!
+    var fiveThousandButton : AddCoinUIButton!
     var balanceLabel : UILabel!
     var balance : Int  = 0
     
@@ -29,18 +29,12 @@ class InspectorStackView: UIStackView {
         self.translatesAutoresizingMaskIntoConstraints = false
         self.distribution = .fillEqually
         
-        oneThousandButton = UIButton(type: .system)
-        oneThousandButton.frame = CGRect(x: 0, y: 0, width: bounds.width, height: 10)
-        oneThousandButton.titleLabel?.font = .boldSystemFont(ofSize: 20)
-        oneThousandButton.setTitle("+1000원", for: .normal)
-        oneThousandButton.addTarget(self, action: #selector(addCoin), for: .touchUpInside)
+        oneThousandButton = AddCoinUIButton(frame: CGRect(x: 0, y: 0, width: bounds.width, height: 10), named: "+1000원")
+        oneThousandButton.delegate = self
         addArrangedSubview(oneThousandButton)
         
-        fiveThousandButton = UIButton(type: .system)
-        fiveThousandButton.frame = CGRect(x: 0, y: 0, width: bounds.width, height: 10)
-        fiveThousandButton.titleLabel?.font = .boldSystemFont(ofSize: 20)
-        fiveThousandButton.addTarget(self, action: #selector(addCoin), for: .touchUpInside)
-        fiveThousandButton.setTitle("+5000원", for: .normal)
+        fiveThousandButton = AddCoinUIButton(frame: CGRect(x: 0, y: 0, width: bounds.width, height: 10), named: "+5000원")
+        fiveThousandButton.delegate = self
         addArrangedSubview(fiveThousandButton)
         
         balanceLabel = UILabel(frame: oneThousandButton.bounds)
@@ -51,9 +45,13 @@ class InspectorStackView: UIStackView {
         addArrangedSubview(balanceLabel)
 
     }
+}
+
+extension InspectorStackView : CoinDelegate {
     
-    @objc func addCoin(_ sender : UIButton!){
-        let value : Int = balance + (sender.titleLabel?.text?.extractUnsignedInteger() ?? 0)
+    func addCoin(_ sender: UIButton) {
+        let value : Int = (sender.titleLabel?.text?.extractUnsignedInteger() ?? 0)
         balance += value
+        print(balance)
     }
 }

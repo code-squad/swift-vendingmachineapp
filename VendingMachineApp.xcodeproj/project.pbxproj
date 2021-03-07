@@ -24,10 +24,11 @@
 		1061001B25EA1F9000D07810 /* EnergyDrinkFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1061001A25EA1F9000D07810 /* EnergyDrinkFactory.swift */; };
 		1061002025EA1F9C00D07810 /* SodaFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1061001F25EA1F9C00D07810 /* SodaFactory.swift */; };
 		1061002525EA1FA600D07810 /* CoffeeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1061002425EA1FA600D07810 /* CoffeeFactory.swift */; };
+		107242DE25F3B8D700A7A675 /* FactoryProducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107242DD25F3B8D700A7A675 /* FactoryProducer.swift */; };
 		1087276625EE15A500F260A2 /* Money.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1087276525EE15A500F260A2 /* Money.swift */; };
 		108B4FA825EE290B00658B66 /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108B4FA725EE290B00658B66 /* Stock.swift */; };
 		10A31E8725F2683300E2AAF8 /* InspectorStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A31E8625F2683300E2AAF8 /* InspectorStackView.swift */; };
-		10C692A025EA2B5C009F6AEF /* BeverageFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C6929F25EA2B5C009F6AEF /* BeverageFactory.swift */; };
+		10A5112325F35790008DF0AA /* AddCoinUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A5112225F35790008DF0AA /* AddCoinUIButton.swift */; };
 		10C692A825EA2CC7009F6AEF /* Monster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C692A725EA2CC7009F6AEF /* Monster.swift */; };
 		10C692AD25EA2CE1009F6AEF /* Hot6ix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C692AC25EA2CE1009F6AEF /* Hot6ix.swift */; };
 		10C692B225EA2D0F009F6AEF /* Coke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C692B125EA2D0F009F6AEF /* Coke.swift */; };
@@ -90,10 +91,11 @@
 		1061001A25EA1F9000D07810 /* EnergyDrinkFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnergyDrinkFactory.swift; sourceTree = "<group>"; };
 		1061001F25EA1F9C00D07810 /* SodaFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SodaFactory.swift; sourceTree = "<group>"; };
 		1061002425EA1FA600D07810 /* CoffeeFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeFactory.swift; sourceTree = "<group>"; };
+		107242DD25F3B8D700A7A675 /* FactoryProducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactoryProducer.swift; sourceTree = "<group>"; };
 		1087276525EE15A500F260A2 /* Money.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Money.swift; sourceTree = "<group>"; };
 		108B4FA725EE290B00658B66 /* Stock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stock.swift; sourceTree = "<group>"; };
 		10A31E8625F2683300E2AAF8 /* InspectorStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InspectorStackView.swift; sourceTree = "<group>"; };
-		10C6929F25EA2B5C009F6AEF /* BeverageFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageFactory.swift; sourceTree = "<group>"; };
+		10A5112225F35790008DF0AA /* AddCoinUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCoinUIButton.swift; sourceTree = "<group>"; };
 		10C692A725EA2CC7009F6AEF /* Monster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Monster.swift; sourceTree = "<group>"; };
 		10C692AC25EA2CE1009F6AEF /* Hot6ix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hot6ix.swift; sourceTree = "<group>"; };
 		10C692B125EA2D0F009F6AEF /* Coke.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coke.swift; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 				102E520625F0D6FB00C8631A /* OneStockView.swift */,
 				102E520B25F0D72D00C8631A /* AddStockButton.swift */,
 				10A31E8625F2683300E2AAF8 /* InspectorStackView.swift */,
+				10A5112225F35790008DF0AA /* AddCoinUIButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -285,7 +288,7 @@
 				105EE25E25E8CD4400E6D2E2 /* Soda */,
 				105EE25C25E8CD3600E6D2E2 /* Coffee */,
 				10F5F07E25E7845B00B70881 /* Beverage.swift */,
-				10C6929F25EA2B5C009F6AEF /* BeverageFactory.swift */,
+				107242DD25F3B8D700A7A675 /* FactoryProducer.swift */,
 				10F5F08125E7845B00B70881 /* VendingMachine.swift */,
 				10ED09C625EA69D600569FE6 /* Customer.swift */,
 				1087276525EE15A500F260A2 /* Money.swift */,
@@ -440,6 +443,8 @@
 				10F5F04625E782C400B70881 /* ViewController.swift in Sources */,
 				102E520725F0D6FB00C8631A /* OneStockView.swift in Sources */,
 				105EE25825E8CCD000E6D2E2 /* EnergyDrink.swift in Sources */,
+				10A5112325F35790008DF0AA /* AddCoinUIButton.swift in Sources */,
+				107242DE25F3B8D700A7A675 /* FactoryProducer.swift in Sources */,
 				10C692A825EA2CC7009F6AEF /* Monster.swift in Sources */,
 				102E520225F0D66400C8631A /* StockHorizontalStackView.swift in Sources */,
 				10F5F04225E782C400B70881 /* AppDelegate.swift in Sources */,
@@ -451,7 +456,6 @@
 				10F5F04425E782C400B70881 /* SceneDelegate.swift in Sources */,
 				10F5F08525E7845B00B70881 /* Milk.swift in Sources */,
 				105EE28425E8D63600E6D2E2 /* Cantata.swift in Sources */,
-				10C692A025EA2B5C009F6AEF /* BeverageFactory.swift in Sources */,
 				1061001B25EA1F9000D07810 /* EnergyDrinkFactory.swift in Sources */,
 				105EE27A25E8D61000E6D2E2 /* Top.swift in Sources */,
 				10C692B225EA2D0F009F6AEF /* Coke.swift in Sources */,

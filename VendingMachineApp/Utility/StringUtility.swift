@@ -23,4 +23,22 @@ extension String {
         }
         return 0
     }
+    func toBeverageType() -> Beverage.Type? {
+        switch self {
+        case "cantata" : return Cantata.self
+        case "georgia" : return Georgia.self
+        case "top" : return Top.self
+        case "hot6ixBlue" : return Hot6ix.self
+        case "hot6ixRed" : return Hot6ix.self
+        case "monsterBlack" : return Monster.self
+        case "banana" : return BananaMilk.self
+        case "chocolate" : return ChocolateMilk.self
+        case "plain" : return Milk.self
+        case "stroberry" : return StroberryMilk.self
+        case "sprite" : return Sprite.self
+        case "coke" : return Coke.self
+        default:
+            return nil
+        }
+    }
 }

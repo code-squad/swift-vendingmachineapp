@@ -9,6 +9,8 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    var vendingMachine = VendingMachine()
+    
     let itemCountPerDisplayStand = 4
     let mainStackView : UIStackView = {
         let stack = UIStackView()
@@ -17,21 +19,18 @@ class ViewController: UIViewController {
         stack.distribution = .fillEqually
         return stack
     }()
-    
     var inspectorView : InspectorStackView!
-    
-    var addCoinButton : UIButton!
-    var addCoinButton2 : UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .black
         
-        let imageViews = ViewsUtility.getStockCell(names: ["banana", "chocolate", "stroberry", "coke", "sprite", "top", "georgia","cantata"])
+        let imageViews = ViewsUtility.getEachStock(names: ["banana", "chocolate", "stroberry", "coke", "hot6ixRed", "top", "georgia","cantata"])
         
         for i in stride(from: 0, to: imageViews.count , by: itemCountPerDisplayStand){
             let stackview = StockHorizontalStackView()
             for view in imageViews[i..<min(i+itemCountPerDisplayStand, imageViews.count)] {
+                view.button.delegate = self
                 stackview.addArrangedSubview(view)
             }
             mainStackView.addArrangedSubview(stackview)
@@ -44,6 +43,10 @@ class ViewController: UIViewController {
         self.view.addSubview(inspectorView)
         inspectorViewConfiguration()
     }
+}
+
+// MARK: Configuration
+extension ViewController {
     func mainStackViewConfiguration(){
         mainStackView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 60).isActive = true
         mainStackView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor).isActive = true
@@ -58,4 +61,11 @@ class ViewController: UIViewController {
     }
 }
 
-
+extension ViewController : StockButtonDelegate {
+    func append(type: Beverage.Type) {
+        guard let factory = FactoryProducer.getFactory(type: type) else { return }
+        guard let beverage = factory.createBeverage(type: type) else { return }
+        vendingMachine.append(product: beverage)
+        print(vendingMachine.getTotalStock())
+    }
+}

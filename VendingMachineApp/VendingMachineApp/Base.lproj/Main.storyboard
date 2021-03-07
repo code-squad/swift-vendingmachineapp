@@ -129,7 +129,7 @@
                                                         </connections>
                                                     </button>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="빙그레 바나나우유" translatesAutoresizingMaskIntoConstraints="NO" id="0tw-GB-bg8">
-                                                        <rect key="frame" x="12" y="39" width="230" height="172"/>
+                                                        <rect key="frame" x="0.0" y="39" width="254.5" height="172"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C6f-Zr-6Ax">
@@ -153,7 +153,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="254.5" height="240"/>
                                                 <subviews>
                                                     <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GE8-MK-OUv">
-                                                        <rect key="frame" x="108" y="0.0" width="39" height="40.5"/>
+                                                        <rect key="frame" x="108" y="0.0" width="39" height="39"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                         <state key="normal" title="추가"/>
                                                         <connections>
@@ -161,7 +161,7 @@
                                                         </connections>
                                                     </button>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="서울 우유 딸기맛" translatesAutoresizingMaskIntoConstraints="NO" id="tzQ-av-8yB">
-                                                        <rect key="frame" x="0.0" y="40.5" width="254.5" height="170.5"/>
+                                                        <rect key="frame" x="0.0" y="39" width="254.5" height="172"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wJg-e5-WGd">
@@ -185,7 +185,7 @@
                                                         </connections>
                                                     </button>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="Sanpellegrino" translatesAutoresizingMaskIntoConstraints="NO" id="RYU-Mt-2hT">
-                                                        <rect key="frame" x="2.5" y="39" width="250" height="172"/>
+                                                        <rect key="frame" x="0.0" y="39" width="255" height="172"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" tag="4" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Woo-gZ-ESb">
@@ -209,7 +209,7 @@
                                                         </connections>
                                                     </button>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="StarBucks Cold Brew(Black)" highlightedImage="Sanpellegrino" translatesAutoresizingMaskIntoConstraints="NO" id="q87-JZ-sZp">
-                                                        <rect key="frame" x="2" y="39" width="250" height="172"/>
+                                                        <rect key="frame" x="0.0" y="39" width="254.5" height="172"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" tag="5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jvi-VF-5mh">
@@ -271,12 +271,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="BlueBottle Cold Brew(Bold)" width="325" height="250"/>
-        <image name="Fanta Orange" width="410" height="340.5"/>
-        <image name="Sanpellegrino" width="250" height="250"/>
-        <image name="StarBucks Cold Brew(Black)" width="250" height="250"/>
-        <image name="빙그레 바나나우유" width="230" height="230"/>
-        <image name="서울 우유 딸기맛" width="256" height="170.5"/>
+        <image name="BlueBottle Cold Brew(Bold)" width="320" height="320"/>
+        <image name="Fanta Orange" width="320" height="320"/>
+        <image name="Sanpellegrino" width="320" height="320"/>
+        <image name="StarBucks Cold Brew(Black)" width="320" height="320"/>
+        <image name="빙그레 바나나우유" width="320" height="320"/>
+        <image name="서울 우유 딸기맛" width="320" height="320"/>
         <systemColor name="systemGray4Color">
             <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

@@ -8,7 +8,7 @@
 import UIKit
 
 protocol SelectPanelStackViewDelegate: class {
-    func didAddedDrink(typeOf: Drink.Type)
+    func didAddedDrink(name: String)
 }
 
 class SelectPanelStackView: UIStackView {
@@ -21,22 +21,7 @@ class SelectPanelStackView: UIStackView {
     
     @IBAction func touchAddDrinkButton(_ sender: UIButton) {
         guard let identifier = sender.accessibilityIdentifier else { return }
-        switch identifier {
-        case "BlueBottle Cold Brew(Bold)":
-            self.delegate?.didAddedDrink(typeOf: BlueBottleColdBrew.self)
-        case "Fanta Orange":
-            self.delegate?.didAddedDrink(typeOf: Fanta.self)
-        case "빙그레 바나나우유":
-            self.delegate?.didAddedDrink(typeOf: BingBananaMilk.self)
-        case "서울 우유 딸기맛":
-            self.delegate?.didAddedDrink(typeOf: SeoulStrawberryMilk.self)
-        case "Sanpellegrino":
-            self.delegate?.didAddedDrink(typeOf: Sanpellegrino.self)
-        case "StarBucks Cold Brew(Black)":
-            self.delegate?.didAddedDrink(typeOf: StarbucksColdBrew.self)
-        default:
-            break
-        }
+        self.delegate?.didAddedDrink(name: identifier)
     }
     
     func setDrinkImageViewsRadius(of value: CGFloat) {

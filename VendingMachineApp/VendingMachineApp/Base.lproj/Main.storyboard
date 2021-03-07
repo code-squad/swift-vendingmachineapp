@@ -241,18 +241,18 @@
                                     <outletCollection property="drinkImageViews" destination="tzQ-av-8yB" collectionClass="NSMutableArray" id="xU4-PY-kPP"/>
                                     <outletCollection property="drinkImageViews" destination="RYU-Mt-2hT" collectionClass="NSMutableArray" id="CK1-v0-m63"/>
                                     <outletCollection property="drinkImageViews" destination="q87-JZ-sZp" collectionClass="NSMutableArray" id="80f-5j-cww"/>
-                                    <outletCollection property="addDrinkButtons" destination="Hfb-pH-0eM" collectionClass="NSMutableArray" id="KrY-GB-KF4"/>
-                                    <outletCollection property="addDrinkButtons" destination="GE8-MK-OUv" collectionClass="NSMutableArray" id="AHC-oP-DP0"/>
-                                    <outletCollection property="addDrinkButtons" destination="fGN-0Z-s98" collectionClass="NSMutableArray" id="j3l-Le-nVD"/>
-                                    <outletCollection property="addDrinkButtons" destination="Cbg-6q-Idc" collectionClass="NSMutableArray" id="j6T-MW-cZ2"/>
-                                    <outletCollection property="addDrinkButtons" destination="KRB-Ny-IXq" collectionClass="NSMutableArray" id="3E8-Q9-fs5"/>
-                                    <outletCollection property="addDrinkButtons" destination="XKG-bm-ElA" collectionClass="NSMutableArray" id="Yvl-4O-fgJ"/>
                                     <outletCollection property="stockDrinkLabels" destination="STA-MR-1bY" collectionClass="NSMutableArray" id="2bS-Kr-Re6"/>
                                     <outletCollection property="stockDrinkLabels" destination="s77-Mq-nkh" collectionClass="NSMutableArray" id="oVI-Po-281"/>
                                     <outletCollection property="stockDrinkLabels" destination="C6f-Zr-6Ax" collectionClass="NSMutableArray" id="kGw-eW-ee7"/>
                                     <outletCollection property="stockDrinkLabels" destination="wJg-e5-WGd" collectionClass="NSMutableArray" id="Toz-qN-XCc"/>
                                     <outletCollection property="stockDrinkLabels" destination="Woo-gZ-ESb" collectionClass="NSMutableArray" id="g43-mw-CJi"/>
                                     <outletCollection property="stockDrinkLabels" destination="jvi-VF-5mh" collectionClass="NSMutableArray" id="9EL-n9-AwX"/>
+                                    <outletCollection property="addDrinkButtons" destination="Hfb-pH-0eM" collectionClass="NSMutableArray" id="Fkz-8z-IGj"/>
+                                    <outletCollection property="addDrinkButtons" destination="fGN-0Z-s98" collectionClass="NSMutableArray" id="UDg-H4-BDU"/>
+                                    <outletCollection property="addDrinkButtons" destination="KRB-Ny-IXq" collectionClass="NSMutableArray" id="HU6-Y2-xHc"/>
+                                    <outletCollection property="addDrinkButtons" destination="GE8-MK-OUv" collectionClass="NSMutableArray" id="XE4-5k-FCL"/>
+                                    <outletCollection property="addDrinkButtons" destination="Cbg-6q-Idc" collectionClass="NSMutableArray" id="Wht-4p-CCs"/>
+                                    <outletCollection property="addDrinkButtons" destination="XKG-bm-ElA" collectionClass="NSMutableArray" id="v9w-or-esG"/>
                                 </connections>
                             </stackView>
                         </subviews>

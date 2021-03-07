@@ -32,7 +32,7 @@ class Beverage : CustomStringConvertible {
     }
     
     var description: String {
-        return "\(self.brand), \(self.volume)ml, \(self.price)원, \(self.name), \(Date().yyyyMMddFormat().string(from: manufactured))"
+        return "\(self.brand), \(self.volume)ml, \(self.price)원, \(self.name), \(Date().stringTodate("20210303").descriptDateToString())"
     }
     
     func isValidate(_ standard: Date) -> Bool{

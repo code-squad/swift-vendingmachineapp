@@ -7,15 +7,6 @@
 
 import UIKit
 
-enum DrinkTags: Int {
-    case blueBottleColdBrewBold
-    case fantaOrange
-    case bananaMilk
-    case seoulStrawberryMilk
-    case sanpellegrino
-    case starbucksColdBrewBlack
-}
-
 class ViewController: UIViewController, SelectPanelStackViewDelegate, TopPanelDelegate {
     @IBOutlet weak var selectPanelStackView: SelectPanelStackView!
     @IBOutlet weak var topPanelView: TopPanel!

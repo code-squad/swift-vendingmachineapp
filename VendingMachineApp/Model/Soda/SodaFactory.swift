@@ -8,7 +8,7 @@
 import Foundation
 
 class SodaFactory : BeverageFactory{
-    static func createBeverage<T>(type value: T) -> Beverage? {
+    func createBeverage<T>(type value: T) -> Beverage? {
         switch value {
         case is Coke.Type : return Coke(createdAt: Date().toString(), expiredAt: Date().toString())
         case is Sprite.Type : return Sprite(createdAt: Date().toString(), expiredAt: Date().toString())

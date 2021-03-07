@@ -49,4 +49,9 @@ class VendingMachineAppTests: XCTestCase {
         vendingMachine.addBeverage(beverage: BeverageCreater().makeCoke(Date().stringTodate("20200227")))
         XCTAssertEqual(vendingMachine.currentBeverages(), testArray)
     }
+    
+    func testDateFormatter() throws {
+        let date = Date().stringTodate("20210307").descriptDateToString()
+        XCTAssertEqual(date, "20210307")
+    }
 }

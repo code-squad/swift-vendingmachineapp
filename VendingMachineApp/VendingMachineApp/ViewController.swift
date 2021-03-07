@@ -20,7 +20,8 @@ class ViewController: UIViewController, SelectPanelStackViewDelegate, TopPanelDe
         selectPanelStackView.setDrinkImageViewsRadius(of: 5)
     }
     
-    func didAddedDrink(typeOf drinkType: Drink.Type) {
+    func didAddedDrink(name: String) {
+        guard let drinkType = findType(name: name) else { return }
         vendingMachine.addDrink(drinkType)
         loadSelectPanelStackViewLabels()
     }
@@ -33,6 +34,25 @@ class ViewController: UIViewController, SelectPanelStackViewDelegate, TopPanelDe
 }
 
 extension ViewController {
+    private func findType(name: String) -> Drink.Type? {
+        switch name {
+        case "BlueBottle Cold Brew(Bold)":
+            return BlueBottleColdBrew.self
+        case "Fanta Orange":
+            return Fanta.self
+        case "빙그레 바나나우유":
+            return BingBananaMilk.self
+        case "서울 우유 딸기맛":
+            return SeoulStrawberryMilk.self
+        case "Sanpellegrino":
+            return Sanpellegrino.self
+        case "StarBucks Cold Brew(Black)":
+            return StarbucksColdBrew.self
+        default:
+            return nil
+        }
+    }
+    
     private func findDrinkTypeToTag(of tag: Int) -> Drink.Type? {
         switch tag {
         case 0: return BlueBottleColdBrew.self

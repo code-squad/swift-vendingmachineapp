@@ -20,18 +20,19 @@ class SelectPanelStackView: UIStackView {
     weak var delegate: SelectPanelStackViewDelegate?
     
     @IBAction func touchAddDrinkButton(_ sender: UIButton) {
-        switch sender.tag {
-        case DrinkTags.blueBottleColdBrewBold.rawValue:
+        guard let identifier = sender.accessibilityIdentifier else { return }
+        switch identifier {
+        case "BlueBottle Cold Brew(Bold)":
             self.delegate?.didAddedDrink(typeOf: BlueBottleColdBrew.self)
-        case DrinkTags.fantaOrange.rawValue:
+        case "Fanta Orange":
             self.delegate?.didAddedDrink(typeOf: Fanta.self)
-        case DrinkTags.bananaMilk.rawValue:
+        case "빙그레 바나나우유":
             self.delegate?.didAddedDrink(typeOf: BingBananaMilk.self)
-        case DrinkTags.seoulStrawberryMilk.rawValue:
+        case "서울 우유 딸기맛":
             self.delegate?.didAddedDrink(typeOf: SeoulStrawberryMilk.self)
-        case DrinkTags.sanpellegrino.rawValue:
+        case "Sanpellegrino":
             self.delegate?.didAddedDrink(typeOf: Sanpellegrino.self)
-        case DrinkTags.starbucksColdBrewBlack.rawValue:
+        case "StarBucks Cold Brew(Black)":
             self.delegate?.didAddedDrink(typeOf: StarbucksColdBrew.self)
         default:
             break

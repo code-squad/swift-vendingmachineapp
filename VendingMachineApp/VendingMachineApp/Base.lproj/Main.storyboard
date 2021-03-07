@@ -74,6 +74,7 @@
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hfb-pH-0eM">
                                                         <rect key="frame" x="108" y="0.0" width="39" height="39"/>
+                                                        <accessibility key="accessibilityConfiguration" identifier="BlueBottle Cold Brew(Bold)"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                         <state key="normal" title="추가"/>
                                                         <connections>
@@ -98,6 +99,7 @@
                                                 <subviews>
                                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fGN-0Z-s98">
                                                         <rect key="frame" x="108" y="0.0" width="39" height="39"/>
+                                                        <accessibility key="accessibilityConfiguration" identifier="Fanta Orange"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                         <state key="normal" title="추가"/>
                                                         <connections>
@@ -122,6 +124,7 @@
                                                 <subviews>
                                                     <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KRB-Ny-IXq">
                                                         <rect key="frame" x="107.5" y="0.0" width="39" height="39"/>
+                                                        <accessibility key="accessibilityConfiguration" identifier="빙그레 바나나우유"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                         <state key="normal" title="추가"/>
                                                         <connections>
@@ -154,6 +157,7 @@
                                                 <subviews>
                                                     <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GE8-MK-OUv">
                                                         <rect key="frame" x="108" y="0.0" width="39" height="39"/>
+                                                        <accessibility key="accessibilityConfiguration" identifier="서울 우유 딸기맛"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                         <state key="normal" title="추가"/>
                                                         <connections>
@@ -178,6 +182,7 @@
                                                 <subviews>
                                                     <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cbg-6q-Idc">
                                                         <rect key="frame" x="108" y="0.0" width="39" height="39"/>
+                                                        <accessibility key="accessibilityConfiguration" identifier="Sanpellegrino"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                         <state key="normal" title="추가"/>
                                                         <connections>
@@ -202,6 +207,7 @@
                                                 <subviews>
                                                     <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XKG-bm-ElA">
                                                         <rect key="frame" x="107.5" y="0.0" width="39" height="39"/>
+                                                        <accessibility key="accessibilityConfiguration" identifier="StarBucks Cold Brew(Black)"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                         <state key="normal" title="추가"/>
                                                         <connections>
@@ -211,6 +217,7 @@
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="StarBucks Cold Brew(Black)" highlightedImage="Sanpellegrino" translatesAutoresizingMaskIntoConstraints="NO" id="q87-JZ-sZp">
                                                         <rect key="frame" x="0.0" y="39" width="254.5" height="172"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <accessibility key="accessibilityConfiguration" identifier="StarBucks Cold Brew(Black)"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" tag="5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jvi-VF-5mh">
                                                         <rect key="frame" x="109.5" y="211" width="35.5" height="29"/>

@@ -21,7 +21,7 @@ class Soda : Beverage {
         self.init(sugarContent: 0, brand: brand, volume: volume, price: price, name: name, manufactured: manufactured, temperature : temperature, kcal : 50)
     }
     
-    func isSugarfree(_ sugar : Int) -> Bool{
+    private func isSugarfree(_ sugar : Int) -> Bool{
         return sugar < 1
     }
 }

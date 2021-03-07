@@ -8,12 +8,12 @@
 import Foundation
 
 extension Date{
-    func stringTodate(_ stringdate : String) -> Date {
-        return Date().makeDateFormatter().date(from: stringdate) ?? Date()
+    func makeDatewithString(yyyyMMdd stringdate : String) -> Date {
+        return makeDateFormatter().date(from: stringdate) ?? Date()
     }
     
     func descriptDateToString() -> String{
-        return "\(self.makeDateFormatter().string(from: self))"
+        return makeDateFormatter().string(from: self)
     }
     
     private func makeDateFormatter() -> DateFormatter{

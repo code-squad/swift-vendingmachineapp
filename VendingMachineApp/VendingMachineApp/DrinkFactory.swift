@@ -7,9 +7,10 @@
 
 import Foundation
 
-class DrinkFactory: DrinkProduceable {
-    static public func makeDrink(of type: Productization.Type, manufactured: Date = Date()) -> Drink? {
-        switch type {
+class DrinkFactory: DrinkProduceable {    
+    static public func makeDrink(of type: Drink.Type, manufactured: Date = Date()) -> Drink? {
+        guard let productType = type as? Productization.Type else { return nil }
+        switch productType {
         case is BlueBottleColdBrew.Type: return BlueBottleColdBrew(flavor: .bold, manufactured: manufactured)
         case is StarbucksColdBrew.Type: return StarbucksColdBrew(flavor: .black, manufactured: manufactured)
         case is SeoulStrawberryMilk.Type: return SeoulStrawberryMilk(isWithStraw: true, manufactured: manufactured)
@@ -18,11 +19,6 @@ class DrinkFactory: DrinkProduceable {
         case is Fanta.Type: return Fanta(flavor: .orange, manufactured: manufactured)
         default: return nil
         }
-    }
-    
-    static public func makeDrink(of type: Drink.Type, manufactured: Date = Date()) -> Drink? {
-        guard let productType = type as? Productization.Type else { return nil }
-        return makeDrink(of: productType, manufactured: manufactured)
     }
 
     static public func makeDrink(of name: String, manufactured: Date = Date()) -> Drink? {

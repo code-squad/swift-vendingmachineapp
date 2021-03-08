@@ -29,7 +29,6 @@ class VendingMachineAppTests: XCTestCase {
     
     // 통합 테스트 시나리오
     func testVendingMachineScenario() {
-        
         guard let blueBottle = DrinkFactory.makeDrink(of: BlueBottleColdBrew.self) else { return }
         guard let starbucks = DrinkFactory.makeDrink(of: StarbucksColdBrew.self) else { return }
         guard let seoulMilk = DrinkFactory.makeDrink(of: SeoulStrawberryMilk.self) else { return }

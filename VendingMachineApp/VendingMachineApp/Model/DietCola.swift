@@ -8,7 +8,7 @@
 import Foundation
 
 class DietCola : Soda {
-    enum TasteType {
+    enum TasteType : Int {
         case lemon
         case lime
     }
@@ -34,12 +34,12 @@ class DietCola : Soda {
     }
     
     required init?(coder: NSCoder) {
-        self.taste = coder.decodeObject(forKey: "taste") as! TasteType
+        self.taste = TasteType(rawValue: coder.decodeInteger(forKey: "taste"))!
         super.init(coder: coder)
     }
     
     override func encode(with coder: NSCoder) {
-        coder.encode(taste, forKey: "taste")
+        coder.encode(taste.rawValue, forKey: "taste")
         super.encode(with: coder)
     }
 }

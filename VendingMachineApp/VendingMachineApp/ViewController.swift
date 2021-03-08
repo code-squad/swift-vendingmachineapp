@@ -13,28 +13,26 @@ class ViewController: UIViewController {
     @IBOutlet var countCollection: [UILabel]!
     @IBOutlet weak var moneyLabel: UILabel!
 
-    private var vendingMachine = VendingMachine(dateStandard: Date(),
-                                        temperatureStandard: 36.5,
-                                        sugarStandard: 1.0,
-                                        lactoStandard: 0.5)
+    private let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
-    private var presenter = VendingMachineUpdator()
     private var beverageList = [Beverage]()
     private let beverageFactory = BeverageFactory0303()
+    
+    private var presenter = VendingMachineUpdator()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         beverageList = beverageFactory.createAll()
         
-        presenter.didTurnOn(images: beverageCollection, countLabels: countCollection, machine: vendingMachine, moneyLabel: moneyLabel, beverageList: beverageList)
+        presenter.didTurnOn(images: beverageCollection, countLabels: countCollection, machine: appDelegate.vendingMachine, moneyLabel: moneyLabel, beverageList: beverageList)
     }
     
     @IBAction func addMoneyTouched(_ sender: UIButton) {
-        presenter.didAddMoneyTouched(sender: sender, machine: vendingMachine, label: moneyLabel)
+        presenter.didAddMoneyTouched(sender: sender, machine: appDelegate.vendingMachine, label: moneyLabel)
     }
     
     @IBAction func addStockTouched(_ sender: UIButton) {
-        presenter.didAddStockTouched(sender: sender, machine: vendingMachine, labels: countCollection, beverageList: beverageList)
+        presenter.didAddStockTouched(sender: sender, machine: appDelegate.vendingMachine, labels: countCollection, beverageList: beverageList)
     }
 }

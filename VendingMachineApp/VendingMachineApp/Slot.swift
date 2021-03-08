@@ -59,7 +59,7 @@ class Slot: CustomStringConvertible {
     
     func getExpiredItems() -> [Beverage] {
         return items.filter {
-            $0.validate(with: Date())
+            !$0.isStillEdible(at: Date())
         }
     }
     

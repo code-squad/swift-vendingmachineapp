@@ -1,26 +1,26 @@
 //
-//  ImageViews.swift
+//  Buttons.swift
 //  VendingMachineapp
 //
-//  Created by 심영민 on 2021/03/08.
+//  Created by 심영민 on 2021/03/05.
 //
 
 import Foundation
 import UIKit
-class BeverageImageView: UIImageView {
 
+class AddBeverageButton: UIButton {
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setImageView()
-        
+        setButton()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        setImageView()
+        setButton()
     }
     
-    func setImageView() {
-        self.layer.cornerRadius = 30
+    func setButton() {
+        self.setTitle("추가", for: .normal)
     }
 }

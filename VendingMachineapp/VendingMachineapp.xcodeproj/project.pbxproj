@@ -38,7 +38,7 @@
 		D46F1B1D25EE2A3900BFBD9C /* CoffeeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46F1B1C25EE2A3900BFBD9C /* CoffeeFactory.swift */; };
 		D46F1B2325EE31CA00BFBD9C /* SodaFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46F1B2225EE31CA00BFBD9C /* SodaFactory.swift */; };
 		D4EC7A5725F1EC430013F504 /* BeverageStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EC7A5625F1EC430013F504 /* BeverageStackView.swift */; };
-		D4EC7A5B25F2196C0013F504 /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EC7A5A25F2196C0013F504 /* Buttons.swift */; };
+		D4EC7A5B25F2196C0013F504 /* AddBeverageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EC7A5A25F2196C0013F504 /* AddBeverageButton.swift */; };
 		D4EC7A6125F607060013F504 /* ImageViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EC7A6025F607060013F504 /* ImageViews.swift */; };
 /* End PBXBuildFile section */
 
@@ -88,7 +88,7 @@
 		D46F1B1C25EE2A3900BFBD9C /* CoffeeFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeFactory.swift; sourceTree = "<group>"; };
 		D46F1B2225EE31CA00BFBD9C /* SodaFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SodaFactory.swift; sourceTree = "<group>"; };
 		D4EC7A5625F1EC430013F504 /* BeverageStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageStackView.swift; sourceTree = "<group>"; };
-		D4EC7A5A25F2196C0013F504 /* Buttons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
+		D4EC7A5A25F2196C0013F504 /* AddBeverageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBeverageButton.swift; sourceTree = "<group>"; };
 		D4EC7A6025F607060013F504 /* ImageViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViews.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -219,7 +219,7 @@
 			isa = PBXGroup;
 			children = (
 				D4EC7A5625F1EC430013F504 /* BeverageStackView.swift */,
-				D4EC7A5A25F2196C0013F504 /* Buttons.swift */,
+				D4EC7A5A25F2196C0013F504 /* AddBeverageButton.swift */,
 				D4EC7A6025F607060013F504 /* ImageViews.swift */,
 			);
 			path = View;
@@ -325,7 +325,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4EC7A5B25F2196C0013F504 /* Buttons.swift in Sources */,
+				D4EC7A5B25F2196C0013F504 /* AddBeverageButton.swift in Sources */,
 				D46F1A5F25E671EF00BFBD9C /* Soda.swift in Sources */,
 				D46F1A8B25E8C1D000BFBD9C /* Fanta.swift in Sources */,
 				D46F1B1925EE223A00BFBD9C /* MilkFactory.swift in Sources */,

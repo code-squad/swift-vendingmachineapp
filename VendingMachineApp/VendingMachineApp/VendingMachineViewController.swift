@@ -2,8 +2,8 @@ import UIKit
 
 class VendingMachineViewController: UIViewController {
     
-    private var machine = VendingMachine()
     let factory = BeverageFactory()
+    private var vendingMachine: VendingMachine!
     
     @IBOutlet weak var stockInfoOfChocolateMilk: UILabel!
     @IBOutlet weak var stockInfoOfStrawBerryMilk: UILabel!
@@ -16,11 +16,14 @@ class VendingMachineViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let myDelegate = UIApplication.shared.delegate as! AppDelegate
+        vendingMachine = myDelegate.machine
         beveragesStockCount()
         balanceInfoLabel()
         setUpImageView()
         view.backgroundColor = UIColor.systemGray5
     }
+    
     
     private func setUpImageView() {
         for beverage in imagesOfBeverages {
@@ -33,12 +36,12 @@ class VendingMachineViewController: UIViewController {
 extension VendingMachineViewController {
     
     private func beveragesStockCount() {
-        let chocoMilk = machine.stockOf(beverage: factory.chocoMilk)
-        let strawberryMilk = machine.stockOf(beverage: factory.strawberryMilk)
-        let coke = machine.stockOf(beverage: factory.coke)
-        let sprite = machine.stockOf(beverage: factory.sprite)
-        let top = machine.stockOf(beverage: factory.top)
-        let cantata = machine.stockOf(beverage: factory.cantata)
+        let chocoMilk = vendingMachine.stockOf(beverage: factory.chocoMilk)
+        let strawberryMilk = vendingMachine.stockOf(beverage: factory.strawberryMilk)
+        let coke = vendingMachine.stockOf(beverage: factory.coke)
+        let sprite = vendingMachine.stockOf(beverage: factory.sprite)
+        let top = vendingMachine.stockOf(beverage: factory.top)
+        let cantata = vendingMachine.stockOf(beverage: factory.cantata)
         stockInfoOfChocolateMilk.text = "\(chocoMilk)개"
         stockInfoOfStrawBerryMilk.text = "\(strawberryMilk)개"
         stockInfoOfCokeZero.text = "\(coke)개"
@@ -48,51 +51,58 @@ extension VendingMachineViewController {
     }
     
     @IBAction func buttonForChocolateMilkStock(_ sender: Any) {
-        machine.addBeverage(beverage:factory.chocoMilk)
+        vendingMachine.addBeverage(beverage: factory.chocoMilk)
         beveragesStockCount()
     }
     
     
     @IBAction func buttonForStrawBerryMilkStock(_ sender: Any) {
-        machine.addBeverage(beverage: factory.strawberryMilk)
+        vendingMachine.addBeverage(beverage: factory.strawberryMilk)
         beveragesStockCount()
     }
 
     
     @IBAction func buttonForCokeStock(_ sender: Any) {
-        machine.addBeverage(beverage: factory.coke)
+        vendingMachine.addBeverage(beverage: factory.coke)
         beveragesStockCount()
     }
     
     
     @IBAction func buttonForSpriteStock(_ sender: Any) {
-        machine.addBeverage(beverage: factory.sprite)
+        vendingMachine.addBeverage(beverage: factory.sprite)
         beveragesStockCount()
     }
     
     @IBAction func buttonForTOPStock(_ sender: Any) {
-        machine.addBeverage(beverage: factory.top)
+        vendingMachine.addBeverage(beverage: factory.top)
         beveragesStockCount()
     }
     
     @IBAction func buttonForCantataStock(_ sender: Any) {
-        machine.addBeverage(beverage: factory.cantata)
+        vendingMachine.addBeverage(beverage: factory.cantata)
         beveragesStockCount()
     }
     
     private func balanceInfoLabel() {
-        let balance = machine.insertedMoney
-        balanceInfo.text = "잔액:\(balance)"
+        let balance = vendingMachine.insertedMoney
+        balanceInfo.text = "잔액:\(String(describing: balance))"
     }
     
     @IBAction func button1000ForBalance(_ sender: Any) {
-        machine.getTheMoney(from: 1000)
+        vendingMachine.getTheMoney(from: 1000)
         balanceInfoLabel()
     }
     
     @IBAction func button5000ForBalance(_ sender: Any) {
-        machine.getTheMoney(from: 5000)
+        vendingMachine.getTheMoney(from: 5000)
         balanceInfoLabel()
+    }
+    
+    @IBAction func resetAllStockInfo(_ sender: Any) {
+        vendingMachine.insertedMoney.resetMoeny()
+        vendingMachine.beverages.resetStock()
+        balanceInfoLabel()
+        beveragesStockCount()
     }
     
 }

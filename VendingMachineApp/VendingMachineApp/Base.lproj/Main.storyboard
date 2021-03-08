@@ -188,6 +188,13 @@
                                     <action selector="button5000ForBalance:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jjW-B7-j5h"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yqd-eA-skR">
+                                <rect key="frame" x="747" y="430" width="30" height="30"/>
+                                <state key="normal" title="리셋"/>
+                                <connections>
+                                    <action selector="resetAllStockInfo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Vh2-33-8gc"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -196,6 +203,7 @@
                             <constraint firstItem="TB7-tP-mzQ" firstAttribute="top" secondItem="RvC-dR-Jcm" secondAttribute="bottom" constant="5" id="2ZM-2n-0WJ"/>
                             <constraint firstItem="zi5-of-dAM" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="300" id="7Wn-Dk-vNT"/>
                             <constraint firstItem="zi5-of-dAM" firstAttribute="leading" secondItem="NtE-Pt-fvL" secondAttribute="trailing" constant="250" id="9va-bc-7Eb"/>
+                            <constraint firstItem="yqd-eA-skR" firstAttribute="top" secondItem="zi5-of-dAM" secondAttribute="bottom" constant="100" id="IWo-oO-hEe"/>
                             <constraint firstItem="4Tu-yq-1oA" firstAttribute="leading" secondItem="Cc3-q6-uez" secondAttribute="trailing" constant="100" id="NhS-au-Rcj"/>
                             <constraint firstItem="Yao-da-aj6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="67" id="Pfr-lG-KvG"/>
                             <constraint firstItem="8qW-hN-SpH" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="150" id="SqU-F8-d5k"/>
@@ -205,6 +213,7 @@
                             <constraint firstItem="NtE-Pt-fvL" firstAttribute="top" secondItem="8qW-hN-SpH" secondAttribute="bottom" constant="5" id="h2n-Z9-Sbp"/>
                             <constraint firstItem="Yao-da-aj6" firstAttribute="top" secondItem="8qW-hN-SpH" secondAttribute="bottom" constant="170" id="hQb-oP-uKD"/>
                             <constraint firstItem="FIu-Aq-tqu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="67" id="lGG-SO-hNB"/>
+                            <constraint firstItem="yqd-eA-skR" firstAttribute="leading" secondItem="Yao-da-aj6" secondAttribute="trailing" constant="280" id="lUB-P5-bLE"/>
                             <constraint firstItem="RvC-dR-Jcm" firstAttribute="top" secondItem="8qW-hN-SpH" secondAttribute="bottom" constant="200" id="tCm-o2-Fm1"/>
                             <constraint firstItem="Cc3-q6-uez" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="250" id="v98-BY-Qei"/>
                             <constraint firstItem="NtE-Pt-fvL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="60" id="wtf-WV-jNn"/>

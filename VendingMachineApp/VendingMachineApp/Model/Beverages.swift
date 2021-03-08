@@ -35,4 +35,8 @@ class Beverages: Codable {
     func stockOfEach(beverage: Beverage) -> Int{
         return beverages.filter { $0 == beverage}.count
     }
+    
+    func resetStock() {
+        beverages.removeAll()
+    }
 }

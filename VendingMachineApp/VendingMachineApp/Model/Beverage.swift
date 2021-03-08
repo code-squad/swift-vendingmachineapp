@@ -59,9 +59,9 @@ class Beverage: Codable {
     
     func availableForBeverage() -> Bool {
         let machine = VendingMachine()
-        return machine.insertedMoney.compareMoney(to: price) == true ? true : false
+        return machine.insertedMoney.compareMoney(to: price) == true
     }
-    
+
     func afterBuyingBeverage() {
         let machine = VendingMachine()
         machine.insertedMoney.afterBuyingProduct(minus: price)

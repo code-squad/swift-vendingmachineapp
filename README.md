@@ -52,3 +52,5 @@
 - 금액을 추가하고 나면 잔액 레이블을 다시 표시한다.
 
 ### 결과
+
+<img width="1104" alt="Screen Shot 2021-03-08 at 3 43 48 PM" src="https://user-images.githubusercontent.com/60229909/110284382-13d7ff00-8025-11eb-8d6b-76ad7aa08761.png">

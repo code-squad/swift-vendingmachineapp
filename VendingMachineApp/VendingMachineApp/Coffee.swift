@@ -18,8 +18,8 @@ class Coffee: Beverage, HotServable, CaffeineContainable {
         super.init(brand: brand, volume: volume, price: price, name: name, calorie: calorie, manufactured: manufactured, expiredAfter: expiredAfter)
     }
     
-    func isHot() -> Bool {
-        return servingTemperature >= 50
+    func isHotter(than referenceTemperature: Int) -> Bool {
+        return servingTemperature >= referenceTemperature
     }
     
     func hasCaffeine() -> Bool {

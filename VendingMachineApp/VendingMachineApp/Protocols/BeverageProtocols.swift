@@ -16,7 +16,7 @@ protocol LactoseFree {
 }
 
 protocol HotServable {
-    func isHot() -> Bool
+    func isHotter(than referenceTemperature: Int) -> Bool
 }
 
 protocol CaffeineContainable {

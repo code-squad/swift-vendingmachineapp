@@ -33,14 +33,15 @@ class Drinks {
                 
     }
     
-    func giveStockList() -> [Beverage:Int] {
-        var result = [Beverage:Int]()
+    func giveStockList() -> [ObjectIdentifier : [Beverage]] {
+        var result = [ObjectIdentifier : [Beverage]]()
         drinks.forEach { (beverage) in
-            if result[beverage] == nil {
-                result[beverage] = 1
+            if result[ObjectIdentifier(beverage.self)] == nil {
+                result[ObjectIdentifier(beverage.self)] = [beverage]
             } else {
-                result[beverage]! += 1
+                result[ObjectIdentifier(beverage.self)]!.append(beverage)
             }
+            
         }
         return result
     }

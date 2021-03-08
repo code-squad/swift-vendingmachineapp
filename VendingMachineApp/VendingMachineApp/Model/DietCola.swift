@@ -8,13 +8,13 @@
 import Foundation
 
 class DietCola : Soda {
-    enum taste {
+    enum TasteType {
         case lemon
         case lime
     }
-    private let taste : taste
+    private let taste : TasteType
     
-    init(brand: String, amount : Int, unit : Unit, price: Int, name: String, manufactured: Date, sugarContent : Int ,expiration: Date, temperature : Int, calorie : Int, taste : taste) {
+    init(brand: String, amount : Int, unit : Unit, price: Int, name: String, manufactured: Date, sugarContent : Int ,expiration: Date, temperature : Int, calorie : Int, taste : TasteType) {
         self.taste = .lemon
         super.init(brand: brand, amount : amount, unit : unit, price: price, name: name, manufactured: manufactured, sugarContent : sugarContent, expiration: expiration, temperature : temperature, calorie : calorie)
     }
@@ -32,5 +32,14 @@ class DietCola : Soda {
                   calorie : 123,
                   taste: .lemon)
     }
-
+    
+    required init?(coder: NSCoder) {
+        self.taste = coder.decodeObject(forKey: "taste") as! TasteType
+        super.init(coder: coder)
+    }
+    
+    override func encode(with coder: NSCoder) {
+        coder.encode(taste, forKey: "taste")
+        super.encode(with: coder)
+    }
 }

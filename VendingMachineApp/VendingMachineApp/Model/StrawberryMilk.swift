@@ -29,4 +29,13 @@ class StrawberryMilk : Milk {
                   strawberryContent: 10)
     }
     
+    required init?(coder: NSCoder) {
+        self.strawberryContent = coder.decodeInteger(forKey: "strawberryContent")
+        super.init(coder: coder)
+    }
+    
+    override func encode(with coder: NSCoder) {
+        coder.encode(strawberryContent, forKey: "strawberryContent")
+        super.encode(with: coder)
+    }
 }

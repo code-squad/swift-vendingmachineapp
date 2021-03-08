@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Beverage : NSObject {
+class Beverage : NSObject, NSCoding {
     private let brand : String
     private let amount : Int
     private let unit : Unit
@@ -34,6 +34,31 @@ class Beverage : NSObject {
         self.temperature = temperature
         self.calorie = calorie
     }
+    
+    func encode(with coder: NSCoder) {
+        coder.encode(brand, forKey: "brand")
+        coder.encode(amount, forKey: "amount")
+        coder.encode(unit, forKey: "unit")
+        coder.encode(price, forKey: "price")
+        coder.encode(name, forKey: "name")
+        coder.encode(manufactured, forKey: "manufactured")
+        coder.encode(expiration, forKey: "expiration")
+        coder.encode(temperature, forKey: "temperature")
+        coder.encode(calorie, forKey: "calorie")
+    }
+    
+    required init?(coder: NSCoder) {
+        self.brand = coder.decodeObject(forKey: "brand") as! String
+        self.amount = coder.decodeInteger(forKey: "amount")
+        self.unit = coder.decodeObject(forKey: "unit") as! Unit
+        self.price = coder.decodeInteger(forKey: "price")
+        self.name = coder.decodeObject(forKey: "name") as! String
+        self.manufactured = coder.decodeObject(forKey: "manufactured") as! Date
+        self.expiration = coder.decodeObject(forKey: "expiration") as! Date
+        self.temperature = coder.decodeInteger(forKey: "temperature")
+        self.calorie = coder.decodeInteger(forKey: "calorie")
+    }
+    
     
     override var description: String {
         return "\(brand), \(amount)\(unit), \(price)원, \(name), \(manufactured.description)"

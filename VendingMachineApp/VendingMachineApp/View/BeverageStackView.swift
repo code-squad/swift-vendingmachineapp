@@ -24,4 +24,21 @@ class BeverageStackView : UIStackView {
         self.spacing = 10
         self.alignment = .center
     }
+    
+    func collectSubelements(drink name : String, count : Int) {
+        let stockButton = AddStockButton()
+        stockButton.setting()
+        
+        let image = UIImage.init(named: name) ?? UIImage()
+        let stockImageView = BeverageImageView(image: image)
+        stockImageView.contentMode = .scaleAspectFill
+        stockImageView.setting()
+        
+        let stockLabel = StockLabel()
+        stockLabel.setting(count: count)
+        
+        self.addArrangedSubview(stockButton)
+        self.addArrangedSubview(stockImageView)
+        self.addArrangedSubview(stockLabel)
+    }
 }

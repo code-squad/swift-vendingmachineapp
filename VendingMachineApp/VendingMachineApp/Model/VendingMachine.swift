@@ -26,6 +26,17 @@ struct VendingMachine {
         stock.addDrink(what: product)
     }
     
+    mutating func initialStock(howMany count : Int) {
+            for _ in 0..<count {
+                self.addStock(what: BeverageFactory.shared().getBeverage(DrinkType: ChocoMilk.self))
+                self.addStock(what: BeverageFactory.shared().getBeverage(DrinkType: StrawberryMilk.self))
+                self.addStock(what: BeverageFactory.shared().getBeverage(DrinkType: Cider.self))
+                self.addStock(what: BeverageFactory.shared().getBeverage(DrinkType: Cola.self))
+                self.addStock(what: BeverageFactory.shared().getBeverage(DrinkType: TOP.self))
+                self.addStock(what: BeverageFactory.shared().getBeverage(DrinkType: Cantata.self))
+            }
+        }
+    
     func availableList() -> Set<String> {
         var canBuyArray = [Drink]()
         stock.doClosure(closure: { drinks in
@@ -77,5 +88,9 @@ struct VendingMachine {
     
     func hotDrinks() -> Set<String> {
         return stock.showHotDrinks()
+    }
+    
+    mutating func doClosure(closure : ((VendingMachine) -> Void)) {
+        closure(self)
     }
 }

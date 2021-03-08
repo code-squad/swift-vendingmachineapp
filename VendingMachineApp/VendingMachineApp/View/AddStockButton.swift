@@ -8,7 +8,7 @@
 import UIKit
 
 class AddStockButton : UIButton {
-    init(frame: CGRect, action:(()->Void)) {
+    override init(frame: CGRect) {//, action:(()->Void)) {
         super.init(frame: frame)
     }
     
@@ -16,8 +16,9 @@ class AddStockButton : UIButton {
         super.init(coder: coder)
     }
     
-    func setting(action:(()->Void)) {
+    func setting() {//action:(()->Void)) {
         self.setTitle("추가", for: .normal)
+        self.setTitleColor(.blue, for: .normal)
 //        self.addTarget(self, action: action, for: .touchUpInside)
     }
 }

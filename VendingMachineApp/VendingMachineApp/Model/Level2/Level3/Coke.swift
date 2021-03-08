@@ -11,7 +11,7 @@ class Coke: Soda, LowCalorieChecker {
     
     private var calorie: Int
     
-    init(brand: String, capacity: Int, price: Int, name: String, manufacture: Date, taste: Taste, calorie: Int, expiredAt: Date) {
+    init(brand: String, capacity: Int, price: Int, name: String, manufacture: Date, taste: String, calorie: Int, expiredAt: Date) {
         self.calorie = calorie
         super.init(brand: brand, capacity: capacity, price: price, name: name, manufacture: manufacture, taste: taste, expiredAt: expiredAt)
     }

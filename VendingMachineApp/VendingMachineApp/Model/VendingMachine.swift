@@ -35,8 +35,8 @@ struct VendingMachine {
     }
     
     //음료수를 구매하는 기능
-    public func buy(_ beverage: Beverage) {
-        guard let beverage = inventory.take(out: beverage, for: paymentManager) else { return }
+    public func buy(_ beverageType: Beverage.Type) {
+        guard let beverage = inventory.take(out: beverageType, for: paymentManager) else { return }
         purchaseHistory.append(item: beverage)
     }
     

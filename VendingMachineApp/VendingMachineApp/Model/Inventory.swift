@@ -23,8 +23,8 @@ class Inventory {
         return beverages.buyableBeverageList(buyer: paymentManager)
     }
 
-    public func take(out beverage: Beverage, for paymentManager: PaymentManager) -> Beverage? {
-        return beverages.take(out: beverage, for: paymentManager)
+    public func take(out beverageType: Beverage.Type, for paymentManager: PaymentManager) -> Beverage? {
+        return beverages.take(out: beverageType, for: paymentManager)
     }
     
     public func showAllBeverageList() -> [ObjectIdentifier : [Beverage]] {

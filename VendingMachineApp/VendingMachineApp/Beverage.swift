@@ -24,14 +24,14 @@ class Beverage: CustomStringConvertible, Hashable, SafelyDrinkable {
         return "\(brand), \(volume)ml, \(price)원, \(name), \(manufactured?.formattedString ?? "")"
     }
     
-    init(brand: String, volume: Int, price: Int, name: String, calorie: Int, manufactured: String, expiredAfter: String) {
+    init(brand: String, volume: Int, price: Int, name: String, calorie: Int, manufactured: Date?, expiredAfter: Date?) {
         self.brand = brand
         self.volume = volume
         self.price = price
         self.name = name
         self.calorie = calorie
-        self.manufactured = manufactured.formattedDate
-        self.expiredAfter = expiredAfter.formattedDate
+        self.manufactured = manufactured
+        self.expiredAfter = expiredAfter
     }
     
     func hash(into hasher: inout Hasher) {

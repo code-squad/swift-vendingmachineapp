@@ -11,7 +11,7 @@ class SoftDrink: Beverage, CarbonationHavable {
     
     private let isCarbonated: Bool
     
-    init(brand: String, volume: Int, price: Int, name: String, calorie: Int, manufactured: String, expiredAfter: String, isCarbonated: Bool) {
+    init(brand: String, volume: Int, price: Int, name: String, calorie: Int, manufactured: Date?, expiredAfter: Date?, isCarbonated: Bool) {
         self.isCarbonated = isCarbonated
         super.init(brand: brand, volume: volume, price: price, name: name, calorie: calorie, manufactured: manufactured, expiredAfter: expiredAfter)
     }

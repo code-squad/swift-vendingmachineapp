@@ -23,12 +23,12 @@ class InventoryTests: XCTestCase {
     override func setUpWithError() throws {
         try super.setUpWithError()
         
-        strawberryMilk1 = denmarkStrawberryMilkFactory.createProduct(manufactured: "20210226", expiredAfter: "20210306")
-        strawberryMilk2 = denmarkStrawberryMilkFactory.createProduct(manufactured: "20210201", expiredAfter: "20210301")
-        strawberryMilk3 = denmarkStrawberryMilkFactory.createProduct(manufactured: "20210218", expiredAfter: "20210228")
-        georgiaMax1 = georgiaMaxFactory.createProduct(manufactured: "20200101", expiredAfter: "20210101")
-        georgiaMax2 = georgiaMaxFactory.createProduct(manufactured: "20200601", expiredAfter: "20210601")
-        georgiaMax3 = georgiaMaxFactory.createProduct(manufactured: "20200301", expiredAfter: "20210301")
+        strawberryMilk1 = denmarkStrawberryMilkFactory.createProduct(manufactured: Date().formattedDate(from: "20210226"), expiredAfter: Date().formattedDate(from: "20210306"))
+        strawberryMilk2 = denmarkStrawberryMilkFactory.createProduct(manufactured: Date().formattedDate(from: "20210201"), expiredAfter: Date().formattedDate(from: "20210301"))
+        strawberryMilk3 = denmarkStrawberryMilkFactory.createProduct(manufactured: Date().formattedDate(from: "20210218"), expiredAfter: Date().formattedDate(from: "20210228"))
+        georgiaMax1 = georgiaMaxFactory.createProduct(manufactured: Date().formattedDate(from: "20200101"), expiredAfter: Date().formattedDate(from: "20210101"))
+        georgiaMax2 = georgiaMaxFactory.createProduct(manufactured: Date().formattedDate(from: "20200601"), expiredAfter: Date().formattedDate(from: "20210601"))
+        georgiaMax3 = georgiaMaxFactory.createProduct(manufactured: Date().formattedDate(from: "20200301"), expiredAfter: Date().formattedDate(from: "20210301"))
         emptyInventory1 = Inventory(slots: [])
         emptyInventory2 = Inventory(numberOfSlots: 0)
         inventoryWith6EmptySlots = Inventory(numberOfSlots: 6)

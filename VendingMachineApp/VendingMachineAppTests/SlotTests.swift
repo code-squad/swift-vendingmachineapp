@@ -23,12 +23,12 @@ class SlotTests: XCTestCase {
     override func setUpWithError() throws {
         try super.setUpWithError()
         
-        strawberryMilk1 = denmarkStrawberryMilkFactory.createProduct(manufactured: "20210226", expiredAfter: "20210306")
-        strawberryMilk2 = denmarkStrawberryMilkFactory.createProduct(manufactured: "20210201", expiredAfter: "20210301")
-        strawberryMilk3 = denmarkStrawberryMilkFactory.createProduct(manufactured: "20210218", expiredAfter: "20210228")
-        georgiaMax1 = georgiaMaxFactory.createProduct(manufactured: "20200101", expiredAfter: "20210101")
-        georgiaMax2 = georgiaMaxFactory.createProduct(manufactured: "20200601", expiredAfter: "20210601")
-        georgiaMax3 = georgiaMaxFactory.createProduct(manufactured: "20200301", expiredAfter: "20210301")
+        strawberryMilk1 = denmarkStrawberryMilkFactory.createProduct(manufactured: Date().formattedDate(from: "20210302"), expiredAfter: Date().formattedDate(from: "20210312"))
+        strawberryMilk2 = denmarkStrawberryMilkFactory.createProduct(manufactured: Date().formattedDate(from: "20210201"), expiredAfter: Date().formattedDate(from: "20210301"))
+        strawberryMilk3 = denmarkStrawberryMilkFactory.createProduct(manufactured: Date().formattedDate(from: "20210218"), expiredAfter: Date().formattedDate(from: "20210228"))
+        georgiaMax1 = georgiaMaxFactory.createProduct(manufactured: Date().formattedDate(from: "20200101"), expiredAfter: Date().formattedDate(from: "20210101"))
+        georgiaMax2 = georgiaMaxFactory.createProduct(manufactured: Date().formattedDate(from: "20200601"), expiredAfter: Date().formattedDate(from: "20210601"))
+        georgiaMax3 = georgiaMaxFactory.createProduct(manufactured: Date().formattedDate(from: "20200301"), expiredAfter: Date().formattedDate(from: "20210301"))
         emptySlot = Slot()
         slotWith3StrawberryMilk = Slot(items: [strawberryMilk1, strawberryMilk2, strawberryMilk3])
         slotWith3GeorgiaMax = Slot(items: [georgiaMax1, georgiaMax2, georgiaMax3])
@@ -65,7 +65,7 @@ class SlotTests: XCTestCase {
     }
     
     func test_자판기앱_아이템들어있는슬롯에_같은아이템추가() throws {
-        let strawberryMilk4 = denmarkStrawberryMilkFactory.createProduct(manufactured: "20210218", expiredAfter: "20210228")
+        let strawberryMilk4 = denmarkStrawberryMilkFactory.createProduct(manufactured: Date().formattedDate(from: "20210218"), expiredAfter: Date().formattedDate(from: "20210228"))
         slotWith3StrawberryMilk.stock(strawberryMilk4)
         XCTAssertEqual(slotWith3StrawberryMilk.itemCount, 4)
     }

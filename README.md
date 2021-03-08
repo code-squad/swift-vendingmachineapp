@@ -183,3 +183,12 @@ private func setUpImageView() {
 #### 실행화면
 
 <img src="https://user-images.githubusercontent.com/74946802/109743005-56f43580-7c13-11eb-822f-5181cb22d6e2.png" width="500" height="300">
+
+## Step.4
+
+#### 앱딜리와 신딜리
+[AppDelegate & SceneDelegate](https://velog.io/@torch-ray/iOSlearn1)
+
+#### 실행화면
+
+![AnyConv com__Step4 VendingMachine (2) (1)](https://user-images.githubusercontent.com/74946802/110284249-da9f8f00-8024-11eb-84d1-5b9d1170c444.gif)

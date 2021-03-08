@@ -18,7 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     func sceneDidBecomeActive(_ scene: UIScene) {
-        let _ = unarchive(with: UserDefaults.standard.data(forKey: "vendingMachine") ?? Data())
+        let _ = ObjectArchive.unarchive(with: UserDefaults.standard.data(forKey: "vendingMachine") ?? Data())
     }
     
     func sceneWillResignActive(_ scene: UIScene) {}
@@ -27,29 +27,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     func sceneDidEnterBackground(_ scene: UIScene) {
         let vendingMachine = appDelegate.vendingMachine
-        UserDefaults.standard.setValue(archive(with: vendingMachine), forKey: "vendingMachine")
-    }
-    
-    func archive(with things: VendingMachine) -> Data {
-        do {
-            let archived = try NSKeyedArchiver.archivedData(withRootObject: things, requiringSecureCoding: false)
-            return archived
-        }
-        catch {
-            print(error.localizedDescription)
-        }
-        return Data()
-    }
-
-    func unarchive(with text: Data) -> VendingMachine? {
-        do {
-            let object = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(text)
-            return object as? VendingMachine
-        }
-        catch {
-            print(error)
-        }
-        return nil
+        UserDefaults.standard.setValue(ObjectArchive.archive(with: vendingMachine), forKey: "vendingMachine")
     }
 }
 

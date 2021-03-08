@@ -25,9 +25,11 @@ class Stock: StockManageable {
     }
     
     public func purchased(drinkType: Drink.Type, insertedCoin: Int) -> Drink? {
-        guard let nthDrink = stock.enumerated().first(where: { type(of:$0) == drinkType }) else { return nil }
+        
+        guard let nthDrink = stock.enumerated().first(where: { type(of:$0.element) == drinkType }) else { return nil }
         let index = nthDrink.offset
         let drink = nthDrink.element
+        
         guard drink.isPurchaseable(coin: insertedCoin) else { return nil }
         stock.remove(at: index)
         return drink

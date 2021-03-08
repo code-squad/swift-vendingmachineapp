@@ -10,6 +10,9 @@
 		220AFCD425E94FA400FDADEB /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220AFCD325E94FA400FDADEB /* Drink.swift */; };
 		220AFCE425E9539600FDADEB /* Productization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220AFCE325E9539600FDADEB /* Productization.swift */; };
 		221239F725F5F99200064DF5 /* DrinkProductable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221239F625F5F99200064DF5 /* DrinkProductable.swift */; };
+		221239FA25F6161E00064DF5 /* DrinkProductable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221239F625F5F99200064DF5 /* DrinkProductable.swift */; };
+		221239FB25F6161E00064DF5 /* TopPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AD348625F1093A00D1A9D4 /* TopPanel.swift */; };
+		22123A0025F617B100064DF5 /* DrinkFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226CAB5125EBCB0D00196488 /* DrinkFactory.swift */; };
 		221A9EC925EA64AA00ADEE1E /* StockManageable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221A9EC825EA64AA00ADEE1E /* StockManageable.swift */; };
 		223A6BC925EEF89900AA3483 /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223A6BC825EEF89900AA3483 /* Stock.swift */; };
 		223A6BD225EEFB4E00AA3483 /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223A6BC825EEF89900AA3483 /* Stock.swift */; };
@@ -41,7 +44,6 @@
 		22A0199625EDE9CD009115D9 /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E4757225E650C400417A37 /* VendingMachine.swift */; };
 		22A0199825EDE9CD009115D9 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2255F0A825E8BCA90044B872 /* Date.swift */; };
 		22A0199925EDE9CD009115D9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E4753925E60FFA00417A37 /* ViewController.swift */; };
-		22A0199A25EDE9CD009115D9 /* DrinkFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226CAB5125EBCB0D00196488 /* DrinkFactory.swift */; };
 		22A019B925EDEEF3009115D9 /* VendingMachineAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221A9ED125EA7FEC00ADEE1E /* VendingMachineAppTests.swift */; };
 		22AD348725F1093A00D1A9D4 /* TopPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AD348625F1093A00D1A9D4 /* TopPanel.swift */; };
 		22AD348F25F10A4900D1A9D4 /* SelectPanelStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AD348E25F10A4900D1A9D4 /* SelectPanelStackView.swift */; };
@@ -340,6 +342,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				221239FA25F6161E00064DF5 /* DrinkProductable.swift in Sources */,
+				221239FB25F6161E00064DF5 /* TopPanel.swift in Sources */,
 				223A6BE425EF25F900AA3483 /* CoinCounter.swift in Sources */,
 				223A6BE325EF25F500AA3483 /* CoinManageable.swift in Sources */,
 				223A6BD225EEFB4E00AA3483 /* Stock.swift in Sources */,
@@ -361,8 +365,8 @@
 				22A0199425EDE9CD009115D9 /* Fanta.swift in Sources */,
 				22A0199625EDE9CD009115D9 /* VendingMachine.swift in Sources */,
 				22A0199825EDE9CD009115D9 /* Date.swift in Sources */,
+				22123A0025F617B100064DF5 /* DrinkFactory.swift in Sources */,
 				22A0199925EDE9CD009115D9 /* ViewController.swift in Sources */,
-				22A0199A25EDE9CD009115D9 /* DrinkFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

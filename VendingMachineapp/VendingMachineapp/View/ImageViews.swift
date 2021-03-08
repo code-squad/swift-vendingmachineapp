@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+
 class BeverageImageView: UIImageView {
 
     override init(frame: CGRect) {

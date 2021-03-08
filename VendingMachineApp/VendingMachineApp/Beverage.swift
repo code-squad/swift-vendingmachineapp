@@ -44,9 +44,9 @@ class Beverage: CustomStringConvertible, Hashable, SafelyDrinkable {
         hasher.combine(expiredAfter)
     }
     
-    func validate(with date: Date) -> Bool {
+    func isStillEdible(at date: Date) -> Bool {
         if let expiredAfter = expiredAfter {
-            return expiredAfter < date
+            return expiredAfter >= date
         }
         return false
     }

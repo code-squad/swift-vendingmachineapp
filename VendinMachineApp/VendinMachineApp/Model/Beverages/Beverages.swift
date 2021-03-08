@@ -9,7 +9,7 @@ class Beverages {
     }
     
     func remove(element: Beverage) -> Beverage {
-        self.beverages[element] = (beverages[element] ?? 0) - 1
+        self.beverages[element] = (beverages[element] ?? 1) - 1
         if let outOfStock = self.beverages[element], outOfStock == 0 {
             beverages.removeValue(forKey: element)
         }

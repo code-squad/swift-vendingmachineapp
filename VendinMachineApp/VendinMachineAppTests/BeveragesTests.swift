@@ -19,10 +19,9 @@ class BeveragesTests: XCTestCase {
         let beverages = Beverages()
         let beverageFactory = BeverageFactory()
         let bananaMilk = beverageFactory.makeBeverage(BananaFlavorMilk())
-        
         beverages.addSome(bananaMilk)
         XCTAssertTrue(beverages.isInStock(of: bananaMilk))
-        
+
         beverages.remove(element: bananaMilk)
         XCTAssertFalse(beverages.isInStock(of: bananaMilk))
     }
@@ -56,11 +55,11 @@ class BeveragesTests: XCTestCase {
         
         otherBeverages = Beverages()
         otherBeverages.addSome(bananaMilk)
-        XCTAssertEqual(beverages.expiredBeverageList(on: Date().add(days: 5)), otherBeverages)
+        XCTAssertEqual(beverages.expiredBeverageList(on: Date().adding(days: 5)), otherBeverages)
         
         otherBeverages = Beverages()
         otherBeverages.addSome(strongAmericano)
-        XCTAssertEqual(beverages.americanoAddedShotList(over: 2), otherBeverages)
+        XCTAssertEqual(beverages.addedShotList(over: 2), otherBeverages)
         
         otherBeverages = Beverages()
         otherBeverages.addSome(mochaLatte)

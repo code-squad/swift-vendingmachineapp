@@ -77,6 +77,7 @@ class ViewController: UIViewController {
         var index = 0
         for img in imageViews {
             img.image = UIImage(named: "\(imageArray[index])")
+            img.layer.cornerRadius = 30
             index += 1
         }
     }

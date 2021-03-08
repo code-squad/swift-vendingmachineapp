@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Milk: Beverage {
+class Milk: Beverage, Productable {
     private var pH: Double = 0
     
     init(brand: String, capacity: Int, price: Int, name: String, manufacturedAt: Date, expirationAt: Date, temperature: Double, pH: Double) {

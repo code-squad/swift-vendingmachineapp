@@ -7,7 +7,7 @@
 
 import Foundation
 
-class EnergyDrink: Beverage {
+class EnergyDrink: Beverage, Productable {
     private var taurineContent: Int
     
     init(brand: String, capacity: Int, price: Int, name: String, manufacturedAt: Date, expirationAt: Date, temperature: Double, taurineContent: Int) {

@@ -14,7 +14,7 @@ extension Date {
         return dateFormatter.string(from: self)
     }
     
-    func add(days: Int) -> Date {
+    func adding(days: Int) -> Date {
         let day: TimeInterval = 86400
         let added: Date = self.addingTimeInterval(day * Double(days))
         return added

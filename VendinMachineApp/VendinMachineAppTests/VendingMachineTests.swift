@@ -18,10 +18,10 @@ class VendingMachineTests: XCTestCase {
     func test_잔액확인_잔액추가() throws {
         var vendingMachine = VendingMachine()
         
-        XCTAssertEqual(vendingMachine.checkBalance(), 0)
+        XCTAssertEqual(vendingMachine.cashBox, 0)
         
         vendingMachine.insertCash(amount: 1000)
-        XCTAssertEqual(vendingMachine.checkBalance(), 1000)
+        XCTAssertEqual(vendingMachine.cashBox, 1000)
     }
     
     func test_현재잔액으로_살수있는재고확인_재고구매_재고확인_구매이력확인() throws {
@@ -65,7 +65,7 @@ class VendingMachineTests: XCTestCase {
         otherBeverages.addSome(strongAmericano)
         XCTAssertEqual(vendinMachine.totalBeverageStockList(), otherBeverages)
         
-        XCTAssertEqual(vendinMachine.checkBalance(), 0)
+        XCTAssertEqual(vendinMachine.cashBox, 0)
         
     }
     

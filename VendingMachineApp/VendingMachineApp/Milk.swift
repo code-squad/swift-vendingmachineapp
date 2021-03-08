@@ -9,14 +9,14 @@ import Foundation
 
 class Milk: Beverage, LactoseFree {
     
-    private let hasLactose: Bool
+    private let lactoseAmount: Int
     
-    init(brand: String, volume: Int, price: Int, name: String, calorie: Int, manufactured: Date?, expiredAfter: Date?, hasLactose: Bool) {
-        self.hasLactose = hasLactose
+    init(brand: String, volume: Int, price: Int, name: String, calorie: Int, manufactured: Date?, expiredAfter: Date?, lactoseAmount: Int) {
+        self.lactoseAmount = lactoseAmount
         super.init(brand: brand, volume: volume, price: price, name: name, calorie: calorie, manufactured: manufactured, expiredAfter: expiredAfter)
     }
     
     func isLactoseFree() -> Bool {
-        return !hasLactose
+        return lactoseAmount == 0
     }
 }

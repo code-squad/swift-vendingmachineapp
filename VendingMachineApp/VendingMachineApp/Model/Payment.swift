@@ -7,11 +7,20 @@
 
 import Foundation
 
-class Payment {
+class Payment : NSObject, NSCoding {
     private(set) var amountMoney : Int
     
-    init() {
+    override init() {
         self.amountMoney = 0
+        super.init()
+    }
+    
+    func encode(with coder: NSCoder) {
+        coder.encode(amountMoney, forKey: "amountMoney")
+    }
+    
+    required init?(coder: NSCoder) {
+        self.amountMoney = coder.decodeInteger(forKey: "amountMoney")
     }
         
     func purchasePossibleList(drinks : Drinks) -> [Beverage] {

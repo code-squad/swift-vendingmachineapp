@@ -7,11 +7,20 @@
 
 import Foundation
 
-class Drinks {
+class Drinks : NSObject, NSCoding{
     private var drinks : [Beverage]
     
-    init() {
+    override init() {
         self.drinks = []
+        super.init()
+    }
+    
+    func encode(with coder: NSCoder) {
+        coder.encode(drinks, forKey: "drinks")
+    }
+    
+    required init?(coder: NSCoder) {
+        self.drinks = coder.decodeObject(forKey: "drinks") as! [Beverage]
     }
     
     func addStock(beverage : Beverage) {

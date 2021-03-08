@@ -10,17 +10,17 @@ import Foundation
 struct VendingMachine {
     
     private var inventory: Inventory
-    private var moneyDeposited: Int
+    private var cashBox: CashBox
     private var soldItems: PurchaseHistory
     
     init(numberOfSlots: Int) {
         self.inventory = Inventory(numberOfSlots: numberOfSlots)
-        self.moneyDeposited = 0
+        self.cashBox = CashBox(totalRevenue: 0, moneyDeposited: 0)
         self.soldItems = PurchaseHistory()
     }
     
     mutating func insertMoney(amount: Int) {
-        moneyDeposited += amount
+        cashBox.insertMoney(amount: amount)
     }
     
     func add(item: Beverage, slotNumber: Int) {
@@ -30,7 +30,7 @@ struct VendingMachine {
     func showPurchasableItemsWithDeposit() -> [Slot] {
         var purchasableItems: [Slot] = []
         inventory.showSlots {
-            if $0.isSameOrCheaper(than: moneyDeposited) {
+            if $0.isSameOrCheaper(than: cashBox.showRemainingBalance()) {
                 purchasableItems.append($0)
             }
         }
@@ -45,7 +45,7 @@ struct VendingMachine {
             }
         }
         if let vendedItem = vendedItem {
-            moneyDeposited -= vendedItem.price
+            cashBox.increaseRevenue(by: vendedItem.price)
             let now = Date()
             let newOrder = Order(purchased: now, item: vendedItem)
             soldItems.add(newOrder)
@@ -54,7 +54,7 @@ struct VendingMachine {
     }
     
     func showBalance() -> Int {
-        return moneyDeposited
+        return cashBox.showRemainingBalance()
     }
     
     func takeInventory() -> [Int : (Slot, Int)] {

@@ -19,7 +19,7 @@ class ViewController: UIViewController {
         staff.fill(vendingMachine: vendingMachine, beverage: Milk(brand: "맥심", capacity: 275, price: 2200, name: "TOP아메리카노", dateString: "20210225"))
 
         
-        staff.checkStock(vendingMachine: vendingMachine)
+        print(staff.printStock(vendingMachine: vendingMachine))
     }
 }
 

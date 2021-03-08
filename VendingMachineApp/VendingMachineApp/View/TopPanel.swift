@@ -15,10 +15,15 @@ class TopPanel: UIView {
     @IBOutlet weak var addOneThousandCoinButton: UIButton!
     @IBOutlet weak var addFiveThousandCoinButton: UIButton!
     @IBOutlet weak var leftCoinsLabel: UILabel!
+    private lazy var amountEachButton: Dictionary<UIButton, Int> = [
+        addOneThousandCoinButton: 1000,
+        addFiveThousandCoinButton: 5000
+    ]
     
     weak var delegate: TopPanelDelegate?
     
     @IBAction func touchAddCoinButton(_ sender: UIButton) {
-        delegate?.didInsertedCoin(amound: sender.tag)
+        guard let amount = amountEachButton[sender] else { return }
+        delegate?.didInsertedCoin(amound: amount)
     }
 }

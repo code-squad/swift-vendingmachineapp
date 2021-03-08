@@ -8,23 +8,33 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    //MARK: IBOutlets
     @IBOutlet var drinkImages: [UIImageView]!
     @IBOutlet weak var remainCoinsLabel: UILabel!
     @IBOutlet var drinkStockLabels: [UILabel]!
     @IBOutlet var addButtons: [UIButton]! {
         didSet {
-            var i = 0
-            let drinks = [BananaMilk.self, Cantata.self, Fanta.self]
-            addButtons.forEach { button in
-                buttonsForDrink[button] = drinks[i]
-                i += 1
+            for i in 0..<drinks.count {
+                buttonsForDrink[addButtons[i]] = drinks[i]
             }
         }
     }
     
-    var vendingMachine: VendingMachine?
-    var buttonsForDrink: [UIButton: Drink.Type] = [:]
+    @IBOutlet var chargeButtons: [UIButton]! {
+        didSet {
+            for i in 0..<chargeAmount.count {
+                buttonsForCharge[chargeButtons[i]] = chargeAmount[i]
+            }
+        }
+    }
+    
+    private var appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
+    private let userDefault = UserDefaults.standard
+    private let chargeAmount = [1000, 5000]
+    private let drinks = [BananaMilk.self, Cantata.self, Fanta.self]
+    private lazy var vendingMachine: VendingMachine? = appDelegate.vendingMachine
+    private var buttonsForDrink: [UIButton: Drink.Type] = [:]
+    private var buttonsForCharge: [UIButton: Int] = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +44,7 @@ class ViewController: UIViewController {
     
     func setupDrinkImage() {
         drinkImages.forEach { image in
-            image.contentMode = .scaleAspectFill
+            image.contentMode = .scaleAspectFit
             image.layer.cornerRadius = 10
         }
     }
@@ -46,18 +56,22 @@ class ViewController: UIViewController {
     
     // MARK: IBActions
     @IBAction func addStockButton(_ sender: UIButton) {
-        guard var vm = vendingMachine, let type = buttonsForDrink[sender] else {
+        guard var vm = vendingMachine, let type = buttonsForDrink[sender],
+              let drink = DrinkFactory.createDrink(for: type) else {
             return
         }
-        if let drink = DrinkFactory.createDrink(for: type) {
-            vm.addStock(for: drink)
+        
+        vm.addStock(for: drink)
+        let drinks = vm.getAllDrinks()
+        if let stock = drinks[drink], let index = addButtons.firstIndex(of: sender) {
+            drinkStockLabels[index].text = "\(String(stock))개"
         }
-        print(vm.getAllDrinks().keys)
     }
     
     @IBAction func charge(_ sender: UIButton) {
-        let tag = sender.tag
-        vendingMachine?.charge(coins: tag)
+        if let chargeAmount = buttonsForCharge[sender] {
+            vendingMachine?.charge(coins: chargeAmount)
+        }
         if let coins = vendingMachine?.checkRemainCoins() {
             remainCoinsLabel.text = "\(String(coins))원"
         }

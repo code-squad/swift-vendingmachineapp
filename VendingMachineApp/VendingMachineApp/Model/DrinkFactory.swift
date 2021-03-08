@@ -8,20 +8,22 @@
 import Foundation
 
 class DrinkFactory {
-    static func createBeverage(with id: String) -> Beverage? {
-        switch id {
-        case "Cola":
+    static let shared = DrinkFactory()
+    
+    static func createBeverage(with beverageType: BeverageType) -> Productable {
+        switch beverageType {
+        case .cola:
             return Cola()
-        case "StrawberryMilk":
+        case .strawberrymilk:
             return StrawBerryMilk()
-        case "RedBull":
+        case .redbull:
             return RedBull()
-        case "TOP":
+        case .top:
             return TOP()
-        default:
-            return nil
         }
     }
 }
 
-
+enum BeverageType {
+    case cola, strawberrymilk, redbull, top
+}

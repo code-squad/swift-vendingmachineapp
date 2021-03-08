@@ -8,12 +8,13 @@
 import UIKit
 
 protocol CoinDelegate {
-    func addCoin(_ sender : UIButton)
+    func addCoin(_ sender : AddCoinUIButton)
 }
 
 class AddCoinUIButton: UIButton {
     
     var delegate : CoinDelegate?
+    var value : Int = 0
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -27,6 +28,7 @@ class AddCoinUIButton: UIButton {
     init(frame: CGRect ,named : String){
         super.init(frame: frame)
         self.setTitle(named, for: .normal)
+        self.value = named.extractUnsignedInteger()
         configure()
     }
     

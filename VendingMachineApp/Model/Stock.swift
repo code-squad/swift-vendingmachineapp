@@ -51,7 +51,7 @@ class Stock {
         return filtered
     }
     
-    public func toDictionary() -> Dictionary<Beverage, Int>{
-        return products.toDictionary(with : {$0.self})
+    public func toDictionary() -> Dictionary<ObjectIdentifier, Int>{
+        return products.toDictionary()
     }
 }

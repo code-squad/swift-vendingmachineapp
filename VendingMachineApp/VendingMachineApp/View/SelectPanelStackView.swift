@@ -11,18 +11,35 @@ protocol SelectPanelStackViewDelegate: class {
     func didAddedDrink(typeOf drinkType: Drink.Type)
 }
 
+class DrinkOrder {
+    private lazy var drinkOrder = [
+        BlueBottleColdBrew.self,
+        Fanta.self,
+        BingBananaMilk.self,
+        SeoulStrawberryMilk.self,
+        Sanpellegrino.self,
+        StarbucksColdBrew.self
+    ]
+    
+    subscript (index: Int) -> Drink.Type {
+        return drinkOrder[index]
+    }
+}
+
 class SelectPanelStackView: UIStackView {
     
     @IBOutlet var drinkImageViews: [UIImageView]!
     @IBOutlet var addDrinkButtons: [UIButton]!
     @IBOutlet var stockDrinkLabels: [UILabel]!
+    private var drinkOrder = DrinkOrder()
+    
     private lazy var eachButtonType: Dictionary<UIButton, Drink.Type> = [
-        addDrinkButtons[0]: BlueBottleColdBrew.self,
-        addDrinkButtons[1]: Fanta.self,
-        addDrinkButtons[2]: BingBananaMilk.self,
-        addDrinkButtons[3]: SeoulStrawberryMilk.self,
-        addDrinkButtons[4]: Sanpellegrino.self,
-        addDrinkButtons[5]: StarbucksColdBrew.self,
+        addDrinkButtons[0]: drinkOrder[0],
+        addDrinkButtons[1]: drinkOrder[1],
+        addDrinkButtons[2]: drinkOrder[2],
+        addDrinkButtons[3]: drinkOrder[3],
+        addDrinkButtons[4]: drinkOrder[4],
+        addDrinkButtons[5]: drinkOrder[5],
     ]
     
     weak var delegate: SelectPanelStackViewDelegate?
@@ -38,6 +55,4 @@ class SelectPanelStackView: UIStackView {
             imageView.layer.cornerRadius = value
         }
     }
-    
-    
 }

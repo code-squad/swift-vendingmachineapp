@@ -12,6 +12,7 @@ class ViewController: UIViewController, SelectPanelStackViewDelegate, TopPanelDe
     @IBOutlet weak var topPanelView: TopPanel!
     private var vendingMachine: VendingMachine!
     private var eachButtonType: Dictionary<UIButton, Drink.Type>!
+    private var drinkOrder = DrinkOrder()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,18 +36,6 @@ class ViewController: UIViewController, SelectPanelStackViewDelegate, TopPanelDe
 }
 
 extension ViewController {
-    private func findDrinkTypeToTag(of tag: Int) -> Drink.Type? {
-        switch tag {
-        case 0: return BlueBottleColdBrew.self
-        case 1: return Fanta.self
-        case 2: return BingBananaMilk.self
-        case 3: return SeoulStrawberryMilk.self
-        case 4: return Sanpellegrino.self
-        case 5: return StarbucksColdBrew.self
-        default: return nil
-        }
-    }
-    
     private func loadLeftCoinsLabel() {
         let leftCoin = vendingMachine.leftCoin()
         topPanelView.leftCoinsLabel.text = "\(leftCoin)원"
@@ -54,13 +43,12 @@ extension ViewController {
     
     private func loadSelectPanelStackViewLabels() {
         let stock = vendingMachine.showStock()
-        selectPanelStackView.stockDrinkLabels.enumerated().forEach { (index, label) in
-            guard let type = findDrinkTypeToTag(of: label.tag) else { return }
-            let typeKey = ObjectIdentifier(type)
-            if stock[typeKey] != nil {
-                label.text = "\(stock[typeKey]!.count)개"
+        for index in 0..<selectPanelStackView.addDrinkButtons.count {
+            let key = ObjectIdentifier(drinkOrder[index])
+            if stock[key] != nil {
+                selectPanelStackView.stockDrinkLabels[index].text = "\(stock[key]!.count)개"
             } else {
-                label.text = "0개"
+                selectPanelStackView.stockDrinkLabels[index].text = "0개"
             }
         }
     }

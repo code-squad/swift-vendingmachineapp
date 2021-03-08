@@ -23,10 +23,14 @@ class Stock: StockManageable {
         }
         return Array(availableDrinks)
     }
-
-    public func purchased(drinkType: Drink.Type, checkCoin: (Drink) -> Drink?) -> Drink? {
-        guard let firstDrink = stock.first(where: { type(of:$0) == drinkType }) else { return nil }
-        return checkCoin(firstDrink)
+    
+    public func purchased(drinkType: Drink.Type, insertedCoin: Int) -> Drink? {
+        guard let nthDrink = stock.enumerated().first(where: { type(of:$0) == drinkType }) else { return nil }
+        let index = nthDrink.offset
+        let drink = nthDrink.element
+        guard drink.isPurchaseable(coin: insertedCoin) else { return nil }
+        stock.remove(at: index)
+        return drink
     }
 
     public func lookingForExpiredDrinks() -> [Drink] {

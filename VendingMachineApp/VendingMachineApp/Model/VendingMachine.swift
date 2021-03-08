@@ -39,21 +39,16 @@ class VendingMachine {
         }
         return drinks
     }
-
+    
     public func buy(typeOf drinkType: Drink.Type) -> Drink? {
-        return stock.purchased(drinkType: drinkType) { (drink) -> Drink? in
-            var haveCoin = 0
-            coins.CheckCoins { (coin) in
-                haveCoin = coin
-            }
-            guard drink.tryPurchased(coin: haveCoin, handle: { (price) in
-                self.purchasehistory.append(drink)
-                self.coins.expended(to: price)
-            }) else {
-                return nil
-            }
-            return drink
+        var haveCoin = 0
+        coins.CheckCoins { (coin) in
+            haveCoin = coin
         }
+        guard let drink = stock.purchased(drinkType: drinkType, insertedCoin: haveCoin) else { return nil }
+        self.purchasehistory.append(drink)
+        self.coins.expended(to: haveCoin)
+        return drink
     }
 
     public func leftCoin() -> Int {

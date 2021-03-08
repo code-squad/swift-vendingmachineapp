@@ -28,15 +28,6 @@ class Drink {
         return self.price <= coin
     }
     
-    public func tryPurchased(coin: Int, handle: @escaping (Int)-> ()) -> Bool {
-        if self.price > coin {
-            return false
-        } else {
-            handle(price)
-            return true
-        }
-    }
-    
     public func isDrinkableFromManufactured(pastDate: TimeInterval, compareDate: Date) -> Bool {
         return manufactured + pastDate < compareDate
     }

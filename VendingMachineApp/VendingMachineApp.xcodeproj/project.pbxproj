@@ -10,7 +10,6 @@
 		E4D472A725E5ED65007FAAA0 /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D472A625E5ED65007FAAA0 /* VendingMachine.swift */; };
 		E4D472AA25E5F15E007FAAA0 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D472A925E5F15E007FAAA0 /* OutputView.swift */; };
 		E4D472B825E76C51007FAAA0 /* Date+DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D472B725E76C51007FAAA0 /* Date+DateFormatter.swift */; };
-		E4D4732D25EF766A007FAAA0 /* String+DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D4732C25EF766A007FAAA0 /* String+DateFormatter.swift */; };
 		E4D4733625EF7B88007FAAA0 /* FlavoredMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D4733525EF7B88007FAAA0 /* FlavoredMilk.swift */; };
 		E4D4733925EF7CC4007FAAA0 /* ZeroCalorieSoftDrink.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D4733825EF7CC4007FAAA0 /* ZeroCalorieSoftDrink.swift */; };
 		E4D4733C25EF7EAA007FAAA0 /* BeverageProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D4733B25EF7EAA007FAAA0 /* BeverageProtocols.swift */; };
@@ -25,7 +24,6 @@
 		E4D473D725F0C346007FAAA0 /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E22CF525E51E11008CA611 /* Beverage.swift */; };
 		E4D473DA25F0C34C007FAAA0 /* BeverageProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D4733B25EF7EAA007FAAA0 /* BeverageProtocols.swift */; };
 		E4D473DD25F0C356007FAAA0 /* Date+DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D472B725E76C51007FAAA0 /* Date+DateFormatter.swift */; };
-		E4D473E025F0C364007FAAA0 /* String+DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D4732C25EF766A007FAAA0 /* String+DateFormatter.swift */; };
 		E4D473E325F0C8F6007FAAA0 /* BeverageFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D4734125EF8558007FAAA0 /* BeverageFactory.swift */; };
 		E4D473E625F0C961007FAAA0 /* FlavoredMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D4733525EF7B88007FAAA0 /* FlavoredMilk.swift */; };
 		E4D473E925F0C96D007FAAA0 /* ZeroCalorieSoftDrink.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D4733825EF7CC4007FAAA0 /* ZeroCalorieSoftDrink.swift */; };
@@ -65,7 +63,6 @@
 		E4D472A625E5ED65007FAAA0 /* VendingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachine.swift; sourceTree = "<group>"; };
 		E4D472A925E5F15E007FAAA0 /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
 		E4D472B725E76C51007FAAA0 /* Date+DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+DateFormatter.swift"; sourceTree = "<group>"; };
-		E4D4732C25EF766A007FAAA0 /* String+DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+DateFormatter.swift"; sourceTree = "<group>"; };
 		E4D4733525EF7B88007FAAA0 /* FlavoredMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlavoredMilk.swift; sourceTree = "<group>"; };
 		E4D4733825EF7CC4007FAAA0 /* ZeroCalorieSoftDrink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeroCalorieSoftDrink.swift; sourceTree = "<group>"; };
 		E4D4733B25EF7EAA007FAAA0 /* BeverageProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageProtocols.swift; sourceTree = "<group>"; };
@@ -116,7 +113,6 @@
 			isa = PBXGroup;
 			children = (
 				E4D472B725E76C51007FAAA0 /* Date+DateFormatter.swift */,
-				E4D4732C25EF766A007FAAA0 /* String+DateFormatter.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -295,7 +291,6 @@
 				E4D473D725F0C346007FAAA0 /* Beverage.swift in Sources */,
 				E4D473E925F0C96D007FAAA0 /* ZeroCalorieSoftDrink.swift in Sources */,
 				E4D473CF25F0C089007FAAA0 /* SlotTests.swift in Sources */,
-				E4D473E025F0C364007FAAA0 /* String+DateFormatter.swift in Sources */,
 				E4D4741125F1D1CF007FAAA0 /* VendingMachineTests.swift in Sources */,
 				E4D473FF25F1C354007FAAA0 /* Inventory.swift in Sources */,
 				E4D4741425F1D419007FAAA0 /* VendingMachine.swift in Sources */,
@@ -326,7 +321,6 @@
 				E4E22D1E25E5EC53008CA611 /* SoftDrink.swift in Sources */,
 				E4E22D1B25E5EAEB008CA611 /* Milk.swift in Sources */,
 				E4D4734225EF8558007FAAA0 /* BeverageFactory.swift in Sources */,
-				E4D4732D25EF766A007FAAA0 /* String+DateFormatter.swift in Sources */,
 				E4D4734825EF8634007FAAA0 /* Slot.swift in Sources */,
 				E4D4734B25EF8651007FAAA0 /* Inventory.swift in Sources */,
 				E4D4733C25EF7EAA007FAAA0 /* BeverageProtocols.swift in Sources */,

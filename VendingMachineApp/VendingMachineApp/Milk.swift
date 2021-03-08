@@ -11,7 +11,7 @@ class Milk: Beverage, LactoseFree {
     
     private let hasLactose: Bool
     
-    init(brand: String, volume: Int, price: Int, name: String, calorie: Int, manufactured: String, expiredAfter: String, hasLactose: Bool) {
+    init(brand: String, volume: Int, price: Int, name: String, calorie: Int, manufactured: Date?, expiredAfter: Date?, hasLactose: Bool) {
         self.hasLactose = hasLactose
         super.init(brand: brand, volume: volume, price: price, name: name, calorie: calorie, manufactured: manufactured, expiredAfter: expiredAfter)
     }

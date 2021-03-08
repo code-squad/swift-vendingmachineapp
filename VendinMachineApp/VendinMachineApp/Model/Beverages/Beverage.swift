@@ -4,7 +4,7 @@ import Foundation
 class Beverage : CustomStringConvertible {
     private var brand: String
     private var size: Int
-    private var price: Int
+    private(set) var price: Int
     private var name: String
     private var manufacturedAt: Date
     
@@ -22,10 +22,6 @@ class Beverage : CustomStringConvertible {
     
     func isPriced(under price: Int) -> Bool {
         return self.price <= price ? true : false
-    }
-    
-    func howMuch(closure: (Int) -> Void) {
-        closure(self.price)
     }
 }
 

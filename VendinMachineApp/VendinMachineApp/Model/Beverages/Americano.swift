@@ -15,6 +15,6 @@ class Americano : Coffee, Shot {
     }
     
     func isMoreThan(shot: Int) -> Bool {
-        return self.shot > shot ? true : false
+        return self.shot > shot
     }
 }

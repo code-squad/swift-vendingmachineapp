@@ -71,7 +71,7 @@ class VendingMachineAppTests: XCTestCase {
     
             vendingMachine.appendInventory(fakeBananaMilk)
     
-            XCTAssertEqual(vendingMachine.showExpiryDateBeverage().map{$0 as! Beverage}, [fakeBananaMilk])
+        XCTAssertEqual(vendingMachine.showExpiryDateBeverage(over: Calendar.current.date(byAdding: .day, value: -5, to: Date())!).map{$0 as! Beverage}, [fakeBananaMilk])
     }
     
     func test_따뜻한_음료_목록() throws {
@@ -79,7 +79,7 @@ class VendingMachineAppTests: XCTestCase {
     
             vendingMachine.appendInventory(fakeTop)
     
-            XCTAssertEqual(vendingMachine.showHotBeverage().map{$0 as! Beverage}, [fakeTop])
+        XCTAssertEqual(vendingMachine.showHotBeverage(over: 60).map{$0 as! Beverage}, [fakeTop])
     }
     
     func test_상품_구매_이력() throws {

@@ -32,14 +32,14 @@ class Inventory {
         return beverages.showAllBeverageList()
     }
     
-    public func showExpiryDateBeverage() -> [SafeDateChecker] {
+    public func showExpiryDateBeverage(over standard: Date) -> [SafeDateChecker] {
         
-        return beverages.showExpiryDateBeverage()
+        return beverages.showExpiryDateBeverage(over: standard)
     }
     
-    public func showHotBeverage() -> [Hotable] {
+    public func showHotBeverage(over standard: Int) -> [Hotable] {
 
-        return beverages.showHotBeverage()
+        return beverages.showHotBeverage(over: standard)
     }
 }
 

@@ -29,8 +29,8 @@ class Beverage: SafeDateChecker {
         self.expiredAt = expiredAt
     }
     
-    public func isExpired() -> Bool {
-        return expiredAt <= manufacturedAt
+    public func isExpired(over standard: Date) -> Bool {
+        return standard <= manufacturedAt
     }
     
     public func canSell(to buyer: PaymentManager) -> Bool {
@@ -39,15 +39,15 @@ class Beverage: SafeDateChecker {
 }
 
 protocol Hotable {
-    func isHot() -> Bool
+    func isHot(over standard: Int) -> Bool
 }
 
 protocol SafeDateChecker {
-    func isExpired() -> Bool
+    func isExpired(over standard: Date) -> Bool
 }
 
 protocol LowCalorieChecker {
-    func isLowCalorie() -> Bool
+    func isLowCalorie(over standard: Int) -> Bool
 }
 
 extension Beverage: Hashable {

@@ -44,6 +44,12 @@ class Inventory {
         }
     }
     
+    func filterHotDrinks() -> [Slot] {
+        slots.filter {
+            $0.isHotDrinkSlot()
+        }
+    }
+    
     func takeStock() -> [SlotIndex : (Slot, ItemQuantity)] {
         var inventoryDictionary: [SlotIndex : (Slot, ItemQuantity)] = [:]
         enumerateSlots { (index, slot) in

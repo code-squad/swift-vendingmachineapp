@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Beverage : CustomStringConvertible {
+class Beverage : NSObject {
     private let brand : String
     private let amount : Int
     private let unit : Unit
@@ -35,7 +35,7 @@ class Beverage : CustomStringConvertible {
         self.calorie = calorie
     }
     
-    var description: String {
+    override var description: String {
         return "\(brand), \(amount)\(unit), \(price)원, \(name), \(manufactured.description)"
     }
     
@@ -60,15 +60,17 @@ class Beverage : CustomStringConvertible {
     }
 }
 
-extension Beverage : Hashable {
+extension Beverage {
     static func == (lhs: Beverage, rhs: Beverage) -> Bool {
         return lhs.name == rhs.name && lhs.price == rhs.price &&
             lhs.brand == rhs.brand && lhs.amount == rhs.amount &&
             lhs.unit == rhs.unit && lhs.calorie == rhs.calorie
     }
     
-    func hash(into hasher: inout Hasher) {
+    override var hash: Int {
+        var hasher = Hasher()
         hasher.combine(name)
         hasher.combine(price)
+        return hasher.finalize()
     }
 }

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		E4D472A725E5ED65007FAAA0 /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D472A625E5ED65007FAAA0 /* VendingMachine.swift */; };
-		E4D472AA25E5F15E007FAAA0 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D472A925E5F15E007FAAA0 /* OutputView.swift */; };
 		E4D472B825E76C51007FAAA0 /* Date+DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D472B725E76C51007FAAA0 /* Date+DateFormatter.swift */; };
 		E4D4733625EF7B88007FAAA0 /* FlavoredMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D4733525EF7B88007FAAA0 /* FlavoredMilk.swift */; };
 		E4D4733925EF7CC4007FAAA0 /* ZeroCalorieSoftDrink.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D4733825EF7CC4007FAAA0 /* ZeroCalorieSoftDrink.swift */; };
@@ -65,7 +64,6 @@
 
 /* Begin PBXFileReference section */
 		E4D472A625E5ED65007FAAA0 /* VendingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachine.swift; sourceTree = "<group>"; };
-		E4D472A925E5F15E007FAAA0 /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
 		E4D472B725E76C51007FAAA0 /* Date+DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+DateFormatter.swift"; sourceTree = "<group>"; };
 		E4D4733525EF7B88007FAAA0 /* FlavoredMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlavoredMilk.swift; sourceTree = "<group>"; };
 		E4D4733825EF7CC4007FAAA0 /* ZeroCalorieSoftDrink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeroCalorieSoftDrink.swift; sourceTree = "<group>"; };
@@ -144,6 +142,44 @@
 			path = VendingMachineAppTests;
 			sourceTree = "<group>";
 		};
+		E4D4746B25F670A4007FAAA0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E4E22CF525E51E11008CA611 /* Beverage.swift */,
+				E4E22D1A25E5EAEB008CA611 /* Milk.swift */,
+				E4D4733525EF7B88007FAAA0 /* FlavoredMilk.swift */,
+				E4E22D1D25E5EC53008CA611 /* SoftDrink.swift */,
+				E4D4733825EF7CC4007FAAA0 /* ZeroCalorieSoftDrink.swift */,
+				E4E22D2025E5ECC6008CA611 /* Coffee.swift */,
+				E4D4733E25EF83C4007FAAA0 /* EnergyDrink.swift */,
+				E4D472A625E5ED65007FAAA0 /* VendingMachine.swift */,
+				E4D473B825F0ADF3007FAAA0 /* PurchaseHistory.swift */,
+				E4D473BB25F0AE86007FAAA0 /* Order.swift */,
+				E4D4743E25F5F746007FAAA0 /* CashBox.swift */,
+				E4D4734725EF8634007FAAA0 /* Slot.swift */,
+				E4D4734A25EF8651007FAAA0 /* Inventory.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E4D4746C25F670B3007FAAA0 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E4E22CE325E51B27008CA611 /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		E4D4746D25F670D7007FAAA0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E4E22CE525E51B27008CA611 /* Main.storyboard */,
+				E4D4746125F66422007FAAA0 /* ItemInfoView.xib */,
+				E4D4746525F66460007FAAA0 /* ItemInfoView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		E4E22CD325E51B27008CA611 = {
 			isa = PBXGroup;
 			children = (
@@ -167,26 +203,11 @@
 			children = (
 				E4E22CDF25E51B27008CA611 /* AppDelegate.swift */,
 				E4E22CE125E51B27008CA611 /* SceneDelegate.swift */,
-				E4E22CE325E51B27008CA611 /* ViewController.swift */,
-				E4E22CF525E51E11008CA611 /* Beverage.swift */,
-				E4E22D1A25E5EAEB008CA611 /* Milk.swift */,
-				E4D4733525EF7B88007FAAA0 /* FlavoredMilk.swift */,
-				E4E22D1D25E5EC53008CA611 /* SoftDrink.swift */,
-				E4D4733825EF7CC4007FAAA0 /* ZeroCalorieSoftDrink.swift */,
-				E4E22D2025E5ECC6008CA611 /* Coffee.swift */,
-				E4D4733E25EF83C4007FAAA0 /* EnergyDrink.swift */,
-				E4D472A625E5ED65007FAAA0 /* VendingMachine.swift */,
-				E4D473B825F0ADF3007FAAA0 /* PurchaseHistory.swift */,
-				E4D473BB25F0AE86007FAAA0 /* Order.swift */,
-				E4D4743E25F5F746007FAAA0 /* CashBox.swift */,
-				E4D4734725EF8634007FAAA0 /* Slot.swift */,
-				E4D4734A25EF8651007FAAA0 /* Inventory.swift */,
-				E4D472A925E5F15E007FAAA0 /* OutputView.swift */,
+				E4D4746B25F670A4007FAAA0 /* Models */,
+				E4D4746D25F670D7007FAAA0 /* Views */,
+				E4D4746C25F670B3007FAAA0 /* Controllers */,
 				E4D4734525EF8589007FAAA0 /* Protocols */,
 				E4D4732F25EF778F007FAAA0 /* Extensions */,
-				E4E22CE525E51B27008CA611 /* Main.storyboard */,
-				E4D4746125F66422007FAAA0 /* ItemInfoView.xib */,
-				E4D4746525F66460007FAAA0 /* ItemInfoView.swift */,
 				E4E22CE825E51B28008CA611 /* Assets.xcassets */,
 				E4E22CEA25E51B28008CA611 /* LaunchScreen.storyboard */,
 				E4E22CED25E51B28008CA611 /* Info.plist */,
@@ -340,7 +361,6 @@
 				E4D4733C25EF7EAA007FAAA0 /* BeverageProtocols.swift in Sources */,
 				E4E22D2125E5ECC6008CA611 /* Coffee.swift in Sources */,
 				E4D472A725E5ED65007FAAA0 /* VendingMachine.swift in Sources */,
-				E4D472AA25E5F15E007FAAA0 /* OutputView.swift in Sources */,
 				E4D4733925EF7CC4007FAAA0 /* ZeroCalorieSoftDrink.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

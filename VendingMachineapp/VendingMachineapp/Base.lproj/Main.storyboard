@@ -265,33 +265,33 @@
                         <outletCollection property="beverageStackView" destination="0f2-a1-SV3" collectionClass="NSMutableArray" id="1ne-ps-LNI"/>
                         <outletCollection property="beverageStackView" destination="PpG-uS-sSb" collectionClass="NSMutableArray" id="irB-rP-0WD"/>
                         <outletCollection property="beverageStackView" destination="tW3-dQ-Rw5" collectionClass="NSMutableArray" id="1Ql-Y3-a4J"/>
-                        <outletCollection property="buttons" destination="5J7-mO-r96" collectionClass="NSMutableArray" id="Dc3-qw-fNZ"/>
-                        <outletCollection property="buttons" destination="n7t-Fu-i01" collectionClass="NSMutableArray" id="yei-Vn-aZt"/>
-                        <outletCollection property="buttons" destination="7lP-7B-iBU" collectionClass="NSMutableArray" id="C46-Zu-NoL"/>
-                        <outletCollection property="imageViews" destination="fmd-Ku-11e" collectionClass="NSMutableArray" id="oae-3M-crd"/>
-                        <outletCollection property="imageViews" destination="wH7-zT-s6W" collectionClass="NSMutableArray" id="86I-MW-kh9"/>
-                        <outletCollection property="imageViews" destination="Bfl-Jm-xcJ" collectionClass="NSMutableArray" id="fuK-B0-Cca"/>
-                        <outletCollection property="imageViews" destination="1eO-6w-NRv" collectionClass="NSMutableArray" id="cvc-M5-MQd"/>
-                        <outletCollection property="imageViews" destination="f8r-0m-Q5Y" collectionClass="NSMutableArray" id="X1m-ro-oJJ"/>
-                        <outletCollection property="imageViews" destination="woH-hZ-Qaa" collectionClass="NSMutableArray" id="Ut7-9K-Zg9"/>
-                        <outletCollection property="imageViews" destination="prB-Qn-GgM" collectionClass="NSMutableArray" id="Tvx-Cz-D9l"/>
-                        <outletCollection property="imageViews" destination="ZW7-hT-J9a" collectionClass="NSMutableArray" id="c8y-2Y-Chc"/>
-                        <outletCollection property="imageViews" destination="hAl-bo-Zie" collectionClass="NSMutableArray" id="dQl-Hj-rPY"/>
-                        <outletCollection property="buttons" destination="Zcd-lf-oY1" collectionClass="NSMutableArray" id="pEE-vs-zuB"/>
-                        <outletCollection property="buttons" destination="EDd-D6-x6v" collectionClass="NSMutableArray" id="mUU-yy-rZl"/>
-                        <outletCollection property="buttons" destination="2yf-8j-IJh" collectionClass="NSMutableArray" id="ADS-xz-8zH"/>
-                        <outletCollection property="buttons" destination="1Km-cg-N3b" collectionClass="NSMutableArray" id="Isx-WL-evg"/>
-                        <outletCollection property="buttons" destination="Lnl-wt-NYs" collectionClass="NSMutableArray" id="XdH-BY-V0U"/>
-                        <outletCollection property="buttons" destination="KEc-KP-97u" collectionClass="NSMutableArray" id="qCf-8b-OoG"/>
-                        <outletCollection property="labels" destination="Hq5-wD-sA3" collectionClass="NSMutableArray" id="mOh-D1-xqc"/>
-                        <outletCollection property="labels" destination="oSK-7u-0zO" collectionClass="NSMutableArray" id="x1W-gj-rue"/>
-                        <outletCollection property="labels" destination="9Tw-ce-TSd" collectionClass="NSMutableArray" id="L6A-Pq-uZu"/>
-                        <outletCollection property="labels" destination="DAm-nz-Tet" collectionClass="NSMutableArray" id="6Xe-HL-TQm"/>
-                        <outletCollection property="labels" destination="p8c-jo-gTq" collectionClass="NSMutableArray" id="tAk-yy-dbr"/>
-                        <outletCollection property="labels" destination="YII-yg-QG1" collectionClass="NSMutableArray" id="W69-RD-NhI"/>
-                        <outletCollection property="labels" destination="rzu-fc-18L" collectionClass="NSMutableArray" id="1G9-Cb-TU8"/>
-                        <outletCollection property="labels" destination="hcg-kL-eOS" collectionClass="NSMutableArray" id="0Tj-PJ-CP3"/>
-                        <outletCollection property="labels" destination="QcD-Ut-yga" collectionClass="NSMutableArray" id="qX7-wB-EGU"/>
+                        <outletCollection property="beverageButtons" destination="5J7-mO-r96" collectionClass="NSMutableArray" id="Dc3-qw-fNZ"/>
+                        <outletCollection property="beverageButtons" destination="n7t-Fu-i01" collectionClass="NSMutableArray" id="yei-Vn-aZt"/>
+                        <outletCollection property="beverageButtons" destination="7lP-7B-iBU" collectionClass="NSMutableArray" id="C46-Zu-NoL"/>
+                        <outletCollection property="beverageImageViews" destination="fmd-Ku-11e" collectionClass="NSMutableArray" id="oae-3M-crd"/>
+                        <outletCollection property="beverageImageViews" destination="wH7-zT-s6W" collectionClass="NSMutableArray" id="86I-MW-kh9"/>
+                        <outletCollection property="beverageImageViews" destination="Bfl-Jm-xcJ" collectionClass="NSMutableArray" id="fuK-B0-Cca"/>
+                        <outletCollection property="beverageImageViews" destination="1eO-6w-NRv" collectionClass="NSMutableArray" id="cvc-M5-MQd"/>
+                        <outletCollection property="beverageImageViews" destination="f8r-0m-Q5Y" collectionClass="NSMutableArray" id="X1m-ro-oJJ"/>
+                        <outletCollection property="beverageImageViews" destination="woH-hZ-Qaa" collectionClass="NSMutableArray" id="Ut7-9K-Zg9"/>
+                        <outletCollection property="beverageImageViews" destination="prB-Qn-GgM" collectionClass="NSMutableArray" id="Tvx-Cz-D9l"/>
+                        <outletCollection property="beverageImageViews" destination="ZW7-hT-J9a" collectionClass="NSMutableArray" id="c8y-2Y-Chc"/>
+                        <outletCollection property="beverageImageViews" destination="hAl-bo-Zie" collectionClass="NSMutableArray" id="dQl-Hj-rPY"/>
+                        <outletCollection property="beverageButtons" destination="Zcd-lf-oY1" collectionClass="NSMutableArray" id="pEE-vs-zuB"/>
+                        <outletCollection property="beverageButtons" destination="EDd-D6-x6v" collectionClass="NSMutableArray" id="mUU-yy-rZl"/>
+                        <outletCollection property="beverageButtons" destination="2yf-8j-IJh" collectionClass="NSMutableArray" id="ADS-xz-8zH"/>
+                        <outletCollection property="beverageButtons" destination="1Km-cg-N3b" collectionClass="NSMutableArray" id="Isx-WL-evg"/>
+                        <outletCollection property="beverageButtons" destination="Lnl-wt-NYs" collectionClass="NSMutableArray" id="XdH-BY-V0U"/>
+                        <outletCollection property="beverageButtons" destination="KEc-KP-97u" collectionClass="NSMutableArray" id="qCf-8b-OoG"/>
+                        <outletCollection property="beverageLabels" destination="Hq5-wD-sA3" collectionClass="NSMutableArray" id="mOh-D1-xqc"/>
+                        <outletCollection property="beverageLabels" destination="oSK-7u-0zO" collectionClass="NSMutableArray" id="x1W-gj-rue"/>
+                        <outletCollection property="beverageLabels" destination="9Tw-ce-TSd" collectionClass="NSMutableArray" id="L6A-Pq-uZu"/>
+                        <outletCollection property="beverageLabels" destination="DAm-nz-Tet" collectionClass="NSMutableArray" id="6Xe-HL-TQm"/>
+                        <outletCollection property="beverageLabels" destination="p8c-jo-gTq" collectionClass="NSMutableArray" id="tAk-yy-dbr"/>
+                        <outletCollection property="beverageLabels" destination="YII-yg-QG1" collectionClass="NSMutableArray" id="W69-RD-NhI"/>
+                        <outletCollection property="beverageLabels" destination="rzu-fc-18L" collectionClass="NSMutableArray" id="1G9-Cb-TU8"/>
+                        <outletCollection property="beverageLabels" destination="hcg-kL-eOS" collectionClass="NSMutableArray" id="0Tj-PJ-CP3"/>
+                        <outletCollection property="beverageLabels" destination="QcD-Ut-yga" collectionClass="NSMutableArray" id="qX7-wB-EGU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

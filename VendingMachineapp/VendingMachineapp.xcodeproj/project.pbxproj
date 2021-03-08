@@ -40,6 +40,7 @@
 		D4EC7A5725F1EC430013F504 /* BeverageStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EC7A5625F1EC430013F504 /* BeverageStackView.swift */; };
 		D4EC7A5B25F2196C0013F504 /* AddBeverageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EC7A5A25F2196C0013F504 /* AddBeverageButton.swift */; };
 		D4EC7A6125F607060013F504 /* ImageViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EC7A6025F607060013F504 /* ImageViews.swift */; };
+		D4EC7A6725F60D470013F504 /* BeverageLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EC7A6625F60D470013F504 /* BeverageLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +91,7 @@
 		D4EC7A5625F1EC430013F504 /* BeverageStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageStackView.swift; sourceTree = "<group>"; };
 		D4EC7A5A25F2196C0013F504 /* AddBeverageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBeverageButton.swift; sourceTree = "<group>"; };
 		D4EC7A6025F607060013F504 /* ImageViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViews.swift; sourceTree = "<group>"; };
+		D4EC7A6625F60D470013F504 /* BeverageLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,6 +223,7 @@
 				D4EC7A5625F1EC430013F504 /* BeverageStackView.swift */,
 				D4EC7A5A25F2196C0013F504 /* AddBeverageButton.swift */,
 				D4EC7A6025F607060013F504 /* ImageViews.swift */,
+				D4EC7A6625F60D470013F504 /* BeverageLabel.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -330,6 +333,7 @@
 				D46F1A8B25E8C1D000BFBD9C /* Fanta.swift in Sources */,
 				D46F1B1925EE223A00BFBD9C /* MilkFactory.swift in Sources */,
 				D4EC7A6125F607060013F504 /* ImageViews.swift in Sources */,
+				D4EC7A6725F60D470013F504 /* BeverageLabel.swift in Sources */,
 				D46F1A4025E62A3200BFBD9C /* ViewController.swift in Sources */,
 				D46F1A6F25E6A52B00BFBD9C /* Inventory.swift in Sources */,
 				D46F1A9125E8C1E000BFBD9C /* Coke.swift in Sources */,

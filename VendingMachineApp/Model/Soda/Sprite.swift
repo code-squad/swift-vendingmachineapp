@@ -6,19 +6,21 @@
 //
 
 import Foundation
+import UIKit
 
 class Sprite : Soda {
     
     let lowSuger : Bool
 
-    init(brand: String, capacity: Int, price: Int, name: String, createdAt: String, expiredAt: String, lowSuger : Bool) {
+    init(brand: String, capacity: Int, price: Int, name: String, createdAt: String, expiredAt: String, lowSuger : Bool, image : UIImage?) {
         self.lowSuger = lowSuger
         super.init(brand: brand,
                    capacity: capacity,
                    price: price,
                    name: name,
                    createdAt: createdAt,
-                   expiredAt: expiredAt)
+                   expiredAt: expiredAt,
+                   image: UIImage(named: "sprite"))
     }
     convenience init(createdAt : String, expiredAt : String) {
         self.init(brand: "칠성사이다",
@@ -27,6 +29,7 @@ class Sprite : Soda {
                    name: "코카콜라",
                    createdAt: createdAt,
                    expiredAt: expiredAt,
-                   lowSuger : false)
+                   lowSuger : false,
+                   image: UIImage(named: "sprite"))
     }
 }

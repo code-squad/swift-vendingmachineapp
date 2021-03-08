@@ -20,8 +20,6 @@ class ViewController: UIViewController {
     }
     
     @IBAction func buyBeverageButtonTouched(_ sender: BeveragesButton) {
-        //vendingMachine.addStock(beverage: testconvert.abc(ab: sender.increase())!)
-        //guard let beverage = testconvert.abc(ab: sender.increase()) else { return }
         sender.increase(action: { (beverage) in
             self.appDelegate.vendingMachine.addStock(beverage: beverage)
             self.numberOfStock[sender.tag].text = String(self.appDelegate.vendingMachine.countDrink(beverage: beverage))
@@ -40,14 +38,3 @@ class ViewController: UIViewController {
     }
 }
 
-//class testconvert {
-//    var a : testable?
-//    class func abc(ab : testable.Type) -> Beverage? {
-//        switch ab.self {
-//            case is TopAmericanoButton.Type: return TopAmericano()
-//            case is DietColaButton.Type : return DietCola()
-//            case is StrawberryMilkButton.Type : return StrawberryMilk()
-//            default : return nil
-//        }
-//    }
-//}

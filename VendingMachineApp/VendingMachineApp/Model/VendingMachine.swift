@@ -51,13 +51,13 @@ struct VendingMachine {
     }
     
     //유통기한이 지난 재고만 리턴 하는 기능
-    public func showExpiryDateBeverage() -> [SafeDateChecker] {
-        return inventory.showExpiryDateBeverage()
+    public func showExpiryDateBeverage(over standard: Date) -> [SafeDateChecker] {
+        return inventory.showExpiryDateBeverage(over: standard)
     }
     
     //따뜻한 음료만 리턴하는 기능
-    public func showHotBeverage() -> [Hotable] {
-        return inventory.showHotBeverage()
+    public func showHotBeverage(over standard: Int) -> [Hotable] {
+        return inventory.showHotBeverage(over: standard)
     }
     
     //구매이력 확인 기능

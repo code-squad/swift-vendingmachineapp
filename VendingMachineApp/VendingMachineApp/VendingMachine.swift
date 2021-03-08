@@ -9,13 +9,11 @@ import Foundation
 
 struct VendingMachine {
     
-    private let numberOfSlots: Int
     private var inventory: Inventory
     private var moneyDeposited: Int
     private var soldItems: PurchaseHistory
     
     init(numberOfSlots: Int) {
-        self.numberOfSlots = numberOfSlots
         self.inventory = Inventory(numberOfSlots: numberOfSlots)
         self.moneyDeposited = 0
         self.soldItems = PurchaseHistory()

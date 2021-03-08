@@ -8,7 +8,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-    private var vendingMachine = VendingMachine()
+    private var appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     @IBOutlet var addStockButton: [BeveragesButton]!
     @IBOutlet var beverageImages: [BeverageImageView]!
@@ -23,20 +23,20 @@ class ViewController: UIViewController {
         //vendingMachine.addStock(beverage: testconvert.abc(ab: sender.increase())!)
         //guard let beverage = testconvert.abc(ab: sender.increase()) else { return }
         sender.increase(action: { (beverage) in
-            self.vendingMachine.addStock(beverage: beverage)
-            self.numberOfStock[sender.tag].text = String(self.vendingMachine.countDrink(beverage: beverage))
+            self.appDelegate.vendingMachine.addStock(beverage: beverage)
+            self.numberOfStock[sender.tag].text = String(self.appDelegate.vendingMachine.countDrink(beverage: beverage))
         })
     }
     
     @IBAction func BalanceIncreaseButtonTouched(_ sender: BalanceIncreasable) {
         sender.increase { money in
-            self.vendingMachine.putPayMoney(money: money)
+            self.appDelegate.vendingMachine.putPayMoney(money: money)
             self.changeBalanceLabel()
         }
     }
     
     private func changeBalanceLabel() {
-        self.BalanceLabel.text = String(self.vendingMachine.checkCurrentBalance())
+        self.BalanceLabel.text = String(self.appDelegate.vendingMachine.checkCurrentBalance())
     }
 }
 

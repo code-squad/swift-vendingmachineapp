@@ -9,11 +9,11 @@ import UIKit
 
 class BeverageImageView: UIImageView {
     func setting() {
-        self.frame = CGRect.init(x: 0, y: 0, width: 100, height: 100)
+        self.frame = CGRect.init(x: 0, y: 0, width: 150, height: 100)
         self.bounds = CGRect.init(x: 0, y: 0, width: 100, height: 100)
         self.translatesAutoresizingMaskIntoConstraints = true
-        self.contentMode = .center
+        self.contentMode = .scaleAspectFit
         self.clipsToBounds = true
-        self.backgroundColor = UIColor.white
+        self.layer.cornerRadius = 15
     }
 }

@@ -14,12 +14,17 @@ class OutputView: UIView {
         let VMStackView = VendingMachineStackView()
         VMStackView.setting()
         
+        let balanceStackView = BalanceStackView.init()
+        balanceStackView.setting()
+        balanceStackView.collectSubelements()
+        
         for (key,value) in stock {
             let beverageStackView = BeverageStackView.init()
-            beverageStackView.setting()
             beverageStackView.collectSubelements(drink : key, count : value)
             VMStackView.addArrangedSubview(beverageStackView)
         }
+        VMStackView.addArrangedSubview(balanceStackView)
+        
         
         self.addSubview(VMStackView)
         VMStackView.positionSetting()

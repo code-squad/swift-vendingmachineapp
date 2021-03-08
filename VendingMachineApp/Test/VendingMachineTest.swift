@@ -235,4 +235,27 @@ class VendingMachineTest: XCTestCase {
         XCTAssertEqual(expectation2, vendingMachine.showInventory(), "Panther")
     }
     
+    // 특정 제품 개수 확인
+    func testCountQuantity() {
+        let target1 = BeverageFactory.addBeverage(type: CantataLatte.self, manufacturedAt: Date(), expiration: Date())
+        if let cantataLatte = target1 {
+            vendingMachine.addBeverage(beverage: cantataLatte)
+        }
+        
+        let target2 = BeverageFactory.addBeverage(type: CantataLatte.self, manufacturedAt: Date(), expiration: Date())
+        if let cantataLatte = target2 {
+            vendingMachine.addBeverage(beverage: cantataLatte)
+        }
+        
+        let target3 = BeverageFactory.addBeverage(type: CantataLatte.self, manufacturedAt: Date(), expiration: Date())
+        if let cantataLatte = target3 {
+            vendingMachine.addBeverage(beverage: cantataLatte)
+        }
+        
+        let expectation = 3
+        
+        XCTAssertEqual(expectation, vendingMachine.countSKUQuantity(CantataLatte.self), "Panther")
+        
+    }
+    
 }

@@ -7,11 +7,20 @@
 
 import Foundation
 
-class PurchasedList {
+class PurchasedList : NSObject, NSCoding {
     private(set) var beverages : [Beverage]
     
-    init() {
+    override init() {
         self.beverages = []
+        super.init()
+    }
+    
+    func encode(with coder: NSCoder) {
+        coder.encode(beverages, forKey: "beverages")
+    }
+    
+    required init?(coder: NSCoder) {
+        self.beverages = coder.decodeObject(forKey: "beverages") as! [Beverage]
     }
     
     func add(beverage : Beverage) {

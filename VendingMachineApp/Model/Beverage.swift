@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 class Beverage : CustomStringConvertible {
     private var brand : String
@@ -14,17 +15,19 @@ class Beverage : CustomStringConvertible {
     private var name : String
     private var createdAt : Date
     private let expiredAt : Date
+    private let image : UIImage?
     
     var description: String {
         return "\(brand), \(capacity)ml, \(price)원, \(name), \(createdAt.toString()), \(expiredAt.toString())"
     }
-    init(brand : String, capacity : Int, price : Int, name : String, createdAt : String, expiredAt : String){
+    init(brand : String, capacity : Int, price : Int, name : String, createdAt : String, expiredAt : String, image : UIImage?){
         self.brand = brand
         self.capacity = capacity
         self.price = price
         self.name = name
         self.createdAt = createdAt.toDate()
         self.expiredAt = expiredAt.toDate()
+        self.image = nil
     }
 }
 

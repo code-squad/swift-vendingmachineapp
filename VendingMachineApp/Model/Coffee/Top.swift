@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 class Top : Coffee {
     
@@ -17,7 +18,7 @@ class Top : Coffee {
     
     let kind : Kind
 
-    init(brand: String, capacity: Int, price: Int, name: String, createdAt: String, expiredAt: String, caffeine: Int, hot: Bool, kind: Top.Kind) {
+    init(brand: String, capacity: Int, price: Int, name: String, createdAt: String, expiredAt: String, caffeine: Int, hot: Bool, kind: Top.Kind, image : UIImage) {
         self.kind = kind
         super.init(brand: brand,
                    capacity: capacity,
@@ -26,7 +27,9 @@ class Top : Coffee {
                    createdAt: createdAt,
                    expiredAt: expiredAt,
                    caffeine: caffeine,
-                   hot : hot)
+                   hot : hot,
+                   image: UIImage(named: "top")
+                   )
     }
     
     convenience init(createdAt : String, expiredAt : String, hot: Bool = false, kind : Top.Kind = .black){
@@ -38,6 +41,7 @@ class Top : Coffee {
                    expiredAt: expiredAt,
                    caffeine: 100,
                    hot: hot,
-                   kind: kind)
+                   kind: kind,
+                   image: UIImage(named: "top"))
     }
 }

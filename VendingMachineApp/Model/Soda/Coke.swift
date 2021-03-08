@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 class Coke : Soda {
     enum Flaver {
@@ -15,14 +16,15 @@ class Coke : Soda {
     let faver : Flaver
     
     
-    init(brand: String, capacity: Int, price: Int, name: String, createdAt: String, expiredAt: String, flaver : Coke.Flaver) {
+    init(brand: String, capacity: Int, price: Int, name: String, createdAt: String, expiredAt: String, flaver : Coke.Flaver, image: UIImage?) {
         self.faver = flaver
         super.init(brand: brand,
                    capacity: capacity,
                    price: price,
                    name: name,
                    createdAt: createdAt,
-                   expiredAt: expiredAt)
+                   expiredAt: expiredAt,
+                   image: UIImage(named: "coke"))
     }
     
     convenience init(createdAt : String, expiredAt : String) {
@@ -32,6 +34,7 @@ class Coke : Soda {
                    name: "코카콜라",
                    createdAt: createdAt,
                    expiredAt: expiredAt,
-                   flaver : .cherry)
+                   flaver : .cherry,
+                   image: UIImage(named: "coke"))
     }
 }

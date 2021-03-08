@@ -6,12 +6,19 @@
 //
 
 import Foundation
+import UIKit
 
 class Milk : Beverage {
     private var lowFat : Bool
     
-    init(brand : String, capacity : Int, price : Int, name : String, createdAt : String, expiredAt : String, lowFat : Bool){
+    init(brand : String, capacity : Int, price : Int, name : String, createdAt : String, expiredAt : String, image: UIImage?, lowFat : Bool){
         self.lowFat = lowFat
-        super.init(brand: brand, capacity: capacity, price: price, name: name, createdAt: createdAt, expiredAt: expiredAt)
+        super.init(brand: brand,
+                   capacity: capacity,
+                   price: price,
+                   name: name,
+                   createdAt: createdAt,
+                   expiredAt: expiredAt,
+                   image: image)
     }
 }

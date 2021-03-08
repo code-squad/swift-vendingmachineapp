@@ -25,7 +25,7 @@ class ViewController: UIViewController {
     
     @IBOutlet var buttons: [AddBeverageButton]!
     @IBOutlet var imageViews: [BeverageImageView]!
-    @IBOutlet var labels: [UILabel]!
+    @IBOutlet var labels: [BeverageLabel]!
     
     var vendingMachine = VendingMachine(money: 1000)
     var wholeBeverageList: [Beverage:Int] = [:]
@@ -36,19 +36,13 @@ class ViewController: UIViewController {
         productList = vendingMachine.initializeProductList()
         wholeBeverageList = vendingMachine.wholeBeverage()
         
-        setLabels()
+        mappingButtonAndLabel()
+        mappingButtonAndProduct()
         
         addThousandButton.setTitle("+1000", for: .normal)
         addFiveThousandButton.setTitle("+5000", for: .normal)
         currentChangeLabel.text = "잔액 : \(vendingMachine.checkChagne().money)원"
         
-        for (button, product) in zip(buttons, productList) {
-            buttonDictionary.updateValue(product, forKey: button)
-        }
-    
-        for (button, label) in zip(buttons, labels) {
-            labelDictionary.updateValue(label, forKey: button)
-        }
     }
     
     @IBAction func addButtonTouched(_ sender: UIButton) {
@@ -67,12 +61,15 @@ class ViewController: UIViewController {
         currentChangeLabel.text = "잔액 : \(vendingMachine.checkChagne().money)원"
     }
     
-    func setLabels() {
-        wholeBeverageList = vendingMachine.wholeBeverage()
-        var index = 0
-        for label in labels {
-            label.text = String(wholeBeverageList[productList[index]] ?? 0)
-            index += 1
+    func mappingButtonAndProduct() {
+        for (button, product) in zip(buttons, productList) {
+            buttonDictionary.updateValue(product, forKey: button)
+        }
+    }
+    
+    func mappingButtonAndLabel() {
+        for (button, label) in zip(buttons, labels) {
+            labelDictionary.updateValue(label, forKey: button)
         }
     }
 }

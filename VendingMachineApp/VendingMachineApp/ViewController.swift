@@ -10,19 +10,21 @@ import UIKit
 class ViewController: UIViewController, SelectPanelStackViewDelegate, TopPanelDelegate {
     @IBOutlet weak var selectPanelStackView: SelectPanelStackView!
     @IBOutlet weak var topPanelView: TopPanel!
-    var vendingMachine: VendingMachine!
+    private var vendingMachine: VendingMachine!
+    private var eachButtonType: Dictionary<UIButton, Drink.Type>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         vendingMachine = VendingMachine()
+
         selectPanelStackView.delegate = self
         topPanelView.delegate = self
         selectPanelStackView.setDrinkImageViewsRadius(of: 5)
     }
     
-    func didAddedDrink(name: String) {
-        guard let drinkType = findType(name: name) else { return }
-        vendingMachine.addDrink(drinkType)
+    func didAddedDrink(typeOf drinkType: Drink.Type) {
+        guard let drink = DrinkFactory.makeDrink(of: drinkType) else { return }
+        vendingMachine.addDrink(drink)
         loadSelectPanelStackViewLabels()
     }
     
@@ -30,29 +32,9 @@ class ViewController: UIViewController, SelectPanelStackViewDelegate, TopPanelDe
         vendingMachine.insertCoin(amound)
         loadLeftCoinsLabel()
     }
-    
 }
 
 extension ViewController {
-    private func findType(name: String) -> Drink.Type? {
-        switch name {
-        case "BlueBottle Cold Brew(Bold)":
-            return BlueBottleColdBrew.self
-        case "Fanta Orange":
-            return Fanta.self
-        case "빙그레 바나나우유":
-            return BingBananaMilk.self
-        case "서울 우유 딸기맛":
-            return SeoulStrawberryMilk.self
-        case "Sanpellegrino":
-            return Sanpellegrino.self
-        case "StarBucks Cold Brew(Black)":
-            return StarbucksColdBrew.self
-        default:
-            return nil
-        }
-    }
-    
     private func findDrinkTypeToTag(of tag: Int) -> Drink.Type? {
         switch tag {
         case 0: return BlueBottleColdBrew.self

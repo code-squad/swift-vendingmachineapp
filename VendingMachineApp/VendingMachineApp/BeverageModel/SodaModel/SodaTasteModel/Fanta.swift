@@ -21,11 +21,11 @@ class Fanta: Soda & IsHazardous {
         return foodColoring != nil
     }
 
-    func highCaffeine() -> Bool {
-        return caffeine > 100
+    func highCaffeine(caffeine criterion: Int) -> Bool {
+        return caffeine > criterion
     }
     
-    func isBadForBody() -> Bool {
-        isUsingFoodColoring() && highCaffeine()
+    func isBadForBody(caffeine: Int) -> Bool {
+        isUsingFoodColoring() && highCaffeine(caffeine: caffeine)
     }
 }

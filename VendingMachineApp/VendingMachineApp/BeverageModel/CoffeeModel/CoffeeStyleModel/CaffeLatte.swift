@@ -8,24 +8,24 @@
 import Foundation
 
 class CaffeLatte: Coffee & EnergyBoostable {
-    var isHeated: Bool
+    var temperature: Int
     var caffeine: Int
     
-    init(brand: String, size: Milliliter, price: Int, name: String, packageTime: Date, bean: Bean, caffeine: Int, inHeatingCabinet: Bool) {
+    init(brand: String, size: Milliliter, price: Int, name: String, packageTime: Date, bean: Bean, caffeine: Int, temperature: Int) {
         self.caffeine = caffeine
-        self.isHeated = inHeatingCabinet
+        self.temperature = temperature
         super.init(brand: brand, size: size, price: price, name: name, packageTime: packageTime, bean: bean)
     }
     
-    func highCaffeine() -> Bool {
-        return caffeine > 100
+    func highCaffeine(caffeine criterion: Int) -> Bool {
+        return caffeine > criterion
     }
     
-    func isHot() -> Bool {
-        return isHeated
+    func isHot(temperature criterion: Int) -> Bool {
+        return temperature > criterion
     }
     
-    func isEnergyBoosting() -> Bool {
-        return highCaffeine() && isHot()
+    func isEnergyBoosting(caffeine: Int, temperature: Int) -> Bool {
+        return highCaffeine(caffeine: caffeine) && isHot(temperature: temperature)
     }
 }

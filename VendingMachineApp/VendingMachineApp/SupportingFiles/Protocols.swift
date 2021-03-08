@@ -18,18 +18,18 @@ protocol FoodColoringApplicable {
 
 protocol CaffeineSuppliable {
     var caffeine: Int { get }
-    func highCaffeine() -> Bool
+    func highCaffeine(caffeine criterion: Int) -> Bool
 }
 
 protocol HotBeverageAvailable {
-    var isHeated: Bool { get }
-    func isHot() -> Bool
+    var temperature: Int { get }
+    func isHot(temperature criterion: Int) -> Bool
 }
 
 protocol IsHazardous: CaffeineSuppliable & FoodColoringApplicable {
-    func isBadForBody() -> Bool
+    func isBadForBody(caffeine: Int) -> Bool
 }
 
 protocol EnergyBoostable: CaffeineSuppliable & HotBeverageAvailable {
-    func isEnergyBoosting() -> Bool
+    func isEnergyBoosting(caffeine: Int, temperature: Int) -> Bool
 }

@@ -30,12 +30,12 @@ class Beverages {
         return list
     }
     
-    public func take(out beverage: Beverage, for paymentManager: PaymentManager) -> Beverage? {
+    public func take(out beverageType: Beverage.Type, for paymentManager: PaymentManager) -> Beverage? {
         let pickedBeverage: Beverage?
       
-        if let firstIndex = buyableBeverageList(buyer: paymentManager).firstIndex(where: { $0 === beverage }) {
+        if let firstIndex = buyableBeverageList(buyer: paymentManager).firstIndex(where: { type(of: $0) == beverageType }) {
             pickedBeverage = beverages.remove(at: firstIndex)
-            paymentManager.decreaseMoney(by: beverage)
+            paymentManager.decreaseMoney(by: pickedBeverage!)
             return pickedBeverage
         }
 

@@ -8,14 +8,10 @@
 import Foundation
 
 class Soda: Beverage, CustomStringConvertible {
-    enum Taste {
-        case lemon
-        case apple
-    }
     
-    private var taste: Taste
+    private var taste: String
     
-    init(brand: String, capacity: Int, price: Int, name: String, manufacture: Date, taste: Taste, expiredAt: Date) {
+    init(brand: String, capacity: Int, price: Int, name: String, manufacture: Date, taste: String, expiredAt: Date) {
         self.taste = taste
         super.init(brand: brand, capacity: capacity, price: price, name: name, manufacture: manufacture, expiredAt: expiredAt)
     }

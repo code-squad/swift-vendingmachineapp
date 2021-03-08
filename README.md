@@ -16,11 +16,12 @@
 
 ### Factory Method 구조
 
-<img width="575" alt="스크린샷 2021-03-03 오후 2 12 07" src="[https://user-images.githubusercontent.com/69951890/109756036-7ba7d780-7c2a-11eb-8ca4-bbf02c4be78b.png](https://user-images.githubusercontent.com/69951890/109756036-7ba7d780-7c2a-11eb-8ca4-bbf02c4be78b.png)">
+<img width="575" alt="스크린샷 2021-03-03 오후 2 12 07" src="https://user-images.githubusercontent.com/69951890/110292344-64a12500-8030-11eb-895a-a76c16fab134.png">
 
 ### VendingMachine 구조
 
-<img width="404" alt="스크린샷 2021-03-03 오후 2 18 47" src="[https://user-images.githubusercontent.com/69951890/109756481-61222e00-7c2b-11eb-80ee-f8de9b335355.png](https://user-images.githubusercontent.com/69951890/109756481-61222e00-7c2b-11eb-80ee-f8de9b335355.png)">
+<img width="526" alt="스크린샷 2021-03-08 오후 5 05 27" src="https://user-images.githubusercontent.com/69951890/110292401-7e426c80-8030-11eb-9600-469046936d21.png">
+
 
 ### 설명
 

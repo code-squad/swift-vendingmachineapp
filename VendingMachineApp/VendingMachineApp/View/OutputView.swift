@@ -8,9 +8,21 @@
 import UIKit
 
 class OutputView: UIView {
-    func setting() {
-        let beverageStackView = BeverageStackView.init(frame: CGRect(x: 0, y: 0, width: 200, height: 200))
-        self.addSubview(beverageStackView)
+    func setting(with stock : Dictionary<String,Int>) {
+        self.backgroundColor = .gray
+        
+        let VMStackView = VendingMachineStackView()
+        VMStackView.setting()
+        
+        for (key,value) in stock {
+            let beverageStackView = BeverageStackView.init()
+            beverageStackView.setting()
+            beverageStackView.collectSubelements(drink : key, count : value)
+            VMStackView.addArrangedSubview(beverageStackView)
+        }
+        
+        self.addSubview(VMStackView)
+        VMStackView.positionSetting()
         
     }
 }

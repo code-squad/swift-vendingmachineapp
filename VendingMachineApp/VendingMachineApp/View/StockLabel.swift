@@ -8,7 +8,7 @@
 import UIKit
 
 class StockLabel: UILabel {
-    func setting() {
-        self.text = "?개"
+    func setting(count : Int) {
+        self.text = "\(count)개"
     }
 }

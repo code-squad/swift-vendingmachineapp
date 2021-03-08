@@ -10,9 +10,16 @@ import UIKit
 class ViewController: UIViewController {
 
     let outputView = OutputView()
+    var vendingMachine = VendingMachine()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        vendingMachine.initialStock(howMany :3)
+        let stockList = vendingMachine.showStock()
+        
+        outputView.setting(with: stockList)
+        self.view = outputView
     }
 
 

@@ -54,6 +54,7 @@
 		B096F18A25F1CA4400E98053 /* AddStockButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B096F18925F1CA4400E98053 /* AddStockButton.swift */; };
 		B096F19025F1CFC000E98053 /* StockLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B096F18F25F1CFBF00E98053 /* StockLabel.swift */; };
 		B096F19425F1D12E00E98053 /* BeverageImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B096F19325F1D12E00E98053 /* BeverageImageView.swift */; };
+		B096F19A25F1DB6900E98053 /* VendingMachineStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B096F19925F1DB6900E98053 /* VendingMachineStackView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +101,7 @@
 		B096F18925F1CA4400E98053 /* AddStockButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStockButton.swift; sourceTree = "<group>"; };
 		B096F18F25F1CFBF00E98053 /* StockLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockLabel.swift; sourceTree = "<group>"; };
 		B096F19325F1D12E00E98053 /* BeverageImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageImageView.swift; sourceTree = "<group>"; };
+		B096F19925F1DB6900E98053 /* VendingMachineStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineStackView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				B096F0B525E5110F00E98053 /* OutputView.swift */,
+				B096F19925F1DB6900E98053 /* VendingMachineStackView.swift */,
 				B096F18525F1C61400E98053 /* BeverageStackView.swift */,
 				B096F18925F1CA4400E98053 /* AddStockButton.swift */,
 				B096F18F25F1CFBF00E98053 /* StockLabel.swift */,
@@ -320,6 +323,7 @@
 				B096F18A25F1CA4400E98053 /* AddStockButton.swift in Sources */,
 				B096F0DB25E676FE00E98053 /* Beans.swift in Sources */,
 				B096F0BA25E52D9D00E98053 /* Date.swift in Sources */,
+				B096F19A25F1DB6900E98053 /* VendingMachineStackView.swift in Sources */,
 				B096F18625F1C61400E98053 /* BeverageStackView.swift in Sources */,
 				B096F0F125EE4DE900E98053 /* SafeBox.swift in Sources */,
 				B096F08425E4FA5800E98053 /* ViewController.swift in Sources */,

@@ -29,7 +29,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var currentChangeLabel: UILabel!
     
     @IBOutlet var buttons: [UIButton]!
-    @IBOutlet var imageViews: [UIImageView]!
+    @IBOutlet var imageViews: [BeverageImageView]!
     @IBOutlet var labels: [UILabel]!
     
     var vendingMachine = VendingMachine(money: 1000)
@@ -40,7 +40,7 @@ class ViewController: UIViewController {
         
         productList = vendingMachine.initializeProductList()
         wholeBeverageList = vendingMachine.wholeBeverage()
-        setImageViews()
+        
         setButtons()
         setLabels()
         
@@ -71,15 +71,6 @@ class ViewController: UIViewController {
     @IBAction func FiveThousandButtonTouched(_ sender: UIButton) {
         vendingMachine.increaseMoney(money: 5000)
         currentChangeLabel.text = "잔액 : \(vendingMachine.checkChagne().money)원"
-    }
-    
-    func setImageViews() {
-        var index = 0
-        for img in imageViews {
-            img.image = UIImage(named: "\(imageArray[index])")
-            img.layer.cornerRadius = 30
-            index += 1
-        }
     }
     
     func setLabels() {

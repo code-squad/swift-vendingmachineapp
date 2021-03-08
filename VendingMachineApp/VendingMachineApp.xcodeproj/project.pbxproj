@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		220AFCD425E94FA400FDADEB /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220AFCD325E94FA400FDADEB /* Drink.swift */; };
 		220AFCE425E9539600FDADEB /* Productization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220AFCE325E9539600FDADEB /* Productization.swift */; };
+		221239F725F5F99200064DF5 /* DrinkProductable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221239F625F5F99200064DF5 /* DrinkProductable.swift */; };
 		221A9EC925EA64AA00ADEE1E /* StockManageable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221A9EC825EA64AA00ADEE1E /* StockManageable.swift */; };
 		223A6BC925EEF89900AA3483 /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223A6BC825EEF89900AA3483 /* Stock.swift */; };
 		223A6BD225EEFB4E00AA3483 /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223A6BC825EEF89900AA3483 /* Stock.swift */; };
@@ -71,6 +72,7 @@
 /* Begin PBXFileReference section */
 		220AFCD325E94FA400FDADEB /* Drink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drink.swift; sourceTree = "<group>"; };
 		220AFCE325E9539600FDADEB /* Productization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Productization.swift; sourceTree = "<group>"; };
+		221239F625F5F99200064DF5 /* DrinkProductable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkProductable.swift; sourceTree = "<group>"; };
 		221A9EC825EA64AA00ADEE1E /* StockManageable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockManageable.swift; sourceTree = "<group>"; };
 		221A9ECF25EA7FEC00ADEE1E /* VendingMachineAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VendingMachineAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		221A9ED125EA7FEC00ADEE1E /* VendingMachineAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineAppTests.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 				220AFCE325E9539600FDADEB /* Productization.swift */,
 				221A9EC825EA64AA00ADEE1E /* StockManageable.swift */,
 				223A6BDF25EF25B300AA3483 /* CoinManageable.swift */,
+				221239F625F5F99200064DF5 /* DrinkProductable.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -389,6 +392,7 @@
 				223A6BDA25EF236800AA3483 /* CoinCounter.swift in Sources */,
 				223A6BC925EEF89900AA3483 /* Stock.swift in Sources */,
 				22AD348F25F10A4900D1A9D4 /* SelectPanelStackView.swift in Sources */,
+				221239F725F5F99200064DF5 /* DrinkProductable.swift in Sources */,
 				226CAB5225EBCB0D00196488 /* DrinkFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

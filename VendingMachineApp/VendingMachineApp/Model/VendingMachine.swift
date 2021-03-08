@@ -18,12 +18,6 @@ class VendingMachine {
         self.coins = CoinCounter()
     }
 
-    public func addDrink(_ drinkType: Drink.Type) {
-        guard let productizationType = drinkType as? Productization.Type else { return }
-        guard let drink = DrinkFactory.makeDrink(of: productizationType) else { return }
-        stock.addedDrink(drink)
-    }
-    
     public func addDrink(_ drink: Drink) {
         stock.addedDrink(drink)
     }

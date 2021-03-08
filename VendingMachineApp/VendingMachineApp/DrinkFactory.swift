@@ -8,9 +8,9 @@
 import Foundation
 
 class DrinkFactory: DrinkProduceable {
-    static func makeDrink(of drink: Productization.Type, manufactured: Date = Date()) -> Drink? {
-        switch drink {
-        case is BlueBottleColdBrew.Type: return BlueBottleColdBrew()
+    static public func makeDrink(of type: Productization.Type, manufactured: Date = Date()) -> Drink? {
+        switch type {
+        case is BlueBottleColdBrew.Type: return BlueBottleColdBrew(flavor: .bold, manufactured: manufactured)
         case is StarbucksColdBrew.Type: return StarbucksColdBrew(flavor: .black, manufactured: manufactured)
         case is SeoulStrawberryMilk.Type: return SeoulStrawberryMilk(isWithStraw: true, manufactured: manufactured)
         case is BingBananaMilk.Type: return BingBananaMilk(target: .all, manufactured: manufactured)
@@ -19,8 +19,35 @@ class DrinkFactory: DrinkProduceable {
         default: return nil
         }
     }
+    
+    static public func makeDrink(of type: Drink.Type, manufactured: Date = Date()) -> Drink? {
+        guard let productType = type as? Productization.Type else { return nil }
+        return makeDrink(of: productType, manufactured: manufactured)
+    }
+
+    static public func makeDrink(of name: String, manufactured: Date = Date()) -> Drink? {
+        guard let drinkType = findType(name: name) else { return nil }
+        return makeDrink(of: drinkType, manufactured: manufactured)
+    }
 }
 
-protocol DrinkProduceable {
-    static func makeDrink(of drink: Productization.Type, manufactured: Date) -> Drink?
+extension DrinkFactory {
+    static func findType(name: String) -> Drink.Type? {
+        switch name {
+        case "BlueBottle Cold Brew(Bold)":
+            return BlueBottleColdBrew.self
+        case "Fanta Orange":
+            return Fanta.self
+        case "빙그레 바나나우유":
+            return BingBananaMilk.self
+        case "서울 우유 딸기맛":
+            return SeoulStrawberryMilk.self
+        case "Sanpellegrino":
+            return Sanpellegrino.self
+        case "StarBucks Cold Brew(Black)":
+            return StarbucksColdBrew.self
+        default:
+            return nil
+        }
+    }
 }

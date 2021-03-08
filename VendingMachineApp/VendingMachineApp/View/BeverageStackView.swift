@@ -11,18 +11,19 @@ struct BeverageStackView {
     
     private let beverageButton = UIButton()
     private let beverageImage = UIImageView()
-    private let beverageQuantity = UILabel()
+    private let beverageQuantityLabel = UILabel()
     private let beverageViewSet = UIStackView()
-    private var beverageName = String()
     private var imageName = String()
+    private var vendingMachine = VendingMachine()
     
     func addButton() -> UIButton {
-        beverageButton.setTitleColor(.black, for: .normal)
+        beverageButton.setTitleColor(UIColor(red: 0, green: 0.478431, blue: 1, alpha: 1), for: .normal)
         beverageButton.setTitle("Add", for: .normal)
         beverageButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
         beverageButton.widthAnchor.constraint(equalToConstant: 120).isActive = true
         return beverageButton
     }
+    
     
     func addBeverageImage() -> UIImageView {
         beverageImage.image = UIImage(named: imageName)
@@ -36,13 +37,13 @@ struct BeverageStackView {
         return beverageImage
     }
     
-    func addBeverageLabel() -> UILabel {
-        beverageQuantity.text = beverageName
-        beverageQuantity.textAlignment = .center
-        beverageQuantity.textColor = .black
-        beverageQuantity.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        beverageQuantity.widthAnchor.constraint(equalToConstant: 120).isActive = true
-        return beverageQuantity
+    func addBeverageQuantityLabel() -> UILabel {
+        beverageQuantityLabel.text = "0"
+        beverageQuantityLabel.textAlignment = .center
+        beverageQuantityLabel.textColor = .black
+        beverageQuantityLabel.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        beverageQuantityLabel.widthAnchor.constraint(equalToConstant: 120).isActive = true
+        return beverageQuantityLabel
     }
     
     func makeBeverageViewSet() -> UIStackView {
@@ -52,13 +53,12 @@ struct BeverageStackView {
         beverageViewSet.spacing = 4.0
         beverageViewSet.addArrangedSubview(addButton())
         beverageViewSet.addArrangedSubview(addBeverageImage())
-        beverageViewSet.addArrangedSubview(addBeverageLabel())
+        beverageViewSet.addArrangedSubview(addBeverageQuantityLabel())
         beverageViewSet.translatesAutoresizingMaskIntoConstraints = false
         return beverageViewSet
     }
     
-    init(beverageName: String, imageName: String) {
-        self.beverageName = beverageName
+    init(imageName: String) {
         self.imageName = imageName
     }
     

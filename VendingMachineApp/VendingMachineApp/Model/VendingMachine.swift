@@ -80,5 +80,10 @@ struct VendingMachine {
         return purchaseHistory
     }
     
+    public mutating func countSKUQuantity<T>(_: T.Type) -> Int {
+        return inventoryList.compactMap({ (element) in
+            return element as? T
+        }).count
+    }
+    
 }
-

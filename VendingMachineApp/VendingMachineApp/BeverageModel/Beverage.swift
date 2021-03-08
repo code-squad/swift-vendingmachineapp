@@ -37,7 +37,8 @@ class Beverage {
 
 extension Beverage: CustomStringConvertible {
     var description: String {
-        return "\(brand), \(size)ml, \(price)원, \(name), \(packageTime.useSimpleFormat(dateFormat:"yyyyMMdd"))"
+        let simpleDateFormat = "yyyyMMdd"
+        return "\(brand), \(size)ml, \(price)원, \(name), \(packageTime.useSimpleFormat(dateFormat: simpleDateFormat))"
     }
 }
 

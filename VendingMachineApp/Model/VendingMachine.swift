@@ -61,7 +61,7 @@ class VendingMachine {
     }
     
     //  전체 상품 재고를 (사전으로 표현하는) 종류별로 리턴하는 메소드
-    public func getTotalStock() -> Dictionary<Beverage,Int> {
+    public func getTotalStock() -> Dictionary<ObjectIdentifier,Int> {
         return stock.toDictionary()
     }
     

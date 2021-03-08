@@ -9,9 +9,10 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    var vendingMachine = VendingMachine()
+    let appDelegate = UIApplication.shared.delegate as? AppDelegate
+    lazy var vendingMachine = appDelegate?.vendingMachine
     
-    let itemCountPerDisplayStand = 4
+    let itemCountPerStand = 4
     let mainStackView : UIStackView = {
         let stack = UIStackView()
         stack.translatesAutoresizingMaskIntoConstraints = false
@@ -23,14 +24,20 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpView()
+    }
+    
+    func setUpView(){
         self.view.backgroundColor = .black
         
-        let imageViews = ViewsUtility.getEachStock(names: ["banana", "chocolate", "stroberry", "coke", "hot6ixRed", "top", "georgia","cantata"])
-        
-        for i in stride(from: 0, to: imageViews.count , by: itemCountPerDisplayStand){
+        guard let stockCells = appDelegate?.stockCellViews else { return }
+        guard let dict = vendingMachine?.getTotalStock() else { return }
+
+        for i in stride(from: 0, to: stockCells.count , by: itemCountPerStand){
             let stackview = StockHorizontalStackView()
-            for view in imageViews[i..<min(i+itemCountPerDisplayStand, imageViews.count)] {
+            for view in stockCells[i..<min(i+itemCountPerStand, stockCells.count)] {
                 view.button.delegate = self
+                view.count = dict[ObjectIdentifier(view.beverageType.self)] ?? 0
                 stackview.addArrangedSubview(view)
             }
             mainStackView.addArrangedSubview(stackview)
@@ -40,6 +47,9 @@ class ViewController: UIViewController {
         mainStackViewConfiguration()
         
         inspectorView = InspectorStackView()
+        inspectorView.coinButtions.forEach{ button in
+            button.delegate = self
+        }
         self.view.addSubview(inspectorView)
         inspectorViewConfiguration()
     }
@@ -65,7 +75,14 @@ extension ViewController : StockButtonDelegate {
     func append(type: Beverage.Type) {
         guard let factory = FactoryProducer.getFactory(type: type) else { return }
         guard let beverage = factory.createBeverage(type: type) else { return }
-        vendingMachine.append(product: beverage)
-        print(vendingMachine.getTotalStock())
+        vendingMachine?.append(product: beverage)
+        print(vendingMachine?.getTotalStock())
+    }
+}
+
+extension ViewController : CoinDelegate {
+    func addCoin(_ sender: AddCoinUIButton) {
+        vendingMachine?.charge(coins: sender.value)
+        print(vendingMachine?.getCoins())
     }
 }

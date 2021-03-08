@@ -45,9 +45,6 @@ extension Beverage : Equatable {
 
 extension Beverage : Hashable {
     func hash(into hasher: inout Hasher) {
-        hasher.combine(brand)
-        hasher.combine(capacity)
-        hasher.combine(price)
-        hasher.combine(name)
+        hasher.combine(ObjectIdentifier(type(of: self)))
     }
 }

@@ -8,10 +8,10 @@
 import Foundation
 
 extension Array {
-    public func toDictionary<Key: Hashable>(with selectKey: (Element) -> Key) -> [Key:Int] {
-        var dict = [Key:Int]()
+    public func toDictionary() -> [ObjectIdentifier:Int] {
+        var dict = [ObjectIdentifier:Int]()
         for element in self {
-            let key = selectKey(element)
+            let key = ObjectIdentifier(type(of: element))
             if let value = dict[key] {
                 dict.updateValue(value + 1, forKey: key)
             }else {

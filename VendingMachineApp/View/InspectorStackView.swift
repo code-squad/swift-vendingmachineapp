@@ -9,8 +9,7 @@ import UIKit
 
 class InspectorStackView: UIStackView {
 
-    var oneThousandButton : AddCoinUIButton!
-    var fiveThousandButton : AddCoinUIButton!
+    var coinButtions : [AddCoinUIButton]!
     var balanceLabel : UILabel!
     var balance : Int  = 0
     
@@ -29,29 +28,16 @@ class InspectorStackView: UIStackView {
         self.translatesAutoresizingMaskIntoConstraints = false
         self.distribution = .fillEqually
         
-        oneThousandButton = AddCoinUIButton(frame: CGRect(x: 0, y: 0, width: bounds.width, height: 10), named: "+1000원")
-        oneThousandButton.delegate = self
-        addArrangedSubview(oneThousandButton)
+        coinButtions = [AddCoinUIButton]()
+        coinButtions.append(AddCoinUIButton(frame: CGRect(x: 0, y: 0, width: bounds.width, height: 10), named: "+1000원"))
+        coinButtions.append(AddCoinUIButton(frame: CGRect(x: 0, y: 0, width: bounds.width, height: 10), named: "+5000원"))
+        coinButtions.forEach{ addArrangedSubview($0)}
         
-        fiveThousandButton = AddCoinUIButton(frame: CGRect(x: 0, y: 0, width: bounds.width, height: 10), named: "+5000원")
-        fiveThousandButton.delegate = self
-        addArrangedSubview(fiveThousandButton)
-        
-        balanceLabel = UILabel(frame: oneThousandButton.bounds)
+        balanceLabel = UILabel(frame: bounds)
         balanceLabel.text = "잔액 : \(balance)"
         balanceLabel.font = .boldSystemFont(ofSize: 20)
         balanceLabel.textColor = .white
         balanceLabel.textAlignment = .center
         addArrangedSubview(balanceLabel)
-
-    }
-}
-
-extension InspectorStackView : CoinDelegate {
-    
-    func addCoin(_ sender: UIButton) {
-        let value : Int = (sender.titleLabel?.text?.extractUnsignedInteger() ?? 0)
-        balance += value
-        print(balance)
     }
 }

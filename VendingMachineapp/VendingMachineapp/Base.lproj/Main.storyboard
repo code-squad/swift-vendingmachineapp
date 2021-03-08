@@ -21,7 +21,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="xIg-hs-y4G" userLabel="BeverageStackView">
                                         <rect key="frame" x="0.0" y="0.0" width="341.5" height="184.5"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5J7-mO-r96">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5J7-mO-r96" customClass="AddBeverageButton" customModule="VendingMachineapp" customModuleProvider="target">
                                                 <rect key="frame" x="147.5" y="0.0" width="46" height="61.5"/>
                                                 <state key="normal" title="Button"/>
                                                 <connections>
@@ -42,7 +42,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="LPV-CW-iCE" userLabel="BeverageStackView">
                                         <rect key="frame" x="341.5" y="0.0" width="341" height="184.5"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n7t-Fu-i01">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n7t-Fu-i01" customClass="AddBeverageButton" customModule="VendingMachineapp" customModuleProvider="target">
                                                 <rect key="frame" x="147.5" y="0.0" width="46" height="61.5"/>
                                                 <state key="normal" title="Button"/>
                                                 <connections>
@@ -63,7 +63,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="HBV-ua-GKT" userLabel="BeverageStackView">
                                         <rect key="frame" x="682.5" y="0.0" width="341.5" height="184.5"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7lP-7B-iBU">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7lP-7B-iBU" customClass="AddBeverageButton" customModule="VendingMachineapp" customModuleProvider="target">
                                                 <rect key="frame" x="148" y="0.0" width="46" height="61.5"/>
                                                 <state key="normal" title="Button"/>
                                                 <connections>
@@ -89,7 +89,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="kVV-qX-RmV" userLabel="BeverageStackView">
                                         <rect key="frame" x="0.0" y="0.0" width="341.5" height="184.5"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zcd-lf-oY1">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zcd-lf-oY1" customClass="AddBeverageButton" customModule="VendingMachineapp" customModuleProvider="target">
                                                 <rect key="frame" x="147.5" y="0.0" width="46" height="61.5"/>
                                                 <state key="normal" title="Button"/>
                                                 <connections>
@@ -110,7 +110,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="PAL-Vg-8fO" userLabel="BeverageStackView">
                                         <rect key="frame" x="341.5" y="0.0" width="341" height="184.5"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EDd-D6-x6v">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EDd-D6-x6v" customClass="AddBeverageButton" customModule="VendingMachineapp" customModuleProvider="target">
                                                 <rect key="frame" x="147.5" y="0.0" width="46" height="61.5"/>
                                                 <state key="normal" title="Button"/>
                                                 <connections>
@@ -131,7 +131,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="gbq-sV-VIa" userLabel="BeverageStackView">
                                         <rect key="frame" x="682.5" y="0.0" width="341.5" height="184.5"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2yf-8j-IJh">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2yf-8j-IJh" customClass="AddBeverageButton" customModule="VendingMachineapp" customModuleProvider="target">
                                                 <rect key="frame" x="148" y="0.0" width="46" height="61.5"/>
                                                 <state key="normal" title="Button"/>
                                                 <connections>
@@ -157,7 +157,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="0f2-a1-SV3" userLabel="BeverageStackView">
                                         <rect key="frame" x="0.0" y="0.0" width="341.5" height="184.5"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Km-cg-N3b">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Km-cg-N3b" customClass="AddBeverageButton" customModule="VendingMachineapp" customModuleProvider="target">
                                                 <rect key="frame" x="147.5" y="0.0" width="46" height="61.5"/>
                                                 <state key="normal" title="Button"/>
                                                 <connections>
@@ -178,7 +178,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="PpG-uS-sSb" userLabel="BeverageStackView">
                                         <rect key="frame" x="341.5" y="0.0" width="341" height="184.5"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lnl-wt-NYs">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lnl-wt-NYs" customClass="AddBeverageButton" customModule="VendingMachineapp" customModuleProvider="target">
                                                 <rect key="frame" x="147.5" y="0.0" width="46" height="61.5"/>
                                                 <state key="normal" title="Button"/>
                                                 <connections>
@@ -199,7 +199,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="tW3-dQ-Rw5" userLabel="BeverageStackView">
                                         <rect key="frame" x="682.5" y="0.0" width="341.5" height="184.5"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KEc-KP-97u">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KEc-KP-97u" customClass="AddBeverageButton" customModule="VendingMachineapp" customModuleProvider="target">
                                                 <rect key="frame" x="148" y="0.0" width="46" height="61.5"/>
                                                 <state key="normal" title="Button"/>
                                                 <connections>

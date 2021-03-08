@@ -9,11 +9,6 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    let imageArray = [
-        "top", "cantata", "georgia",
-        "coke", "sprite", "fanta",
-        "strawberry", "banana", "choco"
-    ]
     var buttonDictionary: [UIButton:Beverage] = [:]
     var labelDictionary: [UIButton:UILabel] = [:]
     var productList: [Beverage] = []
@@ -28,7 +23,7 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var currentChangeLabel: UILabel!
     
-    @IBOutlet var buttons: [UIButton]!
+    @IBOutlet var buttons: [AddBeverageButton]!
     @IBOutlet var imageViews: [BeverageImageView]!
     @IBOutlet var labels: [UILabel]!
     
@@ -41,7 +36,6 @@ class ViewController: UIViewController {
         productList = vendingMachine.initializeProductList()
         wholeBeverageList = vendingMachine.wholeBeverage()
         
-        setButtons()
         setLabels()
         
         addThousandButton.setTitle("+1000", for: .normal)
@@ -81,11 +75,4 @@ class ViewController: UIViewController {
             index += 1
         }
     }
-    
-    func setButtons() {
-        for button in buttons {
-            button.setTitle("추가", for: .normal)
-        }
-    }
-
 }

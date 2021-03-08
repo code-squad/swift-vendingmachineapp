@@ -29,7 +29,6 @@ class ViewController: UIViewController {
         vendingMachine.addStock(as: beverage)
         let label = beverageLabels.filter{$0.restorationIdentifier == id+"Label"}[0]
         let stock = vendingMachine.showStock()
-        label.text = "\(stock[beverage] ?? 0)개"
     }
     
     @IBAction func rechargeCash(_ sender: UIButton) {

@@ -19,8 +19,8 @@ class BananaMilk : Milk {
         self.init(brand: brand, size: size, price: price, name: name, manufactureAt: manufactureAt, validWithin: 3, bananaMilkColor: bananaMilkColor)
     }
     
-    func isRealBananaMilk() -> Bool {
-        return self.bananaMilkColor == .yellow ? true : false
+    func isEqual(color: BananaMilkColor) -> Bool {
+        return self.bananaMilkColor == color ? true : false
     }
     
 }

@@ -2,7 +2,7 @@
 import Foundation
 
 struct VendingMachine {
-    private var cashBox: Int
+    private(set) var cashBox: Int
     private var beverages: Beverages
     private var shoppingHistoryData: Beverages
     
@@ -10,10 +10,6 @@ struct VendingMachine {
         cashBox = 0
         beverages = Beverages()
         shoppingHistoryData = Beverages()
-    }
-    
-    func checkBalance() -> Int {
-        return self.cashBox
     }
     
     func shoppingHistory() -> Beverages {
@@ -41,7 +37,7 @@ struct VendingMachine {
     }
     
     func buyableBeverageList() -> Beverages  {
-        self.beverages.beverageList(under: checkBalance())
+        self.beverages.beverageList(under: self.cashBox)
     }
     
     func ExpiredBeverages(on date: Date) -> Beverages {
@@ -57,7 +53,7 @@ struct VendingMachine {
     }
     
     func AmericanoAddedShot(over shotCount: Int) -> Beverages {
-        return self.beverages.americanoAddedShotList(over: shotCount)
+        return self.beverages.addedShotList(over: shotCount)
     }
     
     func LowCalorieBeverages(below calories: Int) -> Beverages {
@@ -69,14 +65,12 @@ struct VendingMachine {
     }
     
     mutating func buy(beverage: Beverage) -> Beverage? {
-        guard beverage.isPriced(under: checkBalance()) && self.beverages.isInStock(of: beverage)
+        guard beverage.isPriced(under: self.cashBox) && self.beverages.isInStock(of: beverage)
         else {
             return nil
         }
         let purchasedBeverage = self.beverages.remove(element: beverage)
-        purchasedBeverage.howMuch { price in
-            self.reduceCash(amount: price)
-        }
+        self.reduceCash(amount: beverage.price)
         self.shoppingHistoryData.addSome(purchasedBeverage)
         return purchasedBeverage
     }

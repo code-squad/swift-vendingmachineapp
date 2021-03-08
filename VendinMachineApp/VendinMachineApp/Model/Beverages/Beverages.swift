@@ -39,7 +39,7 @@ class Beverages {
         let yellowBananaMilk = Beverages()
         
         self.beverages.forEach { (beverage, count) in
-            if let bananaMilk = beverage as? BananaMilk, bananaMilk.isRealBananaMilk() {
+            if let bananaMilk = beverage as? BananaMilk, bananaMilk.isEqual(color: .yellow) {
                 yellowBananaMilk.addSome(beverage, count)
             }
         }
@@ -68,15 +68,15 @@ class Beverages {
         return expiredBeverages
     }
     
-    func americanoAddedShotList(over shot: Int) -> Beverages {
-        let americanos = Beverages()
+    func addedShotList(over shot: Int) -> Beverages {
+        let beverageAddedShot = Beverages()
         
         self.beverages.forEach { (beverage, count) in
-            if let americanoAddedShot = beverage as? Shot, americanoAddedShot.isMoreThan(shot: shot) {
-                americanos.addSome(beverage, count)
+            if let addedShot = beverage as? Shot, addedShot.isMoreThan(shot: shot) {
+                beverageAddedShot.addSome(beverage, count)
             }
         }
-        return americanos
+        return beverageAddedShot
     }
     
     func sameOriginBeverageList(madeIn country: Country) -> Beverages {

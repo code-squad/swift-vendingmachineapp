@@ -220,19 +220,19 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="balanceInfo" destination="zi5-of-dAM" id="otK-Hw-YpI"/>
-                        <outlet property="stockInfoOfCantata" destination="Y4K-Xq-2Y2" id="4nQ-6J-1hp"/>
-                        <outlet property="stockInfoOfChocolateMilk" destination="HEO-vW-Fx0" id="fyx-ni-awC"/>
-                        <outlet property="stockInfoOfCokeZero" destination="Si9-RU-5NP" id="it2-Rv-eSE"/>
-                        <outlet property="stockInfoOfSprite" destination="eBa-QO-jif" id="NgF-We-wt4"/>
-                        <outlet property="stockInfoOfStrawBerryMilk" destination="OIL-eW-gw2" id="ZPk-we-jqL"/>
-                        <outlet property="stockInfoOfTOP" destination="uXJ-yv-dzt" id="cWu-KY-IOR"/>
                         <outletCollection property="imagesOfBeverages" destination="Mz6-tu-l0B" collectionClass="NSMutableArray" id="Q81-Us-Gku"/>
                         <outletCollection property="imagesOfBeverages" destination="uRy-T6-mb1" collectionClass="NSMutableArray" id="Rtc-Nn-AMZ"/>
                         <outletCollection property="imagesOfBeverages" destination="Cfs-RF-Iuz" collectionClass="NSMutableArray" id="J8b-iq-cwA"/>
                         <outletCollection property="imagesOfBeverages" destination="zuL-LH-Poe" collectionClass="NSMutableArray" id="GQz-Ub-AAA"/>
                         <outletCollection property="imagesOfBeverages" destination="EDK-Pk-LbT" collectionClass="NSMutableArray" id="eBR-gh-oi2"/>
                         <outletCollection property="imagesOfBeverages" destination="09s-cN-WB7" collectionClass="NSMutableArray" id="cyC-kH-2Yd"/>
+                        <outletCollection property="stockInfo" destination="HEO-vW-Fx0" collectionClass="NSMutableArray" id="LZu-yo-vsB"/>
+                        <outletCollection property="stockInfo" destination="OIL-eW-gw2" collectionClass="NSMutableArray" id="7al-bS-8KB"/>
+                        <outletCollection property="stockInfo" destination="Si9-RU-5NP" collectionClass="NSMutableArray" id="Nu0-Z9-RWc"/>
+                        <outletCollection property="stockInfo" destination="eBa-QO-jif" collectionClass="NSMutableArray" id="dcJ-vK-ONW"/>
+                        <outletCollection property="stockInfo" destination="uXJ-yv-dzt" collectionClass="NSMutableArray" id="d9x-GK-BtZ"/>
+                        <outletCollection property="stockInfo" destination="Y4K-Xq-2Y2" collectionClass="NSMutableArray" id="e4T-IN-SBB"/>
+                        <outletCollection property="stockInfo" destination="zi5-of-dAM" collectionClass="NSMutableArray" id="eHB-rL-D4r"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

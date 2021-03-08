@@ -5,13 +5,7 @@ class VendingMachineViewController: UIViewController {
     let factory = BeverageFactory()
     private var vendingMachine: VendingMachine!
     
-    @IBOutlet weak var stockInfoOfChocolateMilk: UILabel!
-    @IBOutlet weak var stockInfoOfStrawBerryMilk: UILabel!
-    @IBOutlet weak var stockInfoOfCokeZero: UILabel!
-    @IBOutlet weak var stockInfoOfSprite: UILabel!
-    @IBOutlet weak var stockInfoOfTOP: UILabel!
-    @IBOutlet weak var stockInfoOfCantata: UILabel!
-    @IBOutlet weak var balanceInfo: UILabel!
+    @IBOutlet var stockInfo: [UILabel]!
     @IBOutlet var imagesOfBeverages: [UIImageView]!
     
     override func viewDidLoad() {
@@ -42,12 +36,12 @@ extension VendingMachineViewController {
         let sprite = vendingMachine.stockOf(beverage: factory.sprite)
         let top = vendingMachine.stockOf(beverage: factory.top)
         let cantata = vendingMachine.stockOf(beverage: factory.cantata)
-        stockInfoOfChocolateMilk.text = "\(chocoMilk)개"
-        stockInfoOfStrawBerryMilk.text = "\(strawberryMilk)개"
-        stockInfoOfCokeZero.text = "\(coke)개"
-        stockInfoOfSprite.text = "\(sprite)개"
-        stockInfoOfTOP.text = "\(top)개"
-        stockInfoOfCantata.text = "\(cantata)개"
+        stockInfo[0].text = "\(chocoMilk)개"
+        stockInfo[1].text = "\(strawberryMilk)개"
+        stockInfo[2].text = "\(coke)개"
+        stockInfo[3].text = "\(sprite)개"
+        stockInfo[4].text = "\(top)개"
+        stockInfo[5].text = "\(cantata)개"
     }
     
     @IBAction func buttonForChocolateMilkStock(_ sender: Any) {
@@ -85,7 +79,7 @@ extension VendingMachineViewController {
     
     private func balanceInfoLabel() {
         let balance = vendingMachine.insertedMoney
-        balanceInfo.text = "잔액:\(String(describing: balance))"
+        stockInfo[6].text = "잔액:\(String(describing: balance))"
     }
     
     @IBAction func button1000ForBalance(_ sender: Any) {

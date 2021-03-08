@@ -14,7 +14,7 @@
 
 
 ### 3. (STEP3 BRANCH) Vending Machine UI 설계 2021.03.05 19:00
-<img src="images/step.gif" width="400">
+<img src="images/step3.gif" width="300"> 
 
 #### Study keywords
 - NotificationCenter

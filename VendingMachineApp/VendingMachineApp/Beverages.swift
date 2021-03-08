@@ -18,7 +18,7 @@ class Beverages{
         beverages.append(beverage)
     }
     
-    func beverageValidate() -> [Beverage]{
+    func showValidatecurrentBeverageList() -> [Beverage]{
         var beverageList : [Beverage] = []
         for i in 0..<self.beverages.count{
             if self.beverages[i].isValidate(Date()){
@@ -34,7 +34,7 @@ class Beverages{
         }
     }
     
-    func comparePrice(money : Money) -> [Beverage]{
+    func showLowerpriceThanMoney(money : Money) -> [Beverage]{
         var beverageList : [Beverage] = []
         for i in 0..<self.beverages.count{
             if self.beverages[i].canBuybeverage(money: money) {

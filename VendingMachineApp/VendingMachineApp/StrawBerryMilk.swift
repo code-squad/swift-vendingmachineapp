@@ -17,7 +17,7 @@ class StrawBerryMilk : Milk{
         super.init(lowfat: lowfat, brand: brand, volume: volume, price: price, name: name, manufactured: manufactured, temperature: temperature, kcal: kcal)
     }
 
-    func isHighContent() -> Bool {
-        return self.StrawBerryContent > self.HIGHCONTENT
+    func isHighContent(StrawBerryContent : Int) -> Bool {
+        return StrawBerryContent > self.HIGHCONTENT
     }
 }

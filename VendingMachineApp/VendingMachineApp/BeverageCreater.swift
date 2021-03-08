@@ -21,7 +21,7 @@ class BeverageCreater : BeverageFactory {
         case is Coke.Type:
             beverage = Coke.init(product: .zero, sugarContent: 0, brand: "코카콜라", volume: 180, price: 3100, name: "코카콜라제로", manufactured: manufactured, temperature: 1, kcal: 210)
         case is Hot6.Type:
-            beverage = Hot6.init(taurine: true, caffeineContent: 30, brand: "코카콜라", volume: 180, price: 1900, name: "HOT6", manufactured: manufactured, temperature: 9, kcal: 20)
+            beverage = Hot6.init(taurineContent: 40, caffeineContent: 30, brand: "코카콜라", volume: 180, price: 1900, name: "HOT6", manufactured: manufactured, temperature: 9, kcal: 20)
         case is Monster.Type:
             beverage = Monster.init(glutamineContent: 10, caffeineContent: 30, brand: "코카콜라", volume: 180, price: 2100, name: "몬스터", manufactured: manufactured, temperature: 5, kcal: 30)
         case is CaffeMocha.Type:

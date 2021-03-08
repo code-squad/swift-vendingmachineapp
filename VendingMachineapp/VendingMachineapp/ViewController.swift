@@ -14,6 +14,9 @@ class ViewController: UIViewController {
         "coke", "sprite", "fanta",
         "strawberry", "banana", "choco"
     ]
+    var buttonDictionary: [UIButton:Beverage] = [:]
+    var labelDictionary: [UIButton:UILabel] = [:]
+    var productList: [Beverage] = []
     
     @IBOutlet var mainStackView: UIStackView!
     @IBOutlet var lineStackView: [UIStackView]!
@@ -30,23 +33,59 @@ class ViewController: UIViewController {
     @IBOutlet var labels: [UILabel]!
     
     var vendingMachine = VendingMachine(money: 1000)
+    var wholeBeverageList: [Beverage:Int] = [:]
     override func viewDidLoad() {
         super.viewDidLoad()
         mainStackView.backgroundColor = .systemGray2
+        
+        productList = vendingMachine.initializeProductList()
+        wholeBeverageList = vendingMachine.wholeBeverage()
         setImageViews()
         setButtons()
+        setLabels()
         
-        let productList = vendingMachine.initializeProductList()
-        print(productList)
+        addThousandButton.setTitle("+1000", for: .normal)
+        addFiveThousandButton.setTitle("+5000", for: .normal)
+        currentChangeLabel.text = "잔액 : \(vendingMachine.checkChagne().money)원"
+        
+        for (button, product) in zip(buttons, productList) {
+            buttonDictionary.updateValue(product, forKey: button)
+        }
+    
+        for (button, label) in zip(buttons, labels) {
+            labelDictionary.updateValue(label, forKey: button)
+        }
     }
     
     @IBAction func addButtonTouched(_ sender: UIButton) {
-        
+        vendingMachine.addBeverage(beverage: buttonDictionary[sender.self]!)
+        wholeBeverageList = vendingMachine.wholeBeverage()
+        labelDictionary[sender.self]?.text = String(wholeBeverageList[buttonDictionary[sender.self]!] ?? 0)
     }
+    
+    @IBAction func ThousandButtonTouched(_ sender: UIButton) {
+        vendingMachine.increaseMoney(money: 1000)
+        currentChangeLabel.text = "잔액 : \(vendingMachine.checkChagne().money)원"
+    }
+    
+    @IBAction func FiveThousandButtonTouched(_ sender: UIButton) {
+        vendingMachine.increaseMoney(money: 5000)
+        currentChangeLabel.text = "잔액 : \(vendingMachine.checkChagne().money)원"
+    }
+    
     func setImageViews() {
         var index = 0
         for img in imageViews {
             img.image = UIImage(named: "\(imageArray[index])")
+            index += 1
+        }
+    }
+    
+    func setLabels() {
+        wholeBeverageList = vendingMachine.wholeBeverage()
+        var index = 0
+        for label in labels {
+            label.text = String(wholeBeverageList[productList[index]] ?? 0)
             index += 1
         }
     }

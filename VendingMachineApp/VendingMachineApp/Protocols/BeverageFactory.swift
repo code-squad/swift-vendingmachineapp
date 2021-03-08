@@ -14,13 +14,13 @@ protocol BeverageFactory {
 class DenmarkStrawberryMilkFactory: BeverageFactory {
     
     func createProduct(manufactured: Date?, expiredAfter: Date?) -> Beverage {
-        return FlavoredMilk(brand: "동원F&B", volume: 300, price: 1000, name: "덴마크 딸기딸기 우유", calorie: 220, manufactured: manufactured, expiredAfter: expiredAfter, hasLactose: true, flavor: .strawberry)
+        return FlavoredMilk(brand: "동원F&B", volume: 300, price: 1000, name: "덴마크 딸기딸기 우유", calorie: 220, manufactured: manufactured, expiredAfter: expiredAfter, lactoseAmount: 15, flavor: .strawberry)
     }
 }
 
 class MaeilChocolateMilkFactory: BeverageFactory {
     func createProduct(manufactured: Date?, expiredAfter: Date?) -> Beverage {
-        return FlavoredMilk(brand: "매일유업", volume: 190, price: 900, name: "소화가 잘되는 우유 초콜릿", calorie: 150, manufactured: manufactured, expiredAfter: expiredAfter, hasLactose: false, flavor: .chocolate)
+        return FlavoredMilk(brand: "매일유업", volume: 190, price: 900, name: "소화가 잘되는 우유 초콜릿", calorie: 150, manufactured: manufactured, expiredAfter: expiredAfter, lactoseAmount: 0, flavor: .chocolate)
     }
 }
 

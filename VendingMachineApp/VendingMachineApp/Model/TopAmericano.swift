@@ -26,4 +26,14 @@ class TopAmericano : Coffee {
                   expiration: Date.make(date: "20210227"),
                   temperature : 70, calorie : 100,coffeeSolids: 0.7)
     }
+    
+    required init?(coder: NSCoder) {
+        self.coffeeSolids = coder.decodeDouble(forKey: "coffeeSolids")
+        super.init(coder: coder)
+    }
+    
+    override func encode(with coder: NSCoder) {
+        coder.encode(coffeeSolids, forKey: "coffeeSolids")
+        super.encode(with: coder)
+    }
 }

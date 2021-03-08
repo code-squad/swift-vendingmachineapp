@@ -14,4 +14,14 @@ class Coffee : Beverage {
         self.caffeineContent = caffeineContent
         super.init(brand: brand, amount : amount, unit : unit, price: price, name: name, manufactured: manufactured, expiration : expiration, temperature : temperature, calorie : calorie)
     }
+    
+    required init?(coder: NSCoder) {
+        self.caffeineContent = coder.decodeInteger(forKey: "caffeineContent")
+        super.init(coder: coder)
+    }
+    
+    override func encode(with coder: NSCoder) {
+        coder.encode(caffeineContent, forKey: "caffeineContent")
+        super.encode(with: coder)
+    }
 }

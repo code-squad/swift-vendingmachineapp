@@ -14,4 +14,14 @@ class Milk : Beverage {
         self.milkFarmCode = mlikFarmCode
         super.init(brand: brand, amount : amount, unit : unit, price: price, name: name, manufactured: manufactured, expiration: expiration, temperature : temperature, calorie: calorie)
     }
+    
+    required init?(coder: NSCoder) {
+        self.milkFarmCode = coder.decodeInteger(forKey: "milkFarmCode")
+        super.init(coder: coder)
+    }
+    
+    override func encode(with coder: NSCoder) {
+        coder.encode(milkFarmCode, forKey: "milkFarmCode")
+        super.encode(with: coder)
+    }
 }

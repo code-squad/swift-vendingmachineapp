@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="ipad10_9rounded" orientation="landscape" layout="fullscreen" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="VendingMachineApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="1180" height="820"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Qh-Yi-1mz">
+                                <rect key="frame" x="913" y="174" width="117" height="42"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tre-wk-zpL">
+                                <rect key="frame" x="984" y="136" width="46" height="30"/>
+                                <state key="normal" title="+5000"/>
+                                <connections>
+                                    <action selector="insertCashFive:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wm5-dc-UU9"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ALN-tg-fgp">
+                                <rect key="frame" x="914" y="136" width="44" height="30"/>
+                                <state key="normal" title="+1000"/>
+                                <connections>
+                                    <action selector="insertCashOne:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IAS-KG-IFx"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="7Qh-Yi-1mz" secondAttribute="trailing" constant="150" id="1zk-av-pzb"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="tre-wk-zpL" secondAttribute="trailing" constant="150" id="9aR-vP-3ih"/>
+                            <constraint firstItem="ALN-tg-fgp" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="136" id="L5k-pR-5Na"/>
+                            <constraint firstItem="tre-wk-zpL" firstAttribute="leading" secondItem="ALN-tg-fgp" secondAttribute="trailing" constant="26" id="R9D-L0-tn8"/>
+                            <constraint firstItem="7Qh-Yi-1mz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="913" id="VmP-IW-wF6"/>
+                            <constraint firstItem="7Qh-Yi-1mz" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="174" id="WWe-dN-z1l"/>
+                            <constraint firstItem="tre-wk-zpL" firstAttribute="centerY" secondItem="ALN-tg-fgp" secondAttribute="centerY" id="YbC-hY-zEF"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="7Qh-Yi-1mz" secondAttribute="bottom" constant="584" id="aOC-XW-Y2L"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ALN-tg-fgp" secondAttribute="bottom" constant="634" id="aZG-6L-5bQ"/>
+                            <constraint firstItem="ALN-tg-fgp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="914" id="eFv-Ia-r6U"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ALN-tg-fgp" secondAttribute="trailing" constant="222" id="mmA-Gj-GoM"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="totalCash" destination="7Qh-Yi-1mz" id="IcU-SD-EVK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-113.38983050847459" y="0.73170731707317072"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

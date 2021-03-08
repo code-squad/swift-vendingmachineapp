@@ -7,7 +7,7 @@
 
 import Foundation
 
-class RedBull: EnergyDrink {
+class RedBull: EnergyDrink, Productable {
     private var vitaminB: Int
     
     init(brand: String, capacity: Int, price: Int, name: String, manufacturedAt: Date, expirationAt: Date, temperature: Double, taurineContent: Int, vitaminB: Int) {

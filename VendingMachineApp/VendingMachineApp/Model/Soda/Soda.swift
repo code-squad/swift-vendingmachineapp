@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Soda: Beverage {
+class Soda: Beverage, Productable {
     private var glycemicIndex: Int
     
     init(brand: String, capacity: Int, price: Int, name: String, manufacturedAt: Date, expirationAt: Date, temperature: Double, glycemicIndex: Int) {

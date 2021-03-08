@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Cola: Soda {
+class Cola: Soda, Productable {
     enum Package {
         case can
         case pet

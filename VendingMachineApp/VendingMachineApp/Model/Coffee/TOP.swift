@@ -7,7 +7,7 @@
 
 import Foundation
 
-class TOP: Coffee {
+class TOP: Coffee, Productable {
     enum Flavor {
         case americano
         case latte

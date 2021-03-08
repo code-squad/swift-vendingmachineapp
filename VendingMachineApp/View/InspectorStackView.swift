@@ -28,11 +28,13 @@ class InspectorStackView: UIStackView {
         self.translatesAutoresizingMaskIntoConstraints = false
         self.distribution = .fillEqually
         
+        // Coins Button
         coinButtions = [AddCoinUIButton]()
         coinButtions.append(AddCoinUIButton(frame: CGRect(x: 0, y: 0, width: bounds.width, height: 10), named: "+1000원"))
         coinButtions.append(AddCoinUIButton(frame: CGRect(x: 0, y: 0, width: bounds.width, height: 10), named: "+5000원"))
         coinButtions.forEach{ addArrangedSubview($0)}
         
+        // Balance Label
         balanceLabel = UILabel(frame: bounds)
         balanceLabel.text = "잔액 : \(balance)"
         balanceLabel.font = .boldSystemFont(ofSize: 20)

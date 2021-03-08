@@ -34,6 +34,7 @@ class OneStockView: UIView {
     
     func initSubViews(){
         
+        // Image
         imageView = UIImageView(frame: CGRect(x: 0, y: 40, width: bounds.width, height: bounds.height))
         imageView.image = image
         imageView.contentMode = UIView.ContentMode.scaleAspectFill
@@ -41,9 +42,11 @@ class OneStockView: UIView {
         imageView.layer.cornerRadius = 10
         addSubview(imageView)
         
+        // Button
         button = AddStockButton(frame: CGRect(x: 0, y: 0, width: bounds.width, height: 40), beverageType: beverageType)
         addSubview(button)
         
+        // Label
         let captionBackgroundView = UIView(frame: CGRect(x: 0, y: bounds.height, width: bounds.width, height: 30))
         captionBackgroundView.backgroundColor = UIColor(white: 0.1, alpha: 0.8)
         addSubview(captionBackgroundView)
@@ -53,10 +56,6 @@ class OneStockView: UIView {
         label.text = "재고량 : \(count)"
         label.textColor = UIColor(white: 0.9, alpha: 1.0)
         captionBackgroundView.addSubview(label)
-    }
-    
-    @objc func buttonPushed(){
-        self.count += 1
-        self.label.text = "재고량 : \(count)"
+        
     }
 }

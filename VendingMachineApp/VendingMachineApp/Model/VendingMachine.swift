@@ -8,6 +8,7 @@ struct VendingMachine: Codable {
         case insertedMoney
         case beverages
     }
+    
     init() {
         insertedMoney = InsertedMoney()
         beverages = Beverages()
@@ -18,6 +19,7 @@ struct VendingMachine: Codable {
         insertedMoney = try values.decode(InsertedMoney.self, forKey: .insertedMoney)
         beverages = try values.decode(Beverages.self, forKey: .beverages)
     }
+    
     
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: VendingMachineCodingKey.self)

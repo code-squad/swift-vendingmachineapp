@@ -13,11 +13,15 @@ class InsertedMoney: Codable {
     }
     
     func compareMoney(to price: Int) -> Bool {
-        return insertedMoney >= price ? true : false
+        return insertedMoney >= price
     }
     
     func afterBuyingProduct(minus price: Int) {
         insertedMoney -= price
+    }
+    
+    func resetMoeny() {
+        insertedMoney = 0
     }
 }
 

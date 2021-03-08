@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7179173725F4B6F6001E66F8 /* VendingMachineData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7179173625F4B6F6001E66F8 /* VendingMachineData.swift */; };
 		717DE4FC25E5E0A6004B2269 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717DE4FB25E5E0A6004B2269 /* AppDelegate.swift */; };
 		717DE4FE25E5E0A6004B2269 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717DE4FD25E5E0A6004B2269 /* SceneDelegate.swift */; };
 		717DE50025E5E0A6004B2269 /* VendingMachineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717DE4FF25E5E0A6004B2269 /* VendingMachineViewController.swift */; };
@@ -63,6 +64,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7179173625F4B6F6001E66F8 /* VendingMachineData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineData.swift; sourceTree = "<group>"; };
 		717DE4F825E5E0A6004B2269 /* VendingMachineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendingMachineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		717DE4FB25E5E0A6004B2269 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		717DE4FD25E5E0A6004B2269 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				719F18C725E7777D00671D77 /* VendingMachine.swift */,
+				7179173625F4B6F6001E66F8 /* VendingMachineData.swift */,
 				71D1B81E25EE0745000E9142 /* InsertedMoney.swift */,
 				717DE51225E5E26F004B2269 /* Beverage.swift */,
 				7197E3D725E88F450055EC73 /* Beverages.swift */,
@@ -293,6 +296,7 @@
 				719F18C225E76F2100671D77 /* Cantata.swift in Sources */,
 				717DE4FC25E5E0A6004B2269 /* AppDelegate.swift in Sources */,
 				71D1B81F25EE0745000E9142 /* InsertedMoney.swift in Sources */,
+				7179173725F4B6F6001E66F8 /* VendingMachineData.swift in Sources */,
 				717DE51325E5E26F004B2269 /* Beverage.swift in Sources */,
 				717DE51B25E5E369004B2269 /* Brand.swift in Sources */,
 				719F18C825E7777D00671D77 /* VendingMachine.swift in Sources */,

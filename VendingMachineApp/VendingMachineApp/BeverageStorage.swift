@@ -45,10 +45,10 @@ class BeverageStorage {
         return purchasableBeverages
     }
     
-    public func decreaseStock(beverage: Beverage, completionHandlerWhenStockIsDecreased: () -> Void) throws {
+    public func decreaseStock(beverage: Beverage, completionHandler: () -> Void) throws {
         if stock[beverage] != nil {
             stock[beverage]! -= 1
-            completionHandlerWhenStockIsDecreased()
+            completionHandler()
         } else {
             throw StorageError.noStock
         }

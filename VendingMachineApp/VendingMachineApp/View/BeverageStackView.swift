@@ -16,9 +16,10 @@ class BeverageStackView : UIStackView {
     
     required init(coder: NSCoder) {
         super.init(coder: coder)
+        self.setting()
     }
     
-    func setting() {
+    private func setting() {
         self.translatesAutoresizingMaskIntoConstraints = false
         self.axis = .vertical
         self.spacing = 10

@@ -55,6 +55,9 @@
 		B096F19025F1CFC000E98053 /* StockLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B096F18F25F1CFBF00E98053 /* StockLabel.swift */; };
 		B096F19425F1D12E00E98053 /* BeverageImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B096F19325F1D12E00E98053 /* BeverageImageView.swift */; };
 		B096F19A25F1DB6900E98053 /* VendingMachineStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B096F19925F1DB6900E98053 /* VendingMachineStackView.swift */; };
+		B096F1AC25F621F400E98053 /* BalanceStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B096F1AB25F621F400E98053 /* BalanceStackView.swift */; };
+		B096F1B025F6233A00E98053 /* BalanceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B096F1AF25F6233A00E98053 /* BalanceButton.swift */; };
+		B096F1B425F6235200E98053 /* BalanceLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B096F1B325F6235200E98053 /* BalanceLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +105,9 @@
 		B096F18F25F1CFBF00E98053 /* StockLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockLabel.swift; sourceTree = "<group>"; };
 		B096F19325F1D12E00E98053 /* BeverageImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageImageView.swift; sourceTree = "<group>"; };
 		B096F19925F1DB6900E98053 /* VendingMachineStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineStackView.swift; sourceTree = "<group>"; };
+		B096F1AB25F621F400E98053 /* BalanceStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceStackView.swift; sourceTree = "<group>"; };
+		B096F1AF25F6233A00E98053 /* BalanceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceButton.swift; sourceTree = "<group>"; };
+		B096F1B325F6235200E98053 /* BalanceLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,6 +194,9 @@
 				B096F18925F1CA4400E98053 /* AddStockButton.swift */,
 				B096F18F25F1CFBF00E98053 /* StockLabel.swift */,
 				B096F19325F1D12E00E98053 /* BeverageImageView.swift */,
+				B096F1AB25F621F400E98053 /* BalanceStackView.swift */,
+				B096F1AF25F6233A00E98053 /* BalanceButton.swift */,
+				B096F1B325F6235200E98053 /* BalanceLabel.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -321,12 +330,15 @@
 				B096F09E25E4FFE600E98053 /* Soda.swift in Sources */,
 				B096F0CA25E6449600E98053 /* Materials.swift in Sources */,
 				B096F18A25F1CA4400E98053 /* AddStockButton.swift in Sources */,
+				B096F1AC25F621F400E98053 /* BalanceStackView.swift in Sources */,
 				B096F0DB25E676FE00E98053 /* Beans.swift in Sources */,
 				B096F0BA25E52D9D00E98053 /* Date.swift in Sources */,
 				B096F19A25F1DB6900E98053 /* VendingMachineStackView.swift in Sources */,
 				B096F18625F1C61400E98053 /* BeverageStackView.swift in Sources */,
 				B096F0F125EE4DE900E98053 /* SafeBox.swift in Sources */,
+				B096F1B025F6233A00E98053 /* BalanceButton.swift in Sources */,
 				B096F08425E4FA5800E98053 /* ViewController.swift in Sources */,
+				B096F1B425F6235200E98053 /* BalanceLabel.swift in Sources */,
 				B096F0D825E6757200E98053 /* Cantata.swift in Sources */,
 				B096F08025E4FA5800E98053 /* AppDelegate.swift in Sources */,
 				B096F09725E4FBF300E98053 /* Drink.swift in Sources */,

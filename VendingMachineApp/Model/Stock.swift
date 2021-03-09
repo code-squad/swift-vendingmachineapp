@@ -21,16 +21,6 @@ class Stock {
         }
         return false
     }
-/*
-    public func getProduct<T>(type element : T.Type) -> Beverage?{
-        for (product, _) in products {
-            if element == type(of: product) {
-                return product
-            }
-        }
-        return nil
-    }
-*/
     public func getAvailableProducts(with money : Money) -> [Beverage]{
         return products.filter{ $0.price <= money.coins }.map{$0}
     }
@@ -51,7 +41,17 @@ class Stock {
         return filtered
     }
     
-    public func toDictionary() -> Dictionary<ObjectIdentifier, Int>{
-        return products.toDictionary()
+    public func toDictionary() -> Dictionary<ObjectIdentifier, [Beverage]>{
+        var dict = Dictionary<ObjectIdentifier,[Beverage]>()
+        
+        for product in products {
+            let key = ObjectIdentifier(type(of: product))
+            if (dict[key] != nil) {
+                dict[key]?.append(product)
+            }else {
+                dict[key] = [product]
+            }
+        }
+        return dict
     }
 }

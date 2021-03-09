@@ -8,11 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1004F55425ECB7C5006666EA /* Drinkable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1004F55325ECB7C5006666EA /* Drinkable.swift */; };
-		102E520225F0D66400C8631A /* StockHorizontalStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102E520125F0D66400C8631A /* StockHorizontalStackView.swift */; };
 		102E520725F0D6FB00C8631A /* OneStockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102E520625F0D6FB00C8631A /* OneStockView.swift */; };
-		102E520C25F0D72D00C8631A /* AddStockButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102E520B25F0D72D00C8631A /* AddStockButton.swift */; };
 		104C8AE325F21A180004BA36 /* StackViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104C8AE225F21A180004BA36 /* StackViewExtension.swift */; };
-		104C8AF025F21D290004BA36 /* ViewsUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104C8AEF25F21D290004BA36 /* ViewsUtility.swift */; };
 		105EE25825E8CCD000E6D2E2 /* EnergyDrink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105EE25725E8CCD000E6D2E2 /* EnergyDrink.swift */; };
 		105EE26B25E8D0CD00E6D2E2 /* StroberryMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105EE26A25E8D0CD00E6D2E2 /* StroberryMilk.swift */; };
 		105EE27025E8D0D800E6D2E2 /* ChocolateMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105EE26F25E8D0D800E6D2E2 /* ChocolateMilk.swift */; };
@@ -26,9 +23,9 @@
 		1061002525EA1FA600D07810 /* CoffeeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1061002425EA1FA600D07810 /* CoffeeFactory.swift */; };
 		107242DE25F3B8D700A7A675 /* FactoryProducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107242DD25F3B8D700A7A675 /* FactoryProducer.swift */; };
 		1087276625EE15A500F260A2 /* Money.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1087276525EE15A500F260A2 /* Money.swift */; };
+		1089F26E25F724220021601C /* StockStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1089F26D25F724220021601C /* StockStackView.swift */; };
 		108B4FA825EE290B00658B66 /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108B4FA725EE290B00658B66 /* Stock.swift */; };
 		10A31E8725F2683300E2AAF8 /* InspectorStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A31E8625F2683300E2AAF8 /* InspectorStackView.swift */; };
-		10A5112325F35790008DF0AA /* AddCoinUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A5112225F35790008DF0AA /* AddCoinUIButton.swift */; };
 		10C692A825EA2CC7009F6AEF /* Monster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C692A725EA2CC7009F6AEF /* Monster.swift */; };
 		10C692AD25EA2CE1009F6AEF /* Hot6ix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C692AC25EA2CE1009F6AEF /* Hot6ix.swift */; };
 		10C692B225EA2D0F009F6AEF /* Coke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C692B125EA2D0F009F6AEF /* Coke.swift */; };
@@ -75,11 +72,8 @@
 
 /* Begin PBXFileReference section */
 		1004F55325ECB7C5006666EA /* Drinkable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drinkable.swift; sourceTree = "<group>"; };
-		102E520125F0D66400C8631A /* StockHorizontalStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockHorizontalStackView.swift; sourceTree = "<group>"; };
 		102E520625F0D6FB00C8631A /* OneStockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneStockView.swift; sourceTree = "<group>"; };
-		102E520B25F0D72D00C8631A /* AddStockButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStockButton.swift; sourceTree = "<group>"; };
 		104C8AE225F21A180004BA36 /* StackViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViewExtension.swift; sourceTree = "<group>"; };
-		104C8AEF25F21D290004BA36 /* ViewsUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewsUtility.swift; sourceTree = "<group>"; };
 		105EE25725E8CCD000E6D2E2 /* EnergyDrink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnergyDrink.swift; sourceTree = "<group>"; };
 		105EE26A25E8D0CD00E6D2E2 /* StroberryMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StroberryMilk.swift; sourceTree = "<group>"; };
 		105EE26F25E8D0D800E6D2E2 /* ChocolateMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChocolateMilk.swift; sourceTree = "<group>"; };
@@ -93,9 +87,9 @@
 		1061002425EA1FA600D07810 /* CoffeeFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeFactory.swift; sourceTree = "<group>"; };
 		107242DD25F3B8D700A7A675 /* FactoryProducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactoryProducer.swift; sourceTree = "<group>"; };
 		1087276525EE15A500F260A2 /* Money.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Money.swift; sourceTree = "<group>"; };
+		1089F26D25F724220021601C /* StockStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockStackView.swift; sourceTree = "<group>"; };
 		108B4FA725EE290B00658B66 /* Stock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stock.swift; sourceTree = "<group>"; };
 		10A31E8625F2683300E2AAF8 /* InspectorStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InspectorStackView.swift; sourceTree = "<group>"; };
-		10A5112225F35790008DF0AA /* AddCoinUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCoinUIButton.swift; sourceTree = "<group>"; };
 		10C692A725EA2CC7009F6AEF /* Monster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Monster.swift; sourceTree = "<group>"; };
 		10C692AC25EA2CE1009F6AEF /* Hot6ix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hot6ix.swift; sourceTree = "<group>"; };
 		10C692B125EA2D0F009F6AEF /* Coke.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coke.swift; sourceTree = "<group>"; };
@@ -157,11 +151,9 @@
 		102E51EB25F0CB4E00C8631A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				102E520125F0D66400C8631A /* StockHorizontalStackView.swift */,
-				102E520625F0D6FB00C8631A /* OneStockView.swift */,
-				102E520B25F0D72D00C8631A /* AddStockButton.swift */,
 				10A31E8625F2683300E2AAF8 /* InspectorStackView.swift */,
-				10A5112225F35790008DF0AA /* AddCoinUIButton.swift */,
+				102E520625F0D6FB00C8631A /* OneStockView.swift */,
+				1089F26D25F724220021601C /* StockStackView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -312,7 +304,6 @@
 		10F5F09025E7A1C100B70881 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
-				104C8AEF25F21D290004BA36 /* ViewsUtility.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -451,10 +442,8 @@
 				10F5F04625E782C400B70881 /* ViewController.swift in Sources */,
 				102E520725F0D6FB00C8631A /* OneStockView.swift in Sources */,
 				105EE25825E8CCD000E6D2E2 /* EnergyDrink.swift in Sources */,
-				10A5112325F35790008DF0AA /* AddCoinUIButton.swift in Sources */,
 				107242DE25F3B8D700A7A675 /* FactoryProducer.swift in Sources */,
 				10C692A825EA2CC7009F6AEF /* Monster.swift in Sources */,
-				102E520225F0D66400C8631A /* StockHorizontalStackView.swift in Sources */,
 				10F5F04225E782C400B70881 /* AppDelegate.swift in Sources */,
 				10C692B725EA2D23009F6AEF /* Sprite.swift in Sources */,
 				10F5F08325E7845B00B70881 /* Beverage.swift in Sources */,
@@ -478,13 +467,12 @@
 				1061001325EA1F7800D07810 /* MilkFactory.swift in Sources */,
 				1087276625EE15A500F260A2 /* Money.swift in Sources */,
 				10F5F08625E7845B00B70881 /* VendingMachine.swift in Sources */,
-				102E520C25F0D72D00C8631A /* AddStockButton.swift in Sources */,
 				105EE27525E8D0E300E6D2E2 /* BananaMilk.swift in Sources */,
 				10F5F08C25E7A1B900B70881 /* DateExtension.swift in Sources */,
+				1089F26E25F724220021601C /* StockStackView.swift in Sources */,
 				10F5F08725E7845B00B70881 /* Coffee.swift in Sources */,
 				10A31E8725F2683300E2AAF8 /* InspectorStackView.swift in Sources */,
 				1061002025EA1F9C00D07810 /* SodaFactory.swift in Sources */,
-				104C8AF025F21D290004BA36 /* ViewsUtility.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

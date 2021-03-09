@@ -12,7 +12,7 @@ class Coffee : Beverage{
     private var caffeine : Int
     private let hot : Bool
     
-    init(brand : String, capacity : Int, price : Int, name : String, createdAt : String, expiredAt: String, caffeine : Int, hot : Bool, image : UIImage?){
+    init(brand : String, capacity : Int, price : Int, name : String, createdAt : String, expiredAt: String, caffeine : Int, hot : Bool){
         self.caffeine = caffeine
         self.hot = hot
         super.init(brand: brand,
@@ -20,8 +20,7 @@ class Coffee : Beverage{
                    price: price,
                    name: name,
                    createdAt: createdAt,
-                   expiredAt: expiredAt,
-                   image: nil)
+                   expiredAt: expiredAt)
     }
     override var description: String {
         return super.description + ", \(caffeine)mg"

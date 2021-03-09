@@ -9,9 +9,6 @@ import UIKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    
-    let vendingMachine = VendingMachine()
-    let stockCellViews = ViewsUtility.getEachStock(names: ["banana", "chocolate", "stroberry", "coke", "hot6ixRed", "top", "georgia","cantata"])
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         return true

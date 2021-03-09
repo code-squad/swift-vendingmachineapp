@@ -16,15 +16,14 @@ class Coke : Soda {
     let faver : Flaver
     
     
-    init(brand: String, capacity: Int, price: Int, name: String, createdAt: String, expiredAt: String, flaver : Coke.Flaver, image: UIImage?) {
+    init(brand: String, capacity: Int, price: Int, name: String, createdAt: String, expiredAt: String, flaver : Coke.Flaver) {
         self.faver = flaver
         super.init(brand: brand,
                    capacity: capacity,
                    price: price,
                    name: name,
                    createdAt: createdAt,
-                   expiredAt: expiredAt,
-                   image: UIImage(named: "coke"))
+                   expiredAt: expiredAt)
     }
     
     convenience init(createdAt : String, expiredAt : String) {
@@ -34,7 +33,6 @@ class Coke : Soda {
                    name: "코카콜라",
                    createdAt: createdAt,
                    expiredAt: expiredAt,
-                   flaver : .cherry,
-                   image: UIImage(named: "coke"))
+                   flaver : .cherry)
     }
 }

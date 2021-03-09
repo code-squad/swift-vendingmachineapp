@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Foundation
 
 class ViewController: UIViewController {
     
@@ -14,14 +15,20 @@ class ViewController: UIViewController {
     @IBAction func insertCashOne(_ sender: Any) {
         vendingMachine.addCash(cash: 1000)
         updateTotalCash()
+        a()
     }
     
     @IBAction func insertCashFive(_ sender: Any) {
         vendingMachine.addCash(cash: 5000)
         updateTotalCash()
+        a()
     }
     
     @IBOutlet weak var totalCash: UILabel!
+    
+    func a() {
+        UserDefaults.standard.set(totalCash.text, forKey: "cashState")
+    }
     
     private func updateTotalCash() {
         totalCash.text = "\(vendingMachine.showAccount())"
@@ -39,6 +46,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         addMainStackView()
         updateTotalCash()
+        totalCash.text = UserDefaults.standard.string(forKey: "cashState")
     }
     
 }

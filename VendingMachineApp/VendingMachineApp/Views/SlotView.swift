@@ -1,5 +1,5 @@
 //
-//  ItemInfoView.swift
+//  SlotView.swift
 //  VendingMachineApp
 //
 //  Created by Song on 2021/03/08.
@@ -7,8 +7,8 @@
 
 import UIKit
 
-class ItemInfoView: UIView {
-    private let nibName = "ItemInfoView"
+class SlotView: UIView {
+    private let nibName = "SlotView"
     
     @IBOutlet weak var itemQuantityIncrementButton: UIButton!
     @IBOutlet weak var itemImageView: UIImageView!

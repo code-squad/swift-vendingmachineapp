@@ -38,8 +38,8 @@
 		E4D4741A25F1D42F007FAAA0 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D473BB25F0AE86007FAAA0 /* Order.swift */; };
 		E4D4743F25F5F746007FAAA0 /* CashBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D4743E25F5F746007FAAA0 /* CashBox.swift */; };
 		E4D4744225F60A24007FAAA0 /* CashBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D4743E25F5F746007FAAA0 /* CashBox.swift */; };
-		E4D4746225F66422007FAAA0 /* ItemInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4D4746125F66422007FAAA0 /* ItemInfoView.xib */; };
-		E4D4746625F66460007FAAA0 /* ItemInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D4746525F66460007FAAA0 /* ItemInfoView.swift */; };
+		E4D4746225F66422007FAAA0 /* SlotView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4D4746125F66422007FAAA0 /* SlotView.xib */; };
+		E4D4746625F66460007FAAA0 /* SlotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D4746525F66460007FAAA0 /* SlotView.swift */; };
 		E4E22CE025E51B27008CA611 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E22CDF25E51B27008CA611 /* AppDelegate.swift */; };
 		E4E22CE225E51B27008CA611 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E22CE125E51B27008CA611 /* SceneDelegate.swift */; };
 		E4E22CE425E51B27008CA611 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E22CE325E51B27008CA611 /* ViewController.swift */; };
@@ -80,8 +80,8 @@
 		E4D473F825F11E8F007FAAA0 /* InventoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryTests.swift; sourceTree = "<group>"; };
 		E4D4741025F1D1CF007FAAA0 /* VendingMachineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineTests.swift; sourceTree = "<group>"; };
 		E4D4743E25F5F746007FAAA0 /* CashBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashBox.swift; sourceTree = "<group>"; };
-		E4D4746125F66422007FAAA0 /* ItemInfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemInfoView.xib; sourceTree = "<group>"; };
-		E4D4746525F66460007FAAA0 /* ItemInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemInfoView.swift; sourceTree = "<group>"; };
+		E4D4746125F66422007FAAA0 /* SlotView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SlotView.xib; sourceTree = "<group>"; };
+		E4D4746525F66460007FAAA0 /* SlotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlotView.swift; sourceTree = "<group>"; };
 		E4E22CDC25E51B27008CA611 /* VendingMachineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendingMachineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4E22CDF25E51B27008CA611 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E4E22CE125E51B27008CA611 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -174,8 +174,8 @@
 			isa = PBXGroup;
 			children = (
 				E4E22CE525E51B27008CA611 /* Main.storyboard */,
-				E4D4746125F66422007FAAA0 /* ItemInfoView.xib */,
-				E4D4746525F66460007FAAA0 /* ItemInfoView.swift */,
+				E4D4746125F66422007FAAA0 /* SlotView.xib */,
+				E4D4746525F66460007FAAA0 /* SlotView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -305,7 +305,7 @@
 				E4E22CEC25E51B28008CA611 /* LaunchScreen.storyboard in Resources */,
 				E4E22CE925E51B28008CA611 /* Assets.xcassets in Resources */,
 				E4E22CE725E51B27008CA611 /* Main.storyboard in Resources */,
-				E4D4746225F66422007FAAA0 /* ItemInfoView.xib in Resources */,
+				E4D4746225F66422007FAAA0 /* SlotView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,7 +347,7 @@
 				E4D473BC25F0AE86007FAAA0 /* Order.swift in Sources */,
 				E4D4733625EF7B88007FAAA0 /* FlavoredMilk.swift in Sources */,
 				E4E22CE425E51B27008CA611 /* ViewController.swift in Sources */,
-				E4D4746625F66460007FAAA0 /* ItemInfoView.swift in Sources */,
+				E4D4746625F66460007FAAA0 /* SlotView.swift in Sources */,
 				E4E22CE025E51B27008CA611 /* AppDelegate.swift in Sources */,
 				E4E22CF625E51E11008CA611 /* Beverage.swift in Sources */,
 				E4D473B925F0ADF3007FAAA0 /* PurchaseHistory.swift in Sources */,

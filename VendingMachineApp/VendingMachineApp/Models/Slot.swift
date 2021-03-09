@@ -16,6 +16,9 @@ class Slot: CustomStringConvertible {
     private var firstItem: Beverage? {
         return items.first
     }
+    var itemImageName: String? {
+        return firstItem?.imageName
+    }
     var description: String {
         guard let firstItemName = firstItem?.name else {
             return "Empty Slot"

@@ -41,7 +41,7 @@ class Beverage{
     }
     
     func isAvailablePurchase(with money: Money) -> Bool {
-        return money.money >= price
+        return money.compare(with: price)
     }
 }
 

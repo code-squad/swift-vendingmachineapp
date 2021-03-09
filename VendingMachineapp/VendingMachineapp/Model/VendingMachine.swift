@@ -13,15 +13,15 @@ struct VendingMachine {
     private var inventory = Inventory()
     private var money: Money
     
-    init(money: Int) {
-        self.money = Money(with: money)
+    init() {
+        self.money = Money(with: 0)
     }
     
     func initializeProductList() -> [Beverage] {
         return inventory.initializeProductList()
     }
     
-    mutating func increaseMoney(money: Int) {
+    mutating func increaseMoney(money: Money) {
         self.money.changeMoney(with: money)
     }
     
@@ -35,7 +35,7 @@ struct VendingMachine {
     
     mutating func purchaseBeverage(beverage: Beverage) {
         manager.updatePurchaseList(inventory: inventory, beverage: beverage)
-        self.money.changeMoney(with: -beverage.price)
+        self.money.changeMoney(with: Money(with: -beverage.price) )
     }
     
     func hotBeverageList() -> [Beverage] {

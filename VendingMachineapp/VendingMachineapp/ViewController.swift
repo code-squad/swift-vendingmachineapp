@@ -24,7 +24,7 @@ class ViewController: UIViewController {
     @IBOutlet var beverageImageViews: [BeverageImageView]!
     @IBOutlet var beverageLabels: [BeverageLabel]!
     
-    var vendingMachine = VendingMachine(money: 1000)
+    var vendingMachine = VendingMachine()
     var wholeBeverageList: [Beverage:Int] = [:]
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,12 +48,12 @@ class ViewController: UIViewController {
     }
     
     @IBAction func ThousandButtonTouched(_ sender: UIButton) {
-        vendingMachine.increaseMoney(money: 1000)
+        vendingMachine.increaseMoney(money: Money(with: 1000))
         currentChangeLabel.text = "잔액 : \(vendingMachine.checkChagne().money)원"
     }
     
     @IBAction func FiveThousandButtonTouched(_ sender: UIButton) {
-        vendingMachine.increaseMoney(money: 5000)
+        vendingMachine.increaseMoney(money: Money(with: 5000))
         currentChangeLabel.text = "잔액 : \(vendingMachine.checkChagne().money)원"
     }
     

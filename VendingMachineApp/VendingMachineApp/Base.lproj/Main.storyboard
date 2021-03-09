@@ -581,17 +581,17 @@
                                 <rect key="frame" x="529" y="324" width="130.5" height="130.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="G2g-Rl-UCX" userLabel="잔액 stack">
-                                        <rect key="frame" x="16" y="41" width="98" height="49"/>
+                                        <rect key="frame" x="16.5" y="41" width="97.5" height="48.5"/>
                                         <subviews>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" 잔액" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gRf-YY-x1E">
-                                                <rect key="frame" x="0.0" y="0.0" width="98" height="20.5"/>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text=" 잔액" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gRf-YY-x1E">
+                                                <rect key="frame" x="0.0" y="0.0" width="97.5" height="20.5"/>
                                                 <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0원" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zFn-ZZ-Yq3">
-                                                <rect key="frame" x="0.0" y="28.5" width="98" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="28.5" width="97.5" height="20"/>
                                                 <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -600,6 +600,7 @@
                                         </subviews>
                                         <constraints>
                                             <constraint firstAttribute="height" secondItem="G2g-Rl-UCX" secondAttribute="width" multiplier="1:2" id="dgu-1Z-k0B"/>
+                                            <constraint firstItem="gRf-YY-x1E" firstAttribute="width" secondItem="G2g-Rl-UCX" secondAttribute="width" id="r8Y-ml-Ii1"/>
                                         </constraints>
                                     </stackView>
                                 </subviews>
@@ -614,6 +615,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemGray5Color"/>
                         <constraints>
+                            <constraint firstItem="FdQ-yd-9G7" firstAttribute="width" secondItem="PPI-Cl-un3" secondAttribute="width" multiplier="0.97026" id="2SD-Ax-XLD"/>
                             <constraint firstItem="VPz-Ej-NOc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="60" id="2i8-9A-RV0"/>
                             <constraint firstItem="FdQ-yd-9G7" firstAttribute="centerY" secondItem="6yc-nd-UMw" secondAttribute="centerY" id="5Kc-bH-oFU"/>
                             <constraint firstItem="6yc-nd-UMw" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="centerX" constant="-15" id="6c0-Dn-yxU"/>

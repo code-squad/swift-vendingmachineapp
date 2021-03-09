@@ -51,4 +51,9 @@ class Stock {
         }.map{ $0.key }
     }
     
+    func highCaffeineBeverages() -> [Beverage] {
+        return stock.map{ $0.key }.filter{ beverage in
+            return beverage.isHighCaffeine()
+        }
+    }
 }

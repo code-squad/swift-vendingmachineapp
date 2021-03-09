@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="ipad10_9rounded" orientation="landscape" layout="fullscreen" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Main Home Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="MainHomeController" customModule="VendingMachineApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="1180" height="820"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="225" translatesAutoresizingMaskIntoConstraints="NO" id="6oU-vl-vAQ" userLabel="Container Stack View">
+                                <rect key="frame" x="20" y="20" width="920" height="780"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleAspectFit" ambiguous="YES" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="aUo-C9-PkR">
+                                        <rect key="frame" x="0.0" y="0.0" width="920" height="130"/>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rP1-v4-WQ6">
+                                        <rect key="frame" x="0.0" y="355" width="920" height="0.0"/>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1fB-mx-Jay">
+                                        <rect key="frame" x="0.0" y="580" width="920" height="200"/>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="aUo-C9-PkR" firstAttribute="top" secondItem="6oU-vl-vAQ" secondAttribute="top" id="3IO-4U-XK6"/>
+                                    <constraint firstItem="aUo-C9-PkR" firstAttribute="leading" secondItem="6oU-vl-vAQ" secondAttribute="leading" id="ecx-yM-A6h"/>
+                                    <constraint firstAttribute="trailing" secondItem="aUo-C9-PkR" secondAttribute="trailing" id="sdQ-qz-oUG"/>
+                                </constraints>
+                            </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U9a-mM-BYC" customClass="ContainerView" customModule="VendingMachineApp">
+                                <rect key="frame" x="940" y="20" width="240" height="780"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="YMa-0G-dPi">
+                                        <rect key="frame" x="31" y="100" width="178" height="24"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1000원" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vag-vs-HvP">
+                                                <rect key="frame" x="0.0" y="0.0" width="62.5" height="24"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5000원" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fSp-tY-Hba">
+                                                <rect key="frame" x="112.5" y="0.0" width="65.5" height="24"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="잔액 : 5000원 " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eh7-1b-jld">
+                                        <rect key="frame" x="45" y="198.5" width="150" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="HHd-BA-YK5"/>
+                                            <constraint firstAttribute="width" constant="150" id="QtC-PS-CHm"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                                <constraints>
+                                    <constraint firstItem="eh7-1b-jld" firstAttribute="centerX" secondItem="YMa-0G-dPi" secondAttribute="centerX" id="MG3-jH-bkc"/>
+                                    <constraint firstItem="YMa-0G-dPi" firstAttribute="centerX" secondItem="U9a-mM-BYC" secondAttribute="centerX" id="Mzg-jP-SXL"/>
+                                    <constraint firstItem="eh7-1b-jld" firstAttribute="top" secondItem="YMa-0G-dPi" secondAttribute="bottom" constant="74.5" id="Oye-JU-2dn"/>
+                                    <constraint firstItem="YMa-0G-dPi" firstAttribute="top" secondItem="U9a-mM-BYC" secondAttribute="top" constant="100" id="q1b-de-vxd"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="U9a-mM-BYC" firstAttribute="top" secondItem="6oU-vl-vAQ" secondAttribute="top" id="7Lp-hv-eQp"/>
+                            <constraint firstItem="U9a-mM-BYC" firstAttribute="leading" secondItem="6oU-vl-vAQ" secondAttribute="trailing" id="Bku-vp-tvS"/>
+                            <constraint firstItem="U9a-mM-BYC" firstAttribute="bottom" secondItem="6oU-vl-vAQ" secondAttribute="bottom" id="MH2-gE-1V0"/>
+                            <constraint firstItem="U9a-mM-BYC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="940" id="P9V-vP-uzT"/>
+                            <constraint firstItem="U9a-mM-BYC" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="UZw-HC-g2G"/>
+                            <constraint firstItem="6oU-vl-vAQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="b7Z-OP-6d8" userLabel="Container Stack View.leading = Safe Area.leading"/>
+                            <constraint firstItem="6oU-vl-vAQ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="fj4-EF-m7J"/>
+                            <constraint firstItem="6oU-vl-vAQ" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="snv-qD-ozt"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="CoffeeStackView" destination="1fB-mx-Jay" id="kpf-MH-Wwh"/>
+                        <outlet property="ContainerStackView" destination="6oU-vl-vAQ" id="bQf-gh-dLx"/>
+                        <outlet property="ContainerView" destination="U9a-mM-BYC" id="LEv-mJ-6CW"/>
+                        <outlet property="MilkStackView" destination="aUo-C9-PkR" id="qbv-Ig-Iv1"/>
+                        <outlet property="SodaStackView" destination="rP1-v4-WQ6" id="MiO-FG-fbR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="438" y="26"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

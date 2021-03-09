@@ -38,10 +38,7 @@ struct VendingMachine {
         if let firstIndex = canBuyDrinks.firstIndex(of: drink){
             canBuyDrinks.remove(at: firstIndex)
             drinks.removeDrink(at: drink)
-<<<<<<< HEAD
             drinks.addPurchasedList(with: drink)
-=======
->>>>>>> 5b3f697cd3a941bc1567d12ff2734aacd43cf2da
         }
     }
 }

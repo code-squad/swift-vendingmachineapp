@@ -18,14 +18,8 @@ class Cola: Soda {
     private let packageType: PackageType
     
     init(packageType: PackageType, isSodaType: SodaType, factoryCode: String, brand: String, capacity: Int, price: Int, name: String,
-<<<<<<< HEAD
          manufacturedAt: Date,isHot:Bool) {
         self.packageType = packageType
         super.init(isSodaType: isSodaType, factoryCode: factoryCode, brand: brand, capacity: capacity, price: price, name: name, manufacturedAt: manufacturedAt,isHot: isHot)
-=======
-         madeDate: Date,isHot:Bool) {
-        self.packageType = packageType
-        super.init(isSodaType: isSodaType, factoryCode: factoryCode, brand: brand, capacity: capacity, price: price, name: name, madeDate: madeDate,isHot: isHot)
->>>>>>> 5b3f697cd3a941bc1567d12ff2734aacd43cf2da
     }
 }

@@ -10,17 +10,17 @@ import UIKit
 
 protocol VendingMachinePresenter {
     
-    func didTurnOn(images: [UIImageView], countLabels: [UILabel], machine: VendingMachine, moneyLabel: UILabel, beverageList: [Beverage])
+    func didTurnOn(images: [UIImageView], countLabels: [UILabel], machine: VendingMachine, moneyLabel: UILabel, beverageList: [Shopable])
     
     func didAddMoneyTouched(sender: UIButton, machine: VendingMachine, label: UILabel)
     
-    func didAddStockTouched(sender: UIButton, machine: VendingMachine, labels: [UILabel], beverageList: [Beverage])
+    func didAddStockTouched(sender: UIButton, machine: VendingMachine, labels: [UILabel], beverageList: [Shopable])
     
 }
 
 class VendingMachineUpdator: VendingMachinePresenter {
     
-    func didTurnOn(images: [UIImageView], countLabels: [UILabel], machine: VendingMachine, moneyLabel: UILabel, beverageList: [Beverage]) {
+    func didTurnOn(images: [UIImageView], countLabels: [UILabel], machine: VendingMachine, moneyLabel: UILabel, beverageList: [Shopable]) {
         
         images.forEach { (image) in
             image.layer.cornerRadius = 15
@@ -47,7 +47,7 @@ class VendingMachineUpdator: VendingMachinePresenter {
         label.text = "\(money)원"
     }
     
-    func didAddStockTouched(sender: UIButton, machine: VendingMachine, labels: [UILabel], beverageList: [Beverage]) {
+    func didAddStockTouched(sender: UIButton, machine: VendingMachine, labels: [UILabel], beverageList: [Shopable]) {
         switch sender.restorationIdentifier {
         case "addAmericano":
             machine.addStock(of: beverageList[0])
@@ -67,21 +67,21 @@ class VendingMachineUpdator: VendingMachinePresenter {
         updateCounts(for: labels, stockList: machine.allStocks(), beverageList: beverageList)
     }
     
-    private func updateCounts(for labels: [UILabel], stockList: [ObjectIdentifier: Int], beverageList: [Beverage]) {
+    private func updateCounts(for labels: [UILabel], stockList: [ObjectIdentifier: Int], beverageList: [Shopable]) {
         for label in labels {
             switch label.restorationIdentifier {
             case "americano":
-                label.text = countValidation(for: stockList[ObjectIdentifier(beverageList[0])])
+                label.text = countValidation(for: stockList[ObjectIdentifier(type(of: beverageList[0]))])
             case "cafelatte":
-                label.text = countValidation(for: stockList[ObjectIdentifier(beverageList[1])])
+                label.text = countValidation(for: stockList[ObjectIdentifier(type(of: beverageList[1]))])
             case "chocolateMilk":
-                label.text = countValidation(for: stockList[ObjectIdentifier(beverageList[2])])
+                label.text = countValidation(for: stockList[ObjectIdentifier(type(of: beverageList[2]))])
             case "coke":
-                label.text = countValidation(for: stockList[ObjectIdentifier(beverageList[3])])
+                label.text = countValidation(for: stockList[ObjectIdentifier(type(of: beverageList[3]))])
             case "milkis":
-                label.text = countValidation(for: stockList[ObjectIdentifier(beverageList[4])])
+                label.text = countValidation(for: stockList[ObjectIdentifier(type(of: beverageList[4]))])
             case "plainMilk":
-                label.text = countValidation(for: stockList[ObjectIdentifier(beverageList[5])])
+                label.text = countValidation(for: stockList[ObjectIdentifier(type(of: beverageList[5]))])
             default:
                 return
             }

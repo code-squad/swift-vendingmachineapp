@@ -9,26 +9,41 @@ import Foundation
 
 class BeverageStorage: NSObject, Storage, NSCoding {
 
-    private var stockList: [ObjectIdentifier: [Beverage]]
+    private var stockList: [ObjectIdentifier: [Shopable]]
     
     override init() {
         stockList = [:]
     }
     
     required init?(coder: NSCoder) {
-        self.stockList = coder.decodeObject(forKey: "stockList") as! [ObjectIdentifier: [Beverage]]
+        let values = coder.decodeObject(forKey: "stockValues") as! [[Shopable]]
+        var stockList = [ObjectIdentifier: [Shopable]]()
+        values.forEach({ (value) in
+            stockList[ObjectIdentifier(type(of: value[0]))] = value
+        })
+        print(stockList)
+        self.stockList = stockList
     }
     
     func encode(with coder: NSCoder) {
-        coder.encode(stockList, forKey: "stockList")
+        coder.encode(onlyValues(), forKey: "stockValues")
+    }
+    
+    private func onlyValues() -> [[Shopable]] {
+        var values = [[Shopable]]()
+        
+        stockList.values.forEach { (beverages) in
+            values.append(beverages)
+        }
+        return values
     }
     
     func add(_ item: Shopable) {
-        updateStockList(of: item as! Beverage)
+        updateStockList(of: item)
     }
     
-    private func updateStockList(of beverage: Beverage) {
-        let id = ObjectIdentifier(beverage)
+    private func updateStockList(of beverage: Shopable) {
+        let id = ObjectIdentifier(type(of: beverage))
         
         if stockList[id] != nil {
             stockList[id]!.append(beverage)

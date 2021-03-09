@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Beverage: Shopable, NSCoding {
+class Beverage: NSObject, Shopable, NSCoding {
     
     private let brand: String
     private let name: String
@@ -48,10 +48,10 @@ class Beverage: Shopable, NSCoding {
     }
 }
 
-//extension Beverage: CustomStringConvertible {
-//
-//    var description: String {
-//        return "[\(brand)] \(name): ₩\(price), \(size)ml (\(manufactured.inFormat("yyMMdd")))"
-//    }
-//
-//}
+extension Beverage {
+
+    override var description: String {
+        return "[\(brand)] \(name): ₩\(price), \(size)ml (\(manufactured.inFormat("yyMMdd")))"
+    }
+
+}

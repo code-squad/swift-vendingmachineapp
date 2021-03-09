@@ -15,7 +15,7 @@ class ViewController: UIViewController {
 
     private let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
-    private var beverageList = [Beverage]()
+    private var beverageList = [Shopable]()
     private let beverageFactory = BeverageFactory0303()
     
     private var presenter = VendingMachineUpdator()

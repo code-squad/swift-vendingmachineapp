@@ -1,10 +1,18 @@
 import Foundation
 
-class Beverages: Codable {
+class Beverages: NSObject, NSCoding {
     var beverages: [Beverage]
     
-    init() {
+    override init() {
         beverages = [Beverage]()
+    }
+    
+    required init?(coder: NSCoder) {
+        beverages = coder.decodeObject(forKey: "beverages") as! [Beverage]
+    }
+    
+    func encode(with coder: NSCoder) {
+        coder.encode(beverages, forKey: "beverages")
     }
     
     func append(from beverage: Beverage) {

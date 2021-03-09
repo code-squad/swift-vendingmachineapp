@@ -2,21 +2,22 @@ import Foundation
 
 class VendingMachineData {
     
-    private let key = "encodedData"
+    private let vendingMachineKey = "vendingMachineKey"
     
-    func loadedData() -> VendingMachine? {
-        guard let data = UserDefaults.standard.data(forKey: key) else {
-            return nil
-        }
-        
-        guard let vendingMachine = try? PropertyListDecoder().decode(VendingMachine.self, from: data) else {
-            return nil
-        }
+    func loadData() -> VendingMachine? {
+        guard let data = UserDefaults.standard.data(forKey: vendingMachineKey) else { return nil }
+        let vendingMachineData = try! NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data)
+        guard let vendingMachine = vendingMachineData as? VendingMachine else { return nil }
         return vendingMachine
     }
     
-    func savedData(_ vendingMachine: VendingMachine) {
-        let encodedData = try? PropertyListEncoder().encode(vendingMachine)
-        UserDefaults.standard.setValue(encodedData, forKey: key)
+    func saveData(_ vendingMachine: VendingMachine) {
+        do {
+            let encodedData = try NSKeyedArchiver.archivedData(withRootObject: vendingMachine, requiringSecureCoding: false)
+            UserDefaults.standard.set(encodedData, forKey: vendingMachineKey)
+        }
+        catch {
+            print(error)
+        }
     }
 }

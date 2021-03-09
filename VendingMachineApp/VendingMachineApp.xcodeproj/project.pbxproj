@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FE685FFF25F783B40075373D /* StorageLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE685FFE25F783B40075373D /* StorageLabel.swift */; };
 		FE8B8C9125E3931C00EF304F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8B8C9025E3931C00EF304F /* AppDelegate.swift */; };
 		FE8B8C9325E3931C00EF304F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8B8C9225E3931C00EF304F /* SceneDelegate.swift */; };
 		FE8B8C9525E3931C00EF304F /* MainHomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8B8C9425E3931C00EF304F /* MainHomeController.swift */; };
@@ -33,6 +34,7 @@
 		FE8B8E0C25EDE1E600EF304F /* VendingMachineAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8B8CA725E3932100EF304F /* VendingMachineAppTests.swift */; };
 		FE8B8E1025EDE1E700EF304F /* VendingMachineAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8B8CA725E3932100EF304F /* VendingMachineAppTests.swift */; };
 		FE8B8E7225F2AB3D00EF304F /* DrinksTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8B8E7125F2AB3D00EF304F /* DrinksTest.swift */; };
+		FE8B8EB525F53B8E00EF304F /* AddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8B8EB425F53B8E00EF304F /* AddButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FE685FFE25F783B40075373D /* StorageLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageLabel.swift; sourceTree = "<group>"; };
 		FE8B8C8D25E3931C00EF304F /* VendingMachineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendingMachineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE8B8C9025E3931C00EF304F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FE8B8C9225E3931C00EF304F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -84,6 +87,7 @@
 		FE8B8DC325E9036D00EF304F /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		FE8B8DD825E9972B00EF304F /* Payment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Payment.swift; sourceTree = "<group>"; };
 		FE8B8E7125F2AB3D00EF304F /* DrinksTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinksTest.swift; sourceTree = "<group>"; };
+		FE8B8EB425F53B8E00EF304F /* AddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +115,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FE685FFD25F783850075373D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FE8B8EB425F53B8E00EF304F /* AddButton.swift */,
+				FE685FFE25F783B40075373D /* StorageLabel.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		FE8B8C8425E3931B00EF304F = {
 			isa = PBXGroup;
 			children = (
@@ -137,6 +150,7 @@
 				FE8B8D5225E3CF9900EF304F /* Utility */,
 				FE8B8DA825E7F28900EF304F /* Protocol */,
 				FE8B8D3C25E3C95800EF304F /* Model */,
+				FE685FFD25F783850075373D /* View */,
 				FE8B8C9025E3931C00EF304F /* AppDelegate.swift */,
 				FE8B8DAF25E8111900EF304F /* Drinks.swift */,
 				FE8B8D6B25E64F1B00EF304F /* VendingMachine.swift */,
@@ -361,6 +375,7 @@
 				FE8B8D7D25E6688300EF304F /* Cola.swift in Sources */,
 				FE8B8D4625E3C97700EF304F /* Soda.swift in Sources */,
 				FE8B8D7225E6685B00EF304F /* StrawberryMilk.swift in Sources */,
+				FE8B8EB525F53B8E00EF304F /* AddButton.swift in Sources */,
 				FE8B8C9525E3931C00EF304F /* MainHomeController.swift in Sources */,
 				FE8B8D8225E6689300EF304F /* Sprite.swift in Sources */,
 				FE8B8D8D25E668CA00EF304F /* Cantata.swift in Sources */,
@@ -377,6 +392,7 @@
 				FE8B8DD925E9972C00EF304F /* Payment.swift in Sources */,
 				FE8B8D6C25E64F1C00EF304F /* VendingMachine.swift in Sources */,
 				FE8B8D8825E668A400EF304F /* Top.swift in Sources */,
+				FE685FFF25F783B40075373D /* StorageLabel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -23,10 +23,10 @@ final class EnergyDrink: SoftDrink {
     
     convenience init(expireDate: String) {
         self.init(
-            brand: "몬스터에너지",
+            brand: "코카콜라",
             capacity: 355,
             price: 2200,
-            name: "코카콜라제로",
+            name: "몬스터에너지",
             expireDate: expireDate,
             caffeineContent: 128,
             bubbleIntensity: .high,

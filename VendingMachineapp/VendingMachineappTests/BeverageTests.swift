@@ -15,7 +15,7 @@ class BeverageTests: XCTestCase {
  
     func testBeverage() {
         
-        let milk = MilkFactory.createBeverage(
+        let milk = BeverageFactory.createBeverage(
                              manufacturer: "서울우유",
                              volume: 200, price: 1000,
                              brand: "날마다딸기우유",
@@ -25,7 +25,7 @@ class BeverageTests: XCTestCase {
                              temperature: 10,
                              ofType: StrawberryMilk.self)!
         
-        let coke = SodaFactory.createBeverage(
+        let coke = BeverageFactory.createBeverage(
                             manufacturer: "팹시",
                             volume: 350,
                             price: 2000,
@@ -36,7 +36,7 @@ class BeverageTests: XCTestCase {
                             temperature: 10,
                             ofType: Coke.self)!
 
-        let top = CoffeeFactory.createBeverage(
+        let top = BeverageFactory.createBeverage(
                              manufacturer: "맥심",
                              volume: 300,
                              price: 3500,

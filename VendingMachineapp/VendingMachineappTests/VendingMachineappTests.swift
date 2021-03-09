@@ -9,10 +9,10 @@ import XCTest
 @testable import VendingMachineapp
 
 class VendingMachineappTests: XCTestCase {
-    var machine = VendingMachine(money: 1000)
+    var machine = VendingMachine()
     
     func testVendingMachine() {
-        let strawberryMilk = MilkFactory.createBeverage(
+        let strawberryMilk = BeverageFactory.createBeverage(
                                          manufacturer: "서울우유",
                                          volume: 200, price: 1000,
                                          brand: "날마다딸기우유",
@@ -22,7 +22,7 @@ class VendingMachineappTests: XCTestCase {
                                          temperature: 10,
                                          ofType: StrawberryMilk.self)!
         
-        let chocoMilk = MilkFactory.createBeverage(
+        let chocoMilk = BeverageFactory.createBeverage(
                                          manufacturer: "서울우유",
                                          volume: 200, price: 1100,
                                          brand: "날마다초코우유",
@@ -32,7 +32,7 @@ class VendingMachineappTests: XCTestCase {
                                          temperature: 10,
                                          ofType: ChocoMilk.self)!
         
-        let bananaMilk = MilkFactory.createBeverage(
+        let bananaMilk = BeverageFactory.createBeverage(
                                          manufacturer: "서울우유",
                                          volume: 200, price: 1200,
                                          brand: "날마다바나나우유",
@@ -42,7 +42,7 @@ class VendingMachineappTests: XCTestCase {
                                          temperature: 10,
                                          ofType: BananaMilk.self)!
         
-        let coke = SodaFactory.createBeverage(
+        let coke = BeverageFactory.createBeverage(
                               manufacturer: "팹시",
                               volume: 350,
                               price: 2000,
@@ -53,7 +53,7 @@ class VendingMachineappTests: XCTestCase {
                               temperature: 10,
                               ofType: Coke.self)!
         
-        let sprite = SodaFactory.createBeverage(
+        let sprite = BeverageFactory.createBeverage(
                               manufacturer: "팹시",
                               volume: 350,
                               price: 1500,
@@ -64,7 +64,7 @@ class VendingMachineappTests: XCTestCase {
                               temperature: 10,
                               ofType: Sprite.self)!
         
-        let fanta = SodaFactory.createBeverage(
+        let fanta = BeverageFactory.createBeverage(
                               manufacturer: "팹시",
                               volume: 350,
                               price: 1700,
@@ -75,7 +75,7 @@ class VendingMachineappTests: XCTestCase {
                               temperature: 10,
                               ofType: Fanta.self)!
         
-        let top = CoffeeFactory.createBeverage(
+        let top = BeverageFactory.createBeverage(
                                  manufacturer: "맥심",
                                  volume: 300,
                                  price: 3500,
@@ -86,7 +86,7 @@ class VendingMachineappTests: XCTestCase {
                                  temperature: 20,
                                  ofType: Top.self)!
         
-        let cantata = CoffeeFactory.createBeverage(manufacturer: "맥심",
+        let cantata = BeverageFactory.createBeverage(manufacturer: "맥심",
                                  volume: 400,
                                  price: 3000,
                                  brand: "칸타타",
@@ -96,7 +96,7 @@ class VendingMachineappTests: XCTestCase {
                                  temperature: 50,
                                  ofType: Cantata.self)!
         
-        let georgia = CoffeeFactory.createBeverage(manufacturer: "맥심",
+        let georgia = BeverageFactory.createBeverage(manufacturer: "맥심",
                                  volume: 400,
                                  price: 500,
                                  brand: "조지아",
@@ -135,17 +135,17 @@ class VendingMachineappTests: XCTestCase {
         machine.addBeverage(beverage: fanta)
         
         XCTAssertEqual(machine.wholeBeverage(), beverageList)
-
-        XCTAssertEqual(machine.availablePurchaseList(), [strawberryMilk, georgia])
+        machine.increaseMoney(money: Money(with: 1000))
         
-        machine.increaseMoney(money: 10000)
-
+        XCTAssertEqual(machine.availablePurchaseList(), [strawberryMilk, georgia])
+        machine.increaseMoney(money: Money(with: 9000))
+        
         machine.purchaseBeverage(beverage: strawberryMilk)
         machine.purchaseBeverage(beverage: strawberryMilk)
         machine.purchaseBeverage(beverage: top)
         
         XCTAssertEqual(machine.purchasedList(), [strawberryMilk, strawberryMilk, top])
-        XCTAssertEqual(machine.checkChagne().money, 5500)
+        XCTAssertEqual(machine.checkChagne().money, 4500)
         
         XCTAssertEqual(machine.invalidateList(with: Date.stringToDate(date: "20210227")), [chocoMilk, chocoMilk, bananaMilk])
 

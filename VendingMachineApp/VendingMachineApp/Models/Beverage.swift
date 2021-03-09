@@ -32,7 +32,7 @@ class Beverage: CustomStringConvertible {
     }
     
     func isValid(with date: Date) -> Bool {
-        return date <= expireAt
+        return date >= expireAt
     }
     
     func isHighCaffeine() -> Bool {

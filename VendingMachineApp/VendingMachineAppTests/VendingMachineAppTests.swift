@@ -30,3 +30,4 @@ class VendingMachineAppTests: XCTestCase {
     }
 
 }
+

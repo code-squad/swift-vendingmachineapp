@@ -48,7 +48,7 @@ class BeverageView: UIView {
         configureBeverageImageView()
         configureShowStockLabel()
         
-        addImageToItemImageView()
+        itemImageView.image = UIImage(named: boundBeverage.name)
     }
     
     @available(*, unavailable) required init?(coder: NSCoder) {
@@ -75,11 +75,7 @@ class BeverageView: UIView {
         stockCountLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         stockCountLabel.topAnchor.constraint(equalTo: itemImageView.bottomAnchor).isActive = true
     }
-    
-    private func addImageToItemImageView() {
-        itemImageView.image = UIImage(named: boundBeverage.name)
-    }
-    
+
     public func setStockLabelText(with amount: Int) {
         self.stockCountLabel.text = "\(amount) 개"
     }

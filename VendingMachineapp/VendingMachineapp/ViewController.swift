@@ -42,18 +42,18 @@ class ViewController: UIViewController {
     }
     
     @IBAction func addButtonTouched(_ sender: UIButton) {
-        vendingMachine.addBeverage(beverage: buttonDictionary[sender.self]!)
+        vendingMachine.add(beverage: buttonDictionary[sender.self]!)
         wholeBeverageList = vendingMachine.wholeBeverage()
         labelDictionary[sender.self]?.text = String(wholeBeverageList[buttonDictionary[sender.self]!] ?? 0)
     }
     
     @IBAction func ThousandButtonTouched(_ sender: UIButton) {
-        vendingMachine.increaseMoney(money: Money(with: 1000))
+        vendingMachine.increase(money: Money(with: 1000))
         currentChangeLabel.text = "잔액 : \(vendingMachine.checkChagne().money)원"
     }
     
     @IBAction func FiveThousandButtonTouched(_ sender: UIButton) {
-        vendingMachine.increaseMoney(money: Money(with: 5000))
+        vendingMachine.increase(money: Money(with: 5000))
         currentChangeLabel.text = "잔액 : \(vendingMachine.checkChagne().money)원"
     }
     

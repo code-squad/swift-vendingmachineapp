@@ -21,11 +21,11 @@ struct VendingMachine {
         return inventory.initializeProductList()
     }
     
-    mutating func increaseMoney(money: Money) {
+    mutating func increase(money: Money) {
         self.money.changeMoney(with: money)
     }
     
-    func addBeverage(beverage: Beverage) {
+    func add(beverage: Beverage) {
         inventory.add(beverage: beverage)
     }
     
@@ -33,7 +33,7 @@ struct VendingMachine {
         return manager.availablePurchaseList(inventory: inventory, money: money)
     }
     
-    mutating func purchaseBeverage(beverage: Beverage) {
+    mutating func purchase(beverage: Beverage) {
         if manager.updatePurchaseList(inventory: inventory, beverage: beverage) {
             self.money.changeMoney(with: Money(with: -beverage.price))
         }

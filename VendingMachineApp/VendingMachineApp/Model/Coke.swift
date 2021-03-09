@@ -24,6 +24,16 @@ class Coke: SoftDrink {
         try super.encode(to: encoder)
     }
     
+    required init?(coder: NSCoder) {
+        flavor = coder.decodeObject(forKey: "flavor") as! Flavor
+        super.init(coder: coder)
+    }
+    
+    override func encode(with coder: NSCoder) {
+        coder.encode(flavor, forKey: "flavor")
+        super.encode(with: coder)
+    }
+    
     enum Flavor: String, Codable {
         case Lime
         case Cherry

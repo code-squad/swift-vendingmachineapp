@@ -25,6 +25,16 @@ class Coffee:Beverage {
         try super.encode(to: encoder)
     }
     
+    required init?(coder: NSCoder) {
+        decaffeinated = coder.decodeObject(forKey: "decaffeinated") as! Bool
+        super.init(coder: coder)
+    }
+    
+    override func encode(with coder: NSCoder) {
+        coder.encode(decaffeinated, forKey: "decaffeinated")
+        super.encode(with: coder)
+    }
+    
     func discriminateDecaffeinated () -> String {
         if decaffeinated { return "YES" }
         else { return "NO" }

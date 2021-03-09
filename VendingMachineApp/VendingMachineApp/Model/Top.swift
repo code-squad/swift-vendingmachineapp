@@ -25,6 +25,16 @@ class Top: Coffee, IsDairyProducts {
         try super.encode(to: encoder)
     }
     
+    required init?(coder: NSCoder) {
+        dairyProducts = coder.decodeObject(forKey: "dairyProducts") as! Bool
+        super.init(coder: coder)
+    }
+    
+    override func encode(with coder: NSCoder) {
+        coder.encode(dairyProducts, forKey: "dairyProducts")
+        super.encode(with: coder)
+    }
+    
     func isDiaryProducts() -> Bool {
         return dairyProducts
     }

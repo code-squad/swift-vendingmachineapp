@@ -25,6 +25,16 @@ class ChocolateMilk: Milk, CheckAdditive {
         try super.encode(to: encoder)
     }
     
+    required init?(coder: NSCoder) {
+        additive = coder.decodeObject(forKey: "additive") as! String
+        super.init(coder: coder)
+    }
+    
+    override func encode(with coder: NSCoder) {
+        coder.encode(additive, forKey: "additive")
+        super.encode(with: coder)
+    }
+    
     func checkAdditive() -> String {
         return additive
     }

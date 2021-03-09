@@ -1,6 +1,6 @@
 import Foundation
 
-class Beverage: Codable {
+class Beverage: NSObject, NSCoding, Codable{
     
     private var brand: Brand.Name
     private var volume: Int
@@ -11,7 +11,7 @@ class Beverage: Codable {
     private var calories: Int
     private var temparature: Int
     
-    enum BeverageCodingKey: String, CodingKey {
+    private enum BeverageCodingKey: String, CodingKey {
         case brand
         case volume
         case price
@@ -57,6 +57,28 @@ class Beverage: Codable {
         try container.encode(temparature, forKey: .temparature)
     }
     
+    required init?(coder: NSCoder) {
+        brand = coder.decodeObject(forKey: "brand") as! Brand.Name
+        volume = coder.decodeObject(forKey: "volume") as! Int
+        price = coder.decodeObject(forKey: "price") as! Int
+        productName = coder.decodeObject(forKey: "productName") as! String
+        manufacturedAt = coder.decodeObject(forKey: "manufacturedAt") as! Date
+        sellByDate = coder.decodeObject(forKey: "sellByDate") as! Date
+        calories = coder.decodeObject(forKey: "calories") as! Int
+        temparature = coder.decodeObject(forKey: "temparature") as! Int
+    }
+    
+    func encode(with coder: NSCoder) {
+        coder.encode(brand, forKey: "brand")
+        coder.encode(volume, forKey: "volume")
+        coder.encode(price, forKey: "price")
+        coder.encode(productName, forKey: "productName")
+        coder.encode(manufacturedAt, forKey: "manufactruedAt")
+        coder.encode(sellByDate, forKey: "sellByDate")
+        coder.encode(calories, forKey: "calories")
+        coder.encode(temparature, forKey: "temparature")
+    }
+    
     func availableForBeverage() -> Bool {
         let machine = VendingMachine()
         return machine.insertedMoney.compareMoney(to: price) == true
@@ -73,8 +95,8 @@ class Beverage: Codable {
     
 }
 
-extension Beverage: CustomStringConvertible {
-    var description: String {
+extension Beverage {
+    override var description: String {
         return "제조사: \(brand), 용량: \(volume)ml, 가격: \(price)원, 제품명: \(productName), 제조일자: \(dateToString(with: manufacturedAt)), 유통기한: \(dateToString(with: sellByDate)), 저칼로리: \(calories), Hot: \(temparature)"
     }
 }
@@ -104,15 +126,10 @@ extension Beverage: CheckBeverageInfo {
     }
 }
 
-extension Beverage: Hashable {
+extension Beverage {
     
     public static func == (lhs: Beverage, rhs: Beverage) -> Bool {
         return type(of: lhs) == type(of: rhs) && lhs.productName == rhs.productName
-    }
-    
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(productName)
-        hasher.combine(price)
     }
 }
 

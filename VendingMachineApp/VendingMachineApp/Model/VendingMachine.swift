@@ -5,9 +5,19 @@ class VendingMachine: NSObject, NSCoding {
     var insertedMoney: InsertedMoney
     var beverages: Beverages
     
-    override init() {
+    override private init() {
         insertedMoney = InsertedMoney()
         beverages = Beverages()
+    }
+    
+    private static var sharedVendingMachine = VendingMachine()
+    
+    static func sharedInstance() -> VendingMachine {
+        return sharedVendingMachine
+    }
+    
+    static func loadInstance(_ vendingMachine: VendingMachine) {
+        sharedVendingMachine = vendingMachine
     }
     
     required init?(coder: NSCoder) {

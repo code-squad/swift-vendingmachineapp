@@ -7,10 +7,10 @@
 
 import Foundation
 
-class DrinkFactory {
-    static let shared = DrinkFactory()
+class BeverageFactory {
+    static let shared = BeverageFactory()
     
-    static func createBeverage(with beverageType: BeverageType) -> Productable {
+    func createBeverage(with beverageType: BeverageType) -> Productable {
         switch beverageType {
         case .cola:
             return Cola()

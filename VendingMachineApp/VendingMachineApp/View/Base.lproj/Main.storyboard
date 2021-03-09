@@ -25,7 +25,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="W0j-YA-aqI">
                                                 <rect key="frame" x="0.0" y="0.0" width="120" height="212.5"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="Cola" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JA7-lo-iki">
+                                                    <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="Cola" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JA7-lo-iki" customClass="ColaButton" customModule="VendingMachineApp" customModuleProvider="target">
                                                         <rect key="frame" x="45" y="0.0" width="30" height="30"/>
                                                         <state key="normal" title="추가"/>
                                                         <connections>
@@ -46,7 +46,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="vSo-ir-Rof">
                                                 <rect key="frame" x="189" y="0.0" width="120" height="212.5"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="RedBull" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CzY-HW-62X">
+                                                    <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="RedBull" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CzY-HW-62X" customClass="RedBullButton" customModule="VendingMachineApp" customModuleProvider="target">
                                                         <rect key="frame" x="45" y="0.0" width="30" height="30"/>
                                                         <state key="normal" title="추가"/>
                                                         <connections>
@@ -67,7 +67,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="EJ5-Tk-hK2">
                                                 <rect key="frame" x="378" y="0.0" width="103" height="212.5"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="StrawberryMilk" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6qX-a2-PWD">
+                                                    <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="StrawberryMilk" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6qX-a2-PWD" customClass="StrawberryMilkButton" customModule="VendingMachineApp" customModuleProvider="target">
                                                         <rect key="frame" x="36.5" y="0.0" width="30" height="30"/>
                                                         <state key="normal" title="추가"/>
                                                         <connections>
@@ -88,7 +88,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="Tpi-7g-Skt">
                                                 <rect key="frame" x="550" y="0.0" width="120" height="212.5"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="TOP" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="59A-4X-IgS">
+                                                    <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="TOP" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="59A-4X-IgS" customClass="TOPButton" customModule="VendingMachineApp" customModuleProvider="target">
                                                         <rect key="frame" x="45" y="0.0" width="30" height="30"/>
                                                         <state key="normal" title="추가"/>
                                                         <connections>
@@ -159,6 +159,10 @@
                         <outletCollection property="beverageImages" destination="jPy-os-x4x" collectionClass="NSMutableArray" id="tGB-nG-xfS"/>
                         <outletCollection property="beverageImages" destination="H3R-Qn-GfN" collectionClass="NSMutableArray" id="szs-VW-fcF"/>
                         <outletCollection property="beverageImages" destination="pf4-IR-rWP" collectionClass="NSMutableArray" id="HGT-7d-rOg"/>
+                        <outletCollection property="beverageButtons" destination="JA7-lo-iki" collectionClass="NSMutableArray" id="4cT-hf-pB1"/>
+                        <outletCollection property="beverageButtons" destination="CzY-HW-62X" collectionClass="NSMutableArray" id="lIW-yO-Mxb"/>
+                        <outletCollection property="beverageButtons" destination="6qX-a2-PWD" collectionClass="NSMutableArray" id="2Qy-Mf-ny8"/>
+                        <outletCollection property="beverageButtons" destination="59A-4X-IgS" collectionClass="NSMutableArray" id="uxr-Od-Yem"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

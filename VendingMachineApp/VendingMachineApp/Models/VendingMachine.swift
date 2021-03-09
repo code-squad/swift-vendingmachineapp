@@ -27,6 +27,13 @@ struct VendingMachine {
         inventory.add(item)
     }
     
+    func bulkInsert(itemFrom factory: BeverageFactory, quantity: Int, manufactured: Date?, expiredAfter: Date?) {
+        (0..<quantity).forEach { _ in
+            let item = factory.createProduct(manufactured: manufactured, expiredAfter: expiredAfter)
+            add(item: item)
+        }
+    }
+    
     func showPurchasableItemsWithDeposit() -> [Slot] {
         var purchasableItems: [Slot] = []
         inventory.showSlots {

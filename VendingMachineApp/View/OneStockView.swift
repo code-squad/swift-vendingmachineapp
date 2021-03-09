@@ -7,10 +7,6 @@
 
 import UIKit
 
-protocol StockDelegate {
-    func addStock(type : Beverage.Type)
-}
-
 class OneStockView: UIView {
     
     private var label : UILabel!
@@ -18,7 +14,11 @@ class OneStockView: UIView {
     private var stockImageView : UIImageView!
     private var stockImage : UIImage!
     private var beverageType : Beverage.Type!
-    private var count : Int = 0
+    private var count : Int = 0 {
+        didSet{
+            label.text = "재고량 : \(count)"
+        }
+    }
     
     var delegate : StockDelegate?
     
@@ -76,6 +76,7 @@ class OneStockView: UIView {
     }
     
     @objc func addStock(_ sender : UIButton){
+        self.count += 1
         delegate?.addStock(type: beverageType)
     }
 }

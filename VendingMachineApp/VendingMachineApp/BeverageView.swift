@@ -50,11 +50,11 @@ class BeverageView: UIView {
         
         addImageToItemImageView()
     }
-
-    required init(coder aDecoder: NSCoder) {
+    
+    @available(*, unavailable) required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     private func configureStockAddButton() {
         stockAddButton.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.25).isActive = true
         stockAddButton.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 1).isActive = true

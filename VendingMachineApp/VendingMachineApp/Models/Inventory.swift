@@ -13,7 +13,6 @@ class Inventory {
         return slots.count
     }
     
-    typealias SlotIndex = Int
     typealias ItemQuantity = Int
     
     init(slots: [Slot]) {
@@ -24,11 +23,11 @@ class Inventory {
         self.init(slots: (0..<numberOfSlots).map { _ in Slot() })
     }
     
-    func add(_ item: Beverage, at slotNumber: Int) {
-        enumerateSlots { (index, slot) in
-            if index == slotNumber - 1 {
-                slot.stock(item)
-            }
+    func add(_ item: Beverage) {
+        if let slot = slots.first(where: { $0.compareName(with: item.name) }) {
+            slot.stock(item)
+        } else {
+            slots.first { $0.itemCount == 0 }?.stock(item)
         }
     }
     
@@ -38,22 +37,16 @@ class Inventory {
         }
     }
     
-    func enumerateSlots(handler: (Int, Slot) -> ()) {
-        return slots.enumerated().forEach { (index, slot) in
-            handler(index, slot)
-        }
-    }
-    
     func filterHotDrinks() -> [Slot] {
         slots.filter {
             $0.isHotDrinkSlot()
         }
     }
     
-    func takeStock() -> [SlotIndex : (Slot, ItemQuantity)] {
-        var inventoryDictionary: [SlotIndex : (Slot, ItemQuantity)] = [:]
-        enumerateSlots { (index, slot) in
-            inventoryDictionary[index + 1] = (slot, slot.itemCount)
+    func takeStock() -> [Slot : ItemQuantity] {
+        var inventoryDictionary: [Slot : ItemQuantity] = [:]
+        slots.forEach {
+            inventoryDictionary[$0] = $0.itemCount
         }
         return inventoryDictionary
     }

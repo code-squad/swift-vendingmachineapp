@@ -10,6 +10,7 @@ import XCTest
 class VendingMachineTests: XCTestCase {
     
     var vendingMachine: VendingMachine!
+    var emptyVendingMachine: VendingMachine!
     let denmarkStrawberryMilkFactory = DenmarkStrawberryMilkFactory()
     let maeilChocolateMilkFactory = MaeilChocolateMilkFactory()
     let zeroSugarCokeFactory = ZeroSugarCokeFactory()
@@ -40,6 +41,7 @@ class VendingMachineTests: XCTestCase {
         try super.setUpWithError()
         
         vendingMachine = VendingMachine(numberOfSlots: 6)
+        emptyVendingMachine = VendingMachine(numberOfSlots: 6)
         strawberryMilk1 = denmarkStrawberryMilkFactory.createProduct(manufactured: Date().formattedDate(from: "20210222"), expiredAfter: Date().formattedDate(from: "20210302"))
         strawberryMilk2 = denmarkStrawberryMilkFactory.createProduct(manufactured: Date().formattedDate(from: "20210201"), expiredAfter: Date().formattedDate(from: "20210302"))
         strawberryMilk3 = denmarkStrawberryMilkFactory.createProduct(manufactured: Date().formattedDate(from: "20210218"), expiredAfter: Date().formattedDate(from: "20210228"))
@@ -56,27 +58,28 @@ class VendingMachineTests: XCTestCase {
         redBull2 = redBullFactory.createProduct(manufactured: Date().formattedDate(from: "20200601"), expiredAfter: Date().formattedDate(from: "20200601"))
         redBull3 = redBullFactory.createProduct(manufactured: Date().formattedDate(from: "20200301"), expiredAfter: Date().formattedDate(from: "20210301"))
         
-        vendingMachine.add(item: strawberryMilk1, slotNumber: 1)
-        vendingMachine.add(item: strawberryMilk2, slotNumber: 1)
-        vendingMachine.add(item: strawberryMilk3, slotNumber: 1)
-        vendingMachine.add(item: chocolateMilk1, slotNumber: 2)
-        vendingMachine.add(item: chocolateMilk2, slotNumber: 2)
-        vendingMachine.add(item: chocolateMilk3, slotNumber: 2)
-        vendingMachine.add(item: zeroSugarCoke1, slotNumber: 3)
-        vendingMachine.add(item: zeroSugarCoke2, slotNumber: 3)
-        vendingMachine.add(item: zeroSugarCoke3, slotNumber: 3)
-        vendingMachine.add(item: georgiaMax1, slotNumber: 4)
-        vendingMachine.add(item: georgiaMax2, slotNumber: 4)
-        vendingMachine.add(item: georgiaMax3, slotNumber: 4)
-        vendingMachine.add(item: redBull1, slotNumber: 5)
-        vendingMachine.add(item: redBull2, slotNumber: 5)
-        vendingMachine.add(item: redBull3, slotNumber: 5)
+        vendingMachine.add(item: strawberryMilk1)
+        vendingMachine.add(item: strawberryMilk2)
+        vendingMachine.add(item: strawberryMilk3)
+        vendingMachine.add(item: chocolateMilk1)
+        vendingMachine.add(item: chocolateMilk2)
+        vendingMachine.add(item: chocolateMilk3)
+        vendingMachine.add(item: zeroSugarCoke1)
+        vendingMachine.add(item: zeroSugarCoke2)
+        vendingMachine.add(item: zeroSugarCoke3)
+        vendingMachine.add(item: georgiaMax1)
+        vendingMachine.add(item: georgiaMax2)
+        vendingMachine.add(item: georgiaMax3)
+        vendingMachine.add(item: redBull1)
+        vendingMachine.add(item: redBull2)
+        vendingMachine.add(item: redBull3)
     }
     
     override func tearDownWithError() throws {
         try super.tearDownWithError()
         
         vendingMachine = nil
+        emptyVendingMachine = nil
         strawberryMilk1 = nil
         strawberryMilk2 = nil
         strawberryMilk3 = nil
@@ -114,26 +117,22 @@ class VendingMachineTests: XCTestCase {
         XCTAssertEqual(vendingMachine.showPurchasableItemsWithDeposit().count, 5)
     }
     
-    func test_자판기앱_빈슬롯에_상품추가() throws {
-        vendingMachine.add(item: strawberryMilk1, slotNumber: 6)
-        if let slot6 = vendingMachine.takeInventory()[6] {
-            XCTAssertEqual(slot6.1, 1)
-        }
+    func test_자판기앱_빈자판기에_상품추가() throws {
+        emptyVendingMachine.add(item: strawberryMilk1)
+        let inventorySheet = emptyVendingMachine.takeInventory()
+        XCTAssertEqual(inventorySheet, [Slot(items: [strawberryMilk1]): 1,
+                                        Slot(): 0])
     }
     
-    func test_자판기앱_슬롯에_같은상품추가() throws {
-        vendingMachine.add(item: strawberryMilk1, slotNumber: 1)
-        if let slot1 = vendingMachine.takeInventory()[1] {
-            XCTAssertEqual(slot1.1, 4)
-        }
-    }
-    
-    func test_자판기앱_슬롯에_다른상품추가() throws {
-        vendingMachine.add(item: strawberryMilk1, slotNumber: 2)
-        if let slot2 = vendingMachine.takeInventory()[2] {
-            XCTAssertNotEqual(slot2.1, 4)
-            XCTAssertEqual(slot2.1, 3)
-        }
+    func test_자판기앱_제품있는자판기에_상품추가() throws {
+        vendingMachine.add(item: strawberryMilk1)
+        let inventorySheet = vendingMachine.takeInventory()
+        XCTAssertEqual(inventorySheet, [Slot(items: [strawberryMilk1, strawberryMilk2, strawberryMilk3, strawberryMilk1]): 4,
+                                        Slot(items: [chocolateMilk1, chocolateMilk2, chocolateMilk3]): 3,
+                                        Slot(items: [zeroSugarCoke1, zeroSugarCoke2, zeroSugarCoke3]): 3,
+                                        Slot(items: [georgiaMax1, georgiaMax2, georgiaMax3]): 3,
+                                        Slot(items: [redBull1, redBull2, redBull3]): 3,
+                                        Slot(items: []): 0])
     }
     
     func test_자판기앱_상품구매() throws {
@@ -164,11 +163,11 @@ class VendingMachineTests: XCTestCase {
     
     func test_자판기앱_상품재고리턴() throws {
         let inventorySheet = vendingMachine.takeInventory()
-        XCTAssertEqual(inventorySheet[1]?.1, 3)
-        XCTAssertEqual(inventorySheet[2]?.1, 3)
-        XCTAssertEqual(inventorySheet[3]?.1, 3)
-        XCTAssertEqual(inventorySheet[4]?.1, 3)
-        XCTAssertEqual(inventorySheet[5]?.1, 3)
-        XCTAssertEqual(inventorySheet[6]?.1, 0)
+        XCTAssertEqual(inventorySheet, [Slot(items: [strawberryMilk1, strawberryMilk2, strawberryMilk3]): 3,
+                                        Slot(items: [chocolateMilk1, chocolateMilk2, chocolateMilk3]): 3,
+                                        Slot(items: [zeroSugarCoke1, zeroSugarCoke2, zeroSugarCoke3]): 3,
+                                        Slot(items: [georgiaMax1, georgiaMax2, georgiaMax3]): 3,
+                                        Slot(items: [redBull1, redBull2, redBull3]): 3,
+                                        Slot(items: []): 0])
     }
 }

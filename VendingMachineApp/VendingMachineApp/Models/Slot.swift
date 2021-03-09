@@ -7,7 +7,10 @@
 
 import Foundation
 
-class Slot: CustomStringConvertible {
+class Slot: CustomStringConvertible, Hashable {
+    static func == (lhs: Slot, rhs: Slot) -> Bool {
+        return lhs.items == rhs.items && lhs.itemCount == rhs.itemCount && lhs.firstItem == rhs.firstItem && lhs.itemImageName == rhs.itemImageName
+    }
     
     private var items: [Beverage]
     var itemCount: Int {
@@ -34,14 +37,15 @@ class Slot: CustomStringConvertible {
         self.init(items: [])
     }
     
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(items)
+        hasher.combine(itemCount)
+        hasher.combine(firstItem)
+        hasher.combine(itemImageName)
+    }
+    
     func stock(_ item: Beverage) {
-        if let firstItem = firstItem {
-            if item.name == firstItem.name {
-                items.append(item)
-            }
-        } else {
-            items.append(item)
-        }
+        items.append(item)
     }
     
     func isSameOrCheaper(than price: Int) -> Bool {

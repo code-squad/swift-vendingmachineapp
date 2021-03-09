@@ -37,9 +37,9 @@ class BeverageUnitTest: XCTestCase {
         cheapAndFreshFantaWithHighCaffeineAndFoodColoring = BeverageFactory.makeFanta(price: .low, packageTime: .fresh, calories: 0, foodColoring: .foodColoring, caffeine: .high)
         cheapAndFreshFantaWithHighCaffeineAndNoFoodColoring = BeverageFactory.makeFanta(price: .low, packageTime: .fresh, calories: 0, foodColoring: .noFoodColoring, caffeine: .high)
         expensiveButFreshCoffee = BeverageFactory.makeCoffee(price: .high, packageTime: .fresh)
-        cheapAndFreshHotAmericanoWithLowCaffeine = BeverageFactory.makeAmericano(price: .low, packageTime: .fresh, caffeine: .low, inHeatingCabinet: true)
-        expensiveAndOldHotCaffeeLatteWithHighCaffeine = BeverageFactory.makeCaffeLatte(price: .high, packageTime: .old, caffeine: .high, inHeatingCabinet: true)
-        expensiveAndOldColdCaffeeLatteWithHighCaffeine = BeverageFactory.makeCaffeLatte(price: .high, packageTime: .old, caffeine: .high, inHeatingCabinet: false)
+        cheapAndFreshHotAmericanoWithLowCaffeine = BeverageFactory.makeAmericano(price: .low, packageTime: .fresh, caffeine: .low, temperature: 50)
+        expensiveAndOldHotCaffeeLatteWithHighCaffeine = BeverageFactory.makeCaffeLatte(price: .high, packageTime: .old, caffeine: .high, temperature: 50)
+        expensiveAndOldColdCaffeeLatteWithHighCaffeine = BeverageFactory.makeCaffeLatte(price: .high, packageTime: .old, caffeine: .high, temperature: 50)
     }
     
     override func tearDown() {
@@ -94,34 +94,34 @@ class BeverageUnitTest: XCTestCase {
     }
     
     func test_hot_beverages_are_hot() {
-        XCTAssertTrue(cheapAndFreshHotAmericanoWithLowCaffeine.isHot())
-        XCTAssertTrue(expensiveAndOldHotCaffeeLatteWithHighCaffeine.isHot())
+        XCTAssertTrue(cheapAndFreshHotAmericanoWithLowCaffeine.isHot(temperature: 40))
+        XCTAssertTrue(expensiveAndOldHotCaffeeLatteWithHighCaffeine.isHot(temperature: 40))
     }
     
     func test_normal_beverages_are_not_hot() {
-        XCTAssertFalse(expensiveAndOldColdCaffeeLatteWithHighCaffeine.isHot())
+        XCTAssertFalse(expensiveAndOldColdCaffeeLatteWithHighCaffeine.isHot(temperature: 100))
     }
     
     func test_highCaffeine_beverages_contain_highCaffein() {
-        XCTAssertTrue(expensiveAndOldColdCaffeeLatteWithHighCaffeine.highCaffeine())
-        XCTAssertTrue(expensiveAndOldHotCaffeeLatteWithHighCaffeine.highCaffeine())
-        XCTAssertTrue(cheapAndFreshFantaWithHighCaffeineAndFoodColoring.highCaffeine())
+        XCTAssertTrue(expensiveAndOldColdCaffeeLatteWithHighCaffeine.highCaffeine(caffeine: 100))
+        XCTAssertTrue(expensiveAndOldHotCaffeeLatteWithHighCaffeine.highCaffeine(caffeine: 100))
+        XCTAssertTrue(cheapAndFreshFantaWithHighCaffeineAndFoodColoring.highCaffeine(caffeine: 100))
     }
     
     func test_beverages_with_highCaffeine_and_foodColoring_are_bad_for_body() {
-        XCTAssertTrue(cheapAndFreshFantaWithHighCaffeineAndFoodColoring.isBadForBody())
+        XCTAssertTrue(cheapAndFreshFantaWithHighCaffeineAndFoodColoring.isBadForBody(caffeine: 100))
     }
     
     func test_beverages_with_highCaffeine_and_noFoodColoring_are_not_bad_for_body() {
-        XCTAssertFalse(cheapAndFreshFantaWithHighCaffeineAndNoFoodColoring.isBadForBody())
+        XCTAssertFalse(cheapAndFreshFantaWithHighCaffeineAndNoFoodColoring.isBadForBody(caffeine: 100))
     }
     
     
     func test_hot_beverages_with_highCaffeine_are_energyBoosting() {
-        XCTAssertTrue(expensiveAndOldHotCaffeeLatteWithHighCaffeine.isEnergyBoosting())
+        XCTAssertTrue(expensiveAndOldHotCaffeeLatteWithHighCaffeine.isEnergyBoosting(caffeine: 100, temperature: 40))
     }
     
     func test_hot_but_lowCaffeine_beverages_are_not_energyBoosting() {
-        XCTAssertFalse(cheapAndFreshHotAmericanoWithLowCaffeine.isEnergyBoosting())
+        XCTAssertFalse(cheapAndFreshHotAmericanoWithLowCaffeine.isEnergyBoosting(caffeine: 100, temperature: 40))
     }
 }

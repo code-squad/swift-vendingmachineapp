@@ -176,7 +176,7 @@ class BeverageFactory {
         return Coffee(brand: coffeeBrands.randomElement()!, size: randomSize, price: randomPrice, name: coffeeNames.randomElement()!, packageTime: randomPackageTime)
     }
     
-    static func makeAmericano(price: Price, packageTime: packageTime, caffeine: CaffeineCapacity, inHeatingCabinet: Bool) -> Americano {
+    static func makeAmericano(price: Price, packageTime: packageTime, caffeine: CaffeineCapacity, temperature: Int) -> Americano {
         let randomPrice = generateRandomPrice(with: price)
         let randomPackageTime = generateRandomPackageTime(with: packageTime)
         let randomSize = generateRandomSize()
@@ -184,10 +184,10 @@ class BeverageFactory {
         let americanoNames = ["콜드브루","더치블랙", "이탈리아노"]
         let randomCaffeineCapacity = generateRandomCaffeineCapacity(with: caffeine)
     
-        return Americano(brand: americanoBrands.randomElement()!, size: randomSize, price: randomPrice, name: americanoNames.randomElement()!, packageTime: randomPackageTime, bean: .arabica, caffeine: randomCaffeineCapacity, inHeatingCabinet: inHeatingCabinet)
+        return Americano(brand: americanoBrands.randomElement()!, size: randomSize, price: randomPrice, name: americanoNames.randomElement()!, packageTime: randomPackageTime, bean: .arabica, caffeine: randomCaffeineCapacity, temperature: temperature)
     }
     
-    static func makeCaffeLatte(price: Price, packageTime: packageTime, caffeine: CaffeineCapacity, inHeatingCabinet: Bool) -> CaffeLatte {
+    static func makeCaffeLatte(price: Price, packageTime: packageTime, caffeine: CaffeineCapacity, temperature: Int) -> CaffeLatte {
         let randomPrice = generateRandomPrice(with: price)
         let randomPackageTime = generateRandomPackageTime(with: packageTime)
         let randomSize = generateRandomSize()
@@ -195,7 +195,7 @@ class BeverageFactory {
         let latteNames = ["TOP 카페라떼","카페라떼 하루", "오늘의 카페라떼"]
         let randomCaffeineCapacity = generateRandomCaffeineCapacity(with: caffeine)
         
-        return CaffeLatte(brand: latteBrands.randomElement()!, size: randomSize, price: randomPrice, name: latteNames.randomElement()!, packageTime: randomPackageTime, bean: .robusta, caffeine: randomCaffeineCapacity, inHeatingCabinet: inHeatingCabinet)
+        return CaffeLatte(brand: latteBrands.randomElement()!, size: randomSize, price: randomPrice, name: latteNames.randomElement()!, packageTime: randomPackageTime, bean: .robusta, caffeine: randomCaffeineCapacity, temperature: temperature)
     }
 }
 

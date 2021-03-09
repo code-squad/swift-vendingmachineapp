@@ -13,6 +13,7 @@
 		882A589F25E8AB4200BCAF67 /* DomesticLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882A589E25E8AB4200BCAF67 /* DomesticLocation.swift */; };
 		882A58A325E8B66700BCAF67 /* OverseasLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882A58A225E8B66700BCAF67 /* OverseasLocation.swift */; };
 		883E0ECC25F1D9BE00A2BA3D /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883E0ECB25F1D9BE00A2BA3D /* UIButtonExtension.swift */; };
+		883E0EE125F712E000A2BA3D /* NotificationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88846F4025F0E4B000333AE3 /* NotificationExtension.swift */; };
 		8849843925EDF101002C71F5 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88748AD625E4E9E000E7DCB1 /* Protocols.swift */; };
 		8849843A25EDF101002C71F5 /* Milliliter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882A589825E8926A00BCAF67 /* Milliliter.swift */; };
 		8849843B25EDF101002C71F5 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882A589325E7A84800BCAF67 /* DateExtension.swift */; };
@@ -388,6 +389,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				883E0EE125F712E000A2BA3D /* NotificationExtension.swift in Sources */,
 				88846F3125F0BF6900333AE3 /* BeverageFactory.swift in Sources */,
 				8849845525EE2986002C71F5 /* BeverageStorage.swift in Sources */,
 				8849845625EE2986002C71F5 /* MoneyProcessingUnit.swift in Sources */,

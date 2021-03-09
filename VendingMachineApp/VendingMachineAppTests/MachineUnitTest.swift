@@ -36,9 +36,9 @@ class MachineUnitTest: XCTestCase {
         cheapAndFreshFantaWithHighCaffeineAndFoodColoring = BeverageFactory.makeFanta(price: .low, packageTime: .fresh, calories: 0, foodColoring: .foodColoring, caffeine: .high)
         cheapAndFreshFantaWithHighCaffeineAndNoFoodColoring = BeverageFactory.makeFanta(price: .low, packageTime: .fresh, calories: 0, foodColoring: .noFoodColoring, caffeine: .high)
         expensiveButFreshCoffee = BeverageFactory.makeCoffee(price: .high, packageTime: .fresh)
-        cheapAndFreshHotAmericanoWithLowCaffeine = BeverageFactory.makeAmericano(price: .low, packageTime: .fresh, caffeine: .low, inHeatingCabinet: true)
-        expensiveAndOldHotCaffeeLatteWithHighCaffeine = BeverageFactory.makeCaffeLatte(price: .high, packageTime: .old, caffeine: .high, inHeatingCabinet: true)
-        expensiveAndOldColdCaffeeLatteWithHighCaffeine = BeverageFactory.makeCaffeLatte(price: .high, packageTime: .old, caffeine: .high, inHeatingCabinet: false)
+        cheapAndFreshHotAmericanoWithLowCaffeine = BeverageFactory.makeAmericano(price: .low, packageTime: .fresh, caffeine: .low, temperature: 40)
+        expensiveAndOldHotCaffeeLatteWithHighCaffeine = BeverageFactory.makeCaffeLatte(price: .high, packageTime: .old, caffeine: .high, temperature: 40)
+        expensiveAndOldColdCaffeeLatteWithHighCaffeine = BeverageFactory.makeCaffeLatte(price: .high, packageTime: .old, caffeine: .high, temperature: 40)
     }
 
     override func tearDownWithError() throws {

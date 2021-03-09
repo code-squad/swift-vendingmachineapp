@@ -28,6 +28,5 @@ class OutputView: UIView {
         
         self.addSubview(VMStackView)
         VMStackView.positionSetting()
-        
     }
 }

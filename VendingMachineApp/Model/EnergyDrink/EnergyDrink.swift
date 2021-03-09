@@ -10,9 +10,9 @@ import UIKit
 
 class EnergyDrink : Beverage {
     
-    private let caffeine : Int
+    private var caffeine : Int
     
-    init(brand: String, capacity: Int, price: Int, name: String, createdAt: String, expiredAt: String , caffeine : Int){
+    init(brand: String, capacity: Int, price: Int, name: String, createdAt: Date, expiredAt: Date , caffeine : Int){
         self.caffeine = caffeine
         super.init(brand: brand,
                    capacity: capacity,
@@ -20,5 +20,10 @@ class EnergyDrink : Beverage {
                    name: name,
                    createdAt: createdAt,
                    expiredAt: expiredAt)
+    }
+    
+    required init() {
+        self.caffeine = 0
+        super.init()
     }
 }

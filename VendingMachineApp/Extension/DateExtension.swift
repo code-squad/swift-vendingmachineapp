@@ -21,4 +21,11 @@ extension Date {
         let calendar = Calendar.current
         return calendar.compare(self, to: Date(), toGranularity: .day) == .orderedAscending
     }
+    func get7daysLatter() -> Date {
+        var dateComponent = DateComponents()
+        dateComponent.day = 7
+        
+        let newDate = Calendar.current.date(byAdding: dateComponent, to: self)!
+        return newDate
+    }
 }

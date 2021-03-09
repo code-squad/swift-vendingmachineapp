@@ -19,10 +19,10 @@ class VendingMachineAppTests: XCTestCase {
     
     func testsSenario(){
         
-        let top = CoffeeFactory.createBeverage(type: Top.self)!
-        let chocoMilk = MilkFactory.createBeverage(type: ChocolateMilk.self)!
-        let georgia = CoffeeFactory.createBeverage(type: Georgia.self)!
-        let sprite = SodaFactory.createBeverage(type: Sprite.self)!
+        let top = Factory.createInstance(type: Top.self)!
+        let chocoMilk = Factory.createInstance(type: ChocolateMilk.self)!
+        let georgia = Factory.createInstance(type: Georgia.self)!
+        let sprite = Factory.createInstance(type: Sprite.self)!
         
         var list = [top,chocoMilk,georgia,sprite]
         
@@ -36,7 +36,7 @@ class VendingMachineAppTests: XCTestCase {
         vendingMachine.charge(coins: 10000)
         
         // 재고를 확인한다.
-        XCTAssertEqual(vendingMachine.getTotalStock(), list.toDictionary(with: {$0.self}), "재고에 물품이 추가되지 않았습니다.")
+        XCTAssertEqual(vendingMachine.getTotalStock(), list.toDictionary(), "재고에 물품이 추가되지 않았습니다.")
         
         // 구매 가능한 상품을 출력한다.
         XCTAssertEqual(vendingMachine.availableProducts(), list, "구매 가능한 상품이 올바르지 않습니다.")
@@ -50,7 +50,7 @@ class VendingMachineAppTests: XCTestCase {
         XCTAssertEqual(vendingMachine.getCoins(), guess, "잔액이 올바르지 않습니다.")
         
         // 재고 상태를 확인한다.
-        XCTAssertEqual(vendingMachine.getTotalStock(), list.toDictionary(with: {$0.self}), "재고에 물품이 제거되지 않았습니다.")
+        XCTAssertEqual(vendingMachine.getTotalStock(), list.toDictionary(), "재고에 물품이 제거되지 않았습니다.")
         
         // 구매 이력을 확인한다.
         XCTAssertEqual(vendingMachine.getSoldProducts(), [georgia], "물품을 구매하지 못했습니다.")

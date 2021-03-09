@@ -16,10 +16,10 @@ class VendingMachineTest: XCTestCase {
     
         vendingMachine = VendingMachine()
         vendingMachine.charge(coins: 10000)
-        vendingMachine.append(product: StroberryMilk(createdAt:"20210403", expiredAt: "20210412"))
-        vendingMachine.append(product: ChocolateMilk(createdAt: "20200211", expiredAt: "20200220"))
-        vendingMachine.append(product: Coke(createdAt: "20200101", expiredAt: "20200824"))
-        vendingMachine.append(product: Top(createdAt: "20210101", expiredAt: "20210101", hot: true))
+        vendingMachine.append(product: StroberryMilk())
+        vendingMachine.append(product: ChocolateMilk())
+        vendingMachine.append(product: Coke())
+        vendingMachine.append(product: Top(brand: "Top", capacity: 100, price: 1000, name: "TOP", createdAt: Date(), expiredAt: Date(), caffeine: 100, hot: true, kind: .americano))
     }
 
     func testGetBalance() {
@@ -40,7 +40,7 @@ class VendingMachineTest: XCTestCase {
 
     func testExpiredProduct(){
         let actual = vendingMachine.expiredProduct().count
-        let expect = 3
+        let expect = 0
         
         XCTAssertEqual(expect, actual, "유통기한 체크 목록이 올바르지 않습니다.")
     }
@@ -53,7 +53,7 @@ class VendingMachineTest: XCTestCase {
     }
     func testSellProductsFail(){
     
-        let sprite = SodaFactory.createBeverage(type: Sprite.self)
+        let sprite = Factory.createInstance(type: Sprite.self)
         vendingMachine.sellProduct(product: sprite!)
         let expect = [sprite]
         let actual = vendingMachine.getSoldProducts()
@@ -62,7 +62,7 @@ class VendingMachineTest: XCTestCase {
     }
     func testGetSoldProducts(){
     
-        let sprite = SodaFactory.createBeverage(type: Sprite.self)!
+        let sprite = Factory.createInstance(type: Sprite.self)!
         vendingMachine.append(product: sprite)
         
         vendingMachine.sellProduct(product: sprite)

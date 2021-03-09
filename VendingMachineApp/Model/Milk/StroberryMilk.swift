@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import UIKit
 
 class StroberryMilk : Milk {
     private let stroberryContent : Float

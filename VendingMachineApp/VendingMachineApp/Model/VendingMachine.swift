@@ -1,44 +1,37 @@
 import Foundation
 
-struct VendingMachine: Codable {
+class VendingMachine: NSObject, NSCoding {
+    
     var insertedMoney: InsertedMoney
     var beverages: Beverages
     
-    enum VendingMachineCodingKey: String, CodingKey {
-        case insertedMoney
-        case beverages
-    }
-    
-    init() {
+    override init() {
         insertedMoney = InsertedMoney()
         beverages = Beverages()
     }
     
-    init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: VendingMachineCodingKey.self)
-        insertedMoney = try values.decode(InsertedMoney.self, forKey: .insertedMoney)
-        beverages = try values.decode(Beverages.self, forKey: .beverages)
+    required init?(coder: NSCoder) {
+        insertedMoney = coder.decodeObject(forKey: "insertedMoney") as! InsertedMoney
+        beverages = coder.decodeObject(forKey: "beverages") as! Beverages
     }
     
-    
-    func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: VendingMachineCodingKey.self)
-        try container.encode(insertedMoney, forKey: .insertedMoney)
-        try container.encode(beverages, forKey: .beverages)
+    func encode(with coder: NSCoder) {
+        coder.encode(insertedMoney, forKey: "insertedMoney")
+        coder.encode(beverages, forKey: "beverages")
     }
     
-    mutating func addBeverage(beverage: Beverage) {
+    func addBeverage(beverage: Beverage) {
         beverages.append(from: beverage)
     }
     
-    mutating func getTheMoney(from customer: Int) {
+    func getTheMoney(from customer: Int) {
         insertedMoney.insertMoney(from: customer)
     }
     
     func nowAvailableList() -> [Beverage] {
         var availableList = [Beverage]()
         beverages.forEachBeverage { beverage in
-            if beverage.availableForBeverage() {
+            if beverage.affordableForBeverage(money: insertedMoney) {
                 availableList.append(beverage)
             }
         }
@@ -58,9 +51,9 @@ struct VendingMachine: Codable {
     }
     
     func buyBeverage(product: Beverage)  -> Beverage? {
-        if product.availableForBeverage() {
+        if product.affordableForBeverage(money: insertedMoney) {
             beverages.removeProduct(product)
-            product.afterBuyingBeverage()
+            insertedMoney.afterBuyingProduct(minus: product.price)
             return product
         }
         return nil

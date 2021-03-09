@@ -8,7 +8,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var encodedData: Data!
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        guard let decodedData = dataManager.loadedData() else {
+        guard let decodedData = dataManager.loadData() else {
             machine = VendingMachine()
             return true
         }
@@ -20,7 +20,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func applicationDidEnterBackground(_ application: UIApplication) {
-        dataManager.savedData(machine)
     }
     
     func applicationWillEnterForeground(_ application: UIApplication) {

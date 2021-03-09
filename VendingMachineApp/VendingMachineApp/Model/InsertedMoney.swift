@@ -1,11 +1,19 @@
 import Foundation
 
-class InsertedMoney: Codable {
+class InsertedMoney: NSObject, NSCoding {
     
     private var insertedMoney: Int
     
-    init() {
+    override init() {
         insertedMoney = 0
+    }
+    
+    required init?(coder: NSCoder) {
+        insertedMoney = coder.decodeInteger(forKey: "insertedMoney")
+    }
+    
+    func encode(with coder: NSCoder) {
+        coder.encode(insertedMoney, forKey: "insertedMoney")
     }
     
     func insertMoney(from customer: Int) {
@@ -23,10 +31,14 @@ class InsertedMoney: Codable {
     func resetMoeny() {
         insertedMoney = 0
     }
+    
+    func compareInsertedMoneyToPrice(price: Int) -> Bool {
+        return insertedMoney >= price
+    }
 }
 
-extension InsertedMoney: CustomStringConvertible {
-    var description: String {
+extension InsertedMoney {
+    override var description: String {
         return "\(insertedMoney)"
     }
 }

@@ -18,7 +18,6 @@
 		7626C04025F5C75D006749CA /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7663A7E525E6A29B0034156D /* VendingMachine.swift */; };
 		7626C04425F5C7AB006749CA /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7663A7ED25E6A2A80034156D /* Beverage.swift */; };
 		7626C04925F5C7CD006749CA /* BeverageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7626C04825F5C7CD006749CA /* BeverageTests.swift */; };
-		7626C04D25F5CCA2006749CA /* Staff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7663A80D25E80DC10034156D /* Staff.swift */; };
 		7626C05125F5CCAB006749CA /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7663A7F225E7E0A60034156D /* Stock.swift */; };
 		7626C05525F5CCB6006749CA /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7663A7F725E8081C0034156D /* Milk.swift */; };
 		7626C05925F5CCBB006749CA /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7663A80825E80BA80034156D /* Coffee.swift */; };
@@ -42,7 +41,6 @@
 		7663A7F325E7E0A60034156D /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7663A7F225E7E0A60034156D /* Stock.swift */; };
 		7663A7F825E8081C0034156D /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7663A7F725E8081C0034156D /* Milk.swift */; };
 		7663A80925E80BA80034156D /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7663A80825E80BA80034156D /* Coffee.swift */; };
-		7663A80E25E80DC10034156D /* Staff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7663A80D25E80DC10034156D /* Staff.swift */; };
 		7663A81B25E815190034156D /* SoftDrink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7663A81A25E815190034156D /* SoftDrink.swift */; };
 		76CF906825EC387F001A73C4 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76CF906725EC387F001A73C4 /* DateExtension.swift */; };
 /* End PBXBuildFile section */
@@ -89,7 +87,6 @@
 		7663A7F225E7E0A60034156D /* Stock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stock.swift; sourceTree = "<group>"; };
 		7663A7F725E8081C0034156D /* Milk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Milk.swift; sourceTree = "<group>"; };
 		7663A80825E80BA80034156D /* Coffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
-		7663A80D25E80DC10034156D /* Staff.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Staff.swift; sourceTree = "<group>"; };
 		7663A81A25E815190034156D /* SoftDrink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoftDrink.swift; sourceTree = "<group>"; };
 		76CF906725EC387F001A73C4 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		76CF907725EE24C6001A73C4 /* VendingMachineAppTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VendingMachineAppTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -167,9 +164,10 @@
 		7663A7E425E64D080034156D /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				7663A80D25E80DC10034156D /* Staff.swift */,
 				7663A7E525E6A29B0034156D /* VendingMachine.swift */,
 				7663A7F225E7E0A60034156D /* Stock.swift */,
+				7626C08425F5E8C1006749CA /* Cashier.swift */,
+				7626C08A25F614FE006749CA /* PurchaseHistory.swift */,
 				7663A7ED25E6A2A80034156D /* Beverage.swift */,
 				7663A7F725E8081C0034156D /* Milk.swift */,
 				7663A80825E80BA80034156D /* Coffee.swift */,
@@ -316,7 +314,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7626C04D25F5CCA2006749CA /* Staff.swift in Sources */,
 				7626C07825F5CCD0006749CA /* EnergyDrink.swift in Sources */,
 				7626C08025F5CCD7006749CA /* BeverageType.swift in Sources */,
 				7626C06425F5CCC0006749CA /* BananaMilk.swift in Sources */,
@@ -340,7 +337,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7663A80E25E80DC10034156D /* Staff.swift in Sources */,
 				7663A7EE25E6A2A80034156D /* Beverage.swift in Sources */,
 				7663A7A225E642A60034156D /* ViewController.swift in Sources */,
 				7626C01125F0B37D006749CA /* Coke.swift in Sources */,

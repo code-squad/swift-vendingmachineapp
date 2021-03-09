@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import UIKit
 
 class Coffee : Beverage{
     private var caffeine : Int

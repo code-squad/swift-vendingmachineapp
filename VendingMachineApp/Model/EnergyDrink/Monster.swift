@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import UIKit
 
 class Monster : EnergyDrink {
     enum Kind {

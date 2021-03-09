@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import UIKit
 
 class Soda : Beverage {
     required init() {

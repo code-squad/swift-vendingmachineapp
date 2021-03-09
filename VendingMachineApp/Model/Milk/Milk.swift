@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import UIKit
 
 class Milk : Beverage {
     private var lowFat : Bool

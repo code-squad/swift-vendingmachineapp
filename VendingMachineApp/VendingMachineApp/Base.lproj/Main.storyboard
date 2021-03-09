@@ -16,20 +16,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="m1Q-5y-yR6" userLabel="음료 1 라인">
-                                <rect key="frame" x="100" y="49" width="824" height="185"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="iYS-Fi-gzj" userLabel="우유 라인">
+                                <rect key="frame" x="100" y="60" width="405" height="185.5"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xYR-JL-OWy" userLabel="StrawberryMilk View">
-                                        <rect key="frame" x="0.0" y="0.0" width="123" height="185"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="123.5" height="185.5"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="StrawberryMilk" translatesAutoresizingMaskIntoConstraints="NO" id="yiI-A7-QCL">
-                                                <rect key="frame" x="24.5" y="37" width="74" height="111"/>
+                                                <rect key="frame" x="24.5" y="37" width="74.5" height="111.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="yiI-A7-QCL" secondAttribute="height" multiplier="2:3" id="6Kk-Wh-28N"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0개" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hDU-ks-kyq">
-                                                <rect key="frame" x="46" y="15" width="31" height="15.5"/>
+                                                <rect key="frame" x="46.5" y="15" width="31" height="15.5"/>
                                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" secondItem="hDU-ks-kyq" secondAttribute="width" multiplier="1:2" id="7ca-gQ-TJ9"/>
@@ -38,10 +38,10 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="34" translatesAutoresizingMaskIntoConstraints="NO" id="rb7-1t-deC" userLabel="추가구매 stack">
-                                                <rect key="frame" x="9" y="153" width="105.5" height="22.5"/>
+                                                <rect key="frame" x="9" y="153.5" width="106" height="22.5"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wXw-zU-FOh">
-                                                        <rect key="frame" x="0.0" y="0.0" width="35.5" height="22.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="36" height="22.5"/>
                                                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="wXw-zU-FOh" secondAttribute="height" multiplier="8:5" id="Kvo-3a-f7F"/>
@@ -49,7 +49,7 @@
                                                         <state key="normal" title="추가"/>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rAA-l3-hn0">
-                                                        <rect key="frame" x="69.5" y="0.0" width="36" height="22.5"/>
+                                                        <rect key="frame" x="70" y="0.0" width="36" height="22.5"/>
                                                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="rAA-l3-hn0" secondAttribute="height" multiplier="8:5" id="X2y-D4-Otx"/>
@@ -74,10 +74,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pRr-Fv-Jdg" userLabel="ChocoMilk View">
-                                        <rect key="frame" x="140" y="0.0" width="123.5" height="185"/>
+                                        <rect key="frame" x="140.5" y="0.0" width="124" height="185.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0개" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5o3-2E-tYu">
-                                                <rect key="frame" x="46.5" y="15" width="30.5" height="15.5"/>
+                                                <rect key="frame" x="46.5" y="15" width="31" height="15.5"/>
                                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" secondItem="5o3-2E-tYu" secondAttribute="width" multiplier="1:2" id="WfX-Vu-P3R"/>
@@ -86,13 +86,13 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="ChocoMilk" translatesAutoresizingMaskIntoConstraints="NO" id="DNc-cL-5U8">
-                                                <rect key="frame" x="25" y="37" width="73.5" height="111"/>
+                                                <rect key="frame" x="25" y="37" width="74" height="111.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="DNc-cL-5U8" secondAttribute="height" multiplier="2:3" id="iXK-Yi-hRf"/>
                                                 </constraints>
                                             </imageView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="34" translatesAutoresizingMaskIntoConstraints="NO" id="aGA-sE-wDl" userLabel="추가구매 stack">
-                                                <rect key="frame" x="9" y="153" width="105.5" height="22.5"/>
+                                                <rect key="frame" x="9" y="153.5" width="106" height="22.5"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vsP-BH-TeC">
                                                         <rect key="frame" x="0.0" y="0.0" width="36" height="22.5"/>
@@ -103,7 +103,7 @@
                                                         <state key="normal" title="추가"/>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZFL-HQ-SqU">
-                                                        <rect key="frame" x="70" y="0.0" width="35.5" height="22.5"/>
+                                                        <rect key="frame" x="70" y="0.0" width="36" height="22.5"/>
                                                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="ZFL-HQ-SqU" secondAttribute="height" multiplier="8:5" id="ePf-Yk-aVS"/>
@@ -128,10 +128,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZEX-AS-rld" userLabel="BananaMilk View">
-                                        <rect key="frame" x="280.5" y="0.0" width="123" height="185"/>
+                                        <rect key="frame" x="281.5" y="0.0" width="123.5" height="185.5"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="BananaMilk" translatesAutoresizingMaskIntoConstraints="NO" id="6LR-AW-LYe">
-                                                <rect key="frame" x="24.5" y="37" width="74" height="111"/>
+                                                <rect key="frame" x="24.5" y="37" width="74.5" height="111.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="6LR-AW-LYe" secondAttribute="height" multiplier="2:3" id="JZh-FZ-y6i"/>
                                                 </constraints>
@@ -146,7 +146,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="34" translatesAutoresizingMaskIntoConstraints="NO" id="9xB-pF-7Oy" userLabel="추가구매 stack">
-                                                <rect key="frame" x="8.5" y="153" width="105.5" height="22.5"/>
+                                                <rect key="frame" x="8.5" y="153.5" width="106" height="22.5"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VLK-ZU-iUH">
                                                         <rect key="frame" x="0.0" y="0.0" width="36" height="22.5"/>
@@ -157,7 +157,7 @@
                                                         <state key="normal" title="추가"/>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uve-T4-XHO">
-                                                        <rect key="frame" x="70" y="0.0" width="35.5" height="22.5"/>
+                                                        <rect key="frame" x="70" y="0.0" width="36" height="22.5"/>
                                                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="Uve-T4-XHO" secondAttribute="height" multiplier="8:5" id="Sar-fP-Nyu"/>
@@ -181,11 +181,20 @@
                                             <constraint firstItem="9xB-pF-7Oy" firstAttribute="bottom" secondItem="ZEX-AS-rld" secondAttribute="bottom" constant="-9.5" id="yox-gu-PiX"/>
                                         </constraints>
                                     </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="pRr-Fv-Jdg" firstAttribute="width" secondItem="xYR-JL-OWy" secondAttribute="width" id="6pB-ck-nDL"/>
+                                    <constraint firstItem="ZEX-AS-rld" firstAttribute="width" secondItem="xYR-JL-OWy" secondAttribute="width" id="aVT-Id-Dmk"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="VPz-Ej-NOc" userLabel="탄산 라인">
+                                <rect key="frame" x="519" y="60" width="405" height="185.5"/>
+                                <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PPI-Cl-un3" userLabel="Pepsi View">
-                                        <rect key="frame" x="420.5" y="0.0" width="123" height="185"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="123.5" height="185.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0개" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4S1-tT-sWb">
-                                                <rect key="frame" x="46" y="15" width="31" height="15.5"/>
+                                                <rect key="frame" x="46.5" y="15" width="31" height="15.5"/>
                                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" secondItem="4S1-tT-sWb" secondAttribute="width" multiplier="1:2" id="2qI-hL-xmd"/>
@@ -194,16 +203,16 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Pepsi" translatesAutoresizingMaskIntoConstraints="NO" id="bmd-FE-QLd">
-                                                <rect key="frame" x="31" y="41" width="61.5" height="102.5"/>
+                                                <rect key="frame" x="31" y="41" width="62" height="103.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="bmd-FE-QLd" secondAttribute="height" multiplier="3:5" id="a9a-0J-xcS"/>
                                                 </constraints>
                                             </imageView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="34" translatesAutoresizingMaskIntoConstraints="NO" id="FC9-1b-19T" userLabel="추가구매 stack">
-                                                <rect key="frame" x="9" y="153" width="105.5" height="22.5"/>
+                                                <rect key="frame" x="9" y="153.5" width="106" height="22.5"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A5j-5d-Nh4">
-                                                        <rect key="frame" x="0.0" y="0.0" width="35.5" height="22.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="36" height="22.5"/>
                                                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="A5j-5d-Nh4" secondAttribute="height" multiplier="8:5" id="Y6l-G9-H7M"/>
@@ -211,7 +220,7 @@
                                                         <state key="normal" title="추가"/>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tcD-eu-VUe">
-                                                        <rect key="frame" x="69.5" y="0.0" width="36" height="22.5"/>
+                                                        <rect key="frame" x="70" y="0.0" width="36" height="22.5"/>
                                                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="tcD-eu-VUe" secondAttribute="height" multiplier="8:5" id="Y7V-kw-IhI"/>
@@ -236,16 +245,16 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ENv-lU-K8L" userLabel="Sprite View">
-                                        <rect key="frame" x="560.5" y="0.0" width="123.5" height="185"/>
+                                        <rect key="frame" x="140.5" y="0.0" width="124" height="185.5"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Sprite" translatesAutoresizingMaskIntoConstraints="NO" id="xta-GO-wSz">
-                                                <rect key="frame" x="31" y="41" width="61.5" height="102.5"/>
+                                                <rect key="frame" x="31" y="41" width="62" height="103.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="xta-GO-wSz" secondAttribute="height" multiplier="3:5" id="CXO-UN-zYx"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0개" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wwl-JD-7vs">
-                                                <rect key="frame" x="46.5" y="15" width="30.5" height="15.5"/>
+                                                <rect key="frame" x="46.5" y="15" width="31" height="15.5"/>
                                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" secondItem="Wwl-JD-7vs" secondAttribute="width" multiplier="1:2" id="vgC-Il-dKS"/>
@@ -254,7 +263,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="34" translatesAutoresizingMaskIntoConstraints="NO" id="Iob-y9-8fz" userLabel="추가구매 stack">
-                                                <rect key="frame" x="9" y="153" width="105.5" height="22.5"/>
+                                                <rect key="frame" x="9" y="153.5" width="106" height="22.5"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ePY-wy-kUk">
                                                         <rect key="frame" x="0.0" y="0.0" width="36" height="22.5"/>
@@ -265,7 +274,7 @@
                                                         <state key="normal" title="추가"/>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GvD-eS-Yth">
-                                                        <rect key="frame" x="70" y="0.0" width="35.5" height="22.5"/>
+                                                        <rect key="frame" x="70" y="0.0" width="36" height="22.5"/>
                                                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="GvD-eS-Yth" secondAttribute="height" multiplier="8:5" id="1g7-Cp-CpW"/>
@@ -290,10 +299,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nDb-o3-NjM" userLabel="Fanta View">
-                                        <rect key="frame" x="701" y="0.0" width="123" height="185"/>
+                                        <rect key="frame" x="281.5" y="0.0" width="123.5" height="185.5"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Fanta" translatesAutoresizingMaskIntoConstraints="NO" id="bb0-yi-o7T">
-                                                <rect key="frame" x="30.5" y="41" width="61.5" height="102.5"/>
+                                                <rect key="frame" x="31" y="41" width="61.5" height="103.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="bb0-yi-o7T" secondAttribute="height" multiplier="3:5" id="JZF-Hi-B2h"/>
                                                 </constraints>
@@ -308,7 +317,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="34" translatesAutoresizingMaskIntoConstraints="NO" id="sEA-Lb-LUj" userLabel="추가구매 stack">
-                                                <rect key="frame" x="8.5" y="153" width="105.5" height="22.5"/>
+                                                <rect key="frame" x="8.5" y="153.5" width="106" height="22.5"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xtZ-EI-JyW">
                                                         <rect key="frame" x="0.0" y="0.0" width="36" height="22.5"/>
@@ -319,7 +328,7 @@
                                                         <state key="normal" title="추가"/>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tjj-yE-dwM">
-                                                        <rect key="frame" x="70" y="0.0" width="35.5" height="22.5"/>
+                                                        <rect key="frame" x="70" y="0.0" width="36" height="22.5"/>
                                                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="Tjj-yE-dwM" secondAttribute="height" multiplier="8:5" id="IF2-wC-4XJ"/>
@@ -345,26 +354,18 @@
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="ENv-lU-K8L" firstAttribute="height" secondItem="ENv-lU-K8L" secondAttribute="width" multiplier="3:2" id="3AJ-DN-e9j"/>
-                                    <constraint firstItem="PPI-Cl-un3" firstAttribute="height" secondItem="PPI-Cl-un3" secondAttribute="width" multiplier="3:2" id="CqR-Wp-Chq"/>
-                                    <constraint firstItem="PPI-Cl-un3" firstAttribute="width" secondItem="m1Q-5y-yR6" secondAttribute="width" multiplier="1:7" constant="2.5714285714285836" id="DAG-NL-3Z3"/>
-                                    <constraint firstItem="nDb-o3-NjM" firstAttribute="width" secondItem="m1Q-5y-yR6" secondAttribute="width" multiplier="1:7" constant="2.5714285714285836" id="MhT-RE-SH8"/>
-                                    <constraint firstItem="pRr-Fv-Jdg" firstAttribute="height" secondItem="pRr-Fv-Jdg" secondAttribute="width" multiplier="3:2" id="OlK-L3-QMw"/>
-                                    <constraint firstItem="ZEX-AS-rld" firstAttribute="width" secondItem="m1Q-5y-yR6" secondAttribute="width" multiplier="1:7" constant="2.5714285714285836" id="a4A-4W-GiY"/>
-                                    <constraint firstItem="ZEX-AS-rld" firstAttribute="height" secondItem="ZEX-AS-rld" secondAttribute="width" multiplier="3:2" id="bOh-L9-5Zn"/>
-                                    <constraint firstItem="ENv-lU-K8L" firstAttribute="width" secondItem="m1Q-5y-yR6" secondAttribute="width" multiplier="1:7" constant="2.5714285714285836" id="jTH-ae-j8t"/>
-                                    <constraint firstItem="nDb-o3-NjM" firstAttribute="height" secondItem="nDb-o3-NjM" secondAttribute="width" multiplier="3:2" id="kJE-lC-N5m"/>
-                                    <constraint firstItem="pRr-Fv-Jdg" firstAttribute="width" secondItem="m1Q-5y-yR6" secondAttribute="width" multiplier="1:7" constant="2.5714285714285836" id="wVj-Tr-HvJ"/>
+                                    <constraint firstItem="ENv-lU-K8L" firstAttribute="width" secondItem="PPI-Cl-un3" secondAttribute="width" id="LJQ-I3-0rE"/>
+                                    <constraint firstItem="nDb-o3-NjM" firstAttribute="width" secondItem="PPI-Cl-un3" secondAttribute="width" id="hFv-cK-Zcz"/>
                                 </constraints>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="6yc-nd-UMw" userLabel="음료 2 라인">
-                                <rect key="frame" x="100" y="284" width="405" height="179.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="6yc-nd-UMw" userLabel="커피 라인">
+                                <rect key="frame" x="100" y="275.5" width="405" height="179.5"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wgl-Hb-gND" userLabel="Cantata View">
                                         <rect key="frame" x="0.0" y="0.0" width="119.5" height="179.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0개" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ziy-uV-I1X">
-                                                <rect key="frame" x="45" y="15" width="30" height="14.5"/>
+                                                <rect key="frame" x="45" y="15" width="30" height="15"/>
                                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" secondItem="ziy-uV-I1X" secondAttribute="width" multiplier="1:2" id="b2B-xf-pPp"/>
@@ -373,7 +374,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Cantata" translatesAutoresizingMaskIntoConstraints="NO" id="5TV-Cd-sED">
-                                                <rect key="frame" x="26.5" y="34" width="66.5" height="111"/>
+                                                <rect key="frame" x="26.5" y="34.5" width="66.5" height="110.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="5TV-Cd-sED" secondAttribute="height" multiplier="3:5" id="ZdZ-0P-TOk"/>
                                                 </constraints>
@@ -418,7 +419,7 @@
                                         <rect key="frame" x="142.5" y="0.0" width="120" height="179.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0개" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CpU-EE-SBe">
-                                                <rect key="frame" x="45" y="15" width="30" height="14.5"/>
+                                                <rect key="frame" x="45" y="15" width="30" height="15"/>
                                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" secondItem="CpU-EE-SBe" secondAttribute="width" multiplier="1:2" id="6Ej-Wp-plV"/>
@@ -472,7 +473,7 @@
                                         <rect key="frame" x="285.5" y="0.0" width="119.5" height="179.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0개" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IR8-LK-PRu">
-                                                <rect key="frame" x="44.5" y="15" width="30" height="14.5"/>
+                                                <rect key="frame" x="44.5" y="15" width="30" height="15"/>
                                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" secondItem="IR8-LK-PRu" secondAttribute="width" multiplier="1:2" id="m3l-UI-8JH"/>
@@ -481,7 +482,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Georgia" translatesAutoresizingMaskIntoConstraints="NO" id="CBD-Sv-Wwh">
-                                                <rect key="frame" x="34" y="38" width="51.5" height="103"/>
+                                                <rect key="frame" x="34" y="38.5" width="51.5" height="102.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="CBD-Sv-Wwh" secondAttribute="height" multiplier="1:2" id="5EH-7s-0VW"/>
                                                 </constraints>
@@ -560,13 +561,15 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemGray5Color"/>
                         <constraints>
+                            <constraint firstItem="VPz-Ej-NOc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="60" id="2i8-9A-RV0"/>
                             <constraint firstItem="6yc-nd-UMw" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="centerX" constant="-7" id="6c0-Dn-yxU"/>
-                            <constraint firstItem="m1Q-5y-yR6" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="49" id="DXo-2s-IBk"/>
+                            <constraint firstItem="VPz-Ej-NOc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="centerX" constant="7" id="BJI-rf-uYQ"/>
+                            <constraint firstItem="iYS-Fi-gzj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="100" id="E6J-Nj-5fC"/>
+                            <constraint firstItem="iYS-Fi-gzj" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="60" id="EBd-Th-rDh"/>
+                            <constraint firstItem="VPz-Ej-NOc" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="-100" id="FoH-M5-Uma"/>
                             <constraint firstItem="6yc-nd-UMw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="100" id="HYL-x6-zaW"/>
-                            <constraint firstItem="m1Q-5y-yR6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="100" id="TdP-fS-cgJ"/>
-                            <constraint firstItem="6yc-nd-UMw" firstAttribute="top" secondItem="m1Q-5y-yR6" secondAttribute="bottom" constant="50" id="VSx-FO-dYh"/>
-                            <constraint firstItem="m1Q-5y-yR6" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="VcH-lI-QkN"/>
-                            <constraint firstItem="m1Q-5y-yR6" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="-100" id="ag4-DY-CcT"/>
+                            <constraint firstItem="iYS-Fi-gzj" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="centerX" constant="-7" id="YEL-Rk-ftg"/>
+                            <constraint firstItem="6yc-nd-UMw" firstAttribute="top" secondItem="iYS-Fi-gzj" secondAttribute="bottom" constant="30" id="dRZ-rb-DRj"/>
                         </constraints>
                     </view>
                 </viewController>

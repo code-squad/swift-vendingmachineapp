@@ -31,7 +31,7 @@ class Beverage {
     }
     
     public func isExpired() -> Bool {
-        return self.packageTime.isOld()
+        return self.packageTime.isOld(after: 60)
     }
 }
 

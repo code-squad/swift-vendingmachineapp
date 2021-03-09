@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+enum BeverageType {
+    case BananaMilk, ChocoMilk
+    case Americano, CaffeLatte
+    case Coke, EnergyDrink
+}

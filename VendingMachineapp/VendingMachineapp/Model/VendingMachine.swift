@@ -34,8 +34,9 @@ struct VendingMachine {
     }
     
     mutating func purchaseBeverage(beverage: Beverage) {
-        manager.updatePurchaseList(inventory: inventory, beverage: beverage)
-        self.money.changeMoney(with: Money(with: -beverage.price) )
+        if manager.updatePurchaseList(inventory: inventory, beverage: beverage) {
+            self.money.changeMoney(with: Money(with: -beverage.price))
+        }
     }
     
     func hotBeverageList() -> [Beverage] {

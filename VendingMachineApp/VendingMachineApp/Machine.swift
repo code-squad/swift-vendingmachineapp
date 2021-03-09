@@ -40,14 +40,16 @@ struct Machine {
     mutating func purchaseBeverage(beverage: Beverage) {
         let itemPrice = beverage.showPrice()
         guard itemPrice <= moneyProccesor.moneyOnTransactionAmount() else { return }
-        do {
-            try beverageStorage.decreaseStock(beverage: beverage) {
-                moneyProccesor.deductMoneyOnTransaction(with: itemPrice)
-                savePurchaseHistory(beverage: beverage)
+            beverageStorage.decreaseStock(beverage: beverage) {result in
+                switch result {
+                case .success(let deductedBeverage):
+                    moneyProccesor.deductMoneyOnTransaction(with: itemPrice)
+                    savePurchaseHistory(beverage: deductedBeverage)
+                case .failure(let error):
+                    print(error.localizedDescription)
+                    return
+                }
             }
-        } catch {
-            print(error)
-        }
     }
 
     mutating func transactionStopButtonPressed() -> Int {

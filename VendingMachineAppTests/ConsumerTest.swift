@@ -16,7 +16,7 @@ class ConsumerTest: XCTestCase {
     
     override func setUp() {
         vendingMachine = VendingMachine()
-        georgia = Georgia(createdAt: "20210228", expiredAt: "20210304")
+        georgia = Georgia()
         vendingMachine.append(product: georgia)
     
         customer = Customer(coins: 10000)

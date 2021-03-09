@@ -11,7 +11,7 @@ import UIKit
 class StroberryMilk : Milk {
     private let stroberryContent : Float
     
-    init(brand: String, capacity: Int, price: Int, name: String, createdAt: String, expiredAt: String,  lowFat : Bool, content : Float){
+    init(brand: String, capacity: Int, price: Int, name: String, createdAt: Date, expiredAt: Date,  lowFat : Bool, content : Float){
         self.stroberryContent = content
         super.init(brand: brand,
                    capacity: capacity,
@@ -23,13 +23,13 @@ class StroberryMilk : Milk {
         
     }
     
-    convenience init(createdAt : String, expiredAt : String) {
+    convenience required init(){
         self.init(brand: "서울우유",
                    capacity: 200,
                    price: 900,
                    name: "딸기맛 우유",
-                   createdAt: createdAt,
-                   expiredAt: expiredAt,
+                   createdAt: Date(),
+                   expiredAt: Date().get7daysLatter(),
                    lowFat : false,
                    content : 1.0)
     }

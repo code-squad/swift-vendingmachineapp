@@ -17,7 +17,7 @@ class Hot6ix : EnergyDrink {
     }
     let kind : Kind
     
-    init(brand: String, capacity: Int, price: Int, name: String, createdAt: String, expiredAt: String, caffeine: Int, kind : Hot6ix.Kind){
+    init(brand: String, capacity: Int, price: Int, name: String, createdAt: Date, expiredAt: Date, caffeine: Int, kind : Hot6ix.Kind){
         self.kind = kind
         super.init(brand: brand,
                    capacity: capacity,
@@ -28,13 +28,13 @@ class Hot6ix : EnergyDrink {
                    caffeine: caffeine)
     }
     
-    convenience init(createdAt : String, expiredAt : String) {
+    convenience required init() {
         self.init(brand: "롯데칠성음료",
                    capacity: 473,
                    price: 1000,
                    name: "핫식스",
-                   createdAt: createdAt,
-                   expiredAt: expiredAt,
+                   createdAt: Date(),
+                   expiredAt: Date().get7daysLatter(),
                    caffeine: 140,
                    kind : .power)
     }

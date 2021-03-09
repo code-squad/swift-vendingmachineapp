@@ -18,7 +18,7 @@ class Top : Coffee {
     
     let kind : Kind
 
-    init(brand: String, capacity: Int, price: Int, name: String, createdAt: String, expiredAt: String, caffeine: Int, hot: Bool, kind: Top.Kind) {
+    init(brand: String, capacity: Int, price: Int, name: String, createdAt: Date, expiredAt: Date, caffeine: Int, hot: Bool, kind: Top.Kind) {
         self.kind = kind
         super.init(brand: brand,
                    capacity: capacity,
@@ -30,15 +30,15 @@ class Top : Coffee {
                    hot : hot)
     }
     
-    convenience init(createdAt : String, expiredAt : String, hot: Bool = false, kind : Top.Kind = .black){
+    convenience required init(){
         self.init(brand: "맥심",
                    capacity: 275,
                    price: 1700,
                    name: "맥심TOP",
-                   createdAt: createdAt,
-                   expiredAt: expiredAt,
+                   createdAt: Date(),
+                   expiredAt: Date().get7daysLatter(),
                    caffeine: 100,
-                   hot: hot,
-                   kind: kind)
+                   hot: false,
+                   kind: .black)
     }
 }

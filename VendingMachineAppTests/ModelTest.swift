@@ -11,8 +11,8 @@ import XCTest
 class ModelTest: XCTestCase {
 
     func testEquatable(){
-        let milk = Milk(brand: "서울우유", capacity: 100, price: 2500, name: "초코", createdAt: "20210202", expiredAt: "20210215", lowFat: true)
-        let secondMilk = Milk(brand: "서울우유", capacity: 100, price: 2500, name: "초코", createdAt: "20200202", expiredAt: "20200215", lowFat: true)
+        let milk = Milk(brand: "서울우유", capacity: 100, price: 2500, name: "초코", createdAt: Date(), expiredAt: Date().get7daysLatter(), lowFat: true)
+        let secondMilk = Milk(brand: "서울우유", capacity: 100, price: 2500, name: "초코", createdAt: Date(), expiredAt: Date().get7daysLatter(), lowFat: true)
         
         let expect : Bool = true
         let actual : Bool = (milk == secondMilk)
@@ -20,16 +20,16 @@ class ModelTest: XCTestCase {
     }
     
     func testHashable(){
-        let milk = Milk(brand: "서울우유", capacity: 100, price: 2500, name: "초코", createdAt: "20210202", expiredAt: "20210215", lowFat: true)
-        let secondMilk = Milk(brand: "서울우유", capacity: 100, price: 2500, name: "초코", createdAt: "20200202", expiredAt: "20200215", lowFat: false)
+        let milk = Milk(brand: "서울우유", capacity: 100, price: 2500, name: "초코", createdAt: Date(), expiredAt: Date().get7daysLatter(), lowFat: true)
+        let secondMilk = Milk(brand: "서울우유", capacity: 100, price: 2500, name: "초코", createdAt: Date(), expiredAt: Date().get7daysLatter(), lowFat: false)
         
         XCTAssertEqual(milk.hashValue, secondMilk.hashValue)
     }
     
     func testDictionaryKeyValue(){
         
-        let milk = Milk(brand: "서울우유", capacity: 100, price: 2500, name: "초코", createdAt: "20210202", expiredAt: "20210215", lowFat: true)
-        let secondMilk = Milk(brand: "서울우유", capacity: 100, price: 2500, name: "초코", createdAt: "20200202", expiredAt: "20200215", lowFat: true)
+        let milk = Milk(brand: "서울우유", capacity: 100, price: 2500, name: "초코", createdAt: Date(), expiredAt: Date().get7daysLatter(), lowFat: true)
+        let secondMilk = Milk(brand: "서울우유", capacity: 100, price: 2500, name: "초코", createdAt: Date(), expiredAt: Date().get7daysLatter(), lowFat: true)
         
         var dict = [Beverage: Int]()
         

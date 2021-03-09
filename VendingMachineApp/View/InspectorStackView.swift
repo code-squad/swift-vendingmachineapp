@@ -11,7 +11,11 @@ class InspectorStackView: UIStackView {
 
     var coinButtions : [UIButton]!
     var balanceLabel : UILabel!
-    var balance : Int  = 0
+    var balance : Int  = 0 {
+        didSet{
+            balanceLabel.text = "잔액 : \(balance)"
+        }
+    }
     
     required init(coder: NSCoder) {
         super.init(coder: coder)
@@ -60,9 +64,6 @@ class InspectorStackView: UIStackView {
         self.spacing = 10
     }
     
-    func setTarget(_ controller : ViewController) {
-//        coinButtions.forEach{ $0.delegate = controller }
-    }
     @objc func addCoin(_ sender : UIButton){
         balance += sender.titleLabel?.text?.extractUnsignedInteger() ?? 0
     }

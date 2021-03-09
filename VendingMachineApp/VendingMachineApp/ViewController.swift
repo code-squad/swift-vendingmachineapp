@@ -49,9 +49,9 @@ class ViewController: UIViewController {
     
     func createBeverageView(beverage: Beverage, count: Int) -> BeverageView {
         let view = BeverageView(with: beverage)
-        view.stockAddButton.addAction(for: .touchUpInside) { (uibutton) in
+        view.stockAddButton.addAction(UIAction.init(handler: { (touch) in
             self.machine.addStock(beverage: beverage, amount: 1)
-        }
+        }), for: .touchUpInside)
         return view
     }
     

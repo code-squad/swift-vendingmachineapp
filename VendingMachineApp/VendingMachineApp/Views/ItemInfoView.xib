@@ -4,7 +4,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -21,11 +20,11 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ct1-71-8Jk">
-                    <rect key="frame" x="0.0" y="0.0" width="444" height="30"/>
+                    <rect key="frame" x="0.0" y="44" width="444" height="30"/>
                     <state key="normal" title="추가"/>
                 </button>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SIy-7r-pk4">
-                    <rect key="frame" x="0.0" y="44" width="444" height="494"/>
+                    <rect key="frame" x="0.0" y="74" width="444" height="464"/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AUw-GJ-1Or">
                     <rect key="frame" x="0.0" y="538" width="444" height="21"/>
@@ -35,26 +34,20 @@
                 </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="AUw-GJ-1Or" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="GMj-VS-0MK"/>
-                <constraint firstAttribute="trailing" secondItem="ct1-71-8Jk" secondAttribute="trailing" id="Pyz-Vt-ob0"/>
+                <constraint firstItem="SIy-7r-pk4" firstAttribute="top" secondItem="ct1-71-8Jk" secondAttribute="bottom" id="MZ1-T3-xkN"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="ct1-71-8Jk" secondAttribute="trailing" id="Pyz-Vt-ob0"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="SIy-7r-pk4" secondAttribute="trailing" id="V9f-mk-zec"/>
                 <constraint firstItem="SIy-7r-pk4" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="YXw-UH-NFf"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="AUw-GJ-1Or" secondAttribute="bottom" id="aIE-OY-eMR"/>
-                <constraint firstItem="ct1-71-8Jk" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="b2v-I5-E5A"/>
+                <constraint firstItem="ct1-71-8Jk" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="b2v-I5-E5A"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="AUw-GJ-1Or" secondAttribute="trailing" id="huu-Af-RaE"/>
                 <constraint firstItem="AUw-GJ-1Or" firstAttribute="top" secondItem="SIy-7r-pk4" secondAttribute="bottom" id="q54-pe-zKf"/>
-                <constraint firstItem="ct1-71-8Jk" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="sTi-ey-qzB"/>
-                <constraint firstItem="SIy-7r-pk4" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="uqU-6f-K5f"/>
+                <constraint firstItem="ct1-71-8Jk" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="sTi-ey-qzB"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="11.594202898550726" y="201.22767857142856"/>
         </view>
     </objects>
-    <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-    </resources>
 </document>

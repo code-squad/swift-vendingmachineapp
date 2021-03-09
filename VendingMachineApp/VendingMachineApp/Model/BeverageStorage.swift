@@ -21,7 +21,6 @@ class BeverageStorage: NSObject, Storage, NSCoding {
         values.forEach({ (value) in
             stockList[ObjectIdentifier(type(of: value[0]))] = value
         })
-        print(stockList)
         self.stockList = stockList
     }
     

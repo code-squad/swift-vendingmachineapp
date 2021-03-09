@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     @IBOutlet var beverageLabels: [UILabel]!
     @IBOutlet var balanceLabel: UILabel!
     @IBOutlet var beverageImages: [UIImageView]!
+    @IBOutlet var beverageButtons: [UIButton]!
     
     let vendingMachine = VendingMachine()
 
@@ -23,12 +24,10 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction func addStock(_ sender: UIButton) {
-        guard let id = sender.restorationIdentifier else {return}
-        guard let beverage = DrinkFactory.createBeverage(with: id) else {return}
-        vendingMachine.addStock(as: beverage)
-        let label = beverageLabels.filter{$0.restorationIdentifier == id+"Label"}[0]
-        let stock = vendingMachine.showStock()
+    @IBAction func addStock(_ sender: BeverageButtons) {
+        sender.action { (beverage) in
+            vendingMachine.addStock(as: beverage)
+        }
     }
     
     @IBAction func rechargeCash(_ sender: UIButton) {

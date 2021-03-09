@@ -11,23 +11,28 @@ class VendingMachine : NSObject, NSCoding {
     private var drinks : Drinks
     private var payment : Payment
     private var purchasedList : PurchasedList
+    private var menu : DrinkMenu
     
     override init() {
         self.drinks = Drinks()
         self.payment = Payment()
         self.purchasedList = PurchasedList()
+        self.menu = DrinkMenu()
+        menu.addAllMenu()
     }
     
     func encode(with coder: NSCoder) {
         coder.encode(drinks, forKey: "drinks")
         coder.encode(payment, forKey: "payment")
         coder.encode(purchasedList, forKey: "purchasedList")
+        coder.encode(menu, forKey: "menu")
     }
     
     required init?(coder: NSCoder) {
         self.drinks = coder.decodeObject(forKey: "drinks") as! Drinks
         self.payment = coder.decodeObject(forKey: "payment") as! Payment
         self.purchasedList = coder.decodeObject(forKey: "purchasedList") as! PurchasedList
+        self.menu = coder.decodeObject(forKey: "menu") as! DrinkMenu
     }
     
     func showBeverageList(handler : (Beverage) -> Void) {
@@ -78,5 +83,9 @@ class VendingMachine : NSObject, NSCoding {
     
     func countDrink(beverage : Beverage) -> Int {
         drinks.count(beverage: beverage)
+    }
+    
+    func showMenuList() -> [Beverage] {
+        return menu.list
     }
 }

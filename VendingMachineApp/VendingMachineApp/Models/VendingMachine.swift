@@ -61,6 +61,10 @@ class VendingMachine {
         return stock.hotBeverages()
     }
     
+    func showHighCaffeineBeverage() -> [Beverage] {
+        return stock.highCaffeineBeverages()
+    }
+    
     func showPurchaseHistory() -> [Beverage] {
         var history = [Beverage]()
         purchaseHistory.show {

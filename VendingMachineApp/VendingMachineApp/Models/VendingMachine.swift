@@ -23,8 +23,8 @@ struct VendingMachine {
         cashBox.insertMoney(amount: amount)
     }
     
-    func add(item: Beverage, slotNumber: Int) {
-        inventory.add(item, at: slotNumber)
+    func add(item: Beverage) {
+        inventory.add(item)
     }
     
     func showPurchasableItemsWithDeposit() -> [Slot] {
@@ -57,7 +57,7 @@ struct VendingMachine {
         return cashBox.showRemainingBalance()
     }
     
-    func takeInventory() -> [Int : (Slot, Int)] {
+    func takeInventory() -> [Slot : Int] {
         return inventory.takeStock()
     }
     

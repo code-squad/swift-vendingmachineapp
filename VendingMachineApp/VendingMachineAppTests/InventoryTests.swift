@@ -57,55 +57,40 @@ class InventoryTests: XCTestCase {
         XCTAssertEqual(inventoryWith6EmptySlots.slotCount, 6)
     }
     
-    func test_자판기앱_0번슬롯에_아이템추가() throws {
-        inventoryWith6EmptySlots.add(strawberryMilk1, at: 0)
-        var totalItemCount = 0
-        inventoryWith6EmptySlots.showSlots {
-            totalItemCount += $0.itemCount
-        }
-        XCTAssertEqual(totalItemCount, 0)
+    func test_자판기앱_빈인벤토리에_아이템추가() throws {
+        inventoryWith6EmptySlots.add(strawberryMilk1)
+        let inventorySheet = inventoryWith6EmptySlots.takeStock()
+        XCTAssertEqual(inventorySheet, [Slot(items: [strawberryMilk1]): 1,
+                                        Slot(): 0])
     }
     
-    func test_자판기앱_1번슬롯에_아이템추가() throws {
-        inventoryWith6EmptySlots.add(strawberryMilk1, at: 1)
-        var totalItemCount = 0
-        inventoryWith6EmptySlots.showSlots {
-            totalItemCount += $0.itemCount
-        }
-        XCTAssertEqual(totalItemCount, 1)
+    func test_자판기앱_인벤토리에_같은아이템추가() throws {
+        inventoryWith6EmptySlots.add(strawberryMilk1)
+        inventoryWith6EmptySlots.add(strawberryMilk2)
+        let inventorySheet = inventoryWith6EmptySlots.takeStock()
+        XCTAssertEqual(inventorySheet, [Slot(items: [strawberryMilk1, strawberryMilk2]): 2,
+                                        Slot(): 0])
     }
     
-    func test_자판기앱_6번슬롯에_아이템추가() throws {
-        inventoryWith6EmptySlots.add(strawberryMilk1, at: 6)
-        var totalItemCount = 0
-        inventoryWith6EmptySlots.showSlots {
-            totalItemCount += $0.itemCount
-        }
-        XCTAssertEqual(totalItemCount, 1)
-    }
-    
-    func test_자판기앱_7번슬롯에_아이템추가() throws {
-        inventoryWith6EmptySlots.add(strawberryMilk1, at: 7)
-        var totalItemCount = 0
-        inventoryWith6EmptySlots.showSlots {
-            totalItemCount += $0.itemCount
-        }
-        XCTAssertEqual(totalItemCount, 0)
+    func test_자판기앱_인벤토리에_다른아이템추가() throws {
+        inventoryWith6EmptySlots.add(strawberryMilk1)
+        inventoryWith6EmptySlots.add(georgiaMax1)
+        let inventorySheet = inventoryWith6EmptySlots.takeStock()
+        XCTAssertEqual(inventorySheet, [Slot(items: [strawberryMilk1]): 1,
+                                        Slot(items: [georgiaMax1]): 1,
+                                        Slot(): 0])
     }
     
     func test_자판기앱_상품재고리턴() throws {
-        inventoryWith6EmptySlots.add(strawberryMilk1, at: 1)
-        inventoryWith6EmptySlots.add(strawberryMilk2, at: 1)
-        inventoryWith6EmptySlots.add(strawberryMilk3, at: 1)
-        inventoryWith6EmptySlots.add(georgiaMax1, at: 2)
-        inventoryWith6EmptySlots.add(georgiaMax2, at: 2)
-        inventoryWith6EmptySlots.add(georgiaMax3, at: 2)
+        inventoryWith6EmptySlots.add(strawberryMilk1)
+        inventoryWith6EmptySlots.add(strawberryMilk2)
+        inventoryWith6EmptySlots.add(strawberryMilk3)
+        inventoryWith6EmptySlots.add(georgiaMax1)
+        inventoryWith6EmptySlots.add(georgiaMax2)
+        inventoryWith6EmptySlots.add(georgiaMax3)
         let inventorySheet = inventoryWith6EmptySlots.takeStock()
-        XCTAssertEqual(inventorySheet[1]?.1, 3)
-        XCTAssertEqual(inventorySheet[2]?.1, 3)
-        XCTAssertEqual(inventorySheet[3]?.1, 0)
-        XCTAssertEqual(inventorySheet[4]?.1, 0)
-        XCTAssertEqual(inventorySheet[5]?.1, 0)
-        XCTAssertEqual(inventorySheet[6]?.1, 0)
+        XCTAssertEqual(inventorySheet, [Slot(items: [strawberryMilk1, strawberryMilk2, strawberryMilk3]): 3,
+                                        Slot(items: [georgiaMax1, georgiaMax2, georgiaMax3]): 3,
+                                        Slot(): 0])
     }
 }

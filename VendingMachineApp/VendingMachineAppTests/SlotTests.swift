@@ -64,15 +64,10 @@ class SlotTests: XCTestCase {
         XCTAssertEqual(emptySlot.dropFirstItem(), strawberryMilk1)
     }
     
-    func test_자판기앱_아이템들어있는슬롯에_같은아이템추가() throws {
+    func test_자판기앱_아이템들어있는슬롯에_아이템추가() throws {
         let strawberryMilk4 = denmarkStrawberryMilkFactory.createProduct(manufactured: Date().formattedDate(from: "20210218"), expiredAfter: Date().formattedDate(from: "20210228"))
         slotWith3StrawberryMilk.stock(strawberryMilk4)
         XCTAssertEqual(slotWith3StrawberryMilk.itemCount, 4)
-    }
-    
-    func test_자판기앱_아이템들어있는슬롯에_다른아이템추가() throws {
-        slotWith3StrawberryMilk.stock(georgiaMax1)
-        XCTAssertEqual(slotWith3StrawberryMilk.itemCount, 3)
     }
     
     func test_자판기앱_슬롯음료가격_매개변수가격과_비교() throws {

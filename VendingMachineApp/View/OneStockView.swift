@@ -7,14 +7,19 @@
 
 import UIKit
 
+protocol StockDelegate {
+    func addStock(handler : () -> ())
+}
+
 class OneStockView: UIView {
     
-    var label : UILabel!
-    var button : AddStockButton!
-    var imageView : UIImageView!
-    var count : Int = 0
-    var image : UIImage!
-    var beverageType : Beverage.Type!
+    private var label : UILabel!
+    private var button : UIButton!
+    private var stockImageView : UIImageView!
+    private var stockImage : UIImage!
+    private var count : Int = 0
+    
+    var delegate : StockDelegate?
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -24,29 +29,40 @@ class OneStockView: UIView {
         super.init(frame: frame)
         initSubViews()
     }
-    
-    init(frame: CGRect, name: String){
+    init(frame: CGRect, image : UIImage?){
         super.init(frame: frame)
-        image = UIImage(named: name)
-        beverageType = name.toBeverageType() ?? Beverage.self
+        stockImage = image
         initSubViews()
     }
     
     func initSubViews(){
-        
         // Image
-        imageView = UIImageView(frame: CGRect(x: 0, y: 40, width: bounds.width, height: bounds.height))
-        imageView.image = image
-        imageView.contentMode = UIView.ContentMode.scaleAspectFill
-        imageView.clipsToBounds = true
-        imageView.layer.cornerRadius = 10
-        addSubview(imageView)
+        setStockImageView()
         
         // Button
-        button = AddStockButton(frame: CGRect(x: 0, y: 0, width: bounds.width, height: 40), beverageType: beverageType)
-        addSubview(button)
+        setButton()
         
         // Label
+        setLable()
+    }
+
+    func setStockImageView(){
+        stockImageView = UIImageView(frame: CGRect(x: 0, y: 40, width: bounds.width, height: bounds.height))
+        stockImageView.contentMode = UIView.ContentMode.scaleAspectFill
+        stockImageView.image = stockImage
+        stockImageView.clipsToBounds = true
+        stockImageView.layer.cornerRadius = 10
+        addSubview(stockImageView)
+    }
+    func setButton(){
+        button = UIButton(frame: CGRect(x: 0, y: 0, width: bounds.width, height: 40))
+        button.setTitle("추가하기", for: .normal)
+        button.setImage(UIImage(named: "button"), for: .normal)
+        button.addTarget(self, action: #selector(addStock), for: .touchDown)
+        
+        addSubview(button)
+    }
+    func setLable(){
         let captionBackgroundView = UIView(frame: CGRect(x: 0, y: bounds.height, width: bounds.width, height: 30))
         captionBackgroundView.backgroundColor = UIColor(white: 0.1, alpha: 0.8)
         addSubview(captionBackgroundView)
@@ -56,6 +72,9 @@ class OneStockView: UIView {
         label.text = "재고량 : \(count)"
         label.textColor = UIColor(white: 0.9, alpha: 1.0)
         captionBackgroundView.addSubview(label)
-        
+    }
+    
+    @objc func addStock(_ sender : UIButton){
+
     }
 }

@@ -18,7 +18,7 @@ class Monster : EnergyDrink {
     
     let kind : Kind
     
-    init(brand: String, capacity: Int, price: Int, name: String, createdAt: String, expiredAt: String, image: UIImage?, caffeine: Int, kind : Monster.Kind){
+    init(brand: String, capacity: Int, price: Int, name: String, createdAt: String, expiredAt: String, caffeine: Int, kind : Monster.Kind){
         self.kind = kind
         super.init(brand: brand,
                    capacity: capacity,
@@ -26,7 +26,6 @@ class Monster : EnergyDrink {
                    name: name,
                    createdAt: createdAt,
                    expiredAt: expiredAt,
-                   image: UIImage(named: "monsterOriginal"),
                    caffeine: caffeine)
     }
     
@@ -37,7 +36,6 @@ class Monster : EnergyDrink {
                    name: "몬스터",
                    createdAt: createdAt,
                    expiredAt: expiredAt,
-                   image: UIImage(named: "monsterOriginal"),
                    caffeine: 140,
                    kind : .original)
     }

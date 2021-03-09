@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 class BananaMilk: Milk {
 
@@ -13,7 +14,13 @@ class BananaMilk: Milk {
     
     init(brand: String, capacity: Int, price: Int, name: String, createdAt: String, expiredAt: String, lowFat : Bool, content : Float){
         self.bananaContent = content
-        super.init(brand: brand, capacity: capacity, price: price, name: name, createdAt: createdAt, expiredAt: expiredAt, lowFat: lowFat)
+        super.init(brand: brand,
+                   capacity: capacity,
+                   price: price,
+                   name: name,
+                   createdAt: createdAt,
+                   expiredAt: expiredAt,
+                   lowFat: lowFat)
         
     }
     

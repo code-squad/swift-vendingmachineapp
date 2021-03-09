@@ -12,7 +12,7 @@ class ChocolateMilk : Milk {
     
     private let chocolateContent : Float
 
-    init(brand: String, capacity: Int, price: Int, name: String, createdAt: String, expiredAt: String, image: UIImage?, lowFat : Bool, content : Float){
+    init(brand: String, capacity: Int, price: Int, name: String, createdAt: String, expiredAt: String, lowFat : Bool, content : Float){
         self.chocolateContent = content
         super.init(brand: brand,
                    capacity: capacity,
@@ -20,7 +20,6 @@ class ChocolateMilk : Milk {
                    name: name,
                    createdAt: createdAt,
                    expiredAt: expiredAt,
-                   image: UIImage(named: "chocolateMilk"),
                    lowFat: lowFat)
         
     }
@@ -32,7 +31,6 @@ class ChocolateMilk : Milk {
                    name: "초코맛 우유",
                    createdAt: createdAt,
                    expiredAt: expiredAt,
-                   image: UIImage(named: "chocolateMilk"),
                    lowFat : false,
                    content : 1.0)
     }

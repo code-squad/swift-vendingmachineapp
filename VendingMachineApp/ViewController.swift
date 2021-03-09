@@ -9,7 +9,6 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    
     var vendingMachine = VendingMachine()
     
     var stockStackView : StockStackView!
@@ -27,13 +26,20 @@ class ViewController: UIViewController {
         stockStackView.setUp()
         self.view.addSubview(stockStackView)
         stockStackViewConfiguration()
+        stockStackView.setTarget(self)
         
         inspectorView = InspectorStackView()
         self.view.addSubview(inspectorView)
         inspectorViewConfiguration()
     }
 }
-
+extension ViewController : StockDelegate {
+    func addStock(type: Beverage.Type) {
+        guard let instance = Factory.createInstance(type: type) else { return }
+        vendingMachine.append(product: instance)
+    }
+    
+}
 // MARK: Configuration
 extension ViewController {
     func stockStackViewConfiguration(){

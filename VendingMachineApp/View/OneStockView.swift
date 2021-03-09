@@ -8,7 +8,7 @@
 import UIKit
 
 protocol StockDelegate {
-    func addStock(handler : () -> ())
+    func addStock(type : Beverage.Type)
 }
 
 class OneStockView: UIView {
@@ -17,6 +17,7 @@ class OneStockView: UIView {
     private var button : UIButton!
     private var stockImageView : UIImageView!
     private var stockImage : UIImage!
+    private var beverageType : Beverage.Type!
     private var count : Int = 0
     
     var delegate : StockDelegate?
@@ -29,9 +30,10 @@ class OneStockView: UIView {
         super.init(frame: frame)
         initSubViews()
     }
-    init(frame: CGRect, image : UIImage?){
+    init(frame: CGRect, type : Beverage.Type, image : UIImage?){
         super.init(frame: frame)
-        stockImage = image
+        self.beverageType = type
+        self.stockImage = image
         initSubViews()
     }
     
@@ -59,7 +61,6 @@ class OneStockView: UIView {
         button.setTitle("추가하기", for: .normal)
         button.setImage(UIImage(named: "button"), for: .normal)
         button.addTarget(self, action: #selector(addStock), for: .touchDown)
-        
         addSubview(button)
     }
     func setLable(){
@@ -75,6 +76,6 @@ class OneStockView: UIView {
     }
     
     @objc func addStock(_ sender : UIButton){
-
+        delegate?.addStock(type: beverageType)
     }
 }

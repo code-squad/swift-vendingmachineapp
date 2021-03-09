@@ -17,8 +17,14 @@ class Top: Coffee {
     
     private var coffeeType: CoffeeType
     
+<<<<<<< HEAD
     init(coffeeType: CoffeeType,isDecaffeinated: Int,isHot:Bool, isCoffeeBrandName: CoffeeBrandName, brand: String, capacity: Int, price: Int, name: String, manufacturedAt: Date) {
         self.coffeeType = coffeeType
         super.init(isDecaffeinated: isDecaffeinated,isHot: isHot, isCoffeeBrandName: isCoffeeBrandName, brand: brand, capacity: capacity, price: price, name: name, manufacturedAt: manufacturedAt)
+=======
+    init(coffeeType: CoffeeType,isDecaffeinated: Int,isHot:Bool, isCoffeeBrandName: CoffeeBrandName, brand: String, capacity: Int, price: Int, name: String, madeDate: Date) {
+        self.coffeeType = coffeeType
+        super.init(isDecaffeinated: isDecaffeinated,isHot: isHot, isCoffeeBrandName: isCoffeeBrandName, brand: brand, capacity: capacity, price: price, name: name, madeDate: madeDate)
+>>>>>>> 5b3f697cd3a941bc1567d12ff2734aacd43cf2da
     }
 }

@@ -35,6 +35,7 @@ class MainHomeController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+<<<<<<< HEAD
         width = MilkStackView.frame.width/3
         height = MilkStackView.frame.height/3 + 200
         setupNormalMilk()
@@ -275,6 +276,36 @@ class MainHomeController: UIViewController {
         CoffeeStackView.topAnchor.constraint(equalTo: SodaStackView.bottomAnchor, constant: 10).isActive = true
         CoffeeStackView.distribution = .fillEqually
         view.addSubview(CoffeeStackView)
+=======
+        let drinkList: [Drink] = [ Milk.init(isMilkFlavor: .Strawberry, farmCode: "001", brand: "서울우유",
+                                          capacity: 200,
+                                          price: 1000,
+                                          name: "날마다딸기우유",
+                                          madeDate: Date(), isHot: false),
+                                
+                                Milk.init(isMilkFlavor: .Strawberry, farmCode: "002", brand: "서울우유",
+                                          capacity: 200,
+                                          price: 1000,
+                                          name: "날마다딸기우유",
+                                          madeDate: Date(), isHot: false),
+                                Soda.init(isSodaType: .Cola,
+                                          factoryCode:"01",
+                                          brand: "팹시",
+                                          capacity: 350,
+                                          price: 2000,
+                                          name: "다이어트콜라",
+                                          madeDate: Date(), isHot: false),
+                                Coffee.init(isDecaffeinated: 30, isHot: true, isCoffeeBrandName: .Cantata, brand: "맥심", capacity: 4000, price: 3000, name: "TOP아메리카노", madeDate: Date())]
+
+        let drinks = Drinks(drinks: drinkList, drinksHistory: [])
+        let payment = Payment(myMoney: 1000)
+        
+        let vendingMachine = VendingMachine(drinks: drinks, payment: payment)
+        vendingMachine.showVendingMachine(handler: { drink in
+            print(drink.description)
+            
+        })
+>>>>>>> 5b3f697cd3a941bc1567d12ff2734aacd43cf2da
     }
 }
 

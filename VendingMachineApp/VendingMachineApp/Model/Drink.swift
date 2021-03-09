@@ -16,12 +16,20 @@ class Drink : CustomStringConvertible {
     private let manufacturedAt : Date
     private var isHot: Bool
     
+<<<<<<< HEAD
     init(brand: String, capacity: Int, price: Int, name: String, manufacturedAt: Date,isHot:Bool) {
+=======
+    init(brand: String, capacity: Int, price: Int, name: String, madeDate: Date,isHot:Bool) {
+>>>>>>> 5b3f697cd3a941bc1567d12ff2734aacd43cf2da
         self.brand = brand
         self.capacity = capacity
         self.price = price
         self.name = name
+<<<<<<< HEAD
         self.manufacturedAt = manufacturedAt
+=======
+        self.manufacturedAt = madeDate
+>>>>>>> 5b3f697cd3a941bc1567d12ff2734aacd43cf2da
         self.isHot = isHot
     }
     

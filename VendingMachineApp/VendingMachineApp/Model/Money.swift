@@ -25,8 +25,8 @@ class Money {
     } 
     
     // 잔액을 확인하는 메소드
-    func showCurrentAmount() -> Money {
-        return Money(inputAmount: inputAmount)
+    func showCurrentAmount() -> Int {
+        return inputAmount
     }
     
     func checkAvailability(beverage: Beverage) -> Bool {

@@ -7,14 +7,15 @@
 
 import Foundation
 
+enum Money: Int {
+    case coin = 100
+    case coins = 500
+    case bill = 1000
+    case bills = 5000
+}
+
 class VendingMachine {
-    
-    enum Money: Int {
-        case coin = 100
-        case coins = 500
-        case bill = 1000
-        case bills = 5000
-    }
+
     
     private var money: Int
     private var inventory: Inventory

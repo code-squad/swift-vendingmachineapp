@@ -541,15 +541,21 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="174" height="172"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pQw-tj-qzp" userLabel="1000won">
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pQw-tj-qzp" userLabel="1000">
                                                         <rect key="frame" x="0.0" y="0.0" width="175" height="82"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                                        <state key="normal" image="1000won"/>
+                                                        <state key="normal" title="1000" image="1000won"/>
+                                                        <connections>
+                                                            <action selector="moneyButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BV1-lX-dHp"/>
+                                                        </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SCC-Iq-h3F" userLabel="5000won">
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SCC-Iq-h3F" userLabel="5000">
                                                         <rect key="frame" x="0.0" y="89" width="175" height="83"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                                        <state key="normal" image="5000won"/>
+                                                        <state key="normal" title="5000" image="5000won"/>
+                                                        <connections>
+                                                            <action selector="moneyButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yTf-Ig-tFz"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -558,15 +564,21 @@
                                                 <rect key="frame" x="174" y="0.0" width="79" height="172"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yIn-gL-ZHt" userLabel="500won">
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yIn-gL-ZHt" userLabel="500">
                                                         <rect key="frame" x="0.0" y="94" width="79" height="78"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                                        <state key="normal" image="500won"/>
+                                                        <state key="normal" title="500" image="500won"/>
+                                                        <connections>
+                                                            <action selector="moneyButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3Pk-R2-Xlg"/>
+                                                        </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oZz-ei-Q18" userLabel="100won">
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oZz-ei-Q18" userLabel="100">
                                                         <rect key="frame" x="2" y="8" width="75" height="72"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                                        <state key="normal" image="100won"/>
+                                                        <state key="normal" title="100" image="100won"/>
+                                                        <connections>
+                                                            <action selector="moneyButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yMI-jj-FBX"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -630,6 +642,9 @@
                             <constraint firstItem="FdQ-yd-9G7" firstAttribute="centerX" secondItem="PPI-Cl-un3" secondAttribute="centerX" id="rDm-6P-ZVt"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="currentMoney" destination="zFn-ZZ-Yq3" id="8C8-M1-JRR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

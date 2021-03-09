@@ -49,7 +49,7 @@ class VendingMachine {
     }
     
     //MARK: 잔액을 확인하는 메소드
-    func showCurrentInputAmount() -> Money {
+    func showCurrentInputAmount() -> Int {
         return money.showCurrentAmount()
     }
     

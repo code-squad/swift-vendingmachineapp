@@ -11,16 +11,18 @@ struct Milliliter: ExpressibleByIntegerLiteral {
     private let value: Int
     private let inLiter: Float
     
-    init(_ value: Int) {
-        self.value = value
+    
+    init(with integer: Int) {
+        self.value = integer
         self.inLiter = Float(round(Double(value) / 10) / 100)
     }
+    
     init(integerLiteral val: Int) {
         self.value = val
         self.inLiter = Float(round(Double(value) / 10) / 100)
     }
     
-    public func shoInLiter() -> Float {
+    public func showInLiter() -> Float {
         return inLiter
     }
 }

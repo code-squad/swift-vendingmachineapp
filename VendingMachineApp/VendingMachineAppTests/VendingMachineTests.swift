@@ -45,28 +45,12 @@ class VendingMachineTests: XCTestCase {
         let lastMonth = "20210201"
         let nextMonth = "20210401"
         
-        testMachine.add(type: .BananaMilk, expireDate: nextMonth)
         testMachine.add(type: .BananaMilk, expireDate: lastMonth)
         testMachine.add(type: .CaffeLatte, expireDate: nextMonth)
-
-        XCTAssertEqual(testMachine.showAllStock(), [BananaMilk(expireDate: nextMonth):2])
-        XCTAssertEqual(testMachine.showExpiredBeverages(), [BananaMilk(expireDate: lastMonth)])
+        testMachine.add(type: .EnergyDrink, expireDate: nextMonth)
         
+        XCTAssertEqual(testMachine.showExpiredBeverages(), [BananaMilk(expireDate: lastMonth)])
         XCTAssertEqual(testMachine.showHotBeverages(), [CaffeLatte(expireDate: nextMonth)])
+        XCTAssertEqual(testMachine.showHighCaffeineBeverage(), [CaffeLatte(expireDate: nextMonth), EnergyDrink(expireDate: nextMonth)])
     }
-    
-     
-//    func testVendingMachine(){
-//        let vend = VendingMachine()
-//
-//        vend.add(type: .BananaMilk, expireDate: "20211231")
-//        vend.insert(money: 2000)
-////        XCTAssert(vend.showAllStock())
-////
-////
-////        vend.add(type: .CaffeLatte, expireDate: "20201231")
-////        vend.add(type: .Coke, expireDate: "20211231")
-////        vend.add(type: .EnergyDrink, expireDate: "20211231")
-////
-//    }
 }

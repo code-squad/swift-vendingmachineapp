@@ -26,7 +26,7 @@ struct VendingMachine {
     }
     
     func addBeverage(beverage: Beverage) {
-        inventory.addBeverage(beverage: beverage)
+        inventory.add(beverage: beverage)
     }
     
     func availablePurchaseList() -> [Beverage] {

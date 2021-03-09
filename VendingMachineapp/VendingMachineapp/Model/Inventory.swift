@@ -4,9 +4,7 @@
 //
 //  Created by 심영민 on 2021/02/25.
 //
-enum InventoryError: Error {
-    case empty
-}
+
 import Foundation
 
 class Inventory {
@@ -14,25 +12,22 @@ class Inventory {
     private var inventory: [Beverage] = []
     private var productList: [Beverage] = []
     
-    func addBeverage(beverage: Beverage) {
+    func add(beverage: Beverage) {
         inventory.append(beverage)
     }
     
-    func subtractBeverage(beverage: Beverage) -> Beverage? {
-        let temp: Beverage
-        do {
-            temp = try inventory.remove(at: searchBeverage(beverage: beverage))
-            return temp
+    func subtract(beverage: Beverage) -> Beverage? {
+        
+        if let index = search(beverage: beverage) {
+            return inventory.remove(at: index)
+        } else {
+            return nil
         }
-        catch {
-            print(error)
-        }
-        return nil
     }
     
-    func searchBeverage(beverage: Beverage) throws -> Int {
+    func search(beverage: Beverage) -> Int? {
         guard let index = inventory.firstIndex(of: beverage) else {
-            throw InventoryError.empty
+            return nil
         }
         return index
     }

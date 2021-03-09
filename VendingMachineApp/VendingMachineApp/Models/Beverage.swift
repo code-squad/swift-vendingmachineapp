@@ -18,18 +18,20 @@ class Beverage: CustomStringConvertible, Hashable, SafelyDrinkable {
     private(set) var price: Int
     private(set) var name: String
     private let calorie: Int
+    private(set) var imageName: String
     private let manufactured: Date?
     private let expiredAfter: Date?
     var description: String {
         return "\(brand), \(volume)ml, \(price)원, \(name), \(manufactured?.formattedString ?? "")"
     }
     
-    init(brand: String, volume: Int, price: Int, name: String, calorie: Int, manufactured: Date?, expiredAfter: Date?) {
+    init(brand: String, volume: Int, price: Int, name: String, calorie: Int, imageName: String, manufactured: Date?, expiredAfter: Date?) {
         self.brand = brand
         self.volume = volume
         self.price = price
         self.name = name
         self.calorie = calorie
+        self.imageName = imageName
         self.manufactured = manufactured
         self.expiredAfter = expiredAfter
     }
@@ -40,6 +42,7 @@ class Beverage: CustomStringConvertible, Hashable, SafelyDrinkable {
         hasher.combine(price)
         hasher.combine(name)
         hasher.combine(calorie)
+        hasher.combine(imageName)
         hasher.combine(manufactured)
         hasher.combine(expiredAfter)
     }

@@ -22,6 +22,18 @@ class Milk: Beverage, Expirable, LactoFreeable {
         super.init(brand: brand, name: name, price: price, size: size, dateFactory: dateFactory, manufacturedInString: manufacturedInString)
     }
     
+    required init?(coder: NSCoder) {
+        self.expiry = coder.decodeObject(forKey: "milk_expiry") as! Date
+        self.lactose = coder.decodeFloat(forKey: "milk_lactose")
+        super.init(coder: coder)
+    }
+    
+    override func encode(with coder: NSCoder) {
+        coder.encode(expiry, forKey: "milk_expiry")
+        coder.encode(lactose, forKey: "milk_lactose")
+        super.encode(with: coder)
+    }
+    
     func isExpired(compareTo date: Date) -> Bool {
         return expiry < date
     }
@@ -45,6 +57,16 @@ class Chocolate: Milk, Transportable {
         super.init(brand: brand, name: name, price: price, size: size, dateFactory: dateFactory, manufacturedInString: manufacturedInString, expireAfter: expireAfter, lactose: lactose)
     }
     
+    required init?(coder: NSCoder) {
+        self.package = Package(rawValue: coder.decodeObject(forKey: "c_milk_package") as! String)!
+        super.init(coder: coder)
+    }
+    
+    override func encode(with coder: NSCoder) {
+        coder.encode(package.rawValue, forKey: "c_milk_package")
+        super.encode(with: coder)
+    }
+    
     func isTransportable() -> Bool {
         switch package {
         case .bottle:
@@ -66,6 +88,16 @@ class Plain: Milk, SugarFreeable {
         self.sugar = sugar
         
         super.init(brand: brand, name: name, price: price, size: size, dateFactory: dateFactory, manufacturedInString: manufacturedInString, expireAfter: expireAfter, lactose: lactose)
+    }
+    
+    required init?(coder: NSCoder) {
+        self.sugar = coder.decodeFloat(forKey: "p_milk_sugar")
+        super.init(coder: coder)
+    }
+    
+    override func encode(with coder: NSCoder) {
+        coder.encode(sugar, forKey: "p_milk_sugar")
+        super.encode(with: coder)
     }
     
     func isSugarFree(basedOn sugarStandard: Float) -> Bool {

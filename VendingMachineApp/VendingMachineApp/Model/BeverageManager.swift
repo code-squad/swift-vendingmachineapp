@@ -7,7 +7,7 @@
 
 import Foundation
 
-class BeverageManager: FoodManagable {
+class BeverageManager: NSObject, FoodManagable, NSCoding {
 
     private let dateStandard: Date
     private let temperatureStandard: Float
@@ -19,6 +19,20 @@ class BeverageManager: FoodManagable {
         self.temperatureStandard = temperatureStandard
         self.sugarStandard = sugarStandard
         self.lactoStandard = lactoStandard
+    }
+    
+    required init?(coder: NSCoder) {
+        self.dateStandard = coder.decodeObject(forKey: "dateStandard") as! Date
+        self.temperatureStandard = coder.decodeFloat(forKey: "temperatureStandard")
+        self.sugarStandard = coder.decodeFloat(forKey: "sugarStandard")
+        self.lactoStandard = coder.decodeFloat(forKey: "lactoStandard")
+    }
+    
+    func encode(with coder: NSCoder) {
+        coder.encode(dateStandard, forKey: "dateStandard") //이 기준은 매일 업데이트 되어야 함
+        coder.encode(temperatureStandard, forKey: "temperatureStandard")
+        coder.encode(sugarStandard, forKey: "sugarStandard")
+        coder.encode(lactoStandard, forKey: "lactoStandard")
     }
     
     func expiredItems(fromItemsIn storage: Storage) -> [ObjectIdentifier: Int] {

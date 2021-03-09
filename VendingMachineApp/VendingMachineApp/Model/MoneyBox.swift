@@ -7,12 +7,20 @@
 
 import Foundation
 
-class MoneyBox: MoneyManagable {
+class MoneyBox: NSObject, MoneyManagable, NSCoding {
     
     private var money: Int
     
-    init() {
+    override init() {
         money = 0
+    }
+    
+    required init?(coder: NSCoder) {
+        self.money = coder.decodeInteger(forKey: "money")
+    }
+    
+    func encode(with coder: NSCoder) {
+        coder.encode(money, forKey: "money")
     }
     
     func balance() -> Int {

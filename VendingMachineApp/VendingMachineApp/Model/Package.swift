@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Package {
+enum Package: String {
     case can
     case bottle
     case carton

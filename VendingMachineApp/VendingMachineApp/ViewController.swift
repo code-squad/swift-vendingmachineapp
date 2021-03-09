@@ -11,13 +11,6 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-//        staff.fill(type: .ChocoMilk, expireDate: "20210331")
-//        staff.fill(type: .EnergyDrink, expireDate: "20210101")
-//
-//        staff.printAllStock {
-//            print($0)
-//        }
     }
 }
 

@@ -27,7 +27,7 @@ class Stock {
         return stock.map{ $0.key }.filter{ $0.price <= money }
     }
     
-    func remove(beverage: Beverage) -> Beverage { // 음료가 없을 때, 어떻게 처리해줄까 -> 오류 검증 부분을 어디서 해주지! 일단 오류 없다고 작성
+    func remove(beverage: Beverage) -> Beverage { 
         stock[beverage] = (stock[beverage] ?? 0) - 1
         return beverage
     }
@@ -35,14 +35,11 @@ class Stock {
     func expiredBeverages() -> [Beverage] {
         var beverages = [Beverage]()
         for (key, value) in stock {
-//            (0..<value).forEach{ beverages.append(key) }
-            for _ in 0..<value {
-                beverages.append(key)
-            }
+            beverages.append(contentsOf: Array(repeating: key, count: value))
         }
-        
+
         return beverages.filter{ beverage in
-            return !beverage.isValid(with: Date())
+            return beverage.isValid(with: Date())
         }
     }
     

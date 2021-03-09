@@ -17,6 +17,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        changeBalanceLabel()
     }
     
     @IBAction func buyBeverageButtonTouched(_ sender: BeveragesButton) {

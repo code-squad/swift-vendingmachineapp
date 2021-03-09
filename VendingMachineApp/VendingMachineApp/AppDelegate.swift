@@ -17,6 +17,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var beverageManager: FoodManagable!
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        beverageManager = BeverageManager(dateStandard: Date(),
+                                          temperatureStandard: 36.5,
+                                          sugarStandard: 1.0,
+                                          lactoStandard: 0.5)
+        
         loadAll()
         return true
     }
@@ -25,23 +31,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let storageInTextLoaded = UserDefaults.standard.data(forKey: "storage"),
            let dispensedListInTextLoaded = UserDefaults.standard.data(forKey: "dispensedList"),
            let moneyBoxInTextLoaded = UserDefaults.standard.data(forKey: "moneyBox"),
-           let beverageManagerInTextLoaded = UserDefaults.standard.data(forKey: "beverageManager"),
            let storage = unarchive(with: storageInTextLoaded) as? Storage,
            let dispensedList = unarchive(with: dispensedListInTextLoaded) as? OrderableList,
-           let moneyBox = unarchive(with: moneyBoxInTextLoaded) as? MoneyManagable,
-           let beverageManager = unarchive(with: beverageManagerInTextLoaded) as? FoodManagable {
+           let moneyBox = unarchive(with: moneyBoxInTextLoaded) as? MoneyManagable {
             self.storage = storage
             self.dispensedList = dispensedList
             self.moneyBox = moneyBox
-            self.beverageManager = beverageManager
         } else {
             self.storage = BeverageStorage()
             self.dispensedList = DispensedList()
             self.moneyBox = MoneyBox()
-            self.beverageManager = BeverageManager(dateStandard: Date(),
-                                                   temperatureStandard: 36.5,
-                                                   sugarStandard: 1.0,
-                                                   lactoStandard: 0.5)
         }
         self.vendingMachine = VendingMachine(storage: storage,
                                              dispensedList: dispensedList,

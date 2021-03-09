@@ -19,6 +19,16 @@ class Soda: Beverage, Transportable {
         super.init(brand: brand, name: name, price: price, size: size, dateFactory: dateFactory, manufacturedInString: manufacturedInString)
     }
     
+    required init?(coder: NSCoder) {
+        self.package = Package(rawValue: coder.decodeObject(forKey: "soda_package") as! String)!
+        super.init(coder: coder)
+    }
+    
+    override func encode(with coder: NSCoder) {
+        coder.encode(package.rawValue, forKey: "soda_package")
+        super.encode(with: coder)
+    }
+    
     func isTransportable() -> Bool {
         switch package {
         case .bottle:
@@ -41,6 +51,16 @@ class Coke: Soda, SugarFreeable {
         
         super.init(brand: brand, name: name, price: price, size: size, dateFactory: dateFactory, manufacturedInString: manufacturedInString, package: package)
     }
+    
+    required init?(coder: NSCoder) {
+        self.sugar = coder.decodeFloat(forKey: "coke_sugar")
+        super.init(coder: coder)
+    }
+    
+    override func encode(with coder: NSCoder) {
+        coder.encode(sugar, forKey: "coke_sugar")
+        super.encode(with: coder)
+    }
 
     func isSugarFree(basedOn sugarStandard: Float) -> Bool {
         return sugar <= sugarStandard
@@ -58,6 +78,16 @@ class Milkis: Soda, LactoFreeable {
         self.lactose = lactose
         
         super.init(brand: brand, name: name, price: price, size: size, dateFactory: dateFactory, manufacturedInString: manufacturedInString, package: package)
+    }
+    
+    required init?(coder: NSCoder) {
+        self.lactose = coder.decodeFloat(forKey: "milkis_lactose")
+        super.init(coder: coder)
+    }
+    
+    override func encode(with coder: NSCoder) {
+        coder.encode(lactose, forKey: "milkis_lactose")
+        super.encode(with: coder)
     }
     
     func isLactoFree(basedOn lactoStandard: Float) -> Bool {

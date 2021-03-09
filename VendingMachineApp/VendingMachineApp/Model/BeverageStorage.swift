@@ -7,12 +7,20 @@
 
 import Foundation
 
-class BeverageStorage: Storage {
+class BeverageStorage: NSObject, Storage, NSCoding {
 
     private var stockList: [ObjectIdentifier: [Beverage]]
     
-    init() {
+    override init() {
         stockList = [:]
+    }
+    
+    required init?(coder: NSCoder) {
+        self.stockList = coder.decodeObject(forKey: "stockList") as! [ObjectIdentifier: [Beverage]]
+    }
+    
+    func encode(with coder: NSCoder) {
+        coder.encode(stockList, forKey: "stockList")
     }
     
     func add(_ item: Shopable) {

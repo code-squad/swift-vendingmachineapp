@@ -21,6 +21,18 @@ class Coffee: Beverage, Hotable, Transportable {
         super.init(brand: brand, name: name, price: price, size: size, dateFactory: dateFactory, manufacturedInString: manufacturedInString)
     }
     
+    required init?(coder: NSCoder) {
+        self.temperature = coder.decodeFloat(forKey: "coffee_temperature")
+        self.package = Package(rawValue: coder.decodeObject(forKey: "coffee_package") as! String)!
+        super.init(coder: coder)
+    }
+    
+    override func encode(with coder: NSCoder) {
+        coder.encode(temperature, forKey: "coffee_temperature")
+        coder.encode(package.rawValue, forKey: "coffee_package")
+        super.encode(with: coder)
+    }
+    
     func isHot(basedOn temperature: Float) -> Bool {
         return self.temperature >= temperature
     }
@@ -48,6 +60,20 @@ class Americano: Coffee, SugarFreeable {
         super.init(brand: brand, name: name, price: price, size: size, dateFactory: dateFactory, manufacturedInString: manufacturedInString,
                    temperature: temperature, package: package)
     }
+    
+    private enum CodingKeys: String, CodingKey {
+        case sugar
+    }
+    
+    required init?(coder: NSCoder) {
+        self.sugar = coder.decodeFloat(forKey: "americano_sugar")
+        super.init(coder: coder)
+    }
+    
+    override func encode(with coder: NSCoder) {
+        coder.encode(sugar, forKey: "americano_sugar")
+        super.encode(with: coder)
+    }
 
     func isSugarFree(basedOn sugarStandard: Float) -> Bool {
         return sugar <= sugarStandard
@@ -68,6 +94,18 @@ class CafeLatte: Coffee, Expirable, LactoFreeable {
         
         super.init(brand: brand, name: name, price: price, size: size, dateFactory: dateFactory, manufacturedInString: manufacturedInString,
                    temperature: temperature, package: package)
+    }
+    
+    required init?(coder: NSCoder) {
+        self.expiry = coder.decodeObject(forKey: "latte_expiry") as! Date
+        self.lactose = coder.decodeFloat(forKey: "latte_lactose")
+        super.init(coder: coder)
+    }
+    
+    override func encode(with coder: NSCoder) {
+        coder.encode(expiry, forKey: "latte_expiry")
+        coder.encode(lactose, forKey: "latte_lactose")
+        super.encode(with: coder)
     }
     
     func isExpired(compareTo date: Date) -> Bool {

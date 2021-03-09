@@ -7,19 +7,19 @@
 
 import Foundation
 
-protocol BeverageFactory {
+protocol ShopableFactory {
 
-    func create(type: Beverage.Type) -> Beverage?
+    func create(type: Shopable.Type) -> Shopable?
     
-    func createAll() -> [Beverage]
+    func createAll() -> [Shopable]
 
 }
 
-class BeverageFactory0303: BeverageFactory {
+class BeverageFactory0303: ShopableFactory {
     
     private let allTypes: [Beverage.Type] = [Americano.self, CafeLatte.self, Chocolate.self, Coke.self, Milkis.self, Plain.self]
     
-    func create(type: Beverage.Type) -> Beverage? {
+    func create(type: Shopable.Type) -> Shopable? {
         switch type {
         case is Americano.Type:
             return Americano.init(brand: "스타벅스", name: "블랙커피", price: 1800, size: 275,
@@ -50,8 +50,8 @@ class BeverageFactory0303: BeverageFactory {
         }
     }
     
-    func createAll() -> [Beverage] {
-        var beverages = [Beverage]()
+    func createAll() -> [Shopable] {
+        var beverages = [Shopable]()
         
         allTypes.forEach { (beverage) in
             if let created = create(type: beverage) {

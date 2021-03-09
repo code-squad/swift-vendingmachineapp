@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E412600625EE28C9003ED8A7 /* DateFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E412600525EE28C9003ED8A7 /* DateFactory.swift */; };
-		E4B8A3EE25EF2942006D405F /* BeverageFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B8A3ED25EF2942006D405F /* BeverageFactory.swift */; };
+		E4B8A3EE25EF2942006D405F /* ShopableFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B8A3ED25EF2942006D405F /* ShopableFactory.swift */; };
 		E4B8A3F625EF6807006D405F /* VendingMachineUpdator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B8A3F525EF6807006D405F /* VendingMachineUpdator.swift */; };
 		E4B8A41025F1F32E006D405F /* DispensedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B8A40F25F1F32E006D405F /* DispensedList.swift */; };
 		E4B8A41A25F20819006D405F /* Interfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B8A41925F20819006D405F /* Interfaces.swift */; };
@@ -44,7 +44,7 @@
 
 /* Begin PBXFileReference section */
 		E412600525EE28C9003ED8A7 /* DateFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFactory.swift; sourceTree = "<group>"; };
-		E4B8A3ED25EF2942006D405F /* BeverageFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageFactory.swift; sourceTree = "<group>"; };
+		E4B8A3ED25EF2942006D405F /* ShopableFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopableFactory.swift; sourceTree = "<group>"; };
 		E4B8A3F525EF6807006D405F /* VendingMachineUpdator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineUpdator.swift; sourceTree = "<group>"; };
 		E4B8A40F25F1F32E006D405F /* DispensedList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispensedList.swift; sourceTree = "<group>"; };
 		E4B8A41925F20819006D405F /* Interfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interfaces.swift; sourceTree = "<group>"; };
@@ -99,7 +99,7 @@
 				E4B8A40F25F1F32E006D405F /* DispensedList.swift */,
 				E4EB880225E7CE1500F077D5 /* MoneyBox.swift */,
 				E4C499EC25E8716C008449D6 /* BeverageManager.swift */,
-				E4B8A3ED25EF2942006D405F /* BeverageFactory.swift */,
+				E4B8A3ED25EF2942006D405F /* ShopableFactory.swift */,
 				E4EB87CE25E4F88A00F077D5 /* Beverage.swift */,
 				E4EB87F525E782A100F077D5 /* BeverageProtocols.swift */,
 				E4EB87F925E782C000F077D5 /* Package.swift */,
@@ -274,7 +274,7 @@
 				E4EB87FE25E7BA6A00F077D5 /* BeverageStorage.swift in Sources */,
 				E4C499ED25E8716C008449D6 /* BeverageManager.swift in Sources */,
 				E4EB87F625E782A100F077D5 /* BeverageProtocols.swift in Sources */,
-				E4B8A3EE25EF2942006D405F /* BeverageFactory.swift in Sources */,
+				E4B8A3EE25EF2942006D405F /* ShopableFactory.swift in Sources */,
 				E4EB87E025E52B3E00F077D5 /* Milk.swift in Sources */,
 				E4EB87E625E52B4B00F077D5 /* Coffee.swift in Sources */,
 				E4EB87FA25E782C000F077D5 /* Package.swift in Sources */,

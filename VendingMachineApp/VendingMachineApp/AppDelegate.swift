@@ -22,20 +22,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     private func loadAll() {
-//        let storageInTextLoaded = UserDefaults.standard.data(forKey: "storage"),
-        if let dispensedListInTextLoaded = UserDefaults.standard.data(forKey: "dispensedList"),
+        if let storageInTextLoaded = UserDefaults.standard.data(forKey: "storage"),
+           let dispensedListInTextLoaded = UserDefaults.standard.data(forKey: "dispensedList"),
            let moneyBoxInTextLoaded = UserDefaults.standard.data(forKey: "moneyBox"),
            let beverageManagerInTextLoaded = UserDefaults.standard.data(forKey: "beverageManager"),
-//           let storage = unarchive(storage: storageInTextLoaded),
+           let storage = unarchive(with: storageInTextLoaded) as? Storage,
            let dispensedList = unarchive(with: dispensedListInTextLoaded) as? OrderableList,
            let moneyBox = unarchive(with: moneyBoxInTextLoaded) as? MoneyManagable,
            let beverageManager = unarchive(with: beverageManagerInTextLoaded) as? FoodManagable {
-            self.storage = BeverageStorage()
+            self.storage = storage
             self.dispensedList = dispensedList
             self.moneyBox = moneyBox
             self.beverageManager = beverageManager
-            print("불러오기 성공")
-
         } else {
             self.storage = BeverageStorage()
             self.dispensedList = DispensedList()
@@ -44,7 +42,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                                    temperatureStandard: 36.5,
                                                    sugarStandard: 1.0,
                                                    lactoStandard: 0.5)
-            print("새로 생성!")
         }
         self.vendingMachine = VendingMachine(storage: storage,
                                              dispensedList: dispensedList,

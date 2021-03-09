@@ -17,14 +17,14 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         changeBalanceLabel()
+        changeBeverageLabel()
     }
     
     @IBAction func buyBeverageButtonTouched(_ sender: BeveragesButton) {
         sender.increase(action: { (beverage) in
             self.appDelegate.vendingMachine.addStock(beverage: beverage)
-            self.numberOfStock[sender.tag].text = String(self.appDelegate.vendingMachine.countDrink(beverage: beverage))
+            self.changeBeverageLabel()
         })
     }
     
@@ -37,6 +37,14 @@ class ViewController: UIViewController {
     
     private func changeBalanceLabel() {
         self.BalanceLabel.text = String(self.appDelegate.vendingMachine.checkCurrentBalance())
+    }
+    
+    private func changeBeverageLabel() {
+        let beverage = appDelegate.vendingMachine.showAllBeverageStock()
+        appDelegate.vendingMachine.showMenuList().enumerated().forEach {
+            self.numberOfStock[$0.offset].text =
+                String(beverage[ObjectIdentifier(type(of: $0.element))]?.count ?? 0)
+        }
     }
 }
 

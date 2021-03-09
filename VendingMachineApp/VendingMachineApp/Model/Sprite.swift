@@ -23,6 +23,16 @@ class Sprite: SoftDrink {
         try super.encode(to: encoder)
     }
     
+    required init?(coder: NSCoder) {
+        container = coder.decodeObject(forKey: "container") as! Container
+        super.init(coder: coder)
+    }
+    
+    override func encode(with coder: NSCoder) {
+        coder.encode(container, forKey: "container")
+        super.encode(with: coder)
+    }
+    
     enum Container: String, Codable {
         case Bottle
         case Can

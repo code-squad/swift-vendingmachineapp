@@ -25,6 +25,16 @@ class Milk: Beverage {
         try super.encode(to: encoder)
     }
     
+    required init?(coder: NSCoder) {
+        farmCode = coder.decodeObject(forKey: "farmCode") as! String
+        super.init(coder: coder)
+    }
+    
+    override func encode(with coder: NSCoder) {
+        coder.encode(farmCode, forKey: "farmCode")
+        super.encode(with: coder)
+    }
+    
     func origin() -> String {
         return farmCode
     }

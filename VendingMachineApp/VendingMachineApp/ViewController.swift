@@ -21,6 +21,8 @@ class ViewController: UIViewController, SelectPanelStackViewDelegate, TopPanelDe
         selectPanelStackView.delegate = self
         topPanelView.delegate = self
         selectPanelStackView.setDrinkImageViewsRadius(of: 5)
+        loadLeftCoinsLabel()
+        loadSelectPanelStackViewLabels()
     }
     
     func didAddedDrink(typeOf drinkType: Drink.Type) {

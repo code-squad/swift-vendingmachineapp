@@ -20,28 +20,32 @@ class ViewController: UIViewController {
     @IBOutlet weak var addThousandButton: UIButton!
     @IBOutlet weak var addFiveThousandButton: UIButton!
     @IBOutlet weak var currentChangeLabel: UILabel!
-    @IBOutlet var beverageButtons: [AddBeverageButton]!
+    @IBOutlet var beverageButtons: [UIButton]!
     @IBOutlet var beverageImageViews: [BeverageImageView]!
-    @IBOutlet var beverageLabels: [BeverageLabel]!
+    @IBOutlet var beverageLabels: [UILabel]!
     
     var vendingMachine = VendingMachine()
     var wholeBeverageList: [Beverage:Int] = [:]
     override func viewDidLoad() {
         super.viewDidLoad()
         mainStackView.backgroundColor = .systemGray2
-        
+ 
         productList = vendingMachine.initializeProductList()
         wholeBeverageList = vendingMachine.wholeBeverage()
         
+        setButtonsTitle()
+        setLabelsTitle()
+        
         mappingButtonAndLabel()
         mappingButtonAndProduct()
-        
+
         addThousandButton.setTitle("+1000", for: .normal)
         addFiveThousandButton.setTitle("+5000", for: .normal)
         currentChangeLabel.text = "잔액 : \(vendingMachine.checkChagne().money)원"
     }
     
     @IBAction func addButtonTouched(_ sender: UIButton) {
+        
         vendingMachine.add(beverage: buttonDictionary[sender.self]!)
         wholeBeverageList = vendingMachine.wholeBeverage()
         labelDictionary[sender.self]?.text = String(wholeBeverageList[buttonDictionary[sender.self]!] ?? 0)
@@ -66,6 +70,17 @@ class ViewController: UIViewController {
     func mappingButtonAndLabel() {
         for (button, label) in zip(beverageButtons, beverageLabels) {
             labelDictionary.updateValue(label, forKey: button)
+        }
+    }
+    
+    func setButtonsTitle() {
+        for index in 0..<beverageButtons.count {
+            beverageButtons[index].setTitle("추가", for: .normal)
+        }
+    }
+    func setLabelsTitle() {
+        for index in 0..<beverageLabels.count {
+            beverageLabels[index].text = "0"
         }
     }
 }

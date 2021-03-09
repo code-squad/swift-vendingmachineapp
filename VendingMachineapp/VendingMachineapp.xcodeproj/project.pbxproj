@@ -34,9 +34,6 @@
 		D46F1B0D25EE0A3900BFBD9C /* VendingMachineManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46F1B0C25EE0A3900BFBD9C /* VendingMachineManager.swift */; };
 		D46F1B1125EE16BE00BFBD9C /* Money.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46F1B1025EE16BE00BFBD9C /* Money.swift */; };
 		D46F1B1525EE220E00BFBD9C /* BeverageFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46F1B1425EE220E00BFBD9C /* BeverageFactory.swift */; };
-		D46F1B1925EE223A00BFBD9C /* MilkFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46F1B1825EE223A00BFBD9C /* MilkFactory.swift */; };
-		D46F1B1D25EE2A3900BFBD9C /* CoffeeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46F1B1C25EE2A3900BFBD9C /* CoffeeFactory.swift */; };
-		D46F1B2325EE31CA00BFBD9C /* SodaFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46F1B2225EE31CA00BFBD9C /* SodaFactory.swift */; };
 		D4EC7A5725F1EC430013F504 /* BeverageStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EC7A5625F1EC430013F504 /* BeverageStackView.swift */; };
 		D4EC7A5B25F2196C0013F504 /* AddBeverageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EC7A5A25F2196C0013F504 /* AddBeverageButton.swift */; };
 		D4EC7A6125F607060013F504 /* ImageViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EC7A6025F607060013F504 /* ImageViews.swift */; };
@@ -85,9 +82,6 @@
 		D46F1B0C25EE0A3900BFBD9C /* VendingMachineManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineManager.swift; sourceTree = "<group>"; };
 		D46F1B1025EE16BE00BFBD9C /* Money.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Money.swift; sourceTree = "<group>"; };
 		D46F1B1425EE220E00BFBD9C /* BeverageFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageFactory.swift; sourceTree = "<group>"; };
-		D46F1B1825EE223A00BFBD9C /* MilkFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MilkFactory.swift; sourceTree = "<group>"; };
-		D46F1B1C25EE2A3900BFBD9C /* CoffeeFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeFactory.swift; sourceTree = "<group>"; };
-		D46F1B2225EE31CA00BFBD9C /* SodaFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SodaFactory.swift; sourceTree = "<group>"; };
 		D4EC7A5625F1EC430013F504 /* BeverageStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageStackView.swift; sourceTree = "<group>"; };
 		D4EC7A5A25F2196C0013F504 /* AddBeverageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBeverageButton.swift; sourceTree = "<group>"; };
 		D4EC7A6025F607060013F504 /* ImageViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViews.swift; sourceTree = "<group>"; };
@@ -173,7 +167,6 @@
 			isa = PBXGroup;
 			children = (
 				D46F1A7825E8BBFF00BFBD9C /* StrawberryMilk.swift */,
-				D46F1B1825EE223A00BFBD9C /* MilkFactory.swift */,
 				D46F1A7B25E8BC1800BFBD9C /* BananaMilk.swift */,
 				D46F1A7E25E8BC2400BFBD9C /* ChocoMilk.swift */,
 				D46F1A5B25E6675E00BFBD9C /* Milk.swift */,
@@ -188,7 +181,6 @@
 				D46F1A6125E6730200BFBD9C /* Coffee.swift */,
 				D46F1A8425E8BE9200BFBD9C /* Cantata.swift */,
 				D46F1A8725E8BE9C00BFBD9C /* Georgia.swift */,
-				D46F1B1C25EE2A3900BFBD9C /* CoffeeFactory.swift */,
 			);
 			path = Coffee;
 			sourceTree = "<group>";
@@ -200,7 +192,6 @@
 				D46F1A8A25E8C1D000BFBD9C /* Fanta.swift */,
 				D46F1A8D25E8C1D900BFBD9C /* Sprite.swift */,
 				D46F1A9025E8C1E000BFBD9C /* Coke.swift */,
-				D46F1B2225EE31CA00BFBD9C /* SodaFactory.swift */,
 			);
 			path = Soda;
 			sourceTree = "<group>";
@@ -331,13 +322,11 @@
 				D4EC7A5B25F2196C0013F504 /* AddBeverageButton.swift in Sources */,
 				D46F1A5F25E671EF00BFBD9C /* Soda.swift in Sources */,
 				D46F1A8B25E8C1D000BFBD9C /* Fanta.swift in Sources */,
-				D46F1B1925EE223A00BFBD9C /* MilkFactory.swift in Sources */,
 				D4EC7A6125F607060013F504 /* ImageViews.swift in Sources */,
 				D4EC7A6725F60D470013F504 /* BeverageLabel.swift in Sources */,
 				D46F1A4025E62A3200BFBD9C /* ViewController.swift in Sources */,
 				D46F1A6F25E6A52B00BFBD9C /* Inventory.swift in Sources */,
 				D46F1A9125E8C1E000BFBD9C /* Coke.swift in Sources */,
-				D46F1B1D25EE2A3900BFBD9C /* CoffeeFactory.swift in Sources */,
 				D46F1A3C25E62A3200BFBD9C /* AppDelegate.swift in Sources */,
 				D46F1A5325E6323700BFBD9C /* Beverage.swift in Sources */,
 				D46F1A8525E8BE9200BFBD9C /* Cantata.swift in Sources */,
@@ -356,7 +345,6 @@
 				D46F1B0D25EE0A3900BFBD9C /* VendingMachineManager.swift in Sources */,
 				D46F1A6525E6782F00BFBD9C /* VendingMachine.swift in Sources */,
 				D46F1A8225E8BE8A00BFBD9C /* Top.swift in Sources */,
-				D46F1B2325EE31CA00BFBD9C /* SodaFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -17,7 +17,7 @@ class Beverage{
     private var calorie: Int
     private var temperature: Int
     
-    init(manufacturer: String, volume: Int, price: Int, brand: String, manufactured: Date, expiry: Date, calorie: Int, temperature: Int) {
+    required init(manufacturer: String, volume: Int, price: Int, brand: String, manufactured: Date, expiry: Date, calorie: Int, temperature: Int) {
         self.manufacturer = manufacturer
         self.volume = volume
         self.price = price

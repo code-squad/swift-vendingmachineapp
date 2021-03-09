@@ -13,6 +13,18 @@ class StrawberryMilk: Milk {
     init(manufacturer: String, volume: Int, price: Int, brand: String, manufactured: Date, expiry: Date, calorie: Int, temperature: Int, lowFat: Int, strawberryContent: Int) {
         self.strawberryContent = strawberryContent
         super.init(manufacturer: manufacturer,
+        volume: volume,
+        price: price,
+        brand: brand,
+        manufactured: manufactured,
+        expiry: expiry,
+        calorie: calorie,
+        temperature: temperature,
+        lowFat: lowFat)
+    }
+    
+    required convenience init(manufacturer: String, volume: Int, price: Int, brand: String, manufactured: Date, expiry: Date, calorie: Int, temperature: Int) {
+        self.init(manufacturer: manufacturer,
                    volume: volume,
                    price: price,
                    brand: brand,
@@ -20,6 +32,7 @@ class StrawberryMilk: Milk {
                    expiry: expiry,
                    calorie: calorie,
                    temperature: temperature,
-                   lowFat: lowFat)
+                   lowFat: 13,
+                   strawberryContent: 20)
     }
 }

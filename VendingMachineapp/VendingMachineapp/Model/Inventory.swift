@@ -46,7 +46,7 @@ class Inventory {
     }
     
     func initializeProductList() -> [Beverage] {
-        let strawberryMilk = MilkFactory.createBeverage(
+        let strawberryMilk = BeverageFactory.createBeverage(
                                          manufacturer: "서울우유",
                                          volume: 200, price: 1000,
                                          brand: "날마다딸기우유",
@@ -56,7 +56,7 @@ class Inventory {
                                          temperature: 10,
                                          ofType: StrawberryMilk.self)!
         
-        let chocoMilk = MilkFactory.createBeverage(
+        let chocoMilk = BeverageFactory.createBeverage(
                                          manufacturer: "서울우유",
                                          volume: 200, price: 1100,
                                          brand: "날마다초코우유",
@@ -66,7 +66,7 @@ class Inventory {
                                          temperature: 10,
                                          ofType: ChocoMilk.self)!
         
-        let bananaMilk = MilkFactory.createBeverage(
+        let bananaMilk = BeverageFactory.createBeverage(
                                          manufacturer: "서울우유",
                                          volume: 200, price: 1200,
                                          brand: "날마다바나나우유",
@@ -76,7 +76,7 @@ class Inventory {
                                          temperature: 10,
                                          ofType: BananaMilk.self)!
         
-        let coke = SodaFactory.createBeverage(
+        let coke = BeverageFactory.createBeverage(
                               manufacturer: "팹시",
                               volume: 350,
                               price: 2000,
@@ -87,7 +87,7 @@ class Inventory {
                               temperature: 10,
                               ofType: Coke.self)!
         
-        let sprite = SodaFactory.createBeverage(
+        let sprite = BeverageFactory.createBeverage(
                               manufacturer: "팹시",
                               volume: 350,
                               price: 1500,
@@ -98,7 +98,7 @@ class Inventory {
                               temperature: 10,
                               ofType: Sprite.self)!
         
-        let fanta = SodaFactory.createBeverage(
+        let fanta = BeverageFactory.createBeverage(
                               manufacturer: "팹시",
                               volume: 350,
                               price: 1700,
@@ -109,7 +109,7 @@ class Inventory {
                               temperature: 10,
                               ofType: Fanta.self)!
         
-        let top = CoffeeFactory.createBeverage(
+        let top = BeverageFactory.createBeverage(
                                  manufacturer: "맥심",
                                  volume: 300,
                                  price: 3500,
@@ -120,7 +120,7 @@ class Inventory {
                                  temperature: 20,
                                  ofType: Top.self)!
         
-        let cantata = CoffeeFactory.createBeverage(manufacturer: "맥심",
+        let cantata = BeverageFactory.createBeverage(manufacturer: "맥심",
                                  volume: 400,
                                  price: 3000,
                                  brand: "칸타타",
@@ -130,7 +130,7 @@ class Inventory {
                                  temperature: 50,
                                  ofType: Cantata.self)!
         
-        let georgia = CoffeeFactory.createBeverage(manufacturer: "맥심",
+        let georgia = BeverageFactory.createBeverage(manufacturer: "맥심",
                                  volume: 400,
                                  price: 500,
                                  brand: "조지아",
@@ -149,7 +149,9 @@ class Inventory {
         productList.append(strawberryMilk)
         productList.append(bananaMilk)
         productList.append(chocoMilk)
-        
+        for product in productList {
+            print(type(of: product))
+        }
         return productList
     }
 }

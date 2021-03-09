@@ -13,12 +13,24 @@ class Soda: Beverage {
     init(manufacturer: String, volume: Int, price: Int, brand: String, manufactured: Date, expiry: Date, calorie: Int, temperature: Int, flavor: String) {
         self.flavor = flavor
         super.init(manufacturer: manufacturer,
+        volume: volume,
+        price: price,
+        brand: brand,
+        manufactured: manufactured,
+        expiry: expiry,
+        calorie: calorie,
+        temperature: temperature)
+    }
+    
+    required convenience init(manufacturer: String, volume: Int, price: Int, brand: String, manufactured: Date, expiry: Date, calorie: Int, temperature: Int) {
+        self.init(manufacturer: manufacturer,
                    volume: volume,
                    price: price,
                    brand: brand,
                    manufactured: manufactured,
                    expiry: expiry,
                    calorie: calorie,
-                   temperature: temperature)
+                   temperature: temperature,
+                   flavor: "unknown")
     }
 }

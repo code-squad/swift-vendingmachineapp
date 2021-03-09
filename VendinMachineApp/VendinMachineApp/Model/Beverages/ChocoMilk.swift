@@ -16,6 +16,10 @@ class ChocoMilk : Milk, Country {
         self.init(brand: brand, size: size, price: price, name: name, manufactureAt: manufactureAt, validWithin: 7, madeIn: madeIn)
     }
     
+    class override func makeBeverage() -> Beverage {
+        return ChocoMilk(brand: "푸르밀", size: 225, price: 1000, name: "가나쵸코우유", manufactureAt: Date(), madeIn: Ghana())
+    }
+    
     func madeIn() -> Country {
         return self.country
     }

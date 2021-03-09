@@ -14,6 +14,10 @@ class Coke : Soda, Calorie {
         self.init(brand: brand, size: size, price: price, name: name, manufactureAt: Date(), package: package, calories: calories)
     }
     
+    class override func makeBeverage() -> Beverage {
+        return Coke(brand: "코카콜라", size: 190, price: 1500, name: "코카콜라제로", package: Can(), calories: 0)
+    }
+    
     func isLowCalories(standard: Int) -> Bool {
         return self.calories < standard ? true : false
     }

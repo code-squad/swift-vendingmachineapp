@@ -14,6 +14,10 @@ class Americano : Coffee, Shot {
         self.init(brand: brand, size: size, price: price, name: name, manufactureAt: Date(), temperature: temperature, country: country, shot: shot)
     }
     
+    class override func makeBeverage() -> Beverage {
+        return Americano(brand: "맥심", size: 380, price: 2000, name: "TOP 아메리카노", temperature: 5, country: Ethiopia(), shot: 1)
+    }
+    
     func isMoreThan(shot: Int) -> Bool {
         return self.shot > shot
     }

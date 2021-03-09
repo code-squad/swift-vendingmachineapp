@@ -9,20 +9,10 @@ import Foundation
 
 struct VendingMachine {
     
-    fileprivate var storage: Storage
-    fileprivate var dispensedList: OrderableList
-    fileprivate var moneyBox: MoneyManagable
-    fileprivate var beverageManager: FoodManagable
-    
-    init(dateStandard: Date, temperatureStandard: Float, sugarStandard: Float, lactoStandard: Float) {
-        storage = BeverageStorage()
-        dispensedList = DispensedList()
-        moneyBox = MoneyBox()
-        beverageManager = BeverageManager(dateStandard: dateStandard,
-                              temperatureStandard: temperatureStandard,
-                              sugarStandard: sugarStandard,
-                              lactoStandard: lactoStandard)
-    }
+    private var storage: Storage
+    private var dispensedList: OrderableList
+    private var moneyBox: MoneyManagable
+    private var beverageManager: FoodManagable
     
     init(storage: Storage, dispensedList: OrderableList, moneyBox: MoneyManagable, beverageManager: FoodManagable) {
         self.storage = storage

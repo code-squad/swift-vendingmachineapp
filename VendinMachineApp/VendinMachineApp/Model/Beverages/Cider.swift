@@ -17,6 +17,10 @@ class Cider : Soda, Country {
         self.init(brand: brand, size: size, price: price, name: name, manufactureAt: Date(), package: package, country: country)
     }
  
+    class override func makeBeverage() -> Beverage {
+        return Cider(brand: "동아오츠카", size: 500, price: 700, name: "나랑드 사이다", package: Plastic(), country: Korea())
+    }
+    
     func madeIn() -> Country {
         return self.country
     }

@@ -14,6 +14,10 @@ class Latte : Coffee, Calorie {
         self.init(brand: brand, size: size, price: price, name: name, manufactureAt: Date(), temperature: temperature, country: country, calories: calories)
     }
     
+    class override func makeBeverage() -> Beverage {
+        return Latte(brand: "롯데", size: 175, price: 500, name: "레쓰비 모카라떼", temperature: 1, country: Korea(), calories: 300)
+    }
+    
     func isLowCalories(standard: Int) -> Bool {
         return self.calories < standard ? true : false
     }

@@ -20,6 +20,10 @@ class Beverage : CustomStringConvertible {
         self.manufacturedAt = manufactureAt
     }
     
+    class func makeBeverage() -> Beverage {
+        return Beverage(brand: "unknown", size: 0, price: 0, name: "unknown", manufactureAt: Date())
+    }
+    
     func isPriced(under price: Int) -> Bool {
         return self.price <= price ? true : false
     }

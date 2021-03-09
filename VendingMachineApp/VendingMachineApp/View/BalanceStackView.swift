@@ -7,7 +7,8 @@
 
 import UIKit
 
-class BalanceStackView: UIStackView {
+class BalanceStackView: UIStackView, AddBalance {
+    
     func setting() {
         self.translatesAutoresizingMaskIntoConstraints = false
         self.axis = .vertical
@@ -17,10 +18,10 @@ class BalanceStackView: UIStackView {
     
     func collectSubelements() {
         let balanceButton_1000 = BalanceButton.init()
-        balanceButton_1000.setting(with: "+1000")
+        balanceButton_1000.setting(with: 1000)
         
         let balanceButton_5000 = BalanceButton.init()
-        balanceButton_5000.setting(with: "+5000")
+        balanceButton_5000.setting(with: 5000)
         
         let balanceLabel = BalanceLabel.init()
         balanceLabel.setting(count: 0)
@@ -29,4 +30,14 @@ class BalanceStackView: UIStackView {
         self.addArrangedSubview(balanceButton_5000)
         self.addArrangedSubview(balanceLabel)
     }
+    
+    func didPressButton(button: UIButton) {
+        let index = subviews.firstIndex() {
+            guard let downCasting = $0 as? UILabel else {
+                return false
+            }
+            return true
+        }
+    }
+    
 }

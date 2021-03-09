@@ -21,7 +21,4 @@ class ViewController: UIViewController {
         outputView.setting(with: stockList)
         self.view = outputView
     }
-
-
 }
-

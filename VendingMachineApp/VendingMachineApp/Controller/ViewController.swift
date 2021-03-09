@@ -9,24 +9,25 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    @IBOutlet var beverageLabels: [UILabel]!
     @IBOutlet var balanceLabel: UILabel!
     @IBOutlet var beverageImages: [UIImageView]!
-    @IBOutlet var beverageButtons: [UIButton]!
+    @IBOutlet var beverageButtons: [BeverageButtons]!
+    @IBOutlet var beverageLabels: [UILabel]!
     
     let vendingMachine = VendingMachine()
+    var dataOfButtonAndLabel: [UIButton: UILabel] = [:]
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        beverageImages.forEach{ (imageView) in
-            imageView.layer.cornerRadius = 50
-            imageView.clipsToBounds = true
-        }
+        curveImageVertex()
+        fillButtonAndLabelData()
     }
     
     @IBAction func addStock(_ sender: BeverageButtons) {
         sender.action { (beverage) in
             vendingMachine.addStock(as: beverage)
+            guard let beverageCount = vendingMachine.showStock()[ObjectIdentifier(beverage)]?.count else {return}
+            dataOfButtonAndLabel[sender]?.text = "\(beverageCount)개"
         }
     }
     
@@ -41,6 +42,19 @@ class ViewController: UIViewController {
             break
         }
         balanceLabel.text = "잔액: \(vendingMachine.showBalance().description)원"
+    }
+    
+    func curveImageVertex() {
+        beverageImages.forEach{ (imageView) in
+            imageView.layer.cornerRadius = 50
+            imageView.clipsToBounds = true
+        }
+    }
+    
+    func fillButtonAndLabelData() {
+        for i in 0...3 {
+            dataOfButtonAndLabel[beverageButtons[i]] = beverageLabels[i]
+        }
     }
     
 }

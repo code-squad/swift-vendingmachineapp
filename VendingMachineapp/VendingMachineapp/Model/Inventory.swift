@@ -149,9 +149,7 @@ class Inventory {
         productList.append(strawberryMilk)
         productList.append(bananaMilk)
         productList.append(chocoMilk)
-        for product in productList {
-            print(type(of: product))
-        }
+
         return productList
     }
 }

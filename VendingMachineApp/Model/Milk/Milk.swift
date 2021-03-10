@@ -8,7 +8,7 @@
 import Foundation
 
 class Milk : Beverage {
-    private var lowFat : Bool
+    private let lowFat : Bool
     
     init(brand : String, capacity : Int, price : Int, name : String, createdAt : Date, expiredAt : Date, lowFat : Bool){
         self.lowFat = lowFat

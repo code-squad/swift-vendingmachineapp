@@ -8,12 +8,14 @@
 import Foundation
 
 class Coffee : Beverage{
-    private var caffeine : Int
-    private let hot : Bool
     
-    init(brand : String, capacity : Int, price : Int, name : String, createdAt : Date, expiredAt: Date, caffeine : Int, hot : Bool){
+    private static let standard = 65
+    private var caffeine : Int
+    private var temperature : Int
+    
+    init(brand : String, capacity : Int, price : Int, name : String, createdAt : Date, expiredAt: Date, caffeine : Int, temperature : Int){
         self.caffeine = caffeine
-        self.hot = hot
+        self.temperature = temperature
         super.init(brand: brand,
                    capacity: capacity,
                    price: price,
@@ -24,13 +26,13 @@ class Coffee : Beverage{
     
     required init() {
         self.caffeine = 0
-        self.hot = false
+        self.temperature = Coffee.standard
         super.init()
     }
     override var description: String {
         return super.description + ", \(caffeine)mg"
     }
     func isHot() -> Bool{
-        return hot
+        return Coffee.standard <= temperature
     }
 }

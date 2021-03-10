@@ -17,7 +17,7 @@ class Cantata : Coffee {
     
     let kind : Kind
 
-    init(brand: String, capacity: Int, price: Int, name: String, createdAt: Date, expiredAt: Date, caffeine: Int, hot: Bool, kind: Cantata.Kind) {
+    init(brand: String, capacity: Int, price: Int, name: String, createdAt: Date, expiredAt: Date, caffeine: Int, temperature: Int, kind: Cantata.Kind) {
         self.kind = kind
         super.init(brand: brand,
                    capacity: capacity,
@@ -26,7 +26,7 @@ class Cantata : Coffee {
                    createdAt: createdAt,
                    expiredAt: expiredAt,
                    caffeine: caffeine,
-                   hot: hot)
+                   temperature: temperature)
     }
     convenience required init(){
         self.init(brand: "롯데칠성음료",
@@ -36,7 +36,7 @@ class Cantata : Coffee {
                    createdAt: Date(),
                    expiredAt: Date().get7daysLatter(),
                    caffeine: 100,
-                   hot: false,
+                   temperature : 65,
                    kind: Kind.sweetAmericano)
     }
 }

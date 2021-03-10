@@ -16,7 +16,9 @@ class ViewController: UIViewController, SelectPanelStackViewDelegate, TopPanelDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        vendingMachine = VendingMachine()
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.vendingMachine = DataCenter.load()
+        self.vendingMachine = appDelegate.vendingMachine
 
         selectPanelStackView.delegate = self
         topPanelView.delegate = self

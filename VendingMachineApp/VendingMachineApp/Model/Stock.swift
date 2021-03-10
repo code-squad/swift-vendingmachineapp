@@ -1,26 +1,10 @@
 import Foundation
 
-class Stock: NSObject, StockManageable, NSCoding {
+class Stock: NSObject, NSCoding, StockManageable {
     private var stock: [Drink]
-    
-    private var filePath: URL = {
-            let stockDataFileName = "StockData"
-            let fileManager = FileManager.default
-            guard let documentDirectory = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first else { return URL(fileURLWithPath: "")}
-            return documentDirectory.appendingPathComponent(stockDataFileName)
-    }()
     
     override init() {
         self.stock = [Drink]()
-        if FileManager.default.fileExists(atPath: filePath.path) {
-            guard let data = FileManager.default.contents(atPath: filePath.path) else { return }
-            do {
-                guard let object = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? [Drink] else { return }
-                self.stock += object
-            } catch {
-                print(error)
-            }
-        }
     }
     
     required init?(coder: NSCoder) {
@@ -31,15 +15,6 @@ class Stock: NSObject, StockManageable, NSCoding {
         coder.encode(self.stock, forKey: "stock")
     }
     
-    func save() {
-        do {
-            let data = try NSKeyedArchiver.archivedData(withRootObject: self.stock, requiringSecureCoding: false)
-            try data.write(to: filePath)
-        } catch {
-            print(error)
-        }
-    }
-    
     public func checkProductization(of drink: Drink) -> Bool {
         return (drink as? Productization) != nil ? true : false
     }
@@ -47,7 +22,6 @@ class Stock: NSObject, StockManageable, NSCoding {
     public func addedDrink(_ drink: Drink) {
         guard checkProductization(of: drink) else { return }
         stock.append(drink)
-        save()
     }
 
     public func availableForDrinks(coin: Int) -> [Drink] {

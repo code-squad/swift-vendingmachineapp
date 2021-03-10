@@ -1,10 +1,18 @@
 import Foundation
 
-class CoinCounter: CoinManageable {
+class CoinCounter: NSObject, NSCoding, CoinManageable {
     private var coins: Int
     
-    init() {
+    override init() {
         coins = 0
+    }
+    
+    required init?(coder: NSCoder) {
+        self.coins = coder.decodeInteger(forKey: "coin")
+    }
+        
+    func encode(with coder: NSCoder) {
+        coder.encode(self.coins, forKey: "coin")
     }
     
     public func inserted(_ coin: Int) {

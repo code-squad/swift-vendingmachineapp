@@ -25,8 +25,11 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Ac-Qc-OA6">
                                                 <rect key="frame" x="40" y="0.0" width="30" height="30"/>
                                                 <state key="normal" title="추가"/>
+                                                <connections>
+                                                    <action selector="addInventoryButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YDb-E0-hmV"/>
+                                                </connections>
                                             </button>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sep-gr-CzL">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Banana" translatesAutoresizingMaskIntoConstraints="NO" id="sep-gr-CzL">
                                                 <rect key="frame" x="0.0" y="40" width="110" height="150"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="110" id="9ZO-Ih-YrS"/>
@@ -47,8 +50,11 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3yq-Wo-M9B">
                                                 <rect key="frame" x="40" y="0.0" width="30" height="30"/>
                                                 <state key="normal" title="추가"/>
+                                                <connections>
+                                                    <action selector="addInventoryButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PTZ-p5-xgi"/>
+                                                </connections>
                                             </button>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oL1-5O-qcB">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Strawberry" translatesAutoresizingMaskIntoConstraints="NO" id="oL1-5O-qcB">
                                                 <rect key="frame" x="0.0" y="40" width="110" height="150"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="150" id="HK5-gf-DPB"/>
@@ -69,8 +75,11 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cvr-QS-eWz">
                                                 <rect key="frame" x="40" y="0.0" width="30" height="30"/>
                                                 <state key="normal" title="추가"/>
+                                                <connections>
+                                                    <action selector="addInventoryButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aaD-PB-z0x"/>
+                                                </connections>
                                             </button>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WqC-qe-TR7">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Cantata" translatesAutoresizingMaskIntoConstraints="NO" id="WqC-qe-TR7">
                                                 <rect key="frame" x="0.0" y="40" width="110" height="150"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="150" id="Ebt-Aa-4JJ"/>
@@ -91,8 +100,11 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gqd-N9-MxD">
                                                 <rect key="frame" x="40" y="0.0" width="30" height="30"/>
                                                 <state key="normal" title="추가"/>
+                                                <connections>
+                                                    <action selector="addInventoryButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ciU-lL-DKc"/>
+                                                </connections>
                                             </button>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ob1-SU-5bX">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TOP" translatesAutoresizingMaskIntoConstraints="NO" id="ob1-SU-5bX">
                                                 <rect key="frame" x="0.0" y="40" width="110" height="150"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="150" id="OjM-zS-hJh"/>
@@ -113,8 +125,11 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CVN-4s-QCu">
                                                 <rect key="frame" x="40" y="0.0" width="30" height="30"/>
                                                 <state key="normal" title="추가"/>
+                                                <connections>
+                                                    <action selector="addInventoryButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rtW-IJ-X1K"/>
+                                                </connections>
                                             </button>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KEe-tP-UT3">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Cola" translatesAutoresizingMaskIntoConstraints="NO" id="KEe-tP-UT3">
                                                 <rect key="frame" x="0.0" y="40" width="110" height="150"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="110" id="srv-JD-7q1"/>
@@ -135,8 +150,11 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9vt-AL-kEE">
                                                 <rect key="frame" x="40" y="0.0" width="30" height="30"/>
                                                 <state key="normal" title="추가"/>
+                                                <connections>
+                                                    <action selector="addInventoryButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Lpx-kA-7Ar"/>
+                                                </connections>
                                             </button>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wb5-z8-cKI">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Cider" translatesAutoresizingMaskIntoConstraints="NO" id="wb5-z8-cKI">
                                                 <rect key="frame" x="0.0" y="40" width="110" height="150"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="150" id="CbT-cm-5be"/>
@@ -201,11 +219,11 @@
                         <outletCollection property="beverageImageViews" destination="ob1-SU-5bX" collectionClass="NSMutableArray" id="4BY-UI-Odg"/>
                         <outletCollection property="beverageImageViews" destination="KEe-tP-UT3" collectionClass="NSMutableArray" id="bcF-93-qPP"/>
                         <outletCollection property="addInventoryButtons" destination="1Ac-Qc-OA6" collectionClass="NSMutableArray" id="UL7-h3-PcY"/>
-                        <outletCollection property="beverageNameLabels" destination="SGF-dV-wcD" collectionClass="NSMutableArray" id="F5H-e8-Jxz"/>
-                        <outletCollection property="beverageNameLabels" destination="8kL-uw-eqO" collectionClass="NSMutableArray" id="Mcm-tW-EPD"/>
-                        <outletCollection property="beverageNameLabels" destination="LPK-W3-e5f" collectionClass="NSMutableArray" id="V4j-pu-HAh"/>
-                        <outletCollection property="beverageNameLabels" destination="j8s-cs-yVG" collectionClass="NSMutableArray" id="ecE-Ih-ilB"/>
-                        <outletCollection property="beverageNameLabels" destination="9wy-xJ-3A3" collectionClass="NSMutableArray" id="iG3-ao-irq"/>
+                        <outletCollection property="beverageCountLabels" destination="SGF-dV-wcD" collectionClass="NSMutableArray" id="F5H-e8-Jxz"/>
+                        <outletCollection property="beverageCountLabels" destination="8kL-uw-eqO" collectionClass="NSMutableArray" id="Mcm-tW-EPD"/>
+                        <outletCollection property="beverageCountLabels" destination="LPK-W3-e5f" collectionClass="NSMutableArray" id="V4j-pu-HAh"/>
+                        <outletCollection property="beverageCountLabels" destination="j8s-cs-yVG" collectionClass="NSMutableArray" id="ecE-Ih-ilB"/>
+                        <outletCollection property="beverageCountLabels" destination="9wy-xJ-3A3" collectionClass="NSMutableArray" id="iG3-ao-irq"/>
                         <outletCollection property="addInventoryButtons" destination="3yq-Wo-M9B" collectionClass="NSMutableArray" id="aXA-am-nqx"/>
                         <outletCollection property="addInventoryButtons" destination="Cvr-QS-eWz" collectionClass="NSMutableArray" id="P3A-xr-FLK"/>
                         <outletCollection property="addInventoryButtons" destination="gqd-N9-MxD" collectionClass="NSMutableArray" id="NjQ-qw-XMA"/>
@@ -214,7 +232,7 @@
                         <outletCollection property="addBalanceButtons" destination="F3j-CG-IkL" collectionClass="NSMutableArray" id="gVG-nV-65u"/>
                         <outletCollection property="addInventoryButtons" destination="9vt-AL-kEE" collectionClass="NSMutableArray" id="Mef-gn-90r"/>
                         <outletCollection property="beverageImageViews" destination="wb5-z8-cKI" collectionClass="NSMutableArray" id="Wp2-EU-p71"/>
-                        <outletCollection property="beverageNameLabels" destination="3hL-An-LCK" collectionClass="NSMutableArray" id="EbN-aI-k2K"/>
+                        <outletCollection property="beverageCountLabels" destination="3hL-An-LCK" collectionClass="NSMutableArray" id="EbN-aI-k2K"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -223,6 +241,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Banana" width="460" height="460"/>
+        <image name="Cantata" width="512" height="512"/>
+        <image name="Cider" width="500" height="500"/>
+        <image name="Cola" width="700" height="700"/>
+        <image name="Strawberry" width="370" height="370"/>
+        <image name="TOP" width="360" height="360"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

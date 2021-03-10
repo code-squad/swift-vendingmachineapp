@@ -22,6 +22,9 @@ class ViewController: UIViewController {
         
     }
     
+    @IBAction func insertMoneyButtonPressed(_ sender: UIButton) {
+    }
+    
     private func configureCashBoxView() {
         balanceLabel.text = "잔액 : \(vendingMachine.showBalance())원"
     }

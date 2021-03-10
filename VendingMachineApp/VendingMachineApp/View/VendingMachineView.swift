@@ -7,7 +7,7 @@
 
 import UIKit
 
-class OutputView: UIView {
+class VendingMachineView: UIView {
     func setting(with stock : Dictionary<ObjectIdentifier,[Drink]>) {
         self.backgroundColor = .gray
         

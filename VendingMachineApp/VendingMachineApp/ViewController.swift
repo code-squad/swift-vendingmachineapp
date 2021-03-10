@@ -9,7 +9,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    let outputView = OutputView()
+    let vendingMachineView = VendingMachineView(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
     var vendingMachine = VendingMachine()
     
     override func viewDidLoad() {
@@ -18,7 +18,7 @@ class ViewController: UIViewController {
         vendingMachine.initialStock(howMany :3)
         let stockList = vendingMachine.showStock()
         
-        outputView.setting(with: stockList)
-        self.view = outputView
+        vendingMachineView.setting(with: stockList)
+        self.view.addSubview(vendingMachineView)
     }
 }

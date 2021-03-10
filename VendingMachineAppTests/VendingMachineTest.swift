@@ -19,7 +19,7 @@ class VendingMachineTest: XCTestCase {
         vendingMachine.append(product: StroberryMilk())
         vendingMachine.append(product: ChocolateMilk())
         vendingMachine.append(product: Coke())
-        vendingMachine.append(product: Top(brand: "Top", capacity: 100, price: 1000, name: "TOP", createdAt: Date(), expiredAt: Date(), caffeine: 100, hot: true, kind: .americano))
+        vendingMachine.append(product: Top(brand: "Top", capacity: 100, price: 1000, name: "TOP", createdAt: Date(), expiredAt: Date(), caffeine: 100, temperature: 70, kind: .americano))
     }
 
     func testGetBalance() {

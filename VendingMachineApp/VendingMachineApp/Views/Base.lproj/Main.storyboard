@@ -32,11 +32,17 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="100" height="57"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                         <state key="normal" title="+1000"/>
+                                                        <connections>
+                                                            <action selector="insertMoneyButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3Rd-2B-rvY"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZWB-D9-LCC">
                                                         <rect key="frame" x="100" y="0.0" width="100" height="57"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                         <state key="normal" title="+5000"/>
+                                                        <connections>
+                                                            <action selector="insertMoneyButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pM3-vm-a3i"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>

@@ -28,7 +28,7 @@ class SlotView: UIView {
         guard let nibObjects = Bundle.main.loadNibNamed(nibName, owner: self, options: nil) else { return }
         guard let nibView = nibObjects.first as? UIView else { return }
         nibView.frame = self.bounds
-        itemImageView.layer.cornerRadius = 15.0
+        itemImageView.layer.cornerRadius = 25.0
         itemImageView.layer.masksToBounds = true
         self.addSubview(nibView)
     }

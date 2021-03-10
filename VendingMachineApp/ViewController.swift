@@ -17,6 +17,8 @@ class ViewController: UIViewController {
     // TODO: VendingMachine 객체 변화에 대하여 Notification을 적용하도록 수정할 것
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(updateBeverageLabel), name: .StockCountChanged, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateCoinLabel), name: .CoinChanged, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -26,8 +28,8 @@ class ViewController: UIViewController {
     func setUpViews(){
         self.view.backgroundColor = .black
         
-        stockStackView = StockStackView()
-        stockStackView.setUp()
+        let stocks = vendingMachine.getTotalStock()
+        stockStackView = StockStackView(frame: .zero, stocks: stocks)
         self.view.addSubview(stockStackView)
         stockStackViewConfiguration()
         
@@ -41,9 +43,22 @@ extension ViewController {
     @objc func appendBeverageToMachine(_ sender : UIBeverageButton){
         guard let beverage = Factory.createInstance(type: sender.beverageType) else { return }
         vendingMachine.append(product: beverage)
+        NotificationCenter.default.post(name: .StockCountChanged, object: nil)
     }
     @objc func appedCoinToMachine(_ sender : UICoinButton){
         vendingMachine.charge(coins: sender.coin)
+        NotificationCenter.default.post(name: .CoinChanged, object: nil)
+    }
+}
+
+// MARK: Notification function
+extension ViewController {
+    @objc func updateBeverageLabel(){
+        let dict = vendingMachine.getTotalStock()
+        stockStackView.setStocksCount(info: dict)
+    }
+    @objc func updateCoinLabel(){
+        inspectorView.reloadBalanceLabelText(balance: vendingMachine.getCoins())
     }
 }
 

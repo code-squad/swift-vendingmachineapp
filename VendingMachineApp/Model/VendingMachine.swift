@@ -31,12 +31,12 @@ class VendingMachine {
         return stock.getAvailableProducts(with: money)
     }
     
-    public func sellProduct(with type : Beverage.Type){
-        guard let item = getProduct(with : type) else { return }
+    public func sellProduct(with type : Beverage.Type) -> Beverage?{
+        guard let item = getProduct(with : type) else { return  nil }
         stock.remove(item: item)
         soldHistory.append(item: item)
         charge(coins: item.price)
-        
+        return item
     }
     private func getProduct(with type : Beverage.Type) -> Beverage?{
         let dict = stock.toDictionary()

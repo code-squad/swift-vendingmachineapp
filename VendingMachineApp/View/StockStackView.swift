@@ -60,6 +60,12 @@ class StockStackView: UIStackView {
         }
     }
     
+    func setStocksCount(info dict : [ObjectIdentifier: [Beverage]]){
+        stockCells.forEach{ stock in
+            let value =  dict[ObjectIdentifier(stock.beverageType)]?.count ?? 0
+            stock.reloadLabelText(count: value)
+        }
+    }
     func confiure(){
         self.translatesAutoresizingMaskIntoConstraints = false
         self.axis = .vertical

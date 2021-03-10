@@ -17,8 +17,8 @@ class Customer {
         self.purchaseList = [Beverage]()
     }
     
-    func buy(product : Beverage, from vendingMachine : VendingMachine) -> Bool{
-        if let product = vendingMachine.sellProduct(product: product){
+    func buy(type : Beverage.Type, from vendingMachine : VendingMachine) -> Bool{
+        if let product = vendingMachine.sellProduct(with: type){
             purchaseList.append(product)
             return true
         }

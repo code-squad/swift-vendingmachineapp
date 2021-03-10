@@ -29,18 +29,10 @@ class VendingMachineViewController: UIViewController {
 extension VendingMachineViewController {
     
     private func beveragesStockCount() {
-        let chocoMilk = vendingMachine.stockOf(beverage: ChocolateMilk())
-        let strawberryMilk = vendingMachine.stockOf(beverage: StrawBerryMilk())
-        let coke = vendingMachine.stockOf(beverage: Coke())
-        let sprite = vendingMachine.stockOf(beverage: Sprite())
-        let top = vendingMachine.stockOf(beverage: Top())
-        let cantata = vendingMachine.stockOf(beverage: Cantata())
-        stockInfo[0].text = "\(chocoMilk)개"
-        stockInfo[1].text = "\(strawberryMilk)개"
-        stockInfo[2].text = "\(coke)개"
-        stockInfo[3].text = "\(sprite)개"
-        stockInfo[4].text = "\(top)개"
-        stockInfo[5].text = "\(cantata)개"
+        let allMenuList = vendingMachine.menuList()
+        for idx in 0..<allMenuList.count {
+            stockInfo[idx].text = "\(vendingMachine.stockOf(beverage: allMenuList[idx]))개"
+        }
     }
     
     @IBAction func buttonForChocolateMilkStock(_ sender: Any) {

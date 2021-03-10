@@ -33,6 +33,9 @@ class Drinks {
         return inventory.drinksInventory
     }
     
+    func countType() -> Int {
+        return inventory.count()
+    }
     //show 메소드와 유사
     func getList() ->  [String]{
         var list = [String]()
@@ -94,5 +97,9 @@ class Drinks {
     
     func diconaryUpdate(with drink: Drink) {
         inventory.pop(drink)
+    }
+    
+    func drinkStock(at index: Int) -> Dictionary<String,Int>.Element{
+        inventory.element(at: index)
     }
 }

@@ -9,28 +9,44 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    var vendingMachine = VendingMachine()
+    @IBOutlet var drinkCollectionView: UICollectionView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        let drinks = Drinks([
-//            StrawberryMilk(date: Date().date("20210220"), fat: 30, container: .bottle, expiration: Date().date("20210310"), hot: false, calorie: 175)
-//        ])
-//
-//        let vendingMachine = VendingMachine(drinks: drinks)
-//
-//        vendingMachine.show { drink in
-//            print(drink)
-//        }
-        
-        let vendingMachine = VendingMachine()
-        let scenario = TestScenario(vendingMachine)
-        scenario.run()
-    }
-    
-    let center = NotificationCenter()
-    
-    func add(){
-        center.addObserver(<#T##observer: Any##Any#>, selector: <#T##Selector#>, name: <#T##NSNotification.Name?#>, object: <#T##Any?#>)
+        drinkCollectionView.delegate = self
+        drinkCollectionView.dataSource = self
     }
 }
+
+extension ViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        print("123")
+        return vendingMachine.countType()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DrinkCollectionCell", for: indexPath) as? DrinkCollectionCell else {
+            return UICollectionViewCell()
+        }
+        
+        let item = vendingMachine.drinkStock(at: indexPath.item)
+        cell.updateUI(item: item)
+        return cell
+        
+    }
+}
+
+extension ViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        // 20 - drink - 20 - drink - 20 drink - 20
+        let width:CGFloat = (collectionView.bounds.width - (20 * 4))/3
+        let height = width
+        
+        return CGSize(width: width, height: height)
+    }
+
+}
+
+
 

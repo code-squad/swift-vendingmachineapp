@@ -38,9 +38,9 @@ class BeverageStorage {
         return purchasableBeverages
     }
     
-    public func checkExpired() -> [Beverage:Int] {
+    public func checkExpired(on date: Date) -> [Beverage:Int] {
         let purchasableBeverages = stock.filter { (bev, amt) -> Bool in
-            bev.isExpired()
+            bev.isExpired(on: date)
         }
         return purchasableBeverages
     }

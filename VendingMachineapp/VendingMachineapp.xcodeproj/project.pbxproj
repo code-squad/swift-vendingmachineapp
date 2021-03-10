@@ -34,7 +34,6 @@
 		D46F1B0D25EE0A3900BFBD9C /* VendingMachineManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46F1B0C25EE0A3900BFBD9C /* VendingMachineManager.swift */; };
 		D46F1B1125EE16BE00BFBD9C /* Money.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46F1B1025EE16BE00BFBD9C /* Money.swift */; };
 		D46F1B1525EE220E00BFBD9C /* BeverageFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46F1B1425EE220E00BFBD9C /* BeverageFactory.swift */; };
-		D49E510E25F76965004EFBF2 /* Builder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49E510D25F76965004EFBF2 /* Builder.swift */; };
 		D4EC7A6125F607060013F504 /* ImageViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EC7A6025F607060013F504 /* ImageViews.swift */; };
 /* End PBXBuildFile section */
 
@@ -80,7 +79,6 @@
 		D46F1B0C25EE0A3900BFBD9C /* VendingMachineManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineManager.swift; sourceTree = "<group>"; };
 		D46F1B1025EE16BE00BFBD9C /* Money.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Money.swift; sourceTree = "<group>"; };
 		D46F1B1425EE220E00BFBD9C /* BeverageFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageFactory.swift; sourceTree = "<group>"; };
-		D49E510D25F76965004EFBF2 /* Builder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Builder.swift; sourceTree = "<group>"; };
 		D4EC7A6025F607060013F504 /* ImageViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViews.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -208,7 +206,6 @@
 			isa = PBXGroup;
 			children = (
 				D4EC7A6025F607060013F504 /* ImageViews.swift */,
-				D49E510D25F76965004EFBF2 /* Builder.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -333,7 +330,6 @@
 				D46F1A6225E6730200BFBD9C /* Coffee.swift in Sources */,
 				D46F1A7925E8BC0000BFBD9C /* StrawberryMilk.swift in Sources */,
 				D46F1A6C25E6813900BFBD9C /* Date.swift in Sources */,
-				D49E510E25F76965004EFBF2 /* Builder.swift in Sources */,
 				D46F1B0D25EE0A3900BFBD9C /* VendingMachineManager.swift in Sources */,
 				D46F1A6525E6782F00BFBD9C /* VendingMachine.swift in Sources */,
 				D46F1A8225E8BE8A00BFBD9C /* Top.swift in Sources */,

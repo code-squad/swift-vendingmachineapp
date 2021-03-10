@@ -16,8 +16,8 @@ class Milk: Drink {
         super.init(brand: brand, volume: volume, charge: charge, name: name, manufacturing: manufacturing)
     }
     
-    convenience init() {
-        self.init(brand: "서울우유", volume: 200, charge: 830, name: "초코우유", manufacturing: Date.init().createRandomIn7days(), expirationLimit: 3)
+    convenience required init() {
+        self.init(brand: "class", volume : 0, charge: 0, name : "Milk", manufacturing: Date.init(), expirationLimit: 0)
     }
     
     func isWithInExpiration() -> Bool {

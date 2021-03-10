@@ -16,6 +16,10 @@ class Soda: Drink {
         super.init(brand: brand, volume: volume, charge: charge, name: name, manufacturing: manufacturing)
     }
     
+    convenience required init() {
+        self.init(brand: "class", volume : 0, charge: 0, name : "Soda", manufacturing: Date.init(), package : .paper)
+    }
+    
     func packingMaterial() -> Materials {
         return package
     }

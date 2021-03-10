@@ -17,6 +17,10 @@ class Coffee: Drink {
         super.init(brand: brand, volume: volume, charge: charge, name: name, manufacturing: manufacturing)
     }
     
+    convenience required init() {
+        self.init(brand: "class", volume : 0, charge: 0, name : "Coffee", manufacturing: Date.init(), caffeine: 0)
+    }
+    
     func productCaffeine() -> Double {
         guard let nonOptional = caffeine else {
             return 0

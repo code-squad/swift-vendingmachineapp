@@ -17,6 +17,10 @@ class ChocoMilk: Milk {
         super.init(brand: brand, volume: volume, charge: charge, name: name, manufacturing: manufacturing, expirationLimit: expirationLimit)
     }
     
+    convenience required init() {
+        self.init(brand: "서울우유", volume: 200, charge: 830, name: "초코우유", manufacturing: Date.init(timeIntervalSince1970: 0), expirationLimit: 3, chocolateContent: 8)
+    }
+    
     func isRealCholate() -> Bool {
         return chocolateContent > thickChocolateCriteria
     }

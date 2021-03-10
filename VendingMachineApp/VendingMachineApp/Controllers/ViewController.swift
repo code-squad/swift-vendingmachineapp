@@ -6,12 +6,16 @@
 //
 
 import UIKit
+import Combine
 
 class ViewController: UIViewController {
     @IBOutlet weak var inventoryStackView: UIStackView!
     @IBOutlet weak var balanceLabel: UILabel!
     
     private var vendingMachine: VendingMachine!
+    private var inventoryInfo: [Slot: SlotView] = [ : ]
+    private var inventoryPublisher: AnyCancellable!
+    private var cashBoxPublisher: AnyCancellable!
     
     override func viewDidLoad() {
         super.viewDidLoad()

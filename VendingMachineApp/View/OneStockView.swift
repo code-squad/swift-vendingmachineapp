@@ -13,7 +13,7 @@ class OneStockView: UIView {
     private var button : UIBeverageButton!
     private var stockImageView : UIImageView!
     private var stockImage : UIImage!
-    private var count : Int = 0
+    public var beverageType : Beverage.Type!
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -26,6 +26,7 @@ class OneStockView: UIView {
     init(frame: CGRect, type : Beverage.Type, image : UIImage?, count : Int){
         super.init(frame: frame)
         self.stockImage = image
+        self.beverageType = type
         button = UIBeverageButton(frame: CGRect(x: 0, y: 0, width: bounds.width, height: 40), type: type)
         initSubViews()
     }
@@ -59,12 +60,12 @@ class OneStockView: UIView {
         
         label = UILabel(frame: captionBackgroundView.bounds.insetBy(dx: 10, dy: 5))
         label.textAlignment = .center
-        label.text = "재고량 : \(count)"
+        label.text = "재고량 : 0"
         label.textColor = UIColor(white: 0.9, alpha: 1.0)
         captionBackgroundView.addSubview(label)
     }
 
-    func updateLabelText(){
+    func reloadLabelText(count : Int){
         label.text = "재고량 : \(count)"
     }
 }

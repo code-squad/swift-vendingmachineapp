@@ -9,7 +9,7 @@ import Foundation
 
 class EnergyDrink : Beverage {
     
-    private var caffeine : Int
+    private let caffeine : Int
     
     init(brand: String, capacity: Int, price: Int, name: String, createdAt: Date, expiredAt: Date , caffeine : Int){
         self.caffeine = caffeine

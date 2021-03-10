@@ -8,10 +8,10 @@
 import Foundation
 
 class Beverage : CustomStringConvertible {
-    private var brand : String
-    private var capacity :  Int
+    private let brand : String
+    private let capacity :  Int
     private(set) var price : Int
-    private var name : String
+    private let name : String
     private let createdAt : Date
     private let expiredAt : Date
     

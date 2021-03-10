@@ -1,10 +1,3 @@
-//
-//  StarbucksColdBrew.swift
-//  VendingMachineApp
-//
-//  Created by Issac on 2021/02/26.
-//
-
 import Foundation
 
 class StarbucksColdBrew: Coffee, Productization {
@@ -51,6 +44,11 @@ class StarbucksColdBrew: Coffee, Productization {
                    manufactured: Date(),
                    temperature: 8,
                    calorie: 8)
+    }
+    
+    required init?(coder: NSCoder) {
+        self.flavor = (coder.decodeObject(forKey: "flavor") as? Flavor) ?? .black
+        super.init(coder: coder)
     }
     
     func validManufactured(with date: Date) -> Bool {

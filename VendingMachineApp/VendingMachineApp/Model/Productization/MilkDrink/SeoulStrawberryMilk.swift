@@ -40,6 +40,11 @@ class SeoulStrawberryMilk: Milk, Productization {
                    calorie: 130)
     }
     
+    required init?(coder: NSCoder) {
+        self.isWithStraw = coder.decodeBool(forKey: "isWithStraw")
+        super.init(coder: coder)
+    }
+    
     func validManufactured(with date: Date) -> Bool {
         return isDrinkableFromManufactured(pastDate: 14, compareDate: date)
     }

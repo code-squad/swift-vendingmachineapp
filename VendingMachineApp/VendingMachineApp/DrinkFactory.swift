@@ -1,10 +1,3 @@
-//
-//  OutPut.swift
-//  VendingMachineApp
-//
-//  Created by Issac on 2021/02/28.
-//
-
 import Foundation
 
 class DrinkFactory: DrinkProduceable {    

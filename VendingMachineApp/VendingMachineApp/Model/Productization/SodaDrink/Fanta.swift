@@ -45,6 +45,11 @@ class Fanta: Soda, Productization {
                   calorie: 310)
     }
     
+    required init?(coder: NSCoder) {
+        self.flavor = coder.decodeObject(forKey: "flavor") as? Flavor ?? .orange
+        super.init(coder: coder)
+    }
+    
     func validManufactured(with date: Date) -> Bool {
         return isDrinkableFromManufactured(pastDate: 180, compareDate: date)
     }

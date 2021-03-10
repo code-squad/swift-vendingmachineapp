@@ -7,42 +7,64 @@
 
 import Foundation
 
-protocol BeverageFactory {
-    func produce() -> Beverage
+protocol BeverageProduceable {
+    static func produce() -> Beverage
 }
 
-class BananaMilkFactory: BeverageFactory {
-    func produce() -> Beverage {
+
+class BananaMilkFactory: BeverageProduceable {
+    static func produce() -> Beverage {
         return Banana(countryOfOrigin: "필리핀")
     }
 }
 
-class StrawberryMilkFactory: BeverageFactory {
-    func produce() -> Beverage {
+class StrawberryMilkFactory: BeverageProduceable {
+    static func produce() -> Beverage {
         return Strawberry(strawberryContent: 15)
     }
 }
 
-class ColaFactory: BeverageFactory {
-    func produce() -> Beverage {
+class ColaFactory: BeverageProduceable {
+    static func produce() -> Beverage {
         return Cola(transFat: 2)
     }
 }
 
-class CiderFactory: BeverageFactory {
-    func produce() -> Beverage {
+class CiderFactory: BeverageProduceable {
+    static func produce() -> Beverage {
         return Cider(sugars: 32)
     }
 }
 
-class TopCoffeeFactory: BeverageFactory {
-    func produce() -> Beverage {
+class TopCoffeeFactory: BeverageProduceable {
+    static func produce() -> Beverage {
         return TOP(taste: .sweatAmericano)
     }
 }
 
-class CantataCoffeeFactory: BeverageFactory {
-    func produce() -> Beverage {
+class CantataCoffeeFactory: BeverageProduceable {
+    static func produce() -> Beverage {
         return Cantata(milkContent: 15)
+    }
+}
+
+class BeverageFactory {
+    class func makeBeverage(beverageType: Beverage.Type) -> Beverage? {
+        switch beverageType {
+        case is Banana.Type:
+            return BananaMilkFactory.produce()
+        case is Strawberry.Type:
+            return StrawberryMilkFactory.produce()
+        case is TOP.Type:
+            return TopCoffeeFactory.produce()
+        case is Cantata.Type:
+            return CantataCoffeeFactory.produce()
+        case is Cola.Type:
+            return ColaFactory.produce()
+        case is Cider.Type:
+            return CiderFactory.produce()
+        default:
+            return nil
+        }
     }
 }

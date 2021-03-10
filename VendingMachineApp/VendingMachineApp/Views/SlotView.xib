@@ -21,13 +21,19 @@
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ct1-71-8Jk">
                     <rect key="frame" x="0.0" y="44" width="444" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="teh-Ys-TUL"/>
+                    </constraints>
                     <state key="normal" title="추가"/>
                 </button>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SIy-7r-pk4">
-                    <rect key="frame" x="0.0" y="74" width="444" height="464"/>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SIy-7r-pk4">
+                    <rect key="frame" x="0.0" y="74" width="444" height="455"/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AUw-GJ-1Or">
-                    <rect key="frame" x="0.0" y="538" width="444" height="21"/>
+                    <rect key="frame" x="0.0" y="529" width="444" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="MG4-cA-fKN"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>

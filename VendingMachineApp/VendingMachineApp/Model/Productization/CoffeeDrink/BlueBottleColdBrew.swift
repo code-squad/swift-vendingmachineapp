@@ -8,7 +8,6 @@ class BlueBottleColdBrew: Coffee, Productization {
     
     private var flavor: Flavor
     
-    
     init(brand: String, capacity: Int, price: Int, name: String, caffeineContent: UInt, flavor: Flavor, manufactured: Date, temperature: Double, calorie: Double) {
         self.flavor = flavor
         super.init(brand: brand,
@@ -33,7 +32,7 @@ class BlueBottleColdBrew: Coffee, Productization {
                    calorie: 0)
     }
     
-    convenience init() {
+    required convenience init() {
         self.init(brand: "BlueBottle",
                    capacity: 240,
                    price: 1150,

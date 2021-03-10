@@ -8,6 +8,7 @@
 import Foundation
 
 protocol Productization {
+    init()
     func validManufactured(with date:Date) -> Bool
     func isHot() -> Bool
     func isLowCalorie() -> Bool

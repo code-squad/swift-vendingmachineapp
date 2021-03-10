@@ -34,7 +34,7 @@ class BingBananaMilk: Milk, Productization {
                    calorie: 210)
     }
     
-    convenience init() {
+    required convenience init() {
         self.init(brand: "빙그레",
                   capacity: 240,
                   price: 1150,

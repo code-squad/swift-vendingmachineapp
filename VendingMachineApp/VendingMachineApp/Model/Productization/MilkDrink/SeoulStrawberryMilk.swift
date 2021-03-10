@@ -28,7 +28,7 @@ class SeoulStrawberryMilk: Milk, Productization {
                    calorie: 130)
     }
     
-    convenience init() {
+    required convenience init() {
         self.init(brand: "서울 우유",
                    capacity: 200,
                    price: 800,

@@ -71,8 +71,6 @@ class Drink: NSObject, NSCoding {
     public func checkName(handle: (String) -> ()) {
         handle(self.name)
     }
-    
-    
 }
 
 extension Drink {

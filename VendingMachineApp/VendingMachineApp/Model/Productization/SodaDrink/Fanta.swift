@@ -33,7 +33,7 @@ class Fanta: Soda, Productization {
                    calorie: 310)
     }
     
-    convenience init() {
+    required convenience init() {
         self.init(brand: "Coca-Cola",
                   capacity: 600,
                   price: 1330,

@@ -22,8 +22,9 @@ class BeverageStackView : UIStackView {
     private func setting() {
         self.translatesAutoresizingMaskIntoConstraints = false
         self.axis = .vertical
-        self.spacing = 10
+        self.spacing = 40
         self.alignment = .center
+        self.distribution = .fillProportionally
     }
     
     func collectSubelements(drink name : String, count : Int) {

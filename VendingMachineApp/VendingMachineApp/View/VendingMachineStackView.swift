@@ -12,7 +12,7 @@ class VendingMachineStackView : UIStackView {
         self.translatesAutoresizingMaskIntoConstraints = false
         self.axis = .horizontal
         self.spacing = 15
-        self.distribution = .fillEqually
+        self.distribution = .equalCentering
     }
     
     func positionSetting() {

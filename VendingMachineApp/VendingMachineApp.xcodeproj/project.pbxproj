@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E4A82DCF25F88F23001F03E1 /* String+ExtractingNumbers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A82DCE25F88F23001F03E1 /* String+ExtractingNumbers.swift */; };
 		E4D472A725E5ED65007FAAA0 /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D472A625E5ED65007FAAA0 /* VendingMachine.swift */; };
 		E4D472B825E76C51007FAAA0 /* Date+DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D472B725E76C51007FAAA0 /* Date+DateFormatter.swift */; };
 		E4D4733625EF7B88007FAAA0 /* FlavoredMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D4733525EF7B88007FAAA0 /* FlavoredMilk.swift */; };
@@ -63,6 +64,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E4A82DCE25F88F23001F03E1 /* String+ExtractingNumbers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+ExtractingNumbers.swift"; sourceTree = "<group>"; };
 		E4D472A625E5ED65007FAAA0 /* VendingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachine.swift; sourceTree = "<group>"; };
 		E4D472B725E76C51007FAAA0 /* Date+DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+DateFormatter.swift"; sourceTree = "<group>"; };
 		E4D4733525EF7B88007FAAA0 /* FlavoredMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlavoredMilk.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				E4D472B725E76C51007FAAA0 /* Date+DateFormatter.swift */,
+				E4A82DCE25F88F23001F03E1 /* String+ExtractingNumbers.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -355,6 +358,7 @@
 				E4E22CE225E51B27008CA611 /* SceneDelegate.swift in Sources */,
 				E4E22D1E25E5EC53008CA611 /* SoftDrink.swift in Sources */,
 				E4E22D1B25E5EAEB008CA611 /* Milk.swift in Sources */,
+				E4A82DCF25F88F23001F03E1 /* String+ExtractingNumbers.swift in Sources */,
 				E4D4734225EF8558007FAAA0 /* BeverageFactory.swift in Sources */,
 				E4D4734825EF8634007FAAA0 /* Slot.swift in Sources */,
 				E4D4734B25EF8651007FAAA0 /* Inventory.swift in Sources */,

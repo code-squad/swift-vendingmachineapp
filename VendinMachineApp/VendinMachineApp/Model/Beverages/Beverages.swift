@@ -1,15 +1,9 @@
 
 import Foundation
 
-class Beverages: CustomStringConvertible {
+class Beverages {
     private var beverages: [ObjectIdentifier:[Beverage]]
-    var description: String {
-        var str = ""
-        self.beverages.forEach { (key, value) in
-            str += "\(key): \(value)\n"
-        }
-        return str
-    }
+    
     init() {
         self.beverages = [:]
     }
@@ -114,11 +108,5 @@ class Beverages: CustomStringConvertible {
             }
         }
         return tempBeverages
-    }
-}
-
-extension Beverages : Equatable {
-    static func == (lhs: Beverages, rhs: Beverages) -> Bool {
-        lhs.beverages == rhs.beverages
     }
 }

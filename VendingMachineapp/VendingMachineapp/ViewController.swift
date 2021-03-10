@@ -32,12 +32,12 @@ class ViewController: UIViewController {
  
         productList = vendingMachine.initializeProductList()
         wholeBeverageList = vendingMachine.wholeBeverage()
-        
-        setButtonsTitle()
-        setLabelsTitle()
                 
         mappingButtonAndLabel()
         mappingButtonAndProduct()
+        
+        setButtonsTitle()
+        setLabelsTitle()
 
         addThousandButton.setTitle("+1000", for: .normal)
         addFiveThousandButton.setTitle("+5000", for: .normal)
@@ -80,8 +80,8 @@ class ViewController: UIViewController {
     }
     
     func setLabelsTitle() {
-        for index in 0..<beverageLabels.count {
-            beverageLabels[index].text = "0"
+        for (key, value) in buttonDictionary {
+            labelDictionary[key]?.text = String(wholeBeverageList[value] ?? 0)
         }
     }
 }

@@ -35,7 +35,7 @@ class ViewController: UIViewController {
         
         setButtonsTitle()
         setLabelsTitle()
-        
+                
         mappingButtonAndLabel()
         mappingButtonAndProduct()
 
@@ -78,6 +78,7 @@ class ViewController: UIViewController {
             beverageButtons[index].setTitle("추가", for: .normal)
         }
     }
+    
     func setLabelsTitle() {
         for index in 0..<beverageLabels.count {
             beverageLabels[index].text = "0"

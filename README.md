@@ -32,3 +32,16 @@
 - VendingMachine 아래에 하위 모듈 Inventory, VendingMachineManager 를 두어 추상화 하여 구현
 
 - 완성날짜 2021-03-03
+
+## Step3
+
+### VendingMachineApp 실행화면
+
+<img width="959" alt="스크린샷 2021-03-10 오후 2 37 09" src="https://user-images.githubusercontent.com/69951890/110581552-19ad1c00-81ae-11eb-912a-b250b5e11bb3.png">
+
+### 설명
+
+- 각 각의 음료수 재고추가 버튼
+- 재고추가 버튼을 눌렀을 때 해당 음료의 재고 수 증가하고 라벨에 표시
+- 잔액 추가 버튼 (+1000, +5000)
+

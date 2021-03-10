@@ -8,9 +8,7 @@
 import UIKit
 
 class BeverageButtons: UIButton {
-    
-    func action(completion: (Beverage) -> Void) {
-    }
+
 }
     
 

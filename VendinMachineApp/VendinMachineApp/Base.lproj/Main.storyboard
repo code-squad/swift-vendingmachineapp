@@ -258,17 +258,72 @@
                                     <constraint firstItem="d89-sy-2Lf" firstAttribute="top" secondItem="vbf-KY-bbh" secondAttribute="top" id="yem-NM-nZc"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mpk-xX-dhh">
+                                <rect key="frame" x="780" y="100" width="180" height="170"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VJY-Yt-TiX">
+                                        <rect key="frame" x="20" y="30" width="60" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="60" id="53u-O0-eHr"/>
+                                            <constraint firstAttribute="height" constant="30" id="FmW-rw-OZK"/>
+                                        </constraints>
+                                        <state key="normal" title="+1000">
+                                            <color key="titleColor" systemColor="linkColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="insertCash:" destination="BYZ-38-t0r" eventType="touchUpInside" id="l4A-Mv-ZTX"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qZ3-HS-nOg">
+                                        <rect key="frame" x="100" y="30" width="60" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="OQe-71-QzL"/>
+                                            <constraint firstAttribute="width" constant="60" id="rW5-FP-oJQ"/>
+                                        </constraints>
+                                        <state key="normal" title="+5000">
+                                            <color key="titleColor" systemColor="linkColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="insertCash:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Dr1-N2-yfP"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zrz-hD-wN3">
+                                        <rect key="frame" x="15" y="110" width="150" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="4ys-Ar-pls"/>
+                                            <constraint firstAttribute="width" constant="150" id="U4a-X4-RuI"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="Zrz-hD-wN3" firstAttribute="leading" secondItem="Mpk-xX-dhh" secondAttribute="leading" constant="15" id="2U2-5L-UNv"/>
+                                    <constraint firstItem="VJY-Yt-TiX" firstAttribute="leading" secondItem="Mpk-xX-dhh" secondAttribute="leading" constant="20" id="3dg-lO-U0d"/>
+                                    <constraint firstItem="qZ3-HS-nOg" firstAttribute="leading" secondItem="VJY-Yt-TiX" secondAttribute="trailing" constant="20" id="6Ho-XD-jNN"/>
+                                    <constraint firstAttribute="width" constant="180" id="7VZ-Oa-8Qs"/>
+                                    <constraint firstAttribute="bottom" secondItem="Zrz-hD-wN3" secondAttribute="bottom" constant="20" id="CyQ-m8-0RD"/>
+                                    <constraint firstAttribute="height" constant="170" id="YRo-fT-pxW"/>
+                                    <constraint firstItem="qZ3-HS-nOg" firstAttribute="top" secondItem="Mpk-xX-dhh" secondAttribute="top" constant="30" id="tk2-gc-CCV"/>
+                                    <constraint firstItem="VJY-Yt-TiX" firstAttribute="top" secondItem="Mpk-xX-dhh" secondAttribute="top" constant="30" id="zIS-md-kw3"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                         <constraints>
                             <constraint firstItem="vbf-KY-bbh" firstAttribute="top" secondItem="uzk-pC-jhn" secondAttribute="bottom" constant="50" id="8hS-Jj-cAc"/>
                             <constraint firstItem="uzk-pC-jhn" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="BVe-9e-Xzg"/>
+                            <constraint firstItem="Mpk-xX-dhh" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="Go1-jL-EG0"/>
+                            <constraint firstItem="Mpk-xX-dhh" firstAttribute="leading" secondItem="uzk-pC-jhn" secondAttribute="trailing" constant="30" id="JTn-2M-EBf"/>
                             <constraint firstItem="vbf-KY-bbh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="bDx-p5-FLr"/>
                             <constraint firstItem="uzk-pC-jhn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="uom-Et-ivu"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="cashLabel" destination="Zrz-hD-wN3" id="ZuK-W7-wAM"/>
                         <outletCollection property="beverageImages" destination="O4C-2s-iNk" collectionClass="NSMutableArray" id="M83-hh-osv"/>
                         <outletCollection property="beverageImages" destination="ae4-9z-qaK" collectionClass="NSMutableArray" id="Z74-xs-HHC"/>
                         <outletCollection property="beverageImages" destination="CNC-4A-6cM" collectionClass="NSMutableArray" id="nU1-dE-bkT"/>
@@ -281,6 +336,14 @@
                         <outletCollection property="beverageButtons" destination="Jsx-iQ-R5a" collectionClass="NSMutableArray" id="Ebm-ac-8j5"/>
                         <outletCollection property="beverageButtons" destination="w29-Qi-h9o" collectionClass="NSMutableArray" id="wj3-kX-AVn"/>
                         <outletCollection property="beverageButtons" destination="d89-sy-2Lf" collectionClass="NSMutableArray" id="FNU-jv-HRH"/>
+                        <outletCollection property="beverageLabels" destination="EWv-OL-7gk" collectionClass="NSMutableArray" id="fyy-do-HMJ"/>
+                        <outletCollection property="beverageLabels" destination="5pc-kt-IOC" collectionClass="NSMutableArray" id="wtW-Kw-vP5"/>
+                        <outletCollection property="beverageLabels" destination="Osq-d2-F2A" collectionClass="NSMutableArray" id="h4h-3M-5av"/>
+                        <outletCollection property="beverageLabels" destination="Upf-6Z-rHA" collectionClass="NSMutableArray" id="svO-VB-Q19"/>
+                        <outletCollection property="beverageLabels" destination="fSi-qB-TwM" collectionClass="NSMutableArray" id="8VZ-Ug-Q10"/>
+                        <outletCollection property="beverageLabels" destination="6KA-FM-UcP" collectionClass="NSMutableArray" id="3b4-qS-80z"/>
+                        <outletCollection property="cashButtons" destination="VJY-Yt-TiX" collectionClass="NSMutableArray" id="IuH-7u-iBS"/>
+                        <outletCollection property="cashButtons" destination="qZ3-HS-nOg" collectionClass="NSMutableArray" id="smj-oq-vfj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -301,6 +364,9 @@
         </systemColor>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray6Color">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

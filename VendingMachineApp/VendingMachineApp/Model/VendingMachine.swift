@@ -96,4 +96,8 @@ class VendingMachine: NSObject, NSCoding {
         }
         return hotProducts
     }
+    
+    func menuList() -> [Beverage] {
+        return [ChocolateMilk(), StrawBerryMilk(), Coke(), Sprite(), Top(), Cantata()]
+    }
 }

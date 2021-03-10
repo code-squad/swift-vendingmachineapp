@@ -15,4 +15,11 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
     }
+    
+    private func makeSlotView(with slot: Slot) -> SlotView {
+        let view = SlotView()
+        view.itemImageView.image = UIImage(named: slot.itemImageName ?? "")
+        view.itemQuantityLabel.text = "\(slot.itemCount)개"
+        return view
+    }
 }

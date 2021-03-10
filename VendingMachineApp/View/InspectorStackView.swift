@@ -11,7 +11,6 @@ class InspectorStackView: UIStackView {
 
     var coinButtions : [UICoinButton]!
     var balanceLabel : UILabel!
-    var balance : Int  = 0
     
     required init(coder: NSCoder) {
         super.init(coder: coder)
@@ -42,7 +41,7 @@ class InspectorStackView: UIStackView {
     
     func setBalanceLabel(){
         balanceLabel = UILabel(frame: bounds)
-        updateLabelText()
+        balanceLabel.text = "잔액 : 0"
         balanceLabel.font = .boldSystemFont(ofSize: 20)
         balanceLabel.textColor = .white
         balanceLabel.textAlignment = .center
@@ -56,7 +55,7 @@ class InspectorStackView: UIStackView {
         self.spacing = 10
     }
 
-    func updateLabelText(){
+    func reloadBalanceLabelText(balance : Int){
         balanceLabel.text = "잔액 : \(balance)"
     }
 }

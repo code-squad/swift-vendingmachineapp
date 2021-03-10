@@ -104,14 +104,14 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="48" height="30"/>
                                                 <state key="normal" title="1000원"/>
                                                 <connections>
-                                                    <action selector="BalanceIncreaseButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="czV-IZ-tUE"/>
+                                                    <action selector="BalanceIncrease1000ButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4QB-IJ-4j7"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lGy-fu-3Nf" customClass="BalancePut5000Button" customModule="VendingMachineApp" customModuleProvider="target">
                                                 <rect key="frame" x="148" y="0.0" width="50" height="30"/>
                                                 <state key="normal" title="5000원"/>
                                                 <connections>
-                                                    <action selector="BalanceIncreaseButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9JX-ZF-xBT"/>
+                                                    <action selector="BalanceIncrease5000ButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rlx-Us-QAb"/>
                                                 </connections>
                                             </button>
                                         </subviews>

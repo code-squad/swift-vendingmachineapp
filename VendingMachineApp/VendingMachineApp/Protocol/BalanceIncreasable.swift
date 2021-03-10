@@ -8,5 +8,5 @@
 import Foundation
 
 @objc protocol BalanceIncreasable {
-    func increase(action : ((Int) -> Void)?)
+    func increase(balance : Int, action : ((Int) -> Void)?)
 }

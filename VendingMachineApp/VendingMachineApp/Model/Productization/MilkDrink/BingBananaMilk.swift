@@ -46,6 +46,11 @@ class BingBananaMilk: Milk, Productization {
                   calorie: 210)
     }
     
+    required init?(coder: NSCoder) {
+        self.target = coder.decodeObject(forKey: "bananaTarger") as? Target ?? .all
+        super.init(coder: coder)
+    }
+    
     func validManufactured(with date: Date) -> Bool {
         return isDrinkableFromManufactured(pastDate: 14, compareDate: date)
     }

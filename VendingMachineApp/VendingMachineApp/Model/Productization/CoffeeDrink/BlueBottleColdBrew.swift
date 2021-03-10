@@ -45,6 +45,11 @@ class BlueBottleColdBrew: Coffee, Productization {
                    calorie: 0)
     }
     
+    required init?(coder: NSCoder) {
+        self.flavor = (coder.decodeObject(forKey: "flavor") as? Flavor) ?? .bold
+        super.init(coder: coder)
+    }
+    
     func validManufactured(with date: Date) -> Bool {
         return isDrinkableFromManufactured(pastDate: 180, compareDate: date)
     }

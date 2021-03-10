@@ -1,10 +1,43 @@
 import Foundation
 
-class Stock: StockManageable {
+class Stock: NSObject, StockManageable, NSCoding {
     private var stock: [Drink]
     
-    init() {
-        stock = [Drink]()
+    private var filePath: URL = {
+            let stockDataFileName = "StockData"
+            let fileManager = FileManager.default
+            guard let documentDirectory = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first else { return URL(fileURLWithPath: "")}
+            return documentDirectory.appendingPathComponent(stockDataFileName)
+    }()
+    
+    override init() {
+        self.stock = [Drink]()
+        if FileManager.default.fileExists(atPath: filePath.path) {
+            guard let data = FileManager.default.contents(atPath: filePath.path) else { return }
+            do {
+                guard let object = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? [Drink] else { return }
+                self.stock += object
+            } catch {
+                print(error)
+            }
+        }
+    }
+    
+    required init?(coder: NSCoder) {
+        self.stock = (coder.decodeObject(forKey: "stock") as? [Drink]) ?? [Drink]()
+    }
+    
+    func encode(with coder: NSCoder) {
+        coder.encode(self.stock, forKey: "stock")
+    }
+    
+    func save() {
+        do {
+            let data = try NSKeyedArchiver.archivedData(withRootObject: self.stock, requiringSecureCoding: false)
+            try data.write(to: filePath)
+        } catch {
+            print(error)
+        }
     }
     
     public func checkProductization(of drink: Drink) -> Bool {
@@ -14,6 +47,7 @@ class Stock: StockManageable {
     public func addedDrink(_ drink: Drink) {
         guard checkProductization(of: drink) else { return }
         stock.append(drink)
+        save()
     }
 
     public func availableForDrinks(coin: Int) -> [Drink] {
@@ -25,11 +59,9 @@ class Stock: StockManageable {
     }
     
     public func purchased(drinkType: Drink.Type, insertedCoin: Int) -> Drink? {
-        
-        guard let nthDrink = stock.enumerated().first(where: { type(of:$0.element) == drinkType }) else { return nil }
-        let index = nthDrink.offset
+        guard let nthDrink = stock.enumerated().first(where: { type(of:$0) == drinkType }) else { return nil }
         let drink = nthDrink.element
-        
+        let index = nthDrink.offset
         guard drink.isPurchaseable(coin: insertedCoin) else { return nil }
         stock.remove(at: index)
         return drink

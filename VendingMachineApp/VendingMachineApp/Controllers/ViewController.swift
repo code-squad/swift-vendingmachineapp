@@ -20,6 +20,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        configureSubscriber()
+        initialSetupVendingMachine()
     }
     
     @objc func itemQuantityIncrementButtonPressed(_ sender: UIButton) {
@@ -27,6 +29,24 @@ class ViewController: UIViewController {
     }
     
     @IBAction func insertMoneyButtonPressed(_ sender: UIButton) {
+    }
+    
+    private func configureSubscriber() {
+        inventoryPublisher = NotificationCenter.default
+            .publisher(for: VendingMachine.Notification.DidChangeInventory)
+            .sink { notification in
+                DispatchQueue.main.async {
+                    self.configureInventoryView()
+                }
+            }
+        
+        cashBoxPublisher = NotificationCenter.default
+            .publisher(for: VendingMachine.Notification.DidChangeBalance)
+            .sink { notification in
+                DispatchQueue.main.async {
+                    self.configureCashBoxView()
+                }
+            }
     }
     
     private func initialSetupVendingMachine() {

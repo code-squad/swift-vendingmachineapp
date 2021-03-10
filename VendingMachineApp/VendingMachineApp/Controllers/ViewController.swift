@@ -38,6 +38,21 @@ class ViewController: UIViewController {
         vendingMachine.bulkInsert(itemFrom: RedBullFactory(), quantity: 5, manufactured: Date().formattedDate(from: "20210222"), expiredAfter: Date().formattedDate(from: "20210302"))
     }
     
+    private func configureInventoryView() {
+        for subview in self.inventoryStackView.arrangedSubviews {
+            subview.removeFromSuperview()
+        }
+        inventoryInfo = [ : ]
+        let inventorySheet = vendingMachine.takeInventory().sorted { $0.key.description < $1.key.description }
+        
+        inventorySheet.forEach { inventory in
+            let slotView = makeSlotView(with: inventory.key)
+            slotView.itemQuantityIncrementButton.addTarget(self, action: #selector(itemQuantityIncrementButtonPressed(_:)), for: .touchUpInside)
+            self.inventoryStackView.addArrangedSubview(slotView)
+            inventoryInfo[inventory.key] = slotView
+        }
+    }
+    
     private func configureCashBoxView() {
         balanceLabel.text = "잔액 : \(vendingMachine.showBalance())원"
     }

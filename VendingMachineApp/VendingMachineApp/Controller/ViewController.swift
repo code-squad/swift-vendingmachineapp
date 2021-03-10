@@ -13,36 +13,32 @@ class ViewController: UIViewController {
     @IBOutlet var beverageImages: [UIImageView]!
     @IBOutlet var beverageButtons: [UIButton]!
     @IBOutlet var beverageLabels: [UILabel]!
+    @IBOutlet var rechargeButtons: [UIButton]!
     
     let vendingMachine = VendingMachine()
-    var dataOfButton: [UIButton : (beverage: Beverage, label: UILabel)] = [:]
+    var dataOfBeverageButton: [UIButton : (beverage: Beverage, label: UILabel)] = [:]
+    var dataOfRechargeButton: [UIButton : Int] = [:]
 
     override func viewDidLoad() {
         super.viewDidLoad()
         curveImageVertex()
-        fillDataOfButton()
+        fillDataOfBeverageButton()
+        fillDataOfRechargeButton()
     }
     
     @IBAction func addStock(_ sender: UIButton) {
-        guard let beverage = dataOfButton[sender]?.beverage else {return}
+        guard let beverage = dataOfBeverageButton[sender]?.beverage else {return}
         vendingMachine.addStock(as: beverage)
         let stockList = vendingMachine.showStock()
         let beverageID = ObjectIdentifier(beverage)
         guard let stock = stockList[beverageID] else {return}
-        dataOfButton[sender]?.label.text = "\(stock.count)개"
+        dataOfBeverageButton[sender]?.label.text = "\(stock.count)개"
     }
     
     @IBAction func rechargeCash(_ sender: UIButton) {
-        guard let id = sender.restorationIdentifier else {return}
-        switch id {
-        case "1000":
-            vendingMachine.rechargeCash(with: 1000)
-        case "5000":
-            vendingMachine.rechargeCash(with: 5000)
-        default:
-            break
-        }
-        balanceLabel.text = "잔액: \(vendingMachine.showBalance().description)원"
+        guard let cash = dataOfRechargeButton[sender] else {return}
+        vendingMachine.rechargeCash(with: cash)
+        balanceLabel.text = "\(vendingMachine.showBalance().description)원"
     }
     
     func curveImageVertex() {
@@ -52,11 +48,16 @@ class ViewController: UIViewController {
         }
     }
     
-    func fillDataOfButton() {
+    func fillDataOfBeverageButton() {
         let factories: [Produceable] = [ColaFactory.init(), RedBullFactory.init(), StrawberryMilkFactory.init(), TOPFactory.init()]
         for i in 0...3 {
-            dataOfButton[beverageButtons[i]] = (BeverageFactory.releaseBeverage(with: factories[i]), beverageLabels[i])
+            dataOfBeverageButton[beverageButtons[i]] = (BeverageFactory.releaseBeverage(with: factories[i]), beverageLabels[i])
         }
+    }
+    
+    func fillDataOfRechargeButton() {
+        dataOfRechargeButton[rechargeButtons[0]] = 1000
+        dataOfRechargeButton[rechargeButtons[1]] = 5000
     }
 }
 

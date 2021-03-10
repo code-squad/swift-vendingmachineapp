@@ -163,6 +163,8 @@
                         <outletCollection property="beverageLabels" destination="0oD-xh-kTo" collectionClass="NSMutableArray" id="l4O-lt-fRf"/>
                         <outletCollection property="beverageLabels" destination="8IX-lC-lZ9" collectionClass="NSMutableArray" id="cw3-De-Dwk"/>
                         <outletCollection property="beverageLabels" destination="Vvs-f6-LWd" collectionClass="NSMutableArray" id="vLP-AI-v2H"/>
+                        <outletCollection property="rechargeButtons" destination="ISw-Z9-8Ki" collectionClass="NSMutableArray" id="ACU-6H-E5i"/>
+                        <outletCollection property="rechargeButtons" destination="Uwl-Aj-cV8" collectionClass="NSMutableArray" id="TQl-aN-OqS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

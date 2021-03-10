@@ -26,11 +26,6 @@
 		B37B9F7625F8B64000256032 /* TOPFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37B9F7525F8B64000256032 /* TOPFactory.swift */; };
 		B3B3DD3025E7D8450022465D /* EnergyDrink.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B3DD2F25E7D8450022465D /* EnergyDrink.swift */; };
 		B3B3DD3525E7EF620022465D /* CashManagementSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B3DD3425E7EF620022465D /* CashManagementSystem.swift */; };
-		B3CE1BC725F6557B00AE5476 /* BeverageButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CE1BC625F6557B00AE5476 /* BeverageButtons.swift */; };
-		B3CE1BCB25F6567600AE5476 /* ColaButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CE1BCA25F6567600AE5476 /* ColaButton.swift */; };
-		B3CE1BD125F6581A00AE5476 /* TOPButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CE1BD025F6581A00AE5476 /* TOPButton.swift */; };
-		B3CE1BD525F6582600AE5476 /* StrawberryMilkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CE1BD425F6582600AE5476 /* StrawberryMilkButton.swift */; };
-		B3CE1BD925F6582F00AE5476 /* RedBullButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CE1BD825F6582F00AE5476 /* RedBullButton.swift */; };
 		B3EF2CE725EE1B5B00FBA7CC /* VendingMachineAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EF2CE625EE1B5B00FBA7CC /* VendingMachineAppTests.swift */; };
 		B3EF2CF025EE227C00FBA7CC /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36A87D325E62EAB002C4432 /* VendingMachine.swift */; };
 		B3EF2CF125EE227C00FBA7CC /* CashManagementSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B3DD3425E7EF620022465D /* CashManagementSystem.swift */; };
@@ -83,11 +78,6 @@
 		B37B9F7525F8B64000256032 /* TOPFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOPFactory.swift; sourceTree = "<group>"; };
 		B3B3DD2F25E7D8450022465D /* EnergyDrink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnergyDrink.swift; sourceTree = "<group>"; };
 		B3B3DD3425E7EF620022465D /* CashManagementSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashManagementSystem.swift; sourceTree = "<group>"; };
-		B3CE1BC625F6557B00AE5476 /* BeverageButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BeverageButtons.swift; path = VendingMachineApp/Controller/BeverageButtons.swift; sourceTree = SOURCE_ROOT; };
-		B3CE1BCA25F6567600AE5476 /* ColaButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColaButton.swift; sourceTree = "<group>"; };
-		B3CE1BD025F6581A00AE5476 /* TOPButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOPButton.swift; sourceTree = "<group>"; };
-		B3CE1BD425F6582600AE5476 /* StrawberryMilkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrawberryMilkButton.swift; sourceTree = "<group>"; };
-		B3CE1BD825F6582F00AE5476 /* RedBullButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedBullButton.swift; sourceTree = "<group>"; };
 		B3EF2CE425EE1B5B00FBA7CC /* VendingMachineAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VendingMachineAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3EF2CE625EE1B5B00FBA7CC /* VendingMachineAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineAppTests.swift; sourceTree = "<group>"; };
 		B3EF2CE825EE1B5B00FBA7CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -195,11 +185,6 @@
 		B3A1C61A25F0B356004D3611 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				B3CE1BC625F6557B00AE5476 /* BeverageButtons.swift */,
-				B3CE1BCA25F6567600AE5476 /* ColaButton.swift */,
-				B3CE1BD025F6581A00AE5476 /* TOPButton.swift */,
-				B3CE1BD425F6582600AE5476 /* StrawberryMilkButton.swift */,
-				B3CE1BD825F6582F00AE5476 /* RedBullButton.swift */,
 				B3F5728B25E3629300CFF095 /* Main.storyboard */,
 			);
 			path = View;
@@ -388,7 +373,6 @@
 				B3F5728A25E3629300CFF095 /* ViewController.swift in Sources */,
 				B3B3DD3025E7D8450022465D /* EnergyDrink.swift in Sources */,
 				B36A87D925E636B7002C4432 /* Drinks.swift in Sources */,
-				B3CE1BD125F6581A00AE5476 /* TOPButton.swift in Sources */,
 				B3B3DD3525E7EF620022465D /* CashManagementSystem.swift in Sources */,
 				B36A87B125E61F1B002C4432 /* Beverage.swift in Sources */,
 				B32ECEA825F12B900066C473 /* BeverageFactory.swift in Sources */,
@@ -396,16 +380,12 @@
 				B37B9F6E25F8B58A00256032 /* StrawberryFactory.swift in Sources */,
 				B3F5728625E3629300CFF095 /* AppDelegate.swift in Sources */,
 				B3F5728825E3629300CFF095 /* SceneDelegate.swift in Sources */,
-				B3CE1BD525F6582600AE5476 /* StrawberryMilkButton.swift in Sources */,
 				B30C142B25EF31E80095CA19 /* PurchasedList.swift in Sources */,
-				B3CE1BC725F6557B00AE5476 /* BeverageButtons.swift in Sources */,
 				B36A87A725E61B9A002C4432 /* Milk.swift in Sources */,
 				B37B9F5F25F8B39A00256032 /* ColaFactory.swift in Sources */,
-				B3CE1BD925F6582F00AE5476 /* RedBullButton.swift in Sources */,
 				B36A87DD25E63E14002C4432 /* Date.swift in Sources */,
 				B37B9F7625F8B64000256032 /* TOPFactory.swift in Sources */,
 				B36A87AD25E61BAA002C4432 /* Coffee.swift in Sources */,
-				B3CE1BCB25F6567600AE5476 /* ColaButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

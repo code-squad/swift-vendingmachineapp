@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+extension Notification.Name {
+    static let didChangeInventory = Notification.Name("didChangeInventory")
+    static let didChangeMoney = Notification.Name("didChangeMoney")
+}

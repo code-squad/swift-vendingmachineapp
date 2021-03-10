@@ -17,12 +17,11 @@ class ViewController: UIViewController, SelectPanelStackViewDelegate, TopPanelDe
     override func viewDidLoad() {
         super.viewDidLoad()
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.vendingMachine = DataCenter.load()
         self.vendingMachine = appDelegate.vendingMachine
 
         selectPanelStackView.delegate = self
         topPanelView.delegate = self
-        selectPanelStackView.setDrinkImageViewsRadius(of: 5)
+        selectPanelStackView.setDrinkImageViewsRadius(of: 10)
         loadLeftCoinsLabel()
         loadSelectPanelStackViewLabels()
     }

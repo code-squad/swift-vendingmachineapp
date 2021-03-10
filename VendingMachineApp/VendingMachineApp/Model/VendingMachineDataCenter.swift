@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class DataCenter {
+class VendingMachineDataCenter {
     static func load() -> VendingMachine {
         let data = UserDefaults.standard.object(forKey: "vendingMachineApp")
         do {
@@ -20,10 +20,8 @@ class DataCenter {
         return VendingMachine()
     }
 
-    static public func save() {
+    static public func save(to vendingMachine: VendingMachine) {
         do {
-            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            let vendingMachine = appDelegate.vendingMachine ?? VendingMachine()
             let data = try NSKeyedArchiver.archivedData(withRootObject: vendingMachine, requiringSecureCoding: false)
             UserDefaults.standard.set(data, forKey: "vendingMachineApp")
         } catch {

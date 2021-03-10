@@ -14,7 +14,7 @@
 		221239FB25F6161E00064DF5 /* TopPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AD348625F1093A00D1A9D4 /* TopPanel.swift */; };
 		22123A0025F617B100064DF5 /* DrinkFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226CAB5125EBCB0D00196488 /* DrinkFactory.swift */; };
 		221A9EC925EA64AA00ADEE1E /* StockManageable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221A9EC825EA64AA00ADEE1E /* StockManageable.swift */; };
-		2225768425F893480032D644 /* DataCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2225768325F893480032D644 /* DataCenter.swift */; };
+		2225768425F893480032D644 /* VendingMachineDataCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2225768325F893480032D644 /* VendingMachineDataCenter.swift */; };
 		223A6BC925EEF89900AA3483 /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223A6BC825EEF89900AA3483 /* Stock.swift */; };
 		223A6BD225EEFB4E00AA3483 /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223A6BC825EEF89900AA3483 /* Stock.swift */; };
 		223A6BDA25EF236800AA3483 /* CoinCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223A6BD925EF236700AA3483 /* CoinCounter.swift */; };
@@ -80,7 +80,7 @@
 		221A9ECF25EA7FEC00ADEE1E /* VendingMachineAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VendingMachineAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		221A9ED125EA7FEC00ADEE1E /* VendingMachineAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineAppTests.swift; sourceTree = "<group>"; };
 		221A9ED325EA7FEC00ADEE1E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2225768325F893480032D644 /* DataCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataCenter.swift; sourceTree = "<group>"; };
+		2225768325F893480032D644 /* VendingMachineDataCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineDataCenter.swift; sourceTree = "<group>"; };
 		223A6BC825EEF89900AA3483 /* Stock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stock.swift; sourceTree = "<group>"; };
 		223A6BD925EF236700AA3483 /* CoinCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinCounter.swift; sourceTree = "<group>"; };
 		223A6BDF25EF25B300AA3483 /* CoinManageable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinManageable.swift; sourceTree = "<group>"; };
@@ -237,9 +237,9 @@
 				226CAB4425EBC5DF00196488 /* Productization */,
 				226CAB5125EBCB0D00196488 /* DrinkFactory.swift */,
 				22E4757225E650C400417A37 /* VendingMachine.swift */,
-				2225768325F893480032D644 /* DataCenter.swift */,
-				223A6BC825EEF89900AA3483 /* Stock.swift */,
+				2225768325F893480032D644 /* VendingMachineDataCenter.swift */,
 				223A6BD925EF236700AA3483 /* CoinCounter.swift */,
+				223A6BC825EEF89900AA3483 /* Stock.swift */,
 				2255F0A825E8BCA90044B872 /* Date.swift */,
 			);
 			path = Model;
@@ -394,7 +394,7 @@
 				2255F0CE25E8DBE10044B872 /* BingBananaMilk.swift in Sources */,
 				22E4756625E6288600417A37 /* Coffee.swift in Sources */,
 				22E4757325E650C400417A37 /* VendingMachine.swift in Sources */,
-				2225768425F893480032D644 /* DataCenter.swift in Sources */,
+				2225768425F893480032D644 /* VendingMachineDataCenter.swift in Sources */,
 				221A9EC925EA64AA00ADEE1E /* StockManageable.swift in Sources */,
 				22C52CB225E9180800A56884 /* BlueBottleColdBrew.swift in Sources */,
 				223A6BDA25EF236800AA3483 /* CoinCounter.swift in Sources */,

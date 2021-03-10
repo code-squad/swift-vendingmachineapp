@@ -32,7 +32,7 @@ class VendingMachine: NSObject, NSCoding {
     
     public func addDrink(_ drink: Drink) {
         stock.addedDrink(drink)
-        DataCenter.save()
+        VendingMachineDataCenter.save(to: self)
     }
 
     public func insertCoin(_ coin: Int) {

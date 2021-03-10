@@ -8,6 +8,10 @@ class Coke: SoftDrink {
         super.init(brand: brand, volume: volume, price: price, productName: productName, manufacturedDay: manufacturedDay, sellByDate: sellByDate, calories: calories, temparature: temparature, zeroCalories: zeroCalories)
     }
     
+    convenience init() {
+        self.init(brand: "코카콜라", volume: 200, price: 1300, productName: "코카콜라제로", manufacturedDay: Date(), sellByDate: Date(), calories: 0, temparature: 0, zeroCalories: true, flavor: "original")
+    }
+    
     required init?(coder: NSCoder) {
         flavor = coder.decodeObject(forKey: "flavor") as! String
         super.init(coder: coder)

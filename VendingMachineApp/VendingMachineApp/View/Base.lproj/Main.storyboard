@@ -25,7 +25,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="W0j-YA-aqI">
                                                 <rect key="frame" x="0.0" y="0.0" width="120" height="212.5"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JA7-lo-iki" customClass="ColaButton" customModule="VendingMachineApp" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JA7-lo-iki">
                                                         <rect key="frame" x="45" y="0.0" width="30" height="30"/>
                                                         <state key="normal" title="추가"/>
                                                         <connections>
@@ -46,7 +46,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="vSo-ir-Rof">
                                                 <rect key="frame" x="189" y="0.0" width="120" height="212.5"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CzY-HW-62X" customClass="RedBullButton" customModule="VendingMachineApp" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CzY-HW-62X">
                                                         <rect key="frame" x="45" y="0.0" width="30" height="30"/>
                                                         <state key="normal" title="추가"/>
                                                         <connections>
@@ -67,7 +67,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="EJ5-Tk-hK2">
                                                 <rect key="frame" x="378" y="0.0" width="103" height="212.5"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6qX-a2-PWD" customClass="StrawberryMilkButton" customModule="VendingMachineApp" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6qX-a2-PWD">
                                                         <rect key="frame" x="36.5" y="0.0" width="30" height="30"/>
                                                         <state key="normal" title="추가"/>
                                                         <connections>
@@ -88,7 +88,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="Tpi-7g-Skt">
                                                 <rect key="frame" x="550" y="0.0" width="120" height="212.5"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="59A-4X-IgS" customClass="TOPButton" customModule="VendingMachineApp" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="59A-4X-IgS">
                                                         <rect key="frame" x="45" y="0.0" width="30" height="30"/>
                                                         <state key="normal" title="추가"/>
                                                         <connections>

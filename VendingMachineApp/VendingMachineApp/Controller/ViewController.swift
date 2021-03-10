@@ -11,24 +11,25 @@ class ViewController: UIViewController {
     
     @IBOutlet var balanceLabel: UILabel!
     @IBOutlet var beverageImages: [UIImageView]!
-    @IBOutlet var beverageButtons: [BeverageButtons]!
+    @IBOutlet var beverageButtons: [UIButton]!
     @IBOutlet var beverageLabels: [UILabel]!
     
     let vendingMachine = VendingMachine()
-    var dataOfButtonAndLabel: [UIButton: UILabel] = [:]
+    var dataOfButton: [UIButton : (beverage: Beverage, label: UILabel)] = [:]
 
     override func viewDidLoad() {
         super.viewDidLoad()
         curveImageVertex()
-        fillButtonAndLabelData()
+        fillDataOfButton()
     }
     
-    @IBAction func addStock(_ sender: BeverageButtons) {
-//        sender.action { (beverage) in
-//            vendingMachine.addStock(as: beverage)
-//            guard let beverageCount = vendingMachine.showStock()[ObjectIdentifier(beverage)]?.count else {return}
-//            dataOfButtonAndLabel[sender]?.text = "\(beverageCount)개"
-//        }
+    @IBAction func addStock(_ sender: UIButton) {
+        guard let beverage = dataOfButton[sender]?.beverage else {return}
+        vendingMachine.addStock(as: beverage)
+        let stockList = vendingMachine.showStock()
+        let beverageID = ObjectIdentifier(beverage)
+        guard let stock = stockList[beverageID] else {return}
+        dataOfButton[sender]?.label.text = "\(stock.count)개"
     }
     
     @IBAction func rechargeCash(_ sender: UIButton) {
@@ -51,11 +52,11 @@ class ViewController: UIViewController {
         }
     }
     
-    func fillButtonAndLabelData() {
+    func fillDataOfButton() {
+        let factories: [Produceable] = [ColaFactory.init(), RedBullFactory.init(), StrawberryMilkFactory.init(), TOPFactory.init()]
         for i in 0...3 {
-            dataOfButtonAndLabel[beverageButtons[i]] = beverageLabels[i]
+            dataOfButton[beverageButtons[i]] = (BeverageFactory.releaseBeverage(with: factories[i]), beverageLabels[i])
         }
     }
-    
 }
 

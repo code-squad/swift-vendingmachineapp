@@ -11,16 +11,17 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
-    var vendingMachine = VendingMachine()
+    var vendingMachine : VendingMachine?
 
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool  {
-        guard let vendingMachine = ObjectArchive.load(with: UserDefaults.standard.data(forKey: "vendingMachine") ?? Data()) else { return true }
-        self.vendingMachine = vendingMachine
+        let loadData = UserDefaults.standard.data(forKey: "vendingMachine") ?? Data()
+        let loadMachine =  ObjectArchive.load(with: loadData)
+        self.vendingMachine = loadData.isEmpty ? VendingMachine() : loadMachine
         return true
     }
 
     func applicationDidEnterBackground(_ application: UIApplication){
-        UserDefaults.standard.setValue(ObjectArchive.save(with: vendingMachine), forKey: "vendingMachine")
+        UserDefaults.standard.setValue(ObjectArchive.save(with: vendingMachine ?? VendingMachine()), forKey: "vendingMachine")
     }
 
 }

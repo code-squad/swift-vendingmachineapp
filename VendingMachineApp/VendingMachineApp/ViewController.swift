@@ -23,31 +23,31 @@ class ViewController: UIViewController {
     
     @IBAction func buyBeverageButtonTouched(_ sender: BeveragesButton) {
         sender.increase(action: { (beverage) in
-            self.appDelegate?.vendingMachine.addStock(beverage: beverage)
+            self.appDelegate?.vendingMachine?.addStock(beverage: beverage)
             self.changeBeverageLabel()
         })
     }
     
     @IBAction func BalanceIncrease1000ButtonTouched(_ sender: BalanceIncreasable) {
         sender.increase(balance: 1000) { money in
-            self.appDelegate?.vendingMachine.putPayMoney(money: money)
+            self.appDelegate?.vendingMachine?.putPayMoney(money: money)
             self.changeBalanceLabel()
         }
     }
     @IBAction func BalanceIncrease5000ButtonTouched(_ sender: BalanceIncreasable) {
         sender.increase(balance: 5000) { money in
-            self.appDelegate?.vendingMachine.putPayMoney(money: money)
+            self.appDelegate?.vendingMachine?.putPayMoney(money: money)
             self.changeBalanceLabel()
         }
     }
     
     private func changeBalanceLabel() {
-        self.BalanceLabel.text = String(self.appDelegate?.vendingMachine.checkCurrentBalance() ?? 0)
+        self.BalanceLabel.text = String(self.appDelegate?.vendingMachine?.checkCurrentBalance() ?? 0)
     }
     
     private func changeBeverageLabel() {
-        let beverage = appDelegate?.vendingMachine.showAllBeverageStock()
-        appDelegate?.vendingMachine.showMenuList().enumerated().forEach {
+        let beverage = appDelegate?.vendingMachine?.showAllBeverageStock()
+        appDelegate?.vendingMachine?.showMenuList().enumerated().forEach {
             self.numberOfStock[$0.offset].text =
                 String(beverage?[ObjectIdentifier(type(of: $0.element))]?.count ?? 0)
         }

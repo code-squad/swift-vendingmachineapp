@@ -38,20 +38,27 @@ class Drinks {
         return drinks.remove(at: removeTarget)
     }
     
-    func showDrinks() -> Dictionary<String,Int> {
-        var returnDic = Dictionary<String,Int>()
+    func showDrinks() -> Dictionary<ObjectIdentifier,[Drink]> {
         
-        drinks.forEach({
-            if returnDic[$0.name] == nil {
-                returnDic.updateValue(1, forKey: $0.name)
-            }
-            else {
-                returnDic.updateValue(returnDic[$0.name]! + 1, forKey: $0.name)
-            }
-        })
-        
-        return returnDic
+        return drinks.reduce(into: [:]) { metaType, drink in
+            metaType[ObjectIdentifier(type(of: drink.self)), default : []] += [drink]
+        }
     }
+    
+//    func showDrinks() -> Dictionary<String,Int> {
+//        var returnDic = Dictionary<String,Int>()
+//
+//        drinks.forEach({
+//            if returnDic[$0.name] == nil {
+//                returnDic.updateValue(1, forKey: $0.name)
+//            }
+//            else {
+//                returnDic.updateValue(returnDic[$0.name]! + 1, forKey: $0.name)
+//            }
+//        })
+//
+//        return returnDic
+//    }
     
     func showExpired() -> [Drink] {
         var returnDrinkArr = [Drink]()

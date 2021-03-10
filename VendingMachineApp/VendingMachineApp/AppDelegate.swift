@@ -9,6 +9,6 @@ import UIKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    var vendingMachine: VendingMachine!
 }
 

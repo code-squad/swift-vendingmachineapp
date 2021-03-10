@@ -8,9 +8,5 @@
 import Foundation
 
 class StrawberryMilkButton: BeverageButtons {
-    var strawberryMilk = BeverageFactory.shared.createBeverage(with: .strawberrymilk)
-    
-    override func action(completion: (Beverage) -> Void) {
-        completion(strawberryMilk as! Beverage)
-    }
+
 }

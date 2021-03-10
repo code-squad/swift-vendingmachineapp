@@ -21,9 +21,9 @@
 		B36A87D425E62EAB002C4432 /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36A87D325E62EAB002C4432 /* VendingMachine.swift */; };
 		B36A87D925E636B7002C4432 /* Drinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36A87D825E636B7002C4432 /* Drinks.swift */; };
 		B36A87DD25E63E14002C4432 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36A87DC25E63E14002C4432 /* Date.swift */; };
+		B37B9F5F25F8B39A00256032 /* ColaFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37B9F5E25F8B39A00256032 /* ColaFactory.swift */; };
 		B3B3DD3025E7D8450022465D /* EnergyDrink.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B3DD2F25E7D8450022465D /* EnergyDrink.swift */; };
 		B3B3DD3525E7EF620022465D /* CashManagementSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B3DD3425E7EF620022465D /* CashManagementSystem.swift */; };
-		B3CE1BC325F618FB00AE5476 /* Productable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CE1BC225F618FB00AE5476 /* Productable.swift */; };
 		B3CE1BC725F6557B00AE5476 /* BeverageButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CE1BC625F6557B00AE5476 /* BeverageButtons.swift */; };
 		B3CE1BCB25F6567600AE5476 /* ColaButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CE1BCA25F6567600AE5476 /* ColaButton.swift */; };
 		B3CE1BD125F6581A00AE5476 /* TOPButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CE1BD025F6581A00AE5476 /* TOPButton.swift */; };
@@ -75,9 +75,9 @@
 		B36A87D325E62EAB002C4432 /* VendingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachine.swift; sourceTree = "<group>"; };
 		B36A87D825E636B7002C4432 /* Drinks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drinks.swift; sourceTree = "<group>"; };
 		B36A87DC25E63E14002C4432 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		B37B9F5E25F8B39A00256032 /* ColaFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColaFactory.swift; sourceTree = "<group>"; };
 		B3B3DD2F25E7D8450022465D /* EnergyDrink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnergyDrink.swift; sourceTree = "<group>"; };
 		B3B3DD3425E7EF620022465D /* CashManagementSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashManagementSystem.swift; sourceTree = "<group>"; };
-		B3CE1BC225F618FB00AE5476 /* Productable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Productable.swift; sourceTree = "<group>"; };
 		B3CE1BC625F6557B00AE5476 /* BeverageButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BeverageButtons.swift; path = VendingMachineApp/Controller/BeverageButtons.swift; sourceTree = SOURCE_ROOT; };
 		B3CE1BCA25F6567600AE5476 /* ColaButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColaButton.swift; sourceTree = "<group>"; };
 		B3CE1BD025F6581A00AE5476 /* TOPButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOPButton.swift; sourceTree = "<group>"; };
@@ -140,7 +140,7 @@
 				B30C142A25EF31E80095CA19 /* PurchasedList.swift */,
 				B36A87B025E61F1B002C4432 /* Beverage.swift */,
 				B32ECEA725F12B900066C473 /* BeverageFactory.swift */,
-				B3CE1BC225F618FB00AE5476 /* Productable.swift */,
+				B37B9F5E25F8B39A00256032 /* ColaFactory.swift */,
 				B3FC893125EBEA1E00E70D38 /* EnergyDrink */,
 				B36A87C825E62353002C4432 /* Coffee */,
 				B36A87C625E6234B002C4432 /* Soda */,
@@ -381,9 +381,9 @@
 				B3F5728825E3629300CFF095 /* SceneDelegate.swift in Sources */,
 				B3CE1BD525F6582600AE5476 /* StrawberryMilkButton.swift in Sources */,
 				B30C142B25EF31E80095CA19 /* PurchasedList.swift in Sources */,
-				B3CE1BC325F618FB00AE5476 /* Productable.swift in Sources */,
 				B3CE1BC725F6557B00AE5476 /* BeverageButtons.swift in Sources */,
 				B36A87A725E61B9A002C4432 /* Milk.swift in Sources */,
+				B37B9F5F25F8B39A00256032 /* ColaFactory.swift in Sources */,
 				B3CE1BD925F6582F00AE5476 /* RedBullButton.swift in Sources */,
 				B36A87DD25E63E14002C4432 /* Date.swift in Sources */,
 				B36A87AD25E61BAA002C4432 /* Coffee.swift in Sources */,

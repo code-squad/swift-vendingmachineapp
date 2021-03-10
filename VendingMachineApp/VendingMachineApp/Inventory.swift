@@ -10,9 +10,13 @@ import Foundation
 class Inventory: InventoryManagable {
     
     private var inventory: [Beverage]
+    private let mapper: BeverageMapper
+    private (set) var beverageCounts: [Int: Beverage.Type]
     
     init(inventory: [Beverage]) {
+        self.mapper = BeverageMapper()
         self.inventory = inventory
+        self.beverageCounts = [Int: Beverage.Type]()
     }
     
     convenience init() {
@@ -22,6 +26,7 @@ class Inventory: InventoryManagable {
     
     func addInventory(_ beverage: Beverage) {
         self.inventory.append(beverage)
+        NotificationCenter.default.post(name: .didChangeInventory, object: nil)
     }
     
     func isPurchasableInventory(balance: Int) -> InventoryManagable {
@@ -48,13 +53,23 @@ class Inventory: InventoryManagable {
         return Inventory(inventory: self.inventory.filter { $0.isHot(temparature: 60) })
     }
     
-    func readInventores() -> [Beverage: Int] {
-        var allInventores = [Beverage: Int]()
+    func readInventores() -> [ObjectIdentifier: [Beverage]] {
+        var allInventores = [ObjectIdentifier: [Beverage]]()
         
         self.inventory.forEach { beverage in
-            allInventores[beverage, default: 0] += 1
+            let beverageType = ObjectIdentifier(type(of: beverage))
+            allInventores[beverageType, default: [Beverage]()].append(beverage)
         }
         
         return allInventores
+    }
+    
+    func readInventory(index: Int, allInventores: [ObjectIdentifier: [Beverage]]) -> Int {
+        guard let beverageType = self.mapper.mapping(by: index) else { return 0 }
+        return allInventores[ObjectIdentifier(beverageType)]?.count ?? 0
+    }
+    
+    func tagToBeverageType(by tag: Int) -> Beverage.Type? {
+        return self.mapper.mapping(by: tag)
     }
 }

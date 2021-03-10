@@ -43,6 +43,10 @@ class Drink: CustomStringConvertible, Hashable {
         self.manufacturing = manufacturing
     }
     
+    convenience required init() {
+        self.init(brand: "class", volume : 0, charge: 0, name : "Drink", manufacturing: Date.init())
+    }
+    
     func canBuy(have money : Int) -> Bool {
         return self.charge < money
     }

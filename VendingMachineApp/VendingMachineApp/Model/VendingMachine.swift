@@ -54,7 +54,7 @@ class VendingMachine {
     }
     
     //MARK: 전체 상품 재고를 (사전으로 표현하는) 종류별로 리턴하는 메소드
-    func showCurrentStock() -> [Beverage: Int] {
+    func showCurrentStock() -> [ObjectIdentifier: [Beverage]] {
         return beverages.checkBeverageStock()
     }
     

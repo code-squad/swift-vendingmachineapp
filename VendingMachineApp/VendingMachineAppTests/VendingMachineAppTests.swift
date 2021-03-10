@@ -31,7 +31,7 @@ class VendingMachineAppTests: XCTestCase {
         
         // 금액 추가한 후 잔액 확인
         vendingMachine.addMoney(additionalAmount: 15000)
-        XCTAssertEqual(Money(inputAmount: 15000), vendingMachine.showCurrentInputAmount())
+        XCTAssertEqual(15000, vendingMachine.showCurrentInputAmount())
         
         // 구매 가능한 음료 확인
         XCTAssertEqual(vendingMachine.showAvailableBeverage(), ([strawberryMilk,coke,cantata]))
@@ -40,10 +40,10 @@ class VendingMachineAppTests: XCTestCase {
         vendingMachine.buyBeverage(beverage: strawberryMilk)
         
         // 구매한 후 재고 확인
-        XCTAssertEqual(vendingMachine.showCurrentStock(), ([coke:1 , cantata:1]))
+        XCTAssertEqual(vendingMachine.showCurrentStock(), ([ObjectIdentifier(Coke.Type): Coke , ObjectIdentifier(Cantata.Type): Cantata]))
         
         // 구매후 잔액 확인
-        XCTAssertEqual(Money(inputAmount: 13800), vendingMachine.showCurrentInputAmount())
+        XCTAssertEqual(13800, vendingMachine.showCurrentInputAmount())
         
         // 뜨거운 음료 확인
         XCTAssertEqual(vendingMachine.checkHotBeverage(), ([cantata]))

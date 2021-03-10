@@ -25,6 +25,15 @@ class ViewController: UIViewController {
     @IBAction func insertMoneyButtonPressed(_ sender: UIButton) {
     }
     
+    private func initialSetupVendingMachine() {
+        self.vendingMachine = VendingMachine(numberOfSlots: 5)
+        vendingMachine.bulkInsert(itemFrom: DenmarkStrawberryMilkFactory(), quantity: 5, manufactured: Date().formattedDate(from: "20210222"), expiredAfter: Date().formattedDate(from: "20210302"))
+        vendingMachine.bulkInsert(itemFrom: MaeilChocolateMilkFactory(), quantity: 5, manufactured: Date().formattedDate(from: "20210222"), expiredAfter: Date().formattedDate(from: "20210302"))
+        vendingMachine.bulkInsert(itemFrom: ZeroSugarCokeFactory(), quantity: 5, manufactured: Date().formattedDate(from: "20210222"), expiredAfter: Date().formattedDate(from: "20210302"))
+        vendingMachine.bulkInsert(itemFrom: GeorgiaMaxFactory(), quantity: 5, manufactured: Date().formattedDate(from: "20210222"), expiredAfter: Date().formattedDate(from: "20210302"))
+        vendingMachine.bulkInsert(itemFrom: RedBullFactory(), quantity: 5, manufactured: Date().formattedDate(from: "20210222"), expiredAfter: Date().formattedDate(from: "20210302"))
+    }
+    
     private func configureCashBoxView() {
         balanceLabel.text = "잔액 : \(vendingMachine.showBalance())원"
     }

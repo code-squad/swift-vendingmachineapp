@@ -8,6 +8,10 @@ class Cantata: Coffee, IsDairyProducts {
         self.dairyProducts = dairyProducts
         super.init(brand: brand, volume: volume, price: price, productName: productName, manufacturedDay: manufacturedDay, sellByDate: sellByDate, calories: calories, temparature: temparature, decaffeinated: decaffeinated)
     }
+    
+    convenience init() {
+        self.init(brand: "롯데칠성", volume: 180, price: 1700, productName: "콘트라베이스블랙", manufacturedDay: Date(), sellByDate: Date(), calories: 10, temparature: 110, decaffeinated: true, dairyProducts: false)
+    }
         
     required init?(coder: NSCoder) {
         dairyProducts = coder.decodeBool(forKey: "dairyProducts")

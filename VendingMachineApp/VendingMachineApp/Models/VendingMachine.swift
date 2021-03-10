@@ -8,6 +8,10 @@
 import Foundation
 
 struct VendingMachine {
+    enum Notification {
+        static let DidChangeInventory = Foundation.Notification.Name("DidChangeInventory")
+        static let DidChangeBalance = Foundation.Notification.Name("DidChangeBalance")
+    }
     
     private var inventory: Inventory
     private var cashBox: CashBox
@@ -17,14 +21,17 @@ struct VendingMachine {
         self.inventory = Inventory(numberOfSlots: numberOfSlots)
         self.cashBox = CashBox(totalRevenue: 0, moneyDeposited: 0)
         self.soldItems = PurchaseHistory()
+        NotificationCenter.default.post(name: Notification.DidChangeBalance, object: self)
     }
     
     mutating func insertMoney(amount: Int) {
         cashBox.insertMoney(amount: amount)
+        NotificationCenter.default.post(name: Notification.DidChangeBalance, object: self)
     }
     
     func add(item: Beverage) {
         inventory.add(item)
+        NotificationCenter.default.post(name: Notification.DidChangeInventory, object: self)
     }
     
     func bulkInsert(itemFrom factory: BeverageFactory, quantity: Int, manufactured: Date?, expiredAfter: Date?) {

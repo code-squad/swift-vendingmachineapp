@@ -14,7 +14,7 @@ class Beverage {
     public let name: String
     private let packageTime: Date
     
-    public init(brand: String, size: Milliliter, price: Int, name: String, packageTime: Date) {
+    init(brand: String, size: Milliliter, price: Int, name: String, packageTime: Date) {
         self.brand = brand
         self.size = size
         self.price = price
@@ -30,8 +30,8 @@ class Beverage {
         return self.price
     }
     
-    public func isExpired() -> Bool {
-        return self.packageTime.isOld(on: Date())
+    public func isExpired(on date: Date) -> Bool {
+        return self.packageTime.isOld(on: date)
     }
 }
 

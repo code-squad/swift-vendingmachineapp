@@ -33,8 +33,8 @@ struct Machine {
         return beverageStorage.checkPurchasables(with: money)
     }
     
-    func showExpired() -> [Beverage: Int] {
-        return beverageStorage.checkExpired()
+    func showExpired(on date: Date) -> [Beverage: Int] {
+        return beverageStorage.checkExpired(on: date)
     }
     
     mutating func purchaseBeverage(beverage: Beverage) {

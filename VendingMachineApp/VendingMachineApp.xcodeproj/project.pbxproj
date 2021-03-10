@@ -13,6 +13,7 @@
 		882A589F25E8AB4200BCAF67 /* DomesticLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882A589E25E8AB4200BCAF67 /* DomesticLocation.swift */; };
 		882A58A325E8B66700BCAF67 /* OverseasLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882A58A225E8B66700BCAF67 /* OverseasLocation.swift */; };
 		883E0EE125F712E000A2BA3D /* NotificationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88846F4025F0E4B000333AE3 /* NotificationExtension.swift */; };
+		883E0EE625F77ADA00A2BA3D /* BeverageFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D67CF525ED02C40033BF57 /* BeverageFactory.swift */; };
 		8849843925EDF101002C71F5 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88748AD625E4E9E000E7DCB1 /* Protocols.swift */; };
 		8849843A25EDF101002C71F5 /* Milliliter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882A589825E8926A00BCAF67 /* Milliliter.swift */; };
 		8849843B25EDF101002C71F5 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882A589325E7A84800BCAF67 /* DateExtension.swift */; };
@@ -128,6 +129,7 @@
 		882A589625E7A87500BCAF67 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
+				88D67CF525ED02C40033BF57 /* BeverageFactory.swift */,
 				88748AD625E4E9E000E7DCB1 /* Protocols.swift */,
 				882A589825E8926A00BCAF67 /* Milliliter.swift */,
 				882A589325E7A84800BCAF67 /* DateExtension.swift */,
@@ -246,7 +248,6 @@
 			isa = PBXGroup;
 			children = (
 				88D67CE625EBC27E0033BF57 /* Info.plist */,
-				88D67CF525ED02C40033BF57 /* BeverageFactory.swift */,
 				88D67CF125EBC4A80033BF57 /* BeverageUnitTest.swift */,
 				8849844F25EE2947002C71F5 /* MachineUnitTest.swift */,
 			);
@@ -376,6 +377,7 @@
 				88748AC925E4A56300E7DCB1 /* Americano.swift in Sources */,
 				88748AA025E394AA00E7DCB1 /* Milk.swift in Sources */,
 				88748AE225E4F4E700E7DCB1 /* BeverageStorage.swift in Sources */,
+				883E0EE625F77ADA00A2BA3D /* BeverageFactory.swift in Sources */,
 				882A589925E8926A00BCAF67 /* Milliliter.swift in Sources */,
 				88748AA625E397FE00E7DCB1 /* Coffee.swift in Sources */,
 			);

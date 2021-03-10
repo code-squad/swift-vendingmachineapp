@@ -16,7 +16,7 @@ extension Date {
     
     func isOld(on checkDate: Date) -> Bool {
         let oneDayInSeconds: Double = 86400
-        let shelfLife: Double = 60
-        return checkDate >= self.addingTimeInterval(oneDayInSeconds * shelfLife)
+        let shelfLifeInDays: Double = 180
+        return checkDate >= self.addingTimeInterval(oneDayInSeconds * shelfLifeInDays)
     }
 }

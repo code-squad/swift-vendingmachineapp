@@ -53,22 +53,20 @@ class VendingMachineTest: XCTestCase {
     }
     func testSellProductsFail(){
     
-        let sprite = Factory.createInstance(type: Sprite.self)
-        vendingMachine.sellProduct(product: sprite!)
-        let expect = [sprite]
+        let sprite = Factory.createInstance(type: Sprite.self)!
+        let expect = vendingMachine.sellProduct(product: sprite)
         let actual = vendingMachine.getSoldProducts()
         
-        XCTAssertNotEqual(expect, actual, "재고가 없는 물품을 구매하였습니다.")
+        XCTAssertNotEqual([expect], actual, "재고가 없는 물품을 구매하였습니다.")
     }
     func testGetSoldProducts(){
     
         let sprite = Factory.createInstance(type: Sprite.self)!
         vendingMachine.append(product: sprite)
         
-        vendingMachine.sellProduct(product: sprite)
-        let expect = [sprite]
+        let expect = vendingMachine.sellProduct(product: sprite)
         let actual = vendingMachine.getSoldProducts()
         
-        XCTAssertEqual(expect, actual, "구매 이력을 받아오지 못하였습니다.")
+        XCTAssertEqual([expect], actual, "구매 이력을 받아오지 못하였습니다.")
     }
 }

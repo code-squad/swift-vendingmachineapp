@@ -14,32 +14,39 @@ class ViewController: UIViewController {
     var stockStackView : StockStackView!
     var inspectorView : InspectorStackView!
     
+    // TODO: VendingMachine 객체 변화에 대하여 Notification을 적용하도록 수정할 것
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         setUpViews()
     }
     
     func setUpViews(){
         self.view.backgroundColor = .black
-
+        
         stockStackView = StockStackView()
         stockStackView.setUp()
         self.view.addSubview(stockStackView)
         stockStackViewConfiguration()
-        stockStackView.setTarget(self)
         
         inspectorView = InspectorStackView()
         self.view.addSubview(inspectorView)
         inspectorViewConfiguration()
     }
 }
-extension ViewController : StockDelegate {
-    func addStock(type: Beverage.Type) {
-        guard let instance = Factory.createInstance(type: type) else { return }
-        vendingMachine.append(product: instance)
+
+extension ViewController {
+    @objc func appendBeverageToMachine(_ sender : UIBeverageButton){
+        guard let beverage = Factory.createInstance(type: sender.beverageType) else { return }
+        vendingMachine.append(product: beverage)
     }
-    
+    @objc func appedCoinToMachine(_ sender : UICoinButton){
+        vendingMachine.charge(coins: sender.coin)
+    }
 }
+
 // MARK: Configuration
 extension ViewController {
     func stockStackViewConfiguration(){

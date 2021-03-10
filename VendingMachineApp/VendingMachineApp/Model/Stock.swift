@@ -59,7 +59,7 @@ class Stock: NSObject, StockManageable, NSCoding {
     }
     
     public func purchased(drinkType: Drink.Type, insertedCoin: Int) -> Drink? {
-        guard let nthDrink = stock.enumerated().first(where: { type(of:$0) == drinkType }) else { return nil }
+        guard let nthDrink = stock.enumerated().first(where: { type(of:$0.element) == drinkType }) else { return nil }
         let drink = nthDrink.element
         let index = nthDrink.offset
         guard drink.isPurchaseable(coin: insertedCoin) else { return nil }

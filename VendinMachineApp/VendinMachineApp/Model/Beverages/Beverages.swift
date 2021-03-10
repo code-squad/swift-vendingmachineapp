@@ -1,9 +1,15 @@
 
 import Foundation
 
-class Beverages {
+class Beverages: CustomStringConvertible {
     private var beverages: [Beverage:Int]
-    
+    var description: String {
+        var str = ""
+        self.beverages.forEach { (key, value) in
+            str += "\(key): \(value)\n"
+        }
+        return str
+    }
     init() {
         self.beverages = [:]
     }

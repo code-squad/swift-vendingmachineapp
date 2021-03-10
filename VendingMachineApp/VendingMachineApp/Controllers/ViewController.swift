@@ -11,9 +11,15 @@ class ViewController: UIViewController {
     @IBOutlet weak var inventoryStackView: UIStackView!
     @IBOutlet weak var balanceLabel: UILabel!
     
+    private var vendingMachine: VendingMachine!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+    }
+    
+    private func configureCashBoxView() {
+        balanceLabel.text = "잔액 : \(vendingMachine.showBalance())원"
     }
     
     private func makeSlotView(with slot: Slot) -> SlotView {

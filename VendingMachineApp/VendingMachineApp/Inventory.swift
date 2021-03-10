@@ -11,12 +11,10 @@ class Inventory: InventoryManagable {
     
     private var inventory: [Beverage]
     private let mapper: BeverageMapper
-    private (set) var beverageCounts: [Int: Beverage.Type]
     
     init(inventory: [Beverage]) {
         self.mapper = BeverageMapper()
         self.inventory = inventory
-        self.beverageCounts = [Int: Beverage.Type]()
     }
     
     convenience init() {

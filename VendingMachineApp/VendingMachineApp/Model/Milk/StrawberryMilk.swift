@@ -7,7 +7,7 @@
 
 import Foundation
 
-class StrawBerryMilk: Milk, Productable {
+class StrawBerryMilk: Milk {
     enum Color {
         case white
         case pink

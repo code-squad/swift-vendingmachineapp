@@ -10,7 +10,6 @@
 		BF0F68E125F64E3B000F2D89 /* Archive.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0F68E025F64E3B000F2D89 /* Archive.swift */; };
 		BF0F68E625F652C0000F2D89 /* ArchiveTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0F68E525F652C0000F2D89 /* ArchiveTest.swift */; };
 		BF53811425E4A09F0031EE39 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF53811325E4A09F0031EE39 /* AppDelegate.swift */; };
-		BF53811625E4A09F0031EE39 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF53811525E4A09F0031EE39 /* SceneDelegate.swift */; };
 		BF53811825E4A09F0031EE39 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF53811725E4A09F0031EE39 /* ViewController.swift */; };
 		BF53811B25E4A09F0031EE39 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF53811925E4A09F0031EE39 /* Main.storyboard */; };
 		BF53811D25E4A0A20031EE39 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF53811C25E4A0A20031EE39 /* Assets.xcassets */; };
@@ -66,7 +65,6 @@
 		BF0F68E525F652C0000F2D89 /* ArchiveTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveTest.swift; sourceTree = "<group>"; };
 		BF53811025E4A09F0031EE39 /* VendingMachineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendingMachineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF53811325E4A09F0031EE39 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BF53811525E4A09F0031EE39 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		BF53811725E4A09F0031EE39 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BF53811A25E4A09F0031EE39 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BF53811C25E4A0A20031EE39 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -158,7 +156,6 @@
 				BF53815525E4C70C0031EE39 /* Extension */,
 				BF53814C25E4A1940031EE39 /* Model */,
 				BF53811325E4A09F0031EE39 /* AppDelegate.swift */,
-				BF53811525E4A09F0031EE39 /* SceneDelegate.swift */,
 				BF0F68E025F64E3B000F2D89 /* Archive.swift */,
 				BF53811725E4A09F0031EE39 /* ViewController.swift */,
 				BF53811925E4A09F0031EE39 /* Main.storyboard */,
@@ -393,7 +390,6 @@
 				BF53811425E4A09F0031EE39 /* AppDelegate.swift in Sources */,
 				BF53814E25E4A19F0031EE39 /* Beverage.swift in Sources */,
 				BF5381EF25EA2C4D0031EE39 /* VendingStackView.swift in Sources */,
-				BF53811625E4A09F0031EE39 /* SceneDelegate.swift in Sources */,
 				BFCA484F25EE3E6E003D4844 /* BalanceIncreasable.swift in Sources */,
 				BFCA488425EE7B1E003D4844 /* BeveragesButton.swift in Sources */,
 				BF0F68E125F64E3B000F2D89 /* Archive.swift in Sources */,

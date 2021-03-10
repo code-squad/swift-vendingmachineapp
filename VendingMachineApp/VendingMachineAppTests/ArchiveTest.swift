@@ -17,8 +17,8 @@ class ArchiveTest: XCTestCase {
         vendingMachine.addStock(beverage: StrawberryMilk())
 
         
-        let archive = ObjectArchive.archive(with: vendingMachine)
-        guard let unArchive = ObjectArchive.unarchive(with: archive) else { return }
+        let archive = ObjectArchive.save(with: vendingMachine)
+        guard let unArchive = ObjectArchive.load(with: archive) else { return }
         
         XCTAssertEqual(ObjectIdentifier(type(of: vendingMachine)),
                        ObjectIdentifier(type(of: unArchive)))

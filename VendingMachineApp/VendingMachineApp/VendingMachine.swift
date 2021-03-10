@@ -38,6 +38,8 @@ struct VendingMachine {
         if let firstIndex = canBuyDrinks.firstIndex(of: drink){
             canBuyDrinks.remove(at: firstIndex)
             drinks.removeDrink(at: drink)
+            drinks.addPurchasedList(with: drink)
         }
     }
 }
+

@@ -11,9 +11,9 @@ class StrawberryMilk : Milk {
     
     private let isContainStrawberry: Bool
         
-    init(isContainStrawberry:Bool,isMilkFlavor: MilkFlavor,farmCode: String, brand: String, capacity: Int, price: Int, name: String, madeDate: Date,isHot:Bool) {
+    init(isContainStrawberry:Bool,isMilkFlavor: MilkFlavor,farmCode: String, brand: String, capacity: Int, price: Int, name: String, manufacturedAt: Date,isHot:Bool) {
         self.isContainStrawberry = isContainStrawberry
-        super.init(isMilkFlavor: MilkFlavor.Strawberry, farmCode: farmCode, brand: brand, capacity: capacity, price: price, name: name, madeDate: madeDate,isHot: isHot)
+        super.init(isMilkFlavor: MilkFlavor.Strawberry, farmCode: farmCode, brand: brand, capacity: capacity, price: price, name: name, manufacturedAt: manufacturedAt,isHot: isHot)
         
     }
 }

@@ -192,3 +192,55 @@ private func setUpImageView() {
 #### 실행화면
 
 ![AnyConv com__Step4 VendingMachine (2) (1)](https://user-images.githubusercontent.com/74946802/110284249-da9f8f00-8024-11eb-84d1-5b9d1170c444.gif)
+
+## Step. 5
+
+#### GRASP 원칙
+
+- General Responsibility Assignment Software Patterns
+- 정보 담당자 (Information Expert) : 객체가 필요로 하는 '정보'를 채워넣는 것을 우선적으로 책임을 할당
+- 소유 권한 (Creator) : 누가 객체를 '소유'하는가?
+- 컨트롤러 (Controller) : UI계층 뒤에서 시스템 '제어'를 받아주고 관장하는 객체에게 컨트롤러 역할 할당
+- 낮은 연결 (Low Coupling) : 변화에 대비하고 재사용성을 높이기 위해 책임을 할당
+- 높은 응집도 (High Cohesion) : 객체 자체에 집중해서 이해하기, 관리하기 쉽게 책임을 할당
+- 간접 참조 (Indirection) : 둘 이상의 객체에서 직접 연결을 피하고 매개체에 책임을 할당
+- 다형성 (Polymorphism) : 동일한 입력과 출력에도 전혀 다른 로직으로 동작하도록 설계
+- 순수 조립 (Pure Fabrication) : 문제에 대한 도메인을 표현하지 않는 인공 객체 높은 응집도를 갖도록 책임 할당
+- 변화 보호 (Protected Variations) : 불안정적 요소나 변화할 요소를 예측 및 분류하여 안정적인 인터페이스를 갖도록 책임 할당
+
+#### NotificationCenter
+
+```swift
+NotificationCenter.default.addObserver(self, selector: #selector(updateInsertedMoney(notification:)), name: .updateInsertedMoney, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateBeverages(notification:)), name: .updateBeverages, object: nil)
+        
+ extension VendingMachineViewController {
+    @objc private func updateInsertedMoney(notification: Notification) {
+        balanceInfoLabel()
+    }
+    @objc private func updateBeverages(notification: Notification) {
+        beveragesStockCount()
+    }
+}
+
+```
+- 변화를 감지하여 post가 넘어오면 동작하도록 observer를 등록
+
+```swift
+func addBeverage(beverage: Beverage) {
+    beverages.append(from: beverage)
+    NotificationCenter.default.post(name: .updateBeverages, object: beverages, userInfo: nil)
+}
+
+func getTheMoney(from customer: Int) {
+    insertedMoney.insertMoney(from: customer)
+    NotificationCenter.default.post(name: .updateInsertedMoney, object: insertedMoney, userInfo: nil)
+}
+
+extension Notification.Name {
+    static let updateInsertedMoney = Notification.Name("updateInsertedMoney")
+    static let updateBeverages = Notification.Name("updateBeverages")
+}
+
+```
+- 자판기의 잔액과 재고의 변화가 생기면 NotificationCenter로 변화를 post하도록 코드 설계

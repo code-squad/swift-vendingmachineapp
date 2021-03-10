@@ -24,11 +24,11 @@ class ViewController: UIViewController {
     }
     
     @IBAction func addStock(_ sender: BeverageButtons) {
-        sender.action { (beverage) in
-            vendingMachine.addStock(as: beverage)
-            guard let beverageCount = vendingMachine.showStock()[ObjectIdentifier(beverage)]?.count else {return}
-            dataOfButtonAndLabel[sender]?.text = "\(beverageCount)개"
-        }
+//        sender.action { (beverage) in
+//            vendingMachine.addStock(as: beverage)
+//            guard let beverageCount = vendingMachine.showStock()[ObjectIdentifier(beverage)]?.count else {return}
+//            dataOfButtonAndLabel[sender]?.text = "\(beverageCount)개"
+//        }
     }
     
     @IBAction func rechargeCash(_ sender: UIButton) {

@@ -25,7 +25,6 @@ class OutputView: UIView {
         }
         VMStackView.addArrangedSubview(balanceStackView)
         
-        
         self.addSubview(VMStackView)
         VMStackView.positionSetting()
     }

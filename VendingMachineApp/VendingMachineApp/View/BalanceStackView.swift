@@ -14,6 +14,7 @@ class BalanceStackView: UIStackView, AddBalance {
         self.axis = .vertical
         self.spacing = 10
         self.alignment = .center
+        self.distribution = .fillProportionally
     }
     
     func collectSubelements() {

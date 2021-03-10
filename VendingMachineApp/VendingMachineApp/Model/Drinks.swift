@@ -46,10 +46,10 @@ class Drinks : NSObject, NSCoding{
         return drinks.filter { $0 == beverage }.count
     }
     
-    func showAllBeverage() -> [ObjectIdentifier : [Beverage]] {
-        return drinks.reduce(into: [:]) { metaType , beverage in
+    func showAllBeverage(handler : ([ObjectIdentifier : [Beverage]]) -> Void)  {
+        handler(drinks.reduce(into: [:]) { metaType , beverage in
             metaType[ObjectIdentifier(type(of: beverage.self)), default : []] += [beverage]
-        }
+        })
     }
     
     func passExpiryDate(standard : Date) -> [Beverage] {

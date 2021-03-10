@@ -50,7 +50,7 @@
                                             <color key="titleColor" systemColor="linkColor"/>
                                         </state>
                                         <connections>
-                                            <action selector="addStock:" destination="BYZ-38-t0r" eventType="touchUpInside" id="v7d-Du-Sqx"/>
+                                            <action selector="beverageMake:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cBT-ob-WvA"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t4e-it-MsE">
@@ -64,6 +64,9 @@
                                         <state key="normal" title="추가">
                                             <color key="titleColor" systemColor="linkColor"/>
                                         </state>
+                                        <connections>
+                                            <action selector="beverageMake:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8kc-ex-EJj"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LCw-bg-qyh">
                                         <rect key="frame" x="575" y="0.0" width="30" height="30"/>
@@ -76,6 +79,9 @@
                                         <state key="normal" title="추가">
                                             <color key="titleColor" systemColor="linkColor"/>
                                         </state>
+                                        <connections>
+                                            <action selector="beverageMake:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JXF-WX-uVw"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EWv-OL-7gk">
                                         <rect key="frame" x="60" y="135" width="100" height="20"/>
@@ -164,6 +170,9 @@
                                         <state key="normal" title="추가">
                                             <color key="titleColor" systemColor="linkColor"/>
                                         </state>
+                                        <connections>
+                                            <action selector="beverageMake:" destination="BYZ-38-t0r" eventType="touchUpInside" id="raz-yO-1lT"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w29-Qi-h9o">
                                         <rect key="frame" x="335" y="0.0" width="30" height="30"/>
@@ -176,6 +185,9 @@
                                         <state key="normal" title="추가">
                                             <color key="titleColor" systemColor="linkColor"/>
                                         </state>
+                                        <connections>
+                                            <action selector="beverageMake:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2yN-ow-NBx"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d89-sy-2Lf">
                                         <rect key="frame" x="575" y="0.0" width="30" height="30"/>
@@ -188,6 +200,9 @@
                                         <state key="normal" title="추가">
                                             <color key="titleColor" systemColor="linkColor"/>
                                         </state>
+                                        <connections>
+                                            <action selector="beverageMake:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ek4-d5-zSq"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Upf-6Z-rHA">
                                         <rect key="frame" x="60" y="135" width="100" height="20"/>
@@ -260,7 +275,12 @@
                         <outletCollection property="beverageImages" destination="yi3-UE-3jX" collectionClass="NSMutableArray" id="Ruj-g4-CyW"/>
                         <outletCollection property="beverageImages" destination="hh3-Vd-l5s" collectionClass="NSMutableArray" id="lPN-uY-6nu"/>
                         <outletCollection property="beverageImages" destination="CFR-Dz-vXh" collectionClass="NSMutableArray" id="czX-EY-9Z2"/>
-                        <outletCollection property="addBeverageStockButton" destination="biO-Sm-7J1" collectionClass="NSMutableArray" id="BEJ-EQ-2B8"/>
+                        <outletCollection property="beverageButtons" destination="biO-Sm-7J1" collectionClass="NSMutableArray" id="FEV-Sb-lcl"/>
+                        <outletCollection property="beverageButtons" destination="t4e-it-MsE" collectionClass="NSMutableArray" id="blo-m5-hRt"/>
+                        <outletCollection property="beverageButtons" destination="LCw-bg-qyh" collectionClass="NSMutableArray" id="0uW-Ez-3lV"/>
+                        <outletCollection property="beverageButtons" destination="Jsx-iQ-R5a" collectionClass="NSMutableArray" id="Ebm-ac-8j5"/>
+                        <outletCollection property="beverageButtons" destination="w29-Qi-h9o" collectionClass="NSMutableArray" id="wj3-kX-AVn"/>
+                        <outletCollection property="beverageButtons" destination="d89-sy-2Lf" collectionClass="NSMutableArray" id="FNU-jv-HRH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

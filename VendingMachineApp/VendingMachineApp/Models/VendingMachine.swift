@@ -105,4 +105,12 @@ class VendingMachine {
             handler(key, value)
         }
     }
+    
+    func countType() -> Int {
+        return stock.countType()
+    }
+    
+    func drinkStock(at index: Int) -> Dictionary<String,Int>.Element {
+        return stock.drinkStock(at: index)
+    }
 }

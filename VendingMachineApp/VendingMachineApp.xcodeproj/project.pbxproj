@@ -17,6 +17,8 @@
 		FF2DBFDF25E5E22600D2A215 /* Soda.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2DBFDE25E5E22600D2A215 /* Soda.swift */; };
 		FF2DBFE325E5E22C00D2A215 /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2DBFE225E5E22C00D2A215 /* Milk.swift */; };
 		FF2DBFE625E5E23800D2A215 /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2DBFE525E5E23800D2A215 /* Coffee.swift */; };
+		FF6F06DB25F708A600E2613A /* DrinkCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6F06DA25F708A600E2613A /* DrinkCollectionCell.swift */; };
+		FF6F06E325F7126300E2613A /* DrinkType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6F06E225F7126300E2613A /* DrinkType.swift */; };
 		FFCB249125E5E8410028AD95 /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCB249025E5E8410028AD95 /* VendingMachine.swift */; };
 		FFCB249625E5E9D80028AD95 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCB249525E5E9D80028AD95 /* Date.swift */; };
 		FFCB249B25E643510028AD95 /* ChocoMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCB249A25E643510028AD95 /* ChocoMilk.swift */; };
@@ -72,6 +74,8 @@
 		FF2DBFDE25E5E22600D2A215 /* Soda.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Soda.swift; sourceTree = "<group>"; };
 		FF2DBFE225E5E22C00D2A215 /* Milk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Milk.swift; sourceTree = "<group>"; };
 		FF2DBFE525E5E23800D2A215 /* Coffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
+		FF6F06DA25F708A600E2613A /* DrinkCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkCollectionCell.swift; sourceTree = "<group>"; };
+		FF6F06E225F7126300E2613A /* DrinkType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkType.swift; sourceTree = "<group>"; };
 		FFCB249025E5E8410028AD95 /* VendingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachine.swift; sourceTree = "<group>"; };
 		FFCB249525E5E9D80028AD95 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		FFCB249A25E643510028AD95 /* ChocoMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChocoMilk.swift; sourceTree = "<group>"; };
@@ -136,6 +140,7 @@
 				FFCB24EF25EE1B6F0028AD95 /* TestScenario.swift */,
 				FFCB24F525EE24270028AD95 /* Protocol */,
 				FF2DBFDD25E5E21A00D2A215 /* Models */,
+				FF6F06CE25F700F400E2613A /* Views */,
 				FFCB249425E5E9C60028AD95 /* Extension */,
 				FF2DBFC825E3775F00D2A215 /* Main.storyboard */,
 				FF2DBFCB25E3776000D2A215 /* Assets.xcassets */,
@@ -152,6 +157,7 @@
 				FFCB24C425E8AC870028AD95 /* SalesLog.swift */,
 				FFCB24C025E88D160028AD95 /* DrinksInventory.swift */,
 				FFCB24B625E772580028AD95 /* Drinks.swift */,
+				FF6F06E225F7126300E2613A /* DrinkType.swift */,
 				FFD6172325EF1FD700B97347 /* Money.swift */,
 				FF2DBFDA25E3780B00D2A215 /* Drink.swift */,
 				FF2DBFDE25E5E22600D2A215 /* Soda.swift */,
@@ -165,6 +171,14 @@
 				FFCB24AD25E643AE0028AD95 /* Cantata.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		FF6F06CE25F700F400E2613A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FF6F06DA25F708A600E2613A /* DrinkCollectionCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		FFCB249425E5E9C60028AD95 /* Extension */ = {
@@ -296,9 +310,11 @@
 				FF2DBFC725E3775F00D2A215 /* ViewController.swift in Sources */,
 				FFCB24B725E772580028AD95 /* Drinks.swift in Sources */,
 				FF2DBFC325E3775F00D2A215 /* AppDelegate.swift in Sources */,
+				FF6F06E325F7126300E2613A /* DrinkType.swift in Sources */,
 				FF2DBFDB25E3780B00D2A215 /* Drink.swift in Sources */,
 				FFCB24F725EE24330028AD95 /* Testable.swift in Sources */,
 				FFCB24A625E643900028AD95 /* Sprite.swift in Sources */,
+				FF6F06DB25F708A600E2613A /* DrinkCollectionCell.swift in Sources */,
 				FFCB24AE25E643AE0028AD95 /* Cantata.swift in Sources */,
 				FFCB24C525E8AC870028AD95 /* SalesLog.swift in Sources */,
 				FFD6172425EF1FD700B97347 /* Money.swift in Sources */,

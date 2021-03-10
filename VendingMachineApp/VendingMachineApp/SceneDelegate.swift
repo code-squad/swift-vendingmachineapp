@@ -10,11 +10,14 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-
+    var vendingMachine = VendingMachine(moneyManager: Money(), inventoryManager: Inventory(), purchaseHistoryManager: PurchaseHistory())
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
        
         guard let _ = (scene as? UIWindowScene) else { return }
+        if let initialViewController = window?.rootViewController as? Stateful {
+            initialViewController.vendingMachine = vendingMachine
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

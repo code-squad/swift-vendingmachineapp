@@ -8,7 +8,7 @@
 import UIKit
 import Combine
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, Stateful {
     
     @IBOutlet var beverageImageViews: [UIImageView]!
     @IBOutlet var addInventoryButtons: [UIButton]!
@@ -17,7 +17,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var balanceLabel: UILabel!
     
     private var vendingMachinePublisher: AnyCancellable!
-    private let vendingMachine = VendingMachine(moneyManager: Money(), inventoryManager: Inventory(), purchaseHistoryManager: PurchaseHistory())
+    var vendingMachine: VendingMachine!
     
     override func viewDidLoad() {
         super.viewDidLoad()

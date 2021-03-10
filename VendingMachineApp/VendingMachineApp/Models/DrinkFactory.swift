@@ -9,7 +9,7 @@ import Foundation
 
 struct DrinkFactory {
     
-    func create(type: Drink.Type) -> Drink? {
+    static func create(type: Drink.Type) -> Drink? {
         switch type {
         case is StrawberryMilk.Type:
             return StrawberryMilk(date: Date(), fat: 20, container: .box, hot: false, calorie: 300)

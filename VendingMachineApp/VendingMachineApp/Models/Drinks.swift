@@ -29,10 +29,10 @@ class Drinks {
     }
     
     //음료를 하나하나 출력하는 show 메소드가 불필요해지면 show로 바꿀 예정
-    func showStock() -> Dictionary<String, Int>{
-        return inventory.drinksInventory
-    }
-    
+//    func showStock() -> Dictionary<String, Int>{
+//        return inventory.drinksInventory
+//    }
+//    
     func countType() -> Int {
         return inventory.count()
     }
@@ -99,7 +99,11 @@ class Drinks {
         inventory.pop(drink)
     }
     
-    func drinkStock(at index: Int) -> Dictionary<String,Int>.Element{
-        inventory.element(at: index)
+    func drinkStock(at index: Int) -> Int {
+        inventory.drinkStock(at: index)
+    }
+    
+    func drinkType(at index: Int) -> Drink.Type {
+        return inventory.drinkType(at: index)
     }
 }

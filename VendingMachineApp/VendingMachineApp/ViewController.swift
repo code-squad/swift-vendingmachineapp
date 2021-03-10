@@ -16,12 +16,27 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         drinkCollectionView.delegate = self
         drinkCollectionView.dataSource = self
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(addDrink(_:)),
+                                               name: NSNotification.Name(rawValue: "PostButton"),
+                                               object: nil)
+    }
+    
+    @objc
+    func addDrink(_ notification: Notification) {
+        guard let drinkType = notification.object else {
+            return
+        }
+        guard let newDrink = DrinkFactory.create(type: drinkType as! Drink.Type) else {
+            return
+        }
+        vendingMachine.append(newDrink)
     }
 }
 
 extension ViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print("123")
         return vendingMachine.countType()
     }
     
@@ -30,8 +45,14 @@ extension ViewController: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         
-        let item = vendingMachine.drinkStock(at: indexPath.item)
-        cell.updateUI(item: item)
+        let drinkType = vendingMachine.drinkType(at: indexPath.item)
+        let drinkStock = vendingMachine.drinkStock(at: indexPath.item)
+        cell.updateUI(drinkType: String(describing: drinkType), count: drinkStock)
+        cell.drinkType = { () in
+            return drinkType
+        }
+        cell.btnTapAction = { () in
+        }
         return cell
         
     }
@@ -45,7 +66,7 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
         
         return CGSize(width: width, height: height)
     }
-
+    
 }
 
 

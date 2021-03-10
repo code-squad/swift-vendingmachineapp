@@ -100,17 +100,21 @@ class VendingMachine {
         return log.get()
     }
     
-    func inventory(handler: (String,Int) -> Void) {
-        stock.showStock().forEach { key,value in
-            handler(key, value)
-        }
-    }
+//    func inventory(handler: (String,Int) -> Void) {
+//        stock.showStock().forEach { key,value in
+//            handler(key, value)
+//        }
+//    }
     
     func countType() -> Int {
         return stock.countType()
     }
     
-    func drinkStock(at index: Int) -> Dictionary<String,Int>.Element {
+    func drinkStock(at index: Int) -> Int {
         return stock.drinkStock(at: index)
+    }
+    
+    func drinkType(at index: Int) -> Drink.Type {
+        return stock.drinkType(at: index)
     }
 }

@@ -27,7 +27,7 @@ class Sanpellegrino: Soda, Productization {
                    calorie: 0)
     }
     
-    convenience init() {
+    required convenience init() {
         self.init(brand: "Sanpellegrino S.P.A",
                    capacity: 750,
                    price: 2980,

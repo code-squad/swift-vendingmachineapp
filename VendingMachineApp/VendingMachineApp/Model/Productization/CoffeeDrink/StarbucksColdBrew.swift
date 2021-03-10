@@ -34,7 +34,7 @@ class StarbucksColdBrew: Coffee, Productization {
                    calorie: 8)
     }
     
-    convenience init() {
+    required convenience init() {
         self.init(brand: "StarBucks",
                    capacity: 240,
                    price: 1150,

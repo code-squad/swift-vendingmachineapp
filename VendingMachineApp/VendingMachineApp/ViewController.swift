@@ -46,11 +46,11 @@ class ViewController: UIViewController {
     }
     
     private func changeBeverageLabel() {
-        let beverage = appDelegate?.vendingMachine?.showAllBeverageStock()
-        appDelegate?.vendingMachine?.showMenuList().enumerated().forEach {
-            self.numberOfStock[$0.offset].text =
-                String(beverage?[ObjectIdentifier(type(of: $0.element))]?.count ?? 0)
-        }
+        appDelegate?.vendingMachine?.showAllBeverageStock(handler: { beverageType in
+            appDelegate?.vendingMachine?.showMenuList().enumerated().forEach({ (e) in
+                self.numberOfStock[e.offset].text = String(beverageType[ObjectIdentifier(type(of: e.element))]?.count ?? 0)
+            })
+        })
     }
 }
 

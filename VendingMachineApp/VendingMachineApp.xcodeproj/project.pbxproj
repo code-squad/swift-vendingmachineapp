@@ -41,6 +41,7 @@
 		BFCA487A25EE72A4003D4844 /* TopAmericanoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCA487925EE72A4003D4844 /* TopAmericanoButton.swift */; };
 		BFCA488425EE7B1E003D4844 /* BeveragesButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCA488325EE7B1E003D4844 /* BeveragesButton.swift */; };
 		BFD0126225F74C59007A54FA /* DrinkMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD0126125F74C59007A54FA /* DrinkMenu.swift */; };
+		BFD012B225F9263A007A54FA /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD012B125F9263A007A54FA /* NotificationName.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +102,7 @@
 		BFCA487925EE72A4003D4844 /* TopAmericanoButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopAmericanoButton.swift; sourceTree = "<group>"; };
 		BFCA488325EE7B1E003D4844 /* BeveragesButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeveragesButton.swift; sourceTree = "<group>"; };
 		BFD0126125F74C59007A54FA /* DrinkMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkMenu.swift; sourceTree = "<group>"; };
+		BFD012B125F9263A007A54FA /* NotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationName.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,6 +212,7 @@
 			isa = PBXGroup;
 			children = (
 				BF53815625E4C71A0031EE39 /* Date.swift */,
+				BFD012B125F9263A007A54FA /* NotificationName.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -388,6 +391,7 @@
 				BFD0126225F74C59007A54FA /* DrinkMenu.swift in Sources */,
 				BFCA485925EE63DB003D4844 /* StrawberryMilkButton.swift in Sources */,
 				BF53811425E4A09F0031EE39 /* AppDelegate.swift in Sources */,
+				BFD012B225F9263A007A54FA /* NotificationName.swift in Sources */,
 				BF53814E25E4A19F0031EE39 /* Beverage.swift in Sources */,
 				BF5381EF25EA2C4D0031EE39 /* VendingStackView.swift in Sources */,
 				BFCA484F25EE3E6E003D4844 /* BalanceIncreasable.swift in Sources */,

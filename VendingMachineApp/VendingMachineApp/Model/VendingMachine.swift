@@ -61,8 +61,10 @@ class VendingMachine : NSObject, NSCoding {
         }
     }
     
-    func showAllBeverageStock() -> [ObjectIdentifier : [Beverage]] {
-        return drinks.showAllBeverage()
+    func showAllBeverageStock(handler : ([ObjectIdentifier : [Beverage]]) -> Void) {
+        drinks.showAllBeverage {
+            handler($0)
+        }
     }
     
     func outOfDateInventory(standard : Date) -> [Beverage] {

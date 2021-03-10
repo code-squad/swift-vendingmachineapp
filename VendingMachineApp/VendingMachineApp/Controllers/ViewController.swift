@@ -22,6 +22,10 @@ class ViewController: UIViewController {
         
     }
     
+    @objc func itemQuantityIncrementButtonPressed(_ sender: UIButton) {
+        
+    }
+    
     @IBAction func insertMoneyButtonPressed(_ sender: UIButton) {
     }
     

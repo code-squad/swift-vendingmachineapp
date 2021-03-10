@@ -25,10 +25,11 @@ class ViewController: UIViewController {
     }
     
     @objc func itemQuantityIncrementButtonPressed(_ sender: UIButton) {
-        
+        configureInventory(sender)
     }
     
     @IBAction func insertMoneyButtonPressed(_ sender: UIButton) {
+        configureCashBox(sender)
     }
     
     private func configureSubscriber() {
@@ -47,6 +48,21 @@ class ViewController: UIViewController {
                     self.configureCashBoxView()
                 }
             }
+    }
+    
+    private func configureInventory(_ sender: UIButton) {
+        let selectedSlotView = sender.superview?.superview as? SlotView
+        let slotInfo = inventoryInfo.filter { selectedSlotView == $0.value }.first
+        /// 현 단계에서는 재고 정보(제조일자, 유통기한 등)를 입력할 수 있는 란이 따로 없어 슬롯의 첫번째 상품과 동일한 상품의 재고를 추가하도록 구현
+        if let item = slotInfo?.key.firstItem {
+            vendingMachine.add(item: item)
+        }
+    }
+    
+    private func configureCashBox(_ sender: UIButton) {
+        if let selectedAmount = Int(sender.titleLabel?.text?.components(separatedBy: CharacterSet.decimalDigits.inverted).joined() ?? "") {
+            vendingMachine.insertMoney(amount: selectedAmount)
+        }
     }
     
     private func initialSetupVendingMachine() {

@@ -60,7 +60,7 @@ class ViewController: UIViewController {
     }
     
     private func configureCashBox(_ sender: UIButton) {
-        if let selectedAmount = Int(sender.titleLabel?.text?.components(separatedBy: CharacterSet.decimalDigits.inverted).joined() ?? "") {
+        if let selectedAmount = Int(sender.titleLabel?.text?.filterNonDigits() ?? "0") {
             vendingMachine.insertMoney(amount: selectedAmount)
         }
     }

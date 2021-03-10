@@ -30,18 +30,17 @@ class Beverages {
         return beverages.remove(at: beverageIndex)
     }
     
-    func checkBeverageStock() -> [Beverage:Int] {
-        var result = [Beverage:Int]()
+    func checkBeverageStock() -> [ObjectIdentifier: [Beverage]] {
+        var result = [ObjectIdentifier: [Beverage]]()
         beverages.forEach { (beverage) in
-            if result[beverage] == nil {
-                result[beverage] = 1
-            } else {
-                result[beverage]! += 1
+            if result[ObjectIdentifier(beverage.self)] == nil {
+                result[ObjectIdentifier(beverage.self)] = [beverage]
+            }else{
+                result[ObjectIdentifier(beverage.self)]?.append(beverage)
             }
         }
         return result
     }
-    
 }
 
 extension Beverages: Equatable {

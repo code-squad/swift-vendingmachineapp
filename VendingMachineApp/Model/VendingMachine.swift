@@ -31,23 +31,16 @@ class VendingMachine {
         return stock.getAvailableProducts(with: money)
     }
     
-    /*
-     public func sellProduct<T>(type item : T){
-        if let item = stock.getProduct(type : type(of: item)) {
-            stock.remove(item: item)
-            soldHistory.append(item: item)
-            charge(coins: item.price)
-        }
-     }
-     */
-    // 음료수를 판매하는 메소드
-    public func sellProduct(product : Beverage) -> Beverage?{
-        if stock.remove(item: product) {
-            soldHistory.append(item: product)
-            uncharge(coins: product.price)
-            return product
-        }
-        return nil
+    public func sellProduct(with type : Beverage.Type){
+        guard let item = getProduct(with : type) else { return }
+        stock.remove(item: item)
+        soldHistory.append(item: item)
+        charge(coins: item.price)
+        
+    }
+    private func getProduct(with type : Beverage.Type) -> Beverage?{
+        let dict = stock.toDictionary()
+        return dict[ObjectIdentifier(type)]?.first
     }
     
     //  잔액을 돌려주는 메소드

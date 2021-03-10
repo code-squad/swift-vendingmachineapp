@@ -67,11 +67,10 @@ class ViewController: UIViewController {
     
     private func initialSetupVendingMachine() {
         self.vendingMachine = VendingMachine(numberOfSlots: 5)
-        vendingMachine.bulkInsert(itemFrom: DenmarkStrawberryMilkFactory(), quantity: 5, manufactured: Date().formattedDate(from: "20210222"), expiredAfter: Date().formattedDate(from: "20210302"))
-        vendingMachine.bulkInsert(itemFrom: MaeilChocolateMilkFactory(), quantity: 5, manufactured: Date().formattedDate(from: "20210222"), expiredAfter: Date().formattedDate(from: "20210302"))
-        vendingMachine.bulkInsert(itemFrom: ZeroSugarCokeFactory(), quantity: 5, manufactured: Date().formattedDate(from: "20210222"), expiredAfter: Date().formattedDate(from: "20210302"))
-        vendingMachine.bulkInsert(itemFrom: GeorgiaMaxFactory(), quantity: 5, manufactured: Date().formattedDate(from: "20210222"), expiredAfter: Date().formattedDate(from: "20210302"))
-        vendingMachine.bulkInsert(itemFrom: RedBullFactory(), quantity: 5, manufactured: Date().formattedDate(from: "20210222"), expiredAfter: Date().formattedDate(from: "20210302"))
+        let beverageFactoryList: [BeverageFactory] = [DenmarkStrawberryMilkFactory(), MaeilChocolateMilkFactory(), ZeroSugarCokeFactory(), GeorgiaMaxFactory(), RedBullFactory()]
+        beverageFactoryList.forEach { factory in
+            vendingMachine.bulkInsert(itemFrom: factory, quantity: 5, manufactured: Date().formattedDate(from: "20210222"), expiredAfter: Date().formattedDate(from: "20210302"))
+        }
     }
     
     private func configureInventoryView() {

@@ -16,7 +16,7 @@ class Slot: CustomStringConvertible, Hashable {
     var itemCount: Int {
         return items.count
     }
-    private var firstItem: Beverage? {
+    var firstItem: Beverage? {
         return items.first
     }
     var itemImageName: String? {

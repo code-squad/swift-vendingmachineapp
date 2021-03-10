@@ -45,45 +45,28 @@ class Drinks {
         }
     }
     
-//    func showDrinks() -> Dictionary<String,Int> {
-//        var returnDic = Dictionary<String,Int>()
-//
-//        drinks.forEach({
-//            if returnDic[$0.name] == nil {
-//                returnDic.updateValue(1, forKey: $0.name)
-//            }
-//            else {
-//                returnDic.updateValue(returnDic[$0.name]! + 1, forKey: $0.name)
-//            }
-//        })
-//
-//        return returnDic
-//    }
-    
     func showExpired() -> [Drink] {
-        var returnDrinkArr = [Drink]()
-        
-        drinks.forEach({
-            if let downCasting = $0 as? Milk {
-                if downCasting.isWithInExpiration() == false {
-                    returnDrinkArr.append(downCasting)
-                }
+        return drinks.filter() {
+            guard let downCasting = $0 as? Milk else {
+                return false
             }
-        })
-        
-        return returnDrinkArr
+            
+            return downCasting.isWithInExpiration() == false
+        }
     }
     
     func showHotDrinks() -> Set<String> {
-        var returnDrinkArr = Set<String>()
-            drinks.forEach({
-                if let downCasting = $0 as? TOP {
-                    if downCasting.isHot() == true {
-                        returnDrinkArr.insert(downCasting.name)
-                    }
-                }
-            })
+        let hotDrinkArr = drinks.filter(){
+            guard let downCasting = $0 as? TOP else {
+                return false
+            }
+            return downCasting.isHot() == true
+        }
         
-        return returnDrinkArr
+        let returnDrinkNameArr : [String] = hotDrinkArr.map() {
+            $0.name
+        }
+        
+        return Set(returnDrinkNameArr)
     }
 }

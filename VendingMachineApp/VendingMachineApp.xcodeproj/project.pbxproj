@@ -188,7 +188,6 @@
 				221A9EC825EA64AA00ADEE1E /* StockManageable.swift */,
 				223A6BDF25EF25B300AA3483 /* CoinManageable.swift */,
 				221239F625F5F99200064DF5 /* DrinkProductable.swift */,
-				226CAB5125EBCB0D00196488 /* DrinkFactory.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -232,6 +231,7 @@
 			children = (
 				22C52CC325E937C900A56884 /* Protocol */,
 				220AFCD325E94FA400FDADEB /* Drink.swift */,
+				226CAB5125EBCB0D00196488 /* DrinkFactory.swift */,
 				22E4756825E6288E00417A37 /* Soda.swift */,
 				22E4756525E6288600417A37 /* Coffee.swift */,
 				22E4756225E6287F00417A37 /* Milk.swift */,

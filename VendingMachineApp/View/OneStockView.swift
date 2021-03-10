@@ -23,7 +23,7 @@ class OneStockView: UIView {
         super.init(frame: frame)
         initSubViews()
     }
-    init(frame: CGRect, type : Beverage.Type, image : UIImage?){
+    init(frame: CGRect, type : Beverage.Type, image : UIImage?, count : Int){
         super.init(frame: frame)
         self.stockImage = image
         button = UIBeverageButton(frame: CGRect(x: 0, y: 0, width: bounds.width, height: 40), type: type)

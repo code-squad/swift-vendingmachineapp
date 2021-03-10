@@ -28,10 +28,14 @@ class StockStackView: UIStackView {
         super.init(frame: frame)
         confiure()
     }
+    init(frame : CGRect, stocks : [ObjectIdentifier:[Beverage]]){
+        super.init(frame: frame)
+        confiure()
+        setStockCells(stocks: stocks)
+        setUp()
+    }
 
     func setUp(){
-        
-        setStockCells()
         for i in stride(from: 0, to: stockCells.count , by: itemCountPerStand){
             let stackview = UIStackView()
             
@@ -47,10 +51,11 @@ class StockStackView: UIStackView {
         }
     }
     
-    func setStockCells(){
+    func setStockCells(stocks : [ObjectIdentifier:[Beverage]]){
         stockCells = [OneStockView]()
         for (typeElement, image) in zip(typeArr, images) {
-            let stock = OneStockView(frame: CGRect(x: 0, y: 0, width: 180, height: 180), type: typeElement, image: image)
+            let count = stocks[ObjectIdentifier(typeElement)]?.count ?? 0
+            let stock = OneStockView(frame: CGRect(x: 0, y: 0, width: 180, height: 180), type: typeElement, image: image, count: count)
             stockCells.append(stock)
         }
     }

@@ -46,7 +46,7 @@ class VendingMachineAppTests: XCTestCase {
         XCTAssertEqual(vendingMachine.availableProducts(), expectList, "구매 가능한 상품이 올바르지 않습니다.")
         
         // 상품을 구매한다.
-        vendingMachine.sellProduct(product: georgia)
+        let _ = vendingMachine.sellProduct(product: georgia)
         expectDict.removeValue(forKey: ObjectIdentifier(Georgia.Type.self))
         
         // 잔액을 확인한다.

@@ -55,12 +55,6 @@ class StockStackView: UIStackView {
         }
     }
     
-    func setTarget(_ viewcontroller : ViewController){
-        stockCells.forEach{ stock in
-            stock.delegate = viewcontroller
-        }
-    }
-    
     func confiure(){
         self.translatesAutoresizingMaskIntoConstraints = false
         self.axis = .vertical

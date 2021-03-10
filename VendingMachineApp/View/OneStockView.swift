@@ -10,17 +10,10 @@ import UIKit
 class OneStockView: UIView {
     
     private var label : UILabel!
-    private var button : UIButton!
+    private var button : UIBeverageButton!
     private var stockImageView : UIImageView!
     private var stockImage : UIImage!
-    private var beverageType : Beverage.Type!
-    private var count : Int = 0 {
-        didSet{
-            label.text = "재고량 : \(count)"
-        }
-    }
-    
-    var delegate : StockDelegate?
+    private var count : Int = 0
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -32,8 +25,8 @@ class OneStockView: UIView {
     }
     init(frame: CGRect, type : Beverage.Type, image : UIImage?){
         super.init(frame: frame)
-        self.beverageType = type
         self.stockImage = image
+        button = UIBeverageButton(frame: CGRect(x: 0, y: 0, width: bounds.width, height: 40), type: type)
         initSubViews()
     }
     
@@ -45,7 +38,7 @@ class OneStockView: UIView {
         setButton()
         
         // Label
-        setLable()
+        setLabel()
     }
 
     func setStockImageView(){
@@ -57,13 +50,9 @@ class OneStockView: UIView {
         addSubview(stockImageView)
     }
     func setButton(){
-        button = UIButton(frame: CGRect(x: 0, y: 0, width: bounds.width, height: 40))
-        button.setTitle("추가하기", for: .normal)
-        button.setImage(UIImage(named: "button"), for: .normal)
-        button.addTarget(self, action: #selector(addStock), for: .touchDown)
         addSubview(button)
     }
-    func setLable(){
+    func setLabel(){
         let captionBackgroundView = UIView(frame: CGRect(x: 0, y: bounds.height, width: bounds.width, height: 30))
         captionBackgroundView.backgroundColor = UIColor(white: 0.1, alpha: 0.8)
         addSubview(captionBackgroundView)
@@ -74,9 +63,8 @@ class OneStockView: UIView {
         label.textColor = UIColor(white: 0.9, alpha: 1.0)
         captionBackgroundView.addSubview(label)
     }
-    
-    @objc func addStock(_ sender : UIButton){
-        self.count += 1
-        delegate?.addStock(type: beverageType)
+
+    func updateLabelText(){
+        label.text = "재고량 : \(count)"
     }
 }

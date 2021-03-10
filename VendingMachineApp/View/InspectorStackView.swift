@@ -9,13 +9,9 @@ import UIKit
 
 class InspectorStackView: UIStackView {
 
-    var coinButtions : [UIButton]!
+    var coinButtions : [UICoinButton]!
     var balanceLabel : UILabel!
-    var balance : Int  = 0 {
-        didSet{
-            balanceLabel.text = "잔액 : \(balance)"
-        }
-    }
+    var balance : Int  = 0
     
     required init(coder: NSCoder) {
         super.init(coder: coder)
@@ -37,20 +33,16 @@ class InspectorStackView: UIStackView {
     }
     
     func setButtons(titles : [String]){
-        coinButtions = [UIButton]()
+        coinButtions = [UICoinButton]()
         for title in titles {
-            let button = UIButton(frame: CGRect(x: 0, y: 0, width: bounds.width, height: 10))
-            button.setImage(UIImage(named: "button"), for: .normal)
-            button.setTitle(title, for: .normal)
-            coinButtions.append(button)
-            button.addTarget(self, action: #selector(addCoin), for: .touchDown)
+            let button = UICoinButton(frame: CGRect(x: 0, y: 0, width: bounds.width, height: 10), title : title)
             self.addArrangedSubview(button)
         }
     }
     
     func setBalanceLabel(){
         balanceLabel = UILabel(frame: bounds)
-        balanceLabel.text = "잔액 : \(balance)"
+        updateLabelText()
         balanceLabel.font = .boldSystemFont(ofSize: 20)
         balanceLabel.textColor = .white
         balanceLabel.textAlignment = .center
@@ -63,8 +55,8 @@ class InspectorStackView: UIStackView {
         self.distribution = .fillEqually
         self.spacing = 10
     }
-    
-    @objc func addCoin(_ sender : UIButton){
-        balance += sender.titleLabel?.text?.extractUnsignedInteger() ?? 0
+
+    func updateLabelText(){
+        balanceLabel.text = "잔액 : \(balance)"
     }
 }

@@ -8,5 +8,6 @@
 import Foundation
 
 protocol StockDelegate {
-    func addStock(type : Beverage.Type)
+    //    func addStock(type : Beverage.Type)
+    func addStock(_ sender: OneStockView, type : Beverage.Type)
 }

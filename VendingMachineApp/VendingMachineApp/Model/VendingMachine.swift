@@ -67,7 +67,7 @@ struct VendingMachine {
         return money.checkBalance()
     }
     
-    func showStock() -> Dictionary<String,Int> {
+    func showStock() -> Dictionary<ObjectIdentifier,[Drink]> {
         return stock.showDrinks()
     }
     

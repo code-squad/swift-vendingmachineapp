@@ -32,10 +32,12 @@ class VendingMachine: NSObject, NSCoding {
     
     func addBeverage(beverage: Beverage) {
         beverages.append(from: beverage)
+        NotificationCenter.default.post(name: .updateBeverages, object: beverages, userInfo: nil)
     }
     
     func getTheMoney(from customer: Int) {
         insertedMoney.insertMoney(from: customer)
+        NotificationCenter.default.post(name: .updateInsertedMoney, object: insertedMoney, userInfo: nil)
     }
     
     func nowAvailableList() -> [Beverage] {
@@ -100,4 +102,9 @@ class VendingMachine: NSObject, NSCoding {
     func menuList() -> [Beverage] {
         return [ChocolateMilk(), StrawBerryMilk(), Coke(), Sprite(), Top(), Cantata()]
     }
+}
+
+extension Notification.Name {
+    static let updateInsertedMoney = Notification.Name("updateInsertedMoney")
+    static let updateBeverages = Notification.Name("updateBeverages")
 }

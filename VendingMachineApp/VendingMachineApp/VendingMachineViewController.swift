@@ -15,6 +15,8 @@ class VendingMachineViewController: UIViewController {
         balanceInfoLabel()
         setUpImageView()
         view.backgroundColor = UIColor.systemGray5
+        NotificationCenter.default.addObserver(self, selector: #selector(updateInsertedMoney(notification:)), name: .updateInsertedMoney, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateBeverages(notification:)), name: .updateBeverages, object: nil)
     }
     
     
@@ -37,35 +39,29 @@ extension VendingMachineViewController {
     
     @IBAction func buttonForChocolateMilkStock(_ sender: Any) {
         vendingMachine.addBeverage(beverage: factory.chocoMilk)
-        beveragesStockCount()
     }
     
     
     @IBAction func buttonForStrawBerryMilkStock(_ sender: Any) {
         vendingMachine.addBeverage(beverage: factory.strawberryMilk)
-        beveragesStockCount()
     }
 
     
     @IBAction func buttonForCokeStock(_ sender: Any) {
         vendingMachine.addBeverage(beverage: factory.coke)
-        beveragesStockCount()
     }
     
     
     @IBAction func buttonForSpriteStock(_ sender: Any) {
         vendingMachine.addBeverage(beverage: factory.sprite)
-        beveragesStockCount()
     }
     
     @IBAction func buttonForTOPStock(_ sender: Any) {
         vendingMachine.addBeverage(beverage: factory.top)
-        beveragesStockCount()
     }
     
     @IBAction func buttonForCantataStock(_ sender: Any) {
         vendingMachine.addBeverage(beverage: factory.cantata)
-        beveragesStockCount()
     }
     
     private func balanceInfoLabel() {
@@ -75,19 +71,24 @@ extension VendingMachineViewController {
     
     @IBAction func button1000ForBalance(_ sender: Any) {
         vendingMachine.getTheMoney(from: 1000)
-        balanceInfoLabel()
     }
     
     @IBAction func button5000ForBalance(_ sender: Any) {
         vendingMachine.getTheMoney(from: 5000)
-        balanceInfoLabel()
     }
     
     @IBAction func resetAllStockInfo(_ sender: Any) {
         vendingMachine.insertedMoney.resetMoeny()
         vendingMachine.beverages.resetStock()
-        balanceInfoLabel()
-        beveragesStockCount()
     }
     
+}
+
+extension VendingMachineViewController {
+    @objc private func updateInsertedMoney(notification: Notification) {
+        balanceInfoLabel()
+    }
+    @objc private func updateBeverages(notification: Notification) {
+        beveragesStockCount()
+    }
 }

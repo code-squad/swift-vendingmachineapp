@@ -44,8 +44,27 @@ class Drink: NSObject, NSCoding {
         self.calorie = coder.decodeDouble(forKey: "calorie")
     }
     
-    static func == (lhs: Drink, rhs: Drink) -> Bool {
-        return lhs.name == rhs.name && lhs.price == rhs.price && lhs.manufactured == rhs.manufactured
+    public override func isEqual(_ other: Any?) -> Bool {
+      guard let other = other as? Drink else { return false }
+        return self.name == other.name &&
+            self.capacity == other.capacity &&
+            self.price == other.price &&
+            self.name == other.name &&
+            self.manufactured == other.manufactured &&
+            self.temperature == other.temperature &&
+            self.calorie == other.calorie
+    }
+
+    public override var hash: Int {
+        var hasher = Hasher()
+        hasher.combine(self.brand)
+        hasher.combine(self.capacity)
+        hasher.combine(self.price)
+        hasher.combine(self.name)
+        hasher.combine(self.manufactured)
+        hasher.combine(self.temperature)
+        hasher.combine(self.calorie)
+        return hasher.finalize()
     }
     
     public func isPurchaseable(coin: Int) -> Bool {

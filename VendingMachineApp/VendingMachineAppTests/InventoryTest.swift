@@ -29,7 +29,7 @@ class InventoryTest: XCTestCase {
     
     func test_Inventory_삭제() {
         inventory.append(with: drink)
-        inventory.remove(item: drink)
+        inventory.remove(item: type(of: drink))
         
         XCTAssertEqual(inventory, Inventory(), "Inventory 삭제 성공")
     }
@@ -38,7 +38,7 @@ class InventoryTest: XCTestCase {
         inventory.append(with: drink)
         inventory.append(with: drink)
         
-        XCTAssertEqual(inventory.getStockList(), [TOP():2], "재고목록 리턴 성공")
+        XCTAssertEqual(inventory.getStockList(), [ObjectIdentifier(type(of: TOP())):2], "재고목록 리턴 성공")
     }
     
     func test_유통기한_지난_재고() {

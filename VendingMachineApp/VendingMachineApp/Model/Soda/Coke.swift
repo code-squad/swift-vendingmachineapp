@@ -15,9 +15,10 @@ class Coke: Soda {
         self.zeroCalorie = zeroCalorie
         super.init(brand: brand, volume: volume, price: price, name: name, createdAt: createdAt, expiredAt: expiredAt, suger: suger)
     }
-    
-    convenience init() {
-        self.init(brand: "펩시코", volume: 355, price: 500, name: "펩시", createdAt: date, expiredAt: date, suger: 40, zeroCalorie: false)
+  
+    required init() {
+        zeroCalorie = false
+        super.init(brand: "펩시코", volume: 355, price: 500, name: "펩시", createdAt: date, expiredAt: date, suger: 40)
     }
     
     func isZeroCalorie() -> Bool {

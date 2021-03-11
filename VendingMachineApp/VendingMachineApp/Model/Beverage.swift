@@ -32,8 +32,13 @@ class Beverage: CustomStringConvertible, Hashable {
         self.expiredAt = expiredAt
     }
     
-    convenience init() {
-        self.init(brand: "brand", volume: 0, price: 0, name: "name", createdAt: Date(), expiredAt: Date())
+    required init() {
+        self.brand = "brand"
+        self.volume = 0
+        self.price = 0
+        self.name = "name"
+        self.createdAt = Date()
+        self.expiredAt = Date()
     }
     
     var description: String {

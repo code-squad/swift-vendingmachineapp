@@ -15,9 +15,10 @@ class ChocoMilk: Milk {
         self.syrup = syrup
         super.init(brand: brand, volume: volume, price: price, name: name, createdAt: createdAt, expiredAt: expiredAt, fatPercent: fatPercent)
     }
-    
-    convenience init() {
-        self.init(brand: "서울우유", volume: 200, price: 600, name: "초코우유", createdAt: date, expiredAt: date, fatPercent: 5, syrup: 3)
+  
+    required init() {
+        syrup = 3
+        super.init(brand: "서울우유", volume: 200, price: 600, name: "초코우유", createdAt: date, expiredAt: date, fatPercent: 5)
     }
     
     func isLowSyrup() -> Bool {

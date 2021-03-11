@@ -20,9 +20,10 @@ class Fanta: Soda {
         self.flavor = flavor
         super.init(brand: brand, volume: volume, price: price, name: name, createdAt: createdAt, expiredAt: expiredAt, suger: suger)
     }
-    
-    convenience init() {
-        self.init(brand: "코카콜라", volume: 355, price: 800, name: "환타", createdAt: date, expiredAt: date, suger: 48, flavor: .orange)
+
+    required init() {
+        flavor = .orange
+        super.init(brand: "코카콜라", volume: 355, price: 800, name: "환타", createdAt: date, expiredAt: date, suger: 48)
     }
     
     // 자판기 주인의 개인취향과 일치하는 지 보는 함수

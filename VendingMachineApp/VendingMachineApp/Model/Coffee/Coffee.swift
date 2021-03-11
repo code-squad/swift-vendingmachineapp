@@ -16,8 +16,9 @@ class Coffee: Beverage {
         super.init(brand: brand, volume: volume, price: price, name: name, createdAt: createdAt, expiredAt: expiredAt)
     }
     
-    convenience init() {
-        self.init(brand: "brand", volume: 0, price: 0, name: "name", createdAt: Date(), expiredAt: Date(), caffeine: 0)
+    required init() {
+        caffeine = 0
+        super.init(brand: "brand", volume: 0, price: 0, name: "name", createdAt: Date(), expiredAt: Date())
     }
     
     func isLowCaffeine() -> Bool {

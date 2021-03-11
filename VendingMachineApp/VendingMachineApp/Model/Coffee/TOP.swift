@@ -15,9 +15,10 @@ class TOP: Coffee {
         self.hot = hot
         super.init(brand: brand, volume: volume, price: price, name: name, createdAt: createdAt, expiredAt: expiredAt, caffeine: caffeine)
     }
-    
-    convenience init() {
-        self.init(brand: "맥심", volume: 275, price: 900, name: "TOP", createdAt: date, expiredAt: date, caffeine: 94, hot: false)
+  
+    required init() {
+        hot = false
+        super.init(brand: "맥심", volume: 275, price: 900, name: "TOP", createdAt: date, expiredAt: date, caffeine: 94)
     }
     
     func isHot() -> Bool {

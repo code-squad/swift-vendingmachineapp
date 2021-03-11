@@ -14,9 +14,10 @@ class Milk: Beverage {
         self.fatPercent = fatPercent
         super.init(brand: brand, volume: volume, price: price, name: name, createdAt: createdAt, expiredAt: expiredAt)
     }
-    
-    convenience init() {
-        self.init(brand: "brand", volume: 0, price: 0, name: "name", createdAt: Date(), expiredAt: Date(), fatPercent: 0)
+  
+    required init() {
+        fatPercent = 0
+        super.init()
     }
     
     func isLowFat() -> Bool {

@@ -31,7 +31,14 @@ class VendingMachineAppTests: XCTestCase {
         vending.add(item: TOP())
         vending.add(item: newCantata)
         
-        let addList = [StrawberryMilk():1, ChocoMilk():1, BananaMilk():1, Fanta():1, Cantata():2, TOP():1]
+        let SM = ObjectIdentifier(type(of:StrawberryMilk()))
+        let CM = ObjectIdentifier(type(of:ChocoMilk()))
+        let BM = ObjectIdentifier(type(of:BananaMilk()))
+        let FS = ObjectIdentifier(type(of:Fanta()))
+        let CC = ObjectIdentifier(type(of:Cantata()))
+        let TC = ObjectIdentifier(type(of:TOP()))
+        
+        let addList = [SM:1, CM:1, BM:1, FS:1, CC:2, TC:1]
         XCTAssertEqual(vending.inventoryList(), addList, "재고 추가 완료")
         
         
@@ -43,9 +50,9 @@ class VendingMachineAppTests: XCTestCase {
         
         
         // 3. 음료 구매
-        vending.purchase(drink: ChocoMilk())
+        vending.purchase(drink: ChocoMilk.self)
         
-        let drinkList = [StrawberryMilk():1, BananaMilk():1, Fanta():1, Cantata():2, TOP():1]
+        let drinkList = [SM:1, BM:1, FS:1, CC:2, TC:1]
         XCTAssertEqual(vending.inventoryList(), drinkList, "(1) 재고 목록 완료")
         XCTAssertEqual(vending.checkBalance(), 900, "(2) 금액 감소 완료")
         XCTAssertEqual(vending.purchaseHistory(), [ChocoMilk()], "(3) 구매 내역 완료")
@@ -62,7 +69,7 @@ class VendingMachineAppTests: XCTestCase {
         XCTAssertEqual(vending.expiredItems(), expiredList, "유통기한 지난 음료 완료")
         
         //삭제 후, 뉴 칸타타만 존재
-        vending.purchase(drink: Cantata())
+        vending.purchase(drink: Cantata.self)
         let expiredList2 = [StrawberryMilk(), BananaMilk(), Fanta(), TOP()]
         XCTAssertEqual(vending.expiredItems(), expiredList2, "유통기한 지난 음료 완료")
         

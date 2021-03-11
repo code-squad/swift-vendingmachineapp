@@ -22,13 +22,13 @@ class Inventory : Equatable {
         stocks.append(item)
     }
     
-    func remove(item: Beverage.Type) {
+    func remove(item: Beverage.Type) -> Beverage? {
         for (i, drink) in stocks.enumerated() {
             if ObjectIdentifier(item) == ObjectIdentifier(type(of: drink)) {
-                stocks.remove(at: i)
-                break
+                return stocks.remove(at: i)
             }
         }
+        return nil
     }
     
     func getStockList() -> [ObjectIdentifier : Int] {

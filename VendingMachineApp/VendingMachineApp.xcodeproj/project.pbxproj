@@ -44,6 +44,11 @@
 		9394CAAD25F8F607009E9780 /* VendingMachineDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9394CAAC25F8F607009E9780 /* VendingMachineDataManager.swift */; };
 		9394CAB125F9CA88009E9780 /* Mapperable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9394CAB025F9CA88009E9780 /* Mapperable.swift */; };
 		9394CAB925F9F107009E9780 /* VendingMachineManagable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9394CAB825F9F107009E9780 /* VendingMachineManagable.swift */; };
+		9394CAC025FA0B32009E9780 /* Mapperable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9394CAB025F9CA88009E9780 /* Mapperable.swift */; };
+		9394CAC325FA0B34009E9780 /* Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9394CA9425F61173009E9780 /* Mapper.swift */; };
+		9394CAC625FA0B36009E9780 /* Stateful.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9394CAA825F8A07F009E9780 /* Stateful.swift */; };
+		9394CAC925FA0B39009E9780 /* VendingMachineDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9394CAAC25F8F607009E9780 /* VendingMachineDataManager.swift */; };
+		9394CACC25FA0B3C009E9780 /* VendingMachineManagable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9394CAB825F9F107009E9780 /* VendingMachineManagable.swift */; };
 		93C07F4A25E88D100037570E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C07F4925E88D100037570E /* AppDelegate.swift */; };
 		93C07F4C25E88D100037570E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C07F4B25E88D100037570E /* SceneDelegate.swift */; };
 		93C07F4E25E88D100037570E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C07F4D25E88D100037570E /* ViewController.swift */; };
@@ -333,14 +338,18 @@
 				9394CA1E25EE2ECB009E9780 /* Cola.swift in Sources */,
 				9394CA5E25EF6B87009E9780 /* MoneyManagable.swift in Sources */,
 				9394CA2625EE4702009E9780 /* Coffee.swift in Sources */,
+				9394CAC325FA0B34009E9780 /* Mapper.swift in Sources */,
 				9394CA6725EF6B8E009E9780 /* PurchaseHistory.swift in Sources */,
 				9394CA0625EE2E43009E9780 /* Beverage.swift in Sources */,
 				9394CA0925EE2EAF009E9780 /* BeverageFactory.swift in Sources */,
 				9394C9FF25EE2CA6009E9780 /* BeverageTests.swift in Sources */,
+				9394CAC625FA0B36009E9780 /* Stateful.swift in Sources */,
+				9394CACC25FA0B3C009E9780 /* VendingMachineManagable.swift in Sources */,
 				9394CA0C25EE2EB2009E9780 /* VendingMachine.swift in Sources */,
 				9394CA2C25EE4705009E9780 /* Cantata.swift in Sources */,
 				9394CA3525EE4716009E9780 /* DateExtension.swift in Sources */,
 				9394CA3825EE4718009E9780 /* BeverageDetail.swift in Sources */,
+				9394CAC025FA0B32009E9780 /* Mapperable.swift in Sources */,
 				9394CA6125EF6B89009E9780 /* Inventory.swift in Sources */,
 				9394CA6E25EF6CCB009E9780 /* VendingMachineTests.swift in Sources */,
 				9394CA2125EE2ECD009E9780 /* Cider.swift in Sources */,
@@ -351,6 +360,7 @@
 				9394CA1B25EE2EC9009E9780 /* SoftDrink.swift in Sources */,
 				9394CA6425EF6B8C009E9780 /* InventoryManagable.swift in Sources */,
 				9394CA1825EE2EC5009E9780 /* Strawberry.swift in Sources */,
+				9394CAC925FA0B39009E9780 /* VendingMachineDataManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

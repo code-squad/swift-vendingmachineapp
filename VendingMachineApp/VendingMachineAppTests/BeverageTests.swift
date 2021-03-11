@@ -10,9 +10,9 @@ import XCTest
 
 class BeverageTests: XCTestCase {
     func testBeverageInterface() {
-        let ciderFactory = CiderFactory()
-        XCTAssertFalse(ciderFactory.produce().isHot(temparature: 60))
-        XCTAssertFalse(ciderFactory.produce().isLowCalorie(calories: 20))
-        XCTAssertFalse(ciderFactory.produce().isExpired(now: Date()))
+        guard let cider = BeverageFactory.produce(of: Cider.self) else { return }
+        XCTAssertFalse(cider.isHot(temparature: 60))
+        XCTAssertFalse(cider.isLowCalorie(calories: 20))
+        XCTAssertFalse(cider.isExpired(now: Date()))
     }
 }

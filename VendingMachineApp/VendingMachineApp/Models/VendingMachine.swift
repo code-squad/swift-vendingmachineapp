@@ -8,7 +8,7 @@
 import Foundation
 
 class VendingMachine {
-    enum Coin: Int {
+    enum Coin: Int, CaseIterable {
         case fifty = 50
         case hundred = 100
         case fivehundred = 500
@@ -34,8 +34,8 @@ class VendingMachine {
         stock.show(handler: handler)
     }
     
-    func insertCoin(coin: Coin) {
-        credit.deposit(unit: coin.rawValue)
+    func insertCoin(coin: Int) {
+        credit.deposit(unit: coin)
     }
     
     func append(_ drink: Drink) {
@@ -100,12 +100,6 @@ class VendingMachine {
         return log.get()
     }
     
-//    func inventory(handler: (String,Int) -> Void) {
-//        stock.showStock().forEach { key,value in
-//            handler(key, value)
-//        }
-//    }
-    
     func countType() -> Int {
         return stock.countType()
     }
@@ -116,5 +110,13 @@ class VendingMachine {
     
     func drinkType(at index: Int) -> Drink.Type {
         return stock.drinkType(at: index)
+    }
+    
+    func countKindOfCoin() -> Int {
+        return Coin.allCases.count
+    }
+    
+    func eachCoin(at index: Int, handler:(Int)-> Void) {
+        handler(Coin.allCases[index].rawValue)
     }
 }

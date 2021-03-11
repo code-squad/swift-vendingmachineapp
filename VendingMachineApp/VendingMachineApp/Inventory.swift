@@ -52,7 +52,6 @@ class Inventory: NSObject, InventoryManagable, NSCoding {
     
     func addBeverage(_ beverage: Beverage) {
         self.inventory.append(beverage)
-        NotificationCenter.default.post(name: .didChangeInventory, object: nil)
     }
     
     func isPurchasableInventory(balance: Int) -> InventoryManagable {
@@ -102,8 +101,4 @@ class Inventory: NSObject, InventoryManagable, NSCoding {
     func tagToMoneyInputType(by tag: Int) -> Money.Input? {
         return self.moneyMapper.mapping(by: tag)
     }
-}
-
-extension Notification.Name {
-    static let didChangeInventory = Notification.Name("didChangeInventory")
 }

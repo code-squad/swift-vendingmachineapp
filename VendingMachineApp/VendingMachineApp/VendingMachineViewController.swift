@@ -3,20 +3,21 @@ import UIKit
 class VendingMachineViewController: UIViewController {
     
     let factory = BeverageFactory()
-    private var vendingMachine: VendingMachine!
+    private var vendingMachine = VendingMachine.sharedInstance()
     
     @IBOutlet var stockInfo: [UILabel]!
     @IBOutlet var imagesOfBeverages: [UIImageView]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        vendingMachine = VendingMachine.sharedInstance()
         beveragesStockCount()
         balanceInfoLabel()
         setUpImageView()
         view.backgroundColor = UIColor.systemGray5
         NotificationCenter.default.addObserver(self, selector: #selector(updateInsertedMoney(notification:)), name: .updateInsertedMoney, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(updateBeverages(notification:)), name: .updateBeverages, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(resetInsertedMoney(notification:)), name: .resetInsertedMoney, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(resetBeveragesStock(notification:)), name: .resetBeverages, object: nil)
     }
     
     
@@ -78,8 +79,8 @@ extension VendingMachineViewController {
     }
     
     @IBAction func resetAllStockInfo(_ sender: Any) {
-        vendingMachine.insertedMoney.resetMoeny()
-        vendingMachine.beverages.resetStock()
+        vendingMachine.resetBeverages()
+        vendingMachine.resetInsertedMoney()
     }
     
 }
@@ -89,6 +90,13 @@ extension VendingMachineViewController {
         balanceInfoLabel()
     }
     @objc private func updateBeverages(notification: Notification) {
+        beveragesStockCount()
+    }
+    @objc private func resetInsertedMoney(notification: Notification) {
+        balanceInfoLabel()
+        
+    }
+    @objc private func resetBeveragesStock(notification: Notification) {
         beveragesStockCount()
     }
 }

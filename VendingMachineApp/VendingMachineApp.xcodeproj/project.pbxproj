@@ -22,7 +22,6 @@
 		A07EE1CF25F1269D00A9BB70 /* CantataAmericano.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07EE1CE25F1269D00A9BB70 /* CantataAmericano.swift */; };
 		A07EE1D325F126A400A9BB70 /* CantataLatte.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07EE1D225F126A400A9BB70 /* CantataLatte.swift */; };
 		A07EE1D725F126AD00A9BB70 /* BlueBottle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07EE1D625F126AD00A9BB70 /* BlueBottle.swift */; };
-		A088053525ED0A0B00D6E34F /* BeverageFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A088053425ED0A0B00D6E34F /* BeverageFactory.swift */; };
 		A08E36A625F5F0E7002C1701 /* BeverageStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08E36A525F5F0E7002C1701 /* BeverageStackView.swift */; };
 		A08E36AB25F5F12F002C1701 /* MainStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08E36AA25F5F12F002C1701 /* MainStackView.swift */; };
 		A0915E6125E76B20008CFD5D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0915E6025E76B20008CFD5D /* AppDelegate.swift */; };
@@ -65,7 +64,6 @@
 		A07EE1CE25F1269D00A9BB70 /* CantataAmericano.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CantataAmericano.swift; sourceTree = "<group>"; };
 		A07EE1D225F126A400A9BB70 /* CantataLatte.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CantataLatte.swift; sourceTree = "<group>"; };
 		A07EE1D625F126AD00A9BB70 /* BlueBottle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueBottle.swift; sourceTree = "<group>"; };
-		A088053425ED0A0B00D6E34F /* BeverageFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageFactory.swift; sourceTree = "<group>"; };
 		A08E36A525F5F0E7002C1701 /* BeverageStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageStackView.swift; sourceTree = "<group>"; };
 		A08E36AA25F5F12F002C1701 /* MainStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainStackView.swift; sourceTree = "<group>"; };
 		A0915E5D25E76B20008CFD5D /* VendingMachineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendingMachineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };

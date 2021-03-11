@@ -38,7 +38,7 @@ class Inventory: NSObject, InventoryManagable, NSCoding {
         self.mapper = coder.decodeObject(forKey: "mapper") as? BeverageMapper ?? BeverageMapper()
     }
     
-    func addInventory(_ beverage: Beverage) {
+    func addBeverage(_ beverage: Beverage) {
         self.inventory.append(beverage)
         NotificationCenter.default.post(name: .didChangeInventory, object: nil)
     }
@@ -47,7 +47,7 @@ class Inventory: NSObject, InventoryManagable, NSCoding {
         return Inventory(inventory: self.inventory.filter { $0.isPurchasable(balance: balance) })
     }
     
-    func removeInventory(_ beverage: Beverage) -> Beverage? {
+    func removeBeverage(_ beverage: Beverage) -> Beverage? {
         guard let index = inventory.firstIndex(of: beverage) else { return  nil }
         
         return inventory.remove(at: index)
@@ -78,7 +78,7 @@ class Inventory: NSObject, InventoryManagable, NSCoding {
         return allInventores
     }
     
-    func readInventory(index: Int, allInventores: [ObjectIdentifier: [Beverage]]) -> Int {
+    func readInventoryCount(index: Int, allInventores: [ObjectIdentifier: [Beverage]]) -> Int {
         guard let beverageType = self.mapper.mapping(by: index) else { return 0 }
         return allInventores[ObjectIdentifier(beverageType)]?.count ?? 0
     }

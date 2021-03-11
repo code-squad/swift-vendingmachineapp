@@ -21,7 +21,7 @@ class VendingMachine: NSObject, NSCoding {
     func purchaseBeverage(beverage: Beverage) {
         guard beverage.isPurchasable(balance: moneyManager.readBalance()) else { return }
         
-        if let purchased: Beverage = inventoryManager.removeInventory(beverage) {
+        if let purchased: Beverage = inventoryManager.removeBeverage(beverage) {
             self.purchaseHistoryManager.addPurchased(purchased)
             self.moneyManager.decreaseBalance(purchased.price)
         }

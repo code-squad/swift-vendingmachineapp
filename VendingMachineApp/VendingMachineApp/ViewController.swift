@@ -46,7 +46,7 @@ class ViewController: UIViewController, Stateful {
     
     func configureBeverageCountLabels() {
         for index in beverageCountLabels.indices {
-            self.beverageCountLabels[index].text = "\(self.vendingMachine.inventoryManager.readInventory(index: index, allInventores: self.vendingMachine.inventoryManager.readInventores()))개"
+            self.beverageCountLabels[index].text = "\(self.vendingMachine.inventoryManager.readInventoryCount(index: index, allInventores: self.vendingMachine.inventoryManager.readInventores()))개"
         }
     }
     
@@ -63,7 +63,7 @@ class ViewController: UIViewController, Stateful {
         guard let buttonIndex = self.addInventoryButtons.firstIndex(of: sender) else { return }
         guard let beverageType = self.vendingMachine.inventoryManager.tagToBeverageType(by: buttonIndex) else { return }
         guard let beverage = BeverageFactory.makeBeverage(beverageType: beverageType) else { return }
-        self.vendingMachine.inventoryManager.addInventory(beverage)
+        self.vendingMachine.inventoryManager.addBeverage(beverage)
     }
 }
 

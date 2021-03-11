@@ -7,7 +7,7 @@
 
 import Foundation
 
-class TOP: Coffee {
+class TOP: Coffee, BeverageInitable {
     
     private let taste: Taste
     
@@ -22,8 +22,12 @@ class TOP: Coffee {
         super.init(brand: "Maxim", volume: 275, price: 2000, name: "T.O.P 에스프레소", manufacturedAt: Date().addingTimeInterval(800000), temparature: 3, calories: 10, isLowfat: true, caffeinContent: 100)
     }
     
+    required convenience init() {
+        self.init(taste: .sweatAmericano)
+    }
+    
     required init?(coder: NSCoder) {
-        self.taste = Taste(rawValue: coder.decodeObject(forKey: "topTaste") as? String ?? "") ?? Taste.sweatAmericano
+        self.taste = Taste(rawValue: coder.decodeObject(forKey: "topTaste") as? String ?? "") ?? .sweatAmericano
         super.init(coder: coder)
     }
     

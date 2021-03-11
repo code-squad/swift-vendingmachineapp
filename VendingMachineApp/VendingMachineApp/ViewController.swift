@@ -55,7 +55,6 @@ class ViewController: UIViewController, Stateful {
     }
     
     @IBAction func addBalanceButtonTapped(_ sender: UIButton) {
-//        let money: Int = Int(sender.titleLabel?.text ?? "") ?? 0
         guard let moneyIndex: Int = self.addBalanceButtons.firstIndex(of: sender) else { return }
         guard let moneyInputType = self.vendingMachine.tagToMoneyInputType(by: moneyIndex) else { return }
         
@@ -65,7 +64,7 @@ class ViewController: UIViewController, Stateful {
     @IBAction func addInventoryButtonTapped(_ sender: UIButton) {
         guard let buttonIndex = self.addInventoryButtons.firstIndex(of: sender) else { return }
         guard let beverageType = self.vendingMachine.tagToBeverageType(by: buttonIndex) else { return }
-        guard let beverage = BeverageFactory.makeBeverage(beverageType: beverageType) else { return }
+        guard let beverage = BeverageFactory.produce(of: beverageType) else { return }
         self.vendingMachine.addBeverage(beverage)
     }
 }

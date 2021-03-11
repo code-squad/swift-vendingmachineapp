@@ -7,13 +7,17 @@
 
 import Foundation
 
-class Cider: SoftDrink {
+class Cider: SoftDrink, BeverageInitable {
     
     private let sugars: Double //당도
     
     init(sugars: Double) {
         self.sugars = sugars
         super.init(brand: "코카콜라", volume: 500, price: 1200, name: "스프라이트", manufacturedAt: Date().addingTimeInterval(800000), temparature: 3, calories: 90, isLowfat: false, package: .plastic)
+    }
+    
+    required convenience init() {
+        self.init(sugars: 3)
     }
     
     func isSugarFree() -> Bool {

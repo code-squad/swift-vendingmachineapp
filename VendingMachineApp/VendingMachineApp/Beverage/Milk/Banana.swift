@@ -7,13 +7,17 @@
 
 import Foundation
 
-class Banana: Milk {
-    
+class Banana: Milk, BeverageInitable {
+   
     private let countryOfOrigin: String
     
     init(countryOfOrigin: String) {
         self.countryOfOrigin = countryOfOrigin
         super.init(brand: "빙그레", volume: 240, price: 900, name: "바나나맛 우유", manufacturedAt: Date().addingTimeInterval(800000), temparature: 3, calories: 120, fat: 1)
+    }
+    
+    required convenience init() {
+        self.init(countryOfOrigin: "필리핀")
     }
     
     required init?(coder: NSCoder) {

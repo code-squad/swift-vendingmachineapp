@@ -2,7 +2,7 @@
 //  Coffee.swift
 //  VendingMachineApp
 //
-//  Created by Jun Ho JANG on 2021/02/26.
+//  Created by Jun Ho JANG on 2021/03/05.
 //
 
 import Foundation
@@ -23,7 +23,3 @@ class Coffee: Beverage {
     }
     
 }
-
-
-
-

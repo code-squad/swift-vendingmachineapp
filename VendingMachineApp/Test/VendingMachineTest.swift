@@ -9,16 +9,14 @@ import XCTest
 @testable import VendingMachineApp
 
 class VendingMachineTest: XCTestCase {
-    
+
     var vendingMachine: VendingMachine!
     
     override func setUp() {
         super.setUp()
         vendingMachine = VendingMachine()
     }
-    
-    
-    
+
     // 현금 투입
     func testAddCash_Success() {
         let cash = 100
@@ -234,7 +232,7 @@ class VendingMachineTest: XCTestCase {
         
         XCTAssertEqual(expectation2, vendingMachine.showInventory(), "Panther")
     }
-    
+
     // 특정 제품 개수 확인
     func testCountQuantity() {
         let target1 = CoffeeFactory.addBeverage(type: CantataLatte.self, manufacturedAt: Date(), expiration: Date())

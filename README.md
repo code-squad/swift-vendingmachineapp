@@ -116,7 +116,7 @@ Documentation Link
 - MacOS 프로젝트 템플릿은 Scene Delegate파일이 없고 iOS 프로젝트 템플릿에는 존재
 - 앞서 살펴봤던 내용 중에서 scene-based app이라는 표현이 있었는데, iOS 앱은 scene-based이고 MacOS 앱은 scene-based가 아니라는 의미?
 
-## UIApplicationMain()
+## UIApplicationMain(_:_:_:_:)
 
 >"Creates the application object and the application delegate and sets up the event cycle."
 
@@ -130,48 +130,3 @@ Documentation Link
 정의 한 후 어떤 객체가 이 프로토콜을 따르도록 한다는 것은 요구사항을 지켜 프로토콜을 준수하도록 하겠다는 의미
 
 여러 객체가 같은 프로토콜을 따른다면, 준수하면서 동시에 세부 구현은 다를 것 -> 명령에 수행하는 것은 맞지만 각자 다른 방식으로 수행(다형성)
-
-
-
-# 2단계 (2021.03.05 10:44)
-
-## Factory Method
-
-Link   
-<https://refactoring.guru/design-patterns/factory-method>
-
->"Factory Method is a creational design pattern that provides an interface for creating objects in a superclass, but allows subclasses to alter the type of objects that will be created."
-
-Superclass에 속해 있는 객체를 생성하기 위한 인터페이스를 제공(?)하는 디자인 패턴이면서, 여러 Subclass가 객체 생성 시 타입을 변경할 수 있도록 하는(?) 디자인 패턴
-
-## Abstract Factory
-
-Link   
-<https://refactoring.guru/design-patterns/abstract-factory>
-
->"Abstract Factory is a creational design pattern that lets you produce families of related objects without specifying their concrete classes."
-
-구체적인 세부 클래스(?) 없이 관련 있는 객체 그룹을 생성하도록 하는 디자인 패턴(?)
-
-![UIKit](https://refactoring.guru/images/patterns/diagrams/abstract-factory/problem-en.png)
-
-![UIKit](https://refactoring.guru/images/patterns/diagrams/abstract-factory/solution2.png)
-
-더 세분화된 구분에서 Victorian, Modern을 추상화하고 Chair, CoffeeTable, Sofa를 생성하도록 함.
-
-## Equatable
-
-Link   
-<https://zeddios.tistory.com/227>
-
-- Int, String 등 기본적인 데이터 타입은 Equatable 프로토콜을 채택하고 있어 비교가 가능했음.(그런줄 모르고 사용하고 있었던 경우)
-- 클래스를 통해 새로운 타입이 선언되었을 때 비교가 가능하도록 하려면 Equatable 프로토콜을 채택해야 함.
-
-## Generic
-
-Link   
-<https://zeddios.tistory.com/226>
-
-- 개인적으로 파라미터라는 말이 더 익숙하고 편하게 느껴지는 만큼 타입 파라미터라는 표현이 더 와닿음.
-- 함수에 사용될 때 매개변수로 어떤 타입을 받을 수 있도록 하는 것으로 이해하고 있음.
-- 정확히 이해하고 있는지 모르겠으며, 더 알아보고 활용하면서 익혀야 할 것.

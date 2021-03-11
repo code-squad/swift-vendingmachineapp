@@ -27,6 +27,6 @@ class BeverageViewCell: UICollectionViewCell {
     }
 
     public func changeImage(image: UIImage) {
-        beveragesView.setImage(image: image)
+        beveragesView.updateImageView(image: image)
     }
 }

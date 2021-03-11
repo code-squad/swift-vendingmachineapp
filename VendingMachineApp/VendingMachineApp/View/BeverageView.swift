@@ -52,11 +52,11 @@ class BeverageView: UIView {
         configureLabel()
     }
     
-    public func setImage(image: UIImage) {
+    public func updateImageView(image: UIImage) {
         beverageImageView.image = image
     }
     
-    public func setLabel(text: String) {
+    public func updateLabel(text: String) {
         numberOfBeveragesLabel.text = text
     }
     
@@ -84,5 +84,3 @@ class BeverageView: UIView {
         drawSubViews()
     }
 }
-
-

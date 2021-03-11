@@ -56,9 +56,9 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
         
         if let image = images[indexPath.row] {
             initializeHelpers(cell: cell, indexPath: indexPath)
-            cell.beveragesView.setImage(image: image)
-            cell.beveragesView.setLabel(text: "0")
-            cell.beveragesView.addToInventoryButton.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
+            cell.beveragesView.updateImageView(image: image)
+            cell.beveragesView.updateLabel(text: "0")
+            cell.beveragesView.addToInventoryButton.addTarget(self, action: #selector(addBeverage), for: .touchUpInside)
         }
         return cell
     }
@@ -69,7 +69,7 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     }
   
     @objc
-    func didTapButton(_ sender: UIButton!) {
+    func addBeverage(_ sender: UIButton!) {
         guard let updatedBeverage = updateModel(sender: sender) else {
             return
         }
@@ -115,8 +115,8 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
         let numberOfCell = images.count
         let width = collectionView.frame.width / CGFloat(numberOfCell)
         let height = collectionView.frame.height
-
         let size = CGSize(width: width, height: height)
+        
         return size
     }
 
@@ -128,6 +128,7 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
         let totalSpacingWidth = 1 * (numberOfCell-1)
         let leftInset = (collectionViewWidth - (CGFloat(totalCellWidth) + CGFloat(totalSpacingWidth))) / 2
         let rightInset = leftInset
+        
         return UIEdgeInsets(top: 0, left: leftInset, bottom: 0, right: rightInset)
     }
 }

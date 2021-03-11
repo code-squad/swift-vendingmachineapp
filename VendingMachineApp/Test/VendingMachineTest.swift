@@ -59,7 +59,7 @@ class VendingMachineTest: XCTestCase {
     
     // 음료 추가
     func testAddBeverage_Success() {
-        let target1 = BeverageFactory.addBeverage(type: CantataLatte.self, manufacturedAt: Date(), expiration: Date())
+        let target1 = CoffeeFactory.addBeverage(type: CantataLatte.self, manufacturedAt: Date(), expiration: Date())
         if let cantataLatte = target1 {
             vendingMachine.addBeverage(beverage: cantataLatte)
         }
@@ -75,17 +75,17 @@ class VendingMachineTest: XCTestCase {
         
         vendingMachine.addCash(cash: 5000)
         
-        let target1 = BeverageFactory.addBeverage(type: CantataLatte.self, manufacturedAt: Date(), expiration: Date())
+        let target1 = CoffeeFactory.addBeverage(type: CantataLatte.self, manufacturedAt: Date(), expiration: Date())
         if let cantataLatte = target1 {
             vendingMachine.addBeverage(beverage: cantataLatte)
         }
         
-        let target2 = BeverageFactory.addBeverage(type: SeoulStrawberry.self, manufacturedAt: Date(), expiration: Date())
+        let target2 = MilkFactory.addBeverage(type: SeoulStrawberry.self, manufacturedAt: Date(), expiration: Date())
         if let seoulStrawberry = target2 {
             vendingMachine.addBeverage(beverage: seoulStrawberry)
         }
         
-        let target3 = BeverageFactory.addBeverage(type: BlueBottle.self, manufacturedAt: Date(), expiration: Date())
+        let target3 = CoffeeFactory.addBeverage(type: BlueBottle.self, manufacturedAt: Date(), expiration: Date())
         if let blueBottle = target3 {
             vendingMachine.addBeverage(beverage: blueBottle)
         }
@@ -100,17 +100,17 @@ class VendingMachineTest: XCTestCase {
     // 재고에서 특정 음료 제거
     func testRemoveOneBeverage_Success() {
         
-        let target1 = BeverageFactory.addBeverage(type: CantataLatte.self, manufacturedAt: Date(), expiration: Date())
+        let target1 = CoffeeFactory.addBeverage(type: CantataLatte.self, manufacturedAt: Date(), expiration: Date())
         if let cantataLatte = target1 {
             vendingMachine.addBeverage(beverage: cantataLatte)
         }
         
-        let target2 = BeverageFactory.addBeverage(type: SeoulStrawberry.self, manufacturedAt: Date(), expiration: Date())
+        let target2 = MilkFactory.addBeverage(type: SeoulStrawberry.self, manufacturedAt: Date(), expiration: Date())
         if let seoulStrawberry = target2 {
             vendingMachine.addBeverage(beverage: seoulStrawberry)
         }
         
-        let target3 = BeverageFactory.addBeverage(type: BlueBottle.self, manufacturedAt: Date(), expiration: Date())
+        let target3 = CoffeeFactory.addBeverage(type: BlueBottle.self, manufacturedAt: Date(), expiration: Date())
         if let blueBottle = target3 {
             vendingMachine.addBeverage(beverage: blueBottle)
         }
@@ -127,17 +127,17 @@ class VendingMachineTest: XCTestCase {
     // 재고에서 특정 음료 판매
     func testSellOneBeverage_Success() {
         
-        let target1 = BeverageFactory.addBeverage(type: CantataLatte.self, manufacturedAt: Date(), expiration: Date())
+        let target1 = CoffeeFactory.addBeverage(type: CantataLatte.self, manufacturedAt: Date(), expiration: Date())
         if let cantataLatte = target1 {
             vendingMachine.addBeverage(beverage: cantataLatte)
         }
         
-        let target2 = BeverageFactory.addBeverage(type: SeoulStrawberry.self, manufacturedAt: Date(), expiration: Date())
+        let target2 = MilkFactory.addBeverage(type: SeoulStrawberry.self, manufacturedAt: Date(), expiration: Date())
         if let seoulStrawberry = target2 {
             vendingMachine.addBeverage(beverage: seoulStrawberry)
         }
         
-        let target3 = BeverageFactory.addBeverage(type: BlueBottle.self, manufacturedAt: Date(), expiration: Date())
+        let target3 = CoffeeFactory.addBeverage(type: BlueBottle.self, manufacturedAt: Date(), expiration: Date())
         if let blueBottle = target3 {
             vendingMachine.addBeverage(beverage: blueBottle)
         }
@@ -170,7 +170,7 @@ class VendingMachineTest: XCTestCase {
     // 유통기한 만료 SKU만 확인
     func testShowExpired_Success() {
         
-        let target = BeverageFactory.addBeverage(type: CantataLatte.self, manufacturedAt: Date(), expiration: Date().stringToDate(date: "2020-02-20"))
+        let target = CoffeeFactory.addBeverage(type: CantataLatte.self, manufacturedAt: Date(), expiration: Date().stringToDate(date: "2020-02-20"))
         if let cantataLatte = target {
             vendingMachine.addBeverage(beverage: cantataLatte)
         }
@@ -183,17 +183,17 @@ class VendingMachineTest: XCTestCase {
     // 뜨거운 음료만 확인
     func testFindHotBeverage_Success() {
         
-        let target1 = BeverageFactory.addBeverage(type: CantataLatte.self, manufacturedAt: Date(), expiration: Date())
+        let target1 = CoffeeFactory.addBeverage(type: CantataLatte.self, manufacturedAt: Date(), expiration: Date())
         if let cantataLatte = target1 {
             vendingMachine.addBeverage(beverage: cantataLatte)
         }
         
-        let target2 = BeverageFactory.addBeverage(type: SeoulStrawberry.self, manufacturedAt: Date(), expiration: Date())
+        let target2 = MilkFactory.addBeverage(type: SeoulStrawberry.self, manufacturedAt: Date(), expiration: Date())
         if let seoulStrawberry = target2 {
             vendingMachine.addBeverage(beverage: seoulStrawberry)
         }
         
-        let target3 = BeverageFactory.addBeverage(type: BlueBottle.self, manufacturedAt: Date(), expiration: Date())
+        let target3 = CoffeeFactory.addBeverage(type: BlueBottle.self, manufacturedAt: Date(), expiration: Date())
         if let blueBottle = target3 {
             vendingMachine.addBeverage(beverage: blueBottle)
         }
@@ -208,17 +208,17 @@ class VendingMachineTest: XCTestCase {
     // 제품 2개 구입
     func testSellTwoBeverage_Success() {
         
-        let target1 = BeverageFactory.addBeverage(type: CantataLatte.self, manufacturedAt: Date(), expiration: Date())
+        let target1 = CoffeeFactory.addBeverage(type: CantataLatte.self, manufacturedAt: Date(), expiration: Date())
         if let cantataLatte = target1 {
             vendingMachine.addBeverage(beverage: cantataLatte)
         }
         
-        let target2 = BeverageFactory.addBeverage(type: SeoulStrawberry.self, manufacturedAt: Date(), expiration: Date())
+        let target2 = MilkFactory.addBeverage(type: SeoulStrawberry.self, manufacturedAt: Date(), expiration: Date())
         if let seoulStrawberry = target2 {
             vendingMachine.addBeverage(beverage: seoulStrawberry)
         }
         
-        let target3 = BeverageFactory.addBeverage(type: BlueBottle.self, manufacturedAt: Date(), expiration: Date())
+        let target3 = CoffeeFactory.addBeverage(type: BlueBottle.self, manufacturedAt: Date(), expiration: Date())
         if let blueBottle = target3 {
             vendingMachine.addBeverage(beverage: blueBottle)
         }
@@ -233,6 +233,29 @@ class VendingMachineTest: XCTestCase {
         let expectation2 = [target1]
         
         XCTAssertEqual(expectation2, vendingMachine.showInventory(), "Panther")
+    }
+
+    // 특정 제품 개수 확인
+    func testCountQuantity() {
+        let target1 = CoffeeFactory.addBeverage(type: CantataLatte.self, manufacturedAt: Date(), expiration: Date())
+        if let cantataLatte = target1 {
+            vendingMachine.addBeverage(beverage: cantataLatte)
+        }
+        
+        let target2 = CoffeeFactory.addBeverage(type: CantataLatte.self, manufacturedAt: Date(), expiration: Date())
+        if let cantataLatte = target2 {
+            vendingMachine.addBeverage(beverage: cantataLatte)
+        }
+        
+        let target3 = CoffeeFactory.addBeverage(type: CantataLatte.self, manufacturedAt: Date(), expiration: Date())
+        if let cantataLatte = target3 {
+            vendingMachine.addBeverage(beverage: cantataLatte)
+        }
+        
+        let expectation = 3
+        
+        XCTAssertEqual(expectation, vendingMachine.countSKUQuantity(CantataLatte.self), "Panther")
+        
     }
     
 }

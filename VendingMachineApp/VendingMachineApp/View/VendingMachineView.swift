@@ -20,7 +20,7 @@ class VendingMachineView: UIView {
         
         for (key,value) in stock {
             let beverageStackView = BeverageStackView.init()
-            beverageStackView.collectSubelements(drink : value.first?.name ?? "nil", count : value.count)
+            beverageStackView.collectSubelements(drink : value.first!, count : value.count)
             VMStackView.addArrangedSubview(beverageStackView)
         }
         VMStackView.addArrangedSubview(balanceStackView)

@@ -8,17 +8,25 @@
 import UIKit
 
 class AddStockButton : UIButton {
-    override init(frame: CGRect) {//, action:(()->Void)) {
+    
+    var beverageType : Drink
+        
+    init(frame: CGRect, type: Drink) {
+        beverageType = type
         super.init(frame: frame)
     }
     
-    required init?(coder: NSCoder) {
+    required init?(coder: NSCoder, type: Drink) {
+        beverageType = Drink()
         super.init(coder: coder)
     }
     
-    func setting() {//action:(()->Void)) {
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func setting() {
         self.setTitle("추가", for: .normal)
         self.setTitleColor(.blue, for: .normal)
-//        self.addTarget(self, action: action, for: .touchUpInside)
     }
 }

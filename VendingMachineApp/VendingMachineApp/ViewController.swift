@@ -21,4 +21,11 @@ class ViewController: UIViewController {
         vendingMachineView.setting(with: stockList)
         self.view.addSubview(vendingMachineView)
     }
+    
+    @objc func doEvent(sender : AddStockButton) {
+        vendingMachine.addStock(what: sender.beverageType)
+        vendingMachine.showStock().enumerated().forEach({ (body) in
+            print("\(String(describing: body.element.value.first?.name)) : \(body.element.value.count)")
+        })
+    }
 }

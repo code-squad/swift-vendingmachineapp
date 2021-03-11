@@ -87,3 +87,7 @@ class Inventory: NSObject, InventoryManagable, NSCoding {
         return self.mapper.mapping(by: tag)
     }
 }
+
+extension Notification.Name {
+    static let didChangeInventory = Notification.Name("didChangeInventory")
+}

@@ -13,7 +13,7 @@ class VendingMachineDataManager {
     
     static func save(_ vendingMachine: VendingMachine) {
         do {
-            let data = try NSKeyedArchiver.archivedData(withRootObject: vendingMachine, requiringSecureCoding: true)
+            let data = try NSKeyedArchiver.archivedData(withRootObject: vendingMachine, requiringSecureCoding: false)
             UserDefaults.standard.setValue(data, forKey: key)
         } catch {
             print(error.localizedDescription)

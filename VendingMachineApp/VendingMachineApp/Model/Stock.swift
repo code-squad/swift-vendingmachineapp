@@ -66,11 +66,10 @@ class Stock: NSObject, NSCoding, StockManageable {
     
     
     public func toShowStock() -> [ObjectIdentifier: [Drink]] {
-        var eachStock = Dictionary<ObjectIdentifier, [Drink]>()
-        for drink in stock {
-            let key = ObjectIdentifier(type(of: drink))
-            eachStock[key, default: [Drink]()].append(drink)
-        }
-        return eachStock
+        return stock.reduce(Dictionary<ObjectIdentifier, [Drink]>()) { accumulator, drink in
+                var result = accumulator
+                result[ObjectIdentifier(type(of: drink)), default: [Drink]()].append(drink)
+                return result
+            }
     }
 }

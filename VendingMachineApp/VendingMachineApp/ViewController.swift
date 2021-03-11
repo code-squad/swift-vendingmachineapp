@@ -19,6 +19,11 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         changeBalanceLabel()
         changeBeverageLabel()
+        setNotificationObserver()
+    }
+    
+    func setNotificationObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(updateBalanceLabel(_:)), name: .updateBalance, object: nil)
     }
     
     @IBAction func buyBeverageButtonTouched(_ sender: BeveragesButton) {
@@ -31,18 +36,22 @@ class ViewController: UIViewController {
     @IBAction func BalanceIncrease1000ButtonTouched(_ sender: BalanceIncreasable) {
         sender.increase(balance: 1000) { money in
             self.appDelegate?.vendingMachine?.putPayMoney(money: money)
-            self.changeBalanceLabel()
         }
     }
     @IBAction func BalanceIncrease5000ButtonTouched(_ sender: BalanceIncreasable) {
         sender.increase(balance: 5000) { money in
             self.appDelegate?.vendingMachine?.putPayMoney(money: money)
-            self.changeBalanceLabel()
         }
     }
     
     private func changeBalanceLabel() {
-        self.BalanceLabel.text = String(self.appDelegate?.vendingMachine?.checkCurrentBalance() ?? 0)
+        self.BalanceLabel.text =
+            String(self.appDelegate?.vendingMachine?.checkCurrentBalance() ?? 0)
+    }
+    
+    @objc private func updateBalanceLabel(_ notification : Notification) {
+        self.BalanceLabel.text =
+            String(notification.userInfo?["amountMoney"] as? Int ?? 0)
     }
     
     private func changeBeverageLabel() {

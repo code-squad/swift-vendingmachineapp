@@ -39,9 +39,10 @@ class VendingMachine {
     }
     
     func purchase(drink: Beverage.Type) {
-        self.money -= drink.init().price
-        inventory.remove(item: drink)
-        purchasedDrink.append(drink.init())
+        if let drink = inventory.remove(item: drink) {
+            self.money -= drink.price
+            purchasedDrink.append(drink)
+        }
     }
     
     

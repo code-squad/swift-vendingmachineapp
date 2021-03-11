@@ -38,10 +38,10 @@ class VendingMachine {
         inventory.append(with: item)
     }
     
-    func purchase(drink: Beverage) {
-        self.money -= drink.price
+    func purchase(drink: Beverage.Type) {
+        self.money -= drink.init().price
         inventory.remove(item: drink)
-        purchasedDrink.append(drink)
+        purchasedDrink.append(drink.init())
     }
     
     
@@ -55,7 +55,7 @@ class VendingMachine {
         return money
     }
     
-    func inventoryList() -> [Beverage:Int] {
+    func inventoryList() -> [ObjectIdentifier:Int] {
         return inventory.getStockList()
     }
     

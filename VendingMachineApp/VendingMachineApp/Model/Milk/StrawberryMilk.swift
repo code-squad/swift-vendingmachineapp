@@ -15,9 +15,10 @@ class StrawberryMilk: Milk {
         self.realFruit = realFruit
         super.init(brand: brand, volume: volume, price: price, name: name, createdAt: createdAt, expiredAt: expiredAt, fatPercent: fatPercent)
     }
-    
-    convenience init() {
-        self.init(brand: "서울우유", volume: 200, price: 600, name: "딸기우유", createdAt: date, expiredAt: date, fatPercent: 6, realFruit: false)
+  
+    required init() {
+        realFruit = false
+        super.init(brand: "서울우유", volume: 200, price: 600, name: "딸기우유", createdAt: date, expiredAt: date, fatPercent: 6)
     }
     
     func isRealFruit() -> Bool {

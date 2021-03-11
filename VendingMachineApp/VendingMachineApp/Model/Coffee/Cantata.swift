@@ -21,8 +21,9 @@ class Cantata: Coffee {
         super.init(brand: brand, volume: volume, price: price, name: name, createdAt: createdAt, expiredAt: expiredAt, caffeine: caffeine)
     }
     
-    convenience init() {
-        self.init(brand: "롯데칠성", volume: 275, price: 1000, name: "칸타타", createdAt: date, expiredAt: date, caffeine: 156, design: .brown)
+    required init() {
+        design = .brown
+        super.init(brand: "롯데칠성", volume: 275, price: 1000, name: "칸타타", createdAt: date, expiredAt: date, caffeine: 156)
     }
     
     func isdesignNice() -> Bool {

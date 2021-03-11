@@ -23,8 +23,9 @@ class Georgia: Coffee {
         super.init(brand: brand, volume: volume, price: price, name: name, createdAt: createdAt, expiredAt: expiredAt, caffeine: caffeine)
     }
     
-    convenience init() {
-        self.init(brand: "코카콜라", volume: 240, price: 1000, name: "조지아", createdAt: date, expiredAt: date, caffeine: 136, type: .original)
+    required init() {
+        type = .original
+        super.init(brand: "코카콜라", volume: 240, price: 1000, name: "조지아", createdAt: date, expiredAt: date, caffeine: 136)
     }
     
     func isNewType() -> Bool {

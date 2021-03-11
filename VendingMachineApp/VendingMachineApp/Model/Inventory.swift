@@ -22,17 +22,18 @@ class Inventory : Equatable {
         stocks.append(item)
     }
     
-    func remove(item: Beverage) {
+    func remove(item: Beverage.Type) {
         for (i, drink) in stocks.enumerated() {
-            if item == drink {
+            if ObjectIdentifier(item) == ObjectIdentifier(type(of: drink)) {
                 stocks.remove(at: i)
                 break
             }
         }
     }
     
-    func getStockList() -> [Beverage : Int] {
-        let list = stocks.toDictionary{ $0 }
+    func getStockList() -> [ObjectIdentifier : Int] {
+        let abstractStocks = stocks.map{ObjectIdentifier(type(of: $0))}
+        let list = abstractStocks.toDictionary{ $0 }
         return list.mapValues{ $0.count }
     }
     

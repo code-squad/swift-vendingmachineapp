@@ -24,7 +24,13 @@ class Beverages: NSObject, NSCoding {
     }
     
     func removeProduct(_ product: Beverage) {
-        beverages.remove(at: beverages.firstIndex(of: product)!)
+        var beverage: Beverage!
+        beverages.forEach {
+            if $0 == product {
+                beverage = $0
+            }
+        }
+        beverages.remove(at: beverages.firstIndex(of: beverage)!)
     }
     
     func stockListOfBeverages() -> [Beverage: Int]{
@@ -46,5 +52,11 @@ class Beverages: NSObject, NSCoding {
     
     func resetStock() {
         beverages.removeAll()
+    }
+}
+
+extension Beverages {
+    override var description: String {
+        return "\(beverages)"
     }
 }

@@ -14,8 +14,8 @@ class ViewController: UIViewController {
     @IBOutlet var drinkStockLabels: [UILabel]!
     @IBOutlet var addButtons: [UIButton]! {
         didSet {
-            for i in 0..<drinks.count {
-                buttonsForDrink[addButtons[i]] = drinks[i]
+            for i in 0..<drinkType.count {
+                buttonsForDrink[addButtons[i]] = drinkType[i]
             }
         }
     }
@@ -29,17 +29,16 @@ class ViewController: UIViewController {
     }
     
     private var appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
-    private let userDefault = UserDefaults.standard
-    private let chargeAmount = [1000, 5000]
-    private let drinks = [BananaMilk.self, Cantata.self, Fanta.self]
     private lazy var vendingMachine: VendingMachine? = appDelegate.vendingMachine
+    private let chargeAmount = [1000, 5000]
+    private let drinkType = [BananaMilk.self, Cantata.self, Fanta.self]
     private var buttonsForDrink: [UIButton: Drink.Type] = [:]
     private var buttonsForCharge: [UIButton: Int] = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupDrinkImage()
-        setupVendingMachine()
+        updateDrinkStockLabels()
     }
     
     func setupDrinkImage() {
@@ -49,23 +48,30 @@ class ViewController: UIViewController {
         }
     }
     
-    func setupVendingMachine() {
-        let drinks = Drinks()
-        vendingMachine = VendingMachine(drinks: drinks)
+    func updateDrinkStockLabels() {
+        guard let vm = vendingMachine else {
+            return
+        }
+        let allDrinks = vm.getAllDrinks()
+        var stocks: [Int] = []
+        drinkType.forEach { type in
+            let id = ObjectIdentifier(type)
+            stocks.append(allDrinks[id]?.count ?? 0)
+        }
+        
+        for i in 0..<stocks.count {
+            drinkStockLabels[i].text = "\(String(stocks[i]))개"
+        }
     }
     
     // MARK: IBActions
     @IBAction func addStockButton(_ sender: UIButton) {
-        guard var vm = vendingMachine, let type = buttonsForDrink[sender],
+        guard let vm = vendingMachine, let type = buttonsForDrink[sender],
               let drink = DrinkFactory.createDrink(for: type) else {
             return
         }
-        
         vm.addStock(for: drink)
-        let drinks = vm.getAllDrinks()
-        if let stock = drinks[drink], let index = addButtons.firstIndex(of: sender) {
-            drinkStockLabels[index].text = "\(String(stock))개"
-        }
+        updateDrinkStockLabels()
     }
     
     @IBAction func charge(_ sender: UIButton) {

@@ -10,38 +10,44 @@ import Foundation
 class Inventory: NSObject, InventoryManagable, NSCoding {
     
     private var inventory: [Beverage]
-    private let mapper: BeverageMapperable
+    private let beverageMapper: BeverageMapperable
+    private let moneyMapper: MoneyMapperable
     
-    init(inventory: [Beverage], mapper: BeverageMapperable) {
-        self.mapper = mapper
+    init(inventory: [Beverage], beverageMapper: BeverageMapperable, moneyMapper: MoneyMapperable) {
+        self.beverageMapper = beverageMapper
+        self.moneyMapper = moneyMapper
         self.inventory = inventory
     }
     
     convenience init(inventory: [Beverage]) {
-        let mapper = BeverageMapper(beverageTypes: [Banana.self, Strawberry.self,
+        let beverageMapper = BeverageMapper(beverageTypes: [Banana.self, Strawberry.self,
                                                     TOP.self, Cantata.self,
                                                     Cola.self, Cider.self
                                                     ])
-        self.init(inventory: inventory, mapper: mapper)
+        let moneyMapper = MoneyMapper(moneyInputTypes: [Money.Input.oneThousand, Money.Input.fiveThousand])
+        self.init(inventory: inventory, beverageMapper: beverageMapper, moneyMapper: moneyMapper)
     }
     
     convenience override init() {
         let inventory: [Beverage] = []
-        let mapper = BeverageMapper(beverageTypes: [Banana.self, Strawberry.self,
+        let beverageMapper = BeverageMapper(beverageTypes: [Banana.self, Strawberry.self,
                                                     TOP.self, Cantata.self,
                                                     Cola.self, Cider.self
                                                     ])
-        self.init(inventory: inventory, mapper: mapper)
+        let moneyMapper = MoneyMapper(moneyInputTypes: [Money.Input.oneThousand, Money.Input.fiveThousand])
+        self.init(inventory: inventory, beverageMapper: beverageMapper, moneyMapper: moneyMapper)
     }
     
     func encode(with coder: NSCoder) {
         coder.encode(self.inventory, forKey: "inventory")
-        coder.encode(self.mapper, forKey: "mapper")
+        coder.encode(self.beverageMapper, forKey: "beverageMapper")
+        coder.encode(self.moneyMapper, forKey: "moneyMapper")
     }
     
     required init?(coder: NSCoder) {
         self.inventory = coder.decodeObject(forKey: "inventory") as? [Beverage] ?? []
-        self.mapper = coder.decodeObject(forKey: "mapper") as! BeverageMapper
+        self.beverageMapper = coder.decodeObject(forKey: "beverageMapper") as! BeverageMapper
+        self.moneyMapper = coder.decodeObject(forKey: "moneyMapper") as! MoneyMapper
     }
     
     func addBeverage(_ beverage: Beverage) {
@@ -85,12 +91,16 @@ class Inventory: NSObject, InventoryManagable, NSCoding {
     }
     
     func readInventoryCount(index: Int, allInventores: [ObjectIdentifier: [Beverage]]) -> Int {
-        guard let beverageType = self.mapper.mapping(by: index) else { return 0 }
+        guard let beverageType = self.beverageMapper.mapping(by: index) else { return 0 }
         return allInventores[ObjectIdentifier(beverageType)]?.count ?? 0
     }
     
     func tagToBeverageType(by tag: Int) -> Beverage.Type? {
-        return self.mapper.mapping(by: tag)
+        return self.beverageMapper.mapping(by: tag)
+    }
+    
+    func tagToMoneyInputType(by tag: Int) -> Money.Input? {
+        return self.moneyMapper.mapping(by: tag)
     }
 }
 

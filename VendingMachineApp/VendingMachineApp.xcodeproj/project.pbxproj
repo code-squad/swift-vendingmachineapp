@@ -39,10 +39,10 @@
 		9394CA6725EF6B8E009E9780 /* PurchaseHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9394CA4B25EF1DB7009E9780 /* PurchaseHistory.swift */; };
 		9394CA6A25EF6B90009E9780 /* PurchaseHistoryManagable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9394CA5125EF1DD8009E9780 /* PurchaseHistoryManagable.swift */; };
 		9394CA6E25EF6CCB009E9780 /* VendingMachineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9394CA6D25EF6CCB009E9780 /* VendingMachineTests.swift */; };
-		9394CA9525F61173009E9780 /* BeverageMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9394CA9425F61173009E9780 /* BeverageMapper.swift */; };
+		9394CA9525F61173009E9780 /* Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9394CA9425F61173009E9780 /* Mapper.swift */; };
 		9394CAA925F8A07F009E9780 /* Stateful.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9394CAA825F8A07F009E9780 /* Stateful.swift */; };
 		9394CAAD25F8F607009E9780 /* VendingMachineDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9394CAAC25F8F607009E9780 /* VendingMachineDataManager.swift */; };
-		9394CAB125F9CA88009E9780 /* BeverageMapperable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9394CAB025F9CA88009E9780 /* BeverageMapperable.swift */; };
+		9394CAB125F9CA88009E9780 /* Mapperable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9394CAB025F9CA88009E9780 /* Mapperable.swift */; };
 		9394CAB925F9F107009E9780 /* VendingMachineManagable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9394CAB825F9F107009E9780 /* VendingMachineManagable.swift */; };
 		93C07F4A25E88D100037570E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C07F4925E88D100037570E /* AppDelegate.swift */; };
 		93C07F4C25E88D100037570E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C07F4B25E88D100037570E /* SceneDelegate.swift */; };
@@ -87,10 +87,10 @@
 		9394CA4B25EF1DB7009E9780 /* PurchaseHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseHistory.swift; sourceTree = "<group>"; };
 		9394CA5125EF1DD8009E9780 /* PurchaseHistoryManagable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseHistoryManagable.swift; sourceTree = "<group>"; };
 		9394CA6D25EF6CCB009E9780 /* VendingMachineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineTests.swift; sourceTree = "<group>"; };
-		9394CA9425F61173009E9780 /* BeverageMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageMapper.swift; sourceTree = "<group>"; };
+		9394CA9425F61173009E9780 /* Mapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mapper.swift; sourceTree = "<group>"; };
 		9394CAA825F8A07F009E9780 /* Stateful.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stateful.swift; sourceTree = "<group>"; };
 		9394CAAC25F8F607009E9780 /* VendingMachineDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineDataManager.swift; sourceTree = "<group>"; };
-		9394CAB025F9CA88009E9780 /* BeverageMapperable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageMapperable.swift; sourceTree = "<group>"; };
+		9394CAB025F9CA88009E9780 /* Mapperable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mapperable.swift; sourceTree = "<group>"; };
 		9394CAB825F9F107009E9780 /* VendingMachineManagable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineManagable.swift; sourceTree = "<group>"; };
 		93C07F4625E88D100037570E /* VendingMachineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendingMachineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93C07F4925E88D100037570E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -209,8 +209,8 @@
 				9394CA4725EEF804009E9780 /* InventoryManagable.swift */,
 				9394CA4B25EF1DB7009E9780 /* PurchaseHistory.swift */,
 				9394CA5125EF1DD8009E9780 /* PurchaseHistoryManagable.swift */,
-				9394CA9425F61173009E9780 /* BeverageMapper.swift */,
-				9394CAB025F9CA88009E9780 /* BeverageMapperable.swift */,
+				9394CA9425F61173009E9780 /* Mapper.swift */,
+				9394CAB025F9CA88009E9780 /* Mapperable.swift */,
 				9394CAA825F8A07F009E9780 /* Stateful.swift */,
 				9394CAAC25F8F607009E9780 /* VendingMachineDataManager.swift */,
 				9394CAB825F9F107009E9780 /* VendingMachineManagable.swift */,
@@ -364,14 +364,14 @@
 				9394CAA925F8A07F009E9780 /* Stateful.swift in Sources */,
 				93C07F8525E8D4650037570E /* DateExtension.swift in Sources */,
 				9394CA5225EF1DD8009E9780 /* PurchaseHistoryManagable.swift in Sources */,
-				9394CA9525F61173009E9780 /* BeverageMapper.swift in Sources */,
+				9394CA9525F61173009E9780 /* Mapper.swift in Sources */,
 				93C07F4E25E88D100037570E /* ViewController.swift in Sources */,
 				9394CA4C25EF1DB7009E9780 /* PurchaseHistory.swift in Sources */,
 				9394C9DF25ED250B009E9780 /* Cider.swift in Sources */,
 				93C07F4A25E88D100037570E /* AppDelegate.swift in Sources */,
 				93C07F5F25E88DBF0037570E /* Beverage.swift in Sources */,
 				9394CA4025EE4D1D009E9780 /* MoneyManagable.swift in Sources */,
-				9394CAB125F9CA88009E9780 /* BeverageMapperable.swift in Sources */,
+				9394CAB125F9CA88009E9780 /* Mapperable.swift in Sources */,
 				9394CA3C25EE4AB9009E9780 /* Money.swift in Sources */,
 				93C07F7825E8CE690037570E /* Banana.swift in Sources */,
 				9394CAB925F9F107009E9780 /* VendingMachineManagable.swift in Sources */,

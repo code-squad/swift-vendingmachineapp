@@ -13,6 +13,7 @@ protocol VendingMachineManagable {
     func readBalance() -> Int
     func increaseBalance(_ price: Int)
     func tagToBeverageType(by tag: Int) -> Beverage.Type?
+    func tagToMoneyInputType(by tag: Int) -> Money.Input?
     func readInventores() -> [ObjectIdentifier: [Beverage]]
     func readInventoryCount(index: Int, allInventores: [ObjectIdentifier: [Beverage]]) -> Int
 }

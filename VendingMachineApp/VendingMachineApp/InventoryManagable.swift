@@ -16,5 +16,6 @@ protocol InventoryManagable {
     func fotEachBeverage(handler: (Beverage) -> ())
     func isPurchasableInventory(balance: Int) -> InventoryManagable
     func tagToBeverageType(by tag: Int) -> Beverage.Type?
+    func tagToMoneyInputType(by tag: Int) -> Money.Input?
     func readInventoryCount(index: Int, allInventores: [ObjectIdentifier: [Beverage]]) -> Int
 }

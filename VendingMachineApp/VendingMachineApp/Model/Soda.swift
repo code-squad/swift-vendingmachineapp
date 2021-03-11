@@ -16,6 +16,10 @@ class Soda: Drink {
         self.init()
     }
     
+    override func encode(with coder: NSCoder) {
+        coder.encode(self.isZeroCalorie, forKey: "isZeroCalorie")
+    }
+    
     required init?(coder: NSCoder) {
         self.isZeroCalorie = coder.decodeBool(forKey: "isZeroCalorie")
         super.init(coder: coder)

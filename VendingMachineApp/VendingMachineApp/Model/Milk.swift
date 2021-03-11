@@ -16,6 +16,10 @@ class Milk: Drink {
         self.init()
     }
     
+    override func encode(with coder: NSCoder) {
+        coder.encode(self.fat, forKey: "fat")
+    }
+    
     required init?(coder: NSCoder) {
         self.fat = coder.decodeDouble(forKey: "fat")
         super.init(coder: coder)

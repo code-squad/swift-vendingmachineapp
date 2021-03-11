@@ -16,6 +16,10 @@ class Coffee: Drink {
         self.init()
     }
     
+    override func encode(with coder: NSCoder) {
+        coder.encode(Int(self.caffeineContent), forKey: "caffeineContent")
+    }
+    
     required init?(coder: NSCoder) {
         self.caffeineContent = UInt(coder.decodeInteger(forKey: "caffeineContent"))
         super.init(coder: coder)
@@ -25,3 +29,4 @@ class Coffee: Drink {
         return requiredStandard >= self.caffeineContent
     }
 }
+

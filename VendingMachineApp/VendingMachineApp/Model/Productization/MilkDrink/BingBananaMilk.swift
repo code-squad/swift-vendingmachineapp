@@ -46,6 +46,10 @@ class BingBananaMilk: Milk, Productization {
                   calorie: 210)
     }
     
+    override func encode(with coder: NSCoder) {
+        coder.encode(self.target, forKey: "bananaTarger")
+    }
+    
     required init?(coder: NSCoder) {
         self.target = coder.decodeObject(forKey: "bananaTarger") as? Target ?? .all
         super.init(coder: coder)

@@ -39,6 +39,10 @@ class Sanpellegrino: Soda, Productization {
                    calorie: 0)
     }
     
+    override func encode(with coder: NSCoder) {
+        coder.encode(self.isPackageRenewaled, forKey: "isPackageRenewaled")
+    }
+    
     required init?(coder: NSCoder) {
         self.isPackageRenewaled = coder.decodeBool(forKey: "isPackageRenewaled")
         super.init(coder: coder)

@@ -105,18 +105,16 @@ class VendingMachine: NSObject, NSCoding {
     
     func resetInsertedMoney() {
         insertedMoney.resetMoeny()
-        NotificationCenter.default.post(name: .resetInsertedMoney, object: nil, userInfo: nil)
+        NotificationCenter.default.post(name: .updateInsertedMoney, object: nil, userInfo: nil)
     }
     
     func resetBeverages() {
         beverages.resetStock()
-        NotificationCenter.default.post(name: .resetBeverages, object: nil, userInfo: nil)
+        NotificationCenter.default.post(name: .updateBeverages, object: nil, userInfo: nil)
     }
 }
 
 extension Notification.Name {
     static let updateInsertedMoney = Notification.Name("updateInsertedMoney")
     static let updateBeverages = Notification.Name("updateBeverages")
-    static let resetBeverages = Notification.Name("resetBeverages")
-    static let resetInsertedMoney = Notification.Name("resetInsertedMoney")
 }

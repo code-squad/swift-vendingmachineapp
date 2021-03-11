@@ -16,8 +16,6 @@ class VendingMachineViewController: UIViewController {
         view.backgroundColor = UIColor.systemGray5
         NotificationCenter.default.addObserver(self, selector: #selector(updateInsertedMoney(notification:)), name: .updateInsertedMoney, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(updateBeverages(notification:)), name: .updateBeverages, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(resetInsertedMoney(notification:)), name: .resetInsertedMoney, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(resetBeveragesStock(notification:)), name: .resetBeverages, object: nil)
     }
     
     
@@ -90,13 +88,6 @@ extension VendingMachineViewController {
         balanceInfoLabel()
     }
     @objc private func updateBeverages(notification: Notification) {
-        beveragesStockCount()
-    }
-    @objc private func resetInsertedMoney(notification: Notification) {
-        balanceInfoLabel()
-        
-    }
-    @objc private func resetBeveragesStock(notification: Notification) {
         beveragesStockCount()
     }
 }

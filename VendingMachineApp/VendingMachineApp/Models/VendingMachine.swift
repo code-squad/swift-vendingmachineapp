@@ -10,14 +10,15 @@ import Foundation
 class VendingMachine: NSObject, NSCoding {
     private var standardHotTempertaure = 70
     private var drinks: Drinks
-    private var chargedCoins: Int = 0
+    private var chargedCoins: Int
     private var purchaseHistory: PurchaseHistory
     override var description: String {
         return "\(drinks)"
     }
     
-    init(drinks: Drinks) {
+    init(drinks: Drinks, chargedCoins: Int) {
         self.drinks = drinks
+        self.chargedCoins = chargedCoins
         self.purchaseHistory = PurchaseHistory()
     }
     

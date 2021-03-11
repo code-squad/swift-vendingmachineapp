@@ -47,7 +47,6 @@ class Drinks: NSObject, NSCoding {
             let objectIdentifier = ObjectIdentifier(type(of: drink))
             dict[objectIdentifier, default: []].append(drink)
         }
-        print(stock.keys, stock.values)
         return stock
     }
     

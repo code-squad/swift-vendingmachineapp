@@ -24,6 +24,8 @@ class VendingMachineViewController: UIViewController {
             beverage.layer.cornerRadius = beverage.frame.height / 4
         }
     }
+    
+
 }
 
 
@@ -79,6 +81,35 @@ extension VendingMachineViewController {
     @IBAction func resetAllStockInfo(_ sender: Any) {
         vendingMachine.resetBeverages()
         vendingMachine.resetInsertedMoney()
+    }
+    
+}
+
+extension VendingMachineViewController {
+    @IBAction func buyChocoMilkButtonTouched(_ sender: Any) {
+        let _ = vendingMachine.buyBeverage(product: ChocolateMilk())
+    }
+    
+    @IBAction func buyStrawberryMilkButtonTouched(_ sender: Any) {
+        let _ = vendingMachine.buyBeverage(product: StrawBerryMilk())
+    }
+    
+    @IBAction func buyCokeButtonTouched(_ sender: Any) {
+        let _ = vendingMachine.buyBeverage(product: Coke())
+    }
+    
+    
+    @IBAction func buySpriteButtonTouched(_ sender: Any) {
+        let _ = vendingMachine.buyBeverage(product: Sprite())
+    }
+    
+    @IBAction func buyTopButtonTouched(_ sender: Any) {
+        let _ = vendingMachine.buyBeverage(product: Top())
+    }
+    
+    
+    @IBAction func buyCantataButtonTouched(_ sender: Any) {
+        let _ = vendingMachine.buyBeverage(product: Cantata())
     }
     
 }

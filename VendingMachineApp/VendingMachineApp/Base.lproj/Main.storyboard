@@ -195,6 +195,58 @@
                                     <action selector="resetAllStockInfo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Vh2-33-8gc"/>
                                 </connections>
                             </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="176" translatesAutoresizingMaskIntoConstraints="NO" id="Rlz-dE-uYE">
+                                <rect key="frame" x="55" y="323.5" width="442" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7FW-um-7WE">
+                                        <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                        <state key="normal" title="구매"/>
+                                        <connections>
+                                            <action selector="buyChocoMilkButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="a9a-g6-QVi"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zyj-0P-FiI">
+                                        <rect key="frame" x="206" y="0.0" width="30" height="30"/>
+                                        <state key="normal" title="구매"/>
+                                        <connections>
+                                            <action selector="buyStrawberryMilkButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MIn-a1-FqO"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2cr-0q-5E7">
+                                        <rect key="frame" x="412" y="0.0" width="30" height="30"/>
+                                        <state key="normal" title="구매"/>
+                                        <connections>
+                                            <action selector="buyCokeButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="o0e-S6-p2s"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="176" translatesAutoresizingMaskIntoConstraints="NO" id="UKq-sW-jXH">
+                                <rect key="frame" x="55" y="651.5" width="442" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Nj-wR-08X">
+                                        <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                        <state key="normal" title="구매"/>
+                                        <connections>
+                                            <action selector="buySpriteButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tCC-Ak-tAk"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gRj-du-yva">
+                                        <rect key="frame" x="206" y="0.0" width="30" height="30"/>
+                                        <state key="normal" title="구매"/>
+                                        <connections>
+                                            <action selector="buyTopButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="k6t-Z1-22f"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bv9-lW-b1T">
+                                        <rect key="frame" x="412" y="0.0" width="30" height="30"/>
+                                        <state key="normal" title="구매"/>
+                                        <connections>
+                                            <action selector="buyCantataButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xfI-PB-WKG"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -203,6 +255,7 @@
                             <constraint firstItem="TB7-tP-mzQ" firstAttribute="top" secondItem="RvC-dR-Jcm" secondAttribute="bottom" constant="5" id="2ZM-2n-0WJ"/>
                             <constraint firstItem="zi5-of-dAM" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="300" id="7Wn-Dk-vNT"/>
                             <constraint firstItem="zi5-of-dAM" firstAttribute="leading" secondItem="NtE-Pt-fvL" secondAttribute="trailing" constant="250" id="9va-bc-7Eb"/>
+                            <constraint firstItem="Rlz-dE-uYE" firstAttribute="top" secondItem="NtE-Pt-fvL" secondAttribute="bottom" constant="20" id="IQg-AM-19u"/>
                             <constraint firstItem="yqd-eA-skR" firstAttribute="top" secondItem="zi5-of-dAM" secondAttribute="bottom" constant="100" id="IWo-oO-hEe"/>
                             <constraint firstItem="4Tu-yq-1oA" firstAttribute="leading" secondItem="Cc3-q6-uez" secondAttribute="trailing" constant="100" id="NhS-au-Rcj"/>
                             <constraint firstItem="Yao-da-aj6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="67" id="Pfr-lG-KvG"/>
@@ -210,10 +263,13 @@
                             <constraint firstItem="TB7-tP-mzQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="60" id="aH3-uY-taa"/>
                             <constraint firstItem="Cc3-q6-uez" firstAttribute="leading" secondItem="8qW-hN-SpH" secondAttribute="trailing" constant="100" id="aT5-Ze-voC"/>
                             <constraint firstItem="FIu-Aq-tqu" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="110" id="bPA-G5-1A7"/>
+                            <constraint firstItem="UKq-sW-jXH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="55" id="dQ2-dI-Llm"/>
                             <constraint firstItem="NtE-Pt-fvL" firstAttribute="top" secondItem="8qW-hN-SpH" secondAttribute="bottom" constant="5" id="h2n-Z9-Sbp"/>
                             <constraint firstItem="Yao-da-aj6" firstAttribute="top" secondItem="8qW-hN-SpH" secondAttribute="bottom" constant="170" id="hQb-oP-uKD"/>
+                            <constraint firstItem="UKq-sW-jXH" firstAttribute="top" secondItem="TB7-tP-mzQ" secondAttribute="bottom" constant="20" id="hlN-H8-AdD"/>
                             <constraint firstItem="FIu-Aq-tqu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="67" id="lGG-SO-hNB"/>
                             <constraint firstItem="yqd-eA-skR" firstAttribute="leading" secondItem="Yao-da-aj6" secondAttribute="trailing" constant="280" id="lUB-P5-bLE"/>
+                            <constraint firstItem="Rlz-dE-uYE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="55" id="n3f-r5-MT6"/>
                             <constraint firstItem="RvC-dR-Jcm" firstAttribute="top" secondItem="8qW-hN-SpH" secondAttribute="bottom" constant="200" id="tCm-o2-Fm1"/>
                             <constraint firstItem="Cc3-q6-uez" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="250" id="v98-BY-Qei"/>
                             <constraint firstItem="NtE-Pt-fvL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="60" id="wtf-WV-jNn"/>

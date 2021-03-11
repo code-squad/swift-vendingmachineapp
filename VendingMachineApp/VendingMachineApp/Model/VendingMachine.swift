@@ -66,6 +66,8 @@ class VendingMachine: NSObject, NSCoding {
         if product.affordableForBeverage(money: insertedMoney) {
             beverages.removeProduct(product)
             insertedMoney.afterBuyingProduct(minus: product.price)
+            NotificationCenter.default.post(name: .updateBeverages, object: nil, userInfo: nil)
+            NotificationCenter.default.post(name: .updateInsertedMoney, object: nil, userInfo: nil)
             return product
         }
         return nil

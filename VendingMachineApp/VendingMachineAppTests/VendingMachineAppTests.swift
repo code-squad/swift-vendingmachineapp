@@ -43,17 +43,28 @@ class VendingMachineAppTests: XCTestCase {
         XCTAssertEqual(vendingMachine.showStock().count, 6)
     }
     
-    func test창고안에서_따듯한_Drink_반환() {
-        XCTAssertEqual(vendingMachine.findWarmDrinks(), [])
+    func test_Hash() {
+        guard let blueBottle = DrinkFactory.makeDrink(of: BlueBottleColdBrew.self, manufactured: Date() - 1) else { return }
+        guard let starbucks = DrinkFactory.makeDrink(of: StarbucksColdBrew.self, manufactured: Date() - 1) else { return }
+        guard let bananaMilk = DrinkFactory.makeDrink(of: BingBananaMilk.self, manufactured: Date() - 1) else { return }
+        guard let sanpellegrino = DrinkFactory.makeDrink(of: Sanpellegrino.self, manufactured: Date() - 1) else { return }
+        guard let fanta = DrinkFactory.makeDrink(of: Fanta.self, manufactured: Date() - 1) else { return }
+        guard let seoulMilk = DrinkFactory.makeDrink(of: SeoulStrawberryMilk.self, manufactured: Date() - 1) else { return }
+        guard let seoulMilkB = DrinkFactory.makeDrink(of: SeoulStrawberryMilk.self, manufactured: Date() - 1) else { return }
+        
+        vendingMachine.addDrink(blueBottle)
+        vendingMachine.addDrink(starbucks)
+        vendingMachine.addDrink(bananaMilk)
+        vendingMachine.addDrink(sanpellegrino)
+        vendingMachine.addDrink(fanta)
+        vendingMachine.addDrink(seoulMilk)
+        vendingMachine.addDrink(seoulMilkB)
+        vendingMachine.insertCoin(10000)
+        XCTAssertEqual(vendingMachine.availableDrink().count, [blueBottle, starbucks, bananaMilk, sanpellegrino, fanta, seoulMilk, seoulMilkB].count)
     }
     
-    func test_이전_데이터가_있는지() {
-        var count = 0
-        vendingMachine.showStock().keys.forEach { (key) in
-            count += 1
-        }
-        print(vendingMachine.showStock())
-        XCTAssertGreaterThan(count, 0)
+    func test창고안에서_따듯한_Drink_반환() {
+        XCTAssertEqual(vendingMachine.findWarmDrinks(), [])
     }
     
     func test구입_후_구매이력_반환() {
@@ -63,5 +74,26 @@ class VendingMachineAppTests: XCTestCase {
         _ = vendingMachine.buy(typeOf: SeoulStrawberryMilk.self)
         // 이전에 저장된 우유가 구입되어서 다를 수 있음
         XCTAssertEqual(vendingMachine.showPurchasehistory(), [seoulMilk])
+    }
+    
+    func test_stock_counting() {
+        print("왜")
+        guard let blueBottle = DrinkFactory.makeDrink(of: BlueBottleColdBrew.self, manufactured: Date() - 1) else { return }
+        guard let blueBottleB = DrinkFactory.makeDrink(of: BlueBottleColdBrew.self, manufactured: Date() - 1) else { return }
+        guard let bananaMilk = DrinkFactory.makeDrink(of: BingBananaMilk.self, manufactured: Date() - 1) else { return }
+        guard let bananaMilkB = DrinkFactory.makeDrink(of: BingBananaMilk.self, manufactured: Date() - 1) else { return }
+        guard let bananaMilkC = DrinkFactory.makeDrink(of: BingBananaMilk.self, manufactured: Date() - 1) else { return }
+        vendingMachine.addDrink(blueBottle)
+        vendingMachine.addDrink(blueBottleB)
+        vendingMachine.addDrink(bananaMilk)
+        vendingMachine.addDrink(bananaMilkB)
+        vendingMachine.addDrink(bananaMilkC)
+        
+        var count = 0
+        vendingMachine.showStock().values.forEach { (drinks) in
+            count += drinks.count
+        }
+        
+        XCTAssertEqual(count, 5)
     }
 }

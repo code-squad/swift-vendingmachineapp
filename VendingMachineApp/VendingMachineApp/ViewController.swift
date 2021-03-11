@@ -12,8 +12,8 @@ class ViewController: UIViewController {
     @IBOutlet var productStackView: UIStackView!
     @IBOutlet weak var productSample: ProductStackView!
     
-    @IBOutlet var countCollection: [UILabel]!
-    @IBOutlet var addButtonCollection: [UIButton]!
+    @IBOutlet var countLabelCollection: [UILabel]!
+    @IBOutlet var stockButtonCollection: [UIButton]!
     @IBOutlet var moneyButtonCollection: [UIButton]!
     
     @IBOutlet weak var moneyLabel: UILabel!
@@ -26,24 +26,27 @@ class ViewController: UIViewController {
 
     private let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
-    private var presenter = VendingMachineUpdator()
+    private var presenter = VendingMachineViewUpdator()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         beverageList = beverageFactory.createAll()
         
-        presenter.didTurnOn(images: beverageImages,
+        presenter.initialScreen(images: beverageImages,
                             sampleView: productSample,
                             stackView: productStackView,
                             machine: appDelegate.vendingMachine,
-                            beverageList: beverageList,
                             moneyLabel: moneyLabel)
         
-        updateCollections()
+        updateOutletCollections()
+        
+        presenter.updateStocks(machine: appDelegate.vendingMachine,
+                               countLabels: countLabelCollection,
+                               beverageList: beverageList)
         
         NotificationCenter.default.addObserver(self,
-                                               selector: #selector(didCountChanged(_:)),
+                                               selector: #selector(didStockListChanged(_:)),
                                                name: NSNotification.Name("stockListUpdate"),
                                                object: nil)
         
@@ -53,46 +56,40 @@ class ViewController: UIViewController {
                                                object: nil)
     }
     
-    private func updateCollections() {
-        countCollection = []
-        addButtonCollection = []
+    private func updateOutletCollections() {
+        countLabelCollection = []
+        stockButtonCollection = []
         
         for view in productStackView.arrangedSubviews {
             let stackView = view as! ProductStackView
-            countCollection.append(stackView.countLabel)
-            addButtonCollection.append(stackView.addButton)
+            countLabelCollection.append(stackView.countLabel)
+            stockButtonCollection.append(stackView.addButton)
             stackView.addButton.addTarget(self, action: #selector(self.addStockTouched(_:)), for: .touchUpInside)
         }
     }
     
-    @objc func didCountChanged(_ notification: Notification) {
-        let stockList = appDelegate.vendingMachine.allStocks()
-        
-        for (idx, beverage) in beverageList.enumerated() {
-            let id = ObjectIdentifier(type(of: beverage))
-            countCollection[idx].text = "\(stockList[id]!)개"
-        }
+    @objc func didStockListChanged(_ notification: Notification) {
+        presenter.updateStocks(machine: appDelegate.vendingMachine,
+                               countLabels: countLabelCollection,
+                               beverageList: beverageList)
     }
     
     @objc func didBalanceChanged(_ notification: Notification) {
-        moneyLabel.text = "\(appDelegate.vendingMachine.moneyLeft())원"
+        presenter.updateBalance(machine: appDelegate.vendingMachine,
+                                label: moneyLabel)
     }
     
     @IBAction func addStockTouched(_ sender: UIButton) {
-        let targetIdx = addButtonCollection.firstIndex(of: sender)
-        
-        if let targetIdx = targetIdx {
+        if let targetIdx = stockButtonCollection.firstIndex(of: sender) {
             let targetBeverage = beverageList[targetIdx]
-            presenter.didAddStockTouched(for: targetBeverage, machine: appDelegate.vendingMachine)
+            appDelegate.vendingMachine.addStock(of: targetBeverage)
         }
     }
     
     @IBAction func addMoneyTouched(_ sender: UIButton) {
-        let targetIdx = moneyButtonCollection.firstIndex(of: sender)
-        
-        if let targetIdx = targetIdx {
-            let addAmount = moneyUnits[targetIdx]
-            presenter.didAddMoneyTouched(amount: addAmount, machine: appDelegate.vendingMachine)
+        if let targetIdx = moneyButtonCollection.firstIndex(of: sender) {
+            let amount = moneyUnits[targetIdx]
+            appDelegate.vendingMachine.insert(money: amount)
         }
     }
 }

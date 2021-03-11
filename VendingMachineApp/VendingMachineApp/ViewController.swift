@@ -41,12 +41,12 @@ class ViewController: UIViewController, Stateful {
     }
     
     private func updateBalanceLabel() {
-        self.balanceLabel.text = "잔액: \(self.vendingMachine.moneyManager.readBalance()) 원"
+        self.balanceLabel.text = "잔액: \(self.vendingMachine.readBalance()) 원"
     }
     
     func configureBeverageCountLabels() {
         for index in beverageCountLabels.indices {
-            self.beverageCountLabels[index].text = "\(self.vendingMachine.inventoryManager.readInventoryCount(index: index, allInventores: self.vendingMachine.inventoryManager.readInventores()))개"
+            self.beverageCountLabels[index].text = "\(self.vendingMachine.readInventoryCount(index: index, allInventores: self.vendingMachine.readInventores()))개"
         }
     }
     
@@ -56,14 +56,14 @@ class ViewController: UIViewController, Stateful {
     
     @IBAction func addBalanceButtonTapped(_ sender: UIButton) {
         let money: Int = Int(sender.titleLabel?.text ?? "") ?? 0
-        vendingMachine.moneyManager.increaseBalance(money)
+        vendingMachine.increaseBalance(money)
     }
     
     @IBAction func addInventoryButtonTapped(_ sender: UIButton) {
         guard let buttonIndex = self.addInventoryButtons.firstIndex(of: sender) else { return }
-        guard let beverageType = self.vendingMachine.inventoryManager.tagToBeverageType(by: buttonIndex) else { return }
+        guard let beverageType = self.vendingMachine.tagToBeverageType(by: buttonIndex) else { return }
         guard let beverage = BeverageFactory.makeBeverage(beverageType: beverageType) else { return }
-        self.vendingMachine.inventoryManager.addBeverage(beverage)
+        self.vendingMachine.addBeverage(beverage)
     }
 }
 

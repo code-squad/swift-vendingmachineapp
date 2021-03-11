@@ -10,6 +10,8 @@ import UIKit
 
 class AddButton: UIButton {
     
+    var drinkType: Drink!
+    
     override init(frame: CGRect){
         super.init(frame: frame)
         setupView()
@@ -21,12 +23,13 @@ class AddButton: UIButton {
     }
     
     private func setupView() {
+        translatesAutoresizingMaskIntoConstraints = false
         layer.cornerRadius = 4
         clipsToBounds = true
         setTitle("추가", for: .normal)
-        setTitleColor(.black, for: .normal)
-        UIFont.boldSystemFont(ofSize: 20)
-        heightAnchor.constraint(equalToConstant: 30).isActive = true
+        setTitleColor(.white, for: .normal)
+        backgroundColor = .blue
+        UIFont.boldSystemFont(ofSize: 40)
+        heightAnchor.constraint(equalToConstant: 40).isActive = true
     }
-    
 }

@@ -9,8 +9,6 @@ import Foundation
 
 //MARK: 상품유통기한 확인 프로토콜
 protocol ExpireCheckableProtocol {
-    
     func isExpireDate(with date: Date) -> Bool
 }
-
 

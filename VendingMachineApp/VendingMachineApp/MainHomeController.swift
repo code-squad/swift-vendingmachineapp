@@ -11,7 +11,7 @@ class MainHomeController: UIViewController {
     
     //MARK: 컨테이너스택뷰
     @IBOutlet weak var ContainerStackView: UIStackView!
-    @IBOutlet weak var ContainerView: UIStackView!
+    @IBOutlet weak var ContainerView: InspectorStackView!
     //MARK: 우유 스택뷰 컨테이너
     @IBOutlet weak var MilkStackView: UIStackView!
     var normalMilkStackView: UIStackView!
@@ -32,11 +32,36 @@ class MainHomeController: UIViewController {
     
     var width: CGFloat = 0.0
     var height:CGFloat = 0.0
+    let drinkFactory = DrinkFactory()
+    
+    let normalMilkLabel = StorageLabel()
+    let strawberryMilkLabel = StorageLabel()
+    let chocolateMilkLabel = StorageLabel()
+    let colaLabel = StorageLabel()
+    let fantaLabel = StorageLabel()
+    let spriteLabel = StorageLabel()
+    let geogiaLabel = StorageLabel()
+    let cantataLabel = StorageLabel()
+    let topLabel = StorageLabel()
+    
+    var normalMilkCount: Int = 0
+    var strawberryMilCount: Int = 0
+    var chocolateMilCount: Int = 0
+    var fantaCount: Int = 0
+    var colaCount: Int = 0
+    var spriteCount: Int = 0
+    var geogiaCount: Int = 0
+    var cantataCount:Int = 0
+    var topCount:Int = 0
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        ContainerStackView.translatesAutoresizingMaskIntoConstraints = false
+        ContainerStackView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
+        
         width = MilkStackView.frame.width/3
-        height = MilkStackView.frame.height/3 + 200
+        height = MilkStackView.frame.height/3 + 230
         setupNormalMilk()
         setupStrawberryMilk()
         setupChocolateMilk()
@@ -46,7 +71,7 @@ class MainHomeController: UIViewController {
         setupCola()
         setupSprite()
         setupSodaStackView()
-        
+
         setupGeogia()
         setupCantata()
         setupTop()
@@ -56,6 +81,8 @@ class MainHomeController: UIViewController {
     func setupNormalMilk(){
         //MARK: 추가버튼
         let addButton = AddButton()
+        addButton.drinkType = drinkFactory.normalMilk
+        addButton.addTarget(self, action: #selector(addButtonAction), for: .touchDown)
         //MARK: 이미지
         let normalMilkImage: UIImageView = {
             let imageView = UIImageView()
@@ -63,11 +90,9 @@ class MainHomeController: UIViewController {
             imageView.image = image
             return imageView
         }()
-        
-        let storageLabel = StorageLabel()
         normalMilkStackView = UIStackView(arrangedSubviews: [addButton,
                                                              normalMilkImage,
-                                                             storageLabel])
+                                                             normalMilkLabel])
         
         normalMilkStackView.isLayoutMarginsRelativeArrangement = true
         normalMilkStackView.widthAnchor.constraint(equalToConstant: width).isActive = true
@@ -78,6 +103,9 @@ class MainHomeController: UIViewController {
     func setupStrawberryMilk(){
         //MARK: 추가버튼
         let addButton = AddButton()
+        addButton.drinkType = drinkFactory.strawberryMilk
+        addButton.addTarget(self, action: #selector(addStrawberryButtonAction), for: .touchDown)
+        
         //MARK: 이미지
         let strawberryMilkIImage: UIImageView = {
             let imageView = UIImageView()
@@ -85,11 +113,10 @@ class MainHomeController: UIViewController {
             imageView.image = image
             return imageView
         }()
-        let storageLabel = StorageLabel()
+        addButton.drinkType = drinkFactory.normalMilk
         strawberryMilkStackView = UIStackView(arrangedSubviews: [addButton,
                                                                  strawberryMilkIImage,
-                                                                 storageLabel])
-        
+                                                                 strawberryMilkLabel])
         strawberryMilkStackView.isLayoutMarginsRelativeArrangement = true
         strawberryMilkStackView.widthAnchor.constraint(equalToConstant: width).isActive = true
         strawberryMilkStackView.heightAnchor.constraint(equalToConstant: height).isActive = true
@@ -99,6 +126,8 @@ class MainHomeController: UIViewController {
     func setupChocolateMilk(){
         //MARK: 추가버튼
         let addButton = AddButton()
+        addButton.drinkType = drinkFactory.chocolateMilk
+        addButton.addTarget(self, action: #selector(addchocolateButtonAction), for: .touchDown)
         //MARK: 이미지
         let chocolateMilkImage: UIImageView = {
             let imageView = UIImageView()
@@ -106,10 +135,9 @@ class MainHomeController: UIViewController {
             imageView.image = image
             return imageView
         }()
-        let storageLabel = StorageLabel()
         chocolateMilkStackView = UIStackView(arrangedSubviews: [addButton,
                                                                 chocolateMilkImage,
-                                                                storageLabel])
+                                                                chocolateMilkLabel])
         
         chocolateMilkStackView.isLayoutMarginsRelativeArrangement = true
         chocolateMilkStackView.widthAnchor.constraint(equalToConstant: width).isActive = true
@@ -120,6 +148,8 @@ class MainHomeController: UIViewController {
     func setupFanta(){
         //MARK: 추가버튼
         let addButton = AddButton()
+        addButton.drinkType = drinkFactory.fantaSoda
+        addButton.addTarget(self, action: #selector(addFantaButtonAction), for: .touchDown)
         //MARK: 이미지
         let normalMilkImage: UIImageView = {
             let imageView = UIImageView()
@@ -127,10 +157,9 @@ class MainHomeController: UIViewController {
             imageView.image = image
             return imageView
         }()
-        let storageLabel = StorageLabel()
         fantaStackView = UIStackView(arrangedSubviews: [addButton,
                                                         normalMilkImage,
-                                                        storageLabel])
+                                                        fantaLabel])
         
         fantaStackView.isLayoutMarginsRelativeArrangement = true
         fantaStackView.widthAnchor.constraint(equalToConstant: width).isActive = true
@@ -141,6 +170,8 @@ class MainHomeController: UIViewController {
     func setupCola(){
         //MARK: 추가버튼
         let addButton = AddButton()
+        addButton.drinkType = drinkFactory.colaSoda
+        addButton.addTarget(self, action: #selector(addColaButtonAction), for: .touchDown)
         //MARK: 이미지
         let strawberryMilkIImage: UIImageView = {
             let imageView = UIImageView()
@@ -148,10 +179,9 @@ class MainHomeController: UIViewController {
             imageView.image = image
             return imageView
         }()
-        let storageLabel = StorageLabel()
         colaStackView = UIStackView(arrangedSubviews: [addButton,
                                                        strawberryMilkIImage,
-                                                       storageLabel])
+                                                       colaLabel])
         
         colaStackView.isLayoutMarginsRelativeArrangement = true
         colaStackView.widthAnchor.constraint(equalToConstant: width).isActive = true
@@ -162,6 +192,8 @@ class MainHomeController: UIViewController {
     func setupSprite(){
         //MARK: 추가버튼
         let addButton = AddButton()
+        addButton.drinkType = drinkFactory.spriteSoda
+        addButton.addTarget(self, action: #selector(addSpriteButtonAction), for: .touchDown)
         //MARK: 이미지
         let chocolateMilkImage: UIImageView = {
             let imageView = UIImageView()
@@ -169,10 +201,9 @@ class MainHomeController: UIViewController {
             imageView.image = image
             return imageView
         }()
-        let storageLabel = StorageLabel()
         spriteStackView = UIStackView(arrangedSubviews: [addButton,
                                                          chocolateMilkImage,
-                                                         storageLabel])
+                                                         spriteLabel])
         
         spriteStackView.isLayoutMarginsRelativeArrangement = true
         spriteStackView.widthAnchor.constraint(equalToConstant: width).isActive = true
@@ -183,6 +214,8 @@ class MainHomeController: UIViewController {
     func setupGeogia(){
         //MARK: 추가버튼
         let addButton = AddButton()
+        addButton.drinkType = drinkFactory.geogiaCoffee
+        addButton.addTarget(self, action: #selector(addGeogiaButtonAction(_:)), for: .touchDown)
         //MARK: 이미지
         let georgiaImage: UIImageView = {
             let imageView = UIImageView()
@@ -190,10 +223,9 @@ class MainHomeController: UIViewController {
             imageView.image = image
             return imageView
         }()
-        let storageLabel = StorageLabel()
         georgiaStackView = UIStackView(arrangedSubviews: [addButton,
                                                           georgiaImage,
-                                                          storageLabel])
+                                                          geogiaLabel])
         
         georgiaStackView.isLayoutMarginsRelativeArrangement = true
         georgiaStackView.widthAnchor.constraint(equalToConstant: width).isActive = true
@@ -204,6 +236,8 @@ class MainHomeController: UIViewController {
     func setupCantata(){
         //MARK: 추가버튼
         let addButton = AddButton()
+        addButton.drinkType = drinkFactory.cantataCoffee
+        addButton.addTarget(self, action: #selector(addCantataButtonAction(_:)), for: .touchDown)
         //MARK: 이미지
         let cantataImage: UIImageView = {
             let imageView = UIImageView()
@@ -211,10 +245,9 @@ class MainHomeController: UIViewController {
             imageView.image = image
             return imageView
         }()
-        let storageLabel = StorageLabel()
         cantataStackView = UIStackView(arrangedSubviews: [addButton,
                                                           cantataImage,
-                                                          storageLabel])
+                                                          cantataLabel])
         
         cantataStackView.isLayoutMarginsRelativeArrangement = true
         cantataStackView.widthAnchor.constraint(equalToConstant: width).isActive = true
@@ -225,6 +258,8 @@ class MainHomeController: UIViewController {
     func setupTop(){
         //MARK: 추가버튼
         let addButton = AddButton()
+        addButton.drinkType = drinkFactory.topCoffee
+        addButton.addTarget(self, action: #selector(addtopCoffeeButtonAction(_:)), for: .touchDown)
         //MARK: 이미지
         let topImage: UIImageView = {
             let imageView = UIImageView()
@@ -232,10 +267,9 @@ class MainHomeController: UIViewController {
             imageView.image = image
             return imageView
         }()
-        let storageLabel = StorageLabel()
         topStackView = UIStackView(arrangedSubviews: [addButton,
                                                       topImage,
-                                                      storageLabel])
+                                                      topLabel])
         
         topStackView.isLayoutMarginsRelativeArrangement = true
         topStackView.widthAnchor.constraint(equalToConstant: width).isActive = true
@@ -276,5 +310,69 @@ class MainHomeController: UIViewController {
         CoffeeStackView.distribution = .fillEqually
         view.addSubview(CoffeeStackView)
     }
+    
+    @objc func addButtonAction(_ sender: AddButton){
+        if sender.drinkType != nil {
+            normalMilkCount += 1
+            normalMilkLabel.text = "\(normalMilkCount)개"
+        }
+    }
+    
+    @objc func addStrawberryButtonAction(_ sender: AddButton)  {
+        if sender.drinkType != nil {
+            strawberryMilCount += 1
+            strawberryMilkLabel.text = "\(strawberryMilCount)개"
+        }
+    }
+    
+    @objc func addchocolateButtonAction(_ sender: AddButton)  {
+        if sender.drinkType != nil {
+            chocolateMilCount += 1
+            chocolateMilkLabel.text = "\(chocolateMilCount)개"
+        }
+    }
+    
+    @objc func addFantaButtonAction(_ sender: AddButton)  {
+        if sender.drinkType != nil {
+            fantaCount += 1
+            fantaLabel.text = "\(fantaCount)개"
+        }
+    }
+    
+    @objc func addColaButtonAction(_ sender: AddButton)  {
+        if sender.drinkType != nil {
+            colaCount += 1
+            colaLabel.text = "\(colaCount)개"
+        }
+    }
+
+    @objc func addSpriteButtonAction(_ sender: AddButton)  {
+        if sender.drinkType != nil {
+            spriteCount += 1
+            spriteLabel.text = "\(spriteCount)개"
+        }
+    }
+    
+    @objc func addGeogiaButtonAction(_ sender: AddButton)  {
+        if sender.drinkType != nil {
+            geogiaCount += 1
+            geogiaLabel.text = "\(geogiaCount)개"
+        }
+    }
+    
+    @objc func addCantataButtonAction(_ sender: AddButton)  {
+        if sender.drinkType != nil {
+            cantataCount += 1
+            cantataLabel.text = "\(cantataCount)개"
+        }
+    }
+    
+    @objc func addtopCoffeeButtonAction(_ sender: AddButton)  {
+        if sender.drinkType != nil {
+            topCount += 1
+            topLabel.text = "\(topCount)개"
+        }
+    }
 }
+
 

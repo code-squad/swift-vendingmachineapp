@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		FE685FFF25F783B40075373D /* StorageLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE685FFE25F783B40075373D /* StorageLabel.swift */; };
+		FE7F482025F7EB8E007C40DB /* DrinkFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7F481F25F7EB8E007C40DB /* DrinkFactory.swift */; };
+		FE7F487125F93031007C40DB /* OneCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7F487025F93031007C40DB /* OneCellView.swift */; };
+		FE7F488125FA32F8007C40DB /* InspectorStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7F488025FA32F8007C40DB /* InspectorStackView.swift */; };
 		FE8B8C9125E3931C00EF304F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8B8C9025E3931C00EF304F /* AppDelegate.swift */; };
 		FE8B8C9325E3931C00EF304F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8B8C9225E3931C00EF304F /* SceneDelegate.swift */; };
 		FE8B8C9525E3931C00EF304F /* MainHomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8B8C9425E3931C00EF304F /* MainHomeController.swift */; };
@@ -56,6 +59,9 @@
 
 /* Begin PBXFileReference section */
 		FE685FFE25F783B40075373D /* StorageLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageLabel.swift; sourceTree = "<group>"; };
+		FE7F481F25F7EB8E007C40DB /* DrinkFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkFactory.swift; sourceTree = "<group>"; };
+		FE7F487025F93031007C40DB /* OneCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneCellView.swift; sourceTree = "<group>"; };
+		FE7F488025FA32F8007C40DB /* InspectorStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InspectorStackView.swift; sourceTree = "<group>"; };
 		FE8B8C8D25E3931C00EF304F /* VendingMachineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendingMachineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE8B8C9025E3931C00EF304F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FE8B8C9225E3931C00EF304F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -120,6 +126,8 @@
 			children = (
 				FE8B8EB425F53B8E00EF304F /* AddButton.swift */,
 				FE685FFE25F783B40075373D /* StorageLabel.swift */,
+				FE7F487025F93031007C40DB /* OneCellView.swift */,
+				FE7F488025FA32F8007C40DB /* InspectorStackView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -157,6 +165,7 @@
 				FE8B8DD825E9972B00EF304F /* Payment.swift */,
 				FE8B8C9225E3931C00EF304F /* SceneDelegate.swift */,
 				FE8B8C9425E3931C00EF304F /* MainHomeController.swift */,
+				FE7F481F25F7EB8E007C40DB /* DrinkFactory.swift */,
 				FE8B8C9625E3931C00EF304F /* Main.storyboard */,
 				FE8B8C9925E3932000EF304F /* Assets.xcassets */,
 				FE8B8C9B25E3932000EF304F /* LaunchScreen.storyboard */,
@@ -375,12 +384,15 @@
 				FE8B8D7D25E6688300EF304F /* Cola.swift in Sources */,
 				FE8B8D4625E3C97700EF304F /* Soda.swift in Sources */,
 				FE8B8D7225E6685B00EF304F /* StrawberryMilk.swift in Sources */,
+				FE7F488125FA32F8007C40DB /* InspectorStackView.swift in Sources */,
 				FE8B8EB525F53B8E00EF304F /* AddButton.swift in Sources */,
 				FE8B8C9525E3931C00EF304F /* MainHomeController.swift in Sources */,
 				FE8B8D8225E6689300EF304F /* Sprite.swift in Sources */,
 				FE8B8D8D25E668CA00EF304F /* Cantata.swift in Sources */,
 				FE8B8D9225E668D300EF304F /* Georgia.swift in Sources */,
 				FE8B8C9125E3931C00EF304F /* AppDelegate.swift in Sources */,
+				FE7F487125F93031007C40DB /* OneCellView.swift in Sources */,
+				FE7F482025F7EB8E007C40DB /* DrinkFactory.swift in Sources */,
 				FE8B8D5425E3CFAD00EF304F /* Utility.swift in Sources */,
 				FE8B8D3825E3C7DD00EF304F /* Drink.swift in Sources */,
 				FE8B8C9325E3931C00EF304F /* SceneDelegate.swift in Sources */,

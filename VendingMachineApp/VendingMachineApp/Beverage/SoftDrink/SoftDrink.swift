@@ -21,4 +21,14 @@ class SoftDrink: Beverage {
         self.package = package
         super.init(brand: brand, volume: volume, price: price, name: name, manufacturedAt: manufacturedAt, temparature: temparature, calories: calories)
     }
+    
+    required init?(coder: NSCoder) {
+        self.package = Packages(rawValue: coder.decodeObject(forKey: "softDrinkPackage") as? String ?? "") ?? Packages.can
+        super.init(coder: coder)
+    }
+    
+    override func encode(with coder: NSCoder) {
+        coder.encode(package.rawValue, forKey: "softDrinkPackage")
+        super.encode(with: coder)
+    }
 }

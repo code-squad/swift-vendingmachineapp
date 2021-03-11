@@ -19,4 +19,14 @@ class Cantata: Coffee {
     func isLatte(standard: Int) -> Bool {
         return self.milkContent > standard ? true : false
     }
+    
+    required init?(coder: NSCoder) {
+        self.milkContent = coder.decodeInteger(forKey: "cantataMilkContent")
+        super.init(coder: coder)
+    }
+    
+    override func encode(with coder: NSCoder) {
+        coder.encode(milkContent, forKey: "cantataMilkContent")
+        super.encode(with: coder)
+    }
 }

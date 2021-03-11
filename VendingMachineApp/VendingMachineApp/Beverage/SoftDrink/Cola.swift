@@ -19,4 +19,14 @@ class Cola: SoftDrink {
     func isNoneTransFat() -> Bool {
         return self.transFat == 0
     }
+    
+    required init?(coder: NSCoder) {
+        self.transFat = coder.decodeInteger(forKey: "colaTransFat")
+        super.init(coder: coder)
+    }
+    
+    override func encode(with coder: NSCoder) {
+        coder.encode(transFat, forKey: "colaTransFat")
+        super.encode(with: coder)
+    }
 }

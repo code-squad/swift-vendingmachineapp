@@ -25,6 +25,9 @@
                                         <rect key="frame" x="64" y="172" width="46" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="+5000"/>
+                                        <connections>
+                                            <action selector="addMoney5000:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OBO-PB-UP5"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="잔액 0원" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qo9-cC-8x5">
                                         <rect key="frame" x="64" y="220" width="131" height="21"/>
@@ -37,6 +40,9 @@
                                         <rect key="frame" x="151" y="172" width="44" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="+1000"/>
+                                        <connections>
+                                            <action selector="addMoney1000:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JwI-1v-7hS"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -68,6 +74,7 @@
                     </view>
                     <connections>
                         <outlet property="beveragesCollectionView" destination="uvK-TF-PoB" id="huh-Pa-CJg"/>
+                        <outlet property="moneyLabel" destination="Qo9-cC-8x5" id="k1Q-LZ-NGR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -36,11 +36,13 @@ class ViewController: UIViewController {
         let name = [0: StrawberryMilk(), 1: ChocoMilk(), 2: BananaMilk(), 3: Coke(), 4: Cider(), 5: Fanta(), 6: Cantata(), 7: TOP(), 8: Georgia()]
         let index = sender.tag
         let drink = name[sender.tag] ?? TOP()
+        
         vendingMachine.add(item: drink)
-        amountLabels[index].text = ""
-        amountLabels.forEach { label in
-            
-        }
+        
+        let drinkList = vendingMachine.inventoryList()
+        let num = drinkList[ObjectIdentifier(type(of: drink))] ?? 0
+        
+        amountLabels[index].text = "\(num)개"
         
     }
 }

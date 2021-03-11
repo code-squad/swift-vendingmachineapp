@@ -33,9 +33,10 @@ class ViewController: UIViewController {
     
     
     @IBAction func addStockButtonTouched(_ sender: UIButton) {
-        let name = [0: StrawberryMilk(), 1: ChocoMilk(), 2: BananaMilk(), 3: Coke(), 4: Cider(), 5: Fanta(), 6: Cantata(), 7: TOP(), 8: Georgia()]
+        let name = [0: StrawberryMilk.self, 1: ChocoMilk.self, 2: BananaMilk.self, 3: Coke.self, 4: Cider.self, 5: Fanta.self, 6: Cantata.self, 7: TOP.self, 8: Georgia.self]
         let index = sender.tag
-        let drink = name[sender.tag] ?? TOP()
+        let drinkType = name[index] ?? TOP.self
+        let drink = drinkType.init()
         
         vendingMachine.add(item: drink)
         

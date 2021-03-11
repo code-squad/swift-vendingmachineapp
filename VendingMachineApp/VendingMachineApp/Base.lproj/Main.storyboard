@@ -149,7 +149,7 @@
                                             <constraint firstAttribute="height" constant="240" id="Vgr-6H-84e"/>
                                         </constraints>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="erM-vF-jZ2" customClass="SE">
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="erM-vF-jZ2">
                                         <rect key="frame" x="0.0" y="264" width="774" height="240"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="kuP-86-1cD">

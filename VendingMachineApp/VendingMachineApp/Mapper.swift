@@ -7,7 +7,8 @@
 
 import Foundation
 
-class BeverageMapper: BeverageMapperable {
+class BeverageMapper: NSObject, BeverageMapperable, NSCoding {
+    
     private let map: [Int: Beverage.Type]
     private let beverageTypes: [Beverage.Type]
     
@@ -23,12 +24,23 @@ class BeverageMapper: BeverageMapperable {
         self.map = map
     }
     
+    func encode(with coder: NSCoder) {
+        coder.encode(self.map, forKey: "beverageMapperMap")
+        coder.encode(self.beverageTypes, forKey: "beverageMapperBeverageTypes")
+    }
+    
+    required init?(coder: NSCoder) {
+        self.map = coder.decodeObject(forKey: "beverageMapperMap") as! [Int: Beverage.Type]
+        self.beverageTypes = coder.decodeObject(forKey: "beverageMapperBeverageTypes") as! [Beverage.Type]
+    }
+    
+    
     func mapping(by tag: Int) -> Beverage.Type? {
         return map[tag]
     }
 }
 
-class MoneyMapper: MoneyMapperable {
+class MoneyMapper: NSObject, MoneyMapperable, NSCoding {
     private let map: [Int: Money.Input]
     private let moneyInputTypes: [Money.Input]
     
@@ -42,6 +54,16 @@ class MoneyMapper: MoneyMapperable {
         }
         
         self.map = map
+    }
+    
+    func encode(with coder: NSCoder) {
+        coder.encode(self.map, forKey: "moneyMapperMap")
+        coder.encode(self.moneyInputTypes, forKey: "beverageMapperMoneyInputTypes")
+    }
+    
+    required init?(coder: NSCoder) {
+        self.map = coder.decodeObject(forKey: "moneyMapperMap") as! [Int: Money.Input]
+        self.moneyInputTypes = coder.decodeObject(forKey: "beverageMapperMoneyInputTypes") as! [Money.Input]
     }
     
     func mapping(by tag: Int) -> Money.Input? {

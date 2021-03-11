@@ -41,6 +41,16 @@ class ViewController: UIViewController {
                             moneyLabel: moneyLabel)
         
         updateCollections()
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(didCountChanged(_:)),
+                                               name: NSNotification.Name("stockListUpdate"),
+                                               object: nil)
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(didBalanceChanged(_:)),
+                                               name: NSNotification.Name("balanceUpdate"),
+                                               object: nil)
     }
     
     private func updateCollections() {
@@ -53,6 +63,19 @@ class ViewController: UIViewController {
             addButtonCollection.append(stackView.addButton)
             stackView.addButton.addTarget(self, action: #selector(self.addStockTouched(_:)), for: .touchUpInside)
         }
+    }
+    
+    @objc func didCountChanged(_ notification: Notification) {
+        let stockList = appDelegate.vendingMachine.allStocks()
+        
+        for (idx, beverage) in beverageList.enumerated() {
+            let id = ObjectIdentifier(type(of: beverage))
+            countCollection[idx].text = "\(stockList[id]!)개"
+        }
+    }
+    
+    @objc func didBalanceChanged(_ notification: Notification) {
+        moneyLabel.text = "\(appDelegate.vendingMachine.moneyLeft())원"
     }
     
     @IBAction func addStockTouched(_ sender: UIButton) {

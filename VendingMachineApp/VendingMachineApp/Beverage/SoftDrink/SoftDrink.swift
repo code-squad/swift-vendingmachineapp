@@ -23,7 +23,7 @@ class SoftDrink: Beverage {
     }
     
     required init?(coder: NSCoder) {
-        self.package = Packages(rawValue: coder.decodeObject(forKey: "softDrinkPackage") as? String ?? "") ?? Packages.can
+        self.package = Packages(rawValue: coder.decodeObject(forKey: "softDrinkPackage") as? String ?? "") ?? .can
         super.init(coder: coder)
     }
     

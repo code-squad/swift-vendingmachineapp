@@ -7,10 +7,8 @@
 
 import Foundation
 
-protocol Productization {
-    init()
+protocol Productization: NSObject {
     func validManufactured(with date:Date) -> Bool
     func isHot() -> Bool
     func isLowCalorie() -> Bool
 }
-

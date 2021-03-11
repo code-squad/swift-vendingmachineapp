@@ -12,6 +12,10 @@ class Milk: Drink {
         self.init(brand: brand, capacity: capacity, price: price, name: name, fat: 3, manufactured: Date(), temperature: temperature, calorie: calorie)
     }
     
+    convenience init() {
+        self.init()
+    }
+    
     required init?(coder: NSCoder) {
         self.fat = coder.decodeDouble(forKey: "fat")
         super.init(coder: coder)

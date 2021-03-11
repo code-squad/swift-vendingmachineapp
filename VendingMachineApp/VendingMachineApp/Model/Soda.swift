@@ -12,6 +12,10 @@ class Soda: Drink {
         self.init(brand: brand, capacity: capacity, price: price, name: name, isZeroCalorie: false, manufactured: Date(), temperature: temperature, calorie: calorie)
     }
     
+    convenience init() {
+        self.init()
+    }
+    
     required init?(coder: NSCoder) {
         self.isZeroCalorie = coder.decodeBool(forKey: "isZeroCalorie")
         super.init(coder: coder)

@@ -1,7 +1,6 @@
 import Foundation
 
 class Drink: NSObject, NSCoding {
-
     private var brand: String
     private var capacity: Int
     private var price: Int
@@ -22,6 +21,16 @@ class Drink: NSObject, NSCoding {
     
     convenience init(brand: String, capacity: Int, price: Int, name: String, temperature: Double, calorie: Double) {
         self.init(brand: brand, capacity: capacity, price: price, name: name, manufactured: Date(), temperature: temperature, calorie: calorie)
+    }
+    
+    override convenience init() {
+        self.init(brand: "anonymous",
+                  capacity: 0,
+                  price: 0,
+                  name: "anonymous",
+                  manufactured: Date(timeIntervalSinceNow: Date().timeIntervalSince1970),
+                  temperature: -1,
+                  calorie: -1)
     }
     
     func encode(with coder: NSCoder) {

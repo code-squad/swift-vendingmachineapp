@@ -12,6 +12,10 @@ class Coffee: Drink {
         self.init(brand: brand, capacity: capacity, price: price, name: name, caffeineContent: 0, manufactured: Date(), temperature: temperature, calorie: calorie)
     }
     
+    convenience init() {
+        self.init()
+    }
+    
     required init?(coder: NSCoder) {
         self.caffeineContent = UInt(coder.decodeInteger(forKey: "caffeineContent"))
         super.init(coder: coder)

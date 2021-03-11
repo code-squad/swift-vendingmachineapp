@@ -45,7 +45,9 @@ class Inventory {
     
     func takeStock() -> [Slot : ItemQuantity] {
         var inventoryDictionary: [Slot : ItemQuantity] = [:]
-        slots.forEach {
+        slots.filter {
+            !$0.isEmpty()
+        }.forEach {
             inventoryDictionary[$0] = $0.itemCount
         }
         return inventoryDictionary

@@ -120,8 +120,7 @@ class VendingMachineTests: XCTestCase {
     func test_자판기앱_빈자판기에_상품추가() throws {
         emptyVendingMachine.add(item: strawberryMilk1)
         let inventorySheet = emptyVendingMachine.takeInventory()
-        XCTAssertEqual(inventorySheet, [Slot(items: [strawberryMilk1]): 1,
-                                        Slot(): 0])
+        XCTAssertEqual(inventorySheet, [Slot(items: [strawberryMilk1]): 1])
     }
     
     func test_자판기앱_제품있는자판기에_상품추가() throws {
@@ -131,8 +130,7 @@ class VendingMachineTests: XCTestCase {
                                         Slot(items: [chocolateMilk1, chocolateMilk2, chocolateMilk3]): 3,
                                         Slot(items: [zeroSugarCoke1, zeroSugarCoke2, zeroSugarCoke3]): 3,
                                         Slot(items: [georgiaMax1, georgiaMax2, georgiaMax3]): 3,
-                                        Slot(items: [redBull1, redBull2, redBull3]): 3,
-                                        Slot(items: []): 0])
+                                        Slot(items: [redBull1, redBull2, redBull3]): 3])
     }
     
     func test_자판기앱_상품구매() throws {
@@ -167,7 +165,6 @@ class VendingMachineTests: XCTestCase {
                                         Slot(items: [chocolateMilk1, chocolateMilk2, chocolateMilk3]): 3,
                                         Slot(items: [zeroSugarCoke1, zeroSugarCoke2, zeroSugarCoke3]): 3,
                                         Slot(items: [georgiaMax1, georgiaMax2, georgiaMax3]): 3,
-                                        Slot(items: [redBull1, redBull2, redBull3]): 3,
-                                        Slot(items: []): 0])
+                                        Slot(items: [redBull1, redBull2, redBull3]): 3])
     }
 }

@@ -73,4 +73,8 @@ class Slot: CustomStringConvertible, Hashable {
     func isHotDrinkSlot() -> Bool {
         return items.first { $0 is HotServable && ($0 as! HotServable).isHotter(than: 50) } != nil
     }
+    
+    func isEmpty() -> Bool {
+        return items.isEmpty
+    }
 }

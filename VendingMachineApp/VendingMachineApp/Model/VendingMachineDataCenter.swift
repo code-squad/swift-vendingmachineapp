@@ -29,37 +29,3 @@ class VendingMachineDataCenter {
         }
     }
 }
-
-//MARK: 파일에 접근해서 load, save
-/*
-class DataCenter {
-    static private var filePath: URL = {
-        let stockDataFileName = "StockData"
-        let fileManager = FileManager.default
-        guard let documentDirectory = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first else { return URL(fileURLWithPath: "")}
-        return documentDirectory.appendingPathComponent(stockDataFileName)
-    }()
-    
-    static func load() -> VendingMachine {
-        if FileManager.default.fileExists(atPath: filePath.path) {
-            guard let data = FileManager.default.contents(atPath: filePath.path) else { return VendingMachine() }
-            do {
-                guard let vendingMachine = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? VendingMachine else { return VendingMachine() }
-                return vendingMachine
-            } catch {
-                print(error)
-            }
-        }
-        let vendingMachine = UserDefaults.standard.object(forKey: "vendingMachineApp") as? VendingMachine
-    }
-    
-    static public func save() {
-        do {
-            let data = try NSKeyedArchiver.archivedData(withRootObject: vendingMachine, requiringSecureCoding: false)
-            try data.write(to: filePath)
-        } catch {
-            print(error)
-        }
-    }
-}
-*/

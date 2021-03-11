@@ -26,4 +26,15 @@ extension String {
         let date = dateFormatter.date(from: self) ?? Date()
         return date
     }
+    
+    func extractIntegerFromString() -> Int {
+        let stringArray = self.components(separatedBy: CharacterSet.decimalDigits.inverted)
+        
+        for element in stringArray {
+            if let num = Int(element) {
+                return num
+            }
+        }
+        return 0
+    }
 }

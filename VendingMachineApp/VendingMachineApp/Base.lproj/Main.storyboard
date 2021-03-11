@@ -17,61 +17,40 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="225" translatesAutoresizingMaskIntoConstraints="NO" id="6oU-vl-vAQ" userLabel="Container Stack View">
-                                <rect key="frame" x="20" y="20" width="920" height="780"/>
+                                <rect key="frame" x="10" y="0.0" width="920" height="800"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleAspectFit" ambiguous="YES" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="aUo-C9-PkR">
-                                        <rect key="frame" x="0.0" y="0.0" width="920" height="130"/>
+                                    <stackView opaque="NO" contentMode="scaleAspectFit" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="aUo-C9-PkR">
+                                        <rect key="frame" x="0.0" y="0.0" width="920" height="69"/>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rP1-v4-WQ6">
-                                        <rect key="frame" x="0.0" y="355" width="920" height="0.0"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rP1-v4-WQ6">
+                                        <rect key="frame" x="0.0" y="294" width="920" height="69"/>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1fB-mx-Jay">
-                                        <rect key="frame" x="0.0" y="580" width="920" height="200"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1fB-mx-Jay">
+                                        <rect key="frame" x="0.0" y="588" width="920" height="212"/>
                                     </stackView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="aUo-C9-PkR" firstAttribute="top" secondItem="6oU-vl-vAQ" secondAttribute="top" id="3IO-4U-XK6"/>
+                                    <constraint firstItem="aUo-C9-PkR" firstAttribute="top" secondItem="6oU-vl-vAQ" secondAttribute="top" id="6e6-ox-gGv"/>
+                                    <constraint firstItem="rP1-v4-WQ6" firstAttribute="height" secondItem="aUo-C9-PkR" secondAttribute="height" id="aGW-rS-MMa"/>
                                     <constraint firstItem="aUo-C9-PkR" firstAttribute="leading" secondItem="6oU-vl-vAQ" secondAttribute="leading" id="ecx-yM-A6h"/>
+                                    <constraint firstItem="1fB-mx-Jay" firstAttribute="height" secondItem="rP1-v4-WQ6" secondAttribute="height" multiplier="3.07692" id="eiU-HT-b5c"/>
                                     <constraint firstAttribute="trailing" secondItem="aUo-C9-PkR" secondAttribute="trailing" id="sdQ-qz-oUG"/>
                                 </constraints>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U9a-mM-BYC" customClass="ContainerView" customModule="VendingMachineApp">
-                                <rect key="frame" x="940" y="20" width="240" height="780"/>
+                                <rect key="frame" x="940" y="0.0" width="240" height="800"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="YMa-0G-dPi">
-                                        <rect key="frame" x="31" y="100" width="178" height="24"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1000원" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vag-vs-HvP">
-                                                <rect key="frame" x="0.0" y="0.0" width="62.5" height="24"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5000원" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fSp-tY-Hba">
-                                                <rect key="frame" x="112.5" y="0.0" width="65.5" height="24"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="JeG-tM-69I" customClass="InspectorStackView" customModule="VendingMachineApp" customModuleProvider="target">
+                                        <rect key="frame" x="32" y="100" width="176" height="258"/>
                                     </stackView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="잔액 : 5000원 " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eh7-1b-jld">
-                                        <rect key="frame" x="45" y="198.5" width="150" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="HHd-BA-YK5"/>
-                                            <constraint firstAttribute="width" constant="150" id="QtC-PS-CHm"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemOrangeColor"/>
                                 <constraints>
-                                    <constraint firstItem="eh7-1b-jld" firstAttribute="centerX" secondItem="YMa-0G-dPi" secondAttribute="centerX" id="MG3-jH-bkc"/>
-                                    <constraint firstItem="YMa-0G-dPi" firstAttribute="centerX" secondItem="U9a-mM-BYC" secondAttribute="centerX" id="Mzg-jP-SXL"/>
-                                    <constraint firstItem="eh7-1b-jld" firstAttribute="top" secondItem="YMa-0G-dPi" secondAttribute="bottom" constant="74.5" id="Oye-JU-2dn"/>
-                                    <constraint firstItem="YMa-0G-dPi" firstAttribute="top" secondItem="U9a-mM-BYC" secondAttribute="top" constant="100" id="q1b-de-vxd"/>
+                                    <constraint firstItem="JeG-tM-69I" firstAttribute="top" secondItem="U9a-mM-BYC" secondAttribute="top" constant="100" id="38c-qT-4Cv"/>
+                                    <constraint firstItem="JeG-tM-69I" firstAttribute="leading" secondItem="U9a-mM-BYC" secondAttribute="leading" constant="32" id="4Y1-Mb-Vd5"/>
+                                    <constraint firstAttribute="bottom" secondItem="JeG-tM-69I" secondAttribute="bottom" constant="442" id="Zkr-uv-jTx"/>
+                                    <constraint firstItem="JeG-tM-69I" firstAttribute="centerX" secondItem="U9a-mM-BYC" secondAttribute="centerX" id="dpC-a3-nG0"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -79,13 +58,14 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="U9a-mM-BYC" firstAttribute="top" secondItem="6oU-vl-vAQ" secondAttribute="top" id="7Lp-hv-eQp"/>
-                            <constraint firstItem="U9a-mM-BYC" firstAttribute="leading" secondItem="6oU-vl-vAQ" secondAttribute="trailing" id="Bku-vp-tvS"/>
                             <constraint firstItem="U9a-mM-BYC" firstAttribute="bottom" secondItem="6oU-vl-vAQ" secondAttribute="bottom" id="MH2-gE-1V0"/>
+                            <constraint firstItem="U9a-mM-BYC" firstAttribute="leading" secondItem="6oU-vl-vAQ" secondAttribute="trailing" constant="10" id="O2z-yB-gti"/>
                             <constraint firstItem="U9a-mM-BYC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="940" id="P9V-vP-uzT"/>
+                            <constraint firstItem="U9a-mM-BYC" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Tim-PU-17x"/>
                             <constraint firstItem="U9a-mM-BYC" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="UZw-HC-g2G"/>
-                            <constraint firstItem="6oU-vl-vAQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="b7Z-OP-6d8" userLabel="Container Stack View.leading = Safe Area.leading"/>
-                            <constraint firstItem="6oU-vl-vAQ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="fj4-EF-m7J"/>
+                            <constraint firstItem="6oU-vl-vAQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="g3R-mf-Sfl"/>
                             <constraint firstItem="6oU-vl-vAQ" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="snv-qD-ozt"/>
+                            <constraint firstItem="6oU-vl-vAQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="z8G-z2-lrQ"/>
                         </constraints>
                     </view>
                     <connections>
@@ -98,7 +78,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="438" y="26"/>
+            <point key="canvasLocation" x="437.79661016949154" y="25.609756097560975"/>
         </scene>
     </scenes>
     <resources>

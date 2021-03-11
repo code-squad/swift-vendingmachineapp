@@ -8,7 +8,7 @@
 import Foundation
 
 
-class sprite: Soda {
+class Sprite: Soda {
     
     private let inPlastic: Bool
     

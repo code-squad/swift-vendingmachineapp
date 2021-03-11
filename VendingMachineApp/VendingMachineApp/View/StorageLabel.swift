@@ -9,9 +9,10 @@ import Foundation
 import UIKit
 
 class StorageLabel: UILabel {
-    
+        
     override init(frame: CGRect){
         super.init(frame: frame)
+        
         setupView()
     }
     
@@ -21,9 +22,10 @@ class StorageLabel: UILabel {
     }
     
     private func setupView() {
-        text = "5개"
+        text = "0개"
         textColor = .black
         font = UIFont.boldSystemFont(ofSize: 25)
         textAlignment = .center
     }
 }
+

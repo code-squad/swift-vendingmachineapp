@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct BeverageMapper {
+struct BeverageMapper: BeverageMapperable {
     private let map: [Int: Beverage.Type]
     private let beverageTypes: [Beverage.Type] = [Banana.self, Strawberry.self,
                                                   TOP.self, Cantata.self,

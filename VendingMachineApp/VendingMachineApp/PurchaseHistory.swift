@@ -27,11 +27,12 @@ class PurchaseHistory: NSObject, PurchaseHistoryManagable, NSCoding {
         self.purchased.addBeverage(beverage)
     }
     
-    func readHistory() -> [Beverage: Int] {
-        var purchasedList = [Beverage: Int]()
+    func readHistory() -> [ObjectIdentifier: [Beverage]] {
+        var purchasedList = [ObjectIdentifier: [Beverage]]()
         
         self.purchased.fotEachBeverage { beverage in
-            purchasedList[beverage, default: 0] += 1
+            let beverageType = ObjectIdentifier(type(of: beverage))
+            purchasedList[beverageType, default: [Beverage]()].append(beverage)
         }
         
         return purchasedList

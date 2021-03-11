@@ -18,13 +18,19 @@ class Inventory: NSObject, InventoryManagable, NSCoding {
     }
     
     convenience init(inventory: [Beverage]) {
-        let mapper = BeverageMapper()
+        let mapper = BeverageMapper(beverageTypes: [Banana.self, Strawberry.self,
+                                                    TOP.self, Cantata.self,
+                                                    Cola.self, Cider.self
+                                                    ])
         self.init(inventory: inventory, mapper: mapper)
     }
     
     convenience override init() {
         let inventory: [Beverage] = []
-        let mapper = BeverageMapper()
+        let mapper = BeverageMapper(beverageTypes: [Banana.self, Strawberry.self,
+                                                    TOP.self, Cantata.self,
+                                                    Cola.self, Cider.self
+                                                    ])
         self.init(inventory: inventory, mapper: mapper)
     }
     
@@ -35,7 +41,7 @@ class Inventory: NSObject, InventoryManagable, NSCoding {
     
     required init?(coder: NSCoder) {
         self.inventory = coder.decodeObject(forKey: "inventory") as? [Beverage] ?? []
-        self.mapper = coder.decodeObject(forKey: "mapper") as? BeverageMapper ?? BeverageMapper()
+        self.mapper = coder.decodeObject(forKey: "mapper") as! BeverageMapper
     }
     
     func addBeverage(_ beverage: Beverage) {

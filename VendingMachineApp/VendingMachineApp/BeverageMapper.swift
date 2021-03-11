@@ -9,14 +9,12 @@ import Foundation
 
 struct BeverageMapper: BeverageMapperable {
     private let map: [Int: Beverage.Type]
-    private let beverageTypes: [Beverage.Type] = [Banana.self, Strawberry.self,
-                                                  TOP.self, Cantata.self,
-                                                  Cola.self, Cider.self
-                                                  ]
+    private let beverageTypes: [Beverage.Type]
     
-    init() {
+    init(beverageTypes: [Beverage.Type]) {
         var map: [Int: Beverage.Type] = [:]
-        let tags = 0...self.beverageTypes.count
+        self.beverageTypes = beverageTypes
+        let tags = 0...beverageTypes.count
     
         for (tag, beverageType) in zip(tags, beverageTypes) {
             map[tag] = beverageType

@@ -40,18 +40,29 @@ class VendingMachineViewController: UIViewController {
     @IBAction func addMilkButton(_ sender: Any) {
         guard let beverage = factory.addToInventory(beverage: "Milk") else { return }
         vendingMachine.addStock(beverage: beverage)
+        showMilkInventoryQuantity()
     }
     
     @IBAction func addSodaButton(_ sender: Any) {
         guard let beverage = factory.addToInventory(beverage: "Soda") else { return }
         vendingMachine.addStock(beverage: beverage)
+        showSodaInventoryQuantity()
     }
     
-    //MARK: 재고 수량 확인 Label
+    //MARK: 재고 수량 메소드
     func showCoffeeInventoryQuantity() {
         let stock = vendingMachine.showCurrentStock()
-        print(stock)
-        coffeeInventoryQuantity.text = "\(stock[ObjectIdentifier(Cantata.Type.self)]?.count ?? 0)개"
+        coffeeInventoryQuantity.text = "\(stock[ObjectIdentifier(Cantata.self)]?.count ?? 0)개"
+    }
+    
+    func showMilkInventoryQuantity() {
+        let stock = vendingMachine.showCurrentStock()
+        milkInventoryQuantity.text = "\(stock[ObjectIdentifier(StrawberryMilk.self)]?.count ?? 0)개"
+    }
+    
+    func showSodaInventoryQuantity() {
+        let stock = vendingMachine.showCurrentStock()
+        sodaInventoryQuantity.text = "\(stock[ObjectIdentifier(Coke.self)]?.count ?? 0)개"
     }
     
     

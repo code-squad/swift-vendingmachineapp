@@ -31,15 +31,15 @@ class Beverages {
     }
     
     func checkBeverageStock() -> [ObjectIdentifier: [Beverage]] {
-        var result = [ObjectIdentifier: [Beverage]]()
+        var stock = [ObjectIdentifier: [Beverage]]()
         beverages.forEach { (beverage) in
-            if result[ObjectIdentifier(beverage.self)] == nil {
-                result[ObjectIdentifier(beverage.self)] = [beverage]
+            if stock[ObjectIdentifier(type(of: beverage.self))] == nil {
+                stock[ObjectIdentifier(type(of: beverage.self))] = [beverage]
             }else{
-                result[ObjectIdentifier(beverage.self)]?.append(beverage)
+                stock[ObjectIdentifier(type(of: beverage.self))]?.append(beverage)
             }
         }
-        return result
+        return stock
     }
 }
 

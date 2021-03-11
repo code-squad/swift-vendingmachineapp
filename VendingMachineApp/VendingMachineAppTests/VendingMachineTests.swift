@@ -24,16 +24,12 @@ class VendingMachineTests: XCTestCase {
     }
     
     private func assertAddInventory() {
-        let bananaMilkFactory = BananaMilkFactory()
-        let cantatacoffeeFactory = CantataCoffeeFactory()
-        let ciderFactory = CiderFactory()
-        
-        inventoryManager.addInventory(bananaMilkFactory.produce())
-        inventoryManager.addInventory(bananaMilkFactory.produce())
-        inventoryManager.addInventory(cantatacoffeeFactory.produce())
-        inventoryManager.addInventory(cantatacoffeeFactory.produce())
-        inventoryManager.addInventory(cantatacoffeeFactory.produce())
-        inventoryManager.addInventory(ciderFactory.produce())
+        inventoryManager.addBeverage(BeverageFactory.produce(of: Banana.self)!)
+        inventoryManager.addBeverage(BeverageFactory.produce(of: Banana.self)!)
+        inventoryManager.addBeverage(BeverageFactory.produce(of: Banana.self)!)
+        inventoryManager.addBeverage(BeverageFactory.produce(of: Cola.self)!)
+        inventoryManager.addBeverage(BeverageFactory.produce(of: Cola.self)!)
+        inventoryManager.addBeverage(BeverageFactory.produce(of: TOP.self)!)
         
         XCTAssertEqual(inventoryManager.readInventores().count, 3)
     }
@@ -45,14 +41,13 @@ class VendingMachineTests: XCTestCase {
     
     private func assertPurchasable() {
         let purchasable = inventoryManager.isPurchasableInventory(balance: moneyManager.readBalance())
-        XCTAssertEqual(purchasable.readInventores().count, 1)
+        XCTAssertEqual(purchasable.readInventores().count, 2)
     }
     
     private func assertPurchase() {
         let vendingMachine = VendingMachine(moneyManager: moneyManager, inventoryManager: inventoryManager, purchaseHistoryManager: purchaseHistoryManager)
-        let bananaMilkFactory = BananaMilkFactory()
-        let bananaMilk = bananaMilkFactory.produce()
-        inventoryManager.addInventory(bananaMilk)
+        guard let bananaMilk = BeverageFactory.produce(of: Banana.self) else { return }
+        inventoryManager.addBeverage(bananaMilk)
         XCTAssertEqual(inventoryManager.readInventores().count, 3)
         
         vendingMachine.purchaseBeverage(beverage: bananaMilk)
@@ -68,8 +63,7 @@ class VendingMachineTests: XCTestCase {
     }
     
     func testBananaMilk() {
-        let bananaMilkFactory = BananaMilkFactory()
-        let bananaMilk = bananaMilkFactory.produce()
+        guard let bananaMilk = BeverageFactory.produce(of: Banana.self) else { return }
         XCTAssertTrue(!bananaMilk.isExpired(now: Date()))
         XCTAssertTrue(bananaMilk.isHot(temparature: 2))
         XCTAssertTrue(!bananaMilk.isLowCalorie(calories: 60))
@@ -77,8 +71,7 @@ class VendingMachineTests: XCTestCase {
     }
     
     func testCider() {
-        let ciderFactory = CiderFactory()
-        let cider = ciderFactory.produce()
+        guard let cider = BeverageFactory.produce(of: Cider.self) else { return }
         XCTAssertTrue(!cider.isExpired(now: Date()))
         XCTAssertTrue(cider.isHot(temparature: 2))
         XCTAssertTrue(!cider.isLowCalorie(calories: 60))

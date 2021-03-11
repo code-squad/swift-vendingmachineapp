@@ -7,12 +7,20 @@
 
 import Foundation
 
-class PurchaseHistory: PurchaseHistoryManagable {
+class PurchaseHistory: NSObject, PurchaseHistoryManagable, NSCoding {
     
     private var purchased: Inventory
     
-    init() {
+    override init() {
         self.purchased = Inventory()
+    }
+    
+    func encode(with coder: NSCoder) {
+        coder.encode(self.purchased, forKey: "purchased")
+    }
+    
+    required init?(coder: NSCoder) {
+        self.purchased = coder.decodeObject(forKey: "purchased") as? Inventory ?? Inventory()
     }
     
     func addPurchased(_ beverage: Beverage) {

@@ -19,4 +19,14 @@ class Cider: SoftDrink {
     func isSugarFree() -> Bool {
         return self.sugars == 0.0
     }
+    
+    required init?(coder: NSCoder) {
+        self.sugars = coder.decodeDouble(forKey: "ciderSugars")
+        super.init(coder: coder)
+    }
+    
+    override func encode(with coder: NSCoder) {
+        coder.encode(sugars, forKey: "ciderSugars")
+        super.encode(with: coder)
+    }
 }

@@ -19,5 +19,15 @@ class Strawberry: Milk {
     func isFruitMilk(standard: Int) -> Bool {
         return self.strawberryContent <= standard ? true : false
     }
+    
+    required init?(coder: NSCoder) {
+        self.strawberryContent = coder.decodeInteger(forKey: "strawberryContent")
+        super.init(coder: coder)
+    }
+    
+    override func encode(with coder: NSCoder) {
+        coder.encode(strawberryContent, forKey: "strawberryContent")
+        super.encode(with: coder)
+    }
 }
 

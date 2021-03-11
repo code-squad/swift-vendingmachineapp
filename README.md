@@ -45,3 +45,9 @@ Cantata BananaMilk Fanta (3단계)
 - IBOutlet Collection으로 outlet을 묶고, UIButton.tag을 이용해서 각 버튼 객체를 구분하도록 구현
 - 음료 객체 생성을 위한 DrinkFactory 추가
 <img width="812" alt="" src="https://user-images.githubusercontent.com/75113784/109928382-bda74b00-7d08-11eb-893b-de88d6cffb68.png">
+
+## Step 4 - App Lifecycle, NSCoding
+- 재고 추가 버튼 인스턴스를 key로 갖는 딕셔너리 선언
+- VendingMachine 객체 저장을 위한 NSCoding 프로토콜 채택
+- UserDefaults에 VendingMachine 객체를 저장하기 위한 ArchivingManager 추가
+- 재고 개수와 자판기 잔액을 저장하고, 저장된 데이터를 표시하도록 수정

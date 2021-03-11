@@ -15,6 +15,16 @@ class Milk: Drink {
         super.init(manufacturer: manufacturer, volume: volume, name: name, manufacturedAt: manufacturedAt, price: price, temperature: temperature, calorie: calorie, expiredAt: expiredAt)
     }
     
+    required init?(coder: NSCoder) {
+        self.fatContent = coder.decodeInteger(forKey: "fatContent")
+        super.init(coder: coder)
+    }
+    
+    override func encode(with coder: NSCoder) {
+        coder.encode(fatContent, forKey: "fatContent")
+        super.encode(with: coder)
+    }
+    
     func isLowFat() -> Bool {
         return fatContent < 3
     }

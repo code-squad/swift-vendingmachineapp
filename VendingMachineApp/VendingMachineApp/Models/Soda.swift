@@ -19,5 +19,15 @@ class Soda: Drink, Sweetable {
     func isUnSweetened() -> Bool {
         return sugarContent < 100
     }
+    
+    required init?(coder: NSCoder) {
+        self.sugarContent = coder.decodeInteger(forKey: "sugarContent")
+        super.init(coder: coder)
+    }
+    
+    override func encode(with coder: NSCoder) {
+        coder.encode(sugarContent, forKey: "sugarContent")
+        super.encode(with: coder)
+    }
 }
 

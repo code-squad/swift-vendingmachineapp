@@ -44,6 +44,10 @@ class BlueBottleColdBrew: Coffee, Productization {
                    calorie: 0)
     }
     
+    override func encode(with coder: NSCoder) {
+        coder.encode(self.flavor, forKey: "flavor")
+    }
+    
     required init?(coder: NSCoder) {
         self.flavor = (coder.decodeObject(forKey: "flavor") as? Flavor) ?? .bold
         super.init(coder: coder)

@@ -40,6 +40,10 @@ class SeoulStrawberryMilk: Milk, Productization {
                    calorie: 130)
     }
     
+    override func encode(with coder: NSCoder) {
+        coder.encode(self.isWithStraw, forKey: "isWithStraw")
+    }
+    
     required init?(coder: NSCoder) {
         self.isWithStraw = coder.decodeBool(forKey: "isWithStraw")
         super.init(coder: coder)

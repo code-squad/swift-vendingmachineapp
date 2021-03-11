@@ -8,7 +8,6 @@
 import Foundation
 
 class Drinks: NSObject, NSCoding {
-    private var stock: [ObjectIdentifier: [Drink]] = [:]
     private var drinks: [Drink] = []
     
     override var description: String {
@@ -43,6 +42,12 @@ class Drinks: NSObject, NSCoding {
     }
     
     func getAllDrinks() -> [ObjectIdentifier: [Drink]] {
+        var stock: [ObjectIdentifier: [Drink]] = [:]
+        stock = drinks.reduce(into: [:]) { dict, drink in
+            let objectIdentifier = ObjectIdentifier(type(of: drink))
+            dict[objectIdentifier, default: []].append(drink)
+        }
+        print(stock.keys, stock.values)
         return stock
     }
     

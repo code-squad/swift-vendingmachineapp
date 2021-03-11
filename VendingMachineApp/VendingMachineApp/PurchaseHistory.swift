@@ -24,7 +24,7 @@ class PurchaseHistory: NSObject, PurchaseHistoryManagable, NSCoding {
     }
     
     func addPurchased(_ beverage: Beverage) {
-        self.purchased.addInventory(beverage)
+        self.purchased.addBeverage(beverage)
     }
     
     func readHistory() -> [Beverage: Int] {

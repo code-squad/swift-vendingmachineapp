@@ -11,10 +11,10 @@ protocol InventoryManagable {
     func expiredBeverages(current: Date) -> InventoryManagable
     func hotBeverages() -> InventoryManagable
     func readInventores() -> [ObjectIdentifier: [Beverage]]
-    func addInventory(_ beverage: Beverage)
-    func removeInventory(_ beverage: Beverage) -> Beverage?
+    func addBeverage(_ beverage: Beverage)
+    func removeBeverage(_ beverage: Beverage) -> Beverage?
     func fotEachBeverage(handler: (Beverage) -> ())
     func isPurchasableInventory(balance: Int) -> InventoryManagable
     func tagToBeverageType(by tag: Int) -> Beverage.Type?
-    func readInventory(index: Int, allInventores: [ObjectIdentifier: [Beverage]]) -> Int
+    func readInventoryCount(index: Int, allInventores: [ObjectIdentifier: [Beverage]]) -> Int
 }

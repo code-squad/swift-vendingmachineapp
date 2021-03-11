@@ -10,6 +10,7 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet weak var beveragesCollectionView: UICollectionView!
+    @IBOutlet weak var moneyLabel: UILabel!
     
     private let images = [UIImage(named: "bananaMilk"), UIImage(named: "top"), UIImage(named: "cokaCola")]
     private let types: [BeverageFactory.Type] = [MilkFactory.self, CoffeeFactory.self, SodaFactory.self]
@@ -30,6 +31,17 @@ class ViewController: UIViewController {
         beveragesCollectionView.backgroundColor = .none
         view.addSubview(beveragesCollectionView)
     }
+    
+    @IBAction func addMoney5000(_ sender: Any) {
+        vendingMachine.put(in: 5000)
+        moneyLabel.text = "잔액: \(vendingMachine.showCurrentMoney()) 원"
+    }
+    
+    @IBAction func addMoney1000(_ sender: Any) {
+        vendingMachine.put(in: 1000)
+        moneyLabel.text = "잔액: \(vendingMachine.showCurrentMoney()) 원"
+    }
+    
 }
 
 extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {

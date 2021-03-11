@@ -7,19 +7,35 @@
 
 import Foundation
 
-class Inventory: InventoryManagable {
+class Inventory: NSObject, InventoryManagable, NSCoding {
     
     private var inventory: [Beverage]
-    private let mapper: BeverageMapper
+    private let mapper: BeverageMapperable
     
-    init(inventory: [Beverage]) {
-        self.mapper = BeverageMapper()
+    init(inventory: [Beverage], mapper: BeverageMapperable) {
+        self.mapper = mapper
         self.inventory = inventory
     }
     
-    convenience init() {
+    convenience init(inventory: [Beverage]) {
+        let mapper = BeverageMapper()
+        self.init(inventory: inventory, mapper: mapper)
+    }
+    
+    convenience override init() {
         let inventory: [Beverage] = []
-        self.init(inventory: inventory)
+        let mapper = BeverageMapper()
+        self.init(inventory: inventory, mapper: mapper)
+    }
+    
+    func encode(with coder: NSCoder) {
+        coder.encode(self.inventory, forKey: "inventory")
+        coder.encode(self.mapper, forKey: "mapper")
+    }
+    
+    required init?(coder: NSCoder) {
+        self.inventory = coder.decodeObject(forKey: "inventory") as? [Beverage] ?? []
+        self.mapper = coder.decodeObject(forKey: "mapper") as? BeverageMapper ?? BeverageMapper()
     }
     
     func addInventory(_ beverage: Beverage) {

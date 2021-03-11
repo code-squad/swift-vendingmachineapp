@@ -27,9 +27,9 @@ class VendingMachineAppTests: XCTestCase {
     }
     
     func test_자판기_금액_추가() throws {
-        vendingMachine.put(in: 3000)
+        vendingMachine.put(in: .fiveThousand)
         
-        XCTAssertEqual(vendingMachine.showCurrentMoney(), 3000)
+        XCTAssertEqual(vendingMachine.showCurrentMoney(), 5000)
     }
     
     func test_음료_재고_추가() throws {
@@ -39,7 +39,7 @@ class VendingMachineAppTests: XCTestCase {
     }
     
     func test_구매_가능_음료목록() throws {
-        vendingMachine.put(in: 3000)
+        vendingMachine.put(in: .fiveThousand)
         
         vendingMachine.appendInventory(beverage)
         vendingMachine.appendInventory(beverage2)
@@ -49,7 +49,7 @@ class VendingMachineAppTests: XCTestCase {
     }
     
     func test_음료_구매() throws {
-        vendingMachine.put(in: 3000)
+        vendingMachine.put(in: .fiveThousand)
         
         vendingMachine.appendInventory(beverage)
         vendingMachine.appendInventory(beverage2)
@@ -99,8 +99,8 @@ class VendingMachineAppTests: XCTestCase {
         vendingMachine.appendInventory(beverage3)
         
         //금액 투입
-        vendingMachine.put(in: 3000)
-        XCTAssertEqual(vendingMachine.showCurrentMoney(), 3000)
+        vendingMachine.put(in: .fiveThousand)
+        XCTAssertEqual(vendingMachine.showCurrentMoney(), 5000)
         
         //구매 가능한 상품 확인
         XCTAssertEqual(vendingMachine.beverageListForPurchase(), [beverage,beverage2,beverage3])
@@ -109,7 +109,7 @@ class VendingMachineAppTests: XCTestCase {
         vendingMachine.buy(type(of: beverage.self))
         
         //잔액 확인
-        XCTAssertEqual(vendingMachine.showCurrentMoney(), 1000)
+        XCTAssertEqual(vendingMachine.showCurrentMoney(), 3000)
         
         //재고 상태 확인
         XCTAssertEqual(vendingMachine.showAllBeverageList(), [  ObjectIdentifier(type(of: beverage2.self)):[beverage2], ObjectIdentifier(type(of: beverage3.self)):[beverage3]])

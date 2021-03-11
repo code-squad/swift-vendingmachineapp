@@ -23,10 +23,12 @@ struct VendingMachine {
     
     func addStock(of item: Shopable) {
         storage.add(item)
+        NotificationCenter.default.post(name: NSNotification.Name("stockListUpdate"), object: nil, userInfo: nil)
     }
     
     func insert(money: Int) {
         moneyBox.update(amount: money)
+        NotificationCenter.default.post(name: NSNotification.Name("balanceUpdate"), object: nil, userInfo: nil)
     }
 
     func moneyLeft() -> Int {

@@ -36,6 +36,7 @@ class ViewController: UIViewController {
                                                name: NSNotification.Name(rawValue: "CoinPostButton"),
                                                object: nil)
     }
+    
     @objc
     func addDrink(_ notification: Notification) {
         guard let drinkType = notification.object else {
@@ -45,7 +46,7 @@ class ViewController: UIViewController {
             return
         }
         vendingMachine.append(newDrink)
-        coinCollectionView.reloadData()
+        drinkCollectionView.reloadData()
     }
     
     @objc

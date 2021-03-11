@@ -12,7 +12,7 @@ class DrinkCollectionCell: UICollectionViewCell {
     @IBOutlet var addButton: UIButton!
     @IBOutlet var drinkImage: UIImageView!
     @IBOutlet var stockNumber: UILabel!
-
+    
     var drinkType: (()->Drink.Type)?
     var count: Int?
     
@@ -27,12 +27,8 @@ class DrinkCollectionCell: UICollectionViewCell {
     @objc
     func onTapButton() {
         let type = drinkType?()
-        if count != nil {
-            count!+=1
-            stockNumber.text = String(count!) + "개"
-            NotificationCenter.default.post(
-                        name: NSNotification.Name(rawValue: "DrinkPostButton"),
-                object: type)
-        }
+        NotificationCenter.default.post(
+            name: NSNotification.Name(rawValue: "DrinkPostButton"),
+            object: type)
     }
 }

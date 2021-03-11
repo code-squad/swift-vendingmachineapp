@@ -28,15 +28,10 @@ class Drinks {
         }
     }
     
-    //음료를 하나하나 출력하는 show 메소드가 불필요해지면 show로 바꿀 예정
-//    func showStock() -> Dictionary<String, Int>{
-//        return inventory.drinksInventory
-//    }
-//    
     func countType() -> Int {
         return inventory.count()
     }
-    //show 메소드와 유사
+    
     func getList() ->  [String]{
         var list = [String]()
         drinks.forEach {
@@ -96,7 +91,7 @@ class Drinks {
     }
     
     func diconaryUpdate(with drink: Drink) {
-        inventory.pop(drink)
+        _ = inventory.pop(drink)
     }
     
     func drinkStock(at index: Int) -> Int {

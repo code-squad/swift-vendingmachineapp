@@ -39,3 +39,43 @@ Beverage → Milk/Soda/Coffee → Strawberry/Fanta/Cantata
 
 
 <img width="407" alt="스크린샷 2021-03-02 오후 10 20 03" src="https://user-images.githubusercontent.com/73650994/109655057-3215a900-7ba6-11eb-86ff-f87e54c69111.png">
+
+
+
+## 2. 자판기 기본 동작
+
+#### 음료 클래스 3단계 구분하기 & 자판기 동작 설계
+
+- 2021.03.06. step2
+
+-----
+
+- 3 단계 상속 관계 클래스에 각각 메소드 작성
+- 테스트 코드 작성
+- `init()` 관해 학습
+  - `convenient init()`
+
+- 자판기 클래스 작성
+  - `Hashable` 
+  - `Equatable`
+  - `ObjectIdentifier`
+  - MetaType
+
+
+
+## 3. MVC 패턴
+
+#### 음료수 자판기 앱
+
+- 2021.03.07. step3
+
+-----
+
+- AutoLayout 적용
+- subView 로 view 계층 관계 학습
+- AutoResizing 적용
+- IBOutletCollection 사용
+- `required init()`
+
+![buttonTouched](https://user-images.githubusercontent.com/73650994/110742475-c6a09b00-8279-11eb-9392-a3cbee66fd2f.gif)
+

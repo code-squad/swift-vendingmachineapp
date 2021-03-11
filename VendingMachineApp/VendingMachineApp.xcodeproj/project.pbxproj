@@ -42,7 +42,6 @@
 		1E3D23C025E7F1360096DE7B /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3D23BF25E7F1360096DE7B /* Beverage.swift */; };
 		1E66F51225ECC044006A2D4B /* BeverageFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E66F51125ECC044006A2D4B /* BeverageFactory.swift */; };
 		1E66F51A25ECC95E006A2D4B /* Inventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E66F51925ECC95E006A2D4B /* Inventory.swift */; };
-		1ED19CD525F742200047B97A /* BeverageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED19CD425F742200047B97A /* BeverageViewCell.swift */; };
 		1ED19CDC25F75D060047B97A /* BeverageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED19CDB25F75D060047B97A /* BeverageView.swift */; };
 /* End PBXBuildFile section */
 
@@ -82,7 +81,6 @@
 		1E3D23BF25E7F1360096DE7B /* Beverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beverage.swift; sourceTree = "<group>"; };
 		1E66F51125ECC044006A2D4B /* BeverageFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageFactory.swift; sourceTree = "<group>"; };
 		1E66F51925ECC95E006A2D4B /* Inventory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inventory.swift; sourceTree = "<group>"; };
-		1ED19CD425F742200047B97A /* BeverageViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageViewCell.swift; sourceTree = "<group>"; };
 		1ED19CDB25F75D060047B97A /* BeverageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -188,7 +186,6 @@
 			isa = PBXGroup;
 			children = (
 				1ED19CDB25F75D060047B97A /* BeverageView.swift */,
-				1ED19CD425F742200047B97A /* BeverageViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -318,7 +315,6 @@
 				1ED19CDC25F75D060047B97A /* BeverageView.swift in Sources */,
 				1E66F51225ECC044006A2D4B /* BeverageFactory.swift in Sources */,
 				1E3D23AE25E6A9390096DE7B /* Coke.swift in Sources */,
-				1ED19CD525F742200047B97A /* BeverageViewCell.swift in Sources */,
 				1E66F51A25ECC95E006A2D4B /* Inventory.swift in Sources */,
 				1E3D238425E688D30096DE7B /* ViewController.swift in Sources */,
 				1E3D23A625E697C30096DE7B /* BananaMilk.swift in Sources */,

@@ -14,16 +14,16 @@ class ViewController: UIViewController {
     @IBOutlet var drinkStockLabels: [UILabel]!
     @IBOutlet var addButtons: [UIButton]! {
         didSet {
-            for i in 0..<drinkType.count {
-                buttonsForDrink[addButtons[i]] = drinkType[i]
+            drinkType.enumerated().forEach { (index, value) in
+                buttonsForDrink[addButtons[index]] = value
             }
         }
     }
     
     @IBOutlet var chargeButtons: [UIButton]! {
         didSet {
-            for i in 0..<chargeAmount.count {
-                buttonsForCharge[chargeButtons[i]] = chargeAmount[i]
+            chargeAmount.enumerated().forEach { (index, value) in
+                buttonsForCharge[chargeButtons[index]] = value
             }
         }
     }
@@ -70,7 +70,7 @@ class ViewController: UIViewController {
             return
         }
         let remainCoins = vm.checkRemainCoins()
-        remainCoinsLabel.text = "\(remainCoins)"
+        remainCoinsLabel.text = "\(remainCoins)원"
     }
     
     // MARK: IBActions

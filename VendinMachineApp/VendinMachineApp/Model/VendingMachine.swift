@@ -1,6 +1,11 @@
 
 import Foundation
 
+enum VendingMachineMoney : Int, CaseIterable {
+    case insertMoneyType1 = 1000
+    case insertMoneyType2 = 5000
+}
+
 struct VendingMachine {
     private(set) var cashBox: Int
     private var beverages: Beverages

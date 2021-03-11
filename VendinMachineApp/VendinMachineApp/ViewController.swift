@@ -5,25 +5,22 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet var beverageImages: [UIImageView]!
-    @IBOutlet var beverageButtons: [UIButton]!
-    @IBOutlet var beverageLabels: [UILabel]!
+    @IBOutlet var beverageAddButtons: [UIButton]!
+    @IBOutlet var beverageStockLabels: [UILabel]!
     
     @IBOutlet var cashButtons: [UIButton]!
     @IBOutlet weak var cashLabel: UILabel!
-    
-    let beverageList = [BananaMilk.self, ChocoMilk.self, Coke.self, Cider.self, Americano.self, Latte.self]
-    private var addBeverageButtons: [UIButton:Beverage.Type] = [:]
-    private var insertCashButtons: [UIButton:Int] = [:]
-    
+
     var vendingMachine = VendingMachine()
+    var vendingMachineElements = VendingMachineElements()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         setUpBeverageImages()
-        setUpAddBeverageButtons()
-        setUpInsertCashButtons()
-        updateBeverageLabels()
+        vendingMachineElements.setUpAddBeverage(buttons: beverageAddButtons)
+        vendingMachineElements.setUpInsertCash(buttons: cashButtons)
+        vendingMachineElements.updateBeverageStock(labels: beverageStockLabels, in: vendingMachine)
         updateCurrentCash()
     }
 
@@ -35,41 +32,22 @@ class ViewController: UIViewController {
             imageView.layer.cornerRadius = 10
         }
     }
-
-    func setUpAddBeverageButtons() {
-        for (button, beverageType) in zip(beverageButtons, beverageList) {
-            addBeverageButtons.updateValue(beverageType, forKey: button)
-        }
-    }
-    
-    func setUpInsertCashButtons() {
-        let moneyValue = [1000, 5000]
-        for (button, money) in zip(cashButtons, moneyValue) {
-            insertCashButtons.updateValue(money, forKey: button)
-        }
-    }
-    
-    func updateBeverageLabels() {
-        for (beverageLabel, beverageType) in zip(beverageLabels, beverageList) {
-            beverageLabel.text = "\(vendingMachine.beverageCount(beverageType: beverageType))"
-        }
-    }
     
     func updateCurrentCash() {
         cashLabel.text = "\(vendingMachine.cashBox)"
     }
     
     @IBAction func beverageMake(_ sender: UIButton) {
-        guard let beverageType = addBeverageButtons[sender] else {
+        guard let beverageType = vendingMachineElements.pressedAddBeverage(button: sender) else {
             return
         }
         let beverage = BeverageFactory.make(beverage: beverageType)
         vendingMachine.addBeverageStock(beverage)
-        updateBeverageLabels()
+        vendingMachineElements.updateBeverageStock(labels: beverageStockLabels, in: vendingMachine)
     }
     
     @IBAction func insertCash(_ sender: UIButton) {
-        guard let cash = insertCashButtons[sender] else {
+        guard let cash = vendingMachineElements.pressedInsertCash(button: sender) else {
             return
         }
         vendingMachine.insertCash(amount: cash)

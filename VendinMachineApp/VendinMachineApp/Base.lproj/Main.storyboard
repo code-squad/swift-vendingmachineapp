@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="ipad9_7" orientation="landscape" layout="fullscreen" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -13,7 +12,7 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="VendinMachineApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uzk-pC-jhn">
@@ -330,18 +329,18 @@
                         <outletCollection property="beverageImages" destination="yi3-UE-3jX" collectionClass="NSMutableArray" id="Ruj-g4-CyW"/>
                         <outletCollection property="beverageImages" destination="hh3-Vd-l5s" collectionClass="NSMutableArray" id="lPN-uY-6nu"/>
                         <outletCollection property="beverageImages" destination="CFR-Dz-vXh" collectionClass="NSMutableArray" id="czX-EY-9Z2"/>
-                        <outletCollection property="beverageButtons" destination="biO-Sm-7J1" collectionClass="NSMutableArray" id="FEV-Sb-lcl"/>
-                        <outletCollection property="beverageButtons" destination="t4e-it-MsE" collectionClass="NSMutableArray" id="blo-m5-hRt"/>
-                        <outletCollection property="beverageButtons" destination="LCw-bg-qyh" collectionClass="NSMutableArray" id="0uW-Ez-3lV"/>
-                        <outletCollection property="beverageButtons" destination="Jsx-iQ-R5a" collectionClass="NSMutableArray" id="Ebm-ac-8j5"/>
-                        <outletCollection property="beverageButtons" destination="w29-Qi-h9o" collectionClass="NSMutableArray" id="wj3-kX-AVn"/>
-                        <outletCollection property="beverageButtons" destination="d89-sy-2Lf" collectionClass="NSMutableArray" id="FNU-jv-HRH"/>
-                        <outletCollection property="beverageLabels" destination="EWv-OL-7gk" collectionClass="NSMutableArray" id="fyy-do-HMJ"/>
-                        <outletCollection property="beverageLabels" destination="5pc-kt-IOC" collectionClass="NSMutableArray" id="wtW-Kw-vP5"/>
-                        <outletCollection property="beverageLabels" destination="Osq-d2-F2A" collectionClass="NSMutableArray" id="h4h-3M-5av"/>
-                        <outletCollection property="beverageLabels" destination="Upf-6Z-rHA" collectionClass="NSMutableArray" id="svO-VB-Q19"/>
-                        <outletCollection property="beverageLabels" destination="fSi-qB-TwM" collectionClass="NSMutableArray" id="8VZ-Ug-Q10"/>
-                        <outletCollection property="beverageLabels" destination="6KA-FM-UcP" collectionClass="NSMutableArray" id="3b4-qS-80z"/>
+                        <outletCollection property="beverageAddButtons" destination="biO-Sm-7J1" collectionClass="NSMutableArray" id="FEV-Sb-lcl"/>
+                        <outletCollection property="beverageAddButtons" destination="t4e-it-MsE" collectionClass="NSMutableArray" id="blo-m5-hRt"/>
+                        <outletCollection property="beverageAddButtons" destination="LCw-bg-qyh" collectionClass="NSMutableArray" id="0uW-Ez-3lV"/>
+                        <outletCollection property="beverageAddButtons" destination="Jsx-iQ-R5a" collectionClass="NSMutableArray" id="Ebm-ac-8j5"/>
+                        <outletCollection property="beverageAddButtons" destination="w29-Qi-h9o" collectionClass="NSMutableArray" id="wj3-kX-AVn"/>
+                        <outletCollection property="beverageAddButtons" destination="d89-sy-2Lf" collectionClass="NSMutableArray" id="FNU-jv-HRH"/>
+                        <outletCollection property="beverageStockLabels" destination="EWv-OL-7gk" collectionClass="NSMutableArray" id="fyy-do-HMJ"/>
+                        <outletCollection property="beverageStockLabels" destination="5pc-kt-IOC" collectionClass="NSMutableArray" id="wtW-Kw-vP5"/>
+                        <outletCollection property="beverageStockLabels" destination="Osq-d2-F2A" collectionClass="NSMutableArray" id="h4h-3M-5av"/>
+                        <outletCollection property="beverageStockLabels" destination="Upf-6Z-rHA" collectionClass="NSMutableArray" id="svO-VB-Q19"/>
+                        <outletCollection property="beverageStockLabels" destination="fSi-qB-TwM" collectionClass="NSMutableArray" id="8VZ-Ug-Q10"/>
+                        <outletCollection property="beverageStockLabels" destination="6KA-FM-UcP" collectionClass="NSMutableArray" id="3b4-qS-80z"/>
                         <outletCollection property="cashButtons" destination="VJY-Yt-TiX" collectionClass="NSMutableArray" id="IuH-7u-iBS"/>
                         <outletCollection property="cashButtons" destination="qZ3-HS-nOg" collectionClass="NSMutableArray" id="smj-oq-vfj"/>
                     </connections>

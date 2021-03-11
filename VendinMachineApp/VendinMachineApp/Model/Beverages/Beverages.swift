@@ -18,7 +18,7 @@ class Beverages {
     }
     
     func isEmpty(elementType: Beverage.Type) -> Bool {
-        return self.beverages[ObjectIdentifier(elementType)] != nil ? true : false
+        return self.beverages[ObjectIdentifier(elementType)] != nil
     }
     
     func beverageCount(elementType: Beverage.Type) -> Int {

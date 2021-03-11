@@ -10,3 +10,7 @@ import Foundation
 protocol BeverageMapperable {
     func mapping(by tag: Int) -> Beverage.Type?
 }
+
+protocol MoneyMapperable {
+    func mapping(by tag: Int) -> Money.Input?
+}

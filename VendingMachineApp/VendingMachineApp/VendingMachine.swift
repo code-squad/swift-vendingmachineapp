@@ -43,6 +43,10 @@ class VendingMachine: NSObject,VendingMachineManagable, NSCoding {
         return inventoryManager.tagToBeverageType(by: tag)
     }
     
+    func tagToMoneyInputType(by tag: Int) -> Money.Input? {
+        return inventoryManager.tagToMoneyInputType(by: tag)
+    }
+    
     func readInventoryCount(index: Int, allInventores: [ObjectIdentifier : [Beverage]]) -> Int {
         return inventoryManager.readInventoryCount(index: index, allInventores: allInventores)
     }

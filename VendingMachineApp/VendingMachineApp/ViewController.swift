@@ -55,8 +55,11 @@ class ViewController: UIViewController, Stateful {
     }
     
     @IBAction func addBalanceButtonTapped(_ sender: UIButton) {
-        let money: Int = Int(sender.titleLabel?.text ?? "") ?? 0
-        vendingMachine.increaseBalance(money)
+//        let money: Int = Int(sender.titleLabel?.text ?? "") ?? 0
+        guard let moneyIndex: Int = self.addBalanceButtons.firstIndex(of: sender) else { return }
+        guard let moneyInputType = self.vendingMachine.tagToMoneyInputType(by: moneyIndex) else { return }
+        
+        vendingMachine.increaseBalance(moneyInputType.rawValue)
     }
     
     @IBAction func addInventoryButtonTapped(_ sender: UIButton) {

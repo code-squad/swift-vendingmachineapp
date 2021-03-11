@@ -9,10 +9,10 @@ import Foundation
 
 class Milk: Beverage {
     
-    private var flavored: Bool
+    private var calorieContent: Int
     
-    init(manufacturer: String, volume: Int, price: Int, subbrand: String, flavored: Bool, manufacturedAt: Date, expiration: Date, skuName: String) {
-        self.flavored = flavored
+    init(manufacturer: String, volume: Int, price: Int, subbrand: String, calorieContent: Int, manufacturedAt: Date, expiration: Date, skuName: String) {
+        self.calorieContent = calorieContent
         super.init(manufacturer: manufacturer, volume: volume, price: price, subbrand: subbrand, manufacturedAt: manufacturedAt, expiration: expiration, skuName: skuName)
     }
     

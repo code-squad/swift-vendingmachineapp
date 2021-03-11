@@ -9,15 +9,15 @@ import Foundation
 
 class SeoulChoco: Milk {
     
-    private var bitterSweet: Bool
+    private var milkContent: Int
     
-    init(manufacturer: String, volume: Int, price: Int, subbrand: String, flavored: Bool, manufacturedAt: Date, expiration: Date, bitterSweet: Bool, skuName: String) {
-        self.bitterSweet = bitterSweet
-        super.init(manufacturer: manufacturer, volume: volume, price: price, subbrand: subbrand, flavored: flavored, manufacturedAt: manufacturedAt, expiration: expiration, skuName: skuName)
+    init(manufacturer: String, volume: Int, price: Int, subbrand: String, calorieContent: Int, manufacturedAt: Date, expiration: Date, milkContent: Int, skuName: String) {
+        self.milkContent = milkContent
+        super.init(manufacturer: manufacturer, volume: volume, price: price, subbrand: subbrand, calorieContent: calorieContent, manufacturedAt: manufacturedAt, expiration: expiration, skuName: skuName)
     }
     
     convenience init(manufacturedAt: Date, expiration: Date) {
-        self.init(manufacturer: "서울우유", volume: 200, price: 800, subbrand: "서울우유 초코우유", flavored: true, manufacturedAt: manufacturedAt, expiration: expiration, bitterSweet: true, skuName: "서울우유 초코우유 200ml 낱개")
+        self.init(manufacturer: "서울우유", volume: 200, price: 800, subbrand: "서울우유 초코우유", calorieContent: 135, manufacturedAt: manufacturedAt, expiration: expiration, milkContent: 36, skuName: "서울우유 초코우유 200ml 낱개")
     }
     
 }

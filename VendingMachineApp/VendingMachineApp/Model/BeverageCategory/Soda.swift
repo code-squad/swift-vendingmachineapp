@@ -9,10 +9,10 @@ import Foundation
 
 class Soda: Beverage {
     
-    private var transparent: Bool
+    private var sugarContent: Int
     
-    init(manufacturer: String, volume: Int, price: Int, subbrand: String, transparent: Bool, manufacturedAt: Date, expiration: Date, skuName: String) {
-        self.transparent = transparent
+    init(manufacturer: String, volume: Int, price: Int, subbrand: String, sugarContent: Int, manufacturedAt: Date, expiration: Date, skuName: String) {
+        self.sugarContent = sugarContent
         super.init(manufacturer: manufacturer, volume: volume, price: price, subbrand: subbrand, manufacturedAt: manufacturedAt, expiration: expiration, skuName: skuName)
     }
     

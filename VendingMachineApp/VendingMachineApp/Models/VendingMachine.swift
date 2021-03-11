@@ -7,51 +7,69 @@
 
 import Foundation
 
-struct VendingMachine {
-    private let standardHotTempertaure = 70
+class VendingMachine: NSObject, NSCoding {
+    private var standardHotTempertaure = 70
     private var drinks: Drinks
     private var chargedCoins: Int = 0
-    private var purchaseHistory = PurchaseHistory()
+    private var purchaseHistory: PurchaseHistory
+    override var description: String {
+        return "\(drinks)"
+    }
     
     init(drinks: Drinks) {
         self.drinks = drinks
+        self.purchaseHistory = PurchaseHistory()
     }
     
-    mutating func charge(coins: Int) {
+    required init?(coder: NSCoder) {
+        self.standardHotTempertaure = coder.decodeInteger(forKey: "standardHotTempertaure")
+        self.drinks = coder.decodeObject(forKey: "drinks") as! Drinks
+        self.chargedCoins = coder.decodeInteger(forKey: "chargedCoins")
+        self.purchaseHistory = coder.decodeObject(forKey: "purchaseHistory") as! PurchaseHistory
+    }
+    
+    func encode(with coder: NSCoder) {
+        coder.encode(standardHotTempertaure, forKey: "standardHotTempertaure")
+        coder.encode(drinks, forKey: "drinks")
+        coder.encode(chargedCoins, forKey: "chargedCoins")
+        coder.encode(purchaseHistory, forKey: "purchaseHistory")
+    }
+    
+    func charge(coins: Int) {
         chargedCoins += coins
     }
     
-    mutating func addStock(for drink: Drink) {
+    func addStock(for drink: Drink) {
         drinks.add(drink: drink)
     }
     
-    mutating func getAvailableDrinks() -> [Drink] {
+    func getAvailableDrinks() -> [Drink] {
         return drinks.getAvailableDrinks(with: chargedCoins)
     }
     
-    mutating func purchase(drink: Drink) {
+    func purchase(drink: Drink) {
         chargedCoins -= drink.price
         drinks.remove(drink: drink)
         purchaseHistory.add(drink: drink)
     }
     
-    mutating func checkRemainCoins() -> Int {
+    func checkRemainCoins() -> Int {
         return chargedCoins
     }
     
-    mutating func getAllDrinks() -> [Drink: Int] {
+    func getAllDrinks() -> [ObjectIdentifier: [Drink]] {
         return drinks.getAllDrinks()
     }
     
-    mutating func getExpiredDrinks(date: Date) -> [Drink: Int] {
+    func getExpiredDrinks(date: Date) -> [Drink] {
         return drinks.getExpiredDrinks(date: date)
     }
     
-    mutating func getHotDrinks() -> [Drink] {
+    func getHotDrinks() -> [Drink] {
         return drinks.getHotDrinks(for: standardHotTempertaure)
     }
     
-    mutating func getPurchaseHistory() -> [Drink] {
+    func getPurchaseHistory() -> [Drink] {
         return purchaseHistory.purchasedDrinks
     }
 }

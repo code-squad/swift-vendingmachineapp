@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Drink {
+class Drink: NSObject, NSCoding {
     private let manufacturer: String
     private let volume: Int
     private let name: String
@@ -16,7 +16,7 @@ class Drink {
     private(set) var price: Int
     private var temperature: Int
     private var calorie: Int
-    var description: String {
+    override var description: String {
         return "\(manufacturer), \(volume)ml, \(price)원, \(name), \(Date.dateFormatter(date: manufacturedAt))"
     }
     
@@ -29,6 +29,28 @@ class Drink {
         self.temperature = temperature
         self.calorie = calorie
         self.expiredAt = expiredAt
+    }
+    
+    required init?(coder: NSCoder) {
+        self.manufacturer = coder.decodeObject(forKey: "manufacturer") as! String
+        self.volume = coder.decodeInteger(forKey: "volume")
+        self.name = coder.decodeObject(forKey: "name") as! String
+        self.manufacturedAt = coder.decodeObject(forKey: "manufacturedAt") as! Date
+        self.expiredAt = coder.decodeObject(forKey: "expiredAt") as! Date
+        self.price = coder.decodeInteger(forKey: "price")
+        self.temperature = coder.decodeInteger(forKey: "temperature")
+        self.calorie = coder.decodeInteger(forKey: "calorie")
+    }
+    
+    func encode(with coder: NSCoder) {
+        coder.encode(manufacturer, forKey: "manufacturer")
+        coder.encode(volume, forKey: "volume")
+        coder.encode(name, forKey: "name")
+        coder.encode(manufacturedAt, forKey: "manufacturedAt")
+        coder.encode(expiredAt, forKey: "expiredAt")
+        coder.encode(price, forKey: "price")
+        coder.encode(temperature, forKey: "temperature")
+        coder.encode(calorie, forKey: "calorie")
     }
 }
 
@@ -43,18 +65,5 @@ extension Drink: Drinkable {
     
     func isLowCalorie(with calorie: Int) -> Bool {
         return self.calorie > calorie
-    }
-}
-
-extension Drink: Hashable {
-    static func == (lhs: Drink, rhs: Drink) -> Bool {
-        return lhs.manufacturer == rhs.manufacturer && lhs.volume == rhs.volume && lhs.name == rhs.name && lhs.price == rhs.price
-    }
-    
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(manufacturer)
-        hasher.combine(volume)
-        hasher.combine(name)
-        hasher.combine(price)
     }
 }

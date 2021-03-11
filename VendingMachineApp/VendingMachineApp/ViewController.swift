@@ -39,6 +39,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         setupDrinkImage()
         updateDrinkStockLabels()
+        updateRemainCoinsLabel()
     }
     
     func setupDrinkImage() {
@@ -62,6 +63,14 @@ class ViewController: UIViewController {
         for i in 0..<stocks.count {
             drinkStockLabels[i].text = "\(String(stocks[i]))개"
         }
+    }
+    
+    func updateRemainCoinsLabel() {
+        guard let vm = vendingMachine else {
+            return
+        }
+        let remainCoins = vm.checkRemainCoins()
+        remainCoinsLabel.text = "\(remainCoins)"
     }
     
     // MARK: IBActions

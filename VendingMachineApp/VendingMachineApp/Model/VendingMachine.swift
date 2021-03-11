@@ -30,7 +30,7 @@ struct VendingMachine {
     }
     
     //자판기 금액을 원하는 금액만큼 올리는 기능
-    public func put(in money: Int) {
+    public func put(in money: Money) {
         paymentManager.increase(money)
     }
     

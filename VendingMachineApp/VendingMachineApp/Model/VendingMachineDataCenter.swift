@@ -5,7 +5,6 @@
 //  Created by Issac on 2021/03/10.
 //
 
-import Foundation
 import UIKit
 
 class VendingMachineDataCenter {

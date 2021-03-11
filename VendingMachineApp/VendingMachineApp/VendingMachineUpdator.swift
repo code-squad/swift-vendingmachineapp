@@ -10,89 +10,53 @@ import UIKit
 
 protocol VendingMachinePresenter {
     
-    func didTurnOn(images: [UIImageView], countLabels: [UILabel], machine: VendingMachine, moneyLabel: UILabel, beverageList: [Shopable])
+    func didTurnOn(images: [UIImage], sampleView: ProductStackView, stackView: UIStackView, machine: VendingMachine, beverageList: [Shopable], moneyLabel: UILabel)
     
-    func didAddMoneyTouched(sender: UIButton, machine: VendingMachine, label: UILabel)
+    func didAddStockTouched(for beverage: Shopable, machine: VendingMachine)
     
-    func didAddStockTouched(sender: UIButton, machine: VendingMachine, labels: [UILabel], beverageList: [Shopable])
+    func didAddMoneyTouched(amount: Int, machine: VendingMachine)
     
 }
 
 class VendingMachineUpdator: VendingMachinePresenter {
     
-    func didTurnOn(images: [UIImageView], countLabels: [UILabel], machine: VendingMachine, moneyLabel: UILabel, beverageList: [Shopable]) {
+    func didAddMoneyTouched(amount: Int, machine: VendingMachine) {
+        machine.insert(money: amount)
+    }
+    
+    func didAddStockTouched(for beverage: Shopable, machine: VendingMachine) {
+        machine.addStock(of: beverage)
+    }
+    
+    func didTurnOn(images: [UIImage], sampleView: ProductStackView, stackView: UIStackView, machine: VendingMachine, beverageList: [Shopable], moneyLabel: UILabel) {
         
-        images.forEach { (image) in
-            image.layer.cornerRadius = 15
-        }
+        moneyLabel.text = "\(machine.moneyLeft())원"
         
-        countLabels.forEach { (label) in
-            label.adjustsFontSizeToFitWidth = true
+        stackView.arrangedSubviews.forEach { (sample) in
+            sample.removeFromSuperview()
         }
+    
+        for (idx, image) in images.enumerated() {
+            let target = beverageList[idx]
+            let id = ObjectIdentifier(type(of: target))
+            let count = machine.allStocks()[id]
+            
+            let newView = productView(with: image, sampleView, count)
+            stackView.addArrangedSubview(newView)
+        }
+    }
+    
+    private func productView(with image: UIImage,_ sampleView: ProductStackView, _ count: Int?) -> ProductStackView {
         
-        updateCounts(for: countLabels, stockList: machine.allStocks(), beverageList: beverageList)
-        updateBalance(for: moneyLabel, money: machine.moneyLeft())
-    }
+        let view = try! NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(NSKeyedArchiver.archivedData(withRootObject: sampleView, requiringSecureCoding: false)) as! ProductStackView
+        
+        view.imageView.image = image
     
-    func didAddMoneyTouched(sender: UIButton, machine: VendingMachine, label: UILabel) {
-        if sender.restorationIdentifier == "add1K" {
-            machine.insert(money: 1000)
-        } else if sender.restorationIdentifier == "add5K" {
-            machine.insert(money: 5000)
-        }
-        updateBalance(for: label, money: machine.moneyLeft())
-    }
-    
-    private func updateBalance(for label: UILabel, money: Int) {
-        label.text = "\(money)원"
-    }
-    
-    func didAddStockTouched(sender: UIButton, machine: VendingMachine, labels: [UILabel], beverageList: [Shopable]) {
-        switch sender.restorationIdentifier {
-        case "addAmericano":
-            machine.addStock(of: beverageList[0])
-        case "addCafelatte":
-            machine.addStock(of: beverageList[1])
-        case "addChocolateMilk":
-            machine.addStock(of: beverageList[2])
-        case "addCoke":
-            machine.addStock(of: beverageList[3])
-        case "addMilkis":
-            machine.addStock(of: beverageList[4])
-        case "addPlainMilk":
-            machine.addStock(of: beverageList[5])
-        default:
-            return
-        }
-        updateCounts(for: labels, stockList: machine.allStocks(), beverageList: beverageList)
-    }
-    
-    private func updateCounts(for labels: [UILabel], stockList: [ObjectIdentifier: Int], beverageList: [Shopable]) {
-        for label in labels {
-            switch label.restorationIdentifier {
-            case "americano":
-                label.text = countValidation(for: stockList[ObjectIdentifier(type(of: beverageList[0]))])
-            case "cafelatte":
-                label.text = countValidation(for: stockList[ObjectIdentifier(type(of: beverageList[1]))])
-            case "chocolateMilk":
-                label.text = countValidation(for: stockList[ObjectIdentifier(type(of: beverageList[2]))])
-            case "coke":
-                label.text = countValidation(for: stockList[ObjectIdentifier(type(of: beverageList[3]))])
-            case "milkis":
-                label.text = countValidation(for: stockList[ObjectIdentifier(type(of: beverageList[4]))])
-            case "plainMilk":
-                label.text = countValidation(for: stockList[ObjectIdentifier(type(of: beverageList[5]))])
-            default:
-                return
-            }
-        }
-    }
-    
-    private func countValidation(for count: Int?) -> String {
         if let count = count {
-            return "\(count)개"
+            view.countLabel.text = "\(count)개"
         } else {
-            return "품절"
+            view.countLabel.text = "품절"
         }
+        return view
     }
 }

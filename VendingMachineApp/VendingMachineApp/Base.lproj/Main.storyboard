@@ -3,8 +3,8 @@
     <device id="ipad12_9rounded" orientation="landscape" layout="fullscreen" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
-        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,248 +13,122 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="VendingMachineApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" userLabel="Vending Machine View">
+                    <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="8bC-Xf-vdC" userLabel="Vending Machine View">
                         <rect key="frame" x="0.0" y="0.0" width="1366" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mBW-Dn-kbm" userLabel="Beverage View">
-                                <rect key="frame" x="39" y="118" width="1288" height="325"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ipm-ps-kUN" userLabel="Product Stack">
+                                <rect key="frame" x="60" y="85" width="1246" height="330"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JvM-2X-wdy" userLabel="Americano View">
-                                        <rect key="frame" x="10" y="11" width="220" height="304"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="5Eq-QW-tYb" userLabel="Product1" customClass="ProductStackView" customModule="VendingMachineApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="1246" height="330"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="americano" translatesAutoresizingMaskIntoConstraints="NO" id="5TY-YP-WDk">
-                                                <rect key="frame" x="20" y="20" width="180" height="180"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" restorationIdentifier="americano" text="5개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HYv-y2-u8A">
-                                                <rect key="frame" x="20" y="222" width="44" height="36"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1개" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="65E-w8-YGx">
+                                                <rect key="frame" x="0.0" y="0.0" width="1246" height="54.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="addAmericano" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vFw-Am-o7q">
-                                                <rect key="frame" x="175" y="222" width="25" height="34"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                                <color key="tintColor" systemColor="labelColor"/>
-                                                <state key="normal">
-                                                    <imageReference key="image" image="plus.circle.fill" catalog="system" symbolScale="large"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="addStockTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WDm-TW-M5g"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                    </view>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nSJ-Vg-WJT" userLabel="CafeLatte View">
-                                        <rect key="frame" x="220" y="11" width="220" height="304"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cafelatte" translatesAutoresizingMaskIntoConstraints="NO" id="iTV-N9-JyM">
-                                                <rect key="frame" x="20" y="20" width="180" height="180"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="americano" translatesAutoresizingMaskIntoConstraints="NO" id="Ep3-5U-IU2">
+                                                <rect key="frame" x="0.0" y="54.5" width="1246" height="195.5"/>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" restorationIdentifier="cafelatte" text="5개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9k4-l7-f4l">
-                                                <rect key="frame" x="20" y="222" width="44" height="36"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="addCafelatte" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="THQ-so-UoQ">
-                                                <rect key="frame" x="175" y="222" width="25" height="34"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                                <color key="tintColor" systemColor="labelColor"/>
-                                                <state key="normal">
-                                                    <imageReference key="image" image="plus.circle.fill" catalog="system" symbolScale="large"/>
-                                                </state>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WCA-MU-0PF">
+                                                <rect key="frame" x="0.0" y="250" width="1246" height="80"/>
+                                                <color key="backgroundColor" systemColor="systemPurpleColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <connections>
-                                                    <action selector="addStockTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YFK-5p-KyM"/>
+                                                    <action selector="addStockTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RNG-85-brM"/>
                                                 </connections>
                                             </button>
                                         </subviews>
-                                    </view>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XUG-3T-Cfo" userLabel="Chocolate View">
-                                        <rect key="frame" x="430" y="11" width="220" height="304"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="chocolatemilk" translatesAutoresizingMaskIntoConstraints="NO" id="CmG-mW-MKL">
-                                                <rect key="frame" x="20" y="20" width="180" height="180"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" restorationIdentifier="chocolateMilk" text="5개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UmJ-t5-fDR">
-                                                <rect key="frame" x="20" y="222" width="44" height="36"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="addChocolateMilk" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FRb-h9-jaV">
-                                                <rect key="frame" x="175" y="222" width="25" height="34"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                                <color key="tintColor" systemColor="labelColor"/>
-                                                <state key="normal">
-                                                    <imageReference key="image" image="plus.circle.fill" catalog="system" symbolScale="large"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="addStockTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LfJ-sS-VU1"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                    </view>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nn4-oj-mAp" userLabel="Coke View">
-                                        <rect key="frame" x="640" y="11" width="220" height="304"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="coke" translatesAutoresizingMaskIntoConstraints="NO" id="7XR-xS-aF4">
-                                                <rect key="frame" x="20" y="20" width="180" height="180"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" restorationIdentifier="coke" text="5개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yAR-iB-SaQ">
-                                                <rect key="frame" x="20" y="222" width="44" height="36"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="addCoke" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B2w-yY-1x5">
-                                                <rect key="frame" x="175" y="222" width="25" height="34"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                                <color key="tintColor" systemColor="labelColor"/>
-                                                <state key="normal">
-                                                    <imageReference key="image" image="plus.circle.fill" catalog="system" symbolScale="large"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="addStockTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0Kz-dT-Qa7"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                    </view>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WEt-9w-WGc" userLabel="Milkis View">
-                                        <rect key="frame" x="850" y="11" width="220" height="304"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="milkis" translatesAutoresizingMaskIntoConstraints="NO" id="D1n-lN-zQx">
-                                                <rect key="frame" x="20" y="20" width="180" height="180"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" restorationIdentifier="milkis" text="5개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tt0-TP-OtO">
-                                                <rect key="frame" x="20" y="222" width="44" height="36"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="addMilkis" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nbu-nF-hYU">
-                                                <rect key="frame" x="175" y="222" width="25" height="34"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                                <color key="tintColor" systemColor="labelColor"/>
-                                                <state key="normal">
-                                                    <imageReference key="image" image="plus.circle.fill" catalog="system" symbolScale="large"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="addStockTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sOO-DJ-Pdh"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                    </view>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J6P-qf-PdH" userLabel="PlainMilk View">
-                                        <rect key="frame" x="1060" y="11" width="220" height="304"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="plainmilk" translatesAutoresizingMaskIntoConstraints="NO" id="pjx-DG-Gy3">
-                                                <rect key="frame" x="20" y="20" width="180" height="180"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" restorationIdentifier="plainMilk" text="5개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zxr-kp-XGG">
-                                                <rect key="frame" x="20" y="222" width="44" height="36"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="addPlainMilk" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Zy-Vc-njO">
-                                                <rect key="frame" x="175" y="222" width="25" height="34"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                                <color key="tintColor" systemColor="labelColor"/>
-                                                <state key="normal">
-                                                    <imageReference key="image" image="plus.circle.fill" catalog="system" symbolScale="large"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="addStockTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7ss-A0-xsO"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                    </view>
+                                        <connections>
+                                            <outlet property="addButton" destination="WCA-MU-0PF" id="6E8-nE-yoW"/>
+                                            <outlet property="countLabel" destination="65E-w8-YGx" id="EVe-E9-MEi"/>
+                                            <outlet property="imageView" destination="Ep3-5U-IU2" id="Xzd-Sx-aFL"/>
+                                        </connections>
+                                    </stackView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemTealColor"/>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jVE-FN-htd" userLabel="Money View">
-                                <rect key="frame" x="1046" y="468" width="281" height="435"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="330" id="j4X-S8-bWM"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="LeO-vF-nfC" userLabel="Money Button Stack">
+                                <rect key="frame" x="976" y="465" width="330" height="400"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="₩ 1000000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zjw-Sh-mGe">
-                                        <rect key="frame" x="28" y="267" width="225" height="69"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="36"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="add5K" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4WP-sC-sIY">
-                                        <rect key="frame" x="28" y="156" width="225" height="80"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ftn-Ha-Yro">
+                                        <rect key="frame" x="0.0" y="0.0" width="330" height="113.5"/>
+                                        <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <state key="normal" title="+ 1000">
+                                            <color key="titleColor" systemColor="systemBackgroundColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="addMoneyTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hUZ-jT-9Z0"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4aQ-q7-ZOu">
+                                        <rect key="frame" x="0.0" y="143.5" width="330" height="113"/>
                                         <color key="backgroundColor" systemColor="systemYellowColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <state key="normal" title="+ 5000">
                                             <color key="titleColor" systemColor="labelColor"/>
                                         </state>
                                         <connections>
-                                            <action selector="addMoneyTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6Z2-XV-Atf"/>
+                                            <action selector="addMoneyTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MoY-EP-x9l"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="add1K" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jIr-pK-zRD">
-                                        <rect key="frame" x="28" y="58" width="225" height="80"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" systemColor="systemTealColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="31"/>
-                                        <state key="normal" title="+ 1000">
-                                            <color key="titleColor" systemColor="systemGray6Color"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fkd-xO-W1U">
+                                        <rect key="frame" x="0.0" y="286.5" width="330" height="113.5"/>
+                                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <state key="normal" title="+ 10000">
+                                            <color key="titleColor" systemColor="labelColor"/>
                                         </state>
                                         <connections>
-                                            <action selector="addMoneyTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="w5O-oa-Rwy"/>
+                                            <action selector="addMoneyTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qa7-FB-GNJ"/>
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemGray6Color"/>
-                            </view>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="330" id="BJ1-mZ-A5B"/>
+                                    <constraint firstAttribute="height" constant="400" id="HKv-S3-3fi"/>
+                                </constraints>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="₩ 1000000" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iGt-Jm-ZEU">
+                                <rect key="frame" x="976" y="873" width="330" height="69"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="330" id="8TC-BD-c38"/>
+                                    <constraint firstAttribute="height" constant="69" id="OnA-qH-TcS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                        <constraints>
+                            <constraint firstItem="LeO-vF-nfC" firstAttribute="top" secondItem="ipm-ps-kUN" secondAttribute="bottom" constant="50" id="Law-zr-xSo"/>
+                            <constraint firstItem="iGt-Jm-ZEU" firstAttribute="leading" relation="lessThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="976" id="QO0-o4-McM"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="LeO-vF-nfC" secondAttribute="trailing" constant="60" id="Sla-XV-R8O"/>
+                            <constraint firstItem="ipm-ps-kUN" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="85" id="W81-EK-ZNU"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="iGt-Jm-ZEU" secondAttribute="trailing" constant="60" id="hSh-5o-Qjl"/>
+                            <constraint firstItem="ipm-ps-kUN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="60" id="odB-8z-qu3"/>
+                            <constraint firstItem="iGt-Jm-ZEU" firstAttribute="top" secondItem="LeO-vF-nfC" secondAttribute="bottom" constant="8" symbolic="YES" id="tJP-E3-eek"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ipm-ps-kUN" secondAttribute="trailing" constant="60" id="xDe-o9-4fi"/>
+                        </constraints>
                     </view>
                     <connections>
-                        <outlet property="moneyLabel" destination="zjw-Sh-mGe" id="N9q-ly-Uud"/>
-                        <outletCollection property="countCollection" destination="Tt0-TP-OtO" collectionClass="NSMutableArray" id="JM6-Si-JMz"/>
-                        <outletCollection property="beverageCollection" destination="D1n-lN-zQx" collectionClass="NSMutableArray" id="75w-hE-t0B"/>
-                        <outletCollection property="countCollection" destination="HYv-y2-u8A" collectionClass="NSMutableArray" id="1kF-Bv-cnU"/>
-                        <outletCollection property="countCollection" destination="9k4-l7-f4l" collectionClass="NSMutableArray" id="IS7-cb-bvn"/>
-                        <outletCollection property="countCollection" destination="UmJ-t5-fDR" collectionClass="NSMutableArray" id="8hu-yK-GMR"/>
-                        <outletCollection property="countCollection" destination="yAR-iB-SaQ" collectionClass="NSMutableArray" id="4mg-24-XmY"/>
-                        <outletCollection property="countCollection" destination="Zxr-kp-XGG" collectionClass="NSMutableArray" id="0e9-Om-F4j"/>
-                        <outletCollection property="beverageCollection" destination="5TY-YP-WDk" collectionClass="NSMutableArray" id="WuK-c3-puN"/>
-                        <outletCollection property="beverageCollection" destination="iTV-N9-JyM" collectionClass="NSMutableArray" id="kxb-gQ-48y"/>
-                        <outletCollection property="beverageCollection" destination="CmG-mW-MKL" collectionClass="NSMutableArray" id="5Vv-Do-z7m"/>
-                        <outletCollection property="beverageCollection" destination="7XR-xS-aF4" collectionClass="NSMutableArray" id="5Fa-ZR-Muj"/>
-                        <outletCollection property="beverageCollection" destination="D1n-lN-zQx" collectionClass="NSMutableArray" id="dcc-98-TqR"/>
-                        <outletCollection property="beverageCollection" destination="pjx-DG-Gy3" collectionClass="NSMutableArray" id="tFw-ey-2aU"/>
+                        <outlet property="moneyLabel" destination="iGt-Jm-ZEU" id="YNQ-8d-OJO"/>
+                        <outlet property="productSample" destination="5Eq-QW-tYb" id="Tkt-k5-hEo"/>
+                        <outlet property="productStackView" destination="ipm-ps-kUN" id="d6B-iI-dJI"/>
+                        <outletCollection property="countCollection" destination="65E-w8-YGx" collectionClass="NSMutableArray" id="dEu-2s-rTQ"/>
+                        <outletCollection property="addButtonCollection" destination="WCA-MU-0PF" collectionClass="NSMutableArray" id="8Oq-jW-0hf"/>
+                        <outletCollection property="moneyButtonCollection" destination="Ftn-Ha-Yro" collectionClass="NSMutableArray" id="4Uh-8I-RmP"/>
+                        <outletCollection property="moneyButtonCollection" destination="4aQ-q7-ZOu" collectionClass="NSMutableArray" id="W0F-9F-gl3"/>
+                        <outletCollection property="moneyButtonCollection" destination="fkd-xO-W1U" collectionClass="NSMutableArray" id="N8k-rP-cfO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -264,20 +138,23 @@
     </scenes>
     <resources>
         <image name="americano" width="120" height="120"/>
-        <image name="cafelatte" width="120" height="120"/>
-        <image name="chocolatemilk" width="120" height="120"/>
-        <image name="coke" width="120" height="120"/>
-        <image name="milkis" width="120" height="120"/>
-        <image name="plainmilk" width="120" height="120"/>
-        <image name="plus.circle.fill" catalog="system" width="128" height="121"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
-        <systemColor name="systemGray6Color">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPurpleColor">
+            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemTealColor">
             <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

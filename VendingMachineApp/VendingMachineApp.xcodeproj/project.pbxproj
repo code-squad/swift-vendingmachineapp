@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		826E983225F8C0E100807D58 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A851E625E63339001024D9 /* ViewController.swift */; };
 		8272F9AC25F040F3008167CE /* StrawBerryMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8272F9AB25F040F3008167CE /* StrawBerryMilk.swift */; };
 		8272F9B025F04101008167CE /* BananaMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8272F9AF25F04101008167CE /* BananaMilk.swift */; };
 		8272F9B425F04113008167CE /* Cider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8272F9B325F04113008167CE /* Cider.swift */; };
@@ -282,6 +283,7 @@
 				828EB07B25EFD24E00EC132C /* Soda.swift in Sources */,
 				8272F9BB25F0412C008167CE /* Cider.swift in Sources */,
 				8272F9C125F0412F008167CE /* StrawBerryMilk.swift in Sources */,
+				826E983225F8C0E100807D58 /* ViewController.swift in Sources */,
 				828EB08225EFD25200EC132C /* Money.swift in Sources */,
 				828EB07625EFD24600EC132C /* Beverage.swift in Sources */,
 				82E6362725F2F9D200567670 /* Beverages.swift in Sources */,

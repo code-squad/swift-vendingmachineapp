@@ -5,17 +5,19 @@
 //  Created by 박정하 on 2021/02/25.
 //
 
-import Foundation
+import UIKit
 
 class VendingMachine {
     private var money : Money
     private var currentBeverages : Beverages
     private var bought : Beverages
+    private var BeverageFactory : [Beverage] = []
     
     init(Money : Money){
         self.money = Money
         self.currentBeverages = Beverages()
         self.bought = Beverages()
+        currentBeverages.makeFactoryBeverage(beverages: &self.BeverageFactory)
     }
     
     func addBeverage(beverage : Beverage){
@@ -23,7 +25,7 @@ class VendingMachine {
     }
     
     func addMoney(money : Money){
-        money.addMoney(money: money)
+        self.money.addMoney(money: money)
     }
     
     func buyBeverage(beverage : Beverage){
@@ -51,5 +53,29 @@ class VendingMachine {
     
     func boughtList() -> [String: Int]{
         return bought.beveragesList()
+    }
+    
+    func drawCurrentMoney(moneyLabel : UILabel){
+        money.showCurrentMoney(moneyLabel : moneyLabel)
+    }
+    
+    func makeButtonBeverageList() -> [UIButton] {
+        return currentBeverages.makeButtonCurrentBeverageList()
+    }
+    
+    func makeBeverageLabel() -> [UILabel]{
+        return currentBeverages.makeBeverageLabel()
+    }
+    
+    func makebeverageImage() -> [UIImageView]{
+        return currentBeverages.makebeverageImages()
+    }
+    
+    func sendBeverageInFactory(index : Int) -> Beverage{
+        return BeverageFactory[index]
+    }
+    
+    func drawStockLabel(beverage : Beverage) -> Int{
+        return currentBeverages.sendCurrentBeverageObjectIdentifierCount(beverage: beverage)
     }
 }

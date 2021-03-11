@@ -9,9 +9,13 @@ import UIKit
 
 class Beverages{
     private var beverages : [Beverage]
+    private let beverageTypeList : [Beverage.Type]
+    private let UIimagesTitles : [String]
     
     init() {
         beverages = []
+        beverageTypeList = [BananaMilk.self, StrawBerryMilk.self, Cider.self, Coke.self, Hot6.self, Monster.self, CaffeMocha.self, CaffeeLatte.self]
+        UIimagesTitles  = ["BananaMilk", "StrawberryMilk", "somersby", "coke", "HOT6", "Monster", "CaffeMocha", "CafeLatte"]
     }
     
     func addBeverage(beverage : Beverage) -> Void{
@@ -54,11 +58,63 @@ class Beverages{
         return beverageList
     }
     
+    func makeFactoryBeverage(beverages : inout [Beverage]){
+        for i in 0..<beverageTypeList.count{
+            beverages.append(BeverageCreater().makeBeverage(beveragetype: beverageTypeList[i], Date().makeDatewithString(yyyyMMdd: "20210301")))
+        }
+    }
+    
     func beveragesList() -> [String : Int]{
         var tempdictionary : [String : Int] = [:]
         for i in 0..<beverages.count{
             beverages[i].addProduct(productList: &tempdictionary)
         }
         return tempdictionary
+    }
+    
+    func makeButtonCurrentBeverageList() -> [UIButton]{
+        var tempButtons : [UIButton] = []
+        for _ in 0..<beverageTypeList.count{
+            tempButtons.append(UIButton())
+        }
+        return tempButtons
+    }
+    
+    func makebeverageImages() -> [UIImageView]{
+        var tempUIimageViews : [UIImageView] = []
+        for i in 0..<UIimagesTitles.count {
+            if let tempUIimage = UIImage(named: UIimagesTitles[i]){
+                tempUIimageViews.append(UIImageView(image: tempUIimage))
+            }
+            else {
+                
+            }
+        }
+        return tempUIimageViews
+    }
+    
+    func makeBeverageLabel() -> [UILabel]{
+        var UIBeverageLabel : [UILabel] = []
+        for _ in 0..<beverageTypeList.count{
+            UIBeverageLabel.append(UILabel())
+        }
+        return UIBeverageLabel
+    }
+    
+    private func makeCurrentBeverageObjectIdentifierList() -> [ObjectIdentifier : Int]{
+        var tempList : [ObjectIdentifier : Int] = [:]
+        for i in 0..<beverages.count{
+            beverages[i].addProductType(productTypeList: &tempList)
+        }
+        return tempList
+    }
+    
+    func sendCurrentBeverageObjectIdentifierCount(beverage : Beverage) -> Int{
+        let tempbeverageList : [ObjectIdentifier : Int] = makeCurrentBeverageObjectIdentifierList()
+        var tempResult = 0
+        if let tempbeverageCount = tempbeverageList[ObjectIdentifier(beverage)]{
+            tempResult = tempbeverageCount
+        }
+        return tempResult
     }
 }

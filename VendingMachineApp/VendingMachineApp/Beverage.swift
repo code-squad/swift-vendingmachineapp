@@ -52,13 +52,22 @@ class Beverage : CustomStringConvertible {
         return kcal > self.HIGHCALSTANDARD
     }
     
-    func addProduct( productList : inout [String: Int]){
+    func addProduct(productList : inout [String: Int]){
         if productList[self.name] == nil{
             productList[self.name] = 1
         }
         else{
             productList[self.name]! += 1
         }        
+    }
+    
+    func addProductType(productTypeList : inout [ObjectIdentifier : Int]){
+        if productTypeList[ObjectIdentifier(self)] == nil{
+            productTypeList[ObjectIdentifier(self)] = 1
+        }
+        else{
+            productTypeList[ObjectIdentifier(self)]! += 1
+        }
     }
 }
 

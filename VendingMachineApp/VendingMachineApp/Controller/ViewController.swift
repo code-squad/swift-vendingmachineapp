@@ -15,12 +15,14 @@ class ViewController: UIViewController {
     @IBOutlet var beverageLabels: [UILabel]!
     @IBOutlet var rechargeButtons: [UIButton]!
     
-    let vendingMachine = VendingMachine()
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    var vendingMachine: VendingMachine?
     var dataOfBeverageButton: [UIButton : (beverage: Beverage, label: UILabel)] = [:]
     var dataOfRechargeButton: [UIButton : Int] = [:]
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.vendingMachine = appDelegate.vendingMachine
         curveImageVertex()
         fillDataOfBeverageButton()
         fillDataOfRechargeButton()
@@ -28,8 +30,8 @@ class ViewController: UIViewController {
     
     @IBAction func addStock(_ sender: UIButton) {
         guard let beverage = dataOfBeverageButton[sender]?.beverage else {return}
-        vendingMachine.addStock(as: beverage)
-        let stockList = vendingMachine.showStock()
+        vendingMachine!.addStock(as: beverage)
+        let stockList = vendingMachine!.showStock()
         let beverageID = ObjectIdentifier(beverage)
         guard let stock = stockList[beverageID] else {return}
         dataOfBeverageButton[sender]?.label.text = "\(stock.count)개"
@@ -37,8 +39,8 @@ class ViewController: UIViewController {
     
     @IBAction func rechargeCash(_ sender: UIButton) {
         guard let cash = dataOfRechargeButton[sender] else {return}
-        vendingMachine.rechargeCash(with: cash)
-        balanceLabel.text = "\(vendingMachine.showBalance().description)원"
+        vendingMachine!.rechargeCash(with: cash)
+        balanceLabel.text = "\(vendingMachine!.showBalance().description)원"
     }
     
     func curveImageVertex() {
@@ -59,5 +61,6 @@ class ViewController: UIViewController {
         dataOfRechargeButton[rechargeButtons[0]] = 1000
         dataOfRechargeButton[rechargeButtons[1]] = 5000
     }
+    
 }
 

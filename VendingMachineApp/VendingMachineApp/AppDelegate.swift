@@ -9,5 +9,8 @@ import UIKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    
+    let vendingMachine = VendingMachine()
+
 }
 

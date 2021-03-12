@@ -38,6 +38,7 @@
 		BFCA485425EE527E003D4844 /* BeverageImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCA485325EE527E003D4844 /* BeverageImageView.swift */; };
 		BFD0126225F74C59007A54FA /* DrinkMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD0126125F74C59007A54FA /* DrinkMenu.swift */; };
 		BFD012B225F9263A007A54FA /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD012B125F9263A007A54FA /* NotificationName.swift */; };
+		BFD012C725FBD324007A54FA /* PaymentMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD012C625FBD324007A54FA /* PaymentMenu.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +96,7 @@
 		BFCA485325EE527E003D4844 /* BeverageImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageImageView.swift; sourceTree = "<group>"; };
 		BFD0126125F74C59007A54FA /* DrinkMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkMenu.swift; sourceTree = "<group>"; };
 		BFD012B125F9263A007A54FA /* NotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationName.swift; sourceTree = "<group>"; };
+		BFD012C625FBD324007A54FA /* PaymentMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMenu.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +194,7 @@
 				BF53817A25E4D7130031EE39 /* DietCola.swift */,
 				BF53817F25E4D7450031EE39 /* TopAmericano.swift */,
 				BF5381CC25E77B4C0031EE39 /* PurchasedList.swift */,
+				BFD012C625FBD324007A54FA /* PaymentMenu.swift */,
 				BF5381BE25E5EEF80031EE39 /* Payment.swift */,
 				BF5381B925E549780031EE39 /* Drinks.swift */,
 				BFD0126125F74C59007A54FA /* DrinkMenu.swift */,
@@ -382,6 +385,7 @@
 				BFCA484F25EE3E6E003D4844 /* BalanceIncreasable.swift in Sources */,
 				BF0F68E125F64E3B000F2D89 /* Archive.swift in Sources */,
 				BF53817B25E4D7130031EE39 /* DietCola.swift in Sources */,
+				BFD012C725FBD324007A54FA /* PaymentMenu.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

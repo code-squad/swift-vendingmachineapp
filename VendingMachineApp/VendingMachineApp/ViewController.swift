@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     @IBOutlet var addStockButton: [UIButton]!
     @IBOutlet var beverageImages: [BeverageImageView]!
     @IBOutlet var numberOfStock: [UILabel]!
+    @IBOutlet var addPaymentButtons: [UIButton]!
     @IBOutlet weak var BalanceLabel: UILabel!
     
     override func viewDidLoad() {
@@ -29,19 +30,12 @@ class ViewController: UIViewController {
     
     @IBAction func buyBeverageButtonTouched(_ sender: UIButton) {
         guard let buttonIndex = self.addStockButton.firstIndex(of: sender) else { return }
-        guard let beverage = appDelegate?.vendingMachine?.showMenuList()[buttonIndex] else { return }
-        self.appDelegate?.vendingMachine?.addStock(beverage: beverage)
+        self.appDelegate?.vendingMachine?.addStock(buttonIndex: buttonIndex)
     }
     
-    @IBAction func BalanceIncrease1000ButtonTouched(_ sender: BalanceIncreasable) {
-        sender.increase(balance: 1000) { money in
-            self.appDelegate?.vendingMachine?.putPayMoney(money: money)
-        }
-    }
-    @IBAction func BalanceIncrease5000ButtonTouched(_ sender: BalanceIncreasable) {
-        sender.increase(balance: 5000) { money in
-            self.appDelegate?.vendingMachine?.putPayMoney(money: money)
-        }
+    @IBAction func BalanceIncreaseButtonTouched(_ sender: UIButton) {
+        guard let buttonIndex = self.addPaymentButtons.firstIndex(of: sender) else { return }
+        self.appDelegate?.vendingMachine?.putPayMoney(buttonIndex: buttonIndex)
     }
     
     private func changeBalanceLabel() {
@@ -61,7 +55,7 @@ class ViewController: UIViewController {
     }
     
     @objc private func updateNotificationBeverageLabel(_ notification : Notification) {
-        appDelegate?.vendingMachine?.showMenuList().enumerated().forEach {
+        appDelegate?.vendingMachine?.showDrinkMenuList().enumerated().forEach {
             let notification = notification.object as? [ObjectIdentifier : [Beverage]]
             self.numberOfStock[$0.offset].text = String(notification?[ObjectIdentifier(type(of: $0.element))]?.count ?? 0)
         }

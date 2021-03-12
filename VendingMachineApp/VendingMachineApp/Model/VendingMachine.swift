@@ -11,28 +11,31 @@ class VendingMachine : NSObject, NSCoding {
     private var drinks : Drinks
     private var payment : Payment
     private var purchasedList : PurchasedList
-    private var menu : DrinkMenu
+    private var drinkMenu : DrinkMenu
+    private var paymentMenu : PaymentMenu
     
     override init() {
         self.drinks = Drinks()
         self.payment = Payment()
         self.purchasedList = PurchasedList()
-        self.menu = DrinkMenu()
-        menu.addAllMenu()
+        self.drinkMenu = DrinkMenu()
+        self.paymentMenu = PaymentMenu()
     }
     
     func encode(with coder: NSCoder) {
         coder.encode(drinks, forKey: "drinks")
         coder.encode(payment, forKey: "payment")
         coder.encode(purchasedList, forKey: "purchasedList")
-        coder.encode(menu, forKey: "menu")
+        coder.encode(drinkMenu, forKey: "drinkMenu")
+        coder.encode(paymentMenu, forKey: "paymentMenu")
     }
     
     required init?(coder: NSCoder) {
         self.drinks = coder.decodeObject(forKey: "drinks") as! Drinks
         self.payment = coder.decodeObject(forKey: "payment") as! Payment
         self.purchasedList = coder.decodeObject(forKey: "purchasedList") as! PurchasedList
-        self.menu = coder.decodeObject(forKey: "menu") as! DrinkMenu
+        self.drinkMenu = coder.decodeObject(forKey: "drinkMenu") as! DrinkMenu
+        self.paymentMenu = coder.decodeObject(forKey: "paymentMenu") as! PaymentMenu
     }
     
     func showBeverageList(handler : (Beverage) -> Void) {
@@ -41,11 +44,13 @@ class VendingMachine : NSObject, NSCoding {
         }
     }
     
-    func putPayMoney(money : Int) {
+    func putPayMoney(buttonIndex : Int) {
+        let money = paymentMenu.list[buttonIndex]
         payment.increase(money: money)
     }
     
-    func addStock(beverage : Beverage) {
+    func addStock(buttonIndex : Int) {
+        let beverage = drinkMenu.list[buttonIndex]
         drinks.addStock(beverage : beverage)
         NotificationCenter.default.post(name: .updateBeverage, object: drinks.showAllBeverage())
     }
@@ -82,12 +87,16 @@ class VendingMachine : NSObject, NSCoding {
         drinks.count(beverage: beverage)
     }
     
-    func showMenuList() -> [Beverage] {
-        return menu.list
+    func showDrinkMenuList() -> [Beverage] {
+        return drinkMenu.list
+    }
+    
+    private func showPaymentMenuList() -> [Int] {
+        return paymentMenu.list
     }
     
     func showAllBeverageStock(handler : (Int, Int) -> Void){
-        menu.list.enumerated().forEach { (beverage) in
+        drinkMenu.list.enumerated().forEach { (beverage) in
             handler(beverage.offset, drinks.showAllBeverage()[ObjectIdentifier(type(of: beverage.element))]?.count ?? 0)
         }
     }

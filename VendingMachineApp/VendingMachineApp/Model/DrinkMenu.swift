@@ -11,7 +11,7 @@ class DrinkMenu : NSObject, NSCoding {
     private(set) var list : [Beverage]
     
     override init() {
-        self.list = []
+        self.list = [StrawberryMilk.init(), DietCola.init(), TopAmericano.init()]
     }
     
     func encode(with coder: NSCoder) {
@@ -22,12 +22,8 @@ class DrinkMenu : NSObject, NSCoding {
         self.list = coder.decodeObject(forKey: "list") as! [Beverage]
     }
     
-    func addAllMenu() {
-        list += [StrawberryMilk.init(), DietCola.init(), TopAmericano.init()]
-    }
-    
-    func addMenu(type : Beverage) {
-        list.append(type)
+    func addMenu(beverage : Beverage) {
+        list.append(beverage)
     }
     
     func remove() {

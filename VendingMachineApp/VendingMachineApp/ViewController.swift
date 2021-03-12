@@ -81,7 +81,10 @@ class ViewController: UIViewController, Stateful {
     }
     
     @IBAction func purchaseButtonTapped(_ sender: UIButton) {
+        guard let purchsedIndex: Int = self.purchaseButtons.firstIndex(of: sender) else { return }
+        guard let beverageType = self.vendingMachine.tagToBeverageType(by: purchsedIndex) else { return }
+        guard let bevergae = BeverageFactory.produce(of: beverageType) else { return }
+        vendingMachine.purchaseBeverage(beverage: bevergae)
     }
-    
 }
 

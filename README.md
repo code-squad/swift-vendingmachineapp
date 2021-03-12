@@ -44,3 +44,15 @@
   - `UserDefault`에 데이터를 저장하고, 적절한 타입으로 변환하여 불러올 수 있도록 했다.
 
 ![step 4](https://user-images.githubusercontent.com/72188416/110567670-3b4dd980-8195-11eb-94f7-a2bcbc934a1c.gif)
+
+<br>
+
+## Step 5 - View Update & Notification Center (🎉 Mar 12)
+
+- View의 생성 방식을 개선하고, StackView와 AutoLayout을 적용하여 화면 사이즈에 대응할 수 있도록 했다.
+- Notification Center를 통해 자판기 Model이 View Controller에게 재고 및 잔고의 업데이트 상황을 알릴 수 있도록 했다.
+
+![step 5](https://user-images.githubusercontent.com/72188416/110910173-51ee5f00-8354-11eb-9b66-8d4b18a15db1.png)
+
+![step 5 2](https://user-images.githubusercontent.com/72188416/110910632-f5d80a80-8354-11eb-8080-33b31148e3ae.png)
+

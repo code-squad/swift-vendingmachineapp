@@ -14,4 +14,14 @@ class Milk: Beverage {
         self.farm = farm
         super.init(brand: brand, size: size, price: price, name: name, packageTime: packageTime)
     }
+    
+    override func encode(with coder: NSCoder) {
+        coder.encode(farm, forKey: "farm")
+        super.encode(with: coder)
+    }
+    
+    required init?(coder eDecoder: NSCoder) {
+        farm = eDecoder.decodeObject(forKey: "farm") as! LocationTrackable
+        super.init(coder: eDecoder)
+    }
 }

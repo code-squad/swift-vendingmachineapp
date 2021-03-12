@@ -17,6 +17,19 @@ class Americano: Coffee & EnergyBoostable {
         super.init(brand: brand, size: size, price: price, name: name, packageTime: packageTime, bean: bean)
     }
     
+    override func encode(with coder: NSCoder) {
+        coder.encode(temperature, forKey: "temperature")
+        coder.encode(caffeine, forKey: "caffeine")
+        super.encode(with: coder)
+    }
+    
+    required init?(coder eDecoder: NSCoder) {
+        temperature = eDecoder.decodeInteger(forKey: "temperature")
+        caffeine = eDecoder.decodeInteger(forKey: "caffeine")
+        super.init(coder: eDecoder)
+    }
+    
+    
     func highCaffeine(caffeine criterion: Int) -> Bool {
         return caffeine > criterion
     }

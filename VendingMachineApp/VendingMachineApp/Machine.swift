@@ -11,7 +11,7 @@ struct Machine {
     private var moneyProccesor = MoneyProcessingUnit()
     private var beverageStorage = BeverageStorage()
     private var purchaseHistory = [Beverage]()
-   
+    
     func receiveMoney(amount: Int) {
         moneyProccesor.increaseMoneyOnTransaction(by: amount)
     }

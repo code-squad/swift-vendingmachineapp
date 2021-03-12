@@ -18,9 +18,10 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         vendingMachine = (UIApplication.shared.delegate as! AppDelegate).vendingMachine
         
-        NotificationCenter.default.addObserver(self, selector: #selector(updateBeverageLabel), name: .StockCountChanged, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(updateCoinLabel), name: .CoinChanged, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateBeverageLabel), name: VendingMachine.StockCountChanged, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateCoinLabel), name: VendingMachine.CoinChanged, object: nil)
     }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         setUpViews()
@@ -46,11 +47,9 @@ extension ViewController {
     @objc func appendBeverageToMachine(_ sender : UIBeverageButton){
         guard let beverage = Factory.createInstance(type: sender.beverageType) else { return }
         vendingMachine.append(product: beverage)
-        NotificationCenter.default.post(name: .StockCountChanged, object: nil)
     }
     @objc func appedCoinToMachine(_ sender : UICoinButton){
         vendingMachine.charge(coins: sender.coin)
-        NotificationCenter.default.post(name: .CoinChanged, object: nil)
     }
 }
 

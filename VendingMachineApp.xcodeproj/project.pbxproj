@@ -33,7 +33,6 @@
 		10C692CA25EA4FE7009F6AEF /* VendingMachineTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C692C925EA4FE7009F6AEF /* VendingMachineTest.swift */; };
 		10CC271225E932C000C70F6E /* ModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CC271125E932C000C70F6E /* ModelTest.swift */; };
 		10CD90AC25FA0F9B00FBEE7E /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CD90AB25FA0F9B00FBEE7E /* DataManager.swift */; };
-		10E88BF625F8B52600A47D92 /* NotificationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E88BF525F8B52600A47D92 /* NotificationExtension.swift */; };
 		10ED09C725EA69D600569FE6 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10ED09C625EA69D600569FE6 /* Customer.swift */; };
 		10ED09D725EA750700569FE6 /* ConsumerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10ED09D625EA750700569FE6 /* ConsumerTest.swift */; };
 		10F5F04225E782C400B70881 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F5F04125E782C400B70881 /* AppDelegate.swift */; };
@@ -97,7 +96,6 @@
 		10C692C925EA4FE7009F6AEF /* VendingMachineTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineTest.swift; sourceTree = "<group>"; };
 		10CC271125E932C000C70F6E /* ModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTest.swift; sourceTree = "<group>"; };
 		10CD90AB25FA0F9B00FBEE7E /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
-		10E88BF525F8B52600A47D92 /* NotificationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationExtension.swift; sourceTree = "<group>"; };
 		10ED09C625EA69D600569FE6 /* Customer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
 		10ED09D625EA750700569FE6 /* ConsumerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsumerTest.swift; sourceTree = "<group>"; };
 		10F5F03E25E782C400B70881 /* VendingMachineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendingMachineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -217,7 +215,6 @@
 				10F5F08B25E7A1B900B70881 /* DateExtension.swift */,
 				10F5F09725E7D2EE00B70881 /* StringExtension.swift */,
 				104C8AE225F21A180004BA36 /* StackViewExtension.swift */,
-				10E88BF525F8B52600A47D92 /* NotificationExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -458,7 +455,6 @@
 				105EE26B25E8D0CD00E6D2E2 /* StroberryMilk.swift in Sources */,
 				1087276625EE15A500F260A2 /* Money.swift in Sources */,
 				10F5F08625E7845B00B70881 /* VendingMachine.swift in Sources */,
-				10E88BF625F8B52600A47D92 /* NotificationExtension.swift in Sources */,
 				105EE27525E8D0E300E6D2E2 /* BananaMilk.swift in Sources */,
 				10F5F08C25E7A1B900B70881 /* DateExtension.swift in Sources */,
 				10CD90AC25FA0F9B00FBEE7E /* DataManager.swift in Sources */,

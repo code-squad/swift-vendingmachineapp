@@ -8,7 +8,7 @@
 import Foundation
 
 class Beverage : NSObject, NSCoding {
-
+    
     private let brand : String
     private let capacity :  Int
     private(set) var price : Int
@@ -55,7 +55,10 @@ class Beverage : NSObject, NSCoding {
 }
 extension Beverage {
     public static func == (lhs: Beverage, rhs: Beverage) -> Bool {
-        return type(of: lhs) == type(of: rhs) && lhs.name == rhs.name
+        return lhs.brand == rhs.brand
+            && lhs.capacity == rhs.capacity
+            && lhs.price == rhs.price
+            && lhs.name == rhs.name
     }
 }
 extension Beverage : Drinkable {

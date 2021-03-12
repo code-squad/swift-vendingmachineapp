@@ -18,8 +18,4 @@ class PurchasedStackView: UIStackView {
         axis = .horizontal
         spacing = -70
     }
-    
-//    func removeFromSuperView() {
-//        subviews.forEach { $0.removeFromSuperview() }
-//    }
 }

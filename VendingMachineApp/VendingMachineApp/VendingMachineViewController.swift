@@ -32,7 +32,7 @@ class VendingMachineViewController: UIViewController {
     }
     
     private func purchaedBeverageList() {
-        guard let beverage = vendingMachine.lastPurchasedBeverage() else { purchasedBeveragesStackView.removeFromSuperview()
+        guard let beverage = vendingMachine.lastPurchasedBeverage() else { purchasedBeveragesStackView.subviews.forEach{ $0.removeFromSuperview() }
             return
         }
         let image = UIImage(named: beverage.productName)

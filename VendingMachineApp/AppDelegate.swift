@@ -10,9 +10,11 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
-    var vendingMachine = VendingMachine()
-
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    var vendingMachine : VendingMachine?
+    
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool
+    {
+        vendingMachine = DataManager.load()
         return true
     }
 
@@ -23,6 +25,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
+    }
+
+    func applicationWillTerminate(_ application: UIApplication) {
+        DataManager.save(data: vendingMachine!)
     }
 }
 

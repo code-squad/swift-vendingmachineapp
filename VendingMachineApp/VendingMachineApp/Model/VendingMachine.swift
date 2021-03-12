@@ -61,12 +61,6 @@ class VendingMachine : NSObject, NSCoding {
         }
     }
     
-    func showAllBeverageStock(handler : ([ObjectIdentifier : [Beverage]]) -> Void) {
-        drinks.showAllBeverage {
-            handler($0)
-        }
-    }
-    
     func outOfDateInventory(standard : Date) -> [Beverage] {
         return drinks.passExpiryDate(standard: standard)
     }
@@ -89,5 +83,13 @@ class VendingMachine : NSObject, NSCoding {
     
     func showMenuList() -> [Beverage] {
         return menu.list
+    }
+    
+    func showAllBeverageStock(handler : (Int,Int) -> Void) {
+        menu.list.enumerated().forEach { (beverage) in
+            drinks.showBeverageCount(beverage: beverage.element) { (count) in
+                handler(beverage.offset,count)
+            }
+        }
     }
 }

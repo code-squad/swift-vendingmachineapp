@@ -32,12 +32,10 @@ class VendingMachineViewController: UIViewController {
     }
     
     private func purchaedBeverageList() {
-        if vendingMachine.lastPurchasedBeverage() == nil {
-            purchasedBeveragesStackView.removeFromSuperview()
+        guard let beverage = vendingMachine.lastPurchasedBeverage() else { purchasedBeveragesStackView.removeFromSuperview()
             return
         }
-        let beverage = vendingMachine.lastPurchasedBeverage()
-        let image = UIImage(named: beverage!.productName)
+        let image = UIImage(named: beverage.productName)
         eachPurchasedBeverageImageView = UIImageView(image: image)
         let imageViewWidth = NSLayoutConstraint(item: eachPurchasedBeverageImageView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 140)
         let imageViewHeight = NSLayoutConstraint(item: eachPurchasedBeverageImageView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 120)

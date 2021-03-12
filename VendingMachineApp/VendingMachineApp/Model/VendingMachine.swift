@@ -47,7 +47,7 @@ class VendingMachine : NSObject, NSCoding {
     
     func addStock(beverage : Beverage) {
         drinks.addStock(beverage : beverage)
-        NotificationCenter.default.post(name: .updateBeverage, object: nil, userInfo: ["beverageInfo" : drinks.showAllBeverage()])
+        NotificationCenter.default.post(name: .updateBeverage, object: drinks.showAllBeverage())
     }
     
     func showPurchasePossibleList() -> [Beverage] {

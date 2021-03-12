@@ -144,3 +144,11 @@ ObjectIdentifier(Type) 를 사용하면 Key값으로 사용 할 수 있으나, �
 
 ### NSCoding의 Key값은 프로젝트 전체에서 유일해야한다.
 Coffee도 Enum 타입의 kind 가지고, Monster도  Enum 타입의 kind를 가진다. 동일하게 key값을 "kind"로 주었더니 문제가 발생했다. 이 후 키값을 "Coffeekind", "Monsterkind"로 변경하였다.
+
+# Step5
+
+## 프로그래밍 요구사항
+- ViewController는 viewDidLoad에서 Observe를 등록한다.
+- 음식 재고가 바뀌는 Notification을 받으면 화면에 Label을 업데이트한다.
+- VendingMachine 모델 객체에서는 변화에 대해 NotificationCenter에 post한다.
+- 모든 동작은 이전 단계와 동일하게 동작해야 한다.

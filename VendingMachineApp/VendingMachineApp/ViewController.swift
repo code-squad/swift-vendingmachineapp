@@ -20,12 +20,11 @@ class ViewController: UIViewController {
 
     private let beverageImages = [#imageLiteral(resourceName: "americano"), #imageLiteral(resourceName: "cafelatte"), #imageLiteral(resourceName: "chocolatemilk"), #imageLiteral(resourceName: "coke"), #imageLiteral(resourceName: "milkis"), #imageLiteral(resourceName: "plainmilk")]
     private let moneyUnits = [1000, 5000, 10000]
-
+    
     private var beverageList = [Shopable]()
-    private let beverageFactory = BeverageFactory0303()
+    private let beverageFactory = BeverageToday()
 
     private let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    
     private var presenter = VendingMachineViewUpdator()
     
     override func viewDidLoad() {

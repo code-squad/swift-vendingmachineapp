@@ -15,6 +15,7 @@ class ViewController: UIViewController, Stateful {
     @IBOutlet var beverageCountLabels: [UILabel]!
     @IBOutlet var addBalanceButtons: [UIButton]!
     @IBOutlet weak var balanceLabel: UILabel!
+    @IBOutlet var purchaseButtons: [UIButton]!
     
     private var vendingMachinePublisher: AnyCancellable!
     var vendingMachine: VendingMachine!
@@ -67,5 +68,9 @@ class ViewController: UIViewController, Stateful {
         guard let beverage = BeverageFactory.produce(of: beverageType) else { return }
         self.vendingMachine.addBeverage(beverage)
     }
+    
+    @IBAction func purchaseButtonTapped(_ sender: UIButton) {
+    }
+    
 }
 

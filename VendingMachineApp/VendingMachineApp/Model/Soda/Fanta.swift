@@ -26,8 +26,8 @@ class Fanta: Soda {
         super.init(brand: "코카콜라", volume: 355, price: 800, name: "환타", createdAt: date, expiredAt: date, suger: 48)
     }
     
-    // 자판기 주인의 개인취향과 일치하는 지 보는 함수
-    func isFavorite() -> Bool {
-        return flavor == .grape
+    // 개인취향과 일치하는 지 보는 함수
+    func isFavorite(flavor: Flavor) -> Bool {
+        return self.flavor == flavor
     }
 }

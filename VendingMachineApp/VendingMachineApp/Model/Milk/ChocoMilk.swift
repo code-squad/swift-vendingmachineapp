@@ -21,8 +21,7 @@ class ChocoMilk: Milk {
         super.init(brand: "서울우유", volume: 200, price: 600, name: "초코우유", createdAt: date, expiredAt: date, fatPercent: 5)
     }
     
-    func isLowSyrup() -> Bool {
-        let criteria = 4
+    func isLowSyrup(criteria: Int) -> Bool {
         return criteria > syrup
     }
 }

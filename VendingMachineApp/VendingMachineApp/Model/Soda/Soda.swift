@@ -21,8 +21,7 @@ class Soda: Beverage {
         super.init(brand: "brand", volume: 0, price: 0, name: "name", createdAt: Date(), expiredAt: Date())
     }
     
-    func isLowSugar() -> Bool {
-        let criteria = 30
+    func isLowSugar(criteria: Int) -> Bool {
         return suger <= criteria
     }
 }

@@ -26,7 +26,7 @@ class Cantata: Coffee {
         super.init(brand: "롯데칠성", volume: 275, price: 1000, name: "칸타타", createdAt: date, expiredAt: date, caffeine: 156)
     }
     
-    func isdesignNice() -> Bool {
-        return design == .brown
+    func isdesignNice(color: Color) -> Bool {
+        return design == color
     }
 }

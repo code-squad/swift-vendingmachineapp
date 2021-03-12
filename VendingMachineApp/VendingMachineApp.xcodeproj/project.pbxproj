@@ -114,6 +114,17 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		E4B8A4BE25FB3239006D405F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E4EB87BA25E4C83300F077D5 /* Main.storyboard */,
+				E4B8A49225F9E5D2006D405F /* ProductStackView.swift */,
+				E4B8A3F525EF6807006D405F /* VendingMachineViewUpdator.swift */,
+				E4EB87BF25E4C83400F077D5 /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		E4C499FF25E89FEB008449D6 /* VendingMachineAppTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -148,13 +159,10 @@
 				E4EB87B425E4C83300F077D5 /* AppDelegate.swift */,
 				E4EB87B625E4C83300F077D5 /* SceneDelegate.swift */,
 				E4B8A3FF25F10988006D405F /* Model */,
-				E4B8A3F525EF6807006D405F /* VendingMachineViewUpdator.swift */,
+				E4B8A4BE25FB3239006D405F /* View */,
 				E4EB87B825E4C83300F077D5 /* ViewController.swift */,
-				E4EB87BA25E4C83300F077D5 /* Main.storyboard */,
 				E4EB87BD25E4C83400F077D5 /* Assets.xcassets */,
-				E4EB87BF25E4C83400F077D5 /* LaunchScreen.storyboard */,
 				E4EB87C225E4C83400F077D5 /* Info.plist */,
-				E4B8A49225F9E5D2006D405F /* ProductStackView.swift */,
 			);
 			path = VendingMachineApp;
 			sourceTree = "<group>";

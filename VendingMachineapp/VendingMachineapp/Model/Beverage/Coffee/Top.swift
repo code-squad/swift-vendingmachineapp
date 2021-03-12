@@ -35,4 +35,18 @@ class Top: Coffee {
                    caffeineContent: 10,
                    milkContent: 20)
     }
+    
+    required init?(coder: NSCoder) {
+        self.milkContent = coder.decodeInteger(forKey: "milkContent")
+        super.init(coder: coder)
+    }
+    
+    override func encode(with coder: NSCoder) {
+        coder.encode(milkContent, forKey: "milkContent")
+        super.encode(with: coder)
+    }
+    
+    override var description: String {
+        return "Top(\(milkContent))-(\(super.description))"
+    }
 }

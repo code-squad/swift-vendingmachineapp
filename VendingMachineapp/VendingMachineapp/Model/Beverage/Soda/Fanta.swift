@@ -35,4 +35,18 @@ class Fanta: Soda {
                    flavor: "Fanta",
                    color: "Orange")
     }
+    
+    required init?(coder: NSCoder) {
+        self.color = coder.decodeObject(forKey: "color") as! String
+        super.init(coder: coder)
+    }
+    
+    override func encode(with coder: NSCoder) {
+        coder.encode(color, forKey: "color")
+        super.encode(with: coder)
+    }
+    
+    override var description: String {
+        return "Fanta(\(color))-(\(super.description))"
+    }
 }

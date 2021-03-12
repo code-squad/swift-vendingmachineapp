@@ -35,4 +35,18 @@ class Georgia: Coffee {
                    caffeineContent: 20,
                    condensedMilkContent: 15)
     }
+    
+    required init?(coder: NSCoder) {
+        self.condensedMilkContent = coder.decodeInteger(forKey: "condensedMilkContent")
+        super.init(coder: coder)
+    }
+    
+    override func encode(with coder: NSCoder) {
+        coder.encode(condensedMilkContent, forKey: "condensedMilkContent")
+        super.encode(with: coder)
+    }
+    
+    override var description: String {
+        return "Georgia(\(condensedMilkContent))-(\(super.description))"
+    }
 }

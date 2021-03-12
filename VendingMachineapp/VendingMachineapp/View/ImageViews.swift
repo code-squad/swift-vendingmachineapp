@@ -5,7 +5,6 @@
 //  Created by 심영민 on 2021/03/08.
 //
 
-import Foundation
 import UIKit
 
 class BeverageImageView: UIImageView {

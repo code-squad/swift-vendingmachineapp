@@ -22,6 +22,7 @@ class Coke: Soda {
                    temperature: temperature,
                    flavor: flavor)
     }
+    
     override convenience init(manufacturer: String, volume: Int, price: Int, brand: String, manufactured: Date, expiry: Date, calorie: Int, temperature: Int, flavor: String) {
         self.init(manufacturer: manufacturer,
                    volume: volume,
@@ -33,5 +34,19 @@ class Coke: Soda {
                    temperature: temperature,
                    flavor: "Coke",
                    acidConcentration: 15)
+    }
+    
+    required init?(coder: NSCoder) {
+        self.acidConcentration = coder.decodeInteger(forKey: "acidConcentration")
+        super.init(coder: coder)
+    }
+    
+    override func encode(with coder: NSCoder) {
+        coder.encode(acidConcentration, forKey: "acidConcentration")
+        super.encode(with: coder)
+    }
+    
+    override var description: String {
+        return "Coke(\(acidConcentration))-(\(super.description))"
     }
 }

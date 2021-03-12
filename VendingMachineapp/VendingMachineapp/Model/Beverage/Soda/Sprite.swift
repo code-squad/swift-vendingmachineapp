@@ -22,6 +22,7 @@ class Sprite: Soda {
                    temperature: temperature,
                    flavor: flavor)
     }
+    
     override convenience init(manufacturer: String, volume: Int, price: Int, brand: String, manufactured: Date, expiry: Date, calorie: Int, temperature: Int, flavor: String) {
         self.init(manufacturer: manufacturer,
                    volume: volume,
@@ -33,5 +34,19 @@ class Sprite: Soda {
                    temperature: temperature,
                    flavor: "Sprite",
                    lemonContent: 12)
+    }
+    
+    required init?(coder: NSCoder) {
+        self.lemonContent = coder.decodeInteger(forKey: "lemonContent")
+        super.init(coder: coder)
+    }
+    
+    override func encode(with coder: NSCoder) {
+        coder.encode(lemonContent, forKey: "lemonContent")
+        super.encode(with: coder)
+    }
+    
+    override var description: String {
+        return "Sprite(\(lemonContent))-(\(super.description))"
     }
 }

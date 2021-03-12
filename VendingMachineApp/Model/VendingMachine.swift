@@ -13,6 +13,9 @@ class VendingMachine : NSObject, NSCoding {
     private var stock : Stock
     private var soldHistory : Stock
     
+    static let StockCountChanged = Notification.Name("StockCountChanged")
+    static let CoinChanged = Notification.Name("CoinChanged")
+    
     init(money : Money, stock: Stock, soldHistory : Stock){
         self.money = money
         self.stock = stock
@@ -23,6 +26,7 @@ class VendingMachine : NSObject, NSCoding {
         self.money = Money()
         self.stock = Stock()
         self.soldHistory = Stock()
+        print("vendingMachine init")
     }
     
     required convenience init?(coder aDecoder: NSCoder) {
@@ -43,15 +47,18 @@ class VendingMachine : NSObject, NSCoding {
     //  자판기 금액을 원하는 금액만큼 올리는 메소드
     public func charge(coins : Int){
         money.add(with: coins)
+        NotificationCenter.default.post(name: VendingMachine.CoinChanged, object: nil)
     }
     //  자판기 금액을 원하는 금액만큼 내리는 메소드
     public func uncharge(coins : Int){
         money.minus(with: coins)
+        NotificationCenter.default.post(name: VendingMachine.CoinChanged, object: nil)
     }
     
     //  특정 상품 인스턴스를 넘겨서 재고를 추가하는 메소드
     public func append(product : Beverage){
         stock.append(item: product)
+        NotificationCenter.default.post(name: VendingMachine.StockCountChanged, object: nil)
     }
     
     //  현재 금액으로 구매가능한 음료수 목록을 리턴하는 메소드
@@ -64,6 +71,8 @@ class VendingMachine : NSObject, NSCoding {
         stock.remove(item: item)
         soldHistory.append(item: item)
         charge(coins: item.price)
+        
+        NotificationCenter.default.post(name: VendingMachine.StockCountChanged, object: nil)
         return item
     }
     private func getProduct(with type : Beverage.Type) -> Beverage?{
@@ -73,7 +82,8 @@ class VendingMachine : NSObject, NSCoding {
     
     //  잔액을 돌려주는 메소드
     public func returnCoins() -> Int {
-        money.resetCoins()
+        NotificationCenter.default.post(name: VendingMachine.CoinChanged, object: nil)
+        return money.resetCoins()
     }
     
     // 잔액을 확인하는 메소드
@@ -101,3 +111,5 @@ class VendingMachine : NSObject, NSCoding {
         return soldHistory.products
     }
 }
+
+

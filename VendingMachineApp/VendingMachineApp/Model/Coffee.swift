@@ -21,15 +21,20 @@ class Coffee: Beverage, Hotable, Transportable {
         super.init(brand: brand, name: name, price: price, size: size, dateFactory: dateFactory, manufacturedInString: manufacturedInString)
     }
     
+    enum Keys {
+        static let coffeeTemperature = "coffeeTemperature"
+        static let coffeePackage = "coffeePackage"
+    }
+    
     required init?(coder: NSCoder) {
-        self.temperature = coder.decodeFloat(forKey: "coffee_temperature")
-        self.package = Package(rawValue: coder.decodeObject(forKey: "coffee_package") as! String)!
+        self.temperature = coder.decodeFloat(forKey: Keys.coffeeTemperature)
+        self.package = Package(rawValue: coder.decodeObject(forKey: Keys.coffeePackage) as! String)!
         super.init(coder: coder)
     }
     
     override func encode(with coder: NSCoder) {
-        coder.encode(temperature, forKey: "coffee_temperature")
-        coder.encode(package.rawValue, forKey: "coffee_package")
+        coder.encode(temperature, forKey: Keys.coffeeTemperature)
+        coder.encode(package.rawValue, forKey: Keys.coffeePackage)
         super.encode(with: coder)
     }
     
@@ -61,17 +66,17 @@ class Americano: Coffee, SugarFreeable {
                    temperature: temperature, package: package)
     }
     
-    private enum CodingKeys: String, CodingKey {
-        case sugar
+    enum Keys {
+        static let americanoSuger = "americanoSugar"
     }
     
     required init?(coder: NSCoder) {
-        self.sugar = coder.decodeFloat(forKey: "americano_sugar")
+        self.sugar = coder.decodeFloat(forKey: Keys.americanoSuger)
         super.init(coder: coder)
     }
     
     override func encode(with coder: NSCoder) {
-        coder.encode(sugar, forKey: "americano_sugar")
+        coder.encode(sugar, forKey: Keys.americanoSuger)
         super.encode(with: coder)
     }
 
@@ -96,15 +101,20 @@ class CafeLatte: Coffee, Expirable, LactoFreeable {
                    temperature: temperature, package: package)
     }
     
+    enum Keys {
+        static let latteExpiry = "latteExpiry"
+        static let latteLactose = "latteLactose"
+    }
+    
     required init?(coder: NSCoder) {
-        self.expiry = coder.decodeObject(forKey: "latte_expiry") as! Date
-        self.lactose = coder.decodeFloat(forKey: "latte_lactose")
+        self.expiry = coder.decodeObject(forKey: Keys.latteExpiry) as! Date
+        self.lactose = coder.decodeFloat(forKey: Keys.latteLactose)
         super.init(coder: coder)
     }
     
     override func encode(with coder: NSCoder) {
-        coder.encode(expiry, forKey: "latte_expiry")
-        coder.encode(lactose, forKey: "latte_lactose")
+        coder.encode(expiry, forKey: Keys.latteExpiry)
+        coder.encode(lactose, forKey: Keys.latteLactose)
         super.encode(with: coder)
     }
     

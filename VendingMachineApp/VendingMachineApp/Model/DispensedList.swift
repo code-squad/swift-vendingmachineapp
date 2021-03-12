@@ -14,12 +14,17 @@ class DispensedList: NSObject, OrderableList, NSCoding {
     override init() {
         items = []
     }
+    
+    enum Keys {
+        static let soldItems = "soldItems"
+    }
+    
     required init?(coder: NSCoder) {
-        self.items = coder.decodeObject(forKey: "items") as! [Shopable]
+        self.items = coder.decodeObject(forKey: Keys.soldItems) as! [Shopable]
     }
     
     func encode(with coder: NSCoder) {
-        coder.encode(items, forKey: "items")
+        coder.encode(items, forKey: Keys.soldItems)
     }
 
     func push(item: Shopable) {

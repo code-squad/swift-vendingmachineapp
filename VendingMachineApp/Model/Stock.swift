@@ -42,7 +42,7 @@ class Stock : NSObject, NSCoding {
     }
     
     public func getExpiredProducts() -> [Beverage] {
-        return products.filter{ $0.isExpired() }.map{$0}
+        return products.filter{ $0.isExpired(to: Date()) }.map{$0}
     }
     
     public func getHotDrink() -> [Beverage] {

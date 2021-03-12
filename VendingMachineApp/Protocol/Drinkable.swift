@@ -8,5 +8,5 @@
 import Foundation
 
 protocol Drinkable {
-    func isExpired() -> Bool
+    func isExpired(to date : Date) -> Bool
 }

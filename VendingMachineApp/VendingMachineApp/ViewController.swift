@@ -33,7 +33,7 @@ class ViewController: UIViewController {
         machine.addStock(beverage: someAmericano2, amount: 60)
         
         addBeveragesOnDisplayRows()
-        addEmptySlotOnDisplayRows()
+        addEmptySlotsOnDisplayRows()
         updateBeverageDisplaySlots()
     }
     
@@ -63,7 +63,7 @@ class ViewController: UIViewController {
         }
     }
     
-    func addEmptySlotOnDisplayRows() {
+    func addEmptySlotsOnDisplayRows() {
         displayRows.arrangedSubviews.forEach {
             guard let horizontalStack = $0 as? UIStackView else { return }
 

@@ -7,6 +7,7 @@
 
 import XCTest
 
+//FIXME
 class MachineUnitTest: XCTestCase {
     var testMachine: Machine!
     var expensiveAndOldBeverage: Beverage!
@@ -26,19 +27,19 @@ class MachineUnitTest: XCTestCase {
     
     override func setUpWithError() throws {
         testMachine = Machine()
-        expensiveAndOldBeverage = BeverageFactory.makeBeverage(price: .high, packageTime: .old)
-        expensiveButFreshBeverage = BeverageFactory.makeBeverage(price: .high, packageTime: .fresh)
-        cheapAndFreshAndDomesticMilk = BeverageFactory.makeMilk(price: .low, packageTime: .fresh, location: .domestic)
-        expensiveAndOldOverseasBananaMilkWithFoodColoring = BeverageFactory.makeBananaMilk(price: .high, packageTime: .old, location: .overseas, bananaFarm: .overseas, foodColoring: .foodColoring)
-        cheapButOldDomesticStrawberryMilkWithoutFoodColoring = BeverageFactory.makeStrawBerryMilk(price: .low, packageTime: .old, location: .domestic, strawBerryFarm: .domestic, foodColoring: .noFoodColoring)
-        cheapAndFreshZeroCalorieSoda = BeverageFactory.makeSoda(price: .low, packageTime: .fresh, calories: 0)
-        expensiveAndOldZeroCalorieCola = BeverageFactory.makeCola(price: .high, packageTime: .old)
-        cheapAndFreshFantaWithHighCaffeineAndFoodColoring = BeverageFactory.makeFanta(price: .low, packageTime: .fresh, calories: 0, foodColoring: .foodColoring, caffeine: .high)
-        cheapAndFreshFantaWithHighCaffeineAndNoFoodColoring = BeverageFactory.makeFanta(price: .low, packageTime: .fresh, calories: 0, foodColoring: .noFoodColoring, caffeine: .high)
-        expensiveButFreshCoffee = BeverageFactory.makeCoffee(price: .high, packageTime: .fresh)
-        cheapAndFreshHotAmericanoWithLowCaffeine = BeverageFactory.makeAmericano(price: .low, packageTime: .fresh, caffeine: .low, temperature: 40)
-        expensiveAndOldHotCaffeeLatteWithHighCaffeine = BeverageFactory.makeCaffeLatte(price: .high, packageTime: .old, caffeine: .high, temperature: 40)
-        expensiveAndOldColdCaffeeLatteWithHighCaffeine = BeverageFactory.makeCaffeLatte(price: .high, packageTime: .old, caffeine: .high, temperature: 40)
+        
+//        expensiveButFreshBeverage = BeverageFactory.makeBeverage(price: .high, packageTime: .fresh)
+//        cheapAndFreshAndDomesticMilk = BeverageFactory.makeMilk(price: .low, packageTime: .fresh, location: .domestic)
+//        expensiveAndOldOverseasBananaMilkWithFoodColoring = BeverageFactory.makeBananaMilk(price: .high, packageTime: .old, location: .overseas, bananaFarm: .overseas, foodColoring: .foodColoring)
+//        cheapButOldDomesticStrawberryMilkWithoutFoodColoring = BeverageFactory.makeStrawBerryMilk(price: .low, packageTime: .old, location: .domestic, strawBerryFarm: .domestic, foodColoring: .noFoodColoring)
+//        cheapAndFreshZeroCalorieSoda = BeverageFactory.makeSoda(price: .low, packageTime: .fresh, calories: 0)
+//        expensiveAndOldZeroCalorieCola = BeverageFactory.makeCola(price: .high, packageTime: .old)
+//        cheapAndFreshFantaWithHighCaffeineAndFoodColoring = BeverageFactory.makeFanta(price: .low, packageTime: .fresh, calories: 0, foodColoring: .foodColoring, caffeine: .high)
+//        cheapAndFreshFantaWithHighCaffeineAndNoFoodColoring = BeverageFactory.makeFanta(price: .low, packageTime: .fresh, calories: 0, foodColoring: .noFoodColoring, caffeine: .high)
+//        expensiveButFreshCoffee = BeverageFactory.makeCoffee(price: .high, packageTime: .fresh)
+//        cheapAndFreshHotAmericanoWithLowCaffeine = BeverageFactory.makeAmericano(price: .low, packageTime: .fresh, caffeine: .low, temperature: 40)
+//        expensiveAndOldHotCaffeeLatteWithHighCaffeine = BeverageFactory.makeCaffeLatte(price: .high, packageTime: .old, caffeine: .high, temperature: 40)
+//        expensiveAndOldColdCaffeeLatteWithHighCaffeine = BeverageFactory.makeCaffeLatte(price: .high, packageTime: .old, caffeine: .high, temperature: 40)
     }
 
     override func tearDownWithError() throws {

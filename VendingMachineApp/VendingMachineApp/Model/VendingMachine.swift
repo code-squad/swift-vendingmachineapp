@@ -7,22 +7,14 @@
 
 import Foundation
 
-enum Money: Int {
-    case coin = 100
-    case coins = 500
-    case bill = 1000
-    case bills = 5000
-}
-
 class VendingMachine {
 
-    
-    private var money: Int
+    private var money: Money
     private var inventory: Inventory
     private var purchasedDrink: [Beverage]
     
     init() {
-        self.money = 0
+        self.money = Money()
         self.inventory = Inventory()
         self.purchasedDrink = []
     }
@@ -30,8 +22,8 @@ class VendingMachine {
     
     //MARK:- Human to VendingMachine Method
     
-    func collectMoney(with money: Money) {
-        self.money += money.rawValue
+    func collectMoney(with cash: Cash) -> Int {
+        return money.add(cash)
     }
     
     func add(item: Beverage) {
@@ -40,7 +32,7 @@ class VendingMachine {
     
     func purchase(drink: Beverage.Type) {
         if let drink = inventory.remove(item: drink) {
-            self.money -= drink.price
+            _ = money.sub(drink.price)
             purchasedDrink.append(drink)
         }
     }
@@ -49,11 +41,11 @@ class VendingMachine {
     //MARK:- VendingMachine to Human Method
 
     func availableDrink() -> [Beverage] {
-        return inventory.cheapItems(with: money)
+        return inventory.cheapItems(with: money.cash)
     }
     
     func checkBalance() -> Int {
-        return money
+        return money.cash
     }
     
     func inventoryList() -> [ObjectIdentifier:Int] {

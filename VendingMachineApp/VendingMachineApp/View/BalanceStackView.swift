@@ -7,7 +7,9 @@
 
 import UIKit
 
-class BalanceStackView: UIStackView, AddBalance {
+class BalanceStackView: UIStackView {
+    
+    let balanceLabel = BalanceLabel.init()
     
     func setting() {
         self.translatesAutoresizingMaskIntoConstraints = false
@@ -20,25 +22,21 @@ class BalanceStackView: UIStackView, AddBalance {
     func collectSubelements() {
         let balanceButton_1000 = BalanceButton.init()
         balanceButton_1000.setting(with: 1000)
+        balanceButton_1000.addTarget(superview?.superview?.superview, action: #selector(ViewController.doAddBalance(sender:)), for: .touchUpInside)
         
         let balanceButton_5000 = BalanceButton.init()
         balanceButton_5000.setting(with: 5000)
+        balanceButton_5000.addTarget(superview?.superview?.superview, action: #selector(ViewController.doAddBalance(sender:)), for: .touchUpInside)
         
-        let balanceLabel = BalanceLabel.init()
         balanceLabel.setting(count: 0)
+        NotificationCenter.default.addObserver(self, selector: #selector(didBalanceChanged(_:)), name: .balanceChanged, object: nil)
         
         self.addArrangedSubview(balanceButton_1000)
         self.addArrangedSubview(balanceButton_5000)
         self.addArrangedSubview(balanceLabel)
     }
     
-    func didPressButton(button: UIButton) {
-        let index = subviews.firstIndex() {
-            guard let downCasting = $0 as? UILabel else {
-                return false
-            }
-            return true
-        }
+    @objc func didBalanceChanged(_ notification: Notification) {
+        balanceLabel.text = "\(String(describing: notification.object!))원"
     }
-    
 }

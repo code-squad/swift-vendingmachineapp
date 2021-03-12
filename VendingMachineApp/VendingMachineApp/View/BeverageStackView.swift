@@ -9,6 +9,8 @@ import UIKit
 
 class BeverageStackView : UIStackView {
     
+    let stockLabel = StockLabel(frame: CGRect.init(), type: Drink())
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.setting()
@@ -30,18 +32,25 @@ class BeverageStackView : UIStackView {
     func collectSubelements(drink type : Drink, count : Int) {
         let stockButton = AddStockButton(frame: CGRect.init(x: 0, y: 0, width: 40, height: 40), type: type)
         stockButton.setting()
-        stockButton.addTarget(superview?.superview?.superview, action: #selector(ViewController.doEvent(sender:)), for: .touchUpInside)
+        stockButton.addTarget(superview?.superview?.superview, action: #selector(ViewController.doAddStockButton(sender:)), for: .touchUpInside)
         
         let image = UIImage.init(named: type.name) ?? UIImage()
         let stockImageView = BeverageImageView(image: image)
         stockImageView.contentMode = .scaleAspectFill
         stockImageView.setting()
         
-        let stockLabel = StockLabel()
+
         stockLabel.setting(count: count)
+        stockLabel.beverageType = type
+        NotificationCenter.default.addObserver(self, selector: #selector(didStockChanged(_:)), name: .stockChanged, object: nil)
         
         self.addArrangedSubview(stockButton)
         self.addArrangedSubview(stockImageView)
         self.addArrangedSubview(stockLabel)
+    }
+    
+    @objc func didStockChanged(_ notification: Notification) {
+        let test = notification.object as! Dictionary<ObjectIdentifier,[Drink]>
+        stockLabel.setting(count: test[ObjectIdentifier(type(of: stockLabel.beverageType))]!.count)
     }
 }

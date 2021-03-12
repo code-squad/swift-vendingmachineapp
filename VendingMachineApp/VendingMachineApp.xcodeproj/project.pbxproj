@@ -58,6 +58,7 @@
 		B096F1AC25F621F400E98053 /* BalanceStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B096F1AB25F621F400E98053 /* BalanceStackView.swift */; };
 		B096F1B025F6233A00E98053 /* BalanceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B096F1AF25F6233A00E98053 /* BalanceButton.swift */; };
 		B096F1B425F6235200E98053 /* BalanceLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B096F1B325F6235200E98053 /* BalanceLabel.swift */; };
+		B096F1BE25FB6BBD00E98053 /* Notification+Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = B096F1BD25FB6BBB00E98053 /* Notification+Name.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +109,7 @@
 		B096F1AB25F621F400E98053 /* BalanceStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceStackView.swift; sourceTree = "<group>"; };
 		B096F1AF25F6233A00E98053 /* BalanceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceButton.swift; sourceTree = "<group>"; };
 		B096F1B325F6235200E98053 /* BalanceLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceLabel.swift; sourceTree = "<group>"; };
+		B096F1BD25FB6BBB00E98053 /* Notification+Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Name.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,6 +207,7 @@
 			isa = PBXGroup;
 			children = (
 				B096F0B925E52D9C00E98053 /* Date.swift */,
+				B096F1BD25FB6BBB00E98053 /* Notification+Name.swift */,
 			);
 			path = extention;
 			sourceTree = "<group>";
@@ -344,6 +347,7 @@
 				B096F09725E4FBF300E98053 /* Drink.swift in Sources */,
 				B096F0BF25E6394400E98053 /* ChocoMilk.swift in Sources */,
 				B096F08225E4FA5800E98053 /* SceneDelegate.swift in Sources */,
+				B096F1BE25FB6BBD00E98053 /* Notification+Name.swift in Sources */,
 				B096F0A125E4FFF300E98053 /* Coffee.swift in Sources */,
 				B096F0C625E641AE00E98053 /* StrawberryMilk.swift in Sources */,
 				B096F09B25E4FFA300E98053 /* Milk.swift in Sources */,

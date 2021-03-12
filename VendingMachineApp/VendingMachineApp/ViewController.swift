@@ -22,10 +22,13 @@ class ViewController: UIViewController {
         self.view.addSubview(vendingMachineView)
     }
     
-    @objc func doEvent(sender : AddStockButton) {
+    @objc func doAddStockButton(sender : AddStockButton) {
         vendingMachine.addStock(what: sender.beverageType)
-        vendingMachine.showStock().enumerated().forEach({ (body) in
-            print("\(String(describing: body.element.value.first?.name)) : \(body.element.value.count)")
-        })
+        NotificationCenter.default.post(name: .stockChanged, object: vendingMachine.showStock())
+    }
+    
+    @objc func doAddBalance(sender : BalanceButton) {
+        vendingMachine.insertMoney(howMuch: sender.addingValue)
+        NotificationCenter.default.post(name: .balanceChanged, object: vendingMachine.checkMoney())
     }
 }

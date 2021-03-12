@@ -100,18 +100,18 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="dhI-BG-qXN">
                                         <rect key="frame" x="0.0" y="0.0" width="198" height="30"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WnV-Qq-puE" customClass="BalancePut1000Button" customModule="VendingMachineApp" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WnV-Qq-puE">
                                                 <rect key="frame" x="0.0" y="0.0" width="48" height="30"/>
                                                 <state key="normal" title="1000원"/>
                                                 <connections>
-                                                    <action selector="BalanceIncrease1000ButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4QB-IJ-4j7"/>
+                                                    <action selector="BalanceIncreaseButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="c8F-Zd-UXB"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lGy-fu-3Nf" customClass="BalancePut5000Button" customModule="VendingMachineApp" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lGy-fu-3Nf">
                                                 <rect key="frame" x="148" y="0.0" width="50" height="30"/>
                                                 <state key="normal" title="5000원"/>
                                                 <connections>
-                                                    <action selector="BalanceIncrease5000ButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rlx-Us-QAb"/>
+                                                    <action selector="BalanceIncreaseButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0dx-tA-RFX"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -156,6 +156,8 @@
                         <outletCollection property="addStockButton" destination="2u6-M8-4ho" collectionClass="NSMutableArray" id="yE4-x6-ahJ"/>
                         <outletCollection property="addStockButton" destination="DQe-7E-ptl" collectionClass="NSMutableArray" id="LEl-78-KSP"/>
                         <outletCollection property="addStockButton" destination="yDF-bM-nON" collectionClass="NSMutableArray" id="GBl-27-3cX"/>
+                        <outletCollection property="addPaymentButtons" destination="WnV-Qq-puE" collectionClass="NSMutableArray" id="Ont-Z8-H4r"/>
+                        <outletCollection property="addPaymentButtons" destination="lGy-fu-3Nf" collectionClass="NSMutableArray" id="8M2-PF-ahM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

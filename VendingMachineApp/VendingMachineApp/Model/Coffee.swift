@@ -21,6 +21,15 @@ class Coffee: Beverage, Hotable, Transportable {
         super.init(brand: brand, name: name, price: price, size: size, dateFactory: dateFactory, manufacturedInString: manufacturedInString)
     }
     
+    init(brand: String, name: String, price: Int, size: Int,
+         temperature: Float, package: Package) {
+        
+        self.temperature = temperature
+        self.package = package
+        
+        super.init(brand: brand, name: name, price: price, size: size)
+    }
+    
     enum Keys {
         static let coffeeTemperature = "coffeeTemperature"
         static let coffeePackage = "coffeePackage"
@@ -66,6 +75,20 @@ class Americano: Coffee, SugarFreeable {
                    temperature: temperature, package: package)
     }
     
+    init(brand: String, name: String, price: Int, size: Int,
+         temperature: Float, package: Package, sugar: Float) {
+        
+        self.sugar = sugar
+        
+        super.init(brand: brand, name: name, price: price, size: size,
+                   temperature: temperature, package: package)
+    }
+    
+    convenience init() {
+        self.init(brand: "스타벅스", name: "블랙커피", price: 1800, size: 275,
+                  temperature: 75.5, package: .bottle, sugar: 0.0)
+    }
+    
     enum Keys {
         static let americanoSuger = "americanoSugar"
     }
@@ -99,6 +122,21 @@ class CafeLatte: Coffee, Expirable, LactoFreeable {
         
         super.init(brand: brand, name: name, price: price, size: size, dateFactory: dateFactory, manufacturedInString: manufacturedInString,
                    temperature: temperature, package: package)
+    }
+    
+    init(brand: String, name: String, price: Int, size: Int,
+         temperature: Float, package: Package, expireAfter: Int, lactose: Float) {
+        
+        self.expiry = Date().add(days: expireAfter)
+        self.lactose = lactose
+        
+        super.init(brand: brand, name: name, price: price, size: size,
+                   temperature: temperature, package: package)
+    }
+    
+    convenience init() {
+        self.init(brand: "코카콜라", name: "조지아 카페라떼", price: 900, size: 240,
+                  temperature: 8.5, package: .can, expireAfter: 10, lactose: 3.5)
     }
     
     enum Keys {

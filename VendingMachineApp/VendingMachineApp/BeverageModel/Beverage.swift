@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Beverage: NSCoding {
+class Beverage: NSObject, NSCoding {
     private let brand: String
     private let size: Milliliter
     private let price: Int
@@ -51,14 +51,12 @@ class Beverage: NSCoding {
     }
 }
 
-extension Beverage: CustomStringConvertible {
-    var description: String {
+extension Beverage {
+    override var description: String {
         let simpleDateFormat = "yyyyMMdd"
         return "\(brand), \(size)ml, \(price)원, \(name), \(packageTime.useSimpleFormat(dateFormat: simpleDateFormat))"
     }
-}
-
-extension Beverage: Equatable {
+    
     static func == (lhs: Beverage, rhs: Beverage) -> Bool {
         return lhs.brand == rhs.brand &&
             lhs.size == rhs.size &&
@@ -68,12 +66,6 @@ extension Beverage: Equatable {
     }
 }
 
-extension Beverage: Hashable {
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(brand)
-        hasher.combine(size)
-        hasher.combine(price)
-        hasher.combine(name)
-        hasher.combine(packageTime)
-    }
-}
+
+
+

@@ -35,8 +35,8 @@ class Beverage: NSObject, NSCoding{
         self.brand = coder.decodeObject(forKey: "brand") as! String
         self.manufactured = coder.decodeObject(forKey: "manufactured") as! Date
         self.expiry = coder.decodeObject(forKey: "expiry") as! Date
-        self.calorie = coder.decodeInteger(forKey: "calorie") as! Int
-        self.temperature = coder.decodeInteger(forKey: "temperature") as! Int
+        self.calorie = coder.decodeInteger(forKey: "calorie")
+        self.temperature = coder.decodeInteger(forKey: "temperature")
     }
     
     func encode(with coder: NSCoder) {

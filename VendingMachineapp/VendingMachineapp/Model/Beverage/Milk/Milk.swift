@@ -41,6 +41,7 @@ class Milk: Beverage {
     
     override func encode(with coder: NSCoder) {
         coder.encode(lowFat, forKey: "lowFat")
+        super.encode(with: coder)
     }
     
     override var description: String {

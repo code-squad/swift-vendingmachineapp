@@ -23,7 +23,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="51L-Pz-136">
                                         <rect key="frame" x="0.0" y="0.0" width="200" height="282.5"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2u6-M8-4ho" customClass="StrawberryMilkButton" customModule="VendingMachineApp" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2u6-M8-4ho">
                                                 <rect key="frame" x="0.0" y="0.0" width="200" height="22"/>
                                                 <state key="normal" image="plus" catalog="system"/>
                                                 <connections>
@@ -47,7 +47,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="gTe-ZN-QS3">
                                         <rect key="frame" x="220" y="0.0" width="200" height="282.5"/>
                                         <subviews>
-                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DQe-7E-ptl" customClass="DietColaButton" customModule="VendingMachineApp" customModuleProvider="target">
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DQe-7E-ptl">
                                                 <rect key="frame" x="0.0" y="0.0" width="200" height="22"/>
                                                 <state key="normal" image="plus" catalog="system"/>
                                                 <connections>
@@ -71,7 +71,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="V3V-y5-vFj">
                                         <rect key="frame" x="440" y="0.0" width="200" height="282.5"/>
                                         <subviews>
-                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yDF-bM-nON" customClass="TopAmericanoButton" customModule="VendingMachineApp" customModuleProvider="target">
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yDF-bM-nON">
                                                 <rect key="frame" x="0.0" y="0.0" width="200" height="22"/>
                                                 <state key="normal" image="plus" catalog="system"/>
                                                 <connections>
@@ -153,9 +153,9 @@
                         <outletCollection property="beverageImages" destination="I3Q-OX-WJz" collectionClass="NSMutableArray" id="5bQ-OZ-ihV"/>
                         <outletCollection property="beverageImages" destination="9g7-ko-X0y" collectionClass="NSMutableArray" id="9oO-Ao-N0Z"/>
                         <outletCollection property="beverageImages" destination="nmc-dc-3HB" collectionClass="NSMutableArray" id="guG-tj-ejQ"/>
-                        <outletCollection property="addStockButton" destination="yDF-bM-nON" collectionClass="NSMutableArray" id="Pes-fn-SPD"/>
-                        <outletCollection property="addStockButton" destination="DQe-7E-ptl" collectionClass="NSMutableArray" id="hQH-sC-HVV"/>
-                        <outletCollection property="addStockButton" destination="2u6-M8-4ho" collectionClass="NSMutableArray" id="1N8-ya-UEu"/>
+                        <outletCollection property="addStockButton" destination="2u6-M8-4ho" collectionClass="NSMutableArray" id="yE4-x6-ahJ"/>
+                        <outletCollection property="addStockButton" destination="DQe-7E-ptl" collectionClass="NSMutableArray" id="LEl-78-KSP"/>
+                        <outletCollection property="addStockButton" destination="yDF-bM-nON" collectionClass="NSMutableArray" id="GBl-27-3cX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

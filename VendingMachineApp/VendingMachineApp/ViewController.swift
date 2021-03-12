@@ -10,7 +10,7 @@ import UIKit
 class ViewController: UIViewController {
     private var appDelegate = UIApplication.shared.delegate as? AppDelegate
     
-    @IBOutlet var addStockButton: [BeveragesButton]!
+    @IBOutlet var addStockButton: [UIButton]!
     @IBOutlet var beverageImages: [BeverageImageView]!
     @IBOutlet var numberOfStock: [UILabel]!
     @IBOutlet weak var BalanceLabel: UILabel!
@@ -23,14 +23,14 @@ class ViewController: UIViewController {
     }
     
     func setNotificationObserver() {
-        NotificationCenter.default.addObserver(self, selector: #selector(updateBalanceLabel(_:)), name: .updateBalance, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(updateBeverageLabel(_:)), name: .updateBeverage, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateNotificationBalanceLabel(_:)), name: .updateBalance, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateNotificationBeverageLabel(_:)), name: .updateBeverage, object: nil)
     }
     
-    @IBAction func buyBeverageButtonTouched(_ sender: BeveragesButton) {
-        sender.increase(action: { (beverage) in
-            self.appDelegate?.vendingMachine?.addStock(beverage: beverage)
-        })
+    @IBAction func buyBeverageButtonTouched(_ sender: UIButton) {
+        guard let buttonIndex = self.addStockButton.firstIndex(of: sender) else { return }
+        guard let beverage = appDelegate?.vendingMachine?.showMenuList()[buttonIndex] else { return }
+        self.appDelegate?.vendingMachine?.addStock(beverage: beverage)
     }
     
     @IBAction func BalanceIncrease1000ButtonTouched(_ sender: BalanceIncreasable) {
@@ -49,21 +49,21 @@ class ViewController: UIViewController {
             String(self.appDelegate?.vendingMachine?.checkCurrentBalance() ?? 0)
     }
     
-    @objc private func updateBalanceLabel(_ notification : Notification) {
+    private func changeBeverageLabel() {
+        appDelegate?.vendingMachine?.showAllBeverageStock { index, count in
+            self.numberOfStock[index].text = String(count)
+        }
+    }
+    
+    @objc private func updateNotificationBalanceLabel(_ notification : Notification) {
         self.BalanceLabel.text =
             String(notification.userInfo?["amountMoney"] as? Int ?? 0)
     }
     
-    @objc private func updateBeverageLabel(_ notification : Notification) {
+    @objc private func updateNotificationBeverageLabel(_ notification : Notification) {
         appDelegate?.vendingMachine?.showMenuList().enumerated().forEach {
             let notification = notification.userInfo?["beverageInfo"] as? [ObjectIdentifier : [Beverage]]
             self.numberOfStock[$0.offset].text = String(notification?[ObjectIdentifier(type(of: $0.element))]?.count ?? 0)
-        }
-    }
-    
-    private func changeBeverageLabel() {
-        appDelegate?.vendingMachine?.showAllBeverageStock { index, count in
-            self.numberOfStock[index].text = String(count)
         }
     }
 }

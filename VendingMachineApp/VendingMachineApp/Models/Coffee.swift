@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Coffee: Drink {
+class Coffee: Beverage {
     
     private var caffein:  Int
     

@@ -42,7 +42,7 @@ class ViewController: UIViewController {
         guard let drinkType = notification.object else {
             return
         }
-        guard let newDrink = DrinkFactory.create(type: drinkType as! Drink.Type) else {
+        guard let newDrink = BeverageFactory.create(type: drinkType as! Berverage.Type) else {
             return
         }
         vendingMachine.append(newDrink)

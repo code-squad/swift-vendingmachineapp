@@ -13,7 +13,7 @@ class DrinkCollectionCell: UICollectionViewCell {
     @IBOutlet var drinkImage: UIImageView!
     @IBOutlet var stockNumber: UILabel!
     
-    var drinkType: (()->Drink.Type)?
+    var drinkType: (()->Berverage.Type)?
     var count: Int?
     
     func updateUI(drinkType: String, count: Int) {

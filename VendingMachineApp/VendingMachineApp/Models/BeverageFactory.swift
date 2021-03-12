@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct DrinkFactory {
+struct BeverageFactory {
     
-    static func create(type: Drink.Type) -> Drink? {
+    static func create(type: Berverage.Type) -> Berverage? {
         return type.init()
     }
 }

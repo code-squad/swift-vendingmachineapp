@@ -32,20 +32,17 @@ class VendingMachineViewController: UIViewController {
     
     //MARK: 재고 추가 버튼
     @IBAction func addCoffeeButton(_ sender: Any) {
-        guard let beverage = factory.addToInventory(beverage: "Coffee") else { return }
-        vendingMachine.addStock(beverage: beverage)
+        vendingMachine.addStock(beverage: factory.addToInventory(beverage: CoffeeFactory.self))
         showCoffeeInventoryQuantity()
     }
     
     @IBAction func addMilkButton(_ sender: Any) {
-        guard let beverage = factory.addToInventory(beverage: "Milk") else { return }
-        vendingMachine.addStock(beverage: beverage)
+        vendingMachine.addStock(beverage: factory.addToInventory(beverage: MilkFactory.self))
         showMilkInventoryQuantity()
     }
     
     @IBAction func addSodaButton(_ sender: Any) {
-        guard let beverage = factory.addToInventory(beverage: "Soda") else { return }
-        vendingMachine.addStock(beverage: beverage)
+        vendingMachine.addStock(beverage: factory.addToInventory(beverage: SodaFactory.self))
         showSodaInventoryQuantity()
     }
     

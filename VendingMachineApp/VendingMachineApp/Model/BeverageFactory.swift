@@ -30,15 +30,8 @@ class SodaFactory: Factory {
 }
 
 class BeverageFactory {
-    func addToInventory(beverage: String) -> Beverage? {
-        if beverage == "Coffee" {
-            return CoffeeFactory.makeBeverage()
-        }else if beverage == "Milk" {
-            return MilkFactory.makeBeverage()
-        }else if beverage == "Soda" {
-            return SodaFactory.makeBeverage()
-        }
-        return nil
+    func addToInventory(beverage: Factory.Type) -> Beverage {
+        return beverage.makeBeverage()
     }
 }
 

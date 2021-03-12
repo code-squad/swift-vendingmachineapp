@@ -16,8 +16,14 @@ class CocaCola: Soda {
     
     private var flavor: Flavor
     
-    init(date: Date, isZero: Bool, flavor: Flavor, hot: Bool, calorie: Int) {
+    init(manufacturedDate: Date, isZero: Bool, flavor: Flavor, hot: Bool, calorie: Int) {
         self.flavor = flavor
-        super.init(brand: "코카콜라", capacity: 333, price: Money(how: 2200), name: flavor.rawValue, date: Date(), expiration: Calendar.current.date(byAdding: .day, value: 90, to: date)!, hot: hot, calorie: calorie)
+        super.init(brand: "코카콜라", capacity: 333, price: Money(how: 2200), name: flavor.rawValue, manufacturedDate: Date(), expiration: Calendar.current.date(byAdding: .day, value: 90, to: manufacturedDate)!, hot: hot, calorie: calorie)
+    }
+    
+    required init() {
+        self.flavor = .Original
+        let manufacturedDate = Date()
+        super.init(brand: "코카콜라", capacity: 333, price: Money(how: 2200), name: flavor.rawValue, manufacturedDate: Date(), expiration: Calendar.current.date(byAdding: .day, value: 90, to: manufacturedDate)!, hot: false, calorie: 385)
     }
 }

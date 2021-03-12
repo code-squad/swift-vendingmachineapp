@@ -33,7 +33,7 @@ class Payment : NSObject, NSCoding {
     
     func increase(money : Int) {
         self.amountMoney += money
-        NotificationCenter.default.post(name: .updateBalance, object: nil, userInfo: ["amountMoney" : amountMoney])
+        NotificationCenter.default.post(name: .updateBalance, object: amountMoney)
     }
     
     func decrease(beverage : Beverage) {

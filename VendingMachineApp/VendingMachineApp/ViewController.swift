@@ -57,12 +57,12 @@ class ViewController: UIViewController {
     
     @objc private func updateNotificationBalanceLabel(_ notification : Notification) {
         self.BalanceLabel.text =
-            String(notification.userInfo?["amountMoney"] as? Int ?? 0)
+            String(notification.object as? Int ?? 0)
     }
     
     @objc private func updateNotificationBeverageLabel(_ notification : Notification) {
         appDelegate?.vendingMachine?.showMenuList().enumerated().forEach {
-            let notification = notification.userInfo?["beverageInfo"] as? [ObjectIdentifier : [Beverage]]
+            let notification = notification.object as? [ObjectIdentifier : [Beverage]]
             self.numberOfStock[$0.offset].text = String(notification?[ObjectIdentifier(type(of: $0.element))]?.count ?? 0)
         }
     }

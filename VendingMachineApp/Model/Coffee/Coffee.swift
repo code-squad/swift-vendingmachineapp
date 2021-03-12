@@ -9,8 +9,6 @@ import Foundation
 
 class Coffee : Beverage{
     
-    private static let standard = 65
-    
     private var caffeine : Int
     private var temperature : Int
     
@@ -27,7 +25,7 @@ class Coffee : Beverage{
     
     required init() {
         self.caffeine = 0
-        self.temperature = Coffee.standard
+        self.temperature = 0
         super.init()
     }
     required init?(coder: NSCoder) {
@@ -43,7 +41,7 @@ class Coffee : Beverage{
     override var description: String {
         return super.description + ", \(caffeine)mg"
     }
-    func isHot() -> Bool{
-        return Coffee.standard <= temperature
+    func isHot(than temperature : Int ) -> Bool{
+        return self.temperature > temperature
     }
 }

@@ -32,7 +32,7 @@ class ConsumerTest: XCTestCase {
     }
 
     func testBuy(){
-        let product = vendingMachine.sellProduct(product: georgia)
+        let product = vendingMachine.sellProduct(with: Georgia.self)
 
         XCTAssertNotNil(product, "음료수를 구매할 수 없습니다.")
     }

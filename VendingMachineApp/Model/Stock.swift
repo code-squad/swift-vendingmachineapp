@@ -45,10 +45,10 @@ class Stock : NSObject, NSCoding {
         return products.filter{ $0.isExpired(to: Date()) }.map{$0}
     }
     
-    public func getHotDrink() -> [Beverage] {
+    public func getHotDrink(than temperature : Int ) -> [Beverage] {
         let filtered = products.filter{ item in
             if let coffee = item as? Coffee {
-                if coffee.isHot() {
+                if coffee.isHot(than: temperature) {
                     return true
                 }
             }

@@ -30,9 +30,17 @@ class Drink : CustomStringConvertible, Hashable {
         self.calorie = calorie
     }
     
-    convenience init() {
-        self.init(brand: "", capacity: 0, price: Money(), name: "", manufacturedDate: Date(), expiration: Date(), hot: false, calorie: 0)
+    required init() {
+        self.brand = ""
+        self.capacity = 0
+        self.price = Money()
+        self.name = ""
+        self.manufacturedDate = Date()
+        self.expiration = Date()
+        self.hot = false
+        self.calorie = 0
     }
+    
     
     var description: String {
         return "\(brand), \(capacity)ml, \(price)원, \(name), \(manufacturedDate.description)"

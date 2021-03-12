@@ -18,6 +18,12 @@ class Sprite: Soda {
     
     init(date: Date, isZero: Bool, flavor: Flavor, hot: Bool, calorie: Int) {
         self.flavor = flavor
-        super.init(brand: "스프라이트", capacity: 333, price: Money(how: 1800), name: flavor.rawValue, date: date,expiration: Calendar.current.date(byAdding: .day, value: 90, to: date)!, hot: hot, calorie: calorie)
+        super.init(brand: "스프라이트", capacity: 333, price: Money(how: 1800), name: flavor.rawValue, manufacturedDate: date,expiration: Calendar.current.date(byAdding: .day, value: 90, to: date)!, hot: hot, calorie: calorie)
+    }
+    
+    required init() {
+        self.flavor = .Original
+        let manufacturedDate = Date()
+        super.init(brand: "스프라이트", capacity: 333, price: Money(how: 1800), name: flavor.rawValue, manufacturedDate: manufacturedDate,expiration: Calendar.current.date(byAdding: .day, value: 90, to: manufacturedDate)!, hot: false, calorie: 385)
     }
 }

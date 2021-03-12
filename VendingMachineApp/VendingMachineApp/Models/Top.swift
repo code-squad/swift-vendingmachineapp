@@ -16,8 +16,14 @@ class Top: Coffee {
     
     private var flavor: Flavor
     
-    init(date: Date, caffein: Int, flavor: Flavor, hot: Bool, calorie: Int) {
+    init(manufacturedDate: Date, caffein: Int, flavor: Flavor, hot: Bool, calorie: Int) {
         self.flavor = flavor
-        super.init(brand: "TOP", capacity: 275, price: Money(how: 1800), name: flavor.rawValue, date: date, caffein: caffein, expiration: Calendar.current.date(byAdding: .day, value: 60, to: date)!, hot: hot, calorie: calorie)
+        super.init(brand: "TOP", capacity: 275, price: Money(how: 1800), name: flavor.rawValue, manufacturedDate: manufacturedDate, caffein: caffein, expiration: Calendar.current.date(byAdding: .day, value: 60, to: manufacturedDate)!, hot: hot, calorie: calorie)
+    }
+    
+    required init() {
+        self.flavor = .SweetAmericano
+        let manufacturedDate = Date()
+        super.init(brand: "TOP", capacity: 275, price: Money(how: 1800), name: flavor.rawValue, manufacturedDate: manufacturedDate, caffein: 20, expiration: Calendar.current.date(byAdding: .day, value: 60, to: manufacturedDate)!, hot: true, calorie: 20)
     }
 }

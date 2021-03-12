@@ -9,10 +9,10 @@ import Foundation
 
 class Top : Coffee {
     
-    enum Kind {
-        case caffelatte
-        case americano
-        case black
+    enum Kind : String {
+        case caffelatte = "caffelatte"
+        case americano = "americano"
+        case black = "black"
     }
     
     let kind : Kind
@@ -39,5 +39,13 @@ class Top : Coffee {
                    caffeine: 100,
                    temperature : 65,
                    kind: .black)
+    }
+    required init?(coder: NSCoder) {
+        self.kind = Kind(rawValue: coder.decodeObject(forKey: "TopKind") as! String)!
+        super.init(coder: coder)
+    }
+    override func encode(with coder: NSCoder) {
+        coder.encode(kind.rawValue, forKey: "TopKind")
+        super.encode(with: coder)
     }
 }

@@ -24,4 +24,12 @@ class Milk : Beverage {
         self.lowFat = false
         super.init()
     }
+    required init?(coder: NSCoder) {
+        self.lowFat = coder.decodeBool(forKey: "lowFat")
+        super.init(coder: coder)
+    }
+    override func encode(with coder: NSCoder) {
+        coder.encode(lowFat, forKey: "lowFat")
+        super.encode(with: coder)
+    }
 }

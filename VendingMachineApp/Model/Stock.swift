@@ -7,13 +7,29 @@
 
 import Foundation
 
-class Stock {
-    private(set) var products = [Beverage]()
+class Stock : NSObject, NSCoding {
+    
+    private(set) var products : [Beverage]
+    
+    init(_ items : [Beverage] = []){
+        products = [Beverage]()
+        super.init()
+        self.append(items: items)
+    }
+    required convenience init?(coder: NSCoder) {
+        guard let products = coder.decodeObject(forKey: "products") as? [Beverage] else { return nil }
+        self.init(products)
+    }
+    func encode(with coder: NSCoder) {
+        coder.encode(products, forKey: "products")
+    }
     
     public func append(item : Beverage){
         products.append(item)
     }
-    
+    public func append(items: [Beverage]){
+        products.append(contentsOf: items)
+    }
     public func remove(item : Beverage) -> Bool {
         if let index = products.firstIndex(where: {$0 == item}) {
             products.remove(at: index)

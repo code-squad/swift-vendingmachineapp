@@ -8,9 +8,7 @@
 import Foundation
 
 class Soda : Beverage {
-    required init() {
-        super.init()
-    }
+    
     override init(brand: String, capacity: Int, price: Int, name: String, createdAt: Date, expiredAt: Date) {
         super.init(brand: brand,
                    capacity: capacity,
@@ -18,5 +16,13 @@ class Soda : Beverage {
                    name: name,
                    createdAt: createdAt,
                    expiredAt: expiredAt)
+    }
+    
+    required init() {
+        super.init()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
     }
 }

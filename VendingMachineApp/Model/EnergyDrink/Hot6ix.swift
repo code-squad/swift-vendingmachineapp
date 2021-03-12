@@ -9,10 +9,10 @@ import Foundation
 
 class Hot6ix : EnergyDrink {
  
-    enum Kind {
-        case original
-        case punch
-        case power
+    enum Kind : String{
+        case original = "original"
+        case punch = "punch"
+        case power = "power"
     }
     let kind : Kind
     
@@ -36,5 +36,13 @@ class Hot6ix : EnergyDrink {
                    expiredAt: Date().get7daysLatter(),
                    caffeine: 140,
                    kind : .power)
+    }
+    required init?(coder: NSCoder) {
+        self.kind = Kind(rawValue: coder.decodeObject(forKey: "Hot6ixkind") as! String)!
+        super.init(coder: coder)
+    }
+    override func encode(with coder: NSCoder) {
+        coder.encode(kind.rawValue, forKey: "Hot6ixkind")
+        super.encode(with: coder)
     }
 }

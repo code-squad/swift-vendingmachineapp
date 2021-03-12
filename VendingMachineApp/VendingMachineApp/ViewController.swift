@@ -55,11 +55,8 @@ class ViewController: UIViewController {
     }
     
     private func changeBeverageLabel() {
-        appDelegate?.vendingMachine?.showAllBeverageStock(handler: { beverageType in
-            appDelegate?.vendingMachine?.showMenuList().enumerated().forEach({ (e) in
-                self.numberOfStock[e.offset].text = String(beverageType[ObjectIdentifier(type(of: e.element))]?.count ?? 0)
-            })
-        })
+        appDelegate?.vendingMachine?.showAllBeverageStock { index, count in
+            self.numberOfStock[index].text = String(count)
+        }
     }
 }
-

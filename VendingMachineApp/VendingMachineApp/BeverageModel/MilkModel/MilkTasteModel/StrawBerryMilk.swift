@@ -17,6 +17,18 @@ class StrawBerryMilk: Milk & FoodColoringApplicable {
         super.init(brand: brand, size: size, price: price, name: name, packageTime: packageTime, farm: milkFarm)
     }
     
+    override func encode(with coder: NSCoder) {
+        coder.encode(strawBerryFarm, forKey: "strawBerryFarm")
+        coder.encode(foodColoring, forKey: "foodColoring")
+        super.encode(with: coder)
+    }
+    
+    required init?(coder eDecoder: NSCoder) {
+        strawBerryFarm = eDecoder.decodeObject(forKey: "strawBerryFarm") as! LocationTrackable
+        foodColoring = eDecoder.decodeObject(forKey: "foodColoring") as! FoodColoring?
+        super.init(coder: eDecoder)
+    }
+    
     func isUsingFoodColoring() -> Bool {
         return foodColoring != nil
     }

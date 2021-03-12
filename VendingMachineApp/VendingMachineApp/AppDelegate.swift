@@ -9,7 +9,7 @@ import UIKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    let machine = Machine()
+    var machine = Machine()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
@@ -23,6 +23,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
     }
 
-
+    func applicationWillTerminate(_ application: UIApplication) {
+//        do {
+//            let myEncodedObject = try NSKeyedArchiver.archivedData(withRootObject: machine ?? Machine(), requiringSecureCoding: false)
+//                defaults.set(myEncodedObject, forKey: "machine")
+//        } catch {
+//            print(error.localizedDescription)
+//        }
+    }
 }
 

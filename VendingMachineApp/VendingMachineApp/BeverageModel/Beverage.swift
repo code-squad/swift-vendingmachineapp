@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Beverage {
+class Beverage: NSCoding {
     private let brand: String
     private let size: Milliliter
     private let price: Int
@@ -20,6 +20,22 @@ class Beverage {
         self.price = price
         self.name = name
         self.packageTime = packageTime
+    }
+    
+    func encode(with coder: NSCoder) {
+        coder.encode(brand, forKey: "brand")
+        coder.encode(size, forKey: "size")
+        coder.encode(price, forKey: "price")
+        coder.encode(name, forKey: "name")
+        coder.encode(packageTime, forKey: "packageTime")
+    }
+    
+    required init?(coder eDecoder: NSCoder) {
+        brand = eDecoder.decodeObject(forKey: "brand") as! String
+        size = eDecoder.decodeObject(forKey: "size") as! Milliliter
+        price = eDecoder.decodeInteger(forKey: "price")
+        name = eDecoder.decodeObject(forKey: "name") as! String
+        packageTime = eDecoder.decodeObject(forKey: "packageTime") as! Date
     }
     
     public func isPurchasable(with money: Int) -> Bool {

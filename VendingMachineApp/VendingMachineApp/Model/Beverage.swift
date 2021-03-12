@@ -23,6 +23,14 @@ class Beverage: NSObject, Shopable, NSCoding {
         self.manufacturedAt = dateFactory.create(from: manufacturedInString)
     }
     
+    init(brand: String, name: String, price: Int, size: Int) {
+        self.brand = brand
+        self.name = name
+        self.price = price
+        self.size = size
+        self.manufacturedAt = Date()
+    }
+    
     enum Keys {
         static let brand = "brand"
         static let name = "name"

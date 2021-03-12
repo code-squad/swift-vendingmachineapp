@@ -19,6 +19,14 @@ class Soda: Beverage, Transportable {
         super.init(brand: brand, name: name, price: price, size: size, dateFactory: dateFactory, manufacturedInString: manufacturedInString)
     }
     
+    init(brand: String, name: String, price: Int, size: Int,
+         package: Package) {
+        
+        self.package = package
+        
+        super.init(brand: brand, name: name, price: price, size: size)
+    }
+    
     enum Keys {
         static let sodaPackage = "sodaPackage"
     }
@@ -56,6 +64,19 @@ class Coke: Soda, SugarFreeable {
         super.init(brand: brand, name: name, price: price, size: size, dateFactory: dateFactory, manufacturedInString: manufacturedInString, package: package)
     }
     
+    init(brand: String, name: String, price: Int, size: Int,
+         package: Package, sugar: Float) {
+        
+        self.sugar = sugar
+        
+        super.init(brand: brand, name: name, price: price, size: size, package: package)
+    }
+    
+    convenience init() {
+        self.init(brand: "코카콜라", name: "코카콜라 제로", price: 2000, size: 500,
+                  package: .bottle, sugar: 0.0)
+    }
+    
     enum Keys {
         static let cokeSugar = "cokeSugar"
     }
@@ -86,6 +107,19 @@ class Milkis: Soda, LactoFreeable {
         self.lactose = lactose
         
         super.init(brand: brand, name: name, price: price, size: size, dateFactory: dateFactory, manufacturedInString: manufacturedInString, package: package)
+    }
+    
+    init(brand: String, name: String, price: Int, size: Int,
+         package: Package, lactose: Float) {
+        
+        self.lactose = lactose
+        
+        super.init(brand: brand, name: name, price: price, size: size, package: package)
+    }
+    
+    convenience init() {
+        self.init(brand: "롯데칠성음료", name: "밀키스", price: 1500, size: 340,
+                  package: .can, lactose: 3.5)
     }
     
     enum Keys {

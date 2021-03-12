@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Soda: Drink {
+class Soda: Beverage {
     
     private var zeroCalorie: Bool
     

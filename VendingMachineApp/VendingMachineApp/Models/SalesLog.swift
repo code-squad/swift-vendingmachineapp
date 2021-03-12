@@ -14,7 +14,7 @@ class SalesLog {
         log = Drinks()
     }
     
-    func update(_ drink: Drink) {
+    func update(_ drink: Berverage) {
         log.append(drink)
     }
     

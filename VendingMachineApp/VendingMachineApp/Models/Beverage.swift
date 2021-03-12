@@ -1,5 +1,5 @@
 //
-//  Drink.swift
+//  Beverage.swift
 //  VendingMachineApp
 //
 //  Created by 지북 on 2021/02/22.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Drink : CustomStringConvertible, Hashable {
+class Beverage: CustomStringConvertible, Hashable {
     private var brand: String
     private var capacity: Int
     private (set) var price: Money

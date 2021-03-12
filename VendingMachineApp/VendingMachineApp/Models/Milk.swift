@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Milk: Drink {
+class Milk: Beverage {
     
     private var fat: Int
     

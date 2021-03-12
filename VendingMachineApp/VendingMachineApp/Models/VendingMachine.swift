@@ -16,21 +16,21 @@ class VendingMachine {
         case fifvethousand = 5000
     }
     
-    private var stock: Drinks
+    private var stock: BeverageInventory
     private var credit: Money
     private var log: SalesLog
     
-    init(drinks: Drinks) {
+    init(drinks: BeverageInventory) {
         self.stock = drinks
         self.credit = Money()
         self.log = SalesLog()
     }
     
     convenience init() {
-        self.init(drinks: Drinks())
+        self.init(drinks: BeverageInventory())
     }
     
-    func show(handler: (Drink) -> Void) {
+    func show(handler: (Beverage) -> Void) {
         stock.show(handler: handler)
     }
     
@@ -38,62 +38,57 @@ class VendingMachine {
         credit.deposit(unit: coin)
     }
     
-    func append(_ drink: Drink) {
-        stock.append(drink)
+    func append(_ beverage: Beverage) {
+        stock.append(beverage)
     }
     
-    func append(drinks: [Drink]) {
-        stock.append(drinks)
+    func append(beverages: [Beverage]) {
+        stock.append(beverages)
     }
     
-    func possibleDrinks() -> Drinks {
-        return stock.possibleDrinks(with: credit)
+    func possibleBeverages() -> [Beverage] {
+        return stock.possibleBeverages(with: credit)
     }
     
     func nowCredit() -> Money {
         return credit
     }
     
-    func hotDrinks() -> Drinks {
-        return stock.hotDrinks()
+    func hotBeverages() -> [Beverage] {
+        return stock.hotBeverages()
     }
     
-    func lowCalorieDrinks() -> Drinks {
-        return stock.lowCalorieDrinks()
+    func lowCalorieBeverages() -> [Beverage] {
+        return stock.lowCalorieBeverages()
     }
     
-    func validateDrinks(when date: Date) -> Drinks {
-        return stock.validateDrinks(when: date)
+    func validateBeverages(when date: Date) -> [Beverage] {
+        return stock.validateBeverages(when: date)
     }
     
-    private func canBuy(with drink: Drink) -> Bool {
-        return credit > drink.price
+    private func canBuy(with beverage: Beverage) -> Bool {
+        return credit > beverage.price
     }
     
-    private func hasDrink(with drink: Drink) -> Bool {
-        return stock.hasDrink(with: drink)
+    private func hasDrink(with beverage: Beverage) -> Bool {
+        return stock.hasDrink(with: beverage)
     }
     
-    func buy(with drink: Drink) -> Drink? {
-        if !hasDrink(with: drink) || !canBuy(with: drink){
+    func buy(with beverage: Beverage) -> Beverage? {
+        if !hasDrink(with: beverage) || !canBuy(with: beverage){
             return nil
         }
-        credit -= drink.price
-        update(with: drink)
-        return drink
+        credit -= beverage.price
+        update(with: beverage)
+        return beverage
     }
     
-    private func update(with drink: Drink) {
-        logUpdate(drink)
-        dictionaryUpdate(drink)
+    private func update(with beverage: Beverage) {
+        logUpdate(beverage)
     }
     
-    private func dictionaryUpdate(_ drink: Drink) {
-        stock.diconaryUpdate(with: drink)
-    }
-    
-    private func logUpdate(_ drink: Drink) {
-        log.update(drink)
+    private func logUpdate(_ beverage: Beverage) {
+        log.update(beverage)
     }
     
     func showLog() -> [String] {
@@ -104,12 +99,12 @@ class VendingMachine {
         return stock.countType()
     }
     
-    func drinkStock(at index: Int) -> Int {
-        return stock.drinkStock(at: index)
+    func countBeverage(at index: Int) -> Int {
+        return stock.countBeverage(at: index)
     }
     
-    func drinkType(at index: Int) -> Drink.Type {
-        return stock.drinkType(at: index)
+    func beverageType(at index: Int) -> Beverage.Type {
+        return stock.beverageType(at: index)
     }
     
     func countKindOfCoin() -> Int {

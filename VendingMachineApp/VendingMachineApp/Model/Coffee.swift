@@ -30,6 +30,12 @@ class Coffee: Beverage, Hotable, Transportable {
         super.init(brand: brand, name: name, price: price, size: size)
     }
     
+    required init() {
+        self.temperature = 50.0
+        self.package = .can
+        super.init()
+    }
+    
     enum Keys {
         static let coffeeTemperature = "coffeeTemperature"
         static let coffeePackage = "coffeePackage"
@@ -84,7 +90,7 @@ class Americano: Coffee, SugarFreeable {
                    temperature: temperature, package: package)
     }
     
-    convenience init() {
+    required convenience init() {
         self.init(brand: "스타벅스", name: "블랙커피", price: 1800, size: 275,
                   temperature: 75.5, package: .bottle, sugar: 0.0)
     }
@@ -134,7 +140,7 @@ class CafeLatte: Coffee, Expirable, LactoFreeable {
                    temperature: temperature, package: package)
     }
     
-    convenience init() {
+    required convenience init() {
         self.init(brand: "코카콜라", name: "조지아 카페라떼", price: 900, size: 240,
                   temperature: 8.5, package: .can, expireAfter: 10, lactose: 3.5)
     }

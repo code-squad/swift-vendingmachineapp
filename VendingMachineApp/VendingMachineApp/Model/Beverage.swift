@@ -8,7 +8,7 @@
 import Foundation
 
 class Beverage: NSObject, Shopable, NSCoding {
-    
+
     private let brand: String
     private let name: String
     private let price: Int
@@ -29,6 +29,15 @@ class Beverage: NSObject, Shopable, NSCoding {
         self.price = price
         self.size = size
         self.manufacturedAt = Date()
+    }
+    
+    override required init() {
+        self.brand = "브랜드"
+        self.name = "이름"
+        self.price = 0
+        self.size = 0
+        self.manufacturedAt = Date()
+        super.init()
     }
     
     enum Keys {

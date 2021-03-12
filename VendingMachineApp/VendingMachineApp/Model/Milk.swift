@@ -31,6 +31,12 @@ class Milk: Beverage, Expirable, LactoFreeable {
         super.init(brand: brand, name: name, price: price, size: size)
     }
     
+    required init() {
+        self.expiry = Date().add(days: 7)
+        self.lactose = 3.0
+        super.init()
+    }
+    
     enum Keys {
         static let milkExpiry = "milkExpiry"
         static let milkLactose = "milkLactose"
@@ -79,7 +85,7 @@ class Chocolate: Milk, Transportable {
         super.init(brand: brand, name: name, price: price, size: size, expireAfter: expireAfter, lactose: lactose)
     }
     
-    convenience init() {
+    required convenience init() {
         self.init(brand: "푸르밀", name: "가나 초코우유", price: 1300, size: 225,
                   expireAfter: 10, lactose: 3.5, package: .bottle)
     }
@@ -129,7 +135,7 @@ class Plain: Milk, SugarFreeable {
         super.init(brand: brand, name: name, price: price, size: size, expireAfter: expireAfter, lactose: lactose)
     }
     
-    convenience init() {
+    required convenience init() {
         self.init(brand: "매일", name: "소화가 잘되는 우유", price: 850, size: 190,
                   expireAfter: 7, lactose: 0.2, sugar: 0.2)
     }

@@ -87,6 +87,8 @@ extension VendingMachine {
 //MARK: - Protocols
 protocol Shopable {
     
+    init()
+    
     func isPurchashable(with money: Int) -> Bool
     
     func subtractPrice(from balance: Int) -> Int

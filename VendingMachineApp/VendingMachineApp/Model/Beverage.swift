@@ -48,6 +48,10 @@ class Beverage: NSObject, NSCoding{
         return money.compareInsertedMoneyToPrice(price: price)
     }
     
+//    static func affordableBeverage(money: InsertedMoney) -> Bool {
+//        return money.compareInsertedMoneyToPrice(price: )
+//    }
+    
     func sellingBeverageList(compare product: String) -> Bool {
         return product == productName ? true : false
     }

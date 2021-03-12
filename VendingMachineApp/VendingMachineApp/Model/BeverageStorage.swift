@@ -15,8 +15,12 @@ class BeverageStorage: NSObject, Storage, NSCoding {
         stockList = [:]
     }
     
+    enum Keys {
+        static let stockValues = "stockValues"
+    }
+    
     required init?(coder: NSCoder) {
-        let values = coder.decodeObject(forKey: "stockValues") as! [[Shopable]]
+        let values = coder.decodeObject(forKey: Keys.stockValues) as! [[Shopable]]
         var stockList = [ObjectIdentifier: [Shopable]]()
         values.forEach({ (value) in
             stockList[ObjectIdentifier(type(of: value[0]))] = value
@@ -25,7 +29,7 @@ class BeverageStorage: NSObject, Storage, NSCoding {
     }
     
     func encode(with coder: NSCoder) {
-        coder.encode(onlyValues(), forKey: "stockValues")
+        coder.encode(onlyValues(), forKey: Keys.stockValues)
     }
     
     private func onlyValues() -> [[Shopable]] {

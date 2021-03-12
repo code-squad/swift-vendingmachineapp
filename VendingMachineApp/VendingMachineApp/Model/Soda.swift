@@ -19,13 +19,17 @@ class Soda: Beverage, Transportable {
         super.init(brand: brand, name: name, price: price, size: size, dateFactory: dateFactory, manufacturedInString: manufacturedInString)
     }
     
+    enum Keys {
+        static let sodaPackage = "sodaPackage"
+    }
+    
     required init?(coder: NSCoder) {
-        self.package = Package(rawValue: coder.decodeObject(forKey: "soda_package") as! String)!
+        self.package = Package(rawValue: coder.decodeObject(forKey: Keys.sodaPackage) as! String)!
         super.init(coder: coder)
     }
     
     override func encode(with coder: NSCoder) {
-        coder.encode(package.rawValue, forKey: "soda_package")
+        coder.encode(package.rawValue, forKey: Keys.sodaPackage)
         super.encode(with: coder)
     }
     
@@ -52,13 +56,17 @@ class Coke: Soda, SugarFreeable {
         super.init(brand: brand, name: name, price: price, size: size, dateFactory: dateFactory, manufacturedInString: manufacturedInString, package: package)
     }
     
+    enum Keys {
+        static let cokeSugar = "cokeSugar"
+    }
+    
     required init?(coder: NSCoder) {
-        self.sugar = coder.decodeFloat(forKey: "coke_sugar")
+        self.sugar = coder.decodeFloat(forKey: Keys.cokeSugar)
         super.init(coder: coder)
     }
     
     override func encode(with coder: NSCoder) {
-        coder.encode(sugar, forKey: "coke_sugar")
+        coder.encode(sugar, forKey: Keys.cokeSugar)
         super.encode(with: coder)
     }
 
@@ -80,13 +88,17 @@ class Milkis: Soda, LactoFreeable {
         super.init(brand: brand, name: name, price: price, size: size, dateFactory: dateFactory, manufacturedInString: manufacturedInString, package: package)
     }
     
+    enum Keys {
+        static let milkisLactose = "milkisLactose"
+    }
+    
     required init?(coder: NSCoder) {
-        self.lactose = coder.decodeFloat(forKey: "milkis_lactose")
+        self.lactose = coder.decodeFloat(forKey: Keys.milkisLactose)
         super.init(coder: coder)
     }
     
     override func encode(with coder: NSCoder) {
-        coder.encode(lactose, forKey: "milkis_lactose")
+        coder.encode(lactose, forKey: Keys.milkisLactose)
         super.encode(with: coder)
     }
     

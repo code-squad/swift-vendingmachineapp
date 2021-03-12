@@ -17,8 +17,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let dispensedListIntext = appDelegate.archive(with: appDelegate.dispensedList as Any)
         let moneyBoxIntext = appDelegate.archive(with: appDelegate.moneyBox as Any)
 
-        UserDefaults.standard.setValue(storageIntext, forKey: "storage")
-        UserDefaults.standard.setValue(dispensedListIntext, forKey: "dispensedList")
-        UserDefaults.standard.setValue(moneyBoxIntext, forKey: "moneyBox")
+        UserDefaults.standard.setValue(storageIntext, forKey: AppDelegate.Keys.storage)
+        UserDefaults.standard.setValue(dispensedListIntext, forKey: AppDelegate.Keys.dispensedList)
+        UserDefaults.standard.setValue(moneyBoxIntext, forKey: AppDelegate.Keys.moneyBox)
     }
 }

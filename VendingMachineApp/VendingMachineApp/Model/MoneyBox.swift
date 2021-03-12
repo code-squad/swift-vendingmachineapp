@@ -15,12 +15,16 @@ class MoneyBox: NSObject, MoneyManagable, NSCoding {
         money = 0
     }
     
+    enum Keys {
+        static let balance = "balance"
+    }
+    
     required init?(coder: NSCoder) {
-        self.money = coder.decodeInteger(forKey: "money")
+        self.money = coder.decodeInteger(forKey: Keys.balance)
     }
     
     func encode(with coder: NSCoder) {
-        coder.encode(money, forKey: "money")
+        coder.encode(money, forKey: Keys.balance)
     }
     
     func balance() -> Int {

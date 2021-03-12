@@ -47,12 +47,12 @@ class ViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(didStockListChanged(_:)),
-                                               name: NSNotification.Name("stockListUpdate"),
+                                               name: VendingMachine.NotiKeys.stockListUpdate,
                                                object: nil)
         
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(didBalanceChanged(_:)),
-                                               name: NSNotification.Name("balanceUpdate"),
+                                               name: VendingMachine.NotiKeys.balanceUpdate,
                                                object: nil)
     }
     

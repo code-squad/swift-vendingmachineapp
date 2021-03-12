@@ -26,11 +26,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         loadAll()
         return true
     }
+    
+    enum Keys {
+        static let storage = "storage"
+        static let dispensedList = "dispensedList"
+        static let moneyBox = "moneyBox"
+    }
 
     private func loadAll() {
-        if let storageInTextLoaded = UserDefaults.standard.data(forKey: "storage"),
-           let dispensedListInTextLoaded = UserDefaults.standard.data(forKey: "dispensedList"),
-           let moneyBoxInTextLoaded = UserDefaults.standard.data(forKey: "moneyBox"),
+        if let storageInTextLoaded = UserDefaults.standard.data(forKey: Keys.storage),
+           let dispensedListInTextLoaded = UserDefaults.standard.data(forKey: Keys.dispensedList),
+           let moneyBoxInTextLoaded = UserDefaults.standard.data(forKey: Keys.moneyBox),
            let storage = unarchive(with: storageInTextLoaded) as? Storage,
            let dispensedList = unarchive(with: dispensedListInTextLoaded) as? OrderableList,
            let moneyBox = unarchive(with: moneyBoxInTextLoaded) as? MoneyManagable {

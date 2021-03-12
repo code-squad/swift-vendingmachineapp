@@ -13,6 +13,7 @@ class OneStockView: UIView {
     private var button : UIBeverageButton!
     private var stockImageView : UIImageView!
     private var stockImage : UIImage!
+    // TODO: let으로 바꾸기 or type을 변수로 가지지 않도록 바꿔보기
     public var beverageType : Beverage.Type!
     
     required init?(coder: NSCoder) {

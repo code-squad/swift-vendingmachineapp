@@ -8,21 +8,23 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
-    var vendingMachine = VendingMachine()
-    
+
     var stockStackView : StockStackView!
     var inspectorView : InspectorStackView!
     
-    // TODO: VendingMachine 객체 변화에 대하여 Notification을 적용하도록 수정할 것
+    var vendingMachine : VendingMachine!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        vendingMachine = (UIApplication.shared.delegate as! AppDelegate).vendingMachine
+        
         NotificationCenter.default.addObserver(self, selector: #selector(updateBeverageLabel), name: .StockCountChanged, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(updateCoinLabel), name: .CoinChanged, object: nil)
+        setUpViews()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        setUpViews()
+        
     }
     
     func setUpViews(){

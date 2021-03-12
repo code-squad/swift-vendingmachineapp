@@ -4,10 +4,12 @@ class VendingMachine: NSObject, NSCoding {
     
     var insertedMoney: InsertedMoney
     var beverages: Beverages
+    private var purchased: [Beverage]
     
     override private init() {
         insertedMoney = InsertedMoney()
         beverages = Beverages()
+        purchased = [Beverage]()
     }
     
     private static var sharedVendingMachine = VendingMachine()
@@ -23,11 +25,13 @@ class VendingMachine: NSObject, NSCoding {
     required init?(coder: NSCoder) {
         insertedMoney = coder.decodeObject(forKey: "insertedMoney") as! InsertedMoney
         beverages = coder.decodeObject(forKey: "beverages") as! Beverages
+        purchased = coder.decodeObject(forKey: "purchased") as? [Beverage] ?? [Beverage]()
     }
     
     func encode(with coder: NSCoder) {
         coder.encode(insertedMoney, forKey: "insertedMoney")
         coder.encode(beverages, forKey: "beverages")
+        coder.encode(purchased, forKey: "purchased")
     }
     
     func addBeverage(beverage: Beverage) {
@@ -50,27 +54,19 @@ class VendingMachine: NSObject, NSCoding {
         return availableList
     }
     
-    func buyingList(productName: String) -> [Beverage] {
-        var buyingList = [Beverage]()
-        beverages.forEachBeverage{
-            if $0.sellingBeverageList(compare: productName){
-                if let item = buyBeverage(product: $0) {
-                    buyingList.append(item)
-                }
-            }
-        }
-        return buyingList
+    func buyingList() -> [Beverage] {
+        return purchased
     }
     
-    func buyBeverage(product: Beverage)  -> Beverage? {
+    func buyBeverage(product: Beverage){
         if product.affordableForBeverage(money: insertedMoney) {
             beverages.removeProduct(product)
             insertedMoney.afterBuyingProduct(minus: product.price)
+            purchased.append(product)
             NotificationCenter.default.post(name: .updateBeverages, object: nil, userInfo: nil)
             NotificationCenter.default.post(name: .updateInsertedMoney, object: nil, userInfo: nil)
-            return product
+            NotificationCenter.default.post(name: .updatePurchased, object: nil, userInfo: nil)
         }
-        return nil
     }
     
     func nowBalanceOfVendingMachine() -> InsertedMoney{
@@ -114,9 +110,15 @@ class VendingMachine: NSObject, NSCoding {
         beverages.resetStock()
         NotificationCenter.default.post(name: .updateBeverages, object: nil, userInfo: nil)
     }
+    
+    func resetPurchased() {
+        purchased.removeAll()
+        NotificationCenter.default.post(name: .updatePurchased, object: nil, userInfo: nil)
+    }
 }
 
 extension Notification.Name {
     static let updateInsertedMoney = Notification.Name("updateInsertedMoney")
     static let updateBeverages = Notification.Name("updateBeverages")
+    static let updatePurchased = Notification.Name("updatePurchased")
 }

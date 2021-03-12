@@ -2,8 +2,9 @@ import UIKit
 
 class VendingMachineViewController: UIViewController {
     
-    let factory = BeverageFactory()
+    private let factory = BeverageFactory()
     private var vendingMachine = VendingMachine.sharedInstance()
+    private var purchasedImageView = UIStackView()
     
     @IBOutlet var stockInfo: [UILabel]!
     @IBOutlet var imagesOfBeverages: [UIImageView]!
@@ -13,9 +14,12 @@ class VendingMachineViewController: UIViewController {
         beveragesStockCount()
         balanceInfoLabel()
         setUpImageView()
+        purchaedBeverageList()
+        configureStackView()
         view.backgroundColor = UIColor.systemGray5
         NotificationCenter.default.addObserver(self, selector: #selector(updateInsertedMoney(notification:)), name: .updateInsertedMoney, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(updateBeverages(notification:)), name: .updateBeverages, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updatePurchased(notification:)), name: .updatePurchased, object: nil)
     }
     
     
@@ -25,7 +29,30 @@ class VendingMachineViewController: UIViewController {
         }
     }
     
+    private func configureStackView() {
+        view.addSubview(purchasedImageView)
+        purchasedImageView.axis = .horizontal
+        purchasedImageView.spacing = -70
+        purchasedImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 500).isActive = true
+        purchasedImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 600).isActive = true
+        purchasedImageView.translatesAutoresizingMaskIntoConstraints = false
+    }
 
+    private func purchaedBeverageList() {
+        let buyingList = vendingMachine.buyingList()
+        purchasedImageView.subviews.forEach { $0.removeFromSuperview() }
+        var xPoint = 700
+        for beverage in buyingList {
+            let image = UIImage(named: beverage.productName)
+            let imageView = UIImageView(image: image)
+            let imageViewWidth = NSLayoutConstraint(item: imageView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 140)
+            let imageViewHeight = NSLayoutConstraint(item: imageView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 120)
+            imageView.addConstraints([imageViewWidth, imageViewHeight])
+            purchasedImageView.addArrangedSubview(imageView)
+            xPoint+=70
+        }
+    }
+    
 }
 
 
@@ -81,35 +108,36 @@ extension VendingMachineViewController {
     @IBAction func resetAllStockInfo(_ sender: Any) {
         vendingMachine.resetBeverages()
         vendingMachine.resetInsertedMoney()
+        vendingMachine.resetPurchased()
     }
     
 }
 
 extension VendingMachineViewController {
     @IBAction func buyChocoMilkButtonTouched(_ sender: Any) {
-        let _ = vendingMachine.buyBeverage(product: ChocolateMilk())
+        vendingMachine.buyBeverage(product: ChocolateMilk())
     }
     
     @IBAction func buyStrawberryMilkButtonTouched(_ sender: Any) {
-        let _ = vendingMachine.buyBeverage(product: StrawBerryMilk())
+        vendingMachine.buyBeverage(product: StrawBerryMilk())
     }
     
     @IBAction func buyCokeButtonTouched(_ sender: Any) {
-        let _ = vendingMachine.buyBeverage(product: Coke())
+        vendingMachine.buyBeverage(product: Coke())
     }
     
     
     @IBAction func buySpriteButtonTouched(_ sender: Any) {
-        let _ = vendingMachine.buyBeverage(product: Sprite())
+       vendingMachine.buyBeverage(product: Sprite())
     }
     
     @IBAction func buyTopButtonTouched(_ sender: Any) {
-        let _ = vendingMachine.buyBeverage(product: Top())
+        vendingMachine.buyBeverage(product: Top())
     }
     
     
     @IBAction func buyCantataButtonTouched(_ sender: Any) {
-        let _ = vendingMachine.buyBeverage(product: Cantata())
+        vendingMachine.buyBeverage(product: Cantata())
     }
     
 }
@@ -120,5 +148,8 @@ extension VendingMachineViewController {
     }
     @objc private func updateBeverages(notification: Notification) {
         beveragesStockCount()
+    }
+    @objc private func updatePurchased(notification: Notification) {
+        purchaedBeverageList()
     }
 }

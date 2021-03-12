@@ -7,11 +7,19 @@
 
 import Foundation
 
-class Money {
+class Money : NSObject, NSCoding {
+    
     private(set) var coins : Int
     
-    init(){
-        self.coins = 0
+    required convenience init?(coder: NSCoder) {
+        let coin = coder.decodeInteger(forKey: "coin")
+        self.init(coin)
+    }
+    init(_ coin : Int = 0){
+        self.coins = coin
+    }
+    func encode(with coder: NSCoder) {
+        coder.encode(coins, forKey: "coin")
     }
     public func add(with coin : Int){
         self.coins += coin

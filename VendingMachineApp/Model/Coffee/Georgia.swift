@@ -9,9 +9,9 @@ import Foundation
 
 class Georgia : Coffee {
     
-    enum Kind {
-        case original
-        case caffelatte
+    enum Kind : String {
+        case original = "original"
+        case caffelatte = "caffelatte"
     }
     let kind : Kind
 
@@ -37,6 +37,14 @@ class Georgia : Coffee {
                    caffeine: 100,
                    temperature: 65,
                    kind: Kind.original)
+    }
+    required init?(coder: NSCoder) {
+        self.kind = Kind(rawValue: coder.decodeObject(forKey: "Georgiakind") as! String)!
+        super.init(coder: coder)
+    }
+    override func encode(with coder: NSCoder) {
+        coder.encode(kind.rawValue, forKey: "Georgiakind")
+        super.encode(with: coder)
     }
 }
 

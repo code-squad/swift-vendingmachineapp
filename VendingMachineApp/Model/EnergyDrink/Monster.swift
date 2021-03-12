@@ -8,14 +8,14 @@
 import Foundation
 
 class Monster : EnergyDrink {
-    enum Kind {
-        case original
-        case paradise
-        case ultra
-        case citra
+    enum Kind : String {
+        case original = "original"
+        case paradise = "paradise"
+        case ultra = "ultra"
+        case citra = "citra"
     }
     
-    let kind : Kind
+    private let kind : Kind
     
     init(brand: String, capacity: Int, price: Int, name: String, createdAt: Date, expiredAt: Date, caffeine: Int, kind : Monster.Kind){
         self.kind = kind
@@ -37,5 +37,13 @@ class Monster : EnergyDrink {
                    expiredAt: Date().get7daysLatter(),
                    caffeine: 140,
                    kind : .original)
+    }
+    required init?(coder: NSCoder) {
+        self.kind = Kind(rawValue: coder.decodeObject(forKey: "Monsterkind") as! String)!
+        super.init(coder: coder)
+    }
+    override func encode(with coder: NSCoder) {
+        coder.encode(kind.rawValue, forKey: "Monsterkind")
+        super.encode(with: coder)
     }
 }

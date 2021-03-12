@@ -25,4 +25,12 @@ class EnergyDrink : Beverage {
         self.caffeine = 0
         super.init()
     }
+    required init?(coder: NSCoder) {
+        self.caffeine = coder.decodeInteger(forKey: "EnergyDrinkcaffeine")
+        super.init(coder: coder)
+    }
+    override func encode(with coder: NSCoder) {
+        coder.encode(caffeine, forKey: "EnergyDrinkcaffeine")
+        super.encode(with: coder)
+    }
 }

@@ -7,10 +7,38 @@
 
 import Foundation
 
-class VendingMachine {
-    private var money = Money()
-    private var stock = Stock()
-    private var soldHistory = Stock()
+class VendingMachine : NSObject, NSCoding {
+    
+    private var money : Money
+    private var stock : Stock
+    private var soldHistory : Stock
+    
+    init(money : Money, stock: Stock, soldHistory : Stock){
+        self.money = money
+        self.stock = stock
+        self.soldHistory = soldHistory
+    }
+    
+    override init(){
+        self.money = Money()
+        self.stock = Stock()
+        self.soldHistory = Stock()
+    }
+    
+    required convenience init?(coder aDecoder: NSCoder) {
+        guard let money = aDecoder.decodeObject(forKey: "money") as? Money,
+              let stock = aDecoder.decodeObject(forKey: "stock") as? Stock,
+              let soldHistory = aDecoder.decodeObject(forKey: "soldHistory") as? Stock
+        else { return nil }
+        
+        self.init(money : money, stock : stock, soldHistory : soldHistory)
+    }
+ 
+    func encode(with coder: NSCoder) {
+        coder.encode(money, forKey: "money")
+        coder.encode(stock, forKey: "stock")
+        coder.encode(soldHistory, forKey: "soldHistory")
+    }
     
     //  자판기 금액을 원하는 금액만큼 올리는 메소드
     public func charge(coins : Int){

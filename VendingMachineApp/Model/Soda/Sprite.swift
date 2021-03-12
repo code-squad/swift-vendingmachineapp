@@ -30,4 +30,12 @@ class Sprite : Soda {
                    expiredAt: Date().get7daysLatter(),
                    lowSuger : false)
     }
+    required init?(coder: NSCoder) {
+        self.lowSuger = coder.decodeBool(forKey: "lowSuger")
+        super.init(coder: coder)
+    }
+    override func encode(with coder: NSCoder) {
+        coder.encode(lowSuger, forKey: "lowSuger")
+        super.encode(with: coder)
+    }
 }

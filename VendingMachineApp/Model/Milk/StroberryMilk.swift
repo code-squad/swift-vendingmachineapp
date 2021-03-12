@@ -33,6 +33,14 @@ class StroberryMilk : Milk {
                    content : 1.0)
     }
     
+    required init?(coder: NSCoder) {
+        self.stroberryContent = coder.decodeFloat(forKey: "stroberryContent")
+        super.init(coder: coder)
+    }
+    override func encode(with coder: NSCoder) {
+        coder.encode(stroberryContent, forKey: "stroberryContent")
+        super.encode(with: coder)
+    }
     override var description: String {
         return super.description + ", (\(stroberryContent)%)"
     }

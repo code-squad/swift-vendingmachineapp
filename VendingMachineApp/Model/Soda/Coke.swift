@@ -8,15 +8,14 @@
 import Foundation
 
 class Coke : Soda {
-    enum Flaver {
-        case cherry
-        case vanilla
+    enum Flaver : String {
+        case cherry = "cherry"
+        case vanilla = "vanilla"
     }
-    let faver : Flaver
-    
+    let flaver : Flaver
     
     init(brand: String, capacity: Int, price: Int, name: String, createdAt: Date, expiredAt: Date, flaver : Coke.Flaver) {
-        self.faver = flaver
+        self.flaver = flaver
         super.init(brand: brand,
                    capacity: capacity,
                    price: price,
@@ -33,5 +32,13 @@ class Coke : Soda {
                    createdAt: Date(),
                    expiredAt: Date().get7daysLatter(),
                    flaver : .cherry)
+    }
+    required init?(coder: NSCoder) {
+        self.flaver = Flaver(rawValue: coder.decodeObject(forKey: "Cokeflaver") as! String)!
+        super.init(coder: coder)
+    }
+    override func encode(with coder: NSCoder) {
+        coder.encode(flaver.rawValue, forKey: "Cokeflaver")
+        super.encode(with: coder)
     }
 }

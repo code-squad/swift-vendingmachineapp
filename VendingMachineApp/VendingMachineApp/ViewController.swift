@@ -17,22 +17,33 @@ class ViewController: UIViewController, Stateful {
     @IBOutlet weak var balanceLabel: UILabel!
     @IBOutlet var purchaseButtons: [UIButton]!
     
-    private var vendingMachinePublisher: AnyCancellable!
+    private var moneyPublisher: AnyCancellable!
+    private var purchaseHistoryPublisher: AnyCancellable!
     var vendingMachine: VendingMachine!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         updateBalanceLabel()
         configureInventoryObserver()
-        configureSubscriber()
+        configureMoneySubscriber()
     }
     
-    private func configureSubscriber() {
-        vendingMachinePublisher = NotificationCenter.default
+    private func configureMoneySubscriber() {
+        moneyPublisher = NotificationCenter.default
             .publisher(for: VendingMachine.NotificationName.didChangeMoney)
             .sink { notification in
                 DispatchQueue.main.async {
                     self.updateBalanceLabel()
+                }
+            }
+    }
+    
+    private func configurePurchaseHistorySubscriber() {
+        purchaseHistoryPublisher = NotificationCenter.default
+            .publisher(for: VendingMachine.NotificationName.didUpdatePurchseHistory)
+            .sink { notification in
+                DispatchQueue.main.async {
+                    
                 }
             }
     }

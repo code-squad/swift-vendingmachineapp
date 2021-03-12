@@ -66,14 +66,6 @@ Beverage.Type을 Dictionary의 Key값으로 사용하고자 한다. Beverage.Typ
 
 ObjectIdentifier(Type) 를 사용하면 Key값으로 사용 할 수 있으나, 이는 ObjectIdentifier가 Key값이 된다. 현재로써는 가장 최선의 방법이다.
 
-### 🪐 동일한 인터페이스에 고유한 기능 넣기
-
-같은 '추가하기' 버튼이지만, 버튼마다 추가 되는 상품이 다르다. 이를 위해서는 버튼은 음료의 타입을 알아야한다.
-1. 버튼이 음료타입에 대한 정보를 가지고 있는 방법
-2. 버튼 인스턴스가 보낸 이벤트에 따라서 음료 타입을 매칭하는 방법
-
-이벤트에 따라 핸들링하는 것이 익숙치 않아 1번의 방법으로 구현하였다.
-
 ### 🌅 이미지 저장
 
 사용자가 이용하는 화면에서 음료의 이미지를 보여주어야 한다. 이는 각 타입마다 고유의 이미지를 가지고 있어야 함을 의미한다. 그렇다면 이 이미지는 어디에 저장되어야 할까?
@@ -85,3 +77,70 @@ ObjectIdentifier(Type) 를 사용하면 Key값으로 사용 할 수 있으나, �
     ```
  다소 하드코딩의 느낌이 나지만, 현 단계에서는 2번의 방법을 택했다. 모든 인스턴스들이 가지고 있는것 보다는 나아 보였기 때문이다.
 
+### 다형성 이용하기
+- 음료 인스턴스를 생성하기 위해 음료의 타입을 매개변수로 넘겨준다. 각 음료의 타입을 체크하지 않고 다형성을 이용해서 바로 생성 하고자 했다.
+    - Before
+    ```swift
+    static func createBeverage<T>(type value: T) -> Beverage? {
+        switch value {
+        case is ChocolateMilk.Type : return ChocolateMilk(createdAt: Date().toString(), expiredAt: Date(.toString())
+        case is StroberryMilk.Type : return StroberryMilk(createdAt: Date().toString(), expiredAt: Date().toString())
+        case is BananaMilk.Type : return BananaMilk(createdAt: Date().toString(), expiredAt: Date().toString())
+        default:
+            return nil
+        }
+    }
+    ```
+    - After 
+    ```swift
+    static func createInstance(type value : Beverage.Type) -> Beverage? {
+        return value.init()
+    }
+    ```
+
+# Step4
+
+## 요구사항
+- 앱을 다시 실행하면 마지막 재고 상태를 그대로 복원한다.
+
+## 프로그래밍 요구사항
+- VendingMachine 변수를 ViewController에서 포함하지 않고 AppDelegate로 옮긴다.
+- 앱 종료(background) 시점 콜백 함수에서 VendingMachine 객체 인스턴스 속성을 저장한다.
+- 저장할 때는 VendingMachine을 아카이브해서 하나의 데이터 값으로 변형한다.
+- 값을 저장하고 복원하는 데에는 UserDefault 라는 파운데이션 라이브러리를 사용한다.
+- 앱 시작(activate) 시점 콜백 함수에서 기존에 저장된 값에서 불러와서 VendingMachine 객체 인스턴스를 생성한다.
+- 복원할 때는 저장된 데이터 값을 언아카이브해서 VendingMachine 객체를 생성한다.
+
+
+## 결과
+<img width="1104" alt="Screen Shot 2021-03-12 at 3 11 16 PM" src="https://user-images.githubusercontent.com/60229909/110899875-33349c00-8345-11eb-8018-4f351a8f6352.png">
+
+## 고찰
+
+### MVC의 역할 분담
+- view에서 view를 변경하는 것이 아닌 controller에게 넘겨준 후 변경해야한다. view에서 view를 변경하는 코드를 모두 제거하였다.
+- 버튼의 역할은 버튼이 눌려졌다는 것만 알려주면 된다. button의 action을 수행할때 매개 변수를 넘겨주지 않도록 했다. 오롯이 sender를 이용하기 위해서, UIButton을 상속받는 custom 버튼을 생성하여 해결하였다.
+
+### 커스텀 뷰 안에있는 버튼에 action 지정하기
+- 버튼은 모두 같은 인터페이스를 갖지만, 각기 다른 행동을 해야한다. 버튼을 누를 때 마다 추가되는 음료수가 달라야 하는 것이다. 기존에는 button에 delegation을 이용하여 viewController에서 동작을 구현했다. 그런데, Button은 target-action을 정할 수 있으므로 delegation을 이용하지 않고, target으로 상위 viewcontroller를 지정하도록 변경하였다. 
+
+    - Before
+        ```swift
+        @objc func appendBeverageToMachine(_ sender : UIButton!){
+            delegate?.appendBeverage(sender)
+        ```
+    - After
+        ```swift
+        button.addTarget(superview, action: #selector(ViewController.appendBeverageToMachine), for: .touchDown)
+        ```
+
+### View에서 가지고 있는 값과 실제 vendingMachine이 가지고 있는 값이 다른 경우에 대한 우려
+- view는 음료의 재고 값을 변수로 가지고 있다. vendingmachine이 가지고 있는 재고량은 증가하였지만, view가 가지고 있는 재고량는 증가 하지 않는 경우를 고려하게 되었다. 
+- 이러한 오류를 방지하기 위해, view는 model에 대한 값을 직접 가지고 있을 필요가 없다고 판단하여 model에 관련된 값을 직접 가지고 있지 않도록 하였다. 
+- 재고량은 반드시 vendingmachine이 가지고 있는 값을 이용하여 보여주게 된다. vendingmachine의 재고량이 변할 때, NotificationCenter에 변경사항에 대한 알림을 주도록 하였고 알림을 받은 경우 재고를 나타내는 label을 업데이트 한다.
+
+### NSCoding VS Codable
+인코딩/디코딩을 위한 프로토콜로 NSCoding과 Codable은 유사하다. 하지만 Codable은 상송을 이용한 객체의 다형성을 적용 할 수 없다. 이 프로젝트의 경우 Beverage > Coffee > Top 와같이 다중 상속을 가지고 있으므로 Codable보다는 NSCoding이 적합하였다. 때문에 String 키값의 오타의 위험성에도 불구하고 NSCoding을 이용였다.
+
+### NSCoding의 Key값은 프로젝트 전체에서 유일해야한다.
+Coffee도 Enum 타입의 kind 가지고, Monster도  Enum 타입의 kind를 가진다. 동일하게 key값을 "kind"로 주었더니 문제가 발생했다. 이 후 키값을 "Coffeekind", "Monsterkind"로 변경하였다.

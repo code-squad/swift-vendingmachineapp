@@ -15,4 +15,9 @@ class Soda: Beverage, CustomStringConvertible {
         self.taste = taste
         super.init(brand: brand, capacity: capacity, price: price, name: name, manufacture: manufacture, expiredAt: expiredAt)
     }
+    
+    required init() {
+        self.taste = "레몬맛"
+        super.init(brand: "unkowun", capacity: 200, price: 1000, name: "소다",manufacture: Date(), expiredAt: Calendar.current.date(byAdding: .day, value: 180, to: Date())!)
+    }
 }

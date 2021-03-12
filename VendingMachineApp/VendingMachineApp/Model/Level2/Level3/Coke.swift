@@ -16,6 +16,11 @@ class Coke: Soda, LowCalorieChecker {
         super.init(brand: brand, capacity: capacity, price: price, name: name, manufacture: manufacture, taste: taste, expiredAt: expiredAt)
     }
     
+    required init() {
+        self.calorie = 5
+        super.init(brand: "코카콜라", capacity: 200, price: 1000, name: "콜라",manufacture: Date(), taste: "레몬맛", expiredAt: Calendar.current.date(byAdding: .day, value: 180, to: Date())!)
+    }
+    
     func isLowCalorie(over standard: Int) -> Bool {
         return calorie < standard
     }

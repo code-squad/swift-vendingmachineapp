@@ -19,4 +19,16 @@ class BananaMilk: Milk {
         
         self.init(brand: brand, capacity: capacity, price: price, name: name, manufacture: manufacture, farmCode: farmCode, hasDoraemonSticker: hasDoraemonSticker, expiredAt: Calendar.current.date(byAdding: .day, value: 5, to: Date())!)
     }
+    
+    required init() {
+        self.hasDoraemonSticker = false
+        super.init(brand: "빙그레",
+                   capacity: 400,
+                   price: 2000,
+                   name: "바나나우유",
+                   manufacture: Date(),
+                   farmCode: "A",
+                   expiredAt: Calendar.current.date(byAdding: .day, value: 5, to: Date())!
+        )
+    }
 }

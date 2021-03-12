@@ -16,7 +16,7 @@ class Beverage: SafeDateChecker {
     private var brand: String
     private var capacity: Int
     private(set) var price: Int
-    private var name: String
+    private(set) var name: String
     private var manufacturedAt: Date
     private var expiredAt: Date
     
@@ -27,6 +27,15 @@ class Beverage: SafeDateChecker {
         self.name = name
         self.manufacturedAt = manufacture
         self.expiredAt = expiredAt
+    }
+    
+    required init() {
+        self.brand = "unknown"
+        self.capacity = 0
+        self.price = 0
+        self.name = "unknown"
+        self.manufacturedAt = Date()
+        self.expiredAt = Date()
     }
     
     public func isExpired(over standard: Date) -> Bool {
@@ -66,3 +75,5 @@ extension Beverage: Hashable {
             lhs.price == rhs.price
     }
 }
+
+

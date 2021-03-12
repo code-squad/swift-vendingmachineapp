@@ -14,4 +14,16 @@ class Top: Coffee {
         self.hasSugar = hasSugar
         super.init(brand: brand, capacity: capacity, price: price, name: name, manufacture: manufacture, temperature: temperature, expiredAt: expiredAt)
     }
+    
+    required init() {
+        self.hasSugar = false
+        super.init(brand: "맥심",
+                   capacity: 300,
+                   price: 1000,
+                   name: "탑",
+                   manufacture: Date(),
+                   temperature: 70,
+                   expiredAt: Calendar.current.date(byAdding: .day, value: 30, to: Date())!
+        )
+    }
 }

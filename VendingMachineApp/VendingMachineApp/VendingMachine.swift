@@ -64,6 +64,7 @@ class VendingMachine: NSObject,VendingMachineManagable, NSCoding {
         if let purchased: Beverage = inventoryManager.removeBeverage(beverage) {
             self.purchaseHistoryManager.addPurchased(purchased)
             self.moneyManager.decreaseBalance(purchased.price)
+            NotificationCenter.default.post(name: NotificationName.didUpdatePurchseHistory, object: self)
         }
     }
     

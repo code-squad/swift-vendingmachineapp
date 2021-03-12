@@ -9,10 +9,17 @@ import UIKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    var machine = Machine()
+    var machine: Machine!
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
+        guard let data = UserDefaults.standard.data(forKey: "machine") else { return false }
+        do {
+            let machineData = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data)
+            guard let savedMachine = machineData as? Machine else { return false }
+            machine = savedMachine
+        } catch {
+            print(error.localizedDescription)
+        }
         return true
     }
 
@@ -24,12 +31,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
-//        do {
-//            let myEncodedObject = try NSKeyedArchiver.archivedData(withRootObject: machine ?? Machine(), requiringSecureCoding: false)
-//                defaults.set(myEncodedObject, forKey: "machine")
-//        } catch {
-//            print(error.localizedDescription)
-//        }
+        do {
+            let myEncodedObject = try NSKeyedArchiver.archivedData(withRootObject: machine, requiringSecureCoding: false)
+            UserDefaults.standard.set(myEncodedObject, forKey: "machine")
+        } catch {
+            print(error.localizedDescription)
+        }
     }
 }
 

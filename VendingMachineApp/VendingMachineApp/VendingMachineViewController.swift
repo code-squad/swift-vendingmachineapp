@@ -4,7 +4,9 @@ class VendingMachineViewController: UIViewController {
     
     private let factory = BeverageFactory()
     private var vendingMachine = VendingMachine.sharedInstance()
-    private var purchasedImageView = UIStackView()
+    private var scrollView = UIScrollView()
+    private var stackView = UIStackView()
+    private var imageView = UIImageView()
     
     @IBOutlet var stockInfo: [UILabel]!
     @IBOutlet var imagesOfBeverages: [UIImageView]!
@@ -15,6 +17,7 @@ class VendingMachineViewController: UIViewController {
         balanceInfoLabel()
         setUpImageView()
         purchaedBeverageList()
+        configureScrollView()
         configureStackView()
         view.backgroundColor = UIColor.systemGray5
         NotificationCenter.default.addObserver(self, selector: #selector(updateInsertedMoney(notification:)), name: .updateInsertedMoney, object: nil)
@@ -29,27 +32,35 @@ class VendingMachineViewController: UIViewController {
         }
     }
     
+    private func configureScrollView() {
+        view.addSubview(scrollView)
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.topAnchor.constraint(equalTo: view.topAnchor, constant: 500).isActive = true
+        scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 600).isActive = true
+        scrollView.heightAnchor.constraint(equalToConstant: 200).isActive = true
+        scrollView.widthAnchor.constraint(equalToConstant: 300).isActive = true
+    }
+    
     private func configureStackView() {
-        view.addSubview(purchasedImageView)
-        purchasedImageView.axis = .horizontal
-        purchasedImageView.spacing = -70
-        purchasedImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 500).isActive = true
-        purchasedImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 600).isActive = true
-        purchasedImageView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.addSubview(stackView)
+        stackView.axis = .horizontal
+        stackView.spacing = -70
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 30).isActive = true
+        stackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 30).isActive = true
     }
 
     private func purchaedBeverageList() {
         let buyingList = vendingMachine.buyingList()
-        purchasedImageView.subviews.forEach { $0.removeFromSuperview() }
-        var xPoint = 700
-        for beverage in buyingList {
-            let image = UIImage(named: beverage.productName)
-            let imageView = UIImageView(image: image)
+        stackView.subviews.forEach { $0.removeFromSuperview() }
+        for idx in 0..<buyingList.count {
+            let image = UIImage(named: buyingList[idx].productName)
+            imageView = UIImageView(image: image)
             let imageViewWidth = NSLayoutConstraint(item: imageView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 140)
             let imageViewHeight = NSLayoutConstraint(item: imageView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 120)
             imageView.addConstraints([imageViewWidth, imageViewHeight])
-            purchasedImageView.addArrangedSubview(imageView)
-            xPoint+=70
+            scrollView.contentSize.width = stackView.frame.width * CGFloat(1+idx)
+            stackView.addArrangedSubview(imageView)
         }
     }
     

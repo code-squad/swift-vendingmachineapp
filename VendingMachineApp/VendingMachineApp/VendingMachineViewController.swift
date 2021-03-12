@@ -6,7 +6,7 @@ class VendingMachineViewController: UIViewController {
     private var vendingMachine = VendingMachine.sharedInstance()
     
     private var purchasedBeveragesScrollView = UIScrollView()
-    private var purchasedBeveragesStackView = UIStackView()
+    private var purchasedBeveragesStackView: PurchasedStackView!
     private var eachPurchasedBeverageImageView = UIImageView()
     
     @IBOutlet var stockInfo: [UILabel]!
@@ -14,18 +14,16 @@ class VendingMachineViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        purchasedBeveragesStackView = PurchasedStackView()
         beveragesStockCount()
         balanceInfoLabel()
         setUpImageView()
-        purchaedBeverageList()
         configureScrollView()
         configureStackView()
-        view.backgroundColor = UIColor.systemGray5
         NotificationCenter.default.addObserver(self, selector: #selector(updateInsertedMoney(notification:)), name: vendingMachine.updateInsertedMoney, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(updateBeverages(notification:)), name: vendingMachine.updateBeverages, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(updatePurchased(notification:)), name: vendingMachine.updatePurchased, object: nil)
     }
-    
     
     private func setUpImageView() {
         for beverage in imagesOfBeverages {
@@ -33,36 +31,19 @@ class VendingMachineViewController: UIViewController {
         }
     }
     
-    private func configureScrollView() {
-        view.addSubview(purchasedBeveragesScrollView)
-        purchasedBeveragesScrollView.translatesAutoresizingMaskIntoConstraints = false
-        purchasedBeveragesScrollView.topAnchor.constraint(equalTo: view.topAnchor, constant: 500).isActive = true
-        purchasedBeveragesScrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 600).isActive = true
-        purchasedBeveragesScrollView.heightAnchor.constraint(equalToConstant: 200).isActive = true
-        purchasedBeveragesScrollView.widthAnchor.constraint(equalToConstant: 300).isActive = true
-    }
-    
-    private func configureStackView() {
-        purchasedBeveragesScrollView.addSubview(purchasedBeveragesStackView)
-        purchasedBeveragesStackView.axis = .horizontal
-        purchasedBeveragesStackView.spacing = -70
-        purchasedBeveragesStackView.translatesAutoresizingMaskIntoConstraints = false
-        purchasedBeveragesStackView.topAnchor.constraint(equalTo: purchasedBeveragesScrollView.topAnchor, constant: 30).isActive = true
-        purchasedBeveragesStackView.leadingAnchor.constraint(equalTo: purchasedBeveragesScrollView.leadingAnchor, constant: 30).isActive = true
-    }
-
     private func purchaedBeverageList() {
-        let buyingList = vendingMachine.buyingList()
-        purchasedBeveragesStackView.subviews.forEach { $0.removeFromSuperview() }
-        for idx in 0..<buyingList.count {
-            let image = UIImage(named: buyingList[idx].productName)
-            eachPurchasedBeverageImageView = UIImageView(image: image)
-            let imageViewWidth = NSLayoutConstraint(item: eachPurchasedBeverageImageView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 140)
-            let imageViewHeight = NSLayoutConstraint(item: eachPurchasedBeverageImageView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 120)
-            eachPurchasedBeverageImageView.addConstraints([imageViewWidth, imageViewHeight])
-            purchasedBeveragesScrollView.contentSize.width = purchasedBeveragesStackView.frame.width * CGFloat(1+idx)
-            purchasedBeveragesStackView.addArrangedSubview(eachPurchasedBeverageImageView)
+        if vendingMachine.lastPurchasedBeverage() == nil {
+            purchasedBeveragesStackView.removeFromSuperview()
+            return
         }
+        let beverage = vendingMachine.lastPurchasedBeverage()
+        let image = UIImage(named: beverage!.productName)
+        eachPurchasedBeverageImageView = UIImageView(image: image)
+        let imageViewWidth = NSLayoutConstraint(item: eachPurchasedBeverageImageView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 140)
+        let imageViewHeight = NSLayoutConstraint(item: eachPurchasedBeverageImageView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 120)
+        eachPurchasedBeverageImageView.addConstraints([imageViewWidth, imageViewHeight])
+        purchasedBeveragesScrollView.contentSize.width = purchasedBeveragesStackView.frame.width * CGFloat(1 * purchasedBeveragesStackView.subviews.count)
+        purchasedBeveragesStackView.addArrangedSubview(eachPurchasedBeverageImageView)
     }
     
 }
@@ -163,5 +144,23 @@ extension VendingMachineViewController {
     }
     @objc private func updatePurchased(notification: Notification) {
         purchaedBeverageList()
+    }
+}
+
+extension VendingMachineViewController {
+    
+    private func configureScrollView() {
+        view.addSubview(purchasedBeveragesScrollView)
+        purchasedBeveragesScrollView.translatesAutoresizingMaskIntoConstraints = false
+        purchasedBeveragesScrollView.topAnchor.constraint(equalTo: view.topAnchor, constant: 500).isActive = true
+        purchasedBeveragesScrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 600).isActive = true
+        purchasedBeveragesScrollView.heightAnchor.constraint(equalToConstant: 200).isActive = true
+        purchasedBeveragesScrollView.widthAnchor.constraint(equalToConstant: 300).isActive = true
+    }
+    
+    private func configureStackView() {
+        purchasedBeveragesScrollView.addSubview(purchasedBeveragesStackView)
+        purchasedBeveragesStackView.topAnchor.constraint(equalTo: purchasedBeveragesScrollView.topAnchor, constant: 30).isActive = true
+        purchasedBeveragesStackView.leadingAnchor.constraint(equalTo: purchasedBeveragesScrollView.leadingAnchor, constant: 30).isActive = true
     }
 }

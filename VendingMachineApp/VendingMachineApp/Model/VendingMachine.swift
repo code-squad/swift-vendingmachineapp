@@ -62,6 +62,11 @@ class VendingMachine: NSObject, NSCoding {
         return purchased
     }
     
+    func lastPurchasedBeverage() -> Beverage? {
+        if purchased.isEmpty { return nil }
+        return purchased[purchased.endIndex-1]
+    }
+    
     func buyBeverage(product: Beverage){
         if product.affordableForBeverage(money: insertedMoney) {
             beverages.removeProduct(product)

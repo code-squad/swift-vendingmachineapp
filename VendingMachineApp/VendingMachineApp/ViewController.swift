@@ -8,7 +8,8 @@
 import UIKit
 
 class ViewController: UIViewController {
-    let machine = Machine()
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    lazy var machine = appDelegate.machine
     
     @IBOutlet weak var moneyOnTransactionLabel: UILabel!
     @IBOutlet weak var displayRows: UIStackView!
@@ -24,6 +25,7 @@ class ViewController: UIViewController {
         let someCola = BeverageFactory.makeBeverageWithType(brand: "코카콜라", price: .high, name: "코카콜라", packageTime: .fresh, beverageType: Cola.self)
         let someAmericano = BeverageFactory.makeBeverageWithType(brand: "스타벅스", price: .high, name: "아메리카노-톨", packageTime: .fresh, beverageType: Americano.self)
         let someAmericano2 = BeverageFactory.makeBeverageWithType(brand: "스타벅스", price: .high, name: "콜드브루블랙", packageTime: .fresh, beverageType: Americano.self)
+        
         
         machine.addStock(beverage: someBeverage, amount: 10)
         machine.addStock(beverage: someStrawBerryMilk, amount: 20)

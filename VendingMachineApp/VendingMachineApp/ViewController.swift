@@ -26,8 +26,8 @@ class ViewController: UIViewController {
 
     @IBAction func moneyButtonTouched(_ sender: UIButton) {
         let amount = Int(sender.currentTitle ?? "0")!
-        vendingMachine.collectMoney(with: Money(rawValue: amount)!)
-        currentMoney.text = "\(vendingMachine.checkBalance())원"
+        let collectedMoney = vendingMachine.collectMoney(with: Cash(rawValue: amount)!)
+        currentMoney.text = "\(collectedMoney)원"
         
     }
     

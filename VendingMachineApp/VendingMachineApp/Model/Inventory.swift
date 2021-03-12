@@ -47,7 +47,7 @@ class Inventory : Equatable {
         
         stocks.forEach { item in
             if let coffee = item as? Coffee {
-                if coffee.isLowCaffeine() { lowCaffeine.append(coffee) }
+                if coffee.isLowCaffeine(criteria: 90) { lowCaffeine.append(coffee) }
             }
         }
         return lowCaffeine

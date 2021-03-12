@@ -47,6 +47,7 @@ class VendingMachine : NSObject, NSCoding {
     
     func addStock(beverage : Beverage) {
         drinks.addStock(beverage : beverage)
+        NotificationCenter.default.post(name: .updateBeverage, object: nil, userInfo: ["beverageInfo" : drinks.showAllBeverage()])
     }
     
     func showPurchasePossibleList() -> [Beverage] {
@@ -85,11 +86,9 @@ class VendingMachine : NSObject, NSCoding {
         return menu.list
     }
     
-    func showAllBeverageStock(handler : (Int,Int) -> Void) {
+    func showAllBeverageStock(handler : (Int, Int) -> Void){
         menu.list.enumerated().forEach { (beverage) in
-            drinks.showBeverageCount(beverage: beverage.element) { (count) in
-                handler(beverage.offset,count)
-            }
+            handler(beverage.offset, drinks.showAllBeverage()[ObjectIdentifier(type(of: beverage.element))]?.count ?? 0)
         }
     }
 }

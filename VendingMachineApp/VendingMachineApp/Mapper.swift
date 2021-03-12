@@ -24,10 +24,7 @@ class BeverageMapper: NSObject, BeverageMapperable, NSCoding {
         self.map = map
     }
     
-    func encode(with coder: NSCoder) {
-        coder.encode(self.map, forKey: "beverageMapperMap")
-        coder.encode(self.beverageTypes, forKey: "beverageMapperBeverageTypes")
-    }
+    func encode(with coder: NSCoder) {}
     
     required init?(coder: NSCoder) {
         self.map = coder.decodeObject(forKey: "beverageMapperMap") as! [Int: Beverage.Type]
@@ -56,10 +53,7 @@ class MoneyMapper: NSObject, MoneyMapperable, NSCoding {
         self.map = map
     }
     
-    func encode(with coder: NSCoder) {
-        coder.encode(self.map, forKey: "moneyMapperMap")
-        coder.encode(self.moneyInputTypes, forKey: "beverageMapperMoneyInputTypes")
-    }
+    func encode(with coder: NSCoder) {}
     
     required init?(coder: NSCoder) {
         self.map = coder.decodeObject(forKey: "moneyMapperMap") as! [Int: Money.Input]

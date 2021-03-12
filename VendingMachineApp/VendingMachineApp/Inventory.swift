@@ -38,11 +38,7 @@ class Inventory: NSObject, InventoryManagable, NSCoding {
         self.init(inventory: inventory, beverageMapper: beverageMapper, moneyMapper: moneyMapper)
     }
     
-    func encode(with coder: NSCoder) {
-        coder.encode(self.inventory, forKey: "inventory")
-        coder.encode(self.beverageMapper, forKey: "beverageMapper")
-        coder.encode(self.moneyMapper, forKey: "moneyMapper")
-    }
+    func encode(with coder: NSCoder) {}
     
     required init?(coder: NSCoder) {
         self.inventory = coder.decodeObject(forKey: "inventory") as? [Beverage] ?? []

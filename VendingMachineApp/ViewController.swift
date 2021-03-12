@@ -20,11 +20,10 @@ class ViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(updateBeverageLabel), name: .StockCountChanged, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(updateCoinLabel), name: .CoinChanged, object: nil)
-        setUpViews()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
+        setUpViews()
     }
     
     func setUpViews(){
@@ -32,10 +31,12 @@ class ViewController: UIViewController {
         
         let stocks = vendingMachine.getTotalStock()
         stockStackView = StockStackView(frame: .zero, stocks: stocks)
+        stockStackView.setStocksCount(info: stocks)
         self.view.addSubview(stockStackView)
         stockStackViewConfiguration()
         
         inspectorView = InspectorStackView()
+        inspectorView.reloadBalanceLabelText(balance: vendingMachine.getCoins())
         self.view.addSubview(inspectorView)
         inspectorViewConfiguration()
     }

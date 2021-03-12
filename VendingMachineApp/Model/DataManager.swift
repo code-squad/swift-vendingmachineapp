@@ -24,7 +24,6 @@ class DataManager {
     static func save(data : VendingMachine){
         do {
             let archived = try NSKeyedArchiver.archivedData(withRootObject: data, requiringSecureCoding: false)
-            print("here")
             UserDefaults.standard.set(archived, forKey: "vendingMachine")
         } catch {
             print(error)

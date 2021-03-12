@@ -70,7 +70,7 @@ class VendingMachine : NSObject, NSCoding {
         guard let item = getProduct(with : type) else { return  nil }
         stock.remove(item: item)
         soldHistory.append(item: item)
-        charge(coins: item.price)
+        uncharge(coins: item.price)
         
         NotificationCenter.default.post(name: VendingMachine.StockCountChanged, object: nil)
         return item
@@ -102,8 +102,8 @@ class VendingMachine : NSObject, NSCoding {
     }
     
     //  따뜻한 음료만 리턴하는 메소드
-    public func getHotDrink() -> [Beverage] {
-        stock.getHotDrink()
+    public func getHotDrink(than temperature : Int) -> [Beverage] {
+        stock.getHotDrink(than: temperature)
     }
     
     //  시작이후 구매 상품 이력을 배열로 리턴하는 메소드

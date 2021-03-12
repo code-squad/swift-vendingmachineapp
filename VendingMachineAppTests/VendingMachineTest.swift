@@ -46,15 +46,14 @@ class VendingMachineTest: XCTestCase {
     }
     func testGetHotDrink(){
         
-        let actual = vendingMachine.getHotDrink().count
+        let actual = vendingMachine.getHotDrink(than: 30).count
         let expect = 1
         
         XCTAssertEqual(expect, actual, "뜨거운 음료 목록을 받아오지 못하였습니다.")
     }
     func testSellProductsFail(){
     
-        let sprite = Factory.createInstance(type: Sprite.self)!
-        let expect = vendingMachine.sellProduct(product: sprite)
+        let expect = vendingMachine.sellProduct(with: Sprite.self)
         let actual = vendingMachine.getSoldProducts()
         
         XCTAssertNotEqual([expect], actual, "재고가 없는 물품을 구매하였습니다.")
@@ -64,7 +63,7 @@ class VendingMachineTest: XCTestCase {
         let sprite = Factory.createInstance(type: Sprite.self)!
         vendingMachine.append(product: sprite)
         
-        let expect = vendingMachine.sellProduct(product: sprite)
+        let expect = vendingMachine.sellProduct(with: Sprite.self)
         let actual = vendingMachine.getSoldProducts()
         
         XCTAssertEqual([expect], actual, "구매 이력을 받아오지 못하였습니다.")

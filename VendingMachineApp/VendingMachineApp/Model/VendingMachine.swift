@@ -36,12 +36,12 @@ class VendingMachine: NSObject, NSCoding {
     
     func addBeverage(beverage: Beverage) {
         beverages.append(from: beverage)
-        NotificationCenter.default.post(name: .updateBeverages, object: nil, userInfo: nil)
+        NotificationCenter.default.post(name: .updateBeverages, object: self, userInfo: nil)
     }
     
     func getTheMoney(from customer: Int) {
         insertedMoney.insertMoney(from: customer)
-        NotificationCenter.default.post(name: .updateInsertedMoney, object: nil, userInfo: nil)
+        NotificationCenter.default.post(name: .updateInsertedMoney, object: self, userInfo: nil)
     }
     
     func nowAvailableList() -> [Beverage] {
@@ -63,9 +63,9 @@ class VendingMachine: NSObject, NSCoding {
             beverages.removeProduct(product)
             insertedMoney.afterBuyingProduct(minus: product.price)
             purchased.append(product)
-            NotificationCenter.default.post(name: .updateBeverages, object: nil, userInfo: nil)
-            NotificationCenter.default.post(name: .updateInsertedMoney, object: nil, userInfo: nil)
-            NotificationCenter.default.post(name: .updatePurchased, object: nil, userInfo: nil)
+            NotificationCenter.default.post(name: .updateBeverages, object: self, userInfo: nil)
+            NotificationCenter.default.post(name: .updateInsertedMoney, object: self, userInfo: nil)
+            NotificationCenter.default.post(name: .updatePurchased, object: self, userInfo: nil)
         }
     }
     
@@ -103,17 +103,17 @@ class VendingMachine: NSObject, NSCoding {
     
     func resetInsertedMoney() {
         insertedMoney.resetMoeny()
-        NotificationCenter.default.post(name: .updateInsertedMoney, object: nil, userInfo: nil)
+        NotificationCenter.default.post(name: .updateInsertedMoney, object: self, userInfo: nil)
     }
     
     func resetBeverages() {
         beverages.resetStock()
-        NotificationCenter.default.post(name: .updateBeverages, object: nil, userInfo: nil)
+        NotificationCenter.default.post(name: .updateBeverages, object: self, userInfo: nil)
     }
     
     func resetPurchased() {
         purchased.removeAll()
-        NotificationCenter.default.post(name: .updatePurchased, object: nil, userInfo: nil)
+        NotificationCenter.default.post(name: .updatePurchased, object: self, userInfo: nil)
     }
 }
 

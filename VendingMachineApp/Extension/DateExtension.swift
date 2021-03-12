@@ -17,9 +17,9 @@ extension Date {
         let dateFormatter = Date.setDateFormat(with: "yyyyMMdd")
         return dateFormatter.string(from: self)
     }
-    func isExpired() -> Bool {
+    func isExpired(to date : Date) -> Bool {
         let calendar = Calendar.current
-        return calendar.compare(self, to: Date(), toGranularity: .day) == .orderedAscending
+        return calendar.compare(self, to: date, toGranularity: .day) == .orderedAscending
     }
     func get7daysLatter() -> Date {
         var dateComponent = DateComponents()

@@ -63,8 +63,8 @@ extension Beverage {
 }
 extension Beverage : Drinkable {
     // 유통기한이 지난 경우 true를 반환
-    func isExpired() -> Bool {
-        return expiredAt.isExpired()
+    func isExpired(to date : Date) -> Bool {
+        return expiredAt.isExpired(to: date)
     }
 }
 

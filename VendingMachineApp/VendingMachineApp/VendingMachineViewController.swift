@@ -4,9 +4,10 @@ class VendingMachineViewController: UIViewController {
     
     private let factory = BeverageFactory()
     private var vendingMachine = VendingMachine.sharedInstance()
-    private var scrollView = UIScrollView()
-    private var stackView = UIStackView()
-    private var imageView = UIImageView()
+    
+    private var purchasedBeveragesScrollView = UIScrollView()
+    private var purchasedBeveragesStackView = UIStackView()
+    private var eachPurchasedBeverageImageView = UIImageView()
     
     @IBOutlet var stockInfo: [UILabel]!
     @IBOutlet var imagesOfBeverages: [UIImageView]!
@@ -33,34 +34,34 @@ class VendingMachineViewController: UIViewController {
     }
     
     private func configureScrollView() {
-        view.addSubview(scrollView)
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
-        scrollView.topAnchor.constraint(equalTo: view.topAnchor, constant: 500).isActive = true
-        scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 600).isActive = true
-        scrollView.heightAnchor.constraint(equalToConstant: 200).isActive = true
-        scrollView.widthAnchor.constraint(equalToConstant: 300).isActive = true
+        view.addSubview(purchasedBeveragesScrollView)
+        purchasedBeveragesScrollView.translatesAutoresizingMaskIntoConstraints = false
+        purchasedBeveragesScrollView.topAnchor.constraint(equalTo: view.topAnchor, constant: 500).isActive = true
+        purchasedBeveragesScrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 600).isActive = true
+        purchasedBeveragesScrollView.heightAnchor.constraint(equalToConstant: 200).isActive = true
+        purchasedBeveragesScrollView.widthAnchor.constraint(equalToConstant: 300).isActive = true
     }
     
     private func configureStackView() {
-        scrollView.addSubview(stackView)
-        stackView.axis = .horizontal
-        stackView.spacing = -70
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 30).isActive = true
-        stackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 30).isActive = true
+        purchasedBeveragesScrollView.addSubview(purchasedBeveragesStackView)
+        purchasedBeveragesStackView.axis = .horizontal
+        purchasedBeveragesStackView.spacing = -70
+        purchasedBeveragesStackView.translatesAutoresizingMaskIntoConstraints = false
+        purchasedBeveragesStackView.topAnchor.constraint(equalTo: purchasedBeveragesScrollView.topAnchor, constant: 30).isActive = true
+        purchasedBeveragesStackView.leadingAnchor.constraint(equalTo: purchasedBeveragesScrollView.leadingAnchor, constant: 30).isActive = true
     }
 
     private func purchaedBeverageList() {
         let buyingList = vendingMachine.buyingList()
-        stackView.subviews.forEach { $0.removeFromSuperview() }
+        purchasedBeveragesStackView.subviews.forEach { $0.removeFromSuperview() }
         for idx in 0..<buyingList.count {
             let image = UIImage(named: buyingList[idx].productName)
-            imageView = UIImageView(image: image)
-            let imageViewWidth = NSLayoutConstraint(item: imageView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 140)
-            let imageViewHeight = NSLayoutConstraint(item: imageView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 120)
-            imageView.addConstraints([imageViewWidth, imageViewHeight])
-            scrollView.contentSize.width = stackView.frame.width * CGFloat(1+idx)
-            stackView.addArrangedSubview(imageView)
+            eachPurchasedBeverageImageView = UIImageView(image: image)
+            let imageViewWidth = NSLayoutConstraint(item: eachPurchasedBeverageImageView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 140)
+            let imageViewHeight = NSLayoutConstraint(item: eachPurchasedBeverageImageView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 120)
+            eachPurchasedBeverageImageView.addConstraints([imageViewWidth, imageViewHeight])
+            purchasedBeveragesScrollView.contentSize.width = purchasedBeveragesStackView.frame.width * CGFloat(1+idx)
+            purchasedBeveragesStackView.addArrangedSubview(eachPurchasedBeverageImageView)
         }
     }
     

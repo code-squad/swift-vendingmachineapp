@@ -33,4 +33,18 @@ class Soda: Beverage {
                    temperature: temperature,
                    flavor: "unknown")
     }
+    
+    required init?(coder: NSCoder) {
+        self.flavor = coder.decodeObject(forKey: "flavor") as! String
+        super.init(coder: coder)
+    }
+    
+    override func encode(with coder: NSCoder) {
+        coder.encode(flavor, forKey: "flavor")
+        super.encode(with: coder)
+    }
+    
+    override var description: String {
+        return "Soda(\(flavor))-(\(super.description))"
+    }
 }

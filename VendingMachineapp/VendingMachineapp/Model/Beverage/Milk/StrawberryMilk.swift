@@ -35,4 +35,18 @@ class StrawberryMilk: Milk {
                    lowFat: 13,
                    strawberryContent: 20)
     }
+    
+    required init?(coder: NSCoder) {
+        self.strawberryContent = coder.decodeInteger(forKey: "strawberryContent")
+        super.init(coder: coder)
+    }
+    
+    override func encode(with coder: NSCoder) {
+        coder.encode(strawberryContent, forKey: "strawberryContent")
+        super.encode(with: coder)
+    }
+    
+    override var description: String {
+        return "StrawberryMilk(\(strawberryContent))-(\(super.description))"
+    }
 }

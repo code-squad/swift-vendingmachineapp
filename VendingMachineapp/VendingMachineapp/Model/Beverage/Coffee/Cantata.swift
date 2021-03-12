@@ -35,4 +35,18 @@ class Cantata: Coffee {
                    caffeineContent: 15,
                    coldBrew: false)
     }
+    
+    required init?(coder: NSCoder) {
+        self.coldBrew = coder.decodeBool(forKey: "coldBrew")
+        super.init(coder: coder)
+    }
+    
+    override func encode(with coder: NSCoder) {
+        coder.encode(coldBrew, forKey: "coldBrew")
+        super.encode(with: coder)
+    }
+    
+    override var description: String {
+        return "Cantata(\(coldBrew))-(\(super.description))"
+    }
 }

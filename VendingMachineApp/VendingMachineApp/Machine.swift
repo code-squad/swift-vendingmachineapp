@@ -20,7 +20,6 @@ struct Machine {
         return moneyProccesor.moneyOnTransactionAmount()
     }
     
-    //MARK:- Beverage storage related methods
     func addStock(beverage: Beverage, amount: Int) {
         beverageStorage.increaseStock(beverage: beverage, by: amount)
     }

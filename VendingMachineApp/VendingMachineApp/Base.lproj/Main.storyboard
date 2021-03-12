@@ -100,8 +100,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="beverageDisplaySlotsFirstRow" destination="OOY-Ku-411" id="K4E-p3-XBd"/>
-                        <outlet property="beverageDisplaySlotsSecondRow" destination="53T-pR-MBD" id="q2P-7h-5ma"/>
+                        <outlet property="displayRows" destination="29T-r4-j9f" id="WwO-EM-f6o"/>
                         <outlet property="moneyOnTransactionLabel" destination="0EI-TS-PSS" id="sQ9-QE-PA5"/>
                     </connections>
                 </viewController>

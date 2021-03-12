@@ -21,8 +21,7 @@ class Coffee: Beverage {
         super.init(brand: "brand", volume: 0, price: 0, name: "name", createdAt: Date(), expiredAt: Date())
     }
     
-    func isLowCaffeine() -> Bool {
-        let criteria = 100
+    func isLowCaffeine(criteria: Int) -> Bool {
         return caffeine <= criteria
     }
 }

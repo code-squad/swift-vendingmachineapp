@@ -20,8 +20,7 @@ class Milk: Beverage {
         super.init()
     }
     
-    func isLowFat() -> Bool {
-        let criteria = 2
+    func isLowFat(criteria: Int) -> Bool {
         return fatPercent <= criteria
     }
 }

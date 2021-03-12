@@ -9,6 +9,12 @@ import Foundation
 
 class VendingMachine: NSObject,VendingMachineManagable, NSCoding {
     
+    enum NotificationName {
+        static let didChangeMoney = Notification.Name("didChangeMoney")
+        static let didChangeInventory = Notification.Name("didChangeInventory")
+        static let didUpdatePurchseHistory = Notification.Name("didUpdatePurchseHistory")
+    }
+    
     private var moneyManager: MoneyManagable
     private var inventoryManager: InventoryManagable
     private var purchaseHistoryManager: PurchaseHistoryManagable
@@ -37,7 +43,7 @@ class VendingMachine: NSObject,VendingMachineManagable, NSCoding {
     
     func increaseBalance(_ price: Int) {
         moneyManager.increaseBalance(price)
-        NotificationCenter.default.post(name: .didChangeMoney, object: self)
+        NotificationCenter.default.post(name: NotificationName.didChangeMoney, object: self)
     }
     
     func tagToBeverageType(by tag: Int) -> Beverage.Type? {
@@ -67,11 +73,6 @@ class VendingMachine: NSObject,VendingMachineManagable, NSCoding {
     
     func addBeverage(_ beverage: Beverage) {
         inventoryManager.addBeverage(beverage)
-        NotificationCenter.default.post(name: .didChangeInventory, object: nil)
+        NotificationCenter.default.post(name: NotificationName.didChangeInventory, object: nil)
     }
-}
-
-extension Notification.Name {
-    static let didChangeMoney = Notification.Name("didChangeMoney")
-    static let didChangeInventory = Notification.Name("didChangeInventory")
 }

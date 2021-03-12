@@ -29,7 +29,7 @@ class ViewController: UIViewController, Stateful {
     
     private func configureSubscriber() {
         vendingMachinePublisher = NotificationCenter.default
-            .publisher(for: Notification.Name.didChangeMoney)
+            .publisher(for: VendingMachine.NotificationName.didChangeMoney)
             .sink { notification in
                 DispatchQueue.main.async {
                     self.updateBalanceLabel()
@@ -38,7 +38,7 @@ class ViewController: UIViewController, Stateful {
     }
     
     private func configureInventoryObserver() {
-        NotificationCenter.default.addObserver(self, selector: #selector(self.updateBeverageCountLabels), name: .didChangeInventory, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.updateBeverageCountLabels), name: VendingMachine.NotificationName.didChangeInventory, object: nil)
     }
     
     private func updateBalanceLabel() {

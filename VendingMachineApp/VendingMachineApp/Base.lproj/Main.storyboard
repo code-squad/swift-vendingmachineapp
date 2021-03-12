@@ -46,11 +46,16 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="GyI-fo-vUe">
+                                <rect key="frame" x="91" y="148" width="641" height="120"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
+                        <outlet property="inventoryStackView" destination="GyI-fo-vUe" id="2SF-5x-DJI"/>
                         <outlet property="moneyLabel" destination="Qo9-cC-8x5" id="k1Q-LZ-NGR"/>
                     </connections>
                 </viewController>

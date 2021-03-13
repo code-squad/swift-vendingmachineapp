@@ -18,6 +18,13 @@ class ViewController: UIViewController {
     private var inventoryPublisher: AnyCancellable!
     private var cashBoxPublisher: AnyCancellable!
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        configureInventoryView()
+        configureCashBoxView()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

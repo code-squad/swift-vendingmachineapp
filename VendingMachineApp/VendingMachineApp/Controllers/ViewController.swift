@@ -22,7 +22,6 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         configureSubscriber()
-        initialSetupVendingMachine()
         configureInventory()
     }
     

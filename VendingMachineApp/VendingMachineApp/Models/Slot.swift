@@ -7,11 +7,7 @@
 
 import Foundation
 
-class Slot: CustomStringConvertible, Hashable {
-    static func == (lhs: Slot, rhs: Slot) -> Bool {
-        return lhs.items == rhs.items && lhs.itemCount == rhs.itemCount && lhs.firstItem == rhs.firstItem && lhs.itemImageName == rhs.itemImageName
-    }
-    
+class Slot: NSObject, NSCoding {
     private var items: [Beverage]
     var itemCount: Int {
         return items.count
@@ -22,7 +18,7 @@ class Slot: CustomStringConvertible, Hashable {
     var itemImageName: String? {
         return firstItem?.imageName
     }
-    var description: String {
+    override var description: String {
         guard let firstItemName = firstItem?.name else {
             return "Empty Slot"
         }
@@ -33,15 +29,30 @@ class Slot: CustomStringConvertible, Hashable {
         self.items = items
     }
     
-    convenience init() {
+    convenience override init() {
         self.init(items: [])
     }
     
-    func hash(into hasher: inout Hasher) {
+    func encode(with coder: NSCoder) {
+        coder.encode(items, forKey: "items")
+    }
+    
+    required init?(coder: NSCoder) {
+        self.items = coder.decodeObject(forKey: "items") as! [Beverage]
+    }
+    
+    public override func isEqual(_ other: Any?) -> Bool {
+        guard let other = other as? Slot else { return false }
+        return self.items == other.items && self.itemCount == other.itemCount && self.firstItem == other.firstItem && self.itemImageName == other.itemImageName
+    }
+    
+    public override var hash: Int {
+        var hasher = Hasher()
         hasher.combine(items)
         hasher.combine(itemCount)
         hasher.combine(firstItem)
         hasher.combine(itemImageName)
+        return hasher.finalize()
     }
     
     func stock(_ item: Beverage) {

@@ -27,5 +27,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(_ application: UIApplication) {
         VendingMachineDataCenter.save(to: vendingMachine)
     }
+    
+    func applicationWillResignActive(_ application: UIApplication) {
+        VendingMachineDataCenter.save(to: vendingMachine)
+    }
 }
+
 

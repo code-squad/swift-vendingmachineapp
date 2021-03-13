@@ -15,7 +15,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let _ = (scene as? UIWindowScene) else { return }
     }
     
-    func sceneWillEnterForeground(_ scene: UIScene) {
+    func sceneDidDisconnect(_ scene: UIScene) {
+        VendingMachineDataCenter.save(to: vendingMachine)
+    }
+    
+    func sceneWillResignActive(_ scene: UIScene) {
         VendingMachineDataCenter.save(to: vendingMachine)
     }
     

@@ -47,11 +47,12 @@ class StarbucksColdBrew: Coffee, Productization {
     }
     
     override func encode(with coder: NSCoder) {
-        coder.encode(self.flavor, forKey: "flavor")
+        super.encode(with: coder)
+        coder.encode(self.flavor.rawValue, forKey: "starBucksFlavor")
     }
     
     required init?(coder: NSCoder) {
-        self.flavor = (coder.decodeObject(forKey: "flavor") as? Flavor) ?? .black
+        self.flavor = Flavor(rawValue: coder.decodeObject(forKey: "starBucksFlavor") as! String)!
         super.init(coder: coder)
     }
     

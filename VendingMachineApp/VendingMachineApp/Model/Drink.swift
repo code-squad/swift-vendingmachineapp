@@ -23,14 +23,15 @@ class Drink: NSObject, NSCoding {
         self.init(brand: brand, capacity: capacity, price: price, name: name, manufactured: Date(), temperature: temperature, calorie: calorie)
     }
     
-    override convenience init() {
-        self.init(brand: "anonymous",
-                  capacity: 0,
-                  price: 0,
-                  name: "anonymous",
-                  manufactured: Date(timeIntervalSinceNow: Date().timeIntervalSince1970),
-                  temperature: -1,
-                  calorie: -1)
+    override required init() {
+        self.brand = "anonymous"
+        self.capacity = 0
+        self.price = 0
+        self.name = "anonymous"
+        self.manufactured = Date(timeIntervalSinceNow: Date().timeIntervalSince1970)
+        self.temperature = -1
+        self.calorie = -1
+        super.init()
     }
     
     func encode(with coder: NSCoder) {

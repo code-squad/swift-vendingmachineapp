@@ -41,6 +41,7 @@ class SeoulStrawberryMilk: Milk, Productization {
     }
     
     override func encode(with coder: NSCoder) {
+        super.encode(with: coder)
         coder.encode(self.isWithStraw, forKey: "isWithStraw")
     }
     

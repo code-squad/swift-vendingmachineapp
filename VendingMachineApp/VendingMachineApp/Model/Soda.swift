@@ -12,11 +12,13 @@ class Soda: Drink {
         self.init(brand: brand, capacity: capacity, price: price, name: name, isZeroCalorie: false, manufactured: Date(), temperature: temperature, calorie: calorie)
     }
     
-    convenience init() {
-        self.init()
+    required init() {
+        self.isZeroCalorie = false
+        super.init()
     }
     
     override func encode(with coder: NSCoder) {
+        super.encode(with: coder)
         coder.encode(self.isZeroCalorie, forKey: "isZeroCalorie")
     }
     

@@ -40,6 +40,7 @@ class Sanpellegrino: Soda, Productization {
     }
     
     override func encode(with coder: NSCoder) {
+        super.encode(with: coder)
         coder.encode(self.isPackageRenewaled, forKey: "isPackageRenewaled")
     }
     

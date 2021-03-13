@@ -12,11 +12,13 @@ class Coffee: Drink {
         self.init(brand: brand, capacity: capacity, price: price, name: name, caffeineContent: 0, manufactured: Date(), temperature: temperature, calorie: calorie)
     }
     
-    convenience init() {
-        self.init()
+    required init() {
+        self.caffeineContent = 0
+        super.init()
     }
     
     override func encode(with coder: NSCoder) {
+        super.encode(with: coder)
         coder.encode(Int(self.caffeineContent), forKey: "caffeineContent")
     }
     

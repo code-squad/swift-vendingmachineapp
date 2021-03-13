@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Inventory {
+class Inventory: NSObject, NSCoding {
     private let slots: [Slot]
     var slotCount: Int {
         return slots.count
@@ -21,6 +21,14 @@ class Inventory {
     
     convenience init(numberOfSlots: Int) {
         self.init(slots: (0..<numberOfSlots).map { _ in Slot() })
+    }
+    
+    func encode(with coder: NSCoder) {
+        coder.encode(slots, forKey: "slots")
+    }
+    
+    required init?(coder: NSCoder) {
+        self.slots = coder.decodeObject(forKey: "slots") as! [Slot]
     }
     
     func add(_ item: Beverage) {

@@ -5,7 +5,7 @@
 //  Created by 박정하 on 2021/02/25.
 //
 
-import UIKit
+import Foundation
 
 class VendingMachine {
     private var money : Money
@@ -17,7 +17,7 @@ class VendingMachine {
         self.money = Money
         self.currentBeverages = Beverages()
         self.bought = Beverages()
-        currentBeverages.makeFactoryBeverage(beverages: &self.BeverageFactory)
+        currentBeverages.makeBeverageofFactroy(beverages: &self.BeverageFactory)
     }
     
     func addBeverage(beverage : Beverage){
@@ -40,7 +40,7 @@ class VendingMachine {
     }
     
     func canBuyBeverageList() -> [Beverage] {
-        return currentBeverages.showLowerpriceThanMoney(money: self.money)
+        return currentBeverages.showLowerpriceThan(money: self.money)
     }
     
     func isValidateList() -> [Beverage]{
@@ -55,20 +55,8 @@ class VendingMachine {
         return bought.beveragesList()
     }
     
-    func drawCurrentMoney(moneyLabel : UILabel){
-        money.showCurrentMoney(moneyLabel : moneyLabel)
-    }
-    
-    func makeButtonBeverageList() -> [UIButton] {
-        return currentBeverages.makeButtonCurrentBeverageList()
-    }
-    
-    func makeBeverageLabel() -> [UILabel]{
-        return currentBeverages.makeBeverageLabel()
-    }
-    
-    func makebeverageImage() -> [UIImageView]{
-        return currentBeverages.makebeverageImages()
+    func drawCurrentMoney() -> String{
+        return money.description
     }
     
     func sendBeverageInFactory(index : Int) -> Beverage{

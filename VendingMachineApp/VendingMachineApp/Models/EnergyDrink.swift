@@ -8,7 +8,6 @@
 import Foundation
 
 class EnergyDrink: Beverage, CaffeineContainable, CarbonationHavable {
-    
     private let caffeineAmount: Int
     private let isCarbonated: Bool
     
@@ -16,6 +15,18 @@ class EnergyDrink: Beverage, CaffeineContainable, CarbonationHavable {
         self.caffeineAmount = caffeineAmount
         self.isCarbonated = isCarbonated
         super.init(brand: brand, volume: volume, price: price, name: name, calorie: calorie, imageName: imageName, manufactured: manufactured, expiredAfter: expiredAfter)
+    }
+    
+    required init?(coder: NSCoder) {
+        self.caffeineAmount = coder.decodeInteger(forKey: "caffeineAmount")
+        self.isCarbonated = coder.decodeBool(forKey: "isCarbonated")
+        super.init(coder: coder)
+    }
+    
+    override func encode(with coder: NSCoder) {
+        coder.encode(caffeineAmount, forKey: "caffeineAmount")
+        coder.encode(isCarbonated, forKey: "isCarbonated")
+        super.encode(with: coder)
     }
     
     func hasCaffeine() -> Bool {

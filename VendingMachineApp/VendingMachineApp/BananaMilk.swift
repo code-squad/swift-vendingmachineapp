@@ -15,7 +15,7 @@ class BananaMilk : Milk{
         super.init(lowfat: lowfat, brand: brand, volume: volume, price: price, name: name, manufactured: manufactured, temperature: temperature, kcal: kcal)
     }
     
-    func isSugarfree() -> Bool {
-        return sugarContent < 1
+    func isSugarfree(standard : Int) -> Bool {
+        return sugarContent < standard
     }
 }

@@ -5,9 +5,9 @@
 //  Created by 박정하 on 2021/03/03.
 //
 
-import UIKit
+import Foundation
 
-class Money {
+class Money : CustomStringConvertible{
     private var Money : Int
     
     init(money : Int) {
@@ -37,7 +37,7 @@ class Money {
         return self.Money > price
     }
     
-    func showCurrentMoney(moneyLabel : UILabel){
-        moneyLabel.text = "\(String(self.Money))원"
+    var description: String{
+        return "\(self.Money)원"
     }
 }

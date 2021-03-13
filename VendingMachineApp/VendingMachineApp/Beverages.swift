@@ -5,17 +5,15 @@
 //  Created by 박정하 on 2021/03/06.
 //
 
-import UIKit
+import Foundation
 
 class Beverages{
     private var beverages : [Beverage]
     private let beverageTypeList : [Beverage.Type]
-    private let UIimagesTitles : [String]
     
     init() {
         beverages = []
         beverageTypeList = [BananaMilk.self, StrawBerryMilk.self, Cider.self, Coke.self, Hot6.self, Monster.self, CaffeMocha.self, CaffeeLatte.self]
-        UIimagesTitles  = ["BananaMilk", "StrawberryMilk", "somersby", "coke", "HOT6", "Monster", "CaffeMocha", "CafeLatte"]
     }
     
     func addBeverage(beverage : Beverage) -> Void{
@@ -38,7 +36,7 @@ class Beverages{
         }
     }
     
-    func showLowerpriceThanMoney(money : Money) -> [Beverage]{
+    func showLowerpriceThan(money : Money) -> [Beverage]{
         var beverageList : [Beverage] = []
         for i in 0..<self.beverages.count{
             if self.beverages[i].canBuybeverage(money: money) {
@@ -58,7 +56,7 @@ class Beverages{
         return beverageList
     }
     
-    func makeFactoryBeverage(beverages : inout [Beverage]){
+    func makeBeverageofFactroy(beverages : inout [Beverage]){
         for i in 0..<beverageTypeList.count{
             beverages.append(BeverageCreater().makeBeverage(beveragetype: beverageTypeList[i], Date().makeDatewithString(yyyyMMdd: "20210301")))
         }
@@ -70,35 +68,6 @@ class Beverages{
             beverages[i].addProduct(productList: &tempdictionary)
         }
         return tempdictionary
-    }
-    
-    func makeButtonCurrentBeverageList() -> [UIButton]{
-        var tempButtons : [UIButton] = []
-        for _ in 0..<beverageTypeList.count{
-            tempButtons.append(UIButton())
-        }
-        return tempButtons
-    }
-    
-    func makebeverageImages() -> [UIImageView]{
-        var tempUIimageViews : [UIImageView] = []
-        for i in 0..<UIimagesTitles.count {
-            if let tempUIimage = UIImage(named: UIimagesTitles[i]){
-                tempUIimageViews.append(UIImageView(image: tempUIimage))
-            }
-            else {
-                
-            }
-        }
-        return tempUIimageViews
-    }
-    
-    func makeBeverageLabel() -> [UILabel]{
-        var UIBeverageLabel : [UILabel] = []
-        for _ in 0..<beverageTypeList.count{
-            UIBeverageLabel.append(UILabel())
-        }
-        return UIBeverageLabel
     }
     
     private func makeCurrentBeverageObjectIdentifierList() -> [ObjectIdentifier : Int]{

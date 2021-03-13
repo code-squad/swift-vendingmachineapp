@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     private var beverageImageViews : [UIImageView]
     private var currentMoneyLabel : UILabel
     private var stockLabel : [UILabel]
+    private var UIImagetitles : [String]
     private let vendingMachine : VendingMachine
     
     init() {
@@ -21,6 +22,7 @@ class ViewController: UIViewController {
         self.beverageImageViews = []
         self.currentMoneyLabel = UILabel()
         self.stockLabel = []
+        self.UIImagetitles = ["BananaMilk", "StrawberryMilk", "somersby", "coke", "HOT6", "Monster", "CaffeMocha", "CafeLatte"]
         self.vendingMachine = VendingMachine.init(Money: Money.init(money: 0))
         super.init(nibName: nil, bundle: nil)
     }
@@ -31,6 +33,7 @@ class ViewController: UIViewController {
         self.beverageImageViews = []
         self.currentMoneyLabel = UILabel()
         self.stockLabel = []
+        self.UIImagetitles = ["BananaMilk", "StrawberryMilk", "somersby", "coke", "HOT6", "Monster", "CaffeMocha", "CafeLatte"]
         self.vendingMachine = VendingMachine.init(Money: Money.init(money: 0))
         super.init(coder: coder)
     }
@@ -58,7 +61,9 @@ class ViewController: UIViewController {
     }
     
     func initBeverageButtons(){
-        BeverageButtons = vendingMachine.makeButtonBeverageList()
+        for _ in 0..<UIImagetitles.count{
+            BeverageButtons.append(UIButton())
+        }
         for i in 0..<BeverageButtons.count{
             if i == 0 {//standard!
                 addbeverageaddButton(index: i)
@@ -81,8 +86,10 @@ class ViewController: UIViewController {
     }
     
     func initBeverageImages(){
+        for i in 0..<UIImagetitles.count{
+            beverageImageViews.append(UIImageView(image: UIImage(named: UIImagetitles[i])))
+        }
         view.backgroundColor = .systemGray
-        beverageImageViews = vendingMachine.makebeverageImage()
         for i in 0..<beverageImageViews.count{ //standard
             beverageImageViews[i].backgroundColor = UIColor.white
             view.addSubview(beverageImageViews[i])
@@ -97,7 +104,9 @@ class ViewController: UIViewController {
     }
     
     func initvendingMachineBeverageLabels(){
-        stockLabel = vendingMachine.makeBeverageLabel()
+        for _ in 0..<UIImagetitles.count{
+            stockLabel.append(UILabel())
+        }
         for i in 0..<stockLabel.count{
             stockLabel[i].text = "0개"
             stockLabel[i].textAlignment = .center
@@ -148,7 +157,7 @@ class ViewController: UIViewController {
     @objc func addMoney(sender: UIButton){
         if let tempMoney = Money.moneyUnit.init(index: sender.tag) {
             vendingMachine.addMoney(money: Money.init(money: tempMoney.rawValue))
-            vendingMachine.drawCurrentMoney(moneyLabel : currentMoneyLabel)
+            currentMoneyLabel.text = vendingMachine.drawCurrentMoney()
         }
     }
 }

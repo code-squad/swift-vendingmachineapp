@@ -7,7 +7,7 @@
 
 import Foundation
 
-class PurchaseHistory {
+class PurchaseHistory: NSObject, NSCoding {
     private var orderList: [Order]
     var orderCount: Int {
         orderList.count
@@ -17,8 +17,16 @@ class PurchaseHistory {
         self.orderList = orderList
     }
     
-    convenience init() {
+    convenience override init() {
         self.init(orderList: [])
+    }
+    
+    func encode(with coder: NSCoder) {
+        coder.encode(orderList, forKey: "orderList")
+    }
+    
+    required init?(coder: NSCoder) {
+        self.orderList = coder.decodeObject(forKey: "orderList") as! [Order]
     }
     
     func add(_ order: Order) {

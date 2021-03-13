@@ -24,27 +24,40 @@ class ViewController: UIViewController, SelectPanelStackViewDelegate, TopPanelDe
         selectPanelStackView.setDrinkImageViewsRadius(of: 10)
         loadLeftCoinsLabel()
         loadSelectPanelStackViewLabels()
+        addCoinsLabelObserver()
+        addStockLabelObserver()
+    }
+    
+    func addStockLabelObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(loadSelectPanelStackViewLabels), name: Stock.Notification.DidChangeStock, object: nil)
+    }
+    
+    func addCoinsLabelObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(loadLeftCoinsLabel), name: CoinCounter.Notification.DidChangeCoin, object: nil)
     }
     
     func didAddedDrink(typeOf drinkType: Drink.Type) {
         guard let drink = DrinkFactory.makeDrink(of: drinkType) else { return }
         vendingMachine.addDrink(drink)
-        loadSelectPanelStackViewLabels()
+        
+        
+//        loadSelectPanelStackViewLabels()
     }
     
     func didInsertedCoin(amound: Int) {
         vendingMachine.insertCoin(amound)
-        loadLeftCoinsLabel()
+        
+//        loadLeftCoinsLabel()
     }
 }
 
 extension ViewController {
-    private func loadLeftCoinsLabel() {
+    @objc private func loadLeftCoinsLabel() {
         let leftCoin = vendingMachine.leftCoin()
         topPanelView.leftCoinsLabel.text = "\(leftCoin)원"
     }
     
-    private func loadSelectPanelStackViewLabels() {
+    @objc private func loadSelectPanelStackViewLabels() {
         let stock = vendingMachine.showStock()
         for index in 0..<selectPanelStackView.addDrinkButtons.count {
             let key = ObjectIdentifier(drinkOrder[index])

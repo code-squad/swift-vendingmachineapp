@@ -1,6 +1,10 @@
 import Foundation
 
 class Stock: NSObject, NSCoding, StockManageable {
+    enum Notification {
+        static let DidChangeStock = Foundation.Notification.Name("DidChangeStock")
+    }
+    
     private var stock: [Drink]
     
     override init() {
@@ -22,6 +26,7 @@ class Stock: NSObject, NSCoding, StockManageable {
     public func addedDrink(_ drink: Drink) {
         guard checkProductization(of: drink) else { return }
         stock.append(drink)
+        NotificationCenter.default.post(name: Notification.DidChangeStock, object: nil)
     }
 
     public func availableForDrinks(coin: Int) -> [Drink] {

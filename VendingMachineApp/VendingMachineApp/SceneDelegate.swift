@@ -22,6 +22,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
     }
     
+    func sceneDidBecomeActive(_ scene: UIScene) {
+        if let archivedData = defaults.object(forKey: "vendingMachine") {
+            do {
+                vendingMachine = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(archivedData as! Data) as? VendingMachine
+            } catch {
+                print(error.localizedDescription)
+            }
+        } else {
+            initialSetupVendingMachine()
+        }
+    }
+    
     private func initialSetupVendingMachine() {
         vendingMachine = VendingMachine(numberOfSlots: 5)
         let beverageFactoryList: [BeverageFactory] = [DenmarkStrawberryMilkFactory(), MaeilChocolateMilkFactory(), ZeroSugarCokeFactory(), GeorgiaMaxFactory(), RedBullFactory()]

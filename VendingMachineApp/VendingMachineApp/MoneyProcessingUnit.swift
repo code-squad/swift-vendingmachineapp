@@ -7,11 +7,19 @@
 
 import Foundation
 
-class MoneyProcessingUnit {
+class MoneyProcessingUnit: NSObject, NSCoding {
     private var moneyOnTransaction: Int
     
-    init() {
+    override init() {
         self.moneyOnTransaction = 0
+    }
+    
+    func encode(with coder: NSCoder) {
+        coder.encode(moneyOnTransaction, forKey: "moneyOnTransaction")
+    }
+    
+    required init?(coder: NSCoder) {
+        moneyOnTransaction = coder.decodeInteger(forKey: "moneyOnTransaction")
     }
     
     public func increaseMoneyOnTransaction(by amount: Int) {

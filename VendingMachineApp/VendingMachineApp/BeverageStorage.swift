@@ -7,16 +7,26 @@
 
 import Foundation
 
-class BeverageStorage {
+class BeverageStorage: NSObject, NSCoding {
+    
     enum StockError: Error {
         case noStock
     }
     
     private var stock: [Beverage:Int]
     
-    init() {
+    override init() {
         stock = [:]
     }
+    
+    func encode(with coder: NSCoder) {
+        coder.encode(stock, forKey: "stock")
+    }
+    
+    required init?(coder eDecoder: NSCoder) {
+        stock = eDecoder.decodeObject(forKey: "stock") as! [Beverage:Int]
+    }
+    
     
     public func increaseStock(beverage: Beverage, by amount: Int) {
         if stock[beverage] != nil {

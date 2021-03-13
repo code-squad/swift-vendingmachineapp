@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct VendingMachine {
+class VendingMachine: NSObject, NSCoding {
     enum Notification {
         static let DidChangeInventory = Foundation.Notification.Name("DidChangeInventory")
         static let DidChangeBalance = Foundation.Notification.Name("DidChangeBalance")
@@ -21,10 +21,22 @@ struct VendingMachine {
         self.inventory = Inventory(numberOfSlots: numberOfSlots)
         self.cashBox = CashBox(totalRevenue: 0, moneyDeposited: 0)
         self.soldItems = PurchaseHistory()
-        NotificationCenter.default.post(name: Notification.DidChangeBalance, object: self)
+        NotificationCenter.default.post(name: Notification.DidChangeBalance, object: nil)
     }
     
-    mutating func insertMoney(amount: Int) {
+    func encode(with coder: NSCoder) {
+        coder.encode(inventory, forKey: "inventory")
+        coder.encode(cashBox, forKey: "cashBox")
+        coder.encode(soldItems, forKey: "soldItems")
+    }
+    
+    required init?(coder: NSCoder) {
+        self.inventory = coder.decodeObject(forKey: "inventory") as! Inventory
+        self.cashBox = coder.decodeObject(forKey: "cashBox") as! CashBox
+        self.soldItems = coder.decodeObject(forKey: "soldItems") as! PurchaseHistory
+    }
+    
+    func insertMoney(amount: Int) {
         cashBox.insertMoney(amount: amount)
         NotificationCenter.default.post(name: Notification.DidChangeBalance, object: self)
     }
@@ -51,7 +63,7 @@ struct VendingMachine {
         return purchasableItems
     }
     
-    mutating func vend(itemNamed name: String) -> Beverage? {
+    func vend(itemNamed name: String) -> Beverage? {
         var vendedItem: Beverage?
         inventory.showSlots {
             if $0.compareName(with: name) {

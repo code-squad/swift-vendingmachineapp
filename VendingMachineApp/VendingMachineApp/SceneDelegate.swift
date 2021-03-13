@@ -8,9 +8,19 @@
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-    
     var window: UIWindow?
     var vendingMachine: VendingMachine!
+    let defaults = UserDefaults.standard
+    
+    func sceneDidEnterBackground(_ scene: UIScene) {
+        do {
+            guard let vendingMachine = vendingMachine else { return }
+            let archived = try NSKeyedArchiver.archivedData(withRootObject: vendingMachine, requiringSecureCoding: false)
+            defaults.set(archived, forKey: "vendingMachine")
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
     
     private func initialSetupVendingMachine() {
         vendingMachine = VendingMachine(numberOfSlots: 5)

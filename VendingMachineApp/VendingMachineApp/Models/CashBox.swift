@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CashBox {
+class CashBox: NSObject, NSCoding {
     private var totalRevenue: Int
     private var moneyDeposited: Int
     
@@ -16,11 +16,21 @@ struct CashBox {
         self.moneyDeposited = moneyDeposited
     }
     
-    mutating func insertMoney(amount: Int) {
+    func encode(with coder: NSCoder) {
+        coder.encode(totalRevenue, forKey: "totalRevenue")
+        coder.encode(moneyDeposited, forKey: "moneyDeposited")
+    }
+    
+    required init?(coder: NSCoder) {
+        self.totalRevenue = coder.decodeInteger(forKey: "totalRevenue")
+        self.moneyDeposited = coder.decodeInteger(forKey: "moneyDeposited")
+    }
+    
+    func insertMoney(amount: Int) {
         moneyDeposited += amount
     }
     
-    mutating func increaseRevenue(by amount: Int) {
+    func increaseRevenue(by amount: Int) {
         moneyDeposited -= amount
         totalRevenue += amount
     }

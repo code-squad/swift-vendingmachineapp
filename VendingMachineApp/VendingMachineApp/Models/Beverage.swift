@@ -7,12 +7,7 @@
 
 import Foundation
 
-class Beverage: CustomStringConvertible, Hashable, SafelyDrinkable {
-    
-    static func == (lhs: Beverage, rhs: Beverage) -> Bool {
-        return lhs.brand == rhs.brand && lhs.volume == rhs.volume && lhs.price == rhs.price && lhs.name == rhs.name && lhs.calorie == rhs.calorie && lhs.manufactured == rhs.manufactured && lhs.expiredAfter == rhs.expiredAfter
-    }
-    
+class Beverage: NSObject, NSCoding, SafelyDrinkable {
     private(set) var brand: String
     private(set) var volume: Int
     private(set) var price: Int
@@ -21,9 +16,6 @@ class Beverage: CustomStringConvertible, Hashable, SafelyDrinkable {
     private(set) var imageName: String
     private let manufactured: Date?
     private let expiredAfter: Date?
-    var description: String {
-        return "\(brand), \(volume)ml, \(price)원, \(name), \(manufactured?.formattedString ?? "")"
-    }
     
     init(brand: String, volume: Int, price: Int, name: String, calorie: Int, imageName: String, manufactured: Date?, expiredAfter: Date?) {
         self.brand = brand
@@ -36,7 +28,35 @@ class Beverage: CustomStringConvertible, Hashable, SafelyDrinkable {
         self.expiredAfter = expiredAfter
     }
     
-    func hash(into hasher: inout Hasher) {
+    func encode(with coder: NSCoder) {
+        coder.encode(brand, forKey: "brand")
+        coder.encode(volume, forKey: "volume")
+        coder.encode(price, forKey: "price")
+        coder.encode(name, forKey: "name")
+        coder.encode(calorie, forKey: "calorie")
+        coder.encode(imageName, forKey: "imageName")
+        coder.encode(manufactured, forKey: "manufactured")
+        coder.encode(expiredAfter, forKey: "expiredAfter")
+    }
+    
+    required init?(coder: NSCoder) {
+        self.brand = coder.decodeObject(forKey: "brand") as? String ?? ""
+        self.volume = coder.decodeInteger(forKey: "volume")
+        self.price = coder.decodeInteger(forKey: "price")
+        self.name = coder.decodeObject(forKey: "name") as? String ?? ""
+        self.calorie = coder.decodeInteger(forKey: "calorie")
+        self.imageName = coder.decodeObject(forKey: "imageName") as? String ?? ""
+        self.manufactured = coder.decodeObject(forKey: "manufactured") as! Date?
+        self.expiredAfter = coder.decodeObject(forKey: "expiredAfter") as! Date?
+    }
+    
+    public override func isEqual(_ other: Any?) -> Bool {
+        guard let other = other as? Beverage else { return false }
+        return self.brand == other.brand && self.volume == other.volume && self.price == other.price && self.name == other.name && self.calorie == other.calorie && self.manufactured == other.manufactured && self.expiredAfter == other.expiredAfter
+    }
+    
+    public override var hash: Int {
+        var hasher = Hasher()
         hasher.combine(brand)
         hasher.combine(volume)
         hasher.combine(price)
@@ -45,6 +65,7 @@ class Beverage: CustomStringConvertible, Hashable, SafelyDrinkable {
         hasher.combine(imageName)
         hasher.combine(manufactured)
         hasher.combine(expiredAfter)
+        return hasher.finalize()
     }
     
     func isStillEdible(at date: Date) -> Bool {

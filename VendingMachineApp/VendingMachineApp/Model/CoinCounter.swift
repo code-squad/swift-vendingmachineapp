@@ -1,6 +1,9 @@
 import Foundation
 
 class CoinCounter: NSObject, NSCoding, CoinManageable {
+    enum Notification {
+        static let DidChangeCoin = Foundation.Notification.Name("DidChangeCoin")
+    }
     private var coins: Int
     
     override init() {
@@ -17,6 +20,7 @@ class CoinCounter: NSObject, NSCoding, CoinManageable {
     
     public func inserted(_ coin: Int) {
         self.coins += coin
+        NotificationCenter.default.post(name: Notification.DidChangeCoin, object: nil)
     }
     
     public func CheckCoins(handle: (Int) -> ()){

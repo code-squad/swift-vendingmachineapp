@@ -8,17 +8,26 @@
 import Foundation
 
 class FlavoredMilk: Milk {
-    
-    enum MilkFlavor {
+    enum MilkFlavor: String, Codable {
         case strawberry
         case chocolate
         case banana
     }
     
-    private let flavor: MilkFlavor
+    private let flavor: MilkFlavor!
     
     init(brand: String, volume: Int, price: Int, name: String, calorie: Int, imageName: String, manufactured: Date?, expiredAfter: Date?, lactoseAmount: Int, flavor: MilkFlavor) {
         self.flavor = flavor
         super.init(brand: brand, volume: volume, price: price, name: name, calorie: calorie, imageName: imageName, manufactured: manufactured, expiredAfter: expiredAfter, lactoseAmount: lactoseAmount)
+    }
+    
+    required init?(coder: NSCoder) {
+        self.flavor = (coder as! NSKeyedUnarchiver).decodeDecodable(MilkFlavor.self, forKey: "flavor")
+        super.init(coder: coder)
+    }
+    
+    override func encode(with coder: NSCoder) {
+        try? (coder as! NSKeyedArchiver).encodeEncodable(flavor, forKey: "flavor")
+        super.encode(with: coder)
     }
 }

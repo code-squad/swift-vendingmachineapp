@@ -13,7 +13,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var balanceLabel: UILabel!
     
     private var inventoryInfo: [Slot: SlotView] = [ : ]
-    private let appDelegate = UIApplication.shared.delegate as? AppDelegate
+    private let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+    private lazy var sceneDelegate = windowScene?.delegate as? SceneDelegate
     private var inventoryPublisher: AnyCancellable!
     private var cashBoxPublisher: AnyCancellable!
     
@@ -56,22 +57,14 @@ class ViewController: UIViewController {
             let slotInfo = inventoryInfo.filter { selectedSlotView.value == $0.value }.first
             /// 현 단계에서는 재고 정보(제조일자, 유통기한 등)를 입력할 수 있는 란이 따로 없어 슬롯의 첫번째 상품과 동일한 상품의 재고를 추가하도록 구현
             if let item = slotInfo?.key.firstItem {
-                appDelegate?.vendingMachine.add(item: item)
+                sceneDelegate?.vendingMachine.add(item: item)
             }
         }
     }
     
     private func configureCashBox(_ sender: UIButton) {
         guard let selectedAmount = Int(sender.titleLabel?.text?.filterNonDigits() ?? "0") else { return }
-        appDelegate?.vendingMachine.insertMoney(amount: selectedAmount)
-    }
-    
-    private func initialSetupVendingMachine() {
-        appDelegate?.vendingMachine = VendingMachine(numberOfSlots: 5)
-        let beverageFactoryList: [BeverageFactory] = [DenmarkStrawberryMilkFactory(), MaeilChocolateMilkFactory(), ZeroSugarCokeFactory(), GeorgiaMaxFactory(), RedBullFactory()]
-        beverageFactoryList.forEach { factory in
-            appDelegate?.vendingMachine.bulkInsert(itemFrom: factory, quantity: 5, manufactured: Date().formattedDate(from: "20210222"), expiredAfter: Date().formattedDate(from: "20210302"))
-        }
+        sceneDelegate?.vendingMachine.insertMoney(amount: selectedAmount)
     }
     
     private func configureInventoryView() {
@@ -79,7 +72,7 @@ class ViewController: UIViewController {
             subview.removeFromSuperview()
         }
         inventoryInfo = [ : ]
-        let inventorySheet = appDelegate?.vendingMachine.takeInventory().sorted { $0.key.description < $1.key.description }
+        let inventorySheet = sceneDelegate?.vendingMachine.takeInventory().sorted { $0.key.description < $1.key.description }
         
         inventorySheet?.forEach { inventory in
             let slotView = makeSlotView(with: inventory.key)
@@ -89,7 +82,7 @@ class ViewController: UIViewController {
     }
     
     private func configureCashBoxView() {
-        balanceLabel.text = "잔액 : \(appDelegate?.vendingMachine.showBalance() ?? 0)원"
+        balanceLabel.text = "잔액 : \(sceneDelegate?.vendingMachine.showBalance() ?? 0)원"
     }
     
     private func makeSlotView(with slot: Slot) -> SlotView {

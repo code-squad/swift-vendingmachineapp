@@ -47,11 +47,12 @@ class BingBananaMilk: Milk, Productization {
     }
     
     override func encode(with coder: NSCoder) {
-        coder.encode(self.target, forKey: "bananaTarger")
+        super.encode(with: coder)
+        coder.encode(self.target.rawValue, forKey: "bananaTarger")
     }
     
     required init?(coder: NSCoder) {
-        self.target = coder.decodeObject(forKey: "bananaTarger") as? Target ?? .all
+        self.target = Target(rawValue: coder.decodeObject(forKey: "bananaTarger") as! String)!
         super.init(coder: coder)
     }
     

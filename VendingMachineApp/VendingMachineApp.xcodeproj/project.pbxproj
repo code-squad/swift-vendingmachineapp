@@ -136,8 +136,36 @@
 				882A589E25E8AB4200BCAF67 /* DomesticLocation.swift */,
 				882A58A225E8B66700BCAF67 /* OverseasLocation.swift */,
 				880B9ABE25E8D32C008B02BB /* FoodColoring.swift */,
+				88846F4025F0E4B000333AE3 /* NotificationExtension.swift */,
 			);
 			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		883E0EEA25FCB4D000A2BA3D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				88748AE125E4F4E700E7DCB1 /* BeverageStorage.swift */,
+				88748ADD25E4F09700E7DCB1 /* MoneyProcessingUnit.swift */,
+				88748ADA25E4EECB00E7DCB1 /* Machine.swift */,
+				88748AAB25E4A2ED00E7DCB1 /* BeverageModel */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		883E0EEF25FCB4DA00A2BA3D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8849846B25EF85DC002C71F5 /* BeverageView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		883E0EF225FCB4E300A2BA3D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				88748A8925E387B100E7DCB1 /* ViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		88748A7925E387B100E7DCB1 = {
@@ -164,13 +192,9 @@
 				88748A8525E387B100E7DCB1 /* AppDelegate.swift */,
 				88748A8725E387B100E7DCB1 /* SceneDelegate.swift */,
 				882A589625E7A87500BCAF67 /* SupportingFiles */,
-				88748AE125E4F4E700E7DCB1 /* BeverageStorage.swift */,
-				88748ADD25E4F09700E7DCB1 /* MoneyProcessingUnit.swift */,
-				88748ADA25E4EECB00E7DCB1 /* Machine.swift */,
-				88748AAB25E4A2ED00E7DCB1 /* BeverageModel */,
-				88846F4025F0E4B000333AE3 /* NotificationExtension.swift */,
-				8849846B25EF85DC002C71F5 /* BeverageView.swift */,
-				88748A8925E387B100E7DCB1 /* ViewController.swift */,
+				883E0EEA25FCB4D000A2BA3D /* Model */,
+				883E0EEF25FCB4DA00A2BA3D /* View */,
+				883E0EF225FCB4E300A2BA3D /* Controller */,
 				88748A8B25E387B100E7DCB1 /* Main.storyboard */,
 				88748A8E25E387B200E7DCB1 /* Assets.xcassets */,
 				88748A9025E387B200E7DCB1 /* LaunchScreen.storyboard */,

@@ -9,12 +9,12 @@ import UIKit
 
 class VendingMachineDataCenter {
     static func load() -> VendingMachine {
-        let data = UserDefaults.standard.object(forKey: "vendingMachineApp")
+        guard let data = UserDefaults.standard.object(forKey: "vendingMachine") else { return VendingMachine() }
         do {
             let vendingMachine = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data as! Data) as? VendingMachine
             return vendingMachine ?? VendingMachine()
         } catch {
-            print(error)
+            print(error.localizedDescription)
         }
         return VendingMachine()
     }
@@ -22,9 +22,9 @@ class VendingMachineDataCenter {
     static public func save(to vendingMachine: VendingMachine) {
         do {
             let data = try NSKeyedArchiver.archivedData(withRootObject: vendingMachine, requiringSecureCoding: false)
-            UserDefaults.standard.set(data, forKey: "vendingMachineApp")
+            UserDefaults.standard.set(data, forKey: "vendingMachine")
         } catch {
-            print(error)
+            fatalError(error.localizedDescription)
         }
     }
 }

@@ -6,10 +6,14 @@
 //
 
 import UIKit
+import Combine
 
 class ViewController: UIViewController, SelectPanelStackViewDelegate, TopPanelDelegate {
     @IBOutlet weak var selectPanelStackView: SelectPanelStackView!
     @IBOutlet weak var topPanelView: TopPanel!
+    
+    private var stockPublisher: AnyCancellable!
+    private var coinCounterPublisher: AnyCancellable!
     private var vendingMachine: VendingMachine!
     private var eachButtonType: Dictionary<UIButton, Drink.Type>!
     private var drinkOrder = DrinkOrder()
@@ -24,16 +28,28 @@ class ViewController: UIViewController, SelectPanelStackViewDelegate, TopPanelDe
         selectPanelStackView.setDrinkImageViewsRadius(of: 10)
         loadLeftCoinsLabel()
         loadSelectPanelStackViewLabels()
-        addCoinsLabelObserver()
-        addStockLabelObserver()
+        configCoinsLabelObserver()
+        configStockLabelObserver()
     }
     
-    func addStockLabelObserver() {
-        NotificationCenter.default.addObserver(self, selector: #selector(loadSelectPanelStackViewLabels), name: Stock.Notification.DidChangeStock, object: nil)
+    func configStockLabelObserver() {
+        stockPublisher = NotificationCenter.default
+            .publisher(for: Stock.Notification.DidChangeStock)
+            .sink(receiveValue: { (notification) in
+                DispatchQueue.main.async {
+                    self.loadSelectPanelStackViewLabels()
+                }
+            })
     }
     
-    func addCoinsLabelObserver() {
-        NotificationCenter.default.addObserver(self, selector: #selector(loadLeftCoinsLabel), name: CoinCounter.Notification.DidChangeCoin, object: nil)
+    func configCoinsLabelObserver() {
+        coinCounterPublisher = NotificationCenter.default
+            .publisher(for: CoinCounter.Notification.DidChangeCoin)
+            .sink(receiveValue: { (notification) in
+                DispatchQueue.main.async {
+                    self.loadLeftCoinsLabel()
+                }
+            })
     }
     
     func didAddedDrink(typeOf drinkType: Drink.Type) {

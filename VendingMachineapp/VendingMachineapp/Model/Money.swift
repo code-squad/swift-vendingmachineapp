@@ -7,12 +7,20 @@
 
 import Foundation
 
-class Money: Comparable, Equatable {
+class Money: NSObject, NSCoding, Comparable {
     
     private(set) var money: Int
     
     init(with money: Int) {
         self.money = money
+    }
+        
+    required init?(coder: NSCoder) {
+        self.money = coder.decodeInteger(forKey: "money")
+    }
+    
+    func encode(with coder: NSCoder) {
+        coder.encode(money, forKey: "money")
     }
     
     func changeMoney(with money: Money) {

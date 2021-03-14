@@ -7,10 +7,25 @@
 
 import Foundation
 
-class Inventory {
+class Inventory: NSObject, NSCoding {
+
+    private var inventory: [Beverage]
+    private var productList: [Beverage]
     
-    private var inventory: [Beverage] = []
-    private var productList: [Beverage] = []
+    override init() {
+        inventory = []
+        productList = []
+    }
+    
+    required init?(coder: NSCoder) {
+        self.inventory = coder.decodeObject(forKey: "inventory") as! [Beverage]
+        self.productList = coder.decodeObject(forKey: "productList") as! [Beverage]
+    }
+    
+    func encode(with coder: NSCoder) {
+        coder.encode(inventory, forKey: "inventory")
+        coder.encode(productList, forKey: "productList")
+    }
     
     func add(beverage: Beverage) {
         inventory.append(beverage)

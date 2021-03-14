@@ -31,6 +31,18 @@ class Beverage : CustomStringConvertible {
         self.HIGHCALSTANDARD = 100
     }
     
+    required init(manufactured : Date) {
+        self.brand = ""
+        self.volume = 0
+        self.price = 0
+        self.name = ""
+        self.manufactured = manufactured
+        self.temperature = 0
+        self.kcal = 0
+        self.HOTTEMSTANDARD = 0
+        self.HIGHCALSTANDARD = 0
+    }
+    
     var description: String {
         return "\(self.brand), \(self.volume)ml, \(self.price)원, \(self.name), \(manufactured.descriptDateToString())"
     }

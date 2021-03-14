@@ -15,4 +15,9 @@ class Monster : Energydrink {
         super.init(caffeineContent: caffeineContent, brand: brand, volume: volume, price: price, name: name, manufactured: manufactured, temperature: temperature, kcal: kcal)
     }
     
+    required convenience init(manufactured: Date) {
+        self.init(glutamineContent: 10, caffeineContent: 30, brand: "코카콜라", volume: 180, price: 2100, name: "몬스터", manufactured: manufactured, temperature: 5, kcal: 30)
+    }
+    
+    
 }

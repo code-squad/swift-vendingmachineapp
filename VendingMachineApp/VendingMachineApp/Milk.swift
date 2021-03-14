@@ -8,14 +8,19 @@
 import Foundation
 
 class Milk : Beverage {
-    private var lowfat : Bool
+    private var fatContent : Int
     
-    init(lowfat : Bool, brand: String, volume: Int, price: Int, name: String, manufactured: Date, temperature : Int, kcal : Int) {
-        self.lowfat = lowfat
+    init(fatContent : Int, brand: String, volume: Int, price: Int, name: String, manufactured: Date, temperature : Int, kcal : Int) {
+        self.fatContent = fatContent
         super.init(brand: brand, volume: volume, price: price, name: name, manufactured: manufactured, temperature : temperature, kcal : kcal)
     }
     
     convenience init(brand: String, volume: Int, price: Int, name: String, manufactured: Date, temperature : Int){ //저지방 우유
-        self.init(lowfat : true, brand: brand, volume: volume, price: price, name: name, manufactured: manufactured, temperature : temperature, kcal: 50)
+        self.init(fatContent : 10, brand: brand, volume: volume, price: price, name: name, manufactured: manufactured, temperature : temperature, kcal: 50)
     }
+    
+    required convenience init(manufactured: Date) {
+        self.init(fatContent : 10, brand: "서울우유", volume: 180, price: 2100, name: "서울우유", manufactured: manufactured, temperature : 10, kcal: 50)
+    }
+    
 }

@@ -34,6 +34,10 @@ class VendingMachineAppTests: XCTestCase {
     func testbeverage() throws{
         let VM : VendingMachine = VendingMachine(Money: Money.init(money: 1000))
         let views : [ObjectIdentifier : Int] = [:]
-        XCTAssertEqual(VM.sendBeverageListTypedictionary(), views)
+    }
+    
+    func testBeverageFactory() throws {
+        let BF : BeverageCreater = BeverageCreater()
+        XCTAssertEqual(BF.makeBeverageTest(beveragetype: BananaMilk.self), BF.makeBeverage(beveragetype: Coke.self, Date().makeDatewithString(yyyyMMdd: "20200303")))
     }
 }

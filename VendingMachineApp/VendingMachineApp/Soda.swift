@@ -15,10 +15,10 @@ class Soda : Beverage {
         super.init(brand: brand, volume: volume, price: price, name: name, manufactured: manufactured,temperature: temperature, kcal: kcal)
     }
     
-    convenience init(brand : String, volume : Int, price : Int, name : String, manufactured : Date, temperature : Int){ //No Sugar
-        self.init(sugarContent: 0, brand: brand, volume: volume, price: price, name: name, manufactured: manufactured, temperature : temperature, kcal : 50)
+    required init(manufactured: Date) {
+        self.sugarContent = 0
+        super.init(manufactured: manufactured)
     }
-    
     func isSugarfree(standard : Int) -> Bool{
         return self.sugarContent < standard
     }

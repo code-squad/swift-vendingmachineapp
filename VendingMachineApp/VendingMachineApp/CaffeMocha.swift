@@ -15,4 +15,8 @@ class CaffeMocha : Coffee{
         super.init(caffeineContent: caffeineContent, brand: brand, volume: volume, price: price, name: name, manufactured: manufactured, temperature: temperature, kcal: kcal)
     }
     
+    required convenience init(manufactured: Date) {
+        self.init(cream: true, caffeineContent: 30, brand: "스타벅스", volume: 236, price: 3600, name: "카페모카", manufactured: manufactured, temperature: 90, kcal: 330)
+    }
+    
 }

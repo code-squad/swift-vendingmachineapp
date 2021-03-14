@@ -15,6 +15,10 @@ class Cider : Soda{
         super.init(sugarContent: sugarContent, brand: brand, volume: volume, price: price, name: name, manufactured: manufactured, temperature: temperature, kcal: kcal)
     }
     
+    required convenience init(manufactured: Date) {
+        self.init(appleContent: 30, sugarContent: 0, brand: "와인사랑", volume: 355, price: 11000, name: "SOMERSBY", manufactured: manufactured, temperature: 1, kcal: 180)
+    }
+    
     func isHighcontent(standard: Int) -> Bool{
         return appleContent > standard
     }

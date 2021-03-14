@@ -15,6 +15,10 @@ class Hot6 : Energydrink {
         super.init(caffeineContent: caffeineContent, brand: brand, volume: volume, price: price, name: name, manufactured: manufactured, temperature: temperature, kcal: kcal)
     }
     
+    required convenience init(manufactured: Date) {
+        self.init(taurineContent: 40, caffeineContent: 30, brand: "코카콜라", volume: 180, price: 1900, name: "HOT6", manufactured: manufactured, temperature: 9, kcal: 20)
+    }
+    
     func isTaurine(standard : Int) -> Bool{
         return self.taurineContent > standard
     }

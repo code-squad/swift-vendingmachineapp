@@ -8,5 +8,5 @@
 import Foundation
 
 protocol BeverageFactory {
-    func makeBeverage(beveragetype : Beverage.Type, _ manufactured: Date) -> Beverage
+    func makeBeverage(beveragetype : Beverage.Type, manufactured : Date) -> Beverage
 }

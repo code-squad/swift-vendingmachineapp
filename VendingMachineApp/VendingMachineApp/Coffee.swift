@@ -19,6 +19,12 @@ class Coffee : Beverage {
         self.init(caffeineContent : caffeineContent, brand: brand, volume: 236, price: price, name: name, manufactured: manufactured, temperature:temperature, kcal: kcal)
     }
     
+    required init(manufactured: Date) {
+        self.caffeineContent = 0
+        super.init(manufactured: manufactured)
+    }
+    
+    
     func isCaffeine(standard : Int) -> Bool{
         return self.caffeineContent > standard
     }

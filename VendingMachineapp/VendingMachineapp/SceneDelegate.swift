@@ -10,9 +10,16 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    
+    private var delegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let _ = (scene as? UIWindowScene) else { return }
+    }
+    
+    func sceneDidEnterBackground(_ scene: UIScene) {
+        let data = ArchivingManager.archive(with: delegate.vendingMachine)
+        UserDefaults.standard.set(data, forKey: "vendingMachine")
     }
 }
 

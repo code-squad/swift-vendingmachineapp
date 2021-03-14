@@ -51,7 +51,7 @@ class Fanta: Soda, Productization {
     }
     
     required init?(coder: NSCoder) {
-        self.flavor = Flavor(rawValue: coder.decodeObject(forKey: "fantaFlavor") as! String)!
+        self.flavor = Flavor(rawValue: coder.decodeObject(forKey: "fantaFlavor") as? String ?? "") ?? .orange
         super.init(coder: coder)
     }
     

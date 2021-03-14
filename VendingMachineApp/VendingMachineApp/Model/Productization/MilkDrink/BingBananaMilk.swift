@@ -52,7 +52,7 @@ class BingBananaMilk: Milk, Productization {
     }
     
     required init?(coder: NSCoder) {
-        self.target = Target(rawValue: coder.decodeObject(forKey: "bananaTarger") as! String)!
+        self.target = Target(rawValue: coder.decodeObject(forKey: "bananaTarger") as? String ?? "") ?? .all
         super.init(coder: coder)
     }
     

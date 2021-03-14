@@ -52,7 +52,7 @@ class StarbucksColdBrew: Coffee, Productization {
     }
     
     required init?(coder: NSCoder) {
-        self.flavor = Flavor(rawValue: coder.decodeObject(forKey: "starBucksFlavor") as! String)!
+        self.flavor = Flavor(rawValue: coder.decodeObject(forKey: "starBucksFlavor") as? String ?? "") ?? .black
         super.init(coder: coder)
     }
     

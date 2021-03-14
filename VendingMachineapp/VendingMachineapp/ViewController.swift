@@ -43,8 +43,6 @@ class ViewController: UIViewController {
     @IBAction func addButtonTouched(_ sender: UIButton) {
         
         delegate.vendingMachine.add(beverage: buttonDictionary[sender.self]!)
-//        vendingMachine.add(beverage: buttonDictionary[sender.self]!)
-//        wholeBeverageList = vendingMachine.wholeBeverage()
         labelDictionary[sender.self]?.text = String(delegate.vendingMachine.wholeBeverage()[buttonDictionary[sender.self]!] ?? 0)
     }
     

@@ -23,12 +23,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     public func saveVendingMachineData(_ vendingMachine: VendingMachine) {
+        var data: Data!
         do {
-            let data = try NSKeyedArchiver.archivedData(withRootObject: vendingMachine, requiringSecureCoding: false)
-            UserDefaults.standard.set(data, forKey: "vendingMachine")
+            data = try NSKeyedArchiver.archivedData(withRootObject: vendingMachine, requiringSecureCoding: false)
+            
         } catch {
-            fatalError(error.localizedDescription)
+            print(error.localizedDescription)
+            return
         }
+        UserDefaults.standard.set(data, forKey: "vendingMachine")
     }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {

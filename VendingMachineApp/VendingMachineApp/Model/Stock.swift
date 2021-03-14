@@ -19,62 +19,49 @@ class Stock: NSObject, NSCoding, StockManageable {
         coder.encode(self.stock, forKey: "stock")
     }
     
-    public func checkProductization(of drink: Drink) -> Bool {
-        return (drink as? Productization) != nil ? true : false
-    }
-
     public func addedDrink(_ drink: Drink) {
-        guard checkProductization(of: drink) else { return }
+        guard isProductization(of: drink) else { return }
         stock.append(drink)
         NotificationCenter.default.post(name: Notification.DidChangeStock, object: nil)
     }
-
+    
     public func availableForDrinks(coin: Int) -> [Drink] {
-        var availableDrinks = Set<Drink>()
-        for drink in self.stock where drink.isPurchaseable(coin: coin) {
-            availableDrinks.update(with: drink)
-        }
-        return Array(availableDrinks)
+        return Array(Set(self.stock.filter{ $0.isPurchaseable(coin: coin) }))
     }
     
     public func purchased(drinkType: Drink.Type, insertedCoin: Int) -> Drink? {
-        guard let nthDrink = stock.enumerated().first(where: { type(of:$0.element) == drinkType }) else { return nil }
-        let drink = nthDrink.element
-        let index = nthDrink.offset
-        guard drink.isPurchaseable(coin: insertedCoin) else { return nil }
-        stock.remove(at: index)
-        return drink
-    }
-
-    public func lookingForExpiredDrinks() -> [Drink] {
-        var disuseStock = Array<Drink>()
-        for drink in self.stock {
-            guard let drinkProduct = drink as? Productization else { continue }
-            let now = Date()
-            if drinkProduct.validManufactured(with: now) {
-                disuseStock.append(drink)
-            }
-        }
-        return disuseStock
-    }
-
-    public func lookingForWarmDrinks() -> [Drink] {
-        var warmDrinks = Array<Drink>()
-        for drink in stock {
-            guard let drinkProduct = drink as? Productization else { continue }
-            if drinkProduct.isHot() {
-                warmDrinks.append(drink)
-            }
-        }
-        return warmDrinks
+        guard let nthDrink = findNthDrink(typeOf: drinkType) else { return nil }
+        guard nthDrink.element.isPurchaseable(coin: insertedCoin) else { return nil }
+        stock.remove(at: nthDrink.offset)
+        return nthDrink.element
     }
     
+    public func lookingForExpiredDrinks() -> [Drink] {
+        return self.stock.filter{ drink in
+            guard let drinkProduct = drink as? Productization else { return false }
+            return drinkProduct.validManufactured(with: Date())
+        }
+    }
+    
+    public func lookingForWarmDrinks() -> [Drink] {
+        return self.stock.filter{ $0.isHot() }
+    }
     
     public func toShowStock() -> [ObjectIdentifier: [Drink]] {
         return stock.reduce(Dictionary<ObjectIdentifier, [Drink]>()) { accumulator, drink in
-                var result = accumulator
-                result[ObjectIdentifier(type(of: drink)), default: [Drink]()].append(drink)
-                return result
-            }
+            var result = accumulator
+            result[ObjectIdentifier(type(of: drink)), default: [Drink]()].append(drink)
+            return result
+        }
+    }
+}
+
+extension Stock {
+    private func isProductization(of drink: Drink) -> Bool {
+        return (drink as? Productization) != nil ? true : false
+    }
+    
+    private func findNthDrink(typeOf drinkType: Drink.Type) -> EnumeratedSequence<[Drink]>.Element? {
+        return stock.enumerated().first(where: { type(of:$0.element) == drinkType })
     }
 }

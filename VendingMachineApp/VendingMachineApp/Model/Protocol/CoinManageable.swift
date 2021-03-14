@@ -9,6 +9,7 @@ import Foundation
 
 protocol CoinManageable {
     func inserted(_ coin: Int)
-    func CheckCoins(handle: (Int) -> ())
+    func checked(handle: (Int) -> ())
     func expended(to coin: Int)
+    func used<T>(handle: (Int) -> T) -> T
 }

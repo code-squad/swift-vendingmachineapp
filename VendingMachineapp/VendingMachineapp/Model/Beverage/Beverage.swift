@@ -70,12 +70,3 @@ class Beverage: NSObject, NSCoding{
         return money.compare(with: price)
     }
 }
-
-//extension Beverage: Hashable {
-//    func hash(into hasher: inout Hasher) {
-//        hasher.combine(self.brand)
-//    }
-//    static func == (lhs: Beverage, rhs: Beverage) -> Bool {
-//        return lhs.brand == rhs.brand
-//    }
-//}

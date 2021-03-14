@@ -11,7 +11,6 @@ class ViewController: UIViewController {
     
     var buttonDictionary: [UIButton:Beverage] = [:]
     var labelDictionary: [UIButton:UILabel] = [:]
-    var productList: [Beverage] = []
     
     @IBOutlet weak var mainStackView: UIStackView!
     @IBOutlet var lineStackView: [UIStackView]!
@@ -24,15 +23,12 @@ class ViewController: UIViewController {
     @IBOutlet var beverageImageViews: [BeverageImageView]!
     @IBOutlet var beverageLabels: [UILabel]!
     
-    var vendingMachine = VendingMachine()
-    var wholeBeverageList: [Beverage:Int] = [:]
+    var delegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         mainStackView.backgroundColor = .systemGray2
- 
-        productList = vendingMachine.initializeProductList()
-        wholeBeverageList = vendingMachine.wholeBeverage()
-                
+        
         mappingButtonAndLabel()
         mappingButtonAndProduct()
         
@@ -41,28 +37,29 @@ class ViewController: UIViewController {
 
         addThousandButton.setTitle("+1000", for: .normal)
         addFiveThousandButton.setTitle("+5000", for: .normal)
-        currentChangeLabel.text = "잔액 : \(vendingMachine.checkChagne().money)원"
+        currentChangeLabel.text = "잔액 : \(delegate.vendingMachine.checkChagne().money)원"
     }
     
     @IBAction func addButtonTouched(_ sender: UIButton) {
         
-        vendingMachine.add(beverage: buttonDictionary[sender.self]!)
-        wholeBeverageList = vendingMachine.wholeBeverage()
-        labelDictionary[sender.self]?.text = String(wholeBeverageList[buttonDictionary[sender.self]!] ?? 0)
+        delegate.vendingMachine.add(beverage: buttonDictionary[sender.self]!)
+//        vendingMachine.add(beverage: buttonDictionary[sender.self]!)
+//        wholeBeverageList = vendingMachine.wholeBeverage()
+        labelDictionary[sender.self]?.text = String(delegate.vendingMachine.wholeBeverage()[buttonDictionary[sender.self]!] ?? 0)
     }
     
     @IBAction func ThousandButtonTouched(_ sender: UIButton) {
-        vendingMachine.increase(money: Money(with: 1000))
-        currentChangeLabel.text = "잔액 : \(vendingMachine.checkChagne().money)원"
+        delegate.vendingMachine.increase(money: Money(with: 1000))
+        currentChangeLabel.text = "잔액 : \(delegate.vendingMachine.checkChagne().money)원"
     }
     
     @IBAction func FiveThousandButtonTouched(_ sender: UIButton) {
-        vendingMachine.increase(money: Money(with: 5000))
-        currentChangeLabel.text = "잔액 : \(vendingMachine.checkChagne().money)원"
+        delegate.vendingMachine.increase(money: Money(with: 5000))
+        currentChangeLabel.text = "잔액 : \(delegate.vendingMachine.checkChagne().money)원"
     }
     
     func mappingButtonAndProduct() {
-        for (button, product) in zip(beverageButtons, productList) {
+        for (button, product) in zip(beverageButtons, delegate.productList) {
             buttonDictionary.updateValue(product, forKey: button)
         }
     }
@@ -81,7 +78,7 @@ class ViewController: UIViewController {
     
     func setLabelsTitle() {
         for (key, value) in buttonDictionary {
-            labelDictionary[key]?.text = String(wholeBeverageList[value] ?? 0)
+            labelDictionary[key]?.text = String(delegate.vendingMachine.wholeBeverage()[value] ?? 0)
         }
     }
 }

@@ -8,7 +8,7 @@
 import Foundation
 
 class ArchivingManager {
-    static func archive(with things: [Beverage]) -> Data {
+    static func archive(with things: VendingMachine) -> Data {
         do {
             let archived = try NSKeyedArchiver.archivedData(withRootObject: things, requiringSecureCoding: false)
             return archived
@@ -19,14 +19,14 @@ class ArchivingManager {
         return Data()
     }
 
-    static func unarchive(with text: Data) -> [Beverage]? {
+    static func unarchive(with text: Data) -> VendingMachine? {
         do {
             let object = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(text)
-            return object as? [Beverage]
+            return object as? VendingMachine
         }
         catch {
             print(error)
         }
-        return []
+        return nil
     }
 }

@@ -58,7 +58,7 @@ class Beverages{
     
     func makeBeverageofFactroy(beverages : inout [Beverage]){
         for i in 0..<beverageTypeList.count{
-            beverages.append(BeverageCreater().makeBeverage(beveragetype: beverageTypeList[i], Date().makeDatewithString(yyyyMMdd: "20210301")))
+            beverages.append(BeverageCreater().makeBeverage(beveragetype: beverageTypeList[i], manufactured: Date().makeDatewithString(yyyyMMdd: "20200303")))
         }
     }
     

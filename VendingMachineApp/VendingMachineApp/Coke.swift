@@ -19,4 +19,8 @@ class Coke : Soda{
         super.init(sugarContent: sugarContent, brand: brand, volume: volume, price: price, name: name, manufactured: manufactured, temperature: temperature, kcal: kcal)
     }
     
+    required convenience init(manufactured: Date) {
+        self.init(product: .zero, sugarContent: 0, brand: "코카콜라", volume: 180, price: 3100, name: "코카콜라제로", manufactured: manufactured, temperature: 1, kcal: 210)
+    }
+    
 }

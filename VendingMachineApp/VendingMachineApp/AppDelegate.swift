@@ -10,8 +10,29 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var vendingMachine: VendingMachine!
+    
+    public func loadVendingMachineData() -> VendingMachine {
+        guard let data = UserDefaults.standard.object(forKey: "vendingMachine") else { return VendingMachine() }
+        do {
+            let vendingMachine = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data as! Data) as? VendingMachine
+            return vendingMachine ?? VendingMachine()
+        } catch {
+            print(error.localizedDescription)
+        }
+        return VendingMachine()
+    }
+    
+    public func saveVendingMachineData(_ vendingMachine: VendingMachine) {
+        do {
+            let data = try NSKeyedArchiver.archivedData(withRootObject: vendingMachine, requiringSecureCoding: false)
+            UserDefaults.standard.set(data, forKey: "vendingMachine")
+        } catch {
+            fatalError(error.localizedDescription)
+        }
+    }
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        vendingMachine = VendingMachineDataCenter.load()
+        vendingMachine = loadVendingMachineData()
         return true
     }
     
@@ -21,15 +42,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func applicationWillTerminate(_ application: UIApplication) {
-        VendingMachineDataCenter.save(to: vendingMachine)
+        saveVendingMachineData(vendingMachine)
     }
     
     func applicationDidEnterBackground(_ application: UIApplication) {
-        VendingMachineDataCenter.save(to: vendingMachine)
+        saveVendingMachineData(vendingMachine)
     }
     
     func applicationWillResignActive(_ application: UIApplication) {
-        VendingMachineDataCenter.save(to: vendingMachine)
+        saveVendingMachineData(vendingMachine)
     }
 }
 

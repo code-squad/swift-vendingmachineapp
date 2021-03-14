@@ -8,7 +8,6 @@
 import Foundation
 
 protocol StockManageable {
-    func checkProductization(of drink: Drink) -> Bool
     func addedDrink(_ drink: Drink)
     func availableForDrinks(coin: Int) -> [Drink]
     func purchased(drinkType: Drink.Type, insertedCoin: Int) -> Drink?

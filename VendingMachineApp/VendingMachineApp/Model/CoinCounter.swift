@@ -13,7 +13,7 @@ class CoinCounter: NSObject, NSCoding, CoinManageable {
     required init?(coder: NSCoder) {
         self.coins = coder.decodeInteger(forKey: "coin")
     }
-        
+    
     func encode(with coder: NSCoder) {
         coder.encode(self.coins, forKey: "coin")
     }
@@ -23,8 +23,12 @@ class CoinCounter: NSObject, NSCoding, CoinManageable {
         NotificationCenter.default.post(name: Notification.DidChangeCoin, object: nil)
     }
     
-    public func CheckCoins(handle: (Int) -> ()){
+    public func checked(handle: (Int) -> ()){
         handle(coins)
+    }
+    
+    public func used<T>(handle: (Int) -> T) -> T {
+        return handle(coins)
     }
     
     public func expended(to coin: Int) {

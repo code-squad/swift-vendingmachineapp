@@ -55,15 +55,10 @@ class ViewController: UIViewController, SelectPanelStackViewDelegate, TopPanelDe
     func didAddedDrink(typeOf drinkType: Drink.Type) {
         guard let drink = DrinkFactory.makeDrink(of: drinkType) else { return }
         vendingMachine.addDrink(drink)
-        
-        
-//        loadSelectPanelStackViewLabels()
     }
     
     func didInsertedCoin(amound: Int) {
         vendingMachine.insertCoin(amound)
-        
-//        loadLeftCoinsLabel()
     }
 }
 

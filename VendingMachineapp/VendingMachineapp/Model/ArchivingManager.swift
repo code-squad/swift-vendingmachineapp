@@ -9,24 +9,20 @@ import Foundation
 
 class ArchivingManager {
     static func archive(with things: VendingMachine) -> Data {
-        do {
-            let archived = try NSKeyedArchiver.archivedData(withRootObject: things, requiringSecureCoding: false)
-            return archived
+        
+        guard let archived = try? NSKeyedArchiver.archivedData(withRootObject: things, requiringSecureCoding: false) else {
+            return Data()
         }
-        catch {
-            print(error)
-        }
-        return Data()
+        
+        return archived
     }
 
     static func unarchive(with text: Data) -> VendingMachine? {
-        do {
-            let object = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(text)
-            return object as? VendingMachine
+        
+        guard let object = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(text) else {
+            return nil
         }
-        catch {
-            print(error)
-        }
-        return nil
+
+        return object as? VendingMachine
     }
 }

@@ -12,6 +12,8 @@ class VendingMachine: NSObject, NSCoding {
     private var purchasehistory: [Drink]
     private var coins: CoinManageable
     
+    private(set) static var `default`: VendingMachine = VendingMachine()
+    
     override init() {
         self.purchasehistory = [Drink]()
         self.stock = Stock()
@@ -28,6 +30,10 @@ class VendingMachine: NSObject, NSCoding {
         self.stock = coder.decodeObject(forKey: "stock") as! StockManageable
         self.purchasehistory = coder.decodeObject(forKey: "purchasehistory") as! [Drink]
         self.coins = coder.decodeObject(forKey: "coins") as! CoinManageable
+    }
+    
+    public static func loadInstance(of vendingMachine: VendingMachine) {
+        self.default = vendingMachine
     }
     
     public func addDrink(_ drink: Drink) {

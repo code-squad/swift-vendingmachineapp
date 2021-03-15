@@ -8,24 +8,24 @@
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
+    var vendingMachine: VendingMachine!
     var window: UIWindow?
-    private let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    lazy private var vendingMachine = appDelegate.vendingMachine!
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+        vendingMachine = VendingMachine.default
         guard let _ = (scene as? UIWindowScene) else { return }
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {
-        appDelegate.saveVendingMachineData(vendingMachine)
+        VendingMachineDataCenter.saveVendingMachineData(vendingMachine)
     }
     
     func sceneWillResignActive(_ scene: UIScene) {
-        appDelegate.saveVendingMachineData(vendingMachine)
+        VendingMachineDataCenter.saveVendingMachineData(vendingMachine)
     }
     
     func sceneDidEnterBackground(_ scene: UIScene) {
-        appDelegate.saveVendingMachineData(vendingMachine)
+        VendingMachineDataCenter.saveVendingMachineData(vendingMachine)
     }
 }
 

@@ -37,11 +37,11 @@ class VendingMachine: NSObject, NSCoding{
     }
     
     func availablePurchaseList() -> [Beverage] {
-        return inventory.availablePurchaseList(money: manager.money)
+        return inventory.availablePurchaseList(money: manager.checkChange())
     }
     
     func purchase(beverage: Beverage.Type) {
-        manager.updatePurchaseList(inventory: inventory, beverage: beverage) 
+        manager.updatePurchaseList(inventory: inventory, beverage: beverage)
     }
     
     func hotBeverageList() -> [Beverage] {

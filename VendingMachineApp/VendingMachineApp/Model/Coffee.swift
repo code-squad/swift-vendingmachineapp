@@ -19,11 +19,13 @@ class Coffee: Drink {
     
     override func encode(with coder: NSCoder) {
         super.encode(with: coder)
-        coder.encode(Int(self.caffeineContent), forKey: "caffeineContent")
+        let encodableCaffeineContent = Int(self.caffeineContent)
+        coder.encode(encodableCaffeineContent, forKey: "caffeineContent")
     }
     
     required init?(coder: NSCoder) {
-        self.caffeineContent = UInt(coder.decodeInteger(forKey: "caffeineContent"))
+        let decodedCaffeineContent = coder.decodeInteger(forKey: "caffeineContent")
+        self.caffeineContent = UInt(decodedCaffeineContent)
         super.init(coder: coder)
     }
     

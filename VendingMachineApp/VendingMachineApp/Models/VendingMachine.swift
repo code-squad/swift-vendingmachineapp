@@ -7,7 +7,7 @@
 
 import Foundation
 
-class VendingMachine: NSObject, NSCoding {
+class VendingMachine: NSObject, NSCoding, InventoryTakeable {
     enum Notification {
         static let DidChangeInventory = Foundation.Notification.Name("DidChangeInventory")
         static let DidChangeBalance = Foundation.Notification.Name("DidChangeBalance")
@@ -101,5 +101,12 @@ class VendingMachine: NSObject, NSCoding {
     
     func showPurchaseHistory() -> PurchaseHistory {
         return soldItems
+    }
+    
+    func showInventorySheet(handler: (Dictionary<Slot, Int>.Element) -> ()) {
+        let inventorySheet = self.takeInventory()
+        inventorySheet.forEach {
+            handler($0)
+        }
     }
 }

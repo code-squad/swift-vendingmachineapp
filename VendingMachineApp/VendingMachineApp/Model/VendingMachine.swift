@@ -72,8 +72,6 @@ class VendingMachine: NSObject, NSCoding {
             beverages.removeProduct(product)
             insertedMoney.afterBuyingProduct(minus: product.price)
             purchased.append(product)
-            NotificationCenter.default.post(name: updateBeverages, object: self, userInfo: nil)
-            NotificationCenter.default.post(name: updateInsertedMoney, object: self, userInfo: nil)
             NotificationCenter.default.post(name: updatePurchased, object: self, userInfo: nil)
         }
     }

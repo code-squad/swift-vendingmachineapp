@@ -31,6 +31,7 @@ class Beverages: NSObject, NSCoding {
             }
         }
         beverages.remove(at: beverages.firstIndex(of: beverage)!)
+        NotificationCenter.default.post(name: VendingMachine.sharedInstance().updateBeverages, object: self, userInfo: nil)
     }
     
     func stockListOfBeverages() -> [Beverage: Int]{

@@ -60,6 +60,7 @@
 		88846F3925F0D31400333AE3 /* BeverageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8849846B25EF85DC002C71F5 /* BeverageView.swift */; };
 		88846F4125F0E4B000333AE3 /* NotificationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88846F4025F0E4B000333AE3 /* NotificationExtension.swift */; };
 		88B35EC725FF2B2C0026156B /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B35EC625FF2B2C0026156B /* Item.swift */; };
+		88B35ECC25FF45050026156B /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B35EC625FF2B2C0026156B /* Item.swift */; };
 		88D67CF225EBC4A80033BF57 /* BeverageUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D67CF125EBC4A80033BF57 /* BeverageUnitTest.swift */; };
 /* End PBXBuildFile section */
 
@@ -419,6 +420,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88B35ECC25FF45050026156B /* Item.swift in Sources */,
 				883E0EE125F712E000A2BA3D /* NotificationExtension.swift in Sources */,
 				88846F3125F0BF6900333AE3 /* BeverageFactory.swift in Sources */,
 				8849845525EE2986002C71F5 /* BeverageStorage.swift in Sources */,

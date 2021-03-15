@@ -8,8 +8,8 @@
 import Foundation
 
 class Item: NSObject, NSCoding {
-    var beverage: Beverage
-    var count: Int
+    public var beverage: Beverage
+    public var count: Int
     
     init(beverage: Beverage, count: Int) {
         self.beverage = beverage
@@ -28,5 +28,9 @@ class Item: NSObject, NSCoding {
     
     public func increaseCount(by amount: Int) {
         self.count += amount
+    }
+    
+    public func decreaseCount(by amount: Int) {
+        self.count -= amount
     }
 }

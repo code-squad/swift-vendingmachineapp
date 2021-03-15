@@ -62,28 +62,28 @@ class Machine: NSObject, NSCoding {
        return beverageStorage.checkSpecificBeverageCount(beverage: beverage)
     }
     
-//    func showPurchasables(with money: Int) -> [Beverage: Int] {
-//        return beverageStorage.checkPurchasables(with: money)
-//    }
-//
-//    func showExpired(on date: Date) -> [Beverage: Int] {
-//        return beverageStorage.checkExpired(on: date)
-//    }
+    func showPurchasables(with money: Int) -> [Item] {
+        return beverageStorage.checkPurchasables(with: money)
+    }
+
+    func showExpired(on date: Date) -> [Item] {
+        return beverageStorage.checkExpired(on: date)
+    }
     
-//    func purchaseBeverage(beverage: Beverage) {
-//        let itemPrice = beverage.showPrice()
-//        guard itemPrice <= moneyProccesor.moneyOnTransactionAmount() else { return }
-//            beverageStorage.decreaseStock(beverage: beverage) {result in
-//                switch result {
-//                case .success(let deductedBeverage):
-//                    moneyProccesor.deductMoneyOnTransaction(with: itemPrice)
-//                    savePurchaseHistory(beverage: deductedBeverage)
-//                case .failure(let error):
-//                    print(error.localizedDescription)
-//                    return
-//                }
-//            }
-//    }
+    func purchaseBeverage(beverage: Beverage) {
+        let itemPrice = beverage.showPrice()
+        guard itemPrice <= moneyProccesor.moneyOnTransactionAmount() else { return }
+            beverageStorage.decreaseStock(beverage: beverage) {result in
+                switch result {
+                case .success(let deductedBeverage):
+                    moneyProccesor.deductMoneyOnTransaction(with: itemPrice)
+                    savePurchaseHistory(beverage: deductedBeverage)
+                case .failure(let error):
+                    print(error.localizedDescription)
+                    return
+                }
+            }
+    }
 
     func transactionStopButtonPressed() -> Int {
         resetPurchaseHistory()

@@ -40,9 +40,19 @@ class BeverageStorage: NSObject, NSCoding {
         }
     }
     
+    public func decreaseStock(beverage: Beverage, completionHandler: (Result<Beverage, StockError>) -> Void) {
+        stock.forEach { (item) in
+            if item.beverage == beverage {
+                item.decreaseCount(by: 1)
+                completionHandler(.success(beverage))
+            } else {
+                completionHandler(.failure(StockError.noStock))
+            }
+        }
+    }
+    
     public func checkSpecificBeverageCount(beverage: Beverage) -> Int {
         var result = 0
-        
         stock.forEach { (item) in
             if item.beverage == beverage {
                 result = item.count
@@ -50,28 +60,19 @@ class BeverageStorage: NSObject, NSCoding {
         }
         return result
     }
-//
-//    public func checkPurchasables(with money: Int) -> [Beverage:Int] {
-//        let purchasableBeverages = stock.filter { (bev, amt) -> Bool in
-//            bev.isPurchasable(with: money)
-//        }
-//        return purchasableBeverages
-//    }
-//
-//    public func checkExpired(on date: Date) -> [Beverage:Int] {
-//        let purchasableBeverages = stock.filter { (bev, amt) -> Bool in
-//            bev.isExpired(on: date)
-//        }
-//        return purchasableBeverages
-//    }
-//
-//    public func decreaseStock(beverage: Beverage, completionHandler: (Result<Beverage, StockError>) -> Void) {
-//        if stock[beverage] != nil {
-//            stock[beverage]! -= 1
-//            completionHandler(.success(beverage))
-//        } else {
-//            completionHandler(.failure(StockError.noStock))
-//        }
-//    }
+
+    public func checkPurchasables(with money: Int) -> [Item] {
+        let purchasableBeverages = stock.filter { (item) -> Bool in
+            item.beverage.isPurchasable(with: money)
+        }
+        return purchasableBeverages
+    }
+
+    public func checkExpired(on date: Date) -> [Item] {
+        let purchasableBeverages = stock.filter { (item) -> Bool in
+            item.beverage.isExpired(on: date)
+        }
+        return purchasableBeverages
+    }
 }
 

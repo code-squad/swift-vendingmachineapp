@@ -66,6 +66,8 @@ class ViewController: UIViewController {
                 beverageLabels[i].text = "\(stock.count)개"
             }
         }
+        guard let money = vendingMachine?.showBalance() else {return}
+        balanceLabel.text = "\(money)원"
     }
     
     func fillDataOfRechargeButton() {

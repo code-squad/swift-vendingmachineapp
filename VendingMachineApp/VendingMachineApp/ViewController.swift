@@ -8,33 +8,33 @@
 import UIKit
 
 class ViewController: UIViewController {
+    private let appDelegate : AppDelegate
     private var BeverageButtons : [UIButton]
     private var MoneyaddButtons : [UIButton]
     private var beverageImageViews : [UIImageView]
     private var currentMoneyLabel : UILabel
     private var stockLabel : [UILabel]
     private var UIImagetitles : [String]
-    private let vendingMachine : VendingMachine
     
     init() {
+        self.appDelegate = AppDelegate.init()
         self.BeverageButtons = []
         self.MoneyaddButtons = []
         self.beverageImageViews = []
         self.currentMoneyLabel = UILabel()
         self.stockLabel = []
         self.UIImagetitles = ["BananaMilk", "StrawberryMilk", "somersby", "coke", "HOT6", "Monster", "CaffeMocha", "CafeLatte"]
-        self.vendingMachine = VendingMachine.init(Money: Money.init(money: 0))
         super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) {
+        self.appDelegate = AppDelegate.init()
         self.BeverageButtons = []
         self.MoneyaddButtons = []
         self.beverageImageViews = []
         self.currentMoneyLabel = UILabel()
         self.stockLabel = []
         self.UIImagetitles = ["BananaMilk", "StrawberryMilk", "somersby", "coke", "HOT6", "Monster", "CaffeMocha", "CafeLatte"]
-        self.vendingMachine = VendingMachine.init(Money: Money.init(money: 0))
         super.init(coder: coder)
     }
     
@@ -149,15 +149,15 @@ class ViewController: UIViewController {
     }
     
     @objc func addBeverage(sender : UIButton) {
-        let tempBeverage = vendingMachine.sendBeverageInFactory(index: sender.tag)
-        vendingMachine.addBeverage(beverage: tempBeverage)
-        stockLabel[sender.tag].text = "\(vendingMachine.drawStockLabel(beverage: tempBeverage))개"
+        let tempBeverage = VendingMachine.Instance.sendBeverageInFactory(index: sender.tag)
+        VendingMachine.Instance.addBeverage(beverage: tempBeverage)
+        stockLabel[sender.tag].text = "\(VendingMachine.Instance.drawStockLabel(beverage: tempBeverage))개"
     }
     
     @objc func addMoney(sender: UIButton){
         if let tempMoney = Money.moneyUnit.init(index: sender.tag) {
-            vendingMachine.addMoney(money: Money.init(money: tempMoney.rawValue))
-            currentMoneyLabel.text = vendingMachine.drawCurrentMoney()
+            VendingMachine.Instance.addMoney(money: Money.init(money: tempMoney.rawValue))
+            currentMoneyLabel.text = VendingMachine.Instance.drawCurrentMoney()
         }
     }
 }

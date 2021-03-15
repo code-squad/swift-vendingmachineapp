@@ -17,8 +17,9 @@ class ViewController: UIViewController {
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var vendingMachine: VendingMachine?
-    var dataOfBeverageButton: [UIButton : (beverage: Beverage, label: UILabel)] = [:]
+    var dataOfBeverageButton: [UIButton : (beverageType: Beverage.Type, label: UILabel)] = [:]
     var dataOfRechargeButton: [UIButton : Int] = [:]
+    let beveragesType = [Cola.self, RedBull.self, StrawBerryMilk.self, TOP.self]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,15 +27,18 @@ class ViewController: UIViewController {
         curveImageVertex()
         fillDataOfBeverageButton()
         fillDataOfRechargeButton()
+        loadSavedLabel()
     }
     
     @IBAction func addStock(_ sender: UIButton) {
-        guard let beverage = dataOfBeverageButton[sender]?.beverage else {return}
-        vendingMachine!.addStock(as: beverage)
+        guard let type = dataOfBeverageButton[sender]?.beverageType else {return}
+        guard let product = BeverageFactory.releaseBeverage(with: type) else {return}
+        vendingMachine!.addStock(as: product)
         let stockList = vendingMachine!.showStock()
-        let beverageID = ObjectIdentifier(beverage)
+        let beverageID = ObjectIdentifier(type)
         guard let stock = stockList[beverageID] else {return}
         dataOfBeverageButton[sender]?.label.text = "\(stock.count)개"
+        print(vendingMachine!.showStock())
     }
     
     @IBAction func rechargeCash(_ sender: UIButton) {

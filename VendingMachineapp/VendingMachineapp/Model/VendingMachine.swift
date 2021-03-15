@@ -42,7 +42,7 @@ class VendingMachine: NSObject, NSCoding{
     }
     
     func availablePurchaseList() -> [Beverage] {
-        return manager.availablePurchaseList(inventory: inventory, money: money)
+        return inventory.availablePurchaseList(money: money)
     }
     
     func purchase(beverage: Beverage) {

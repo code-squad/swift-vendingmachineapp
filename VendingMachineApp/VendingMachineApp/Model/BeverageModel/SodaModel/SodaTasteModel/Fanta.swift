@@ -11,7 +11,7 @@ class Fanta: Soda & IsHazardous {
     var foodColoring: FoodColoring?
     var caffeine: Int
     
-    init(brand: String, size: Milliliter, price: Int, name: String, packageTime: Date, calories: Int, foodColoring: FoodColoring?, caffeine: Int) {
+    init(brand: String, size: Int, price: Int, name: String, packageTime: Date, calories: Int, foodColoring: FoodColoring?, caffeine: Int) {
         self.foodColoring = foodColoring
         self.caffeine = caffeine
         super.init(brand: brand, size: size, price: price, name: name, packageTime: packageTime, calories: calories)

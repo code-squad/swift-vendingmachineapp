@@ -27,6 +27,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {
+        MachineDataManager.saveData((UIApplication.shared.delegate as! AppDelegate).machine!)
     }
 }
 

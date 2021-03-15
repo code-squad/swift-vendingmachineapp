@@ -43,8 +43,8 @@ class BeverageFactory {
         }
     }
     
-    static private func generateRandomSize() -> Milliliter {
-        return Milliliter(with: Int.random(in: 1...20) * 100)
+    static private func generateRandomSize() -> Int {
+        return Int.random(in: 1...20) * 100
     }
     
     static private func generateRandomLocation() -> LocationTrackable {
@@ -183,7 +183,7 @@ class BeverageFactory {
         let randomCaffeineCapacity = generateRandomCaffeineCapacity()
         let randomTemperature = generateRandomTemperature()
     
-        return Americano(brand: brand, size: randomSize, price: randomPrice, name: name, packageTime: randomPackageTime, bean: .arabica, caffeine: randomCaffeineCapacity, temperature: randomTemperature)
+        return Americano(brand: brand, size: randomSize, price: randomPrice, name: name, packageTime: randomPackageTime, bean: "arabica", caffeine: randomCaffeineCapacity, temperature: randomTemperature)
     }
     
     static private func makeCaffeLatte(brand: String, price: Price, name: String, packageTime: PackageTime) -> CaffeLatte {
@@ -193,7 +193,7 @@ class BeverageFactory {
         let randomCaffeineCapacity = generateRandomCaffeineCapacity()
         let randomTemperature = generateRandomTemperature()
         
-        return CaffeLatte(brand: brand, size: randomSize, price: randomPrice, name: name, packageTime: randomPackageTime, bean: .robusta, caffeine: randomCaffeineCapacity, temperature: randomTemperature)
+        return CaffeLatte(brand: brand, size: randomSize, price: randomPrice, name: name, packageTime: randomPackageTime, bean: "robusta", caffeine: randomCaffeineCapacity, temperature: randomTemperature)
     }
 }
 

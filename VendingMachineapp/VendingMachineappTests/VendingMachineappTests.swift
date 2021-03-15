@@ -140,9 +140,9 @@ class VendingMachineappTests: XCTestCase {
         XCTAssertEqual(machine.availablePurchaseList(), [strawberryMilk, strawberryMilk, strawberryMilk, georgia])
         machine.increase(money: Money(with: 9000))
         
-        machine.purchase(beverage: strawberryMilk)
-        machine.purchase(beverage: strawberryMilk)
-        machine.purchase(beverage: top)
+        machine.purchase(beverage: StrawberryMilk.self)
+        machine.purchase(beverage: StrawberryMilk.self)
+        machine.purchase(beverage: Top.self)
         
         XCTAssertEqual(machine.purchasedList(), [strawberryMilk, strawberryMilk, top])
         XCTAssertEqual(machine.checkChagne().money, 4500)

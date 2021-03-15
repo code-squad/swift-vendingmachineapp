@@ -45,28 +45,18 @@ class VendingMachine: NSObject, NSCoding {
     }
     
     public func availableDrink() -> [Drink] {
-        var drinks = [Drink]()
-        coins.checked { (coin) in
-            drinks = stock.availableForDrinks(coin: coin)
-        }
-        return drinks
+        return stock.availableForDrinks(coin: coins.leftCoins)
     }
     
     public func buy(typeOf drinkType: Drink.Type) -> Drink? {
-        return coins.used { (coin) -> Drink? in
-            guard let drink = stock.purchased(drinkType: drinkType, insertedCoin: coin) else { return nil }
-            self.purchasehistory.append(drink)
-            self.coins.expended(to: coin)
-            return drink
-        }
+        guard let drink = stock.purchased(drinkType: drinkType, insertedCoin: coins.leftCoins) else { return nil }
+        self.purchasehistory.append(drink)
+        self.coins.expended(to: drink.price)
+        return drink
     }
     
     public func leftCoin() -> Int {
-        var leftCoins = 0
-        coins.checked { (coin) in
-            leftCoins = coin
-        }
-        return leftCoins
+        return coins.leftCoins
     }
     
     public func showStock() -> [ObjectIdentifier: [Drink]] {

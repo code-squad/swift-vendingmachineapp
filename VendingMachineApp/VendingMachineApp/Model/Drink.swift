@@ -3,7 +3,7 @@ import Foundation
 class Drink: NSObject, NSCoding {
     private var brand: String
     private var capacity: Int
-    private var price: Int
+    private(set) var price: Int
     private var name: String
     private var manufactured: Date
     private var temperature: Double

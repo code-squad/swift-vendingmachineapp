@@ -44,7 +44,7 @@ class VendingMachine: NSObject, NSCoding {
         self.coins.inserted(coin)
     }
     
-    public func availableDrink() -> [Drink] {
+    public func availableDrink() -> Set<Drink> {
         return stock.availableForDrinks(coin: coins.leftCoins)
     }
     

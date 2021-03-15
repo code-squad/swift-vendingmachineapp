@@ -25,8 +25,8 @@ class Stock: NSObject, NSCoding, StockManageable {
         NotificationCenter.default.post(name: Notification.DidChangeStock, object: nil)
     }
     
-    public func availableForDrinks(coin: Int) -> [Drink] {
-        return Array(Set(self.stock.filter{ $0.isPurchaseable(coin: coin) }))
+    public func availableForDrinks(coin: Int) -> Set<Drink> {
+        return Set(self.stock.filter{ $0.isPurchaseable(coin: coin) })
     }
     
     public func purchased(drinkType: Drink.Type, insertedCoin: Int) -> Drink? {

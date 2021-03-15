@@ -10,7 +10,7 @@ import Foundation
 class VendingMachineManager: NSObject, NSCoding {
 
     private var purchaseHistory: [Beverage]
-    private(set) var money: Money
+    private var money: Money
     
     override init() {
         purchaseHistory = []

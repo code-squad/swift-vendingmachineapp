@@ -9,14 +9,12 @@
 /* Begin PBXBuildFile section */
 		880B9ABF25E8D32C008B02BB /* FoodColoring.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880B9ABE25E8D32C008B02BB /* FoodColoring.swift */; };
 		882A589425E7A84800BCAF67 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882A589325E7A84800BCAF67 /* DateExtension.swift */; };
-		882A589925E8926A00BCAF67 /* Milliliter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882A589825E8926A00BCAF67 /* Milliliter.swift */; };
 		882A589F25E8AB4200BCAF67 /* DomesticLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882A589E25E8AB4200BCAF67 /* DomesticLocation.swift */; };
 		882A58A325E8B66700BCAF67 /* OverseasLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882A58A225E8B66700BCAF67 /* OverseasLocation.swift */; };
 		883E0EE125F712E000A2BA3D /* NotificationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88846F4025F0E4B000333AE3 /* NotificationExtension.swift */; };
 		883E0EE625F77ADA00A2BA3D /* BeverageFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D67CF525ED02C40033BF57 /* BeverageFactory.swift */; };
 		883E0EF625FCB55400A2BA3D /* MachineDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883E0EF525FCB55400A2BA3D /* MachineDataManager.swift */; };
 		8849843925EDF101002C71F5 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88748AD625E4E9E000E7DCB1 /* Protocols.swift */; };
-		8849843A25EDF101002C71F5 /* Milliliter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882A589825E8926A00BCAF67 /* Milliliter.swift */; };
 		8849843B25EDF101002C71F5 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882A589325E7A84800BCAF67 /* DateExtension.swift */; };
 		8849843C25EDF101002C71F5 /* DomesticLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882A589E25E8AB4200BCAF67 /* DomesticLocation.swift */; };
 		8849843D25EDF101002C71F5 /* OverseasLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882A58A225E8B66700BCAF67 /* OverseasLocation.swift */; };
@@ -77,7 +75,6 @@
 /* Begin PBXFileReference section */
 		880B9ABE25E8D32C008B02BB /* FoodColoring.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodColoring.swift; sourceTree = "<group>"; };
 		882A589325E7A84800BCAF67 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
-		882A589825E8926A00BCAF67 /* Milliliter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Milliliter.swift; sourceTree = "<group>"; };
 		882A589E25E8AB4200BCAF67 /* DomesticLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomesticLocation.swift; sourceTree = "<group>"; };
 		882A58A225E8B66700BCAF67 /* OverseasLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverseasLocation.swift; sourceTree = "<group>"; };
 		883E0EF525FCB55400A2BA3D /* MachineDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MachineDataManager.swift; sourceTree = "<group>"; };
@@ -136,7 +133,6 @@
 			children = (
 				88D67CF525ED02C40033BF57 /* BeverageFactory.swift */,
 				88748AD625E4E9E000E7DCB1 /* Protocols.swift */,
-				882A589825E8926A00BCAF67 /* Milliliter.swift */,
 				882A589325E7A84800BCAF67 /* DateExtension.swift */,
 				882A589E25E8AB4200BCAF67 /* DomesticLocation.swift */,
 				882A58A225E8B66700BCAF67 /* OverseasLocation.swift */,
@@ -411,7 +407,6 @@
 				88748AA025E394AA00E7DCB1 /* Milk.swift in Sources */,
 				88748AE225E4F4E700E7DCB1 /* BeverageStorage.swift in Sources */,
 				883E0EE625F77ADA00A2BA3D /* BeverageFactory.swift in Sources */,
-				882A589925E8926A00BCAF67 /* Milliliter.swift in Sources */,
 				88748AA625E397FE00E7DCB1 /* Coffee.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -438,7 +433,6 @@
 				8849844225EDF204002C71F5 /* Milk.swift in Sources */,
 				8849845025EE2947002C71F5 /* MachineUnitTest.swift in Sources */,
 				8849843925EDF101002C71F5 /* Protocols.swift in Sources */,
-				8849843A25EDF101002C71F5 /* Milliliter.swift in Sources */,
 				8849843B25EDF101002C71F5 /* DateExtension.swift in Sources */,
 				8849843C25EDF101002C71F5 /* DomesticLocation.swift in Sources */,
 				8849843D25EDF101002C71F5 /* OverseasLocation.swift in Sources */,

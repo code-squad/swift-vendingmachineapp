@@ -30,3 +30,8 @@ class DomesticLocation: NSObject, NSCoding, LocationTrackable {
         return true
     }
 }
+extension DomesticLocation {
+    override var description: String {
+        return "\(province)산 입니다."
+    }
+}

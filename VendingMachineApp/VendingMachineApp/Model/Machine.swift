@@ -47,20 +47,28 @@ class Machine: NSObject, NSCoding {
     }
     
     func addStock(beverage: Beverage, amount: Int) {
+        beverageStorage.addStock(beverage: beverage, count: amount)
+    }
+    
+    func increaseStock(beverage: Beverage, amount: Int) {
         beverageStorage.increaseStock(beverage: beverage, by: amount)
     }
     
-    func checkStock() -> [Beverage: Int] {
-        return beverageStorage.checkStock()
+    func checkStock() -> [Item] {
+        return beverageStorage.stock
     }
     
-    func showPurchasables(with money: Int) -> [Beverage: Int] {
-        return beverageStorage.checkPurchasables(with: money)
+    func checkSpecificTypeOfBeverage(beverage: Beverage) -> Int {
+       return beverageStorage.checkSpecificBeverageCount(beverage: beverage)
     }
     
-    func showExpired(on date: Date) -> [Beverage: Int] {
-        return beverageStorage.checkExpired(on: date)
-    }
+//    func showPurchasables(with money: Int) -> [Beverage: Int] {
+//        return beverageStorage.checkPurchasables(with: money)
+//    }
+//
+//    func showExpired(on date: Date) -> [Beverage: Int] {
+//        return beverageStorage.checkExpired(on: date)
+//    }
     
 //    func purchaseBeverage(beverage: Beverage) {
 //        let itemPrice = beverage.showPrice()

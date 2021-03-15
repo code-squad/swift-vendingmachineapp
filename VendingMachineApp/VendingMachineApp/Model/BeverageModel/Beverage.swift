@@ -52,10 +52,10 @@ class Beverage: NSObject, NSCoding {
 }
 
 extension Beverage {
-//    override var description: String {
-//        let simpleDateFormat = "yyyyMMdd"
-//        return "\(brand), \(size)ml, \(price)원, \(name), \(packageTime.useSimpleFormat(dateFormat: simpleDateFormat))"
-//    }
+    override var description: String {
+        let simpleDateFormat = "yyyyMMdd"
+        return "\(brand), \(size)ml, \(price)원, \(name), \(packageTime.useSimpleFormat(dateFormat: simpleDateFormat))"
+    }
     
     static func == (lhs: Beverage, rhs: Beverage) -> Bool {
         return lhs.brand == rhs.brand &&

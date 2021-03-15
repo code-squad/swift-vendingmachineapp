@@ -46,34 +46,34 @@ class VendingMachine: NSObject,VendingMachineManagable, NSCoding {
         NotificationCenter.default.post(name: NotificationName.didChangeMoney, object: self)
     }
     
-    func tagToBeverageType(by tag: Int) -> Beverage.Type? {
-        return inventoryManager.tagToBeverageType(by: tag)
+    func readInventoryCount(index: Int) -> Int {
+        guard let beverageType = mappingIndexToBeverageType(by: index) else { return 0 }
+        return inventoryManager.readInventoryCount(beverageType: beverageType)
     }
     
-    func tagToMoneyInputType(by tag: Int) -> Money.Input? {
-        return inventoryManager.tagToMoneyInputType(by: tag)
-    }
-    
-    func readInventoryCount(index: Int, allInventores: [ObjectIdentifier : [Beverage]]) -> Int {
-        return inventoryManager.readInventoryCount(index: index, allInventores: allInventores)
-    }
-    
-    func purchaseBeverage(beverage: Beverage) {
-        guard beverage.isPurchasable(balance: moneyManager.readBalance()) else { return }
-        
-        if let purchased: Beverage = inventoryManager.removeBeverage(beverage) {
-            self.purchaseHistoryManager.addPurchased(purchased)
+    func purchaseBeverage(beverageType: Beverage.Type) {
+//        guard beverage.isPurchasable(balance: moneyManager.readBalance()) else { return }
+        if let purchased: Beverage = inventoryManager.removeBeverageInInventoryBox(beverageType: beverageType) {
+            self.purchaseHistoryManager.addPurchased(beverageType)
             self.moneyManager.decreaseBalance(purchased.price)
             NotificationCenter.default.post(name: NotificationName.didUpdatePurchseHistory, object: self)
         }
     }
     
     func readInventores() -> [ObjectIdentifier : [Beverage]] {
-        inventoryManager.readInventores()
+        return inventoryManager.readInventores()
     }
     
-    func addBeverage(_ beverage: Beverage) {
-        inventoryManager.addBeverage(beverage)
+    func addBeverage(_ beverageType: Beverage.Type) {
+        inventoryManager.addBeverage(beverageType)
         NotificationCenter.default.post(name: NotificationName.didChangeInventory, object: nil)
+    }
+    
+    func mappingIndexToBeverageType(by index: Int) -> Beverage.Type? {
+        return inventoryManager.mappingIndexToBeverageType(by: index)
+    }
+    
+    func mappingIndexToMoneyInput(by index: Int) -> Money.Input? {
+        return inventoryManager.mappingIndexToMoneyInput(by: index)
     }
 }

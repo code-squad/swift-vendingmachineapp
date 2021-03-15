@@ -10,12 +10,12 @@ import Foundation
 protocol InventoryManagable {
     func expiredBeverages(current: Date) -> InventoryManagable
     func hotBeverages() -> InventoryManagable
-    func readInventores() -> [ObjectIdentifier: [Beverage]]
-    func addBeverage(_ beverage: Beverage)
-    func removeBeverage(_ beverage: Beverage) -> Beverage?
-    func fotEachBeverage(handler: (Beverage) -> ())
+    func addBeverage(_ beverageType: Beverage.Type)
+    func forEachBeverage(handler: (Beverage) -> ())
     func isPurchasableInventory(balance: Int) -> InventoryManagable
-    func tagToBeverageType(by tag: Int) -> Beverage.Type?
-    func tagToMoneyInputType(by tag: Int) -> Money.Input?
-    func readInventoryCount(index: Int, allInventores: [ObjectIdentifier: [Beverage]]) -> Int
+    func mappingIndexToBeverageType(by index: Int) -> Beverage.Type?
+    func mappingIndexToMoneyInput(by index: Int) -> Money.Input?
+    func readInventoryCount(beverageType: Beverage.Type) -> Int
+    func readInventores() -> [ObjectIdentifier : [Beverage]]
+    func removeBeverageInInventoryBox(beverageType: Beverage.Type) -> Beverage?
 }

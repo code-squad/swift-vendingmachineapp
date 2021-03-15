@@ -10,57 +10,42 @@ import Foundation
 class Inventory: NSObject, InventoryManagable, NSCoding {
     
     private var inventory: [Beverage]
-    private let beverageMapper: BeverageMapperable
-    private let moneyMapper: MoneyMapperable
-    
-    init(inventory: [Beverage], beverageMapper: BeverageMapperable, moneyMapper: MoneyMapperable) {
-        self.beverageMapper = beverageMapper
-        self.moneyMapper = moneyMapper
+    private let inventoryBox: InventoryBoxManagable
+
+    init(inventory: [Beverage], inventoryBox: InventoryBoxManagable) {
         self.inventory = inventory
+        self.inventoryBox = inventoryBox
     }
     
     convenience init(inventory: [Beverage]) {
-        let beverageMapper = BeverageMapper(beverageTypes: [Banana.self, Strawberry.self,
-                                                    TOP.self, Cantata.self,
-                                                    Cola.self, Cider.self
-                                                    ])
-        let moneyMapper = MoneyMapper(moneyInputTypes: [Money.Input.oneThousand, Money.Input.fiveThousand])
-        self.init(inventory: inventory, beverageMapper: beverageMapper, moneyMapper: moneyMapper)
+        let inventoryBox = InventoryBox()
+        self.init(inventory: inventory, inventoryBox: inventoryBox)
     }
     
     convenience override init() {
         let inventory: [Beverage] = []
-        let beverageMapper = BeverageMapper(beverageTypes: [Banana.self, Strawberry.self,
-                                                    TOP.self, Cantata.self,
-                                                    Cola.self, Cider.self
-                                                    ])
-        let moneyMapper = MoneyMapper(moneyInputTypes: [Money.Input.oneThousand, Money.Input.fiveThousand])
-        self.init(inventory: inventory, beverageMapper: beverageMapper, moneyMapper: moneyMapper)
+        let inventoryBox = InventoryBox()
+        self.init(inventory: inventory, inventoryBox: inventoryBox)
     }
     
     func encode(with coder: NSCoder) {}
     
     required init?(coder: NSCoder) {
         self.inventory = coder.decodeObject(forKey: "inventory") as? [Beverage] ?? []
-        self.beverageMapper = coder.decodeObject(forKey: "beverageMapper") as! BeverageMapper
-        self.moneyMapper = coder.decodeObject(forKey: "moneyMapper") as! MoneyMapper
+        self.inventoryBox = coder.decodeObject(forKey: "inventoryBox") as! InventoryBox
     }
     
-    func addBeverage(_ beverage: Beverage) {
+    func addBeverage(_ beverageType: Beverage.Type) {
+        guard let beverage = BeverageFactory.produce(of: beverageType) else { return }
         self.inventory.append(beverage)
+        _ = readInventores()
     }
     
     func isPurchasableInventory(balance: Int) -> InventoryManagable {
         return Inventory(inventory: self.inventory.filter { $0.isPurchasable(balance: balance) })
     }
     
-    func removeBeverage(_ beverage: Beverage) -> Beverage? {
-        guard let index = inventory.firstIndex(of: beverage) else { return  nil }
-        
-        return inventory.remove(at: index)
-    }
-    
-    func fotEachBeverage(handler: (Beverage) -> ()) {
+    func forEachBeverage(handler: (Beverage) -> ()) {
         self.inventory.forEach { beverage in
             handler(beverage)
         }
@@ -74,27 +59,35 @@ class Inventory: NSObject, InventoryManagable, NSCoding {
         return Inventory(inventory: self.inventory.filter { $0.isHot(temparature: 60) })
     }
     
-    func readInventores() -> [ObjectIdentifier: [Beverage]] {
-        var allInventores = [ObjectIdentifier: [Beverage]]()
-        
+    func readInventoryCount(beverageType: Beverage.Type) -> Int {
+        return self.inventoryBox.readInventoryCount(beverageType: beverageType)
+    }
+    
+    func readInventores() -> [ObjectIdentifier : [Beverage]] {
+        return self.inventoryBox.readInventores(inventory: Inventory(inventory: self.inventory))
+    }
+    
+    func removeBeverageInInventoryBox(beverageType: Beverage.Type) -> Beverage? {
+        self.removeBeverage(beverageType: beverageType)
+        return self.inventoryBox.removeBeverage(beverageType: beverageType)
+    }
+    
+    func mappingIndexToBeverageType(by index: Int) -> Beverage.Type? {
+        return self.inventoryBox.mappingIndexToBeverageType(by: index)
+    }
+    
+    func mappingIndexToMoneyInput(by index: Int) -> Money.Input? {
+        return self.inventoryBox.mappingIndexToMoneyInput(by: index)
+    }
+    
+    private func removeBeverage(beverageType: Beverage.Type) {
+        var toRemoveBeverage: Beverage!
         self.inventory.forEach { beverage in
-            let beverageType = ObjectIdentifier(type(of: beverage))
-            allInventores[beverageType, default: [Beverage]()].append(beverage)
+            let toRemoveBeverateType = type(of: beverage)
+            if toRemoveBeverateType == beverageType {
+                toRemoveBeverage = beverage
+            }
         }
-        
-        return allInventores
-    }
-    
-    func readInventoryCount(index: Int, allInventores: [ObjectIdentifier: [Beverage]]) -> Int {
-        guard let beverageType = self.beverageMapper.mapping(by: index) else { return 0 }
-        return allInventores[ObjectIdentifier(beverageType)]?.count ?? 0
-    }
-    
-    func tagToBeverageType(by tag: Int) -> Beverage.Type? {
-        return self.beverageMapper.mapping(by: tag)
-    }
-    
-    func tagToMoneyInputType(by tag: Int) -> Money.Input? {
-        return self.moneyMapper.mapping(by: tag)
+        self.inventory.remove(at: self.inventory.firstIndex(of: toRemoveBeverage)!)
     }
 }

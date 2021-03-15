@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		CE91CEB525EE5E8600515DF2 /* ChocoMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE91CEB425EE5E8600515DF2 /* ChocoMilk.swift */; };
 		CE91CEB825EEA5B400515DF2 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE91CEB725EEA5B400515DF2 /* Country.swift */; };
-		CE91CEBC25EF23EF00515DF2 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE91CEBB25EF23EF00515DF2 /* Package.swift */; };
 		CE91CEC025EF329900515DF2 /* BeverageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE91CEBF25EF329900515DF2 /* BeverageProtocol.swift */; };
 		CE91CEC425EF334300515DF2 /* Cider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE91CEC325EF334300515DF2 /* Cider.swift */; };
 		CE91CEC825EF590100515DF2 /* Latte.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE91CEC725EF590100515DF2 /* Latte.swift */; };
@@ -46,7 +45,6 @@
 		CE9BED6025F20980000D6ADB /* Latte.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE91CEC725EF590100515DF2 /* Latte.swift */; };
 		CE9BED6325F20994000D6ADB /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE95482325E9611D0020A333 /* DateExtension.swift */; };
 		CE9BED6425F20994000D6ADB /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE91CEB725EEA5B400515DF2 /* Country.swift */; };
-		CE9BED6525F20994000D6ADB /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE91CEBB25EF23EF00515DF2 /* Package.swift */; };
 		CE9BED6625F20994000D6ADB /* BeverageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE91CEBF25EF329900515DF2 /* BeverageProtocol.swift */; };
 		CE9BED6725F20994000D6ADB /* BeverageFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BED3F25F1D213000D6ADB /* BeverageFactory.swift */; };
 		CE9BED6A25F20BDA000D6ADB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9547F825E76D5E0020A333 /* AppDelegate.swift */; };
@@ -68,7 +66,6 @@
 /* Begin PBXFileReference section */
 		CE91CEB425EE5E8600515DF2 /* ChocoMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChocoMilk.swift; sourceTree = "<group>"; };
 		CE91CEB725EEA5B400515DF2 /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
-		CE91CEBB25EF23EF00515DF2 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		CE91CEBF25EF329900515DF2 /* BeverageProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageProtocol.swift; sourceTree = "<group>"; };
 		CE91CEC325EF334300515DF2 /* Cider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cider.swift; sourceTree = "<group>"; };
 		CE91CEC725EF590100515DF2 /* Latte.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Latte.swift; sourceTree = "<group>"; };
@@ -157,7 +154,6 @@
 				CE93BBE325F7979F00C9C374 /* VendingMachineElements.swift */,
 				CE95482325E9611D0020A333 /* DateExtension.swift */,
 				CE91CEB725EEA5B400515DF2 /* Country.swift */,
-				CE91CEBB25EF23EF00515DF2 /* Package.swift */,
 				CE91CEBF25EF329900515DF2 /* BeverageProtocol.swift */,
 				CE9BED3F25F1D213000D6ADB /* BeverageFactory.swift */,
 				CE95482625E974350020A333 /* Beverages */,
@@ -304,7 +300,6 @@
 				CE91CEC025EF329900515DF2 /* BeverageProtocol.swift in Sources */,
 				CE95482825E9747C0020A333 /* Coke.swift in Sources */,
 				CE95481325E777380020A333 /* Beverage.swift in Sources */,
-				CE91CEBC25EF23EF00515DF2 /* Package.swift in Sources */,
 				CE91CEB525EE5E8600515DF2 /* ChocoMilk.swift in Sources */,
 				CE95482425E9611D0020A333 /* DateExtension.swift in Sources */,
 				CE93BBE425F797A000C9C374 /* VendingMachineElements.swift in Sources */,
@@ -326,7 +321,6 @@
 				CE9BED6A25F20BDA000D6ADB /* AppDelegate.swift in Sources */,
 				CE9BED6325F20994000D6ADB /* DateExtension.swift in Sources */,
 				CE9BED6425F20994000D6ADB /* Country.swift in Sources */,
-				CE9BED6525F20994000D6ADB /* Package.swift in Sources */,
 				CE9BED7B25F21B61000D6ADB /* VendingMachineTests.swift in Sources */,
 				CE9BED6625F20994000D6ADB /* BeverageProtocol.swift in Sources */,
 				CE9BED6725F20994000D6ADB /* BeverageFactory.swift in Sources */,

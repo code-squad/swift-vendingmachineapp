@@ -21,23 +21,8 @@ class VendingMachineAppTests: XCTestCase {
         XCTAssertEqual(date, "20210302")
     }
     
-    func testFactory() throws{
-        let BF : BeverageCreater = BeverageCreater()
-        XCTAssertEqual(BF.makeBeverage(beveragetype: BananaMilk.self, Date().makeDatewithString(yyyyMMdd: "20200303")) ,BF.makeBeverage(beveragetype: Coke.self, Date().makeDatewithString(yyyyMMdd: "20200303")))
-    }
-    
-    func testsendImageView() throws{
-        let VM : VendingMachine = VendingMachine(Money: Money.init(money: 1000))
-        let tempimagesViews : [UIImageView] = []
-    }
-    
-    func testbeverage() throws{
-        let VM : VendingMachine = VendingMachine(Money: Money.init(money: 1000))
-        let views : [ObjectIdentifier : Int] = [:]
-    }
-    
     func testBeverageFactory() throws {
         let BF : BeverageCreater = BeverageCreater()
-        XCTAssertEqual(BF.makeBeverageTest(beveragetype: BananaMilk.self), BF.makeBeverage(beveragetype: Coke.self, Date().makeDatewithString(yyyyMMdd: "20200303")))
+        XCTAssertEqual(BF.makeBeverage(beveragetype: BananaMilk.self, manufactured: Date().makeDatewithString(yyyyMMdd: "20200301")), BF.makeBeverage(beveragetype: Coke.self, manufactured: Date().makeDatewithString(yyyyMMdd: "20210301")))
     }
 }

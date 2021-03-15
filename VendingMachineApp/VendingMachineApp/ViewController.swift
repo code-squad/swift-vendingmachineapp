@@ -14,8 +14,14 @@ class VendingMachineViewController: UIViewController {
     @IBOutlet weak var milkInventoryQuantity: UILabel!
     @IBOutlet weak var sodaInventoryQuantity: UILabel!
     @IBOutlet weak var currentTotalMoney: UILabel!
-    private var vendingMachine = VendingMachine()
     private var factory = BeverageFactory()
+    private var appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
+    // Error: Cannot use instance member 'appDelegate' within property initializer; property initializers run before 'self' is available
+    // Solution: Use lazy
+    private lazy var vendingMachine = appDelegate.vendingMachine
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +39,7 @@ class VendingMachineViewController: UIViewController {
     //MARK: 재고 추가 버튼
     @IBAction func addCoffeeButton(_ sender: Any) {
         vendingMachine.addStock(beverage: factory.addToInventory(beverage: CoffeeFactory.self))
+        
         showCoffeeInventoryQuantity()
     }
     

@@ -9,8 +9,8 @@ import Foundation
 
 class StrawberryMilk: Milk {
     
-    enum FarmCode {
-        case A, B, C, D
+    enum FarmCode: String {
+        case A = "A", B = "B", C = "C", D = "D"
     }
     
     private var farmCode: FarmCode
@@ -19,4 +19,16 @@ class StrawberryMilk: Milk {
         self.farmCode = farmCode
         super.init(brand: brand, volume: volume, price: price, name: name, manufacturedAt: manufacturedAt, temperature: temperature, expiredAt: expiredAt, calory: calory, fatContent: fatContent)
     }
+    
+    //MARK: encode 메소드, required init
+    override func encode(with coder: NSCoder) {
+        coder.encode(self.farmCode.rawValue, forKey: "farmCode")
+        super.encode(with: coder)
+    }
+    
+    required init?(coder: NSCoder) {
+        self.farmCode = FarmCode(rawValue: coder.decodeObject(forKey: "farmCode") as! String)!
+        super.init(coder: coder)
+    }
+    
 }

@@ -7,9 +7,9 @@
 
 import Foundation
 
-class Beverage: CustomStringConvertible {
+class Beverage: NSObject, NSCoding {
     
-    var description: String {
+    override var description: String {
         return "\(brand), \(volume)ml, \(price)원, \(name), \(manufacturedAt.description)"
     }
     
@@ -33,6 +33,29 @@ class Beverage: CustomStringConvertible {
         self.calory = calory
     }
     
+    //MARK: encode 메소드, required init
+    func encode(with coder: NSCoder) {
+        coder.encode(self.brand, forKey: "brand")
+        coder.encode(self.volume, forKey: "volume")
+        coder.encode(self.price, forKey: "price")
+        coder.encode(self.name, forKey: "name")
+        coder.encode(self.manufacturedAt, forKey: "manufacturedAt")
+        coder.encode(self.temperature, forKey: "temperature")
+        coder.encode(self.expiredAt, forKey: "expiredAt")
+        coder.encode(self.calory, forKey: "calory")
+    }
+    
+    required init?(coder: NSCoder) {
+        self.brand = coder.decodeObject(forKey: "brand") as! String
+        self.volume = coder.decodeInteger(forKey: "volume")
+        self.price = coder.decodeInteger(forKey: "price")
+        self.name = coder.decodeObject(forKey: "name") as! String
+        self.manufacturedAt = coder.decodeObject(forKey: "manufacturedAt") as! Date
+        self.temperature = coder.decodeDouble(forKey: "temperature")
+        self.expiredAt = coder.decodeObject(forKey: "expiredAt") as! Date
+        self.calory = coder.decodeInteger(forKey: "calory")
+    }
+    
     func availableBeverage(currentAmount: Int) -> Bool {
         return price <= currentAmount
     }
@@ -49,15 +72,16 @@ class Beverage: CustomStringConvertible {
         return calory < referenceCalory
     }
 }
-extension Beverage: Hashable {
-    static func == (lhs: Beverage, rhs: Beverage) -> Bool{
-        return ObjectIdentifier(type(of: lhs)) == ObjectIdentifier(type(of: rhs))
-    }
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(brand)
-        hasher.combine(volume)
-        hasher.combine(price)
-        hasher.combine(name)
-        hasher.combine(manufacturedAt)
-    }
-}
+//extension Beverage {
+//    static func == (lhs: Beverage, rhs: Beverage) -> Bool{
+//        return ObjectIdentifier(type(of: lhs)) == ObjectIdentifier(type(of: rhs))
+//    }
+//    
+//    override func hash(into hasher: inout Hasher) {
+//        hasher.combine(brand)
+//        hasher.combine(volume)
+//        hasher.combine(price)
+//        hasher.combine(name)
+//        hasher.combine(manufacturedAt)
+//    }
+//}

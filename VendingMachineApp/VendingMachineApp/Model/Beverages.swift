@@ -7,12 +7,21 @@
 
 import Foundation
 
-class Beverages {
+class Beverages: NSObject, NSCoding {
     
     private var beverages: [Beverage]
     
-    init() {
+    override init() {
         self.beverages = [Beverage]()
+    }
+    
+    //MARK: encode 메소드, required init
+    func encode(with coder: NSCoder) {
+        coder.encode(self.beverages, forKey: "beverages")
+    }
+    
+    required init?(coder: NSCoder) {
+        self.beverages = coder.decodeObject(forKey: "beverages") as! [Beverage]
     }
     
     func addBeverage(beverage: Beverage) {
@@ -43,8 +52,8 @@ class Beverages {
     }
 }
 
-extension Beverages: Equatable {
-    static func == (lhs: Beverages, rhs: Beverages) -> Bool{
-        return lhs.beverages == rhs.beverages
-    }
-}
+//extension Beverages: Equatable {
+//    static func == (lhs: Beverages, rhs: Beverages) -> Bool{
+//        return lhs.beverages == rhs.beverages
+//    }
+//}

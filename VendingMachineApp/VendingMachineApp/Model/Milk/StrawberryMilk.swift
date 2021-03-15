@@ -8,10 +8,10 @@
 import Foundation
 
 class StrawBerryMilk: Milk {
-    enum Color {
-        case white
-        case pink
-        case red
+    enum Color: String {
+        case white = "white"
+        case pink = "pink"
+        case red = "red"
     }
     private var color: Color
     
@@ -22,6 +22,17 @@ class StrawBerryMilk: Milk {
     convenience init() {
         self.init(brand: "서울우유", capacity: 300, price: 800, name: "딸기우유", manufacturedAt: Date.input("20210302"), expirationAt: Date.input("20210310"), temperature: 5, pH: 6.5, color: StrawBerryMilk.Color.red)
     }
+    
+    required init?(coder: NSCoder) {
+        color = Color(rawValue: coder.decodeObject(forKey: "color") as! String)!
+        super.init(coder: coder)
+    }
+    
+    override func encode(with coder: NSCoder) {
+        coder.encode(color.rawValue, forKey: "color")
+        super.encode(with: coder)
+    }
+    
     func isRed() -> Bool {
         return self.color == Color.red
     }

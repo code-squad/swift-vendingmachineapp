@@ -7,13 +7,22 @@
 
 import Foundation
 
-class Drinks {
+class Drinks: NSObject, NSCoding {
+    
     private var drinks: [Beverage]
+    
+    func encode(with coder: NSCoder) {
+        coder.encode(drinks, forKey: "beverages")
+    }
+    
+    required init?(coder: NSCoder) {
+        drinks = coder.decodeObject(forKey: "beverages") as! [Beverage]
+    }
     
     init(_ drinks: [Beverage]) {
         self.drinks = drinks
     }
-    convenience init() {
+    convenience override init() {
         self.init([])
     }
     
@@ -36,10 +45,10 @@ class Drinks {
     func giveStockList() -> [ObjectIdentifier : [Beverage]] {
         var result = [ObjectIdentifier : [Beverage]]()
         drinks.forEach { (beverage) in
-            if result[ObjectIdentifier(beverage.self)] == nil {
-                result[ObjectIdentifier(beverage.self)] = [beverage]
+            if result[ObjectIdentifier(type(of:beverage.self))] == nil {
+                result[ObjectIdentifier(type(of:beverage.self))] = [beverage]
             } else {
-                result[ObjectIdentifier(beverage.self)]!.append(beverage)
+                result[ObjectIdentifier(type(of:beverage.self))]!.append(beverage)
             }
             
         }
@@ -55,8 +64,5 @@ class Drinks {
     }
 }
 
-extension Drinks: Equatable {
-    static func == (lhs: Drinks, rhs: Drinks) -> Bool {
-        return lhs.drinks == rhs.drinks
-    }
-}
+
+

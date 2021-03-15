@@ -18,6 +18,15 @@ class RedBull: EnergyDrink {
         self.init(brand: "RedBull", capacity: 250, price: 1000, name: "redBull", manufacturedAt: Date.input("20210304"), expirationAt: Date.input("20210310"), temperature: 5, taurineContent: 1000, vitaminB: 2)
     }
     
+    required init?(coder: NSCoder) {
+        vitaminB = coder.decodeInteger(forKey: "vitaminB") 
+        super.init(coder: coder)
+    }
+    override func encode(with coder: NSCoder) {
+        coder.encode(vitaminB, forKey: "vitaminB")
+        super.encode(with: coder)
+    }
+    
     func hasVitaminB() -> Bool {
         return self.vitaminB > 0
     }

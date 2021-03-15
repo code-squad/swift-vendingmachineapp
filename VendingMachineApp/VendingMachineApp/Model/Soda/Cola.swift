@@ -8,10 +8,10 @@
 import Foundation
 
 class Cola: Soda {
-    enum Package {
-        case can
-        case pet
-        case glass
+    enum Package: String {
+        case can = "can"
+        case pet = "pet"
+        case glass = "glass"
     }
     private var packageAttribute: Package
     
@@ -21,6 +21,16 @@ class Cola: Soda {
     }
     convenience init() {
         self.init(brand: "CocaCola", capacity: 500, price: 1000, name: "cola", manufacturedAt: Date.input("20210302"), expirationAt: Date.input("20210310"), temperature: 5, glycemicIndex: 39, packageAttribute: Package.can)
+    }
+    
+    required init?(coder: NSCoder) {
+        packageAttribute = Package(rawValue: coder.decodeObject(forKey: "packageAttribute") as! String)! 
+        super.init(coder: coder)
+    }
+    
+    override func encode(with coder: NSCoder) {
+        coder.encode(packageAttribute.rawValue, forKey: "packageAttribute")
+        super.encode(with: coder)
     }
     
     func isPet() -> Bool {

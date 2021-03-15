@@ -14,7 +14,17 @@ class EnergyDrink: Beverage {
         self.taurineContent = taurineContent
         super.init(brand: brand, capacity: capacity, price: price, name: name, manufacturedAt: manufacturedAt, expirationAt: expirationAt, temperature: temperature)
     }
-
+    
+    required init?(coder: NSCoder) {
+        taurineContent = coder.decodeInteger(forKey: "taurineContent")
+        super.init(coder: coder)
+    }
+    
+    override func encode(with coder: NSCoder) {
+        coder.encode(taurineContent, forKey: "taurineContent")
+        super.encode(with: coder)
+    }
+    
     func isHighTaurine() -> Bool {
         return self.taurineContent > 1000
     }

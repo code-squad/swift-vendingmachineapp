@@ -22,7 +22,7 @@ class Stock: NSObject, NSCoding, StockManageable {
     public func addedDrink(_ drink: Drink) {
         guard isProductization(of: drink) else { return }
         stock.append(drink)
-        NotificationCenter.default.post(name: Notification.DidChangeStock, object: nil)
+        NotificationCenter.default.post(name: Notification.DidChangeStock, object: self)
     }
     
     public func availableForDrinks(coin: Int) -> Set<Drink> {

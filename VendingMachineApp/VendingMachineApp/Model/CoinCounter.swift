@@ -24,7 +24,7 @@ class CoinCounter: NSObject, NSCoding, CoinManageable {
     
     public func inserted(_ coin: Int) {
         self.coins += coin
-        NotificationCenter.default.post(name: Notification.DidChangeCoin, object: nil)
+        NotificationCenter.default.post(name: Notification.DidChangeCoin, object: self)
     }
     
     public func expended(to coin: Int) {

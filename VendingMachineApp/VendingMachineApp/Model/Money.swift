@@ -7,12 +7,21 @@
 
 import Foundation
 
-class Money {
+class Money: NSObject, NSCoding {
     
     private var inputAmount: Int
     
     init(inputAmount: Int) {
         self.inputAmount = inputAmount
+    }
+    
+    //MARK: encode 메소드, required init
+    func encode(with coder: NSCoder) {
+        coder.encode(self.inputAmount, forKey: "inputAmount")
+    }
+    
+    required init?(coder: NSCoder) {
+        self.inputAmount = coder.decodeInteger(forKey: "inputAmount")
     }
     
     // 금액을 올리는 메소드
@@ -35,8 +44,8 @@ class Money {
     
 }
 
-extension Money: Equatable {
-    static func == (lhs: Money, rhs: Money) -> Bool {
-        return lhs.inputAmount == rhs.inputAmount
-    }
-}
+//extension Money: Equatable {
+//    static func == (lhs: Money, rhs: Money) -> Bool {
+//        return lhs.inputAmount == rhs.inputAmount
+//    }
+//}

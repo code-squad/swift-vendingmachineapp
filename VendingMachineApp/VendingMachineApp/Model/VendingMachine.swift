@@ -7,16 +7,29 @@
 
 import Foundation
 
-class VendingMachine {
+class VendingMachine: NSObject, NSCoding {
     
     private var beverages: Beverages
     private var money: Money
     private var purchasedList: [Beverage]
-    
-    init() {
+
+    override init() {
         self.beverages = Beverages()
         self.money = Money(inputAmount: 0)
         self.purchasedList = [Beverage]()
+    }
+    
+    //MARK: encode 메소드, required init
+    func encode(with coder: NSCoder) {
+        coder.encode(self.beverages, forKey: "beverages")
+        coder.encode(self.money, forKey: "money")
+        coder.encode(self.purchasedList, forKey: "purchasedList")
+    }
+    
+    required init?(coder: NSCoder) {
+        self.beverages = coder.decodeObject(forKey: "beverages") as! Beverages
+        self.money = coder.decodeObject(forKey: "money") as! Money
+        self.purchasedList = coder.decodeObject(forKey: "purchasedList") as! [Beverage]
     }
     
     //MARK: 자판기 금액을 원하는 금액만큼 올리는 메소드

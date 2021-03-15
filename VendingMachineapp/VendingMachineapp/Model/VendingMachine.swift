@@ -18,9 +18,9 @@ class VendingMachine: NSObject, NSCoding{
     }
     
     required init?(coder: NSCoder) {
-        self.manager = coder.decodeObject(forKey: "manager") as! VendingMachineManager
-        self.inventory = coder.decodeObject(forKey: "inventory") as! Inventory
-        self.money = coder.decodeObject(forKey: "money") as! Money
+        self.manager = coder.decodeObject(forKey: "manager") as? VendingMachineManager ?? VendingMachineManager()
+        self.inventory = coder.decodeObject(forKey: "inventory") as? Inventory ?? Inventory()
+        self.money = coder.decodeObject(forKey: "money") as? Money ?? Money(with: 0)
     }
     
     func encode(with coder: NSCoder) {

@@ -18,8 +18,8 @@ class VendingMachineManager: NSObject, NSCoding {
     }
     
     required init?(coder: NSCoder) {
-        self.purchaseHistory = coder.decodeObject(forKey: "purchaseHistory") as! [Beverage]
-        self.purchaseList = coder.decodeObject(forKey: "purchaseList") as! [Beverage]
+        self.purchaseHistory = coder.decodeObject(forKey: "purchaseHistory") as? [Beverage] ?? []
+        self.purchaseList = coder.decodeObject(forKey: "purchaseList") as? [Beverage] ?? []
     }
     
     func encode(with coder: NSCoder) {

@@ -37,7 +37,7 @@ class Fanta: Soda {
     }
     
     required init?(coder: NSCoder) {
-        self.color = coder.decodeObject(forKey: "color") as! String
+        self.color = coder.decodeObject(forKey: "color") as? String ?? String()
         super.init(coder: coder)
     }
     

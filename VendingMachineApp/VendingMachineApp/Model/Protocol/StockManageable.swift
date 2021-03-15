@@ -9,7 +9,7 @@ import Foundation
 
 protocol StockManageable {
     func addedDrink(_ drink: Drink)
-    func availableForDrinks(coin: Int) -> [Drink]
+    func availableForDrinks(coin: Int) -> Set<Drink>
     func purchased(drinkType: Drink.Type, insertedCoin: Int) -> Drink?
     func showedStock() -> [ObjectIdentifier: [Drink]]
     func lookingForExpiredDrinks() -> [Drink]

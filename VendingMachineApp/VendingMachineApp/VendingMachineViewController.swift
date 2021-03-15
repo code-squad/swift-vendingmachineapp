@@ -20,9 +20,9 @@ class VendingMachineViewController: UIViewController {
         setUpImageView()
         configureScrollView()
         configureStackView()
-        NotificationCenter.default.addObserver(self, selector: #selector(updateInsertedMoney(notification:)), name: vendingMachine.updateInsertedMoney, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(updateBeverages(notification:)), name: vendingMachine.updateBeverages, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(updatePurchased(notification:)), name: vendingMachine.updatePurchased, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateInsertedMoney(notification:)), name: VendingMachine.updateInsertedMoney, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateBeverages(notification:)), name: VendingMachine.updateBeverages, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updatePurchased(notification:)), name: VendingMachine.updatePurchased, object: nil)
     }
     
     private func setUpImageView() {

@@ -7,18 +7,26 @@
 
 import Foundation
 
-class CashManagementSystem {
+class CashManagementSystem: NSObject, NSCoding {
     private var cash: Int
     
-    var description : String {
+    override var description : String {
         return "\(self.cash)"
     }
     
     init(_ cash: Int) {
         self.cash = cash
     }
-    convenience init() {
+    convenience override init() {
         self.init(0)
+    }
+    
+    required init?(coder: NSCoder) {
+        cash = coder.decodeInteger(forKey: "cash")
+    }
+    
+    func encode(with coder: NSCoder) {
+        coder.encode(cash, forKey: "cash")
     }
     
     func retrieveCash(completion: (Int) -> Drinks) -> Drinks {
@@ -42,8 +50,5 @@ class CashManagementSystem {
     }
 }
 
-extension CashManagementSystem: Equatable {
-    static func == (lhs: CashManagementSystem, rhs: CashManagementSystem) -> Bool {
-        return lhs.cash == rhs.cash
-    }
-}
+
+

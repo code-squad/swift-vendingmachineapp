@@ -7,8 +7,8 @@
 
 import Foundation
 
-class Beverage: CustomStringConvertible {
-    var description: String {
+class Beverage: NSObject, NSCoding {
+    override var description: String {
         return "\(brand), \(capacity)ml, \(price)원, \(name), \(manufacturedAt.anotherDescription)"
     }
     
@@ -19,6 +19,26 @@ class Beverage: CustomStringConvertible {
     private var manufacturedAt: Date
     private var expirationAt: Date
     private var temperature: Double
+    
+    func encode(with coder: NSCoder) {
+        coder.encode(brand, forKey: "brand")
+        coder.encode(capacity, forKey: "capacity")
+        coder.encode(price, forKey: "price")
+        coder.encode(name, forKey: "name")
+        coder.encode(manufacturedAt, forKey: "manufacturedAt")
+        coder.encode(expirationAt, forKey: "expirationAt")
+        coder.encode(temperature, forKey: "temperature")
+    }
+    
+    required init?(coder: NSCoder) {
+        brand = coder.decodeObject(forKey: "brand") as! String
+        capacity = coder.decodeInteger(forKey: "capacity")
+        price = coder.decodeInteger(forKey: "price")
+        name = coder.decodeObject(forKey: "name") as! String
+        manufacturedAt = coder.decodeObject(forKey: "manufacturedAt") as! Date
+        expirationAt = coder.decodeObject(forKey: "expirationAt") as! Date
+        temperature = coder.decodeDouble(forKey: "temperature")
+    }
     
     init(brand: String, capacity: Int, price: Int, name: String, manufacturedAt: Date, expirationAt: Date, temperature: Double) {
         self.brand = brand
@@ -44,20 +64,5 @@ class Beverage: CustomStringConvertible {
     
     func isHot(at standard: Double) -> Bool {
         return self.temperature >= standard
-    }
-}
-
-extension Beverage: Hashable {
-    static func == (lhs: Beverage, rhs: Beverage) -> Bool {
-        return lhs.brand == rhs.brand && lhs.capacity == rhs.capacity && lhs.price == rhs.price && lhs.name == rhs.name && lhs.manufacturedAt == rhs.manufacturedAt && lhs.expirationAt == rhs.expirationAt && lhs.temperature == rhs.temperature
-    }
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(brand)
-        hasher.combine(capacity)
-        hasher.combine(price)
-        hasher.combine(name)
-        hasher.combine(manufacturedAt)
-        hasher.combine(expirationAt)
-        hasher.combine(temperature)
     }
 }

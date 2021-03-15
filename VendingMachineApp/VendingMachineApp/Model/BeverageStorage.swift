@@ -26,13 +26,19 @@ class BeverageStorage: NSObject, NSCoding {
         stock = coder.decodeObject(forKey: "stock") as! [Item]
     }
     
+    private func handleEachItem(handler: (Item)-> Void) {
+        stock.forEach { (item) in
+            handler(item)
+        }
+    }
+    
     public func addStock(beverage: Beverage, count: Int) {
         let newItem = Item(beverage: beverage, count: count)
         self.stock.append(newItem)
     }
     
     public func increaseStock(beverage: Beverage, by amount: Int) {
-        stock.forEach { (item) in
+        handleEachItem { (item) in
             if item.beverage == beverage {
                 item.increaseCount(by: amount)
                 NotificationCenter.default.post(name: .didIncreaseStock, object: nil)
@@ -40,8 +46,8 @@ class BeverageStorage: NSObject, NSCoding {
         }
     }
     
-    public func decreaseStock(beverage: Beverage, completionHandler: (Result<Beverage, StockError>) -> Void) {
-        stock.forEach { (item) in
+    public func decreaseStockByOne(beverage: Beverage, completionHandler: (Result<Beverage, StockError>) -> Void) {
+        handleEachItem { (item) in
             if item.beverage == beverage {
                 item.decreaseCount(by: 1)
                 completionHandler(.success(beverage))
@@ -53,7 +59,7 @@ class BeverageStorage: NSObject, NSCoding {
     
     public func checkSpecificBeverageCount(beverage: Beverage) -> Int {
         var result = 0
-        stock.forEach { (item) in
+        handleEachItem { (item) in
             if item.beverage == beverage {
                 result = item.count
             }

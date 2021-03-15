@@ -73,7 +73,7 @@ class Machine: NSObject, NSCoding {
     func purchaseBeverage(beverage: Beverage) {
         let itemPrice = beverage.showPrice()
         guard itemPrice <= moneyProccesor.moneyOnTransactionAmount() else { return }
-            beverageStorage.decreaseStock(beverage: beverage) {result in
+            beverageStorage.decreaseStockByOne(beverage: beverage) {result in
                 switch result {
                 case .success(let deductedBeverage):
                     moneyProccesor.deductMoneyOnTransaction(with: itemPrice)

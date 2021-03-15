@@ -11,22 +11,17 @@ class VendingMachine: NSObject, NSCoding{
     
     private var manager = VendingMachineManager()
     private var inventory = Inventory()
-    private var money: Money
     
-    override init() {
-        self.money = Money(with: 0)
-    }
+    override init() {}
     
     required init?(coder: NSCoder) {
         self.manager = coder.decodeObject(forKey: "manager") as? VendingMachineManager ?? VendingMachineManager()
         self.inventory = coder.decodeObject(forKey: "inventory") as? Inventory ?? Inventory()
-        self.money = coder.decodeObject(forKey: "money") as? Money ?? Money(with: 0)
     }
     
     func encode(with coder: NSCoder) {
         coder.encode(manager, forKey: "manager")
         coder.encode(inventory, forKey: "inventory")
-        coder.encode(money, forKey: "money")
     }
     
     func initializeProductList() -> [Beverage] {
@@ -34,7 +29,7 @@ class VendingMachine: NSObject, NSCoding{
     }
     
     func increase(money: Money) {
-        self.money.changeMoney(with: money)
+        manager.changeMoney(with: money)
     }
     
     func add(beverage: Beverage) {
@@ -42,13 +37,11 @@ class VendingMachine: NSObject, NSCoding{
     }
     
     func availablePurchaseList() -> [Beverage] {
-        return inventory.availablePurchaseList(money: money)
+        return inventory.availablePurchaseList(money: manager.money)
     }
     
-    func purchase(beverage: Beverage) {
-        if manager.updatePurchaseList(inventory: inventory, beverage: beverage) {
-            self.money.changeMoney(with: Money(with: -beverage.price))
-        }
+    func purchase(beverage: Beverage.Type) {
+        manager.updatePurchaseList(inventory: inventory, beverage: beverage) 
     }
     
     func hotBeverageList() -> [Beverage] {
@@ -74,7 +67,7 @@ class VendingMachine: NSObject, NSCoding{
     }
     
     func checkChagne() -> Money {
-        return money.checkChange()
+        return manager.checkChange()
     }
     
     func purchasedList() -> [Beverage] {

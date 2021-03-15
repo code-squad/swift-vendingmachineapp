@@ -15,14 +15,12 @@ class EncondingBeverageTest: XCTestCase {
     
     func testVendingMachine() {
         
-        let archiveText = ArchivingManager.archive(with: machine.initializeProductList())
+        let archiveText = ArchivingManager.archive(with: machine)
         print(archiveText)
         let archiveObject = ArchivingManager.unarchive(with: archiveText)
         var result = ""
 
-        archiveObject?.forEach({
-            result += $0.description + ", "
-        })
+        
         //XCTAssertEqual(result, "")
     }
 }

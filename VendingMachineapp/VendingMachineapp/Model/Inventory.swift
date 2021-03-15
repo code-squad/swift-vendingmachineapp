@@ -60,6 +60,10 @@ class Inventory: NSObject, NSCoding {
         return list
     }
     
+    func availablePurchaseList(money: Money) -> [Beverage]{
+        return inventory.filter({$0.isAvailablePurchase(with: money)})
+    }
+    
     func initializeProductList() -> [Beverage] {
         let strawberryMilk = BeverageFactory.createBeverage(
                                          manufacturer: "서울우유",

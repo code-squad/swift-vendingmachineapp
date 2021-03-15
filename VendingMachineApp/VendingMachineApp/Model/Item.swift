@@ -8,8 +8,8 @@
 import Foundation
 
 class Item: NSObject, NSCoding {
-    public var beverage: Beverage
-    public var count: Int
+    private(set) var beverage: Beverage
+    private(set) var count: Int
     
     init(beverage: Beverage, count: Int) {
         self.beverage = beverage

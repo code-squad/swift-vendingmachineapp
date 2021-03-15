@@ -20,6 +20,10 @@ class Coffee: Drink {
         super.init(coder: coder)
     }
     
+    required init() {
+        fatalError("init() has not been implemented")
+    }
+    
     override func encode(with coder: NSCoder) {
         coder.encode(caffeineContent, forKey: "caffeineContent")
         super.encode(with: coder)

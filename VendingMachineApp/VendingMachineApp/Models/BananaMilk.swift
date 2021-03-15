@@ -20,6 +20,10 @@ class BananaMilk: Milk  {
         super.init(coder: coder)
     }
     
+    required convenience init() {
+        self.init(manufacturer: "빙그레", volume: 200, name: "빙그레바나나우유", manufacturedAt: Date(), price: 1000, temperature: 20, calorie: 200, fatContent: 5, farmCode: "B", expiredAt: Date())
+    }
+    
     override func encode(with coder: NSCoder) {
         coder.encode(farmCode, forKey: "farmCode")
         super.encode(with: coder)

@@ -42,6 +42,17 @@ class Drink: NSObject, NSCoding {
         self.calorie = coder.decodeInteger(forKey: "calorie")
     }
     
+    required override init() {
+        self.manufacturer = "manufacturer"
+        self.volume = 0
+        self.name = "name"
+        self.manufacturedAt = Date()
+        self.price = 0
+        self.temperature = 0
+        self.calorie = 0
+        self.expiredAt = Date()
+    }
+    
     func encode(with coder: NSCoder) {
         coder.encode(manufacturer, forKey: "manufacturer")
         coder.encode(volume, forKey: "volume")

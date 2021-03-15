@@ -34,7 +34,9 @@ class InspectorStackView: UIStackView {
     func setButtons(titles : [String]){
         coinButtions = [UICoinButton]()
         for title in titles {
-            let button = UICoinButton(frame: CGRect(x: 0, y: 0, width: bounds.width, height: 10), title : title)
+            let button = UICoinButton(frame: CGRect(x: 0, y: 0, width: bounds.width, height: 10))
+            button.setTitle(title, for: .normal)
+            button.coin = title.extractUnsignedInteger()
             self.addArrangedSubview(button)
         }
     }

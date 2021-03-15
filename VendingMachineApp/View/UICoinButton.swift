@@ -9,7 +9,7 @@ import UIKit
 
 class UICoinButton: UIButton {
 
-    let coin : Int
+    var coin : Int
     
     override init(frame: CGRect) {
         coin = 0
@@ -20,12 +20,6 @@ class UICoinButton: UIButton {
     required init?(coder aDecoder: NSCoder) {
         coin = 0
         super.init(coder: aDecoder)
-        setUpButton()
-    }
-    init(frame: CGRect, title : String){
-        coin = title.extractUnsignedInteger()
-        super.init(frame: frame)
-        self.setTitle(title, for: .normal)
         setUpButton()
     }
     

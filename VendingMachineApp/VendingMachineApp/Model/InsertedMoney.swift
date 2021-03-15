@@ -26,7 +26,7 @@ class InsertedMoney: NSObject, NSCoding {
     
     func afterBuyingProduct(minus price: Int) {
         insertedMoney -= price
-        NotificationCenter.default.post(name: VendingMachine.sharedInstance().updateInsertedMoney, object: self, userInfo: nil)
+        NotificationCenter.default.post(name: VendingMachine.updateInsertedMoney, object: self, userInfo: nil)
     }
     
     func resetMoeny() {

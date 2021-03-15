@@ -25,6 +25,10 @@ class Fanta: Soda {
         super.init(coder: coder)
     }
     
+    required convenience init() {
+        self.init(manufacturer: "코카콜라컴퍼니", volume: 200, name: "환타", manufacturedAt: Date(), price: 1000, calorie: 100, packageMaterial: .can, temperature: 10, sugarContent: 10, expiredAt: Date())
+    }
+    
     override func encode(with coder: NSCoder) {
         coder.encode(packageMaterial.rawValue, forKey: "packageMaterial")
         super.encode(with: coder)

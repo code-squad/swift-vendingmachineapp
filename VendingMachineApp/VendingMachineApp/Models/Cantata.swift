@@ -26,6 +26,10 @@ class Cantata: Coffee {
         super.init(coder: coder)
     }
     
+    required convenience init() {
+        self.init(manufacturer: "롯데칠성음료", volume: 200, name: "칸타타프리미엄라떼", manufacturedAt: Date(), price: 2000, caffeineContent: 10, temperature: 100, calorie: 100, flavor: .latte, expiredAt: Date())
+    }
+    
     override func encode(with coder: NSCoder) {
         coder.encode(flavor.rawValue, forKey: "flavor")
         super.encode(with: coder)

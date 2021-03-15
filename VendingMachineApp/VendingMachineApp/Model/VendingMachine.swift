@@ -24,6 +24,7 @@ struct VendingMachine {
     enum NotiKeys {
         static let stockListUpdate = Notification.Name("stockListUpdate")
         static let balanceUpdate = Notification.Name("balanceUpdate")
+        static let dispensdListUpdate = Notification.Name("dispensedListUpdate")
     }
     
     func addStock(of item: Shopable) {
@@ -44,10 +45,14 @@ struct VendingMachine {
         guard item.isPurchashable(with: moneyBox.balance()) else { return }
         
         if let itemToSell = storage.pullOut(type(of: item)) {
+            NotificationCenter.default.post(name: NotiKeys.stockListUpdate, object: nil, userInfo: nil)
+            
             dispensedList.push(item: itemToSell)
+            NotificationCenter.default.post(name: NotiKeys.dispensdListUpdate, object: nil, userInfo: nil)
             
             let moneyAfterPurchase = item.subtractPrice(from: moneyBox.balance())
             moneyBox.update(to: moneyAfterPurchase)
+            NotificationCenter.default.post(name: NotiKeys.balanceUpdate, object: nil, userInfo: nil)
         }
     }
 }

@@ -41,8 +41,9 @@ class VendingMachine: NSObject,VendingMachineManagable, NSCoding {
         return moneyManager.readBalance()
     }
     
-    func increaseBalance(_ price: Int) {
-        moneyManager.increaseBalance(price)
+    func increaseBalance(_ index: Int) {
+        guard let moneyInputType = self.mappingIndexToMoneyInput(by: index) else { return }
+        moneyManager.increaseBalance(moneyInputType)
         NotificationCenter.default.post(name: NotificationName.didChangeMoney, object: self)
     }
     
@@ -56,12 +57,16 @@ class VendingMachine: NSObject,VendingMachineManagable, NSCoding {
         if let purchased: Beverage = inventoryManager.removeBeverageInInventoryBox(beverageType: beverageType) {
             self.purchaseHistoryManager.addPurchased(beverageType)
             self.moneyManager.decreaseBalance(purchased.price)
-            NotificationCenter.default.post(name: NotificationName.didUpdatePurchseHistory, object: self)
+            NotificationCenter.default.post(name: VendingMachine.NotificationName.didUpdatePurchseHistory, object: self)
         }
     }
     
     func readInventores() -> [ObjectIdentifier : [Beverage]] {
         return inventoryManager.readInventores()
+    }
+    
+    func readPurchased() -> InventoryManagable {
+        return self.purchaseHistoryManager.readPurchased()
     }
     
     func addBeverage(_ beverageType: Beverage.Type) {

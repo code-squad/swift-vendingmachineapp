@@ -9,6 +9,6 @@ import Foundation
 
 protocol MoneyManagable {
     func readBalance() -> Int
-    func increaseBalance(_ price: Int)
+    func increaseBalance(_ moneyInputType: Money.Input)
     func decreaseBalance(_ price: Int)
 }

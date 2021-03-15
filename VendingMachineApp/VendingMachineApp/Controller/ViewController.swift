@@ -32,10 +32,6 @@ class ViewController: UIViewController {
         machine.receiveMoney(amount: 5_000)
     }
     
-    func putInitialBeverages() {
-        
-    }
-    
     func createBeverageView(with beverage: Beverage, of count: Int) -> BeverageView {
         let view = BeverageView(with: beverage)
         view.stockAddButton.addAction(UIAction.init(handler: { (touch) in

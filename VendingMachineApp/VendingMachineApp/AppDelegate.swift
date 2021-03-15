@@ -24,7 +24,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let someAmericano = BeverageFactory.makeBeverageWithType(brand: "스타벅스", price: .high, name: "아메리카노-톨", packageTime: .fresh, beverageType: Americano.self)
             let someAmericano2 = BeverageFactory.makeBeverageWithType(brand: "스타벅스", price: .high, name: "콜드브루블랙", packageTime: .fresh, beverageType: Americano.self)
             
-            
             machine!.addStock(beverage: someBeverage, amount: 10)
             machine!.addStock(beverage: someStrawBerryMilk, amount: 20)
             machine!.addStock(beverage: someBananaMilk, amount: 30)

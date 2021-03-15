@@ -44,10 +44,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
     }
     
-    func applicationWillTerminate(_ application: UIApplication) {
-        saveVendingMachineData(vendingMachine)
-    }
-    
     func applicationDidEnterBackground(_ application: UIApplication) {
         saveVendingMachineData(vendingMachine)
     }

@@ -16,6 +16,7 @@ class ViewController: UIViewController, Stateful {
     @IBOutlet var addBalanceButtons: [UIButton]!
     @IBOutlet weak var balanceLabel: UILabel!
     @IBOutlet var purchaseButtons: [UIButton]!
+    @IBOutlet weak var purchasedContainer: UIScrollView!
     
     private var moneyPublisher: AnyCancellable!
     private var purchaseHistoryPublisher: AnyCancellable!
@@ -26,6 +27,7 @@ class ViewController: UIViewController, Stateful {
         updateBalanceLabel()
         configureInventoryObserver()
         configureMoneySubscriber()
+        configurePurchaseHistorySubscriber()
     }
     
     private func configureMoneySubscriber() {
@@ -43,7 +45,7 @@ class ViewController: UIViewController, Stateful {
             .publisher(for: VendingMachine.NotificationName.didUpdatePurchseHistory)
             .sink { notification in
                 DispatchQueue.main.async {
-                    
+                    self.configurePurchaseHistoryImageView()
                 }
             }
     }
@@ -66,6 +68,22 @@ class ViewController: UIViewController, Stateful {
         self.configureBeverageCountLabels()
     }
     
+    private func configurePurchaseHistoryImageView() {
+        self.purchasedContainer.removeFromSuperview()
+        let purchaseHistory = self.vendingMachine.readPurchased()
+        purchaseHistory.forEachBeverage { beverage in
+            updatePurchaseHistoryContainer(beverage: beverage)
+        }
+    }
+    
+    private func updatePurchaseHistoryContainer(beverage: Beverage) {
+        guard let purchased: UIImageView = BeverageImageFactory.make(of: beverage) else { return }
+        purchased.contentMode = .scaleAspectFill
+        purchased.frame = CGRect(x: self.purchasedContainer.contentSize.width, y: 0, width: 40, height: self.purchasedContainer.frame.height)
+        self.purchasedContainer.contentSize.width += 85
+        self.purchasedContainer.addSubview(purchased)
+    }
+    
     @IBAction func addBalanceButtonTapped(_ sender: UIButton) {
         guard let index: Int = self.addBalanceButtons.firstIndex(of: sender) else { return }
         guard let moneyInputType = self.vendingMachine.mappingIndexToMoneyInput(by: index) else { return }
@@ -83,6 +101,5 @@ class ViewController: UIViewController, Stateful {
         guard let index: Int = self.purchaseButtons.firstIndex(of: sender) else { return }
         guard let beverageType = self.vendingMachine.mappingIndexToBeverageType(by: index) else { return }
         self.vendingMachine.purchaseBeverage(beverageType: beverageType)
-        configureCollectionView()
     }
 }

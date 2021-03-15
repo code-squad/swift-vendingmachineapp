@@ -96,8 +96,14 @@ class VendingMachine : NSObject, NSCoding {
     }
     
     func showAllBeverageStock(handler : (Int, Int) -> Void){
-        drinkMenu.list.enumerated().forEach { (beverage) in
-            handler(beverage.offset, drinks.showAllBeverage()[ObjectIdentifier(type(of: beverage.element))]?.count ?? 0)
+        drinkMenu.list.enumerated().forEach {
+            handler($0.offset, drinks.showAllBeverage()[ObjectIdentifier(type(of: $0.element))]?.count ?? 0)
         }
     }
 }
+
+extension Notification.Name {
+    static let updateBeverage = Notification.Name("updateBeverage")
+    static let updateBalance = Notification.Name("updateBalance")
+}
+

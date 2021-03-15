@@ -55,9 +55,16 @@ class ViewController: UIViewController {
     }
     
     func fillDataOfBeverageButton() {
-        let factories: [Produceable] = [ColaFactory.init(), RedBullFactory.init(), StrawberryMilkFactory.init(), TOPFactory.init()]
         for i in 0...3 {
-            dataOfBeverageButton[beverageButtons[i]] = (BeverageFactory.releaseBeverage(with: factories[i]), beverageLabels[i])
+            dataOfBeverageButton[beverageButtons[i]] = (beveragesType[i], beverageLabels[i])
+        }
+    }
+    
+    func loadSavedLabel() {
+        for i in 0...3 {
+            if let stock = vendingMachine!.showStock()[ObjectIdentifier(beveragesType[i])] {
+                beverageLabels[i].text = "\(stock.count)개"
+            }
         }
     }
     

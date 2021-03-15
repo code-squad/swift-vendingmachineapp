@@ -33,18 +33,18 @@ class ViewController: UIViewController {
     @IBAction func addStock(_ sender: UIButton) {
         guard let type = dataOfBeverageButton[sender]?.beverageType else {return}
         guard let product = BeverageFactory.releaseBeverage(with: type) else {return}
-        vendingMachine!.addStock(as: product)
-        let stockList = vendingMachine!.showStock()
+        vendingMachine?.addStock(as: product)
+        guard let stockList = vendingMachine?.showStock() else { return }
         let beverageID = ObjectIdentifier(type)
         guard let stock = stockList[beverageID] else {return}
         dataOfBeverageButton[sender]?.label.text = "\(stock.count)개"
-        print(vendingMachine!.showStock())
     }
     
     @IBAction func rechargeCash(_ sender: UIButton) {
-        guard let cash = dataOfRechargeButton[sender] else {return}
-        vendingMachine!.rechargeCash(with: cash)
-        balanceLabel.text = "\(vendingMachine!.showBalance().description)원"
+        guard let cash = dataOfRechargeButton[sender] else { return }
+        vendingMachine?.rechargeCash(with: cash)
+        guard let balance = vendingMachine?.showBalance().description else { return }
+        balanceLabel.text = "\(balance)원"
     }
     
     func curveImageVertex() {
@@ -62,7 +62,7 @@ class ViewController: UIViewController {
     
     func loadSavedLabel() {
         for i in 0...3 {
-            if let stock = vendingMachine!.showStock()[ObjectIdentifier(beveragesType[i])] {
+            if let stock = vendingMachine?.showStock()[ObjectIdentifier(beveragesType[i])] {
                 beverageLabels[i].text = "\(stock.count)개"
             }
         }

@@ -47,11 +47,9 @@ class Stock: NSObject, NSCoding, StockManageable {
         return self.stock.filter{ $0.isHot() }
     }
     
-    public func toShowStock() -> [ObjectIdentifier: [Drink]] {
-        return stock.reduce(Dictionary<ObjectIdentifier, [Drink]>()) { accumulator, drink in
-            var result = accumulator
-            result[ObjectIdentifier(type(of: drink)), default: [Drink]()].append(drink)
-            return result
+    public func showedStock() -> [ObjectIdentifier: [Drink]] {
+        return stock.reduce(into: [:]) { accumulator, drink in
+            accumulator[ObjectIdentifier(type(of: drink)), default: [Drink]()].append(drink)
         }
     }
 }

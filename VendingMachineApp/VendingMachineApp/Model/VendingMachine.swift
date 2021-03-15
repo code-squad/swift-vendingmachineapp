@@ -64,7 +64,7 @@ class VendingMachine: NSObject, NSCoding {
     }
     
     public func showStock() -> [ObjectIdentifier: [Drink]] {
-        return stock.toShowStock()
+        return stock.showedStock()
     }
     
     public func findExpiredDrinks() -> [Drink] {

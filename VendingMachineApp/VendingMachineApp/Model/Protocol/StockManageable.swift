@@ -11,7 +11,7 @@ protocol StockManageable {
     func addedDrink(_ drink: Drink)
     func availableForDrinks(coin: Int) -> [Drink]
     func purchased(drinkType: Drink.Type, insertedCoin: Int) -> Drink?
-    func toShowStock() -> [ObjectIdentifier: [Drink]]
+    func showedStock() -> [ObjectIdentifier: [Drink]]
     func lookingForExpiredDrinks() -> [Drink]
     func lookingForWarmDrinks() -> [Drink]
 }

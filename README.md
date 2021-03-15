@@ -50,6 +50,19 @@
 
 
 - 완성 날짜
-  - 2021-03-05 16:00
+  - 2021-03-10 16:00
 
 
+
+## Step-4
+
+- 설명
+  - viewController에서 dict타입과 tuple타입을 이용하여 음료수의 버튼, 음료수 객체, 음료수 레이블을 묶었다.
+  - VendingMachine객체와 속성 타입들 및 하위타입들에 NSCoding, NSObject 프로토콜을 채택하였다.
+  - VendingMachine객체를 archive하여 UserDefaults에 값을 저장하고, 앱을 종료하고 다시 실행할 때, UserDefaults로부터 unarchive하여 객체를 사용하였다.
+  - 클래스에 enum타입의 속성을 가지면 디코딩이 안되므로 enum타입의 rawValue를 디코딩하여 문제를 해결하였다.
+
+
+
+- 완성날짜
+  - 2021-03-15 17:04

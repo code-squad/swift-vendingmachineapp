@@ -32,9 +32,6 @@ class InsertedMoney: NSObject, NSCoding {
         insertedMoney = 0
     }
     
-    func compareInsertedMoneyToPrice(price: Int) -> Bool {
-        return insertedMoney >= price
-    }
 }
 
 extension InsertedMoney {

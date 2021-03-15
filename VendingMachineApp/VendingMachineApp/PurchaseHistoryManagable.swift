@@ -8,6 +8,6 @@
 import Foundation
 
 protocol PurchaseHistoryManagable {
-    func addPurchased(_ beverage: Beverage)
+    func addPurchased(_ beverageType: Beverage.Type)
     func readHistory() -> [ObjectIdentifier: [Beverage]]
 }

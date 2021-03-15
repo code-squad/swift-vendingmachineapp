@@ -23,14 +23,15 @@ class PurchaseHistory: NSObject, PurchaseHistoryManagable, NSCoding {
         self.purchased = coder.decodeObject(forKey: "purchased") as? Inventory ?? Inventory()
     }
     
-    func addPurchased(_ beverage: Beverage) {
-        self.purchased.addBeverage(beverage)
+    func addPurchased(_ beverageType: Beverage.Type) {
+        self.purchased.addBeverage(beverageType)
+        NotificationCenter.default.post(name: VendingMachine.NotificationName.didChangeInventory, object: nil)
     }
     
     func readHistory() -> [ObjectIdentifier: [Beverage]] {
         var purchasedList = [ObjectIdentifier: [Beverage]]()
         
-        self.purchased.fotEachBeverage { beverage in
+        self.purchased.forEachBeverage { beverage in
             let beverageType = ObjectIdentifier(type(of: beverage))
             purchasedList[beverageType, default: [Beverage]()].append(beverage)
         }

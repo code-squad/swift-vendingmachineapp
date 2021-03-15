@@ -10,6 +10,7 @@
 		BD34A5E525E771DA00FBB9E2 /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD34A5E425E771DA00FBB9E2 /* Beverage.swift */; };
 		BD34A5E825E7725900FBB9E2 /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD34A5E725E7725900FBB9E2 /* VendingMachine.swift */; };
 		BD34A5ED25E79AE300FBB9E2 /* ConvertDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD34A5EC25E79AE300FBB9E2 /* ConvertDate.swift */; };
+		BD431E2025FF8F51006B74A6 /* Archive.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD431E1F25FF8F51006B74A6 /* Archive.swift */; };
 		BD91BE2925E63C8B009DCFD3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD91BE2825E63C8B009DCFD3 /* AppDelegate.swift */; };
 		BD91BE2B25E63C8B009DCFD3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD91BE2A25E63C8B009DCFD3 /* SceneDelegate.swift */; };
 		BD91BE2D25E63C8B009DCFD3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD91BE2C25E63C8B009DCFD3 /* ViewController.swift */; };
@@ -53,6 +54,7 @@
 		BD34A5E425E771DA00FBB9E2 /* Beverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beverage.swift; sourceTree = "<group>"; };
 		BD34A5E725E7725900FBB9E2 /* VendingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachine.swift; sourceTree = "<group>"; };
 		BD34A5EC25E79AE300FBB9E2 /* ConvertDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertDate.swift; sourceTree = "<group>"; };
+		BD431E1F25FF8F51006B74A6 /* Archive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Archive.swift; sourceTree = "<group>"; };
 		BD91BE2525E63C8B009DCFD3 /* VendingMachineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendingMachineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD91BE2825E63C8B009DCFD3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BD91BE2A25E63C8B009DCFD3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 				BD91BE3125E63C8C009DCFD3 /* Assets.xcassets */,
 				BD91BE3325E63C8C009DCFD3 /* LaunchScreen.storyboard */,
 				BD91BE3625E63C8C009DCFD3 /* Info.plist */,
+				BD431E1F25FF8F51006B74A6 /* Archive.swift */,
 			);
 			path = VendingMachineApp;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 				BDF11B4E25EF65EF0027FB8F /* Beverages.swift in Sources */,
 				BD91BE2B25E63C8B009DCFD3 /* SceneDelegate.swift in Sources */,
 				BDB2678225F73AFD00625409 /* BeverageFactory.swift in Sources */,
+				BD431E2025FF8F51006B74A6 /* Archive.swift in Sources */,
 				BD91BE4225E64024009DCFD3 /* Coffee.swift in Sources */,
 				BD34A5ED25E79AE300FBB9E2 /* ConvertDate.swift in Sources */,
 				BD34A5E525E771DA00FBB9E2 /* Beverage.swift in Sources */,

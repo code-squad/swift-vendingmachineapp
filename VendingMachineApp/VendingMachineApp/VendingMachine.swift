@@ -7,21 +7,21 @@
 
 import Foundation
 
-struct VendingMachine{
+class VendingMachine : NSObject, NSCoding{
     static let Instance : VendingMachine = VendingMachine.init()
     private var money : Money
     private var currentBeverages : Beverages
     private var bought : Beverages
     private var BeverageFactory : [Beverage] = []
     
-    private init() {
+    private override init() {
         self.money = Money.init(money: 0)
         self.currentBeverages = Beverages()
         self.bought = Beverages()
         currentBeverages.makeBeverageofFactroy(beverages: &self.BeverageFactory)
     }
     
-    mutating func encode(with coder: NSCoder) {
+    func encode(with coder: NSCoder) {
         if let tempMoney = coder.decodeObject(forKey: "Money") as? Money {
             self.money = tempMoney
         }
@@ -34,6 +34,17 @@ struct VendingMachine{
         if let tempBeverageFactory = coder.decodeObject(forKey: "BeverageFactory") as? [Beverage] {
             self.BeverageFactory = tempBeverageFactory
         }
+    }
+    
+    required init?(coder: NSCoder) {
+        self.money = Money.init(money: 0)
+        self.currentBeverages = Beverages()
+        self.bought = Beverages()
+        currentBeverages.makeBeverageofFactroy(beverages: &self.BeverageFactory)
+        coder.encode(self.money, forKey: "Money")
+        coder.encode(self.currentBeverages, forKey: "currentBeverages")
+        coder.encode(self.bought, forKey: "boughtList")
+        coder.encode(self.BeverageFactory, forKey: "BeverageFactory")
     }
     
     func addBeverage(beverage : Beverage){

@@ -7,7 +7,7 @@
 
 import Foundation
 
-class VendingMachine {
+class VendingMachine: NSCoding {
     private var drinks: Drinks
     private var cashManagementSystem: CashManagementSystem
     private var purchasedList: PurchasedList
@@ -16,6 +16,19 @@ class VendingMachine {
         self.drinks = Drinks()
         self.cashManagementSystem = CashManagementSystem()
         self.purchasedList = PurchasedList()
+    }
+    
+    func encode(with coder: NSCoder) {
+        coder.encode(drinks, forKey: "drinks")
+        coder.encode(cashManagementSystem, forKey: "cashManagementSystem")
+        coder.encode(purchasedList, forKey: "purchasedList")
+    }
+    
+    required init?(coder: NSCoder) {
+        drinks = coder.decodeObject(forKey: "drinks") as! Drinks
+        cashManagementSystem = coder.decodeObject(forKey: "cashManagementSystem") as! CashManagementSystem
+        purchasedList = coder.decodeObject(forKey: "purchasedList") as! PurchasedList
+        
     }
     
     func addStock(as beverage: Beverage) {

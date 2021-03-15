@@ -71,7 +71,7 @@ class VendingMachine : NSObject, NSCoding {
         soldHistory.append(item: item)
         uncharge(coins: item.price)
         
-        NotificationCenter.default.post(name: VendingMachine.StockCountChanged, object: ViewController.self)
+        NotificationCenter.default.post(name: VendingMachine.StockCountChanged, object: self)
         return item
     }
     private func getProduct(with type : Beverage.Type) -> Beverage?{
@@ -81,7 +81,7 @@ class VendingMachine : NSObject, NSCoding {
     
     //  잔액을 돌려주는 메소드
     public func returnCoins() -> Int {
-        NotificationCenter.default.post(name: VendingMachine.CoinChanged, object: nil)
+        NotificationCenter.default.post(name: VendingMachine.CoinChanged, object: self)
         return money.resetCoins()
     }
     

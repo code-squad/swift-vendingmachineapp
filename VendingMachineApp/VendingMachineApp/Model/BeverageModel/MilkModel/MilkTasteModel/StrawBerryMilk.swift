@@ -8,7 +8,7 @@
 import Foundation
 
 class StrawBerryMilk: Milk & FoodColoringApplicable {
-    private let strawBerryFarm: LocationTrackable
+    public let strawBerryFarm: LocationTrackable
     var foodColoring: FoodColoring?
     
     init(brand: String, size: Int, price: Int, name: String, packageTime: Date, milkFarm: LocationTrackable, strawBerryFarm: LocationTrackable, foodColoring: FoodColoring?) {

@@ -59,6 +59,7 @@
 		88846F3125F0BF6900333AE3 /* BeverageFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D67CF525ED02C40033BF57 /* BeverageFactory.swift */; };
 		88846F3925F0D31400333AE3 /* BeverageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8849846B25EF85DC002C71F5 /* BeverageView.swift */; };
 		88846F4125F0E4B000333AE3 /* NotificationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88846F4025F0E4B000333AE3 /* NotificationExtension.swift */; };
+		88B35EC725FF2B2C0026156B /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B35EC625FF2B2C0026156B /* Item.swift */; };
 		88D67CF225EBC4A80033BF57 /* BeverageUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D67CF125EBC4A80033BF57 /* BeverageUnitTest.swift */; };
 /* End PBXBuildFile section */
 
@@ -104,6 +105,7 @@
 		88748ADD25E4F09700E7DCB1 /* MoneyProcessingUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyProcessingUnit.swift; sourceTree = "<group>"; };
 		88748AE125E4F4E700E7DCB1 /* BeverageStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageStorage.swift; sourceTree = "<group>"; };
 		88846F4025F0E4B000333AE3 /* NotificationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationExtension.swift; sourceTree = "<group>"; };
+		88B35EC625FF2B2C0026156B /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		88D67CE225EBC27E0033BF57 /* VendingMachineAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VendingMachineAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		88D67CE625EBC27E0033BF57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		88D67CF125EBC4A80033BF57 /* BeverageUnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageUnitTest.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 		883E0EEA25FCB4D000A2BA3D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				88B35EC625FF2B2C0026156B /* Item.swift */,
 				88748AE125E4F4E700E7DCB1 /* BeverageStorage.swift */,
 				88748ADD25E4F09700E7DCB1 /* MoneyProcessingUnit.swift */,
 				88748ADA25E4EECB00E7DCB1 /* Machine.swift */,
@@ -392,6 +395,7 @@
 				880B9ABF25E8D32C008B02BB /* FoodColoring.swift in Sources */,
 				88748ACC25E4A57000E7DCB1 /* CaffeLatte.swift in Sources */,
 				88748A8625E387B100E7DCB1 /* AppDelegate.swift in Sources */,
+				88B35EC725FF2B2C0026156B /* Item.swift in Sources */,
 				88748A9C25E38A4900E7DCB1 /* Beverage.swift in Sources */,
 				88748AB725E4A3E600E7DCB1 /* BananaMilk.swift in Sources */,
 				8849846C25EF85DC002C71F5 /* BeverageView.swift in Sources */,

@@ -7,13 +7,22 @@
 
 import Foundation
 
-class PurchasedList {
+class PurchasedList: NSObject, NSCoding {
+    
     private var purchasedDrinks: [Beverage]
+    
+    func encode(with coder: NSCoder) {
+        coder.encode(purchasedDrinks, forKey: "purchasedDrinks")
+    }
+    
+    required init?(coder: NSCoder) {
+        self.purchasedDrinks = coder.decodeObject(forKey: "purchasedDrinks") as! [Beverage]
+    }
     
     init(_ purchasedDrinks: [Beverage]) {
         self.purchasedDrinks = purchasedDrinks
     }
-    convenience init() {
+    convenience override init() {
         self.init([])
     }
     
@@ -26,8 +35,5 @@ class PurchasedList {
     }
 }
 
-extension PurchasedList: Equatable {
-    static func == (lhs: PurchasedList, rhs: PurchasedList) -> Bool {
-        return lhs.purchasedDrinks == rhs.purchasedDrinks
-    }
-}
+
+

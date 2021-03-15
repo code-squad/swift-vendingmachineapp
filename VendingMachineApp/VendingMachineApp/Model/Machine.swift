@@ -7,10 +7,36 @@
 
 import Foundation
 
-struct Machine {
-    private var moneyProccesor = MoneyProcessingUnit()
-    private var beverageStorage = BeverageStorage()
-    private var purchaseHistory = [Beverage]()
+class Machine: NSObject, NSCoding {
+    private var moneyProccesor: MoneyProcessingUnit
+    private var beverageStorage: BeverageStorage
+    private var purchaseHistory: [Beverage]
+    
+    
+    init(moneyProcessor: MoneyProcessingUnit, beverageStorage: BeverageStorage, purchaseHistory: [Beverage]) {
+        self.moneyProccesor = moneyProcessor
+        self.beverageStorage = beverageStorage
+        self.purchaseHistory = purchaseHistory
+    }
+    
+    func encode(with coder: NSCoder) {
+        coder.encode(moneyProccesor, forKey: "moneyProcessor")
+        coder.encode(beverageStorage, forKey: "beverageStorage")
+        coder.encode(purchaseHistory, forKey: "purchaseHistory")
+    }
+    
+    required convenience init?(coder eDecoder: NSCoder) {
+        guard let moneyProccesor = eDecoder.decodeObject(forKey: "moneyProcessor") as? MoneyProcessingUnit,
+              let beverageStorage = eDecoder.decodeObject(forKey: "beverageStorage") as? BeverageStorage,
+              let purchaseHistory = eDecoder.decodeObject(forKey: "purchaseHistory") as? [Beverage] else { return nil }
+        self.init(moneyProcessor: moneyProccesor, beverageStorage: beverageStorage, purchaseHistory: purchaseHistory)
+    }
+    
+    override init() {
+        self.moneyProccesor = MoneyProcessingUnit()
+        self.beverageStorage = BeverageStorage()
+        self.purchaseHistory = [Beverage]()
+    }
     
     func receiveMoney(amount: Int) {
         moneyProccesor.increaseMoneyOnTransaction(by: amount)
@@ -36,35 +62,35 @@ struct Machine {
         return beverageStorage.checkExpired(on: date)
     }
     
-    mutating func purchaseBeverage(beverage: Beverage) {
-        let itemPrice = beverage.showPrice()
-        guard itemPrice <= moneyProccesor.moneyOnTransactionAmount() else { return }
-            beverageStorage.decreaseStock(beverage: beverage) {result in
-                switch result {
-                case .success(let deductedBeverage):
-                    moneyProccesor.deductMoneyOnTransaction(with: itemPrice)
-                    savePurchaseHistory(beverage: deductedBeverage)
-                case .failure(let error):
-                    print(error.localizedDescription)
-                    return
-                }
-            }
-    }
+//    func purchaseBeverage(beverage: Beverage) {
+//        let itemPrice = beverage.showPrice()
+//        guard itemPrice <= moneyProccesor.moneyOnTransactionAmount() else { return }
+//            beverageStorage.decreaseStock(beverage: beverage) {result in
+//                switch result {
+//                case .success(let deductedBeverage):
+//                    moneyProccesor.deductMoneyOnTransaction(with: itemPrice)
+//                    savePurchaseHistory(beverage: deductedBeverage)
+//                case .failure(let error):
+//                    print(error.localizedDescription)
+//                    return
+//                }
+//            }
+//    }
 
-    mutating func transactionStopButtonPressed() -> Int {
+    func transactionStopButtonPressed() -> Int {
         resetPurchaseHistory()
         return moneyProccesor.returnChanges()
     }
     
-    mutating private func savePurchaseHistory(beverage: Beverage) {
+    private func savePurchaseHistory(beverage: Beverage) {
         purchaseHistory.append(beverage)
     }
     
-    mutating private func resetPurchaseHistory() {
+    private func resetPurchaseHistory() {
         purchaseHistory = []
     }
     
-    mutating public func showPurchaseHistory() -> [Beverage] {
+    public func showPurchaseHistory() -> [Beverage] {
         return purchaseHistory
     }
 }

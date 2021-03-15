@@ -8,27 +8,26 @@
 import Foundation
 
 class Americano: Coffee & EnergyBoostable {
-    var temperature: Int
     var caffeine: Int
+    var temperature: Int
     
-    init(brand: String, size: Milliliter, price: Int, name: String, packageTime: Date, bean: Bean, caffeine: Int, temperature: Int) {
+    init(brand: String, size: Int, price: Int, name: String, packageTime: Date, bean: String, caffeine: Int, temperature: Int) {
         self.caffeine = caffeine
         self.temperature = temperature
         super.init(brand: brand, size: size, price: price, name: name, packageTime: packageTime, bean: bean)
     }
     
     override func encode(with coder: NSCoder) {
-        coder.encode(temperature, forKey: "temperature")
         coder.encode(caffeine, forKey: "caffeine")
+        coder.encode(temperature, forKey: "temperature")
         super.encode(with: coder)
     }
     
-    required init?(coder eDecoder: NSCoder) {
-        temperature = eDecoder.decodeInteger(forKey: "temperature")
-        caffeine = eDecoder.decodeInteger(forKey: "caffeine")
-        super.init(coder: eDecoder)
+    required init?(coder: NSCoder) {
+        caffeine = coder.decodeInteger(forKey: "caffeine")
+        temperature = coder.decodeInteger(forKey: "temperature")
+        super.init(coder: coder)
     }
-    
     
     func highCaffeine(caffeine criterion: Int) -> Bool {
         return caffeine > criterion

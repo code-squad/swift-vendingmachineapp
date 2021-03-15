@@ -11,7 +11,7 @@ class BananaMilk: Milk & FoodColoringApplicable {
     private let bananaFarm: LocationTrackable
     var foodColoring: FoodColoring?
     
-    init(brand: String, size: Milliliter, price: Int, name: String, packageTime: Date, milkFarm: LocationTrackable, bananaFarm: LocationTrackable, foodColoring: FoodColoring?) {
+    init(brand: String, size: Int, price: Int, name: String, packageTime: Date, milkFarm: LocationTrackable, bananaFarm: LocationTrackable, foodColoring: FoodColoring?) {
         self.bananaFarm = bananaFarm
         self.foodColoring = foodColoring
         super.init(brand: brand, size: size, price: price, name: name, packageTime: packageTime, farm: milkFarm)
@@ -23,10 +23,10 @@ class BananaMilk: Milk & FoodColoringApplicable {
         super.encode(with: coder)
     }
     
-    required init?(coder eDecoder: NSCoder) {
-        bananaFarm = eDecoder.decodeObject(forKey: "bananaFarm") as! LocationTrackable
-        foodColoring = eDecoder.decodeObject(forKey: "foodColoring") as! FoodColoring?
-        super.init(coder: eDecoder)
+    required init?(coder: NSCoder) {
+        bananaFarm = coder.decodeObject(forKey: "bananaFarm") as! LocationTrackable
+        foodColoring = coder.decodeObject(forKey: "foodColoring") as! FoodColoring?
+        super.init(coder: coder)
     }
     
     func isUsingFoodColoring() -> Bool {

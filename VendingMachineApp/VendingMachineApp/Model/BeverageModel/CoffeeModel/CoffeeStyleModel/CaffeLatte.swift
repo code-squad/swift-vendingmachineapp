@@ -11,7 +11,7 @@ class CaffeLatte: Coffee & EnergyBoostable {
     var temperature: Int
     var caffeine: Int
     
-    init(brand: String, size: Milliliter, price: Int, name: String, packageTime: Date, bean: Bean, caffeine: Int, temperature: Int) {
+    init(brand: String, size: Int, price: Int, name: String, packageTime: Date, bean: String, caffeine: Int, temperature: Int) {
         self.caffeine = caffeine
         self.temperature = temperature
         super.init(brand: brand, size: size, price: price, name: name, packageTime: packageTime, bean: bean)

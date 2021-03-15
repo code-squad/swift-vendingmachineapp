@@ -10,7 +10,7 @@ import Foundation
 class Milk: Beverage {
     private let farm: LocationTrackable
     
-    public init(brand: String, size: Milliliter, price: Int, name: String, packageTime: Date, farm: LocationTrackable) {
+    public init(brand: String, size: Int, price: Int, name: String, packageTime: Date, farm: LocationTrackable) {
         self.farm = farm
         super.init(brand: brand, size: size, price: price, name: name, packageTime: packageTime)
     }
@@ -20,8 +20,8 @@ class Milk: Beverage {
         super.encode(with: coder)
     }
     
-    required init?(coder eDecoder: NSCoder) {
-        farm = eDecoder.decodeObject(forKey: "farm") as! LocationTrackable
-        super.init(coder: eDecoder)
+    required init?(coder: NSCoder) {
+        farm = coder.decodeObject(forKey: "farm") as! LocationTrackable
+        super.init(coder: coder)
     }
 }

@@ -8,19 +8,15 @@
 import Foundation
 
 class Coffee: Beverage {
-    public enum Bean {
-        case arabica
-        case robusta
-    }
-    private let bean: Bean
+    private let bean: String
     
-    init(brand: String, size: Milliliter, price: Int, name: String, packageTime: Date, bean: Bean) {
+    init(brand: String, size: Int, price: Int, name: String, packageTime: Date, bean: String) {
         self.bean = bean
         super.init(brand: brand, size: size, price: price, name: name, packageTime: packageTime)
     }
     
-    convenience override init(brand: String, size: Milliliter, price: Int, name: String, packageTime: Date) {
-        self.init(brand: brand, size: size, price: price, name: name, packageTime: packageTime, bean: .robusta)
+    convenience override init(brand: String, size: Int, price: Int, name: String, packageTime: Date) {
+        self.init(brand: brand, size: size, price: price, name: name, packageTime: packageTime, bean: "robusta")
     }
     
     override func encode(with coder: NSCoder) {
@@ -29,7 +25,7 @@ class Coffee: Beverage {
     }
     
     required init?(coder eDecoder: NSCoder) {
-        bean = eDecoder.decodeObject(forKey: "bean") as! Bean
+        bean = eDecoder.decodeObject(forKey: "bean") as! String
         super.init(coder: eDecoder)
     }
 }

@@ -8,12 +8,11 @@
 import Foundation
 
 class BeverageStorage: NSObject, NSCoding {
-    
     enum StockError: Error {
         case noStock
     }
     
-    private var stock: [Beverage:Int]
+    private var stock: [Beverage: Int]
     
     override init() {
         stock = [:]
@@ -23,10 +22,9 @@ class BeverageStorage: NSObject, NSCoding {
         coder.encode(stock, forKey: "stock")
     }
     
-    required init?(coder eDecoder: NSCoder) {
-        stock = eDecoder.decodeObject(forKey: "stock") as! [Beverage:Int]
+    required init?(coder: NSCoder) {
+        stock = coder.decodeObject(forKey: "stock") as! [Beverage: Int]
     }
-    
     
     public func increaseStock(beverage: Beverage, by amount: Int) {
         if stock[beverage] != nil {
@@ -36,7 +34,7 @@ class BeverageStorage: NSObject, NSCoding {
             stock[beverage] = amount
         }
     }
-
+//
     public func checkStock() -> [Beverage:Int] {
        return stock
     }
@@ -47,7 +45,7 @@ class BeverageStorage: NSObject, NSCoding {
         }
         return purchasableBeverages
     }
-    
+
     public func checkExpired(on date: Date) -> [Beverage:Int] {
         let purchasableBeverages = stock.filter { (bev, amt) -> Bool in
             bev.isExpired(on: date)

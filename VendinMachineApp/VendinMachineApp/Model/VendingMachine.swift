@@ -6,26 +6,56 @@ enum VendingMachineMoney : Int, CaseIterable {
     case insertMoneyType2 = 5000
 }
 
-struct VendingMachine {
+class VendingMachine : NSObject, NSCoding {
     private(set) var cashBox: Int
-    private var beverages: Beverages
-    private var shoppingHistoryData: Beverages
+    private(set) var beverages: Beverages
+    private(set) var shoppingHistoryData: Beverages
     
-    init() {
+    override init() {
         cashBox = 0
         beverages = Beverages()
         shoppingHistoryData = Beverages()
+    }
+    
+    required init?(coder: NSCoder) {
+        self.cashBox = coder.decodeInteger(forKey: "cashBox")
+        self.beverages = Beverages()
+        self.shoppingHistoryData = Beverages()
+        
+        let beverageStockList:[[Beverage]] = coder.decodeObject(forKey: "beverageStockList") as! [[Beverage]]
+        let shoppingHistoryList:[[Beverage]] = coder.decodeObject(forKey: "shoppingHistoryList") as! [[Beverage]]
+
+        for (type, beverageList) in zip(VendingMachineElements().beverageList, beverageStockList) {
+            self.beverages.setupToDecode(beverageList: beverageList, type: type)
+        }
+        for (type, beverageList) in zip(VendingMachineElements().beverageList, shoppingHistoryList) {
+            self.shoppingHistoryData.setupToDecode(beverageList: beverageList, type: type)
+        }
+    }
+    
+    func encode(with coder: NSCoder) {
+        var beverageStockList:[[Beverage]] = []
+        var shoppingHistoryList:[[Beverage]] = []
+
+        for type in VendingMachineElements().beverageList {
+            beverageStockList.append(beverages.beverageList(type: type))
+            shoppingHistoryList.append(shoppingHistoryData.beverageList(type: type))
+        }
+
+        coder.encode(self.cashBox, forKey: "cashBox")
+        coder.encode(beverageStockList, forKey: "beverageStockList")
+        coder.encode(shoppingHistoryList, forKey: "shoppingHistoryList")
     }
     
     func shoppingHistory() -> Beverages {
         return shoppingHistoryData
     }
     
-    mutating func insertCash(amount: Int) {
+    func insertCash(amount: Int) {
         self.cashBox += amount
     }
     
-    mutating func reduceCash(amount: Int) {
+    func reduceCash(amount: Int) {
         self.cashBox -= amount
     }
     
@@ -65,11 +95,11 @@ struct VendingMachine {
         return self.beverages.lowCalorieBeverageList(below: calories)
     }
     
-    func BeveragesOfSameOrigin(where country: Country) -> Beverages {
+    func BeveragesOfSameOrigin(where country: String) -> Beverages {
         return self.beverages.sameOriginBeverageList(madeIn: country)
     }
     
-    mutating func buy(beverageType: Beverage.Type) -> Beverage? {
+    func buy(beverageType: Beverage.Type) -> Beverage? {
         guard !self.beverages.isEmpty(elementType: beverageType) || self.beverages.priceInfo(elementType: beverageType) != nil else {
             return nil
         }

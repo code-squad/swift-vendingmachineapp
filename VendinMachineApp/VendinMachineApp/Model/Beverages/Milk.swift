@@ -9,6 +9,16 @@ class Milk : Beverage, Drinkable {
         super.init(brand: brand, size: size, price: price, name: name, manufactureAt: manufactureAt)
     }
     
+    override func encode(with coder: NSCoder) {
+        coder.encode(self.expiredAt, forKey: "expiredAt")
+        super.encode(with: coder)
+    }
+    
+    required init?(coder: NSCoder) {
+        self.expiredAt = coder.decodeObject(forKey: "expiredAt") as! Date
+        super.init(coder: coder)
+    }
+    
     func isDrinkable(on date: Date) -> Bool {
         return expiredAt > date ? true : false
     }

@@ -20,9 +20,7 @@ class ViewController: UIViewController, SelectPanelStackViewDelegate, TopPanelDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        self.vendingMachine = appDelegate.vendingMachine
-
+        self.vendingMachine = VendingMachine.default
         selectPanelStackView.delegate = self
         topPanelView.delegate = self
         selectPanelStackView.setDrinkImageViewsRadius(of: 10)
@@ -30,6 +28,10 @@ class ViewController: UIViewController, SelectPanelStackViewDelegate, TopPanelDe
         loadSelectPanelStackViewLabels()
         configCoinsLabelObserver()
         configStockLabelObserver()
+    }
+    
+    public func settingVendingMachine(_ vendingMachine: VendingMachine) {
+        self.vendingMachine = vendingMachine
     }
     
     func configStockLabelObserver() {

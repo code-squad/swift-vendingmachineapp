@@ -29,12 +29,12 @@ class Beverage: NSObject, NSCoding{
     }
     
     required init?(coder: NSCoder) {
-        self.manufacturer = coder.decodeObject(forKey: "manufacturer") as! String
+        self.manufacturer = coder.decodeObject(forKey: "manufacturer") as? String ?? String()
         self.volume = coder.decodeInteger(forKey: "volume")
         self.price = coder.decodeInteger(forKey: "price")
-        self.brand = coder.decodeObject(forKey: "brand") as! String
-        self.manufactured = coder.decodeObject(forKey: "manufactured") as! Date
-        self.expiry = coder.decodeObject(forKey: "expiry") as! Date
+        self.brand = coder.decodeObject(forKey: "brand") as? String ?? String()
+        self.manufactured = coder.decodeObject(forKey: "manufactured") as? Date ?? Date()
+        self.expiry = coder.decodeObject(forKey: "expiry") as? Date ?? Date()
         self.calorie = coder.decodeInteger(forKey: "calorie")
         self.temperature = coder.decodeInteger(forKey: "temperature")
     }

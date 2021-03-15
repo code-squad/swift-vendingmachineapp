@@ -35,7 +35,7 @@ class Soda: Beverage {
     }
     
     required init?(coder: NSCoder) {
-        self.flavor = coder.decodeObject(forKey: "flavor") as! String
+        self.flavor = coder.decodeObject(forKey: "flavor") as? String ?? String()
         super.init(coder: coder)
     }
     

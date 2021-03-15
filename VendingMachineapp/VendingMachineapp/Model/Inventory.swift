@@ -18,8 +18,8 @@ class Inventory: NSObject, NSCoding {
     }
     
     required init?(coder: NSCoder) {
-        self.inventory = coder.decodeObject(forKey: "inventory") as! [Beverage]
-        self.productList = coder.decodeObject(forKey: "productList") as! [Beverage]
+        self.inventory = coder.decodeObject(forKey: "inventory") as? [Beverage] ?? []
+        self.productList = coder.decodeObject(forKey: "productList") as? [Beverage] ?? []
     }
     
     func encode(with coder: NSCoder) {

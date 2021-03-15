@@ -8,10 +8,10 @@
 import Foundation
 
 class TOP: Coffee{
-    enum Flavor {
-        case americano
-        case latte
-        case espresso
+    enum Flavor: String {
+        case americano = "americano"
+        case latte = "latte"
+        case espresso = "espresso"
     }
     
     private var flavor: Flavor
@@ -22,6 +22,16 @@ class TOP: Coffee{
     }
     convenience init() {
         self.init(brand: "동서식품", capacity: 380, price: 2000, name: "TOP", manufacturedAt: Date.input("20210222"), expirationAt: Date.input("20210301"), temperature: 65, caffeineContent: 94, flavor: TOP.Flavor.americano)
+    }
+    
+    required init?(coder: NSCoder) {
+        flavor = Flavor(rawValue: coder.decodeObject(forKey: "flavor") as! String)!
+        super.init(coder: coder)
+    }
+    
+    override func encode(with coder: NSCoder) {
+        coder.encode(flavor.rawValue, forKey: "flavor")
+        super.encode(with: coder)
     }
     
     func isEspresso() -> Bool {

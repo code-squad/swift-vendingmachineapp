@@ -16,11 +16,9 @@ class ViewController: UIViewController, Stateful {
     @IBOutlet var addBalanceButtons: [UIButton]!
     @IBOutlet weak var balanceLabel: UILabel!
     @IBOutlet var purchaseButtons: [UIButton]!
-    @IBOutlet weak var purchaseHistoryCollectionView: UICollectionView!
     
     private var moneyPublisher: AnyCancellable!
     private var purchaseHistoryPublisher: AnyCancellable!
-    private var purchaseHistoryCellRegistraion: UICollectionView.CellRegistration<PurchaseHistoryCell, PurchaseHistoryManagable>!
     var vendingMachine: VendingMachine!
     
     override func viewDidLoad() {
@@ -64,15 +62,6 @@ class ViewController: UIViewController, Stateful {
         }
     }
     
-    private func configureCollectionView() {
-        let layout = PurchaseHistoryLayoutManager().createLayout()
-        purchaseHistoryCollectionView = UICollectionView(frame: view.bounds, collectionViewLayout: layout)
-        
-        purchaseHistoryCellRegistraion = UICollectionView.CellRegistration {  cell, indexPath, purchaseHistory in
-            print(purchaseHistory.readHistory())
-        }
-    }
-    
     @objc func updateBeverageCountLabels() {
         self.configureBeverageCountLabels()
     }
@@ -94,6 +83,6 @@ class ViewController: UIViewController, Stateful {
         guard let index: Int = self.purchaseButtons.firstIndex(of: sender) else { return }
         guard let beverageType = self.vendingMachine.mappingIndexToBeverageType(by: index) else { return }
         self.vendingMachine.purchaseBeverage(beverageType: beverageType)
+        configureCollectionView()
     }
 }
-

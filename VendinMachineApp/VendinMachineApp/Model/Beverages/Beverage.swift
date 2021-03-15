@@ -1,14 +1,15 @@
 
 import Foundation
 
-class Beverage : CustomStringConvertible {
+class Beverage : NSObject, NSCoding {
+    
     private var brand: String
     private var size: Int
     private(set) var price: Int
     private var name: String
     private var manufacturedAt: Date
     
-    var description: String {
+    override var description: String {
         return "\(brand), \(size)ml, \(price)원, \(name), \(manufacturedAt.toString(with: Date.manufacturedFormat()))"
     }
     
@@ -20,6 +21,22 @@ class Beverage : CustomStringConvertible {
         self.manufacturedAt = manufactureAt
     }
     
+    func encode(with coder: NSCoder) {
+        coder.encode(self.brand, forKey: "brand")
+        coder.encode(self.size, forKey: "size")
+        coder.encode(self.price, forKey: "price")
+        coder.encode(self.name, forKey: "name")
+        coder.encode(self.manufacturedAt, forKey: "manufacturedAt")
+    }
+    
+    required init?(coder: NSCoder) {
+        self.brand = coder.decodeObject(forKey: "brand") as! String
+        self.size = coder.decodeInteger(forKey: "size")
+        self.price = coder.decodeInteger(forKey: "price")
+        self.name = coder.decodeObject(forKey: "name") as! String
+        self.manufacturedAt = coder.decodeObject(forKey: "manufacturedAt") as! Date
+    }
+    
     class func makeBeverage() -> Beverage {
         return Beverage(brand: "unknown", size: 0, price: 0, name: "unknown", manufactureAt: Date())
     }
@@ -29,17 +46,17 @@ class Beverage : CustomStringConvertible {
     }
 }
 
-extension Beverage : Hashable {
+extension Beverage {
     static func == (lhs: Beverage, rhs: Beverage) -> Bool {
         return lhs.brand == rhs.brand && lhs.size == rhs.size &&
             lhs.price == rhs.price && lhs.name == rhs.name
     }
     
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(brand)
-        hasher.combine(size)
-        hasher.combine(price)
-        hasher.combine(name)
-    }
+//    func hash(into hasher: inout Hasher) {
+//        hasher.combine(brand)
+//        hasher.combine(size)
+//        hasher.combine(price)
+//        hasher.combine(name)
+//    }
     
 }

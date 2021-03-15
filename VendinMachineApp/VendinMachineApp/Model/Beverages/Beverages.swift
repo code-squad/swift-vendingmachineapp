@@ -2,6 +2,7 @@
 import Foundation
 
 class Beverages {
+    
     private var beverages: [ObjectIdentifier:[Beverage]]
     
     init() {
@@ -24,6 +25,17 @@ class Beverages {
     func beverageCount(elementType: Beverage.Type) -> Int {
         let count = self.beverages[ObjectIdentifier(elementType)]?.count ?? 0
         return count
+    }
+    
+    func beverageList(type: Beverage.Type) -> [Beverage] {
+        guard let beverageArray = self.beverages[ObjectIdentifier(type)] else {
+            return []
+        }
+        return beverageArray
+    }
+    
+    func setupToDecode(beverageList: [Beverage], type: Beverage.Type) {
+        self.beverages[ObjectIdentifier(type)] = beverageList
     }
     
     func addBeverage(element: Beverage) {
@@ -77,11 +89,11 @@ class Beverages {
         return tempBeverages
     }
     
-    func sameOriginBeverageList(madeIn country: Country) -> Beverages {
+    func sameOriginBeverageList(madeIn country: String) -> Beverages {
         let tempBeverages = Beverages()
 
         self.beverages.forEach { (beverageType, beverageArray) in
-            if let beverage = self.beverages[beverageType], let sameOriginBeverage = beverage as? Country, type(of: sameOriginBeverage.madeIn()) == type(of: country.madeIn()) {
+            if let beverage = self.beverages[beverageType], let sameOriginBeverage = beverage as? Country, country == sameOriginBeverage.nameOfCountry() {
                 tempBeverages.beverages.updateValue(beverageArray, forKey: beverageType)
             }
         }
@@ -103,7 +115,7 @@ class Beverages {
         let tempBeverages = Beverages()
 
         self.beverages.forEach { (beverageType, beverageArray) in
-            if let beverage = self.beverages[beverageType], let transparentBeverage = beverage as? Package, transparentBeverage.isTransparentMaterial(){
+            if let beverage = self.beverages[beverageType], let transparentBeverage = beverage as? Transparentable, transparentBeverage.isTransparentMaterial(){
                 tempBeverages.beverages.updateValue(beverageArray, forKey: beverageType)
             }
         }

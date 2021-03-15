@@ -18,8 +18,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         vendingMachine = (UIApplication.shared.delegate as! AppDelegate).vendingMachine
         
-        NotificationCenter.default.addObserver(self, selector: #selector(updateBeverageLabel), name: VendingMachine.StockCountChanged, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(updateCoinLabel), name: VendingMachine.CoinChanged, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateBeverageLabel), name: VendingMachine.StockCountChanged, object: vendingMachine)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateCoinLabel), name: VendingMachine.CoinChanged, object: vendingMachine)
     }
     
     

@@ -7,12 +7,12 @@
 
 import Foundation
 
-class VendingMachine: NSCoding {
+class VendingMachine: NSObject, NSCoding {
     private var drinks: Drinks
     private var cashManagementSystem: CashManagementSystem
     private var purchasedList: PurchasedList
     
-    init() {
+    override init() {
         self.drinks = Drinks()
         self.cashManagementSystem = CashManagementSystem()
         self.purchasedList = PurchasedList()

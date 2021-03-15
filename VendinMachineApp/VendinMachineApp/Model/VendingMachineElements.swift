@@ -5,7 +5,7 @@ import UIKit
 class VendingMachineElements {
     private var addBeverageButtons: [UIButton:Beverage.Type]
     private var insertCashButtons: [UIButton:Int]
-    private var beverageList: [Beverage.Type]
+    private(set) var beverageList: [Beverage.Type]
     
     init() {
         self.addBeverageButtons = [:]

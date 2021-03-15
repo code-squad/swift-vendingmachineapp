@@ -1,4 +1,4 @@
-# 자판기 앱
+# 자판기 앱(Vending Machine Application)
 ## Major Implementation
 ### 1. (STEP1 BRANCH) Beverage 클래스와 각 음료수별 하위 클래스 구현 2021.02.22 22:00
 #### Study keywords
@@ -22,3 +22,13 @@
 - StackView
 - SubView
 - Downcasting
+
+### 4. (STEP4 BRANCH) Application Lifecycle과 객체저장 2021.03.15 18:00
+<img src="images/step4and5.gif" width="600"> 
+
+#### Study keywords
+- AppDelegate
+- Singleton Pattern
+- Archiving and unarchiving
+- NSObject, NSCoding
+- Shallow Copy and Deep Copy

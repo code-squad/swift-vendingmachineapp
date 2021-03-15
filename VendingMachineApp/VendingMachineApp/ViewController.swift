@@ -24,8 +24,8 @@ class ViewController: UIViewController {
     }
     
     func setNotificationObserver() {
-        NotificationCenter.default.addObserver(self, selector: #selector(updateNotificationBalanceLabel(_:)), name: .updateBalance, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(updateNotificationBeverageLabel(_:)), name: .updateBeverage, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateNotificationBalanceLabel(_:)), name: .updateBalance, object: Payment.self)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateNotificationBeverageLabel(_:)), name: .updateBeverage, object: VendingMachine.self)
     }
     
     @IBAction func buyBeverageButtonTouched(_ sender: UIButton) {
@@ -51,12 +51,12 @@ class ViewController: UIViewController {
     
     @objc private func updateNotificationBalanceLabel(_ notification : Notification) {
         self.BalanceLabel.text =
-            String(notification.object as? Int ?? 0)
+            String(notification.userInfo?["amountMoney"] as? Int ?? 0)
     }
     
     @objc private func updateNotificationBeverageLabel(_ notification : Notification) {
         appDelegate?.vendingMachine?.showDrinkMenuList().enumerated().forEach {
-            let notification = notification.object as? [ObjectIdentifier : [Beverage]]
+            let notification = notification.userInfo?["drinklist"] as? [ObjectIdentifier : [Beverage]]
             self.numberOfStock[$0.offset].text = String(notification?[ObjectIdentifier(type(of: $0.element))]?.count ?? 0)
         }
     }

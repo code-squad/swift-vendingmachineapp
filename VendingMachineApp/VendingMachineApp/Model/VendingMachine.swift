@@ -52,7 +52,7 @@ class VendingMachine : NSObject, NSCoding {
     func addStock(buttonIndex : Int) {
         let beverage = drinkMenu.list[buttonIndex]
         drinks.addStock(beverage : beverage)
-        NotificationCenter.default.post(name: .updateBeverage, object: drinks.showAllBeverage())
+        NotificationCenter.default.post(name: .updateBeverage, object: VendingMachine.self, userInfo: ["drinklist" : drinks.showAllBeverage()])
     }
     
     func showPurchasePossibleList() -> [Beverage] {

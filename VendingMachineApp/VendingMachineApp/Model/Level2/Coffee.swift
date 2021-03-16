@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Coffee: Beverage, CustomStringConvertible, Hotable {
+class Coffee: Beverage, Hotable {
 
     private var temperature: Int
     
@@ -25,6 +25,16 @@ class Coffee: Beverage, CustomStringConvertible, Hotable {
                    manufacture: Date(),
                    expiredAt: Date()
         )
+    }
+    
+    override func encode(with coder: NSCoder) {
+        coder.encode(temperature, forKey: "temperature")
+        super.encode(with: coder)
+    }
+    
+    required init?(coder: NSCoder) {
+        self.temperature = coder.decodeInteger(forKey: "temperature")
+        super.init(coder: coder)
     }
     
     public func isHot(over standard: Int) -> Bool {      

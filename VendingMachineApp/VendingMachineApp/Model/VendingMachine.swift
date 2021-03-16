@@ -6,17 +6,29 @@
 //
 
 import Foundation
+ 
+class VendingMachine: NSObject, NSCoding {
 
-struct VendingMachine {
-  
     private var inventory: Inventory
     private var paymentManager: PaymentManager
     private var purchaseHistory: PurchaseHistory
     
-    init() {
+    override init() {
         self.inventory = Inventory()
         self.paymentManager = PaymentManager()
         self.purchaseHistory = PurchaseHistory()
+    }
+    
+    required init?(coder decoder: NSCoder) {
+        inventory = decoder.decodeObject(forKey: "inventory") as! Inventory
+        paymentManager = decoder.decodeObject(forKey: "paymentManager") as! PaymentManager
+        purchaseHistory = decoder.decodeObject(forKey: "purchaseHistory") as! PurchaseHistory
+    }
+    
+    func encode(with coder: NSCoder) {
+        coder.encode(inventory, forKey: "inventory")
+        coder.encode(paymentManager, forKey: "paymentManager")
+        coder.encode(purchaseHistory, forKey: "purchaseHistory")
     }
     
     //특정 상품 인스턴스를 넘겨서 재고를 추가하는 기능
@@ -65,3 +77,4 @@ struct VendingMachine {
         return purchaseHistory.beverages
     }
 }
+

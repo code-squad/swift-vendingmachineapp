@@ -15,14 +15,11 @@ class ViewController: UIViewController {
     private var imageViewInitializer: [ObjectIdentifier: BeverageView] = [:]
     private var updateModelHelper: [UIButton: Beverage.Type] = [:]
     private var updateLabelHelper: [UIButton: UILabel] = [:]
-    private var vendingMachine = VendingMachine()
 
+    var delegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-       
-        vendingMachine.appendInventory(FactoryManager.create(type: MilkFactory.self))
-        vendingMachine.appendInventory(FactoryManager.create(type: SodaFactory.self))
-        vendingMachine.appendInventory(FactoryManager.create(type: CoffeeFactory.self))
         
         initialize()
     }
@@ -30,6 +27,11 @@ class ViewController: UIViewController {
     private func initialize() {
         makeBaverageViews()
         view.addSubview(inventoryStackView)
+        initMoneyLabelText()
+    }
+    
+    private func initMoneyLabelText() {
+        moneyLabel.text = "잔액: \(delegate.vendingMachine.showCurrentMoney()) 원"
     }
     
     func makeBaverageViews() {
@@ -46,14 +48,14 @@ class ViewController: UIViewController {
     private func initImageViewInitializer() {
         imageViewInitializer.removeAll()
         
-        let beverages = vendingMachine.showAllBeverageList()
+        let beverages = delegate.vendingMachine.showAllBeverageList()
         beverages.keys.forEach { key in
             if let beverage = beverages[key]?.first {
                 let image = UIImage(named: beverage.name) ?? UIImage()
                 let text = "\(beverages[key]?.count ?? 0)"
                 let beverageView =  BeverageView(beverageImage: image, stockLabelText: text )
                 beverageView.addButton.addTarget(self, action: #selector(addBeverage), for: .touchUpInside)
-
+                
                 imageViewInitializer[key] = beverageView
                 updateModelHelper[beverageView.addButton] = type(of: beverage)
                 updateLabelHelper[beverageView.addButton] = beverageView.stockLabel
@@ -66,17 +68,17 @@ class ViewController: UIViewController {
         guard let beverage = updateModelHelper[sender]?.init() else {
             return
         }
-        vendingMachine.appendInventory(beverage)
-        updateLabelHelper[sender]!.text = "\(vendingMachine.showAllBeverageList()[ObjectIdentifier(type(of: beverage))]?.count ?? 0)"
+        delegate.vendingMachine.appendInventory(beverage)
+        updateLabelHelper[sender]!.text = "\(delegate.vendingMachine.showAllBeverageList()[ObjectIdentifier(type(of: beverage))]?.count ?? 0)"
     }
     
     @IBAction func addMoney5000(_ sender: Any) {
-        vendingMachine.put(in: .fiveThousand)
-        moneyLabel.text = "잔액: \(vendingMachine.showCurrentMoney()) 원"
+        delegate.vendingMachine.put(in: .fiveThousand)
+        initMoneyLabelText()
     }
     
     @IBAction func addMoney1000(_ sender: Any) {
-        vendingMachine.put(in: .thousand)
-        moneyLabel.text = "잔액: \(vendingMachine.showCurrentMoney()) 원"
+        delegate.vendingMachine.put(in: .thousand)
+        initMoneyLabelText()
     }
 }

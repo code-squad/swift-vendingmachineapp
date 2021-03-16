@@ -31,4 +31,14 @@ class BananaMilk: Milk {
                    expiredAt: Calendar.current.date(byAdding: .day, value: 5, to: Date())!
         )
     }
+    
+    override func encode(with coder: NSCoder) {
+        coder.encode(hasDoraemonSticker, forKey: "hasDoraemonSticker")
+        super.encode(with: coder)
+    }
+    
+    required init?(coder: NSCoder) {
+        self.hasDoraemonSticker = coder.decodeBool(forKey: "hasDoraemonSticker")
+        super.init(coder: coder)
+    }
 }

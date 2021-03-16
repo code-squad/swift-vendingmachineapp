@@ -11,7 +11,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
-
+    var appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
         guard let _ = (scene as? UIWindowScene) else { return }
@@ -26,7 +27,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func sceneWillResignActive(_ scene: UIScene) {
-       
+        let data = ArchivingManager.archive(with: appDelegate.vendingMachine)
+        UserDefaults.standard.set(data, forKey: "vendingMachine")
     }
 
     func sceneWillEnterForeground(_ scene: UIScene) {
@@ -34,7 +36,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {
-       
+        
     }
 }
 

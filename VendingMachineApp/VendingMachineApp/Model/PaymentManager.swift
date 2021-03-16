@@ -7,12 +7,20 @@
 
 import Foundation
 
-class PaymentManager {
-    
+class PaymentManager: NSObject, NSCoding {
+ 
     private(set) var money: Int
     
-    init() {
+    override init() {
         money = 0
+    }
+    
+    func encode(with coder: NSCoder) {
+        coder.encode(money, forKey: "money")
+    }
+    
+    required init?(coder: NSCoder) {
+        money = coder.decodeInteger(forKey: "money")
     }
     
     public func increase(_ money: Money) {

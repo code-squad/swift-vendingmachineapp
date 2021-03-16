@@ -7,7 +7,7 @@
 
 import Foundation
 
-class VendingMachine: NSObject, NSCoding {
+class VendingMachine: NSObject, NSCoding, VendingMachinable {
     private var drinks: Drinks
     private var cashManagementSystem: CashManagementSystem
     private var purchasedList: PurchasedList
@@ -71,4 +71,11 @@ class VendingMachine: NSObject, NSCoding {
     func showPurchasedList() -> PurchasedList {
         purchasedList.givePurchasedList()
     }
+}
+
+protocol VendingMachinable {
+    func addStock(as beverage: Beverage)
+    func rechargeCash(with cash: Int)
+    func showStock() -> [ObjectIdentifier:[Beverage]]
+    func showBalance() -> CashManagementSystem
 }

@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     @IBOutlet var chargeButtons: [UIButton]!
     
     private var appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
-    private let chargeAmount = [1000, 5000]
+    private var chargeAmount = ChargeUnit.allCases
     private let drinkType = [BananaMilk.self, Cantata.self, Fanta.self]
     private var buttonsForDrink: [UIButton: Drink.Type] = [:]
     private var buttonsForCharge: [UIButton: Int] = [:]
@@ -46,7 +46,7 @@ class ViewController: UIViewController {
         }
         
         chargeButtons.enumerated().forEach {
-            buttonsForCharge[$1] = chargeAmount[$0]
+            buttonsForCharge[$1] = chargeAmount[$0].rawValue
         }
     }
     

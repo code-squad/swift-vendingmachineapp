@@ -14,7 +14,7 @@ class VendingMachine : NSObject, NSCoding{
     private var BeverageFactory : [Beverage]
     
     override init() {
-        self.money = Money.init(money: 0)
+        self.money = Money.init(money: .OneThousand)
         self.currentBeverages = Beverages()
         self.bought = Beverages()
         BeverageFactory = currentBeverages.makeBeverageofFactroy()
@@ -28,7 +28,7 @@ class VendingMachine : NSObject, NSCoding{
     }
     
     required init?(coder: NSCoder) {
-        self.money = coder.decodeObject(forKey: "Money") as? Money ?? Money.init(money: 0)
+        self.money = coder.decodeObject(forKey: "Money") as? Money ?? Money.init(money: .OneThousand)
         self.currentBeverages = coder.decodeObject(forKey: "currentBeverages") as? Beverages ?? Beverages()
         self.bought = coder.decodeObject(forKey: "boughtList") as? Beverages ?? Beverages()
         self.BeverageFactory = coder.decodeObject(forKey: "BeverageFactory") as? [Beverage] ?? []

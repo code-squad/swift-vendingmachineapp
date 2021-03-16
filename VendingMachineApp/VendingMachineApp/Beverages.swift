@@ -27,6 +27,7 @@ class Beverages : NSObject , NSCoding{
     
     func addBeverage(beverage : Beverage) -> Void{
         beverages.append(beverage)
+        NotificationCenter.default.post(name: NSNotification.Name("addSomething"), object: nil)
     }
     
     func showValidatecurrentBeverageList() -> [Beverage]{

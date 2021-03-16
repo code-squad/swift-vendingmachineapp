@@ -15,9 +15,13 @@ class ViewController: UIViewController ,VendingMachinedable {
     @IBOutlet weak var BalanceLabel: UILabel!
     
     var vendingMachine : VendingMachined!
+    private var paymentMenu : PaymentMenu!
+    private var drinkMenu : DrinkMenu!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        drinkMenu = DrinkMenu(drinkButtons: addStockButton)
+        paymentMenu = PaymentMenu(buttons: addPaymentButtons)
         changeBalanceLabel()
         changeBeverageLabel()
         setNotificationObserver()
@@ -29,13 +33,13 @@ class ViewController: UIViewController ,VendingMachinedable {
     }
     
     @IBAction func buyBeverageButtonTouched(_ sender: UIButton) {
-        guard let buttonIndex = self.addStockButton.firstIndex(of: sender) else { return }
-        vendingMachine.addStock(buttonIndex: buttonIndex)
+        guard let beverage = drinkMenu.addMenu(button: sender) else { return }
+        //vendingMachine.addStock(buttonIndex: buttonIndex)
     }
     
     @IBAction func BalanceIncreaseButtonTouched(_ sender: UIButton) {
-        guard let buttonIndex = self.addPaymentButtons.firstIndex(of: sender) else { return }
-        vendingMachine.putPayMoney(buttonIndex: buttonIndex)
+        let money = paymentMenu.add(button : sender)
+        vendingMachine.putPayMoney(money: money)
     }
     
     private func changeBalanceLabel() {
@@ -44,8 +48,8 @@ class ViewController: UIViewController ,VendingMachinedable {
     }
     
     private func changeBeverageLabel() {
-        vendingMachine.showAllBeverageStock { index, count in
-            self.numberOfStock[index].text = String(count)
+        drinkMenu.drinkList.enumerated().forEach { index , drinkType in
+            self.numberOfStock[index].text = String(vendingMachine.showBeverageStock(drinkType: drinkType))
         }
     }
     
@@ -55,9 +59,11 @@ class ViewController: UIViewController ,VendingMachinedable {
     }
     
     @objc private func updateNotificationBeverageLabel(_ notification : Notification) {
-        vendingMachine.showDrinkMenuList().enumerated().forEach {
+        drinkMenu.drinkList.enumerated().forEach { index, drinkType in
             let notification = notification.userInfo?["drinklist"] as? [ObjectIdentifier : [Beverage]]
-            self.numberOfStock[$0.offset].text = String(notification?[ObjectIdentifier(type(of: $0.element))]?.count ?? 0)
+            self.numberOfStock[index].text =
+                String(notification?[ObjectIdentifier(drinkType)]?.count ?? 0)
         }
+        
     }
 }

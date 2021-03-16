@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Milk: Beverage, CustomStringConvertible {
+class Milk: Beverage {
  
     private var farmCode: String
     
@@ -28,4 +28,13 @@ class Milk: Beverage, CustomStringConvertible {
         )
     }
     
+    override func encode(with coder: NSCoder) {
+        coder.encode(farmCode, forKey: "farmCoder")
+        super.encode(with: coder)
+    }
+    
+    required init?(coder: NSCoder) {
+        self.farmCode = coder.decodeObject(forKey: "farmCoder") as! String
+        super.init(coder: coder)
+    }
 }

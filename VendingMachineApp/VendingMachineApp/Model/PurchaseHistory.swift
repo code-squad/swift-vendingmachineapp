@@ -7,11 +7,20 @@
 
 import Foundation
 
-class PurchaseHistory {
+class PurchaseHistory: NSObject, NSCoding {
+
     private(set) var beverages: [Beverage]
     
-    init() {
+    override init() {
         self.beverages = []
+    }
+    
+    func encode(with coder: NSCoder) {
+        coder.encode(beverages, forKey: "historyBeverages")
+    }
+    
+    required init?(coder: NSCoder) {
+        beverages = coder.decodeObject(forKey: "historyBeverages") as! [Beverage]
     }
     
     public func append(item beverage: Beverage) {

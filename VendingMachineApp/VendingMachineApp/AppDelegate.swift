@@ -10,8 +10,20 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    var vendingMachine = VendingMachine()
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-       
+        
+        vendingMachine.appendInventory(FactoryManager.create(type: MilkFactory.self))
+        vendingMachine.appendInventory(FactoryManager.create(type: SodaFactory.self))
+        vendingMachine.appendInventory(FactoryManager.create(type: CoffeeFactory.self))
+        
+        guard let vendingMachine = ArchivingManager.unarchive(with: UserDefaults.standard.data(forKey: "vendingMachine") ?? Data()) else {
+                  return true
+              }
+        
+        self.vendingMachine = vendingMachine
+        
         return true
     }
 

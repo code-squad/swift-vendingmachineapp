@@ -21,6 +21,16 @@ class Coke: Soda, LowCalorieChecker {
         super.init(brand: "코카콜라", capacity: 200, price: 1000, name: "콜라",manufacture: Date(), taste: "레몬맛", expiredAt: Calendar.current.date(byAdding: .day, value: 180, to: Date())!)
     }
     
+    override func encode(with coder: NSCoder) {
+        coder.encode(calorie, forKey: "calorie")
+        super.encode(with: coder)
+    }
+    
+    required init?(coder: NSCoder) {
+        calorie = coder.decodeInteger(forKey: "calorie")
+        super.init(coder: coder)
+    }
+    
     func isLowCalorie(over standard: Int) -> Bool {
         return calorie < standard
     }

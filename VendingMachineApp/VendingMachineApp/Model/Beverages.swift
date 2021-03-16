@@ -7,11 +7,19 @@
 
 import Foundation
 
-class Beverages {
+class Beverages: NSObject, NSCoding {
     private var beverages: [Beverage]
     
-    init() {
+    override init() {
         beverages = []
+    }
+    
+    func encode(with coder: NSCoder) {
+        coder.encode(beverages, forKey: "beverages")
+    }
+    
+    required init?(coder: NSCoder) {
+        beverages = coder.decodeObject(forKey: "beverages") as! [Beverage]
     }
     
     public func append(_ beverage: Beverage) {

@@ -7,12 +7,20 @@
 
 import Foundation
 
-class Inventory {
+class Inventory: NSObject, NSCoding {
 
     private var beverages: Beverages
     
-    init() {
+    override init() {
         self.beverages = Beverages()
+    }
+    
+    func encode(with coder: NSCoder) {
+        coder.encode(beverages, forKey: "InventoryBeverages")
+    }
+    
+    required init?(coder: NSCoder) {
+        beverages = coder.decodeObject(forKey: "InventoryBeverages") as! Beverages
     }
     
     public func append(_ beverage: Beverage) {

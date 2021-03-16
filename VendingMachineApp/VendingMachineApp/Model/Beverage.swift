@@ -7,9 +7,9 @@
 
 import Foundation
 
-class Beverage: SafeDateChecker {
-
-    var description: String {
+class Beverage: NSObject, SafeDateChecker, NSCoding {
+   
+    override var description: String {
         return "\(brand), \(capacity)ml, \(price)원, \(name), \(manufacturedAt.toString()), \(expiredAt.toString())"
     }
     
@@ -29,13 +29,31 @@ class Beverage: SafeDateChecker {
         self.expiredAt = expiredAt
     }
     
-    required init() {
+    required override init() {
         self.brand = "unknown"
         self.capacity = 0
         self.price = 0
         self.name = "unknown"
         self.manufacturedAt = Date()
         self.expiredAt = Date()
+    }
+    
+    func encode(with coder: NSCoder) {
+        coder.encode(brand, forKey: "brand")
+        coder.encode(capacity, forKey: "capacity")
+        coder.encode(price, forKey: "price")
+        coder.encode(name, forKey: "name")
+        coder.encode(manufacturedAt, forKey: "manufacturedAt")
+        coder.encode(expiredAt, forKey: "expiredAt")
+    }
+    
+    required init?(coder: NSCoder) {
+        brand = coder.decodeObject(forKey: "brand") as! String
+        capacity = coder.decodeInteger(forKey: "capacity")
+        price = coder.decodeInteger(forKey: "price")
+        name = coder.decodeObject(forKey: "name") as! String
+        manufacturedAt = coder.decodeObject(forKey: "manufacturedAt") as! Date
+        expiredAt = coder.decodeObject(forKey: "expiredAt") as! Date
     }
     
     public func isExpired(over standard: Date) -> Bool {
@@ -58,22 +76,4 @@ protocol SafeDateChecker {
 protocol LowCalorieChecker {
     func isLowCalorie(over standard: Int) -> Bool
 }
-
-extension Beverage: Hashable {
-    
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(capacity)
-        hasher.combine(price)
-        hasher.combine(name)
-        hasher.combine(brand)
-    }
- 
-    static func == (lhs: Beverage, rhs: Beverage) -> Bool {
-        return lhs.name == rhs.name &&
-            lhs.capacity == rhs.capacity &&
-            lhs.brand == rhs.brand &&
-            lhs.price == rhs.price
-    }
-}
-
 

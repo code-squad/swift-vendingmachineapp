@@ -26,4 +26,14 @@ class Top: Coffee {
                    expiredAt: Calendar.current.date(byAdding: .day, value: 30, to: Date())!
         )
     }
+    
+    override func encode(with coder: NSCoder) {
+        coder.encode(hasSugar, forKey: "hasSugar")
+        super.encode(with: coder)
+    }
+    
+    required init?(coder: NSCoder) {
+        self.hasSugar = coder.decodeBool(forKey: "hasSugar")
+        super.init(coder: coder)
+    }
 }

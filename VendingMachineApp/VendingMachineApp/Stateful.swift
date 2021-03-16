@@ -1,5 +1,5 @@
 //
-//  Stateful.swift
+//  VendingMachineStateShareable.swift
 //  VendingMachineApp
 //
 //  Created by zombietux on 2021/03/10.
@@ -7,12 +7,12 @@
 
 import Foundation
 
-protocol Stateful: class {
+protocol VendingMachineStateShareable: class {
     var vendingMachine: VendingMachine! { get set }
 }
 
-extension Stateful {
-    func passVendingMachineState(to destination: Stateful) {
+extension VendingMachineStateShareable {
+    func passVendingMachineState(to destination: VendingMachineStateShareable) {
         destination.vendingMachine = vendingMachine
     }
 }

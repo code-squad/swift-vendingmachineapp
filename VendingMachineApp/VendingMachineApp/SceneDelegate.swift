@@ -16,17 +16,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
        
         guard let _ = (scene as? UIWindowScene) else { return }
         if let savedData = VendingMachineDataManager.load() {
-            guard let initialViewController = window?.rootViewController as? Stateful else { return }
+            guard let initialViewController = window?.rootViewController as? VendingMachineStateShareable else { return }
             initialViewController.vendingMachine = savedData
         } else {
-            if let initialViewController = window?.rootViewController as? Stateful {
+            if let initialViewController = window?.rootViewController as? VendingMachineStateShareable {
                 initialViewController.vendingMachine = vendingMachine
             }
         }
-
-//        if let initialViewController = window?.rootViewController as? Stateful {
-//            initialViewController.vendingMachine = vendingMachine
-//        }
     }
     
     func sceneDidEnterBackground(_ scene: UIScene) {

@@ -9,14 +9,14 @@ import Foundation
 
 class VendingMachineDataCenter {
     static public func loadVendingMachineData() -> VendingMachine {
-        guard let data = UserDefaults.standard.object(forKey: "vendingMachine") else { return VendingMachine() }
+        guard let data = UserDefaults.standard.object(forKey: "vendingMachine") else { return VendingMachine.default }
         do {
             let vendingMachine = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data as! Data) as? VendingMachine
-            return vendingMachine ?? VendingMachine()
+            return vendingMachine ?? VendingMachine.default
         } catch {
             print(error.localizedDescription)
         }
-        return VendingMachine()
+        return VendingMachine.default
     }
 
     static public func saveVendingMachineData(_ vendingMachine: VendingMachine) {

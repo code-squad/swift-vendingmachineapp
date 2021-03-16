@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-    func applicationDidEnterBackground(_ application: UIApplication) {
+    func applicationWillTerminate(_ application: UIApplication) {
         UserDefaults.standard.setValue(vendingMachineSave(with: vendingMachine), forKey: "vendingMachine")
     }
     
@@ -33,7 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return object as? VendingMachine
     }
     
-    private func vendingMachineSave(with data: VendingMachine) -> Data {
+    func vendingMachineSave(with data: VendingMachine) -> Data {
         guard let data = try? NSKeyedArchiver.archivedData(withRootObject: data, requiringSecureCoding: false) else {
             return Data()
         }

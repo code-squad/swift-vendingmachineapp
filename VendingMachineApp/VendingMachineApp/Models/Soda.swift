@@ -23,7 +23,7 @@ class Soda: Beverage{
     }
     
     required init?(coder: NSCoder) {
-        self.zeroCalorie = coder.decodeObject(forKey: "zeroCalorie") as! Bool
+        self.zeroCalorie = coder.decodeBool(forKey: "zeroCalorie")
         super.init(coder: coder)
     }
     

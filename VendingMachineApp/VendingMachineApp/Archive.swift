@@ -9,7 +9,7 @@ import Foundation
 
 class Archive {
     
-    func archive(with things: VendingMachine) -> Data {
+    static func archive(with things: VendingMachine) -> Data {
         do {
             let archived = try NSKeyedArchiver.archivedData(withRootObject: things, requiringSecureCoding: false)
             return archived
@@ -20,7 +20,7 @@ class Archive {
         return Data()
     }
 
-    func unarchive(with text: Data) -> VendingMachine? {
+    static func unarchive(with text: Data) -> VendingMachine? {
         do {
             let object = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(text)
             return object as? VendingMachine

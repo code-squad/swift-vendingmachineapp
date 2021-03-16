@@ -12,6 +12,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private(set) var vendingMachine = VendingMachine()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        if let data = UserDefaults.standard.data(forKey: "vendingMachine"), let vendingMachine = Archive.unarchive(with: data) {
+            self.vendingMachine = vendingMachine
+        }
         return true
     }
 

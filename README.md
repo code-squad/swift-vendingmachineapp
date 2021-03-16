@@ -152,3 +152,33 @@ Coffee도 Enum 타입의 kind 가지고, Monster도  Enum 타입의 kind를 가�
 - 음식 재고가 바뀌는 Notification을 받으면 화면에 Label을 업데이트한다.
 - VendingMachine 모델 객체에서는 변화에 대해 NotificationCenter에 post한다.
 - 모든 동작은 이전 단계와 동일하게 동작해야 한다.
+
+[PR 리뷰과정](https://github.com/code-squad/swift-vendingmachineapp/pull/306)
+
+# Step6
+
+## 프로그래밍 요구사항
+
+- 실행이후 구매 목록을 화면 아래 이미지로 추가한다.
+- 화면 아래 부분을 좌우로 스크롤 가능하도록 만들고 상품 이미지를 추가한다. 계속 추가해도 스크롤할 수 있어야 한다.
+- 특정 제품을 구매할 때마다 해당 제품 이미지를 추가하도록 구현한다.
+- NotificationCenter를 활용하자!
+- 특정 시점에 self.scrollView.addSubView() 메서드로 UIImageView를 수동 추가한다.
+- 모든 동작은 이전 단계와 동일하게 동작해야 한다.
+
+## 결과
+
+<img width="1104" alt="Screen Shot 2021-03-16 at 9 09 47 PM" src="https://user-images.githubusercontent.com/60229909/111306744-f1d12300-869b-11eb-970d-b79a25c7bdf7.png">
+
+## 고찰
+### [Beverage.type : String] 자료를 만들어 UIImage 매칭
+파라미터로 넘어온 `Beverage.Type`를 받아 UIImage를 반환하고자 하였다. 하지만, `static`으로 만들어 놓은 `ObjectIdentifier(Top.Type)`의 값과 앱 실행 도중 넘겨받은 `ObjectIdentifier(Top.Type)`의 값이 달라 이와 같은 로직을 적용할 수 없었다. 결국, Beverage.Type을 가지고 있는 배열과 음료수의 이미지를 가지고 있는 UIImage 배열을 각각 생성하여 매칭하였다.
+
+### ScrollView의 isScrollEnabled
+ScrollVeiw의 스크롤이 가능하게 하기 위해서는 다음의 옵션 설정이 필요 한 것 같다.
+```swift
+scrollVeiw.isScrollEnabled = true
+```
+
+### ScrollView의 contentSize, 과도하게 스크롤 되는 현상 방지
+contentSize는 기본적으로 `CGSizeZero`의 값을 가지고 있다. 때문에, 아무리 ScrollView의 sub뷰를 추가하여도 스크롤이 생성되지 않는다. 세로로 스크롤 될 필요는 없으므로, `self.bounds.height`값으로 높이를 지정하였고, 넓이는 구매 이미지가 추가될 때 마다 ContentSize값을 변경하도록 하였다. 동시에 과도하게 스크롤 되는 현상을 해결 할 수 있었다.

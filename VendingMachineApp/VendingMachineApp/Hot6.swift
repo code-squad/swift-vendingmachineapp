@@ -19,6 +19,16 @@ class Hot6 : Energydrink {
         self.init(taurineContent: 40, caffeineContent: 30, brand: "코카콜라", volume: 180, price: 1900, name: "HOT6", manufactured: manufactured, temperature: 9, kcal: 20)
     }
     
+    required init?(coder: NSCoder) {
+        self.taurineContent = coder.decodeObject(forKey: "taurineContent") as? Int ?? 0
+        super.init(coder: coder)
+    }
+    
+    override func encode(with coder: NSCoder) {
+        coder.encode(self.taurineContent, forKey: "taurineContent")
+        super.encode(with: coder)
+    }
+    
     func isTaurine(standard : Int) -> Bool{
         return self.taurineContent > standard
     }

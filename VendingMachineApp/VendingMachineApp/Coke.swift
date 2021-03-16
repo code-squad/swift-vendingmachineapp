@@ -23,4 +23,15 @@ class Coke : Soda{
         self.init(product: .zero, sugarContent: 0, brand: "코카콜라", volume: 180, price: 3100, name: "코카콜라제로", manufactured: manufactured, temperature: 1, kcal: 210)
     }
     
+    required init?(coder: NSCoder) {
+        //self.product = coder.decodeObject(forKey: "product") as? Product ?? .light
+        self.product = .light
+        super.init(coder: coder)
+    }
+    
+    override func encode(with coder: NSCoder) {
+        //coder.encode(self.product, forKey: "product")
+        super.encode(with: coder)
+    }
+    
 }

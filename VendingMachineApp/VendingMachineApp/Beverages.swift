@@ -7,13 +7,22 @@
 
 import Foundation
 
-class Beverages{
+class Beverages : NSObject , NSCoding{
     private var beverages : [Beverage]
     private let beverageTypeList : [Beverage.Type]
     
-    init() {
+    override init() {
         beverages = []
         beverageTypeList = [BananaMilk.self, StrawBerryMilk.self, Cider.self, Coke.self, Hot6.self, Monster.self, CaffeMocha.self, CaffeeLatte.self]
+    }
+    
+    required init?(coder: NSCoder) {
+        self.beverages = coder.decodeObject(forKey: "beverages") as? [Beverage] ?? []
+        self.beverageTypeList = [BananaMilk.self, StrawBerryMilk.self, Cider.self, Coke.self, Hot6.self, Monster.self, CaffeMocha.self, CaffeeLatte.self]
+    }
+    
+    func encode(with coder: NSCoder) {
+        coder.encode(self.beverages, forKey: "beverages")
     }
     
     func addBeverage(beverage : Beverage) -> Void{
@@ -56,10 +65,12 @@ class Beverages{
         return beverageList
     }
     
-    func makeBeverageofFactroy(beverages : inout [Beverage]){
+    func makeBeverageofFactroy() -> [Beverage]{
+        var tempBeverages : [Beverage] = []
         for i in 0..<beverageTypeList.count{
-            beverages.append(BeverageCreater().makeBeverage(beveragetype: beverageTypeList[i], manufactured: Date().makeDatewithString(yyyyMMdd: "20200303")))
+            tempBeverages.append(BeverageCreater().makeBeverage(beveragetype: beverageTypeList[i], manufactured: Date().makeDatewithString(yyyyMMdd: "20200303")))
         }
+        return tempBeverages
     }
     
     func beveragesList() -> [String : Int]{

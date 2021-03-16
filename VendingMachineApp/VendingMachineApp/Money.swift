@@ -7,11 +7,20 @@
 
 import Foundation
 
-class Money : CustomStringConvertible{
+class Money : NSObject, NSCoding{
+    
     private var Money : Int
     
     init(money : Int) {
         self.Money = money
+    }
+    
+    func encode(with coder: NSCoder) {
+        coder.encode(self.Money, forKey: "currentMoney")
+    }
+    
+    required init?(coder: NSCoder) {
+        self.Money = coder.decodeInteger(forKey: "currentMoney")
     }
  
     enum moneyUnit : Int, CaseIterable{
@@ -37,7 +46,7 @@ class Money : CustomStringConvertible{
         return self.Money > price
     }
     
-    var description: String{
+    override var description: String{
         return "\(self.Money)원"
     }
 }

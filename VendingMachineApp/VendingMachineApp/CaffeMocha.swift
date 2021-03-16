@@ -19,4 +19,15 @@ class CaffeMocha : Coffee{
         self.init(cream: true, caffeineContent: 30, brand: "스타벅스", volume: 236, price: 3600, name: "카페모카", manufactured: manufactured, temperature: 90, kcal: 330)
     }
     
+    required init?(coder: NSCoder) {
+        self.cream = coder.decodeObject(forKey: "cream") as? Bool ?? false
+        super.init(coder: coder)
+    }
+    
+    override func encode(with coder: NSCoder) {
+        coder.encode(self.cream, forKey: "cream")
+        super.encode(with: coder)
+    }
+    
+    
 }

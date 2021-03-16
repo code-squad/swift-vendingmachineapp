@@ -19,5 +19,14 @@ class Monster : Energydrink {
         self.init(glutamineContent: 10, caffeineContent: 30, brand: "코카콜라", volume: 180, price: 2100, name: "몬스터", manufactured: manufactured, temperature: 5, kcal: 30)
     }
     
+    required init?(coder: NSCoder) {
+        self.glutamineContent = coder.decodeObject(forKey: "glutamineContent") as? Int ?? 0
+        super.init(coder: coder)
+    }
+    
+    override func encode(with coder: NSCoder) {
+        coder.encode(self.glutamineContent, forKey: "glutamineContent")
+        super.encode(with: coder)
+    }
     
 }

@@ -10,6 +10,11 @@ import Foundation
 class CashManagementSystem: NSObject, NSCoding {
     private var cash: Int
     
+    enum SelectCash: Int {
+        case thousand = 1000
+        case fiveThousands = 5000
+    }
+    
     override var description : String {
         return "\(self.cash)"
     }

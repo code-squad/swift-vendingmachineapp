@@ -30,7 +30,7 @@ class VendingMachineManager: NSObject, NSCoding {
     func updatePurchaseList(inventory: Inventory, beverage: Beverage.Type) {
         if let remove = inventory.subtract(beverage: beverage) {
             purchaseHistory.append(remove)
-            money.changeMoney(with: Money(with: -remove.price))
+            self.money -= Money(with: remove.price)
         }
     }
     
@@ -38,12 +38,12 @@ class VendingMachineManager: NSObject, NSCoding {
         return purchaseHistory
     }
     
-    func changeMoney(with money: Money) {
-        self.money.changeMoney(with: money)
+    func updateMoney(with money: Money) {
+        self.money += money
     }
     
     func checkChange() -> Money {
-        return self.money.checkChange()
+        return self.money
     }
     
 }

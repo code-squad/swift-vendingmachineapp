@@ -17,7 +17,7 @@ class EncondingBeverageTest: XCTestCase {
         
         let archiveText = ArchivingManager.archive(with: machine)
         print(archiveText)
-        let archiveObject = ArchivingManager.unarchive(with: archiveText)
+        let archiveObject = ArchivingManager.unarchive()
         var result = ""
 
         

@@ -9,8 +9,8 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    var buttonDictionary: [UIButton:Beverage] = [:]
-    var labelDictionary: [Beverage:UILabel] = [:]
+    private var buttonDictionary: [UIButton:Beverage] = [:]
+    private var labelDictionary: [Beverage:UILabel] = [:]
     
     @IBOutlet weak var mainStackView: UIStackView!
     @IBOutlet var lineStackView: [UIStackView]!
@@ -84,8 +84,7 @@ class ViewController: UIViewController {
         for (product, label) in labelDictionary {
             label.text = "\(delegate.vendingMachine.wholeBeverage()[product] ?? 0)"
         }
-        
-        currentChangeLabel.text = "잔액 : \(delegate.vendingMachine.checkChagne().money)원"
+        currentChangeLabel.text = "잔액 : \(delegate.vendingMachine.checkChange())원"
     }
     
     @objc func changeStockLabel(_ notification: Notification) {
@@ -97,6 +96,6 @@ class ViewController: UIViewController {
     }
     
     @objc func changeMoneyLabel(_ notification: Notification) {
-        currentChangeLabel.text = "잔액 : \(delegate.vendingMachine.checkChagne().money)원"
+        currentChangeLabel.text = "잔액 : \(delegate.vendingMachine.checkChange())원"
     }
 }

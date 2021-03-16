@@ -18,4 +18,5 @@ protocol InventoryManagable {
     func readInventoryCount(beverageType: Beverage.Type) -> Int
     func readInventores() -> [ObjectIdentifier : [Beverage]]
     func removeBeverageInInventoryBox(beverageType: Beverage.Type) -> Beverage?
+    func isPurchasableBeverage(balance: Int, beverageType: Beverage.Type) -> Bool
 }

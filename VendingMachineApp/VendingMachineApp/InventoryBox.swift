@@ -75,4 +75,8 @@ class InventoryBox: NSObject, InventoryBoxManagable,NSCoding {
     func mappingIndexToMoneyInput(by index: Int) -> Money.Input? {
         return self.moneyMapper.mapping(by: index)
     }
+    
+    func readBeveragePrice(beverageType: Beverage.Type) -> Int {
+        return self.inventoryBox[ObjectIdentifier(beverageType)]?.first?.price ?? 0
+    }
 }

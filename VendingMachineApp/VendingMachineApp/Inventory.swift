@@ -32,7 +32,7 @@ class Inventory: NSObject, InventoryManagable, NSCoding {
     
     required init?(coder: NSCoder) {
         self.inventory = coder.decodeObject(forKey: "inventory") as? [Beverage] ?? []
-        self.inventoryBox = coder.decodeObject(forKey: "inventoryBox") as! InventoryBox
+        self.inventoryBox = coder.decodeObject(forKey: "inventoryBox") as! InventoryBoxManagable
     }
     
     func addBeverage(_ beverageType: Beverage.Type) {
@@ -43,6 +43,10 @@ class Inventory: NSObject, InventoryManagable, NSCoding {
     
     func isPurchasableInventory(balance: Int) -> InventoryManagable {
         return Inventory(inventory: self.inventory.filter { $0.isPurchasable(balance: balance) })
+    }
+    
+    func isPurchasableBeverage(balance: Int, beverageType: Beverage.Type) -> Bool {
+        return balance >= self.inventoryBox.readBeveragePrice(beverageType: beverageType)
     }
     
     func forEachBeverage(handler: (Beverage) -> ()) {

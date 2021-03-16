@@ -16,4 +16,5 @@ protocol VendingMachineManagable {
     func mappingIndexToMoneyInput(by index: Int) -> Money.Input?
     func readInventores() -> [ObjectIdentifier : [Beverage]]
     func readInventoryCount(index: Int) -> Int
+    func readPurchased() -> InventoryManagable
 }

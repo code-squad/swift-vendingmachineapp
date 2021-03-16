@@ -42,7 +42,7 @@ class ViewController: UIViewController {
         inspectorView.reloadBalanceLabelText(balance: vendingMachine.getCoins())
         self.view.addSubview(inspectorView)
         inspectorViewConfiguration()
-        
+
         purchaseView = PurchaseScrollView()
         self.view.addSubview(purchaseView)
         purchaseViewCofiguration()
@@ -79,8 +79,7 @@ extension ViewController {
     }
     @objc func updatePurchaseList(){
         let element = vendingMachine.getSoldProducts().last!
-        purchaseView.append(with: element)
-        purchaseView.setNeedsDisplay()
+        purchaseView.addSubView(with: element)
     }
 }
 
@@ -100,11 +99,9 @@ extension ViewController {
         inspectorView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -300).isActive = true
     }
     func purchaseViewCofiguration(){
-        purchaseView.translatesAutoresizingMaskIntoConstraints = false
-        
         purchaseView.topAnchor.constraint(equalTo: self.stockStackView.bottomAnchor, constant: 10).isActive = true
         purchaseView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor).isActive = true
-        purchaseView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: -10).isActive = true
+        purchaseView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: -200).isActive = true
         purchaseView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -20).isActive = true
     }
 }

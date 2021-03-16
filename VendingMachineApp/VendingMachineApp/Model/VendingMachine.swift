@@ -67,13 +67,19 @@ class VendingMachine: NSObject, NSCoding {
         return purchased[purchased.endIndex-1]
     }
     
-    func buyBeverage(product: Beverage){
-        if product.affordableForBeverage(money: insertedMoney) {
-            beverages.removeProduct(product)
-            insertedMoney.afterBuyingProduct(minus: product.price)
-            purchased.append(product)
+    func buyBeverage(product: Beverage.Type){
+        let beverage = typeToInstance(product: product)
+        if beverage.affordableForBeverage(money: insertedMoney) {
+            beverages.removeProduct(beverage)
+            insertedMoney.afterBuyingProduct(minus: beverage.price)
+            purchased.append(beverage)
             NotificationCenter.default.post(name: VendingMachine.updatePurchased, object: self, userInfo: nil)
         }
+    }
+    
+    func typeToInstance(product: Beverage.Type) -> Beverage {
+        let beverage = menuList().filter { type(of: $0) == product }
+        return beverage.first!
     }
     
     func nowBalanceOfVendingMachine() -> InsertedMoney{

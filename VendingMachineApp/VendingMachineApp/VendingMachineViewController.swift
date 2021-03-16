@@ -106,29 +106,29 @@ extension VendingMachineViewController {
 
 extension VendingMachineViewController {
     @IBAction func buyChocoMilkButtonTouched(_ sender: Any) {
-        vendingMachine.buyBeverage(product: ChocolateMilk())
+        vendingMachine.buyBeverage(product: ChocolateMilk.self)
     }
     
     @IBAction func buyStrawberryMilkButtonTouched(_ sender: Any) {
-        vendingMachine.buyBeverage(product: StrawBerryMilk())
+        vendingMachine.buyBeverage(product: StrawBerryMilk.self)
     }
     
     @IBAction func buyCokeButtonTouched(_ sender: Any) {
-        vendingMachine.buyBeverage(product: Coke())
+        vendingMachine.buyBeverage(product: Coke.self)
     }
     
     
     @IBAction func buySpriteButtonTouched(_ sender: Any) {
-       vendingMachine.buyBeverage(product: Sprite())
+        vendingMachine.buyBeverage(product: Sprite.self)
     }
     
     @IBAction func buyTopButtonTouched(_ sender: Any) {
-        vendingMachine.buyBeverage(product: Top())
+        vendingMachine.buyBeverage(product: Top.self)
     }
     
     
     @IBAction func buyCantataButtonTouched(_ sender: Any) {
-        vendingMachine.buyBeverage(product: Cantata())
+        vendingMachine.buyBeverage(product: Cantata.self)
     }
     
 }

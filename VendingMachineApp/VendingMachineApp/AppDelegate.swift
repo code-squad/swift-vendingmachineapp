@@ -11,15 +11,17 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
-    var vendingMachine : VendingMachine?
+    var vendingMachine : VendingMachined!
 
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool  {
-        vendingMachine = DataManager().save()
+        var viewController = window?.rootViewController as! VendingMachinedable
+        vendingMachine = DataManager.load()
+        viewController.vendingMachine = vendingMachine
         return true
     }
 
     func applicationDidEnterBackground(_ application: UIApplication){
-        DataManager().load(vendingMachine: vendingMachine ?? VendingMachine())
+        DataManager.save(vendingMachine as! VendingMachine)
     }
 
 }

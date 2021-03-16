@@ -28,7 +28,7 @@ class Inventory: NSObject, NSCoding {
     }
     
     required init?(coder: NSCoder) {
-        self.slots = coder.decodeObject(forKey: "slots") as! [Slot]
+        self.slots = coder.decodeObject(forKey: "slots") as? [Slot] ?? []
     }
     
     func add(_ item: Beverage) {

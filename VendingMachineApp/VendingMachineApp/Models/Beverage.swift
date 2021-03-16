@@ -40,14 +40,14 @@ class Beverage: NSObject, NSCoding, SafelyDrinkable {
     }
     
     required init?(coder: NSCoder) {
-        self.brand = coder.decodeObject(forKey: "brand") as! String
+        self.brand = coder.decodeObject(forKey: "brand") as? String ?? ""
         self.volume = coder.decodeInteger(forKey: "volume")
         self.price = coder.decodeInteger(forKey: "price")
-        self.name = coder.decodeObject(forKey: "name") as! String
+        self.name = coder.decodeObject(forKey: "name") as? String ?? ""
         self.calorie = coder.decodeInteger(forKey: "calorie")
-        self.imageName = coder.decodeObject(forKey: "imageName") as! String
-        self.manufactured = coder.decodeObject(forKey: "manufactured") as! Date?
-        self.expiredAfter = coder.decodeObject(forKey: "expiredAfter") as! Date?
+        self.imageName = coder.decodeObject(forKey: "imageName") as? String ?? ""
+        self.manufactured = coder.decodeObject(forKey: "manufactured") as? Date ?? Date()
+        self.expiredAfter = coder.decodeObject(forKey: "expiredAfter") as? Date ?? Date()
     }
     
     public override func isEqual(_ other: Any?) -> Bool {

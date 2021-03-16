@@ -38,7 +38,7 @@ class Slot: NSObject, NSCoding {
     }
     
     required init?(coder: NSCoder) {
-        self.items = coder.decodeObject(forKey: "items") as! [Beverage]
+        self.items = coder.decodeObject(forKey: "items") as? [Beverage] ?? []
     }
     
     public override func isEqual(_ other: Any?) -> Bool {

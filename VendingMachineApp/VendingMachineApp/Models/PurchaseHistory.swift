@@ -26,7 +26,7 @@ class PurchaseHistory: NSObject, NSCoding {
     }
     
     required init?(coder: NSCoder) {
-        self.orderList = coder.decodeObject(forKey: "orderList") as! [Order]
+        self.orderList = coder.decodeObject(forKey: "orderList") as? [Order] ?? []
     }
     
     func add(_ order: Order) {

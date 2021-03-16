@@ -22,7 +22,7 @@ class Order: NSObject, NSCoding {
     }
     
     required init?(coder: NSCoder) {
-        self.purchased = coder.decodeObject(forKey: "purchased") as! Date
-        self.item = coder.decodeObject(forKey: "item") as! Beverage
+        self.purchased = coder.decodeObject(forKey: "purchased") as? Date ?? Date()
+        self.item = coder.decodeObject(forKey: "item") as? Beverage ?? DenmarkStrawberryMilkFactory().createProduct(manufactured: Date(), expiredAfter: Date())
     }
 }

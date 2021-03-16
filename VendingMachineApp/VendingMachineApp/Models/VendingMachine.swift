@@ -31,9 +31,9 @@ class VendingMachine: NSObject, NSCoding, InventoryTakeable {
     }
     
     required init?(coder: NSCoder) {
-        self.inventory = coder.decodeObject(forKey: "inventory") as! Inventory
-        self.cashBox = coder.decodeObject(forKey: "cashBox") as! CashBox
-        self.soldItems = coder.decodeObject(forKey: "soldItems") as! PurchaseHistory
+        self.inventory = coder.decodeObject(forKey: "inventory") as? Inventory ?? Inventory(numberOfSlots: 0)
+        self.cashBox = coder.decodeObject(forKey: "cashBox") as? CashBox ?? CashBox(totalRevenue: 0, moneyDeposited: 0)
+        self.soldItems = coder.decodeObject(forKey: "soldItems") as? PurchaseHistory ?? PurchaseHistory()
     }
     
     func insertMoney(amount: Int) {

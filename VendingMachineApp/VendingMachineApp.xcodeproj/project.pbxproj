@@ -123,6 +123,18 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		E42EE3682600815D00C89DD7 /* Beverage */ = {
+			isa = PBXGroup;
+			children = (
+				E4EB87CE25E4F88A00F077D5 /* Beverage.swift */,
+				E4EB87F925E782C000F077D5 /* Package.swift */,
+				E4EB87DF25E52B3E00F077D5 /* Milk.swift */,
+				E4EB87E225E52B4200F077D5 /* Soda.swift */,
+				E4EB87E525E52B4B00F077D5 /* Coffee.swift */,
+			);
+			path = Beverage;
+			sourceTree = "<group>";
+		};
 		E4B8A3FF25F10988006D405F /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -133,11 +145,7 @@
 				E4EB880225E7CE1500F077D5 /* MoneyBox.swift */,
 				E4C499EC25E8716C008449D6 /* BeverageManager.swift */,
 				E4B8A3ED25EF2942006D405F /* ShopableFactory.swift */,
-				E4EB87CE25E4F88A00F077D5 /* Beverage.swift */,
-				E4EB87F925E782C000F077D5 /* Package.swift */,
-				E4EB87DF25E52B3E00F077D5 /* Milk.swift */,
-				E4EB87E225E52B4200F077D5 /* Soda.swift */,
-				E4EB87E525E52B4B00F077D5 /* Coffee.swift */,
+				E42EE3682600815D00C89DD7 /* Beverage */,
 				E4EB87E925E52EA700F077D5 /* DateExtensions.swift */,
 				E412600525EE28C9003ED8A7 /* DateFactory.swift */,
 			);

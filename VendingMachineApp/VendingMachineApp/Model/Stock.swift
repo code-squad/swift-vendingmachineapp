@@ -33,6 +33,7 @@ class Stock: NSObject, NSCoding, StockManageable {
         guard let nthDrink = findNthDrink(typeOf: drinkType) else { return nil }
         guard nthDrink.element.isPurchaseable(coin: insertedCoin) else { return nil }
         stock.remove(at: nthDrink.offset)
+        NotificationCenter.default.post(name: Notification.DidChangeStock, object: self)
         return nthDrink.element
     }
     

@@ -65,6 +65,10 @@ class ViewController: UIViewController, SelectPanelStackViewDelegate, TopPanelDe
         vendingMachine.addDrink(drink)
     }
     
+    func didBoughtDrink(typeOf drinkType: Drink.Type) {
+        _ = vendingMachine.buy(typeOf: drinkType)
+    }
+    
     func didInsertedCoin(amound: Int) {
         vendingMachine.insertCoin(amound)
     }

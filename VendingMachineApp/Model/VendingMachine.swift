@@ -15,6 +15,7 @@ class VendingMachine : NSObject, NSCoding {
     
     static let StockCountChanged = Notification.Name("StockCountChanged")
     static let CoinChanged = Notification.Name("CoinChanged")
+    static let SoldHistoryChanged = Notification.Name("SoldHistoryChanged")
     
     init(money : Money, stock: Stock, soldHistory : Stock){
         self.money = money
@@ -36,7 +37,7 @@ class VendingMachine : NSObject, NSCoding {
         
         self.init(money : money, stock : stock, soldHistory : soldHistory)
     }
- 
+    
     func encode(with coder: NSCoder) {
         coder.encode(money, forKey: "money")
         coder.encode(stock, forKey: "stock")
@@ -59,7 +60,10 @@ class VendingMachine : NSObject, NSCoding {
         stock.append(item: product)
         NotificationCenter.default.post(name: VendingMachine.StockCountChanged, object: self)
     }
-    
+    private func appendToHistroy(buy : Beverage){
+        soldHistory.append(item: buy)
+        NotificationCenter.default.post(name: VendingMachine.SoldHistoryChanged, object: self)
+    }
     //  현재 금액으로 구매가능한 음료수 목록을 리턴하는 메소드
     public func availableProducts() -> [Beverage]{
         return stock.getAvailableProducts(with: money)
@@ -69,10 +73,11 @@ class VendingMachine : NSObject, NSCoding {
     }
     
     public func purchase(with beverage : Beverage) -> Beverage?{
-        stock.remove(item: beverage)
-        soldHistory.append(item: beverage)
-        uncharge(coins: beverage.price)
-        NotificationCenter.default.post(name: VendingMachine.StockCountChanged, object: self)
+        if stock.remove(item: beverage) {
+            appendToHistroy(buy: beverage)
+            uncharge(coins: beverage.price)
+            NotificationCenter.default.post(name: VendingMachine.StockCountChanged, object: self)
+        }
         return beverage
     }
     public func getProduct(with beverageType : Beverage.Type) -> Beverage?{

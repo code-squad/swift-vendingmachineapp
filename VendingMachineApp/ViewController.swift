@@ -11,7 +11,7 @@ class ViewController: UIViewController {
 
     var stockStackView : StockStackView!
     var inspectorView : InspectorStackView!
-    var purchaseView : UIScrollView!
+    var purchaseView : PurchaseScrollView!
     
     var vendingMachine : VendingMachine!
     
@@ -23,6 +23,7 @@ class ViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(updateBeverageLabel), name: VendingMachine.StockCountChanged, object: vendingMachine)
         NotificationCenter.default.addObserver(self, selector: #selector(updateCoinLabel), name: VendingMachine.CoinChanged, object: vendingMachine)
+        NotificationCenter.default.addObserver(self, selector: #selector(updatePurchaseList), name: VendingMachine.SoldHistoryChanged, object: vendingMachine)
     }
     override func viewWillAppear(_ animated: Bool) {
         setUpViews()
@@ -42,7 +43,7 @@ class ViewController: UIViewController {
         self.view.addSubview(inspectorView)
         inspectorViewConfiguration()
         
-        purchaseView = UIScrollView()
+        purchaseView = PurchaseScrollView()
         self.view.addSubview(purchaseView)
         purchaseViewCofiguration()
     }
@@ -77,7 +78,9 @@ extension ViewController {
         inspectorView.reloadBalanceLabelText(balance: vendingMachine.getCoins())
     }
     @objc func updatePurchaseList(){
-        
+        let element = vendingMachine.getSoldProducts().last!
+        purchaseView.append(with: element)
+        purchaseView.setNeedsDisplay()
     }
 }
 

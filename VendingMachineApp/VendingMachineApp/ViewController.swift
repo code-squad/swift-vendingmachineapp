@@ -88,7 +88,6 @@ class ViewController: UIViewController {
             return
         }
         appDelegate.vendingMachine?.addStock(for: drink)
-        NotificationCenter.default.post(name: .updatedDrinkStock, object: self, userInfo: nil)
     }
     
     @objc func charge(_ sender: UIButton) {
@@ -96,7 +95,6 @@ class ViewController: UIViewController {
             return
         }
         vm.charge(coins: chargeAmount)
-        NotificationCenter.default.post(name: .updatedRemainCoins, object: self, userInfo: nil)
     }
 }
 

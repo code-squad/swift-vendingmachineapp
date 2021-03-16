@@ -8,7 +8,11 @@
 import Foundation
 
 class Drinks: NSObject, NSCoding {
-    private var drinks: [Drink] = []
+    private var drinks: [Drink] = [] {
+        didSet {
+            NotificationCenter.default.post(name: .updatedDrinkStock, object: self, userInfo: nil)
+        }
+    }
     
     override var description: String {
         return "\(drinks)"

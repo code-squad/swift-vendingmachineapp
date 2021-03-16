@@ -10,7 +10,11 @@ import Foundation
 class VendingMachine: NSObject, NSCoding {
     private var standardHotTempertaure = 70
     private var drinks: Drinks
-    private var chargedCoins: Int
+    private var chargedCoins: Int {
+        didSet {
+            NotificationCenter.default.post(name: .updatedRemainCoins, object: self, userInfo: nil)
+        }
+    }
     private var purchaseHistory: PurchaseHistory
     override var description: String {
         return "\(drinks)"

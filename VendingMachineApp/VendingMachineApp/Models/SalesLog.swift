@@ -8,17 +8,17 @@
 import Foundation
 
 class SalesLog {
-    private var log: Drinks
+    private var log: BeverageInventory
     
     init() {
-        log = Drinks()
+        log = BeverageInventory()
     }
     
-    func update(_ drink: Berverage) {
+    func update(_ drink: Beverage) {
         log.append(drink)
     }
     
-    func get() -> [String] {
-        return log.getList()
-    }
+//    func get() -> [String] {
+//        return log.getList()
+//    }
 }

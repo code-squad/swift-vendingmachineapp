@@ -8,9 +8,10 @@
 import UIKit
 
 class ViewController: UIViewController {
+
+    var appDelegate = UIApplication.shared.delegate as! AppDelegate
     
-    var vendingMachine = VendingMachine()
-    @IBOutlet var drinkCollectionView: UICollectionView!
+    @IBOutlet var beverageCollectionView: UICollectionView!
     @IBOutlet var coinCollectionView: UICollectionView!
     
     override func viewDidLoad() {
@@ -20,8 +21,8 @@ class ViewController: UIViewController {
     }
     
     func configureCollectionView() {
-        drinkCollectionView.delegate = self
-        drinkCollectionView.dataSource = self
+        beverageCollectionView.delegate = self
+        beverageCollectionView.dataSource = self
         coinCollectionView.delegate = self
         coinCollectionView.dataSource = self
     }
@@ -29,7 +30,7 @@ class ViewController: UIViewController {
     func configureNotification() {
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(addDrink(_:)),
-                                               name: NSNotification.Name(rawValue: "DrinkPostButton"),
+                                               name: NSNotification.Name(rawValue: "BeveragePostButton"),
                                                object: nil)
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(addCredit(_:)),
@@ -39,49 +40,51 @@ class ViewController: UIViewController {
     
     @objc
     func addDrink(_ notification: Notification) {
-        guard let drinkType = notification.object else {
+        guard let beverageType = notification.userInfo?["type"] as? Beverage.Type else {
             return
         }
-        guard let newDrink = BeverageFactory.create(type: drinkType as! Berverage.Type) else {
+        guard let newDrink = BeverageFactory.create(type: beverageType) else {
             return
         }
-        vendingMachine.append(newDrink)
-        drinkCollectionView.reloadData()
+        self.appDelegate.vendingMachine.append(newDrink)
+        beverageCollectionView.reloadData()
     }
     
     @objc
     func addCredit(_ notification: Notification) {
-        guard let coin = notification.object else {
+        guard let coin = notification.userInfo?["coin"] as? Int else {
             return
         }
-        vendingMachine.insertCoin(coin: coin as! Int)
+        self.appDelegate.vendingMachine.insertCoin(coin: coin)
         coinCollectionView.reloadData()
     }
 }
 
 extension ViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if collectionView == self.drinkCollectionView {
-            return vendingMachine.countType()
-        }
         
+        if collectionView == self.beverageCollectionView {
+            return self.appDelegate.vendingMachine.countType()
+        }
+
         else if collectionView == self.coinCollectionView {
-            return vendingMachine.countKindOfCoin()
+            return self.appDelegate.vendingMachine.countKindOfCoin()
         }
         return 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if collectionView == self.drinkCollectionView {
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DrinkCollectionCell", for: indexPath) as? DrinkCollectionCell else {
+        if collectionView == self.beverageCollectionView {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BeverageCollectionCell", for: indexPath) as? BeverageCollectionCell else {
                 return UICollectionViewCell()
             }
-            
-            let drinkType = vendingMachine.drinkType(at: indexPath.item)
-            let drinkStock = vendingMachine.drinkStock(at: indexPath.item)
-            cell.updateUI(drinkType: String(describing: drinkType), count: drinkStock)
-            cell.drinkType = { () in
-                return drinkType
+ 
+            let beverageType = self.appDelegate.vendingMachine.beverageType(at: indexPath.item)
+            let beverageCount = self.appDelegate.vendingMachine.countBeverage(at: indexPath.item)
+
+            cell.updateUI(beverageType: String(describing: beverageType), count: beverageCount)
+            cell.beverageType = { () in
+                return beverageType
             }
             return cell
         }
@@ -89,7 +92,7 @@ extension ViewController: UICollectionViewDataSource {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CoinCollectionCell", for: indexPath) as? CoinCollectionCell else {
                 return UICollectionViewCell()
             }
-            vendingMachine.eachCoin(at: indexPath.item) {
+            self.appDelegate.vendingMachine.eachCoin(at: indexPath.item) {
                 cell.updateUI(at: $0)
             }
             return cell
@@ -103,7 +106,7 @@ extension ViewController: UICollectionViewDataSource {
             guard let footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "CoinCollectionFooterView", for: indexPath) as? CoinCollectionFooterView else {
                 return UICollectionReusableView()
             }
-            footer.configure(at: vendingMachine.nowCredit().count())
+            footer.configure(at: self.appDelegate.vendingMachine.nowCredit().count())
             return footer
         default:
             return UICollectionReusableView()
@@ -114,8 +117,8 @@ extension ViewController: UICollectionViewDataSource {
 extension ViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        if collectionView == self.drinkCollectionView {
-            // 20 - drink - 20 - drink - 20 drink - 20
+        if collectionView == self.beverageCollectionView {
+            // 20 - beverage - 20 - beverage - 20 - beverage - 20
             let width:CGFloat = (collectionView.bounds.width - (20 * 4))/3
             let height = width
             

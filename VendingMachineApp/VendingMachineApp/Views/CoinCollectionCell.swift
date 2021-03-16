@@ -20,8 +20,10 @@ class CoinCollectionCell: UICollectionViewCell {
     
     @objc
     func onTapButton() {
+        let userInfo: [AnyHashable:Any] = ["coin":coin?.count() ?? 0]
+        
         NotificationCenter.default.post(
             name: NSNotification.Name(rawValue: "CoinPostButton"),
-            object: coin?.count())
+            object: nil, userInfo: userInfo)
     }
 }

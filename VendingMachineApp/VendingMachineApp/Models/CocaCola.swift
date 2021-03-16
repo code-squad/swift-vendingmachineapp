@@ -26,4 +26,13 @@ class CocaCola: Soda {
         let manufacturedDate = Date()
         super.init(brand: "코카콜라", capacity: 333, price: Money(how: 2200), name: flavor.rawValue, manufacturedDate: Date(), expiration: Calendar.current.date(byAdding: .day, value: 90, to: manufacturedDate)!, hot: false, calorie: 385)
     }
+    
+    required init?(coder: NSCoder) {
+        self.flavor = coder.decodeObject(forKey: "flavor") as! Flavor
+        super.init(coder: coder)
+    }
+    
+    override func encode(with coder: NSCoder) {
+        coder.encode(flavor, forKey: "flavor")
+    }
 }

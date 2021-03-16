@@ -7,13 +7,37 @@
 
 import Foundation
 
-class BeverageInventory {
-    private var allTypes:[Beverage.Type] = [StrawberryMilk.self, ChocoMilk.self, Sprite.self, CocaCola.self, Top.self, Cantata.self]
-    private (set) var beverageInventory: Dictionary<ObjectIdentifier, [Beverage]>
+typealias Inventory = Dictionary<ObjectIdentifier, [Beverage]>
+
+class BeverageInventory: NSObject, NSCoding {
     
-    init(){
+    private var allTypes:[Beverage.Type] = [StrawberryMilk.self, ChocoMilk.self, Sprite.self, CocaCola.self, Top.self, Cantata.self]
+    private (set) var beverageInventory: Inventory
+    
+    override init(){
         self.beverageInventory = [:]
+        super.init()
         setting()
+    }
+    
+    func encode(with coder: NSCoder) {
+        coder.encode(allTypes, forKey: "allTypes")
+        coder.encode(allBeverages(), forKey: "allBeverages")
+    }
+    
+    required init?(coder: NSCoder) {
+        self.allTypes = coder.decodeObject(forKey: "allTypes") as! [Beverage.Type]
+        let allBeverages = coder.decodeObject(forKey: "allBeverages") as! [Beverage]
+        var beverageInventory = Inventory()
+        allTypes.forEach {
+            beverageInventory[ObjectIdentifier($0)] = []
+        }
+        
+        allBeverages.forEach {
+            beverageInventory[ObjectIdentifier(type(of: $0))]?.append($0)
+        }
+        self.beverageInventory = beverageInventory
+        
     }
     
     private func setting() {
@@ -34,9 +58,9 @@ class BeverageInventory {
         }
     }
     
-    func hasDrink(with drink: Beverage) ->  Bool {
-        let drinkType = ObjectIdentifier(type(of: drink))
-        if beverageInventory[drinkType]?.count == 0 {
+    func hasBeverage(with beverage: Beverage) ->  Bool {
+        let beverageType = ObjectIdentifier(type(of: beverage))
+        if beverageInventory[beverageType]?.count == 0 {
             return false
         } else {
             return true
@@ -54,7 +78,7 @@ class BeverageInventory {
     func pop(_ drink: Beverage) -> Beverage? {
         let drinkType = ObjectIdentifier(type(of: drink))
         
-        if beverageInventory[drinkType] != nil && hasDrink(with: drink) {
+        if beverageInventory[drinkType] != nil && hasBeverage(with: drink) {
             return beverageInventory[drinkType]!.remove(at: 0)
         }
         return nil
@@ -75,6 +99,14 @@ class BeverageInventory {
     func countBeverage(at index: Int) -> Int {
         let beverageType = ObjectIdentifier(allTypes[index])
         return beverageInventory[beverageType]?.count ?? 0
+    }
+    
+    func allBeverages() -> [Beverage] {
+        var beverages: [Beverage] = []
+        beverageInventory.values.forEach { beverage in
+            beverages.append(contentsOf: beverage)
+        }
+        return beverages
     }
     
     func possibleBeverages(with credit: Money) -> [Beverage]{
@@ -113,7 +145,7 @@ class BeverageInventory {
         return beverages
     }
     
-    func validateBeverage(when date: Date) -> [Beverage] {
+    func validateBeverages(when date: Date) -> [Beverage] {
         var beverages: [Beverage] = []
         beverageInventory.values.forEach {
             $0.forEach {

@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Soda: Beverage {
+class Soda: Beverage{
     
     private var zeroCalorie: Bool
     
@@ -20,6 +20,15 @@ class Soda: Beverage {
     required init() {
         self.zeroCalorie = false
         super.init()
+    }
+    
+    required init?(coder: NSCoder) {
+        self.zeroCalorie = coder.decodeObject(forKey: "zeroCalorie") as! Bool
+        super.init(coder: coder)
+    }
+    
+    override func encode(with coder: NSCoder) {
+        coder.encode(zeroCalorie, forKey: "zeroCalorie")
     }
     
     func isZeroCalorie(unit: Int) -> Bool {

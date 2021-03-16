@@ -21,6 +21,16 @@ class Coffee: Beverage {
         super.init()
     }
     
+    required init?(coder: NSCoder) {
+        self.caffein = coder.decodeObject(forKey: "caffein") as! Int
+        super.init(coder: coder)
+    }
+    
+    override func encode(with coder: NSCoder) {
+        coder.encode(caffein, forKey: "caffein")
+    }
+    
+    
     func isDecaffein() -> Bool {
         return caffein < 10
     }

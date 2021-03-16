@@ -20,7 +20,7 @@ class Monster : Energydrink {
     }
     
     required init?(coder: NSCoder) {
-        self.glutamineContent = coder.decodeObject(forKey: "glutamineContent") as? Int ?? 0
+        self.glutamineContent = coder.decodeInteger(forKey: "glutamineContent")
         super.init(coder: coder)
     }
     

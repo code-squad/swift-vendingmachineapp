@@ -29,7 +29,7 @@ class Milk : Beverage {
     }
     
     required init?(coder: NSCoder) {
-        self.fatContent = coder.decodeObject(forKey: "fatContent") as? Int ?? 0
+        self.fatContent = coder.decodeInteger(forKey: "fatContent")
         super.init(coder: coder)
     }
     

@@ -20,7 +20,7 @@ class StrawBerryMilk : Milk{
     }
     
     required init?(coder: NSCoder) {
-        self.StrawBerryContent = coder.decodeObject(forKey: "StrawBerryContent") as? Int ?? 0
+        self.StrawBerryContent = coder.decodeInteger(forKey: "StrawBerryContent")
         super.init(coder: coder)
     }
     

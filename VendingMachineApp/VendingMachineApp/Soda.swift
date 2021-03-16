@@ -21,7 +21,7 @@ class Soda : Beverage {
     }
     
     required init?(coder: NSCoder) {
-        self.sugarContent = coder.decodeObject(forKey: "sugarContent") as? Int ?? 0
+        self.sugarContent = coder.decodeInteger(forKey: "sugarContent")
         super.init(coder: coder)
     }
     

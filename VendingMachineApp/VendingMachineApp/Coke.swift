@@ -24,13 +24,11 @@ class Coke : Soda{
     }
     
     required init?(coder: NSCoder) {
-        //self.product = coder.decodeObject(forKey: "product") as? Product ?? .light
         self.product = .light
         super.init(coder: coder)
     }
     
     override func encode(with coder: NSCoder) {
-        //coder.encode(self.product, forKey: "product")
         super.encode(with: coder)
     }
     

@@ -18,4 +18,9 @@ struct Settings {
                                              Milkis.self,
                                              Plain.self]
     
+    enum Standards {
+        static let temperature: Float = 36.5
+        static let sugar: Float = 1.0
+        static let lactose: Float = 3.5
+    }
 }

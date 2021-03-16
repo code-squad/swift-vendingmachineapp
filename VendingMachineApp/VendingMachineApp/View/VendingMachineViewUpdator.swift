@@ -72,6 +72,9 @@ class VendingMachineViewUpdator: VendingMachineViewPresenter {
         
         let purchased = machine.purchased()
         let count = purchased.count
+        
+        guard count > 0 else { return }
+        
         let sizeUnit: CGFloat = 200
         let yPosition = scrollView.bounds.height/2 - sizeUnit/2
         scrollView.contentSize.width = CGFloat(count + 1) * sizeUnit/2

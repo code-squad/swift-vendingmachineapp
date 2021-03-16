@@ -10,7 +10,6 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-    private var appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let _ = (scene as? UIWindowScene) else { return }
@@ -25,10 +24,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     func archiveVendingMachine() {
-        guard let vm = appDelegate.vendingMachine else {
-            return
-        }
-        let data = ArchivingManager.archive(with: vm)
+        let data = ArchivingManager.archive(with: VendingMachine.shared)
         UserDefaults.standard.set(data, forKey: "vm")
     }
 }

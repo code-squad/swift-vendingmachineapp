@@ -8,11 +8,12 @@
 import Foundation
 
 class VendingMachine: NSObject, NSCoding {
+    static var shared = VendingMachine(drinks: Drinks(), chargedCoins: 0)
     private var standardHotTempertaure = 70
     private var drinks: Drinks
     private var chargedCoins: Int {
         didSet {
-            NotificationCenter.default.post(name: .updatedRemainCoins, object: self, userInfo: nil)
+            NotificationCenter.default.post(name: VendingMachine.updatedRemainCoins, object: self, userInfo: nil)
         }
     }
     private var purchaseHistory: PurchaseHistory
@@ -81,4 +82,9 @@ class VendingMachine: NSObject, NSCoding {
     func getPurchaseHistory() -> [Drink] {
         return purchaseHistory.purchasedDrinks
     }
+}
+
+extension VendingMachine {
+    static let updatedDrinkStock = Notification.Name("updatedDrinkStock")
+    static let updatedRemainCoins = Notification.Name("updatedRemainCoins")
 }

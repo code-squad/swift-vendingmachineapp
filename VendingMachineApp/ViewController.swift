@@ -20,10 +20,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         vendingMachine = (UIApplication.shared.delegate as! AppDelegate).vendingMachine
+        setNotificationCenter()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(updateBeverageLabel), name: VendingMachine.StockCountChanged, object: vendingMachine)
-        NotificationCenter.default.addObserver(self, selector: #selector(updateCoinLabel), name: VendingMachine.CoinChanged, object: vendingMachine)
-        NotificationCenter.default.addObserver(self, selector: #selector(updatePurchaseList), name: VendingMachine.SoldHistoryChanged, object: vendingMachine)
     }
     override func viewWillAppear(_ animated: Bool) {
         setUpViews()
@@ -70,6 +68,11 @@ extension ViewController {
 // MARK: - Notification function
 extension ViewController {
     
+    func setNotificationCenter(){
+        NotificationCenter.default.addObserver(self, selector: #selector(updateBeverageLabel), name: VendingMachine.StockCountChanged, object: vendingMachine)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateCoinLabel), name: VendingMachine.CoinChanged, object: vendingMachine)
+        NotificationCenter.default.addObserver(self, selector: #selector(updatePurchaseList), name: VendingMachine.SoldHistoryChanged, object: vendingMachine)
+    }
     @objc func updateBeverageLabel(){
         let dict = vendingMachine.getTotalStock()
         stockStackView.setStocksCount(info: dict)

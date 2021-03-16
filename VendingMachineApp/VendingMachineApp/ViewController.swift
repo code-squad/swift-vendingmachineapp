@@ -23,6 +23,14 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        NotificationCenter.default.addObserver(forName: .updatedDrinkStock, object: nil, queue: .main) { [weak self] _ in
+            self?.updateDrinkStockLabels()
+        }
+        NotificationCenter.default.addObserver(forName: .updatedRemainCoins, object: nil, queue: .main) { [weak self] _ in
+            self?.updateRemainCoinsLabel()
+        }
+        
         setupDrinkImage()
         updateDrinkStockLabels()
         updateRemainCoinsLabel()
@@ -79,17 +87,20 @@ class ViewController: UIViewController {
         guard let type = buttonsForDrink[sender], let drink = DrinkFactory.createDrink(for: type) else {
             return
         }
-        vm.addStock(for: drink)
-        updateDrinkStockLabels()
+        appDelegate.vendingMachine?.addStock(for: drink)
+        NotificationCenter.default.post(name: .updatedDrinkStock, object: self, userInfo: nil)
     }
     
-    @IBAction func charge(_ sender: UIButton) {
-        if let chargeAmount = buttonsForCharge[sender] {
-            vendingMachine?.charge(coins: chargeAmount)
+    @objc func charge(_ sender: UIButton) {
+        guard let chargeAmount = buttonsForCharge[sender], let vm = appDelegate.vendingMachine else {
+            return
         }
-        if let coins = vendingMachine?.checkRemainCoins() {
-            remainCoinsLabel.text = "\(String(coins))원"
-        }
+        vm.charge(coins: chargeAmount)
+        NotificationCenter.default.post(name: .updatedRemainCoins, object: self, userInfo: nil)
     }
 }
 
+extension NSNotification.Name {
+    static let updatedDrinkStock = Notification.Name("updatedDrinkStock")
+    static let updatedRemainCoins = Notification.Name("updatedRemainCoins")
+}

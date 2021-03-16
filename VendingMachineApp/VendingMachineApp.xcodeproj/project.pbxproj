@@ -45,6 +45,7 @@
 		1E6A36F325FA5F9800A81643 /* BeverageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E6A36F225FA5F9800A81643 /* BeverageView.xib */; };
 		1E6A36F725FA89C600A81643 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6A36F625FA89C600A81643 /* UIView.swift */; };
 		1EACA6A025FF57F600FAF03A /* ArchivingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EACA69F25FF57F600FAF03A /* ArchivingManager.swift */; };
+		1EACA6A926004EB700FAF03A /* VendingMachineInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EACA6A826004EB700FAF03A /* VendingMachineInfo.swift */; };
 		1ED19CDC25F75D060047B97A /* BeverageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED19CDB25F75D060047B97A /* BeverageView.swift */; };
 /* End PBXBuildFile section */
 
@@ -87,6 +88,7 @@
 		1E6A36F225FA5F9800A81643 /* BeverageView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BeverageView.xib; sourceTree = "<group>"; };
 		1E6A36F625FA89C600A81643 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		1EACA69F25FF57F600FAF03A /* ArchivingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchivingManager.swift; sourceTree = "<group>"; };
+		1EACA6A826004EB700FAF03A /* VendingMachineInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineInfo.swift; sourceTree = "<group>"; };
 		1ED19CDB25F75D060047B97A /* BeverageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -138,11 +140,11 @@
 		1E3D237E25E688D30096DE7B /* VendingMachineApp */ = {
 			isa = PBXGroup;
 			children = (
+				1EACA6A726004E3B00FAF03A /* Controller */,
 				1E6A36FA25FB08BD00A81643 /* Extension */,
 				1ED19CDA25F75C7E0047B97A /* View */,
 				1E3D237F25E688D30096DE7B /* AppDelegate.swift */,
 				1E3D238125E688D30096DE7B /* SceneDelegate.swift */,
-				1E3D238325E688D30096DE7B /* ViewController.swift */,
 				1E3D238525E688D30096DE7B /* Main.storyboard */,
 				1E3D238825E688D50096DE7B /* Assets.xcassets */,
 				1E3D238A25E688D50096DE7B /* LaunchScreen.storyboard */,
@@ -157,6 +159,7 @@
 		1E3D23C225E8C14C0096DE7B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1EACA6A826004EB700FAF03A /* VendingMachineInfo.swift */,
 				1E3D239925E696240096DE7B /* VendingMachine.swift */,
 				1E66F51925ECC95E006A2D4B /* Inventory.swift */,
 				1E3B48C525EE759000903D6E /* PurchaseHistory.swift */,
@@ -196,6 +199,14 @@
 				1E6A36F625FA89C600A81643 /* UIView.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		1EACA6A726004E3B00FAF03A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				1E3D238325E688D30096DE7B /* ViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		1ED19CDA25F75C7E0047B97A /* View */ = {
@@ -331,6 +342,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1ED19CDC25F75D060047B97A /* BeverageView.swift in Sources */,
+				1EACA6A926004EB700FAF03A /* VendingMachineInfo.swift in Sources */,
 				1E66F51225ECC044006A2D4B /* BeverageFactory.swift in Sources */,
 				1E3D23AE25E6A9390096DE7B /* Coke.swift in Sources */,
 				1E66F51A25ECC95E006A2D4B /* Inventory.swift in Sources */,

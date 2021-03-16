@@ -46,7 +46,8 @@ class Beverage: NSObject, NSCoding {
     }
     
     static func == (lhs: Beverage, rhs: Beverage) -> Bool {
-        return lhs.name == rhs.name
+        return lhs.name == rhs.name && lhs.brand == rhs.brand &&
+            lhs.price == rhs.price && lhs.name == rhs.name
     }
 }
 

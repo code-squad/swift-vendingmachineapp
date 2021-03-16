@@ -28,6 +28,16 @@ class PurchaseHistory: NSObject, PurchaseHistoryManagable, NSCoding {
         NotificationCenter.default.post(name: VendingMachine.NotificationName.didChangeInventory, object: nil)
     }
     
+    func readPurchased() -> InventoryManagable {
+        return self.purchased
+    }
+    
+    func forEachPurchased(handler: (Beverage) -> ()) {
+        self.purchased.forEachBeverage { beverage in
+            handler(beverage)
+        }
+    }
+    
     func readHistory() -> [ObjectIdentifier: [Beverage]] {
         var purchasedList = [ObjectIdentifier: [Beverage]]()
         

@@ -69,7 +69,8 @@ class ViewController: UIViewController, Stateful {
     }
     
     private func configurePurchaseHistoryImageView() {
-        self.purchasedContainer.removeFromSuperview()
+        self.purchasedContainer.subviews.forEach { $0.removeFromSuperview() }
+        self.purchasedContainer.contentSize.width = 0
         let purchaseHistory = self.vendingMachine.readPurchased()
         purchaseHistory.forEachBeverage { beverage in
             updatePurchaseHistoryContainer(beverage: beverage)
@@ -79,8 +80,8 @@ class ViewController: UIViewController, Stateful {
     private func updatePurchaseHistoryContainer(beverage: Beverage) {
         guard let purchased: UIImageView = BeverageImageFactory.make(of: beverage) else { return }
         purchased.contentMode = .scaleAspectFill
-        purchased.frame = CGRect(x: self.purchasedContainer.contentSize.width, y: 0, width: 40, height: self.purchasedContainer.frame.height)
-        self.purchasedContainer.contentSize.width += 85
+        purchased.frame = CGRect(x: self.purchasedContainer.contentSize.width, y: 0, width: 80, height: self.purchasedContainer.frame.height)
+        self.purchasedContainer.contentSize.width += 80
         self.purchasedContainer.addSubview(purchased)
     }
     

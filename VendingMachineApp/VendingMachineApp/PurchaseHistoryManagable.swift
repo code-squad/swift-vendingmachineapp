@@ -10,4 +10,6 @@ import Foundation
 protocol PurchaseHistoryManagable {
     func addPurchased(_ beverageType: Beverage.Type)
     func readHistory() -> [ObjectIdentifier: [Beverage]]
+    func readPurchased() -> InventoryManagable
+    func forEachPurchased(handler: (Beverage) -> ())
 }

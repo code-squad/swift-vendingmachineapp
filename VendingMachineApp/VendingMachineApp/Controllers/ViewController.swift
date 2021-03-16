@@ -13,8 +13,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var balanceLabel: UILabel!
     
     private var inventoryViewInfo: [Slot: SlotView] = [ : ]
-    private let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
-    private lazy var sceneDelegate = windowScene?.delegate as? SceneDelegate
+    var vendingMachine: VendingMachine!
     private var inventoryPublisher: AnyCancellable!
     private var cashBoxPublisher: AnyCancellable!
     
@@ -63,14 +62,14 @@ class ViewController: UIViewController {
             let slotInfo = inventoryViewInfo.filter { selectedSlotView.value == $0.value }.first
             /// 현 단계에서는 재고 정보(제조일자, 유통기한 등)를 입력할 수 있는 란이 따로 없어 슬롯의 첫번째 상품과 동일한 상품의 재고를 추가하도록 구현
             if let item = slotInfo?.key.firstItem {
-                sceneDelegate?.vendingMachine.add(item: item)
+                vendingMachine.add(item: item)
             }
         }
     }
     
     private func configureCashBox(_ sender: UIButton) {
         guard let selectedAmount = Int(sender.titleLabel?.text?.filterNonDigits() ?? "0") else { return }
-        sceneDelegate?.vendingMachine.insertMoney(amount: selectedAmount)
+        vendingMachine.insertMoney(amount: selectedAmount)
     }
     
     private func configureInventoryView() {
@@ -84,7 +83,6 @@ class ViewController: UIViewController {
     }
     
     private func configureInventoryViewInfo() {
-        guard let vendingMachine = sceneDelegate?.vendingMachine else { return }
         inventoryViewInfo = InventorySheet().createInventoryViewInfo(for: vendingMachine)
     }
     
@@ -96,6 +94,6 @@ class ViewController: UIViewController {
     }
     
     private func configureCashBoxView() {
-        balanceLabel.text = "잔액 : \(sceneDelegate?.vendingMachine.showBalance() ?? 0)원"
+        balanceLabel.text = "잔액 : \(vendingMachine.showBalance())원"
     }
 }

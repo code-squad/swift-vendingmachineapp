@@ -26,6 +26,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if let archivedData = defaults.object(forKey: "vendingMachine") {
             do {
                 vendingMachine = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(archivedData as! Data) as? VendingMachine
+                let viewController = window?.rootViewController as? ViewController
+                viewController?.vendingMachine = vendingMachine
             } catch {
                 print(error.localizedDescription)
             }

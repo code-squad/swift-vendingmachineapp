@@ -33,10 +33,12 @@ class VendingMachine: NSObject, NSCoding {
     
     func addStock(as beverage: Beverage) {
         drinks.add(with: beverage)
+        NotificationCenter.default.post(name: .vendingMachineNotification, object: nil)
     }
 
     func rechargeCash(with cash: Int) {
         cashManagementSystem.increaseCash(with: cash)
+        NotificationCenter.default.post(name: .vendingMachineNotification, object: nil)
     }
     
     func showListForPurchase() -> Drinks {

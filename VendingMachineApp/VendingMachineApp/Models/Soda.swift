@@ -29,6 +29,7 @@ class Soda: Beverage{
     
     override func encode(with coder: NSCoder) {
         coder.encode(zeroCalorie, forKey: "zeroCalorie")
+        super.encode(with: coder)
     }
     
     func isZeroCalorie(unit: Int) -> Bool {

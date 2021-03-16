@@ -35,6 +35,7 @@ class ChocoMilk: Milk {
     
     override func encode(with coder: NSCoder) {
         coder.encode(cacao, forKey: "cacao")
+        super.encode(with: coder)
     }
     
 }

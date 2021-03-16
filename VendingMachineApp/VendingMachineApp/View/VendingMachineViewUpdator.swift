@@ -73,15 +73,15 @@ class VendingMachineViewUpdator: VendingMachineViewPresenter {
     
     func updateDispensedList(scrollView: UIScrollView, images: [UIImage], typeList: [Shopable.Type]) {
         
-        for views in scrollView.subviews {
-            views.removeFromSuperview()
-        }
-        
         let purchased = workerInterface.purchased()
         let count = purchased.count
         
         guard count > 0 else { return }
         
+        scrollView.subviews.forEach { (view) in
+            view.removeFromSuperview()
+        }
+
         let sizeUnit: CGFloat = 200
         let yPosition = scrollView.bounds.height/2 - sizeUnit/2
         scrollView.contentSize.width = CGFloat(count + 1) * sizeUnit/2
@@ -92,9 +92,13 @@ class VendingMachineViewUpdator: VendingMachineViewPresenter {
             }
             
             if let targetIdx = targetIdx {
-                let newView = UIImageView(frame: CGRect(x: CGFloat(i-1) * sizeUnit/2, y: yPosition, width: sizeUnit, height: sizeUnit))
+                let newView = UIImageView(frame: CGRect(x: CGFloat(i-1) * sizeUnit/2,
+                                                        y: yPosition,
+                                                        width: sizeUnit,
+                                                        height: sizeUnit))
                 newView.image = images[targetIdx]
                 newView.contentMode = .scaleAspectFit
+                
                 scrollView.addSubview(newView)
             }
         }

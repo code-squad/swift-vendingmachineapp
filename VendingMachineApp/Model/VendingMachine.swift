@@ -64,19 +64,20 @@ class VendingMachine : NSObject, NSCoding {
     public func availableProducts() -> [Beverage]{
         return stock.getAvailableProducts(with: money)
     }
-    
-    public func sellProduct(with type : Beverage.Type) -> Beverage?{
-        guard let item = getProduct(with : type) else { return  nil }
-        stock.remove(item: item)
-        soldHistory.append(item: item)
-        uncharge(coins: item.price)
-        
-        NotificationCenter.default.post(name: VendingMachine.StockCountChanged, object: self)
-        return item
+    public func availableWithCurrentCoin(to beverage : Beverage) -> Bool{
+        return money.isPurchasable(with : beverage.price)
     }
-    private func getProduct(with type : Beverage.Type) -> Beverage?{
+    
+    public func purchase(with beverage : Beverage) -> Beverage?{
+        stock.remove(item: beverage)
+        soldHistory.append(item: beverage)
+        uncharge(coins: beverage.price)
+        NotificationCenter.default.post(name: VendingMachine.StockCountChanged, object: self)
+        return beverage
+    }
+    public func getProduct(with beverageType : Beverage.Type) -> Beverage?{
         let dict = stock.toDictionary()
-        return dict[ObjectIdentifier(type)]?.first
+        return dict[ObjectIdentifier(beverageType)]?.first
     }
     
     //  잔액을 돌려주는 메소드

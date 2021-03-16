@@ -14,13 +14,11 @@ class UIBeverageButton: UIButton {
     override init(frame: CGRect) {
         beverageType = Beverage.self
         super.init(frame: frame)
-        setUpButton()
     }
     
     required init?(coder aDecoder: NSCoder) {
         beverageType = Beverage.self
         super.init(coder: aDecoder)
-        setUpButton()
     }
     func setType(with type : Beverage.Type){
         beverageType = type

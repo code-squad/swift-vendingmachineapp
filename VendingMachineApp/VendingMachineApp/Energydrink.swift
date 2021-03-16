@@ -25,7 +25,7 @@ class Energydrink : Beverage {
     }
     
     required init?(coder: NSCoder) {
-        self.caffeineContent = coder.decodeObject(forKey: "caffeineContent") as? Int ?? 0
+        self.caffeineContent = coder.decodeInteger(forKey: "caffeineContent")
         super.init(coder: coder)
     }
 

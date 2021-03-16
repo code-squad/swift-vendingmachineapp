@@ -20,7 +20,7 @@ class Cider : Soda{
     }
     
     required init?(coder: NSCoder) {
-        self.appleContent = coder.decodeObject(forKey: "appleContent") as? Int ?? 0
+        self.appleContent = coder.decodeInteger(forKey: "appleContent")
         super.init(coder: coder)
     }
     

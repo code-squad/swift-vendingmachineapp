@@ -20,7 +20,7 @@ class CaffeMocha : Coffee{
     }
     
     required init?(coder: NSCoder) {
-        self.cream = coder.decodeObject(forKey: "cream") as? Bool ?? false
+        self.cream = coder.decodeBool(forKey: "cream")
         super.init(coder: coder)
     }
     

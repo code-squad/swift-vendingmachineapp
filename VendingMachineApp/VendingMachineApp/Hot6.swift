@@ -20,7 +20,7 @@ class Hot6 : Energydrink {
     }
     
     required init?(coder: NSCoder) {
-        self.taurineContent = coder.decodeObject(forKey: "taurineContent") as? Int ?? 0
+        self.taurineContent = coder.decodeInteger(forKey: "taurineContent")
         super.init(coder: coder)
     }
     

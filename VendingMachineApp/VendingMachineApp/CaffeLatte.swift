@@ -20,12 +20,13 @@ class CaffeeLatte : Coffee{
     }
     
     required init?(coder: NSCoder) {
-        self.sugarContent = coder.decodeObject(forKey: "sugarContent") as? Int ?? 0
+        self.sugarContent = coder.decodeInteger(forKey: "sugarContent")
         super.init(coder: coder)
     }
     
     override func encode(with coder: NSCoder) {
         coder.encode(sugarContent, forKey: "sugarContent")
+        super.encode(with: coder)
     }
     
     func isSugarfree(standard : Int) -> Bool {

@@ -8,24 +8,26 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    private let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
+    //상품 재고 스택
+    private let beverageImages = [#imageLiteral(resourceName: "americano"), #imageLiteral(resourceName: "cafelatte"), #imageLiteral(resourceName: "chocolatemilk"), #imageLiteral(resourceName: "coke"), #imageLiteral(resourceName: "milkis"), #imageLiteral(resourceName: "plainmilk")]
     @IBOutlet var productStackView: UIStackView!
     @IBOutlet weak var productSample: ProductStackView!
+    private var countLabelCollection: [UILabel] = []
+    private var addStockButtonCollection: [UIButton] = []
+    private var buyButtonCollection: [UIButton] = []
+    private let itemTypes = Settings.itemTypes
     
-    @IBOutlet var countLabelCollection: [UILabel]!
-    @IBOutlet var stockButtonCollection: [UIButton]!
+    //자판기 금액
     @IBOutlet var moneyButtonCollection: [UIButton]!
-    @IBOutlet var buyButtonCollection: [UIButton]!
-    
     @IBOutlet weak var moneyLabel: UILabel!
+    private let moneyUnits = Settings.moneyUnits
+    
+    //구매 목록
     @IBOutlet weak var dispensedListScrollView: UIScrollView!
     
-    private let beverageImages = [#imageLiteral(resourceName: "americano"), #imageLiteral(resourceName: "cafelatte"), #imageLiteral(resourceName: "chocolatemilk"), #imageLiteral(resourceName: "coke"), #imageLiteral(resourceName: "milkis"), #imageLiteral(resourceName: "plainmilk")]
-    private let moneyUnits = [1000, 5000, 10000]
-    
-    private let itemTypes: [Shopable.Type] = [Americano.self, CafeLatte.self, Chocolate.self, Coke.self, Milkis.self, Plain.self]
-
-    private let appDelegate = UIApplication.shared.delegate as! AppDelegate
     private var presenter: VendingMachineViewPresenter!
     
     override func viewDidLoad() {
@@ -67,16 +69,16 @@ class ViewController: UIViewController {
     }
     
     private func updateOutletCollections() {
-        countLabelCollection = []
-        stockButtonCollection = []
-        buyButtonCollection = []
-        
         for view in productStackView.arrangedSubviews {
+            
             let stackView = view as! ProductStackView
+            
             countLabelCollection.append(stackView.countLabel)
-            stockButtonCollection.append(stackView.addButton)
-            buyButtonCollection.append(stackView.buyButton)
+            
+            addStockButtonCollection.append(stackView.addButton)
             stackView.addButton.addTarget(self, action: #selector(self.addStockTouched(_:)), for: .touchUpInside)
+            
+            buyButtonCollection.append(stackView.buyButton)
             stackView.buyButton.addTarget(self, action: #selector(self.buyItemTouched(_:)), for: .touchUpInside)
         }
     }
@@ -97,7 +99,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func addStockTouched(_ sender: UIButton) {
-        if let targetIdx = stockButtonCollection.firstIndex(of: sender) {
+        if let targetIdx = addStockButtonCollection.firstIndex(of: sender) {
             let targetBeverage = itemTypes[targetIdx]
             appDelegate.vendingMachine.addStock(of: targetBeverage)
         }

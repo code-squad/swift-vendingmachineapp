@@ -5,7 +5,7 @@ class VendingMachineViewController: UIViewController {
     private let factory = BeverageFactory()
     private var vendingMachine = VendingMachine.sharedInstance()
     
-    private var purchasedBeveragesScrollView = UIScrollView()
+    private var purchasedBeveragesScrollView: PurchasedScrollView!
     private var purchasedBeveragesStackView: PurchasedStackView!
     private var eachPurchasedBeverageImageView = UIImageView()
     
@@ -15,6 +15,7 @@ class VendingMachineViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         purchasedBeveragesStackView = PurchasedStackView()
+        purchasedBeveragesScrollView = PurchasedScrollView()
         beveragesStockCount()
         balanceInfoLabel()
         setUpImageView()
@@ -149,11 +150,8 @@ extension VendingMachineViewController {
     
     private func configureScrollView() {
         view.addSubview(purchasedBeveragesScrollView)
-        purchasedBeveragesScrollView.translatesAutoresizingMaskIntoConstraints = false
         purchasedBeveragesScrollView.topAnchor.constraint(equalTo: view.topAnchor, constant: 500).isActive = true
         purchasedBeveragesScrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 600).isActive = true
-        purchasedBeveragesScrollView.heightAnchor.constraint(equalToConstant: 200).isActive = true
-        purchasedBeveragesScrollView.widthAnchor.constraint(equalToConstant: 300).isActive = true
     }
     
     private func configureStackView() {

@@ -54,13 +54,14 @@ class Beverage: NSObject, NSCoding {
     
     required init?(coder: NSCoder) {
         self.brand = coder.decodeObject(forKey: "brand") as! String
-        self.capacity = coder.decodeObject(forKey: "capacity") as! Int
+        self.capacity = coder.decodeInteger(forKey: "capacity")
         self.price = coder.decodeObject(forKey: "price") as! Money
         self.name = coder.decodeObject(forKey: "name") as! String
         self.manufacturedDate = coder.decodeObject(forKey: "manufacturedDate") as! Date
         self.expiration = coder.decodeObject(forKey: "expiration") as! Date
-        self.hot = coder.decodeObject(forKey: "hot") as! Bool
-        self.calorie = coder.decodeObject(forKey: "calorie") as! Int
+        self.hot = coder.decodeBool(forKey: "hot")
+        self.calorie = coder.decodeInteger(forKey: "calorie")
+    
     }
     
     override var description: String {

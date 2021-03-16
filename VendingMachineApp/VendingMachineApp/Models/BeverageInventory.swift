@@ -27,14 +27,15 @@ class BeverageInventory: NSObject, NSCoding {
     
     required init?(coder: NSCoder) {
         self.allTypes = coder.decodeObject(forKey: "allTypes") as! [Beverage.Type]
-        let allBeverages = coder.decodeObject(forKey: "allBeverages") as! [Beverage]
+        let allBeverages = coder.decodeObject(forKey: "allBeverages") as! [[Beverage]]
         var beverageInventory = Inventory()
+        
         allTypes.forEach {
             beverageInventory[ObjectIdentifier($0)] = []
         }
         
         allBeverages.forEach {
-            beverageInventory[ObjectIdentifier(type(of: $0))]?.append($0)
+            beverageInventory[ObjectIdentifier(type(of: $0[0]))]? = $0
         }
         self.beverageInventory = beverageInventory
         
@@ -101,10 +102,10 @@ class BeverageInventory: NSObject, NSCoding {
         return beverageInventory[beverageType]?.count ?? 0
     }
     
-    func allBeverages() -> [Beverage] {
-        var beverages: [Beverage] = []
-        beverageInventory.values.forEach { beverage in
-            beverages.append(contentsOf: beverage)
+    func allBeverages() -> [[Beverage]] {
+        var beverages: [[Beverage]] = []
+        beverageInventory.values.forEach {
+            beverages.append($0)
         }
         return beverages
     }

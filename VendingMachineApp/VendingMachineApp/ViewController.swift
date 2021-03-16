@@ -48,6 +48,8 @@ class ViewController: UIViewController {
         }
         self.appDelegate.vendingMachine.append(newDrink)
         beverageCollectionView.reloadData()
+        UserDefaults.standard.setValue(appDelegate.vendingMachineSave(with: appDelegate.vendingMachine), forKey: "vendingMachine")
+        print(UserDefaults.standard.dictionaryRepresentation())
     }
     
     @objc

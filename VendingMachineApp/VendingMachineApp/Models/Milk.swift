@@ -22,7 +22,7 @@ class Milk: Beverage {
     }
     
     required init?(coder: NSCoder) {
-        self.fat = coder.decodeObject(forKey: "fat") as! Int
+        self.fat = coder.decodeInteger(forKey: "fat")
         super.init(coder: coder)
     }
     

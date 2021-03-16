@@ -20,6 +20,8 @@
 		718B07F825FF41ED00EC6538 /* PurchasedStackView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718B07F725FF41ED00EC6538 /* PurchasedStackView1.swift */; };
 		718B07FF25FF425600EC6538 /* CheckAdditive1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718B07FE25FF425600EC6538 /* CheckAdditive1.swift */; };
 		718B080325FF428200EC6538 /* CheckBeverageInfo1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718B080225FF428200EC6538 /* CheckBeverageInfo1.swift */; };
+		7191448926007724002322CB /* AdminBeverageStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7191448826007724002322CB /* AdminBeverageStackView.swift */; };
+		71914499260081C1002322CB /* StockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71914498260081C1002322CB /* StockView.swift */; };
 		71977F7F25F0ABEE0006A44C /* BeverageFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71977F7E25F0ABEE0006A44C /* BeverageFactory.swift */; };
 		719783E425E638AE001D428C /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719783E325E638AE001D428C /* Milk.swift */; };
 		719783E725E638C6001D428C /* SoftDrink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719783E625E638C6001D428C /* SoftDrink.swift */; };
@@ -78,6 +80,8 @@
 		718B07F725FF41ED00EC6538 /* PurchasedStackView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasedStackView1.swift; sourceTree = "<group>"; };
 		718B07FE25FF425600EC6538 /* CheckAdditive1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckAdditive1.swift; sourceTree = "<group>"; };
 		718B080225FF428200EC6538 /* CheckBeverageInfo1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBeverageInfo1.swift; sourceTree = "<group>"; };
+		7191448826007724002322CB /* AdminBeverageStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminBeverageStackView.swift; sourceTree = "<group>"; };
+		71914498260081C1002322CB /* StockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockView.swift; sourceTree = "<group>"; };
 		71977F7E25F0ABEE0006A44C /* BeverageFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageFactory.swift; sourceTree = "<group>"; };
 		719783E325E638AE001D428C /* Milk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Milk.swift; sourceTree = "<group>"; };
 		719783E625E638C6001D428C /* SoftDrink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoftDrink.swift; sourceTree = "<group>"; };
@@ -201,6 +205,8 @@
 			children = (
 				718B07F725FF41ED00EC6538 /* PurchasedStackView1.swift */,
 				712CC9DF2600495A0021A459 /* PurchasedScrollView.swift */,
+				7191448826007724002322CB /* AdminBeverageStackView.swift */,
+				71914498260081C1002322CB /* StockView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -316,6 +322,7 @@
 				719F18C225E76F2100671D77 /* Cantata.swift in Sources */,
 				717DE4FC25E5E0A6004B2269 /* AppDelegate.swift in Sources */,
 				718B07FF25FF425600EC6538 /* CheckAdditive1.swift in Sources */,
+				7191448926007724002322CB /* AdminBeverageStackView.swift in Sources */,
 				71D1B81F25EE0745000E9142 /* InsertedMoney.swift in Sources */,
 				7179173725F4B6F6001E66F8 /* VendingMachineData.swift in Sources */,
 				712CC9EA26004F6C0021A459 /* AdminViewController.swift in Sources */,
@@ -330,6 +337,7 @@
 				719783EA25E638DE001D428C /* Coffee.swift in Sources */,
 				719F18BB25E76F0300671D77 /* Top.swift in Sources */,
 				712CC9E02600495A0021A459 /* PurchasedScrollView.swift in Sources */,
+				71914499260081C1002322CB /* StockView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

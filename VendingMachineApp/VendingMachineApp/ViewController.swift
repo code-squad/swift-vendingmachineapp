@@ -9,6 +9,7 @@ import UIKit
 import Combine
 
 class ViewController: UIViewController, SelectPanelStackViewDelegate, TopPanelDelegate {
+    @IBOutlet weak var purchaseHistoryScrollView: UIScrollView!
     @IBOutlet weak var selectPanelStackView: SelectPanelStackView!
     @IBOutlet weak var topPanelView: TopPanel!
     
@@ -23,11 +24,17 @@ class ViewController: UIViewController, SelectPanelStackViewDelegate, TopPanelDe
         self.vendingMachine = VendingMachine.default
         selectPanelStackView.delegate = self
         topPanelView.delegate = self
-        selectPanelStackView.setDrinkImageViewsRadius(of: 10)
+        
         loadLeftCoinsLabel()
         loadSelectPanelStackViewLabels()
         configCoinsLabelObserver()
         configStockLabelObserver()
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        topPanelView.roundCorners(corners: [.topLeft, .bottomLeft], radius: 30)
+        selectPanelStackView.setDrinkImageViewsRadius(of: 10)
     }
     
     public func settingVendingMachine(_ vendingMachine: VendingMachine) {

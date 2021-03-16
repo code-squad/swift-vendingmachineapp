@@ -18,7 +18,7 @@ class ViewController: UIViewController {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var vendingMachine: VendingMachine?
     var dataOfBeverageButton: [UIButton : (beverageType: Beverage.Type, label: UILabel)] = [:]
-    var dataOfRechargeButton: [UIButton : Int] = [:]
+    var dataOfRechargeButton: [UIButton : CashManagementSystem.SelectCash] = [:]
     let beveragesType = [Cola.self, RedBull.self, StrawBerryMilk.self, TOP.self]
 
     override func viewDidLoad() {
@@ -31,17 +31,17 @@ class ViewController: UIViewController {
     }
     
     @IBAction func addStock(_ sender: UIButton) {
-        guard let type = dataOfBeverageButton[sender]?.beverageType else {return}
-        guard let product = BeverageFactory.releaseBeverage(with: type) else {return}
+        guard let type = dataOfBeverageButton[sender]?.beverageType else { return }
+        guard let product = BeverageFactory.releaseBeverage(with: type) else { return }
         vendingMachine?.addStock(as: product)
         guard let stockList = vendingMachine?.showStock() else { return }
         let beverageID = ObjectIdentifier(type)
-        guard let stock = stockList[beverageID] else {return}
+        guard let stock = stockList[beverageID] else { return }
         dataOfBeverageButton[sender]?.label.text = "\(stock.count)개"
     }
     
     @IBAction func rechargeCash(_ sender: UIButton) {
-        guard let cash = dataOfRechargeButton[sender] else { return }
+        guard let cash = dataOfRechargeButton[sender]?.rawValue else { return }
         vendingMachine?.rechargeCash(with: cash)
         guard let balance = vendingMachine?.showBalance().description else { return }
         balanceLabel.text = "\(balance)원"
@@ -66,13 +66,13 @@ class ViewController: UIViewController {
                 beverageLabels[i].text = "\(stock.count)개"
             }
         }
-        guard let money = vendingMachine?.showBalance() else {return}
+        guard let money = vendingMachine?.showBalance() else { return }
         balanceLabel.text = "\(money)원"
     }
     
     func fillDataOfRechargeButton() {
-        dataOfRechargeButton[rechargeButtons[0]] = 1000
-        dataOfRechargeButton[rechargeButtons[1]] = 5000
+        dataOfRechargeButton[rechargeButtons[0]] = CashManagementSystem.SelectCash.thousand
+        dataOfRechargeButton[rechargeButtons[1]] = CashManagementSystem.SelectCash.fiveThousands
     }
     
 }

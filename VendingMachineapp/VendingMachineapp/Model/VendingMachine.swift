@@ -24,8 +24,8 @@ class VendingMachine: NSObject, NSCoding{
         coder.encode(inventory, forKey: "inventory")
     }
     
-    func initializeProductList() -> [Beverage] {
-        return inventory.initializeProductList()
+    func getProductList() -> [Beverage] {
+        return inventory.getProductList()
     }
     
     func increase(money: Money) {

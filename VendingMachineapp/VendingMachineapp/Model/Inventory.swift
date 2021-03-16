@@ -10,11 +10,12 @@ import Foundation
 class Inventory: NSObject, NSCoding {
 
     private var inventory: [Beverage]
-    private var productList: [Beverage]
+    private var productList: [Beverage] = []
     
     override init() {
         inventory = []
-        productList = []
+        super.init()
+        productList = initializeProductList()
     }
     
     required init?(coder: NSCoder) {
@@ -61,6 +62,10 @@ class Inventory: NSObject, NSCoding {
     
     func availablePurchaseList(money: Money) -> [Beverage]{
         return inventory.filter({$0.isAvailablePurchase(with: money)})
+    }
+    
+    func getProductList() -> [Beverage] {
+        return productList
     }
     
     func initializeProductList() -> [Beverage] {

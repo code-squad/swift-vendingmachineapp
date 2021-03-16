@@ -10,16 +10,19 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
-    var vendingMachine = VendingMachine()
-    var productList: [Beverage] = []
+    var vendingMachine: VendingMachine!
+    var productList: [Beverage]!
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
+
         guard let vendingMachine = ArchivingManager.unarchive(with: UserDefaults.standard.data(forKey: "vendingMachine") ?? Data()) else {
+            self.vendingMachine = VendingMachine()
+            self.productList = self.vendingMachine.getProductList()
             return true
         }
+        
         self.vendingMachine = vendingMachine
-        productList = self.vendingMachine.initializeProductList()
+        self.productList = self.vendingMachine.getProductList()
         return true
     }
     

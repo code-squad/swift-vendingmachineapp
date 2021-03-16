@@ -23,10 +23,6 @@ class Money: NSObject, NSCoding, Comparable {
         coder.encode(money, forKey: "money")
     }
     
-    func changeMoney(with money: Money) {
-        self.money = self + money
-    }
-    
     func compare(with price: Int) -> Bool {
         return self.money >= price
     }
@@ -45,5 +41,18 @@ class Money: NSObject, NSCoding, Comparable {
     
     static func + (lhs: Money, rhs: Money) -> Int {
         return lhs.money + rhs.money
+    }
+    
+    static func += (lhs: Money, rhs: Money) {
+        lhs.money = lhs.money + rhs.money
+    }
+    
+    static func -= (lhs: Money, rhs: Money) {
+        lhs.money = lhs.money - rhs.money
+    }
+    
+    
+    override var description: String {
+        return "\(self.money)"
     }
 }

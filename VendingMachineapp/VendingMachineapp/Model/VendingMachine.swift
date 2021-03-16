@@ -34,7 +34,7 @@ class VendingMachine: NSObject, NSCoding{
     }
     
     func increase(money: Money) {
-        manager.changeMoney(with: money)
+        manager.updateMoney(with: money)
         NotificationCenter.default.post(name: Notification.didChangedMoney, object: self)
     }
     
@@ -73,7 +73,7 @@ class VendingMachine: NSObject, NSCoding{
         return list
     }
     
-    func checkChagne() -> Money {
+    func checkChange() -> Money {
         return manager.checkChange()
     }
     

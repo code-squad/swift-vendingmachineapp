@@ -35,11 +35,6 @@ class ViewController: UIViewController {
         setButtonsTitle()
         setLabelsTitle()
         setObserver()
-    
-        addThousandButton.setTitle("+1000", for: .normal)
-        addFiveThousandButton.setTitle("+5000", for: .normal)
-        currentChangeLabel.text = "잔액 : \(delegate.vendingMachine.checkChagne().money)원"
-        
     }
     
     func setObserver() {
@@ -80,17 +75,25 @@ class ViewController: UIViewController {
         for index in 0..<beverageButtons.count {
             beverageButtons[index].setTitle("추가", for: .normal)
         }
+        
+        addThousandButton.setTitle("+1000", for: .normal)
+        addFiveThousandButton.setTitle("+5000", for: .normal)
     }
     
     func setLabelsTitle() {
         for (product, label) in labelDictionary {
             label.text = "\(delegate.vendingMachine.wholeBeverage()[product] ?? 0)"
         }
+        
+        currentChangeLabel.text = "잔액 : \(delegate.vendingMachine.checkChagne().money)원"
     }
     
     @objc func changeStockLabel(_ notification: Notification) {
-        let beverage = notification.object as! Beverage
-        labelDictionary[beverage]?.text = "\(delegate.vendingMachine.wholeBeverage()[beverage] ?? 0)"
+        if let list = notification.userInfo as? [Beverage:Int] {
+            for (beverage, number) in list {
+                labelDictionary[beverage]?.text = "\(number)"
+            }
+        }
     }
     
     @objc func changeMoneyLabel(_ notification: Notification) {

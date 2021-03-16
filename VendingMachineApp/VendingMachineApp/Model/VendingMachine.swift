@@ -101,7 +101,7 @@ extension VendingMachine: Curatable {
         return moneyBox.affordables(fromItemsIn: storage)
     }
     
-    func expiredItems() -> [ObjectIdentifier: Int] {
+    func expiredItems() -> [ObjectIdentifier: [Shopable]] {
         return beverageManager.expiredItems(fromItemsIn: storage)
     }
     

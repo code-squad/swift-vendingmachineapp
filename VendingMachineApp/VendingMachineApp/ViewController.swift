@@ -12,24 +12,10 @@ class ViewController: UIViewController {
     @IBOutlet var drinkImages: [UIImageView]!
     @IBOutlet weak var remainCoinsLabel: UILabel!
     @IBOutlet var drinkStockLabels: [UILabel]!
-    @IBOutlet var addButtons: [UIButton]! {
-        didSet {
-            drinkType.enumerated().forEach { (index, value) in
-                buttonsForDrink[addButtons[index]] = value
-            }
-        }
-    }
-    
-    @IBOutlet var chargeButtons: [UIButton]! {
-        didSet {
-            chargeAmount.enumerated().forEach { (index, value) in
-                buttonsForCharge[chargeButtons[index]] = value
-            }
-        }
-    }
+    @IBOutlet var addButtons: [UIButton]!
+    @IBOutlet var chargeButtons: [UIButton]!
     
     private var appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
-    private lazy var vendingMachine: VendingMachine? = appDelegate.vendingMachine
     private let chargeAmount = [1000, 5000]
     private let drinkType = [BananaMilk.self, Cantata.self, Fanta.self]
     private var buttonsForDrink: [UIButton: Drink.Type] = [:]
@@ -40,6 +26,28 @@ class ViewController: UIViewController {
         setupDrinkImage()
         updateDrinkStockLabels()
         updateRemainCoinsLabel()
+        setButtonsForCharge()
+        setButtonsForDrink()
+    }
+    
+    func setButtonsForDrink() {
+        addButtons.forEach {
+            $0.addTarget(self, action: #selector(addDrinkStock), for: .touchUpInside)
+        }
+        
+        addButtons.enumerated().forEach {
+            buttonsForDrink[$1] = drinkType[$0]
+        }
+    }
+    
+    func setButtonsForCharge() {
+        chargeButtons.forEach {
+            $0.addTarget(self, action: #selector(charge), for: .touchUpInside)
+        }
+        
+        chargeButtons.enumerated().forEach {
+            buttonsForCharge[$1] = chargeAmount[$0]
+        }
     }
     
     func setupDrinkImage() {
@@ -50,33 +58,25 @@ class ViewController: UIViewController {
     }
     
     func updateDrinkStockLabels() {
-        guard let vm = vendingMachine else {
+        guard let allDrinks = appDelegate.vendingMachine?.getAllDrinks() else {
             return
         }
-        let allDrinks = vm.getAllDrinks()
-        var stocks: [Int] = []
-        drinkType.forEach { type in
+        drinkType.enumerated().forEach { index, type in
             let id = ObjectIdentifier(type)
-            stocks.append(allDrinks[id]?.count ?? 0)
-        }
-        
-        for i in 0..<stocks.count {
-            drinkStockLabels[i].text = "\(String(stocks[i]))개"
+            drinkStockLabels[index].text = "\(allDrinks[id]?.count ?? 0)개"
         }
     }
     
     func updateRemainCoinsLabel() {
-        guard let vm = vendingMachine else {
+        guard let remainCoins = appDelegate.vendingMachine?.checkRemainCoins() else {
             return
         }
-        let remainCoins = vm.checkRemainCoins()
         remainCoinsLabel.text = "\(remainCoins)원"
     }
     
     // MARK: IBActions
-    @IBAction func addStockButton(_ sender: UIButton) {
-        guard let vm = vendingMachine, let type = buttonsForDrink[sender],
-              let drink = DrinkFactory.createDrink(for: type) else {
+    @objc func addDrinkStock(_ sender: UIButton) {
+        guard let type = buttonsForDrink[sender], let drink = DrinkFactory.createDrink(for: type) else {
             return
         }
         vm.addStock(for: drink)

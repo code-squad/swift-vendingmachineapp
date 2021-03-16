@@ -7,6 +7,11 @@
 
 import Foundation
 
+extension NSNotification.Name {
+    static let didChangedStock = Notification.Name("didChangedStock")
+    static let didChangedMoney = Notification.Name("didChangedMoney")
+}
+
 class VendingMachine: NSObject, NSCoding{
     
     private var manager = VendingMachineManager()
@@ -30,12 +35,12 @@ class VendingMachine: NSObject, NSCoding{
     
     func increase(money: Money) {
         manager.changeMoney(with: money)
-        NotificationCenter.default.post(name: NSNotification.Name("addMoney"), object: nil)
+        NotificationCenter.default.post(name: .didChangedMoney, object: nil)
     }
     
     func add(beverage: Beverage) {
         inventory.add(beverage: beverage)
-        NotificationCenter.default.post(name: NSNotification.Name("addStock"), object: beverage, userInfo: wholeBeverage())
+        NotificationCenter.default.post(name: .didChangedStock, object: beverage, userInfo: wholeBeverage())
     }
     
     func availablePurchaseList() -> [Beverage] {

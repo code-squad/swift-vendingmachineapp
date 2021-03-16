@@ -51,6 +51,7 @@
 		CE9BED6D25F20BDE000D6ADB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9547FC25E76D5E0020A333 /* ViewController.swift */; };
 		CE9BED7125F217A6000D6ADB /* BeveragesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BED7025F217A6000D6ADB /* BeveragesTests.swift */; };
 		CE9BED7B25F21B61000D6ADB /* VendingMachineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BED7A25F21B61000D6ADB /* VendingMachineTests.swift */; };
+		CECDA38E2600FE2700572EA7 /* ArchiveManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECDA38D2600FE2700572EA7 /* ArchiveManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +95,7 @@
 		CE9BED4B25F207B5000D6ADB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE9BED7025F217A6000D6ADB /* BeveragesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeveragesTests.swift; sourceTree = "<group>"; };
 		CE9BED7A25F21B61000D6ADB /* VendingMachineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineTests.swift; sourceTree = "<group>"; };
+		CECDA38D2600FE2700572EA7 /* ArchiveManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +154,7 @@
 			children = (
 				CE95481F25E7F0F10020A333 /* VendingMachine.swift */,
 				CE93BBE325F7979F00C9C374 /* VendingMachineElements.swift */,
+				CECDA38D2600FE2700572EA7 /* ArchiveManager.swift */,
 				CE95482325E9611D0020A333 /* DateExtension.swift */,
 				CE91CEB725EEA5B400515DF2 /* Country.swift */,
 				CE91CEBF25EF329900515DF2 /* BeverageProtocol.swift */,
@@ -310,6 +313,7 @@
 				CE9BED4025F1D213000D6ADB /* BeverageFactory.swift in Sources */,
 				CE95481C25E7ECDC0020A333 /* Coffee.swift in Sources */,
 				CE95482025E7F0F10020A333 /* VendingMachine.swift in Sources */,
+				CECDA38E2600FE2700572EA7 /* ArchiveManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

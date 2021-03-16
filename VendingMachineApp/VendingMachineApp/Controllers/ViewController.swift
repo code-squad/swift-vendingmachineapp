@@ -58,12 +58,11 @@ class ViewController: UIViewController {
     }
     
     @objc func itemQuantityIncrementButtonPressed(_ notification: Notification) {
-        if let selectedSlotView = (notification.userInfo as? [String : SlotView])?.first {
-            let slotInfo = inventoryViewInfo.filter { selectedSlotView.value == $0.value }.first
-            /// 현 단계에서는 재고 정보(제조일자, 유통기한 등)를 입력할 수 있는 란이 따로 없어 슬롯의 첫번째 상품과 동일한 상품의 재고를 추가하도록 구현
-            if let item = slotInfo?.key.firstItem {
-                vendingMachine.add(item: item)
-            }
+        guard let selectedSlotView = (notification.userInfo as? [String : SlotView])?.first else { return }
+        let slotInfo = inventoryViewInfo.filter { selectedSlotView.value == $0.value }.first
+        /// 현 단계에서는 재고 정보(제조일자, 유통기한 등)를 입력할 수 있는 란이 따로 없어 슬롯의 첫번째 상품과 동일한 상품의 재고를 추가하도록 구현
+        if let item = slotInfo?.key.firstItem {
+            vendingMachine.add(item: item)
         }
     }
     

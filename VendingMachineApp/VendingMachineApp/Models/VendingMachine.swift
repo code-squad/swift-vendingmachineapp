@@ -52,10 +52,14 @@ class VendingMachine: NSObject, NSCoding {
         return drinks.getAvailableDrinks(with: chargedCoins)
     }
     
-    func purchase(drink: Drink) {
-        chargedCoins -= drink.price
-        drinks.remove(drink: drink)
-        purchaseHistory.add(drink: drink)
+    func purchase(drink: Drink.Type) {
+        drinks.getAllDrinks().forEach { (key, value) in
+            if key == ObjectIdentifier(drink), let instance = value.first {
+                chargedCoins -= instance.price
+                drinks.remove(drink: drink)
+                purchaseHistory.add(drink: instance)
+            }
+        }
     }
     
     func checkRemainCoins() -> Int {

@@ -9,21 +9,28 @@ import UIKit
 
 protocol VendingMachineViewPresenter {
     
-    func initialScreen(images: [UIImage], sampleView: ProductStackView, stackView: UIStackView, machine: VendingMachine, moneyLabel: UILabel)
+    func initialScreen(images: [UIImage], sampleView: ProductStackView, stackView: UIStackView, moneyLabel: UILabel)
     
-    func updateStocks(machine: VendingMachine, countLabels: [UILabel], beverageList: [Shopable])
+    func updateStocks(countLabels: [UILabel], beverageList: [Shopable])
     
-    func updateBalance(machine: VendingMachine, label: UILabel)
+    func updateBalance(label: UILabel)
     
-    func updateDispensedList(machine: VendingMachine, scrollView: UIScrollView, images: [UIImage], beverages: [Shopable])
+    func updateDispensedList(scrollView: UIScrollView, images: [UIImage], beverages: [Shopable])
 }
 
 class VendingMachineViewUpdator: VendingMachineViewPresenter {
     
-    func initialScreen(images: [UIImage], sampleView: ProductStackView, stackView: UIStackView, machine: VendingMachine, moneyLabel: UILabel) {
-        
+    private let userInterface: UserInterface
+    private let workerInterface: WorkerInterface
+    
+    init(userInterface: UserInterface, workerInterface: WorkerInterface) {
+        self.userInterface = userInterface
+        self.workerInterface = workerInterface
+    }
+    
+    func initialScreen(images: [UIImage], sampleView: ProductStackView, stackView: UIStackView, moneyLabel: UILabel) {
         newProductViews(with: images, sampleView: sampleView, stackView: stackView)
-        updateBalance(machine: machine, label: moneyLabel)
+        updateBalance(label: moneyLabel)
     }
     
     private func newProductViews(with images: [UIImage], sampleView: ProductStackView, stackView: UIStackView) {
@@ -47,8 +54,8 @@ class VendingMachineViewUpdator: VendingMachineViewPresenter {
         return view
     }
     
-    func updateStocks(machine: VendingMachine, countLabels: [UILabel], beverageList: [Shopable]) {
-        let stockList = machine.allStocks()
+    func updateStocks(countLabels: [UILabel], beverageList: [Shopable]) {
+        let stockList = workerInterface.allStocks()
         
         for (idx, beverage) in beverageList.enumerated() {
             let id = ObjectIdentifier(type(of: beverage))
@@ -60,17 +67,17 @@ class VendingMachineViewUpdator: VendingMachineViewPresenter {
         }
     }
     
-    func updateBalance(machine: VendingMachine, label: UILabel) {
-        label.text = "\(machine.moneyLeft())원"
+    func updateBalance(label: UILabel) {
+        label.text = "\(userInterface.moneyLeft())원"
     }
     
-    func updateDispensedList(machine: VendingMachine, scrollView: UIScrollView, images: [UIImage], beverages: [Shopable]) {
+    func updateDispensedList(scrollView: UIScrollView, images: [UIImage], beverages: [Shopable]) {
         
         for views in scrollView.subviews {
             views.removeFromSuperview()
         }
         
-        let purchased = machine.purchased()
+        let purchased = workerInterface.purchased()
         let count = purchased.count
         
         guard count > 0 else { return }

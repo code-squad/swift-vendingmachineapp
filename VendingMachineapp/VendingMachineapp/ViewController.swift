@@ -34,11 +34,15 @@ class ViewController: UIViewController {
         
         setButtonsTitle()
         setLabelsTitle()
-
+        setObserver()
+    
         addThousandButton.setTitle("+1000", for: .normal)
         addFiveThousandButton.setTitle("+5000", for: .normal)
         currentChangeLabel.text = "잔액 : \(delegate.vendingMachine.checkChagne().money)원"
         
+    }
+    
+    func setObserver() {
         NotificationCenter.default.addObserver(self, selector: #selector(changeStockLabel),
                                                name: NSNotification.Name("addStock"),
                                                object: nil)
@@ -80,17 +84,15 @@ class ViewController: UIViewController {
     
     func setLabelsTitle() {
         for (product, label) in labelDictionary {
-            label.text = String(delegate.vendingMachine.wholeBeverage()[product] ?? 0)
+            label.text = "\(delegate.vendingMachine.wholeBeverage()[product] ?? 0)"
         }
     }
     
     @objc func changeStockLabel(_ notification: Notification) {
-        if let data = notification.userInfo as? [Beverage:Int] {
-            for (product, number) in data {
-                labelDictionary[product]?.text = "\(number)"
-            }
-        }
+        let beverage = notification.object as! Beverage
+        labelDictionary[beverage]?.text = "\(delegate.vendingMachine.wholeBeverage()[beverage] ?? 0)"
     }
+    
     @objc func changeMoneyLabel(_ notification: Notification) {
         currentChangeLabel.text = "잔액 : \(delegate.vendingMachine.checkChagne().money)원"
     }

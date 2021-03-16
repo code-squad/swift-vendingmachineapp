@@ -23,6 +23,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 initialViewController.vendingMachine = vendingMachine
             }
         }
+
+//        if let initialViewController = window?.rootViewController as? Stateful {
+//            initialViewController.vendingMachine = vendingMachine
+//        }
     }
     
     func sceneDidEnterBackground(_ scene: UIScene) {

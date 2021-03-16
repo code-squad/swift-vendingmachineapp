@@ -45,7 +45,7 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zIN-8m-Iky">
                                                 <rect key="frame" x="15" y="203" width="80" height="60"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="80" id="72a-Cm-1N0"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="72a-Cm-1N0"/>
                                                     <constraint firstAttribute="height" constant="60" id="DrW-k5-XkA"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
@@ -84,11 +84,14 @@
                                                 <rect key="frame" x="15" y="203" width="80" height="60"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="60" id="9Ec-y2-Bl4"/>
-                                                    <constraint firstAttribute="width" constant="80" id="QAm-bX-IW7"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="QAm-bX-IW7"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                                 <color key="tintColor" systemColor="systemRedColor"/>
                                                 <state key="normal" title="구매"/>
+                                                <connections>
+                                                    <action selector="purchaseButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3aR-JY-GWQ"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -102,7 +105,7 @@
                                                     <action selector="addInventoryButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aaD-PB-z0x"/>
                                                 </connections>
                                             </button>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Cantata" translatesAutoresizingMaskIntoConstraints="NO" id="WqC-qe-TR7">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TOP" translatesAutoresizingMaskIntoConstraints="NO" id="WqC-qe-TR7">
                                                 <rect key="frame" x="0.0" y="40" width="110" height="120"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="120" id="Ebt-Aa-4JJ"/>
@@ -118,12 +121,15 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WoE-0B-jHS">
                                                 <rect key="frame" x="15" y="203" width="80" height="60"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="80" id="Rb3-O4-R26"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="Rb3-O4-R26"/>
                                                     <constraint firstAttribute="height" constant="60" id="hm2-a6-sDA"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                                 <color key="tintColor" systemColor="systemRedColor"/>
                                                 <state key="normal" title="구매"/>
+                                                <connections>
+                                                    <action selector="purchaseButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tgJ-va-cpi"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -137,7 +143,7 @@
                                                     <action selector="addInventoryButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ciU-lL-DKc"/>
                                                 </connections>
                                             </button>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TOP" translatesAutoresizingMaskIntoConstraints="NO" id="ob1-SU-5bX">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Cantata" translatesAutoresizingMaskIntoConstraints="NO" id="ob1-SU-5bX">
                                                 <rect key="frame" x="0.0" y="40" width="110" height="120"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="120" id="OjM-zS-hJh"/>
@@ -154,11 +160,14 @@
                                                 <rect key="frame" x="15" y="203" width="80" height="60"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="60" id="60x-Ou-pRV"/>
-                                                    <constraint firstAttribute="width" constant="80" id="SJV-DY-L4h"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="SJV-DY-L4h"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                                 <color key="tintColor" systemColor="systemRedColor"/>
                                                 <state key="normal" title="구매"/>
+                                                <connections>
+                                                    <action selector="purchaseButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="r55-LN-Bnd"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -189,11 +198,14 @@
                                                 <rect key="frame" x="15" y="203" width="80" height="60"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="60" id="LNh-nP-DrA"/>
-                                                    <constraint firstAttribute="width" constant="80" id="qf1-t1-cUp"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="qf1-t1-cUp"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                                 <color key="tintColor" systemColor="systemRedColor"/>
                                                 <state key="normal" title="구매"/>
+                                                <connections>
+                                                    <action selector="purchaseButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="f7p-Oa-kRG"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -224,11 +236,14 @@
                                                 <rect key="frame" x="15" y="203" width="80" height="60"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="60" id="B4o-n7-Oqt"/>
-                                                    <constraint firstAttribute="width" constant="80" id="coP-PT-9ie"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="coP-PT-9ie"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                                 <color key="tintColor" systemColor="systemRedColor"/>
                                                 <state key="normal" title="구매"/>
+                                                <connections>
+                                                    <action selector="purchaseButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HLj-rp-6ws"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -264,18 +279,28 @@
                                     </label>
                                 </subviews>
                             </stackView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jVO-Ii-BJt">
+                                <rect key="frame" x="40" y="491" width="785" height="186"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" priority="250" constant="600" id="CVS-Zf-elo"/>
+                                    <constraint firstAttribute="height" constant="110" id="oxt-1H-VOX"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemGray6Color"/>
                         <constraints>
                             <constraint firstItem="i2x-gi-0gZ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="150" id="2op-ec-WIK"/>
                             <constraint firstItem="aAh-UR-Et2" firstAttribute="centerY" secondItem="KEe-tP-UT3" secondAttribute="centerY" id="PqK-L0-ddT"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="aAh-UR-Et2" secondAttribute="trailing" constant="40" id="QOQ-Kh-vTw"/>
                             <constraint firstItem="i2x-gi-0gZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="RPY-nX-pRj"/>
+                            <constraint firstItem="jVO-Ii-BJt" firstAttribute="leading" secondItem="i2x-gi-0gZ" secondAttribute="leading" id="fh4-hZ-1aY"/>
+                            <constraint firstItem="jVO-Ii-BJt" firstAttribute="top" secondItem="i2x-gi-0gZ" secondAttribute="bottom" constant="80" id="vKa-ib-9l6"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="balanceLabel" destination="j8z-Su-dEO" id="wXt-yL-1FE"/>
+                        <outlet property="purchasedContainer" destination="jVO-Ii-BJt" id="x8w-Gb-rmT"/>
                         <outletCollection property="beverageImageViews" destination="sep-gr-CzL" collectionClass="NSMutableArray" id="Bj5-q4-i7y"/>
                         <outletCollection property="beverageImageViews" destination="oL1-5O-qcB" collectionClass="NSMutableArray" id="3s7-g3-nMw"/>
                         <outletCollection property="beverageImageViews" destination="WqC-qe-TR7" collectionClass="NSMutableArray" id="ocX-J0-HY8"/>
@@ -316,8 +341,8 @@
         <image name="Cola" width="700" height="700"/>
         <image name="Strawberry" width="370" height="370"/>
         <image name="TOP" width="360" height="360"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

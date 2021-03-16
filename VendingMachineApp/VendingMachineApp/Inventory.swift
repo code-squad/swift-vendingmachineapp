@@ -32,7 +32,7 @@ class Inventory: NSObject, InventoryManagable, NSCoding {
     
     required init?(coder: NSCoder) {
         self.inventory = coder.decodeObject(forKey: "inventory") as? [Beverage] ?? []
-        self.inventoryBox = coder.decodeObject(forKey: "inventoryBox") as! InventoryBoxManagable
+        self.inventoryBox = coder.decodeObject(forKey: "inventoryBox") as? InventoryBox ?? InventoryBox()
     }
     
     func addBeverage(_ beverageType: Beverage.Type) {

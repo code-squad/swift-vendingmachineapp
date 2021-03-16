@@ -15,8 +15,8 @@ class ViewController: UIViewController {
     @IBOutlet var addButtons: [UIButton]!
     @IBOutlet var chargeButtons: [UIButton]!
     
-    private var appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
-    private var chargeAmount = ChargeUnit.allCases
+    private let vm = VendingMachine.shared
+    private let chargeAmount = ChargeUnit.allCases
     private let drinkType = [BananaMilk.self, Cantata.self, Fanta.self]
     private var buttonsForDrink: [UIButton: Drink.Type] = [:]
     private var buttonsForCharge: [UIButton: Int] = [:]
@@ -24,10 +24,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        NotificationCenter.default.addObserver(forName: .updatedDrinkStock, object: nil, queue: .main) { [weak self] _ in
+        NotificationCenter.default.addObserver(forName: VendingMachine.updatedDrinkStock, object: nil, queue: .main) { [weak self] _ in
             self?.updateDrinkStockLabels()
         }
-        NotificationCenter.default.addObserver(forName: .updatedRemainCoins, object: nil, queue: .main) { [weak self] _ in
+        NotificationCenter.default.addObserver(forName: VendingMachine.updatedRemainCoins, object: nil, queue: .main) { [weak self] _ in
             self?.updateRemainCoinsLabel()
         }
         
@@ -66,9 +66,7 @@ class ViewController: UIViewController {
     }
     
     func updateDrinkStockLabels() {
-        guard let allDrinks = appDelegate.vendingMachine?.getAllDrinks() else {
-            return
-        }
+        let allDrinks = vm.getAllDrinks()
         drinkType.enumerated().forEach { index, type in
             let id = ObjectIdentifier(type)
             drinkStockLabels[index].text = "\(allDrinks[id]?.count ?? 0)개"
@@ -76,9 +74,7 @@ class ViewController: UIViewController {
     }
     
     func updateRemainCoinsLabel() {
-        guard let remainCoins = appDelegate.vendingMachine?.checkRemainCoins() else {
-            return
-        }
+        let remainCoins = vm.checkRemainCoins()
         remainCoinsLabel.text = "\(remainCoins)원"
     }
     
@@ -87,18 +83,13 @@ class ViewController: UIViewController {
         guard let type = buttonsForDrink[sender], let drink = DrinkFactory.createDrink(for: type) else {
             return
         }
-        appDelegate.vendingMachine?.addStock(for: drink)
+        vm.addStock(for: drink)
     }
     
     @objc func charge(_ sender: UIButton) {
-        guard let chargeAmount = buttonsForCharge[sender], let vm = appDelegate.vendingMachine else {
+        guard let chargeAmount = buttonsForCharge[sender] else {
             return
         }
         vm.charge(coins: chargeAmount)
     }
-}
-
-extension NSNotification.Name {
-    static let updatedDrinkStock = Notification.Name("updatedDrinkStock")
-    static let updatedRemainCoins = Notification.Name("updatedRemainCoins")
 }

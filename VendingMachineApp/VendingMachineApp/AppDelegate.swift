@@ -10,14 +10,10 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    var vendingMachine: VendingMachine?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         if let data = UserDefaults.standard.object(forKey: "vm") as? Data, let vm = ArchivingManager.unarchive(with: data) as? VendingMachine {
-            vendingMachine = vm
-        } else {
-            let drinks = Drinks()
-            vendingMachine = VendingMachine(drinks: drinks, chargedCoins: 0)
+            VendingMachine.shared = vm
         }
         return true
     }

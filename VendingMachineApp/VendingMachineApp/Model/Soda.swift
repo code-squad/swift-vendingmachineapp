@@ -20,6 +20,11 @@ class Soda : Beverage {
         super.init(coder: coder)
     }
     
+    required init() {
+        self.sugarContent = 0
+        super.init()
+    }
+    
     override func encode(with coder: NSCoder) {
         coder.encode(sugarContent, forKey: "sugarContent")
         super.encode(with: coder)

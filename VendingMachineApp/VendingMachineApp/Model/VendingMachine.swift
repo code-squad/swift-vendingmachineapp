@@ -45,8 +45,8 @@ class VendingMachine : NSObject, NSCoding ,VendingMachined {
         NotificationCenter.default.post(name: VendingMachine.updateBalance, object: self, userInfo: ["amountMoney" : payment.amountMoney])
     }
     
-    func addStock(buttonIndex : Int) {
-        //drinks.addStock(beverage : beverage)
+    func addStock(_ beverage : Beverage) {
+        drinks.addStock(beverage : beverage)
         NotificationCenter.default.post(name: VendingMachine.updateBeverage, object: self, userInfo: ["drinklist" : drinks.showAllBeverage()])
     }
     

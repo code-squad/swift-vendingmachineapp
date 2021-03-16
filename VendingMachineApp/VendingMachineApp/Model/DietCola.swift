@@ -19,15 +19,15 @@ class DietCola : Soda {
         super.init(brand: brand, amount : amount, unit : unit, price: price, name: name, manufactured: manufactured, sugarContent : sugarContent, expiration: expiration, temperature : temperature, calorie : calorie)
     }
     
-    convenience init() {
+    required convenience init() {
         self.init(brand: "팹시",
                   amount : 350,
                   unit : .Milliliter,
                   price: 2000,
                   name: "다이어트콜라",
-                  manufactured: Date.make(date: "20210222"),
+                  manufactured: Date(),
                   sugarContent : 5,
-                  expiration: Date.make(date: "20210303"),
+                  expiration: Date.make(date: "20211111"),
                   temperature : 10,
                   calorie : 123,
                   taste: .lemon)

@@ -33,8 +33,9 @@ class ViewController: UIViewController ,VendingMachinedable {
     }
     
     @IBAction func buyBeverageButtonTouched(_ sender: UIButton) {
-        guard let beverage = drinkMenu.addMenu(button: sender) else { return }
-        //vendingMachine.addStock(buttonIndex: buttonIndex)
+        guard let beverageType = drinkMenu.addMenu(button: sender) else { return }
+        let beverage = BeverageFactory.make(beverageType)
+        vendingMachine.addStock(beverage)
     }
     
     @IBAction func BalanceIncreaseButtonTouched(_ sender: UIButton) {

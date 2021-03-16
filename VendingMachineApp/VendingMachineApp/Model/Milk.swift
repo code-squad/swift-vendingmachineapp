@@ -20,6 +20,11 @@ class Milk : Beverage {
         super.init(coder: coder)
     }
     
+    required init() {
+        self.milkFarmCode = 0
+        super.init()
+    }
+    
     override func encode(with coder: NSCoder) {
         coder.encode(milkFarmCode, forKey: "milkFarmCode")
         super.encode(with: coder)

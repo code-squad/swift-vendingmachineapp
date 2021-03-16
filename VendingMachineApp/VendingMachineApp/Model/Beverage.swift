@@ -35,6 +35,19 @@ class Beverage : NSObject, NSCoding {
         self.calorie = calorie
     }
     
+    required override init() {
+        self.brand = ""
+        self.amount = 0
+        self.unit = Unit.Liter
+        self.price = 0
+        self.name = ""
+        self.manufactured = Date()
+        self.expiration = Date()
+        self.temperature = 0
+        self.calorie = 0
+        super.init()
+    }
+    
     func encode(with coder: NSCoder) {
         coder.encode(brand, forKey: "brand")
         coder.encode(amount, forKey: "amount")

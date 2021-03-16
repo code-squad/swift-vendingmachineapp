@@ -33,19 +33,11 @@ class SelectPanelStackView: UIStackView {
     @IBOutlet var stockDrinkLabels: [UILabel]!
     private var drinkOrder = DrinkOrder()
     
-    private lazy var eachButtonType: Dictionary<UIButton, Drink.Type> = [
-        addDrinkButtons[0]: drinkOrder[0],
-        addDrinkButtons[1]: drinkOrder[1],
-        addDrinkButtons[2]: drinkOrder[2],
-        addDrinkButtons[3]: drinkOrder[3],
-        addDrinkButtons[4]: drinkOrder[4],
-        addDrinkButtons[5]: drinkOrder[5],
-    ]
-    
     weak var delegate: SelectPanelStackViewDelegate?
     
     @IBAction func touchAddDrinkButton(_ sender: UIButton) {
-        guard let drinkType = eachButtonType[sender] else { return }
+        guard let index = addDrinkButtons.firstIndex(of: sender) else { return }
+        let drinkType = drinkOrder[index]
         self.delegate?.didAddedDrink(typeOf: drinkType)
     }
     

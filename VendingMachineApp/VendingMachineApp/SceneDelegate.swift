@@ -16,7 +16,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let _ = (scene as? UIWindowScene) else { return }
     }
     
+    func sceneWillResignActive(_ scene: UIScene) {
+        archiveVendingMachine()
+    }
+    
     func sceneDidEnterBackground(_ scene: UIScene) {
+        archiveVendingMachine()
+    }
+    
+    func archiveVendingMachine() {
         guard let vm = appDelegate.vendingMachine else {
             return
         }

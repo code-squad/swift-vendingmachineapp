@@ -13,7 +13,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     private let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     func sceneDidEnterBackground(_ scene: UIScene) {
-        let vendingMachineData = appDelegate.archive(with: appDelegate.vendingMachine as Any)
-        UserDefaults.standard.setValue(vendingMachineData, forKey: AppDelegate.Keys.vendingMachine)
+        appDelegate.save()
     }
 }

@@ -27,23 +27,24 @@ class ViewController: UIViewController {
     private let beverageFactory = BeverageToday()
 
     private let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    private var presenter = VendingMachineViewUpdator()
+    private var presenter: VendingMachineViewPresenter!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         beverageList = beverageFactory.createAll()
         
+        presenter = VendingMachineViewUpdator(userInterface: appDelegate.vendingMachine,
+                                              workerInterface: appDelegate.vendingMachine)
+        
         presenter.initialScreen(images: beverageImages,
                             sampleView: productSample,
                             stackView: productStackView,
-                            machine: appDelegate.vendingMachine,
                             moneyLabel: moneyLabel)
         
         updateOutletCollections()
         
-        presenter.updateStocks(machine: appDelegate.vendingMachine,
-                               countLabels: countLabelCollection,
+        presenter.updateStocks(countLabels: countLabelCollection,
                                beverageList: beverageList)
         
         NotificationCenter.default.addObserver(self,
@@ -63,8 +64,7 @@ class ViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        presenter.updateDispensedList(machine: appDelegate.vendingMachine,
-                                      scrollView: dispensedListScrollView,
+        presenter.updateDispensedList(scrollView: dispensedListScrollView,
                                       images: beverageImages,
                                       beverages: beverageList)
     }
@@ -85,19 +85,16 @@ class ViewController: UIViewController {
     }
     
     @objc func didStockListChanged(_ notification: Notification) {
-        presenter.updateStocks(machine: appDelegate.vendingMachine,
-                               countLabels: countLabelCollection,
+        presenter.updateStocks(countLabels: countLabelCollection,
                                beverageList: beverageList)
     }
     
     @objc func didBalanceChanged(_ notification: Notification) {
-        presenter.updateBalance(machine: appDelegate.vendingMachine,
-                                label: moneyLabel)
+        presenter.updateBalance(label: moneyLabel)
     }
     
     @objc func didBoughtItem(_ notification: Notification) {
-        presenter.updateDispensedList(machine: appDelegate.vendingMachine,
-                                      scrollView: dispensedListScrollView,
+        presenter.updateDispensedList(scrollView: dispensedListScrollView,
                                       images: beverageImages,
                                       beverages: beverageList)
     }

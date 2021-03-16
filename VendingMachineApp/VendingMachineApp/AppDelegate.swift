@@ -14,14 +14,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var vendingMachine : VendingMachine?
 
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool  {
-        let loadData = UserDefaults.standard.data(forKey: "vendingMachine") ?? Data()
-        let loadMachine =  ObjectArchive.load(with: loadData)
-        self.vendingMachine = loadData.isEmpty ? VendingMachine() : loadMachine
+        vendingMachine = DataManager().save()
         return true
     }
 
     func applicationDidEnterBackground(_ application: UIApplication){
-        UserDefaults.standard.setValue(ObjectArchive.save(with: vendingMachine ?? VendingMachine()), forKey: "vendingMachine")
+        DataManager().load(vendingMachine: vendingMachine ?? VendingMachine())
     }
 
 }

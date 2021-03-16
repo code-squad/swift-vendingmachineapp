@@ -13,13 +13,13 @@ protocol UserInterface {
     
     func moneyLeft() -> Int
     
-    func buy(item: Shopable) //타입이 들어가야 함
+    func buy(itemType: Shopable.Type)
     
 }
 
 protocol WorkerInterface {
     
-    func addStock(of item: Shopable)
+    func addStock(of itemType: Shopable.Type)
     
     func allStocks() -> [ObjectIdentifier: Int]
     

@@ -84,15 +84,31 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="eMq-tA-iQY">
                                                 <rect key="frame" x="0.0" y="0.0" width="234.5" height="240"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hfb-pH-0eM">
-                                                        <rect key="frame" x="98" y="0.0" width="39" height="39"/>
-                                                        <accessibility key="accessibilityConfiguration" identifier="BlueBottle Cold Brew(Bold)"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                                        <state key="normal" title="추가"/>
-                                                        <connections>
-                                                            <action selector="touchAddDrinkButton:" destination="b29-T4-1ck" eventType="touchUpInside" id="wzs-3G-14h"/>
-                                                        </connections>
-                                                    </button>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="xNz-t3-Sv7">
+                                                        <rect key="frame" x="66" y="0.0" width="103" height="39"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hfb-pH-0eM">
+                                                                <rect key="frame" x="0.0" y="0.0" width="39" height="39"/>
+                                                                <accessibility key="accessibilityConfiguration" identifier="BlueBottle Cold Brew(Bold)"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                                <state key="normal" title="추가"/>
+                                                                <connections>
+                                                                    <action selector="touchAddDrinkButton:" destination="b29-T4-1ck" eventType="touchUpInside" id="wzs-3G-14h"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B4M-7U-XwQ">
+                                                                <rect key="frame" x="64" y="0.0" width="39" height="39"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                                <state key="normal" title="구매">
+                                                                    <color key="titleColor" systemColor="systemRedColor"/>
+                                                                </state>
+                                                                <connections>
+                                                                    <action selector="touchBuyDrinkButton:" destination="I5O-kG-dJQ" eventType="touchUpInside" id="lAl-8r-76o"/>
+                                                                    <action selector="touchBuyDrinkButton:" destination="b29-T4-1ck" eventType="touchUpInside" id="zza-5h-r4C"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                    </stackView>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="BlueBottle Cold Brew(Bold)" translatesAutoresizingMaskIntoConstraints="NO" id="uk6-7y-l0d">
                                                         <rect key="frame" x="0.0" y="39" width="234.5" height="172"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -109,15 +125,30 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="hfw-uL-F79">
                                                 <rect key="frame" x="239.5" y="0.0" width="235" height="240"/>
                                                 <subviews>
-                                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fGN-0Z-s98">
-                                                        <rect key="frame" x="98" y="0.0" width="39" height="39"/>
-                                                        <accessibility key="accessibilityConfiguration" identifier="Fanta Orange"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                                        <state key="normal" title="추가"/>
-                                                        <connections>
-                                                            <action selector="touchAddDrinkButton:" destination="b29-T4-1ck" eventType="touchUpInside" id="162-hg-VQU"/>
-                                                        </connections>
-                                                    </button>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="cw2-qt-C6K">
+                                                        <rect key="frame" x="66" y="0.0" width="103" height="39"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1f9-Xm-WEm">
+                                                                <rect key="frame" x="0.0" y="0.0" width="39" height="39"/>
+                                                                <accessibility key="accessibilityConfiguration" identifier="BlueBottle Cold Brew(Bold)"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                                <state key="normal" title="추가"/>
+                                                                <connections>
+                                                                    <action selector="touchAddDrinkButton:" destination="b29-T4-1ck" eventType="touchUpInside" id="kaQ-WJ-vtb"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xb4-sh-Qz9">
+                                                                <rect key="frame" x="64" y="0.0" width="39" height="39"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                                <state key="normal" title="구매">
+                                                                    <color key="titleColor" systemColor="systemRedColor"/>
+                                                                </state>
+                                                                <connections>
+                                                                    <action selector="touchBuyDrinkButton:" destination="b29-T4-1ck" eventType="touchUpInside" id="yXP-Fy-uVg"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                    </stackView>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="Fanta Orange" translatesAutoresizingMaskIntoConstraints="NO" id="TAo-Nf-AGX">
                                                         <rect key="frame" x="0.0" y="39" width="235" height="172"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -134,15 +165,30 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="WzX-R3-ulA">
                                                 <rect key="frame" x="479.5" y="0.0" width="234.5" height="240"/>
                                                 <subviews>
-                                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KRB-Ny-IXq">
-                                                        <rect key="frame" x="97.5" y="0.0" width="39" height="39"/>
-                                                        <accessibility key="accessibilityConfiguration" identifier="빙그레 바나나우유"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                                        <state key="normal" title="추가"/>
-                                                        <connections>
-                                                            <action selector="touchAddDrinkButton:" destination="b29-T4-1ck" eventType="touchUpInside" id="0Iw-vS-1cm"/>
-                                                        </connections>
-                                                    </button>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="1tX-ki-zv2">
+                                                        <rect key="frame" x="65.5" y="0.0" width="103" height="39"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kbb-L0-7hm">
+                                                                <rect key="frame" x="0.0" y="0.0" width="39" height="39"/>
+                                                                <accessibility key="accessibilityConfiguration" identifier="BlueBottle Cold Brew(Bold)"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                                <state key="normal" title="추가"/>
+                                                                <connections>
+                                                                    <action selector="touchAddDrinkButton:" destination="b29-T4-1ck" eventType="touchUpInside" id="JcF-x2-Ot5"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iMv-vF-EHD">
+                                                                <rect key="frame" x="64" y="0.0" width="39" height="39"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                                <state key="normal" title="구매">
+                                                                    <color key="titleColor" systemColor="systemRedColor"/>
+                                                                </state>
+                                                                <connections>
+                                                                    <action selector="touchBuyDrinkButton:" destination="b29-T4-1ck" eventType="touchUpInside" id="dvf-gT-ywc"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                    </stackView>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="빙그레 바나나우유" translatesAutoresizingMaskIntoConstraints="NO" id="0tw-GB-bg8">
                                                         <rect key="frame" x="0.0" y="39" width="234.5" height="172"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -167,15 +213,30 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="kuP-86-1cD">
                                                 <rect key="frame" x="0.0" y="0.0" width="234.5" height="240"/>
                                                 <subviews>
-                                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GE8-MK-OUv">
-                                                        <rect key="frame" x="98" y="0.0" width="39" height="39"/>
-                                                        <accessibility key="accessibilityConfiguration" identifier="서울 우유 딸기맛"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                                        <state key="normal" title="추가"/>
-                                                        <connections>
-                                                            <action selector="touchAddDrinkButton:" destination="b29-T4-1ck" eventType="touchUpInside" id="AKT-kh-ly6"/>
-                                                        </connections>
-                                                    </button>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="zzH-Oh-r8L">
+                                                        <rect key="frame" x="66" y="0.0" width="103" height="39"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wYM-5r-tnd">
+                                                                <rect key="frame" x="0.0" y="0.0" width="39" height="39"/>
+                                                                <accessibility key="accessibilityConfiguration" identifier="BlueBottle Cold Brew(Bold)"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                                <state key="normal" title="추가"/>
+                                                                <connections>
+                                                                    <action selector="touchAddDrinkButton:" destination="b29-T4-1ck" eventType="touchUpInside" id="K8q-q3-PhA"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IWu-uL-35I">
+                                                                <rect key="frame" x="64" y="0.0" width="39" height="39"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                                <state key="normal" title="구매">
+                                                                    <color key="titleColor" systemColor="systemRedColor"/>
+                                                                </state>
+                                                                <connections>
+                                                                    <action selector="touchBuyDrinkButton:" destination="b29-T4-1ck" eventType="touchUpInside" id="sHb-9G-Ik9"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                    </stackView>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="서울 우유 딸기맛" translatesAutoresizingMaskIntoConstraints="NO" id="tzQ-av-8yB">
                                                         <rect key="frame" x="0.0" y="39" width="234.5" height="172"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -192,15 +253,30 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="hFs-bO-Bp2">
                                                 <rect key="frame" x="239.5" y="0.0" width="235" height="240"/>
                                                 <subviews>
-                                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cbg-6q-Idc">
-                                                        <rect key="frame" x="98" y="0.0" width="39" height="39"/>
-                                                        <accessibility key="accessibilityConfiguration" identifier="Sanpellegrino"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                                        <state key="normal" title="추가"/>
-                                                        <connections>
-                                                            <action selector="touchAddDrinkButton:" destination="b29-T4-1ck" eventType="touchUpInside" id="rNH-bG-8cB"/>
-                                                        </connections>
-                                                    </button>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="GxX-kX-VeV">
+                                                        <rect key="frame" x="66" y="0.0" width="103" height="39"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hul-jf-Tih">
+                                                                <rect key="frame" x="0.0" y="0.0" width="39" height="39"/>
+                                                                <accessibility key="accessibilityConfiguration" identifier="BlueBottle Cold Brew(Bold)"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                                <state key="normal" title="추가"/>
+                                                                <connections>
+                                                                    <action selector="touchAddDrinkButton:" destination="b29-T4-1ck" eventType="touchUpInside" id="Rqv-3M-4sq"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Dx-xv-eJ0">
+                                                                <rect key="frame" x="64" y="0.0" width="39" height="39"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                                <state key="normal" title="구매">
+                                                                    <color key="titleColor" systemColor="systemRedColor"/>
+                                                                </state>
+                                                                <connections>
+                                                                    <action selector="touchBuyDrinkButton:" destination="b29-T4-1ck" eventType="touchUpInside" id="cLs-tf-Wf3"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                    </stackView>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="Sanpellegrino" translatesAutoresizingMaskIntoConstraints="NO" id="RYU-Mt-2hT">
                                                         <rect key="frame" x="0.0" y="39" width="235" height="172"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -217,15 +293,30 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="WqZ-1P-1O7">
                                                 <rect key="frame" x="479.5" y="0.0" width="234.5" height="240"/>
                                                 <subviews>
-                                                    <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XKG-bm-ElA">
-                                                        <rect key="frame" x="97.5" y="0.0" width="39" height="39"/>
-                                                        <accessibility key="accessibilityConfiguration" identifier="StarBucks Cold Brew(Black)"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                                        <state key="normal" title="추가"/>
-                                                        <connections>
-                                                            <action selector="touchAddDrinkButton:" destination="b29-T4-1ck" eventType="touchUpInside" id="qfz-2z-Dff"/>
-                                                        </connections>
-                                                    </button>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="LEA-ga-N6l">
+                                                        <rect key="frame" x="65.5" y="0.0" width="103" height="39"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YaZ-uX-tnu">
+                                                                <rect key="frame" x="0.0" y="0.0" width="39" height="39"/>
+                                                                <accessibility key="accessibilityConfiguration" identifier="BlueBottle Cold Brew(Bold)"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                                <state key="normal" title="추가"/>
+                                                                <connections>
+                                                                    <action selector="touchAddDrinkButton:" destination="b29-T4-1ck" eventType="touchUpInside" id="aKI-RX-2Z1"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j62-ol-OpH">
+                                                                <rect key="frame" x="64" y="0.0" width="39" height="39"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                                <state key="normal" title="구매">
+                                                                    <color key="titleColor" systemColor="systemRedColor"/>
+                                                                </state>
+                                                                <connections>
+                                                                    <action selector="touchBuyDrinkButton:" destination="b29-T4-1ck" eventType="touchUpInside" id="32N-ED-92c"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                    </stackView>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="StarBucks Cold Brew(Black)" highlightedImage="Sanpellegrino" translatesAutoresizingMaskIntoConstraints="NO" id="q87-JZ-sZp">
                                                         <rect key="frame" x="0.0" y="39" width="234.5" height="172"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -259,12 +350,18 @@
                                     <outletCollection property="stockDrinkLabels" destination="wJg-e5-WGd" collectionClass="NSMutableArray" id="Toz-qN-XCc"/>
                                     <outletCollection property="stockDrinkLabels" destination="Woo-gZ-ESb" collectionClass="NSMutableArray" id="g43-mw-CJi"/>
                                     <outletCollection property="stockDrinkLabels" destination="jvi-VF-5mh" collectionClass="NSMutableArray" id="9EL-n9-AwX"/>
-                                    <outletCollection property="addDrinkButtons" destination="Hfb-pH-0eM" collectionClass="NSMutableArray" id="Fkz-8z-IGj"/>
-                                    <outletCollection property="addDrinkButtons" destination="fGN-0Z-s98" collectionClass="NSMutableArray" id="UDg-H4-BDU"/>
-                                    <outletCollection property="addDrinkButtons" destination="KRB-Ny-IXq" collectionClass="NSMutableArray" id="HU6-Y2-xHc"/>
-                                    <outletCollection property="addDrinkButtons" destination="GE8-MK-OUv" collectionClass="NSMutableArray" id="XE4-5k-FCL"/>
-                                    <outletCollection property="addDrinkButtons" destination="Cbg-6q-Idc" collectionClass="NSMutableArray" id="Wht-4p-CCs"/>
-                                    <outletCollection property="addDrinkButtons" destination="XKG-bm-ElA" collectionClass="NSMutableArray" id="v9w-or-esG"/>
+                                    <outletCollection property="addDrinkButtons" destination="Hfb-pH-0eM" collectionClass="NSMutableArray" id="S8N-K1-W2r"/>
+                                    <outletCollection property="addDrinkButtons" destination="1f9-Xm-WEm" collectionClass="NSMutableArray" id="Og0-pw-OCE"/>
+                                    <outletCollection property="addDrinkButtons" destination="kbb-L0-7hm" collectionClass="NSMutableArray" id="R2c-P8-51J"/>
+                                    <outletCollection property="addDrinkButtons" destination="wYM-5r-tnd" collectionClass="NSMutableArray" id="qTH-VU-pvI"/>
+                                    <outletCollection property="addDrinkButtons" destination="Hul-jf-Tih" collectionClass="NSMutableArray" id="ap6-9x-iv0"/>
+                                    <outletCollection property="addDrinkButtons" destination="YaZ-uX-tnu" collectionClass="NSMutableArray" id="wrY-PH-sAM"/>
+                                    <outletCollection property="buyDrinkButtons" destination="B4M-7U-XwQ" collectionClass="NSMutableArray" id="NJj-c7-M89"/>
+                                    <outletCollection property="buyDrinkButtons" destination="Xb4-sh-Qz9" collectionClass="NSMutableArray" id="N59-rd-uQ2"/>
+                                    <outletCollection property="buyDrinkButtons" destination="iMv-vF-EHD" collectionClass="NSMutableArray" id="OLl-Hv-yXb"/>
+                                    <outletCollection property="buyDrinkButtons" destination="IWu-uL-35I" collectionClass="NSMutableArray" id="cI6-3c-HFF"/>
+                                    <outletCollection property="buyDrinkButtons" destination="2Dx-xv-eJ0" collectionClass="NSMutableArray" id="IKO-fq-Lhg"/>
+                                    <outletCollection property="buyDrinkButtons" destination="j62-ol-OpH" collectionClass="NSMutableArray" id="S3V-qv-YCM"/>
                                 </connections>
                             </stackView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ozR-ex-hW8">
@@ -388,6 +485,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="I5O-kG-dJQ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="138.8671875" y="114.84375"/>
         </scene>
@@ -404,6 +502,9 @@
         </systemColor>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

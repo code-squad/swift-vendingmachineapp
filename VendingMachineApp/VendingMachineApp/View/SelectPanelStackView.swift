@@ -9,6 +9,7 @@ import UIKit
 
 protocol SelectPanelStackViewDelegate: class {
     func didAddedDrink(typeOf drinkType: Drink.Type)
+    func didBoughtDrink(typeOf drinkType: Drink.Type)
 }
 
 class DrinkOrder {
@@ -30,6 +31,7 @@ class SelectPanelStackView: UIStackView {
     
     @IBOutlet var drinkImageViews: [UIImageView]!
     @IBOutlet var addDrinkButtons: [UIButton]!
+    @IBOutlet var buyDrinkButtons: [UIButton]!
     @IBOutlet var stockDrinkLabels: [UILabel]!
     private var drinkOrder = DrinkOrder()
     
@@ -39,6 +41,12 @@ class SelectPanelStackView: UIStackView {
         guard let index = addDrinkButtons.firstIndex(of: sender) else { return }
         let drinkType = drinkOrder[index]
         self.delegate?.didAddedDrink(typeOf: drinkType)
+    }
+    
+    @IBAction func touchBuyDrinkButton(_ sender: UIButton) {
+        guard let index = buyDrinkButtons.firstIndex(of: sender) else { return }
+        let drinkType = drinkOrder[index]
+        self.delegate?.didBoughtDrink(typeOf: drinkType)
     }
     
     func setDrinkImageViewsRadius(of value: CGFloat) {

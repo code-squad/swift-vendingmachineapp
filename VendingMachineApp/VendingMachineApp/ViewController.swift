@@ -16,7 +16,6 @@ class ViewController: UIViewController, SelectPanelStackViewDelegate, TopPanelDe
     private var stockPublisher: AnyCancellable!
     private var coinCounterPublisher: AnyCancellable!
     private var vendingMachine: VendingMachine!
-    private var eachButtonType: Dictionary<UIButton, Drink.Type>!
     private var drinkOrder = DrinkOrder()
     
     override func viewDidLoad() {

@@ -14,6 +14,8 @@ protocol VendingMachineViewPresenter {
     func updateStocks(machine: VendingMachine, countLabels: [UILabel], beverageList: [Shopable])
     
     func updateBalance(machine: VendingMachine, label: UILabel)
+    
+    func updateDispensedList(machine: VendingMachine, scrollView: UIScrollView, images: [UIImage], beverages: [Shopable])
 }
 
 class VendingMachineViewUpdator: VendingMachineViewPresenter {
@@ -60,5 +62,31 @@ class VendingMachineViewUpdator: VendingMachineViewPresenter {
     
     func updateBalance(machine: VendingMachine, label: UILabel) {
         label.text = "\(machine.moneyLeft())원"
+    }
+    
+    func updateDispensedList(machine: VendingMachine, scrollView: UIScrollView, images: [UIImage], beverages: [Shopable]) {
+        
+        for views in scrollView.subviews {
+            views.removeFromSuperview()
+        }
+        
+        let purchased = machine.purchased()
+        let count = purchased.count
+        let sizeUnit: CGFloat = 200
+        let yPosition = scrollView.bounds.height/2 - sizeUnit/2
+        scrollView.contentSize.width = CGFloat(count + 1) * sizeUnit/2
+        
+        for i in 1...count {
+            let targetIdx = beverages.firstIndex { (listItem) -> Bool in
+                ObjectIdentifier(type(of: listItem)) == ObjectIdentifier(type(of: purchased[count-i]))
+            }
+            
+            if let targetIdx = targetIdx {
+                let newView = UIImageView(frame: CGRect(x: CGFloat(i-1) * sizeUnit/2, y: yPosition, width: sizeUnit, height: sizeUnit))
+                newView.image = images[targetIdx]
+                newView.contentMode = .scaleAspectFit
+                scrollView.addSubview(newView)
+            }
+        }
     }
 }

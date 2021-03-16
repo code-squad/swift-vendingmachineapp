@@ -45,3 +45,19 @@
 - 재고추가 버튼을 눌렀을 때 해당 음료의 재고 수 증가하고 라벨에 표시
 - 잔액 추가 버튼 (+1000, +5000)
 
+## Step4
+
+### 설명
+
+App LifeCylce & NSCoding 채택
+ 
+- 자판기 인스턴스의 저장을 위해 NSCoding, NSObject 채택하도록 구현
+- AppDelegate, SceneDelegate 를 통해 앱이 꺼져도 자판기의 재고 및 금액 저장되도록 구현
+
+## Step5
+
+### 설명
+
+- NotificationCenter 를 통한 observer 패턴 구현
+
+

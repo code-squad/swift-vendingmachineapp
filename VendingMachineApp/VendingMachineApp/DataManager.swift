@@ -9,13 +9,13 @@ import Foundation
 
 class DataManager {
     
-    func save() -> VendingMachine? {
+    static func load() -> VendingMachine? {
         let loadData = UserDefaults.standard.data(forKey: "vendingMachine") ?? Data()
         let loadMachine =  ObjectArchive.load(with: loadData)
         return loadData.isEmpty ? VendingMachine() : loadMachine
     }
     
-    func load(vendingMachine : VendingMachine) {
+    static func save(_ vendingMachine : VendingMachine) {
         UserDefaults.standard.setValue(ObjectArchive.save(with: vendingMachine), forKey: "vendingMachine")
     }
 }

@@ -7,7 +7,9 @@
 
 import Foundation
 
-class VendingMachine : NSObject, NSCoding {
+class VendingMachine : NSObject, NSCoding ,VendingMachined {
+    
+    
     private var drinks : Drinks
     private var payment : Payment
     private var purchasedList : PurchasedList

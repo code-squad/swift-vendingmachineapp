@@ -14,19 +14,20 @@ class ArchivingCenter {
     }
     
     func loadVendingMachine() -> VendingMachine {
-        
+
         var machineLoaded: VendingMachine
         
         if let vendingMachineData = UserDefaults.standard.data(forKey: Keys.vendingMachine),
            let vendingMachine = unarchive(with: vendingMachineData) as? VendingMachine {
             machineLoaded = vendingMachine
         } else {
+            let newBeverageManager = BeverageManager(temperatureStandard: Settings.Standards.temperature,
+                                                     sugarStandard: Settings.Standards.sugar,
+                                                     lactoStandard: Settings.Standards.lactose)
             machineLoaded = VendingMachine(storage: BeverageStorage(),
                                                  dispensedList: DispensedList(),
                                                  moneyBox: MoneyBox(),
-                                                 beverageManager: BeverageManager(temperatureStandard: 36.5,
-                                                                                  sugarStandard: 1.0,
-                                                                                  lactoStandard: 3.5))
+                                                 beverageManager: newBeverageManager)
         }
         return machineLoaded
     }

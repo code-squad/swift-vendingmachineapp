@@ -33,9 +33,9 @@ class VendingMachine: NSObject, NSCoding {
         self.storage = coder.decodeObject(forKey: ArchiveKeys.storage) as! Storage
         self.dispensedList = coder.decodeObject(forKey: ArchiveKeys.dispensedList) as! OrderableList
         self.moneyBox = coder.decodeObject(forKey: ArchiveKeys.moneyBox) as! MoneyManagable
-        beverageManager = BeverageManager(temperatureStandard: 36.5,
-                                          sugarStandard: 1.0,
-                                          lactoStandard: 3.5)
+        beverageManager = BeverageManager(temperatureStandard: Settings.Standards.temperature,
+                                          sugarStandard: Settings.Standards.sugar,
+                                          lactoStandard: Settings.Standards.lactose)
         beverageFactory = BeverageToday()
     }
     

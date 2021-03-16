@@ -7,12 +7,12 @@
 
 import Foundation
 
-extension NSNotification.Name {
-    static let didChangedStock = Notification.Name("didChangedStock")
-    static let didChangedMoney = Notification.Name("didChangedMoney")
-}
-
 class VendingMachine: NSObject, NSCoding{
+    
+    enum Notification {
+        static let didChangedStock = Foundation.Notification.Name("didChangedStock")
+        static let didChangedMoney = Foundation.Notification.Name("didChangedMoney")
+    }
     
     private var manager = VendingMachineManager()
     private var inventory = Inventory()
@@ -35,12 +35,12 @@ class VendingMachine: NSObject, NSCoding{
     
     func increase(money: Money) {
         manager.changeMoney(with: money)
-        NotificationCenter.default.post(name: .didChangedMoney, object: nil)
+        NotificationCenter.default.post(name: Notification.didChangedMoney, object: nil)
     }
     
     func add(beverage: Beverage) {
         inventory.add(beverage: beverage)
-        NotificationCenter.default.post(name: .didChangedStock, object: beverage, userInfo: wholeBeverage())
+        NotificationCenter.default.post(name: Notification.didChangedStock, object: beverage, userInfo: wholeBeverage())
     }
     
     func availablePurchaseList() -> [Beverage] {

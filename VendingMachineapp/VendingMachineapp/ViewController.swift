@@ -44,11 +44,11 @@ class ViewController: UIViewController {
     
     func setObserver() {
         NotificationCenter.default.addObserver(self, selector: #selector(changeStockLabel),
-                                               name: .didChangedStock,
+                                               name: VendingMachine.Notification.didChangedStock,
                                                object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(changeMoneyLabel),
-                                               name: .didChangedMoney,
+                                               name: VendingMachine.Notification.didChangedMoney,
                                                object: nil)
     }
     

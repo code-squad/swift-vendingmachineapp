@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		10000B8E26007C9B003B39E3 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10000B8D26007C9B003B39E3 /* ImageManager.swift */; };
 		1004F55425ECB7C5006666EA /* Drinkable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1004F55325ECB7C5006666EA /* Drinkable.swift */; };
 		102E520725F0D6FB00C8631A /* OneStockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102E520625F0D6FB00C8631A /* OneStockView.swift */; };
+		1031A741260059D000B38286 /* PurchaseScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1031A740260059D000B38286 /* PurchaseScrollView.swift */; };
 		104C8AE325F21A180004BA36 /* StackViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104C8AE225F21A180004BA36 /* StackViewExtension.swift */; };
 		105B850925F7545200AB95F5 /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105B850825F7545200AB95F5 /* Factory.swift */; };
 		105EE25825E8CCD000E6D2E2 /* EnergyDrink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105EE25725E8CCD000E6D2E2 /* EnergyDrink.swift */; };
@@ -70,8 +72,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		10000B8D26007C9B003B39E3 /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
 		1004F55325ECB7C5006666EA /* Drinkable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drinkable.swift; sourceTree = "<group>"; };
 		102E520625F0D6FB00C8631A /* OneStockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneStockView.swift; sourceTree = "<group>"; };
+		1031A740260059D000B38286 /* PurchaseScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseScrollView.swift; sourceTree = "<group>"; };
 		104C8AE225F21A180004BA36 /* StackViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViewExtension.swift; sourceTree = "<group>"; };
 		105B850825F7545200AB95F5 /* Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Factory.swift; sourceTree = "<group>"; };
 		105EE25725E8CCD000E6D2E2 /* EnergyDrink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnergyDrink.swift; sourceTree = "<group>"; };
@@ -154,6 +158,7 @@
 				1089F26D25F724220021601C /* StockStackView.swift */,
 				109A925225F8FFDF000E37D5 /* UIBeverageButton.swift */,
 				109A925A25F90233000E37D5 /* UICoinButton.swift */,
+				1031A740260059D000B38286 /* PurchaseScrollView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -292,6 +297,7 @@
 				1087276525EE15A500F260A2 /* Money.swift */,
 				108B4FA725EE290B00658B66 /* Stock.swift */,
 				105B850825F7545200AB95F5 /* Factory.swift */,
+				10000B8D26007C9B003B39E3 /* ImageManager.swift */,
 				10CD90AB25FA0F9B00FBEE7E /* DataManager.swift */,
 			);
 			path = Model;
@@ -445,6 +451,7 @@
 				10F5F08525E7845B00B70881 /* Milk.swift in Sources */,
 				105EE28425E8D63600E6D2E2 /* Cantata.swift in Sources */,
 				105EE27A25E8D61000E6D2E2 /* Top.swift in Sources */,
+				1031A741260059D000B38286 /* PurchaseScrollView.swift in Sources */,
 				10C692B225EA2D0F009F6AEF /* Coke.swift in Sources */,
 				105EE27025E8D0D800E6D2E2 /* ChocolateMilk.swift in Sources */,
 				104C8AE325F21A180004BA36 /* StackViewExtension.swift in Sources */,
@@ -460,6 +467,7 @@
 				10CD90AC25FA0F9B00FBEE7E /* DataManager.swift in Sources */,
 				1089F26E25F724220021601C /* StockStackView.swift in Sources */,
 				10F5F08725E7845B00B70881 /* Coffee.swift in Sources */,
+				10000B8E26007C9B003B39E3 /* ImageManager.swift in Sources */,
 				10A31E8725F2683300E2AAF8 /* InspectorStackView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

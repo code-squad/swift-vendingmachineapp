@@ -10,9 +10,10 @@ import UIKit
 class OneStockView: UIView {
     
     private var label : UILabel!
-    public var button : UIBeverageButton!
+    public var addButton : UIBeverageButton!
     public var stockImageView : UIImageView!
-    // TODO: let으로 바꾸기 or type을 변수로 가지지 않도록 바꿔보기
+    public var buyButton : UIBeverageButton!
+    
     public var beverageType : Beverage.Type!
     
     required init?(coder: NSCoder) {
@@ -27,11 +28,14 @@ class OneStockView: UIView {
         // Image
         setStockImageView()
         
-        // Button
-        setButton()
+        // AddButton
+        setStockAddButton()
         
         // Label
         setLabel()
+        
+        // PurchaseButton
+        setBuyButton()
     }
 
     func setStockImageView(){
@@ -41,12 +45,11 @@ class OneStockView: UIView {
         stockImageView.layer.cornerRadius = 10
         addSubview(stockImageView)
     }
-    func setButton(){
-        button = UIBeverageButton(frame: CGRect(x: 0, y: 0, width: bounds.width, height: 40))
-        addSubview(button)
-    }
-    func setButtonTitle(title : String){
-        button.setTitle(title, for: .normal)
+    func setStockAddButton(){
+        addButton = UIBeverageButton(frame: CGRect(x: 0, y: 0, width: bounds.width, height: 40))
+        addButton.setImage(UIImage(named: "addbutton"), for: .normal)
+        addButton.setTitle("추가하기", for: .normal)
+        addSubview(addButton)
     }
     func setLabel(){
         let captionBackgroundView = UIView(frame: CGRect(x: 0, y: bounds.height, width: bounds.width, height: 30))
@@ -59,7 +62,12 @@ class OneStockView: UIView {
         label.textColor = UIColor(white: 0.9, alpha: 1.0)
         captionBackgroundView.addSubview(label)
     }
-
+    func setBuyButton(){
+        buyButton = UIBeverageButton(frame: CGRect(x: 0, y: bounds.maxY + 40, width: bounds.width, height: 40))
+        buyButton.setTitle("구매하기", for: .normal)
+        buyButton.setImage(UIImage(named: "buybutton"), for: .normal)
+        addSubview(buyButton)
+    }
     func reloadLabelText(count : Int){
         label.text = "재고량 : \(count)"
     }

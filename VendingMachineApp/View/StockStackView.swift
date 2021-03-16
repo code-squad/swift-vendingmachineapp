@@ -51,11 +51,9 @@ class StockStackView: UIStackView {
                 let stockview = OneStockView(frame: CGRect(x: 0, y: 0, width: 180, height: 180))
                 stockview.beverageType = type
                 stockview.stockImageView.image = ImageManager.getImage(type: type.self)
-                stockview.button.setType(with: type)
-                stockview.button.setTitle("추가하기", for: .normal)
+                stockview.addButton.setType(with: type)
                 return stockview
             }()
-            
             stockCells.append(stock)
         }
     }

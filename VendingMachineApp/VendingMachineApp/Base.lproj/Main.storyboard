@@ -20,7 +20,7 @@
                                 <rect key="frame" x="774" y="0.0" width="250" height="768"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="Ldf-W4-9oa">
-                                        <rect key="frame" x="20" y="50" width="194" height="41"/>
+                                        <rect key="frame" x="20" y="75" width="194" height="41"/>
                                         <subviews>
                                             <button opaque="NO" tag="1000" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O1y-ib-Iv6">
                                                 <rect key="frame" x="0.0" y="0.0" width="75" height="41"/>
@@ -41,9 +41,18 @@
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="잔액: 0원" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d0j-ZM-qYp">
-                                        <rect key="frame" x="20" y="141" width="91.5" height="26.5"/>
+                                        <rect key="frame" x="20" y="166" width="91.5" height="26.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
                                         <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="차가운 음료 있읍니다" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="9" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tkz-I5-Nra">
+                                        <rect key="frame" x="108" y="245" width="34" height="423"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="423" id="SVb-gR-ucQ"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="31"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -51,10 +60,13 @@
                                 <constraints>
                                     <constraint firstItem="d0j-ZM-qYp" firstAttribute="top" secondItem="Ldf-W4-9oa" secondAttribute="bottom" constant="50" id="2Fw-Sr-7ym"/>
                                     <constraint firstItem="Ldf-W4-9oa" firstAttribute="leading" secondItem="1U7-rv-E3w" secondAttribute="leading" constant="20" id="CI8-Qs-fPp"/>
-                                    <constraint firstItem="Ldf-W4-9oa" firstAttribute="top" secondItem="1U7-rv-E3w" secondAttribute="top" constant="50" id="GX8-Yv-2bd"/>
+                                    <constraint firstItem="Ldf-W4-9oa" firstAttribute="top" secondItem="1U7-rv-E3w" secondAttribute="top" constant="75" id="GX8-Yv-2bd"/>
                                     <constraint firstItem="d0j-ZM-qYp" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="1U7-rv-E3w" secondAttribute="leading" constant="20" symbolic="YES" id="aQi-eV-NWG"/>
+                                    <constraint firstItem="tkz-I5-Nra" firstAttribute="leading" secondItem="1U7-rv-E3w" secondAttribute="leading" constant="108" id="cEc-Mw-tY6"/>
                                     <constraint firstAttribute="width" constant="250" id="ccf-7n-8ww"/>
+                                    <constraint firstItem="tkz-I5-Nra" firstAttribute="centerX" secondItem="1U7-rv-E3w" secondAttribute="centerX" id="etF-cL-TlE"/>
                                     <constraint firstItem="d0j-ZM-qYp" firstAttribute="leading" secondItem="Ldf-W4-9oa" secondAttribute="leading" id="fSD-IX-nTM"/>
+                                    <constraint firstAttribute="bottom" secondItem="tkz-I5-Nra" secondAttribute="bottom" constant="100" id="g7R-gw-MzJ"/>
                                     <constraint firstAttribute="trailing" secondItem="d0j-ZM-qYp" secondAttribute="trailing" constant="138.5" id="nqp-7c-oqV"/>
                                 </constraints>
                                 <connections>

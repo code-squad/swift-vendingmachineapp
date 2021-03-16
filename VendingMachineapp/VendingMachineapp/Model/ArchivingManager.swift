@@ -17,9 +17,11 @@ class ArchivingManager {
         return archived
     }
 
-    static func unarchive(with text: Data) -> VendingMachine? {
+    static func unarchive() -> VendingMachine? {
         
-        guard let object = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(text) else {
+        let data = UserDefaults.standard.data(forKey: "vendingMachine") ?? Data()
+        
+        guard let object = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) else {
             return nil
         }
 

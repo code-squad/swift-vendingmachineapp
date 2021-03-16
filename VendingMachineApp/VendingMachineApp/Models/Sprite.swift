@@ -28,11 +28,12 @@ class Sprite: Soda {
     }
     
     required init?(coder: NSCoder) {
-        self.flavor = coder.decodeObject(forKey: "flavor") as! Flavor
+        self.flavor = coder.decodeObject(forKey: "spriteFlavor") as! Flavor
         super.init(coder: coder)
     }
     
     override func encode(with coder: NSCoder) {
-        coder.encode(flavor, forKey: "flavor")
+        coder.encode(flavor, forKey: "spriteFlavor")
+        super.encode(with: coder)
     }
 }

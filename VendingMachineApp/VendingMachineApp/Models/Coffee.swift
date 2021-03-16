@@ -28,6 +28,7 @@ class Coffee: Beverage {
     
     override func encode(with coder: NSCoder) {
         coder.encode(caffein, forKey: "caffein")
+        super.encode(with: coder)
     }
     
     

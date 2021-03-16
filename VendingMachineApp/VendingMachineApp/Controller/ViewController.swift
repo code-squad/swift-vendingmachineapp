@@ -50,10 +50,10 @@ class ViewController: UIViewController {
     
     @objc
     func loadSavedLabel() {
-        for i in 0...3 {
-            if let stock = vendingMachine?.showStock()[ObjectIdentifier(beveragesType[i])] {
-                beverageLabels[i].text = "\(stock.count)개"
-            }
+        for button in beverageButtons {
+            guard let type = beverageData.showType(with: button), let label = beverageData.showLabel(sender: button) else { return }
+            guard let stock = vendingMachine?.showStock()[ObjectIdentifier(type)] else { return }
+            label.text = "\(stock.count)개"
         }
         guard let money = vendingMachine?.showBalance() else { return }
         balanceLabel.text = "\(money)원"

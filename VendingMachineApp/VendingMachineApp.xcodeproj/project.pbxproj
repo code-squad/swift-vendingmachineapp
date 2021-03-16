@@ -27,6 +27,7 @@
 		B3B3DD3025E7D8450022465D /* EnergyDrink.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B3DD2F25E7D8450022465D /* EnergyDrink.swift */; };
 		B3B3DD3525E7EF620022465D /* CashManagementSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B3DD3425E7EF620022465D /* CashManagementSystem.swift */; };
 		B3B6E92325FB3A53002F2920 /* Archiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B6E92225FB3A53002F2920 /* Archiver.swift */; };
+		B3CEBECC2600557200DD08A2 /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CEBECB2600557200DD08A2 /* NotificationName.swift */; };
 		B3EF2CE725EE1B5B00FBA7CC /* VendingMachineAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EF2CE625EE1B5B00FBA7CC /* VendingMachineAppTests.swift */; };
 		B3EF2CF025EE227C00FBA7CC /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36A87D325E62EAB002C4432 /* VendingMachine.swift */; };
 		B3EF2CF125EE227C00FBA7CC /* CashManagementSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B3DD3425E7EF620022465D /* CashManagementSystem.swift */; };
@@ -80,6 +81,7 @@
 		B3B3DD2F25E7D8450022465D /* EnergyDrink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnergyDrink.swift; sourceTree = "<group>"; };
 		B3B3DD3425E7EF620022465D /* CashManagementSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashManagementSystem.swift; sourceTree = "<group>"; };
 		B3B6E92225FB3A53002F2920 /* Archiver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Archiver.swift; sourceTree = "<group>"; };
+		B3CEBECB2600557200DD08A2 /* NotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationName.swift; sourceTree = "<group>"; };
 		B3EF2CE425EE1B5B00FBA7CC /* VendingMachineAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VendingMachineAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3EF2CE625EE1B5B00FBA7CC /* VendingMachineAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineAppTests.swift; sourceTree = "<group>"; };
 		B3EF2CE825EE1B5B00FBA7CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				B36A87DC25E63E14002C4432 /* Date.swift */,
+				B3CEBECB2600557200DD08A2 /* NotificationName.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -368,6 +371,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B3B6E92325FB3A53002F2920 /* Archiver.swift in Sources */,
+				B3CEBECC2600557200DD08A2 /* NotificationName.swift in Sources */,
 				B36A87C425E6233C002C4432 /* Cola.swift in Sources */,
 				B36A87D425E62EAB002C4432 /* VendingMachine.swift in Sources */,
 				B3FC892F25EBEA1500E70D38 /* RedBull.swift in Sources */,

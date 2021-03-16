@@ -14,6 +14,10 @@ class VendingMachine : NSObject, NSCoding {
     private var drinkMenu : DrinkMenu
     private var paymentMenu : PaymentMenu
     
+    
+    static let updateBeverage = Notification.Name("updateBeverage")
+    static let updateBalance = Notification.Name("updateBalance")
+    
     override init() {
         self.drinks = Drinks()
         self.payment = Payment()
@@ -47,12 +51,13 @@ class VendingMachine : NSObject, NSCoding {
     func putPayMoney(buttonIndex : Int) {
         let money = paymentMenu.list[buttonIndex]
         payment.increase(money: money)
+        NotificationCenter.default.post(name: VendingMachine.updateBalance, object: self, userInfo: ["amountMoney" : payment.amountMoney])
     }
     
     func addStock(buttonIndex : Int) {
         let beverage = drinkMenu.list[buttonIndex]
         drinks.addStock(beverage : beverage)
-        NotificationCenter.default.post(name: .updateBeverage, object: VendingMachine.self, userInfo: ["drinklist" : drinks.showAllBeverage()])
+        NotificationCenter.default.post(name: VendingMachine.updateBeverage, object: self, userInfo: ["drinklist" : drinks.showAllBeverage()])
     }
     
     func showPurchasePossibleList() -> [Beverage] {
@@ -100,10 +105,5 @@ class VendingMachine : NSObject, NSCoding {
             handler($0.offset, drinks.showAllBeverage()[ObjectIdentifier(type(of: $0.element))]?.count ?? 0)
         }
     }
-}
-
-extension Notification.Name {
-    static let updateBeverage = Notification.Name("updateBeverage")
-    static let updateBalance = Notification.Name("updateBalance")
 }
 

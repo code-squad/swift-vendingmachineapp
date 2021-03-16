@@ -29,7 +29,7 @@ class Milk: Drink {
         super.encode(with: coder)
     }
     
-    func isLowFat() -> Bool {
-        return fatContent < 3
+    func isLowFat(standard: Int) -> Bool {
+        return fatContent < standard
     }
 }

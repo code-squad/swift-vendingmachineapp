@@ -14,7 +14,7 @@ class VendingMachine: NSObject, NSCoding {
     
     private(set) static var `default`: VendingMachine = VendingMachine()
     
-    override init() {
+    private override init() {
         self.purchasehistory = [Drink]()
         self.stock = Stock()
         self.coins = CoinCounter()

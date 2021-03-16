@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		E412600625EE28C9003ED8A7 /* DateFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E412600525EE28C9003ED8A7 /* DateFactory.swift */; };
+		E42EE33D2600553300C89DD7 /* VendingMachineProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42EE33C2600553300C89DD7 /* VendingMachineProtocols.swift */; };
+		E42EE3432600557B00C89DD7 /* FoodManagable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42EE3422600557B00C89DD7 /* FoodManagable.swift */; };
+		E42EE3472600559C00C89DD7 /* MoneyManagable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42EE3462600559C00C89DD7 /* MoneyManagable.swift */; };
+		E42EE34B260055B000C89DD7 /* Shopable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42EE34A260055B000C89DD7 /* Shopable.swift */; };
+		E42EE34F260055C500C89DD7 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42EE34E260055C500C89DD7 /* Storage.swift */; };
+		E42EE355260055E700C89DD7 /* OrderableList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42EE354260055E700C89DD7 /* OrderableList.swift */; };
 		E4B8A3EE25EF2942006D405F /* ShopableFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B8A3ED25EF2942006D405F /* ShopableFactory.swift */; };
 		E4B8A3F625EF6807006D405F /* VendingMachineViewUpdator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B8A3F525EF6807006D405F /* VendingMachineViewUpdator.swift */; };
 		E4B8A41025F1F32E006D405F /* DispensedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B8A40F25F1F32E006D405F /* DispensedList.swift */; };
@@ -46,6 +52,12 @@
 
 /* Begin PBXFileReference section */
 		E412600525EE28C9003ED8A7 /* DateFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFactory.swift; sourceTree = "<group>"; };
+		E42EE33C2600553300C89DD7 /* VendingMachineProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineProtocols.swift; sourceTree = "<group>"; };
+		E42EE3422600557B00C89DD7 /* FoodManagable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodManagable.swift; sourceTree = "<group>"; };
+		E42EE3462600559C00C89DD7 /* MoneyManagable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyManagable.swift; sourceTree = "<group>"; };
+		E42EE34A260055B000C89DD7 /* Shopable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shopable.swift; sourceTree = "<group>"; };
+		E42EE34E260055C500C89DD7 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
+		E42EE354260055E700C89DD7 /* OrderableList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderableList.swift; sourceTree = "<group>"; };
 		E4B8A3ED25EF2942006D405F /* ShopableFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopableFactory.swift; sourceTree = "<group>"; };
 		E4B8A3F525EF6807006D405F /* VendingMachineViewUpdator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineViewUpdator.swift; sourceTree = "<group>"; };
 		E4B8A40F25F1F32E006D405F /* DispensedList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispensedList.swift; sourceTree = "<group>"; };
@@ -93,9 +105,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E42EE33B2600552000C89DD7 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				E42EE34A260055B000C89DD7 /* Shopable.swift */,
+				E4EB87F525E782A100F077D5 /* BeverageProtocols.swift */,
+				E42EE34E260055C500C89DD7 /* Storage.swift */,
+				E42EE354260055E700C89DD7 /* OrderableList.swift */,
+				E42EE3462600559C00C89DD7 /* MoneyManagable.swift */,
+				E42EE3422600557B00C89DD7 /* FoodManagable.swift */,
+				E42EE33C2600553300C89DD7 /* VendingMachineProtocols.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		E4B8A3FF25F10988006D405F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E42EE33B2600552000C89DD7 /* Protocols */,
 				E4EB87F025E5D72400F077D5 /* VendingMachine.swift */,
 				E4EB87FD25E7BA6A00F077D5 /* BeverageStorage.swift */,
 				E4B8A40F25F1F32E006D405F /* DispensedList.swift */,
@@ -103,7 +130,6 @@
 				E4C499EC25E8716C008449D6 /* BeverageManager.swift */,
 				E4B8A3ED25EF2942006D405F /* ShopableFactory.swift */,
 				E4EB87CE25E4F88A00F077D5 /* Beverage.swift */,
-				E4EB87F525E782A100F077D5 /* BeverageProtocols.swift */,
 				E4EB87F925E782C000F077D5 /* Package.swift */,
 				E4EB87DF25E52B3E00F077D5 /* Milk.swift */,
 				E4EB87E225E52B4200F077D5 /* Soda.swift */,
@@ -279,14 +305,19 @@
 			files = (
 				E4B8A49325F9E5D2006D405F /* ProductStackView.swift in Sources */,
 				E4EB87E325E52B4200F077D5 /* Soda.swift in Sources */,
+				E42EE355260055E700C89DD7 /* OrderableList.swift in Sources */,
 				E4EB87B925E4C83300F077D5 /* ViewController.swift in Sources */,
 				E4EB87B525E4C83300F077D5 /* AppDelegate.swift in Sources */,
 				E4EB87EA25E52EA700F077D5 /* DateExtensions.swift in Sources */,
+				E42EE34F260055C500C89DD7 /* Storage.swift in Sources */,
+				E42EE3472600559C00C89DD7 /* MoneyManagable.swift in Sources */,
 				E4EB87CF25E4F88A00F077D5 /* Beverage.swift in Sources */,
 				E4EB87B725E4C83300F077D5 /* SceneDelegate.swift in Sources */,
 				E4B8A41025F1F32E006D405F /* DispensedList.swift in Sources */,
 				E4EB87FE25E7BA6A00F077D5 /* BeverageStorage.swift in Sources */,
+				E42EE33D2600553300C89DD7 /* VendingMachineProtocols.swift in Sources */,
 				E4C499ED25E8716C008449D6 /* BeverageManager.swift in Sources */,
+				E42EE34B260055B000C89DD7 /* Shopable.swift in Sources */,
 				E4EB87F625E782A100F077D5 /* BeverageProtocols.swift in Sources */,
 				E4B8A3EE25EF2942006D405F /* ShopableFactory.swift in Sources */,
 				E4EB87E025E52B3E00F077D5 /* Milk.swift in Sources */,
@@ -294,6 +325,7 @@
 				E4EB87FA25E782C000F077D5 /* Package.swift in Sources */,
 				E412600625EE28C9003ED8A7 /* DateFactory.swift in Sources */,
 				E4EB87F125E5D72400F077D5 /* VendingMachine.swift in Sources */,
+				E42EE3432600557B00C89DD7 /* FoodManagable.swift in Sources */,
 				E4EB880325E7CE1500F077D5 /* MoneyBox.swift in Sources */,
 				E4B8A3F625EF6807006D405F /* VendingMachineViewUpdator.swift in Sources */,
 			);

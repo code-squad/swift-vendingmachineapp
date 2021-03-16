@@ -77,3 +77,27 @@ let soda : Beverage = Beverage.init(brand: "롯데칠성음료", volume: 330, pr
 
 * objectidentifier의 사용 고민 -> 동일한 인스턴스를 참조하기 때문에 미리 인스턴스를 생성해두고 계속 재사용 해야겠다는 생각이 들고 레이블에 표시할 때 vendingmachine과 관계가 있으면 viewcontroller에서 자연스럽게 사용할 수 있다고 생각하여 vendingMachine의 내부 속성으로 미리 음료를 만들어 놓았는 데, 다소 어색한 것 같습니다. 마치 자판기가 스스로 자기의 음료를 채워넣는 듯한 느낌이 들었습니다. 어떻게 하는 것이 더 좋았을 지 잘 몰라서 질문 드립니다.
 
+[ZG] Step4 - 아카이브 학습, UserDefault를 이용한 데이터 저장
+
+### step4 작업 목록
+
+- [x] vendingMachine을 appdelegate로 옮기고 해당 vendingMachine에 접근할 방법을 찾는다.
+- [x] 앱 종료(background) 시점에 객체 인스턴스 속성을 저장한다.
+- [x] 앱 시작(active) 시점 콜백 함수에서 기존에 저장된 값에서 불러와서 vendingMachine 객체 인스턴스를 생성한다.
+
+### 학습키워드
+
+* archive
+* NSKeyedArchiver
+* UserDefaults
+
+### 고민과 해결
+
+* vendingMachine을 처음에 싱글톤으로 활용하려고 했으나, vendingMachine을 하나만 생성하고 더 이상 생성되는 것을 막고 계속 참조하여 쓰려고 했는데, 기존의 생성된 객체를 참조하는 것이 아닌 계속하여 새로운 객체를 생성하는 듯 해서, 의도한 바와 달라, UIApplication.shared.delegate로 해결.
+
+### 질문사항
+
+* 제 코드에서 Money를 [decodeObject(forkey: String) as! Int] or as? Int ?? 0로 하면 저장된 값을 못 불러오고 decodeInteger(forkey: Int)로 해야 불러왔었습니다. 혹시 이거와 관련해서 참고할만한 자료가 있을까요? Integer도 넣어보고 Object도 넣어보고 해서 해결은 했는데, 어떠한 이유 때문에 되는 지, 찾아봤는데 못 찾아서 해당 내용 질문 드리고 싶습니다.
+
+* UIApplication.shared.delegate 혹시 싱글톤에 근접한 내용인가요?
+

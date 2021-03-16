@@ -11,7 +11,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
     var vendingMachine = (UIApplication.shared.delegate as! AppDelegate).vendingMachine
 
-    func sceneDidEnterBackground(_ scene: UIScene) {
+    func sceneWillResignActive(_ scene: UIScene) {
         let data = Archiver.archive(with: vendingMachine)
         UserDefaults.standard.setValue(data, forKey: "vendingMachine")
     }

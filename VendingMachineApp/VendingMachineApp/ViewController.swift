@@ -27,6 +27,9 @@ class VendingMachineViewController: UIViewController {
         super.viewDidLoad()
         setUpImageView()
         showCurrentTotalMoney()
+        showCoffeeInventoryQuantity()
+        showMilkInventoryQuantity()
+        showSodaInventoryQuantity()
     }
     
     //MARK: 음료 이미지 라운드

@@ -10,8 +10,9 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-
-
+    private var appDelegate = UIApplication.shared.delegate as! AppDelegate
+    private lazy var vendingMachine = appDelegate.vendingMachine
+    
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let _ = (scene as? UIWindowScene) else { return }
     }
@@ -28,6 +29,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {
+        let data = Archive.archive(with: vendingMachine)
+        UserDefaults.standard.set(data, forKey: "vendingMachine")
     }
 }
 

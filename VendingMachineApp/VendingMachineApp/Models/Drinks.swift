@@ -39,8 +39,8 @@ class Drinks: NSObject, NSCoding {
         return availableDrinks
     }
 
-    func remove(drink: Drink) {        
-        if let index = drinks.firstIndex(of: drink) {
+    func remove(drink: Drink.Type) {
+        if let index = drinks.firstIndex(where: {ObjectIdentifier(type(of: $0)) == ObjectIdentifier(drink)}) {
             drinks.remove(at: index)
         }
     }

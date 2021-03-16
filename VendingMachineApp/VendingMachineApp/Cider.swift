@@ -19,6 +19,16 @@ class Cider : Soda{
         self.init(appleContent: 30, sugarContent: 0, brand: "와인사랑", volume: 355, price: 11000, name: "SOMERSBY", manufactured: manufactured, temperature: 1, kcal: 180)
     }
     
+    required init?(coder: NSCoder) {
+        self.appleContent = coder.decodeObject(forKey: "appleContent") as? Int ?? 0
+        super.init(coder: coder)
+    }
+    
+    override func encode(with coder: NSCoder) {
+        coder.encode(self.appleContent, forKey: "appleContent")
+        super.encode(with: coder)
+    }
+    
     func isHighcontent(standard: Int) -> Bool{
         return appleContent > standard
     }

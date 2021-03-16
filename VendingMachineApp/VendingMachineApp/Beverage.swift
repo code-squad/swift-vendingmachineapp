@@ -7,8 +7,7 @@
 
 import Foundation
 
-class Beverage : CustomStringConvertible {
-    
+class Beverage : NSObject, NSCoding {
     private let brand : String
     private let volume : Int
     private let price : Int
@@ -43,7 +42,32 @@ class Beverage : CustomStringConvertible {
         self.HIGHCALSTANDARD = 0
     }
     
-    var description: String {
+    func encode(with coder: NSCoder) {
+        coder.encode(self.brand, forKey: "brand")
+        coder.encode(self.volume, forKey: "volume")
+        coder.encode(self.price, forKey: "price")
+        coder.encode(self.name, forKey: "name")
+        coder.encode(self.manufactured, forKey: "manufactured")
+        coder.encode(self.temperature, forKey: "temperature")
+        coder.encode(self.kcal, forKey: "kcal")
+        coder.encode(self.HOTTEMSTANDARD, forKey: "HOTTEMSTANDARD")
+        coder.encode(self.HIGHCALSTANDARD, forKey: "HIGHCALSTANDARD")
+    }
+    
+    required init?(coder: NSCoder) {
+        self.brand = coder.decodeObject(forKey: "brand") as? String ?? ""
+        self.volume = coder.decodeObject(forKey: "volume") as? Int ?? 0
+        self.price = coder.decodeObject(forKey: "price") as? Int ?? 0
+        self.name = coder.decodeObject(forKey: "name") as? String ?? ""
+        self.manufactured = coder.decodeObject(forKey: "manufactured") as? Date ?? Date()
+        self.temperature = coder.decodeObject(forKey: "temperature") as? Int ?? 0
+        self.kcal = coder.decodeObject(forKey: "kcal") as? Int ?? 0
+        self.HOTTEMSTANDARD = coder.decodeObject(forKey: "HOTTEMSTANDARD") as? Int ?? 0
+        self.HIGHCALSTANDARD = coder.decodeObject(forKey: "HIGHCALSTANDARD") as? Int ?? 0
+    }
+    
+    
+    override var description: String {
         return "\(self.brand), \(self.volume)ml, \(self.price)원, \(self.name), \(manufactured.descriptDateToString())"
     }
     
@@ -83,7 +107,7 @@ class Beverage : CustomStringConvertible {
     }
 }
 
-extension Beverage : Equatable{
+extension Beverage{
     static func == (lhs: Beverage, rhs: Beverage) -> Bool {
         return lhs.brand == rhs.brand && lhs.volume == rhs.volume && lhs.price == rhs.price && lhs.name == rhs.name
     }

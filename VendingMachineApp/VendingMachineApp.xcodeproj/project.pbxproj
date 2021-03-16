@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		82605F9625FE739200C3E84A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A851E225E63339001024D9 /* AppDelegate.swift */; };
+		82605F9C25FF9EBE00C3E84A /* SaveManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82605F9B25FF9EBE00C3E84A /* SaveManager.swift */; };
 		826E983225F8C0E100807D58 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A851E625E63339001024D9 /* ViewController.swift */; };
 		8272F9AC25F040F3008167CE /* StrawBerryMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8272F9AB25F040F3008167CE /* StrawBerryMilk.swift */; };
 		8272F9B025F04101008167CE /* BananaMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8272F9AF25F04101008167CE /* BananaMilk.swift */; };
@@ -67,6 +68,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		82605F9B25FF9EBE00C3E84A /* SaveManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveManager.swift; sourceTree = "<group>"; };
 		8272F9AB25F040F3008167CE /* StrawBerryMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrawBerryMilk.swift; sourceTree = "<group>"; };
 		8272F9AF25F04101008167CE /* BananaMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BananaMilk.swift; sourceTree = "<group>"; };
 		8272F9B325F04113008167CE /* Cider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cider.swift; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 				8295680125EF806100528A59 /* Money.swift */,
 				82F1617E25EE286D00E1C9F6 /* BeverageFactory.swift */,
 				829567FE25EF1A8000528A59 /* BeverageCreater.swift */,
+				82605F9B25FF9EBE00C3E84A /* SaveManager.swift */,
 			);
 			path = VendingMachineApp;
 			sourceTree = "<group>";
@@ -308,6 +311,7 @@
 			files = (
 				828EB08F25EFD52A00EC132C /* BeverageFactory.swift in Sources */,
 				82B22CF225E99A0700972CD7 /* Energydrink.swift in Sources */,
+				82605F9C25FF9EBE00C3E84A /* SaveManager.swift in Sources */,
 				829C787F25E7C8B1007C4A68 /* VendingMachine.swift in Sources */,
 				8272F9D425F04194008167CE /* CaffeLatte.swift in Sources */,
 				82B6974025F2E0CF00A17AF7 /* Beverages.swift in Sources */,

@@ -19,6 +19,16 @@ class BananaMilk : Milk{
         self.init(sugarContent: 30, fatContent: 10, brand: "서울우유", volume: 180, price: 2100, name: "바나나는 원래 하얗다", manufactured: manufactured, temperature: 10, kcal: 80)
     }
     
+    required init?(coder: NSCoder) {
+        self.sugarContent = coder.decodeObject(forKey: "sugarContent") as? Int ?? 0
+        super.init(coder: coder)
+    }
+    
+    override func encode(with coder: NSCoder) {
+        coder.encode(self.sugarContent, forKey: "sugarContent")
+        super.encode(with: coder)
+    }
+    
     func isSugarfree(standard : Int) -> Bool {
         return sugarContent < standard
     }

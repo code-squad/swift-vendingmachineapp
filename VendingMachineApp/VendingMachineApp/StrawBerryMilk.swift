@@ -19,6 +19,16 @@ class StrawBerryMilk : Milk{
         self.init(StrawBerryContent: 30, fatContent: 10, brand: "서울우유", volume: 180, price: 2200, name: "진짜 리얼 딸기 우유", manufactured: manufactured, temperature: 10, kcal: 80)
     }
     
+    required init?(coder: NSCoder) {
+        self.StrawBerryContent = coder.decodeObject(forKey: "StrawBerryContent") as? Int ?? 0
+        super.init(coder: coder)
+    }
+    
+    override func encode(with coder: NSCoder) {
+        coder.encode(self.StrawBerryContent, forKey: "StrawBerryContent")
+        super.encode(with: coder)
+    }
+    
     func isHighContent(standard : Int) -> Bool {
         return StrawBerryContent > standard
     }

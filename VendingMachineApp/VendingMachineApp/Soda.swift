@@ -19,6 +19,17 @@ class Soda : Beverage {
         self.sugarContent = 0
         super.init(manufactured: manufactured)
     }
+    
+    required init?(coder: NSCoder) {
+        self.sugarContent = coder.decodeObject(forKey: "sugarContent") as? Int ?? 0
+        super.init(coder: coder)
+    }
+    
+    override func encode(with coder: NSCoder) {
+        coder.encode(self.sugarContent, forKey: "sugarContent")
+        super.encode(with: coder)
+    }
+    
     func isSugarfree(standard : Int) -> Bool{
         return self.sugarContent < standard
     }

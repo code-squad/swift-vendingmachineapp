@@ -8,43 +8,30 @@
 import Foundation
 
 class VendingMachine : NSObject, NSCoding{
-    static let Instance : VendingMachine = VendingMachine.init()
     private var money : Money
     private var currentBeverages : Beverages
     private var bought : Beverages
-    private var BeverageFactory : [Beverage] = []
+    private var BeverageFactory : [Beverage]
     
-    private override init() {
+    override init() {
         self.money = Money.init(money: 0)
         self.currentBeverages = Beverages()
         self.bought = Beverages()
-        currentBeverages.makeBeverageofFactroy(beverages: &self.BeverageFactory)
+        BeverageFactory = currentBeverages.makeBeverageofFactroy()
     }
     
     func encode(with coder: NSCoder) {
-        if let tempMoney = coder.decodeObject(forKey: "Money") as? Money {
-            self.money = tempMoney
-        }
-        if let tempCurrentbeverage = coder.decodeObject(forKey: "currentBeverages") as? Beverages {
-            self.currentBeverages = tempCurrentbeverage
-        }
-        if let tempBought = coder.decodeObject(forKey: "boughtList") as? Beverages {
-            self.bought = tempBought
-        }
-        if let tempBeverageFactory = coder.decodeObject(forKey: "BeverageFactory") as? [Beverage] {
-            self.BeverageFactory = tempBeverageFactory
-        }
-    }
-    
-    required init?(coder: NSCoder) {
-        self.money = Money.init(money: 0)
-        self.currentBeverages = Beverages()
-        self.bought = Beverages()
-        currentBeverages.makeBeverageofFactroy(beverages: &self.BeverageFactory)
         coder.encode(self.money, forKey: "Money")
         coder.encode(self.currentBeverages, forKey: "currentBeverages")
         coder.encode(self.bought, forKey: "boughtList")
         coder.encode(self.BeverageFactory, forKey: "BeverageFactory")
+    }
+    
+    required init?(coder: NSCoder) {
+        self.money = coder.decodeObject(forKey: "Money") as? Money ?? Money.init(money: 0)
+        self.currentBeverages = coder.decodeObject(forKey: "currentBeverages") as? Beverages ?? Beverages()
+        self.bought = coder.decodeObject(forKey: "boughtList") as? Beverages ?? Beverages()
+        self.BeverageFactory = coder.decodeObject(forKey: "BeverageFactory") as? [Beverage] ?? []
     }
     
     func addBeverage(beverage : Beverage){

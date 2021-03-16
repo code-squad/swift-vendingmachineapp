@@ -10,7 +10,8 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-    var dataFilePath : String?
+    private let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    lazy private var vendingMachine = appDelegate.vendingMachine!
     
     override init() {
         
@@ -21,19 +22,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
+        SaveManager().savevendingMachineData(vendingMachine: vendingMachine)
     }
 
     func sceneDidBecomeActive(_ scene: UIScene) {
+        
     }
 
     func sceneWillResignActive(_ scene: UIScene) {
     }
 
     func sceneWillEnterForeground(_ scene: UIScene) {
-        
+        SaveManager().savevendingMachineData(vendingMachine: vendingMachine)
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {
+        SaveManager().savevendingMachineData(vendingMachine: vendingMachine)
     }
 }
-

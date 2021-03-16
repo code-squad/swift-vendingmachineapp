@@ -23,4 +23,14 @@ class Milk : Beverage {
         self.init(fatContent : 10, brand: "서울우유", volume: 180, price: 2100, name: "서울우유", manufactured: manufactured, temperature : 10, kcal: 50)
     }
     
+    override func encode(with coder: NSCoder) {
+        coder.encode(self.fatContent, forKey: "fatContent")
+        super.encode(with: coder)
+    }
+    
+    required init?(coder: NSCoder) {
+        self.fatContent = coder.decodeObject(forKey: "fatContent") as? Int ?? 0
+        super.init(coder: coder)
+    }
+    
 }

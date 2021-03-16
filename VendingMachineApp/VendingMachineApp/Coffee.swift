@@ -24,6 +24,15 @@ class Coffee : Beverage {
         super.init(manufactured: manufactured)
     }
     
+    override func encode(with coder: NSCoder) {
+        coder.encode(self.caffeineContent,forKey: "caffeineContent")
+        super.encode(with: coder)
+    }
+    
+    required init?(coder: NSCoder) {
+        self.caffeineContent = coder.decodeObject(forKey: "caffeineContent") as? Int ?? 0
+        super.init(coder: coder)
+    }
     
     func isCaffeine(standard : Int) -> Bool{
         return self.caffeineContent > standard

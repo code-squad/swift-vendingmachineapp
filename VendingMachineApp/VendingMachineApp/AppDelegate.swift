@@ -9,9 +9,10 @@ import UIKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    let vendingMachine : VendingMachine = VendingMachine.Instance
-
+    var vendingMachine : VendingMachine!
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        vendingMachine = SaveManager().loadvendingMachineData() ?? VendingMachine.init()
         return true
     }
 
@@ -23,5 +24,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
         
+    }
+    
+    func applicationWillTerminate(_ application: UIApplication) {
+        SaveManager().savevendingMachineData(vendingMachine: vendingMachine)
+    }
+    
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        SaveManager().savevendingMachineData(vendingMachine: vendingMachine)
+    }
+    
+    func applicationWillResignActive(_ application: UIApplication) {
+        SaveManager().savevendingMachineData(vendingMachine: vendingMachine)
     }
 }

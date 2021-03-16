@@ -28,6 +28,8 @@
 		B3B3DD3525E7EF620022465D /* CashManagementSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B3DD3425E7EF620022465D /* CashManagementSystem.swift */; };
 		B3B6E92325FB3A53002F2920 /* Archiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B6E92225FB3A53002F2920 /* Archiver.swift */; };
 		B3CEBECC2600557200DD08A2 /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CEBECB2600557200DD08A2 /* NotificationName.swift */; };
+		B3CEBED026005A0A00DD08A2 /* BeverageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CEBECF26005A0A00DD08A2 /* BeverageData.swift */; };
+		B3CEBED426005A1A00DD08A2 /* RechargeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CEBED326005A1A00DD08A2 /* RechargeData.swift */; };
 		B3EF2CE725EE1B5B00FBA7CC /* VendingMachineAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EF2CE625EE1B5B00FBA7CC /* VendingMachineAppTests.swift */; };
 		B3EF2CF025EE227C00FBA7CC /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36A87D325E62EAB002C4432 /* VendingMachine.swift */; };
 		B3EF2CF125EE227C00FBA7CC /* CashManagementSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B3DD3425E7EF620022465D /* CashManagementSystem.swift */; };
@@ -82,6 +84,8 @@
 		B3B3DD3425E7EF620022465D /* CashManagementSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashManagementSystem.swift; sourceTree = "<group>"; };
 		B3B6E92225FB3A53002F2920 /* Archiver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Archiver.swift; sourceTree = "<group>"; };
 		B3CEBECB2600557200DD08A2 /* NotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationName.swift; sourceTree = "<group>"; };
+		B3CEBECF26005A0A00DD08A2 /* BeverageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageData.swift; sourceTree = "<group>"; };
+		B3CEBED326005A1A00DD08A2 /* RechargeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RechargeData.swift; sourceTree = "<group>"; };
 		B3EF2CE425EE1B5B00FBA7CC /* VendingMachineAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VendingMachineAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3EF2CE625EE1B5B00FBA7CC /* VendingMachineAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineAppTests.swift; sourceTree = "<group>"; };
 		B3EF2CE825EE1B5B00FBA7CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -134,6 +138,8 @@
 		B36A87A425E61B84002C4432 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B3CEBECF26005A0A00DD08A2 /* BeverageData.swift */,
+				B3CEBED326005A1A00DD08A2 /* RechargeData.swift */,
 				B36A87D325E62EAB002C4432 /* VendingMachine.swift */,
 				B3B3DD3425E7EF620022465D /* CashManagementSystem.swift */,
 				B36A87D825E636B7002C4432 /* Drinks.swift */,
@@ -376,6 +382,7 @@
 				B36A87D425E62EAB002C4432 /* VendingMachine.swift in Sources */,
 				B3FC892F25EBEA1500E70D38 /* RedBull.swift in Sources */,
 				B36A87AA25E61BA1002C4432 /* Soda.swift in Sources */,
+				B3CEBED026005A0A00DD08A2 /* BeverageData.swift in Sources */,
 				B36A87B625E62256002C4432 /* StrawberryMilk.swift in Sources */,
 				B36A87C125E6232E002C4432 /* TOP.swift in Sources */,
 				B3F5728A25E3629300CFF095 /* ViewController.swift in Sources */,
@@ -383,6 +390,7 @@
 				B36A87D925E636B7002C4432 /* Drinks.swift in Sources */,
 				B3B3DD3525E7EF620022465D /* CashManagementSystem.swift in Sources */,
 				B36A87B125E61F1B002C4432 /* Beverage.swift in Sources */,
+				B3CEBED426005A1A00DD08A2 /* RechargeData.swift in Sources */,
 				B32ECEA825F12B900066C473 /* BeverageFactory.swift in Sources */,
 				B37B9F7225F8B5EE00256032 /* RedBullFactory.swift in Sources */,
 				B37B9F6E25F8B58A00256032 /* StrawberryFactory.swift in Sources */,

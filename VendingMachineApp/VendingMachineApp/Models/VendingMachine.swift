@@ -7,7 +7,7 @@
 
 import Foundation
 
-class VendingMachine {
+class VendingMachine: NSObject, NSCoding {
     enum Coin: Int, CaseIterable {
         case fifty = 50
         case hundred = 100
@@ -20,14 +20,26 @@ class VendingMachine {
     private var credit: Money
     private var log: SalesLog
     
-    init(drinks: BeverageInventory) {
-        self.stock = drinks
+    init(beverages: BeverageInventory) {
+        self.stock = beverages
         self.credit = Money()
         self.log = SalesLog()
     }
     
-    convenience init() {
-        self.init(drinks: BeverageInventory())
+    convenience override init() {
+        self.init(beverages: BeverageInventory())
+    }
+    
+    func encode(with coder: NSCoder) {
+        coder.encode(stock, forKey: "stock")
+        coder.encode(credit, forKey: "credit")
+        coder.encode(log, forKey: "log")
+    }
+    
+    required init?(coder: NSCoder) {
+        self.stock = coder.decodeObject(forKey: "stock") as! BeverageInventory
+        self.credit = coder.decodeObject(forKey: "credit") as! Money
+        self.log = coder.decodeObject(forKey: "log") as! SalesLog
     }
     
     func show(handler: (Beverage) -> Void) {
@@ -70,12 +82,12 @@ class VendingMachine {
         return credit > beverage.price
     }
     
-    private func hasDrink(with beverage: Beverage) -> Bool {
-        return stock.hasDrink(with: beverage)
+    private func hasBeverage(with beverage: Beverage) -> Bool {
+        return stock.hasBeverage(with: beverage)
     }
     
     func buy(with beverage: Beverage) -> Beverage? {
-        if !hasDrink(with: beverage) || !canBuy(with: beverage){
+        if !hasBeverage(with: beverage) || !canBuy(with: beverage){
             return nil
         }
         credit -= beverage.price
@@ -91,9 +103,9 @@ class VendingMachine {
         log.update(beverage)
     }
     
-    func showLog() -> [String] {
-        return log.get()
-    }
+//    func showLog() -> [String] {
+//        return log.get()
+//    }
     
     func countType() -> Int {
         return stock.countType()

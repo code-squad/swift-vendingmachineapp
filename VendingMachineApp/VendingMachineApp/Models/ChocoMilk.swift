@@ -27,4 +27,14 @@ class ChocoMilk: Milk {
         let manufacturedDate = Date()
         super.init(brand: "매일우유", capacity: 550, price: Money(how: 2000), name: cacao.rawValue, manufacturedDate: manufacturedDate, fat: 20, expiration: Calendar.current.date(byAdding: .day, value: 14, to: manufacturedDate)!, hot: false, calorie: 550)
     }
+    
+    required init?(coder: NSCoder) {
+        self.cacao = coder.decodeObject(forKey: "cacao") as! Cacao
+        super.init(coder: coder)
+    }
+    
+    override func encode(with coder: NSCoder) {
+        coder.encode(cacao, forKey: "cacao")
+    }
+    
 }

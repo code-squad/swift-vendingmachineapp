@@ -26,4 +26,13 @@ class StrawberryMilk: Milk {
         self.container = .box
         let manufacturedDate = Date()
         super.init(brand: "서울우유", capacity: 480, price: Money(how: 1500), name: container.rawValue, manufacturedDate: manufacturedDate, fat: 20, expiration: Calendar.current.date(byAdding: .day, value: 14, to: manufacturedDate)!, hot: false, calorie: 550)    }
+    
+    required init?(coder: NSCoder) {
+        self.container = coder.decodeObject(forKey: "container") as! Container
+        super.init(coder: coder)
+    }
+    
+    override func encode(with coder: NSCoder) {
+        coder.encode(container, forKey: "container")
+    }
 }

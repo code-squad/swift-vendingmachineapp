@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Beverage: CustomStringConvertible, Hashable {
+class Beverage: NSObject, NSCoding {
     private var brand: String
     private var capacity: Int
     private (set) var price: Money
@@ -30,7 +30,7 @@ class Beverage: CustomStringConvertible, Hashable {
         self.calorie = calorie
     }
     
-    required init() {
+    required override init() {
         self.brand = ""
         self.capacity = 0
         self.price = Money()
@@ -41,8 +41,29 @@ class Beverage: CustomStringConvertible, Hashable {
         self.calorie = 0
     }
     
+    func encode(with coder: NSCoder) {
+        coder.encode(brand, forKey: "brand")
+        coder.encode(capacity, forKey: "capacity")
+        coder.encode(price, forKey: "price")
+        coder.encode(name, forKey: "name")
+        coder.encode(manufacturedDate, forKey: "manufacturedDate")
+        coder.encode(expiration, forKey: "expiration")
+        coder.encode(hot, forKey: "hot")
+        coder.encode(calorie, forKey: "calorie")
+    }
     
-    var description: String {
+    required init?(coder: NSCoder) {
+        self.brand = coder.decodeObject(forKey: "brand") as! String
+        self.capacity = coder.decodeObject(forKey: "capacity") as! Int
+        self.price = coder.decodeObject(forKey: "price") as! Money
+        self.name = coder.decodeObject(forKey: "name") as! String
+        self.manufacturedDate = coder.decodeObject(forKey: "manufacturedDate") as! Date
+        self.expiration = coder.decodeObject(forKey: "expiration") as! Date
+        self.hot = coder.decodeObject(forKey: "hot") as! Bool
+        self.calorie = coder.decodeObject(forKey: "calorie") as! Int
+    }
+    
+    override var description: String {
         return "\(brand), \(capacity)ml, \(price)원, \(name), \(manufacturedDate.description)"
     }
     
@@ -62,12 +83,7 @@ class Beverage: CustomStringConvertible, Hashable {
         return expiration < date
     }
     
-    static func == (lhs: Drink, rhs: Drink) -> Bool {
+    static func == (lhs: Beverage, rhs: Beverage) -> Bool {
         return lhs.name == rhs.name
-    }
-    
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(name)
-        hasher.combine(brand)
     }
 }

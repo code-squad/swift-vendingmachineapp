@@ -8,8 +8,7 @@
 import Foundation
 
 struct BeverageFactory {
-    
-    static func create(type: Berverage.Type) -> Berverage? {
+    static func create(type: Beverage.Type) -> Beverage? {
         return type.init()
     }
 }

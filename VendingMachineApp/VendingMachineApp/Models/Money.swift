@@ -7,17 +7,24 @@
 
 import Foundation
 
-class Money: CustomStringConvertible {
+class Money: NSObject, NSCoding {
     private var property: Int
     
     init(how property: Int) {
         self.property = property
     }
     
-    convenience init() {
+    convenience override init() {
         self.init(how: 0)
     }
     
+    func encode(with coder: NSCoder) {
+        coder.encode(property, forKey: "property")
+    }
+    
+    required init?(coder: NSCoder) {
+        self.property = coder.decodeObject(forKey: "property") as! Int
+    }
     func deposit(unit: Int) {
         property += unit
     }
@@ -30,7 +37,7 @@ class Money: CustomStringConvertible {
         return property
     }
     
-    var description: String {
+    override var description: String {
         return "\(property)"
     }
 }

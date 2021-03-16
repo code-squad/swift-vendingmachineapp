@@ -10,9 +10,8 @@ import UIKit
 class OneStockView: UIView {
     
     private var label : UILabel!
-    private var button : UIBeverageButton!
-    private var stockImageView : UIImageView!
-    private var stockImage : UIImage!
+    public var button : UIBeverageButton!
+    public var stockImageView : UIImageView!
     // TODO: let으로 바꾸기 or type을 변수로 가지지 않도록 바꿔보기
     public var beverageType : Beverage.Type!
     
@@ -24,14 +23,6 @@ class OneStockView: UIView {
         super.init(frame: frame)
         initSubViews()
     }
-    init(frame: CGRect, type : Beverage.Type, image : UIImage?, count : Int){
-        super.init(frame: frame)
-        self.stockImage = image
-        self.beverageType = type
-        button = UIBeverageButton(frame: CGRect(x: 0, y: 0, width: bounds.width, height: 40), type: type)
-        initSubViews()
-    }
-    
     func initSubViews(){
         // Image
         setStockImageView()
@@ -46,13 +37,16 @@ class OneStockView: UIView {
     func setStockImageView(){
         stockImageView = UIImageView(frame: CGRect(x: 0, y: 40, width: bounds.width, height: bounds.height))
         stockImageView.contentMode = UIView.ContentMode.scaleAspectFill
-        stockImageView.image = stockImage
         stockImageView.clipsToBounds = true
         stockImageView.layer.cornerRadius = 10
         addSubview(stockImageView)
     }
     func setButton(){
+        button = UIBeverageButton(frame: CGRect(x: 0, y: 0, width: bounds.width, height: 40))
         addSubview(button)
+    }
+    func setButtonTitle(title : String){
+        button.setTitle(title, for: .normal)
     }
     func setLabel(){
         let captionBackgroundView = UIView(frame: CGRect(x: 0, y: bounds.height, width: bounds.width, height: 30))

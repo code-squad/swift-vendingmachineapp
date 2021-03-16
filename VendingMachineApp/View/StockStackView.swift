@@ -10,28 +10,19 @@ import UIKit
 class StockStackView: UIStackView {
     
     private let itemCountPerStand : Int = 4
-    private let images : [UIImage?] = [UIImage(named: "top"),UIImage(named: "georgia"),UIImage(named: "cantata"),
-                                       UIImage(named: "sprite"),UIImage(named: "coke"), UIImage(named: "stroberry"),
-                                       UIImage(named: "chocolate"),UIImage(named: "banana"), UIImage(named: "monsterOriginal"),
-                                       UIImage(named: "hot6ixBlue"),UIImage(named: "hot6ixRed")]
-    
-    private let typeArr : [Beverage.Type] = [ Top.self, Georgia.self, Cantata.self, Sprite.self, Coke.self,
-                                              StroberryMilk.self, ChocolateMilk.self, BananaMilk.self, Monster.self, Hot6ix.self]
     
     var stockCells : [OneStockView]!
     
     required init(coder: NSCoder) {
         super.init(coder: coder)
         confiure()
+        setStockCells()
+        setUp()
     }
     override init(frame: CGRect){
         super.init(frame: frame)
         confiure()
-    }
-    init(frame : CGRect, stocks : [ObjectIdentifier:[Beverage]]){
-        super.init(frame: frame)
-        confiure()
-        setStockCells(stocks: stocks)
+        setStockCells()
         setUp()
     }
 
@@ -51,11 +42,20 @@ class StockStackView: UIStackView {
         }
     }
     
-    func setStockCells(stocks : [ObjectIdentifier:[Beverage]]){
+    func setStockCells(){
         stockCells = [OneStockView]()
-        for (typeElement, image) in zip(typeArr, images) {
-            let count = stocks[ObjectIdentifier(typeElement)]?.count ?? 0
-            let stock = OneStockView(frame: CGRect(x: 0, y: 0, width: 180, height: 180), type: typeElement, image: image, count: count)
+        
+        ImageManager.types.forEach{ type in
+          
+            let stock : OneStockView = {
+                let stockview = OneStockView(frame: CGRect(x: 0, y: 0, width: 180, height: 180))
+                stockview.beverageType = type
+                stockview.stockImageView.image = ImageManager.getImage(type: type.self)
+                stockview.button.setType(with: type)
+                stockview.button.setTitle("추가하기", for: .normal)
+                return stockview
+            }()
+            
             stockCells.append(stock)
         }
     }

@@ -9,7 +9,7 @@ import UIKit
 
 class UIBeverageButton: UIButton {
     
-    let beverageType : Beverage.Type
+    public var beverageType : Beverage.Type
     
     override init(frame: CGRect) {
         beverageType = Beverage.self
@@ -22,14 +22,10 @@ class UIBeverageButton: UIButton {
         super.init(coder: aDecoder)
         setUpButton()
     }
-    init(frame: CGRect, type : Beverage.Type){
-        self.beverageType = type
-        super.init(frame: frame)
-        setUpButton()
+    func setType(with type : Beverage.Type){
+        beverageType = type
     }
-    
     func setUpButton() {
-        self.setTitle("추가하기", for: .normal)
         self.setImage(UIImage(named: "button"), for: .normal)
         self.addTarget(superview, action: #selector(ViewController.appendBeverageToMachine), for: .touchDown)
     }

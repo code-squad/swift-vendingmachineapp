@@ -11,11 +11,11 @@ protocol VendingMachineViewPresenter {
     
     func initialScreen(images: [UIImage], sampleView: ProductStackView, stackView: UIStackView, moneyLabel: UILabel)
     
-    func updateStocks(countLabels: [UILabel], beverageList: [Shopable])
+    func updateStocks(countLabels: [UILabel], typeList: [Shopable.Type])
     
     func updateBalance(label: UILabel)
     
-    func updateDispensedList(scrollView: UIScrollView, images: [UIImage], beverages: [Shopable])
+    func updateDispensedList(scrollView: UIScrollView, images: [UIImage], typeList: [Shopable.Type])
 }
 
 class VendingMachineViewUpdator: VendingMachineViewPresenter {
@@ -54,11 +54,11 @@ class VendingMachineViewUpdator: VendingMachineViewPresenter {
         return view
     }
     
-    func updateStocks(countLabels: [UILabel], beverageList: [Shopable]) {
+    func updateStocks(countLabels: [UILabel], typeList: [Shopable.Type]) {
         let stockList = workerInterface.allStocks()
         
-        for (idx, beverage) in beverageList.enumerated() {
-            let id = ObjectIdentifier(type(of: beverage))
+        for (idx, beverage) in typeList.enumerated() {
+            let id = ObjectIdentifier(beverage)
             if let count = stockList[id] {
                 countLabels[idx].text = "\(count)개"
             } else {
@@ -71,7 +71,7 @@ class VendingMachineViewUpdator: VendingMachineViewPresenter {
         label.text = "\(userInterface.moneyLeft())원"
     }
     
-    func updateDispensedList(scrollView: UIScrollView, images: [UIImage], beverages: [Shopable]) {
+    func updateDispensedList(scrollView: UIScrollView, images: [UIImage], typeList: [Shopable.Type]) {
         
         for views in scrollView.subviews {
             views.removeFromSuperview()
@@ -87,8 +87,8 @@ class VendingMachineViewUpdator: VendingMachineViewPresenter {
         scrollView.contentSize.width = CGFloat(count + 1) * sizeUnit/2
         
         for i in 1...count {
-            let targetIdx = beverages.firstIndex { (listItem) -> Bool in
-                ObjectIdentifier(type(of: listItem)) == ObjectIdentifier(type(of: purchased[count-i]))
+            let targetIdx = typeList.firstIndex { (listItem) -> Bool in
+                ObjectIdentifier(listItem) == ObjectIdentifier(type(of: purchased[count-i]))
             }
             
             if let targetIdx = targetIdx {

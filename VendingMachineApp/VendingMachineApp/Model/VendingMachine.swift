@@ -13,12 +13,14 @@ class VendingMachine: NSObject, NSCoding {
     private var dispensedList: OrderableList
     private var moneyBox: MoneyManagable
     private var beverageManager: FoodManagable
+    private let beverageFactory: ShopableFactory
     
     init(storage: Storage, dispensedList: OrderableList, moneyBox: MoneyManagable, beverageManager: FoodManagable) {
         self.storage = storage
         self.dispensedList = dispensedList
         self.moneyBox = moneyBox
         self.beverageManager = beverageManager
+        beverageFactory = BeverageToday()
     }
     
     enum ArchiveKeys {
@@ -34,6 +36,7 @@ class VendingMachine: NSObject, NSCoding {
         beverageManager = BeverageManager(temperatureStandard: 36.5,
                                           sugarStandard: 1.0,
                                           lactoStandard: 3.5)
+        beverageFactory = BeverageToday()
     }
     
     func encode(with coder: NSCoder) {
@@ -60,16 +63,16 @@ extension VendingMachine: UserInterface {
         return moneyBox.balance()
     }
     
-    func buy(item: Shopable) {
-        guard item.isPurchashable(with: moneyBox.balance()) else { return }
-        
-        if let itemToSell = storage.pullOut(type(of: item)) {
+    func buy(itemType: Shopable.Type) {
+        if let itemToSell = storage.pullOut(itemType),
+           itemToSell.isPurchashable(with: moneyLeft()) {
+            
             NotificationCenter.default.post(name: NotiKeys.stockListUpdate, object: nil, userInfo: nil)
             
             dispensedList.push(item: itemToSell)
             NotificationCenter.default.post(name: NotiKeys.dispensdListUpdate, object: nil, userInfo: nil)
             
-            let moneyAfterPurchase = item.subtractPrice(from: moneyBox.balance())
+            let moneyAfterPurchase = itemToSell.subtractPrice(from: moneyLeft())
             moneyBox.update(to: moneyAfterPurchase)
             NotificationCenter.default.post(name: NotiKeys.balanceUpdate, object: nil, userInfo: nil)
         }
@@ -78,8 +81,8 @@ extension VendingMachine: UserInterface {
 
 extension VendingMachine: WorkerInterface {
     
-    func addStock(of item: Shopable) {
-        storage.add(item)
+    func addStock(of itemType: Shopable.Type) {
+        storage.add(beverageFactory.create(type: itemType))
         NotificationCenter.default.post(name: NotiKeys.stockListUpdate, object: nil, userInfo: nil)
     }
     

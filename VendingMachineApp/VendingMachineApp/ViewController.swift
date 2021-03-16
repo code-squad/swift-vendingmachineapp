@@ -23,16 +23,13 @@ class ViewController: UIViewController {
     private let beverageImages = [#imageLiteral(resourceName: "americano"), #imageLiteral(resourceName: "cafelatte"), #imageLiteral(resourceName: "chocolatemilk"), #imageLiteral(resourceName: "coke"), #imageLiteral(resourceName: "milkis"), #imageLiteral(resourceName: "plainmilk")]
     private let moneyUnits = [1000, 5000, 10000]
     
-    private var beverageList = [Shopable]()
-    private let beverageFactory = BeverageToday()
+    private let itemTypes: [Shopable.Type] = [Americano.self, CafeLatte.self, Chocolate.self, Coke.self, Milkis.self, Plain.self]
 
     private let appDelegate = UIApplication.shared.delegate as! AppDelegate
     private var presenter: VendingMachineViewPresenter!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        beverageList = beverageFactory.createAll()
         
         presenter = VendingMachineViewUpdator(userInterface: appDelegate.vendingMachine,
                                               workerInterface: appDelegate.vendingMachine)
@@ -45,7 +42,7 @@ class ViewController: UIViewController {
         updateOutletCollections()
         
         presenter.updateStocks(countLabels: countLabelCollection,
-                               beverageList: beverageList)
+                               typeList: itemTypes)
         
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(didStockListChanged(_:)),
@@ -66,7 +63,7 @@ class ViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         presenter.updateDispensedList(scrollView: dispensedListScrollView,
                                       images: beverageImages,
-                                      beverages: beverageList)
+                                      typeList: itemTypes)
     }
     
     private func updateOutletCollections() {
@@ -86,7 +83,7 @@ class ViewController: UIViewController {
     
     @objc func didStockListChanged(_ notification: Notification) {
         presenter.updateStocks(countLabels: countLabelCollection,
-                               beverageList: beverageList)
+                               typeList: itemTypes)
     }
     
     @objc func didBalanceChanged(_ notification: Notification) {
@@ -96,12 +93,12 @@ class ViewController: UIViewController {
     @objc func didBoughtItem(_ notification: Notification) {
         presenter.updateDispensedList(scrollView: dispensedListScrollView,
                                       images: beverageImages,
-                                      beverages: beverageList)
+                                      typeList: itemTypes)
     }
     
     @IBAction func addStockTouched(_ sender: UIButton) {
         if let targetIdx = stockButtonCollection.firstIndex(of: sender) {
-            let targetBeverage = beverageList[targetIdx]
+            let targetBeverage = itemTypes[targetIdx]
             appDelegate.vendingMachine.addStock(of: targetBeverage)
         }
     }
@@ -115,8 +112,8 @@ class ViewController: UIViewController {
     
     @IBAction func buyItemTouched(_ sender: UIButton) {
         if let targetIdx = buyButtonCollection.firstIndex(of: sender) {
-            let targetBeverage = beverageList[targetIdx]
-            appDelegate.vendingMachine.buy(item: targetBeverage)
+            let targetBeverage = itemTypes[targetIdx]
+            appDelegate.vendingMachine.buy(itemType: targetBeverage)
         }
     }
 }

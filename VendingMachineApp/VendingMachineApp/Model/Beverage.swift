@@ -72,16 +72,4 @@ class Beverage: NSObject, NSCoding {
         return calory < referenceCalory
     }
 }
-//extension Beverage {
-//    static func == (lhs: Beverage, rhs: Beverage) -> Bool{
-//        return ObjectIdentifier(type(of: lhs)) == ObjectIdentifier(type(of: rhs))
-//    }
-//    
-//    override func hash(into hasher: inout Hasher) {
-//        hasher.combine(brand)
-//        hasher.combine(volume)
-//        hasher.combine(price)
-//        hasher.combine(name)
-//        hasher.combine(manufacturedAt)
-//    }
-//}
+

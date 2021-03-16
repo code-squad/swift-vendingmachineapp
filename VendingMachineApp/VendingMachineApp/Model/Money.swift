@@ -44,8 +44,3 @@ class Money: NSObject, NSCoding {
     
 }
 
-//extension Money: Equatable {
-//    static func == (lhs: Money, rhs: Money) -> Bool {
-//        return lhs.inputAmount == rhs.inputAmount
-//    }
-//}

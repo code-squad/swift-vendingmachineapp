@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct VendingMachine {
+class VendingMachine: NSObject, NSCoding {
     
     private var storage: Storage
     private var dispensedList: OrderableList
@@ -19,6 +19,27 @@ struct VendingMachine {
         self.dispensedList = dispensedList
         self.moneyBox = moneyBox
         self.beverageManager = beverageManager
+    }
+    
+    enum ArchiveKeys {
+        static let storage = "storage"
+        static let dispensedList = "dispensedList"
+        static let moneyBox = "moneyBox"
+    }
+    
+    required init?(coder: NSCoder) {
+        self.storage = coder.decodeObject(forKey: ArchiveKeys.storage) as! Storage
+        self.dispensedList = coder.decodeObject(forKey: ArchiveKeys.dispensedList) as! OrderableList
+        self.moneyBox = coder.decodeObject(forKey: ArchiveKeys.moneyBox) as! MoneyManagable
+        beverageManager = BeverageManager(temperatureStandard: 36.5,
+                                          sugarStandard: 1.0,
+                                          lactoStandard: 3.5)
+    }
+    
+    func encode(with coder: NSCoder) {
+        coder.encode(storage, forKey: ArchiveKeys.storage)
+        coder.encode(dispensedList, forKey: ArchiveKeys.dispensedList)
+        coder.encode(moneyBox, forKey: ArchiveKeys.moneyBox)
     }
     
     enum NotiKeys {

@@ -14,8 +14,8 @@ class BeverageManager: FoodManagable {
     private let sugarStandard: Float
     private let lactoStandard: Float
     
-    init(dateStandard: Date, temperatureStandard: Float, sugarStandard: Float, lactoStandard: Float) {
-        self.dateStandard = dateStandard
+    init(temperatureStandard: Float, sugarStandard: Float, lactoStandard: Float) {
+        dateStandard = Date()
         self.temperatureStandard = temperatureStandard
         self.sugarStandard = sugarStandard
         self.lactoStandard = lactoStandard

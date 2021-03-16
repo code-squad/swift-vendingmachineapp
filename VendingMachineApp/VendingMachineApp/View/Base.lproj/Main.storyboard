@@ -167,10 +167,10 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="dispensedListScrollView" destination="RHg-0c-Npd" id="kT0-aE-sjh"/>
                         <outlet property="moneyLabel" destination="iGt-Jm-ZEU" id="YNQ-8d-OJO"/>
                         <outlet property="productSample" destination="5Eq-QW-tYb" id="Tkt-k5-hEo"/>
                         <outlet property="productStackView" destination="ipm-ps-kUN" id="d6B-iI-dJI"/>
-                        <outlet property="scrollContentView" destination="RHg-0c-Npd" id="kT0-aE-sjh"/>
                         <outletCollection property="moneyButtonCollection" destination="Ftn-Ha-Yro" collectionClass="NSMutableArray" id="4Uh-8I-RmP"/>
                         <outletCollection property="moneyButtonCollection" destination="4aQ-q7-ZOu" collectionClass="NSMutableArray" id="W0F-9F-gl3"/>
                         <outletCollection property="moneyButtonCollection" destination="fkd-xO-W1U" collectionClass="NSMutableArray" id="N8k-rP-cfO"/>

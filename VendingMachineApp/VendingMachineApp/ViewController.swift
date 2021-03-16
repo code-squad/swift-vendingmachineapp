@@ -18,7 +18,7 @@ class ViewController: UIViewController {
     @IBOutlet var buyButtonCollection: [UIButton]!
     
     @IBOutlet weak var moneyLabel: UILabel!
-    @IBOutlet weak var scrollContentView: UIScrollView!
+    @IBOutlet weak var dispensedListScrollView: UIScrollView!
     
     private let beverageImages = [#imageLiteral(resourceName: "americano"), #imageLiteral(resourceName: "cafelatte"), #imageLiteral(resourceName: "chocolatemilk"), #imageLiteral(resourceName: "coke"), #imageLiteral(resourceName: "milkis"), #imageLiteral(resourceName: "plainmilk")]
     private let moneyUnits = [1000, 5000, 10000]
@@ -63,7 +63,10 @@ class ViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        updateDispensedList()
+        presenter.updateDispensedList(machine: appDelegate.vendingMachine,
+                                      scrollView: dispensedListScrollView,
+                                      images: beverageImages,
+                                      beverages: beverageList)
     }
     
     private func updateOutletCollections() {
@@ -93,32 +96,10 @@ class ViewController: UIViewController {
     }
     
     @objc func didBoughtItem(_ notification: Notification) {
-        updateDispensedList()
-    }
-    
-    private func updateDispensedList() {
-        for views in scrollContentView.subviews {
-            views.removeFromSuperview()
-        }
-        
-        let purchased = appDelegate.vendingMachine.purchased()
-        let count = purchased.count
-        let sizeUnit: CGFloat = 200
-        let yPosition = scrollContentView.bounds.height/2 - sizeUnit/2
-        scrollContentView.contentSize.width = CGFloat(count + 1) * sizeUnit/2
-        
-        for i in 1...count {
-            let targetIdx = beverageList.firstIndex { (listItem) -> Bool in
-                ObjectIdentifier(type(of: listItem)) == ObjectIdentifier(type(of: purchased[count-i]))
-            }
-            
-            if let targetIdx = targetIdx {
-                let newView = UIImageView(frame: CGRect(x: CGFloat(i-1) * sizeUnit/2, y: yPosition, width: sizeUnit, height: sizeUnit))
-                newView.image = beverageImages[targetIdx]
-                newView.contentMode = .scaleAspectFit
-                scrollContentView.addSubview(newView)
-            }
-        }
+        presenter.updateDispensedList(machine: appDelegate.vendingMachine,
+                                      scrollView: dispensedListScrollView,
+                                      images: beverageImages,
+                                      beverages: beverageList)
     }
     
     @IBAction func addStockTouched(_ sender: UIButton) {

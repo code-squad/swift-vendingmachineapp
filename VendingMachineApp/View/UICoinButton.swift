@@ -24,7 +24,7 @@ class UICoinButton: UIButton {
     }
     
     func setUpButton() {
-        self.setImage(UIImage(named: "button"), for: .normal)
+        self.setImage(UIImage(named: "coinbutton"), for: .normal)
         self.setTitleColor(.black, for: .normal)
         self.addTarget(superview, action: #selector(ViewController.appedCoinToMachine), for: .touchDown)
     }

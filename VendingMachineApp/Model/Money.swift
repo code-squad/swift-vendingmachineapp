@@ -27,6 +27,9 @@ class Money : NSObject, NSCoding {
     public func minus(with coin : Int){
         self.coins -= coin
     }
+    public func isPurchasable(with coin : Int) -> Bool {
+        return self.coins >= coin
+    }
     public func resetCoins() -> Int{
         let remain = coins
         coins = 0

@@ -45,13 +45,13 @@ class StockStackView: UIStackView {
     func setStockCells(){
         stockCells = [OneStockView]()
         
-        ImageManager.types.forEach{ type in
-          
+        ImageManager.types.forEach{ currentType in
             let stock : OneStockView = {
-                let stockview = OneStockView(frame: CGRect(x: 0, y: 0, width: 180, height: 180))
-                stockview.beverageType = type
-                stockview.stockImageView.image = ImageManager.getImage(type: type.self)
-                stockview.addButton.setType(with: type)
+                let stockview = OneStockView(frame: CGRect(x: 0, y: 0, width: 180, height: 240))
+                stockview.beverageType = currentType
+                stockview.stockImageView.image = ImageManager.getImage(type: currentType.self)
+                stockview.addButton.setType(with: currentType)
+                stockview.buyButton.setType(with: currentType)
                 return stockview
             }()
             stockCells.append(stock)

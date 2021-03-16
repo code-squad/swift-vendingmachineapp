@@ -16,14 +16,6 @@ class Customer {
         self.coins = coins
         self.purchaseList = [Beverage]()
     }
-    
-    func buy(type : Beverage.Type, from vendingMachine : VendingMachine) -> Bool{
-        if let product = vendingMachine.sellProduct(with: type){
-            purchaseList.append(product)
-            return true
-        }
-        return false
-    }
     func putCoinsToVendingMachine(with coins : Int){
         self.coins -= coins
     }

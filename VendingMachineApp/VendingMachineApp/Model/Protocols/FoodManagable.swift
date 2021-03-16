@@ -9,7 +9,7 @@ import Foundation
 
 protocol FoodManagable {
     
-    func expiredItems(fromItemsIn storage: Storage) -> [ObjectIdentifier: Int]
+    func expiredItems(fromItemsIn storage: Storage) -> [ObjectIdentifier: [Shopable]]
     
     func hotItems(fromItemsIn storage: Storage) -> [ObjectIdentifier]
     

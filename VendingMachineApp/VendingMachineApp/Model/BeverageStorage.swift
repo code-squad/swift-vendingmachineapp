@@ -96,7 +96,7 @@ extension BeverageStorage {
         return idCountList
     }
     
-    func listTypeCount(filter: (([ObjectIdentifier: [Shopable]]) -> [ObjectIdentifier: Int])) -> [ObjectIdentifier: Int] {
+    func listTypeObjects(filter: (([ObjectIdentifier: [Shopable]]) -> [ObjectIdentifier: [Shopable]])) -> [ObjectIdentifier: [Shopable]] {
         return filter(stockList)
     }
 }

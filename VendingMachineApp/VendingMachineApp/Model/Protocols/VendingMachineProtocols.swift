@@ -31,7 +31,7 @@ protocol Curatable {
     
     func affordables() -> [ObjectIdentifier]
     
-    func expiredItems() -> [ObjectIdentifier: Int] //[ob: [Shopable]]
+    func expiredItems() -> [ObjectIdentifier: [Shopable]]
     
     func hotItems() -> [ObjectIdentifier]
     

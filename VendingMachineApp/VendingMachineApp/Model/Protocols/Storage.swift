@@ -19,6 +19,6 @@ protocol Storage {
     
     func listTypeCount() -> [ObjectIdentifier: Int]
     
-    func listTypeCount(filter: (([ObjectIdentifier: [Shopable]]) -> [ObjectIdentifier: Int])) -> [ObjectIdentifier: Int]
+    func listTypeObjects(filter: (([ObjectIdentifier: [Shopable]]) -> [ObjectIdentifier: [Shopable]])) -> [ObjectIdentifier: [Shopable]]
     
 }

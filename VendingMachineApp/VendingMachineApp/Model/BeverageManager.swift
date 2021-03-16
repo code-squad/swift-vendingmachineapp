@@ -21,12 +21,12 @@ class BeverageManager: FoodManagable {
         self.lactoStandard = lactoStandard
     }
 
-    func expiredItems(fromItemsIn storage: Storage) -> [ObjectIdentifier: Int] {
-        return storage.listTypeCount(filter: expired(_:))
+    func expiredItems(fromItemsIn storage: Storage) -> [ObjectIdentifier: [Shopable]] {
+        return storage.listTypeObjects(filter: expired(_:))
     }
 
-    private func expired(_ beverages: [ObjectIdentifier: [Shopable]]) -> [ObjectIdentifier: Int] {
-        var expiredList = [ObjectIdentifier: Int]()
+    private func expired(_ beverages: [ObjectIdentifier: [Shopable]]) -> [ObjectIdentifier: [Shopable]] {
+        var expiredList = [ObjectIdentifier: [Shopable]]()
 
         beverages.forEach { (id, list) in
             for item in list {
@@ -34,9 +34,9 @@ class BeverageManager: FoodManagable {
                    beverage.isExpired(compareTo: dateStandard) {
                     
                     if expiredList[id] != nil {
-                        expiredList[id]! += 1
+                        expiredList[id]!.append(item)
                     } else {
-                        expiredList[id] = 1
+                        expiredList[id] = [item]
                     }
                 }
             }

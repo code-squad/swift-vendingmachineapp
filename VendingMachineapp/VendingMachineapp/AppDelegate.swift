@@ -15,14 +15,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
-        guard let vendingMachine = ArchivingManager.unarchive(with: UserDefaults.standard.data(forKey: "vendingMachine") ?? Data()) else {
-            self.vendingMachine = VendingMachine()
-            self.productList = self.vendingMachine.getProductList()
-            return true
-        }
+        let data = UserDefaults.standard.data(forKey: "vendingMachine") ?? Data()
+        let machine = ArchivingManager.unarchive(with: data) ?? VendingMachine()
         
-        self.vendingMachine = vendingMachine
+        self.vendingMachine = machine
         self.productList = self.vendingMachine.getProductList()
+        
         return true
     }
     

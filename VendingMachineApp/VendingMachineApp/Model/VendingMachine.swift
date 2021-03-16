@@ -47,11 +47,9 @@ class VendingMachine: NSObject, NSCoding {
         static let balanceUpdate = Notification.Name("balanceUpdate")
         static let dispensdListUpdate = Notification.Name("dispensedListUpdate")
     }
-    
-    func addStock(of item: Shopable) {
-        storage.add(item)
-        NotificationCenter.default.post(name: NotiKeys.stockListUpdate, object: nil, userInfo: nil)
-    }
+}
+
+extension VendingMachine: UserInterface {
     
     func insert(money: Int) {
         moneyBox.update(amount: money)
@@ -78,8 +76,12 @@ class VendingMachine: NSObject, NSCoding {
     }
 }
 
-//MARK: - 상품정보 반환 관련 
-extension VendingMachine {
+extension VendingMachine: WorkerInterface {
+    
+    func addStock(of item: Shopable) {
+        storage.add(item)
+        NotificationCenter.default.post(name: NotiKeys.stockListUpdate, object: nil, userInfo: nil)
+    }
     
     func allStocks() -> [ObjectIdentifier: Int] {
         return storage.listTypeCount()
@@ -88,6 +90,9 @@ extension VendingMachine {
     func purchased() -> [Shopable] {
         return dispensedList.listByOrder()
     }
+}
+
+extension VendingMachine: Curatable {
     
     func affordables() -> [ObjectIdentifier] {
         return moneyBox.affordables(fromItemsIn: storage)
@@ -108,65 +113,4 @@ extension VendingMachine {
     func healthyItems() -> [ObjectIdentifier] {
         return beverageManager.healthyItems(fromItemsIn: storage)
     }
-}
-
-//MARK: - Protocols
-protocol Shopable {
-    
-    init()
-    
-    func isPurchashable(with money: Int) -> Bool
-    
-    func subtractPrice(from balance: Int) -> Int
-    
-}
-
-protocol Storage {
-    
-    func add(_ item: Shopable)
-    
-    func pullOut(_ itemType: Shopable.Type) -> Shopable?
-    
-    func listTypeOnly() -> [ObjectIdentifier]
-    
-    func listTypeOnly(filter: (([ObjectIdentifier: [Shopable]]) -> [ObjectIdentifier])) -> [ObjectIdentifier]
-    
-    func listTypeCount() -> [ObjectIdentifier: Int]
-    
-    func listTypeCount(filter: (([ObjectIdentifier: [Shopable]]) -> [ObjectIdentifier: Int])) -> [ObjectIdentifier: Int]
-    
-}
-
-protocol OrderableList {
-    
-    func push(item: Shopable)
-    
-    func listByOrder() -> [Shopable]
-}
-
-protocol MoneyManagable {
-    
-    func update(amount: Int)
-    
-    func update(to money: Int)
-    
-    func balance() -> Int
-    
-    func affordables(fromItemsIn storage: Storage) -> [ObjectIdentifier]
-}
-
-protocol ProductManagable {
-    
-    func expiredItems(fromItemsIn storage: Storage) -> [ObjectIdentifier: Int]
-    
-}
-
-protocol FoodManagable: ProductManagable {
-    
-    func hotItems(fromItemsIn storage: Storage) -> [ObjectIdentifier]
-    
-    func transportables(fromItemsIn storage: Storage) -> [ObjectIdentifier]
-    
-    func healthyItems(fromItemsIn storage: Storage) -> [ObjectIdentifier]
-    
 }

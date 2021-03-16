@@ -47,7 +47,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemGray4Color"/>
+                                <color key="backgroundColor" systemColor="systemOrangeColor"/>
                                 <constraints>
                                     <constraint firstItem="d0j-ZM-qYp" firstAttribute="top" secondItem="Ldf-W4-9oa" secondAttribute="bottom" constant="50" id="2Fw-Sr-7ym"/>
                                     <constraint firstItem="Ldf-W4-9oa" firstAttribute="leading" secondItem="1U7-rv-E3w" secondAttribute="leading" constant="20" id="CI8-Qs-fPp"/>
@@ -64,16 +64,16 @@
                                 </connections>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="b29-T4-1ck" customClass="SelectPanelStackView" customModule="VendingMachineApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="20" width="774" height="504"/>
+                                <rect key="frame" x="30" y="20" width="714" height="504"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="P2q-RN-ONW">
-                                        <rect key="frame" x="0.0" y="0.0" width="774" height="240"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="714" height="240"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="eMq-tA-iQY">
-                                                <rect key="frame" x="0.0" y="0.0" width="254.5" height="240"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="234.5" height="240"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hfb-pH-0eM">
-                                                        <rect key="frame" x="108" y="0.0" width="39" height="39"/>
+                                                        <rect key="frame" x="98" y="0.0" width="39" height="39"/>
                                                         <accessibility key="accessibilityConfiguration" identifier="BlueBottle Cold Brew(Bold)"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                         <state key="normal" title="추가"/>
@@ -82,11 +82,11 @@
                                                         </connections>
                                                     </button>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="BlueBottle Cold Brew(Bold)" translatesAutoresizingMaskIntoConstraints="NO" id="uk6-7y-l0d">
-                                                        <rect key="frame" x="0.0" y="39" width="254.5" height="172"/>
+                                                        <rect key="frame" x="0.0" y="39" width="234.5" height="172"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="STA-MR-1bY">
-                                                        <rect key="frame" x="109.5" y="211" width="35.5" height="29"/>
+                                                        <rect key="frame" x="99.5" y="211" width="35.5" height="29"/>
                                                         <accessibility key="accessibilityConfiguration" identifier="BlueBottle Cold Brew(Bold)"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                         <nil key="textColor"/>
@@ -95,10 +95,10 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="hfw-uL-F79">
-                                                <rect key="frame" x="259.5" y="0.0" width="255" height="240"/>
+                                                <rect key="frame" x="239.5" y="0.0" width="235" height="240"/>
                                                 <subviews>
                                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fGN-0Z-s98">
-                                                        <rect key="frame" x="108" y="0.0" width="39" height="39"/>
+                                                        <rect key="frame" x="98" y="0.0" width="39" height="39"/>
                                                         <accessibility key="accessibilityConfiguration" identifier="Fanta Orange"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                         <state key="normal" title="추가"/>
@@ -107,11 +107,11 @@
                                                         </connections>
                                                     </button>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="Fanta Orange" translatesAutoresizingMaskIntoConstraints="NO" id="TAo-Nf-AGX">
-                                                        <rect key="frame" x="0.0" y="39" width="255" height="172"/>
+                                                        <rect key="frame" x="0.0" y="39" width="235" height="172"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s77-Mq-nkh">
-                                                        <rect key="frame" x="110" y="211" width="35.5" height="29"/>
+                                                        <rect key="frame" x="100" y="211" width="35.5" height="29"/>
                                                         <accessibility key="accessibilityConfiguration" identifier="Fanta Orange"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                         <nil key="textColor"/>
@@ -120,10 +120,10 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="WzX-R3-ulA">
-                                                <rect key="frame" x="519.5" y="0.0" width="254.5" height="240"/>
+                                                <rect key="frame" x="479.5" y="0.0" width="234.5" height="240"/>
                                                 <subviews>
                                                     <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KRB-Ny-IXq">
-                                                        <rect key="frame" x="107.5" y="0.0" width="39" height="39"/>
+                                                        <rect key="frame" x="97.5" y="0.0" width="39" height="39"/>
                                                         <accessibility key="accessibilityConfiguration" identifier="빙그레 바나나우유"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                         <state key="normal" title="추가"/>
@@ -132,11 +132,11 @@
                                                         </connections>
                                                     </button>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="빙그레 바나나우유" translatesAutoresizingMaskIntoConstraints="NO" id="0tw-GB-bg8">
-                                                        <rect key="frame" x="0.0" y="39" width="254.5" height="172"/>
+                                                        <rect key="frame" x="0.0" y="39" width="234.5" height="172"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C6f-Zr-6Ax">
-                                                        <rect key="frame" x="109.5" y="211" width="35.5" height="29"/>
+                                                        <rect key="frame" x="99.5" y="211" width="35.5" height="29"/>
                                                         <accessibility key="accessibilityConfiguration" identifier="빙그레 바나나우유"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                         <nil key="textColor"/>
@@ -150,13 +150,13 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="erM-vF-jZ2">
-                                        <rect key="frame" x="0.0" y="264" width="774" height="240"/>
+                                        <rect key="frame" x="0.0" y="264" width="714" height="240"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="kuP-86-1cD">
-                                                <rect key="frame" x="0.0" y="0.0" width="254.5" height="240"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="234.5" height="240"/>
                                                 <subviews>
                                                     <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GE8-MK-OUv">
-                                                        <rect key="frame" x="108" y="0.0" width="39" height="39"/>
+                                                        <rect key="frame" x="98" y="0.0" width="39" height="39"/>
                                                         <accessibility key="accessibilityConfiguration" identifier="서울 우유 딸기맛"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                         <state key="normal" title="추가"/>
@@ -165,11 +165,11 @@
                                                         </connections>
                                                     </button>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="서울 우유 딸기맛" translatesAutoresizingMaskIntoConstraints="NO" id="tzQ-av-8yB">
-                                                        <rect key="frame" x="0.0" y="39" width="254.5" height="172"/>
+                                                        <rect key="frame" x="0.0" y="39" width="234.5" height="172"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wJg-e5-WGd">
-                                                        <rect key="frame" x="109.5" y="211" width="35.5" height="29"/>
+                                                        <rect key="frame" x="99.5" y="211" width="35.5" height="29"/>
                                                         <accessibility key="accessibilityConfiguration" identifier="서울 우유 딸기맛"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                         <nil key="textColor"/>
@@ -178,10 +178,10 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="hFs-bO-Bp2">
-                                                <rect key="frame" x="259.5" y="0.0" width="255" height="240"/>
+                                                <rect key="frame" x="239.5" y="0.0" width="235" height="240"/>
                                                 <subviews>
                                                     <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cbg-6q-Idc">
-                                                        <rect key="frame" x="108" y="0.0" width="39" height="39"/>
+                                                        <rect key="frame" x="98" y="0.0" width="39" height="39"/>
                                                         <accessibility key="accessibilityConfiguration" identifier="Sanpellegrino"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                         <state key="normal" title="추가"/>
@@ -190,11 +190,11 @@
                                                         </connections>
                                                     </button>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="Sanpellegrino" translatesAutoresizingMaskIntoConstraints="NO" id="RYU-Mt-2hT">
-                                                        <rect key="frame" x="0.0" y="39" width="255" height="172"/>
+                                                        <rect key="frame" x="0.0" y="39" width="235" height="172"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" tag="4" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Woo-gZ-ESb">
-                                                        <rect key="frame" x="110" y="211" width="35.5" height="29"/>
+                                                        <rect key="frame" x="100" y="211" width="35.5" height="29"/>
                                                         <accessibility key="accessibilityConfiguration" identifier="Sanpellegrino"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                         <nil key="textColor"/>
@@ -203,10 +203,10 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="WqZ-1P-1O7">
-                                                <rect key="frame" x="519.5" y="0.0" width="254.5" height="240"/>
+                                                <rect key="frame" x="479.5" y="0.0" width="234.5" height="240"/>
                                                 <subviews>
                                                     <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XKG-bm-ElA">
-                                                        <rect key="frame" x="107.5" y="0.0" width="39" height="39"/>
+                                                        <rect key="frame" x="97.5" y="0.0" width="39" height="39"/>
                                                         <accessibility key="accessibilityConfiguration" identifier="StarBucks Cold Brew(Black)"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                         <state key="normal" title="추가"/>
@@ -215,12 +215,12 @@
                                                         </connections>
                                                     </button>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="StarBucks Cold Brew(Black)" highlightedImage="Sanpellegrino" translatesAutoresizingMaskIntoConstraints="NO" id="q87-JZ-sZp">
-                                                        <rect key="frame" x="0.0" y="39" width="254.5" height="172"/>
+                                                        <rect key="frame" x="0.0" y="39" width="234.5" height="172"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <accessibility key="accessibilityConfiguration" identifier="StarBucks Cold Brew(Black)"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" tag="5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jvi-VF-5mh">
-                                                        <rect key="frame" x="109.5" y="211" width="35.5" height="29"/>
+                                                        <rect key="frame" x="99.5" y="211" width="35.5" height="29"/>
                                                         <accessibility key="accessibilityConfiguration" identifier="StarBucks Cold Brew(Black)"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                         <nil key="textColor"/>
@@ -255,19 +255,122 @@
                                     <outletCollection property="addDrinkButtons" destination="XKG-bm-ElA" collectionClass="NSMutableArray" id="v9w-or-esG"/>
                                 </connections>
                             </stackView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ozR-ex-hW8">
+                                <rect key="frame" x="0.0" y="575" width="774" height="150"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="-50" translatesAutoresizingMaskIntoConstraints="NO" id="TXf-T5-tZf">
+                                        <rect key="frame" x="0.0" y="0.0" width="1150" height="150"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BlueBottle Cold Brew(Bold)" translatesAutoresizingMaskIntoConstraints="NO" id="uB0-aQ-dP2">
+                                                <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="150" id="IPo-6t-49B"/>
+                                                    <constraint firstAttribute="width" constant="150" id="LAW-zN-Ka5"/>
+                                                </constraints>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BlueBottle Cold Brew(Bold)" translatesAutoresizingMaskIntoConstraints="NO" id="lQY-eL-aya">
+                                                <rect key="frame" x="100" y="0.0" width="150" height="150"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="150" id="R7s-Rn-1MB"/>
+                                                    <constraint firstAttribute="height" constant="150" id="qHV-Bk-fzk"/>
+                                                </constraints>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BlueBottle Cold Brew(Bold)" translatesAutoresizingMaskIntoConstraints="NO" id="O3O-BK-2UN">
+                                                <rect key="frame" x="200" y="0.0" width="150" height="150"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="150" id="dGr-Gn-jfr"/>
+                                                    <constraint firstAttribute="width" constant="150" id="eMt-H9-8Xg"/>
+                                                </constraints>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BlueBottle Cold Brew(Bold)" translatesAutoresizingMaskIntoConstraints="NO" id="Sss-hy-9n6">
+                                                <rect key="frame" x="300" y="0.0" width="150" height="150"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="150" id="28g-Bi-p3v"/>
+                                                    <constraint firstAttribute="height" constant="150" id="A17-1Q-tdK"/>
+                                                </constraints>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BlueBottle Cold Brew(Bold)" translatesAutoresizingMaskIntoConstraints="NO" id="pOs-Xv-mYr">
+                                                <rect key="frame" x="400" y="0.0" width="150" height="150"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="150" id="MMm-h5-t26"/>
+                                                    <constraint firstAttribute="height" constant="150" id="drQ-EB-Fli"/>
+                                                </constraints>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BlueBottle Cold Brew(Bold)" translatesAutoresizingMaskIntoConstraints="NO" id="kDv-yO-yNm">
+                                                <rect key="frame" x="500" y="0.0" width="150" height="150"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="150" id="Gzm-Su-xSD"/>
+                                                    <constraint firstAttribute="width" constant="150" id="vQh-45-yoj"/>
+                                                </constraints>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BlueBottle Cold Brew(Bold)" translatesAutoresizingMaskIntoConstraints="NO" id="vQT-Ej-XF7">
+                                                <rect key="frame" x="600" y="0.0" width="150" height="150"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="150" id="CLU-vp-Tea"/>
+                                                    <constraint firstAttribute="width" constant="150" id="igD-XU-VMp"/>
+                                                </constraints>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BlueBottle Cold Brew(Bold)" translatesAutoresizingMaskIntoConstraints="NO" id="yok-LV-IEB">
+                                                <rect key="frame" x="700" y="0.0" width="150" height="150"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="150" id="jmf-fp-wbI"/>
+                                                    <constraint firstAttribute="height" constant="150" id="yPr-43-e6k"/>
+                                                </constraints>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BlueBottle Cold Brew(Bold)" translatesAutoresizingMaskIntoConstraints="NO" id="HHT-Rn-KtT">
+                                                <rect key="frame" x="800" y="0.0" width="150" height="150"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="150" id="Qle-Az-2uQ"/>
+                                                    <constraint firstAttribute="width" constant="150" id="Ry8-V3-jqm"/>
+                                                </constraints>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BlueBottle Cold Brew(Bold)" translatesAutoresizingMaskIntoConstraints="NO" id="h9v-85-OVB">
+                                                <rect key="frame" x="900" y="0.0" width="150" height="150"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="150" id="pC3-hS-tfY"/>
+                                                    <constraint firstAttribute="width" constant="150" id="uKz-fT-0oH"/>
+                                                </constraints>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BlueBottle Cold Brew(Bold)" translatesAutoresizingMaskIntoConstraints="NO" id="wWW-Qb-VVa">
+                                                <rect key="frame" x="1000" y="0.0" width="150" height="150"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="150" id="2VC-aE-VHR"/>
+                                                    <constraint firstAttribute="width" constant="150" id="f4F-yd-lw2"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="TXf-T5-tZf" secondAttribute="trailing" id="I23-iJ-zEN"/>
+                                    <constraint firstAttribute="bottom" secondItem="TXf-T5-tZf" secondAttribute="bottom" id="X5T-66-ypv"/>
+                                    <constraint firstItem="TXf-T5-tZf" firstAttribute="top" secondItem="ozR-ex-hW8" secondAttribute="top" id="YYE-zJ-zpi"/>
+                                    <constraint firstItem="TXf-T5-tZf" firstAttribute="leading" secondItem="ozR-ex-hW8" secondAttribute="leading" id="a4F-rm-c8T"/>
+                                    <constraint firstItem="TXf-T5-tZf" firstAttribute="width" secondItem="ozR-ex-hW8" secondAttribute="width" priority="250" id="ha0-FB-iy5"/>
+                                    <constraint firstItem="TXf-T5-tZf" firstAttribute="height" secondItem="ozR-ex-hW8" secondAttribute="height" id="kT0-QH-rGe"/>
+                                    <constraint firstAttribute="height" constant="150" id="yyN-Jn-clk"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="Pvh-z4-bnE"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="TFF-Np-Ng7"/>
+                            </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemGray4Color"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="1U7-rv-E3w" secondAttribute="bottom" id="2tC-mT-yeO"/>
-                            <constraint firstItem="1U7-rv-E3w" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="8Mv-oj-V00"/>
-                            <constraint firstItem="1U7-rv-E3w" firstAttribute="leading" secondItem="P2q-RN-ONW" secondAttribute="trailing" id="KZK-LM-aXZ"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="leading" secondItem="P2q-RN-ONW" secondAttribute="leading" id="W8Q-Nm-4r8"/>
+                            <constraint firstItem="1U7-rv-E3w" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="1IU-D9-vqG"/>
+                            <constraint firstAttribute="bottom" secondItem="1U7-rv-E3w" secondAttribute="bottom" id="2tC-mT-yeO"/>
+                            <constraint firstItem="ozR-ex-hW8" firstAttribute="top" secondItem="b29-T4-1ck" secondAttribute="bottom" constant="51" id="G9W-dO-LDX"/>
+                            <constraint firstItem="ozR-ex-hW8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="JME-nf-IKp"/>
+                            <constraint firstItem="1U7-rv-E3w" firstAttribute="leading" secondItem="P2q-RN-ONW" secondAttribute="trailing" constant="30" id="KZK-LM-aXZ"/>
+                            <constraint firstItem="1U7-rv-E3w" firstAttribute="leading" secondItem="ozR-ex-hW8" secondAttribute="trailing" id="RRo-ph-OHZ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="leading" secondItem="P2q-RN-ONW" secondAttribute="leading" constant="-30" id="W8Q-Nm-4r8"/>
                             <constraint firstItem="1U7-rv-E3w" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="bhc-2R-kmJ"/>
                             <constraint firstItem="b29-T4-1ck" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="ol4-q0-BXK"/>
                         </constraints>
                     </view>
+                    <size key="freeformSize" width="1024" height="768"/>
                     <connections>
+                        <outlet property="purchaseHistoryScrollView" destination="ozR-ex-hW8" id="wcL-ZC-s8J"/>
                         <outlet property="selectPanelStackView" destination="b29-T4-1ck" id="dAN-rS-wD4"/>
                         <outlet property="topPanelView" destination="1U7-rv-E3w" id="MaO-ds-IxM"/>
                     </connections>
@@ -286,6 +389,9 @@
         <image name="서울 우유 딸기맛" width="320" height="320"/>
         <systemColor name="systemGray4Color">
             <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

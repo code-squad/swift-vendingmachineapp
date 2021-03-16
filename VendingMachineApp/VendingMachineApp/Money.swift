@@ -11,8 +11,8 @@ class Money : NSObject, NSCoding{
     
     private var Money : Int
     
-    init(money : Int) {
-        self.Money = money
+    init(money : Money.moneyUnit) {
+        self.Money = money.rawValue
     }
     
     func encode(with coder: NSCoder) {
@@ -40,6 +40,7 @@ class Money : NSObject, NSCoding{
     
     func addMoney(money : Money) -> Void{
         self.Money += money.Money
+        NotificationCenter.default.post(name: NSNotification.Name("addSomething"), object: nil)
     }
     
     func canBuybeverage(price : Int) -> Bool{
@@ -50,3 +51,4 @@ class Money : NSObject, NSCoding{
         return "\(self.Money)원"
     }
 }
+

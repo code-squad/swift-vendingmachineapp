@@ -40,6 +40,7 @@ class ViewController: UIViewController {
     }
     
     override func viewDidLoad() {
+        NotificationCenter.default.addObserver(self, selector: #selector(didReceiveTestNotification), name: NSNotification.Name("addSomething"), object: nil)
         self.vendingMachine = appDelegate.vendingMachine
         super.viewDidLoad()
     }
@@ -50,7 +51,7 @@ class ViewController: UIViewController {
         initvendingMachineBeverageLabels()
         initMoneyaddButtons()
         initCurrentMoneyLabel()
-        redrawMoneyandStockFromSaveData()
+        redrawMoneyandStock()
         super.viewWillAppear(false)
     }
     
@@ -61,6 +62,10 @@ class ViewController: UIViewController {
         BeverageButtons[index].translatesAutoresizingMaskIntoConstraints = false
         BeverageButtons[index].widthAnchor.constraint(equalToConstant: 100).isActive = true
         BeverageButtons[index].heightAnchor.constraint(equalToConstant: 50).isActive = true
+    }
+    
+    @objc func didReceiveTestNotification(){
+        redrawMoneyandStock()
     }
     
     func initBeverageButtons(){
@@ -151,7 +156,7 @@ class ViewController: UIViewController {
         currentMoneyLabel.centerYAnchor.constraint(equalTo: MoneyaddButtons[0].bottomAnchor, constant: 20).isActive = true
     }
     
-    func redrawMoneyandStockFromSaveData(){
+    func redrawMoneyandStock(){
         for i in 0..<stockLabel.count{
             stockLabel[i].text = "\(vendingMachine.drawStockLabel(beverage: vendingMachine.sendBeverageInFactory(index: i)))개"
         }
@@ -161,13 +166,11 @@ class ViewController: UIViewController {
     @objc func addBeverage(sender : UIButton) {
         let tempBeverage = vendingMachine.sendBeverageInFactory(index: sender.tag)
         vendingMachine.addBeverage(beverage: tempBeverage)
-        stockLabel[sender.tag].text = "\(vendingMachine.drawStockLabel(beverage: tempBeverage))개"
     }
     
     @objc func addMoney(sender: UIButton){
         if let tempMoney = Money.moneyUnit.init(index: sender.tag) {
-            vendingMachine.addMoney(money: Money.init(money: tempMoney.rawValue))
-            currentMoneyLabel.text = vendingMachine.drawCurrentMoney()
+            vendingMachine.addMoney(money: Money.init(money: tempMoney))
         }
     }
 }

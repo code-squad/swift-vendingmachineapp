@@ -35,6 +35,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func applicationWillResignActive(_ application: UIApplication) {
-        SaveManager().savevendingMachineData(vendingMachine: vendingMachine)
     }
 }

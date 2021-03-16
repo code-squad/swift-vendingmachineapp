@@ -9,9 +9,14 @@ import Foundation
 
 class SaveManager {
     func savevendingMachineData(vendingMachine : VendingMachine){
-        if let savedData = try? NSKeyedArchiver.archivedData(withRootObject: vendingMachine, requiringSecureCoding: false){
-            UserDefaults.standard.set(savedData, forKey: "vendingMachine")
+        var savaData : Data!
+        do{
+            savaData = try NSKeyedArchiver.archivedData(withRootObject: vendingMachine, requiringSecureCoding: false)
+        }catch{
+            print(error.localizedDescription)
+            return
         }
+        UserDefaults.standard.set(savaData, forKey: "vendingMachine")
     }
     
     func loadvendingMachineData() -> VendingMachine?{

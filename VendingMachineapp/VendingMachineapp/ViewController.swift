@@ -10,7 +10,7 @@ import UIKit
 class ViewController: UIViewController {
     
     var buttonDictionary: [UIButton:Beverage] = [:]
-    var labelDictionary: [UIButton:UILabel] = [:]
+    var labelDictionary: [Beverage:UILabel] = [:]
     
     @IBOutlet weak var mainStackView: UIStackView!
     @IBOutlet var lineStackView: [UIStackView]!
@@ -38,22 +38,26 @@ class ViewController: UIViewController {
         addThousandButton.setTitle("+1000", for: .normal)
         addFiveThousandButton.setTitle("+5000", for: .normal)
         currentChangeLabel.text = "잔액 : \(delegate.vendingMachine.checkChagne().money)원"
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(changeStockLabel),
+                                               name: NSNotification.Name("addStock"),
+                                               object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(changeMoneyLabel),
+                                               name: NSNotification.Name("addMoney"),
+                                               object: nil)
     }
     
     @IBAction func addButtonTouched(_ sender: UIButton) {
-        
         delegate.vendingMachine.add(beverage: buttonDictionary[sender.self]!)
-        labelDictionary[sender.self]?.text = String(delegate.vendingMachine.wholeBeverage()[buttonDictionary[sender.self]!] ?? 0)
     }
     
     @IBAction func ThousandButtonTouched(_ sender: UIButton) {
         delegate.vendingMachine.increase(money: Money(with: 1000))
-        currentChangeLabel.text = "잔액 : \(delegate.vendingMachine.checkChagne().money)원"
     }
     
     @IBAction func FiveThousandButtonTouched(_ sender: UIButton) {
         delegate.vendingMachine.increase(money: Money(with: 5000))
-        currentChangeLabel.text = "잔액 : \(delegate.vendingMachine.checkChagne().money)원"
     }
     
     func mappingButtonAndProduct() {
@@ -63,8 +67,8 @@ class ViewController: UIViewController {
     }
     
     func mappingButtonAndLabel() {
-        for (button, label) in zip(beverageButtons, beverageLabels) {
-            labelDictionary.updateValue(label, forKey: button)
+        for (product, label) in zip(delegate.productList, beverageLabels) {
+            labelDictionary.updateValue(label, forKey: product)
         }
     }
     
@@ -75,8 +79,19 @@ class ViewController: UIViewController {
     }
     
     func setLabelsTitle() {
-        for (key, value) in buttonDictionary {
-            labelDictionary[key]?.text = String(delegate.vendingMachine.wholeBeverage()[value] ?? 0)
+        for (product, label) in labelDictionary {
+            label.text = String(delegate.vendingMachine.wholeBeverage()[product] ?? 0)
         }
+    }
+    
+    @objc func changeStockLabel(_ notification: Notification) {
+        if let data = notification.userInfo as? [Beverage:Int] {
+            for (product, number) in data {
+                labelDictionary[product]?.text = "\(number)"
+            }
+        }
+    }
+    @objc func changeMoneyLabel(_ notification: Notification) {
+        currentChangeLabel.text = "잔액 : \(delegate.vendingMachine.checkChagne().money)원"
     }
 }

@@ -30,10 +30,12 @@ class VendingMachine: NSObject, NSCoding{
     
     func increase(money: Money) {
         manager.changeMoney(with: money)
+        NotificationCenter.default.post(name: NSNotification.Name("addMoney"), object: nil)
     }
     
     func add(beverage: Beverage) {
         inventory.add(beverage: beverage)
+        NotificationCenter.default.post(name: NSNotification.Name("addStock"), object: nil, userInfo: wholeBeverage())
     }
     
     func availablePurchaseList() -> [Beverage] {

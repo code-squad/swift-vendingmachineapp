@@ -28,23 +28,18 @@ class ViewController: UIViewController {
         fillDataOfBeverageButton()
         fillDataOfRechargeButton()
         loadSavedLabel()
+        NotificationCenter.default.addObserver(self, selector: #selector(loadSavedLabel), name: .vendingMachineNotification, object: nil)
     }
     
     @IBAction func addStock(_ sender: UIButton) {
         guard let type = dataOfBeverageButton[sender]?.beverageType else { return }
         guard let product = BeverageFactory.releaseBeverage(with: type) else { return }
         vendingMachine?.addStock(as: product)
-        guard let stockList = vendingMachine?.showStock() else { return }
-        let beverageID = ObjectIdentifier(type)
-        guard let stock = stockList[beverageID] else { return }
-        dataOfBeverageButton[sender]?.label.text = "\(stock.count)개"
     }
     
     @IBAction func rechargeCash(_ sender: UIButton) {
         guard let cash = dataOfRechargeButton[sender]?.rawValue else { return }
         vendingMachine?.rechargeCash(with: cash)
-        guard let balance = vendingMachine?.showBalance().description else { return }
-        balanceLabel.text = "\(balance)원"
     }
     
     func curveImageVertex() {
@@ -60,6 +55,7 @@ class ViewController: UIViewController {
         }
     }
     
+    @objc
     func loadSavedLabel() {
         for i in 0...3 {
             if let stock = vendingMachine?.showStock()[ObjectIdentifier(beveragesType[i])] {

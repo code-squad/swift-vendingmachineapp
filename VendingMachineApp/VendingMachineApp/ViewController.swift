@@ -8,7 +8,7 @@
 import UIKit
 import Combine
 
-class ViewController: UIViewController, Stateful {
+class ViewController: UIViewController, VendingMachineStateShareable {
     
     @IBOutlet var beverageImageViews: [UIImageView]!
     @IBOutlet var addInventoryButtons: [UIButton]!

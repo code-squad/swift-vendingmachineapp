@@ -65,13 +65,13 @@ class ViewController: UIViewController {
     }
     
     func mappingButtonAndProduct() {
-        for (button, product) in zip(beverageButtons, delegate.productList) {
+        for (button, product) in zip(beverageButtons, delegate.vendingMachine.getProductList()) {
             buttonDictionary.updateValue(product, forKey: button)
         }
     }
     
     func mappingButtonAndLabel() {
-        for (product, label) in zip(delegate.productList, beverageLabels) {
+        for (product, label) in zip(delegate.vendingMachine.getProductList(), beverageLabels) {
             labelDictionary.updateValue(label, forKey: product)
         }
     }

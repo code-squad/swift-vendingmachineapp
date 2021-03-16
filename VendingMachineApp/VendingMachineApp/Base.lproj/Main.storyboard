@@ -247,6 +247,13 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EPg-DI-OxP">
+                                <rect key="frame" x="1125" y="23" width="25" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <segue destination="15a-s9-iTt" kind="presentation" modalTransitionStyle="flipHorizontal" id="EeM-bc-BJQ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemGray6Color"/>
@@ -295,16 +302,27 @@
             </objects>
             <point key="canvasLocation" x="15.76271186440678" y="83.414634146341456"/>
         </scene>
-        <!--View Controller-->
+        <!--Admin View Controller-->
         <scene sceneID="LFh-Xk-wWb">
             <objects>
-                <viewController id="15a-s9-iTt" sceneMemberID="viewController">
+                <viewController id="15a-s9-iTt" customClass="AdminViewController" customModule="VendingMachineApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="o3w-Lx-aqS">
-                        <rect key="frame" x="0.0" y="0.0" width="1180" height="820"/>
+                        <rect key="frame" x="0.0" y="0.0" width="704" height="780"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KOH-f5-3bL">
+                                <rect key="frame" x="605" y="34" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="닫기"/>
+                                <connections>
+                                    <action selector="closeButtonTouched:" destination="15a-s9-iTt" eventType="touchUpInside" id="Psl-YE-NQy"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="erS-Hi-cqY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="heZ-bE-Llw"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HeV-fX-1HM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

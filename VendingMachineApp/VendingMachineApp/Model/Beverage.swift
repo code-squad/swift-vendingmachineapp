@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Beverage: NSObject, NSCoding {// Hashable
+class Beverage: NSObject, NSCoding {
     
     private let brand: String
     private let volume: Int
@@ -23,10 +23,6 @@ class Beverage: NSObject, NSCoding {// Hashable
     static func == (lhs: Beverage, rhs: Beverage) -> Bool {
         return type(of: lhs) == type(of: rhs)
     }
-
-//    public func hash(into hasher: inout Hasher) {
-//        hasher.combine(ObjectIdentifier(type(of: self)))
-//    }
     
     init(brand: String, volume: Int, price: Int, name: String, createdAt: Date, expiredAt: Date) {
         self.brand = brand

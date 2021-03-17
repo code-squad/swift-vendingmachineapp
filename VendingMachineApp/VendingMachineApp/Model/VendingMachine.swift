@@ -14,27 +14,27 @@ class VendingMachine: NSObject, NSCoding {
     }
     
     private var stock: StockManageable
-    @Published private(set) var purchasehistory: [Drink]
+    @Published private(set) var purchaseHistory: [Drink]
     private var coins: CoinManageable
     
     private(set) static var `default`: VendingMachine = VendingMachine()
     
     private override init() {
-        self.purchasehistory = [Drink]()
+        self.purchaseHistory = [Drink]()
         self.stock = Stock()
         self.coins = CoinCounter()
     }
     
     func encode(with coder: NSCoder) {
         coder.encode(self.stock, forKey: "stock")
-        coder.encode(self.purchasehistory, forKey: "purchasehistory")
+        coder.encode(self.purchaseHistory, forKey: "purchaseHistory")
         coder.encode(self.coins, forKey: "coins")
     }
     
     required init?(coder: NSCoder) {
-        self.stock = coder.decodeObject(forKey: "stock") as! StockManageable
-        self.purchasehistory = coder.decodeObject(forKey: "purchasehistory") as! [Drink]
-        self.coins = coder.decodeObject(forKey: "coins") as! CoinManageable
+        self.stock = coder.decodeObject(forKey: "stock") as? StockManageable ?? Stock()
+        self.purchaseHistory = coder.decodeObject(forKey: "purchaseHistory") as? [Drink] ?? [Drink]()
+        self.coins = coder.decodeObject(forKey: "coins") as? CoinManageable ?? CoinCounter()
     }
     
     public static func loadInstance(of vendingMachine: VendingMachine) {
@@ -55,7 +55,7 @@ class VendingMachine: NSObject, NSCoding {
     
     public func buy(typeOf drinkType: Drink.Type) -> Drink? {
         guard let drink = stock.purchased(drinkType: drinkType, insertedCoin: coins.leftCoins) else { return nil }
-        self.purchasehistory.append(drink)
+        self.purchaseHistory.append(drink)
         self.coins.expended(to: drink.price)
         return drink
     }
@@ -77,7 +77,7 @@ class VendingMachine: NSObject, NSCoding {
     }
     
     public func checkPurchasehistory(handle: (Drink) -> ()) {
-        for drink in purchasehistory {
+        for drink in purchaseHistory {
             handle(drink)
         }
     }

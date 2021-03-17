@@ -27,7 +27,7 @@ class ViewController: UIViewController, SelectPanelStackViewDelegate, TopPanelDe
         
         loadLeftCoinsLabel()
         loadSelectPanelStackViewLabels()
-        loadPurchasehistory(drinks: vendingMachine.purchasehistory)
+        loadPurchasehistory(drinks: vendingMachine.purchaseHistory)
         configCoinsLabelObserver()
         configStockLabelObserver()
         configPurchaseHistoryObserver()
@@ -44,7 +44,7 @@ class ViewController: UIViewController, SelectPanelStackViewDelegate, TopPanelDe
     }
     
     func configPurchaseHistoryObserver() {
-        puchaseHistoryPublisher = vendingMachine.$purchasehistory
+        puchaseHistoryPublisher = vendingMachine.$purchaseHistory
             .sink(receiveValue: { (drinks) in
                 DispatchQueue.main.async {
                     self.loadPurchasehistory(drinks: drinks)

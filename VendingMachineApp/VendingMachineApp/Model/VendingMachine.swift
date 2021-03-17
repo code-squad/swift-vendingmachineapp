@@ -8,14 +8,16 @@
 import Foundation
 
 class VendingMachine : NSObject, NSCoding ,VendingMachined {
+
+    enum NotificationName {
+        static let updateBeverage = Notification.Name("updateBeverage")
+        static let updateBalance = Notification.Name("updateBalance")
+        static let updatePurchase = Notification.Name("updatePurchase")
+    }
     
     private var drinks : Drinks
     private var payment : Payment
     private var purchasedList : PurchasedList
-    
-    static let updateBeverage = Notification.Name("updateBeverage")
-    static let updateBalance = Notification.Name("updateBalance")
-    static let updatePurchase = Notification.Name("updatePurchase")
     
     override init() {
         self.drinks = Drinks()
@@ -43,12 +45,12 @@ class VendingMachine : NSObject, NSCoding ,VendingMachined {
     
     func putPayMoney(money : Int) {
         payment.increase(money: money)
-        NotificationCenter.default.post(name: VendingMachine.updateBalance, object: self, userInfo: ["amountMoney" : payment.amountMoney])
+        NotificationCenter.default.post(name: VendingMachine.NotificationName.updateBalance, object: self, userInfo: ["amountMoney" : payment.amountMoney])
     }
     
     func addStock(_ beverage : Beverage) {
         drinks.addStock(beverage : beverage)
-        NotificationCenter.default.post(name: VendingMachine.updateBeverage, object: self, userInfo: ["drinklist" : drinks.showAllBeverage()])
+        NotificationCenter.default.post(name: VendingMachine.NotificationName.updateBeverage, object: self, userInfo: ["drinklist" : drinks.showAllBeverage()])
     }
     
     func showPurchasePossibleList() -> [Beverage] {
@@ -62,9 +64,9 @@ class VendingMachine : NSObject, NSCoding ,VendingMachined {
             drinks.purchase(beverage: beverage)
             purchasedList.add(beverage: beverage)
             
-            NotificationCenter.default.post(name: VendingMachine.updatePurchase, object: self, userInfo: ["beverageType" : beverageType])
-            NotificationCenter.default.post(name: VendingMachine.updateBalance, object: self, userInfo: ["amountMoney" : payment.amountMoney])
-            NotificationCenter.default.post(name: VendingMachine.updateBeverage, object: self, userInfo: ["drinklist" : drinks.showAllBeverage()])
+            NotificationCenter.default.post(name: VendingMachine.NotificationName.updatePurchase, object: self, userInfo: ["beverageType" : beverageType])
+            NotificationCenter.default.post(name: VendingMachine.NotificationName.updateBalance, object: self, userInfo: ["amountMoney" : payment.amountMoney])
+            NotificationCenter.default.post(name: VendingMachine.NotificationName.updateBeverage, object: self, userInfo: ["drinklist" : drinks.showAllBeverage()])
         }
     }
     

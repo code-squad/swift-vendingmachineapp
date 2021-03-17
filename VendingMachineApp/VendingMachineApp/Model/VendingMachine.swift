@@ -30,9 +30,9 @@ class VendingMachine: NSObject, NSCoding {
     }
     
     required init?(coder: NSCoder) {
-        self.storage = coder.decodeObject(forKey: ArchiveKeys.storage) as! Storage
-        self.dispensedList = coder.decodeObject(forKey: ArchiveKeys.dispensedList) as! OrderableList
-        self.moneyBox = coder.decodeObject(forKey: ArchiveKeys.moneyBox) as! MoneyManagable
+        self.storage = coder.decodeObject(forKey: ArchiveKeys.storage) as? Storage ?? BeverageStorage()
+        self.dispensedList = coder.decodeObject(forKey: ArchiveKeys.dispensedList) as? OrderableList ?? DispensedList()
+        self.moneyBox = coder.decodeObject(forKey: ArchiveKeys.moneyBox) as? MoneyManagable ?? MoneyBox()
         beverageManager = BeverageManager(temperatureStandard: Settings.Standards.temperature,
                                           sugarStandard: Settings.Standards.sugar,
                                           lactoStandard: Settings.Standards.lactose)

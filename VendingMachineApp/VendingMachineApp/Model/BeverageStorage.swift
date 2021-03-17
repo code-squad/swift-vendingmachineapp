@@ -20,7 +20,7 @@ class BeverageStorage: NSObject, Storage, NSCoding {
     }
     
     required init?(coder: NSCoder) {
-        let values = coder.decodeObject(forKey: Keys.stockValues) as! [[Shopable]]
+        let values = coder.decodeObject(forKey: Keys.stockValues) as? [[Shopable]] ?? [[Shopable]]()
         var stockList = [ObjectIdentifier: [Shopable]]()
         values.forEach({ (value) in
             stockList[ObjectIdentifier(type(of: value[0]))] = value

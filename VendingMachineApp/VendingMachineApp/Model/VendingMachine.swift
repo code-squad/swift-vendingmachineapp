@@ -7,18 +7,29 @@
 
 import Foundation
 
-class VendingMachine {
+class VendingMachine: NSObject, NSCoding {
 
     private var money: Money
     private var inventory: Inventory
     private var purchasedDrink: [Beverage]
     
-    init() {
+    override init() {
         self.money = Money()
         self.inventory = Inventory()
         self.purchasedDrink = []
     }
     
+    required init?(coder decoder: NSCoder) {
+        money = decoder.decodeObject(forKey: "money") as! Money
+        inventory = decoder.decodeObject(forKey: "inventory") as! Inventory
+        purchasedDrink = decoder.decodeObject(forKey: "purchasedDrink") as! [Beverage]
+    }
+    
+    func encode(with coder: NSCoder) {
+        coder.encode(money, forKey: "money")
+        coder.encode(inventory, forKey: "inventory")
+        coder.encode(purchasedDrink, forKey: "purchasedDrink")
+    }
     
     //MARK:- Human to VendingMachine Method
     

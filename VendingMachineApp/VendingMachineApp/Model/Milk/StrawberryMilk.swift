@@ -21,6 +21,19 @@ class StrawberryMilk: Milk {
         super.init(brand: "서울우유", volume: 200, price: 600, name: "딸기우유", createdAt: date, expiredAt: date, fatPercent: 6)
     }
     
+    required init?(coder decoder: NSCoder) {
+        realFruit = decoder.decodeBool(forKey: "realFruit")
+        super.init(coder: decoder)
+    }
+    
+    override func encode(with coder: NSCoder) {
+        coder.encode(realFruit, forKey: "realFruit")
+        super.encode(with: coder)
+    }
+    
+    
+    //MARK:- method
+    
     func isRealFruit() -> Bool {
         return realFruit
     }

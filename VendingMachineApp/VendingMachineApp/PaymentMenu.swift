@@ -8,14 +8,22 @@ import Foundation
 import UIKit
 
 class PaymentMenu {
-    private(set) var list : [UIButton:Int]
-    private let payInfo = [1000,5000]
+    private(set) var list : [UIButton:Coin]
     
-    init(buttons : [UIButton]) {
-        list = Dictionary(uniqueKeysWithValues: zip(buttons,payInfo))
+    enum Coin : Int , CaseIterable {
+        case onethousand = 1000
+        case fivethousand = 5000
+        
+        var value : Int {
+            return self.rawValue
+        }
     }
     
-    func add(button : UIButton) -> Int {
-        return list[button] ?? 0
+    init(buttons : [UIButton]) {
+        list = Dictionary(uniqueKeysWithValues: zip(buttons,Coin.allCases))
+    }
+    
+    subscript(button : UIButton) -> Int {
+        return list[button]?.value ?? 0
     }
 }

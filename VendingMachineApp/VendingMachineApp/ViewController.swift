@@ -48,7 +48,7 @@ class ViewController: UIViewController ,VendingMachinedable {
     }
     
     @IBAction func BalanceIncreaseButtonTouched(_ sender: UIButton) {
-        let money = paymentMenu.add(button : sender)
+        let money = paymentMenu[sender]
         vendingMachine.putPayMoney(money: money)
     }
     

@@ -10,121 +10,134 @@ import UIKit
 class ViewController: UIViewController {
     private var vendingMachine : VendingMachine!
     private let appDelegate : AppDelegate
+    private var childView : [UIView]
     private var BeverageButtons : [UIButton]
     private var MoneyaddButtons : [UIButton]
     private var beverageImageViews : [UIImageView]
     private var currentMoneyLabel : UILabel
     private var stockLabel : [UILabel]
+    private var buyButton : [UIButton]
     private var UIImagetitles : [String]
     
     init() {
         self.appDelegate = UIApplication.shared.delegate as! AppDelegate
+        self.childView = []
         self.BeverageButtons = []
         self.MoneyaddButtons = []
         self.beverageImageViews = []
         self.currentMoneyLabel = UILabel()
         self.stockLabel = []
+        self.buyButton = []
         self.UIImagetitles = ["BananaMilk", "StrawberryMilk", "somersby", "coke", "HOT6", "Monster", "CaffeMocha", "CafeLatte"]
         super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) {
         self.appDelegate = UIApplication.shared.delegate as! AppDelegate
+        self.childView = []
         self.BeverageButtons = []
         self.MoneyaddButtons = []
         self.beverageImageViews = []
         self.currentMoneyLabel = UILabel()
         self.stockLabel = []
+        self.buyButton = []
         self.UIImagetitles = ["BananaMilk", "StrawberryMilk", "somersby", "coke", "HOT6", "Monster", "CaffeMocha", "CafeLatte"]
         super.init(coder: coder)
     }
     
     override func viewDidLoad() {
-        NotificationCenter.default.addObserver(self, selector: #selector(didReceiveTestNotification), name: NSNotification.Name("addSomething"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(receiveaddNotification), name: NSNotification.Name("addSomething"), object: nil)
         self.vendingMachine = appDelegate.vendingMachine
         super.viewDidLoad()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        initBeverageButtons()
-        initBeverageImages()
-        initvendingMachineBeverageLabels()
+        drawstockViews()
         initMoneyaddButtons()
         initCurrentMoneyLabel()
         redrawMoneyandStock()
         super.viewWillAppear(false)
     }
     
-    func addbeverageaddButton(index : Int) {
-        BeverageButtons[index].setTitle("추가", for: .normal)
-        BeverageButtons[index].setTitleColor(.systemBlue, for: .normal)
-        view.addSubview(BeverageButtons[index])
-        BeverageButtons[index].translatesAutoresizingMaskIntoConstraints = false
-        BeverageButtons[index].widthAnchor.constraint(equalToConstant: 100).isActive = true
-        BeverageButtons[index].heightAnchor.constraint(equalToConstant: 50).isActive = true
-    }
-    
-    @objc func didReceiveTestNotification(){
+    @objc func receiveaddNotification(){
         redrawMoneyandStock()
     }
     
-    func initBeverageButtons(){
-        for _ in 0..<UIImagetitles.count{
-            BeverageButtons.append(UIButton())
-        }
-        for i in 0..<BeverageButtons.count{
-            if i == 0 {//standard!
-                addbeverageaddButton(index: i)
-                BeverageButtons[i].centerXAnchor.constraint(equalTo: view.leftAnchor, constant: 100).isActive = true
-                BeverageButtons[i].centerYAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true
+    func drawstockViews(){
+        view.backgroundColor = .systemGray3
+        for i in 0..<UIImagetitles.count{
+            childView.append(initChildView(imageName: UIImagetitles[i]))
+            view.addSubview(childView[i])
+            if i == 0 {
+                childView[i].centerXAnchor.constraint(equalTo: view.leftAnchor, constant: 100).isActive = true
+                childView[i].centerYAnchor.constraint(equalTo: view.topAnchor, constant: 150).isActive = true
             }
             else if i > 3 {
-                addbeverageaddButton(index: i)
-                BeverageButtons[i].centerXAnchor.constraint(equalTo: BeverageButtons[0].centerXAnchor, constant: 200 * CGFloat(i-4)).isActive = true
-                BeverageButtons[i].centerYAnchor.constraint(equalTo: BeverageButtons[0].bottomAnchor, constant: 300).isActive = true
+                childView[i].centerXAnchor.constraint(equalTo: childView[0].centerXAnchor, constant: 200 * CGFloat(i-4)).isActive = true
+                childView[i].centerYAnchor.constraint(equalTo: childView[0].bottomAnchor, constant: 150).isActive = true
             }
             else {
-                addbeverageaddButton(index: i)
-                BeverageButtons[i].centerXAnchor.constraint(equalTo: BeverageButtons[0].centerXAnchor, constant: 200 * CGFloat(i)).isActive = true
-                BeverageButtons[i].centerYAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true
+                childView[i].centerXAnchor.constraint(equalTo: childView[0].centerXAnchor, constant: 200 * CGFloat(i)).isActive = true
+                childView[i].topAnchor.constraint(equalTo: childView[0].topAnchor).isActive = true
             }
             BeverageButtons[i].tag = i
             BeverageButtons[i].addTarget(self, action: #selector(addBeverage(sender:)), for: .touchUpInside)
         }
     }
     
-    func initBeverageImages(){
-        for i in 0..<UIImagetitles.count{
-            beverageImageViews.append(UIImageView(image: UIImage(named: UIImagetitles[i])))
-        }
-        view.backgroundColor = .systemGray
-        for i in 0..<beverageImageViews.count{ //standard
-            beverageImageViews[i].backgroundColor = UIColor.white
-            view.addSubview(beverageImageViews[i])
-            beverageImageViews[i].translatesAutoresizingMaskIntoConstraints = false
-            beverageImageViews[i].widthAnchor.constraint(equalToConstant: 150).isActive = true
-            beverageImageViews[i].heightAnchor.constraint(equalToConstant: 150).isActive = true
-            beverageImageViews[i].contentMode = .scaleAspectFit
-            beverageImageViews[i].layer.cornerRadius = 10
-            beverageImageViews[i].centerXAnchor.constraint(equalTo: BeverageButtons[i].centerXAnchor).isActive = true
-            beverageImageViews[i].topAnchor.constraint(equalTo: BeverageButtons[i].centerYAnchor, constant: 30).isActive = true
-        }
+    func addButtonTo(parentView : UIView, constraintView : UIView, buttonTitle : String, constant: CGFloat) -> UIButton{
+        let tempBeverageBtn : UIButton = UIButton()
+        tempBeverageBtn.setTitle(buttonTitle, for: .normal)
+        tempBeverageBtn.setTitleColor(.systemBlue, for: .normal)
+        parentView.addSubview(tempBeverageBtn)
+        tempBeverageBtn.translatesAutoresizingMaskIntoConstraints = false
+        tempBeverageBtn.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        tempBeverageBtn.heightAnchor.constraint(equalToConstant: 25).isActive = true
+        tempBeverageBtn.centerXAnchor.constraint(equalTo: constraintView.centerXAnchor).isActive = true
+        tempBeverageBtn.topAnchor.constraint(equalTo: constraintView.topAnchor, constant: constant).isActive = true
+        return tempBeverageBtn
     }
     
-    func initvendingMachineBeverageLabels(){
-        for _ in 0..<UIImagetitles.count{
-            stockLabel.append(UILabel())
-        }
-        for i in 0..<stockLabel.count{
-            stockLabel[i].text = "0개"
-            stockLabel[i].textAlignment = .center
-            stockLabel[i].translatesAutoresizingMaskIntoConstraints = false
-            view.addSubview(stockLabel[i])
-            stockLabel[i].widthAnchor.constraint(equalToConstant: 50).isActive = true
-            stockLabel[i].heightAnchor.constraint(equalToConstant: 25).isActive = true
-            stockLabel[i].centerXAnchor.constraint(equalTo: beverageImageViews[i].centerXAnchor).isActive = true
-            stockLabel[i].topAnchor.constraint(equalTo: beverageImageViews[i].bottomAnchor, constant: 10).isActive = true
-        }
+    func addImageTo(parentView : UIView, constraintView : UIView, imageName: String) -> UIImageView{
+        let tempBeverageImage : UIImageView = UIImageView(image: UIImage(named: imageName))
+        tempBeverageImage.backgroundColor = .white
+        tempBeverageImage.widthAnchor.constraint(equalToConstant: 140).isActive = true
+        tempBeverageImage.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        parentView.addSubview(tempBeverageImage)
+        tempBeverageImage.translatesAutoresizingMaskIntoConstraints = false
+        tempBeverageImage.centerXAnchor.constraint(equalTo: constraintView.centerXAnchor).isActive = true
+        tempBeverageImage.topAnchor.constraint(equalTo: constraintView.bottomAnchor, constant: 5).isActive = true
+        tempBeverageImage.contentMode = .scaleAspectFit
+        tempBeverageImage.layer.cornerRadius = 10
+        return tempBeverageImage
+    }
+    
+    func addLabelTo(parentView : UIView, constraintView : UIView) -> UILabel{
+        let tempstockLabel : UILabel = UILabel()
+        tempstockLabel.text = "0개"
+        tempstockLabel.textAlignment = .center
+        parentView.addSubview(tempstockLabel)
+        tempstockLabel.translatesAutoresizingMaskIntoConstraints = false
+        tempstockLabel.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        tempstockLabel.heightAnchor.constraint(equalToConstant: 25).isActive = true
+        tempstockLabel.centerXAnchor.constraint(equalTo: constraintView.centerXAnchor).isActive = true
+        tempstockLabel.topAnchor.constraint(equalTo: constraintView.bottomAnchor, constant: 5).isActive = true
+        return tempstockLabel
+    }
+    
+    func initChildView(imageName : String) -> UIView{
+        let tempChildView : UIView = UIView()
+        tempChildView.translatesAutoresizingMaskIntoConstraints = false
+        tempChildView.widthAnchor.constraint(equalToConstant: 150).isActive = true
+        tempChildView.heightAnchor.constraint(equalToConstant: 200).isActive = true
+        let tempBtn : UIButton = addButtonTo(parentView: tempChildView, constraintView: tempChildView, buttonTitle: "추가", constant: 5)
+        BeverageButtons.append(tempBtn)
+        let tempImage : UIImageView = addImageTo(parentView: tempChildView, constraintView: tempBtn, imageName: imageName)
+        beverageImageViews.append(tempImage)
+        let tempStockLabel : UILabel = addLabelTo(parentView: tempChildView, constraintView: tempImage)
+        stockLabel.append(tempStockLabel)
+        let _ : UIButton = addButtonTo(parentView: tempChildView, constraintView: tempStockLabel, buttonTitle: "구입", constant: 30)
+        return tempChildView
     }
     
     func initMoneyaddButtons(){
@@ -135,11 +148,11 @@ class ViewController: UIViewController {
             MoneyaddButtons[i].setTitleColor(.systemBlue, for: .normal)
             MoneyaddButtons[i].widthAnchor.constraint(equalToConstant: 75).isActive = true
             MoneyaddButtons[i].heightAnchor.constraint(equalToConstant: 50).isActive = true
-            MoneyaddButtons[i].topAnchor.constraint(equalTo: beverageImageViews[0].topAnchor).isActive = true
+            MoneyaddButtons[i].centerYAnchor.constraint(equalTo: childView[0].centerYAnchor).isActive = true
             MoneyaddButtons[i].tag = i
             MoneyaddButtons[i].addTarget(self, action: #selector(addMoney(sender:)), for: .touchUpInside)
         }
-        MoneyaddButtons[0].leftAnchor.constraint(equalTo: beverageImageViews[3].rightAnchor, constant: 35).isActive = true
+        MoneyaddButtons[0].leftAnchor.constraint(equalTo: childView[3].rightAnchor, constant: 35).isActive = true
         MoneyaddButtons[1].leftAnchor.constraint(equalTo: MoneyaddButtons[0].rightAnchor, constant: 25).isActive = true
         MoneyaddButtons[0].setTitle("+1000원", for: .normal)
         MoneyaddButtons[1].setTitle("+5000원", for: .normal)
@@ -153,7 +166,7 @@ class ViewController: UIViewController {
         currentMoneyLabel.widthAnchor.constraint(equalToConstant: 75).isActive = true
         currentMoneyLabel.heightAnchor.constraint(equalToConstant: 50).isActive = true
         currentMoneyLabel.leftAnchor.constraint(equalTo: MoneyaddButtons[0].centerXAnchor).isActive = true
-        currentMoneyLabel.centerYAnchor.constraint(equalTo: MoneyaddButtons[0].bottomAnchor, constant: 20).isActive = true
+        currentMoneyLabel.centerYAnchor.constraint(equalTo: MoneyaddButtons[0].bottomAnchor, constant: 30).isActive = true
     }
     
     func redrawMoneyandStock(){

@@ -67,8 +67,9 @@ class ViewController: UIViewController {
     }
     
     private func configureCashBox(_ sender: UIButton) {
-        guard let selectedAmount = Int(sender.titleLabel?.text?.filterNonDigits() ?? "0") else { return }
-        vendingMachine.insertMoney(amount: selectedAmount)
+        guard let selectedAmount = sender.titleLabel?.text?.filterNonDigits() else { return }
+        guard let convertedAmount = Int(selectedAmount) else { return }
+        vendingMachine.insertMoney(amount: convertedAmount)
     }
     
     private func configureInventoryView() {

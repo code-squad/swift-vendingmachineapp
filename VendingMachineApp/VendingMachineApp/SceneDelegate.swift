@@ -10,9 +10,6 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-    
-    func sceneWillResignActive(_ scene: UIScene) {
-        ArchiveManager.archive(data: (UIApplication.shared.delegate as! AppDelegate).vendingMachine!)
-    }
+
 }
 

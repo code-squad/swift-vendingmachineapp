@@ -13,12 +13,6 @@ class ViewController: UIViewController {
     @IBOutlet var amountLabels: [UILabel]!
     
     
-//    required init?(coder: NSCoder) {
-//        self.vendingMachine = VendingMachine()
-//        vendingMachine = (UIApplication.shared.delegate as! AppDelegate).vendingMachine!
-//        super.init(coder: coder)
-//    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         vendingMachine = (UIApplication.shared.delegate as! AppDelegate).vendingMachine!

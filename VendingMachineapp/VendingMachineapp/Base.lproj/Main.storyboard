@@ -40,6 +40,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a6y-rE-Tdt">
                                                 <rect key="frame" x="147.5" y="138.5" width="46" height="46"/>
                                                 <state key="normal" title="Button"/>
+                                                <connections>
+                                                    <action selector="purchaseButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EcR-cG-ciY"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -65,6 +68,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fBi-Je-wI7">
                                                 <rect key="frame" x="147.5" y="138.5" width="46" height="46"/>
                                                 <state key="normal" title="Button"/>
+                                                <connections>
+                                                    <action selector="purchaseButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ygn-cl-wbu"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -90,6 +96,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0wD-8w-l9y">
                                                 <rect key="frame" x="148" y="138.5" width="46" height="46"/>
                                                 <state key="normal" title="Button"/>
+                                                <connections>
+                                                    <action selector="purchaseButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="z4L-VU-ZcW"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -120,6 +129,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0gN-L1-5b4">
                                                 <rect key="frame" x="147.5" y="138.5" width="46" height="46"/>
                                                 <state key="normal" title="Button"/>
+                                                <connections>
+                                                    <action selector="purchaseButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FC4-Ob-itN"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -145,6 +157,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nh8-77-akQ">
                                                 <rect key="frame" x="147.5" y="138.5" width="46" height="46"/>
                                                 <state key="normal" title="Button"/>
+                                                <connections>
+                                                    <action selector="purchaseButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4vN-V6-GsY"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -170,6 +185,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Fx-Xd-vJj">
                                                 <rect key="frame" x="148" y="138.5" width="46" height="46"/>
                                                 <state key="normal" title="Button"/>
+                                                <connections>
+                                                    <action selector="purchaseButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Kpj-3J-FDG"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -200,6 +218,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k9E-tr-v8H">
                                                 <rect key="frame" x="147.5" y="138.5" width="46" height="46"/>
                                                 <state key="normal" title="Button"/>
+                                                <connections>
+                                                    <action selector="purchaseButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Gva-x6-ien"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -225,6 +246,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LmZ-Iw-055">
                                                 <rect key="frame" x="147.5" y="138.5" width="46" height="46"/>
                                                 <state key="normal" title="Button"/>
+                                                <connections>
+                                                    <action selector="purchaseButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PJf-5e-M2a"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -250,6 +274,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oCl-TP-FXb">
                                                 <rect key="frame" x="148" y="138.5" width="46" height="46"/>
                                                 <state key="normal" title="Button"/>
+                                                <connections>
+                                                    <action selector="purchaseButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ylm-RR-CRU"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>

@@ -9,11 +9,11 @@ import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
-    var vendingMachine = (UIApplication.shared.delegate as! AppDelegate).vendingMachine
-
+    
     func sceneWillResignActive(_ scene: UIScene) {
-        let data = Archiver.archive(with: vendingMachine)
+        guard let data = Archiver.archive(with: VendingMachine.shared) else { return }
         UserDefaults.standard.setValue(data, forKey: "vendingMachine")
+        
     }
 }
 

@@ -11,6 +11,7 @@ class VendingMachine: NSObject, NSCoding, VendingMachinable {
     private var drinks: Drinks
     private var cashManagementSystem: CashManagementSystem
     private var purchasedList: PurchasedList
+    static var shared = VendingMachine()
     
     override init() {
         self.drinks = Drinks()
@@ -28,17 +29,16 @@ class VendingMachine: NSObject, NSCoding, VendingMachinable {
         drinks = coder.decodeObject(forKey: "drinks") as! Drinks
         cashManagementSystem = coder.decodeObject(forKey: "cashManagementSystem") as! CashManagementSystem
         purchasedList = coder.decodeObject(forKey: "purchasedList") as! PurchasedList
-        
     }
     
     func addStock(as beverage: Beverage) {
         drinks.add(with: beverage)
-        NotificationCenter.default.post(name: .addStockButton, object: self)
+        NotificationCenter.default.post(name: .addStockButton, object: VendingMachine.shared)
     }
 
     func rechargeCash(with cash: Int) {
         cashManagementSystem.increaseCash(with: cash)
-        NotificationCenter.default.post(name: .rechargeButton, object: self)
+        NotificationCenter.default.post(name: .rechargeButton, object: VendingMachine.shared)
     }
     
     func showListForPurchase() -> Drinks {

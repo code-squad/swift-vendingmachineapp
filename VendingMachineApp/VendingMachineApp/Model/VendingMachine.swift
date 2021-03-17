@@ -54,11 +54,15 @@ class VendingMachine : NSObject, NSCoding ,VendingMachined {
         return payment.purchasePossibleList(drinks : drinks)
     }
     
-    func purchaseBeverage(beverage : Beverage) {
+    func purchaseBeverage(beverageType : Beverage.Type) {
+        let beverage = BeverageFactory.make(beverageType)
         if payment.canPurchase(beverage: beverage) {
             payment.decrease(beverage: beverage)
             drinks.purchase(beverage: beverage)
             purchasedList.add(beverage: beverage)
+            
+            NotificationCenter.default.post(name: VendingMachine.updateBalance, object: self, userInfo: ["amountMoney" : payment.amountMoney])
+            NotificationCenter.default.post(name: VendingMachine.updateBeverage, object: self, userInfo: ["drinklist" : drinks.showAllBeverage()])
         }
     }
     

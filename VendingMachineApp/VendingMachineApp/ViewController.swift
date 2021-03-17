@@ -13,10 +13,15 @@ class ViewController: UIViewController ,VendingMachinedable {
     @IBOutlet var numberOfStock: [UILabel]!
     @IBOutlet var addPaymentButtons: [UIButton]!
     @IBOutlet weak var BalanceLabel: UILabel!
+    @IBOutlet var PurchaseButtons: [UIButton]!
     
     var vendingMachine : VendingMachined!
     private var paymentMenu : PaymentMenu!
-    private var drinkMenu : DrinkMenu!
+    private var drinkMenu : Mapper!
+    private var purchaseMenu : Mapper!
+    
+    private(set) var drinkTypeList = [StrawberryMilk.self, DietCola.self, TopAmericano.self]
+    private var drinkImages = [#imageLiteral(resourceName: "StrawBerryMilk"),#imageLiteral(resourceName: "DietCola"),#imageLiteral(resourceName: "TopAmericano")]
     
     var scrollView : UIScrollView!
     var imagesStackView : UIStackView = {
@@ -31,7 +36,8 @@ class ViewController: UIViewController ,VendingMachinedable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        drinkMenu = DrinkMenu(drinkButtons: addStockButton)
+        drinkMenu = Mapper(drinkButtons: addStockButton, drinkTypeList: drinkTypeList)
+        purchaseMenu = Mapper(drinkButtons: PurchaseButtons, drinkTypeList: drinkTypeList)
         paymentMenu = PaymentMenu(buttons: addPaymentButtons)
         changeBalanceLabel()
         changeBeverageLabel()
@@ -54,10 +60,10 @@ class ViewController: UIViewController ,VendingMachinedable {
         NotificationCenter.default.addObserver(self, selector: #selector(updateNotificationBeverageLabel(_:)), name: VendingMachine.updateBeverage, object: vendingMachine)
     }
     
-    @IBAction func buyBeverageButtonTouched(_ sender: UIButton) {
-        guard let beverageType = drinkMenu.add(button: sender) else { return }
-        guard let beverageImage = drinkMenu.purchaseHistoryImage(button: sender) else { return }
-        imagesStackView.addArrangedSubview(UIImageView(image: beverageImage))
+    @IBAction func addBeverageButtonTouched(_ sender: UIButton) {
+        guard let beverageType = drinkMenu.mapping(button: sender) else { return }
+//        guard let beverageImage = drinkMenu.purchaseHistoryImage(button: sender) else { return }
+//        imagesStackView.addArrangedSubview(UIImageView(image: beverageImage))
         let beverage = BeverageFactory.make(beverageType)
         vendingMachine.addStock(beverage)
     }
@@ -67,13 +73,18 @@ class ViewController: UIViewController ,VendingMachinedable {
         vendingMachine.putPayMoney(money: money)
     }
     
+    @IBAction func purchaseButtonTouched(_ sender: UIButton) {
+        guard let beverageType = purchaseMenu.mapping(button: sender) else { return }
+        vendingMachine.purchaseBeverage(beverageType: beverageType)
+    }
+    
     private func changeBalanceLabel() {
         self.BalanceLabel.text =
             String(vendingMachine.checkCurrentBalance())
     }
     
     private func changeBeverageLabel() {
-        drinkMenu.drinkList.enumerated().forEach { index , drinkType in
+        drinkTypeList.enumerated().forEach { index , drinkType in
             self.numberOfStock[index].text = String(vendingMachine.showBeverageStock(drinkType: drinkType))
         }
     }
@@ -84,7 +95,7 @@ class ViewController: UIViewController ,VendingMachinedable {
     }
     
     @objc private func updateNotificationBeverageLabel(_ notification : Notification) {
-        drinkMenu.drinkList.enumerated().forEach { index, drinkType in
+        drinkTypeList.enumerated().forEach { index, drinkType in
             let notification = notification.userInfo?["drinklist"] as? [ObjectIdentifier : [Beverage]]
             self.numberOfStock[index].text =
                 String(notification?[ObjectIdentifier(drinkType)]?.count ?? 0)

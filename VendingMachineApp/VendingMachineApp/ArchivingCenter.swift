@@ -27,7 +27,8 @@ struct ArchivingCenter {
             machineLoaded = VendingMachine(storage: BeverageStorage(),
                                                  dispensedList: DispensedList(),
                                                  moneyBox: MoneyBox(),
-                                                 beverageManager: newBeverageManager)
+                                                 beverageManager: newBeverageManager,
+                                                 beverageFactory: BeverageToday())
         }
         return machineLoaded
     }

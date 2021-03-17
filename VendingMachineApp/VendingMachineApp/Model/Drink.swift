@@ -4,7 +4,7 @@ class Drink: NSObject, NSCoding {
     private var brand: String
     private var capacity: Int
     private(set) var price: Int
-    private var name: String
+    private(set) var name: String
     private var manufactured: Date
     private var temperature: Double
     private var calorie: Double

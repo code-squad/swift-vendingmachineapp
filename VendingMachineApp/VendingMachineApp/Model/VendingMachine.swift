@@ -22,12 +22,12 @@ class VendingMachine: NSObject, NSCoding {
                                              Milkis.self,
                                              Plain.self]
     
-    init(storage: Storage, dispensedList: OrderableList, moneyBox: MoneyManagable, beverageManager: FoodManagable) {
+    init(storage: Storage, dispensedList: OrderableList, moneyBox: MoneyManagable, beverageManager: FoodManagable, beverageFactory: BeverageFactory) {
         self.storage = storage
         self.dispensedList = dispensedList
         self.moneyBox = moneyBox
         self.beverageManager = beverageManager
-        beverageFactory = BeverageToday()
+        self.beverageFactory = beverageFactory
     }
     
     enum ArchiveKeys {

@@ -9,6 +9,11 @@ import Foundation
 
 class Money: NSObject, NSCoding, Comparable {
     
+    enum Amount: Int, CaseIterable {
+        case thousand = 1000
+        case fivethousand = 5000
+    }
+    
     private(set) var money: Int
     
     init(with money: Int) {

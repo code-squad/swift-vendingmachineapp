@@ -226,14 +226,14 @@
                                         <rect key="frame" x="0.0" y="77.5" width="341.5" height="30"/>
                                         <state key="normal" title="Button"/>
                                         <connections>
-                                            <action selector="ThousandButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SUl-vu-2bJ"/>
+                                            <action selector="moneyButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nmD-KE-OXx"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SIS-dm-Ecs">
                                         <rect key="frame" x="341.5" y="77.5" width="341" height="30"/>
                                         <state key="normal" title="Button"/>
                                         <connections>
-                                            <action selector="FiveThousandButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Hxt-Ij-DCu"/>
+                                            <action selector="moneyButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EpX-Qv-Rl8"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aj1-jW-d03">
@@ -248,8 +248,6 @@
                         <viewLayoutGuide key="safeArea" id="g70-md-rJf"/>
                     </stackView>
                     <connections>
-                        <outlet property="addFiveThousandButton" destination="SIS-dm-Ecs" id="guU-Yp-bzS"/>
-                        <outlet property="addThousandButton" destination="E6J-jZ-rjq" id="9es-35-ewb"/>
                         <outlet property="currentChangeLabel" destination="Aj1-jW-d03" id="WAJ-yp-oey"/>
                         <outlet property="informationStackView" destination="xUr-BL-FL6" id="xfh-bf-sHQ"/>
                         <outlet property="mainStackView" destination="XjG-Bl-uiO" id="opj-2Q-8cw"/>
@@ -292,6 +290,8 @@
                         <outletCollection property="beverageLabels" destination="rzu-fc-18L" collectionClass="NSMutableArray" id="1G9-Cb-TU8"/>
                         <outletCollection property="beverageLabels" destination="hcg-kL-eOS" collectionClass="NSMutableArray" id="0Tj-PJ-CP3"/>
                         <outletCollection property="beverageLabels" destination="QcD-Ut-yga" collectionClass="NSMutableArray" id="qX7-wB-EGU"/>
+                        <outletCollection property="addMoneyButtons" destination="E6J-jZ-rjq" collectionClass="NSMutableArray" id="0QG-zf-yYm"/>
+                        <outletCollection property="addMoneyButtons" destination="SIS-dm-Ecs" collectionClass="NSMutableArray" id="1IO-N5-Ynu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

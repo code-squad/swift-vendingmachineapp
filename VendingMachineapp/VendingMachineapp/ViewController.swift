@@ -11,14 +11,14 @@ class ViewController: UIViewController {
     
     private var buttonDictionary: [UIButton:Beverage] = [:]
     private var labelDictionary: [Beverage:UILabel] = [:]
+    private var moneyButtonDictionary: [UIButton:Int] = [:]
     
     @IBOutlet weak var mainStackView: UIStackView!
     @IBOutlet var lineStackView: [UIStackView]!
     @IBOutlet var beverageStackView: [UIStackView]!
     @IBOutlet weak var informationStackView: UIStackView!
-    @IBOutlet weak var addThousandButton: UIButton!
-    @IBOutlet weak var addFiveThousandButton: UIButton!
     @IBOutlet weak var currentChangeLabel: UILabel!
+    @IBOutlet var addMoneyButtons: [UIButton]!
     @IBOutlet var beverageButtons: [UIButton]!
     @IBOutlet var beverageImageViews: [BeverageImageView]!
     @IBOutlet var beverageLabels: [UILabel]!
@@ -31,6 +31,7 @@ class ViewController: UIViewController {
         
         mappingButtonAndLabel()
         mappingButtonAndProduct()
+        mappingButtonAndMoney()
         
         setButtonsTitle()
         setLabelsTitle()
@@ -40,23 +41,19 @@ class ViewController: UIViewController {
     func setObserver() {
         NotificationCenter.default.addObserver(self, selector: #selector(changeStockLabel),
                                                name: VendingMachine.Notification.didChangedStock,
-                                               object: nil)
+                                               object: delegate.vendingMachine)
         
         NotificationCenter.default.addObserver(self, selector: #selector(changeMoneyLabel),
                                                name: VendingMachine.Notification.didChangedMoney,
-                                               object: nil)
+                                               object: delegate.vendingMachine)
     }
     
     @IBAction func addButtonTouched(_ sender: UIButton) {
         delegate.vendingMachine.add(beverage: buttonDictionary[sender.self]!)
     }
     
-    @IBAction func ThousandButtonTouched(_ sender: UIButton) {
-        delegate.vendingMachine.increase(money: Money(with: 1000))
-    }
-    
-    @IBAction func FiveThousandButtonTouched(_ sender: UIButton) {
-        delegate.vendingMachine.increase(money: Money(with: 5000))
+    @IBAction func moneyButtonTouched(_ sender: UIButton) {
+        delegate.vendingMachine.increase(money: Money(with: moneyButtonDictionary[sender.self]!))
     }
     
     func mappingButtonAndProduct() {
@@ -71,13 +68,20 @@ class ViewController: UIViewController {
         }
     }
     
+    func mappingButtonAndMoney() {
+        for (button, money) in zip(addMoneyButtons, Money.Amount.allCases ) {
+            moneyButtonDictionary.updateValue(money.rawValue, forKey: button)
+        }
+    }
+    
     func setButtonsTitle() {
         for index in 0..<beverageButtons.count {
             beverageButtons[index].setTitle("추가", for: .normal)
         }
         
-        addThousandButton.setTitle("+1000", for: .normal)
-        addFiveThousandButton.setTitle("+5000", for: .normal)
+        for (button, money) in moneyButtonDictionary {
+            button.setTitle("+\(money)", for: .normal)
+        }
     }
     
     func setLabelsTitle() {

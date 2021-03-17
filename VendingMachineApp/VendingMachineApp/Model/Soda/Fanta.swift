@@ -8,10 +8,10 @@
 import Foundation
 
 class Fanta: Soda {
-    enum Flavor {
-        case pineapple
-        case orange
-        case grape
+    enum Flavor: String {
+        case pineapple = "pineapple"
+        case orange = "orange"
+        case grape = "grape"
     }
 
     private let flavor: Flavor
@@ -27,12 +27,12 @@ class Fanta: Soda {
     }
     
     required init?(coder decoder: NSCoder) {
-        flavor = decoder.decodeObject(forKey: "flavor") as! Flavor
+        flavor =  Flavor(rawValue: decoder.decodeObject(forKey: "flavor") as! String) ?? .grape
         super.init(coder: decoder)
     }
     
     override func encode(with coder: NSCoder) {
-        coder.encode(flavor, forKey: "flavor")
+        coder.encode(flavor.rawValue, forKey: "flavor")
         super.encode(with: coder)
     }
     

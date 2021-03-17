@@ -9,11 +9,11 @@ import Foundation
 
 class Georgia: Coffee {
 
-    enum CoffeeType {
-        case original
-        case cafeLatte
-        case americano
-        case theBlend
+    enum CoffeeType: String {
+        case original = "original"
+        case cafeLatte = "cafeLatte"
+        case americano = "americano"
+        case theBlend = "theBlend"
     }
     
     private let type: CoffeeType
@@ -29,12 +29,12 @@ class Georgia: Coffee {
     }
     
     required init?(coder decoder: NSCoder) {
-        type = decoder.decodeObject(forKey: "type") as! CoffeeType
+        type = CoffeeType(rawValue: decoder.decodeObject(forKey: "type") as! String) ?? .original
         super.init(coder: decoder)
     }
     
     override func encode(with coder: NSCoder) {
-        coder.encode(type, forKey: "type")
+        coder.encode(type.rawValue, forKey: "type")
         super.encode(with: coder)
     }
     

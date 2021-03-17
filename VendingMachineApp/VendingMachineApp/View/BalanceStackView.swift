@@ -11,7 +11,7 @@ class BalanceStackView: UIStackView {
     
     let balanceLabel = UILabel.init()
     
-    func setting() {
+    func setConfiguration() {
         self.translatesAutoresizingMaskIntoConstraints = false
         self.axis = .vertical
         self.spacing = 10
@@ -21,11 +21,11 @@ class BalanceStackView: UIStackView {
     
     func collectSubelements() {
         let balanceButton_1000 = BalanceButton.init()
-        balanceButton_1000.setting(with: 1000)
+        balanceButton_1000.setCriteria(with: 1000)
         balanceButton_1000.addTarget(superview?.superview?.superview, action: #selector(ViewController.doAddBalance(sender:)), for: .touchUpInside)
         
         let balanceButton_5000 = BalanceButton.init()
-        balanceButton_5000.setting(with: 5000)
+        balanceButton_5000.setCriteria(with: 5000)
         balanceButton_5000.addTarget(superview?.superview?.superview, action: #selector(ViewController.doAddBalance(sender:)), for: .touchUpInside)
         
         balanceLabel.text = "0원"

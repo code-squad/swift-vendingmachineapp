@@ -8,7 +8,7 @@
 import UIKit
 
 class VendingMachineStackView : UIStackView {
-    func setting() {
+    func setConfiguration() {
         self.translatesAutoresizingMaskIntoConstraints = false
         self.axis = .horizontal
         self.spacing = 15

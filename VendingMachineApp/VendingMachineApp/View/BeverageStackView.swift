@@ -13,15 +13,15 @@ class BeverageStackView : UIStackView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.setting()
+        self.setConfiguration()
     }
     
     required init(coder: NSCoder) {
         super.init(coder: coder)
-        self.setting()
+        self.setConfiguration()
     }
     
-    private func setting() {
+    private func setConfiguration() {
         self.translatesAutoresizingMaskIntoConstraints = false
         self.axis = .vertical
         self.spacing = 40
@@ -31,16 +31,14 @@ class BeverageStackView : UIStackView {
     
     func collectSubelements(drink type : Drink, count : Int) {
         let stockButton = AddStockButton(frame: CGRect.init(x: 0, y: 0, width: 40, height: 40), type: type)
-        stockButton.setting()
         stockButton.addTarget(superview?.superview?.superview, action: #selector(ViewController.doAddStockButton(sender:)), for: .touchUpInside)
         
         let image = UIImage.init(named: type.name) ?? UIImage()
         let stockImageView = BeverageImageView(image: image)
+        stockImageView.setConfiguration()
         stockImageView.contentMode = .scaleAspectFill
-        stockImageView.setting()
         
-
-        stockLabel.setting(count: count)
+        stockLabel.setText(count: count)
         stockLabel.beverageType = type
         NotificationCenter.default.addObserver(self, selector: #selector(didStockChanged(_:)), name: .stockChanged, object: nil)
         
@@ -51,6 +49,6 @@ class BeverageStackView : UIStackView {
     
     @objc func didStockChanged(_ notification: Notification) {
         let test = notification.object as! Dictionary<ObjectIdentifier,[Drink]>
-        stockLabel.setting(count: test[ObjectIdentifier(type(of: stockLabel.beverageType))]!.count)
+        stockLabel.setText(count: test[ObjectIdentifier(type(of: stockLabel.beverageType))]!.count)
     }
 }

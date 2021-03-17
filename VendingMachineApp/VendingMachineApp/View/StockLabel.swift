@@ -23,7 +23,8 @@ class StockLabel: UILabel {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    func setting(count : Int) {
+    
+    func setText(count : Int) {
         self.text = "\(count)개"
     }
 }

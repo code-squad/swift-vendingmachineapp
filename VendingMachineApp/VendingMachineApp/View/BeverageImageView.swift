@@ -8,7 +8,7 @@
 import UIKit
 
 class BeverageImageView: UIImageView {
-    func setting() {
+    func setConfiguration() {
         self.translatesAutoresizingMaskIntoConstraints = false
         self.contentMode = .scaleToFill
         self.clipsToBounds = true

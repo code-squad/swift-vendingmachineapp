@@ -20,7 +20,7 @@ class DispensedList: NSObject, OrderableList, NSCoding {
     }
     
     required init?(coder: NSCoder) {
-        self.items = coder.decodeObject(forKey: Keys.soldItems) as! [Shopable]
+        self.items = coder.decodeObject(forKey: Keys.soldItems) as? [Shopable] ?? [Shopable]()
     }
     
     func encode(with coder: NSCoder) {

@@ -31,13 +31,14 @@ class ViewController: UIViewController ,VendingMachinedable {
         paymentMenu = PaymentMenu(buttons: addPaymentButtons)
         changeBalanceLabel()
         changeBeverageLabel()
+        changePurchaseScrollView()
         setNotificationObserver()
     }
     
     func setNotificationObserver() {
         NotificationCenter.default.addObserver(self, selector: #selector(updateNotificationBalanceLabel(_:)), name: VendingMachine.updateBalance, object: vendingMachine)
         NotificationCenter.default.addObserver(self, selector: #selector(updateNotificationBeverageLabel(_:)), name: VendingMachine.updateBeverage, object: vendingMachine)
-        NotificationCenter.default.addObserver(self, selector: #selector(updatePurchaseScrollImage(_:)), name: VendingMachine.updatePurchase, object: vendingMachine)
+        NotificationCenter.default.addObserver(self, selector: #selector(updatePurchaseImage(_:)), name: VendingMachine.updatePurchase, object: vendingMachine)
     }
     
     @IBAction func addBeverageButtonTouched(_ sender: UIButton) {
@@ -67,6 +68,20 @@ class ViewController: UIViewController ,VendingMachinedable {
         }
     }
     
+    private func changePurchaseScrollView() {
+        vendingMachine.purchaseHistory().forEach { (beverage) in
+            guard let card = BeverageFactory.makeImage(type(of: beverage.self)) else { return }
+            updatePurchaseScrollImages(card: card)
+        }
+    }
+    
+    private func updatePurchaseScrollImages(card : UIImage) {
+        let imageView = UIImageView(image: card)
+        imageView.frame = CGRect(x: scrollView.contentSize.width, y: scrollView.bounds.origin.y, width: 200, height: 200)
+        scrollView.addSubview(imageView)
+        scrollView.contentSize.width += 150
+    }
+    
     @objc private func updateNotificationBalanceLabel(_ notification : Notification) {
         self.BalanceLabel.text =
             String(notification.userInfo?["amountMoney"] as? Int ?? 0)
@@ -80,13 +95,10 @@ class ViewController: UIViewController ,VendingMachinedable {
         }
     }
     
-    @objc private func updatePurchaseScrollImage(_ notification : Notification) {
+    @objc private func updatePurchaseImage(_ notification : Notification) {
         guard let beverageType = notification.userInfo?["beverageType"] as? Beverage.Type else { return }
         guard let card = BeverageFactory.makeImage(beverageType) else { return }
-        let imageView = UIImageView(image: card)
-        imageView.frame = CGRect(x: scrollView.contentSize.width, y: scrollView.bounds.origin.y, width: 200, height: 200)
-        scrollView.addSubview(imageView)
-        scrollView.contentSize.width += 150
+        updatePurchaseScrollImages(card: card)
     }
     
 }

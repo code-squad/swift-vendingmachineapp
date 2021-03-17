@@ -11,6 +11,12 @@ class MoneyBox: NSObject, MoneyManagable, NSCoding {
     
     private var money: Int
     
+    enum Units: Int, CaseIterable {
+        case oneK = 1000
+        case fiveK = 5000
+        case tenK = 10000
+    }
+    
     override init() {
         money = 0
     }

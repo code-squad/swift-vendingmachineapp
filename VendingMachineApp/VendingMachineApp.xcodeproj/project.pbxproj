@@ -14,7 +14,6 @@
 		E42EE34B260055B000C89DD7 /* Shopable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42EE34A260055B000C89DD7 /* Shopable.swift */; };
 		E42EE34F260055C500C89DD7 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42EE34E260055C500C89DD7 /* Storage.swift */; };
 		E42EE355260055E700C89DD7 /* OrderableList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42EE354260055E700C89DD7 /* OrderableList.swift */; };
-		E42EE35D260077EF00C89DD7 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42EE35C260077EF00C89DD7 /* Settings.swift */; };
 		E42EE36326007A8100C89DD7 /* ArchivingCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42EE36226007A8100C89DD7 /* ArchivingCenter.swift */; };
 		E4B8A3EE25EF2942006D405F /* ShopableFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B8A3ED25EF2942006D405F /* ShopableFactory.swift */; };
 		E4B8A3F625EF6807006D405F /* VendingMachineViewUpdator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B8A3F525EF6807006D405F /* VendingMachineViewUpdator.swift */; };
@@ -60,7 +59,6 @@
 		E42EE34A260055B000C89DD7 /* Shopable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shopable.swift; sourceTree = "<group>"; };
 		E42EE34E260055C500C89DD7 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		E42EE354260055E700C89DD7 /* OrderableList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderableList.swift; sourceTree = "<group>"; };
-		E42EE35C260077EF00C89DD7 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		E42EE36226007A8100C89DD7 /* ArchivingCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchivingCenter.swift; sourceTree = "<group>"; };
 		E4B8A3ED25EF2942006D405F /* ShopableFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopableFactory.swift; sourceTree = "<group>"; };
 		E4B8A3F525EF6807006D405F /* VendingMachineViewUpdator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineViewUpdator.swift; sourceTree = "<group>"; };
@@ -200,7 +198,6 @@
 				E4B8A3FF25F10988006D405F /* Model */,
 				E4B8A4BE25FB3239006D405F /* View */,
 				E4EB87B825E4C83300F077D5 /* ViewController.swift */,
-				E42EE35C260077EF00C89DD7 /* Settings.swift */,
 				E4EB87BD25E4C83400F077D5 /* Assets.xcassets */,
 				E4EB87C225E4C83400F077D5 /* Info.plist */,
 			);
@@ -319,7 +316,6 @@
 			files = (
 				E4B8A49325F9E5D2006D405F /* ProductStackView.swift in Sources */,
 				E4EB87E325E52B4200F077D5 /* Soda.swift in Sources */,
-				E42EE35D260077EF00C89DD7 /* Settings.swift in Sources */,
 				E42EE355260055E700C89DD7 /* OrderableList.swift in Sources */,
 				E4EB87B925E4C83300F077D5 /* ViewController.swift in Sources */,
 				E4EB87B525E4C83300F077D5 /* AppDelegate.swift in Sources */,

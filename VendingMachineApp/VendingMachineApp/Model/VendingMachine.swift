@@ -45,12 +45,12 @@ class VendingMachine : NSObject, NSCoding ,VendingMachined {
     
     func putPayMoney(money : Int) {
         payment.increase(money: money)
-        NotificationCenter.default.post(name: VendingMachine.NotificationName.updateBalance, object: self, userInfo: ["amountMoney" : payment.amountMoney])
+        NotificationCenter.default.post(name: VendingMachine.NotificationName.updateBalance, object: self, userInfo: nil)
     }
     
     func addStock(_ beverage : Beverage) {
         drinks.addStock(beverage : beverage)
-        NotificationCenter.default.post(name: VendingMachine.NotificationName.updateBeverage, object: self, userInfo: ["drinklist" : drinks.showAllBeverage()])
+        NotificationCenter.default.post(name: VendingMachine.NotificationName.updateBeverage, object: self, userInfo: nil)
     }
     
     func showPurchasePossibleList() -> [Beverage] {
@@ -64,9 +64,9 @@ class VendingMachine : NSObject, NSCoding ,VendingMachined {
             drinks.purchase(beverage: beverage)
             purchasedList.add(beverage: beverage)
             
-            NotificationCenter.default.post(name: VendingMachine.NotificationName.updatePurchase, object: self, userInfo: ["beverageType" : beverageType])
-            NotificationCenter.default.post(name: VendingMachine.NotificationName.updateBalance, object: self, userInfo: ["amountMoney" : payment.amountMoney])
-            NotificationCenter.default.post(name: VendingMachine.NotificationName.updateBeverage, object: self, userInfo: ["drinklist" : drinks.showAllBeverage()])
+            NotificationCenter.default.post(name: VendingMachine.NotificationName.updatePurchase, object: self, userInfo: ["beverage" : beverage])
+            NotificationCenter.default.post(name: VendingMachine.NotificationName.updateBalance, object: self, userInfo: nil)
+            NotificationCenter.default.post(name: VendingMachine.NotificationName.updateBeverage, object: self, userInfo: nil)
         }
     }
     

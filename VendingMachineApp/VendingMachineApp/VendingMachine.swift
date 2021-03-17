@@ -31,10 +31,11 @@ class VendingMachine: NSObject,VendingMachineManagable, NSCoding {
         coder.encode(self.purchaseHistoryManager, forKey: "purchaseHistoryManager")
     }
     
-    required init?(coder: NSCoder) {
-        self.moneyManager = coder.decodeObject(forKey: "moneyManager") as! MoneyManagable
-        self.inventoryManager = coder.decodeObject(forKey: "inventoryManager") as! InventoryManagable
-        self.purchaseHistoryManager = coder.decodeObject(forKey: "purchaseHistoryManager") as! PurchaseHistoryManagable
+    required convenience init?(coder: NSCoder) {
+        let moneyManager = coder.decodeObject(forKey: "moneyManager") as! MoneyManagable
+        let inventoryManager = coder.decodeObject(forKey: "inventoryManager") as! InventoryManagable
+        let purchaseHistoryManager = coder.decodeObject(forKey: "purchaseHistoryManager") as! PurchaseHistoryManagable
+        self.init(moneyManager: moneyManager, inventoryManager: inventoryManager, purchaseHistoryManager: purchaseHistoryManager)
     }
     
     func readBalance() -> Int {

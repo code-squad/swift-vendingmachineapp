@@ -7,22 +7,18 @@
 
 import UIKit
 
-class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-
+class SceneDelegate: UIResponder, UIWindowSceneDelegate, VendingMachineStateShareable {
+    
     var window: UIWindow?
-    var vendingMachine = VendingMachine(moneyManager: Money(), inventoryManager: Inventory(), purchaseHistoryManager: PurchaseHistory())
-
+    var vendingMachine: VendingMachine!
+    
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
        
         guard let _ = (scene as? UIWindowScene) else { return }
-        if let savedData = VendingMachineDataManager.load() {
-            guard let initialViewController = window?.rootViewController as? VendingMachineStateShareable else { return }
-            initialViewController.vendingMachine = savedData
-        } else {
-            if let initialViewController = window?.rootViewController as? VendingMachineStateShareable {
-                initialViewController.vendingMachine = vendingMachine
-            }
-        }
+        
+        vendingMachine = VendingMachineDataManager.load()
+        guard let initialViewController = window?.rootViewController as? VendingMachineStateShareable else { return }
+        initialViewController.vendingMachine = vendingMachine
     }
     
     func sceneDidEnterBackground(_ scene: UIScene) {

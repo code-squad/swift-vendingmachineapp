@@ -5,16 +5,17 @@ class StockView: UIView {
     private var stockImage: UIImage!
     private var stockImageView: UIImageView!
     private var beverageStock = UILabel()
-    private var addBeverage = UIButton(type: .system)
+    private var addBeverage: AddBeverageButton!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         configureSubView()
     }
     
-    init(frame: CGRect, image: UIImage) {
+    init(frame: CGRect, image: UIImage, type: Beverage.Type) {
         super.init(frame: frame)
         stockImage = image
+        addBeverage = AddBeverageButton(frame: CGRect(x: 100, y: 30, width: 80, height: 40), type: type)
         configureSubView()
     }
     
@@ -52,9 +53,9 @@ class StockView: UIView {
     
     private func setUpButton() {
         addSubview(addBeverage)
-        addBeverage.setTitle("추가", for: .normal)
-        addBeverage.setTitleColor(.systemBlue, for: .normal)
-        addBeverage.backgroundColor = .systemYellow
-        addBeverage.frame = CGRect(x: 100, y: 30, width: 80, height: 40)
+    }
+    
+    private func updateStockLabel(stock: Int) {
+        beverageStock.text = "\(stock)개"
     }
 }

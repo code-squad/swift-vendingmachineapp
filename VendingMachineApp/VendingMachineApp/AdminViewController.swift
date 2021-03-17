@@ -28,7 +28,9 @@ extension AdminViewController {
 
 extension AdminViewController {
     
-    @objc func updateBeveragestock(_ sender: UIButton) {
-        print(1)
+    @objc func updateBeveragestock(_ sender: AddBeverageButton) {
+        let vendingMachine = VendingMachine.sharedInstance()
+        let beverage = vendingMachine.typeToInstance(product: sender.beverageType)
+        vendingMachine.addBeverage(beverage: beverage)
     }
 }

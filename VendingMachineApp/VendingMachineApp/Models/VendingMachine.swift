@@ -21,7 +21,7 @@ class VendingMachine: NSObject, NSCoding, InventoryTakeable, Archivable, Unarchi
         self.inventory = Inventory(numberOfSlots: numberOfSlots)
         self.cashBox = CashBox(totalRevenue: 0, moneyDeposited: 0)
         self.soldItems = PurchaseHistory()
-        NotificationCenter.default.post(name: Notification.DidChangeBalance, object: nil)
+        NotificationCenter.default.post(name: Notification.DidChangeBalance, object: cashBox)
     }
     
     func encode(with coder: NSCoder) {

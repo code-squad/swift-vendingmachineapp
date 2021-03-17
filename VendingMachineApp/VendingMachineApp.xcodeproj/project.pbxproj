@@ -57,7 +57,6 @@
 		B096F19A25F1DB6900E98053 /* VendingMachineStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B096F19925F1DB6900E98053 /* VendingMachineStackView.swift */; };
 		B096F1AC25F621F400E98053 /* BalanceStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B096F1AB25F621F400E98053 /* BalanceStackView.swift */; };
 		B096F1B025F6233A00E98053 /* BalanceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B096F1AF25F6233A00E98053 /* BalanceButton.swift */; };
-		B096F1B425F6235200E98053 /* BalanceLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B096F1B325F6235200E98053 /* BalanceLabel.swift */; };
 		B096F1BE25FB6BBD00E98053 /* Notification+Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = B096F1BD25FB6BBB00E98053 /* Notification+Name.swift */; };
 /* End PBXBuildFile section */
 
@@ -108,7 +107,6 @@
 		B096F19925F1DB6900E98053 /* VendingMachineStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineStackView.swift; sourceTree = "<group>"; };
 		B096F1AB25F621F400E98053 /* BalanceStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceStackView.swift; sourceTree = "<group>"; };
 		B096F1AF25F6233A00E98053 /* BalanceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceButton.swift; sourceTree = "<group>"; };
-		B096F1B325F6235200E98053 /* BalanceLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceLabel.swift; sourceTree = "<group>"; };
 		B096F1BD25FB6BBB00E98053 /* Notification+Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Name.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -198,7 +196,6 @@
 				B096F19325F1D12E00E98053 /* BeverageImageView.swift */,
 				B096F1AB25F621F400E98053 /* BalanceStackView.swift */,
 				B096F1AF25F6233A00E98053 /* BalanceButton.swift */,
-				B096F1B325F6235200E98053 /* BalanceLabel.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -341,7 +338,6 @@
 				B096F0F125EE4DE900E98053 /* SafeBox.swift in Sources */,
 				B096F1B025F6233A00E98053 /* BalanceButton.swift in Sources */,
 				B096F08425E4FA5800E98053 /* ViewController.swift in Sources */,
-				B096F1B425F6235200E98053 /* BalanceLabel.swift in Sources */,
 				B096F0D825E6757200E98053 /* Cantata.swift in Sources */,
 				B096F08025E4FA5800E98053 /* AppDelegate.swift in Sources */,
 				B096F09725E4FBF300E98053 /* Drink.swift in Sources */,

@@ -1,57 +1,20 @@
-# 진행 방법
+# Step 1 : 음료 클래스와 상속을 받은 하위클래스
+#### 2021-03-17 : 6:00 PM (포커앱과 병행해서 진행하려고 함.)
 
-- 음료수 자판기 iOS 앱에 요구사항을 파악한다.
-- 요구사항에 대한 구현을 완료한 후 자신의 github 아이디에 해당하는 브랜치에 Pull Request(이하 PR)를 통해 코드 리뷰 요청을 한다.
-- 코드 리뷰 피드백에 대한 개선 작업을 하고 다시 PUSH한다.
-- 모든 피드백을 완료하면 다음 단계를 도전하고 앞의 과정을 반복한다.
+- 프로젝트 기본설정을 끝냄.
+- MVC 관련 강좌를 본 후 (https://www.youtube.com/watch?v=1_jxgilYBhU) Model 폴더를 만들고, 그 안에 Beverage 클래스를 생성하였다.
+- 하위 클래스에 커피, 탄산음료, 우유 클래스를 생성하였고, OOP의 특성을 이용하기 위해 각각 enum을 이용하여 이름에 붙일 종류 클래스를 생성함.
 
-# 코드 리뷰 과정
-> 저장소 브랜치에 자신의 github 아이디에 해당하는 브랜치가 존재해야 한다.
->
-> 자신의 github 아이디에 해당하는 브랜치가 있는지 확인한다.
+<img width="400" alt="Screen Shot 2021-03-17 at 5 48 51 PM" src="https://user-images.githubusercontent.com/52390975/111439859-1e8f4400-8749-11eb-9da7-7656042ad1bb.png">
 
-1. 자신의 github 아이디에 해당하는 브랜치가 없는 경우 브랜치 생성 요청 채널을 통해 브랜치 생성을 요청한다.
-프로젝트를 자신의 계정으로 fork한다. 저장소 우측 상단의 fork 버튼을 활용한다.
 
-2. fork한 프로젝트를 자신의 컴퓨터로 clone한다.
-```
-git clone https://github.com/{본인_아이디}/{저장소 아이디}
-ex) https://github.com/godrm/swift-vendingmachineapp
-```
+### 학습: 프로토콜(Protocol)
+- 프로퍼티와 내용이 없는 프로퍼티를 가지고 있다.
+- 유령 클래스? 라고 이해하고 있는 중에 있다.
+- 다양한 프로토콜을 클래스에 채택하여 필요한 방향으로 메소드 내부를 수정해서 사용 가능하다.
+- Type을 제네릭으로 사용해서 다양한 타입에 사용가능하다는 점.
+- 오버라이딩의 개념으로 이해하고 있다.
 
-3. clone한 프로젝트 이동
-```
-cd {저장소 아이디}
-ex) cd swift-vendingmachineapp
-```
 
-4. 본인 아이디로 브랜치를 만들기 위한 checkout
-```
-git checkout -t origin/본인_아이디
-ex) git checkout -t origin/godrm
-```
 
-5. commit
-```
-git status //확인
-git rm 파일명 //삭제된 파일
-git add 파일명(or * 모두) // 추가/변경 파일
-git commit -m "메세지" // 커밋
-```
 
-6. 본인 원격 저장소에 올리기
-```
-git push origin 본인_아이디
-ex) git push origin godrm
-```
-
-7. pull request
-8. pull request는 github 서비스에서 진행할 수 있다.
-9. pull request는 반드시 original 저장소의 브랜치와 fork한 자신의 저장소 브랜치 이름이 같아야 하며, 브랜치 이름은 자신의 github 아이디여야 한다.
-10. code review 및 push
-11. pull request를 통해 피드백을 받는다.
-12. 코드 리뷰 피드백에 대한 개선 작업을 하고 다시 PUSH한다.
-
-## 앞의 코드 리뷰 과정은 [영상 보기](https://www.youtube.com/watch?v=ZSZoaG0PqLg) 를 통해 참고 가능
-
-## 실습 중 모든 질문은 슬랙 채널에서...

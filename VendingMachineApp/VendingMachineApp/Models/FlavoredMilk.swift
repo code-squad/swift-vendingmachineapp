@@ -14,7 +14,7 @@ class FlavoredMilk: Milk {
         case banana
     }
     
-    private let flavor: MilkFlavor!
+    private let flavor: MilkFlavor
     
     init(brand: String, volume: Int, price: Int, name: String, calorie: Int, imageName: String, manufactured: Date?, expiredAfter: Date?, lactoseAmount: Int, flavor: MilkFlavor) {
         self.flavor = flavor
@@ -26,12 +26,12 @@ class FlavoredMilk: Milk {
     }
     
     required init?(coder: NSCoder) {
-        self.flavor = (coder as! NSKeyedUnarchiver).decodeDecodable(MilkFlavor.self, forKey: PropertyKey.flavorKey)
+        self.flavor = coder.decodeObject(forKey: PropertyKey.flavorKey) as? FlavoredMilk.MilkFlavor ?? .strawberry
         super.init(coder: coder)
     }
     
     override func encode(with coder: NSCoder) {
-        try? (coder as! NSKeyedArchiver).encodeEncodable(flavor, forKey: PropertyKey.flavorKey)
+        coder.encode(flavor, forKey: PropertyKey.flavorKey)
         super.encode(with: coder)
     }
 }

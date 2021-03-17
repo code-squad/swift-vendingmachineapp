@@ -271,3 +271,13 @@ extension Notification.Name {
 <img src="https://user-images.githubusercontent.com/74946802/110885105-931d4980-8329-11eb-8fe1-c9bbb1664e67.png" width="500" height="300">
 
 <img src="https://user-images.githubusercontent.com/74946802/110902412-35005e80-8349-11eb-9169-0506bb005039.gif" width="500" height="300">
+
+## Step.7
+
+#### 코드로 관리자화면 VC생성
+- 재고추가 버튼 및 기능 관리자화면으로 이동
+- 유저화면에서는 구매만 가능하도록 구현
+- 스토리보드 활용하여 segue로 연결
+
+#### 실행화면
+<img src="https://user-images.githubusercontent.com/74946802/111422017-54c0c980-8731-11eb-9651-04c4d578e3f1.gif" width="500" height="300">

@@ -13,7 +13,7 @@ class VendingMachine: NSObject, NSCoding {
     private var dispensedList: OrderableList
     private var moneyBox: MoneyManagable
     private var beverageManager: FoodManagable
-    private let beverageFactory: ShopableFactory
+    private let beverageFactory: BeverageFactory
     
     static let itemTypes: [Shopable.Type] = [Americano.self,
                                              CafeLatte.self,
@@ -89,7 +89,8 @@ extension VendingMachine: UserInterface {
 extension VendingMachine: WorkerInterface {
     
     func addStock(of itemType: Shopable.Type) {
-        storage.add(beverageFactory.create(type: itemType))
+        let beverageType = itemType as? Beverage.Type ?? Beverage.self
+        storage.add(beverageFactory.create(type: beverageType))
         NotificationCenter.default.post(name: NotiKeys.stockListUpdate, object: self)
     }
     

@@ -39,13 +39,29 @@ class InventoryBox: NSObject, InventoryBoxManagable,NSCoding {
     }
     
     func encode(with coder: NSCoder) {
-        
+        coder.encode(separatedValues(), forKey: "inventoryBox")
     }
     
     required init?(coder: NSCoder) {
-        self.inventoryBox = coder.decodeObject(forKey: "inventoryBox") as! [ObjectIdentifier : [Beverage]]
+        let values = coder.decodeObject(forKey: "inventoryBox") as! [[Beverage]]
+        var inventoryBox = [ObjectIdentifier : [Beverage]]()
+        values.forEach { inventory in
+            inventoryBox[ObjectIdentifier(type(of: inventory[0]))] = inventory
+        }
+        self.inventoryBox = inventoryBox
+        
         self.beverageMapper = coder.decodeObject(forKey: "beverageMapper") as! BeverageMapper
         self.moneyMapper = coder.decodeObject(forKey: "moneyMapper") as! MoneyMapper
+    }
+    
+    private func separatedValues() -> [[Beverage]] {
+        var values = [[Beverage]]()
+        
+        self.inventoryBox.values.forEach { inventory in
+            values.append(inventory)
+        }
+        
+        return values
     }
     
     func readInventores(inventory: InventoryManagable) -> [ObjectIdentifier: [Beverage]] {

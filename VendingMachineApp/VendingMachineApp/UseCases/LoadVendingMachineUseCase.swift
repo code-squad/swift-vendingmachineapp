@@ -12,7 +12,7 @@ protocol Unarchivable { }
 class LoadVendingMachineUseCase: UseCase {
     var vendingMachine: VendingMachine?
     
-    init(vendingMachine: VendingMachine?) {
+    init(for vendingMachine: VendingMachine?) {
         self.vendingMachine = vendingMachine
     }
     

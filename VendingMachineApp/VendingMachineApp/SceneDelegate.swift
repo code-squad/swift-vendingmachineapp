@@ -14,11 +14,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     func sceneDidEnterBackground(_ scene: UIScene) {
         guard let vendingMachine = vendingMachine else { return }
-        SaveVendingMachineUseCase(vendingMachine: vendingMachine).start()
+        SaveVendingMachineUseCase(for: vendingMachine).start()
     }
     
     func sceneDidBecomeActive(_ scene: UIScene) {
-        let loadVendingMachineUseCase = LoadVendingMachineUseCase(vendingMachine: vendingMachine)
+        let loadVendingMachineUseCase = LoadVendingMachineUseCase(for: vendingMachine)
         loadVendingMachineUseCase.start()
         vendingMachine = loadVendingMachineUseCase.vendingMachine
         let viewController = window?.rootViewController as? ViewController

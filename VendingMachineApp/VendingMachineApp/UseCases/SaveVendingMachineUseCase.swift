@@ -16,7 +16,7 @@ protocol Archivable { }
 class SaveVendingMachineUseCase: UseCase {
     private let vendingMachine: VendingMachine
     
-    init(vendingMachine: VendingMachine) {
+    init(for vendingMachine: VendingMachine) {
         self.vendingMachine = vendingMachine
     }
     

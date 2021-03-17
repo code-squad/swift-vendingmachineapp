@@ -24,15 +24,12 @@ class ViewController: UIViewController {
         self.vendingMachine = VendingMachine.default
         selectPanelStackView.delegate = self
         topPanelView.delegate = self
-    }
-    
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
         loadLeftCoinsLabel()
         loadSelectPanelStackViewLabels()
-        loadPurchasehistory(drinks: vendingMachine.purchaseHistory)
+        loadPurchasehistory()
         topPanelView.roundCorners(corners: [.topLeft, .bottomLeft], radius: 30)
         selectPanelStackView.setDrinkImageViewsRadius(of: 10)
+        configObserver()
     }
     
     func configObserver() {
@@ -73,8 +70,8 @@ extension ViewController {
         self.resizingHistoryImage(imageView)
     }
     
-    private func loadPurchasehistory(drinks: [Drink]) {
-        drinks.forEach { (drink) in
+    private func loadPurchasehistory() {
+        vendingMachine.purchaseHistory.forEach { (drink) in
             guard let imageView = makeImageView(named: drink.name) else { return }
             purchaseHistoryScrollView.purchaseHistoryStackView.addArrangedSubview(imageView)
             resizingHistoryImage(imageView)

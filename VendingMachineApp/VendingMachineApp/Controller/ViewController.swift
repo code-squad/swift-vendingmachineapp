@@ -9,9 +9,12 @@ import UIKit
 
 class ViewController: UIViewController {
     var machine = (UIApplication.shared.delegate as! AppDelegate).machine ?? Machine()
+    var purchaseHistoryView = PurchaseHistoryScrollView()
+    
     
     @IBOutlet weak var moneyOnTransactionLabel: UILabel!
     @IBOutlet weak var displayRows: UIStackView!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +25,10 @@ class ViewController: UIViewController {
         addEmptySlotsOnDisplayRows()
         updateBeverageDisplaySlots()
         updateMoneyOnTransactionLabel()
+        
+        self.view.addSubview(purchaseHistoryView)
+        purchaseHistoryView.frame = CGRect(x: 40, y: 575, width: 500, height: 140)
+        
     }
     
     @IBAction func thousandWonPlusButtonPressed(_ sender: UIButton) {

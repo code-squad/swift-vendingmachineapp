@@ -57,33 +57,6 @@ extension VendingMachineViewController {
         }
     }
     
-    @IBAction func buttonForChocolateMilkStock(_ sender: Any) {
-        vendingMachine.addBeverage(beverage: factory.chocoMilk)
-    }
-    
-    
-    @IBAction func buttonForStrawBerryMilkStock(_ sender: Any) {
-        vendingMachine.addBeverage(beverage: factory.strawberryMilk)
-    }
-
-    
-    @IBAction func buttonForCokeStock(_ sender: Any) {
-        vendingMachine.addBeverage(beverage: factory.coke)
-    }
-    
-    
-    @IBAction func buttonForSpriteStock(_ sender: Any) {
-        vendingMachine.addBeverage(beverage: factory.sprite)
-    }
-    
-    @IBAction func buttonForTOPStock(_ sender: Any) {
-        vendingMachine.addBeverage(beverage: factory.top)
-    }
-    
-    @IBAction func buttonForCantataStock(_ sender: Any) {
-        vendingMachine.addBeverage(beverage: factory.cantata)
-    }
-    
     private func balanceInfoLabel() {
         let balance = vendingMachine.insertedMoney
         stockInfo[6].text = "잔액:\(String(describing: balance))"

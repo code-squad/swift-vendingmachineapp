@@ -68,58 +68,6 @@
                                     </imageView>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="155" translatesAutoresizingMaskIntoConstraints="NO" id="FIu-Aq-tqu">
-                                <rect key="frame" x="67" y="110" width="400" height="30"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P2r-Ob-5tv">
-                                        <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
-                                        <state key="normal" title="추가"/>
-                                        <connections>
-                                            <action selector="buttonForChocolateMilkStock:" destination="BYZ-38-t0r" eventType="touchUpInside" id="llH-u7-5VX"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DAh-os-nMQ">
-                                        <rect key="frame" x="185" y="0.0" width="30" height="30"/>
-                                        <state key="normal" title="추가"/>
-                                        <connections>
-                                            <action selector="buttonForStrawBerryMilkStock:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cyj-5R-npq"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MOY-4j-Cn9">
-                                        <rect key="frame" x="370" y="0.0" width="30" height="30"/>
-                                        <state key="normal" title="추가"/>
-                                        <connections>
-                                            <action selector="buttonForCokeStock:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8WT-pp-Caw"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="155" translatesAutoresizingMaskIntoConstraints="NO" id="Yao-da-aj6">
-                                <rect key="frame" x="67" y="448" width="400" height="30"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s72-Du-KQp">
-                                        <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
-                                        <state key="normal" title="추가"/>
-                                        <connections>
-                                            <action selector="buttonForSpriteStock:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Gx2-vG-Unp"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yIK-9J-sXw">
-                                        <rect key="frame" x="185" y="0.0" width="30" height="30"/>
-                                        <state key="normal" title="추가"/>
-                                        <connections>
-                                            <action selector="buttonForTOPStock:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ow7-p8-1pm"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="THj-TH-8lX">
-                                        <rect key="frame" x="370" y="0.0" width="30" height="30"/>
-                                        <state key="normal" title="추가"/>
-                                        <connections>
-                                            <action selector="buttonForCantataStock:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vVu-Tl-HHL"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="151" translatesAutoresizingMaskIntoConstraints="NO" id="NtE-Pt-fvL">
                                 <rect key="frame" x="60" y="283" width="426.5" height="20.5"/>
                                 <subviews>
@@ -265,17 +213,13 @@
                             <constraint firstItem="Rlz-dE-uYE" firstAttribute="top" secondItem="NtE-Pt-fvL" secondAttribute="bottom" constant="20" id="IQg-AM-19u"/>
                             <constraint firstItem="yqd-eA-skR" firstAttribute="top" secondItem="zi5-of-dAM" secondAttribute="bottom" constant="100" id="IWo-oO-hEe"/>
                             <constraint firstItem="4Tu-yq-1oA" firstAttribute="leading" secondItem="Cc3-q6-uez" secondAttribute="trailing" constant="100" id="NhS-au-Rcj"/>
-                            <constraint firstItem="Yao-da-aj6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="67" id="Pfr-lG-KvG"/>
                             <constraint firstItem="8qW-hN-SpH" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="150" id="SqU-F8-d5k"/>
                             <constraint firstItem="TB7-tP-mzQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="60" id="aH3-uY-taa"/>
                             <constraint firstItem="Cc3-q6-uez" firstAttribute="leading" secondItem="8qW-hN-SpH" secondAttribute="trailing" constant="100" id="aT5-Ze-voC"/>
-                            <constraint firstItem="FIu-Aq-tqu" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="110" id="bPA-G5-1A7"/>
+                            <constraint firstItem="yqd-eA-skR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="747" id="c6f-4a-jOT"/>
                             <constraint firstItem="UKq-sW-jXH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="55" id="dQ2-dI-Llm"/>
                             <constraint firstItem="NtE-Pt-fvL" firstAttribute="top" secondItem="8qW-hN-SpH" secondAttribute="bottom" constant="5" id="h2n-Z9-Sbp"/>
-                            <constraint firstItem="Yao-da-aj6" firstAttribute="top" secondItem="8qW-hN-SpH" secondAttribute="bottom" constant="170" id="hQb-oP-uKD"/>
                             <constraint firstItem="UKq-sW-jXH" firstAttribute="top" secondItem="TB7-tP-mzQ" secondAttribute="bottom" constant="20" id="hlN-H8-AdD"/>
-                            <constraint firstItem="FIu-Aq-tqu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="67" id="lGG-SO-hNB"/>
-                            <constraint firstItem="yqd-eA-skR" firstAttribute="leading" secondItem="Yao-da-aj6" secondAttribute="trailing" constant="280" id="lUB-P5-bLE"/>
                             <constraint firstItem="Rlz-dE-uYE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="55" id="n3f-r5-MT6"/>
                             <constraint firstItem="RvC-dR-Jcm" firstAttribute="top" secondItem="8qW-hN-SpH" secondAttribute="bottom" constant="200" id="tCm-o2-Fm1"/>
                             <constraint firstItem="Cc3-q6-uez" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="250" id="v98-BY-Qei"/>

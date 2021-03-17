@@ -9,6 +9,8 @@ class AdminBeverageStackView: UIStackView {
                                   UIImage(named: "TOP"),
                                   UIImage(named: "콘트라베이스블랙"),]
     
+    var stockLabel = [UILabel]()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         configureStackView()
@@ -28,9 +30,12 @@ class AdminBeverageStackView: UIStackView {
     }
     
     func setUpStackView() {
-        let beverageList = VendingMachine.sharedInstance().menuList()
+        let vendingMachine = VendingMachine.sharedInstance()
+        let beverageList = vendingMachine.menuList()
         for index in 0..<beverageImages.count {
             let imageView = StockView(frame: CGRect(x: 0, y: 0, width: 150, height: 150), image: beverageImages[index]!, type: type(of:beverageList[index]))
+            imageView.updateStockLabel(stock: vendingMachine.beverages.stockOfEach(beverage: beverageList[index]))
+            stockLabel.append(imageView.beverageStock)
             addArrangedSubview(imageView)
         }
     }

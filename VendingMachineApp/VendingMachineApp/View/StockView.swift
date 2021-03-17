@@ -4,7 +4,7 @@ class StockView: UIView {
     
     private var stockImage: UIImage!
     private var stockImageView: UIImageView!
-    private var beverageStock = UILabel()
+    private(set) var beverageStock = UILabel()
     private var addBeverage: AddBeverageButton!
     
     override init(frame: CGRect) {
@@ -55,7 +55,7 @@ class StockView: UIView {
         addSubview(addBeverage)
     }
     
-    private func updateStockLabel(stock: Int) {
+    func updateStockLabel(stock: Int) {
         beverageStock.text = "\(stock)개"
     }
 }

@@ -24,6 +24,6 @@ class AddBeverageButton: UIButton {
         setTitle("재고추가", for: .normal)
         setTitleColor(.systemBlue, for: .normal)
         backgroundColor = UIColor.systemYellow
-        addTarget(superview, action: #selector(AdminViewController.updateBeveragestock(_:)), for: .touchUpInside)
+        addTarget(superview, action: #selector(AdminViewController.addBeverageStock(_:)), for: .touchUpInside)
     }
 }

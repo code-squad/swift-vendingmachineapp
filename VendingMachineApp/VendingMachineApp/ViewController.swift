@@ -15,7 +15,7 @@ class ViewController: UIViewController, SelectPanelStackViewDelegate, TopPanelDe
     
     private var stockPublisher: AnyCancellable!
     private var coinCounterPublisher: AnyCancellable!
-    private var puchaseHistoryPublisher: AnyCancellable!
+    private var puchaseHistorySubscriber: AnyCancellable!
     private var vendingMachine: VendingMachine!
     private var drinkOrder = DrinkOrder()
     
@@ -25,9 +25,6 @@ class ViewController: UIViewController, SelectPanelStackViewDelegate, TopPanelDe
         selectPanelStackView.delegate = self
         topPanelView.delegate = self
         
-        loadLeftCoinsLabel()
-        loadSelectPanelStackViewLabels()
-        loadPurchasehistory(drinks: vendingMachine.purchaseHistory)
         configCoinsLabelObserver()
         configStockLabelObserver()
         configPurchaseHistoryObserver()
@@ -35,6 +32,9 @@ class ViewController: UIViewController, SelectPanelStackViewDelegate, TopPanelDe
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
+        loadLeftCoinsLabel()
+        loadSelectPanelStackViewLabels()
+        loadPurchasehistory(drinks: vendingMachine.purchaseHistory)
         topPanelView.roundCorners(corners: [.topLeft, .bottomLeft], radius: 30)
         selectPanelStackView.setDrinkImageViewsRadius(of: 10)
     }
@@ -44,21 +44,20 @@ class ViewController: UIViewController, SelectPanelStackViewDelegate, TopPanelDe
     }
     
     func configPurchaseHistoryObserver() {
-        puchaseHistoryPublisher = vendingMachine.$purchaseHistory
-            .sink(receiveValue: { (drinks) in
-                DispatchQueue.main.async {
-                    self.loadPurchasehistory(drinks: drinks)
-                }
-            })
+        puchaseHistorySubscriber = vendingMachine.$purchaseHistory
+            .sink { (drinks) in
+                guard let drink = drinks.last else { return }
+                guard let imageView = self.makeImageView(named: drink.name) else { return }
+                self.purchaseHistoryScrollView.purchaseHistoryStackView.addArrangedSubview(imageView)
+                self.resizingHistoryImage(imageView)
+            }
     }
     
     func configStockLabelObserver() {
         stockPublisher = NotificationCenter.default
             .publisher(for: Stock.Notification.DidChangeStock)
             .sink(receiveValue: { (notification) in
-                DispatchQueue.main.async {
-                    self.loadSelectPanelStackViewLabels()
-                }
+                self.loadSelectPanelStackViewLabels()
             })
     }
     
@@ -66,9 +65,7 @@ class ViewController: UIViewController, SelectPanelStackViewDelegate, TopPanelDe
         coinCounterPublisher = NotificationCenter.default
             .publisher(for: CoinCounter.Notification.DidChangeCoin)
             .sink(receiveValue: { (notification) in
-                DispatchQueue.main.async {
-                    self.loadLeftCoinsLabel()
-                }
+                self.loadLeftCoinsLabel()
             })
     }
     
@@ -88,13 +85,16 @@ class ViewController: UIViewController, SelectPanelStackViewDelegate, TopPanelDe
 
 extension ViewController {
     @objc private func loadPurchasehistory(drinks: [Drink]) {
-        purchaseHistoryScrollView.purchaseHistoryStackView.subviews.forEach{ $0.removeFromSuperview() }
         drinks.forEach { (drink) in
-            guard let image = UIImage(named: drink.name) else { return }
-            let imageView = UIImageView(image: image)
+            guard let imageView = makeImageView(named: drink.name) else { return }
             purchaseHistoryScrollView.purchaseHistoryStackView.addArrangedSubview(imageView)
             resizingHistoryImage(imageView)
         }
+    }
+    
+    private func makeImageView(named: String) -> UIImageView? {
+        guard let image = UIImage(named: named) else { return nil }
+        return UIImageView(image: image)
     }
     
     private func resizingHistoryImage(_ imageView: UIImageView) {

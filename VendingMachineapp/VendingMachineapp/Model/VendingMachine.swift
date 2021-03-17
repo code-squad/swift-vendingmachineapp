@@ -50,6 +50,7 @@ class VendingMachine: NSObject, NSCoding{
     func purchase(beverage: Beverage.Type) {
         manager.updatePurchaseList(inventory: inventory, beverage: beverage)
         NotificationCenter.default.post(name: Notification.didChangedStock, object: self, userInfo: wholeBeverage())
+        NotificationCenter.default.post(name: Notification.didChangedMoney, object: self)
     }
     
     func hotBeverageList() -> [Beverage] {

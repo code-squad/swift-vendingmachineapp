@@ -37,7 +37,7 @@ class VendingMachineElements {
     }
     
     func setUpInsertCashButtons(collection: [UIButton]) {
-        for (button, money) in zip(collection, VendingMachineMoney.allCases) {
+        for (button, money) in zip(collection, VendingMachine.VendingMachineMoney.allCases) {
             insertCashButtons.updateValue(money.rawValue, forKey: button)
         }
     }
@@ -52,11 +52,9 @@ class VendingMachineElements {
         }
     }
     
-    func setUpAll(images: [UIImageView], beverageButtons: [UIButton], beverageStockLabels: [UILabel], beverageStock: Beverages, cashButtons: [UIButton], cashLabel: UILabel, cashBox: Int) {
+    func setUpAll(images: [UIImageView], beverageButtons: [UIButton], cashButtons: [UIButton]) {
         self.setUpBeverageImages(collection: images)
         self.setUpInsertCashButtons(collection: cashButtons)
         self.setUpAddBeverageButtons(collection: beverageButtons)
-        self.updateCurrentCash(label: cashLabel, cashBox: cashBox)
-        self.updateBeverageStock(labels: beverageStockLabels, beverageStock: beverageStock)
     }
 }

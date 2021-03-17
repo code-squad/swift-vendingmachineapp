@@ -18,7 +18,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        vendingMachineElements.setUpAll(images: beverageImages, beverageButtons: beverageAddButtons, beverageStockLabels: beverageStockLabels, beverageStock: appDelegate.vendingMachine.totalBeverageStockList(), cashButtons: cashButtons, cashLabel: cashLabel, cashBox: appDelegate.vendingMachine.cashBox)
+        vendingMachineElements.setUpAll(images: beverageImages, beverageButtons: beverageAddButtons, cashButtons: cashButtons)
+        updateCurrentCash(label: cashLabel, cashBox: appDelegate.vendingMachine.cashBox)
+        updateBeverageStock(labels: beverageStockLabels, beverageStock: appDelegate.vendingMachine.totalBeverageStockList(), beverageTypeList: vendingMachineElements.beverageList)
     }
     
     @IBAction func beverageMake(_ sender: UIButton) {
@@ -38,6 +40,15 @@ class ViewController: UIViewController {
         vendingMachineElements.updateCurrentCash(label: cashLabel, cashBox: appDelegate.vendingMachine.cashBox)
     }
     
+    func updateCurrentCash(label: UILabel, cashBox: Int) {
+        label.text = "\(cashBox)"
+    }
+    
+    func updateBeverageStock(labels: [UILabel], beverageStock: Beverages, beverageTypeList: [Beverage.Type]) {
+        for (beverageLabel, beverageType) in zip(labels, beverageTypeList) {
+            beverageLabel.text = "\(beverageStock.beverageCount(elementType: beverageType))"
+        }
+    }
 }
 
 

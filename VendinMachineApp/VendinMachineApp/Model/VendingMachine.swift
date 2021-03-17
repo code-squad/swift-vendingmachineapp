@@ -1,15 +1,15 @@
 
 import Foundation
 
-enum VendingMachineMoney : Int, CaseIterable {
-    case insertMoneyType1 = 1000
-    case insertMoneyType2 = 5000
-}
-
 class VendingMachine : NSObject, NSCoding {
     private(set) var cashBox: Int
-    private(set) var beverages: Beverages
-    private(set) var shoppingHistoryData: Beverages
+    private var beverages: Beverages
+    private var shoppingHistoryData: Beverages
+    
+    enum VendingMachineMoney : Int, CaseIterable {
+        case insertMoney1000 = 1000
+        case insertMoney5000 = 5000
+    }
     
     override init() {
         cashBox = 0

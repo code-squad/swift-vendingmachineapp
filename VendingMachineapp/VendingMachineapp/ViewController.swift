@@ -10,6 +10,7 @@ import UIKit
 class ViewController: UIViewController {
     
     private var buttonDictionary: [UIButton:Beverage] = [:]
+    private var purchaseButtonDictionary: [UIButton:Beverage] = [:]
     private var labelDictionary: [Beverage:UILabel] = [:]
     private var moneyButtonDictionary: [UIButton:Int] = [:]
     
@@ -33,6 +34,7 @@ class ViewController: UIViewController {
         mappingButtonAndLabel()
         mappingButtonAndProduct()
         mappingButtonAndMoney()
+        mappingPurchaseButtonAndProduct()
         
         setButtonsTitle()
         setLabelsTitle()
@@ -55,6 +57,15 @@ class ViewController: UIViewController {
     
     @IBAction func moneyButtonTouched(_ sender: UIButton) {
         delegate.vendingMachine.increase(money: Money(with: moneyButtonDictionary[sender.self]!))
+    }
+    @IBAction func purchaseButtonTouched(_ sender: UIButton) {
+        delegate.vendingMachine.purchase(beverage: type(of: purchaseButtonDictionary[sender.self]!) )
+    }
+    
+    func mappingPurchaseButtonAndProduct() {
+        for (button, product) in zip(purchaseButtons, delegate.vendingMachine.getProductList()) {
+            purchaseButtonDictionary.updateValue(product, forKey: button)
+        }
     }
     
     func mappingButtonAndProduct() {

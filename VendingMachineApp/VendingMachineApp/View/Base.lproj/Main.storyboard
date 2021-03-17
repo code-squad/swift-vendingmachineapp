@@ -143,18 +143,30 @@
                                 <viewLayoutGuide key="contentLayoutGuide" id="TPS-I4-Y0o"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="eX1-mY-k5t"/>
                             </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LxL-v2-rhU" userLabel="AdminMode">
+                                <rect key="frame" x="60" y="889" width="36" height="55"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="36" id="7ZQ-mz-Dyy"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="CXF-Wv-M9R" kind="presentation" modalTransitionStyle="flipHorizontal" id="w10-Lk-cZC"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemOrangeColor"/>
                         <constraints>
                             <constraint firstItem="RHg-0c-Npd" firstAttribute="top" secondItem="ipm-ps-kUN" secondAttribute="bottom" constant="60" id="Efp-9k-mgx"/>
+                            <constraint firstItem="LxL-v2-rhU" firstAttribute="top" secondItem="RHg-0c-Npd" secondAttribute="bottom" constant="22" id="F6D-Rh-MKX"/>
                             <constraint firstItem="RHg-0c-Npd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="60" id="I76-Do-8kx"/>
+                            <constraint firstItem="LxL-v2-rhU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="60" id="ISU-8L-JwX"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="RHg-0c-Npd" secondAttribute="bottom" constant="137" id="JN5-8e-b0c"/>
                             <constraint firstItem="iGt-Jm-ZEU" firstAttribute="leading" relation="lessThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="976" id="LW9-N4-XEW"/>
                             <constraint firstItem="LeO-vF-nfC" firstAttribute="top" secondItem="ipm-ps-kUN" secondAttribute="bottom" constant="60" id="Law-zr-xSo"/>
                             <constraint firstItem="ipm-ps-kUN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Rwg-BH-V2S"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="LeO-vF-nfC" secondAttribute="trailing" constant="60" id="Sla-XV-R8O"/>
                             <constraint firstItem="ipm-ps-kUN" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="85" id="W81-EK-ZNU"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="LxL-v2-rhU" secondAttribute="bottom" constant="60" id="ZHS-mb-xSV"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="iGt-Jm-ZEU" secondAttribute="trailing" constant="60" id="hSh-5o-Qjl"/>
                             <constraint firstItem="LeO-vF-nfC" firstAttribute="leading" secondItem="RHg-0c-Npd" secondAttribute="trailing" constant="60" id="jYK-Mh-QB4"/>
                             <constraint firstItem="iGt-Jm-ZEU" firstAttribute="top" secondItem="LeO-vF-nfC" secondAttribute="bottom" constant="8" symbolic="YES" id="tJP-E3-eek"/>
@@ -174,6 +186,54 @@
             </objects>
             <point key="canvasLocation" x="-241.1420204978038" y="71.484375"/>
         </scene>
+        <!--Admin View Controller-->
+        <scene sceneID="Pur-6b-L9D">
+            <objects>
+                <viewController id="CXF-Wv-M9R" userLabel="Admin View Controller" customClass="AdminViewController" customModule="VendingMachineApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hE7-dY-GWB" userLabel="Admin View">
+                        <rect key="frame" x="0.0" y="0.0" width="704" height="984"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S7k-35-bjn">
+                                <rect key="frame" x="20" y="171" width="664" height="239"/>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Admin Mode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e9Z-Ag-hhs">
+                                <rect key="frame" x="270" y="110" width="165" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="165" id="LPS-hm-tR9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="close" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lmI-ss-OWd">
+                                <rect key="frame" x="20" y="20" width="36" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="LzN-ve-sNG"/>
+                                    <constraint firstAttribute="width" constant="36" id="VkA-5q-SDW"/>
+                                </constraints>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="VW0-uu-Kct"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="e9Z-Ag-hhs" firstAttribute="leading" secondItem="VW0-uu-Kct" secondAttribute="leading" constant="270" id="1dB-Yv-AmP"/>
+                            <constraint firstItem="VW0-uu-Kct" firstAttribute="bottom" secondItem="S7k-35-bjn" secondAttribute="bottom" constant="574" id="3Ed-5x-MUJ"/>
+                            <constraint firstItem="lmI-ss-OWd" firstAttribute="top" secondItem="VW0-uu-Kct" secondAttribute="top" constant="20" id="8U7-Vf-9rE"/>
+                            <constraint firstItem="VW0-uu-Kct" firstAttribute="trailing" secondItem="e9Z-Ag-hhs" secondAttribute="trailing" constant="269" id="HW7-WR-MAe"/>
+                            <constraint firstItem="lmI-ss-OWd" firstAttribute="leading" secondItem="VW0-uu-Kct" secondAttribute="leading" constant="20" id="HkH-Hp-2yz"/>
+                            <constraint firstItem="S7k-35-bjn" firstAttribute="top" secondItem="e9Z-Ag-hhs" secondAttribute="bottom" constant="25" id="LBg-3m-AmI"/>
+                            <constraint firstItem="e9Z-Ag-hhs" firstAttribute="top" secondItem="VW0-uu-Kct" secondAttribute="top" constant="110" id="p91-6I-gyo"/>
+                            <constraint firstItem="VW0-uu-Kct" firstAttribute="trailing" secondItem="S7k-35-bjn" secondAttribute="trailing" constant="20" id="uIV-PM-KDI"/>
+                            <constraint firstItem="S7k-35-bjn" firstAttribute="leading" secondItem="VW0-uu-Kct" secondAttribute="leading" constant="20" id="zs8-ho-IFQ"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PPN-gc-LPW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-870.13177159590032" y="70.8984375"/>
+        </scene>
     </scenes>
     <resources>
         <image name="americano" width="120" height="120"/>
@@ -184,6 +244,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -15,6 +15,7 @@
 		E42EE34F260055C500C89DD7 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42EE34E260055C500C89DD7 /* Storage.swift */; };
 		E42EE355260055E700C89DD7 /* OrderableList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42EE354260055E700C89DD7 /* OrderableList.swift */; };
 		E42EE36326007A8100C89DD7 /* ArchivingCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42EE36226007A8100C89DD7 /* ArchivingCenter.swift */; };
+		E477EBF22601F20D00B476FA /* AdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E477EBF12601F20D00B476FA /* AdminViewController.swift */; };
 		E4B8A3EE25EF2942006D405F /* BeverageFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B8A3ED25EF2942006D405F /* BeverageFactory.swift */; };
 		E4B8A3F625EF6807006D405F /* VendingMachineViewUpdator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B8A3F525EF6807006D405F /* VendingMachineViewUpdator.swift */; };
 		E4B8A41025F1F32E006D405F /* DispensedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B8A40F25F1F32E006D405F /* DispensedList.swift */; };
@@ -60,6 +61,7 @@
 		E42EE34E260055C500C89DD7 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		E42EE354260055E700C89DD7 /* OrderableList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderableList.swift; sourceTree = "<group>"; };
 		E42EE36226007A8100C89DD7 /* ArchivingCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchivingCenter.swift; sourceTree = "<group>"; };
+		E477EBF12601F20D00B476FA /* AdminViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminViewController.swift; sourceTree = "<group>"; };
 		E4B8A3ED25EF2942006D405F /* BeverageFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageFactory.swift; sourceTree = "<group>"; };
 		E4B8A3F525EF6807006D405F /* VendingMachineViewUpdator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineViewUpdator.swift; sourceTree = "<group>"; };
 		E4B8A40F25F1F32E006D405F /* DispensedList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispensedList.swift; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 				E4B8A3FF25F10988006D405F /* Model */,
 				E4B8A4BE25FB3239006D405F /* View */,
 				E4EB87B825E4C83300F077D5 /* ViewController.swift */,
+				E477EBF12601F20D00B476FA /* AdminViewController.swift */,
 				E4EB87BD25E4C83400F077D5 /* Assets.xcassets */,
 				E4EB87C225E4C83400F077D5 /* Info.plist */,
 			);
@@ -332,6 +335,7 @@
 				E4EB87F625E782A100F077D5 /* BeverageProtocols.swift in Sources */,
 				E42EE36326007A8100C89DD7 /* ArchivingCenter.swift in Sources */,
 				E4B8A3EE25EF2942006D405F /* BeverageFactory.swift in Sources */,
+				E477EBF22601F20D00B476FA /* AdminViewController.swift in Sources */,
 				E4EB87E025E52B3E00F077D5 /* Milk.swift in Sources */,
 				E4EB87E625E52B4B00F077D5 /* Coffee.swift in Sources */,
 				E4EB87FA25E782C000F077D5 /* Package.swift in Sources */,

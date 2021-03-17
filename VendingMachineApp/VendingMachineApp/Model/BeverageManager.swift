@@ -14,6 +14,12 @@ class BeverageManager: FoodManagable {
     private let sugarStandard: Float
     private let lactoStandard: Float
     
+    enum Standards {
+        static let temperature: Float = 36.5
+        static let sugar: Float = 1.0
+        static let lactose: Float = 3.5
+    }
+    
     init(temperatureStandard: Float, sugarStandard: Float, lactoStandard: Float) {
         dateStandard = Date()
         self.temperatureStandard = temperatureStandard

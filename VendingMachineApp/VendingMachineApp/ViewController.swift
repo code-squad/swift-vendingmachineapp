@@ -18,12 +18,12 @@ class ViewController: UIViewController {
     private var countLabelCollection: [UILabel] = []
     private var addStockButtonCollection: [UIButton] = []
     private var buyButtonCollection: [UIButton] = []
-    private let itemTypes = Settings.itemTypes
+    private let itemTypes = VendingMachine.itemTypes
     
     //자판기 금액
     @IBOutlet var moneyButtonCollection: [UIButton]!
     @IBOutlet weak var moneyLabel: UILabel!
-    private let moneyUnits = Settings.moneyUnits
+    private let moneyUnits = MoneyBox.Units.allCases
     
     //구매 목록
     @IBOutlet weak var dispensedListScrollView: UIScrollView!
@@ -107,7 +107,7 @@ class ViewController: UIViewController {
     
     @IBAction func addMoneyTouched(_ sender: UIButton) {
         if let targetIdx = moneyButtonCollection.firstIndex(of: sender) {
-            let amount = moneyUnits[targetIdx]
+            let amount = moneyUnits[targetIdx].rawValue
             appDelegate.vendingMachine.insert(money: amount)
         }
     }

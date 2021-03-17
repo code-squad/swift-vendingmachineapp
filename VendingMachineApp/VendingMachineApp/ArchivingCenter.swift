@@ -21,9 +21,9 @@ struct ArchivingCenter {
            let vendingMachine = unarchive(with: vendingMachineData) as? VendingMachine {
             machineLoaded = vendingMachine
         } else {
-            let newBeverageManager = BeverageManager(temperatureStandard: Settings.Standards.temperature,
-                                                     sugarStandard: Settings.Standards.sugar,
-                                                     lactoStandard: Settings.Standards.lactose)
+            let newBeverageManager = BeverageManager(temperatureStandard: BeverageManager.Standards.temperature,
+                                                     sugarStandard: BeverageManager.Standards.sugar,
+                                                     lactoStandard: BeverageManager.Standards.lactose)
             machineLoaded = VendingMachine(storage: BeverageStorage(),
                                                  dispensedList: DispensedList(),
                                                  moneyBox: MoneyBox(),

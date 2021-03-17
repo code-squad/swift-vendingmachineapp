@@ -15,6 +15,13 @@ class VendingMachine: NSObject, NSCoding {
     private var beverageManager: FoodManagable
     private let beverageFactory: ShopableFactory
     
+    static let itemTypes: [Shopable.Type] = [Americano.self,
+                                             CafeLatte.self,
+                                             Chocolate.self,
+                                             Coke.self,
+                                             Milkis.self,
+                                             Plain.self]
+    
     init(storage: Storage, dispensedList: OrderableList, moneyBox: MoneyManagable, beverageManager: FoodManagable) {
         self.storage = storage
         self.dispensedList = dispensedList
@@ -33,9 +40,9 @@ class VendingMachine: NSObject, NSCoding {
         self.storage = coder.decodeObject(forKey: ArchiveKeys.storage) as? Storage ?? BeverageStorage()
         self.dispensedList = coder.decodeObject(forKey: ArchiveKeys.dispensedList) as? OrderableList ?? DispensedList()
         self.moneyBox = coder.decodeObject(forKey: ArchiveKeys.moneyBox) as? MoneyManagable ?? MoneyBox()
-        beverageManager = BeverageManager(temperatureStandard: Settings.Standards.temperature,
-                                          sugarStandard: Settings.Standards.sugar,
-                                          lactoStandard: Settings.Standards.lactose)
+        beverageManager = BeverageManager(temperatureStandard: BeverageManager.Standards.temperature,
+                                          sugarStandard: BeverageManager.Standards.sugar,
+                                          lactoStandard: BeverageManager.Standards.lactose)
         beverageFactory = BeverageToday()
     }
     

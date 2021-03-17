@@ -36,9 +36,9 @@ class ViewController: UIViewController ,VendingMachinedable {
     }
     
     func setNotificationObserver() {
-        NotificationCenter.default.addObserver(self, selector: #selector(updateNotificationBalanceLabel(_:)), name: VendingMachine.updateBalance, object: vendingMachine)
-        NotificationCenter.default.addObserver(self, selector: #selector(updateNotificationBeverageLabel(_:)), name: VendingMachine.updateBeverage, object: vendingMachine)
-        NotificationCenter.default.addObserver(self, selector: #selector(updatePurchaseImage(_:)), name: VendingMachine.updatePurchase, object: vendingMachine)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateNotificationBalanceLabel(_:)), name: VendingMachine.NotificationName.updateBalance, object: vendingMachine)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateNotificationBeverageLabel(_:)), name: VendingMachine.NotificationName.updateBeverage, object: vendingMachine)
+        NotificationCenter.default.addObserver(self, selector: #selector(updatePurchaseImage(_:)), name: VendingMachine.NotificationName.updatePurchase, object: vendingMachine)
     }
     
     @IBAction func addBeverageButtonTouched(_ sender: UIButton) {

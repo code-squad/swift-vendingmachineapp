@@ -26,9 +26,9 @@ class BeverageFactory {
     //MARK:- RANDOM PROPERTY GENERATORS
     static private func generateRandomPrice(with price: Price) -> Int {
         if price == .high {
-            return Int.random(in: 5000...30000)
+            return Int.random(in: 50...300) * 100
         } else {
-            return Int.random(in: 500...4999)
+            return Int.random(in: 5...49) * 100
         }
     }
     

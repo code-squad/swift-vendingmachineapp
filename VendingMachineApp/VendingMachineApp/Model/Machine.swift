@@ -78,8 +78,9 @@ class Machine: NSObject, NSCoding {
                 case .success(let deductedBeverage):
                     moneyProcessor.deductMoneyOnTransaction(with: itemPrice)
                     savePurchaseHistory(beverage: deductedBeverage)
-                case .failure(let error):
-                    print(error.localizedDescription)
+                    print(purchaseHistory)
+                    NotificationCenter.default.post(name: .didChangePurchaseHistory, object: nil)
+                case .failure(let _):
                     return
                 }
             }

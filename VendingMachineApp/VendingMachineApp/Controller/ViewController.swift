@@ -11,7 +11,6 @@ class ViewController: UIViewController {
     var machine = (UIApplication.shared.delegate as! AppDelegate).machine ?? Machine()
     var purchaseHistoryView = PurchaseHistoryScrollView()
     
-    
     @IBOutlet weak var moneyOnTransactionLabel: UILabel!
     @IBOutlet weak var displayRows: UIStackView!
 
@@ -20,6 +19,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(didChangeMoneyOnTransaction), name: .didIncreaseMoneyOnTransaction, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(didIncreaseStock), name: .didIncreaseStock, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(didChangePurchaseHistory), name: .didChangePurchaseHistory, object: nil)
         
         addBeveragesOnDisplayRows()
         addEmptySlotsOnDisplayRows()
@@ -43,6 +43,9 @@ class ViewController: UIViewController {
         let view = BeverageView(with: beverage)
         view.stockAddButton.addAction(UIAction.init(handler: { (touch) in
             self.machine.increaseStock(beverage: beverage, amount: 1)
+        }), for: .touchUpInside)
+        view.purchaseButton.addAction(UIAction.init(handler: { (touch) in
+            self.machine.purchaseBeverage(beverage: beverage)
         }), for: .touchUpInside)
         return view
     }
@@ -88,6 +91,11 @@ class ViewController: UIViewController {
     
     @objc func didIncreaseStock() {
         updateBeverageDisplaySlots()
+    }
+    
+    @objc func didChangePurchaseHistory() {
+        updateBeverageDisplaySlots()
+        updateMoneyOnTransactionLabel()
     }
 }
 

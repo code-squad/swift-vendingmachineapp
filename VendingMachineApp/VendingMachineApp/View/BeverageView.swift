@@ -45,8 +45,7 @@ class BeverageView: UIView {
             button.setTitleColor(UIColor.systemRed, for: .normal)
             return button
         }()
-        
-        
+    
         boundBeverage = beverage
         
         super.init(frame: CGRect())

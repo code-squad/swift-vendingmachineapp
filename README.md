@@ -43,3 +43,17 @@ beverage    										            	1단계
 - 금액을 추가하고 나면 잔액 레이블을 다시 표시한다.
 
 ![ezgif com-video-to-gif-8](https://user-images.githubusercontent.com/33626693/109758975-ad6f6d00-7c2f-11eb-86f3-d9c42d005488.gif)
+
+
+
+## 구매목록 View 코드
+
+- 스크롤 가능하도록 UIScrollView에 대해 학습한다.
+- 구매 목록에 대한 제품 이미지뷰를 동적으로 코드로 직접 View에 추가한다.
+
+- 실행이후 구매 목록을 화면 아래 이미지로 추가한다.
+- 화면 아래 부분을 좌우로 스크롤 가능하도록 만들고 상품 이미지를 추가한다. 계속 추가해도 스크롤할 수 있어야 한다.
+- 특정 제품을 구매할 때마다 해당 제품 이미지를 추가하도록 구현한다.
+- 특정 시점에 `self.scrollView.addSubView()` 메서드로 UIImageView를 수동 추가한다
+
+![ezgif com-video-to-gif-9](https://user-images.githubusercontent.com/33626693/111428886-7f178480-873b-11eb-8266-c0b7ffd17118.gif)

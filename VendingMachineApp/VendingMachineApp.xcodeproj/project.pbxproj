@@ -58,6 +58,16 @@
 		B096F1AC25F621F400E98053 /* BalanceStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B096F1AB25F621F400E98053 /* BalanceStackView.swift */; };
 		B096F1B025F6233A00E98053 /* BalanceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B096F1AF25F6233A00E98053 /* BalanceButton.swift */; };
 		B096F1BE25FB6BBD00E98053 /* Notification+Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = B096F1BD25FB6BBB00E98053 /* Notification+Name.swift */; };
+		B0EF6B6126019BD5001F0DCC /* ModelTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0EF6B6026019BD5001F0DCC /* ModelTestCase.swift */; };
+		B0EF6B6426019F79001F0DCC /* VendingMachineStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B096F19925F1DB6900E98053 /* VendingMachineStackView.swift */; };
+		B0EF6B6726019F7C001F0DCC /* BeverageStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B096F18525F1C61400E98053 /* BeverageStackView.swift */; };
+		B0EF6B6A26019F7E001F0DCC /* AddStockButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B096F18925F1CA4400E98053 /* AddStockButton.swift */; };
+		B0EF6B6D26019F81001F0DCC /* StockLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B096F18F25F1CFBF00E98053 /* StockLabel.swift */; };
+		B0EF6B7026019F83001F0DCC /* BeverageImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B096F19325F1D12E00E98053 /* BeverageImageView.swift */; };
+		B0EF6B7326019F86001F0DCC /* BalanceStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B096F1AB25F621F400E98053 /* BalanceStackView.swift */; };
+		B0EF6B7626019F88001F0DCC /* BalanceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B096F1AF25F6233A00E98053 /* BalanceButton.swift */; };
+		B0EF6B7926019F9B001F0DCC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B096F08325E4FA5800E98053 /* ViewController.swift */; };
+		B0EF6B7C26019FC6001F0DCC /* Notification+Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = B096F1BD25FB6BBB00E98053 /* Notification+Name.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +118,7 @@
 		B096F1AB25F621F400E98053 /* BalanceStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceStackView.swift; sourceTree = "<group>"; };
 		B096F1AF25F6233A00E98053 /* BalanceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceButton.swift; sourceTree = "<group>"; };
 		B096F1BD25FB6BBB00E98053 /* Notification+Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Name.swift"; sourceTree = "<group>"; };
+		B0EF6B6026019BD5001F0DCC /* ModelTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTestCase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -223,6 +234,7 @@
 			children = (
 				B096F12F25EFB5A300E98053 /* VendingMachineAppTests.swift */,
 				B096F13125EFB5A300E98053 /* Info.plist */,
+				B0EF6B6026019BD5001F0DCC /* ModelTestCase.swift */,
 			);
 			path = VendingMachineAppTests;
 			sourceTree = "<group>";
@@ -365,8 +377,13 @@
 			files = (
 				B096F16625F0B6E300E98053 /* Soda.swift in Sources */,
 				B096F13E25EFB6AE00E98053 /* VendingMachineAppTests.swift in Sources */,
+				B0EF6B6A26019F7E001F0DCC /* AddStockButton.swift in Sources */,
+				B0EF6B6426019F79001F0DCC /* VendingMachineStackView.swift in Sources */,
 				B096F15125F0B6C900E98053 /* Materials.swift in Sources */,
+				B0EF6B6726019F7C001F0DCC /* BeverageStackView.swift in Sources */,
+				B0EF6B7026019F83001F0DCC /* BeverageImageView.swift in Sources */,
 				B096F15725F0B6D200E98053 /* Date.swift in Sources */,
+				B0EF6B7326019F86001F0DCC /* BalanceStackView.swift in Sources */,
 				B096F17E25F0B6F700E98053 /* SafeBox.swift in Sources */,
 				B096F14B25EFB8E500E98053 /* ChocoMilk.swift in Sources */,
 				B096F16025F0B6DB00E98053 /* Milk.swift in Sources */,
@@ -376,12 +393,17 @@
 				B096F16325F0B6E000E98053 /* StrawberryMilk.swift in Sources */,
 				B096F14825EFB8D600E98053 /* BeverageFactory.swift in Sources */,
 				B096F16925F0B6E500E98053 /* Cola.swift in Sources */,
+				B0EF6B7926019F9B001F0DCC /* ViewController.swift in Sources */,
 				B096F15D25F0B6D700E98053 /* VendingMachineView.swift in Sources */,
 				B096F17B25F0B6F500E98053 /* Drinks.swift in Sources */,
+				B0EF6B6126019BD5001F0DCC /* ModelTestCase.swift in Sources */,
 				B096F17525F0B6EF00E98053 /* Cantata.swift in Sources */,
 				B096F16C25F0B6E800E98053 /* Cider.swift in Sources */,
 				B096F16F25F0B6EA00E98053 /* Coffee.swift in Sources */,
+				B0EF6B7C26019FC6001F0DCC /* Notification+Name.swift in Sources */,
 				B096F17825F0B6F200E98053 /* VendingMachine.swift in Sources */,
+				B0EF6B6D26019F81001F0DCC /* StockLabel.swift in Sources */,
+				B0EF6B7626019F88001F0DCC /* BalanceButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

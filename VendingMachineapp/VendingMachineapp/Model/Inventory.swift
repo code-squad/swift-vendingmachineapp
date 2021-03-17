@@ -33,14 +33,14 @@ class Inventory: NSObject, NSCoding {
     }
     
     func subtract(beverage: Beverage.Type) -> Beverage? {
-        if let index = search(beverage: beverage) {
+        if let index = searchIndex(beverage: beverage) {
             return inventory.remove(at: index)
         } else {
             return nil
         }
     }
     
-    func search(beverage: Beverage.Type) -> Int? {
+    func searchIndex(beverage: Beverage.Type) -> Int? {
         guard let index = inventory.firstIndex(where: {type(of: $0) == beverage}) else {
             return nil
         }

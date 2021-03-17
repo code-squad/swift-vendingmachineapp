@@ -52,11 +52,12 @@ extension Beverage {
             lhs.price == rhs.price && lhs.name == rhs.name
     }
     
-//    func hash(into hasher: inout Hasher) {
-//        hasher.combine(brand)
-//        hasher.combine(size)
-//        hasher.combine(price)
-//        hasher.combine(name)
-//    }
-    
+    override var hash: Int {
+        var hasher = Hasher()
+        hasher.combine(self.brand)
+        hasher.combine(self.size)
+        hasher.combine(self.price)
+        hasher.combine(self.name)
+        return hasher.finalize()
+    }
 }

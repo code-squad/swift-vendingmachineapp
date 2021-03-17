@@ -12,11 +12,14 @@ class AdminViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(updateBeverageStock(_:)), name: VendingMachine.updateBeverages, object: vendingMachine)
     }
     
-    private func updateLabel() {
+    private func updateLabel(_ type: Beverage.Type) {
         let beverageStockList = beverageStackView.stockLabel
         let beverageList = vendingMachine.menuList()
         for index in 0..<beverageStockList.count {
-            beverageStockList[index].text = "\(vendingMachine.beverages.stockOfEach(beverage: beverageList[index]))개"
+            let beverage = beverageList[index]
+            if vendingMachine.typeToInstance(product: type) == beverage {
+                beverageStockList[index].text = "\(vendingMachine.beverages.stockOfEach(beverage: beverage))개"
+            }
         }
     }
     
@@ -38,11 +41,12 @@ extension AdminViewController {
 extension AdminViewController {
     
     @objc func addBeverageStock(_ sender: AddBeverageButton) {
-        let beverage = vendingMachine.typeToInstance(product: sender.beverageType)
-        vendingMachine.addBeverage(beverage: beverage)
+        let beverage = vendingMachine.compareProductNameToInstance(name: sender.restorationIdentifier!)
+        vendingMachine.addBeverage(beverage: beverage!)
     }
     
     @objc func updateBeverageStock(_ notification: Notification) {
-        updateLabel()
+        guard let beverageType = notification.userInfo?["BeverageType"] as? Beverage.Type else { return }
+        updateLabel(beverageType)
     }
 }

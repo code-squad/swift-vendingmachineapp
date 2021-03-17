@@ -37,12 +37,14 @@ class SelectPanelStackView: UIStackView {
     weak var delegate: SelectPanelStackViewDelegate?
     
     @IBAction func touchAddDrinkButton(_ sender: UIButton) {
-        guard let drinkType = findDrinkTypeThatMatchesButton(button: sender) else { return }
+        guard let index = addDrinkButtons.firstIndex(of: sender) else { return }
+        let drinkType = drinkOrder[index]
         self.delegate?.didAddedDrink(typeOf: drinkType)
     }
     
     @IBAction func touchBuyDrinkButton(_ sender: UIButton) {
-        guard let drinkType = findDrinkTypeThatMatchesButton(button: sender) else { return }
+        guard let index = buyDrinkButtons.firstIndex(of: sender) else { return }
+        let drinkType = drinkOrder[index]
         self.delegate?.didBoughtDrink(typeOf: drinkType)
     }
     
@@ -51,12 +53,5 @@ class SelectPanelStackView: UIStackView {
             imageView.layer.masksToBounds = true
             imageView.layer.cornerRadius = value
         }
-    }
-}
-
-extension SelectPanelStackView {
-    private func findDrinkTypeThatMatchesButton(button: UIButton) -> Drink.Type? {
-        guard let index = buyDrinkButtons.firstIndex(of: button) else { return nil }
-        return drinkOrder[index]
     }
 }

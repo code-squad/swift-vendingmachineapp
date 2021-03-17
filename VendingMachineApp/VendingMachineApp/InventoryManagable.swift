@@ -13,8 +13,6 @@ protocol InventoryManagable {
     func addBeverage(_ beverageType: Beverage.Type)
     func forEachBeverage(handler: (Beverage) -> ())
     func isPurchasableInventory(balance: Int) -> InventoryManagable
-    func mappingIndexToBeverageType(by index: Int) -> Beverage.Type?
-    func mappingIndexToMoneyInput(by index: Int) -> Money.Input?
     func readInventoryCount(beverageType: Beverage.Type) -> Int
     func readInventores() -> [ObjectIdentifier : [Beverage]]
     func removeBeverageInInventoryBox(beverageType: Beverage.Type) -> Beverage?

@@ -15,7 +15,11 @@ enum Cash: Int {
 }
 
 class Money: NSObject, NSCoding {
-    private(set) var cash = 0
+    private(set) var cash: Int
+    
+    override init(){
+        cash = 0
+    }
     
     required init?(coder decoder: NSCoder) {
         cash = decoder.decodeInteger(forKey: "cash")

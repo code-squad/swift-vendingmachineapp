@@ -25,10 +25,9 @@ class PurchaseScrollView : UIScrollView {
         self.isScrollEnabled = true
     }
     
-    func addSubView(with beverage: Beverage) {
+    func addSubView(with image: UIImage) {
         let beverageView : UIImageView = {
             let view = UIImageView()
-            let image = ImageManager.getImage(type: type(of: beverage))
             view.frame = CGRect(origin: CGPoint(x: place * count, y: bounds.midY - 40), size: CGSize(width: 100, height: 100))
             count += 1
             view.clipsToBounds = true

@@ -39,5 +39,20 @@ class VendingMachineAppTests: XCTestCase {
         }
         XCTAssertEqual(vendingMachine, vendingMachine2)
     }
+    
+    func testAnyClassArchived() throws {
+        let testClass = ChocoMilk()
+        
+        guard let data = try? NSKeyedArchiver.archivedData(withRootObject: testClass, requiringSecureCoding: false) else {
+            XCTAssert(false, "Archived 실패")
+            return
+        }
+        guard let testClass2 = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? ChocoMilk else {
+            XCTAssert(false, "UnArchived 실패")
+            return
+        }
+        XCTAssertEqual(testClass, testClass2)
+    }
+    
 
 }

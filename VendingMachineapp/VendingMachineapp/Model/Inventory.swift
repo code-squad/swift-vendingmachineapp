@@ -10,12 +10,14 @@ import Foundation
 class Inventory: NSObject, NSCoding {
 
     private var inventory: [Beverage]
-    private var productList: [Beverage] = []
+    private var productList: [Beverage]
     
     override init() {
-        inventory = []
+        self.inventory = []
+        self.productList = []
         super.init()
-        productList = initializeProductList()
+        self.productList = self.initializeProductList()
+        
     }
     
     required init?(coder: NSCoder) {

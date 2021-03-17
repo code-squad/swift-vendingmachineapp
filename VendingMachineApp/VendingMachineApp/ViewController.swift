@@ -8,7 +8,7 @@
 import UIKit
 import Combine
 
-class ViewController: UIViewController, SelectPanelStackViewDelegate, TopPanelDelegate {
+class ViewController: UIViewController {
     @IBOutlet weak var purchaseHistoryScrollView: PurchaseHistoryScrollView!
     @IBOutlet weak var selectPanelStackView: SelectPanelStackView!
     @IBOutlet weak var topPanelView: TopPanel!
@@ -24,10 +24,6 @@ class ViewController: UIViewController, SelectPanelStackViewDelegate, TopPanelDe
         self.vendingMachine = VendingMachine.default
         selectPanelStackView.delegate = self
         topPanelView.delegate = self
-        
-        configCoinsLabelObserver()
-        configStockLabelObserver()
-        configPurchaseHistoryObserver()
     }
     
     override func viewWillLayoutSubviews() {
@@ -39,21 +35,22 @@ class ViewController: UIViewController, SelectPanelStackViewDelegate, TopPanelDe
         selectPanelStackView.setDrinkImageViewsRadius(of: 10)
     }
     
-    public func settingVendingMachine(_ vendingMachine: VendingMachine) {
-        self.vendingMachine = vendingMachine
+    func configObserver() {
+        configCoinsLabelObserver()
+        configStockLabelObserver()
+        configPurchaseHistoryObserver()
     }
-    
-    func configPurchaseHistoryObserver() {
+}
+
+extension ViewController {
+    private func configPurchaseHistoryObserver() {
         puchaseHistorySubscriber = vendingMachine.$purchaseHistory
             .sink { (drinks) in
-                guard let drink = drinks.last else { return }
-                guard let imageView = self.makeImageView(named: drink.name) else { return }
-                self.purchaseHistoryScrollView.purchaseHistoryStackView.addArrangedSubview(imageView)
-                self.resizingHistoryImage(imageView)
+                self.loadLastPurchasehistory(drinks: drinks)
             }
     }
     
-    func configStockLabelObserver() {
+    private func configStockLabelObserver() {
         stockPublisher = NotificationCenter.default
             .publisher(for: Stock.Notification.DidChangeStock)
             .sink(receiveValue: { (notification) in
@@ -61,7 +58,7 @@ class ViewController: UIViewController, SelectPanelStackViewDelegate, TopPanelDe
             })
     }
     
-    func configCoinsLabelObserver() {
+    private func configCoinsLabelObserver() {
         coinCounterPublisher = NotificationCenter.default
             .publisher(for: CoinCounter.Notification.DidChangeCoin)
             .sink(receiveValue: { (notification) in
@@ -69,22 +66,14 @@ class ViewController: UIViewController, SelectPanelStackViewDelegate, TopPanelDe
             })
     }
     
-    func didAddedDrink(typeOf drinkType: Drink.Type) {
-        guard let drink = DrinkFactory.makeDrink(of: drinkType) else { return }
-        vendingMachine.addDrink(drink)
+    private func loadLastPurchasehistory(drinks: [Drink]) {
+        guard let drink = drinks.last else { return }
+        guard let imageView = self.makeImageView(named: drink.name) else { return }
+        self.purchaseHistoryScrollView.purchaseHistoryStackView.addArrangedSubview(imageView)
+        self.resizingHistoryImage(imageView)
     }
     
-    func didBoughtDrink(typeOf drinkType: Drink.Type) {
-        _ = vendingMachine.buy(typeOf: drinkType)
-    }
-    
-    func didInsertedCoin(amound: Int) {
-        vendingMachine.insertCoin(amound)
-    }
-}
-
-extension ViewController {
-    @objc private func loadPurchasehistory(drinks: [Drink]) {
+    private func loadPurchasehistory(drinks: [Drink]) {
         drinks.forEach { (drink) in
             guard let imageView = makeImageView(named: drink.name) else { return }
             purchaseHistoryScrollView.purchaseHistoryStackView.addArrangedSubview(imageView)
@@ -103,12 +92,12 @@ extension ViewController {
         imageView.heightAnchor.constraint(equalToConstant: 150).isActive = true
     }
     
-    @objc private func loadLeftCoinsLabel() {
+    private func loadLeftCoinsLabel() {
         let leftCoin = vendingMachine.leftCoin()
         topPanelView.leftCoinsLabel.text = "\(leftCoin)원"
     }
     
-    @objc private func loadSelectPanelStackViewLabels() {
+    private func loadSelectPanelStackViewLabels() {
         let stock = vendingMachine.showStock()
         for index in 0..<selectPanelStackView.addDrinkButtons.count {
             let key = ObjectIdentifier(drinkOrder[index])
@@ -120,3 +109,21 @@ extension ViewController {
         }
     }
 }
+
+extension ViewController: SelectPanelStackViewDelegate {
+    func didAddedDrink(typeOf drinkType: Drink.Type) {
+        guard let drink = DrinkFactory.makeDrink(of: drinkType) else { return }
+        vendingMachine.addDrink(drink)
+    }
+    
+    func didBoughtDrink(typeOf drinkType: Drink.Type) {
+        _ = vendingMachine.buy(typeOf: drinkType)
+    }
+    
+}
+extension ViewController: TopPanelDelegate {
+    func didInsertedCoin(amound: Int) {
+        vendingMachine.insertCoin(amound)
+    }
+}
+

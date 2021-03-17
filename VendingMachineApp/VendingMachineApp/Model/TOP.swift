@@ -20,7 +20,17 @@ class TOP: Coffee {
         self.init(brand: "Maxim", volume: 275, charge: 980, name: "TOP 스위트 아메리카노", manufacturing: Date.init(), caffeine : 123.45, temperature: 73.3)
     }
     
+    required init?(coder: NSCoder) {
+        temperature = coder.decodeDouble(forKey: "temperature")
+        super.init(coder: coder)
+    }
+    
     func isHot() -> Bool {
         return temperature > 70
+    }
+    
+    override func encode(with coder: NSCoder) {
+        super.encode(with: coder)
+        coder.encode(temperature,forKey: "temperature")
     }
 }

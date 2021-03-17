@@ -21,11 +21,21 @@ class Coffee: Drink {
         self.init(brand: "class", volume : 0, charge: 0, name : "Coffee", manufacturing: Date.init(), caffeine: 0)
     }
     
+    required init?(coder: NSCoder) {
+        caffeine = coder.decodeDouble(forKey: "caffeine")
+        super.init(coder: coder)
+    }
+    
     func productCaffeine() -> Double {
         guard let nonOptional = caffeine else {
             return 0
         }
         
         return nonOptional
+    }
+    
+    override func encode(with coder: NSCoder) {
+        super.encode(with: coder)
+        coder.encode(caffeine,forKey: "caffeine")
     }
 }

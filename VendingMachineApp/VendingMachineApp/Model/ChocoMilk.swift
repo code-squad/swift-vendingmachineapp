@@ -21,7 +21,17 @@ class ChocoMilk: Milk {
         self.init(brand: "서울우유", volume: 200, charge: 830, name: "초코우유", manufacturing: Date.init(timeIntervalSince1970: 0), expirationLimit: 3, chocolateContent: 8)
     }
     
+    required init?(coder: NSCoder) {
+        chocolateContent = coder.decodeFloat(forKey: "expirationLimit")
+        super.init(coder: coder)
+    }
+    
     func isRealCholate() -> Bool {
         return chocolateContent > thickChocolateCriteria
+    }
+    
+    override func encode(with coder: NSCoder) {
+        super.encode(with: coder)
+        coder.encode(chocolateContent,forKey: "chocolateContent")
     }
 }

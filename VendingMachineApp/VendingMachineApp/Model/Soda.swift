@@ -20,7 +20,17 @@ class Soda: Drink {
         self.init(brand: "class", volume : 0, charge: 0, name : "Soda", manufacturing: Date.init(), package : .paper)
     }
     
+    required init?(coder: NSCoder) {
+        package = coder.decodeObject(forKey: "package") as! Materials
+        super.init(coder: coder)
+    }
+    
     func packingMaterial() -> Materials {
         return package
+    }
+    
+    override func encode(with coder: NSCoder) {
+        super.encode(with: coder)
+        coder.encode(package,forKey: "package")
     }
 }

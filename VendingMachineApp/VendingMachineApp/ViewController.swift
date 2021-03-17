@@ -8,13 +8,17 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    
+    let delegate : AppDelegate = UIApplication.shared.delegate as! AppDelegate
+    var vendingMachine = VendingMachine()
 
     let vendingMachineView = VendingMachineView(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
-    var vendingMachine = VendingMachine()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        vendingMachine = delegate.vendingMachine
         vendingMachine.initialStock(howMany :3)
         let stockList = vendingMachine.showStock()
         

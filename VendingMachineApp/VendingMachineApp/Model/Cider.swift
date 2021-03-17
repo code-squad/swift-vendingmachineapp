@@ -20,7 +20,17 @@ class Cider: Soda {
         self.init(brand: "칠성", volume: 255, charge: 630, name: "칠성-사이다", manufacturing: Date.init(), package : Materials.steel, calories : 327)
     }
     
+    required init?(coder: NSCoder) {
+        calories = coder.decodeInteger(forKey: "calories")
+        super.init(coder: coder)
+    }
+    
     func productCalorie() -> String {
         return "\(calories) kcal"
+    }
+    
+    override func encode(with coder: NSCoder) {
+        super.encode(with: coder)
+        coder.encode(calories,forKey: "calories")
     }
 }

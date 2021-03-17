@@ -20,7 +20,17 @@ class Cola: Soda {
         self.init(brand: "CoCa-Cola", volume: 215, charge: 574, name: "코카콜라제로", manufacturing: Date.init(), package : Materials.steel, sugarContent : 0)
     }
     
+    required init?(coder: NSCoder) {
+        sugarContent = coder.decodeDouble(forKey: "sugarContent")
+        super.init(coder: coder)
+    }
+    
     func isUnsweetened() -> Bool {
         return sugarContent < 2
+    }
+    
+    override func encode(with coder: NSCoder) {
+        super.encode(with: coder)
+        coder.encode(sugarContent,forKey: "sugarContent")
     }
 }

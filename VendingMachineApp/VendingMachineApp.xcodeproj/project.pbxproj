@@ -68,6 +68,7 @@
 		B0EF6B7626019F88001F0DCC /* BalanceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B096F1AF25F6233A00E98053 /* BalanceButton.swift */; };
 		B0EF6B7926019F9B001F0DCC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B096F08325E4FA5800E98053 /* ViewController.swift */; };
 		B0EF6B7C26019FC6001F0DCC /* Notification+Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = B096F1BD25FB6BBB00E98053 /* Notification+Name.swift */; };
+		B0EF6B802601DD02001F0DCC /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0EF6B7F2601DD02001F0DCC /* DataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,6 +120,7 @@
 		B096F1AF25F6233A00E98053 /* BalanceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceButton.swift; sourceTree = "<group>"; };
 		B096F1BD25FB6BBB00E98053 /* Notification+Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Name.swift"; sourceTree = "<group>"; };
 		B0EF6B6026019BD5001F0DCC /* ModelTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTestCase.swift; sourceTree = "<group>"; };
+		B0EF6B7F2601DD02001F0DCC /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +173,7 @@
 				B096F08825E4FA5D00E98053 /* Assets.xcassets */,
 				B096F08A25E4FA5D00E98053 /* LaunchScreen.storyboard */,
 				B096F08D25E4FA5D00E98053 /* Info.plist */,
+				B0EF6B7F2601DD02001F0DCC /* DataManager.swift */,
 			);
 			path = VendingMachineApp;
 			sourceTree = "<group>";
@@ -340,6 +343,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B096F09E25E4FFE600E98053 /* Soda.swift in Sources */,
+				B0EF6B802601DD02001F0DCC /* DataManager.swift in Sources */,
 				B096F0CA25E6449600E98053 /* Materials.swift in Sources */,
 				B096F18A25F1CA4400E98053 /* AddStockButton.swift in Sources */,
 				B096F1AC25F621F400E98053 /* BalanceStackView.swift in Sources */,

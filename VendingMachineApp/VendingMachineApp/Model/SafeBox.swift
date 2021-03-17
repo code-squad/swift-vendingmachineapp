@@ -7,11 +7,19 @@
 
 import Foundation
 
-class SafeBox {
+class SafeBox :NSCoding {
     private var money : Int
     
     init(money : Int) {
         self.money = money
+    }
+    
+    required init?(coder: NSCoder) {
+        money = coder.decodeInteger(forKey: "money")
+    }
+    
+    func encode(with coder : NSCoder) {
+        coder.encode(money, forKey: "money")
     }
     
     func deposit(howMuch won : Int) {

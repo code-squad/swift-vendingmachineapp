@@ -42,7 +42,7 @@ class ViewController: UIViewController ,VendingMachinedable {
     }
     
     @IBAction func addBeverageButtonTouched(_ sender: UIButton) {
-        guard let beverageType = drinkMenu.mapping(button: sender) else { return }
+        guard let beverageType = drinkMenu[sender] else { return }
         let beverage = BeverageFactory.make(beverageType)
         vendingMachine.addStock(beverage)
     }
@@ -53,7 +53,7 @@ class ViewController: UIViewController ,VendingMachinedable {
     }
     
     @IBAction func purchaseButtonTouched(_ sender: UIButton) {
-        guard let beverageType = purchaseMenu.mapping(button: sender) else { return }
+        guard let beverageType = purchaseMenu[sender] else { return }
         vendingMachine.purchaseBeverage(beverageType: beverageType)
     }
     

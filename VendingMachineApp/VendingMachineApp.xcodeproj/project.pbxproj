@@ -18,6 +18,9 @@
 		FF2DBFE325E5E22C00D2A215 /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2DBFE225E5E22C00D2A215 /* Milk.swift */; };
 		FF2DBFE625E5E23800D2A215 /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2DBFE525E5E23800D2A215 /* Coffee.swift */; };
 		FF557E622600910C0021B658 /* VendingMachineDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF557E612600910C0021B658 /* VendingMachineDataManager.swift */; };
+		FF557E6526019C4A0021B658 /* Money.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD6172325EF1FD700B97347 /* Money.swift */; };
+		FF557E6826019C560021B658 /* BeverageFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6F06EB25F8568E00E2613A /* BeverageFactory.swift */; };
+		FF557E6B26019C5A0021B658 /* VendingMachineDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF557E612600910C0021B658 /* VendingMachineDataManager.swift */; };
 		FF6F06DB25F708A600E2613A /* BeverageCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6F06DA25F708A600E2613A /* BeverageCollectionCell.swift */; };
 		FF6F06EC25F8568E00E2613A /* BeverageFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6F06EB25F8568E00E2613A /* BeverageFactory.swift */; };
 		FF6F06F225F8BEA400E2613A /* CoinCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6F06F125F8BEA400E2613A /* CoinCollectionCell.swift */; };
@@ -344,6 +347,7 @@
 				FFCB251425EE285B0028AD95 /* CocaCola.swift in Sources */,
 				FFCB251A25EE28820028AD95 /* Sprite.swift in Sources */,
 				FFCB252625EE28B70028AD95 /* Milk.swift in Sources */,
+				FF557E6826019C560021B658 /* BeverageFactory.swift in Sources */,
 				FFCB250025EE265C0028AD95 /* BeverageInventory.swift in Sources */,
 				FFCB251125EE27E50028AD95 /* Date.swift in Sources */,
 				FFCB252025EE28870028AD95 /* Cantata.swift in Sources */,
@@ -353,6 +357,8 @@
 				FFCB251725EE287D0028AD95 /* Top.swift in Sources */,
 				FFCB250B25EE26600028AD95 /* Beverage.swift in Sources */,
 				FFCB24FA25EE258E0028AD95 /* VendingMachine.swift in Sources */,
+				FF557E6B26019C5A0021B658 /* VendingMachineDataManager.swift in Sources */,
+				FF557E6526019C4A0021B658 /* Money.swift in Sources */,
 				FFCB252925EE28BC0028AD95 /* Coffee.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

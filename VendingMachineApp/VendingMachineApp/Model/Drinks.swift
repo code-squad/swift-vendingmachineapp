@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Drinks {
+class Drinks : NSCoding {
     
     enum errorCase : Error {
         case outOfIndex
@@ -17,6 +17,14 @@ class Drinks {
     
     init() {
         self.drinks = []
+    }
+    
+    required init?(coder: NSCoder) {
+        drinks = coder.decodeObject(forKey: "drinks") as! [Drink]
+    }
+    
+    func encode(with coder: NSCoder) {
+        coder.encode(drinks,forKey: "drinks")
     }
     
     func addDrink(what product : Drink) {

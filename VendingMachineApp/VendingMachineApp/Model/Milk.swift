@@ -20,8 +20,18 @@ class Milk: Drink {
         self.init(brand: "class", volume : 0, charge: 0, name : "Milk", manufacturing: Date.init(), expirationLimit: 0)
     }
     
+    required init?(coder: NSCoder) {
+        expirationLimit = coder.decodeInteger(forKey: "expirationLimit")
+        super.init(coder: coder)
+    }
+    
     func isWithInExpiration() -> Bool {
         let lastDay = manufacturing.afterDays(days: expirationLimit)
         return lastDay.compareNowWith()
+    }
+    
+    override func encode(with coder: NSCoder) {
+        super.encode(with: coder)
+        coder.encode(expirationLimit,forKey: "expirationLimit")
     }
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct VendingMachine {
+class VendingMachine : NSCoding {
     private var money : SafeBox
     private var stock : Drinks
     private var purchased : Drinks
@@ -18,15 +18,27 @@ struct VendingMachine {
         self.purchased = Drinks.init()
     }
     
-    mutating func insertMoney(howMuch inserted : Int) {
+    required init?(coder: NSCoder) {
+        money = coder.decodeObject(forKey: "money") as! SafeBox
+        stock = coder.decodeObject(forKey: "stock") as! Drinks
+        purchased = coder.decodeObject(forKey: "purchased") as! Drinks
+    }
+    
+    func insertMoney(howMuch inserted : Int) {
         money.deposit(howMuch: inserted)
     }
     
-    mutating func addStock(what product : Drink) {
+    func addStock(what product : Drink) {
         stock.addDrink(what: product)
     }
     
-    mutating func initialStock(howMany count : Int) {
+    func encode(with coder: NSCoder) {
+        coder.encode(money,forKey: "money")
+        coder.encode(stock,forKey: "stock")
+        coder.encode(purchased,forKey: "purchased")
+    }
+    
+    func initialStock(howMany count : Int) {
             for _ in 0..<count {
                 self.addStock(what: BeverageFactory.shared().getBeverage(DrinkType: ChocoMilk.self))
                 self.addStock(what: BeverageFactory.shared().getBeverage(DrinkType: StrawberryMilk.self))
@@ -48,7 +60,7 @@ struct VendingMachine {
     }
     
     /// if fail, return false
-    mutating func buyProduct(what productType : Drink.Type) -> Bool{
+    func buyProduct(what productType : Drink.Type) -> Bool{
         do {
             let purchasedItem = try stock.remove(at: productType)
             if money.withdrawal(howMuch: purchasedItem.payFor()) == false {
@@ -90,7 +102,7 @@ struct VendingMachine {
         return stock.showHotDrinks()
     }
     
-    mutating func doClosure(closure : ((VendingMachine) -> Void)) {
+    func doClosure(closure : ((VendingMachine) -> Void)) {
         closure(self)
     }
 }

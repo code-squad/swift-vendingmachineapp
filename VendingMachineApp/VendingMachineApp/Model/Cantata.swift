@@ -20,7 +20,17 @@ class Cantata: Coffee {
         self.init(brand: "롯데칠성음료", volume: 430, charge: 1400, name: "칸타타 콘트라베이스", manufacturing: Date.init(), caffeine : nil, bean: .arabica)
     }
     
+    required init?(coder: NSCoder) {
+        bean = coder.decodeObject(forKey: "bean") as! Beans
+        super.init(coder: coder)
+    }
+    
     func productBeans() -> Beans {
         return self.bean
+    }
+    
+    override func encode(with coder: NSCoder) {
+        super.encode(with: coder)
+        coder.encode(bean,forKey: "bean")
     }
 }

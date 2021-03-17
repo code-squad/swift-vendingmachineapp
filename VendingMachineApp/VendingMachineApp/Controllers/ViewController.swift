@@ -8,7 +8,7 @@
 import UIKit
 import Combine
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, SlotViewDelegate {
     @IBOutlet weak var inventoryStackView: UIStackView!
     @IBOutlet weak var balanceLabel: UILabel!
     
@@ -28,7 +28,6 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         configureSubscriber()
-        configureInventory()
     }
     
     @IBAction func insertMoneyButtonPressed(_ sender: UIButton) {
@@ -53,17 +52,17 @@ class ViewController: UIViewController {
             }
     }
     
-    private func configureInventory() {
-        NotificationCenter.default.addObserver(self, selector: #selector(itemQuantityIncrementButtonPressed(_:)), name: SlotView.Notification.DidButtonPressed, object: nil)
-    }
-    
-    @objc func itemQuantityIncrementButtonPressed(_ notification: Notification) {
-        guard let selectedSlotView = (notification.userInfo as? [String : SlotView])?.first else { return }
-        let slotInfo = inventoryViewInfo.filter { selectedSlotView.value == $0.value }.first
+    private func configureInventory(_ sender: SlotView) {
+        let selectedSlotView = sender
+        let slotInfo = inventoryViewInfo.filter { selectedSlotView == $0.value }.first
         /// 현 단계에서는 재고 정보(제조일자, 유통기한 등)를 입력할 수 있는 란이 따로 없어 슬롯의 첫번째 상품과 동일한 상품의 재고를 추가하도록 구현
         if let item = slotInfo?.key.firstItem {
             vendingMachine.add(item: item)
         }
+    }
+    
+    func itemQuantityIncrementButtonPressed(sender: SlotView) {
+        configureInventory(sender)
     }
     
     private func configureCashBox(_ sender: UIButton) {
@@ -78,6 +77,7 @@ class ViewController: UIViewController {
         let sortedInventoryViewInfo = inventoryViewInfo.sorted { $0.key.description < $1.key.description }
         sortedInventoryViewInfo.forEach { slot, slotView in
             self.inventoryStackView.addArrangedSubview(slotView)
+            slotView.delegate = self
             inventoryViewInfo[slot] = slotView
         }
     }

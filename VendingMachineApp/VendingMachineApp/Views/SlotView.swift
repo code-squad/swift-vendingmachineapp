@@ -7,11 +7,16 @@
 
 import UIKit
 
+protocol SlotViewDelegate {
+    func itemQuantityIncrementButtonPressed(sender: SlotView)
+}
+
 class SlotView: UIView {
     enum Notification {
         static let DidButtonPressed = Foundation.Notification.Name("DidButtonPressed")
     }
     
+    var delegate: SlotViewDelegate?
     private let nibName = "SlotView"
     
     @IBOutlet weak var itemQuantityIncrementButton: UIButton!
@@ -36,11 +41,10 @@ class SlotView: UIView {
         itemImageView.layer.masksToBounds = true
         self.addSubview(nibView)
         
-        itemQuantityIncrementButton.addTarget(self, action: #selector(itemQuantityIncrementButtonPressed(_:)), for: .touchUpInside)
+        itemQuantityIncrementButton.addTarget(self, action: #selector(itemQuantityIncrementButtonPressed), for: .touchUpInside)
     }
     
-    @objc func itemQuantityIncrementButtonPressed(_ sender: UIButton) {
-        let userInfo = ["SlotView" : self]
-        NotificationCenter.default.post(name: Notification.DidButtonPressed, object: nil, userInfo: userInfo)
+    @objc func itemQuantityIncrementButtonPressed() {
+        delegate?.itemQuantityIncrementButtonPressed(sender: self)
     }
 }

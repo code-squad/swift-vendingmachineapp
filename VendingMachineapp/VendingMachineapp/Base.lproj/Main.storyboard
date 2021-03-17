@@ -22,63 +22,75 @@
                                         <rect key="frame" x="0.0" y="0.0" width="341.5" height="184.5"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5J7-mO-r96">
-                                                <rect key="frame" x="147.5" y="0.0" width="46" height="61.5"/>
+                                                <rect key="frame" x="147.5" y="0.0" width="46" height="46"/>
                                                 <state key="normal" title="Button"/>
                                                 <connections>
                                                     <action selector="addButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="psk-BU-x94"/>
                                                 </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="top" translatesAutoresizingMaskIntoConstraints="NO" id="fmd-Ku-11e" customClass="BeverageImageView" customModule="VendingMachineapp" customModuleProvider="target">
-                                                <rect key="frame" x="45.5" y="61.5" width="250" height="61.5"/>
+                                                <rect key="frame" x="45.5" y="46" width="250" height="46.5"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hq5-wD-sA3">
-                                                <rect key="frame" x="150" y="123" width="41.5" height="61.5"/>
+                                                <rect key="frame" x="150" y="92.5" width="41.5" height="46"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a6y-rE-Tdt">
+                                                <rect key="frame" x="147.5" y="138.5" width="46" height="46"/>
+                                                <state key="normal" title="Button"/>
+                                            </button>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="LPV-CW-iCE" userLabel="BeverageStackView">
                                         <rect key="frame" x="341.5" y="0.0" width="341" height="184.5"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n7t-Fu-i01">
-                                                <rect key="frame" x="147.5" y="0.0" width="46" height="61.5"/>
+                                                <rect key="frame" x="147.5" y="0.0" width="46" height="46"/>
                                                 <state key="normal" title="Button"/>
                                                 <connections>
                                                     <action selector="addButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pvA-Wb-RAT"/>
                                                 </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cantata" translatesAutoresizingMaskIntoConstraints="NO" id="wH7-zT-s6W" customClass="BeverageImageView" customModule="VendingMachineapp" customModuleProvider="target">
-                                                <rect key="frame" x="45.5" y="61.5" width="250" height="61.5"/>
+                                                <rect key="frame" x="45.5" y="46" width="250" height="46.5"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oSK-7u-0zO">
-                                                <rect key="frame" x="150" y="123" width="41.5" height="61.5"/>
+                                                <rect key="frame" x="150" y="92.5" width="41.5" height="46"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fBi-Je-wI7">
+                                                <rect key="frame" x="147.5" y="138.5" width="46" height="46"/>
+                                                <state key="normal" title="Button"/>
+                                            </button>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="HBV-ua-GKT" userLabel="BeverageStackView">
                                         <rect key="frame" x="682.5" y="0.0" width="341.5" height="184.5"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7lP-7B-iBU">
-                                                <rect key="frame" x="148" y="0.0" width="46" height="61.5"/>
+                                                <rect key="frame" x="148" y="0.0" width="46" height="46"/>
                                                 <state key="normal" title="Button"/>
                                                 <connections>
                                                     <action selector="addButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pd1-Y5-mHG"/>
                                                 </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="georgia" translatesAutoresizingMaskIntoConstraints="NO" id="Bfl-Jm-xcJ" customClass="BeverageImageView" customModule="VendingMachineapp" customModuleProvider="target">
-                                                <rect key="frame" x="46" y="61.5" width="250" height="61.5"/>
+                                                <rect key="frame" x="46" y="46" width="250" height="46.5"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Tw-ce-TSd">
-                                                <rect key="frame" x="150" y="123" width="41.5" height="61.5"/>
+                                                <rect key="frame" x="150" y="92.5" width="41.5" height="46"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0wD-8w-l9y">
+                                                <rect key="frame" x="148" y="138.5" width="46" height="46"/>
+                                                <state key="normal" title="Button"/>
+                                            </button>
                                         </subviews>
                                     </stackView>
                                 </subviews>
@@ -90,63 +102,75 @@
                                         <rect key="frame" x="0.0" y="0.0" width="341.5" height="184.5"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zcd-lf-oY1">
-                                                <rect key="frame" x="147.5" y="0.0" width="46" height="61.5"/>
+                                                <rect key="frame" x="147.5" y="0.0" width="46" height="46"/>
                                                 <state key="normal" title="Button"/>
                                                 <connections>
                                                     <action selector="addButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OIO-sg-7Br"/>
                                                 </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coke" translatesAutoresizingMaskIntoConstraints="NO" id="1eO-6w-NRv" customClass="BeverageImageView" customModule="VendingMachineapp" customModuleProvider="target">
-                                                <rect key="frame" x="45.5" y="61.5" width="250" height="61.5"/>
+                                                <rect key="frame" x="45.5" y="46" width="250" height="46.5"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DAm-nz-Tet">
-                                                <rect key="frame" x="150" y="123" width="41.5" height="61.5"/>
+                                                <rect key="frame" x="150" y="92.5" width="41.5" height="46"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0gN-L1-5b4">
+                                                <rect key="frame" x="147.5" y="138.5" width="46" height="46"/>
+                                                <state key="normal" title="Button"/>
+                                            </button>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="PAL-Vg-8fO" userLabel="BeverageStackView">
                                         <rect key="frame" x="341.5" y="0.0" width="341" height="184.5"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EDd-D6-x6v">
-                                                <rect key="frame" x="147.5" y="0.0" width="46" height="61.5"/>
+                                                <rect key="frame" x="147.5" y="0.0" width="46" height="46"/>
                                                 <state key="normal" title="Button"/>
                                                 <connections>
                                                     <action selector="addButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nwk-02-ij3"/>
                                                 </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sprite" translatesAutoresizingMaskIntoConstraints="NO" id="f8r-0m-Q5Y" customClass="BeverageImageView" customModule="VendingMachineapp" customModuleProvider="target">
-                                                <rect key="frame" x="45.5" y="61.5" width="250" height="61.5"/>
+                                                <rect key="frame" x="45.5" y="46" width="250" height="46.5"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p8c-jo-gTq">
-                                                <rect key="frame" x="150" y="123" width="41.5" height="61.5"/>
+                                                <rect key="frame" x="150" y="92.5" width="41.5" height="46"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nh8-77-akQ">
+                                                <rect key="frame" x="147.5" y="138.5" width="46" height="46"/>
+                                                <state key="normal" title="Button"/>
+                                            </button>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="gbq-sV-VIa" userLabel="BeverageStackView">
                                         <rect key="frame" x="682.5" y="0.0" width="341.5" height="184.5"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2yf-8j-IJh">
-                                                <rect key="frame" x="148" y="0.0" width="46" height="61.5"/>
+                                                <rect key="frame" x="148" y="0.0" width="46" height="46"/>
                                                 <state key="normal" title="Button"/>
                                                 <connections>
                                                     <action selector="addButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zXu-Qu-aU8"/>
                                                 </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fanta" translatesAutoresizingMaskIntoConstraints="NO" id="woH-hZ-Qaa" customClass="BeverageImageView" customModule="VendingMachineapp" customModuleProvider="target">
-                                                <rect key="frame" x="46" y="61.5" width="250" height="61.5"/>
+                                                <rect key="frame" x="46" y="46" width="250" height="46.5"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YII-yg-QG1">
-                                                <rect key="frame" x="150" y="123" width="41.5" height="61.5"/>
+                                                <rect key="frame" x="150" y="92.5" width="41.5" height="46"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Fx-Xd-vJj">
+                                                <rect key="frame" x="148" y="138.5" width="46" height="46"/>
+                                                <state key="normal" title="Button"/>
+                                            </button>
                                         </subviews>
                                     </stackView>
                                 </subviews>
@@ -158,63 +182,75 @@
                                         <rect key="frame" x="0.0" y="0.0" width="341.5" height="184.5"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Km-cg-N3b">
-                                                <rect key="frame" x="147.5" y="0.0" width="46" height="61.5"/>
+                                                <rect key="frame" x="147.5" y="0.0" width="46" height="46"/>
                                                 <state key="normal" title="Button"/>
                                                 <connections>
                                                     <action selector="addButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Akt-2g-26a"/>
                                                 </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="strawberry" translatesAutoresizingMaskIntoConstraints="NO" id="prB-Qn-GgM" customClass="BeverageImageView" customModule="VendingMachineapp" customModuleProvider="target">
-                                                <rect key="frame" x="45.5" y="61.5" width="250" height="61.5"/>
+                                                <rect key="frame" x="45.5" y="46" width="250" height="46.5"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rzu-fc-18L">
-                                                <rect key="frame" x="150" y="123" width="41.5" height="61.5"/>
+                                                <rect key="frame" x="150" y="92.5" width="41.5" height="46"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k9E-tr-v8H">
+                                                <rect key="frame" x="147.5" y="138.5" width="46" height="46"/>
+                                                <state key="normal" title="Button"/>
+                                            </button>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="PpG-uS-sSb" userLabel="BeverageStackView">
                                         <rect key="frame" x="341.5" y="0.0" width="341" height="184.5"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lnl-wt-NYs">
-                                                <rect key="frame" x="147.5" y="0.0" width="46" height="61.5"/>
+                                                <rect key="frame" x="147.5" y="0.0" width="46" height="46"/>
                                                 <state key="normal" title="Button"/>
                                                 <connections>
                                                     <action selector="addButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3nH-ne-Twu"/>
                                                 </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="banana" translatesAutoresizingMaskIntoConstraints="NO" id="ZW7-hT-J9a" customClass="BeverageImageView" customModule="VendingMachineapp" customModuleProvider="target">
-                                                <rect key="frame" x="45.5" y="61.5" width="250" height="61.5"/>
+                                                <rect key="frame" x="45.5" y="46" width="250" height="46.5"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hcg-kL-eOS">
-                                                <rect key="frame" x="150" y="123" width="41.5" height="61.5"/>
+                                                <rect key="frame" x="150" y="92.5" width="41.5" height="46"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LmZ-Iw-055">
+                                                <rect key="frame" x="147.5" y="138.5" width="46" height="46"/>
+                                                <state key="normal" title="Button"/>
+                                            </button>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="tW3-dQ-Rw5" userLabel="BeverageStackView">
                                         <rect key="frame" x="682.5" y="0.0" width="341.5" height="184.5"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KEc-KP-97u">
-                                                <rect key="frame" x="148" y="0.0" width="46" height="61.5"/>
+                                                <rect key="frame" x="148" y="0.0" width="46" height="46"/>
                                                 <state key="normal" title="Button"/>
                                                 <connections>
                                                     <action selector="addButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="s33-xl-pWN"/>
                                                 </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="choco" translatesAutoresizingMaskIntoConstraints="NO" id="hAl-bo-Zie" customClass="BeverageImageView" customModule="VendingMachineapp" customModuleProvider="target">
-                                                <rect key="frame" x="46" y="61.5" width="250" height="61.5"/>
+                                                <rect key="frame" x="46" y="46" width="250" height="46.5"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QcD-Ut-yga">
-                                                <rect key="frame" x="150" y="123" width="41.5" height="61.5"/>
+                                                <rect key="frame" x="150" y="92.5" width="41.5" height="46"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oCl-TP-FXb">
+                                                <rect key="frame" x="148" y="138.5" width="46" height="46"/>
+                                                <state key="normal" title="Button"/>
+                                            </button>
                                         </subviews>
                                     </stackView>
                                 </subviews>
@@ -292,6 +328,15 @@
                         <outletCollection property="beverageLabels" destination="QcD-Ut-yga" collectionClass="NSMutableArray" id="qX7-wB-EGU"/>
                         <outletCollection property="addMoneyButtons" destination="E6J-jZ-rjq" collectionClass="NSMutableArray" id="0QG-zf-yYm"/>
                         <outletCollection property="addMoneyButtons" destination="SIS-dm-Ecs" collectionClass="NSMutableArray" id="1IO-N5-Ynu"/>
+                        <outletCollection property="purchaseButtons" destination="a6y-rE-Tdt" collectionClass="NSMutableArray" id="wnN-kI-KJP"/>
+                        <outletCollection property="purchaseButtons" destination="fBi-Je-wI7" collectionClass="NSMutableArray" id="T0S-KD-bzb"/>
+                        <outletCollection property="purchaseButtons" destination="0wD-8w-l9y" collectionClass="NSMutableArray" id="MCo-v5-eG8"/>
+                        <outletCollection property="purchaseButtons" destination="0gN-L1-5b4" collectionClass="NSMutableArray" id="bXL-gI-ldt"/>
+                        <outletCollection property="purchaseButtons" destination="nh8-77-akQ" collectionClass="NSMutableArray" id="2WJ-mJ-hFt"/>
+                        <outletCollection property="purchaseButtons" destination="8Fx-Xd-vJj" collectionClass="NSMutableArray" id="maG-69-z6z"/>
+                        <outletCollection property="purchaseButtons" destination="k9E-tr-v8H" collectionClass="NSMutableArray" id="tNx-p4-8Gf"/>
+                        <outletCollection property="purchaseButtons" destination="LmZ-Iw-055" collectionClass="NSMutableArray" id="5hb-Fh-ITb"/>
+                        <outletCollection property="purchaseButtons" destination="oCl-TP-FXb" collectionClass="NSMutableArray" id="JKo-uM-Cfv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

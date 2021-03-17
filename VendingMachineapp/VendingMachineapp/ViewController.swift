@@ -20,6 +20,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var currentChangeLabel: UILabel!
     @IBOutlet var addMoneyButtons: [UIButton]!
     @IBOutlet var beverageButtons: [UIButton]!
+    @IBOutlet var purchaseButtons: [UIButton]!
     @IBOutlet var beverageImageViews: [BeverageImageView]!
     @IBOutlet var beverageLabels: [UILabel]!
     
@@ -77,6 +78,8 @@ class ViewController: UIViewController {
     func setButtonsTitle() {
         for index in 0..<beverageButtons.count {
             beverageButtons[index].setTitle("추가", for: .normal)
+            purchaseButtons[index].setTitle("구매", for: .normal)
+            purchaseButtons[index].setTitleColor(.red, for: .normal)
         }
         
         for (button, money) in moneyButtonDictionary {

@@ -21,8 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidEnterBackground(_ application: UIApplication){
-        DataManager.save(vendingMachine as! VendingMachine)
+        DataManager.save(vendingMachine)
     }
-
 }
 

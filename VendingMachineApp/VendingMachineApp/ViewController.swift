@@ -14,25 +14,15 @@ class ViewController: UIViewController ,VendingMachinedable {
     @IBOutlet var addPaymentButtons: [UIButton]!
     @IBOutlet weak var BalanceLabel: UILabel!
     @IBOutlet var PurchaseButtons: [UIButton]!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     var vendingMachine : VendingMachined!
     private var paymentMenu : PaymentMenu!
     private var drinkMenu : Mapper!
     private var purchaseMenu : Mapper!
     
-    private(set) var drinkTypeList = [StrawberryMilk.self, DietCola.self, TopAmericano.self]
-    private var drinkImages = [#imageLiteral(resourceName: "StrawBerryMilk"),#imageLiteral(resourceName: "DietCola"),#imageLiteral(resourceName: "TopAmericano")]
-    
-    var scrollView : UIScrollView!
-    var imagesStackView : UIStackView = {
-        var stack = UIStackView()
-        stack.axis = .horizontal
-        stack.alignment = .fill
-        stack.distribution = .fillEqually
-        stack.spacing = 20
-        stack.translatesAutoresizingMaskIntoConstraints = false
-        return stack
-    }()
+    private let drinkTypeList = [StrawberryMilk.self, DietCola.self, TopAmericano.self]
+    private let drinkImages = [#imageLiteral(resourceName: "StrawberryMilk"),#imageLiteral(resourceName: "DietCola"),#imageLiteral(resourceName: "TopAmericano")]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,28 +32,16 @@ class ViewController: UIViewController ,VendingMachinedable {
         changeBalanceLabel()
         changeBeverageLabel()
         setNotificationObserver()
-        
-        scrollView = UIScrollView(frame: CGRect(x: 40, y: 575, width: view.frame.width, height: 200))
-        scrollView.backgroundColor = .systemTeal
-        scrollView.contentSize = CGSize(width: scrollView.contentSize.width, height: scrollView.contentSize.height)
-        view.addSubview(scrollView)
-        
-        scrollView.addSubview(imagesStackView)
-        imagesStackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor).isActive = true
-        imagesStackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor).isActive = true
-        imagesStackView.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
-        imagesStackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
     }
     
     func setNotificationObserver() {
         NotificationCenter.default.addObserver(self, selector: #selector(updateNotificationBalanceLabel(_:)), name: VendingMachine.updateBalance, object: vendingMachine)
         NotificationCenter.default.addObserver(self, selector: #selector(updateNotificationBeverageLabel(_:)), name: VendingMachine.updateBeverage, object: vendingMachine)
+        NotificationCenter.default.addObserver(self, selector: #selector(updatePurchaseScrollImage(_:)), name: VendingMachine.updatePurchase, object: vendingMachine)
     }
     
     @IBAction func addBeverageButtonTouched(_ sender: UIButton) {
         guard let beverageType = drinkMenu.mapping(button: sender) else { return }
-//        guard let beverageImage = drinkMenu.purchaseHistoryImage(button: sender) else { return }
-//        imagesStackView.addArrangedSubview(UIImageView(image: beverageImage))
         let beverage = BeverageFactory.make(beverageType)
         vendingMachine.addStock(beverage)
     }
@@ -100,6 +78,15 @@ class ViewController: UIViewController ,VendingMachinedable {
             self.numberOfStock[index].text =
                 String(notification?[ObjectIdentifier(drinkType)]?.count ?? 0)
         }
+    }
+    
+    @objc private func updatePurchaseScrollImage(_ notification : Notification) {
+        guard let beverageType = notification.userInfo?["beverageType"] as? Beverage.Type else { return }
+        guard let card = BeverageFactory.makeImage(beverageType) else { return }
+        let imageView = UIImageView(image: card)
+        imageView.frame = CGRect(x: scrollView.contentSize.width, y: scrollView.bounds.origin.y, width: 200, height: 200)
+        scrollView.addSubview(imageView)
+        scrollView.contentSize.width += 150
     }
     
 }

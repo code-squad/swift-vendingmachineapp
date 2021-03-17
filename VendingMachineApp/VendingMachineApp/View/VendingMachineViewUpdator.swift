@@ -16,6 +16,8 @@ protocol VendingMachineViewPresenter {
     func updateBalance(label: UILabel)
     
     func updateDispensedList(scrollView: UIScrollView, images: [UIImage], typeList: [Shopable.Type])
+    
+    func addItemToDispensedList(scrollView: UIScrollView, images: [UIImage], typeList: [Shopable.Type])
 }
 
 class VendingMachineViewUpdator: VendingMachineViewPresenter {
@@ -77,30 +79,50 @@ class VendingMachineViewUpdator: VendingMachineViewPresenter {
         let count = purchased.count
         
         guard count > 0 else { return }
-        
-        scrollView.subviews.forEach { (view) in
-            view.removeFromSuperview()
-        }
 
         let sizeUnit: CGFloat = 200
-        let yPosition = scrollView.bounds.height/2 - sizeUnit/2
-        scrollView.contentSize.width = CGFloat(count + 1) * sizeUnit/2
+        scrollView.contentSize.width = sizeUnit/2
         
         for i in 1...count {
-            let targetIdx = typeList.firstIndex { (listItem) -> Bool in
-                ObjectIdentifier(listItem) == ObjectIdentifier(type(of: purchased[count-i]))
-            }
-            
-            if let targetIdx = targetIdx {
-                let newView = UIImageView(frame: CGRect(x: CGFloat(i-1) * sizeUnit/2,
-                                                        y: yPosition,
-                                                        width: sizeUnit,
-                                                        height: sizeUnit))
-                newView.image = images[targetIdx]
-                newView.contentMode = .scaleAspectFit
-                
-                scrollView.addSubview(newView)
+            if let image = productImage(for: purchased[count-i], typeList, images) {
+                addImageView(xPosition: CGFloat(count-i) * sizeUnit/2, sizeUnit: sizeUnit, scrollView: scrollView, image: image)
             }
         }
+    }
+    
+    func addItemToDispensedList(scrollView: UIScrollView, images: [UIImage], typeList: [Shopable.Type]) {
+        
+        let itemToUpdate = workerInterface.purchased().last ?? Beverage()
+        let sizeUnit: CGFloat = 200
+
+        scrollView.subviews.forEach { (view) in
+            view.frame = view.frame.offsetBy(dx: sizeUnit/2, dy: 0)
+        }
+        
+        if let image = productImage(for: itemToUpdate, typeList, images) {
+            addImageView(xPosition: 0, sizeUnit: sizeUnit, scrollView: scrollView, image: image)
+        }
+    }
+    
+    private func productImage(for item: Shopable,_ typeList: [Shopable.Type],_ images: [UIImage]) -> UIImage? {
+        if let targetIdx = typeList.firstIndex(where: { (listItem) -> Bool in
+            ObjectIdentifier(listItem) == ObjectIdentifier(type(of: item))
+        }) {
+            return images[targetIdx]
+        } else {
+            return nil
+        }
+    }
+    
+    private func addImageView(xPosition: CGFloat, sizeUnit: CGFloat, scrollView: UIScrollView, image: UIImage) {
+        let yPosition = scrollView.bounds.height/2 - sizeUnit/2
+        let newView = UIImageView(frame: CGRect(x: xPosition,
+                                                y: yPosition,
+                                                width: sizeUnit,
+                                                height: sizeUnit))
+        newView.image = image
+        newView.contentMode = .scaleAspectFit
+        scrollView.addSubview(newView)
+        scrollView.contentSize.width += sizeUnit/2
     }
 }

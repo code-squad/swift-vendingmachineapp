@@ -93,7 +93,7 @@ class ViewController: UIViewController {
     }
     
     @objc func didBoughtItem(_ notification: Notification) {
-        presenter.updateDispensedList(scrollView: dispensedListScrollView,
+        presenter.addItemToDispensedList(scrollView: dispensedListScrollView,
                                       images: beverageImages,
                                       typeList: itemTypes)
     }

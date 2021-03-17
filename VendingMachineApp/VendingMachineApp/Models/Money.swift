@@ -23,7 +23,7 @@ class Money: NSObject, NSCoding {
     }
     
     required init?(coder: NSCoder) {
-        self.property = coder.decodeObject(forKey: "property") as! Int
+        self.property = coder.decodeInteger(forKey: "property")
     }
     func deposit(unit: Int) {
         property += unit

@@ -18,11 +18,15 @@ class VendingMachine: NSObject,VendingMachineManagable, NSCoding {
     private var moneyManager: MoneyManagable
     private var inventoryManager: InventoryManagable
     private var purchaseHistoryManager: PurchaseHistoryManagable
+    private let beverageMapper: BeverageMapperable
+    private let moneyMapper: MoneyMapperable
     
-    init(moneyManager: MoneyManagable, inventoryManager: InventoryManagable, purchaseHistoryManager: PurchaseHistoryManagable) {
+    init(moneyManager: MoneyManagable, inventoryManager: InventoryManagable, purchaseHistoryManager: PurchaseHistoryManagable, beverageMapper: BeverageMapperable, moneyMapper: MoneyMapperable) {
         self.moneyManager = moneyManager
         self.inventoryManager = inventoryManager
         self.purchaseHistoryManager = purchaseHistoryManager
+        self.beverageMapper = beverageMapper
+        self.moneyMapper = moneyMapper
     }
     
     func encode(with coder: NSCoder) {
@@ -35,7 +39,9 @@ class VendingMachine: NSObject,VendingMachineManagable, NSCoding {
         let moneyManager = coder.decodeObject(forKey: "moneyManager") as! MoneyManagable
         let inventoryManager = coder.decodeObject(forKey: "inventoryManager") as! InventoryManagable
         let purchaseHistoryManager = coder.decodeObject(forKey: "purchaseHistoryManager") as! PurchaseHistoryManagable
-        self.init(moneyManager: moneyManager, inventoryManager: inventoryManager, purchaseHistoryManager: purchaseHistoryManager)
+        let beverageMapper = BeverageMapper(beverageTypes: [Banana.self, Strawberry.self, TOP.self, Cantata.self, Cola.self, Cider.self])
+        let moneyMapper = MoneyMapper(moneyInputTypes: [Money.Input.oneThousand, Money.Input.fiveThousand])
+        self.init(moneyManager: moneyManager, inventoryManager: inventoryManager, purchaseHistoryManager: purchaseHistoryManager, beverageMapper: beverageMapper, moneyMapper: moneyMapper)
     }
     
     func readBalance() -> Int {
@@ -78,10 +84,10 @@ class VendingMachine: NSObject,VendingMachineManagable, NSCoding {
     }
     
     func mappingIndexToBeverageType(by index: Int) -> Beverage.Type? {
-        return inventoryManager.mappingIndexToBeverageType(by: index)
+        return self.beverageMapper.mapping(by: index)
     }
     
     func mappingIndexToMoneyInput(by index: Int) -> Money.Input? {
-        return inventoryManager.mappingIndexToMoneyInput(by: index)
+        return self.moneyMapper.mapping(by: index)
     }
 }

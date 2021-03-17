@@ -22,7 +22,9 @@ class VendingMachineDataManager {
     
     static func load() -> VendingMachine? {
         do {
-            guard let loadedData: Data = UserDefaults.standard.data(forKey: key) else { return nil }
+            guard let loadedData: Data = UserDefaults.standard.data(forKey: key) else {
+                return VendingMachine(moneyManager: Money(), inventoryManager: Inventory(), purchaseHistoryManager: PurchaseHistory(), beverageMapper: BeverageMapper(beverageTypes: [Banana.self, Strawberry.self, TOP.self, Cantata.self, Cola.self, Cider.self]), moneyMapper: MoneyMapper(moneyInputTypes: [Money.Input.oneThousand, Money.Input.fiveThousand]))
+            }
             guard let data = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(loadedData) else { return nil }
             guard let vendingMachine = data as? VendingMachine else { return nil }
             return vendingMachine

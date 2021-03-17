@@ -28,11 +28,14 @@ class Inventory: NSObject, InventoryManagable, NSCoding {
         self.init(inventory: inventory, inventoryBox: inventoryBox)
     }
     
-    func encode(with coder: NSCoder) {}
+    func encode(with coder: NSCoder) {
+        coder.encode(inventory, forKey: "inventory")
+        coder.encode(inventoryBox, forKey: "inventoryBox")
+    }
     
     required init?(coder: NSCoder) {
-        self.inventory = coder.decodeObject(forKey: "inventory") as? [Beverage] ?? []
-        self.inventoryBox = coder.decodeObject(forKey: "inventoryBox") as? InventoryBox ?? InventoryBox()
+        self.inventory = coder.decodeObject(forKey: "inventory") as! [Beverage]
+        self.inventoryBox = coder.decodeObject(forKey: "inventoryBox") as! InventoryBoxManagable
     }
     
     func addBeverage(_ beverageType: Beverage.Type) {
@@ -74,14 +77,6 @@ class Inventory: NSObject, InventoryManagable, NSCoding {
     func removeBeverageInInventoryBox(beverageType: Beverage.Type) -> Beverage? {
         self.removeBeverage(beverageType: beverageType)
         return self.inventoryBox.removeBeverage(beverageType: beverageType)
-    }
-    
-    func mappingIndexToBeverageType(by index: Int) -> Beverage.Type? {
-        return self.inventoryBox.mappingIndexToBeverageType(by: index)
-    }
-    
-    func mappingIndexToMoneyInput(by index: Int) -> Money.Input? {
-        return self.inventoryBox.mappingIndexToMoneyInput(by: index)
     }
     
     private func removeBeverage(beverageType: Beverage.Type) {

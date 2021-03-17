@@ -8,5 +8,7 @@
 import Foundation
 
 extension Notification.Name {
-    static let vendingMachineNotification = Notification.Name("vendingMachineNotification")
+    static let addStockButton = Notification.Name("addStockButton")
+    static let rechargeButton = Notification.Name("rechargeButton")
 }
+

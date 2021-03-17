@@ -18,6 +18,17 @@ class ViewController: UIViewController ,VendingMachinedable {
     private var paymentMenu : PaymentMenu!
     private var drinkMenu : DrinkMenu!
     
+    var scrollView : UIScrollView!
+    var imagesStackView : UIStackView = {
+        var stack = UIStackView()
+        stack.axis = .horizontal
+        stack.alignment = .fill
+        stack.distribution = .fillEqually
+        stack.spacing = 20
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        return stack
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         drinkMenu = DrinkMenu(drinkButtons: addStockButton)
@@ -25,6 +36,17 @@ class ViewController: UIViewController ,VendingMachinedable {
         changeBalanceLabel()
         changeBeverageLabel()
         setNotificationObserver()
+        
+        scrollView = UIScrollView(frame: CGRect(x: 40, y: 575, width: view.frame.width, height: 200))
+        scrollView.backgroundColor = .systemTeal
+        scrollView.contentSize = CGSize(width: scrollView.contentSize.width, height: scrollView.contentSize.height)
+        view.addSubview(scrollView)
+        
+        scrollView.addSubview(imagesStackView)
+        imagesStackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor).isActive = true
+        imagesStackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor).isActive = true
+        imagesStackView.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
+        imagesStackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
     }
     
     func setNotificationObserver() {
@@ -33,7 +55,9 @@ class ViewController: UIViewController ,VendingMachinedable {
     }
     
     @IBAction func buyBeverageButtonTouched(_ sender: UIButton) {
-        guard let beverageType = drinkMenu.addMenu(button: sender) else { return }
+        guard let beverageType = drinkMenu.add(button: sender) else { return }
+        guard let beverageImage = drinkMenu.purchaseHistoryImage(button: sender) else { return }
+        imagesStackView.addArrangedSubview(UIImageView(image: beverageImage))
         let beverage = BeverageFactory.make(beverageType)
         vendingMachine.addStock(beverage)
     }
@@ -65,6 +89,6 @@ class ViewController: UIViewController ,VendingMachinedable {
             self.numberOfStock[index].text =
                 String(notification?[ObjectIdentifier(drinkType)]?.count ?? 0)
         }
-        
     }
+    
 }

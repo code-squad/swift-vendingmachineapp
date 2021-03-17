@@ -364,90 +364,11 @@
                                     <outletCollection property="buyDrinkButtons" destination="j62-ol-OpH" collectionClass="NSMutableArray" id="S3V-qv-YCM"/>
                                 </connections>
                             </stackView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ozR-ex-hW8">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ozR-ex-hW8" customClass="PurchaseHistoryScrollView" customModule="VendingMachineApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="575" width="774" height="150"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="-50" translatesAutoresizingMaskIntoConstraints="NO" id="TXf-T5-tZf">
-                                        <rect key="frame" x="0.0" y="0.0" width="1150" height="150"/>
-                                        <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BlueBottle Cold Brew(Bold)" translatesAutoresizingMaskIntoConstraints="NO" id="uB0-aQ-dP2">
-                                                <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="150" id="IPo-6t-49B"/>
-                                                    <constraint firstAttribute="width" constant="150" id="LAW-zN-Ka5"/>
-                                                </constraints>
-                                            </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BlueBottle Cold Brew(Bold)" translatesAutoresizingMaskIntoConstraints="NO" id="lQY-eL-aya">
-                                                <rect key="frame" x="100" y="0.0" width="150" height="150"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="150" id="R7s-Rn-1MB"/>
-                                                    <constraint firstAttribute="height" constant="150" id="qHV-Bk-fzk"/>
-                                                </constraints>
-                                            </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BlueBottle Cold Brew(Bold)" translatesAutoresizingMaskIntoConstraints="NO" id="O3O-BK-2UN">
-                                                <rect key="frame" x="200" y="0.0" width="150" height="150"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="150" id="dGr-Gn-jfr"/>
-                                                    <constraint firstAttribute="width" constant="150" id="eMt-H9-8Xg"/>
-                                                </constraints>
-                                            </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BlueBottle Cold Brew(Bold)" translatesAutoresizingMaskIntoConstraints="NO" id="Sss-hy-9n6">
-                                                <rect key="frame" x="300" y="0.0" width="150" height="150"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="150" id="28g-Bi-p3v"/>
-                                                    <constraint firstAttribute="height" constant="150" id="A17-1Q-tdK"/>
-                                                </constraints>
-                                            </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BlueBottle Cold Brew(Bold)" translatesAutoresizingMaskIntoConstraints="NO" id="pOs-Xv-mYr">
-                                                <rect key="frame" x="400" y="0.0" width="150" height="150"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="150" id="MMm-h5-t26"/>
-                                                    <constraint firstAttribute="height" constant="150" id="drQ-EB-Fli"/>
-                                                </constraints>
-                                            </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BlueBottle Cold Brew(Bold)" translatesAutoresizingMaskIntoConstraints="NO" id="kDv-yO-yNm">
-                                                <rect key="frame" x="500" y="0.0" width="150" height="150"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="150" id="Gzm-Su-xSD"/>
-                                                    <constraint firstAttribute="width" constant="150" id="vQh-45-yoj"/>
-                                                </constraints>
-                                            </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BlueBottle Cold Brew(Bold)" translatesAutoresizingMaskIntoConstraints="NO" id="vQT-Ej-XF7">
-                                                <rect key="frame" x="600" y="0.0" width="150" height="150"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="150" id="CLU-vp-Tea"/>
-                                                    <constraint firstAttribute="width" constant="150" id="igD-XU-VMp"/>
-                                                </constraints>
-                                            </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BlueBottle Cold Brew(Bold)" translatesAutoresizingMaskIntoConstraints="NO" id="yok-LV-IEB">
-                                                <rect key="frame" x="700" y="0.0" width="150" height="150"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="150" id="jmf-fp-wbI"/>
-                                                    <constraint firstAttribute="height" constant="150" id="yPr-43-e6k"/>
-                                                </constraints>
-                                            </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BlueBottle Cold Brew(Bold)" translatesAutoresizingMaskIntoConstraints="NO" id="HHT-Rn-KtT">
-                                                <rect key="frame" x="800" y="0.0" width="150" height="150"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="150" id="Qle-Az-2uQ"/>
-                                                    <constraint firstAttribute="width" constant="150" id="Ry8-V3-jqm"/>
-                                                </constraints>
-                                            </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BlueBottle Cold Brew(Bold)" translatesAutoresizingMaskIntoConstraints="NO" id="h9v-85-OVB">
-                                                <rect key="frame" x="900" y="0.0" width="150" height="150"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="150" id="pC3-hS-tfY"/>
-                                                    <constraint firstAttribute="width" constant="150" id="uKz-fT-0oH"/>
-                                                </constraints>
-                                            </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BlueBottle Cold Brew(Bold)" translatesAutoresizingMaskIntoConstraints="NO" id="wWW-Qb-VVa">
-                                                <rect key="frame" x="1000" y="0.0" width="150" height="150"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="150" id="2VC-aE-VHR"/>
-                                                    <constraint firstAttribute="width" constant="150" id="f4F-yd-lw2"/>
-                                                </constraints>
-                                            </imageView>
-                                        </subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="-50" translatesAutoresizingMaskIntoConstraints="NO" id="TXf-T5-tZf" userLabel="PurchaseHistoryStackView">
+                                        <rect key="frame" x="0.0" y="0.0" width="774" height="150"/>
                                     </stackView>
                                 </subviews>
                                 <constraints>
@@ -461,6 +382,9 @@
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="Pvh-z4-bnE"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="TFF-Np-Ng7"/>
+                                <connections>
+                                    <outlet property="purchaseHistoryStackView" destination="TXf-T5-tZf" id="YDS-HF-V3G"/>
+                                </connections>
                             </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>

@@ -60,6 +60,8 @@
 		22E4756625E6288600417A37 /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E4756525E6288600417A37 /* Coffee.swift */; };
 		22E4756925E6288E00417A37 /* Soda.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E4756825E6288E00417A37 /* Soda.swift */; };
 		22E4757325E650C400417A37 /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E4757225E650C400417A37 /* VendingMachine.swift */; };
+		22FCC92326018950007D56F7 /* PurchaseHistoryScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FCC9222601894F007D56F7 /* PurchaseHistoryScrollView.swift */; };
+		22FCC92A2601A087007D56F7 /* PurchaseHistorySubscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FCC9292601A087007D56F7 /* PurchaseHistorySubscriber.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +108,8 @@
 		22E4756525E6288600417A37 /* Coffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
 		22E4756825E6288E00417A37 /* Soda.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Soda.swift; sourceTree = "<group>"; };
 		22E4757225E650C400417A37 /* VendingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachine.swift; sourceTree = "<group>"; };
+		22FCC9222601894F007D56F7 /* PurchaseHistoryScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseHistoryScrollView.swift; sourceTree = "<group>"; };
+		22FCC9292601A087007D56F7 /* PurchaseHistorySubscriber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseHistorySubscriber.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +181,7 @@
 			children = (
 				22AD348E25F10A4900D1A9D4 /* SelectPanelStackView.swift */,
 				22AD348625F1093A00D1A9D4 /* TopPanel.swift */,
+				22FCC9222601894F007D56F7 /* PurchaseHistoryScrollView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -241,6 +246,7 @@
 				223A6BD925EF236700AA3483 /* CoinCounter.swift */,
 				223A6BC825EEF89900AA3483 /* Stock.swift */,
 				2255F0A825E8BCA90044B872 /* Date.swift */,
+				22FCC9292601A087007D56F7 /* PurchaseHistorySubscriber.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -390,6 +396,7 @@
 				220AFCE425E9539600FDADEB /* Productization.swift in Sources */,
 				2255F0C725E8DA2F0044B872 /* SeoulStrawberryMilk.swift in Sources */,
 				223A6BE025EF25B300AA3483 /* CoinManageable.swift in Sources */,
+				22FCC92326018950007D56F7 /* PurchaseHistoryScrollView.swift in Sources */,
 				22E4753825E60FFA00417A37 /* SceneDelegate.swift in Sources */,
 				22E4756325E6287F00417A37 /* Milk.swift in Sources */,
 				2255F0CE25E8DBE10044B872 /* BingBananaMilk.swift in Sources */,
@@ -399,6 +406,7 @@
 				22C52CB225E9180800A56884 /* BlueBottleColdBrew.swift in Sources */,
 				223A6BDA25EF236800AA3483 /* CoinCounter.swift in Sources */,
 				223A6BC925EEF89900AA3483 /* Stock.swift in Sources */,
+				22FCC92A2601A087007D56F7 /* PurchaseHistorySubscriber.swift in Sources */,
 				22AD348F25F10A4900D1A9D4 /* SelectPanelStackView.swift in Sources */,
 				221239F725F5F99200064DF5 /* DrinkProductable.swift in Sources */,
 				226CAB5225EBCB0D00196488 /* DrinkFactory.swift in Sources */,

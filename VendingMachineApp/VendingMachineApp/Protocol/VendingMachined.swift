@@ -13,4 +13,5 @@ protocol VendingMachined {
     func checkCurrentBalance() -> Int
     func showBeverageStock(drinkType : Beverage.Type) -> Int
     func purchaseBeverage(beverageType : Beverage.Type)
+    func purchaseHistory() -> [Beverage]
 }

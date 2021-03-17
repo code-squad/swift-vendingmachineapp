@@ -70,7 +70,7 @@ class ViewController: UIViewController ,VendingMachinedable {
     
     private func changePurchaseScrollView() {
         vendingMachine.purchaseHistory().forEach { (beverage) in
-            guard let card = BeverageFactory.makeImage(type(of: beverage.self)) else { return }
+            guard let card = BeverageImageFactory.make(type(of: beverage.self)) else { return }
             updatePurchaseScrollImages(card: card)
         }
     }
@@ -97,7 +97,7 @@ class ViewController: UIViewController ,VendingMachinedable {
     
     @objc private func updatePurchaseImage(_ notification : Notification) {
         guard let beverageType = notification.userInfo?["beverageType"] as? Beverage.Type else { return }
-        guard let card = BeverageFactory.makeImage(beverageType) else { return }
+        guard let card = BeverageImageFactory.make(beverageType) else { return }
         updatePurchaseScrollImages(card: card)
     }
     

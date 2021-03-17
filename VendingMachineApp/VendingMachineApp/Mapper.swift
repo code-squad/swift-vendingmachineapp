@@ -14,8 +14,7 @@ class Mapper {
     init(drinkButtons : [UIButton], drinkTypeList : [Beverage.Type]) {
         self.map = Dictionary(uniqueKeysWithValues: zip(drinkButtons, drinkTypeList))
     }
-    
-    func mapping(button : UIButton) -> Beverage.Type? {
+    subscript(button : UIButton) -> Beverage.Type? {
         return map[button]
     }
 }

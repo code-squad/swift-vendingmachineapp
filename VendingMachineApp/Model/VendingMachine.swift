@@ -7,6 +7,16 @@
 
 import Foundation
 
+protocol AdminOfVendingMachine {
+    func append(product : Beverage)
+    func appendToHistroy(buy : Beverage)
+}
+
+protocol UserOfVendingMachine {
+    func purchase(with beverage : Beverage) -> Beverage?
+    func getProduct(with beverageType : Beverage.Type) -> Beverage?
+}
+
 class VendingMachine : NSObject, NSCoding {
     
     private var money : Money
@@ -54,16 +64,6 @@ class VendingMachine : NSObject, NSCoding {
         money.minus(with: coins)
         NotificationCenter.default.post(name: VendingMachine.CoinChanged, object: self)
     }
-    
-    //  특정 상품 인스턴스를 넘겨서 재고를 추가하는 메소드
-    public func append(product : Beverage){
-        stock.append(item: product)
-        NotificationCenter.default.post(name: VendingMachine.StockCountChanged, object: self)
-    }
-    private func appendToHistroy(buy : Beverage){
-        soldHistory.append(item: buy)
-        NotificationCenter.default.post(name: VendingMachine.SoldHistoryChanged, object: self)
-    }
     //  현재 금액으로 구매가능한 음료수 목록을 리턴하는 메소드
     public func availableProducts() -> [Beverage]{
         return stock.getAvailableProducts(with: money)
@@ -71,20 +71,6 @@ class VendingMachine : NSObject, NSCoding {
     public func availableWithCurrentCoin(to beverage : Beverage) -> Bool{
         return money.isPurchasable(with : beverage.price)
     }
-    
-    public func purchase(with beverage : Beverage) -> Beverage?{
-        if stock.remove(item: beverage) {
-            appendToHistroy(buy: beverage)
-            uncharge(coins: beverage.price)
-            NotificationCenter.default.post(name: VendingMachine.StockCountChanged, object: self)
-        }
-        return beverage
-    }
-    public func getProduct(with beverageType : Beverage.Type) -> Beverage?{
-        let dict = stock.toDictionary()
-        return dict[ObjectIdentifier(beverageType)]?.first
-    }
-    
     //  잔액을 돌려주는 메소드
     public func returnCoins() -> Int {
         NotificationCenter.default.post(name: VendingMachine.CoinChanged, object: self)
@@ -117,4 +103,29 @@ class VendingMachine : NSObject, NSCoding {
     }
 }
 
+extension VendingMachine : AdminOfVendingMachine {
+    //  특정 상품 인스턴스를 넘겨서 재고를 추가하는 메소드
+    public func append(product : Beverage){
+        stock.append(item: product)
+        NotificationCenter.default.post(name: VendingMachine.StockCountChanged, object: self)
+    }
+    internal func appendToHistroy(buy : Beverage){
+        soldHistory.append(item: buy)
+        NotificationCenter.default.post(name: VendingMachine.SoldHistoryChanged, object: self)
+    }
+}
 
+extension VendingMachine : UserOfVendingMachine{
+    public func purchase(with beverage : Beverage) -> Beverage?{
+        if stock.remove(item: beverage) {
+            appendToHistroy(buy: beverage)
+            uncharge(coins: beverage.price)
+            NotificationCenter.default.post(name: VendingMachine.StockCountChanged, object: self)
+        }
+        return beverage
+    }
+    public func getProduct(with beverageType : Beverage.Type) -> Beverage?{
+        let dict = stock.toDictionary()
+        return dict[ObjectIdentifier(beverageType)]?.first
+    }
+}

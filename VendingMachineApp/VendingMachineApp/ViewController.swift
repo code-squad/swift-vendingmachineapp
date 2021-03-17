@@ -49,17 +49,17 @@ class ViewController: UIViewController {
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(didStockListChanged(_:)),
                                                name: VendingMachine.NotiKeys.stockListUpdate,
-                                               object: nil)
+                                               object: appDelegate.vendingMachine)
         
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(didBalanceChanged(_:)),
                                                name: VendingMachine.NotiKeys.balanceUpdate,
-                                               object: nil)
+                                               object: appDelegate.vendingMachine)
         
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(didBoughtItem(_:)),
                                                name: VendingMachine.NotiKeys.dispensdListUpdate,
-                                               object: nil)
+                                               object: appDelegate.vendingMachine)
     }
     
     override func viewDidAppear(_ animated: Bool) {

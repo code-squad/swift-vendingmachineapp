@@ -2,16 +2,8 @@ import UIKit
 
 class AddBeverageButton: UIButton {
     
-    var beverageType: Beverage.Type!
-    
     override init(frame: CGRect) {
-        super.init(frame: frame)
-        configrueButton()
-    }
-    
-    init(frame: CGRect, type: Beverage.Type) {
-        super.init(frame: frame)
-        beverageType = type
+        super.init(frame: CGRect(x: 100, y: 30, width: 80, height: 40))
         configrueButton()
     }
     

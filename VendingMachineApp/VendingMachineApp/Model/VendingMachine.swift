@@ -40,7 +40,7 @@ class VendingMachine: NSObject, NSCoding {
     
     func addBeverage(beverage: Beverage) {
         beverages.append(from: beverage)
-        NotificationCenter.default.post(name: VendingMachine.updateBeverages, object: self, userInfo: nil)
+        NotificationCenter.default.post(name: VendingMachine.updateBeverages, object: self, userInfo: ["BeverageType": type(of: beverage)])
     }
     
     func getTheMoney(from customer: Int) {
@@ -127,5 +127,15 @@ class VendingMachine: NSObject, NSCoding {
     func resetPurchased() {
         purchased.removeAll()
         NotificationCenter.default.post(name: VendingMachine.updatePurchased, object: self, userInfo: nil)
+    }
+    
+    func compareProductNameToInstance(name: String) -> Beverage? {
+        let beverageList = menuList()
+        for beverage in beverageList {
+            if beverage.productName == name {
+                return beverage
+            }
+        }
+        return nil
     }
 }

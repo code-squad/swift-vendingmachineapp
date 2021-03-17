@@ -8,10 +8,10 @@
 import Foundation
 
 class Cantata: Coffee {
-    enum Color {
-        case brown
-        case redBlack
-        case orange
+    enum Color: String {
+        case brown = "brown"
+        case redBlack = "redBlack"
+        case orange = "orange"
     }
     
     private let design: Color
@@ -27,12 +27,12 @@ class Cantata: Coffee {
     }
     
     required init?(coder decoder: NSCoder) {
-        design = decoder.decodeObject(forKey: "design") as! Color
+        design = Color(rawValue: decoder.decodeObject(forKey: "design") as! String) ?? .brown
         super.init(coder: decoder)
     }
     
     override func encode(with coder: NSCoder) {
-        coder.encode(design, forKey: "design")
+        coder.encode(design.rawValue, forKey: "design")
         super.encode(with: coder)
     }
     

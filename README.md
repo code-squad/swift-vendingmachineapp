@@ -22,3 +22,11 @@
 
 ![화면 기록 2021-03-10 오전 10 57 41](https://user-images.githubusercontent.com/39956881/110565579-0f7d2480-8192-11eb-94ec-807a030b7010.gif)
 
+## step 6. 구매목록 View 코드
+
+### 주요작업
+1. 구매목록을 보여주는 UIScrollView를 추가 후 UIImageView 구매 삼품 이미지를 추가
+
+### 스크린샷
+
+![화면 기록 2021-03-16 오후 5 48 13](https://user-images.githubusercontent.com/39956881/111414602-9ba7c280-8723-11eb-972f-e8c510152a57.gif)

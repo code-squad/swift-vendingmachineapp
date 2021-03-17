@@ -28,8 +28,9 @@ class AdminBeverageStackView: UIStackView {
     }
     
     func setUpStackView() {
-        for image in beverageImages {
-            let imageView = StockView(frame: CGRect(x: 0, y: 0, width: 150, height: 150), image: image!)
+        let beverageList = VendingMachine.sharedInstance().menuList()
+        for index in 0..<beverageImages.count {
+            let imageView = StockView(frame: CGRect(x: 0, y: 0, width: 150, height: 150), image: beverageImages[index]!, type: type(of:beverageList[index]))
             addArrangedSubview(imageView)
         }
     }

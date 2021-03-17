@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		712929A12601A3400076F618 /* AddBeverageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712929A02601A3400076F618 /* AddBeverageButton.swift */; };
 		712CC9E02600495A0021A459 /* PurchasedScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712CC9DF2600495A0021A459 /* PurchasedScrollView.swift */; };
 		712CC9EA26004F6C0021A459 /* AdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712CC9E926004F6C0021A459 /* AdminViewController.swift */; };
 		7179173725F4B6F6001E66F8 /* VendingMachineData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7179173625F4B6F6001E66F8 /* VendingMachineData.swift */; };
@@ -65,6 +66,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		712929A02601A3400076F618 /* AddBeverageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBeverageButton.swift; sourceTree = "<group>"; };
 		712CC9DF2600495A0021A459 /* PurchasedScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasedScrollView.swift; sourceTree = "<group>"; };
 		712CC9E926004F6C0021A459 /* AdminViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminViewController.swift; sourceTree = "<group>"; };
 		7179173625F4B6F6001E66F8 /* VendingMachineData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineData.swift; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 				712CC9DF2600495A0021A459 /* PurchasedScrollView.swift */,
 				7191448826007724002322CB /* AdminBeverageStackView.swift */,
 				71914498260081C1002322CB /* StockView.swift */,
+				712929A02601A3400076F618 /* AddBeverageButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -322,6 +325,7 @@
 				719F18C225E76F2100671D77 /* Cantata.swift in Sources */,
 				717DE4FC25E5E0A6004B2269 /* AppDelegate.swift in Sources */,
 				718B07FF25FF425600EC6538 /* CheckAdditive1.swift in Sources */,
+				712929A12601A3400076F618 /* AddBeverageButton.swift in Sources */,
 				7191448926007724002322CB /* AdminBeverageStackView.swift in Sources */,
 				71D1B81F25EE0745000E9142 /* InsertedMoney.swift in Sources */,
 				7179173725F4B6F6001E66F8 /* VendingMachineData.swift in Sources */,

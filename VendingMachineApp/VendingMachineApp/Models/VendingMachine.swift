@@ -7,7 +7,7 @@
 
 import Foundation
 
-class VendingMachine: NSObject, NSCoding, InventoryTakeable {
+class VendingMachine: NSObject, NSCoding, InventoryTakeable, Archivable, Unarchivable {
     enum Notification {
         static let DidChangeInventory = Foundation.Notification.Name("DidChangeInventory")
         static let DidChangeBalance = Foundation.Notification.Name("DidChangeBalance")

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		E474526625FDFF6F007D894F /* InventorySheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E474526525FDFF6F007D894F /* InventorySheet.swift */; };
+		E47452772600A9AE007D894F /* SaveVendingMachineUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47452762600A9AE007D894F /* SaveVendingMachineUseCase.swift */; };
+		E474527B2600AE22007D894F /* LoadVendingMachineUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E474527A2600AE22007D894F /* LoadVendingMachineUseCase.swift */; };
 		E4A82DCF25F88F23001F03E1 /* String+ExtractingNumbers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A82DCE25F88F23001F03E1 /* String+ExtractingNumbers.swift */; };
 		E4D472A725E5ED65007FAAA0 /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D472A625E5ED65007FAAA0 /* VendingMachine.swift */; };
 		E4D472B825E76C51007FAAA0 /* Date+DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D472B725E76C51007FAAA0 /* Date+DateFormatter.swift */; };
@@ -66,6 +68,8 @@
 
 /* Begin PBXFileReference section */
 		E474526525FDFF6F007D894F /* InventorySheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventorySheet.swift; sourceTree = "<group>"; };
+		E47452762600A9AE007D894F /* SaveVendingMachineUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveVendingMachineUseCase.swift; sourceTree = "<group>"; };
+		E474527A2600AE22007D894F /* LoadVendingMachineUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadVendingMachineUseCase.swift; sourceTree = "<group>"; };
 		E4A82DCE25F88F23001F03E1 /* String+ExtractingNumbers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+ExtractingNumbers.swift"; sourceTree = "<group>"; };
 		E4D472A625E5ED65007FAAA0 /* VendingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachine.swift; sourceTree = "<group>"; };
 		E4D472B725E76C51007FAAA0 /* Date+DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+DateFormatter.swift"; sourceTree = "<group>"; };
@@ -118,6 +122,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E474527E26019844007D894F /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				E47452762600A9AE007D894F /* SaveVendingMachineUseCase.swift */,
+				E474527A2600AE22007D894F /* LoadVendingMachineUseCase.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
 		E4D4732F25EF778F007FAAA0 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -209,6 +222,7 @@
 			children = (
 				E4E22CDF25E51B27008CA611 /* AppDelegate.swift */,
 				E4E22CE125E51B27008CA611 /* SceneDelegate.swift */,
+				E474527E26019844007D894F /* UseCases */,
 				E4D4746B25F670A4007FAAA0 /* Models */,
 				E4D4746D25F670D7007FAAA0 /* Views */,
 				E4D4746C25F670B3007FAAA0 /* Controllers */,
@@ -358,6 +372,7 @@
 				E4E22CF625E51E11008CA611 /* Beverage.swift in Sources */,
 				E4D473B925F0ADF3007FAAA0 /* PurchaseHistory.swift in Sources */,
 				E4D4743F25F5F746007FAAA0 /* CashBox.swift in Sources */,
+				E47452772600A9AE007D894F /* SaveVendingMachineUseCase.swift in Sources */,
 				E474526625FDFF6F007D894F /* InventorySheet.swift in Sources */,
 				E4E22CE225E51B27008CA611 /* SceneDelegate.swift in Sources */,
 				E4E22D1E25E5EC53008CA611 /* SoftDrink.swift in Sources */,
@@ -366,6 +381,7 @@
 				E4D4734225EF8558007FAAA0 /* BeverageFactory.swift in Sources */,
 				E4D4734825EF8634007FAAA0 /* Slot.swift in Sources */,
 				E4D4734B25EF8651007FAAA0 /* Inventory.swift in Sources */,
+				E474527B2600AE22007D894F /* LoadVendingMachineUseCase.swift in Sources */,
 				E4D4733C25EF7EAA007FAAA0 /* BeverageProtocols.swift in Sources */,
 				E4E22D2125E5ECC6008CA611 /* Coffee.swift in Sources */,
 				E4D472A725E5ED65007FAAA0 /* VendingMachine.swift in Sources */,

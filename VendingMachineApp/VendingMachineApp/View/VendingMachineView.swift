@@ -12,10 +12,10 @@ class VendingMachineView: UIView {
         self.backgroundColor = .gray
         
         let VMStackView = VendingMachineStackView()
-        VMStackView.setting()
+        VMStackView.setConfiguration()
         
         let balanceStackView = BalanceStackView.init()
-        balanceStackView.setting()
+        balanceStackView.setConfiguration()
         balanceStackView.collectSubelements()
         
         for (key,value) in stock {

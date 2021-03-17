@@ -11,7 +11,7 @@ class BalanceButton : UIButton {
     
     var addingValue : Int = 0
     
-    func setting(with addingValue : Int) {
+    func setCriteria(with addingValue : Int) {
         self.addingValue = addingValue
         self.setTitle("+\(addingValue)", for: .normal)
         self.setTitleColor(.blue, for: .normal)

@@ -9,7 +9,7 @@ import UIKit
 
 class BalanceStackView: UIStackView {
     
-    let balanceLabel = BalanceLabel.init()
+    let balanceLabel = UILabel.init()
     
     func setting() {
         self.translatesAutoresizingMaskIntoConstraints = false
@@ -28,7 +28,7 @@ class BalanceStackView: UIStackView {
         balanceButton_5000.setting(with: 5000)
         balanceButton_5000.addTarget(superview?.superview?.superview, action: #selector(ViewController.doAddBalance(sender:)), for: .touchUpInside)
         
-        balanceLabel.setting(count: 0)
+        balanceLabel.text = "0원"
         NotificationCenter.default.addObserver(self, selector: #selector(didBalanceChanged(_:)), name: .balanceChanged, object: nil)
         
         self.addArrangedSubview(balanceButton_1000)

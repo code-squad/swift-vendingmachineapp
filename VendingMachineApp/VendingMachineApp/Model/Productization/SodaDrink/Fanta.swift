@@ -37,7 +37,7 @@ class Fanta: Soda, Productization {
         self.init(brand: "Coca-Cola",
                   capacity: 600,
                   price: 1330,
-                  name: "Fanta orange",
+                  name: "Fanta Orange",
                   isZeroCalorie: false,
                   flavor: .orange,
                   manufactured: Date(),

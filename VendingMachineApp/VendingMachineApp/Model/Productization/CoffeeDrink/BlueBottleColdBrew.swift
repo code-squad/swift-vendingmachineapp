@@ -36,7 +36,7 @@ class BlueBottleColdBrew: Coffee, Productization {
         self.init(brand: "BlueBottle",
                    capacity: 240,
                    price: 1150,
-                   name: "BlueBottle Cold Brew(Bright)",
+                   name: "BlueBottle Cold Brew(Bold)",
                    caffeineContent: 80,
                    flavor: .bright,
                    manufactured: Date(),

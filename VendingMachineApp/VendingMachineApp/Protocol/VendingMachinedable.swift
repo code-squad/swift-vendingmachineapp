@@ -8,5 +8,5 @@
 import Foundation
 
 protocol VendingMachinedable {
-    var vendingMachine : VendingMachined! { get set }
+    func setVendingMachine(_ vendingMachined : VendingMachined)
 }

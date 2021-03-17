@@ -35,7 +35,11 @@ class ViewController: UIViewController ,VendingMachinedable {
         setNotificationObserver()
     }
     
-    func setNotificationObserver() {
+    func setVendingMachine(_ vendingMachined : VendingMachined){
+        self.vendingMachine = vendingMachined
+    }
+    
+    private func setNotificationObserver() {
         NotificationCenter.default.addObserver(self, selector: #selector(updateNotificationBalanceLabel(_:)), name: VendingMachine.NotificationName.updateBalance, object: vendingMachine)
         NotificationCenter.default.addObserver(self, selector: #selector(updateNotificationBeverageLabel(_:)), name: VendingMachine.NotificationName.updateBeverage, object: vendingMachine)
         NotificationCenter.default.addObserver(self, selector: #selector(updatePurchaseImage(_:)), name: VendingMachine.NotificationName.updatePurchase, object: vendingMachine)

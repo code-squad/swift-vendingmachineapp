@@ -14,9 +14,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var vendingMachine : VendingMachined!
 
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool  {
-        var viewController = window?.rootViewController as! VendingMachinedable
+        let viewController = window?.rootViewController as! VendingMachinedable
         vendingMachine = DataManager.load()
-        viewController.vendingMachine = vendingMachine
+        viewController.setVendingMachine(vendingMachine)
         return true
     }
 

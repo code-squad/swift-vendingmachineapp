@@ -9,7 +9,7 @@ class AdminViewController: UIViewController {
         super.viewDidLoad()
         beverageStackView = AdminBeverageStackView()
         configureBeverageStackView()
-        NotificationCenter.default.addObserver(self, selector: #selector(updateBeverageStock(_:)), name: VendingMachine.updateBeverages, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateBeverageStock(_:)), name: VendingMachine.updateBeverages, object: vendingMachine)
     }
     
     private func updateLabel() {

@@ -18,16 +18,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ig4-dG-eot">
-                                <rect key="frame" x="20" y="50" width="640" height="282.5"/>
+                                <rect key="frame" x="20" y="50" width="640" height="332.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="51L-Pz-136">
-                                        <rect key="frame" x="0.0" y="0.0" width="200" height="282.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="332.5"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2u6-M8-4ho">
                                                 <rect key="frame" x="0.0" y="0.0" width="200" height="22"/>
                                                 <state key="normal" image="plus" catalog="system"/>
                                                 <connections>
-                                                    <action selector="buyBeverageButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="m9H-Iy-NX0"/>
+                                                    <action selector="addBeverageButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="m9H-Iy-NX0"/>
                                                 </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="StrawBerryMilk" translatesAutoresizingMaskIntoConstraints="NO" id="I3Q-OX-WJz" customClass="BeverageImageView" customModule="VendingMachineApp" customModuleProvider="target">
@@ -42,16 +42,25 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B6V-QC-uoi">
+                                                <rect key="frame" x="0.0" y="302.5" width="200" height="30"/>
+                                                <state key="normal" title="구매">
+                                                    <color key="titleColor" systemColor="systemRedColor"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="purchaseButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Mic-hY-yQc"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="gTe-ZN-QS3">
-                                        <rect key="frame" x="220" y="0.0" width="200" height="282.5"/>
+                                        <rect key="frame" x="220" y="0.0" width="200" height="332.5"/>
                                         <subviews>
                                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DQe-7E-ptl">
                                                 <rect key="frame" x="0.0" y="0.0" width="200" height="22"/>
                                                 <state key="normal" image="plus" catalog="system"/>
                                                 <connections>
-                                                    <action selector="buyBeverageButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Wa9-eg-pfT"/>
+                                                    <action selector="addBeverageButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Wa9-eg-pfT"/>
                                                 </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DietCola" translatesAutoresizingMaskIntoConstraints="NO" id="9g7-ko-X0y" customClass="BeverageImageView" customModule="VendingMachineApp" customModuleProvider="target">
@@ -66,16 +75,25 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ycj-00-wxD">
+                                                <rect key="frame" x="0.0" y="302.5" width="200" height="30"/>
+                                                <state key="normal" title="구매">
+                                                    <color key="titleColor" systemColor="systemRedColor"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="purchaseButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9AG-Np-mvX"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="V3V-y5-vFj">
-                                        <rect key="frame" x="440" y="0.0" width="200" height="282.5"/>
+                                        <rect key="frame" x="440" y="0.0" width="200" height="332.5"/>
                                         <subviews>
                                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yDF-bM-nON">
                                                 <rect key="frame" x="0.0" y="0.0" width="200" height="22"/>
                                                 <state key="normal" image="plus" catalog="system"/>
                                                 <connections>
-                                                    <action selector="buyBeverageButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Il9-i6-Ezq"/>
+                                                    <action selector="addBeverageButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Il9-i6-Ezq"/>
                                                 </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TopAmericano" translatesAutoresizingMaskIntoConstraints="NO" id="nmc-dc-3HB" customClass="BeverageImageView" customModule="VendingMachineApp" customModuleProvider="target">
@@ -90,12 +108,21 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MW5-pG-E3s">
+                                                <rect key="frame" x="0.0" y="302.5" width="200" height="30"/>
+                                                <state key="normal" title="구매">
+                                                    <color key="titleColor" systemColor="systemRedColor"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="purchaseButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Lud-Ec-01v"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                     </stackView>
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="k1r-XJ-Tnc">
-                                <rect key="frame" x="832" y="141" width="198" height="100.5"/>
+                                <rect key="frame" x="832" y="166" width="198" height="100.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="dhI-BG-qXN">
                                         <rect key="frame" x="0.0" y="0.0" width="198" height="30"/>
@@ -158,6 +185,9 @@
                         <outletCollection property="addStockButton" destination="yDF-bM-nON" collectionClass="NSMutableArray" id="GBl-27-3cX"/>
                         <outletCollection property="addPaymentButtons" destination="WnV-Qq-puE" collectionClass="NSMutableArray" id="Ont-Z8-H4r"/>
                         <outletCollection property="addPaymentButtons" destination="lGy-fu-3Nf" collectionClass="NSMutableArray" id="8M2-PF-ahM"/>
+                        <outletCollection property="PurchaseButtons" destination="B6V-QC-uoi" collectionClass="NSMutableArray" id="xJa-yM-fYF"/>
+                        <outletCollection property="PurchaseButtons" destination="Ycj-00-wxD" collectionClass="NSMutableArray" id="Cz1-au-2zW"/>
+                        <outletCollection property="PurchaseButtons" destination="MW5-pG-E3s" collectionClass="NSMutableArray" id="GMa-xb-yF3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -172,6 +202,9 @@
         <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

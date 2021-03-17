@@ -38,7 +38,7 @@ class Drinks : NSObject, NSCoding{
     }
     
     func purchase(beverage : Beverage) {
-        guard let index = drinks.firstIndex(of: beverage) else { return }
+        guard let index = drinks.firstIndex(where: { $0 == beverage }) else { return }
         drinks.remove(at: index)
     }
     

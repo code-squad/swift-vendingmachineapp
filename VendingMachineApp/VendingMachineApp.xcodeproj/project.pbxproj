@@ -38,7 +38,7 @@
 		BFD012E72600B042007A54FA /* VendingMachinedable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD012E62600B042007A54FA /* VendingMachinedable.swift */; };
 		BFD012EF2600B05A007A54FA /* VendingMachined.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD012EE2600B05A007A54FA /* VendingMachined.swift */; };
 		BFD012FA2600CBA1007A54FA /* PaymentMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD012F92600CBA1007A54FA /* PaymentMenu.swift */; };
-		BFD013052600D654007A54FA /* DrinkMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD013042600D654007A54FA /* DrinkMenu.swift */; };
+		BFD013052600D654007A54FA /* Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD013042600D654007A54FA /* Mapper.swift */; };
 		BFD013192600F21D007A54FA /* BeverageFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD013182600F21D007A54FA /* BeverageFactory.swift */; };
 /* End PBXBuildFile section */
 
@@ -97,7 +97,7 @@
 		BFD012E62600B042007A54FA /* VendingMachinedable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachinedable.swift; sourceTree = "<group>"; };
 		BFD012EE2600B05A007A54FA /* VendingMachined.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachined.swift; sourceTree = "<group>"; };
 		BFD012F92600CBA1007A54FA /* PaymentMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMenu.swift; sourceTree = "<group>"; };
-		BFD013042600D654007A54FA /* DrinkMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkMenu.swift; sourceTree = "<group>"; };
+		BFD013042600D654007A54FA /* Mapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mapper.swift; sourceTree = "<group>"; };
 		BFD013182600F21D007A54FA /* BeverageFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -159,7 +159,7 @@
 				BF53811725E4A09F0031EE39 /* ViewController.swift */,
 				BFD013182600F21D007A54FA /* BeverageFactory.swift */,
 				BFD012F92600CBA1007A54FA /* PaymentMenu.swift */,
-				BFD013042600D654007A54FA /* DrinkMenu.swift */,
+				BFD013042600D654007A54FA /* Mapper.swift */,
 				BF53811925E4A09F0031EE39 /* Main.storyboard */,
 				BF53811C25E4A0A20031EE39 /* Assets.xcassets */,
 				BF53811E25E4A0A20031EE39 /* LaunchScreen.storyboard */,
@@ -372,7 +372,7 @@
 				BFCA483A25ECC630003D4844 /* BeverageStackView.swift in Sources */,
 				BFD012FA2600CBA1007A54FA /* PaymentMenu.swift in Sources */,
 				BF53818025E4D7450031EE39 /* TopAmericano.swift in Sources */,
-				BFD013052600D654007A54FA /* DrinkMenu.swift in Sources */,
+				BFD013052600D654007A54FA /* Mapper.swift in Sources */,
 				BF53816425E4CB1B0031EE39 /* Milk.swift in Sources */,
 				BF53816925E4CB360031EE39 /* Soda.swift in Sources */,
 				BF53817325E4CC920031EE39 /* StrawberryMilk.swift in Sources */,

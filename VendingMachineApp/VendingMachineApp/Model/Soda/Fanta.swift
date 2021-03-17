@@ -16,14 +16,14 @@ class Fanta: Soda {
 
     private let flavor: Flavor
     
-    init(brand: String, volume: Int, price: Int, name: String, createdAt: Date, expiredAt: Date, suger: Int, flavor: Flavor) {
+    init(brand: String, volume: Int, price: Int, name: String, createdAt: Date, expiredAt: Date, sugar: Int, flavor: Flavor) {
         self.flavor = flavor
-        super.init(brand: brand, volume: volume, price: price, name: name, createdAt: createdAt, expiredAt: expiredAt, suger: suger)
+        super.init(brand: brand, volume: volume, price: price, name: name, createdAt: createdAt, expiredAt: expiredAt, sugar: sugar)
     }
 
     required init() {
         flavor = .orange
-        super.init(brand: "코카콜라", volume: 355, price: 800, name: "환타", createdAt: date, expiredAt: date, suger: 48)
+        super.init(brand: "코카콜라", volume: 355, price: 800, name: "환타", createdAt: date, expiredAt: date, sugar: 48)
     }
     
     required init?(coder decoder: NSCoder) {

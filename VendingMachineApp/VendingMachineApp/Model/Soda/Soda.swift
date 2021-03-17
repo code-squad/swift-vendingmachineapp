@@ -9,25 +9,25 @@ import Foundation
 
 class Soda: Beverage {
     
-    private let suger: Int
+    private let sugar: Int
     
-    init(brand: String, volume: Int, price: Int, name: String, createdAt: Date, expiredAt: Date, suger: Int) {
-        self.suger = suger
+    init(brand: String, volume: Int, price: Int, name: String, createdAt: Date, expiredAt: Date, sugar: Int) {
+        self.sugar = sugar
         super.init(brand: brand, volume: volume, price: price, name: name, createdAt: createdAt, expiredAt: expiredAt)
     }
   
     required init() {
-        suger = 0
+        sugar = 0
         super.init(brand: "brand", volume: 0, price: 0, name: "name", createdAt: Date(), expiredAt: Date())
     }
     
     required init?(coder decoder: NSCoder) {
-        suger = decoder.decodeInteger(forKey: "suger")
+        sugar = decoder.decodeInteger(forKey: "sugar")
         super.init(coder: decoder)
     }
     
     override func encode(with coder: NSCoder) {
-        coder.encode(suger, forKey: "suger")
+        coder.encode(sugar, forKey: "sugar")
         super.encode(with: coder)
     }
     
@@ -35,6 +35,6 @@ class Soda: Beverage {
     //MARK:- method
     
     func isLowSugar(criteria: Int) -> Bool {
-        return suger <= criteria
+        return sugar <= criteria
     }
 }

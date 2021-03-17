@@ -14,15 +14,23 @@ enum Cash: Int {
     case bills = 5000
 }
 
-struct Money {
+class Money: NSObject, NSCoding {
     private(set) var cash = 0
     
-    mutating func add(_ cash: Cash) -> Int {
+    required init?(coder decoder: NSCoder) {
+        cash = decoder.decodeInteger(forKey: "cash")
+    }
+    
+    func encode(with coder: NSCoder) {
+        coder.encode(cash, forKey: "cash")
+    }
+    
+    func add(_ cash: Cash) -> Int {
         self.cash += cash.rawValue
         return self.cash
     }
     
-    mutating func sub(_ money: Int) -> Int {
+    func sub(_ money: Int) -> Int {
         self.cash -= money
         return self.cash
     }

@@ -21,6 +21,19 @@ class TOP: Coffee {
         super.init(brand: "맥심", volume: 275, price: 900, name: "TOP", createdAt: date, expiredAt: date, caffeine: 94)
     }
     
+    required init?(coder decoder: NSCoder) {
+        hot = decoder.decodeBool(forKey: "hot")
+        super.init(coder: decoder)
+    }
+    
+    override func encode(with coder: NSCoder) {
+        coder.encode(hot, forKey: "hot")
+        super.encode(with: coder)
+    }
+    
+    
+    //MARK:- method
+    
     func isHot() -> Bool {
         return hot
     }

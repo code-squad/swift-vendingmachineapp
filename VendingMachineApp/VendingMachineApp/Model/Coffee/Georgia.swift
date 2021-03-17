@@ -28,6 +28,19 @@ class Georgia: Coffee {
         super.init(brand: "코카콜라", volume: 240, price: 1000, name: "조지아", createdAt: date, expiredAt: date, caffeine: 136)
     }
     
+    required init?(coder decoder: NSCoder) {
+        type = decoder.decodeObject(forKey: "type") as! CoffeeType
+        super.init(coder: decoder)
+    }
+    
+    override func encode(with coder: NSCoder) {
+        coder.encode(type, forKey: "type")
+        super.encode(with: coder)
+    }
+    
+    
+    //MARK:- method
+    
     func isNewType() -> Bool {
         return type != .original
     }

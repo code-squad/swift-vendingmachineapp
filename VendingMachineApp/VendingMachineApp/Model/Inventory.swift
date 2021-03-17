@@ -7,16 +7,28 @@
 
 import Foundation
 
-class Inventory : Equatable {
+class Inventory : NSObject, NSCoding {
     private var stocks: [Beverage]
     
-    init() {
+    
+    override init() {
         self.stocks = [Beverage]()
+    }
+    
+    required init?(coder decoder: NSCoder) {
+        stocks = decoder.decodeObject(forKey: "stocks") as! [Beverage]
+    }
+    
+    func encode(with coder: NSCoder) {
+        coder.encode(stocks, forKey: "stocks")
     }
     
     public static func == (lhs: Inventory, rhs: Inventory) -> Bool{
         return lhs.stocks == rhs.stocks
     }
+    
+    
+    //MARK:- method
     
     func append(with item: Beverage) {
         stocks.append(item)

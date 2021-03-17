@@ -21,6 +21,19 @@ class ChocoMilk: Milk {
         super.init(brand: "서울우유", volume: 200, price: 600, name: "초코우유", createdAt: date, expiredAt: date, fatPercent: 5)
     }
     
+    required init?(coder decoder: NSCoder) {
+        syrup = decoder.decodeInteger(forKey: "syrup")
+        super.init(coder: decoder)
+    }
+    
+    override func encode(with coder: NSCoder) {
+        coder.encode(syrup, forKey: "syrup")
+        super.encode(with: coder)
+    }
+    
+    
+    //MARK:- method
+    
     func isLowSyrup(criteria: Int) -> Bool {
         return criteria > syrup
     }

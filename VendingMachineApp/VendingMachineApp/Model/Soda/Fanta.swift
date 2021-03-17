@@ -26,6 +26,19 @@ class Fanta: Soda {
         super.init(brand: "코카콜라", volume: 355, price: 800, name: "환타", createdAt: date, expiredAt: date, suger: 48)
     }
     
+    required init?(coder decoder: NSCoder) {
+        flavor = decoder.decodeObject(forKey: "flavor") as! Flavor
+        super.init(coder: decoder)
+    }
+    
+    override func encode(with coder: NSCoder) {
+        coder.encode(flavor, forKey: "flavor")
+        super.encode(with: coder)
+    }
+    
+    
+    //MARK:- method
+    
     // 개인취향과 일치하는 지 보는 함수
     func isFavorite(flavor: Flavor) -> Bool {
         return self.flavor == flavor

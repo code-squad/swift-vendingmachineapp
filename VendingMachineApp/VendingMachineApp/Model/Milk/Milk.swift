@@ -20,6 +20,19 @@ class Milk: Beverage {
         super.init()
     }
     
+    required init?(coder decoder: NSCoder) {
+        fatPercent = decoder.decodeInteger(forKey: "fatPercent")
+        super.init(coder: decoder)
+    }
+    
+    override func encode(with coder: NSCoder) {
+        coder.encode(fatPercent, forKey: "fatPercent")
+        super.encode(with: coder)
+    }
+    
+    
+    //MARK:- method
+    
     func isLowFat(criteria: Int) -> Bool {
         return fatPercent <= criteria
     }

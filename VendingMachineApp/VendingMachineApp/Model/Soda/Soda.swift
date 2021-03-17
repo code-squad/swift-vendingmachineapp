@@ -21,6 +21,19 @@ class Soda: Beverage {
         super.init(brand: "brand", volume: 0, price: 0, name: "name", createdAt: Date(), expiredAt: Date())
     }
     
+    required init?(coder decoder: NSCoder) {
+        suger = decoder.decodeInteger(forKey: "suger")
+        super.init(coder: decoder)
+    }
+    
+    override func encode(with coder: NSCoder) {
+        coder.encode(suger, forKey: "suger")
+        super.encode(with: coder)
+    }
+    
+    
+    //MARK:- method
+    
     func isLowSugar(criteria: Int) -> Bool {
         return suger <= criteria
     }

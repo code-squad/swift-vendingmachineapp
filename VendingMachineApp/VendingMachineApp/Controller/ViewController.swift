@@ -15,30 +15,29 @@ class ViewController: UIViewController {
     @IBOutlet var beverageLabels: [UILabel]!
     @IBOutlet var rechargeButtons: [UIButton]!
     
-    var vendingMachine: VendingMachinable?
+    var vendingMachine = VendingMachine.shared
     var beverageData = BeverageData()
     var rechargeData = RechargeData()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         curveImageVertex()
         beverageData.setUp(buttons: beverageButtons, labels: beverageLabels)
-        rechargeData.setUP(buttons: beverageButtons)
+        rechargeData.setUP(buttons: rechargeButtons)
         loadSavedLabel()
-        NotificationCenter.default.addObserver(self, selector: #selector(updateBeverageLabel), name: .addStockButton, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(updateRechargeLabel), name: .rechargeButton, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateBeverageLabel), name: .addStockButton, object: self)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateRechargeLabel), name: .rechargeButton, object: self)
     }
     
     @IBAction func addStock(_ sender: UIButton) {
         guard let type = beverageData.showType(with: sender) else { return }
         guard let product = BeverageFactory.releaseBeverage(with: type) else { return }
-        vendingMachine?.addStock(as: product)
+        vendingMachine.addStock(as: product)
     }
     
     @IBAction func rechargeCash(_ sender: UIButton) {
         guard let cash = rechargeData.showCash(with: sender)?.rawValue else { return }
-        print(cash)
-        vendingMachine?.rechargeCash(with: cash)
+        vendingMachine.rechargeCash(with: cash)
     }
     
     func curveImageVertex() {
@@ -48,33 +47,29 @@ class ViewController: UIViewController {
         }
     }
     
-    @objc
     func loadSavedLabel() {
         for button in beverageButtons {
             guard let type = beverageData.showType(with: button), let label = beverageData.showLabel(sender: button) else { return }
-            guard let stock = vendingMachine?.showStock()[ObjectIdentifier(type)] else { return }
-            label.text = "\(stock.count)개"
+            let stock = vendingMachine.showStock()[ObjectIdentifier(type)]
+            label.text = "\(stock?.count ?? 0)개"
         }
-        guard let money = vendingMachine?.showBalance() else { return }
+        let money = vendingMachine.showBalance()
         balanceLabel.text = "\(money)원"
     }
     
     @objc
     func updateBeverageLabel(_ notification: Notification) {
-        let updateObject = notification.object as! VendingMachinable
-        self.vendingMachine = updateObject
         for button in beverageButtons {
-            guard let type = beverageData.showType(with: button), let label = beverageData.showLabel(sender: button) else { return }
-            guard let stock = vendingMachine?.showStock()[ObjectIdentifier(type)] else { return }
-            label.text = "\(stock.count)개"
+            guard let type = beverageData.showType(with: button) else { return }
+            guard let label = beverageData.showLabel(sender: button) else { return }
+            let stock = vendingMachine.showStock()[ObjectIdentifier(type)]
+            label.text = "\(stock?.count ?? 0)개"
         }
     }
     
     @objc
     func updateRechargeLabel(_ notification: Notification) {
-        let updateObject = notification.object as! VendingMachinable
-        self.vendingMachine = updateObject
-        guard let money = vendingMachine?.showBalance() else { return }
+        let money = vendingMachine.showBalance()
         balanceLabel.text = "\(money)원"
     }
 }

@@ -28,26 +28,37 @@ class Beverage: NSObject, NSCoding, SafelyDrinkable {
         self.expiredAfter = expiredAfter
     }
     
+    struct PropertyKey {
+        static let brandKey = "brand"
+        static let volumeKey = "volume"
+        static let priceKey = "price"
+        static let nameKey = "name"
+        static let calorieKey = "calorie"
+        static let imageNameKey = "imageName"
+        static let manufacturedKey = "manufactured"
+        static let expiredAfterKey = "expiredAfter"
+    }
+    
     func encode(with coder: NSCoder) {
-        coder.encode(brand, forKey: "brand")
-        coder.encode(volume, forKey: "volume")
-        coder.encode(price, forKey: "price")
-        coder.encode(name, forKey: "name")
-        coder.encode(calorie, forKey: "calorie")
-        coder.encode(imageName, forKey: "imageName")
-        coder.encode(manufactured, forKey: "manufactured")
-        coder.encode(expiredAfter, forKey: "expiredAfter")
+        coder.encode(brand, forKey: PropertyKey.brandKey)
+        coder.encode(volume, forKey: PropertyKey.volumeKey)
+        coder.encode(price, forKey: PropertyKey.priceKey)
+        coder.encode(name, forKey: PropertyKey.nameKey)
+        coder.encode(calorie, forKey: PropertyKey.calorieKey)
+        coder.encode(imageName, forKey: PropertyKey.imageNameKey)
+        coder.encode(manufactured, forKey: PropertyKey.manufacturedKey)
+        coder.encode(expiredAfter, forKey: PropertyKey.expiredAfterKey)
     }
     
     required init?(coder: NSCoder) {
-        self.brand = coder.decodeObject(forKey: "brand") as? String ?? ""
-        self.volume = coder.decodeInteger(forKey: "volume")
-        self.price = coder.decodeInteger(forKey: "price")
-        self.name = coder.decodeObject(forKey: "name") as? String ?? ""
-        self.calorie = coder.decodeInteger(forKey: "calorie")
-        self.imageName = coder.decodeObject(forKey: "imageName") as? String ?? ""
-        self.manufactured = coder.decodeObject(forKey: "manufactured") as? Date ?? Date()
-        self.expiredAfter = coder.decodeObject(forKey: "expiredAfter") as? Date ?? Date()
+        self.brand = coder.decodeObject(forKey: PropertyKey.brandKey) as? String ?? ""
+        self.volume = coder.decodeInteger(forKey: PropertyKey.volumeKey)
+        self.price = coder.decodeInteger(forKey: PropertyKey.priceKey)
+        self.name = coder.decodeObject(forKey: PropertyKey.nameKey) as? String ?? ""
+        self.calorie = coder.decodeInteger(forKey: PropertyKey.calorieKey)
+        self.imageName = coder.decodeObject(forKey: PropertyKey.imageNameKey) as? String ?? ""
+        self.manufactured = coder.decodeObject(forKey: PropertyKey.manufacturedKey) as? Date ?? Date()
+        self.expiredAfter = coder.decodeObject(forKey: PropertyKey.expiredAfterKey) as? Date ?? Date()
     }
     
     public override func isEqual(_ other: Any?) -> Bool {

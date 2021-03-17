@@ -16,14 +16,19 @@ class CashBox: NSObject, NSCoding {
         self.moneyDeposited = moneyDeposited
     }
     
+    struct PropertyKey {
+        static let totalRevenueKey = "totalRevenue"
+        static let moneyDepositedKey = "moneyDeposited"
+    }
+    
     func encode(with coder: NSCoder) {
-        coder.encode(totalRevenue, forKey: "totalRevenue")
-        coder.encode(moneyDeposited, forKey: "moneyDeposited")
+        coder.encode(totalRevenue, forKey: PropertyKey.totalRevenueKey)
+        coder.encode(moneyDeposited, forKey: PropertyKey.moneyDepositedKey)
     }
     
     required init?(coder: NSCoder) {
-        self.totalRevenue = coder.decodeInteger(forKey: "totalRevenue")
-        self.moneyDeposited = coder.decodeInteger(forKey: "moneyDeposited")
+        self.totalRevenue = coder.decodeInteger(forKey: PropertyKey.totalRevenueKey)
+        self.moneyDeposited = coder.decodeInteger(forKey: PropertyKey.moneyDepositedKey)
     }
     
     func insertMoney(amount: Int) {

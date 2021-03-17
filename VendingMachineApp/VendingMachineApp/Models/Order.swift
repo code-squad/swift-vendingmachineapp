@@ -16,13 +16,18 @@ class Order: NSObject, NSCoding {
         self.item = item
     }
     
+    struct PropertyKey {
+        static let purchasedKey = "purchased"
+        static let itemKey = "item"
+    }
+    
     func encode(with coder: NSCoder) {
-        coder.encode(purchased, forKey: "purchased")
-        coder.encode(item, forKey: "item")
+        coder.encode(purchased, forKey: PropertyKey.purchasedKey)
+        coder.encode(item, forKey: PropertyKey.itemKey)
     }
     
     required init?(coder: NSCoder) {
-        self.purchased = coder.decodeObject(forKey: "purchased") as? Date ?? Date()
-        self.item = coder.decodeObject(forKey: "item") as? Beverage ?? DenmarkStrawberryMilkFactory().createProduct(manufactured: Date(), expiredAfter: Date())
+        self.purchased = coder.decodeObject(forKey: PropertyKey.purchasedKey) as? Date ?? Date()
+        self.item = coder.decodeObject(forKey: PropertyKey.itemKey) as? Beverage ?? DenmarkStrawberryMilkFactory().createProduct(manufactured: Date(), expiredAfter: Date())
     }
 }

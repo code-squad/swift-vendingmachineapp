@@ -15,13 +15,17 @@ class SoftDrink: Beverage, CarbonationHavable {
         super.init(brand: brand, volume: volume, price: price, name: name, calorie: calorie, imageName: imageName, manufactured: manufactured, expiredAfter: expiredAfter)
     }
     
+    struct PropertyKey {
+        static let isCarbonatedKey = "isCarbonated"
+    }
+    
     required init?(coder: NSCoder) {
-        self.isCarbonated = coder.decodeBool(forKey: "isCarbonated")
+        self.isCarbonated = coder.decodeBool(forKey: PropertyKey.isCarbonatedKey)
         super.init(coder: coder)
     }
     
     override func encode(with coder: NSCoder) {
-        coder.encode(isCarbonated, forKey: "isCarbonated")
+        coder.encode(isCarbonated, forKey: PropertyKey.isCarbonatedKey)
         super.encode(with: coder)
     }
     

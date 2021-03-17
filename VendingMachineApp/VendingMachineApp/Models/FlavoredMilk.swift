@@ -21,13 +21,17 @@ class FlavoredMilk: Milk {
         super.init(brand: brand, volume: volume, price: price, name: name, calorie: calorie, imageName: imageName, manufactured: manufactured, expiredAfter: expiredAfter, lactoseAmount: lactoseAmount)
     }
     
+    struct PropertyKey {
+        static let flavorKey = "flavor"
+    }
+    
     required init?(coder: NSCoder) {
-        self.flavor = (coder as! NSKeyedUnarchiver).decodeDecodable(MilkFlavor.self, forKey: "flavor")
+        self.flavor = (coder as! NSKeyedUnarchiver).decodeDecodable(MilkFlavor.self, forKey: PropertyKey.flavorKey)
         super.init(coder: coder)
     }
     
     override func encode(with coder: NSCoder) {
-        try? (coder as! NSKeyedArchiver).encodeEncodable(flavor, forKey: "flavor")
+        try? (coder as! NSKeyedArchiver).encodeEncodable(flavor, forKey: PropertyKey.flavorKey)
         super.encode(with: coder)
     }
 }

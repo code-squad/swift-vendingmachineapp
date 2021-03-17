@@ -21,12 +21,16 @@ class PurchaseHistory: NSObject, NSCoding {
         self.init(orderList: [])
     }
     
+    struct PropertyKey {
+        static let orderListKey = "orderList"
+    }
+    
     func encode(with coder: NSCoder) {
-        coder.encode(orderList, forKey: "orderList")
+        coder.encode(orderList, forKey: PropertyKey.orderListKey)
     }
     
     required init?(coder: NSCoder) {
-        self.orderList = coder.decodeObject(forKey: "orderList") as? [Order] ?? []
+        self.orderList = coder.decodeObject(forKey: PropertyKey.orderListKey) as? [Order] ?? []
     }
     
     func add(_ order: Order) {

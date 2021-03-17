@@ -16,8 +16,12 @@ class LoadVendingMachineUseCase: UseCase {
         self.vendingMachine = vendingMachine
     }
     
+    struct PropertyKey {
+        static let vendingMachineKey = "vendingMachine"
+    }
+    
     func start() {
-        if let object = UserDefaults.standard.object(forKey: "vendingMachine") {
+        if let object = UserDefaults.standard.object(forKey: PropertyKey.vendingMachineKey) {
             vendingMachine = unarchive(with: object as! Data) as? VendingMachine
         } else {
             initialSetupVendingMachine()

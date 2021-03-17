@@ -20,9 +20,13 @@ class SaveVendingMachineUseCase: UseCase {
         self.vendingMachine = vendingMachine
     }
     
+    struct PropertyKey {
+        static let vendingMachineKey = "vendingMachine"
+    }
+    
     func start() {
         let archivedData = archive(with: vendingMachine)
-        UserDefaults.standard.set(archivedData, forKey: "vendingMachine")
+        UserDefaults.standard.set(archivedData, forKey: PropertyKey.vendingMachineKey)
     }
     
     func archive(with object: Archivable) -> Data {

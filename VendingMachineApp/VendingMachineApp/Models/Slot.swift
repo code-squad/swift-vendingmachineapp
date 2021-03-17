@@ -29,16 +29,20 @@ class Slot: NSObject, NSCoding {
         self.items = items
     }
     
+    struct PropertyKey {
+        static let itemsKey = "items"
+    }
+    
     convenience override init() {
         self.init(items: [])
     }
     
     func encode(with coder: NSCoder) {
-        coder.encode(items, forKey: "items")
+        coder.encode(items, forKey: PropertyKey.itemsKey)
     }
     
     required init?(coder: NSCoder) {
-        self.items = coder.decodeObject(forKey: "items") as? [Beverage] ?? []
+        self.items = coder.decodeObject(forKey: PropertyKey.itemsKey) as? [Beverage] ?? []
     }
     
     public override func isEqual(_ other: Any?) -> Bool {

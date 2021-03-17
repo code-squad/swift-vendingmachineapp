@@ -24,16 +24,22 @@ class VendingMachine: NSObject, NSCoding, InventoryTakeable, Archivable, Unarchi
         NotificationCenter.default.post(name: Notification.DidChangeBalance, object: cashBox)
     }
     
+    struct PropertyKey {
+        static let inventoryKey = "inventory"
+        static let cashBoxKey = "cashBox"
+        static let soldItemsKey = "soldItems"
+    }
+    
     func encode(with coder: NSCoder) {
-        coder.encode(inventory, forKey: "inventory")
-        coder.encode(cashBox, forKey: "cashBox")
-        coder.encode(soldItems, forKey: "soldItems")
+        coder.encode(inventory, forKey: PropertyKey.inventoryKey)
+        coder.encode(cashBox, forKey: PropertyKey.cashBoxKey)
+        coder.encode(soldItems, forKey: PropertyKey.soldItemsKey)
     }
     
     required init?(coder: NSCoder) {
-        self.inventory = coder.decodeObject(forKey: "inventory") as? Inventory ?? Inventory(numberOfSlots: 0)
-        self.cashBox = coder.decodeObject(forKey: "cashBox") as? CashBox ?? CashBox(totalRevenue: 0, moneyDeposited: 0)
-        self.soldItems = coder.decodeObject(forKey: "soldItems") as? PurchaseHistory ?? PurchaseHistory()
+        self.inventory = coder.decodeObject(forKey: PropertyKey.inventoryKey) as? Inventory ?? Inventory(numberOfSlots: 0)
+        self.cashBox = coder.decodeObject(forKey: PropertyKey.cashBoxKey) as? CashBox ?? CashBox(totalRevenue: 0, moneyDeposited: 0)
+        self.soldItems = coder.decodeObject(forKey: PropertyKey.soldItemsKey) as? PurchaseHistory ?? PurchaseHistory()
     }
     
     func insertMoney(amount: Int) {

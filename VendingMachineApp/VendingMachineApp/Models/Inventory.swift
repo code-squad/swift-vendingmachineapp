@@ -23,12 +23,16 @@ class Inventory: NSObject, NSCoding {
         self.init(slots: (0..<numberOfSlots).map { _ in Slot() })
     }
     
+    struct PropertyKey {
+        static let slotsKey = "slots"
+    }
+    
     func encode(with coder: NSCoder) {
-        coder.encode(slots, forKey: "slots")
+        coder.encode(slots, forKey: PropertyKey.slotsKey)
     }
     
     required init?(coder: NSCoder) {
-        self.slots = coder.decodeObject(forKey: "slots") as? [Slot] ?? []
+        self.slots = coder.decodeObject(forKey: PropertyKey.slotsKey) as? [Slot] ?? []
     }
     
     func add(_ item: Beverage) {

@@ -15,13 +15,17 @@ class Milk: Beverage, LactoseFree {
         super.init(brand: brand, volume: volume, price: price, name: name, calorie: calorie, imageName: imageName, manufactured: manufactured, expiredAfter: expiredAfter)
     }
     
+    struct PropertyKey {
+        static let lactoseAmountKey = "lactoseAmount"
+    }
+    
     required init?(coder: NSCoder) {
-        self.lactoseAmount = coder.decodeInteger(forKey: "lactoseAmount")
+        self.lactoseAmount = coder.decodeInteger(forKey: PropertyKey.lactoseAmountKey)
         super.init(coder: coder)
     }
     
     override func encode(with coder: NSCoder) {
-        coder.encode(lactoseAmount, forKey: "lactoseAmount")
+        coder.encode(lactoseAmount, forKey: PropertyKey.lactoseAmountKey)
         super.encode(with: coder)
     }
     

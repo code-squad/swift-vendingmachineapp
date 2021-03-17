@@ -17,15 +17,20 @@ class EnergyDrink: Beverage, CaffeineContainable, CarbonationHavable {
         super.init(brand: brand, volume: volume, price: price, name: name, calorie: calorie, imageName: imageName, manufactured: manufactured, expiredAfter: expiredAfter)
     }
     
+    struct PropertyKey {
+        static let caffeineAmountKey = "caffeineAmount"
+        static let isCarbonatedKey = "isCarbonated"
+    }
+    
     required init?(coder: NSCoder) {
-        self.caffeineAmount = coder.decodeInteger(forKey: "caffeineAmount")
-        self.isCarbonated = coder.decodeBool(forKey: "isCarbonated")
+        self.caffeineAmount = coder.decodeInteger(forKey: PropertyKey.caffeineAmountKey)
+        self.isCarbonated = coder.decodeBool(forKey: PropertyKey.isCarbonatedKey)
         super.init(coder: coder)
     }
     
     override func encode(with coder: NSCoder) {
-        coder.encode(caffeineAmount, forKey: "caffeineAmount")
-        coder.encode(isCarbonated, forKey: "isCarbonated")
+        coder.encode(caffeineAmount, forKey: PropertyKey.caffeineAmountKey)
+        coder.encode(isCarbonated, forKey: PropertyKey.isCarbonatedKey)
         super.encode(with: coder)
     }
     

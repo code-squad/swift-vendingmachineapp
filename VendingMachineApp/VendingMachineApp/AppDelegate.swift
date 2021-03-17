@@ -11,15 +11,14 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var vendingMachine: VendingMachine!
-    private let archivingCenter = ArchivingCenter()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        self.vendingMachine = archivingCenter.loadVendingMachine()
+        self.vendingMachine = ArchivingCenter.loadVendingMachine()
         return true
     }
     
     func save() {
-        archivingCenter.save(vendingMachine)
+        ArchivingCenter.save(vendingMachine)
     }
 }

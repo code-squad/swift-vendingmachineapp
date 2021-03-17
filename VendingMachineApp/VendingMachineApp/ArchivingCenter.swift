@@ -7,13 +7,13 @@
 
 import Foundation
 
-class ArchivingCenter {
+struct ArchivingCenter {
     
     enum Keys {
         static let vendingMachine = "vendingMachine"
     }
     
-    func loadVendingMachine() -> VendingMachine {
+    static func loadVendingMachine() -> VendingMachine {
 
         var machineLoaded: VendingMachine
         
@@ -32,7 +32,7 @@ class ArchivingCenter {
         return machineLoaded
     }
 
-    private func unarchive(with text: Data) -> Any? {
+    static func unarchive(with text: Data) -> Any? {
         do {
             let object = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(text)
             return object
@@ -42,12 +42,12 @@ class ArchivingCenter {
         return nil
     }
     
-    func save(_ vendingMachine: VendingMachine) {
+    static func save(_ vendingMachine: VendingMachine) {
         let vendingMachineData = archive(with: vendingMachine as Any)
         UserDefaults.standard.setValue(vendingMachineData, forKey: Keys.vendingMachine)
     }
     
-    private func archive(with things: Any) -> Data {
+    static func archive(with things: Any) -> Data {
         do {
             let archived = try NSKeyedArchiver.archivedData(withRootObject: things, requiringSecureCoding: false)
             return archived

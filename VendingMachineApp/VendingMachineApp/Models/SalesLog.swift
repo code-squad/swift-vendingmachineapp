@@ -7,10 +7,11 @@
 
 import Foundation
 
-class SalesLog {
+class SalesLog: NSObject, NSCoding {
+    
     private var log: BeverageInventory
     
-    init() {
+    override init() {
         log = BeverageInventory()
     }
     
@@ -18,6 +19,13 @@ class SalesLog {
         log.append(drink)
     }
     
+    func encode(with coder: NSCoder) {
+        coder.encode(log, forKey: "log")
+    }
+    
+    required init?(coder: NSCoder) {
+        self.log = coder.decodeObject(forKey: "log") as! BeverageInventory
+    }
 //    func get() -> [String] {
 //        return log.getList()
 //    }

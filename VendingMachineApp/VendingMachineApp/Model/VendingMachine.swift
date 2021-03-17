@@ -6,10 +6,15 @@
 //
 
 import Foundation
+import Combine
 
 class VendingMachine: NSObject, NSCoding {
+    enum Notification {
+        static let DidChangePurchaseHistory = Foundation.Notification.Name("DidChangePurchaseHistory")
+    }
+    
     private var stock: StockManageable
-    private var purchasehistory: [Drink]
+    @Published private(set) var purchasehistory: [Drink]
     private var coins: CoinManageable
     
     private(set) static var `default`: VendingMachine = VendingMachine()
@@ -71,7 +76,9 @@ class VendingMachine: NSObject, NSCoding {
         return stock.lookingForWarmDrinks()
     }
     
-    public func showPurchasehistory() -> [Drink] {
-        return purchasehistory
+    public func checkPurchasehistory(handle: (Drink) -> ()) {
+        for drink in purchasehistory {
+            handle(drink)
+        }
     }
 }

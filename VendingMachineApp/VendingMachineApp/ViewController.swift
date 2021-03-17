@@ -9,12 +9,13 @@ import UIKit
 import Combine
 
 class ViewController: UIViewController, SelectPanelStackViewDelegate, TopPanelDelegate {
-    @IBOutlet weak var purchaseHistoryScrollView: UIScrollView!
+    @IBOutlet weak var purchaseHistoryScrollView: PurchaseHistoryScrollView!
     @IBOutlet weak var selectPanelStackView: SelectPanelStackView!
     @IBOutlet weak var topPanelView: TopPanel!
     
     private var stockPublisher: AnyCancellable!
     private var coinCounterPublisher: AnyCancellable!
+    private var puchaseHistoryPublisher: AnyCancellable!
     private var vendingMachine: VendingMachine!
     private var drinkOrder = DrinkOrder()
     
@@ -26,8 +27,10 @@ class ViewController: UIViewController, SelectPanelStackViewDelegate, TopPanelDe
         
         loadLeftCoinsLabel()
         loadSelectPanelStackViewLabels()
+        loadPurchasehistory(drinks: vendingMachine.purchasehistory)
         configCoinsLabelObserver()
         configStockLabelObserver()
+        configPurchaseHistoryObserver()
     }
     
     override func viewWillLayoutSubviews() {
@@ -38,6 +41,15 @@ class ViewController: UIViewController, SelectPanelStackViewDelegate, TopPanelDe
     
     public func settingVendingMachine(_ vendingMachine: VendingMachine) {
         self.vendingMachine = vendingMachine
+    }
+    
+    func configPurchaseHistoryObserver() {
+        puchaseHistoryPublisher = vendingMachine.$purchasehistory
+            .sink(receiveValue: { (drinks) in
+                DispatchQueue.main.async {
+                    self.loadPurchasehistory(drinks: drinks)
+                }
+            })
     }
     
     func configStockLabelObserver() {
@@ -75,6 +87,22 @@ class ViewController: UIViewController, SelectPanelStackViewDelegate, TopPanelDe
 }
 
 extension ViewController {
+    @objc private func loadPurchasehistory(drinks: [Drink]) {
+        purchaseHistoryScrollView.purchaseHistoryStackView.subviews.forEach{ $0.removeFromSuperview() }
+        drinks.forEach { (drink) in
+            guard let image = UIImage(named: drink.name) else { return }
+            let imageView = UIImageView(image: image)
+            purchaseHistoryScrollView.purchaseHistoryStackView.addArrangedSubview(imageView)
+            resizingHistoryImage(imageView)
+        }
+    }
+    
+    private func resizingHistoryImage(_ imageView: UIImageView) {
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.widthAnchor.constraint(equalToConstant: 150).isActive = true
+        imageView.heightAnchor.constraint(equalToConstant: 150).isActive = true
+    }
+    
     @objc private func loadLeftCoinsLabel() {
         let leftCoin = vendingMachine.leftCoin()
         topPanelView.leftCoinsLabel.text = "\(leftCoin)원"

@@ -66,3 +66,19 @@
 
 - 완성날짜
   - 2021-03-15 17:04
+
+
+
+
+
+## step-5
+
+- 설명
+  - ViewController를 NotificationCenter의 Observer로 등록하였다.
+  - Notification의 Name을 "addStockButton", "rechargeButton"으로 두 가지 생성하였다.
+  - 자판기 객체의 재고가 추가될 때, 잔액이 충전될 때 NotificationCenter로 post하도록 구현하였다.
+
+
+
+- 완성날짜
+  - 2021-03-17

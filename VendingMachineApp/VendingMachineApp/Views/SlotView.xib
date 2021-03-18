@@ -13,6 +13,7 @@
                 <outlet property="itemImageView" destination="SIy-7r-pk4" id="eny-ut-D1G"/>
                 <outlet property="itemQuantityIncrementButton" destination="ct1-71-8Jk" id="EFc-qy-FDG"/>
                 <outlet property="itemQuantityLabel" destination="AUw-GJ-1Or" id="b03-wM-vG8"/>
+                <outlet property="vendButton" destination="F5W-XN-Lsl" id="w38-hy-BfP"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

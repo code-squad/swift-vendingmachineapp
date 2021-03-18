@@ -64,6 +64,10 @@ class ViewController: UIViewController, SlotViewDelegate, AppDelegateAccessible 
         configureInventory(sender)
     }
     
+    func vendButtonPressed(sender: SlotView) {
+        
+    }
+    
     private func configureCashBox(_ sender: UIButton) {
         guard let selectedAmount = sender.titleLabel?.text?.filterNonDigits() else { return }
         guard let convertedAmount = Int(selectedAmount) else { return }

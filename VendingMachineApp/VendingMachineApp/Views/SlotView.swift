@@ -9,6 +9,7 @@ import UIKit
 
 protocol SlotViewDelegate {
     func itemQuantityIncrementButtonPressed(sender: SlotView)
+    func vendButtonPressed(sender: SlotView)
 }
 
 class SlotView: UIView {  
@@ -16,6 +17,7 @@ class SlotView: UIView {
     private let nibName = "SlotView"
     
     @IBOutlet weak var itemQuantityIncrementButton: UIButton!
+    @IBOutlet weak var vendButton: UIButton!
     @IBOutlet weak var itemImageView: UIImageView!
     @IBOutlet weak var itemQuantityLabel: UILabel!
     
@@ -38,9 +40,14 @@ class SlotView: UIView {
         self.addSubview(nibView)
         
         itemQuantityIncrementButton.addTarget(self, action: #selector(itemQuantityIncrementButtonPressed), for: .touchUpInside)
+        vendButton.addTarget(self, action: #selector(vendButtonPressed), for: .touchUpInside)
     }
     
     @objc func itemQuantityIncrementButtonPressed() {
         delegate?.itemQuantityIncrementButtonPressed(sender: self)
+    }
+    
+    @objc func vendButtonPressed() {
+        delegate?.vendButtonPressed(sender: self)
     }
 }

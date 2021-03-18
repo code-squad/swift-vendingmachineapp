@@ -171,9 +171,9 @@
                                 <viewLayoutGuide key="contentLayoutGuide" id="SfQ-F2-lbJ"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="pL2-uX-46U"/>
                             </scrollView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Efv-wk-Tnv">
-                                <rect key="frame" x="908" y="416.5" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Efv-wk-Tnv">
+                                <rect key="frame" x="921" y="416.5" width="20" height="22"/>
+                                <state key="normal" image="info.circle" catalog="system"/>
                                 <connections>
                                     <segue destination="3mI-18-gjg" kind="presentation" modalTransitionStyle="flipHorizontal" id="O96-SY-vRE"/>
                                 </connections>
@@ -330,6 +330,7 @@
         <image name="DietCola" width="166.5" height="166.5"/>
         <image name="StrawberryMilk" width="200" height="200"/>
         <image name="TopAmericano" width="200" height="200"/>
+        <image name="info.circle" catalog="system" width="128" height="121"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

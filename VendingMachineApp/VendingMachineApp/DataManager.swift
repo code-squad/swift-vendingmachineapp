@@ -15,7 +15,7 @@ class DataManager {
         return loadData.isEmpty ? VendingMachine() : loadMachine
     }
     
-    static func save(_ vendingMachine : VendingMachined) {
+    static func save(_ vendingMachine : UserModable) {
         UserDefaults.standard.setValue(ObjectArchive.save(with: vendingMachine), forKey: "vendingMachine")
     }
 }

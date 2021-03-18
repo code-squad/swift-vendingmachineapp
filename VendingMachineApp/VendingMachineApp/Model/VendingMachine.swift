@@ -7,7 +7,7 @@
 
 import Foundation
  
-class VendingMachine: NSObject, NSCoding {
+class VendingMachine: NSObject, NSCoding, makingViewProtocol {
 
     private var inventory: Inventory
     private var paymentManager: PaymentManager

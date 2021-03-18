@@ -38,8 +38,9 @@ class VendingMachine: NSObject, NSCoding {
         coder.encode(purchased, forKey: "purchased")
     }
     
-    func addBeverage(beverage: Beverage) {
-        beverages.append(from: beverage)
+    func addBeverage(beverage: Beverage.Type) {
+        let factory = BeverageFactory()
+        beverages.append(from: factory.typeToInstance(product: beverage))
         NotificationCenter.default.post(name: VendingMachine.updateBeverages, object: self, userInfo: ["BeverageType": type(of: beverage)])
     }
     

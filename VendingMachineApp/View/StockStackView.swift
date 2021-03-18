@@ -9,7 +9,7 @@ import UIKit
 
 class StockStackView: UIStackView {
     
-    private let itemCountPerStand : Int = 4
+    public var itemCountPerStand : Int = 4
     
     var stockCells : [OneStockView]!
     
@@ -17,13 +17,11 @@ class StockStackView: UIStackView {
         super.init(coder: coder)
         confiure()
         setStockCells()
-        setUp()
     }
     override init(frame: CGRect){
         super.init(frame: frame)
         confiure()
         setStockCells()
-        setUp()
     }
 
     func setUp(){
@@ -68,7 +66,7 @@ class StockStackView: UIStackView {
         self.translatesAutoresizingMaskIntoConstraints = false
         self.axis = .vertical
         self.distribution = .fillEqually
-        self.spacing = 50
+        self.spacing = 20
     }
     
 }

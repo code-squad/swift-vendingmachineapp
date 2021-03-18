@@ -25,19 +25,11 @@ class OneStockView: UIView {
         initSubViews()
     }
     func initSubViews(){
-        // Image
         setStockImageView()
-        
-        // AddButton
         setStockAddButton()
-        
-        // Label
         setLabel()
-        
-        // PurchaseButton
         setBuyButton()
     }
-
     func setStockImageView(){
         stockImageView = UIImageView(frame: CGRect(x: 0, y: 40, width: bounds.width, height: bounds.height - 80))
         stockImageView.contentMode = UIView.ContentMode.scaleAspectFill
@@ -50,7 +42,7 @@ class OneStockView: UIView {
         addButton.setImage(UIImage(named: "addbutton"), for: .normal)
         addButton.setTitle("추가하기", for: .normal)
         addSubview(addButton)
-        addButton.addTarget(superview, action: #selector(ViewController.appendBeverageToMachine), for: .touchDown)
+        addButton.addTarget(superview, action: #selector(AdminViewController.appendBeverageToMachine), for: .touchDown)
     }
     func setLabel(){
         let captionBackgroundView = UIView(frame: CGRect(x: 0, y: bounds.height - 80, width: bounds.width, height: 30))

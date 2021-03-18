@@ -24,6 +24,6 @@ class UIBeverageButton: UIButton {
         beverageType = type
     }
     func setUpButton() {
-        self.addTarget(superview, action: #selector(ViewController.appendBeverageToMachine), for: .touchDown)
+        self.addTarget(superview, action: #selector(AdminViewController.appendBeverageToMachine), for: .touchDown)
     }    
 }

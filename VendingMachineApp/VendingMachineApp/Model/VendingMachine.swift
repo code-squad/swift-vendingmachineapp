@@ -71,18 +71,21 @@ extension VendingMachine: UserInterface {
     }
     
     func buy(itemType: Shopable.Type) {
-        if let itemToSell = storage.pullOut(itemType),
-           itemToSell.isPurchashable(with: moneyLeft()) {
-            
-            NotificationCenter.default.post(name: NotiKeys.stockListUpdate, object: self)
-            
-            dispensedList.push(item: itemToSell)
-            NotificationCenter.default.post(name: NotiKeys.dispensdListUpdate, object: self)
-            
-            let moneyAfterPurchase = itemToSell.subtractPrice(from: moneyLeft())
-            moneyBox.update(to: moneyAfterPurchase)
-            NotificationCenter.default.post(name: NotiKeys.balanceUpdate, object: self)
+        guard let itemToSell = storage.pullOut(itemType) else { return }
+        
+        guard itemToSell.isPurchashable(with: moneyLeft()) else {
+            addStock(of: itemType)
+            return
         }
+        
+        NotificationCenter.default.post(name: NotiKeys.stockListUpdate, object: self)
+        
+        dispensedList.push(item: itemToSell)
+        NotificationCenter.default.post(name: NotiKeys.dispensdListUpdate, object: self)
+        
+        let moneyAfterPurchase = itemToSell.subtractPrice(from: moneyLeft())
+        moneyBox.update(to: moneyAfterPurchase)
+        NotificationCenter.default.post(name: NotiKeys.balanceUpdate, object: self)
     }
 }
 

@@ -11,17 +11,17 @@ class VendingMachineInfo {
     private(set) var matchModelAndViewHelper: [ObjectIdentifier: BeverageView] = [:]
     private(set) var beverageTypeButtons: [UIButton: Beverage.Type] = [:]
     private(set) var beverageStockLabels: [UIButton: UILabel] = [:]
+    private var vendingMachine: VendingMachine
     
-    init() {
-        renewVendingMachineInfo()
+    init(with vendingMachine: VendingMachine) {
+        self.vendingMachine = vendingMachine
+        self.renewVendingMachineInfo()
     }
     
     public func renewVendingMachineInfo() {
         matchModelAndViewHelper.removeAll()
         
-        let delegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
-        
-        let beverages = delegate.vendingMachine.showAllBeverageList()
+        let beverages = vendingMachine.showAllBeverageList()
         beverages.keys.forEach { key in
             if let beverage = beverages[key]?.first {
                 let image = UIImage(named: beverage.name) ?? UIImage()

@@ -28,7 +28,7 @@ class ArchivingManager {
     }
     
     static func loadData(forKey: String) -> VendingMachine {
-        let savedVendingMachine = unarchive(with: UserDefaults.standard.data(forKey: "vendingMachine") ?? Data())
+        let savedVendingMachine = unarchive(with: UserDefaults.standard.data(forKey: forKey) ?? Data())
         
         if savedVendingMachine != nil {
             return savedVendingMachine!
@@ -41,5 +41,10 @@ class ArchivingManager {
         vendingMachine.appendInventory(FactoryManager.create(type: CoffeeFactory.self))
         
         return savedVendingMachine ?? vendingMachine
+    }
+    
+    static func save(data: VendingMachine, forkey: String) {
+        let data = ArchivingManager.archive(with: data)
+        UserDefaults.standard.set(data, forKey: "vendingMachine")
     }
 }

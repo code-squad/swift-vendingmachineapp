@@ -25,7 +25,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     func archiveVendingMachine() {
         let data = ArchivingManager.archive(with: VendingMachine.shared)
-        UserDefaults.standard.set(data, forKey: "vm")
+        DataManager.save(data: data, forKey: "vm")
     }
 }
 

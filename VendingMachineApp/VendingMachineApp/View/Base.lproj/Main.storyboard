@@ -18,32 +18,33 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ipm-ps-kUN" userLabel="Product Stack">
-                                <rect key="frame" x="586" y="85" width="194" height="360"/>
+                                <rect key="frame" x="592" y="85" width="182" height="360"/>
                                 <subviews>
-                                    <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="5Eq-QW-tYb" userLabel="Product1" customClass="ProductStackView" customModule="VendingMachineApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="194" height="360"/>
+                                    <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="5Eq-QW-tYb" userLabel="Product1" customClass="ProductStackView" customModule="VendingMachineApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="182" height="360"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1개" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="65E-w8-YGx">
-                                                <rect key="frame" x="0.0" y="0.0" width="194" height="54"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="182" height="51"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="americano" translatesAutoresizingMaskIntoConstraints="NO" id="Ep3-5U-IU2">
-                                                <rect key="frame" x="0.0" y="54" width="194" height="194.5"/>
+                                                <rect key="frame" x="0.0" y="56" width="182" height="181.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="Ep3-5U-IU2" secondAttribute="height" multiplier="1:1" id="som-MD-itn"/>
                                                 </constraints>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WCA-MU-0PF">
-                                                <rect key="frame" x="0.0" y="248.5" width="194" height="56.5"/>
+                                                <rect key="frame" x="0.0" y="242.5" width="182" height="53"/>
+                                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="28"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" image="plus.circle.fill" catalog="system">
                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25" scale="large"/>
                                                 </state>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FOS-K1-LV2" userLabel="Buy Button">
-                                                <rect key="frame" x="0.0" y="305" width="194" height="55"/>
+                                                <rect key="frame" x="0.0" y="300.5" width="182" height="59.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="28"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" image="tray.fill" catalog="system">
@@ -185,21 +186,23 @@
         <scene sceneID="Pur-6b-L9D">
             <objects>
                 <viewController id="CXF-Wv-M9R" userLabel="Admin View Controller" customClass="AdminViewController" customModule="VendingMachineApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="hE7-dY-GWB" userLabel="Admin View">
+                    <view key="view" alpha="0.90000000000000002" contentMode="scaleToFill" id="hE7-dY-GWB" userLabel="Admin View">
                         <rect key="frame" x="0.0" y="0.0" width="704" height="984"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="S7k-35-bjn">
-                                <rect key="frame" x="20" y="171" width="664" height="239"/>
-                                <color key="backgroundColor" systemColor="systemGray2Color"/>
+                            <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="S7k-35-bjn">
+                                <rect key="frame" x="20" y="388.5" width="664" height="207.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="S7k-35-bjn" secondAttribute="height" multiplier="16:5" id="W6R-ur-hQu"/>
+                                </constraints>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Admin Mode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e9Z-Ag-hhs">
-                                <rect key="frame" x="270" y="110" width="165" height="36"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Admin Mode" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e9Z-Ag-hhs">
+                                <rect key="frame" x="264.5" y="310" width="175" height="33.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="165" id="LPS-hm-tR9"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="28"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="close" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lmI-ss-OWd">
@@ -214,17 +217,17 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="VW0-uu-Kct"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="e9Z-Ag-hhs" firstAttribute="leading" secondItem="VW0-uu-Kct" secondAttribute="leading" constant="270" id="1dB-Yv-AmP"/>
-                            <constraint firstItem="VW0-uu-Kct" firstAttribute="bottom" secondItem="S7k-35-bjn" secondAttribute="bottom" constant="574" id="3Ed-5x-MUJ"/>
+                            <constraint firstItem="VW0-uu-Kct" firstAttribute="bottom" relation="lessThanOrEqual" secondItem="S7k-35-bjn" secondAttribute="bottom" constant="574" id="3Ed-5x-MUJ"/>
                             <constraint firstItem="lmI-ss-OWd" firstAttribute="top" secondItem="VW0-uu-Kct" secondAttribute="top" constant="20" id="8U7-Vf-9rE"/>
-                            <constraint firstItem="VW0-uu-Kct" firstAttribute="trailing" secondItem="e9Z-Ag-hhs" secondAttribute="trailing" constant="269" id="HW7-WR-MAe"/>
                             <constraint firstItem="lmI-ss-OWd" firstAttribute="leading" secondItem="VW0-uu-Kct" secondAttribute="leading" constant="20" id="HkH-Hp-2yz"/>
-                            <constraint firstItem="S7k-35-bjn" firstAttribute="top" secondItem="e9Z-Ag-hhs" secondAttribute="bottom" constant="25" id="LBg-3m-AmI"/>
-                            <constraint firstItem="e9Z-Ag-hhs" firstAttribute="top" secondItem="VW0-uu-Kct" secondAttribute="top" constant="110" id="p91-6I-gyo"/>
+                            <constraint firstItem="S7k-35-bjn" firstAttribute="top" secondItem="e9Z-Ag-hhs" secondAttribute="bottom" constant="45" id="Xzd-Fh-K8D"/>
+                            <constraint firstItem="S7k-35-bjn" firstAttribute="centerY" secondItem="hE7-dY-GWB" secondAttribute="centerY" id="aQQ-XY-qcp"/>
+                            <constraint firstItem="e9Z-Ag-hhs" firstAttribute="top" relation="greaterThanOrEqual" secondItem="VW0-uu-Kct" secondAttribute="top" constant="110" id="p91-6I-gyo"/>
                             <constraint firstItem="S7k-35-bjn" firstAttribute="centerX" secondItem="hE7-dY-GWB" secondAttribute="centerX" id="pJY-hM-zn3"/>
                             <constraint firstItem="VW0-uu-Kct" firstAttribute="trailing" secondItem="S7k-35-bjn" secondAttribute="trailing" constant="20" id="uIV-PM-KDI"/>
+                            <constraint firstItem="e9Z-Ag-hhs" firstAttribute="centerX" secondItem="hE7-dY-GWB" secondAttribute="centerX" id="wuY-Du-rpw"/>
                             <constraint firstItem="S7k-35-bjn" firstAttribute="leading" secondItem="VW0-uu-Kct" secondAttribute="leading" constant="20" id="zs8-ho-IFQ"/>
                         </constraints>
                     </view>
@@ -246,9 +249,6 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGray2Color">
-            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

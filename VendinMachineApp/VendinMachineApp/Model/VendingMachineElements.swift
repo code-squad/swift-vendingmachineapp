@@ -37,7 +37,7 @@ class VendingMachineElements {
     }
     
     func setUpInsertCashButtons(collection: [UIButton]) {
-        for (button, money) in zip(collection, VendingMachine.VendingMachineMoney.allCases) {
+        for (button, money) in zip(collection, VendingMachine.Money.allCases) {
             insertCashButtons.updateValue(money.rawValue, forKey: button)
         }
     }

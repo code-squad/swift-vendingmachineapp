@@ -35,3 +35,8 @@
 - VendingMachine 객체 인스턴스 속성 저장
 - 저장된 데이터를 복원하여 VendingMachine 객체 생성
 - UserDefaults를 사용해 데이터 저장. 저장 시 아카이브를 통해 전 계층 데이터화
+
+# Step 5
+- viewDidLoad에서 Observer 등록
+- vendingMachine 객체에서 모델 변화에 대한 Notification Post
+- 삭제했던 Beverage의 hash 재생성

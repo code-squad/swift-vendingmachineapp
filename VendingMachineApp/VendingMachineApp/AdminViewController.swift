@@ -43,8 +43,8 @@ extension AdminViewController {
 extension AdminViewController {
     
     @objc func addBeverageStock(_ sender: AddBeverageButton) {
-        let beverage = vendingMachine.compareProductNameToInstance(name: sender.restorationIdentifier!)
-        vendingMachine.addBeverage(beverage: beverage!)
+        let beverage = vendingMachine.buttonToBeverageType(name: sender.restorationIdentifier!)
+        vendingMachine.addBeverage(beverage: beverage)
     }
     
     @objc func updateBeverageStock(_ notification: Notification) {

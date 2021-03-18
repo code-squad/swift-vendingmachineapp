@@ -7,21 +7,25 @@
 
 import UIKit
 
+protocol makingViewProtocol {
+    func showAllBeverageList() -> [ObjectIdentifier: [Beverage]]
+}
+
 class VendingMachineInfo {
     private(set) var matchModelAndViewHelper: [ObjectIdentifier: BeverageView] = [:]
     private(set) var beverageTypeButtons: [UIButton: Beverage.Type] = [:]
     private(set) var beverageStockLabels: [UIButton: UILabel] = [:]
-    private var vendingMachine: VendingMachine
+    private var objectforMakingView: makingViewProtocol
     
-    init(with vendingMachine: VendingMachine) {
-        self.vendingMachine = vendingMachine
+    init(with objectforMakingView: makingViewProtocol) {
+        self.objectforMakingView = objectforMakingView
         self.renewVendingMachineInfo()
     }
     
     public func renewVendingMachineInfo() {
         matchModelAndViewHelper.removeAll()
         
-        let beverages = vendingMachine.showAllBeverageList()
+        let beverages = objectforMakingView.showAllBeverageList()
         beverages.keys.forEach { key in
             if let beverage = beverages[key]?.first {
                 let image = UIImage(named: beverage.name) ?? UIImage()

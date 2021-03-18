@@ -148,4 +148,9 @@ class VendingMachine: NSObject, NSCoding {
         }
         return nil
     }
+    
+    func buttonToBeverageType(name: String) -> Beverage.Type {
+        let order = menuList().filter { $0.productName == name }
+        return type(of: order.first!)
+    }
 }

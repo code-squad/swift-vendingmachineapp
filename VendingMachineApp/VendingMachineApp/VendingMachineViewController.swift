@@ -45,11 +45,6 @@ class VendingMachineViewController: UIViewController {
         purchasedBeveragesStackView.addArrangedSubview(eachPurchasedBeverageImageView)
     }
     
-}
-
-
-extension VendingMachineViewController {
-    
     private func beveragesStockCount() {
         let allMenuList = vendingMachine.menuList()
         for idx in 0..<allMenuList.count {
@@ -61,6 +56,11 @@ extension VendingMachineViewController {
         let balance = vendingMachine.insertedMoney
         stockInfo[6].text = "잔액:\(String(describing: balance))"
     }
+    
+}
+
+//MARK:- @IBAction BalanceAndBeverage
+extension VendingMachineViewController {
     
     @IBAction func button1000ForBalance(_ sender: Any) {
         vendingMachine.getTheMoney(from: 1000)
@@ -75,38 +75,14 @@ extension VendingMachineViewController {
         vendingMachine.resetInsertedMoney()
         vendingMachine.resetPurchased()
     }
-    
-}
-
-extension VendingMachineViewController {
-    @IBAction func buyChocoMilkButtonTouched(_ sender: Any) {
-        vendingMachine.buyBeverage(product: ChocolateMilk.self)
-    }
-    
-    @IBAction func buyStrawberryMilkButtonTouched(_ sender: Any) {
-        vendingMachine.buyBeverage(product: StrawBerryMilk.self)
-    }
-    
-    @IBAction func buyCokeButtonTouched(_ sender: Any) {
-        vendingMachine.buyBeverage(product: Coke.self)
-    }
-    
-    
-    @IBAction func buySpriteButtonTouched(_ sender: Any) {
-        vendingMachine.buyBeverage(product: Sprite.self)
-    }
-    
-    @IBAction func buyTopButtonTouched(_ sender: Any) {
-        vendingMachine.buyBeverage(product: Top.self)
-    }
-    
-    
-    @IBAction func buyCantataButtonTouched(_ sender: Any) {
-        vendingMachine.buyBeverage(product: Cantata.self)
+    @IBAction func buyBeverageButtonTouched(_ sender: UIButton) {
+        let beverage = vendingMachine.buttonToBeverageType(name: sender.restorationIdentifier!)
+        vendingMachine.buyBeverage(product: beverage)
     }
     
 }
 
+//MARK:- @objc Action
 extension VendingMachineViewController {
     @objc private func updateInsertedMoney(notification: Notification) {
         balanceInfoLabel()
@@ -119,6 +95,7 @@ extension VendingMachineViewController {
     }
 }
 
+//MARK:- configuration
 extension VendingMachineViewController {
     
     private func configureScrollView() {

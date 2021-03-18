@@ -29,6 +29,7 @@ class AdminViewController: UIViewController {
     
 }
 
+//MARK:- Configuration
 extension AdminViewController {
     
     private func configureBeverageStackView() {
@@ -38,6 +39,7 @@ extension AdminViewController {
     }
 }
 
+//MARK:- @objc Action
 extension AdminViewController {
     
     @objc func addBeverageStock(_ sender: AddBeverageButton) {

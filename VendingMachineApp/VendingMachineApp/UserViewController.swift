@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class UserViewController: UIViewController {
     
     private let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
@@ -117,5 +117,20 @@ class ViewController: UIViewController {
             let targetBeverage = itemTypes[targetIdx]
             appDelegate.vendingMachine.buy(itemType: targetBeverage)
         }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        guard let adminViewController = segue.destination as? AdminViewController,
+              let productViews = sender as? [UIView] else { return }
+        
+        productViews.forEach { (view) in
+            let data = ArchivingCenter.archive(with: view)
+            adminViewController.sampleViewData.append(data)
+        }
+    }
+    
+    @IBAction func adminModeTouched(_ sender: UIButton) {
+        performSegue(withIdentifier: "adminMode", sender: productStackView.arrangedSubviews)
     }
 }

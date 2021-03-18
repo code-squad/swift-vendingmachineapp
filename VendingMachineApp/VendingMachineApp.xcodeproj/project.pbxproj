@@ -26,7 +26,7 @@
 		E4C49A0125E89FEB008449D6 /* VendingMachineAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C49A0025E89FEB008449D6 /* VendingMachineAppTests.swift */; };
 		E4EB87B525E4C83300F077D5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EB87B425E4C83300F077D5 /* AppDelegate.swift */; };
 		E4EB87B725E4C83300F077D5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EB87B625E4C83300F077D5 /* SceneDelegate.swift */; };
-		E4EB87B925E4C83300F077D5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EB87B825E4C83300F077D5 /* ViewController.swift */; };
+		E4EB87B925E4C83300F077D5 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EB87B825E4C83300F077D5 /* UserViewController.swift */; };
 		E4EB87BC25E4C83300F077D5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4EB87BA25E4C83300F077D5 /* Main.storyboard */; };
 		E4EB87BE25E4C83400F077D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4EB87BD25E4C83400F077D5 /* Assets.xcassets */; };
 		E4EB87C125E4C83400F077D5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4EB87BF25E4C83400F077D5 /* LaunchScreen.storyboard */; };
@@ -74,7 +74,7 @@
 		E4EB87B125E4C83300F077D5 /* VendingMachineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendingMachineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4EB87B425E4C83300F077D5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E4EB87B625E4C83300F077D5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E4EB87B825E4C83300F077D5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E4EB87B825E4C83300F077D5 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		E4EB87BB25E4C83300F077D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E4EB87BD25E4C83400F077D5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E4EB87C025E4C83400F077D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -199,7 +199,7 @@
 				E42EE36226007A8100C89DD7 /* ArchivingCenter.swift */,
 				E4B8A3FF25F10988006D405F /* Model */,
 				E4B8A4BE25FB3239006D405F /* View */,
-				E4EB87B825E4C83300F077D5 /* ViewController.swift */,
+				E4EB87B825E4C83300F077D5 /* UserViewController.swift */,
 				E477EBF12601F20D00B476FA /* AdminViewController.swift */,
 				E4EB87BD25E4C83400F077D5 /* Assets.xcassets */,
 				E4EB87C225E4C83400F077D5 /* Info.plist */,
@@ -320,7 +320,7 @@
 				E4B8A49325F9E5D2006D405F /* ProductStackView.swift in Sources */,
 				E4EB87E325E52B4200F077D5 /* Soda.swift in Sources */,
 				E42EE355260055E700C89DD7 /* OrderableList.swift in Sources */,
-				E4EB87B925E4C83300F077D5 /* ViewController.swift in Sources */,
+				E4EB87B925E4C83300F077D5 /* UserViewController.swift in Sources */,
 				E4EB87B525E4C83300F077D5 /* AppDelegate.swift in Sources */,
 				E4EB87EA25E52EA700F077D5 /* DateExtensions.swift in Sources */,
 				E42EE34F260055C500C89DD7 /* Storage.swift in Sources */,

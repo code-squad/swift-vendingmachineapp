@@ -7,7 +7,7 @@
 
 import Foundation
 
-class VendingMachine : NSObject, NSCoding ,UserModable,AdminModable {
+class VendingMachine : NSObject, NSCoding ,VendingMachined,AdminModable {
     
     enum NotificationName {
         static let updateBeverage = Notification.Name("updateBeverage")

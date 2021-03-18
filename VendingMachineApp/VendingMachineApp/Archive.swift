@@ -8,7 +8,7 @@
 import Foundation
 
 struct ObjectArchive {
-    static func save(with things: UserModable) -> Data {
+    static func save(with things: VendingMachined) -> Data {
         guard let archived = try? NSKeyedArchiver.archivedData(withRootObject: things, requiringSecureCoding: false) else { return Data() }
         return archived
     }

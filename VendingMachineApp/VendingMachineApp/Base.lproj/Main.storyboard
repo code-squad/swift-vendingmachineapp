@@ -240,6 +240,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="200" height="22"/>
                                                 <state key="normal" image="plus" catalog="system"/>
                                                 <connections>
+                                                    <action selector="addBeverageButtonTouched:" destination="3mI-18-gjg" eventType="touchUpInside" id="Sg5-Fj-wiL"/>
                                                     <action selector="addBeverageButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="he9-bq-uQO"/>
                                                 </connections>
                                             </button>
@@ -249,7 +250,7 @@
                                                     <constraint firstAttribute="width" secondItem="wUL-CE-oGW" secondAttribute="height" multiplier="1:1" id="ZnC-Jp-e9K"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="03e-XT-wS1">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="03e-XT-wS1">
                                                 <rect key="frame" x="0.0" y="262" width="200" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -265,6 +266,7 @@
                                                 <state key="normal" image="plus" catalog="system"/>
                                                 <connections>
                                                     <action selector="addBeverageButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="T8Y-Ir-5Dx"/>
+                                                    <action selector="addBeverageButtonTouched:" destination="3mI-18-gjg" eventType="touchUpInside" id="yZz-nc-7vC"/>
                                                 </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DietCola" translatesAutoresizingMaskIntoConstraints="NO" id="xGa-bF-4Rs" customClass="BeverageImageView" customModule="VendingMachineApp" customModuleProvider="target">
@@ -273,7 +275,7 @@
                                                     <constraint firstAttribute="width" secondItem="xGa-bF-4Rs" secondAttribute="height" multiplier="1:1" id="hLS-lu-FL4"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fph-ni-2Fc">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fph-ni-2Fc">
                                                 <rect key="frame" x="0.0" y="262" width="166.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -289,6 +291,7 @@
                                                 <state key="normal" image="plus" catalog="system"/>
                                                 <connections>
                                                     <action selector="addBeverageButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GqY-qI-nTB"/>
+                                                    <action selector="addBeverageButtonTouched:" destination="3mI-18-gjg" eventType="touchUpInside" id="qzB-EG-ewM"/>
                                                 </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TopAmericano" translatesAutoresizingMaskIntoConstraints="NO" id="KWm-Ca-TU2" customClass="BeverageImageView" customModule="VendingMachineApp" customModuleProvider="target">
@@ -297,9 +300,9 @@
                                                     <constraint firstAttribute="width" secondItem="KWm-Ca-TU2" secondAttribute="height" multiplier="1:1" id="WGV-56-YS9"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d0W-Lr-rxr">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d0W-Lr-rxr">
                                                 <rect key="frame" x="0.0" y="262" width="200" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -320,6 +323,14 @@
                             <constraint firstItem="L3k-2Z-qpc" firstAttribute="trailing" secondItem="RXh-fc-FIR" secondAttribute="trailing" constant="40" id="sLi-re-Nkb"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outletCollection property="addStockButton" destination="xco-Yi-yJb" collectionClass="NSMutableArray" id="zGE-Md-XOM"/>
+                        <outletCollection property="addStockButton" destination="MDV-zu-lWS" collectionClass="NSMutableArray" id="SOQ-kf-Nfd"/>
+                        <outletCollection property="addStockButton" destination="zl8-Gb-Gop" collectionClass="NSMutableArray" id="Inh-yO-Oam"/>
+                        <outletCollection property="numberOfStock" destination="03e-XT-wS1" collectionClass="NSMutableArray" id="1WC-Sh-dE7"/>
+                        <outletCollection property="numberOfStock" destination="Fph-ni-2Fc" collectionClass="NSMutableArray" id="yzD-un-OhR"/>
+                        <outletCollection property="numberOfStock" destination="d0W-Lr-rxr" collectionClass="NSMutableArray" id="16Y-ll-LyI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5ol-SW-hyM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

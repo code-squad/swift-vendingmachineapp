@@ -7,23 +7,45 @@
 
 import UIKit
 
-class AdminViewController: UIViewController,AdminModable,VendingMachinedable {
-
-    var vendingMachine : UserModable!
+class AdminViewController: UIViewController,VendingMachinedable {
+    @IBOutlet var addStockButton: [UIButton]!
+    @IBOutlet var numberOfStock: [UILabel]!
+    
+    private var vendingMachine : VendingMachined!
+    private var drinkMenu : BeverageMapper!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        drinkMenu = BeverageMapper(drinkButtons: addStockButton)
+        changeBeverageLabel()
+        setNotificationObserver()
     }
     
     @IBAction func closeView(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }
 
-    func setVendingMachine(_ vendingMachined: UserModable) {
+    func setVendingMachine(_ vendingMachined: VendingMachined) {
         self.vendingMachine = vendingMachined
     }
     
-    func addStock(_ beverage: Beverage) {
-        
+    private func setNotificationObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(updateNotificationBeverageLabel(_:)), name: VendingMachine.NotificationName.updateBeverage, object: vendingMachine)
+    }
+    
+    private func changeBeverageLabel() {
+        BeverageMapper.drinkTypeList.enumerated().forEach { index , drinkType in
+            self.numberOfStock[index].text = String(vendingMachine.showBeverageStock(drinkType: drinkType))
+        }
+    }
+    
+    @objc private func updateNotificationBeverageLabel(_ notification : Notification) {
+        changeBeverageLabel()
+    }
+    
+    @IBAction func addBeverageButtonTouched(_ sender: UIButton) {
+        guard let beverageType = drinkMenu[sender] else { return }
+        let beverage = BeverageFactory.make(beverageType)
+        vendingMachine.addStock(beverage)
     }
 }

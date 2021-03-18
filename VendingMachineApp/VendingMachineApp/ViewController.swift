@@ -16,7 +16,7 @@ class ViewController: UIViewController ,VendingMachinedable {
     @IBOutlet var PurchaseButtons: [UIButton]!
     @IBOutlet weak var scrollView: UIScrollView!
     
-    private var vendingMachine : UserModable!
+    private var vendingMachine : VendingMachined!
     private var paymentMenu : PaymentMenu!
     private var drinkMenu : BeverageMapper!
     private var purchaseMenu : BeverageMapper!
@@ -34,7 +34,7 @@ class ViewController: UIViewController ,VendingMachinedable {
         setNotificationObserver()
     }
     
-    func setVendingMachine(_ vendingMachined : UserModable){
+    func setVendingMachine(_ vendingMachined : VendingMachined){
         self.vendingMachine = vendingMachined
     }
     

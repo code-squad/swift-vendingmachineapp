@@ -8,5 +8,5 @@
 import Foundation
 
 protocol VendingMachinedable {
-    func setVendingMachine(_ vendingMachined : UserModable)
+    func setVendingMachine(_ vendingMachined : VendingMachined)
 }

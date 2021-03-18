@@ -82,6 +82,8 @@ class VendingMachine: NSObject, NSCoding, InventoryTakeable, Archivable, Unarchi
             let newOrder = Order(purchased: now, item: vendedItem)
             soldItems.add(newOrder)
         }
+        NotificationCenter.default.post(name: Notification.DidChangeInventory, object: self)
+        NotificationCenter.default.post(name: Notification.DidChangeBalance, object: self)
         return vendedItem
     }
     

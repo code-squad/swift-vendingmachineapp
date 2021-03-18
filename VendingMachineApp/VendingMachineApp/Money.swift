@@ -40,7 +40,7 @@ class Money : NSObject, NSCoding{
     
     func addMoney(money : Money) -> Void{
         self.Money += money.Money
-        NotificationCenter.default.post(name: NSNotification.Name("addSomething"), object: nil)
+        NotificationCenter.default.post(name: NSNotification.Name("redrawImageandLabel"), object: nil)
     }
     
     func canBuybeverage(price : Int) -> Bool{

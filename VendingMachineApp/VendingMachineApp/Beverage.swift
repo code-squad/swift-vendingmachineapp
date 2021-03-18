@@ -105,6 +105,15 @@ class Beverage : NSObject, NSCoding {
             productTypeList[ObjectIdentifier(self)]! += 1
         }
     }
+    
+    func removeProductType(productTypeList : inout [ObjectIdentifier : Int]){
+        if productTypeList[ObjectIdentifier(self)] == nil{
+            return
+        }
+        else{
+            productTypeList[ObjectIdentifier(self)]! -= 1
+        }
+    }
 }
 
 extension Beverage{

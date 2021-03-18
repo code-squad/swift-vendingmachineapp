@@ -6,9 +6,9 @@ class VendingMachine : NSObject, NSCoding {
     private var beverages: Beverages
     private var shoppingHistoryData: Beverages
     
-    enum VendingMachineMoney : Int, CaseIterable {
-        case insertMoney1000 = 1000
-        case insertMoney5000 = 5000
+    enum Money : Int, CaseIterable {
+        case insert1000 = 1000
+        case insert5000 = 5000
     }
     
     override init() {

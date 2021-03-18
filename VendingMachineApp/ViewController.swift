@@ -81,7 +81,7 @@ extension ViewController {
     }
     @objc func updatePurchaseList(){
         let element = vendingMachine.getSoldProducts().last!
-        let image = ImageManager.getImage(type: type(of: element))
+        let image = ImageManager.getImage(with: type(of: element))
         purchaseView.addSubView(with: image)
     }
 }

@@ -12,8 +12,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var vendingMachine = VendingMachine()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-        if let data = UserDefaults.standard.data(forKey: "vendingMachine3"), let vendingMachineDate = ArchiveManager.unarchive(with: data) {
-            vendingMachine = vendingMachineDate
+        if let unarchivedVendingMachine = ArchiveManager.unarchiveVendingMachine() {
+            vendingMachine = unarchivedVendingMachine
         }
         return true
     }

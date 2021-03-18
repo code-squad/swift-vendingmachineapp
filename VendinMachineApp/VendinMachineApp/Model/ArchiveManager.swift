@@ -1,27 +1,28 @@
 
 import Foundation
-
+//if let data = UserDefaults.standard.data(forKey: "vendingMachine3"), let vendingMachineDate = ArchiveManager.unarchive(with: data) {
+//    vendingMachine = vendingMachineDate
+//}
 class ArchiveManager {
     
-    static func archive(with things: VendingMachine) -> Data {
+    static func archive(with things: VendingMachine) {
         do {
             let archived = try NSKeyedArchiver.archivedData(withRootObject: things, requiringSecureCoding: false)
-            return archived
+            UserDefaults.standard.set(archived, forKey: "vendingMachine")
         }
         catch {
             print(error)
-            return Data()
         }
     }
     
-    static func unarchive(with things: Data) -> VendingMachine? {
-        do {
-            let object = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(things)
-            return object as? VendingMachine
+    static func unarchiveVendingMachine() -> VendingMachine? {
+        if let data = UserDefaults.standard.data(forKey: "vendingMachine") {
+            do {
+                let object = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data)
+                return object as? VendingMachine
+            }
+            catch { }
         }
-        catch {
-            print(error)
-            return nil
-        }
+        return VendingMachine()
     }
 }

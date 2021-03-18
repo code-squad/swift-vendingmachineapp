@@ -11,11 +11,6 @@ class VendingMachine : NSObject, NSCoding {
         case insertMoney5000 = 5000
     }
     
-    enum NotificationUserInfo {
-        case cashBox
-        case beverageStock
-    }
-    
     override init() {
         cashBox = 0
         beverages = Beverages()
@@ -58,7 +53,7 @@ class VendingMachine : NSObject, NSCoding {
     
     func insertCash(amount: Int) {
         self.cashBox += amount
-        NotificationCenter.default.post(name: .insertCash, object: self, userInfo: [NotificationUserInfo.cashBox :self.cashBox])
+        NotificationCenter.default.post(name: VendingMachine.insertCash, object: self, userInfo: [NotificationUserInfo.cashBox :self.cashBox])
     }
     
     func reduceCash(amount: Int) {
@@ -67,7 +62,7 @@ class VendingMachine : NSObject, NSCoding {
     
     func addBeverageStock(_ beverage: Beverage) {
         self.beverages.addBeverage(element: beverage)
-        NotificationCenter.default.post(name: .addBeverageStock, object: self, userInfo: [NotificationUserInfo.beverageStock :totalBeverageStockList()])
+        NotificationCenter.default.post(name: VendingMachine.addBeverageStock, object: self, userInfo: [NotificationUserInfo.beverageStock :totalBeverageStockList()])
     }
     
     func totalBeverageStockList() -> Beverages {
@@ -114,5 +109,17 @@ class VendingMachine : NSObject, NSCoding {
         self.shoppingHistoryData.addBeverage(element: purchasedBeverage)
         return purchasedBeverage
     }
+    
+}
+
+extension VendingMachine {
+    
+    enum NotificationUserInfo {
+        case cashBox
+        case beverageStock
+    }
+
+    static let insertCash = Notification.Name("insertCash")
+    static let addBeverageStock = Notification.Name("addBeverageStock")
     
 }

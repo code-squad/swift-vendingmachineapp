@@ -51,6 +51,7 @@
 		22C52CAE25E910EA00A56884 /* Fanta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C52CAD25E910EA00A56884 /* Fanta.swift */; };
 		22C52CB225E9180800A56884 /* BlueBottleColdBrew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C52CB125E9180800A56884 /* BlueBottleColdBrew.swift */; };
 		22DE56F1260369CC00B030B5 /* PurchaseHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DE56F0260369CC00B030B5 /* PurchaseHistory.swift */; };
+		22DE56F726036BCC00B030B5 /* ChackHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DE56F626036BCC00B030B5 /* ChackHistory.swift */; };
 		22E4753625E60FFA00417A37 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E4753525E60FFA00417A37 /* AppDelegate.swift */; };
 		22E4753825E60FFA00417A37 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E4753725E60FFA00417A37 /* SceneDelegate.swift */; };
 		22E4753A25E60FFA00417A37 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E4753925E60FFA00417A37 /* ViewController.swift */; };
@@ -97,6 +98,7 @@
 		22C52CAD25E910EA00A56884 /* Fanta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fanta.swift; sourceTree = "<group>"; };
 		22C52CB125E9180800A56884 /* BlueBottleColdBrew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueBottleColdBrew.swift; sourceTree = "<group>"; };
 		22DE56F0260369CC00B030B5 /* PurchaseHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseHistory.swift; sourceTree = "<group>"; };
+		22DE56F626036BCC00B030B5 /* ChackHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChackHistory.swift; sourceTree = "<group>"; };
 		22E4753225E60FFA00417A37 /* VendingMachineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendingMachineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22E4753525E60FFA00417A37 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		22E4753725E60FFA00417A37 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -191,8 +193,9 @@
 			children = (
 				220AFCE325E9539600FDADEB /* Productization.swift */,
 				221A9EC825EA64AA00ADEE1E /* StockManageable.swift */,
-				223A6BDF25EF25B300AA3483 /* CoinManageable.swift */,
 				221239F625F5F99200064DF5 /* DrinkProductable.swift */,
+				223A6BDF25EF25B300AA3483 /* CoinManageable.swift */,
+				22DE56F626036BCC00B030B5 /* ChackHistory.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -397,6 +400,7 @@
 				2255F0DB25E8DDCD0044B872 /* StarbucksColdBrew.swift in Sources */,
 				220AFCE425E9539600FDADEB /* Productization.swift in Sources */,
 				2255F0C725E8DA2F0044B872 /* SeoulStrawberryMilk.swift in Sources */,
+				22DE56F726036BCC00B030B5 /* ChackHistory.swift in Sources */,
 				223A6BE025EF25B300AA3483 /* CoinManageable.swift in Sources */,
 				22FCC92326018950007D56F7 /* PurchaseHistoryScrollView.swift in Sources */,
 				22E4753825E60FFA00417A37 /* SceneDelegate.swift in Sources */,

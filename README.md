@@ -57,3 +57,9 @@ Cantata BananaMilk Fanta (3단계)
 - VendingMachine 객체를 Singleton으로 변경
 - 충전 금액 단위를 위해 새로운 enum type `ChargeUnit` 생성
 - App Switcher에서 앱을 종료하더라도 자판기 객체를 저장할 수 있도록  `sceneWillResignActive` 가 호출되는 시점에 객체를 저장
+
+## Step 6 - Scroll View
+- 구매한 음료 리스트를 보여주는 ScrollView 추가
+- 음료 구매 버튼 UI 추가
+- UserDefaults에 data를 저장하고 불러오는 `DataManager` class 생성
+<img width="812" alt="" src="https://user-images.githubusercontent.com/75113784/111618344-9af85480-8827-11eb-95ff-f3166d8e469d.png">

@@ -27,7 +27,7 @@ class Beverages : NSObject , NSCoding{
     
     func addBeverage(beverage : Beverage) -> Void{
         beverages.append(beverage)
-        NotificationCenter.default.post(name: NSNotification.Name("addSomething"), object: nil)
+        NotificationCenter.default.post(name: NSNotification.Name("redrawImageandLabel"), object: nil)
     }
     
     func showValidatecurrentBeverageList() -> [Beverage]{
@@ -41,9 +41,8 @@ class Beverages : NSObject , NSCoding{
     }
     
     func takeBeverage(beverage : Beverage){
-        if let removeTarget = beverages.firstIndex(of: beverage){
-            self.beverages.remove(at: removeTarget)
-        }
+        var tempbeverageList : [ObjectIdentifier : Int] = makeCurrentBeverageObjectIdentifierList()
+        beverage.removeProductType(productTypeList: &tempbeverageList)
     }
     
     func showLowerpriceThan(money : Money) -> [Beverage]{

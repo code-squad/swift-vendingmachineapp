@@ -23,7 +23,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func sceneDidBecomeActive(_ scene: UIScene) {
-       
+ 
     }
 
     func sceneWillResignActive(_ scene: UIScene) {
@@ -31,7 +31,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func sceneWillEnterForeground(_ scene: UIScene) {
-       
+        // 앱 켰을 때 초기 잔액 LabelText 변경
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "addMoney"), object: appDelegate.vendingMachine, userInfo: nil)
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {

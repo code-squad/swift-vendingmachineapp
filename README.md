@@ -75,3 +75,36 @@
 
 
 #### 완료날짜: 2021년 3월 15일(월) 18: 15
+
+
+# 관찰자(Observer) 패턴
+
+#### 요구사항
+
+-  VendingMachine 변수를 ViewController에서 포함하지 않고 AppDelegate로 옮긴다.
+-  AppDelegate에 선언한 변수를 ViewController에서 접근하기 위한 방법을 찾는다.
+-  앱 종료(background) 시점 콜백 함수에서 VendingMachine 객체 인스턴스 속성을 저장한다.
+-  앱 시작(activate) 시점 콜백 함수에서 기존에 저장된 값에서 불러와서 VendingMachine 객체 인스턴스를 생성한다.
+
+#### 학습
+
+- archive, unarchive
+- appdelegate, scenedelegate
+- xib
+
+#### 초기 불리는 메소드 순서 
+
+AppDelegate
+
+sceneWillConnetct
+
+viewDidLoad()
+
+sceneWillEnterForeground
+
+sceneDidBecomeActive
+
+
+
+#### 완료날짜: 2021년 3월 18일(목) 23: 15
+

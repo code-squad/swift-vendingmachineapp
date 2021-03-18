@@ -19,9 +19,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpInventoryStackView()
-        setUpMoneyLabel()
-        
+
         NotificationCenter.default.addObserver(self, selector: #selector(addBeverage), name: NSNotification.Name("addBeverage"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(setUpMoneyLabel), name: NSNotification.Name("addMoney"), object: nil)
     }
     
     private func setUpInventoryStackView() {
@@ -30,8 +30,12 @@ class ViewController: UIViewController {
         }
     }
     
-    private func setUpMoneyLabel() {
-        moneyLabel.text = "잔액: \(delegate.vendingMachine.showCurrentMoney()) 원"
+    @objc
+    private func setUpMoneyLabel(notification: Notification) {
+        guard let vendingMachine = notification.object as? VendingMachine else {
+            return
+        }
+        moneyLabel.text = "잔액: \(vendingMachine.showCurrentMoney()) 원"
     }
     
     @objc
@@ -51,11 +55,9 @@ class ViewController: UIViewController {
     
     @IBAction func addMoney5000(_ sender: Any) {
         delegate.vendingMachine.put(in: .fiveThousand)
-        setUpMoneyLabel()
     }
     
     @IBAction func addMoney1000(_ sender: Any) {
         delegate.vendingMachine.put(in: .thousand)
-        setUpMoneyLabel()
     }
 }

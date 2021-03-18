@@ -22,8 +22,7 @@ class ArchivingManager {
         guard let object = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(text) else {
             return nil
         }
-        
-        
+
         return object as? VendingMachine
     }
     

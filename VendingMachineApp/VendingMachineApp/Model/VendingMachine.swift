@@ -44,7 +44,7 @@ class VendingMachine: NSObject, NSCoding, makingViewProtocol {
     //자판기 금액을 원하는 금액만큼 올리는 기능
     public func put(in money: Money) {
         paymentManager.increase(money)
-        NotificationCenter.default.post(name: NSNotification.Name("addMoney"), object: paymentManager, userInfo: nil)
+        NotificationCenter.default.post(name: NSNotification.Name("addMoney"), object: self, userInfo: nil)
     }
     
     //음료수를 구매하는 기능

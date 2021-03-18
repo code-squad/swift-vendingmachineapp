@@ -8,7 +8,6 @@
 import UIKit
 
 class ViewController: UIViewController ,VendingMachinedable {
-    @IBOutlet var addStockButton: [UIButton]!
     @IBOutlet var beverageImages: [BeverageImageView]!
     @IBOutlet var numberOfStock: [UILabel]!
     @IBOutlet var addPaymentButtons: [UIButton]!
@@ -18,14 +17,12 @@ class ViewController: UIViewController ,VendingMachinedable {
     
     private var vendingMachine : VendingMachined!
     private var paymentMenu : PaymentMenu!
-    private var drinkMenu : BeverageMapper!
     private var purchaseMenu : BeverageMapper!
     
     private let drinkImages = [#imageLiteral(resourceName: "StrawberryMilk"),#imageLiteral(resourceName: "DietCola"),#imageLiteral(resourceName: "TopAmericano")]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        drinkMenu = BeverageMapper(drinkButtons: addStockButton)
         purchaseMenu = BeverageMapper(drinkButtons: PurchaseButtons)
         paymentMenu = PaymentMenu(buttons: addPaymentButtons)
         changeBalanceLabel()
@@ -42,12 +39,6 @@ class ViewController: UIViewController ,VendingMachinedable {
         NotificationCenter.default.addObserver(self, selector: #selector(updateNotificationBalanceLabel(_:)), name: VendingMachine.NotificationName.updateBalance, object: vendingMachine)
         NotificationCenter.default.addObserver(self, selector: #selector(updateNotificationBeverageLabel(_:)), name: VendingMachine.NotificationName.updateBeverage, object: vendingMachine)
         NotificationCenter.default.addObserver(self, selector: #selector(updatePurchaseImage(_:)), name: VendingMachine.NotificationName.updatePurchase, object: vendingMachine)
-    }
-    
-    @IBAction func addBeverageButtonTouched(_ sender: UIButton) {
-        guard let beverageType = drinkMenu[sender] else { return }
-        let beverage = BeverageFactory.make(beverageType)
-        vendingMachine.addStock(beverage)
     }
     
     @IBAction func BalanceIncreaseButtonTouched(_ sender: UIButton) {

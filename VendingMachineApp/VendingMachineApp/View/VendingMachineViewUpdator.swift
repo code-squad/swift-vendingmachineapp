@@ -52,6 +52,7 @@ class VendingMachineViewUpdator: VendingMachineViewPresenter {
         let view = try! NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(NSKeyedArchiver.archivedData(withRootObject: sampleView, requiringSecureCoding: false)) as! ProductStackView
         
         view.imageView.image = image
+        view.addButton.isHidden = true
 
         return view
     }

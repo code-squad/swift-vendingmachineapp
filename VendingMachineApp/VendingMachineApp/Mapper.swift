@@ -8,11 +8,12 @@
 import Foundation
 import UIKit
 
-class Mapper {
+class BeverageMapper {
+    static let drinkTypeList = [StrawberryMilk.self, DietCola.self, TopAmericano.self]
     private var map : [UIButton : Beverage.Type] = [:]
 
-    init(drinkButtons : [UIButton], drinkTypeList : [Beverage.Type]) {
-        self.map = Dictionary(uniqueKeysWithValues: zip(drinkButtons, drinkTypeList))
+    init(drinkButtons : [UIButton]) {
+        self.map = Dictionary(uniqueKeysWithValues: zip(drinkButtons, BeverageMapper.drinkTypeList))
     }
     subscript(button : UIButton) -> Beverage.Type? {
         return map[button]

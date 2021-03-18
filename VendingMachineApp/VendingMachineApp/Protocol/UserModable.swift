@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol VendingMachined {
+protocol UserModable {
     func addStock(_ beverage : Beverage)
     func putPayMoney(money: Int)
     func checkCurrentBalance() -> Int

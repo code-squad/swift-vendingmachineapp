@@ -16,18 +16,17 @@ class ViewController: UIViewController ,VendingMachinedable {
     @IBOutlet var PurchaseButtons: [UIButton]!
     @IBOutlet weak var scrollView: UIScrollView!
     
-    private var vendingMachine : VendingMachined!
+    private var vendingMachine : UserModable!
     private var paymentMenu : PaymentMenu!
-    private var drinkMenu : Mapper!
-    private var purchaseMenu : Mapper!
+    private var drinkMenu : BeverageMapper!
+    private var purchaseMenu : BeverageMapper!
     
-    private let drinkTypeList = [StrawberryMilk.self, DietCola.self, TopAmericano.self]
     private let drinkImages = [#imageLiteral(resourceName: "StrawberryMilk"),#imageLiteral(resourceName: "DietCola"),#imageLiteral(resourceName: "TopAmericano")]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        drinkMenu = Mapper(drinkButtons: addStockButton, drinkTypeList: drinkTypeList)
-        purchaseMenu = Mapper(drinkButtons: PurchaseButtons, drinkTypeList: drinkTypeList)
+        drinkMenu = BeverageMapper(drinkButtons: addStockButton)
+        purchaseMenu = BeverageMapper(drinkButtons: PurchaseButtons)
         paymentMenu = PaymentMenu(buttons: addPaymentButtons)
         changeBalanceLabel()
         changeBeverageLabel()
@@ -35,7 +34,7 @@ class ViewController: UIViewController ,VendingMachinedable {
         setNotificationObserver()
     }
     
-    func setVendingMachine(_ vendingMachined : VendingMachined){
+    func setVendingMachine(_ vendingMachined : UserModable){
         self.vendingMachine = vendingMachined
     }
     
@@ -67,7 +66,7 @@ class ViewController: UIViewController ,VendingMachinedable {
     }
     
     private func changeBeverageLabel() {
-        drinkTypeList.enumerated().forEach { index , drinkType in
+        BeverageMapper.drinkTypeList.enumerated().forEach { index , drinkType in
             self.numberOfStock[index].text = String(vendingMachine.showBeverageStock(drinkType: drinkType))
         }
     }
@@ -88,6 +87,11 @@ class ViewController: UIViewController ,VendingMachinedable {
         imageView.frame = CGRect(x: scrollView.contentSize.width, y: scrollView.bounds.origin.y, width: 200, height: 200)
         scrollView.addSubview(imageView)
         scrollView.contentSize.width += 150
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let adminViewcontroller = segue.destination as? VendingMachinedable else { return }
+        adminViewcontroller.setVendingMachine(vendingMachine)
     }
     
     @objc private func updateNotificationBalanceLabel(_ notification : Notification) {

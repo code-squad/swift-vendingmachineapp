@@ -153,7 +153,7 @@ Coffee도 Enum 타입의 kind 가지고, Monster도  Enum 타입의 kind를 가�
 - VendingMachine 모델 객체에서는 변화에 대해 NotificationCenter에 post한다.
 - 모든 동작은 이전 단계와 동일하게 동작해야 한다.
 
-[PR 리뷰과정](https://github.com/code-squad/swift-vendingmachineapp/pull/306)
+[코드리뷰 과정](https://github.com/code-squad/swift-vendingmachineapp/pull/306)
 
 # Step6
 
@@ -172,7 +172,52 @@ Coffee도 Enum 타입의 kind 가지고, Monster도  Enum 타입의 kind를 가�
 
 ## 고찰
 ### [Beverage.type : String] 자료를 만들어 UIImage 매칭
-파라미터로 넘어온 `Beverage.Type`를 받아 UIImage를 반환하고자 하였다. 하지만, `static`으로 만들어 놓은 `ObjectIdentifier(Top.Type)`의 값과 앱 실행 도중 넘겨받은 `ObjectIdentifier(Top.Type)`의 값이 달라 이와 같은 로직을 적용할 수 없었다. 결국, Beverage.Type을 가지고 있는 배열과 음료수의 이미지를 가지고 있는 UIImage 배열을 각각 생성하여 매칭하였다.
+`getImage` 메소드 에서는 파라미터로 넘어온 `Beverage.Type`를 받아 UIImage를 반환하고자 하였다.
+
+```swift
+static func getImage(with currentType : Beverage.Type) -> UIImage {
+
+    print(ObjectIdentifier(type(of: currentType)))
+
+    guard let name = imageDict[ObjectIdentifier(currentType.self)] else {          
+        return UIImage()
+    }
+    return UIImage(named: name) ?? UIImage()
+}
+```
+
+ 하지만, `static`으로 만들어 놓은 `ObjectIdentifier(Top.Type)`의 값과 앱 실행 도중 넘겨받은 Type의 `ObjectIdentifier(Top.Type)`의 값이 달라 이와 같은 로직을 적용할 수 없었다. 
+
+<img width="1106" alt="Screen Shot 2021-03-18 at 4 43 57 PM" src="https://user-images.githubusercontent.com/60229909/111590177-23b3c800-8809-11eb-8691-4417292aa47b.png">
+
+
+디버깅을 위해서 getImage 함수 내에서 ObjectIdentifier를 Print문으로 확인해 보니 다음과 같이 확인 할 수 있었다.
+
+```
+// image dictionary안에 들어있는 key값과 value 값
+key: ObjectIdentifier(0x00007fff873f8f10), value : coke
+key: ObjectIdentifier(0x00007fff873f8e48), value : top
+key: ObjectIdentifier(0x00007fff873f8f60), value : stroberry
+key: ObjectIdentifier(0x00007fff873f8e70), value : georgia
+key: ObjectIdentifier(0x00007fff873f8f38), value : banana
+key: ObjectIdentifier(0x00007fff873f8f88), value : chocolate
+key: ObjectIdentifier(0x00007fff873f8ec0), value : sprite
+key: ObjectIdentifier(0x00007fff873f8e98), value : cantata
+```
+```
+ObjectIdentifier(0x00007fff873f8978)
+```
+
+`getImage()`에서 매개 변수로 넘기는 값의 자료형은 `Beverage.Type`이다. 이 위치의 `Top.self` 넣고 테스트 함수를 돌렸다. (Top.Type.self를 넣었떠니 `Cannot convert value of type 'Top.Type.Type' to expected argument type 'Beverage.Type'`의 에러가 발생했기 떄문에 Top.self를 넣게 되었다.)
+`imageDict`의 키값을 찾기 위해서 필요한 값은 Top.Type이다. 그런데 현재 매게 변수로 넘어온 값은 Top.Type 이 아닌 Top이다. Top의 타입을 추출하기 위해 type(of: Top.self)를 하는 경우 나의 예상과 달리 `Top.Type`가 아닌 `Beverage.Type`을 리턴한다.
+```
+print(currentType) // Top
+print(type(of: currentType.self))   // Beverage.Type     
+print(type(of: Top.self))    // Top.Type
+```
+때문에 모든 파라미터에 대하여 `Beverage.Type`에 대한 ObjectIdentifier를 반환하므로 원하는 이미지를 추출하지 못했던 것이다.
+
+이와 같은 문제가 발생하였지만, 아직 해결하지 못했다.
 
 ### ScrollView의 isScrollEnabled
 ScrollVeiw의 스크롤이 가능하게 하기 위해서는 다음의 옵션 설정이 필요 한 것 같다.
@@ -182,3 +227,28 @@ scrollVeiw.isScrollEnabled = true
 
 ### ScrollView의 contentSize, 과도하게 스크롤 되는 현상 방지
 contentSize는 기본적으로 `CGSizeZero`의 값을 가지고 있다. 때문에, 아무리 ScrollView의 sub뷰를 추가하여도 스크롤이 생성되지 않는다. 세로로 스크롤 될 필요는 없으므로, `self.bounds.height`값으로 높이를 지정하였고, 넓이는 구매 이미지가 추가될 때 마다 ContentSize값을 변경하도록 하였다. 동시에 과도하게 스크롤 되는 현상을 해결 할 수 있었다.
+
+[코드리뷰 과정](https://github.com/code-squad/swift-vendingmachineapp/pull/321)
+# Step7
+
+## 프로그래밍 요구사항
+- 스토리보드에서 Button을 추가하고, Attributes에서 Type을 Info Light로 설정한다.
+- 새로운 ViewController를 옆에 추가하고, Button에서 Segue를 연결한다.
+- Segue를 선택하고 Kind를 Present Modally로 지정하고, Transition을 Flip Horizontal로 설정한다.
+- 자판기에 음료수를 관리하는 관리자 기능(AdminMode)과 음료를 구매하는 사용자 기능(UserMode)을 담당하는 객체를 분리한다.
+- 새롭게 추가한 화면을 관리자 모드로 동작하도록 개선한다.
+- 이미지와 재고 추가 버튼을 복사해서 관리자 화면으로 복사하고, 동작하도록 코드를 수정한다.
+- 재고 추가 버튼은 기존 화면에서 삭제한다.
+- 관리자 화면에 [닫기] 버튼을 추가하고, 버튼을 누르면 dissmiss()를 호출한다.
+- 다른 동작은 이전 단계와 동일하게 동작해야 한다.
+
+## 결과
+**사용자 화면**
+<img width="1104" alt="Screen Shot 2021-03-18 at 3 52 49 PM" src="https://user-images.githubusercontent.com/60229909/111584991-fe6f8b80-8801-11eb-90da-a932babd2c31.png">
+**관리자 화면**
+<img width="1104" alt="Screen Shot 2021-03-18 at 3 52 27 PM" src="https://user-images.githubusercontent.com/60229909/111584959-f1529c80-8801-11eb-9e5f-d790fb04ef9e.png">
+
+## 고찰
+
+### 기존에 만들어 놓은 View 재활용하기
+기존에 만들어 놓은 재고를 보여주는 화면을 최대한 재사용하기 위해 노력했다. "구매하기 버튼" 혹은 "추가하기 버튼"의 `isHidden`의 플래그를 활용하였다. 사용자의 화면에서는 재고 추가하기 버튼을 숨기고, 관리자 화면에서는 구매하기 버튼을 숨김으로써, 같은 재고뷰를 재사용 하였다. 또한, 기존에 한 줄에 몇개의 음료수를 보여줄 것인지에 대한 기준 값을 변경할 수 있도록 `let`이 아닌 `var`로 변경하였다.

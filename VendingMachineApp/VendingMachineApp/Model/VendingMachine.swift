@@ -34,6 +34,7 @@ class VendingMachine: NSObject, NSCoding, makingViewProtocol {
     //특정 상품 인스턴스를 넘겨서 재고를 추가하는 기능
     public func appendInventory(_ beverage: Beverage) {
         inventory.append(beverage)
+        NotificationCenter.default.post(name: NSNotification.Name("addedBeverage"), object: self, userInfo: showAllBeverageList())
     }
     
     //현재 금액으로 구매가능한 음료수 목록을 리턴하는 기능

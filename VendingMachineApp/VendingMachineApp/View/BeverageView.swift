@@ -36,7 +36,7 @@ class BeverageView: UIView {
         imageView.layer.masksToBounds = true
     }
     
-    @IBAction func addBeverage(_ sender: UIButton) {
-        NotificationCenter.default.post(name: NSNotification.Name("addBeverage"), object: sender, userInfo: nil)
+    @IBAction func didTapAddBeverageButton(_ sender: UIButton) {
+        NotificationCenter.default.post(name: NSNotification.Name("didTapBeverageButton"), object: sender, userInfo: nil)
     }
 }

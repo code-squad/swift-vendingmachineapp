@@ -20,8 +20,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         setUpInventoryStackView()
 
-        NotificationCenter.default.addObserver(self, selector: #selector(addBeverage), name: NSNotification.Name("addBeverage"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(setUpMoneyLabel), name: NSNotification.Name("addMoney"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(addBeverage), name: NSNotification.Name("didTapBeverageButton"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateBeverageStockLabel), name: NSNotification.Name("addedBeverage"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateMoneyLabel), name: NSNotification.Name("addMoney"), object: nil)
     }
     
     private func setUpInventoryStackView() {
@@ -31,7 +32,7 @@ class ViewController: UIViewController {
     }
     
     @objc
-    private func setUpMoneyLabel(notification: Notification) {
+    private func updateMoneyLabel(notification: Notification) {
         guard let vendingMachine = notification.object as? VendingMachine else {
             return
         }
@@ -48,10 +49,18 @@ class ViewController: UIViewController {
             return
         }
         delegate.vendingMachine.appendInventory(beverageType.init())
-        
-        vendingMachineInfo.beverageStockLabels[button]!.text = "\(delegate.vendingMachine.showAllBeverageList()[ObjectIdentifier(beverageType)]?.count ?? 0)"
     }
     
+    @objc
+    private func updateBeverageStockLabel(notification: Notification) {
+
+        guard let beverageType = notification.userInfo as? [ObjectIdentifier:[Beverage]] else {
+            return
+        }
+        beverageType.keys.forEach { objectIdentifier in
+            vendingMachineInfo.matchModelAndViewHelper[objectIdentifier]?.stockLabel.text = "\(beverageType[objectIdentifier]?.count ?? 0)"
+        }
+    }
     
     @IBAction func addMoney5000(_ sender: Any) {
         delegate.vendingMachine.put(in: .fiveThousand)

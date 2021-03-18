@@ -27,3 +27,4 @@ class PaymentMenu {
         return list[button]?.value ?? 0
     }
 }
+

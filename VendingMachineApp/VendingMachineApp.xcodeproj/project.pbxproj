@@ -32,6 +32,7 @@
 		BF5381DA25E78BF00031EE39 /* BeverageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5381D925E78BF00031EE39 /* BeverageTests.swift */; };
 		BF5381EF25EA2C4D0031EE39 /* VendingStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5381EE25EA2C4D0031EE39 /* VendingStackView.swift */; };
 		BF660C08260235930067551B /* BeverageImageFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF660C07260235930067551B /* BeverageImageFactory.swift */; };
+		BFA727AA26033DFF0078CA63 /* AdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA727A926033DFF0078CA63 /* AdminViewController.swift */; };
 		BFCA483A25ECC630003D4844 /* BeverageStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCA483925ECC630003D4844 /* BeverageStackView.swift */; };
 		BFCA484F25EE3E6E003D4844 /* BalanceIncreasable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCA484E25EE3E6E003D4844 /* BalanceIncreasable.swift */; };
 		BFCA485425EE527E003D4844 /* BeverageImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCA485325EE527E003D4844 /* BeverageImageView.swift */; };
@@ -92,6 +93,7 @@
 		BF5381D925E78BF00031EE39 /* BeverageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageTests.swift; sourceTree = "<group>"; };
 		BF5381EE25EA2C4D0031EE39 /* VendingStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingStackView.swift; sourceTree = "<group>"; };
 		BF660C07260235930067551B /* BeverageImageFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageImageFactory.swift; sourceTree = "<group>"; };
+		BFA727A926033DFF0078CA63 /* AdminViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminViewController.swift; sourceTree = "<group>"; };
 		BFCA483925ECC630003D4844 /* BeverageStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageStackView.swift; sourceTree = "<group>"; };
 		BFCA484E25EE3E6E003D4844 /* BalanceIncreasable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceIncreasable.swift; sourceTree = "<group>"; };
 		BFCA485325EE527E003D4844 /* BeverageImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageImageView.swift; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 				BFD013182600F21D007A54FA /* BeverageFactory.swift */,
 				BF660C07260235930067551B /* BeverageImageFactory.swift */,
 				BFD012F92600CBA1007A54FA /* PaymentMenu.swift */,
+				BFA727A926033DFF0078CA63 /* AdminViewController.swift */,
 				BFD013042600D654007A54FA /* Mapper.swift */,
 				BF53811925E4A09F0031EE39 /* Main.storyboard */,
 				BF53811C25E4A0A20031EE39 /* Assets.xcassets */,
@@ -386,6 +389,7 @@
 				BFD012EF2600B05A007A54FA /* VendingMachined.swift in Sources */,
 				BF53816E25E4CB490031EE39 /* Coffee.swift in Sources */,
 				BF53811425E4A09F0031EE39 /* AppDelegate.swift in Sources */,
+				BFA727AA26033DFF0078CA63 /* AdminViewController.swift in Sources */,
 				BF53814E25E4A19F0031EE39 /* Beverage.swift in Sources */,
 				BF5381EF25EA2C4D0031EE39 /* VendingStackView.swift in Sources */,
 				BFCA484F25EE3E6E003D4844 /* BalanceIncreasable.swift in Sources */,

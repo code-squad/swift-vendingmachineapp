@@ -14,7 +14,7 @@ protocol makingViewProtocol {
 class VendingMachineInfo {
     private(set) var matchModelAndViewHelper: [ObjectIdentifier: BeverageView] = [:]
     private(set) var beverageTypeButtons: [UIButton: Beverage.Type] = [:]
-    private(set) var beverageStockLabels: [UIButton: UILabel] = [:]
+
     private var objectforMakingView: makingViewProtocol
     
     init(with objectforMakingView: makingViewProtocol) {
@@ -34,16 +34,7 @@ class VendingMachineInfo {
                 
                 matchModelAndViewHelper[key] = beverageView
                 beverageTypeButtons[beverageView.addButton] = type(of: beverage)
-                beverageStockLabels[beverageView.addButton] = beverageView.stockLabel
             }
-        }
-    }
-    
-    public func repeatForButton(closure: (UIButton)->()) {
-        renewVendingMachineInfo()
-        
-        beverageTypeButtons.keys.forEach { key in
-            closure(key)
         }
     }
     

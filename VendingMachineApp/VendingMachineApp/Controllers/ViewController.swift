@@ -52,11 +52,17 @@ class ViewController: UIViewController, SlotViewDelegate, AppDelegateAccessible 
     }
     
     private func configureInventory(_ sender: SlotView) {
-        let selectedSlotView = sender
-        let slotInfo = inventoryViewInfo.filter { selectedSlotView == $0.value }.first
+        let slotInfo = inventoryViewInfo.filter { sender == $0.value }.first
         /// 현 단계에서는 재고 정보(제조일자, 유통기한 등)를 입력할 수 있는 란이 따로 없어 슬롯의 첫번째 상품과 동일한 상품의 재고를 추가하도록 구현
         if let item = slotInfo?.key.firstItem {
             appDelegate.vendingMachine.add(item: item)
+        }
+    }
+    
+    private func configurePurchaseHistory(_ sender: SlotView) {
+        let slotInfo = inventoryViewInfo.filter { sender == $0.value }.first
+        if let itemName = slotInfo?.key.firstItem?.name {
+            let vendedItem = appDelegate.vendingMachine.vend(itemNamed: itemName)
         }
     }
     
@@ -65,7 +71,7 @@ class ViewController: UIViewController, SlotViewDelegate, AppDelegateAccessible 
     }
     
     func vendButtonPressed(sender: SlotView) {
-        
+        configurePurchaseHistory(sender)
     }
     
     private func configureCashBox(_ sender: UIButton) {

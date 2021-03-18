@@ -23,6 +23,7 @@
 		718B080325FF428200EC6538 /* CheckBeverageInfo1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718B080225FF428200EC6538 /* CheckBeverageInfo1.swift */; };
 		7191448926007724002322CB /* AdminBeverageStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7191448826007724002322CB /* AdminBeverageStackView.swift */; };
 		71914499260081C1002322CB /* StockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71914498260081C1002322CB /* StockView.swift */; };
+		71928A1726034C4000589C7E /* PieGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71928A1626034C4000589C7E /* PieGraphView.swift */; };
 		71977F7F25F0ABEE0006A44C /* BeverageFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71977F7E25F0ABEE0006A44C /* BeverageFactory.swift */; };
 		719783E425E638AE001D428C /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719783E325E638AE001D428C /* Milk.swift */; };
 		719783E725E638C6001D428C /* SoftDrink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719783E625E638C6001D428C /* SoftDrink.swift */; };
@@ -84,6 +85,7 @@
 		718B080225FF428200EC6538 /* CheckBeverageInfo1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBeverageInfo1.swift; sourceTree = "<group>"; };
 		7191448826007724002322CB /* AdminBeverageStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminBeverageStackView.swift; sourceTree = "<group>"; };
 		71914498260081C1002322CB /* StockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockView.swift; sourceTree = "<group>"; };
+		71928A1626034C4000589C7E /* PieGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieGraphView.swift; sourceTree = "<group>"; };
 		71977F7E25F0ABEE0006A44C /* BeverageFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageFactory.swift; sourceTree = "<group>"; };
 		719783E325E638AE001D428C /* Milk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Milk.swift; sourceTree = "<group>"; };
 		719783E625E638C6001D428C /* SoftDrink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoftDrink.swift; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 				7191448826007724002322CB /* AdminBeverageStackView.swift */,
 				71914498260081C1002322CB /* StockView.swift */,
 				712929A02601A3400076F618 /* AddBeverageButton.swift */,
+				71928A1626034C4000589C7E /* PieGraphView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -327,6 +330,7 @@
 				718B07FF25FF425600EC6538 /* CheckAdditive1.swift in Sources */,
 				712929A12601A3400076F618 /* AddBeverageButton.swift in Sources */,
 				7191448926007724002322CB /* AdminBeverageStackView.swift in Sources */,
+				71928A1726034C4000589C7E /* PieGraphView.swift in Sources */,
 				71D1B81F25EE0745000E9142 /* InsertedMoney.swift in Sources */,
 				7179173725F4B6F6001E66F8 /* VendingMachineData.swift in Sources */,
 				712CC9EA26004F6C0021A459 /* AdminViewController.swift in Sources */,

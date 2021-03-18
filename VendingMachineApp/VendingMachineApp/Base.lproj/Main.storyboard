@@ -146,25 +146,25 @@
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="176" translatesAutoresizingMaskIntoConstraints="NO" id="Rlz-dE-uYE">
                                 <rect key="frame" x="55" y="323.5" width="442" height="30"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7FW-um-7WE">
+                                    <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="초코에몽" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7FW-um-7WE">
                                         <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                         <state key="normal" title="구매"/>
                                         <connections>
-                                            <action selector="buyChocoMilkButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="a9a-g6-QVi"/>
+                                            <action selector="buyBeverageButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VGg-yZ-kiE"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zyj-0P-FiI">
+                                    <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="딸기꿀단지" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zyj-0P-FiI">
                                         <rect key="frame" x="206" y="0.0" width="30" height="30"/>
                                         <state key="normal" title="구매"/>
                                         <connections>
-                                            <action selector="buyStrawberryMilkButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MIn-a1-FqO"/>
+                                            <action selector="buyBeverageButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aTr-Sg-2jl"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2cr-0q-5E7">
+                                    <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="코카콜라제로" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2cr-0q-5E7">
                                         <rect key="frame" x="412" y="0.0" width="30" height="30"/>
                                         <state key="normal" title="구매"/>
                                         <connections>
-                                            <action selector="buyCokeButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="o0e-S6-p2s"/>
+                                            <action selector="buyBeverageButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="it9-3Q-dhg"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -172,25 +172,25 @@
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="176" translatesAutoresizingMaskIntoConstraints="NO" id="UKq-sW-jXH">
                                 <rect key="frame" x="55" y="651.5" width="442" height="30"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Nj-wR-08X">
+                                    <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="스프라이트" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Nj-wR-08X">
                                         <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                         <state key="normal" title="구매"/>
                                         <connections>
-                                            <action selector="buySpriteButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tCC-Ak-tAk"/>
+                                            <action selector="buyBeverageButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WiQ-Zd-Cna"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gRj-du-yva">
+                                    <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="TOP" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gRj-du-yva">
                                         <rect key="frame" x="206" y="0.0" width="30" height="30"/>
                                         <state key="normal" title="구매"/>
                                         <connections>
-                                            <action selector="buyTopButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="k6t-Z1-22f"/>
+                                            <action selector="buyBeverageButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2c4-c3-OMx"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bv9-lW-b1T">
+                                    <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="콘트라베이스블랙" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bv9-lW-b1T">
                                         <rect key="frame" x="412" y="0.0" width="30" height="30"/>
                                         <state key="normal" title="구매"/>
                                         <connections>
-                                            <action selector="buyCantataButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xfI-PB-WKG"/>
+                                            <action selector="buyBeverageButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eDg-fd-pKM"/>
                                         </connections>
                                     </button>
                                 </subviews>

@@ -1,21 +1,15 @@
 import Foundation
 
 struct BeverageFactory {
-    private(set) var chocoMilk: Beverage
-    private(set) var strawberryMilk: Beverage
-    private(set) var coke: Beverage
-    private(set) var sprite: Beverage
-    private(set) var top: Beverage
-    private(set) var cantata: Beverage
     
-    init() {
-        chocoMilk = ChocolateMilk()
-        strawberryMilk = StrawBerryMilk()
-        coke = Coke()
-        sprite = Sprite()
-        top = Top()
-        cantata = Cantata()
+    private let beverageStorage = [ChocolateMilk(), StrawBerryMilk(), Coke(), Sprite(), Top(), Cantata()]
+    
+    func typeToInstance(product: Beverage.Type) -> Beverage {
+        let beverage = menuList().filter { type(of: $0) == product }
+        return beverage.first!
     }
     
-    
+    func menuList() -> [Beverage] {
+        return [ChocolateMilk(), StrawBerryMilk(), Coke(), Sprite(), Top(), Cantata()]
+    }
 }

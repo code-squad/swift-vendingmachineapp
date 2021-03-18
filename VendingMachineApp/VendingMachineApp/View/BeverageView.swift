@@ -35,4 +35,8 @@ class BeverageView: UIView {
         imageView.layer.cornerRadius = 25.0
         imageView.layer.masksToBounds = true
     }
+    
+    @IBAction func addBeverage(_ sender: UIButton) {
+        NotificationCenter.default.post(name: NSNotification.Name("addBeverage"), object: sender, userInfo: nil)
+    }
 }

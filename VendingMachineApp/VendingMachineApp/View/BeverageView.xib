@@ -29,6 +29,9 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MWQ-ca-3jO">
                     <rect key="frame" x="0.0" y="0.0" width="287" height="30"/>
                     <state key="normal" title="추가"/>
+                    <connections>
+                        <action selector="addBeverage:" destination="-1" eventType="touchUpInside" id="H5n-ps-dAr"/>
+                    </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ad-UX-0V5">
                     <rect key="frame" x="0.0" y="228" width="287" height="21"/>

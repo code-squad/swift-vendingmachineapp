@@ -21,7 +21,8 @@ class Milk: Drink {
     }
     
     required init() {
-        fatalError("init() has not been implemented")
+        self.fatContent = 0
+        super.init()
     }
     
     override func encode(with coder: NSCoder) {

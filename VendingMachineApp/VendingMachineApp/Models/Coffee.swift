@@ -21,7 +21,8 @@ class Coffee: Drink {
     }
     
     required init() {
-        fatalError("init() has not been implemented")
+        self.caffeineContent = 0
+        super.init()
     }
     
     override func encode(with coder: NSCoder) {

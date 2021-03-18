@@ -8,7 +8,7 @@
 import Foundation
 
 class VendingMachine: NSObject, NSCoding {
-    private var stock: StockManageable
+    private(set) var stock: StockManageable
     private(set) var purchaseHistory: CheckableHistory
     private(set) var coins: CoinManageable
     var purchaseHistoryPublisher: Published<[Drink]>.Publisher {

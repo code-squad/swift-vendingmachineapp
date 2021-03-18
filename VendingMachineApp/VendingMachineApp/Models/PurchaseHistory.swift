@@ -8,7 +8,15 @@
 import Foundation
 
 class PurchaseHistory: NSObject, NSCoding {
-    private(set) var purchasedDrinks: [Drink] = []
+    private(set) var purchasedDrinks: [Drink] = [] {
+        willSet {
+            guard let drink = newValue.last else {
+                return
+            }
+            let userInfo = ["drinkInfo": drink]
+            NotificationCenter.default.post(name: VendingMachine.updatedPurchaseList, object: self, userInfo: userInfo)
+        }
+    }
     
     override init() {}
     

@@ -16,13 +16,12 @@ class ViewController: UIViewController {
     
     private lazy var vendingMachineInfo = VendingMachineInfo(with: delegate.vendingMachine)
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpInventoryStackView()
-        addEventOfBeverageStockButton()
         setUpMoneyLabel()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(addBeverage), name: NSNotification.Name("addBeverage"), object: nil)
     }
     
     private func setUpInventoryStackView() {
@@ -31,24 +30,24 @@ class ViewController: UIViewController {
         }
     }
     
-    private func addEventOfBeverageStockButton() {
-        vendingMachineInfo.repeatForButton { UIButton in
-            UIButton.addTarget(self, action: #selector(addBeverage), for: .touchUpInside)
-        }
-    }
-    
     private func setUpMoneyLabel() {
         moneyLabel.text = "잔액: \(delegate.vendingMachine.showCurrentMoney()) 원"
     }
     
     @objc
-    private func addBeverage(_ sender: UIButton!) {
-        guard let beverage = vendingMachineInfo.beverageTypeButtons[sender]?.init() else { return }
+    private func addBeverage(notification: Notification) {
         
-        delegate.vendingMachine.appendInventory(beverage)
+        guard let button = notification.object as? UIButton else {
+            return
+        }
+        guard let beverageType = vendingMachineInfo.beverageTypeButtons[button] else {
+            return
+        }
+        delegate.vendingMachine.appendInventory(beverageType.init())
         
-        vendingMachineInfo.beverageStockLabels[sender]!.text = "\(delegate.vendingMachine.showAllBeverageList()[ObjectIdentifier(type(of: beverage))]?.count ?? 0)"
+        vendingMachineInfo.beverageStockLabels[button]!.text = "\(delegate.vendingMachine.showAllBeverageList()[ObjectIdentifier(beverageType)]?.count ?? 0)"
     }
+    
     
     @IBAction func addMoney5000(_ sender: Any) {
         delegate.vendingMachine.put(in: .fiveThousand)

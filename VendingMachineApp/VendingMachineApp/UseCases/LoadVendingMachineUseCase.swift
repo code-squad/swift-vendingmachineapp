@@ -22,9 +22,9 @@ class LoadVendingMachineUseCase: UseCase {
     
     func start() {
         if let object = UserDefaults.standard.object(forKey: PropertyKey.vendingMachineKey) {
-            vendingMachine = unarchive(with: object as! Data) as? VendingMachine
+            vendingMachine = unarchive(with: object as! Data) as? VendingMachine ?? initialSetupVendingMachine()
         } else {
-            initialSetupVendingMachine()
+            vendingMachine = initialSetupVendingMachine()
         }
     }
     
@@ -38,11 +38,12 @@ class LoadVendingMachineUseCase: UseCase {
         return nil
     }
     
-    private func initialSetupVendingMachine() {
+    private func initialSetupVendingMachine() -> VendingMachine {
         let fiveSlotsVendingMachine = VendingMachine(numberOfSlots: 5)
         let beverageFactoryList: [BeverageFactory] = [DenmarkStrawberryMilkFactory(), MaeilChocolateMilkFactory(), ZeroSugarCokeFactory(), GeorgiaMaxFactory(), RedBullFactory()]
         beverageFactoryList.forEach { factory in
             fiveSlotsVendingMachine.bulkInsert(itemFrom: factory, quantity: 5, manufactured: Date().formattedDate(from: "20210222"), expiredAfter: Date().formattedDate(from: "20210302"))
         }
+        return fiveSlotsVendingMachine
     }
 }

@@ -208,8 +208,9 @@ key: ObjectIdentifier(0x00007fff873f8e98), value : cantata
 ObjectIdentifier(0x00007fff873f8978)
 ```
 
-`getImage()`에서 매개 변수로 넘기는 값의 자료형은 `Beverage.Type`이다. 이 위치의 `Top.self` 넣고 테스트 함수를 돌렸다. (Top.Type.self를 넣었떠니 `Cannot convert value of type 'Top.Type.Type' to expected argument type 'Beverage.Type'`의 에러가 발생했기 떄문에 Top.self를 넣게 되었다.)
-`imageDict`의 키값을 찾기 위해서 필요한 값은 Top.Type이다. 그런데 현재 매게 변수로 넘어온 값은 Top.Type 이 아닌 Top이다. Top의 타입을 추출하기 위해 type(of: Top.self)를 하는 경우 나의 예상과 달리 `Top.Type`가 아닌 `Beverage.Type`을 리턴한다.
+`getImage()`에서 매개 변수로 넘기는 값의 자료형은 `Beverage.Type`이다. 이 위치의 `Top.self` 넣고 테스트 함수를 돌렸다. (`Top.Type.self`를 넣어야 할 것 같았지만, 이는 Top.Type.Type' 을 넣는 것이므로 `Top.self`를 넣는다.)
+
+`imageDict`의 키값을 찾기 위해서 필요한 값은 `Top.Type`이다. 그런데 현재 매개 변수로 넘어온 값은 Top.Type 이 아닌 Top이다. Top의 타입을 추출하기 위해 type(of: Top.self)를 하는 경우 나의 예상과 달리 `Top.Type`가 아닌 `Beverage.Type`을 리턴한다.
 ```
 print(currentType) // Top
 print(type(of: currentType.self))   // Beverage.Type     

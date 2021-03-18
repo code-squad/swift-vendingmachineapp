@@ -171,6 +171,13 @@
                                 <viewLayoutGuide key="contentLayoutGuide" id="SfQ-F2-lbJ"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="pL2-uX-46U"/>
                             </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Efv-wk-Tnv">
+                                <rect key="frame" x="908" y="416.5" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="3mI-18-gjg" kind="presentation" modalTransitionStyle="flipHorizontal" id="O96-SY-vRE"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemGreenColor"/>
@@ -178,9 +185,11 @@
                             <constraint firstItem="ig4-dG-eot" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="AFb-Vm-haT"/>
                             <constraint firstItem="k1r-XJ-Tnc" firstAttribute="centerY" secondItem="ig4-dG-eot" secondAttribute="centerY" id="K5d-ub-HGh"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="k1r-XJ-Tnc" secondAttribute="trailing" constant="50" id="PMt-JE-SE9"/>
+                            <constraint firstItem="Efv-wk-Tnv" firstAttribute="top" secondItem="k1r-XJ-Tnc" secondAttribute="bottom" constant="150" id="RqM-35-J0h"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="qde-7s-tJL" secondAttribute="bottom" constant="100" id="ZFz-ip-1gZ"/>
                             <constraint firstItem="ig4-dG-eot" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="laJ-Eb-i2s"/>
                             <constraint firstItem="qde-7s-tJL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="uT2-dr-kks"/>
+                            <constraint firstItem="Efv-wk-Tnv" firstAttribute="centerX" secondItem="k1r-XJ-Tnc" secondAttribute="centerX" id="v5L-UN-q5i"/>
                         </constraints>
                     </view>
                     <connections>
@@ -206,12 +215,125 @@
             </objects>
             <point key="canvasLocation" x="45" y="69.629629629629619"/>
         </scene>
+        <!--Admin View Controller-->
+        <scene sceneID="6Ii-f2-kft">
+            <objects>
+                <viewController id="3mI-18-gjg" customClass="AdminViewController" customModule="VendingMachineApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mMH-9q-rPP">
+                        <rect key="frame" x="0.0" y="0.0" width="704" height="770"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RXh-fc-FIR">
+                                <rect key="frame" x="634" y="40" width="30" height="30"/>
+                                <state key="normal" title="닫기"/>
+                                <connections>
+                                    <action selector="closeView:" destination="3mI-18-gjg" eventType="touchUpInside" id="cTc-X4-IWl"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L4C-DT-Mhx">
+                                <rect key="frame" x="60" y="170" width="566.5" height="282.5"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="OkY-QZ-QN1">
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="282.5"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xco-Yi-yJb">
+                                                <rect key="frame" x="0.0" y="0.0" width="200" height="22"/>
+                                                <state key="normal" image="plus" catalog="system"/>
+                                                <connections>
+                                                    <action selector="addBeverageButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="he9-bq-uQO"/>
+                                                </connections>
+                                            </button>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="StrawberryMilk" translatesAutoresizingMaskIntoConstraints="NO" id="wUL-CE-oGW" customClass="BeverageImageView" customModule="VendingMachineApp" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="42" width="200" height="200"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="wUL-CE-oGW" secondAttribute="height" multiplier="1:1" id="ZnC-Jp-e9K"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="03e-XT-wS1">
+                                                <rect key="frame" x="0.0" y="262" width="200" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="CgK-bX-Rg8">
+                                        <rect key="frame" x="200" y="0.0" width="166.5" height="282.5"/>
+                                        <subviews>
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MDV-zu-lWS">
+                                                <rect key="frame" x="0.0" y="0.0" width="166.5" height="22"/>
+                                                <state key="normal" image="plus" catalog="system"/>
+                                                <connections>
+                                                    <action selector="addBeverageButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="T8Y-Ir-5Dx"/>
+                                                </connections>
+                                            </button>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DietCola" translatesAutoresizingMaskIntoConstraints="NO" id="xGa-bF-4Rs" customClass="BeverageImageView" customModule="VendingMachineApp" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="59" width="166.5" height="166.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="xGa-bF-4Rs" secondAttribute="height" multiplier="1:1" id="hLS-lu-FL4"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fph-ni-2Fc">
+                                                <rect key="frame" x="0.0" y="262" width="166.5" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Rxt-YG-unN">
+                                        <rect key="frame" x="366.5" y="0.0" width="200" height="282.5"/>
+                                        <subviews>
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zl8-Gb-Gop">
+                                                <rect key="frame" x="0.0" y="0.0" width="200" height="22"/>
+                                                <state key="normal" image="plus" catalog="system"/>
+                                                <connections>
+                                                    <action selector="addBeverageButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GqY-qI-nTB"/>
+                                                </connections>
+                                            </button>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TopAmericano" translatesAutoresizingMaskIntoConstraints="NO" id="KWm-Ca-TU2" customClass="BeverageImageView" customModule="VendingMachineApp" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="42" width="200" height="200"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="KWm-Ca-TU2" secondAttribute="height" multiplier="1:1" id="WGV-56-YS9"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d0W-Lr-rxr">
+                                                <rect key="frame" x="0.0" y="262" width="200" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="KWm-Ca-TU2" firstAttribute="width" secondItem="KWm-Ca-TU2" secondAttribute="height" multiplier="1:1" id="fAB-xp-9Ji"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="L3k-2Z-qpc"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="RXh-fc-FIR" firstAttribute="top" secondItem="L3k-2Z-qpc" secondAttribute="top" constant="40" id="5rR-7N-b2M"/>
+                            <constraint firstItem="L4C-DT-Mhx" firstAttribute="top" secondItem="RXh-fc-FIR" secondAttribute="bottom" constant="100" id="Ese-uc-jeX"/>
+                            <constraint firstItem="L4C-DT-Mhx" firstAttribute="leading" secondItem="L3k-2Z-qpc" secondAttribute="leading" constant="60" id="YM3-x1-DOt"/>
+                            <constraint firstItem="L3k-2Z-qpc" firstAttribute="trailing" secondItem="RXh-fc-FIR" secondAttribute="trailing" constant="40" id="sLi-re-Nkb"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5ol-SW-hyM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="792.77777777777771" y="69.629629629629619"/>
+        </scene>
     </scenes>
     <resources>
         <image name="DietCola" width="166.5" height="166.5"/>
         <image name="StrawberryMilk" width="200" height="200"/>
         <image name="TopAmericano" width="200" height="200"/>
         <image name="plus" catalog="system" width="128" height="113"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

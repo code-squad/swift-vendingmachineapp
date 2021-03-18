@@ -45,12 +45,12 @@ class VendingMachine : NSObject, NSCoding ,VendingMachined {
     
     func putPayMoney(money : Int) {
         payment.increase(money: money)
-        NotificationCenter.default.post(name: VendingMachine.NotificationName.updateBalance, object: self, userInfo: nil)
+        NotificationCenter.default.post(name: VendingMachine.NotificationName.updateBalance, object: self)
     }
     
     func addStock(_ beverage : Beverage) {
         drinks.addStock(beverage : beverage)
-        NotificationCenter.default.post(name: VendingMachine.NotificationName.updateBeverage, object: self, userInfo: nil)
+        NotificationCenter.default.post(name: VendingMachine.NotificationName.updateBeverage, object: self)
     }
     
     func showPurchasePossibleList() -> [Beverage] {
@@ -65,8 +65,8 @@ class VendingMachine : NSObject, NSCoding ,VendingMachined {
             purchasedList.add(beverage: beverage)
             
             NotificationCenter.default.post(name: VendingMachine.NotificationName.updatePurchase, object: self, userInfo: ["beverage" : beverage])
-            NotificationCenter.default.post(name: VendingMachine.NotificationName.updateBalance, object: self, userInfo: nil)
-            NotificationCenter.default.post(name: VendingMachine.NotificationName.updateBeverage, object: self, userInfo: nil)
+            NotificationCenter.default.post(name: VendingMachine.NotificationName.updateBalance, object: self)
+            NotificationCenter.default.post(name: VendingMachine.NotificationName.updateBeverage, object: self)
         }
     }
     

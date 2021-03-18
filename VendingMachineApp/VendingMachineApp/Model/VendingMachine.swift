@@ -40,7 +40,7 @@ class VendingMachine: NSObject, NSCoding {
     
     func addBeverage(beverage: Beverage.Type) {
         beverages.append(from: BeverageFactory.typeToInstance(product: beverage))
-        NotificationCenter.default.post(name: VendingMachine.updateBeverages, object: self, userInfo: ["BeverageType": type(of: beverage)])
+        NotificationCenter.default.post(name: VendingMachine.updateBeverages, object: self, userInfo: ["BeverageType": beverage])
     }
     
     func getTheMoney(from customer: Int) {

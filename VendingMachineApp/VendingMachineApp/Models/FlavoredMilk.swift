@@ -26,12 +26,12 @@ class FlavoredMilk: Milk {
     }
     
     required init?(coder: NSCoder) {
-        self.flavor = coder.decodeObject(forKey: PropertyKey.flavorKey) as? FlavoredMilk.MilkFlavor ?? .strawberry
+        self.flavor = (coder as! NSKeyedUnarchiver).decodeDecodable(MilkFlavor.self, forKey: "flavor") ?? .strawberry
         super.init(coder: coder)
     }
     
     override func encode(with coder: NSCoder) {
-        coder.encode(flavor, forKey: PropertyKey.flavorKey)
+        try? (coder as! NSKeyedArchiver).encodeEncodable(flavor, forKey: "flavor")
         super.encode(with: coder)
     }
 }

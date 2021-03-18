@@ -11,11 +11,7 @@ protocol SlotViewDelegate {
     func itemQuantityIncrementButtonPressed(sender: SlotView)
 }
 
-class SlotView: UIView {
-    enum Notification {
-        static let DidButtonPressed = Foundation.Notification.Name("DidButtonPressed")
-    }
-    
+class SlotView: UIView {  
     var delegate: SlotViewDelegate?
     private let nibName = "SlotView"
     

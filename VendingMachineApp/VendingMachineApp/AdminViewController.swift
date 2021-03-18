@@ -40,6 +40,8 @@ class AdminViewController: UIViewController {
                   let view = object as? ProductStackView else { return }
             view.buyButton.isHidden = true
             view.addButton.isHidden = false
+            view.addButton.tintColor = .darkGray
+            view.imageView.layer.cornerRadius = view.bounds.height * 0.08
             addStockButtonCollection.append(view.addButton)
             countLabelCollection.append(view.countLabel)
             view.addButton.addTarget(self, action: #selector(self.addStockTouched(_:)), for: .touchUpInside)

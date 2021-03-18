@@ -51,3 +51,9 @@ Cantata BananaMilk Fanta (3단계)
 - VendingMachine 객체 저장을 위한 NSCoding 프로토콜 채택
 - UserDefaults에 VendingMachine 객체를 저장하기 위한 ArchivingManager 추가
 - 재고 개수와 자판기 잔액을 저장하고, 저장된 데이터를 표시하도록 수정
+
+## Step 5 - Observer
+- 재고 개수와 충전된 금액 표시를 NotificationCenter를 통해 표시하도록 수정
+- VendingMachine 객체를 Singleton으로 변경
+- 충전 금액 단위를 위해 새로운 enum type `ChargeUnit` 생성
+- App Switcher에서 앱을 종료하더라도 자판기 객체를 저장할 수 있도록  `sceneWillResignActive` 가 호출되는 시점에 객체를 저장

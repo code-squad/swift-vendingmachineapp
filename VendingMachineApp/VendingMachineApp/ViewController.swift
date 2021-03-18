@@ -12,14 +12,17 @@ class ViewController: UIViewController {
     @IBOutlet var drinkImages: [UIImageView]!
     @IBOutlet weak var remainCoinsLabel: UILabel!
     @IBOutlet var drinkStockLabels: [UILabel]!
-    @IBOutlet var addButtons: [UIButton]!
+    @IBOutlet var addDrinkStockButtons: [UIButton]!
     @IBOutlet var chargeButtons: [UIButton]!
+    @IBOutlet var purchaseButtons: [UIButton]!
     
     private let vm = VendingMachine.shared
     private let chargeAmount = ChargeUnit.allCases
     private let drinkType = [BananaMilk.self, Cantata.self, Fanta.self]
-    private var buttonsForDrink: [UIButton: Drink.Type] = [:]
+    private var buttonsForDrinkStock: [UIButton: Drink.Type] = [:]
+    private var buttonsForPurchase: [UIButton: Drink.Type] = [:]
     private var buttonsForCharge: [UIButton: Int] = [:]
+    private var drinkX: CGFloat = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,12 +42,20 @@ class ViewController: UIViewController {
     }
     
     func setButtonsForDrink() {
-        addButtons.forEach {
+        addDrinkStockButtons.forEach {
             $0.addTarget(self, action: #selector(addDrinkStock), for: .touchUpInside)
         }
         
-        addButtons.enumerated().forEach {
-            buttonsForDrink[$1] = drinkType[$0]
+        addDrinkStockButtons.enumerated().forEach {
+            buttonsForDrinkStock[$1] = drinkType[$0]
+        }
+        
+        purchaseButtons.forEach {
+            $0.addTarget(self, action: #selector(purchase), for: .touchUpInside)
+        }
+        
+        purchaseButtons.enumerated().forEach {
+            buttonsForPurchase[$1] = drinkType[$0]
         }
     }
     
@@ -61,7 +72,7 @@ class ViewController: UIViewController {
     func setupDrinkImage() {
         drinkImages.forEach { image in
             image.contentMode = .scaleAspectFit
-            image.layer.cornerRadius = 10
+            image.layer.cornerRadius = 15
         }
     }
     
@@ -80,7 +91,7 @@ class ViewController: UIViewController {
     
     // MARK: IBActions
     @objc func addDrinkStock(_ sender: UIButton) {
-        guard let type = buttonsForDrink[sender], let drink = DrinkFactory.createDrink(for: type) else {
+        guard let type = buttonsForDrinkStock[sender], let drink = DrinkFactory.createDrink(for: type) else {
             return
         }
         vm.addStock(for: drink)
@@ -91,5 +102,12 @@ class ViewController: UIViewController {
             return
         }
         vm.charge(coins: chargeAmount)
+    }
+    
+    @objc func purchase(_ sender: UIButton) {
+        guard let drink = buttonsForPurchase[sender] else {
+            return
+        }
+        vm.purchase(drink: drink)
     }
 }

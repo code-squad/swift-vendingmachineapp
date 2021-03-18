@@ -27,8 +27,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func sceneWillResignActive(_ scene: UIScene) {
-        let data = ArchivingManager.archive(with: appDelegate.vendingMachine)
-        UserDefaults.standard.set(data, forKey: "vendingMachine")
+        ArchivingManager.save(data: appDelegate.vendingMachine, forkey: "vendingMachine")
     }
 
     func sceneWillEnterForeground(_ scene: UIScene) {

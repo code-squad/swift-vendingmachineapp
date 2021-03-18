@@ -11,10 +11,12 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var inventoryStackView: UIStackView!
     @IBOutlet weak var moneyLabel: UILabel!
-  
-    private var vendingMachineInfo = VendingMachineInfo()
     
     var delegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
+    
+    private lazy var vendingMachineInfo = VendingMachineInfo(with: delegate.vendingMachine)
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

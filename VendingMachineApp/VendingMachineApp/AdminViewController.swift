@@ -8,12 +8,26 @@
 import UIKit
 
 class AdminViewController: UIViewController {
+    
+    private let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    private var presenter: VendingMachineViewPresenter!
 
     @IBOutlet weak var adminStackview: UIStackView!
+    private let itemTypes = VendingMachine.itemTypes
+    private var addStockButtonCollection = [UIButton]()
+    private var countLabelCollection = [UILabel]()
     var sampleViewData = [Data]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        presenter = VendingMachineViewUpdator(userInterface: appDelegate.vendingMachine,
+                                              workerInterface: appDelegate.vendingMachine)
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(didStockListChanged(_:)),
+                                               name: VendingMachine.NotiKeys.stockListUpdate,
+                                               object: appDelegate.vendingMachine)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -26,11 +40,26 @@ class AdminViewController: UIViewController {
                   let view = object as? ProductStackView else { return }
             view.buyButton.isHidden = true
             view.addButton.isHidden = false
+            addStockButtonCollection.append(view.addButton)
+            countLabelCollection.append(view.countLabel)
+            view.addButton.addTarget(self, action: #selector(self.addStockTouched(_:)), for: .touchUpInside)
             adminStackview.addArrangedSubview(view)
         }
     }
     
     @IBAction func closeButtonTouched(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
+    }
+    
+    @objc func didStockListChanged(_ notification: Notification) {
+        presenter.updateStocks(countLabels: countLabelCollection,
+                               typeList: itemTypes)
+    }
+    
+    @IBAction func addStockTouched(_ sender: UIButton) {
+        if let targetIdx = addStockButtonCollection.firstIndex(of: sender) {
+            let targetBeverage = itemTypes[targetIdx]
+            appDelegate.vendingMachine.addStock(of: targetBeverage)
+        }
     }
 }

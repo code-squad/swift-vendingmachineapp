@@ -16,7 +16,6 @@ class UserViewController: UIViewController {
     @IBOutlet var productStackView: UIStackView!
     @IBOutlet weak var productSample: ProductStackView!
     private var countLabelCollection: [UILabel] = []
-    private var addStockButtonCollection: [UIButton] = []
     private var buyButtonCollection: [UIButton] = []
     private let itemTypes = VendingMachine.itemTypes
     
@@ -75,9 +74,6 @@ class UserViewController: UIViewController {
             
             countLabelCollection.append(stackView.countLabel)
             
-            addStockButtonCollection.append(stackView.addButton)
-            stackView.addButton.addTarget(self, action: #selector(self.addStockTouched(_:)), for: .touchUpInside)
-            
             buyButtonCollection.append(stackView.buyButton)
             stackView.buyButton.addTarget(self, action: #selector(self.buyItemTouched(_:)), for: .touchUpInside)
         }
@@ -96,13 +92,6 @@ class UserViewController: UIViewController {
         presenter.addItemToDispensedList(scrollView: dispensedListScrollView,
                                       images: beverageImages,
                                       typeList: itemTypes)
-    }
-    
-    @IBAction func addStockTouched(_ sender: UIButton) {
-        if let targetIdx = addStockButtonCollection.firstIndex(of: sender) {
-            let targetBeverage = itemTypes[targetIdx]
-            appDelegate.vendingMachine.addStock(of: targetBeverage)
-        }
     }
     
     @IBAction func addMoneyTouched(_ sender: UIButton) {

@@ -22,7 +22,12 @@ class ViewController: UIViewController {
     private var buttonsForDrinkStock: [UIButton: Drink.Type] = [:]
     private var buttonsForPurchase: [UIButton: Drink.Type] = [:]
     private var buttonsForCharge: [UIButton: Int] = [:]
-    private var drinkX: CGFloat = 0
+    private var pointX: CGFloat = 0
+    private lazy var scrollViewContentSizeWidth: CGFloat = 0
+    private var purchasedDrinkList: UIScrollView = {
+        let scrollView = UIScrollView()
+        return scrollView
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,12 +38,47 @@ class ViewController: UIViewController {
         NotificationCenter.default.addObserver(forName: VendingMachine.updatedRemainCoins, object: nil, queue: .main) { [weak self] _ in
             self?.updateRemainCoinsLabel()
         }
+        NotificationCenter.default.addObserver(self, selector: #selector(updatePurchasedList(notification:)), name: VendingMachine.updatedPurchaseList, object: nil)
         
         setupDrinkImage()
         updateDrinkStockLabels()
         updateRemainCoinsLabel()
         setButtonsForCharge()
         setButtonsForDrink()
+        setPurchasedDrinkListView()
+        setPurchasedDrinkList()
+    }
+    
+    func setPurchasedDrinkListView() {
+        view.addSubview(purchasedDrinkList)
+        purchasedDrinkList.contentSize = CGSize(width: scrollViewContentSizeWidth, height: 100)
+        purchasedDrinkList.frame = CGRect(x: 40, y: 400, width: view.frame.width - 40, height: 100)
+    }
+    
+    func getDrinkImageView(for drink: Drink, x: CGFloat) -> UIImageView {
+        let imageName: String
+        switch ObjectIdentifier(type(of: drink)) {
+        case ObjectIdentifier(BananaMilk.self):
+            imageName = "banana_milk"
+        case ObjectIdentifier(Cantata.self):
+            imageName = "cantata_coffee"
+        case ObjectIdentifier(Fanta.self):
+            imageName = "fanta"
+        default:
+            return UIImageView()
+        }
+        let image = UIImageView(image: UIImage(named: imageName))
+        image.frame = CGRect(x: x, y: 0, width: 100, height: 100)
+        purchasedDrinkList.contentSize.width += 50
+        pointX += 50
+        return image
+    }
+    
+    func setPurchasedDrinkList() {
+        let history = vm.getPurchaseHistory()
+        history.forEach {
+            self.purchasedDrinkList.addSubview(getDrinkImageView(for: $0, x: pointX))
+        }
     }
     
     func setButtonsForDrink() {
@@ -89,7 +129,13 @@ class ViewController: UIViewController {
         remainCoinsLabel.text = "\(remainCoins)원"
     }
     
-    // MARK: IBActions
+    @objc func updatePurchasedList(notification: Notification) {
+        guard let drinkInfo = notification.userInfo?["drinkInfo"] as? Drink else {
+            return
+        }
+        self.purchasedDrinkList.addSubview(getDrinkImageView(for: drinkInfo, x: pointX))
+    }
+    
     @objc func addDrinkStock(_ sender: UIButton) {
         guard let type = buttonsForDrinkStock[sender], let drink = DrinkFactory.createDrink(for: type) else {
             return

@@ -94,7 +94,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="27" translatesAutoresizingMaskIntoConstraints="NO" id="fBB-7A-AVN">
-                                <rect key="frame" x="668" y="136.5" width="46" height="127.5"/>
+                                <rect key="frame" x="638" y="136.5" width="46" height="127.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="A3D-PA-Qbg">
                                         <rect key="frame" x="0.0" y="0.0" width="46" height="80"/>
@@ -123,7 +123,7 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="1Wa-hW-was" secondAttribute="trailing" constant="150" id="098-ct-D8F"/>
                             <constraint firstItem="1Wa-hW-was" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="EiT-QJ-c99"/>
-                            <constraint firstItem="fBB-7A-AVN" firstAttribute="leading" secondItem="1Wa-hW-was" secondAttribute="trailing" constant="50" id="LNi-dg-ZPt"/>
+                            <constraint firstItem="fBB-7A-AVN" firstAttribute="leading" secondItem="1Wa-hW-was" secondAttribute="trailing" constant="20" id="LNi-dg-ZPt"/>
                             <constraint firstItem="fBB-7A-AVN" firstAttribute="centerY" secondItem="1Wa-hW-was" secondAttribute="centerY" id="RUJ-Ov-WZD"/>
                             <constraint firstItem="1Wa-hW-was" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="nAZ-zM-TFD"/>
                         </constraints>
@@ -141,9 +141,9 @@
                         <outletCollection property="addDrinkStockButtons" destination="a0G-P6-ygs" collectionClass="NSMutableArray" id="lPX-Fa-tHJ"/>
                         <outletCollection property="chargeButtons" destination="zZh-O5-Ht6" collectionClass="NSMutableArray" id="xvo-L6-JoE"/>
                         <outletCollection property="chargeButtons" destination="FiJ-NV-boI" collectionClass="NSMutableArray" id="FS1-hi-GkF"/>
-                        <outletCollection property="purchaseButtons" destination="N11-E7-jew" collectionClass="NSMutableArray" id="9Py-9B-Bgc"/>
-                        <outletCollection property="purchaseButtons" destination="K9z-zH-8Nt" collectionClass="NSMutableArray" id="G0k-ez-5jc"/>
-                        <outletCollection property="purchaseButtons" destination="pMf-qB-ICT" collectionClass="NSMutableArray" id="GJ5-2M-Oi0"/>
+                        <outletCollection property="purchaseButtons" destination="N11-E7-jew" collectionClass="NSMutableArray" id="4bt-hq-dxu"/>
+                        <outletCollection property="purchaseButtons" destination="K9z-zH-8Nt" collectionClass="NSMutableArray" id="9xc-Bm-ex1"/>
+                        <outletCollection property="purchaseButtons" destination="pMf-qB-ICT" collectionClass="NSMutableArray" id="sx9-m3-xXk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

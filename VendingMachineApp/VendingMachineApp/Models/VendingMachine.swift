@@ -87,4 +87,5 @@ class VendingMachine: NSObject, NSCoding {
 extension VendingMachine {
     static let updatedDrinkStock = Notification.Name("updatedDrinkStock")
     static let updatedRemainCoins = Notification.Name("updatedRemainCoins")
+    static let updatedPurchaseList = Notification.Name("updatedPurchaseList")
 }

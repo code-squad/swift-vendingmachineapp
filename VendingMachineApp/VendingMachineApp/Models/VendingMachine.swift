@@ -10,13 +10,13 @@ import Foundation
 class VendingMachine: NSObject, NSCoding {
     static var shared = VendingMachine(drinks: Drinks(), chargedCoins: 0)
     private var standardHotTempertaure = 70
-    private var drinks: Drinks
+    private(set) var drinks: Drinks
     private var chargedCoins: Int {
         didSet {
             NotificationCenter.default.post(name: VendingMachine.updatedRemainCoins, object: self, userInfo: nil)
         }
     }
-    private var purchaseHistory: PurchaseHistory
+    private(set) var purchaseHistory: PurchaseHistory
     override var description: String {
         return "\(drinks)"
     }

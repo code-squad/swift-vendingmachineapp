@@ -19,7 +19,6 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        vendingMachine = (UIApplication.shared.delegate as! AppDelegate).vendingMachine
         setNotificationCenter()
         
     }
@@ -30,9 +29,13 @@ class ViewController: UIViewController {
     func setUpViews(){
         self.view.backgroundColor = .black
         
+        vendingMachine = (UIApplication.shared.delegate as! AppDelegate).vendingMachine
+        
         let stocks = vendingMachine.getTotalStock()
         stockStackView = StockStackView(frame: .zero)
         stockStackView.setStocksCount(info: stocks)
+        stockStackView.setUp()
+        stockStackView.stockCells.forEach{ $0.addButton.isHidden = true}
         self.view.addSubview(stockStackView)
         stockStackViewConfiguration()
         
@@ -50,10 +53,6 @@ class ViewController: UIViewController {
 // MARK: - Actions
 extension ViewController {
     
-    @objc func appendBeverageToMachine(_ sender : UIBeverageButton){
-        guard let beverage = Factory.createInstance(type: sender.beverageType) else { return }
-        vendingMachine.append(product: beverage)
-    }
     @objc func appedCoinToMachine(_ sender : UICoinButton){
         vendingMachine.charge(coins: sender.coin)
     }

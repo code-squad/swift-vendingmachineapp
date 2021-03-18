@@ -20,6 +20,7 @@
 		105EE27A25E8D61000E6D2E2 /* Top.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105EE27925E8D61000E6D2E2 /* Top.swift */; };
 		105EE27F25E8D62200E6D2E2 /* Georgia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105EE27E25E8D62200E6D2E2 /* Georgia.swift */; };
 		105EE28425E8D63600E6D2E2 /* Cantata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105EE28325E8D63600E6D2E2 /* Cantata.swift */; };
+		1083DD062601DD6600663907 /* AdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1083DD052601DD6600663907 /* AdminViewController.swift */; };
 		1087276625EE15A500F260A2 /* Money.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1087276525EE15A500F260A2 /* Money.swift */; };
 		1089F26E25F724220021601C /* StockStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1089F26D25F724220021601C /* StockStackView.swift */; };
 		108B4FA825EE290B00658B66 /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108B4FA725EE290B00658B66 /* Stock.swift */; };
@@ -85,6 +86,7 @@
 		105EE27925E8D61000E6D2E2 /* Top.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Top.swift; sourceTree = "<group>"; };
 		105EE27E25E8D62200E6D2E2 /* Georgia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Georgia.swift; sourceTree = "<group>"; };
 		105EE28325E8D63600E6D2E2 /* Cantata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cantata.swift; sourceTree = "<group>"; };
+		1083DD052601DD6600663907 /* AdminViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminViewController.swift; sourceTree = "<group>"; };
 		1087276525EE15A500F260A2 /* Money.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Money.swift; sourceTree = "<group>"; };
 		1089F26D25F724220021601C /* StockStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockStackView.swift; sourceTree = "<group>"; };
 		108B4FA725EE290B00658B66 /* Stock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stock.swift; sourceTree = "<group>"; };
@@ -249,6 +251,7 @@
 			children = (
 				10F5F04125E782C400B70881 /* AppDelegate.swift */,
 				10F5F04325E782C400B70881 /* SceneDelegate.swift */,
+				1083DD052601DD6600663907 /* AdminViewController.swift */,
 				10F5F04525E782C400B70881 /* ViewController.swift */,
 				10F5F04725E782C400B70881 /* Main.storyboard */,
 				10F5F04A25E782C500B70881 /* Assets.xcassets */,
@@ -443,6 +446,7 @@
 				10C692B725EA2D23009F6AEF /* Sprite.swift in Sources */,
 				10F5F08325E7845B00B70881 /* Beverage.swift in Sources */,
 				10A3A5B325F798C5005389DA /* StockDelegate.swift in Sources */,
+				1083DD062601DD6600663907 /* AdminViewController.swift in Sources */,
 				109A925B25F90233000E37D5 /* UICoinButton.swift in Sources */,
 				105EE27F25E8D62200E6D2E2 /* Georgia.swift in Sources */,
 				108B4FA825EE290B00658B66 /* Stock.swift in Sources */,

@@ -140,16 +140,6 @@ class VendingMachine: NSObject, NSCoding {
         NotificationCenter.default.post(name: VendingMachine.updatePurchased, object: self, userInfo: nil)
     }
     
-    func compareProductNameToInstance(name: String) -> Beverage? {
-        let beverageList = menuList()
-        for beverage in beverageList {
-            if beverage.productName == name {
-                return beverage
-            }
-        }
-        return nil
-    }
-    
     func buttonToBeverageType(name: String) -> Beverage.Type {
         let order = menuList().filter { $0.productName == name }
         return type(of: order.first!)

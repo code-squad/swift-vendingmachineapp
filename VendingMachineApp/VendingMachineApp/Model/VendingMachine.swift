@@ -15,7 +15,7 @@ class VendingMachine: NSObject, NSCoding {
     
     private var stock: StockManageable
     @Published private(set) var purchaseHistory: [Drink]
-    private var coins: CoinManageable
+    @Published private(set) var coins: CoinManageable
     
     private(set) static var `default`: VendingMachine = VendingMachine()
     

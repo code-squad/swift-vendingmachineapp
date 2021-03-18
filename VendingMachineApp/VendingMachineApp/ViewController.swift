@@ -24,12 +24,11 @@ class ViewController: UIViewController {
         self.vendingMachine = VendingMachine.default
         selectPanelStackView.delegate = self
         topPanelView.delegate = self
-        loadLeftCoinsLabel()
         loadSelectPanelStackViewLabels()
         loadPurchasehistory()
+        configObserver()
         topPanelView.roundCorners(corners: [.topLeft, .bottomLeft], radius: 30)
         selectPanelStackView.setDrinkImageViewsRadius(of: 10)
-        configObserver()
     }
     
     func configObserver() {
@@ -43,7 +42,7 @@ extension ViewController {
     private func configPurchaseHistoryObserver() {
         puchaseHistorySubscriber = vendingMachine.$purchaseHistory
             .sink { (drinks) in
-                self.loadLastPurchasehistory(drinks: drinks)
+                self.loadLastPurchasehistory(history: drinks)
             }
     }
     
@@ -56,14 +55,13 @@ extension ViewController {
     }
     
     private func configCoinsLabelObserver() {
-        coinCounterPublisher = NotificationCenter.default
-            .publisher(for: CoinCounter.Notification.DidChangeCoin)
-            .sink(receiveValue: { (notification) in
-                self.loadLeftCoinsLabel()
-            })
+         coinCounterPublisher = vendingMachine.$coins
+            .map { (coins) -> String in
+                return "\(coins.leftCoins)원"
+            }.assign(to: \.text, on: topPanelView.leftCoinsLabel)
     }
     
-    private func loadLastPurchasehistory(drinks: [Drink]) {
+    private func loadLastPurchasehistory(history drinks: [Drink]) {
         guard let drink = drinks.last else { return }
         guard let imageView = self.makeImageView(named: drink.name) else { return }
         self.purchaseHistoryScrollView.purchaseHistoryStackView.addArrangedSubview(imageView)
@@ -87,11 +85,6 @@ extension ViewController {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.widthAnchor.constraint(equalToConstant: 150).isActive = true
         imageView.heightAnchor.constraint(equalToConstant: 150).isActive = true
-    }
-    
-    private func loadLeftCoinsLabel() {
-        let leftCoin = vendingMachine.leftCoin()
-        topPanelView.leftCoinsLabel.text = "\(leftCoin)원"
     }
     
     private func loadSelectPanelStackViewLabels() {

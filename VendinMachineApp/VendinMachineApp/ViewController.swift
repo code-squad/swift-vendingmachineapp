@@ -20,8 +20,8 @@ class ViewController: UIViewController {
         
         vendingMachineElements.setUpAll(images: beverageImages, beverageButtons: beverageAddButtons, cashButtons: cashButtons)
  
-        NotificationCenter.default.addObserver(self, selector: #selector(updateCurrentCash(notification:)), name: .insertCash, object: appDelegate.vendingMachine)
-        NotificationCenter.default.addObserver(self, selector: #selector(updateBeverageStock(notification:)), name: .addBeverageStock, object: appDelegate.vendingMachine)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateCurrentCash(notification:)), name: VendingMachine.insertCash, object: appDelegate.vendingMachine)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateBeverageStock(notification:)), name: VendingMachine.addBeverageStock, object: appDelegate.vendingMachine)
         
         updateCurrentCash(label: cashLabel, cashBox: appDelegate.vendingMachine.cashBox)
         updateBeverageStock(labels: beverageStockLabels, beverageStock: appDelegate.vendingMachine.totalBeverageStockList(), beverageTypeList: vendingMachineElements.beverageList)

@@ -9,7 +9,7 @@ import UIKit
 
 class StockStackView: UIStackView {
     
-    public var itemCountPerStand : Int = 4
+    private var itemCountPerStand : Int = 4
     
     var stockCells : [OneStockView]!
     
@@ -55,7 +55,9 @@ class StockStackView: UIStackView {
             stockCells.append(stock)
         }
     }
-    
+    func setItemCountPerStand(count cnt : Int){
+        self.itemCountPerStand = cnt
+    }
     func setStocksCount(info dict : [ObjectIdentifier: [Beverage]]){
         stockCells.forEach{ stock in
             let value =  dict[ObjectIdentifier(stock.beverageType)]?.count ?? 0
@@ -68,5 +70,4 @@ class StockStackView: UIStackView {
         self.distribution = .fillEqually
         self.spacing = 20
     }
-    
 }

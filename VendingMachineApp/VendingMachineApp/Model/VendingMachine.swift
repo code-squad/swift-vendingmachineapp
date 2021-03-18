@@ -6,21 +6,22 @@
 //
 
 import Foundation
-import Combine
 
 class VendingMachine: NSObject, NSCoding {
-    enum Notification {
-        static let DidChangePurchaseHistory = Foundation.Notification.Name("DidChangePurchaseHistory")
-    }
-    
     private var stock: StockManageable
-    @Published private(set) var purchaseHistory: [Drink]
-    @Published private(set) var coins: CoinManageable
+    private(set) var purchaseHistory: CheckableHistory
+    private(set) var coins: CoinManageable
+    var purchaseHistoryPublisher: Published<[Drink]>.Publisher {
+        return purchaseHistory.historyPublisher
+    }
+    var coinPublisher: Published<Int>.Publisher {
+        return coins.coinPublisher
+    }
     
     private(set) static var `default`: VendingMachine = VendingMachine()
     
     private override init() {
-        self.purchaseHistory = [Drink]()
+        self.purchaseHistory = PurchaseHistory()
         self.stock = Stock()
         self.coins = CoinCounter()
     }
@@ -33,7 +34,7 @@ class VendingMachine: NSObject, NSCoding {
     
     required init?(coder: NSCoder) {
         self.stock = coder.decodeObject(forKey: "stock") as? StockManageable ?? Stock()
-        self.purchaseHistory = coder.decodeObject(forKey: "purchaseHistory") as? [Drink] ?? [Drink]()
+        self.purchaseHistory = coder.decodeObject(forKey: "purchaseHistory") as? CheckableHistory ?? PurchaseHistory()
         self.coins = coder.decodeObject(forKey: "coins") as? CoinManageable ?? CoinCounter()
     }
     
@@ -77,8 +78,10 @@ class VendingMachine: NSObject, NSCoding {
     }
     
     public func checkPurchasehistory(handle: (Drink) -> ()) {
-        for drink in purchaseHistory {
-            handle(drink)
-        }
+        purchaseHistory.checkedPurchaseHistory(handle: handle)
+    }
+    
+    public func checkedLastPurchaseHistory() -> Drink? {
+        return purchaseHistory.checkedLastPurchaseHistory()
     }
 }

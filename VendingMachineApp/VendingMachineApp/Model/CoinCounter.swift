@@ -1,10 +1,9 @@
 import Foundation
 
 class CoinCounter: NSObject, NSCoding, CoinManageable {
-    enum Notification {
-        static let DidChangeCoin = Foundation.Notification.Name("DidChangeCoin")
-    }
-    private var coins: Int
+    @Published private var coins: Int
+    var coinPublisher: Published<Int>.Publisher { $coins }
+    
     private(set) var leftCoins: Int {
         get { return coins }
         set { coins = newValue }
@@ -24,11 +23,9 @@ class CoinCounter: NSObject, NSCoding, CoinManageable {
     
     public func inserted(_ coin: Int) {
         self.coins += coin
-        NotificationCenter.default.post(name: Notification.DidChangeCoin, object: self)
     }
     
     public func expended(to coin: Int) {
         self.coins -= coin
-        NotificationCenter.default.post(name: Notification.DidChangeCoin, object: self)
     }
 }

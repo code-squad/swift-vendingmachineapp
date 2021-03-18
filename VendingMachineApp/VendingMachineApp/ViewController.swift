@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var topPanelView: TopPanel!
     
     private var stockPublisher: AnyCancellable!
-    private var coinCounterPublisher: AnyCancellable!
+    private var coinCounterSubscriber: AnyCancellable!
     private var puchaseHistorySubscriber: AnyCancellable!
     private var vendingMachine: VendingMachine!
     private var drinkOrder = DrinkOrder()
@@ -40,7 +40,7 @@ class ViewController: UIViewController {
 
 extension ViewController {
     private func configPurchaseHistoryObserver() {
-        puchaseHistorySubscriber = vendingMachine.$purchaseHistory
+        puchaseHistorySubscriber = vendingMachine.purchaseHistoryPublisher
             .sink { (drinks) in
                 self.loadLastPurchasehistory(history: drinks)
             }
@@ -55,9 +55,9 @@ extension ViewController {
     }
     
     private func configCoinsLabelObserver() {
-         coinCounterPublisher = vendingMachine.$coins
+        coinCounterSubscriber = vendingMachine.coinPublisher
             .map { (coins) -> String in
-                return "\(coins.leftCoins)원"
+                return "\(coins)원"
             }.assign(to: \.text, on: topPanelView.leftCoinsLabel)
     }
     
@@ -69,7 +69,7 @@ extension ViewController {
     }
     
     private func loadPurchasehistory() {
-        vendingMachine.purchaseHistory.forEach { (drink) in
+        vendingMachine.checkPurchasehistory { (drink) in
             guard let imageView = makeImageView(named: drink.name) else { return }
             purchaseHistoryScrollView.purchaseHistoryStackView.addArrangedSubview(imageView)
             resizingHistoryImage(imageView)

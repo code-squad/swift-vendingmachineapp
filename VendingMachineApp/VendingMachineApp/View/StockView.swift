@@ -5,7 +5,7 @@ class StockView: UIView {
     private var stockImage: UIImage!
     private var stockImageView: UIImageView!
     private(set) var beverageStock = UILabel()
-    private(set) var addBeverage = AddBeverageButton()
+    private(set) var addBeverage = AddBeverageButton(type: .system)
     
     override init(frame: CGRect) {
         super.init(frame: frame)

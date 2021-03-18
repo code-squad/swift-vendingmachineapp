@@ -31,7 +31,7 @@ class AdminViewController : UIViewController {
         
         let stocks = vendingMachine.getTotalStock()
         stockStackView = StockStackView(frame: .zero)
-        stockStackView.itemCountPerStand = 3
+        stockStackView.setItemCountPerStand(count: 3)
         stockStackView.setUp()
         stockStackView.stockCells.forEach{ $0.buyButton.isHidden = true}
         stockStackView.setStocksCount(info: stocks)

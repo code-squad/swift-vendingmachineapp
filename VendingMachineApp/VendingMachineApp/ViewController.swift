@@ -13,7 +13,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var selectPanelStackView: SelectPanelStackView!
     @IBOutlet weak var topPanelView: TopPanel!
     
-    private var stockPublisher: AnyCancellable!
     private var coinCounterSubscriber: AnyCancellable!
     private var puchaseHistorySubscriber: AnyCancellable!
     private var vendingMachine: VendingMachine!

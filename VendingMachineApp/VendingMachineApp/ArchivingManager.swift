@@ -22,7 +22,24 @@ class ArchivingManager {
         guard let object = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(text) else {
             return nil
         }
-
+        
+        
         return object as? VendingMachine
+    }
+    
+    static func loadData(forKey: String) -> VendingMachine {
+        let savedVendingMachine = unarchive(with: UserDefaults.standard.data(forKey: "vendingMachine") ?? Data())
+        
+        if savedVendingMachine != nil {
+            return savedVendingMachine!
+        }
+        
+        let vendingMachine = VendingMachine()
+        
+        vendingMachine.appendInventory(FactoryManager.create(type: MilkFactory.self))
+        vendingMachine.appendInventory(FactoryManager.create(type: SodaFactory.self))
+        vendingMachine.appendInventory(FactoryManager.create(type: CoffeeFactory.self))
+        
+        return savedVendingMachine ?? vendingMachine
     }
 }

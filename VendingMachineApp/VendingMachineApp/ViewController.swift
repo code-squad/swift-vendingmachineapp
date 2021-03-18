@@ -25,7 +25,6 @@ class ViewController: UIViewController {
         selectPanelStackView.delegate = self
         topPanelView.delegate = self
         loadSelectPanelStackViewLabels()
-        loadPurchasehistory()
         configObserver()
         topPanelView.roundCorners(corners: [.topLeft, .bottomLeft], radius: 30)
         selectPanelStackView.setDrinkImageViewsRadius(of: 10)
@@ -47,11 +46,11 @@ extension ViewController {
     }
     
     private func configStockLabelObserver() {
-        stockPublisher = NotificationCenter.default
-            .publisher(for: Stock.Notification.DidChangeStock)
-            .sink(receiveValue: { (notification) in
-                self.loadSelectPanelStackViewLabels()
-            })
+        NotificationCenter.default
+            .addObserver(self,
+                         selector: #selector(noticedLoadSelectPanelStackViewLabels(_:)),
+                         name: Stock.Notification.DidChangeStock,
+                         object: vendingMachine.stock)
     }
     
     private func configCoinsLabelObserver() {
@@ -87,7 +86,7 @@ extension ViewController {
         imageView.heightAnchor.constraint(equalToConstant: 150).isActive = true
     }
     
-    private func loadSelectPanelStackViewLabels() {
+    func loadSelectPanelStackViewLabels() {
         let stock = vendingMachine.showStock()
         for index in 0..<selectPanelStackView.addDrinkButtons.count {
             let key = ObjectIdentifier(drinkOrder[index])
@@ -97,6 +96,10 @@ extension ViewController {
                 selectPanelStackView.stockDrinkLabels[index].text = "0개"
             }
         }
+    }
+    
+    @objc func noticedLoadSelectPanelStackViewLabels(_ notification: Notification) {
+        loadSelectPanelStackViewLabels()
     }
 }
 

@@ -76,7 +76,6 @@ class StockView : UIView {
         self.purchaseButton.heightAnchor.constraint(equalToConstant: 25).isActive = true
         self.purchaseButton.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         self.purchaseButton.topAnchor.constraint(equalTo: self.stockLabel.bottomAnchor, constant: 10).isActive = true
-        //self.purchaseButton.addTarget(self, action: purchaseStockMethod, for: .touchUpInside)
     }
     
     
@@ -103,7 +102,7 @@ class StockView : UIView {
         self.purchaseButton.tag = tag
     }
     
-    @objc func addBeverage(sender : UIButton){
+    @objc private func addBeverage(sender : UIButton){
         let tempBeverage = vendingMachine.sendBeverageInFactory(index: sender.tag)
         vendingMachine.addBeverage(beverage: tempBeverage)
     }

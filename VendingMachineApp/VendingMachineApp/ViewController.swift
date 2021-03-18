@@ -11,6 +11,7 @@ import UIKit
     private var vendingMachine : VendingMachine!
     private let appDelegate : AppDelegate
     private var stockViews : [StockView]
+    private var moneyview : MoneyView!
     
     init() {
         self.appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -43,19 +44,22 @@ import UIKit
     
     func drawStockViews(){
         for i in 0..<StockView.stockTitle.allCases.count{
-            let viewCGRECT : CGRect!
+            let stockviewCGRect : CGRect!
             if i < 4 {
-                viewCGRECT = CGRect(x: i * 170, y: 40, width: 140, height: 200)
+                stockviewCGRect = CGRect(x: i * 170, y: 40, width: 140, height: 200)
             }
             else {
-                viewCGRECT = CGRect(x: (i - 4) * 170, y: 280, width: 140, height: 200)
+                stockviewCGRect = CGRect(x: (i - 4) * 170, y: 280, width: 140, height: 200)
             }
-            let stockview : StockView = StockView.init(frame: viewCGRECT, ImageName: StockView.stockTitle.allCases[i])
+            let stockview : StockView = StockView.init(frame: stockviewCGRect, ImageName: StockView.stockTitle.allCases[i])
             stockview.setaddButtontag(tag: i)
             stockview.setpurchaseButtontag(tag: i)
             stockViews.append(stockview)
             view.addSubview(stockview)
         }
+        let moneyViewCGRect : CGRect = CGRect(x: 750, y: 80, width: 200, height: 150)
+        moneyview = MoneyView.init(frame: moneyViewCGRect)
+        view.addSubview(moneyview)
     }
     
     
@@ -77,6 +81,6 @@ import UIKit
         for i in 0..<StockView.stockTitle.allCases.count{
             stockViews[i].updateStocklabel(stockCount: vendingMachine.drawStockLabel(beverage: vendingMachine.sendBeverageInFactory(index: i)))
         }
-        //currentMoneyLabel.text = vendingMachine.drawCurrentMoney()
+        moneyview.updateMoeny(money: vendingMachine.drawCurrentMoney())
     }
 }

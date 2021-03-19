@@ -8,7 +8,7 @@
 import UIKit
 
 class InspectorStackView: UIStackView {
-
+    
     var coinButtions : [UICoinButton]!
     var balanceLabel : UILabel!
     
@@ -22,25 +22,18 @@ class InspectorStackView: UIStackView {
         configure()
         initSubViews()
     }
-
     func initSubViews(){
-        // Coins Button
-        setButtons(titles: ["+1000원", "+5000원"])
-        
-        // Balance Label
+        setButtons()
         setBalanceLabel()
     }
-    
-    func setButtons(titles : [String]){
+    func setButtons(){
         coinButtions = [UICoinButton]()
-        for title in titles {
-            let button = UICoinButton(frame: CGRect(x: 0, y: 0, width: bounds.width, height: 10))
-            button.setTitle(title, for: .normal)
-            button.coin = title.extractUnsignedInteger()
+        UICoinButton.Amount.allCases.forEach { (value) in
+            let button = UICoinButton(frame: CGRect(x: 0, y: 0, width: bounds.width, height: 10), with: value)
+            coinButtions.append(button)
             self.addArrangedSubview(button)
         }
     }
-    
     func setBalanceLabel(){
         balanceLabel = UILabel(frame: bounds)
         balanceLabel.text = "잔액 : 0"
@@ -49,14 +42,12 @@ class InspectorStackView: UIStackView {
         balanceLabel.textAlignment = .center
         addArrangedSubview(balanceLabel)
     }
-    
     func configure(){
         self.axis = .vertical
         self.translatesAutoresizingMaskIntoConstraints = false
         self.distribution = .fillEqually
         self.spacing = 10
     }
-
     func reloadBalanceLabelText(balance : Int){
         balanceLabel.text = "잔액 : \(balance)"
     }

@@ -12,7 +12,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        if let data = DataManager.load(forKey: "vm") as? Data, let vm = ArchivingManager.unarchive(with: data) as? VendingMachine {
+        if let vm = DataManager.load(forKey: "vm") {
             VendingMachine.shared = vm
         }
         return true

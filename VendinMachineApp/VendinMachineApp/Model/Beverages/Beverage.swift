@@ -6,7 +6,7 @@ class Beverage : NSObject, NSCoding {
     private var brand: String
     private var size: Int
     private(set) var price: Int
-    private var name: String
+    private(set) var name: String
     private var manufacturedAt: Date
     
     override var description: String {

@@ -20,10 +20,14 @@ class BeveragePurchasedHistory : NSObject, NSCoding {
         let beverageCount = self.beveragePurchasedHistory.count
         self.beveragePurchasedHistory.append(name)
         
-        var info : [AnyHashable:Any] = [:]
-        info.updateValue(beverageCount, forKey: "beverageCount")
-        info.updateValue(name, forKey: "name")
+        var shoppingInfo : [AnyHashable:Any] = [:]
+        shoppingInfo.updateValue(beverageCount, forKey: "beverageCount")
+        shoppingInfo.updateValue(name, forKey: "name")
         
-        NotificationCenter.default.post(name: NSNotification.Name("bananaAdd"), object: self, userInfo: info)
+        NotificationCenter.default.post(name: BeveragePurchasedHistory.buyBeverage, object: self, userInfo: shoppingInfo)
     }
+}
+
+extension BeveragePurchasedHistory {
+    static let buyBeverage = NSNotification.Name("buyBeverage")
 }

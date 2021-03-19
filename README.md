@@ -1,18 +1,42 @@
-# [okstring / Isaac] Step6 - ScrollView, xib
+# [okstring / Isaac] Step6 - ScrollView, Observer 활용
 
 
 
+![description](https://user-images.githubusercontent.com/62657991/111650618-cf303d00-8848-11eb-8953-4526794b593b.gif)
 
 
 
+### 스텝별 작업 목록
+
+ - [x] 실행이후 구매 목록을 화면 아래 이미지로 추가한다.
+ - [x] 화면 아래 부분을 좌우로 스크롤 가능하도록 만들고 상품 이미지를 추가한다. 계속 추가해도 스크롤할 수 있어야 한다.
+ - [x] 특정 제품을 구매할 때마다 해당 제품 이미지를 추가하도록 구현한다.
+ - [x]  특정 시점에 `self.scrollView.addSubView()` 메서드로 UIImageView를 수동 추가한다.
 
 
 
+### 학습 키워드
+
+- `NotificationCenter`
+- `Combine`
+- `UIScrillView`
+- `singleton`
 
 
 
+### 고민과 해결
 
-# 
+- vendingMachine의 속성들(타입)을 프로토콜로 알게 하는 작업을 했습니다. 결국에는 이러한 타입을 만들 때 처음부터 프로토콜을 염두해두고 만들어야 할 것 같다고 느꼈습니다.
+- 리뷰를 보고 싱글톤을 적용해야겠다고 생각을 떠오르기까지 꽤 오래 시간이 걸렸던 것 같습니다. 추론을 해보는 시각을 다시 한 번 생각하게 됐습니다.
+- Combine - custom class로도 만들었지만 그리 복잡하지 않은 벤딩머신이어서 필요성을 못느끼고 코드에는 표현을 하지 못했습니다. 경험 차원에서 NotificationCenter와 섞어 썼지만 puchaseHistory에서는 큰 이점을 느끼기 어려웠습니다.
+
+
+
+### 질문거리
+
+- 저번 수업을 듣고 구현한 프로토콜 중 `Productization` 이 단일 책임 원칙을 어기고 있는 건지 궁금하고 고민해봤지만 확신이 안서서 질문을 드립니다. `Productization` 은 `Fanta`, `Sanpellegrino` 등 해당 타입들을 수평으로 묶고있는 역할을 하고 있는데 어기고 있다면 어떻게 개선을 해야할지 고민이 되서 질문을 드려봅니다.
+
+
 
 ---
 

@@ -10,8 +10,12 @@ import Foundation
 class DataManager {
     static let userDefault = UserDefaults.standard
     
-    static func load(forKey: String) -> Any {
-        return userDefault.object(forKey: forKey) as Any
+    static func load(forKey: String) -> VendingMachine? {
+        guard let data = userDefault.object(forKey: forKey) as? Data,
+              let vm = ArchivingManager.unarchive(with: data) as? VendingMachine else {
+            return nil
+        }
+        return vm
     }
     
     static func save<T>(data: T, forKey: String) {

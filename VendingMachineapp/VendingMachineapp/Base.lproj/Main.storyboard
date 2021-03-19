@@ -28,7 +28,7 @@
                                                     <action selector="addButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="psk-BU-x94"/>
                                                 </connections>
                                             </button>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="top" translatesAutoresizingMaskIntoConstraints="NO" id="fmd-Ku-11e" customClass="BeverageImageView" customModule="VendingMachineapp" customModuleProvider="target">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Top" translatesAutoresizingMaskIntoConstraints="NO" id="fmd-Ku-11e" customClass="BeverageImageView" customModule="VendingMachineapp" customModuleProvider="target">
                                                 <rect key="frame" x="45.5" y="46" width="250" height="46.5"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hq5-wD-sA3">
@@ -56,7 +56,7 @@
                                                     <action selector="addButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pvA-Wb-RAT"/>
                                                 </connections>
                                             </button>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cantata" translatesAutoresizingMaskIntoConstraints="NO" id="wH7-zT-s6W" customClass="BeverageImageView" customModule="VendingMachineapp" customModuleProvider="target">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Cantata" translatesAutoresizingMaskIntoConstraints="NO" id="wH7-zT-s6W" customClass="BeverageImageView" customModule="VendingMachineapp" customModuleProvider="target">
                                                 <rect key="frame" x="45.5" y="46" width="250" height="46.5"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oSK-7u-0zO">
@@ -84,7 +84,7 @@
                                                     <action selector="addButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pd1-Y5-mHG"/>
                                                 </connections>
                                             </button>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="georgia" translatesAutoresizingMaskIntoConstraints="NO" id="Bfl-Jm-xcJ" customClass="BeverageImageView" customModule="VendingMachineapp" customModuleProvider="target">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Georgia" translatesAutoresizingMaskIntoConstraints="NO" id="Bfl-Jm-xcJ" customClass="BeverageImageView" customModule="VendingMachineapp" customModuleProvider="target">
                                                 <rect key="frame" x="46" y="46" width="250" height="46.5"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Tw-ce-TSd">
@@ -117,7 +117,7 @@
                                                     <action selector="addButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OIO-sg-7Br"/>
                                                 </connections>
                                             </button>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coke" translatesAutoresizingMaskIntoConstraints="NO" id="1eO-6w-NRv" customClass="BeverageImageView" customModule="VendingMachineapp" customModuleProvider="target">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Coke" translatesAutoresizingMaskIntoConstraints="NO" id="1eO-6w-NRv" customClass="BeverageImageView" customModule="VendingMachineapp" customModuleProvider="target">
                                                 <rect key="frame" x="45.5" y="46" width="250" height="46.5"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DAm-nz-Tet">
@@ -145,7 +145,7 @@
                                                     <action selector="addButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nwk-02-ij3"/>
                                                 </connections>
                                             </button>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sprite" translatesAutoresizingMaskIntoConstraints="NO" id="f8r-0m-Q5Y" customClass="BeverageImageView" customModule="VendingMachineapp" customModuleProvider="target">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Sprite" translatesAutoresizingMaskIntoConstraints="NO" id="f8r-0m-Q5Y" customClass="BeverageImageView" customModule="VendingMachineapp" customModuleProvider="target">
                                                 <rect key="frame" x="45.5" y="46" width="250" height="46.5"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p8c-jo-gTq">
@@ -173,7 +173,7 @@
                                                     <action selector="addButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zXu-Qu-aU8"/>
                                                 </connections>
                                             </button>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fanta" translatesAutoresizingMaskIntoConstraints="NO" id="woH-hZ-Qaa" customClass="BeverageImageView" customModule="VendingMachineapp" customModuleProvider="target">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Fanta" translatesAutoresizingMaskIntoConstraints="NO" id="woH-hZ-Qaa" customClass="BeverageImageView" customModule="VendingMachineapp" customModuleProvider="target">
                                                 <rect key="frame" x="46" y="46" width="250" height="46.5"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YII-yg-QG1">
@@ -206,7 +206,7 @@
                                                     <action selector="addButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Akt-2g-26a"/>
                                                 </connections>
                                             </button>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="strawberry" translatesAutoresizingMaskIntoConstraints="NO" id="prB-Qn-GgM" customClass="BeverageImageView" customModule="VendingMachineapp" customModuleProvider="target">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="StrawberryMilk" translatesAutoresizingMaskIntoConstraints="NO" id="prB-Qn-GgM" customClass="BeverageImageView" customModule="VendingMachineapp" customModuleProvider="target">
                                                 <rect key="frame" x="45.5" y="46" width="250" height="46.5"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rzu-fc-18L">
@@ -234,7 +234,7 @@
                                                     <action selector="addButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3nH-ne-Twu"/>
                                                 </connections>
                                             </button>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="banana" translatesAutoresizingMaskIntoConstraints="NO" id="ZW7-hT-J9a" customClass="BeverageImageView" customModule="VendingMachineapp" customModuleProvider="target">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BananaMilk" translatesAutoresizingMaskIntoConstraints="NO" id="ZW7-hT-J9a" customClass="BeverageImageView" customModule="VendingMachineapp" customModuleProvider="target">
                                                 <rect key="frame" x="45.5" y="46" width="250" height="46.5"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hcg-kL-eOS">
@@ -262,7 +262,7 @@
                                                     <action selector="addButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="s33-xl-pWN"/>
                                                 </connections>
                                             </button>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="choco" translatesAutoresizingMaskIntoConstraints="NO" id="hAl-bo-Zie" customClass="BeverageImageView" customModule="VendingMachineapp" customModuleProvider="target">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ChocoMilk" translatesAutoresizingMaskIntoConstraints="NO" id="hAl-bo-Zie" customClass="BeverageImageView" customModule="VendingMachineapp" customModuleProvider="target">
                                                 <rect key="frame" x="46" y="46" width="250" height="46.5"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QcD-Ut-yga">
@@ -372,14 +372,14 @@
         </scene>
     </scenes>
     <resources>
-        <image name="banana" width="250" height="250"/>
-        <image name="cantata" width="250" height="250"/>
-        <image name="choco" width="250" height="250"/>
-        <image name="coke" width="250" height="250"/>
-        <image name="fanta" width="250" height="250"/>
-        <image name="georgia" width="250" height="250"/>
-        <image name="sprite" width="250" height="250"/>
-        <image name="strawberry" width="250" height="250"/>
-        <image name="top" width="250" height="250"/>
+        <image name="BananaMilk" width="250" height="250"/>
+        <image name="Cantata" width="250" height="250"/>
+        <image name="ChocoMilk" width="250" height="250"/>
+        <image name="Coke" width="250" height="250"/>
+        <image name="Fanta" width="250" height="250"/>
+        <image name="Georgia" width="250" height="250"/>
+        <image name="Sprite" width="250" height="250"/>
+        <image name="StrawberryMilk" width="250" height="250"/>
+        <image name="Top" width="250" height="250"/>
     </resources>
 </document>

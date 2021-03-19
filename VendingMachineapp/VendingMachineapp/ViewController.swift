@@ -39,6 +39,8 @@ class ViewController: UIViewController {
         setButtonsTitle()
         setLabelsTitle()
         setObserver()
+        
+        self.mainStackView.addArrangedSubview(ScrollView())
     }
     
     func setObserver() {

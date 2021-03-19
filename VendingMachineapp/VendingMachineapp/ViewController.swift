@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     private var labelDictionary: [Beverage:UILabel] = [:]
     private var moneyButtonDictionary: [UIButton:Int] = [:]
     
+    var purchasedScrollView: ScrollView!
     @IBOutlet weak var mainStackView: UIStackView!
     @IBOutlet var lineStackView: [UIStackView]!
     @IBOutlet var beverageStackView: [UIStackView]!
@@ -30,6 +31,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         mainStackView.backgroundColor = .systemGray2
+        setPurchasedScrollView()
         
         mappingButtonAndLabel()
         mappingButtonAndProduct()
@@ -38,9 +40,14 @@ class ViewController: UIViewController {
         
         setButtonsTitle()
         setLabelsTitle()
+        setPurchasedList()
         setObserver()
         
-        self.mainStackView.addArrangedSubview(ScrollView())
+    }
+    
+    func setPurchasedScrollView() {
+        purchasedScrollView = ScrollView()
+        self.mainStackView.addArrangedSubview(purchasedScrollView)
     }
     
     func setObserver() {
@@ -50,6 +57,10 @@ class ViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(changeMoneyLabel),
                                                name: VendingMachine.Notification.didChangedMoney,
+                                               object: delegate.vendingMachine)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(changePurchasedList),
+                                               name: VendingMachine.Notification.didChangedPurchased,
                                                object: delegate.vendingMachine)
     }
     
@@ -107,6 +118,12 @@ class ViewController: UIViewController {
         currentChangeLabel.text = "잔액 : \(delegate.vendingMachine.checkChange())원"
     }
     
+    func setPurchasedList() {
+        delegate.vendingMachine.getProductList().forEach({ (beverage) in
+            purchasedScrollView.addImageView(with: type(of: beverage))
+        })
+    }
+    
     @objc func changeStockLabel(_ notification: Notification) {
         if let list = notification.userInfo as? [Beverage:Int] {
             for (beverage, number) in list {
@@ -117,5 +134,11 @@ class ViewController: UIViewController {
     
     @objc func changeMoneyLabel(_ notification: Notification) {
         currentChangeLabel.text = "잔액 : \(delegate.vendingMachine.checkChange())원"
+    }
+    
+    @objc func changePurchasedList(_ notification: Notification) {
+        if let machine = notification.object as? VendingMachine {
+            purchasedScrollView.addImageView(with: type(of: machine.purchasedList().last!))
+        }
     }
 }

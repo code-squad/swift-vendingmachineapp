@@ -42,7 +42,6 @@ class OneStockView: UIView {
         addButton.setImage(UIImage(named: "addbutton"), for: .normal)
         addButton.setTitle("추가하기", for: .normal)
         addSubview(addButton)
-        addButton.addTarget(superview, action: #selector(AdminViewController.appendBeverageToMachine), for: .touchDown)
     }
     func setLabel(){
         let captionBackgroundView = UIView(frame: CGRect(x: 0, y: bounds.height - 80, width: bounds.width, height: 30))
@@ -60,7 +59,6 @@ class OneStockView: UIView {
         buyButton.setTitle("구매하기", for: .normal)
         buyButton.setImage(UIImage(named: "buybutton"), for: .normal)
         addSubview(buyButton)
-        buyButton.addTarget(superview, action: #selector(ViewController.buyBeverageFromMachine), for: .touchDown)
     }
     func reloadLabelText(count : Int){
         label.text = "재고량 : \(count)"

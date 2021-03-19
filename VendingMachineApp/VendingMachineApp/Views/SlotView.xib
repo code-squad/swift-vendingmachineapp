@@ -48,6 +48,9 @@
                     <state key="normal" title="구매">
                         <color key="titleColor" systemColor="systemRedColor"/>
                     </state>
+                    <state key="disabled">
+                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
                 </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>

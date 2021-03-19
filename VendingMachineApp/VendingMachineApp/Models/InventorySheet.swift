@@ -11,7 +11,7 @@ protocol InventoryTakeable {
     func showInventorySheet(handler: (Dictionary<Slot, Int>.Element) -> ())
 }
 
-struct InventorySheet {
+struct InventorySheet: AppDelegateAccessible {
     func createInventoryViewInfo(for vendingMachine: InventoryTakeable) -> [Slot: SlotView] {
         var inventoryViewInfo: [Slot: SlotView] = [ : ]
         vendingMachine.showInventorySheet {
@@ -24,6 +24,7 @@ struct InventorySheet {
         let view = SlotView()
         view.itemImageView.image = UIImage(named: slot.getPackagingInfo() ?? "")
         view.itemQuantityLabel.text = "\(slot.itemCount)개"
+        view.vendButton.isEnabled = slot.isAffordable(at: appDelegate.vendingMachine.showBalance())
         return view
     }
 }

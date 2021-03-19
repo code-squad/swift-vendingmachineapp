@@ -46,6 +46,7 @@ class ViewController: UIViewController, SlotViewDelegate, AppDelegateAccessible 
             .sink { notification in
                 DispatchQueue.main.async {
                     self.configureCashBoxView()
+                    self.configureInventoryView()
                 }
             }
         

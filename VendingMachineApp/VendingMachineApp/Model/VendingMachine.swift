@@ -9,7 +9,7 @@ import Foundation
 
 class VendingMachine: NSObject, NSCoding {
     private(set) var stock: StockManageable
-    private(set) var purchaseHistory: CheckableHistory
+    private(set) var purchaseHistory: CheckablePurchaseHistory
     private(set) var coins: CoinManageable
     var purchaseHistoryPublisher: Published<[Drink]>.Publisher {
         return purchaseHistory.historyPublisher
@@ -34,7 +34,7 @@ class VendingMachine: NSObject, NSCoding {
     
     required init?(coder: NSCoder) {
         self.stock = coder.decodeObject(forKey: "stock") as? StockManageable ?? Stock()
-        self.purchaseHistory = coder.decodeObject(forKey: "purchaseHistory") as? CheckableHistory ?? PurchaseHistory()
+        self.purchaseHistory = coder.decodeObject(forKey: "purchaseHistory") as? CheckablePurchaseHistory ?? PurchaseHistory()
         self.coins = coder.decodeObject(forKey: "coins") as? CoinManageable ?? CoinCounter()
     }
     

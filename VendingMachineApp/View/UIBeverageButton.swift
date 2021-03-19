@@ -15,7 +15,7 @@ class UIBeverageButton: UIButton {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
-    func bind(action : UIAction, for item : Beverage.Type){
+    func bind(action : UIAction){
         self.addAction(action, for: .touchDown)
     }
 }

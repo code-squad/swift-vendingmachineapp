@@ -13,7 +13,7 @@ class ViewController: UIViewController {
     var inspectorView : InspectorStackView!
     var purchaseView : PurchaseScrollView!
     
-    var vendingMachine : VendingMachine!
+    var vendingMachine : UserOfVendingMachine!
     
     // MARK: - View Life Cycle
     
@@ -42,7 +42,7 @@ class ViewController: UIViewController {
                 if self.vendingMachine.availableWithCurrentCoin(to: item){
                     _ = self.vendingMachine.purchase(with: item)
                 }
-            }), for: oneStock.beverageType)
+            }))
             
         }
         self.view.addSubview(stockStackView)

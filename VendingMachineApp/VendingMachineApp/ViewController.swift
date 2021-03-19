@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController ,VendingMachinedable {
+class ViewController: UIViewController ,UserVendingMachinedable {
     @IBOutlet var beverageImages: [BeverageImageView]!
     @IBOutlet var numberOfStock: [UILabel]!
     @IBOutlet var addPaymentButtons: [UIButton]!
@@ -15,7 +15,7 @@ class ViewController: UIViewController ,VendingMachinedable {
     @IBOutlet var PurchaseButtons: [UIButton]!
     @IBOutlet weak var scrollView: UIScrollView!
     
-    private var vendingMachine : VendingMachined!
+    private var vendingMachine : UserModable!
     private var paymentMenu : PaymentMenu!
     private var purchaseMenu : BeverageMapper!
     
@@ -31,7 +31,7 @@ class ViewController: UIViewController ,VendingMachinedable {
         setNotificationObserver()
     }
     
-    func setVendingMachine(_ vendingMachined : VendingMachined){
+    func setVendingMachine(_ vendingMachined : UserModable){
         self.vendingMachine = vendingMachined
     }
     
@@ -81,8 +81,9 @@ class ViewController: UIViewController ,VendingMachinedable {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let adminViewcontroller = segue.destination as? VendingMachinedable else { return }
-        adminViewcontroller.setVendingMachine(vendingMachine)
+        guard let adminViewcontroller = segue.destination as? AdminVendingMachinedable else { return }
+        guard let adminVendingMachine = vendingMachine as? AdminModable else { return }
+        adminViewcontroller.setVendingMachine(adminVendingMachine)
     }
     
     @objc private func updateNotificationBalanceLabel(_ notification : Notification) {

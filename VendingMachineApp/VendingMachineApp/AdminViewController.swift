@@ -7,11 +7,11 @@
 
 import UIKit
 
-class AdminViewController: UIViewController,VendingMachinedable {
+class AdminViewController: UIViewController,AdminVendingMachinedable {
     @IBOutlet var addStockButton: [UIButton]!
     @IBOutlet var numberOfStock: [UILabel]!
     
-    private var vendingMachine : VendingMachined!
+    private var vendingMachine : AdminModable!
     private var drinkMenu : BeverageMapper!
     
     override func viewDidLoad() {
@@ -25,7 +25,7 @@ class AdminViewController: UIViewController,VendingMachinedable {
         self.dismiss(animated: true, completion: nil)
     }
 
-    func setVendingMachine(_ vendingMachined: VendingMachined) {
+    func setVendingMachine(_ vendingMachined: AdminModable) {
         self.vendingMachine = vendingMachined
     }
     

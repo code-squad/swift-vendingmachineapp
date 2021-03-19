@@ -7,6 +7,10 @@
 
 import Foundation
 
-protocol VendingMachinedable {
-    func setVendingMachine(_ vendingMachined : VendingMachined)
+protocol UserVendingMachinedable {
+    func setVendingMachine(_ vendingMachined : UserModable)
+}
+
+protocol AdminVendingMachinedable {
+    func setVendingMachine(_ vendingMachined : AdminModable)
 }

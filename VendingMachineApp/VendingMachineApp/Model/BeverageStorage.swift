@@ -41,7 +41,7 @@ class BeverageStorage: NSObject, NSCoding {
         handleEachItem { (item) in
             if item.beverage == beverage {
                 item.increaseCount(by: amount)
-                NotificationCenter.default.post(name: .didIncreaseStock, object: nil)
+                NotificationCenter.default.post(name: .didIncreaseStock, object: self)
             }
         }
     }

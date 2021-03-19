@@ -8,8 +8,8 @@
 import Foundation
 
 class Machine: NSObject, NSCoding {
-    private var moneyProcessor: MoneyProcessingUnit
-    private var beverageStorage: BeverageStorage
+    public var moneyProcessor: MoneyProcessingUnit
+    public var beverageStorage: BeverageStorage
     private var purchaseHistory: [Beverage]
     
     
@@ -79,7 +79,7 @@ class Machine: NSObject, NSCoding {
                     moneyProcessor.deductMoneyOnTransaction(with: itemPrice)
                     savePurchaseHistory(beverage: deductedBeverage)
                     print(purchaseHistory)
-                    NotificationCenter.default.post(name: .didChangePurchaseHistory, object: nil)
+                    NotificationCenter.default.post(name: .didChangePurchaseHistory, object: self)
                 case .failure(_):
                     return
                 }

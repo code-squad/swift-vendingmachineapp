@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol CheckableHistory {
+protocol CheckablePurchaseHistory {
     var historyPublisher: Published<[Drink]>.Publisher { get }
     func append(_ drink: Drink)
     func checkedPurchaseHistory(handle: (Drink) -> ())

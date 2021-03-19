@@ -8,7 +8,7 @@
 
 import Foundation
 
-class PurchaseHistory: NSObject, NSCoding, CheckableHistory {
+class PurchaseHistory: NSObject, NSCoding, CheckablePurchaseHistory {
     @Published private var purchaseHistory: [Drink]
     var historyPublisher: Published<[Drink]>.Publisher { $purchaseHistory }
     

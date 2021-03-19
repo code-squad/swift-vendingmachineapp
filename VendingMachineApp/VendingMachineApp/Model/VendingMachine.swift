@@ -143,4 +143,22 @@ class VendingMachine: NSObject, NSCoding {
         let order = menuList().filter { $0.productName == name }
         return type(of: order.first!)
     }
+    
+    func beverageData() -> [Int] {
+        let stockList = beverages.stockListOfBeverages()
+        var stockData = [Int](repeating: 0, count: stockList.count)
+        for beverage in stockList.keys {
+            switch beverage {
+            case ObjectIdentifier(ChocolateMilk.self): stockData[0] = stockList[beverage]!
+            case ObjectIdentifier(StrawBerryMilk.self): stockData[1] = stockList[beverage]!
+            case ObjectIdentifier(Coke.self): stockData[2] = stockList[beverage]!
+            case ObjectIdentifier(Sprite.self): stockData[3] = stockList[beverage]!
+            case ObjectIdentifier(Top.self): stockData[4] = stockList[beverage]!
+            case ObjectIdentifier(Cantata.self): stockData[5] = stockList[beverage]!
+            default:
+                break
+            }
+        }
+        return stockData
+    }
 }

@@ -10,7 +10,7 @@ struct Segment {
 
 class PieGraphView: UIView {
     
-    private var segments = [Segment]() {
+    var segments = [Segment]() {
         didSet {
             setNeedsDisplay()
         }
@@ -31,7 +31,7 @@ class PieGraphView: UIView {
         
         let radius = min(frame.size.width, frame.size.height) * 0.5
         
-        let viewCenter = CGPoint(x: bounds.size.width, y: bounds.size.height)
+        let viewCenter = CGPoint(x: bounds.size.width * 0.5, y: bounds.size.height * 0.5)
         
         let valueCount = segments.reduce(0, {$0 + $1.value})
         

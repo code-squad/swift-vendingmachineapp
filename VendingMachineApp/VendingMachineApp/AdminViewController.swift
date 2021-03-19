@@ -4,12 +4,18 @@ class AdminViewController: UIViewController {
     
     private var beverageStackView: AdminBeverageStackView!
     private var vendingMachine = VendingMachine.sharedInstance()
+    private var pieChart = PieGraphView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         beverageStackView = AdminBeverageStackView()
         configureBeverageStackView()
         NotificationCenter.default.addObserver(self, selector: #selector(updateBeverageStock(_:)), name: VendingMachine.updateBeverages, object: vendingMachine)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setUpPieChart()
     }
     
     private func updateLabel(_ type: Beverage.Type) {
@@ -20,6 +26,18 @@ class AdminViewController: UIViewController {
             if vendingMachine.typeToInstance(product: type) == beverage {
                 beverageStockList[index].text = "\(vendingMachine.beverages.stockOfEach(beverage: beverage))개"
             }
+        }
+    }
+    
+    private func setUpPieChart() {
+        configurePieChartView()
+        let stockList = vendingMachine.beverageData()
+        if stockList.reduce(0, +) == 0 { return }
+        let beverageData = stockList.map{CGFloat($0)}
+        let systemColor = [UIColor.systemRed, UIColor.systemBlue, UIColor.systemPink, UIColor.systemTeal, UIColor.systemGreen, UIColor.systemYellow]
+        pieChart.segments.removeAll()
+        for index in 0..<systemColor.count {
+            pieChart.segments.append(Segment(color: systemColor[index], value: beverageData[index]))
         }
     }
     
@@ -37,6 +55,11 @@ extension AdminViewController {
         beverageStackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 10).isActive = true
         beverageStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10).isActive = true
     }
+    
+    private func configurePieChartView() {
+        view.addSubview(pieChart)
+        pieChart.frame = CGRect(x: 300, y: 300, width: 300, height: 300)
+    }
 }
 
 //MARK:- @objc Action
@@ -50,5 +73,6 @@ extension AdminViewController {
     @objc func updateBeverageStock(_ notification: Notification) {
         guard let beverageType = notification.userInfo?["BeverageType"] as? Beverage.Type else { return }
         updateLabel(beverageType)
+        setUpPieChart()
     }
 }

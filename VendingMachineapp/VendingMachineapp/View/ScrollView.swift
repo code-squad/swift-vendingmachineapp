@@ -26,7 +26,6 @@ class ScrollView: UIScrollView {
     }
     
     func setScrollView() {
-        self.contentSize = CGSize(width: CGFloat(2000), height: CGFloat(120))
         self.translatesAutoresizingMaskIntoConstraints = false
     }
     
@@ -36,5 +35,6 @@ class ScrollView: UIScrollView {
         imageView.frame = CGRect(x: coordinateX, y: coordinateY, width: imageWidth, height: imageHeight)
         coordinateX += imageWidth + space
         self.addSubview(imageView)
+        self.contentSize = CGSize(width: coordinateX, height: imageHeight)
     }
 }

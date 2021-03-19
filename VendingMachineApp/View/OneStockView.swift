@@ -10,13 +10,9 @@ import UIKit
 class OneStockView: UIView {
     
     private var label : UILabel!
-    public var stockImageView : UIImageView!
+    private var stockImageView : UIImageView!
     public var button : UIBeverageButton!
-    
-    enum ButtonType {
-        case add
-        case buy
-    }
+
     public var beverageType : Beverage.Type!
     
     required init?(coder: NSCoder) {
@@ -39,6 +35,9 @@ class OneStockView: UIView {
         stockImageView.layer.cornerRadius = 10
         addSubview(stockImageView)
     }
+    func setImage(with image : UIImage){
+        self.stockImageView.image = image
+    }
     func setLabel(){
         let captionBackgroundView = UIView(frame: CGRect(x: 0, y: bounds.height - 80, width: bounds.width, height: 30))
         captionBackgroundView.backgroundColor = UIColor(white: 0.1, alpha: 0.8)
@@ -50,7 +49,7 @@ class OneStockView: UIView {
         label.textColor = UIColor(white: 0.9, alpha: 1.0)
         captionBackgroundView.addSubview(label)
     }
-    func setButton(for type : ButtonType){
+    func setButton(for type : UIBeverageButton.ButtonType){
         switch type {
         case .add:
             setAddButton()

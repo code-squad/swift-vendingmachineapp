@@ -40,9 +40,23 @@ class Beverages : NSObject , NSCoding{
         return beverageList
     }
     
+    private func beverageType(beverage : Beverage) -> Int {
+        var tempbeverageTypeindex : Int = 0
+        for i in 0..<beverageTypeList.count{
+            if beverageTypeList[i] == type(of: beverage){
+                tempbeverageTypeindex = i
+            }
+        }
+        return tempbeverageTypeindex
+    }
+    
     func takeBeverage(beverage : Beverage){
-        var tempbeverageList : [ObjectIdentifier : Int] = makeCurrentBeverageObjectIdentifierList()
-        beverage.removeProductType(productTypeList: &tempbeverageList)
+        if let firstindex = beverages.firstIndex(of: beverage){
+            beverages.remove(at: firstindex)
+            let userInfo : [String : Int] = ["ImageIndex" : beverageType(beverage: beverage)]
+            NotificationCenter.default.post(name: NSNotification.Name("purchaseBeverage"), object: nil, userInfo: userInfo)
+        }
+        NotificationCenter.default.post(name: NSNotification.Name("redrawImageandLabel"), object: nil)
     }
     
     func showLowerpriceThan(money : Money) -> [Beverage]{
@@ -90,9 +104,9 @@ class Beverages : NSObject , NSCoding{
     }
     
     func sendCurrentBeverageObjectIdentifierCount(beverage : Beverage) -> Int{
-        let tempbeverageList : [ObjectIdentifier : Int] = makeCurrentBeverageObjectIdentifierList()
+        let tempList = makeCurrentBeverageObjectIdentifierList()
         var tempResult = 0
-        if let tempbeverageCount = tempbeverageList[ObjectIdentifier(beverage)]{
+        if let tempbeverageCount = tempList[ObjectIdentifier(beverage)]{
             tempResult = tempbeverageCount
         }
         return tempResult

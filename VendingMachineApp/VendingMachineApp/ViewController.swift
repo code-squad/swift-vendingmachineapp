@@ -11,22 +11,26 @@ import UIKit
     private var vendingMachine : VendingMachine!
     private let appDelegate : AppDelegate
     private var stockViews : [StockView]
-    private var moneyview : MoneyView!
+    private var moneyView : MoneyView!
+    private var boughtScrollview : boughtView
     
     init() {
         self.appDelegate = UIApplication.shared.delegate as! AppDelegate
         stockViews = []
+        boughtScrollview = boughtView.init(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
         super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) {
         self.appDelegate = UIApplication.shared.delegate as! AppDelegate
         stockViews = []
+        boughtScrollview = boughtView.init(frame: CGRect(x: 30, y: 550, width: 650, height: 120))
         super.init(coder: coder)
     }
     
     override func viewDidLoad() {
         NotificationCenter.default.addObserver(self, selector: #selector(receiveaddNotification), name: NSNotification.Name("redrawImageandLabel"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(drawboughtImage), name: NSNotification.Name("purchaseBeverage"), object: nil)
         self.vendingMachine = appDelegate.vendingMachine
         super.viewDidLoad()
     }
@@ -40,6 +44,11 @@ import UIKit
     
     @objc func receiveaddNotification(){
         redrawMoneyandStock()
+    }
+    
+    @objc func drawboughtImage(_ notification: Notification){
+        guard let index : Int = notification.userInfo?["ImageIndex"] as? Int else { return }
+        boughtScrollview.makeBoughtImageView(ImageTitle: StockView.stockTitle.allCases[index])
     }
     
     func drawStockViews(){
@@ -58,8 +67,9 @@ import UIKit
             view.addSubview(stockview)
         }
         let moneyViewCGRect : CGRect = CGRect(x: 750, y: 80, width: 200, height: 150)
-        moneyview = MoneyView.init(frame: moneyViewCGRect)
-        view.addSubview(moneyview)
+        moneyView = MoneyView.init(frame: moneyViewCGRect)
+        view.addSubview(moneyView)
+        view.addSubview(boughtScrollview)
     }
     
     
@@ -81,6 +91,6 @@ import UIKit
         for i in 0..<StockView.stockTitle.allCases.count{
             stockViews[i].updateStocklabel(stockCount: vendingMachine.drawStockLabel(beverage: vendingMachine.sendBeverageInFactory(index: i)))
         }
-        moneyview.updateMoeny(money: vendingMachine.drawCurrentMoney())
+        moneyView.updateMoeny(money: vendingMachine.drawCurrentMoney())
     }
 }

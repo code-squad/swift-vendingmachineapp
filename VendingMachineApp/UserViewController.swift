@@ -20,23 +20,24 @@ class UserViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setNotificationCenter()
-        
     }
     override func viewWillAppear(_ animated: Bool) {
+        vendingMachine = (UIApplication.shared.delegate as! AppDelegate).vendingMachine
+        
         setUpViews()
     }
+}
+// MARK: - Set Up View
+extension UserViewController {
     
     func setUpViews(){
         self.view.backgroundColor = .black
-        
-        vendingMachine = (UIApplication.shared.delegate as! AppDelegate).vendingMachine
         
         setUpStockStacView()
         self.view.addSubview(stockStackView)
         stockStackViewConfiguration()
         
-        inspectorView = InspectorStackView()
-        inspectorView.reloadBalanceLabelText(balance: vendingMachine.getCoins())
+        setUpInspectorView()
         self.view.addSubview(inspectorView)
         inspectorViewConfiguration()
 
@@ -61,13 +62,14 @@ class UserViewController: UIViewController {
             
         }
     }
-}
-
-// MARK: - Actions
-extension UserViewController {
-    
-    @objc func appedCoinToMachine(_ sender : UICoinButton){
-        vendingMachine.charge(coins: sender.coin)
+    func setUpInspectorView(){
+        inspectorView = InspectorStackView()
+        inspectorView.coinButtions.forEach{ (button) in
+            button.bind(handler: UIAction(handler: { (action) in
+                self.vendingMachine.charge(coins: button.value.rawValue)
+            }))
+        }
+        inspectorView.reloadBalanceLabelText(balance: vendingMachine.getCoins())
     }
 }
 

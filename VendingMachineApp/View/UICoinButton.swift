@@ -9,25 +9,39 @@ import UIKit
 
 class UICoinButton: UIButton {
 
-    var coin : Int
+    let value : Amount!
+    
+    enum Amount : Int, CaseIterable {
+        case oneThousand = 1000
+        case fiveThusand = 5000
+    }
     
     override init(frame: CGRect) {
-        coin = 0
+        self.value = .none
         super.init(frame: frame)
         setUpButton()
     }
     
     required init?(coder aDecoder: NSCoder) {
-        coin = 0
+        self.value = .none
         super.init(coder: aDecoder)
         setUpButton()
     }
-    
+    init(frame : CGRect, with coin : Amount){
+        self.value = coin
+        super.init(frame: frame)
+        setUpButton()
+        setButtonTitle()
+    }
     func setUpButton() {
         self.setImage(UIImage(named: "coinbutton"), for: .normal)
-        self.setTitleColor(.black, for: .normal)
-        self.addTarget(superview, action: #selector(ViewController.appedCoinToMachine), for: .touchDown)
     }
-
+    func setButtonTitle(){
+        let title = "\(self.value.rawValue)원"
+        self.setTitle(title, for: .normal)
+    }
+    func bind(handler action : UIAction){
+        self.addAction(action, for: .touchDown)
+    }
 }
 

@@ -38,8 +38,13 @@ class Machine: NSObject, NSCoding {
         self.purchaseHistory = [Beverage]()
     }
     
-    func receiveMoney(amount: Int) {
-        moneyProcessor.increaseMoneyOnTransaction(by: amount)
+    enum MoneyAmount: Int {
+        case thousandWon = 1_000
+        case fiveThousandWon = 5_000
+    }
+    
+    func receiveMoney(amount: MoneyAmount) {
+        moneyProcessor.increaseMoneyOnTransaction(by: amount.rawValue)
     }
     
     func showInsertedCashBalance() -> Int {

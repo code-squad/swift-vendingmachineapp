@@ -30,11 +30,11 @@ class ViewController: UIViewController {
     }
     
     @IBAction func thousandWonPlusButtonPressed(_ sender: UIButton) {
-        machine.receiveMoney(amount: 1_000)
+        machine.receiveMoney(amount: .thousandWon)
     }
     
     @IBAction func fiveThousandWonPlusButtonPressed(_ sender: UIButton) {
-        machine.receiveMoney(amount: 5_000)
+        machine.receiveMoney(amount: .fiveThousandWon)
     }
     
     func addPurcahseHistoryScrollView() {

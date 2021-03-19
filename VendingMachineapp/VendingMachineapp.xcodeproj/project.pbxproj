@@ -36,6 +36,7 @@
 		D46F1B1525EE220E00BFBD9C /* BeverageFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46F1B1425EE220E00BFBD9C /* BeverageFactory.swift */; };
 		D4833CC425FB0F4200C7BF2E /* EncondingBeverageTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4833CC325FB0F4200C7BF2E /* EncondingBeverageTest.swift */; };
 		D4833CC825FB114B00C7BF2E /* ArchivingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4833CC725FB114B00C7BF2E /* ArchivingManager.swift */; };
+		D4833DA3260434D600C7BF2E /* ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4833DA2260434D600C7BF2E /* ScrollView.swift */; };
 		D4EC7A6125F607060013F504 /* ImageViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EC7A6025F607060013F504 /* ImageViews.swift */; };
 /* End PBXBuildFile section */
 
@@ -83,6 +84,7 @@
 		D46F1B1425EE220E00BFBD9C /* BeverageFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageFactory.swift; sourceTree = "<group>"; };
 		D4833CC325FB0F4200C7BF2E /* EncondingBeverageTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncondingBeverageTest.swift; sourceTree = "<group>"; };
 		D4833CC725FB114B00C7BF2E /* ArchivingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchivingManager.swift; sourceTree = "<group>"; };
+		D4833DA2260434D600C7BF2E /* ScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollView.swift; sourceTree = "<group>"; };
 		D4EC7A6025F607060013F504 /* ImageViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViews.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -212,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				D4EC7A6025F607060013F504 /* ImageViews.swift */,
+				D4833DA2260434D600C7BF2E /* ScrollView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -339,6 +342,7 @@
 				D46F1A6C25E6813900BFBD9C /* Date.swift in Sources */,
 				D46F1B0D25EE0A3900BFBD9C /* VendingMachineManager.swift in Sources */,
 				D46F1A6525E6782F00BFBD9C /* VendingMachine.swift in Sources */,
+				D4833DA3260434D600C7BF2E /* ScrollView.swift in Sources */,
 				D46F1A8225E8BE8A00BFBD9C /* Top.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

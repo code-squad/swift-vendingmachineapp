@@ -28,11 +28,18 @@ class ProductStackView: UIStackView {
         self.imageView = coder.decodeObject(forKey: "ImageView") as? UIImageView
         self.addButton = coder.decodeObject(forKey: "AddButton") as? UIButton
         self.buyButton = coder.decodeObject(forKey: "BuyButton") as? UIButton
-        
-        setRadius()
     }
     
-    private func setRadius() {
-        self.imageView?.layer.cornerRadius = self.bounds.height * 0.15
+    func userMode() {
+        buyButton.isHidden = false
+        addButton.isHidden = true
+        imageView.layer.cornerRadius = bounds.height * 0.15
+    }
+    
+    func adminMode() {
+        buyButton.isHidden = true
+        addButton.isHidden = false
+        addButton.tintColor = .darkGray
+        imageView.layer.cornerRadius = bounds.height * 0.08
     }
 }

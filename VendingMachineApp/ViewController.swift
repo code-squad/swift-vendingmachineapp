@@ -36,6 +36,15 @@ class ViewController: UIViewController {
         stockStackView.setStocksCount(info: stocks)
         stockStackView.setUp()
         stockStackView.stockCells.forEach{ $0.addButton.isHidden = true}
+        stockStackView.stockCells.forEach{ (oneStock) in
+            oneStock.buyButton.bind(action: UIAction(handler:  { (action) in
+                guard let item = self.vendingMachine.getProduct(with: oneStock.beverageType) else { return }
+                if self.vendingMachine.availableWithCurrentCoin(to: item){
+                    _ = self.vendingMachine.purchase(with: item)
+                }
+            }), for: oneStock.beverageType)
+            
+        }
         self.view.addSubview(stockStackView)
         stockStackViewConfiguration()
         
@@ -55,12 +64,6 @@ extension ViewController {
     
     @objc func appedCoinToMachine(_ sender : UICoinButton){
         vendingMachine.charge(coins: sender.coin)
-    }
-    @objc func buyBeverageFromMachine(_ sender : UIBeverageButton){
-        guard let item = vendingMachine.getProduct(with: sender.beverageType) else { return }
-        if vendingMachine.availableWithCurrentCoin(to: item) {
-            _ = vendingMachine.purchase(with: item)
-        }
     }
 }
 

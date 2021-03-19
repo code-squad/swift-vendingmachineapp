@@ -247,9 +247,31 @@ contentSize는 기본적으로 `CGSizeZero`의 값을 가지고 있다. 때문�
 **사용자 화면**
 <img width="1104" alt="Screen Shot 2021-03-18 at 3 52 49 PM" src="https://user-images.githubusercontent.com/60229909/111584991-fe6f8b80-8801-11eb-90da-a932babd2c31.png">
 **관리자 화면**
-<img width="1104" alt="Screen Shot 2021-03-18 at 3 52 27 PM" src="https://user-images.githubusercontent.com/60229909/111584959-f1529c80-8801-11eb-9e5f-d790fb04ef9e.png">
+<img width="1104" alt="Screen Shot 2021-03-19 at 3 33 51 PM" src="https://user-images.githubusercontent.com/60229909/111740684-83bd7380-88c8-11eb-882e-c69698a4b509.png">
 
 ## 고찰
 
 ### 기존에 만들어 놓은 View 재활용하기
 기존에 만들어 놓은 재고를 보여주는 화면을 최대한 재사용하기 위해 노력했다. "구매하기 버튼" 혹은 "추가하기 버튼"의 `isHidden`의 플래그를 활용하였다. 사용자의 화면에서는 재고 추가하기 버튼을 숨기고, 관리자 화면에서는 구매하기 버튼을 숨김으로써, 같은 재고뷰를 재사용 하였다. 또한, 기존에 한 줄에 몇개의 음료수를 보여줄 것인지에 대한 기준 값을 변경할 수 있도록 `let`이 아닌 `var`로 변경하였다.
+
+## Button의 Trarget-Action 지정하기
+Step4에 고찰이었던 **커스텀 뷰 안에있는 버튼에 action 지정하기** 보완
+
+target으로 `superview` 지정하였지만, 여전히 상위 뷰에 의존하고 있는 방식이다. Button이 생성된 이후, 다른 view안에 subview로 속해야지만 superview의 값을 사용할 수 있다. 하지만, 현재 생성시에 target을 정하고 있으므로 superview값은 nil을 가지게 된다. 
+
+### 해결
+→ 버튼의 설정은 내부에서 하고, 연결은 외부에서 하도록 한다.
+
+button의 action을 정하는 메소드를 만들어, 외부에서 button의 action을 지정할 수 있도록 하였다.
+사용자 정의한 버튼에서는 다음과 같은 함수를 제공한다. 
+```swift
+func bind(handler action : UIAction){
+    self.addAction(action, for: .touchDown)
+}
+```
+이 버튼을 사용하는 ViewController에서 action값을 넣는다.
+```swift
+button.bind(handler: UIAction(handler: { (action) in
+    self.vendingMachine.charge(coins: button.value.rawValue)
+}))
+```

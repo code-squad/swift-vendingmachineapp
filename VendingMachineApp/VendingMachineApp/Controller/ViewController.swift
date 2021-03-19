@@ -9,12 +9,11 @@ import UIKit
 
 class ViewController: UIViewController {
     var machine = (UIApplication.shared.delegate as! AppDelegate).machine ?? Machine()
-    var purchaseHistoryView = PurchaseHistoryScrollView()
+    var purchaseHistoryView: PurchaseHistoryView?
     
     @IBOutlet weak var moneyOnTransactionLabel: UILabel!
     @IBOutlet weak var displayRows: UIStackView!
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(didChangeMoneyOnTransaction), name: .didIncreaseMoneyOnTransaction, object: nil)
@@ -25,10 +24,7 @@ class ViewController: UIViewController {
         addEmptySlotsOnDisplayRows()
         updateBeverageDisplaySlots()
         updateMoneyOnTransactionLabel()
-        
-        self.view.addSubview(purchaseHistoryView)
-        purchaseHistoryView.frame = CGRect(x: 40, y: 575, width: 500, height: 140)
-        
+        addPurcahseHistoryScrollView()
     }
     
     @IBAction func thousandWonPlusButtonPressed(_ sender: UIButton) {
@@ -37,6 +33,13 @@ class ViewController: UIViewController {
     
     @IBAction func fiveThousandWonPlusButtonPressed(_ sender: UIButton) {
         machine.receiveMoney(amount: 5_000)
+    }
+    
+    func addPurcahseHistoryScrollView() {
+        let imageHeight: CGFloat = 100
+        purchaseHistoryView = PurchaseHistoryView(frame: CGRect(x: 40, y: 575, width: self.view.frame.width / 4, height: imageHeight))
+        self.view.addSubview(purchaseHistoryView!)
+        purchaseHistoryView?.reset(with: machine.showPurchaseHistory())
     }
     
     func createBeverageView(with beverage: Beverage, of count: Int) -> BeverageView {
@@ -96,6 +99,7 @@ class ViewController: UIViewController {
     @objc func didChangePurchaseHistory() {
         updateBeverageDisplaySlots()
         updateMoneyOnTransactionLabel()
+        purchaseHistoryView?.reset(with: machine.showPurchaseHistory())
     }
 }
 

@@ -80,7 +80,7 @@ class Machine: NSObject, NSCoding {
                     savePurchaseHistory(beverage: deductedBeverage)
                     print(purchaseHistory)
                     NotificationCenter.default.post(name: .didChangePurchaseHistory, object: nil)
-                case .failure(let _):
+                case .failure(_):
                     return
                 }
             }

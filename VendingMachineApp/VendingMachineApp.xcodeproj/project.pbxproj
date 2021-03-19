@@ -34,7 +34,7 @@
 		8849845625EE2986002C71F5 /* MoneyProcessingUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88748ADD25E4F09700E7DCB1 /* MoneyProcessingUnit.swift */; };
 		8849845725EE2986002C71F5 /* Machine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88748ADA25E4EECB00E7DCB1 /* Machine.swift */; };
 		8849846C25EF85DC002C71F5 /* BeverageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8849846B25EF85DC002C71F5 /* BeverageView.swift */; };
-		8851525526019DA900D49026 /* PurchaseHistoryScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8851525426019DA900D49026 /* PurchaseHistoryScrollView.swift */; };
+		8851525526019DA900D49026 /* PurchaseHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8851525426019DA900D49026 /* PurchaseHistoryView.swift */; };
 		88748A8625E387B100E7DCB1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88748A8525E387B100E7DCB1 /* AppDelegate.swift */; };
 		88748A8825E387B100E7DCB1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88748A8725E387B100E7DCB1 /* SceneDelegate.swift */; };
 		88748A8A25E387B100E7DCB1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88748A8925E387B100E7DCB1 /* ViewController.swift */; };
@@ -81,7 +81,7 @@
 		883E0EF525FCB55400A2BA3D /* MachineDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MachineDataManager.swift; sourceTree = "<group>"; };
 		8849844F25EE2947002C71F5 /* MachineUnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MachineUnitTest.swift; sourceTree = "<group>"; };
 		8849846B25EF85DC002C71F5 /* BeverageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageView.swift; sourceTree = "<group>"; };
-		8851525426019DA900D49026 /* PurchaseHistoryScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseHistoryScrollView.swift; sourceTree = "<group>"; };
+		8851525426019DA900D49026 /* PurchaseHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseHistoryView.swift; sourceTree = "<group>"; };
 		88748A8225E387B100E7DCB1 /* VendingMachineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendingMachineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88748A8525E387B100E7DCB1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		88748A8725E387B100E7DCB1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -161,7 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				8849846B25EF85DC002C71F5 /* BeverageView.swift */,
-				8851525426019DA900D49026 /* PurchaseHistoryScrollView.swift */,
+				8851525426019DA900D49026 /* PurchaseHistoryView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -392,7 +392,7 @@
 				88748ABC25E4A48300E7DCB1 /* Cola.swift in Sources */,
 				88748A8A25E387B100E7DCB1 /* ViewController.swift in Sources */,
 				88748AD725E4E9E000E7DCB1 /* Protocols.swift in Sources */,
-				8851525526019DA900D49026 /* PurchaseHistoryScrollView.swift in Sources */,
+				8851525526019DA900D49026 /* PurchaseHistoryView.swift in Sources */,
 				880B9ABF25E8D32C008B02BB /* FoodColoring.swift in Sources */,
 				88748ACC25E4A57000E7DCB1 /* CaffeLatte.swift in Sources */,
 				88748A8625E387B100E7DCB1 /* AppDelegate.swift in Sources */,

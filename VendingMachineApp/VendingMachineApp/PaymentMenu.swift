@@ -8,7 +8,7 @@ import Foundation
 import UIKit
 
 class PaymentMenu {
-    private(set) var list : [UIButton:Coin]
+    private var list : [UIButton:Coin]
     
     enum Coin : Int , CaseIterable {
         case onethousand = 1000

@@ -10,6 +10,7 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet weak var inventoryStackView: UIStackView!
+    @IBOutlet weak var purchasedBeverageScrollView: UIScrollView!
     @IBOutlet weak var moneyLabel: UILabel!
     
     var delegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate

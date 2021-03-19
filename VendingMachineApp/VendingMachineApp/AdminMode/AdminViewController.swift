@@ -13,6 +13,7 @@ class AdminViewController: UIViewController {
     
     //상품 재고 스택
     @IBOutlet weak var adminStackview: AdminProductStackView!
+    private var addViewModel: ButtonViewModel!
     private var addStockButtonCollection = [UIButton]()
     private var countLabelCollection = [UILabel]()
     private let itemTypes = VendingMachine.itemTypes
@@ -39,12 +40,18 @@ class AdminViewController: UIViewController {
         
         adminStackview.configure(with: sampleViewData)
         updateOutletCollections()
+        
+        addViewModel = AddStockButtonViewModel(with: addStockButtonCollection)
+        
+        addViewModel.bind { (button, targetIdx) in
+            let targetBeverage = self.itemTypes[targetIdx]
+            self.workerInterface.addStock(of: targetBeverage)
+        }
     }
     
     private func updateOutletCollections() {
-        for view in adminStackview.arrangedSubviews {
+        adminStackview.arrangedSubviews.forEach { (view) in
             let productView = view as! ProductStackView
-            productView.addButton.addTarget(self, action: #selector(AdminViewController.addStockTouched(_:)), for: .touchUpInside)
             addStockButtonCollection.append(productView.addButton)
             countLabelCollection.append(productView.countLabel)
         }
@@ -53,13 +60,6 @@ class AdminViewController: UIViewController {
     @objc func didStockListChanged(_ notification: Notification) {
         presenter.updateStocks(countLabels: countLabelCollection,
                                typeList: itemTypes)
-    }
-    
-    @IBAction func addStockTouched(_ sender: UIButton) {
-        if let targetIdx = addStockButtonCollection.firstIndex(of: sender) {
-            let targetBeverage = itemTypes[targetIdx]
-            workerInterface.addStock(of: targetBeverage)
-        }
     }
     
     @IBAction func closeButtonTouched(_ sender: UIButton) {

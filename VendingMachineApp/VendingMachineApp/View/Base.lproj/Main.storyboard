@@ -78,7 +78,7 @@
                                             <color key="titleColor" systemColor="systemBackgroundColor"/>
                                         </state>
                                         <connections>
-                                            <action selector="addMoneyTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hUZ-jT-9Z0"/>
+                                            <action selector="charge:" destination="YmV-Xk-58e" eventType="touchUpInside" id="BPq-jW-Reo"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4aQ-q7-ZOu">
@@ -89,7 +89,7 @@
                                             <color key="titleColor" systemColor="labelColor"/>
                                         </state>
                                         <connections>
-                                            <action selector="addMoneyTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MoY-EP-x9l"/>
+                                            <action selector="charge:" destination="YmV-Xk-58e" eventType="touchUpInside" id="VOQ-Im-U60"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fkd-xO-W1U">
@@ -100,7 +100,7 @@
                                             <color key="titleColor" systemColor="labelColor"/>
                                         </state>
                                         <connections>
-                                            <action selector="addMoneyTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qa7-FB-GNJ"/>
+                                            <action selector="charge:" destination="YmV-Xk-58e" eventType="touchUpInside" id="Brt-QJ-kj3"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -171,16 +171,21 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="chargeViewModel" destination="YmV-Xk-58e" id="ETU-qi-3fj"/>
                         <outlet property="dispensedListScrollView" destination="RHg-0c-Npd" id="kT0-aE-sjh"/>
                         <outlet property="moneyLabel" destination="iGt-Jm-ZEU" id="YNQ-8d-OJO"/>
                         <outlet property="productStackView" destination="ipm-ps-kUN" id="d6B-iI-dJI"/>
-                        <outletCollection property="moneyButtonCollection" destination="Ftn-Ha-Yro" collectionClass="NSMutableArray" id="4Uh-8I-RmP"/>
-                        <outletCollection property="moneyButtonCollection" destination="4aQ-q7-ZOu" collectionClass="NSMutableArray" id="W0F-9F-gl3"/>
-                        <outletCollection property="moneyButtonCollection" destination="fkd-xO-W1U" collectionClass="NSMutableArray" id="N8k-rP-cfO"/>
                         <segue destination="CXF-Wv-M9R" kind="presentation" identifier="adminMode" id="7uR-EI-nUQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <customObject id="YmV-Xk-58e" userLabel="ChargeViewModel" customClass="ChargeButtonViewModel" customModule="VendingMachineApp" customModuleProvider="target">
+                    <connections>
+                        <outletCollection property="chargeButtonCollection" destination="Ftn-Ha-Yro" collectionClass="NSMutableArray" id="GaW-dx-bZJ"/>
+                        <outletCollection property="chargeButtonCollection" destination="4aQ-q7-ZOu" collectionClass="NSMutableArray" id="NtO-EW-9hv"/>
+                        <outletCollection property="chargeButtonCollection" destination="fkd-xO-W1U" collectionClass="NSMutableArray" id="L0v-sq-3Fa"/>
+                    </connections>
+                </customObject>
             </objects>
             <point key="canvasLocation" x="-241.1420204978038" y="71.484375"/>
         </scene>

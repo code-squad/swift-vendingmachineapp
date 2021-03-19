@@ -9,20 +9,19 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    
     let delegate : AppDelegate = UIApplication.shared.delegate as! AppDelegate
-    var vendingMachine = VendingMachine()
+    lazy var vendingMachine = VendingMachine()
 
-    let vendingMachineView = VendingMachineView(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
+    let vendingMachineView = VendingMachineView(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.height, height: UIScreen.main.bounds.width))
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         vendingMachine = delegate.vendingMachine
-        vendingMachine.initialStock(howMany :3)
         let stockList = vendingMachine.showStock()
+        let moneyBox = vendingMachine.checkMoney()
         
-        vendingMachineView.setting(with: stockList)
+        vendingMachineView.setting(with: stockList, howMuch: moneyBox)
         self.view.addSubview(vendingMachineView)
     }
     

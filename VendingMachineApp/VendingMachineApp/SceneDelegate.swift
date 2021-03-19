@@ -10,6 +10,13 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    let delegate : AppDelegate = UIApplication.shared.delegate as! AppDelegate
+    
+    func sceneWillResignActive(_ scene: UIScene) {
+        let vendingMachine = delegate.vendingMachine
+        
+        DataManager.save(data: vendingMachine)
+    }
 
 }
 

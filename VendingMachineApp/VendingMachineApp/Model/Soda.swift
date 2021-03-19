@@ -21,7 +21,7 @@ class Soda: Drink {
     }
     
     required init?(coder: NSCoder) {
-        package = coder.decodeObject(forKey: "package") as! Materials
+        package = Materials(rawValue: coder.decodeObject(forKey: "package") as! String)!
         super.init(coder: coder)
     }
     
@@ -31,6 +31,6 @@ class Soda: Drink {
     
     override func encode(with coder: NSCoder) {
         super.encode(with: coder)
-        coder.encode(package,forKey: "package")
+        coder.encode(package.rawValue,forKey: "package")
     }
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Drinks : NSCoding {
+class Drinks : NSObject, NSCoding {
     
     enum errorCase : Error {
         case outOfIndex
@@ -15,7 +15,7 @@ class Drinks : NSCoding {
     
     private var drinks : [Drink]
     
-    init() {
+    override init() {
         self.drinks = []
     }
     

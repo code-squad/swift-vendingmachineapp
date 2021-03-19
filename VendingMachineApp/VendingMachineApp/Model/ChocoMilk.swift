@@ -22,7 +22,7 @@ class ChocoMilk: Milk {
     }
     
     required init?(coder: NSCoder) {
-        chocolateContent = coder.decodeFloat(forKey: "expirationLimit")
+        chocolateContent = coder.decodeFloat(forKey: "chocolateContent")
         super.init(coder: coder)
     }
     

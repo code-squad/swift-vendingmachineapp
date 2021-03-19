@@ -8,7 +8,7 @@
 import UIKit
 
 class VendingMachineView: UIView {
-    func setting(with stock : Dictionary<ObjectIdentifier,[Drink]>) {
+    func setting(with stock : Dictionary<ObjectIdentifier,[Drink]>, howMuch money : Int) {
         self.backgroundColor = .gray
         
         let VMStackView = VendingMachineStackView()
@@ -16,7 +16,7 @@ class VendingMachineView: UIView {
         
         let balanceStackView = BalanceStackView.init()
         balanceStackView.setConfiguration()
-        balanceStackView.collectSubelements()
+        balanceStackView.collectSubelements(howMuch : money)
         
         for (key,value) in stock {
             let beverageStackView = BeverageStackView.init()

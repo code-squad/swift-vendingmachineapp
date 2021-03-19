@@ -7,12 +7,12 @@
 
 import Foundation
 
-class VendingMachine : NSCoding {
+class VendingMachine : NSObject, NSCoding {
     private var money : SafeBox
     private var stock : Drinks
     private var purchased : Drinks
     
-    init() {
+    override init() {
         self.money = SafeBox.init(money: 0)
         self.stock = Drinks.init()
         self.purchased = Drinks.init()

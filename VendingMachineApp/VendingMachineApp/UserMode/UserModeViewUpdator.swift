@@ -7,9 +7,7 @@
 
 import UIKit
 
-protocol VendingMachineViewPresenter {
-    
-    func initialScreen(images: [UIImage], sampleView: ProductStackView, stackView: UIStackView, moneyLabel: UILabel)
+protocol UserModePresenter {
     
     func updateStocks(countLabels: [UILabel], typeList: [Shopable.Type])
     
@@ -20,45 +18,16 @@ protocol VendingMachineViewPresenter {
     func addItemToDispensedList(scrollView: UIScrollView, images: [UIImage], typeList: [Shopable.Type])
 }
 
-class VendingMachineViewUpdator: VendingMachineViewPresenter {
+class UserModeViewUpdator: UserModePresenter {
     
     private let userInterface: UserInterface
-    private let workerInterface: WorkerInterface
     
-    init(userInterface: UserInterface, workerInterface: WorkerInterface) {
+    init(with userInterface: UserInterface) {
         self.userInterface = userInterface
-        self.workerInterface = workerInterface
-    }
-    
-    func initialScreen(images: [UIImage], sampleView: ProductStackView, stackView: UIStackView, moneyLabel: UILabel) {
-        newProductViews(with: images, sampleView: sampleView, stackView: stackView)
-        updateBalance(label: moneyLabel)
-    }
-    
-    private func newProductViews(with images: [UIImage], sampleView: ProductStackView, stackView: UIStackView) {
-        
-        stackView.arrangedSubviews.forEach { (sample) in
-            sample.removeFromSuperview()
-        }
-    
-        for image in images {
-            let newView = productView(with: image, sampleView)
-            stackView.addArrangedSubview(newView)
-        }
-    }
-    
-    private func productView(with image: UIImage,_ sampleView: ProductStackView) -> ProductStackView {
-        
-        let view = try! NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(NSKeyedArchiver.archivedData(withRootObject: sampleView, requiringSecureCoding: false)) as! ProductStackView
-        
-        view.imageView.image = image
-        view.addButton.isHidden = true
-
-        return view
     }
     
     func updateStocks(countLabels: [UILabel], typeList: [Shopable.Type]) {
-        let stockList = workerInterface.allStocks()
+        let stockList = userInterface.allStocks()
         
         for (idx, beverage) in typeList.enumerated() {
             let id = ObjectIdentifier(beverage)
@@ -79,7 +48,7 @@ class VendingMachineViewUpdator: VendingMachineViewPresenter {
         let sizeUnit: CGFloat = scrollView.bounds.height * 0.7
         scrollView.contentSize.width = sizeUnit/2
         
-        let purchased = workerInterface.purchased()
+        let purchased = userInterface.purchased()
         let count = purchased.count
         
         guard count > 0 else { return }
@@ -93,7 +62,7 @@ class VendingMachineViewUpdator: VendingMachineViewPresenter {
     
     func addItemToDispensedList(scrollView: UIScrollView, images: [UIImage], typeList: [Shopable.Type]) {
         
-        let itemToUpdate = workerInterface.purchased().last ?? Beverage()
+        let itemToUpdate = userInterface.purchased().last ?? Beverage()
         let sizeUnit: CGFloat = scrollView.bounds.height * 0.7
 
         scrollView.subviews.forEach { (view) in

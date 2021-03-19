@@ -16,8 +16,9 @@
 		E42EE355260055E700C89DD7 /* OrderableList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42EE354260055E700C89DD7 /* OrderableList.swift */; };
 		E42EE36326007A8100C89DD7 /* ArchivingCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42EE36226007A8100C89DD7 /* ArchivingCenter.swift */; };
 		E477EBF22601F20D00B476FA /* AdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E477EBF12601F20D00B476FA /* AdminViewController.swift */; };
+		E477EC392604420000B476FA /* AdminModeViewUpdator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E477EC382604420000B476FA /* AdminModeViewUpdator.swift */; };
 		E4B8A3EE25EF2942006D405F /* BeverageFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B8A3ED25EF2942006D405F /* BeverageFactory.swift */; };
-		E4B8A3F625EF6807006D405F /* VendingMachineViewUpdator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B8A3F525EF6807006D405F /* VendingMachineViewUpdator.swift */; };
+		E4B8A3F625EF6807006D405F /* UserModeViewUpdator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B8A3F525EF6807006D405F /* UserModeViewUpdator.swift */; };
 		E4B8A41025F1F32E006D405F /* DispensedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B8A40F25F1F32E006D405F /* DispensedList.swift */; };
 		E4B8A46825F7500B006D405F /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EB87F025E5D72400F077D5 /* VendingMachine.swift */; };
 		E4B8A46F25F75068006D405F /* MockClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B8A46E25F75068006D405F /* MockClasses.swift */; };
@@ -62,8 +63,9 @@
 		E42EE354260055E700C89DD7 /* OrderableList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderableList.swift; sourceTree = "<group>"; };
 		E42EE36226007A8100C89DD7 /* ArchivingCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchivingCenter.swift; sourceTree = "<group>"; };
 		E477EBF12601F20D00B476FA /* AdminViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminViewController.swift; sourceTree = "<group>"; };
+		E477EC382604420000B476FA /* AdminModeViewUpdator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminModeViewUpdator.swift; sourceTree = "<group>"; };
 		E4B8A3ED25EF2942006D405F /* BeverageFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageFactory.swift; sourceTree = "<group>"; };
-		E4B8A3F525EF6807006D405F /* VendingMachineViewUpdator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineViewUpdator.swift; sourceTree = "<group>"; };
+		E4B8A3F525EF6807006D405F /* UserModeViewUpdator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModeViewUpdator.swift; sourceTree = "<group>"; };
 		E4B8A40F25F1F32E006D405F /* DispensedList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispensedList.swift; sourceTree = "<group>"; };
 		E4B8A46E25F75068006D405F /* MockClasses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockClasses.swift; sourceTree = "<group>"; };
 		E4B8A49225F9E5D2006D405F /* ProductStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductStackView.swift; sourceTree = "<group>"; };
@@ -135,6 +137,24 @@
 			path = Beverage;
 			sourceTree = "<group>";
 		};
+		E477EC2E26042D9B00B476FA /* AdminMode */ = {
+			isa = PBXGroup;
+			children = (
+				E477EBF12601F20D00B476FA /* AdminViewController.swift */,
+				E477EC382604420000B476FA /* AdminModeViewUpdator.swift */,
+			);
+			path = AdminMode;
+			sourceTree = "<group>";
+		};
+		E477EC2F26042DA700B476FA /* UserMode */ = {
+			isa = PBXGroup;
+			children = (
+				E4EB87B825E4C83300F077D5 /* UserViewController.swift */,
+				E4B8A3F525EF6807006D405F /* UserModeViewUpdator.swift */,
+			);
+			path = UserMode;
+			sourceTree = "<group>";
+		};
 		E4B8A3FF25F10988006D405F /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -157,7 +177,6 @@
 			children = (
 				E4EB87BA25E4C83300F077D5 /* Main.storyboard */,
 				E4B8A49225F9E5D2006D405F /* ProductStackView.swift */,
-				E4B8A3F525EF6807006D405F /* VendingMachineViewUpdator.swift */,
 				E4EB87BF25E4C83400F077D5 /* LaunchScreen.storyboard */,
 			);
 			path = View;
@@ -199,8 +218,8 @@
 				E42EE36226007A8100C89DD7 /* ArchivingCenter.swift */,
 				E4B8A3FF25F10988006D405F /* Model */,
 				E4B8A4BE25FB3239006D405F /* View */,
-				E4EB87B825E4C83300F077D5 /* UserViewController.swift */,
-				E477EBF12601F20D00B476FA /* AdminViewController.swift */,
+				E477EC2F26042DA700B476FA /* UserMode */,
+				E477EC2E26042D9B00B476FA /* AdminMode */,
 				E4EB87BD25E4C83400F077D5 /* Assets.xcassets */,
 				E4EB87C225E4C83400F077D5 /* Info.plist */,
 			);
@@ -333,6 +352,7 @@
 				E4C499ED25E8716C008449D6 /* BeverageManager.swift in Sources */,
 				E42EE34B260055B000C89DD7 /* Shopable.swift in Sources */,
 				E4EB87F625E782A100F077D5 /* BeverageProtocols.swift in Sources */,
+				E477EC392604420000B476FA /* AdminModeViewUpdator.swift in Sources */,
 				E42EE36326007A8100C89DD7 /* ArchivingCenter.swift in Sources */,
 				E4B8A3EE25EF2942006D405F /* BeverageFactory.swift in Sources */,
 				E477EBF22601F20D00B476FA /* AdminViewController.swift in Sources */,
@@ -343,7 +363,7 @@
 				E4EB87F125E5D72400F077D5 /* VendingMachine.swift in Sources */,
 				E42EE3432600557B00C89DD7 /* FoodManagable.swift in Sources */,
 				E4EB880325E7CE1500F077D5 /* MoneyBox.swift in Sources */,
-				E4B8A3F625EF6807006D405F /* VendingMachineViewUpdator.swift in Sources */,
+				E4B8A3F625EF6807006D405F /* UserModeViewUpdator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

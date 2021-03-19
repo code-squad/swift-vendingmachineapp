@@ -15,8 +15,8 @@ class UserViewController: UIViewController {
     private let beverageImages = [#imageLiteral(resourceName: "americano"), #imageLiteral(resourceName: "cafelatte"), #imageLiteral(resourceName: "chocolatemilk"), #imageLiteral(resourceName: "coke"), #imageLiteral(resourceName: "milkis"), #imageLiteral(resourceName: "plainmilk")]
     @IBOutlet var productStackView: UIStackView!
     @IBOutlet weak var productSample: ProductStackView!
-    private var countLabelCollection: [UILabel] = []
-    private var buyButtonCollection: [UIButton] = []
+    private var countLabelCollection = [UILabel]()
+    private var buyButtonCollection = [UIButton]()
     private let itemTypes = VendingMachine.itemTypes
     
     //자판기 금액
@@ -27,38 +27,36 @@ class UserViewController: UIViewController {
     //구매 목록
     @IBOutlet weak var dispensedListScrollView: UIScrollView!
     
-    private var presenter: VendingMachineViewPresenter!
+    private var userInterface: UserInterface!
+    private var presenter: UserModePresenter!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        presenter = VendingMachineViewUpdator(userInterface: appDelegate.vendingMachine,
-                                              workerInterface: appDelegate.vendingMachine)
+        userInterface = appDelegate.vendingMachine
+        presenter = UserModeViewUpdator(with: userInterface)
         
-        presenter.initialScreen(images: beverageImages,
-                            sampleView: productSample,
-                            stackView: productStackView,
-                            moneyLabel: moneyLabel)
-        
-        updateOutletCollections()
-        
+        configureProductStacks()
+
+        presenter.updateBalance(label: moneyLabel)
+
         presenter.updateStocks(countLabels: countLabelCollection,
                                typeList: itemTypes)
         
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(didStockListChanged(_:)),
                                                name: VendingMachine.NotiKeys.stockListUpdate,
-                                               object: appDelegate.vendingMachine)
+                                               object: userInterface)
         
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(didBalanceChanged(_:)),
                                                name: VendingMachine.NotiKeys.balanceUpdate,
-                                               object: appDelegate.vendingMachine)
+                                               object: userInterface)
         
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(didBoughtItem(_:)),
                                                name: VendingMachine.NotiKeys.dispensdListUpdate,
-                                               object: appDelegate.vendingMachine)
+                                               object: userInterface)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -67,15 +65,39 @@ class UserViewController: UIViewController {
                                       typeList: itemTypes)
     }
     
+    private func configureProductStacks() {
+        
+        let data = ArchivingCenter.archive(with: productSample as Any)
+        
+        productStackView.arrangedSubviews.forEach { (sample) in
+            sample.removeFromSuperview()
+        }
+    
+        for image in beverageImages {
+            if let newView = productView(with: image, data) {
+                productStackView.addArrangedSubview(newView)
+            }
+        }
+        updateOutletCollections()
+    }
+    
+    private func productView(with image: UIImage,_ data: Data) -> ProductStackView? {
+        
+        guard let productView = ArchivingCenter.unarchive(with: data) as? ProductStackView else { return nil }
+        
+        productView.imageView.image = image
+        productView.userMode()
+        
+        return productView
+    }
+    
     private func updateOutletCollections() {
         for view in productStackView.arrangedSubviews {
-            
             let stackView = view as! ProductStackView
-            
+            stackView.buyButton.addTarget(self, action: #selector(UserViewController.buyItemTouched(_:)), for: .touchUpInside)
+
             countLabelCollection.append(stackView.countLabel)
-            
             buyButtonCollection.append(stackView.buyButton)
-            stackView.buyButton.addTarget(self, action: #selector(self.buyItemTouched(_:)), for: .touchUpInside)
         }
     }
     
@@ -97,14 +119,14 @@ class UserViewController: UIViewController {
     @IBAction func addMoneyTouched(_ sender: UIButton) {
         if let targetIdx = moneyButtonCollection.firstIndex(of: sender) {
             let amount = moneyUnits[targetIdx].rawValue
-            appDelegate.vendingMachine.insert(money: amount)
+            userInterface.insert(money: amount)
         }
     }
     
     @IBAction func buyItemTouched(_ sender: UIButton) {
         if let targetIdx = buyButtonCollection.firstIndex(of: sender) {
             let targetBeverage = itemTypes[targetIdx]
-            appDelegate.vendingMachine.buy(itemType: targetBeverage)
+            userInterface.buy(itemType: targetBeverage)
         }
     }
     

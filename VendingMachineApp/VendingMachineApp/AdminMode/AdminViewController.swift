@@ -10,47 +10,55 @@ import UIKit
 class AdminViewController: UIViewController {
     
     private let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    private var presenter: VendingMachineViewPresenter!
-
+    
+    //상품 재고 스택
     @IBOutlet weak var adminStackview: UIStackView!
-    private let itemTypes = VendingMachine.itemTypes
     private var addStockButtonCollection = [UIButton]()
     private var countLabelCollection = [UILabel]()
+    private let itemTypes = VendingMachine.itemTypes
+    
     var sampleViewData = [Data]()
+    
+    private var workerInterface: WorkerInterface!
+    private var presenter: AdminModePresenter!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        presenter = VendingMachineViewUpdator(userInterface: appDelegate.vendingMachine,
-                                              workerInterface: appDelegate.vendingMachine)
+        workerInterface = appDelegate.vendingMachine
+        presenter = AdminModeViewUpdator(with: workerInterface)
         
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(didStockListChanged(_:)),
                                                name: VendingMachine.NotiKeys.stockListUpdate,
-                                               object: appDelegate.vendingMachine)
+                                               object: workerInterface)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        configureProductStacks()
+    }
+    
+    private func configureProductStacks() {
         sampleViewData.forEach { (data) in
             let object = ArchivingCenter.unarchive(with: data)
             
             guard object != nil,
-                  let view = object as? ProductStackView else { return }
-            view.buyButton.isHidden = true
-            view.addButton.isHidden = false
-            view.addButton.tintColor = .darkGray
-            view.imageView.layer.cornerRadius = view.bounds.height * 0.08
-            addStockButtonCollection.append(view.addButton)
-            countLabelCollection.append(view.countLabel)
-            view.addButton.addTarget(self, action: #selector(self.addStockTouched(_:)), for: .touchUpInside)
-            adminStackview.addArrangedSubview(view)
+                  let productView = object as? ProductStackView else { return }
+            productView.adminMode()
+            adminStackview.addArrangedSubview(productView)
         }
+        updateOutletCollections()
     }
     
-    @IBAction func closeButtonTouched(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
+    private func updateOutletCollections() {
+        for view in adminStackview.arrangedSubviews {
+            let productView = view as! ProductStackView
+            productView.addButton.addTarget(self, action: #selector(AdminViewController.addStockTouched(_:)), for: .touchUpInside)
+            addStockButtonCollection.append(productView.addButton)
+            countLabelCollection.append(productView.countLabel)
+        }
     }
     
     @objc func didStockListChanged(_ notification: Notification) {
@@ -61,7 +69,11 @@ class AdminViewController: UIViewController {
     @IBAction func addStockTouched(_ sender: UIButton) {
         if let targetIdx = addStockButtonCollection.firstIndex(of: sender) {
             let targetBeverage = itemTypes[targetIdx]
-            appDelegate.vendingMachine.addStock(of: targetBeverage)
+            workerInterface.addStock(of: targetBeverage)
         }
+    }
+    
+    @IBAction func closeButtonTouched(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
     }
 }

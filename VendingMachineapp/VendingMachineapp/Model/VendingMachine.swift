@@ -12,6 +12,7 @@ class VendingMachine: NSObject, NSCoding{
     enum Notification {
         static let didChangedStock = Foundation.Notification.Name("didChangedStock")
         static let didChangedMoney = Foundation.Notification.Name("didChangedMoney")
+        static let didChangedPurchased = Foundation.Notification.Name("didChangedPurchased")
     }
     
     private var manager = VendingMachineManager()
@@ -50,7 +51,7 @@ class VendingMachine: NSObject, NSCoding{
     func purchase(beverage: Beverage.Type) {
         manager.updatePurchaseList(inventory: inventory, beverage: beverage)
         NotificationCenter.default.post(name: Notification.didChangedStock, object: self, userInfo: wholeBeverage())
-        NotificationCenter.default.post(name: Notification.didChangedMoney, object: self)
+        NotificationCenter.default.post(name: Notification.didChangedPurchased, object: self)
     }
     
     func hotBeverageList() -> [Beverage] {

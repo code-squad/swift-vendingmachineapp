@@ -9,43 +9,32 @@ import UIKit
 
 class ScrollView: UIScrollView {
     
+    private var coordinateX = 0
+    private let coordinateY = 0
+    private let imageWidth = 120
+    private let imageHeight = 120
+    private let space = 50
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setScrollView()
-        NotificationCenter.default.addObserver(self, selector: #selector(addPurchasedImageView(_:)), name: VendingMachine.Notification.didChangedStock, object: nil)
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         setScrollView()
-        NotificationCenter.default.addObserver(self, selector: #selector(addPurchasedImageView(_:)), name: VendingMachine.Notification.didChangedStock, object: nil)
     }
     
     func setScrollView() {
         self.contentSize = CGSize(width: CGFloat(2000), height: CGFloat(120))
         self.translatesAutoresizingMaskIntoConstraints = false
     }
-
-    @objc func addPurchasedImageView(_ notification: Notification) {
-        guard let machine = notification.object as? VendingMachine else {
-            return
-        }
-        
-        var pointX = 0
-        
-        self.subviews.forEach({ (image) in
-            image.removeFromSuperview()
-        })
-        
-        machine.purchasedList().forEach( {
-            
-            let imageView = UIImageView()
-            imageView.image = UIImage(named: "\(type(of: $0))")
-            imageView.frame = CGRect(x: pointX, y: 0, width: 120, height: 120)
-            pointX += 170
-            self.addSubview(imageView)
-        })
-        
+    
+    func addImageView(with beverage : Beverage.Type) {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "\(beverage)")
+        imageView.frame = CGRect(x: coordinateX, y: coordinateY, width: imageWidth, height: imageHeight)
+        coordinateX += imageWidth + space
+        self.addSubview(imageView)
     }
-
 }

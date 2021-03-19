@@ -281,3 +281,12 @@ extension Notification.Name {
 
 #### 실행화면
 <img src="https://user-images.githubusercontent.com/74946802/111422017-54c0c980-8731-11eb-9651-04c4d578e3f1.gif" width="500" height="300">
+
+## Step.8
+
+#### 코어그래픽스로 파이차트추가
+- 관리자화면에 음료수 별 파이차트 추가
+- 재고변화량에 따라 차트 모양 변화 반영
+
+#### 실행화면
+<img src="https://user-images.githubusercontent.com/74946802/111744917-49a3a000-88cf-11eb-8c52-2640f37534ac.gif" width="500" height="300">

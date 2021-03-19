@@ -59,6 +59,13 @@ class VendingMachine: NSObject, NSCoding {
     }
 }
 
+extension VendingMachine: CommonInterface {
+    
+    func allStocks() -> [ObjectIdentifier: Int] {
+        return storage.listTypeCount()
+    }
+}
+
 extension VendingMachine: UserInterface {
     
     func insert(money: Int) {
@@ -87,6 +94,10 @@ extension VendingMachine: UserInterface {
         moneyBox.update(to: moneyAfterPurchase)
         NotificationCenter.default.post(name: NotiKeys.balanceUpdate, object: self)
     }
+    
+    func purchased() -> [Shopable] {
+        return dispensedList.listByOrder()
+    }
 }
 
 extension VendingMachine: WorkerInterface {
@@ -95,14 +106,6 @@ extension VendingMachine: WorkerInterface {
         let beverageType = itemType as? Beverage.Type ?? Beverage.self
         storage.add(beverageFactory.create(type: beverageType))
         NotificationCenter.default.post(name: NotiKeys.stockListUpdate, object: self)
-    }
-    
-    func allStocks() -> [ObjectIdentifier: Int] {
-        return storage.listTypeCount()
-    }
-    
-    func purchased() -> [Shopable] {
-        return dispensedList.listByOrder()
     }
 }
 

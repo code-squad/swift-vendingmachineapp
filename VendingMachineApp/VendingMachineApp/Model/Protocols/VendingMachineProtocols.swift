@@ -7,7 +7,12 @@
 
 import Foundation
 
-protocol UserInterface {
+protocol CommonInterface {
+    
+    func allStocks() -> [ObjectIdentifier: Int]
+}
+
+protocol UserInterface: CommonInterface {
     
     func insert(money: Int)
     
@@ -15,15 +20,12 @@ protocol UserInterface {
     
     func buy(itemType: Shopable.Type)
     
+    func purchased() -> [Shopable]
 }
 
-protocol WorkerInterface {
+protocol WorkerInterface: CommonInterface {
     
     func addStock(of itemType: Shopable.Type)
-    
-    func allStocks() -> [ObjectIdentifier: Int]
-    
-    func purchased() -> [Shopable]
     
 }
 

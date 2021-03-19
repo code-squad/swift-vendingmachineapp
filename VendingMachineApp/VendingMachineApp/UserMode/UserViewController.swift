@@ -12,11 +12,10 @@ class UserViewController: UIViewController {
     private let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
     //상품 재고 스택
-    private let beverageImages = [#imageLiteral(resourceName: "americano"), #imageLiteral(resourceName: "cafelatte"), #imageLiteral(resourceName: "chocolatemilk"), #imageLiteral(resourceName: "coke"), #imageLiteral(resourceName: "milkis"), #imageLiteral(resourceName: "plainmilk")]
-    @IBOutlet var productStackView: UIStackView!
-    @IBOutlet weak var productSample: ProductStackView!
+    @IBOutlet var productStackView: UserProductStackView!
     private var countLabelCollection = [UILabel]()
     private var buyButtonCollection = [UIButton]()
+    private let beverageImages = [#imageLiteral(resourceName: "americano"), #imageLiteral(resourceName: "cafelatte"), #imageLiteral(resourceName: "chocolatemilk"), #imageLiteral(resourceName: "coke"), #imageLiteral(resourceName: "milkis"), #imageLiteral(resourceName: "plainmilk")]
     private let itemTypes = VendingMachine.itemTypes
     
     //자판기 금액
@@ -36,7 +35,9 @@ class UserViewController: UIViewController {
         userInterface = appDelegate.vendingMachine
         presenter = UserModeViewUpdator(with: userInterface)
         
-        configureProductStacks()
+        productStackView.configure(with: beverageImages)
+        
+        updateOutletCollections()
 
         presenter.updateBalance(label: moneyLabel)
 
@@ -63,32 +64,6 @@ class UserViewController: UIViewController {
         presenter.updateDispensedList(scrollView: dispensedListScrollView,
                                       images: beverageImages,
                                       typeList: itemTypes)
-    }
-    
-    private func configureProductStacks() {
-        
-        let data = ArchivingCenter.archive(with: productSample as Any)
-        
-        productStackView.arrangedSubviews.forEach { (sample) in
-            sample.removeFromSuperview()
-        }
-    
-        for image in beverageImages {
-            if let newView = productView(with: image, data) {
-                productStackView.addArrangedSubview(newView)
-            }
-        }
-        updateOutletCollections()
-    }
-    
-    private func productView(with image: UIImage,_ data: Data) -> ProductStackView? {
-        
-        guard let productView = ArchivingCenter.unarchive(with: data) as? ProductStackView else { return nil }
-        
-        productView.imageView.image = image
-        productView.userMode()
-        
-        return productView
     }
     
     private func updateOutletCollections() {

@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="1366" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ipm-ps-kUN" userLabel="Product Stack">
+                            <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ipm-ps-kUN" userLabel="Product Stack" customClass="UserProductStackView" customModule="VendingMachineApp" customModuleProvider="target">
                                 <rect key="frame" x="592" y="85" width="182" height="360"/>
                                 <subviews>
                                     <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="5Eq-QW-tYb" userLabel="Product1" customClass="ProductStackView" customModule="VendingMachineApp" customModuleProvider="target">
@@ -63,6 +63,9 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="360" id="j4X-S8-bWM"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="sampleView" destination="5Eq-QW-tYb" id="UgA-Hl-5EA"/>
+                                </connections>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="LeO-vF-nfC" userLabel="Money Button Stack">
                                 <rect key="frame" x="976" y="505" width="330" height="362"/>
@@ -170,7 +173,6 @@
                     <connections>
                         <outlet property="dispensedListScrollView" destination="RHg-0c-Npd" id="kT0-aE-sjh"/>
                         <outlet property="moneyLabel" destination="iGt-Jm-ZEU" id="YNQ-8d-OJO"/>
-                        <outlet property="productSample" destination="5Eq-QW-tYb" id="Tkt-k5-hEo"/>
                         <outlet property="productStackView" destination="ipm-ps-kUN" id="d6B-iI-dJI"/>
                         <outletCollection property="moneyButtonCollection" destination="Ftn-Ha-Yro" collectionClass="NSMutableArray" id="4Uh-8I-RmP"/>
                         <outletCollection property="moneyButtonCollection" destination="4aQ-q7-ZOu" collectionClass="NSMutableArray" id="W0F-9F-gl3"/>
@@ -190,7 +192,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="704" height="984"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="S7k-35-bjn">
+                            <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="S7k-35-bjn" customClass="AdminProductStackView" customModule="VendingMachineApp" customModuleProvider="target">
                                 <rect key="frame" x="20" y="388.5" width="664" height="207.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="S7k-35-bjn" secondAttribute="height" multiplier="16:5" id="W6R-ur-hQu"/>

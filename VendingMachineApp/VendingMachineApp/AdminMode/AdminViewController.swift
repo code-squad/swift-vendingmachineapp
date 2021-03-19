@@ -12,7 +12,7 @@ class AdminViewController: UIViewController {
     private let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     //상품 재고 스택
-    @IBOutlet weak var adminStackview: UIStackView!
+    @IBOutlet weak var adminStackview: AdminProductStackView!
     private var addStockButtonCollection = [UIButton]()
     private var countLabelCollection = [UILabel]()
     private let itemTypes = VendingMachine.itemTypes
@@ -37,18 +37,7 @@ class AdminViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        configureProductStacks()
-    }
-    
-    private func configureProductStacks() {
-        sampleViewData.forEach { (data) in
-            let object = ArchivingCenter.unarchive(with: data)
-            
-            guard object != nil,
-                  let productView = object as? ProductStackView else { return }
-            productView.adminMode()
-            adminStackview.addArrangedSubview(productView)
-        }
+        adminStackview.configure(with: sampleViewData)
         updateOutletCollections()
     }
     

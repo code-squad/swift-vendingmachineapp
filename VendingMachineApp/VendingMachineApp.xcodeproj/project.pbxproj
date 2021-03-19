@@ -17,6 +17,8 @@
 		E42EE36326007A8100C89DD7 /* ArchivingCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42EE36226007A8100C89DD7 /* ArchivingCenter.swift */; };
 		E477EBF22601F20D00B476FA /* AdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E477EBF12601F20D00B476FA /* AdminViewController.swift */; };
 		E477EC392604420000B476FA /* AdminModeViewUpdator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E477EC382604420000B476FA /* AdminModeViewUpdator.swift */; };
+		E477EC4126046D1A00B476FA /* UserProductStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E477EC4026046D1A00B476FA /* UserProductStackView.swift */; };
+		E477EC4726046FBE00B476FA /* AdminProductStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E477EC4626046FBE00B476FA /* AdminProductStackView.swift */; };
 		E4B8A3EE25EF2942006D405F /* BeverageFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B8A3ED25EF2942006D405F /* BeverageFactory.swift */; };
 		E4B8A3F625EF6807006D405F /* UserModeViewUpdator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B8A3F525EF6807006D405F /* UserModeViewUpdator.swift */; };
 		E4B8A41025F1F32E006D405F /* DispensedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B8A40F25F1F32E006D405F /* DispensedList.swift */; };
@@ -64,6 +66,8 @@
 		E42EE36226007A8100C89DD7 /* ArchivingCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchivingCenter.swift; sourceTree = "<group>"; };
 		E477EBF12601F20D00B476FA /* AdminViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminViewController.swift; sourceTree = "<group>"; };
 		E477EC382604420000B476FA /* AdminModeViewUpdator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminModeViewUpdator.swift; sourceTree = "<group>"; };
+		E477EC4026046D1A00B476FA /* UserProductStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProductStackView.swift; sourceTree = "<group>"; };
+		E477EC4626046FBE00B476FA /* AdminProductStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminProductStackView.swift; sourceTree = "<group>"; };
 		E4B8A3ED25EF2942006D405F /* BeverageFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageFactory.swift; sourceTree = "<group>"; };
 		E4B8A3F525EF6807006D405F /* UserModeViewUpdator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModeViewUpdator.swift; sourceTree = "<group>"; };
 		E4B8A40F25F1F32E006D405F /* DispensedList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispensedList.swift; sourceTree = "<group>"; };
@@ -141,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				E477EBF12601F20D00B476FA /* AdminViewController.swift */,
+				E477EC4626046FBE00B476FA /* AdminProductStackView.swift */,
 				E477EC382604420000B476FA /* AdminModeViewUpdator.swift */,
 			);
 			path = AdminMode;
@@ -150,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				E4EB87B825E4C83300F077D5 /* UserViewController.swift */,
+				E477EC4026046D1A00B476FA /* UserProductStackView.swift */,
 				E4B8A3F525EF6807006D405F /* UserModeViewUpdator.swift */,
 			);
 			path = UserMode;
@@ -342,8 +348,10 @@
 				E4EB87B925E4C83300F077D5 /* UserViewController.swift in Sources */,
 				E4EB87B525E4C83300F077D5 /* AppDelegate.swift in Sources */,
 				E4EB87EA25E52EA700F077D5 /* DateExtensions.swift in Sources */,
+				E477EC4126046D1A00B476FA /* UserProductStackView.swift in Sources */,
 				E42EE34F260055C500C89DD7 /* Storage.swift in Sources */,
 				E42EE3472600559C00C89DD7 /* MoneyManagable.swift in Sources */,
+				E477EC4726046FBE00B476FA /* AdminProductStackView.swift in Sources */,
 				E4EB87CF25E4F88A00F077D5 /* Beverage.swift in Sources */,
 				E4EB87B725E4C83300F077D5 /* SceneDelegate.swift in Sources */,
 				E4B8A41025F1F32E006D405F /* DispensedList.swift in Sources */,

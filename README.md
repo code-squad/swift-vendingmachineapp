@@ -21,3 +21,9 @@
 
 <img width="607" alt="스크린샷 2021-03-12 오후 7 48 35" src="https://user-images.githubusercontent.com/68788135/110930092-119adb00-836c-11eb-825d-c4ac56fe97c6.png">  
 <img width="607" alt="스크린샷 2021-03-03 오후 6 37 41" src="https://user-images.githubusercontent.com/68788135/109915705-9bf09880-7cf5-11eb-9346-34e5e5a35e08.png">
+
+# step 4, step 5
+
+## 구현 화면
+![화면 기록 2021-03-19 오후 2 31 53](https://user-images.githubusercontent.com/68788135/111736031-6389b680-88c0-11eb-939b-f125c8bf996d.gif)
+

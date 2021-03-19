@@ -8,7 +8,8 @@
 import UIKit
 
 class ViewController: UIViewController {
-    var machine = (UIApplication.shared.delegate as! AppDelegate).machine ?? Machine()
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    var machine: Machine!
     var purchaseHistoryView: PurchaseHistoryView?
     
     @IBOutlet weak var moneyOnTransactionLabel: UILabel!
@@ -16,6 +17,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        machine = appDelegate.machine ?? Machine()
         NotificationCenter.default.addObserver(self, selector: #selector(didChangeMoneyOnTransaction), name: .didIncreaseMoneyOnTransaction, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(didIncreaseStock), name: .didIncreaseStock, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(didChangePurchaseHistory), name: .didChangePurchaseHistory, object: nil)

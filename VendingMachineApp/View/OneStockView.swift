@@ -10,10 +10,13 @@ import UIKit
 class OneStockView: UIView {
     
     private var label : UILabel!
-    public var addButton : UIBeverageButton!
     public var stockImageView : UIImageView!
-    public var buyButton : UIBeverageButton!
+    public var button : UIBeverageButton!
     
+    enum ButtonType {
+        case add
+        case buy
+    }
     public var beverageType : Beverage.Type!
     
     required init?(coder: NSCoder) {
@@ -24,24 +27,17 @@ class OneStockView: UIView {
         super.init(frame: frame)
         initSubViews()
     }
+    
     func initSubViews(){
         setStockImageView()
-        setStockAddButton()
         setLabel()
-        setBuyButton()
     }
     func setStockImageView(){
-        stockImageView = UIImageView(frame: CGRect(x: 0, y: 40, width: bounds.width, height: bounds.height - 80))
+        stockImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height - 40))
         stockImageView.contentMode = UIView.ContentMode.scaleAspectFill
         stockImageView.clipsToBounds = true
         stockImageView.layer.cornerRadius = 10
         addSubview(stockImageView)
-    }
-    func setStockAddButton(){
-        addButton = UIBeverageButton(frame: CGRect(x: 0, y: 0, width: bounds.width, height: 40))
-        addButton.setImage(UIImage(named: "addbutton"), for: .normal)
-        addButton.setTitle("추가하기", for: .normal)
-        addSubview(addButton)
     }
     func setLabel(){
         let captionBackgroundView = UIView(frame: CGRect(x: 0, y: bounds.height - 80, width: bounds.width, height: 30))
@@ -54,11 +50,25 @@ class OneStockView: UIView {
         label.textColor = UIColor(white: 0.9, alpha: 1.0)
         captionBackgroundView.addSubview(label)
     }
-    func setBuyButton(){
-        buyButton = UIBeverageButton(frame: CGRect(x: 0, y: bounds.maxY - 40, width: bounds.width, height: 40))
-        buyButton.setTitle("구매하기", for: .normal)
-        buyButton.setImage(UIImage(named: "buybutton"), for: .normal)
-        addSubview(buyButton)
+    func setButton(for type : ButtonType){
+        switch type {
+        case .add:
+            setAddButton()
+        case .buy:
+            setBuyButton()
+        }
+    }
+    private func setBuyButton(){
+        button = UIBeverageButton(frame: CGRect(x: 0, y: bounds.maxY - 40, width: bounds.width, height: 40))
+        button.setTitle("구매하기", for: .normal)
+        button.setImage(UIImage(named: "buybutton"), for: .normal)
+        addSubview(button)
+    }
+    private func setAddButton(){
+        button = UIBeverageButton(frame: CGRect(x: 0, y: bounds.maxY - 40, width: bounds.width, height: 40))
+        button.setImage(UIImage(named: "addbutton"), for: .normal)
+        button.setTitle("추가하기", for: .normal)
+        addSubview(button)
     }
     func reloadLabelText(count : Int){
         label.text = "재고량 : \(count)"

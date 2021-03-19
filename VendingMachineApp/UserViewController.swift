@@ -31,6 +31,20 @@ class UserViewController: UIViewController {
         
         vendingMachine = (UIApplication.shared.delegate as! AppDelegate).vendingMachine
         
+        setUpStockStacView()
+        self.view.addSubview(stockStackView)
+        stockStackViewConfiguration()
+        
+        inspectorView = InspectorStackView()
+        inspectorView.reloadBalanceLabelText(balance: vendingMachine.getCoins())
+        self.view.addSubview(inspectorView)
+        inspectorViewConfiguration()
+
+        purchaseView = PurchaseScrollView()
+        self.view.addSubview(purchaseView)
+        purchaseViewCofiguration()
+    }
+    func setUpStockStacView(){
         let stocks = vendingMachine.getTotalStock()
         stockStackView = StockStackView(frame: .zero)
         stockStackView.setStocksCount(info: stocks)
@@ -46,17 +60,6 @@ class UserViewController: UIViewController {
             }))
             
         }
-        self.view.addSubview(stockStackView)
-        stockStackViewConfiguration()
-        
-        inspectorView = InspectorStackView()
-        inspectorView.reloadBalanceLabelText(balance: vendingMachine.getCoins())
-        self.view.addSubview(inspectorView)
-        inspectorViewConfiguration()
-
-        purchaseView = PurchaseScrollView()
-        self.view.addSubview(purchaseView)
-        purchaseViewCofiguration()
     }
 }
 

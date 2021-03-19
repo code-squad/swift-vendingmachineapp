@@ -33,14 +33,17 @@ extension UserViewController {
     func setUpViews(){
         self.view.backgroundColor = .black
         
+        // 음료수의 재고를 보여주는 뷰 초기화
         setUpStockStacView()
         self.view.addSubview(stockStackView)
         stockStackViewConfiguration()
         
+        // 돈을 추가하는 버튼과 잔액에 대한 뷰 초기화
         setUpInspectorView()
         self.view.addSubview(inspectorView)
         inspectorViewConfiguration()
 
+        // 구매이력을 보여주는 뷰 초기화
         purchaseView = PurchaseScrollView()
         self.view.addSubview(purchaseView)
         purchaseViewCofiguration()
@@ -51,6 +54,7 @@ extension UserViewController {
         stockStackView.setStocksCount(info: stocks)
         stockStackView.setUp()
         
+        // 버튼을 초기화하고, action을 넣어준다.
         stockStackView.stockCells.forEach{ (oneStock) in
             oneStock.setButton(for: .buy)
             oneStock.button.bind(action: UIAction(handler:  { (action) in
@@ -64,6 +68,7 @@ extension UserViewController {
     }
     func setUpInspectorView(){
         inspectorView = InspectorStackView()
+        // 돈을 추가하는 버튼에 대한 action을 넣어준다.
         inspectorView.coinButtions.forEach{ (button) in
             button.bind(handler: UIAction(handler: { (action) in
                 self.vendingMachine.charge(coins: button.value.rawValue)

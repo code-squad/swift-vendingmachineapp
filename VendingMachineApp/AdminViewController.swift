@@ -9,9 +9,9 @@ import UIKit
 
 class AdminViewController : UIViewController {
 
-    var vendingMachine : VendingMachine!
-    var stockStackView : StockStackView!
-    var closeButton : UIButton = {
+    private var vendingMachine : AdminOfVendingMachine!
+    private var stockStackView : StockStackView!
+    private var closeButton : UIButton = {
         let button = UIButton(type: .close)
         button.addTarget(self, action: #selector(closeButtonTouched), for: .touchDown)
         return button
@@ -31,9 +31,9 @@ class AdminViewController : UIViewController {
         
         let stocks = vendingMachine.getTotalStock()
         setUpStockStackView(with : stocks)
-        
         self.view.addSubview(stockStackView)
         stockStackViewConfiguration()
+        
         self.view.addSubview(closeButton)
         closeButton.frame = CGRect(x: view.bounds.maxX - 40, y: view.bounds.minY + 20, width: 20, height: 20)
     }
@@ -63,7 +63,7 @@ extension AdminViewController {
             oneStock.addButton.bind(action: UIAction(handler: { (action) in
                 guard let beverage = Factory.createInstance(type:oneStock.beverageType) else { return }
                 self.vendingMachine.append(product: beverage)
-            }), for: oneStock.beverageType)
+            }))
         }
         stockStackView.setStocksCount(info: stocks)
     }

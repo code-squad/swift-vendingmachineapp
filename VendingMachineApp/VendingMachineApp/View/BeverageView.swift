@@ -13,6 +13,7 @@ class BeverageView: UIView {
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var stockLabel: UILabel!
+    @IBOutlet weak var buyButton: UIButton!
     
     override init(frame: CGRect) {
         super.init(frame: frame)

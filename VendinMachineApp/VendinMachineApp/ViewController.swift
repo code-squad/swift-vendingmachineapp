@@ -11,6 +11,7 @@ class ViewController: UIViewController {
     @IBOutlet var cashButtons: [UIButton]!
     @IBOutlet weak var cashLabel: UILabel!
 
+    var scrollView = UIScrollView()
     var appDelegate = UIApplication.shared.delegate as! AppDelegate
     var vendingMachineElements = VendingMachineElements()
     
@@ -56,6 +57,19 @@ class ViewController: UIViewController {
                 beverageLabel.text = "\(totalBeverages.beverageCount(elementType: beverageType))"
             }
         }
+    }
+    
+    @IBAction func bananaAdd(_ sender: Any) {
+        appDelegate.vendingMachine.buy(beverageType: BananaMilk.self)
+    }
+    
+    func setUpScrollView() {
+        view.addSubview(self.scrollView)
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 40).isActive = true
+        scrollView.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -40).isActive = true
+        scrollView.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        scrollView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -100).isActive = true
     }
 }
 

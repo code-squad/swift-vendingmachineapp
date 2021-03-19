@@ -57,3 +57,20 @@ beverage    										            	1단계
 - 특정 시점에 `self.scrollView.addSubView()` 메서드로 UIImageView를 수동 추가한다
 
 ![ezgif com-video-to-gif-9](https://user-images.githubusercontent.com/33626693/111428886-7f178480-873b-11eb-8266-c0b7ffd17118.gif)
+
+---
+
+##  Step7 관리자 페이지
+
+### 프로그래밍 요구사항
+
+- 새로운 ViewController를 옆에 추가하고, Button에서 Segue를 연결한다.
+- Segue를 선택하고 Kind를 Present Modally로 지정하고, Transition을 Flip Horizontal로 설정한다.
+
+- 새롭게 추가한 화면을 관리자 모드로 동작하도록 개선한다.
+  - 이미지와 재고 추가 버튼을 복사해서 관리자 화면으로 복사하고, 동작하도록 코드를 수정한다.
+  - 재고 추가 버튼은 기존 화면에서 삭제한다.
+  - 관리자 화면에 [닫기] 버튼을 추가하고, 버튼을 누르면 dissmiss()를 호출한다.
+
+![ezgif com-video-to-gif-10](https://user-images.githubusercontent.com/33626693/111721315-f74c8a00-88a2-11eb-8d1c-5eef4f21cfb7.gif)
+

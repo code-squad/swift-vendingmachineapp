@@ -29,11 +29,13 @@ class AdminViewController : UIViewController {
         
         vendingMachine = (UIApplication.shared.delegate as! AppDelegate).vendingMachine
         
+        // 현재 재고를 보여주는 뷰 초기화
         let stocks = vendingMachine.getTotalStock()
         setUpStockStackView(with : stocks)
         self.view.addSubview(stockStackView)
         stockStackViewConfiguration()
         
+        // 닫기 버튼 뷰 초기화
         self.view.addSubview(closeButton)
         closeButton.frame = CGRect(x: view.bounds.maxX - 40, y: view.bounds.minY + 20, width: 20, height: 20)
     }
@@ -58,6 +60,7 @@ extension AdminViewController {
         stockStackView.setItemCountPerStand(count: 4)
         stockStackView.setUp()
 
+        // 재고를 추가하는 버튼 생성과 action을 넣어준다.
         stockStackView.stockCells.forEach{ (oneStock) in
             oneStock.setButton(for: .add)
             oneStock.button.bind(action: UIAction(handler: { (action) in

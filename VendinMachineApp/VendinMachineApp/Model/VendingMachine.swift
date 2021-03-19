@@ -4,7 +4,7 @@ import Foundation
 class VendingMachine : NSObject, NSCoding {
     private(set) var cashBox: Int
     private var beverages: Beverages
-    private var shoppingHistoryData: BeveragePurchasedHistory
+    private(set) var shoppingHistoryData: BeveragePurchasedHistory
     
     enum Money : Int, CaseIterable {
         case insert1000 = 1000
@@ -96,12 +96,18 @@ class VendingMachine : NSObject, NSCoding {
     }
     
     func buy(beverageType: Beverage.Type) -> Beverage? {
-        guard !self.beverages.isEmpty(elementType: beverageType) || self.beverages.priceInfo(elementType: beverageType) != nil else {
+        if let price = self.beverages.priceInfo(elementType: beverageType), price <= self.cashBox {
+            self.cashBox -= price
+            let purchasedBeverage = self.beverages.remove(elementType: beverageType)!
+            self.shoppingHistoryData.addHistory(name: purchasedBeverage.name)
+            
+            NotificationCenter.default.post(name: VendingMachine.addBeverageStock, object: self, userInfo: [NotificationUserInfo.beverageStock :totalBeverageStockList()])
+            NotificationCenter.default.post(name: VendingMachine.insertCash, object: self, userInfo: [NotificationUserInfo.cashBox :self.cashBox])
+            
+            return purchasedBeverage
+        } else {
             return nil
         }
-        let purchasedBeverage = self.beverages.remove(elementType: beverageType)!
-        self.shoppingHistoryData.addHistory(name: purchasedBeverage.name)
-        return purchasedBeverage
     }
     
 }

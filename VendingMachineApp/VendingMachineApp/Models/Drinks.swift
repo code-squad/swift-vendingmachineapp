@@ -10,7 +10,7 @@ import Foundation
 class Drinks: NSObject, NSCoding {
     private var drinks: [Drink] = [] {
         didSet {
-            NotificationCenter.default.post(name: VendingMachine.updatedDrinkStock, object: self, userInfo: nil)
+            NotificationCenter.default.post(name: VendingMachine.NotificationName.updatedDrinkStock, object: self, userInfo: nil)
         }
     }
     

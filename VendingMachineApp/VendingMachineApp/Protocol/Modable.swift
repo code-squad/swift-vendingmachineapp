@@ -8,10 +8,16 @@
 import Foundation
 
 protocol VendingMachined {
-    func addStock(_ beverage : Beverage)
+    func showBeverageStock(drinkType : Beverage.Type) -> Int
+}
+
+protocol UserModable : VendingMachined {
     func putPayMoney(money: Int)
     func checkCurrentBalance() -> Int
-    func showBeverageStock(drinkType : Beverage.Type) -> Int
     func purchaseBeverage(beverageType : Beverage.Type)
     func purchaseHistory() -> [Beverage]
+}
+
+protocol AdminModable : VendingMachined {
+    func addStock(_ beverage : Beverage)
 }

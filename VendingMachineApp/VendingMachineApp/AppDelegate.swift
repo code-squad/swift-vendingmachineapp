@@ -11,10 +11,10 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
-    var vendingMachine : VendingMachined!
+    var vendingMachine : UserModable!
 
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool  {
-        let viewController = window?.rootViewController as! VendingMachinedable
+        let viewController = window?.rootViewController as! UserVendingMachinedable
         vendingMachine = DataManager.load()
         viewController.setVendingMachine(vendingMachine)
         return true

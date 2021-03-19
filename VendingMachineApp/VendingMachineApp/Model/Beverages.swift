@@ -33,10 +33,10 @@ class Beverages: NSObject, NSCoding {
         beverages.remove(at: beverages.firstIndex(of: beverage)!)
     }
     
-    func stockListOfBeverages() -> [Beverage: Int]{
-        var stockList = [Beverage:Int]()
+    func stockListOfBeverages() -> [ObjectIdentifier: Int]{
+        var stockList = [ObjectIdentifier:Int]()
         for beverage in beverages {
-            let productName = beverage
+            let productName = ObjectIdentifier(type(of:beverage))
             if stockList[productName] == nil {
                 stockList[productName] = 1
             } else {

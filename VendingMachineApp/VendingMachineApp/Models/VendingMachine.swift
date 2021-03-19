@@ -48,7 +48,7 @@ class VendingMachine: NSObject, NSCoding, InventoryTakeable, Archivable, Unarchi
         NotificationCenter.default.post(name: Notification.DidChangeBalance, object: self)
     }
     
-    func add(item: Beverage) {
+    func add(item: Product) {
         inventory.add(item)
         NotificationCenter.default.post(name: Notification.DidChangeInventory, object: self)
     }
@@ -63,30 +63,30 @@ class VendingMachine: NSObject, NSCoding, InventoryTakeable, Archivable, Unarchi
     func showPurchasableItemsWithDeposit() -> [Slot] {
         var purchasableItems: [Slot] = []
         inventory.showSlots {
-            if $0.isSameOrCheaper(than: cashBox.showRemainingBalance()) {
+            if $0.isAffordable(at: cashBox.showRemainingBalance()) {
                 purchasableItems.append($0)
             }
         }
         return purchasableItems
     }
     
-    func vend(itemNamed name: String) -> Beverage? {
-        var vendedItem: Beverage?
+    func vend(from slot: Slot) -> Product? {
+        var selectedItem: Product?
         inventory.showSlots {
-            if $0.compareName(with: name) {
-                vendedItem = $0.dropFirstItem()
+            if $0 == slot {
+                selectedItem = $0.dropFirstItem()
             }
         }
-        if let vendedItem = vendedItem {
+        if let vendedItem = selectedItem {
             cashBox.increaseRevenue(by: vendedItem.price)
             let now = Date()
-            let newOrder = Order(purchased: now, item: vendedItem)
+            let newOrder = Order(purchasedAt: now, item: vendedItem)
             soldItems.add(newOrder)
         }
         NotificationCenter.default.post(name: Notification.DidChangeInventory, object: self)
         NotificationCenter.default.post(name: Notification.DidChangeBalance, object: self)
         NotificationCenter.default.post(name: Notification.DidChangePurchaseHistory, object: self)
-        return vendedItem
+        return selectedItem
     }
     
     func showBalance() -> Int {
@@ -97,10 +97,10 @@ class VendingMachine: NSObject, NSCoding, InventoryTakeable, Archivable, Unarchi
         return inventory.takeStock()
     }
     
-    func showExpiredItems() -> [Beverage] {
-        var expiredItems: [Beverage] = []
+    func showExpiredItems(at date: Date) -> [Product] {
+        var expiredItems: [Product] = []
         inventory.showSlots {
-            expiredItems += $0.getExpiredItems()
+            expiredItems += $0.getExpiredItems(at: date)
         }
         return expiredItems
     }

@@ -74,8 +74,8 @@ class ViewController: UIViewController, SlotViewDelegate, AppDelegateAccessible 
     
     private func configurePurchaseHistory(_ sender: SlotView) {
         let slotInfo = inventoryViewInfo.filter { sender == $0.value }.first
-        if let itemName = slotInfo?.key.firstItem?.name {
-            let _ = appDelegate.vendingMachine.vend(itemNamed: itemName)
+        if let slot = slotInfo?.key {
+            let _ = appDelegate.vendingMachine.vend(from: slot)
         }
     }
     
@@ -134,7 +134,7 @@ class ViewController: UIViewController, SlotViewDelegate, AppDelegateAccessible 
         let view = UIImageView(frame: CGRect.zero)
         view.translatesAutoresizingMaskIntoConstraints = false
         view.widthAnchor.constraint(equalToConstant: 130).isActive = true
-        view.image = UIImage(named: order.itemImageName)
+        view.image = UIImage(named: order.getPackagingInfo() ?? "")
         return view
     }
 }

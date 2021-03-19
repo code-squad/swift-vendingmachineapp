@@ -35,8 +35,11 @@ class Inventory: NSObject, NSCoding {
         self.slots = coder.decodeObject(forKey: PropertyKey.slotsKey) as? [Slot] ?? []
     }
     
-    func add(_ item: Beverage) {
-        if let slot = slots.first(where: { $0.compareName(with: item.name) }) {
+    func add(_ item: Product) {
+        if let slot = slots.first(where: {
+            guard let firstItem = $0.firstItem else { return false }
+            return item.isFromSameFactory(with: firstItem)
+        }) {
             slot.stock(item)
         } else {
             slots.first { $0.itemCount == 0 }?.stock(item)

@@ -10,12 +10,12 @@ import XCTest
 class SlotTests: XCTestCase {
     let denmarkStrawberryMilkFactory = DenmarkStrawberryMilkFactory()
     let georgiaMaxFactory = GeorgiaMaxFactory()
-    var strawberryMilk1: Beverage!
-    var strawberryMilk2: Beverage!
-    var strawberryMilk3: Beverage!
-    var georgiaMax1: Beverage!
-    var georgiaMax2: Beverage!
-    var georgiaMax3: Beverage!
+    var strawberryMilk1: Product!
+    var strawberryMilk2: Product!
+    var strawberryMilk3: Product!
+    var georgiaMax1: Product!
+    var georgiaMax2: Product!
+    var georgiaMax3: Product!
     var emptySlot: Slot!
     var slotWith3StrawberryMilk: Slot!
     var slotWith3GeorgiaMax: Slot!
@@ -23,7 +23,7 @@ class SlotTests: XCTestCase {
     override func setUpWithError() throws {
         try super.setUpWithError()
         
-        strawberryMilk1 = denmarkStrawberryMilkFactory.createProduct(manufactured: Date().formattedDate(from: "20210302"), expiredAfter: Date().formattedDate(from: "20210312"))
+        strawberryMilk1 = denmarkStrawberryMilkFactory.createProduct(manufactured: Date().formattedDate(from: "20210320"), expiredAfter: Date().formattedDate(from: "20210330"))
         strawberryMilk2 = denmarkStrawberryMilkFactory.createProduct(manufactured: Date().formattedDate(from: "20210201"), expiredAfter: Date().formattedDate(from: "20210210"))
         strawberryMilk3 = denmarkStrawberryMilkFactory.createProduct(manufactured: Date().formattedDate(from: "20210218"), expiredAfter: Date().formattedDate(from: "20210228"))
         georgiaMax1 = georgiaMaxFactory.createProduct(manufactured: Date().formattedDate(from: "20200101"), expiredAfter: Date().formattedDate(from: "20210101"))
@@ -50,6 +50,7 @@ class SlotTests: XCTestCase {
     
     func test_자판기앱_빈슬롯생성() throws {
         XCTAssertEqual(emptySlot.itemCount, 0)
+        XCTAssertTrue(emptySlot.isEmpty())
         XCTAssertNil(emptySlot.dropFirstItem())
     }
     
@@ -71,14 +72,9 @@ class SlotTests: XCTestCase {
     }
     
     func test_자판기앱_슬롯음료가격_매개변수가격과_비교() throws {
-        XCTAssertTrue(slotWith3StrawberryMilk.isSameOrCheaper(than: 1500))
-        XCTAssertTrue(slotWith3StrawberryMilk.isSameOrCheaper(than: 1000))
-        XCTAssertFalse(slotWith3StrawberryMilk.isSameOrCheaper(than: 900))
-    }
-    
-    func test_자판기앱_슬롯음료이름_매개변수이름과_비교() throws {
-        XCTAssertTrue(slotWith3StrawberryMilk.compareName(with: "덴마크 딸기딸기 우유"))
-        XCTAssertFalse(slotWith3StrawberryMilk.compareName(with: "조지아 맥스"))
+        XCTAssertTrue(slotWith3StrawberryMilk.isAffordable(at: 1500))
+        XCTAssertTrue(slotWith3StrawberryMilk.isAffordable(at: 1000))
+        XCTAssertFalse(slotWith3StrawberryMilk.isAffordable(at: 900))
     }
     
     func test_자판기앱_빈슬롯에서_첫번째아이템_꺼내기() throws {
@@ -90,11 +86,11 @@ class SlotTests: XCTestCase {
     }
     
     func test_자판기앱_빈슬롯에서_유통기한지난아이템() throws {
-        XCTAssertEqual(emptySlot.getExpiredItems(), [])
+        XCTAssertEqual(emptySlot.getExpiredItems(at: Date()), [])
     }
     
     func test_자판기앱_아이템들어있는슬롯에서_유통기한지난아이템() throws {
-        XCTAssertEqual(slotWith3StrawberryMilk.getExpiredItems(), [strawberryMilk2, strawberryMilk3])
+        XCTAssertEqual(slotWith3StrawberryMilk.getExpiredItems(at: Date()), [strawberryMilk2, strawberryMilk3])
     }
     
     func test_자판기앱_빈슬롯_따듯한음료슬롯인지_판별() {
@@ -107,5 +103,13 @@ class SlotTests: XCTestCase {
     
     func test_자판기앱_따듯한음료슬롯_따듯한음료슬롯인지_판별() {
         XCTAssertTrue(slotWith3GeorgiaMax.isHotDrinkSlot())
+    }
+    
+    func test_자판기앱_빈슬롯_대표이미지() {
+        XCTAssertNil(emptySlot.getPackagingInfo())
+    }
+    
+    func test_자판기앱_아이템들어있는슬롯_대표이미지() {
+        XCTAssertEqual(slotWith3StrawberryMilk.getPackagingInfo(), "denmarkStrawberryMilk")
     }
 }

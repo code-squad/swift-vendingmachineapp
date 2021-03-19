@@ -16,9 +16,9 @@ class FlavoredMilk: Milk {
     
     private let flavor: MilkFlavor
     
-    init(brand: String, volume: Int, price: Int, name: String, calorie: Int, imageName: String, manufactured: Date?, expiredAfter: Date?, lactoseAmount: Int, flavor: MilkFlavor) {
+    init(volume: Int, calorie: Int, manufactured: Date?, expiredAfter: Date?, lactoseAmount: Int, flavor: MilkFlavor) {
         self.flavor = flavor
-        super.init(brand: brand, volume: volume, price: price, name: name, calorie: calorie, imageName: imageName, manufactured: manufactured, expiredAfter: expiredAfter, lactoseAmount: lactoseAmount)
+        super.init(volume: volume, calorie: calorie, manufactured: manufactured, expiredAfter: expiredAfter, lactoseAmount: lactoseAmount)
     }
     
     struct PropertyKey {

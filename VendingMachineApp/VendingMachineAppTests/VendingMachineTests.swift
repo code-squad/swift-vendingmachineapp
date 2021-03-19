@@ -17,25 +17,25 @@ class VendingMachineTests: XCTestCase {
     let georgiaMaxFactory = GeorgiaMaxFactory()
     let redBullFactory = RedBullFactory()
     
-    var strawberryMilk1: Beverage!
-    var strawberryMilk2: Beverage!
-    var strawberryMilk3: Beverage!
+    var strawberryMilk1: Product!
+    var strawberryMilk2: Product!
+    var strawberryMilk3: Product!
     
-    var chocolateMilk1: Beverage!
-    var chocolateMilk2: Beverage!
-    var chocolateMilk3: Beverage!
+    var chocolateMilk1: Product!
+    var chocolateMilk2: Product!
+    var chocolateMilk3: Product!
     
-    var zeroSugarCoke1: Beverage!
-    var zeroSugarCoke2: Beverage!
-    var zeroSugarCoke3: Beverage!
+    var zeroSugarCoke1: Product!
+    var zeroSugarCoke2: Product!
+    var zeroSugarCoke3: Product!
     
-    var georgiaMax1: Beverage!
-    var georgiaMax2: Beverage!
-    var georgiaMax3: Beverage!
+    var georgiaMax1: Product!
+    var georgiaMax2: Product!
+    var georgiaMax3: Product!
     
-    var redBull1: Beverage!
-    var redBull2: Beverage!
-    var redBull3: Beverage!
+    var redBull1: Product!
+    var redBull2: Product!
+    var redBull3: Product!
     
     override func setUpWithError() throws {
         try super.setUpWithError()
@@ -135,13 +135,13 @@ class VendingMachineTests: XCTestCase {
     
     func test_자판기앱_상품구매() throws {
         vendingMachine.insertMoney(amount: 2000)
-        if let vendedItem = vendingMachine.vend(itemNamed: "레드불 에너지 드링크") {
+        if let vendedItem = vendingMachine.vend(from: Slot(items: [redBull1])) {
             XCTAssertEqual(ObjectIdentifier(type(of: vendedItem)), ObjectIdentifier(EnergyDrink.self))
         }
     }
     
     func test_자판기앱_유통기한지난상품() throws {
-        XCTAssertEqual(vendingMachine.showExpiredItems().count, 13)
+        XCTAssertEqual(vendingMachine.showExpiredItems(at: Date()).count, 13)
     }
     
     func test_자판기앱_따듯한음료() throws {
@@ -149,14 +149,10 @@ class VendingMachineTests: XCTestCase {
     }
     
     func test_자판기앱_판매이력() throws {
-        let _ = vendingMachine.vend(itemNamed: "덴마크 딸기딸기 우유")
-        let _ = vendingMachine.vend(itemNamed: "코카콜라 제로")
-        let _ = vendingMachine.vend(itemNamed: "레드불 에너지 드링크")
-        let _ = vendingMachine.vend(itemNamed: "레드불 에너지 드링크")
-        let _ = vendingMachine.vend(itemNamed: "조지아 맥스")
-        let _ = vendingMachine.vend(itemNamed: "덴마크 딸기딸기 우유")
-        let _ = vendingMachine.vend(itemNamed: "소화가 잘되는 우유 초콜릿")
-        XCTAssertEqual(vendingMachine.showPurchaseHistory().orderCount, 7)
+        vendingMachine.showInventorySheet {
+            let _ = vendingMachine.vend(from: $0.key)
+        }
+        XCTAssertEqual(vendingMachine.showPurchaseHistory().orderCount, 5)
     }
     
     func test_자판기앱_상품재고리턴() throws {

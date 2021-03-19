@@ -7,16 +7,17 @@
 
 import Foundation
 
-class Slot: NSObject, NSCoding {
-    private var items: [Beverage]
+protocol FeaturedImageHavable {
+    func getPackagingInfo() -> String?
+}
+
+class Slot: NSObject, NSCoding, FeaturedImageHavable {
+    private var items: [Product]
     var itemCount: Int {
         return items.count
     }
-    var firstItem: Beverage? {
+    var firstItem: Product? {
         return items.first
-    }
-    var itemImageName: String? {
-        return firstItem?.imageName
     }
     override var description: String {
         guard let firstItemName = firstItem?.name else {
@@ -25,7 +26,7 @@ class Slot: NSObject, NSCoding {
         return firstItemName
     }
     
-    init(items: [Beverage]) {
+    init(items: [Product]) {
         self.items = items
     }
     
@@ -42,12 +43,12 @@ class Slot: NSObject, NSCoding {
     }
     
     required init?(coder: NSCoder) {
-        self.items = coder.decodeObject(forKey: PropertyKey.itemsKey) as? [Beverage] ?? []
+        self.items = coder.decodeObject(forKey: PropertyKey.itemsKey) as? [Product] ?? []
     }
     
     public override func isEqual(_ other: Any?) -> Bool {
         guard let other = other as? Slot else { return false }
-        return self.items == other.items && self.itemCount == other.itemCount && self.firstItem == other.firstItem && self.itemImageName == other.itemImageName
+        return self.items == other.items && self.itemCount == other.itemCount && self.firstItem == other.firstItem
     }
     
     public override var hash: Int {
@@ -55,15 +56,14 @@ class Slot: NSObject, NSCoding {
         hasher.combine(items)
         hasher.combine(itemCount)
         hasher.combine(firstItem)
-        hasher.combine(itemImageName)
         return hasher.finalize()
     }
     
-    func stock(_ item: Beverage) {
+    func stock(_ item: Product) {
         items.append(item)
     }
     
-    func isSameOrCheaper(than price: Int) -> Bool {
+    func isAffordable(at price: Int) -> Bool {
         if let slotPrice = firstItem?.price {
             return slotPrice <= price
         } else {
@@ -71,25 +71,25 @@ class Slot: NSObject, NSCoding {
         }
     }
     
-    func compareName(with name: String) -> Bool {
-        return !items.isEmpty ? firstItem?.name == name : false
-    }
-    
-    func dropFirstItem() -> Beverage? {
+    func dropFirstItem() -> Product? {
         return !items.isEmpty ? items.removeFirst() : nil
     }
     
-    func getExpiredItems() -> [Beverage] {
+    func getExpiredItems(at date: Date) -> [Product] {
         return items.filter {
-            !$0.isStillEdible(at: Date())
+            !$0.isStillEdible(at: date)
         }
     }
     
     func isHotDrinkSlot() -> Bool {
-        return items.first { $0 is HotServable && ($0 as! HotServable).isHotter(than: 50) } != nil
+        return items.first { $0.beverage is HotServable && ($0.beverage as! HotServable).isHotter(than: 50) } != nil
     }
     
     func isEmpty() -> Bool {
         return items.isEmpty
+    }
+    
+    func getPackagingInfo() -> String? {
+        return firstItem?.packaging
     }
 }

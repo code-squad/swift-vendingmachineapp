@@ -9,8 +9,8 @@ import Foundation
 
 class ZeroCalorieSoftDrink: SoftDrink {
     
-    init(brand: String, volume: Int, price: Int, name: String, imageName: String, manufactured: Date?, expiredAfter: Date?, isCarbonated: Bool) {
-        super.init(brand: brand, volume: volume, price: price, name: name, calorie: 0, imageName: imageName, manufactured: manufactured, expiredAfter: expiredAfter, isCarbonated: isCarbonated)
+    init(volume: Int, manufactured: Date?, expiredAfter: Date?, isCarbonated: Bool) {
+        super.init(volume: volume, calorie: 0, manufactured: manufactured, expiredAfter: expiredAfter, isCarbonated: isCarbonated)
     }
     
     required init?(coder: NSCoder) {

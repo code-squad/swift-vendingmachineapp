@@ -10,12 +10,12 @@ import XCTest
 class InventoryTests: XCTestCase {
     let denmarkStrawberryMilkFactory = DenmarkStrawberryMilkFactory()
     let georgiaMaxFactory = GeorgiaMaxFactory()
-    var strawberryMilk1: Beverage!
-    var strawberryMilk2: Beverage!
-    var strawberryMilk3: Beverage!
-    var georgiaMax1: Beverage!
-    var georgiaMax2: Beverage!
-    var georgiaMax3: Beverage!
+    var strawberryMilk1: Product!
+    var strawberryMilk2: Product!
+    var strawberryMilk3: Product!
+    var georgiaMax1: Product!
+    var georgiaMax2: Product!
+    var georgiaMax3: Product!
     var emptyInventory1: Inventory!
     var emptyInventory2: Inventory!
     var inventoryWith6EmptySlots: Inventory!
@@ -33,7 +33,7 @@ class InventoryTests: XCTestCase {
         emptyInventory2 = Inventory(numberOfSlots: 0)
         inventoryWith6EmptySlots = Inventory(numberOfSlots: 6)
     }
-
+    
     override func tearDownWithError() throws {
         try super.tearDownWithError()
         
@@ -47,7 +47,7 @@ class InventoryTests: XCTestCase {
         emptyInventory2 = nil
         inventoryWith6EmptySlots = nil
     }
-
+    
     func test_자판기앱_빈인벤토리생성() throws {
         XCTAssertEqual(emptyInventory1.slotCount, 0)
         XCTAssertEqual(emptyInventory2.slotCount, 0)
@@ -67,7 +67,8 @@ class InventoryTests: XCTestCase {
         inventoryWith6EmptySlots.add(strawberryMilk1)
         inventoryWith6EmptySlots.add(strawberryMilk2)
         let inventorySheet = inventoryWith6EmptySlots.takeStock()
-        XCTAssertEqual(inventorySheet, [Slot(items: [strawberryMilk1, strawberryMilk2]): 2])
+        //XCTAssertEqual(inventorySheet, [Slot(items: [strawberryMilk1, strawberryMilk2]): 2])
+        XCTAssertEqual(inventorySheet, [Slot(items: [strawberryMilk1, strawberryMilk2]) : 2])
     }
     
     func test_자판기앱_인벤토리에_다른아이템추가() throws {
@@ -76,6 +77,16 @@ class InventoryTests: XCTestCase {
         let inventorySheet = inventoryWith6EmptySlots.takeStock()
         XCTAssertEqual(inventorySheet, [Slot(items: [strawberryMilk1]): 1,
                                         Slot(items: [georgiaMax1]): 1])
+    }
+    
+    func test_자판기앱_따듯한음료슬롯_필터() {
+        inventoryWith6EmptySlots.add(strawberryMilk1)
+        inventoryWith6EmptySlots.add(strawberryMilk2)
+        inventoryWith6EmptySlots.add(strawberryMilk3)
+        inventoryWith6EmptySlots.add(georgiaMax1)
+        inventoryWith6EmptySlots.add(georgiaMax2)
+        inventoryWith6EmptySlots.add(georgiaMax3)
+        XCTAssertEqual(inventoryWith6EmptySlots.filterHotDrinks(), [Slot(items: [georgiaMax1, georgiaMax2, georgiaMax3])])
     }
     
     func test_자판기앱_상품재고리턴() throws {

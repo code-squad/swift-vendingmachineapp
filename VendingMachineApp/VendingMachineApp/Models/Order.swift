@@ -7,30 +7,31 @@
 
 import Foundation
 
-class Order: NSObject, NSCoding {
-    private let purchased: Date
-    private let item: Beverage
-    var itemImageName: String {
-        return item.imageName
-    }
+class Order: NSObject, NSCoding, FeaturedImageHavable {
+    private let purchasedAt: Date
+    private let item: Product
     
-    init(purchased: Date, item: Beverage) {
-        self.purchased = purchased
+    init(purchasedAt: Date, item: Product) {
+        self.purchasedAt = purchasedAt
         self.item = item
     }
     
     struct PropertyKey {
-        static let purchasedKey = "purchased"
+        static let purchasedAtKey = "purchasedAt"
         static let itemKey = "item"
     }
     
     func encode(with coder: NSCoder) {
-        coder.encode(purchased, forKey: PropertyKey.purchasedKey)
+        coder.encode(purchasedAt, forKey: PropertyKey.purchasedAtKey)
         coder.encode(item, forKey: PropertyKey.itemKey)
     }
     
     required init?(coder: NSCoder) {
-        self.purchased = coder.decodeObject(forKey: PropertyKey.purchasedKey) as? Date ?? Date()
-        self.item = coder.decodeObject(forKey: PropertyKey.itemKey) as? Beverage ?? DenmarkStrawberryMilkFactory().createProduct(manufactured: Date(), expiredAfter: Date())
+        self.purchasedAt = coder.decodeObject(forKey: PropertyKey.purchasedAtKey) as? Date ?? Date()
+        self.item = coder.decodeObject(forKey: PropertyKey.itemKey) as? Product ?? DenmarkStrawberryMilkFactory().createProduct(manufactured: Date(), expiredAfter: Date())
+    }
+    
+    func getPackagingInfo() -> String? {
+        return item.packaging
     }
 }

@@ -22,7 +22,7 @@ struct InventorySheet {
     
     private func makeSlotView(with slot: Slot) -> SlotView {
         let view = SlotView()
-        view.itemImageView.image = UIImage(named: slot.itemImageName ?? "")
+        view.itemImageView.image = UIImage(named: slot.getPackagingInfo() ?? "")
         view.itemQuantityLabel.text = "\(slot.itemCount)개"
         return view
     }

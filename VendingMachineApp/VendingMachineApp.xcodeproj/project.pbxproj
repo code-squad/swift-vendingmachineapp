@@ -10,6 +10,12 @@
 		E474526625FDFF6F007D894F /* InventorySheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E474526525FDFF6F007D894F /* InventorySheet.swift */; };
 		E47452772600A9AE007D894F /* SaveVendingMachineUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47452762600A9AE007D894F /* SaveVendingMachineUseCase.swift */; };
 		E474527B2600AE22007D894F /* LoadVendingMachineUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E474527A2600AE22007D894F /* LoadVendingMachineUseCase.swift */; };
+		E474529726044BFD007D894F /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = E474529626044BFC007D894F /* Product.swift */; };
+		E474529A260482BA007D894F /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = E474529626044BFC007D894F /* Product.swift */; };
+		E474529D26048739007D894F /* SaveVendingMachineUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47452762600A9AE007D894F /* SaveVendingMachineUseCase.swift */; };
+		E47452A02604874B007D894F /* InventorySheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E474526525FDFF6F007D894F /* InventorySheet.swift */; };
+		E47452A326048750007D894F /* LoadVendingMachineUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E474527A2600AE22007D894F /* LoadVendingMachineUseCase.swift */; };
+		E47452A626048760007D894F /* SlotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D4746525F66460007FAAA0 /* SlotView.swift */; };
 		E4A82DCF25F88F23001F03E1 /* String+ExtractingNumbers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A82DCE25F88F23001F03E1 /* String+ExtractingNumbers.swift */; };
 		E4D472A725E5ED65007FAAA0 /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D472A625E5ED65007FAAA0 /* VendingMachine.swift */; };
 		E4D472B825E76C51007FAAA0 /* Date+DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D472B725E76C51007FAAA0 /* Date+DateFormatter.swift */; };
@@ -70,6 +76,7 @@
 		E474526525FDFF6F007D894F /* InventorySheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventorySheet.swift; sourceTree = "<group>"; };
 		E47452762600A9AE007D894F /* SaveVendingMachineUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveVendingMachineUseCase.swift; sourceTree = "<group>"; };
 		E474527A2600AE22007D894F /* LoadVendingMachineUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadVendingMachineUseCase.swift; sourceTree = "<group>"; };
+		E474529626044BFC007D894F /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		E4A82DCE25F88F23001F03E1 /* String+ExtractingNumbers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+ExtractingNumbers.swift"; sourceTree = "<group>"; };
 		E4D472A625E5ED65007FAAA0 /* VendingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachine.swift; sourceTree = "<group>"; };
 		E4D472B725E76C51007FAAA0 /* Date+DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+DateFormatter.swift"; sourceTree = "<group>"; };
@@ -177,6 +184,7 @@
 				E4D4734725EF8634007FAAA0 /* Slot.swift */,
 				E4D4734A25EF8651007FAAA0 /* Inventory.swift */,
 				E474526525FDFF6F007D894F /* InventorySheet.swift */,
+				E474529626044BFC007D894F /* Product.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -339,12 +347,15 @@
 				E4D473DD25F0C356007FAAA0 /* Date+DateFormatter.swift in Sources */,
 				E4D473EF25F0C978007FAAA0 /* Coffee.swift in Sources */,
 				E4D4744225F60A24007FAAA0 /* CashBox.swift in Sources */,
+				E474529D26048739007D894F /* SaveVendingMachineUseCase.swift in Sources */,
 				E4D473F925F11E8F007FAAA0 /* InventoryTests.swift in Sources */,
 				E4D4741A25F1D42F007FAAA0 /* Order.swift in Sources */,
+				E47452A626048760007D894F /* SlotView.swift in Sources */,
 				E4D473D725F0C346007FAAA0 /* Beverage.swift in Sources */,
 				E4D473E925F0C96D007FAAA0 /* ZeroCalorieSoftDrink.swift in Sources */,
 				E4D473CF25F0C089007FAAA0 /* SlotTests.swift in Sources */,
 				E4D4741125F1D1CF007FAAA0 /* VendingMachineTests.swift in Sources */,
+				E47452A02604874B007D894F /* InventorySheet.swift in Sources */,
 				E4D473FF25F1C354007FAAA0 /* Inventory.swift in Sources */,
 				E4D4741425F1D419007FAAA0 /* VendingMachine.swift in Sources */,
 				E4D473D425F0C0A4007FAAA0 /* Slot.swift in Sources */,
@@ -353,6 +364,8 @@
 				E4D473EC25F0C973007FAAA0 /* EnergyDrink.swift in Sources */,
 				E4D473E625F0C961007FAAA0 /* FlavoredMilk.swift in Sources */,
 				E4D473DA25F0C34C007FAAA0 /* BeverageProtocols.swift in Sources */,
+				E474529A260482BA007D894F /* Product.swift in Sources */,
+				E47452A326048750007D894F /* LoadVendingMachineUseCase.swift in Sources */,
 				E4D473F225F0C984007FAAA0 /* SoftDrink.swift in Sources */,
 				E4D473E325F0C8F6007FAAA0 /* BeverageFactory.swift in Sources */,
 			);
@@ -369,6 +382,7 @@
 				E4E22CE425E51B27008CA611 /* ViewController.swift in Sources */,
 				E4D4746625F66460007FAAA0 /* SlotView.swift in Sources */,
 				E4E22CE025E51B27008CA611 /* AppDelegate.swift in Sources */,
+				E474529726044BFD007D894F /* Product.swift in Sources */,
 				E4E22CF625E51E11008CA611 /* Beverage.swift in Sources */,
 				E4D473B925F0ADF3007FAAA0 /* PurchaseHistory.swift in Sources */,
 				E4D4743F25F5F746007FAAA0 /* CashBox.swift in Sources */,

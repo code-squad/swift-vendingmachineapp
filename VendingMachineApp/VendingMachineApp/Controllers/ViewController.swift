@@ -11,6 +11,7 @@ import Combine
 class ViewController: UIViewController, SlotViewDelegate, AppDelegateAccessible {
     @IBOutlet weak var inventoryStackView: UIStackView!
     @IBOutlet weak var balanceLabel: UILabel!
+    @IBOutlet weak var purchaseHistoryStackView: UIStackView!
     
     private var inventoryViewInfo: [Slot: SlotView] = [ : ]
     private var inventoryPublisher: AnyCancellable!
@@ -21,16 +22,13 @@ class ViewController: UIViewController, SlotViewDelegate, AppDelegateAccessible 
         
         configureInventoryView()
         configureCashBoxView()
+        configurePurchaseHistoryView()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         configureSubscriber()
-    }
-    
-    @IBAction func insertMoneyButtonPressed(_ sender: UIButton) {
-        configureCashBox(sender)
     }
     
     private func configureSubscriber() {
@@ -59,11 +57,21 @@ class ViewController: UIViewController, SlotViewDelegate, AppDelegateAccessible 
         }
     }
     
+    private func configureCashBox(_ sender: UIButton) {
+        guard let selectedAmount = sender.titleLabel?.text?.filterNonDigits() else { return }
+        guard let convertedAmount = Int(selectedAmount) else { return }
+        appDelegate.vendingMachine.insertMoney(amount: convertedAmount)
+    }
+    
     private func configurePurchaseHistory(_ sender: SlotView) {
         let slotInfo = inventoryViewInfo.filter { sender == $0.value }.first
         if let itemName = slotInfo?.key.firstItem?.name {
-            let vendedItem = appDelegate.vendingMachine.vend(itemNamed: itemName)
+            let _ = appDelegate.vendingMachine.vend(itemNamed: itemName)
         }
+    }
+    
+    @IBAction func insertMoneyButtonPressed(_ sender: UIButton) {
+        configureCashBox(sender)
     }
     
     func itemQuantityIncrementButtonPressed(sender: SlotView) {
@@ -72,12 +80,6 @@ class ViewController: UIViewController, SlotViewDelegate, AppDelegateAccessible 
     
     func vendButtonPressed(sender: SlotView) {
         configurePurchaseHistory(sender)
-    }
-    
-    private func configureCashBox(_ sender: UIButton) {
-        guard let selectedAmount = sender.titleLabel?.text?.filterNonDigits() else { return }
-        guard let convertedAmount = Int(selectedAmount) else { return }
-        appDelegate.vendingMachine.insertMoney(amount: convertedAmount)
     }
     
     private func configureInventoryView() {
@@ -91,10 +93,6 @@ class ViewController: UIViewController, SlotViewDelegate, AppDelegateAccessible 
         }
     }
     
-    private func configureInventoryViewInfo() {
-        inventoryViewInfo = InventorySheet().createInventoryViewInfo(for: appDelegate.vendingMachine)
-    }
-    
     private func clearInventory() {
         for subview in self.inventoryStackView.arrangedSubviews {
             subview.removeFromSuperview()
@@ -102,7 +100,32 @@ class ViewController: UIViewController, SlotViewDelegate, AppDelegateAccessible 
         inventoryViewInfo = [ : ]
     }
     
+    private func configureInventoryViewInfo() {
+        inventoryViewInfo = InventorySheet().createInventoryViewInfo(for: appDelegate.vendingMachine)
+    }
+    
     private func configureCashBoxView() {
         balanceLabel.text = "잔액 : \(appDelegate.vendingMachine.showBalance())원"
+    }
+    
+    private func configurePurchaseHistoryView() {
+        clearPurchaseHistory()
+        appDelegate.vendingMachine.showPurchaseHistory().showOrderList {
+            purchaseHistoryStackView.addArrangedSubview(makeOrderView(with: $0))
+        }
+    }
+    
+    private func clearPurchaseHistory() {
+        for subview in self.purchaseHistoryStackView.arrangedSubviews {
+            subview.removeFromSuperview()
+        }
+    }
+    
+    private func makeOrderView(with order: Order) -> UIImageView {
+        let view = UIImageView(frame: CGRect.zero)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.widthAnchor.constraint(equalToConstant: 130).isActive = true
+        view.image = UIImage(named: order.itemImageName)
+        return view
     }
 }

@@ -36,4 +36,10 @@ class PurchaseHistory: NSObject, NSCoding {
     func add(_ order: Order) {
         orderList.append(order)
     }
+    
+    func showOrderList(handler: (Order) -> ()) {
+        orderList.forEach {
+            handler($0)
+        }
+    }
 }

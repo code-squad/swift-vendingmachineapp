@@ -72,7 +72,7 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E8f-zt-sO7">
                                 <rect key="frame" x="20" y="618" width="984" height="130"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3EZ-Yw-W6o">
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="-50" translatesAutoresizingMaskIntoConstraints="NO" id="3EZ-Yw-W6o">
                                         <rect key="frame" x="0.0" y="0.0" width="984" height="130"/>
                                     </stackView>
                                 </subviews>
@@ -104,6 +104,7 @@
                     <connections>
                         <outlet property="balanceLabel" destination="eZN-pz-HrR" id="bMj-Kt-zPv"/>
                         <outlet property="inventoryStackView" destination="Wbg-N3-clx" id="Kpm-F4-pBV"/>
+                        <outlet property="purchaseHistoryStackView" destination="3EZ-Yw-W6o" id="bik-IF-F9t"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

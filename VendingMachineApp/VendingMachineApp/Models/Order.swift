@@ -10,6 +10,9 @@ import Foundation
 class Order: NSObject, NSCoding {
     private let purchased: Date
     private let item: Beverage
+    var itemImageName: String {
+        return item.imageName
+    }
     
     init(purchased: Date, item: Beverage) {
         self.purchased = purchased

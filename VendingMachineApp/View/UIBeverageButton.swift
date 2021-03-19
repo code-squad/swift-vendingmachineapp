@@ -26,8 +26,21 @@ class UIBeverageButton: UIButton {
     init(frame : CGRect, type : ButtonType){
         self.buttonAction = type
         super.init(frame: frame)
+        setUp()
     }
     func bind(action : UIAction){
         self.addAction(action, for: .touchDown)
+    }
+    func setUp(){
+        switch self.buttonAction {
+        case .buy:
+            self.setTitle("구매하기", for: .normal)
+            self.setImage(UIImage(named: "buybutton"), for: .normal)
+        case .add:
+            self.setTitle("추가하기", for: .normal)
+            self.setImage(UIImage(named: "addbutton"), for: .normal)
+        case .none:
+            break
+        }
     }
 }

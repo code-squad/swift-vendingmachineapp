@@ -50,23 +50,7 @@ class OneStockView: UIView {
         captionBackgroundView.addSubview(label)
     }
     func setButton(for type : UIBeverageButton.ButtonType){
-        switch type {
-        case .add:
-            setAddButton()
-        case .buy:
-            setBuyButton()
-        }
-    }
-    private func setBuyButton(){
-        button = UIBeverageButton(frame: CGRect(x: 0, y: bounds.maxY - 40, width: bounds.width, height: 40))
-        button.setTitle("구매하기", for: .normal)
-        button.setImage(UIImage(named: "buybutton"), for: .normal)
-        addSubview(button)
-    }
-    private func setAddButton(){
-        button = UIBeverageButton(frame: CGRect(x: 0, y: bounds.maxY - 40, width: bounds.width, height: 40))
-        button.setImage(UIImage(named: "addbutton"), for: .normal)
-        button.setTitle("추가하기", for: .normal)
+        button = UIBeverageButton(frame: CGRect(x: 0, y: bounds.maxY - 40, width: bounds.width, height: 40),type: type)
         addSubview(button)
     }
     func reloadLabelText(count : Int){

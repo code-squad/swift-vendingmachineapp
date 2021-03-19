@@ -4,7 +4,7 @@ import Foundation
 class VendingMachine : NSObject, NSCoding {
     private(set) var cashBox: Int
     private var beverages: Beverages
-    private var shoppingHistoryData: Beverages
+    private var shoppingHistoryData: BeveragePurchasedHistory
     
     enum Money : Int, CaseIterable {
         case insert1000 = 1000
@@ -14,40 +14,34 @@ class VendingMachine : NSObject, NSCoding {
     override init() {
         cashBox = 0
         beverages = Beverages()
-        shoppingHistoryData = Beverages()
+        shoppingHistoryData = BeveragePurchasedHistory()
     }
     
     required init?(coder: NSCoder) {
         self.cashBox = coder.decodeInteger(forKey: "cashBox")
         self.beverages = Beverages()
-        self.shoppingHistoryData = Beverages()
+        self.shoppingHistoryData = coder.decodeObject(forKey: "shoppingHistoryList") as! BeveragePurchasedHistory
         
         let beverageStockList:[[Beverage]] = coder.decodeObject(forKey: "beverageStockList") as! [[Beverage]]
-        let shoppingHistoryList:[[Beverage]] = coder.decodeObject(forKey: "shoppingHistoryList") as! [[Beverage]]
 
         for (type, beverageList) in zip(VendingMachineElements().beverageList, beverageStockList) {
             self.beverages.setupToDecode(beverageList: beverageList, type: type)
-        }
-        for (type, beverageList) in zip(VendingMachineElements().beverageList, shoppingHistoryList) {
-            self.shoppingHistoryData.setupToDecode(beverageList: beverageList, type: type)
         }
     }
     
     func encode(with coder: NSCoder) {
         var beverageStockList:[[Beverage]] = []
-        var shoppingHistoryList:[[Beverage]] = []
 
         for type in VendingMachineElements().beverageList {
             beverageStockList.append(beverages.beverageList(type: type))
-            shoppingHistoryList.append(shoppingHistoryData.beverageList(type: type))
         }
 
         coder.encode(self.cashBox, forKey: "cashBox")
         coder.encode(beverageStockList, forKey: "beverageStockList")
-        coder.encode(shoppingHistoryList, forKey: "shoppingHistoryList")
+        coder.encode(self.shoppingHistoryData, forKey: "shoppingHistoryList")
     }
     
-    func shoppingHistory() -> Beverages {
+    func shoppingHistory() -> BeveragePurchasedHistory {
         return shoppingHistoryData
     }
     
@@ -106,7 +100,7 @@ class VendingMachine : NSObject, NSCoding {
             return nil
         }
         let purchasedBeverage = self.beverages.remove(elementType: beverageType)!
-        self.shoppingHistoryData.addBeverage(element: purchasedBeverage)
+        self.shoppingHistoryData.addHistory(name: purchasedBeverage.name)
         return purchasedBeverage
     }
     

@@ -16,6 +16,7 @@ class ViewController: UIViewController, SlotViewDelegate, AppDelegateAccessible 
     private var inventoryViewInfo: [Slot: SlotView] = [ : ]
     private var inventoryPublisher: AnyCancellable!
     private var cashBoxPublisher: AnyCancellable!
+    private var purchaseHistoryPublisher: AnyCancellable!
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -47,6 +48,14 @@ class ViewController: UIViewController, SlotViewDelegate, AppDelegateAccessible 
                     self.configureCashBoxView()
                 }
             }
+        
+        purchaseHistoryPublisher = NotificationCenter.default
+            .publisher(for: VendingMachine.Notification.DidChangePurchaseHistory)
+            .sink(receiveValue: { notification in
+                DispatchQueue.main.async {
+                    self.configurePurchaseHistoryView()
+                }
+            })
     }
     
     private func configureInventory(_ sender: SlotView) {

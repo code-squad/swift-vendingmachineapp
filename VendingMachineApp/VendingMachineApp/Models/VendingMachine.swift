@@ -11,6 +11,7 @@ class VendingMachine: NSObject, NSCoding, InventoryTakeable, Archivable, Unarchi
     enum Notification {
         static let DidChangeInventory = Foundation.Notification.Name("DidChangeInventory")
         static let DidChangeBalance = Foundation.Notification.Name("DidChangeBalance")
+        static let DidChangePurchaseHistory = Foundation.Notification.Name("DidChangePurchaseHistory")
     }
     
     private var inventory: Inventory
@@ -84,6 +85,7 @@ class VendingMachine: NSObject, NSCoding, InventoryTakeable, Archivable, Unarchi
         }
         NotificationCenter.default.post(name: Notification.DidChangeInventory, object: self)
         NotificationCenter.default.post(name: Notification.DidChangeBalance, object: self)
+        NotificationCenter.default.post(name: Notification.DidChangePurchaseHistory, object: self)
         return vendedItem
     }
     

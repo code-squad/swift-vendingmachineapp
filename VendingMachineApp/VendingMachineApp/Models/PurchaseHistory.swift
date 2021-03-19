@@ -14,7 +14,7 @@ class PurchaseHistory: NSObject, NSCoding {
                 return
             }
             let userInfo = ["drinkInfo": drink]
-            NotificationCenter.default.post(name: VendingMachine.updatedPurchaseList, object: self, userInfo: userInfo)
+            NotificationCenter.default.post(name: VendingMachine.NotificationName.updatedPurchaseList, object: self, userInfo: userInfo)
         }
     }
     

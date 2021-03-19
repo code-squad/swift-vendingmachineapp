@@ -32,13 +32,20 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        NotificationCenter.default.addObserver(forName: VendingMachine.updatedDrinkStock, object: vm.drinks, queue: .main) { [weak self] _ in
+        NotificationCenter.default.addObserver(forName: VendingMachine.NotificationName.updatedDrinkStock,
+                                               object: nil,
+                                               queue: .main) { [weak self] _ in
             self?.updateDrinkStockLabels()
         }
-        NotificationCenter.default.addObserver(forName: VendingMachine.updatedRemainCoins, object: vm, queue: .main) { [weak self] _ in
+        NotificationCenter.default.addObserver(forName: VendingMachine.NotificationName.updatedRemainCoins,
+                                               object: nil,
+                                               queue: .main) { [weak self] _ in
             self?.updateRemainCoinsLabel()
         }
-        NotificationCenter.default.addObserver(self, selector: #selector(updatePurchasedList(notification:)), name: VendingMachine.updatedPurchaseList, object: vm.purchaseHistory)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(updatePurchasedList(notification:)),
+                                               name: VendingMachine.NotificationName.updatedPurchaseList,
+                                               object: nil)
         
         setupDrinkImage()
         updateDrinkStockLabels()

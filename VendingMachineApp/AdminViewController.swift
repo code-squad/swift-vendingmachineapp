@@ -55,12 +55,12 @@ extension AdminViewController {
 extension AdminViewController {
     func setUpStockStackView(with stocks : [ObjectIdentifier: [Beverage]]){
         stockStackView = StockStackView(frame: .zero)
-        stockStackView.setItemCountPerStand(count: 3)
+        stockStackView.setItemCountPerStand(count: 4)
         stockStackView.setUp()
-        stockStackView.stockCells.forEach{ $0.buyButton.isHidden = true}
-        
+
         stockStackView.stockCells.forEach{ (oneStock) in
-            oneStock.addButton.bind(action: UIAction(handler: { (action) in
+            oneStock.setButton(for: .add)
+            oneStock.button.bind(action: UIAction(handler: { (action) in
                 guard let beverage = Factory.createInstance(type:oneStock.beverageType) else { return }
                 self.vendingMachine.append(product: beverage)
             }))

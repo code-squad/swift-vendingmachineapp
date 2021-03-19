@@ -30,15 +30,23 @@ class AdminViewController: UIViewController {
     }
     
     private func setUpPieChart() {
+        
         configurePieChartView()
         let stockList = vendingMachine.beverageData()
-        if stockList.reduce(0, +) == 0 { return }
+        if canDrawPieChart(stockList) { return }
+        
         let beverageData = stockList.map{CGFloat($0)}
         let systemColor = [UIColor.systemRed, UIColor.systemBlue, UIColor.systemPink, UIColor.systemTeal, UIColor.systemGreen, UIColor.systemYellow]
         pieChart.segments.removeAll()
-        for index in 0..<systemColor.count {
+        
+        for index in 0..<beverageData.count {
             pieChart.segments.append(Segment(color: systemColor[index], value: beverageData[index]))
         }
+        
+    }
+    
+    private func canDrawPieChart(_ data: [Int]) -> Bool {
+        return data.reduce(0, +) == 0
     }
     
     @IBAction func closeButtonTouched(_ sender: Any) {

@@ -7,9 +7,9 @@
 
 import Foundation
 
-class Drink: CustomStringConvertible, Hashable, NSCoding {
+class Drink: NSObject, NSCoding {
     
-    var description: String {
+    override var description: String {
         return "\(brand), \(volume)ml, \(charge)원, \(name), \(manufacturing.convertToString())"
     }
     
@@ -27,7 +27,7 @@ class Drink: CustomStringConvertible, Hashable, NSCoding {
         self.manufacturing = manufacturing
     }
     
-    convenience required init() {
+    convenience required override init() {
         self.init(brand: "class", volume : 0, charge: 0, name : "Drink", manufacturing: Date.init())
     }
     
@@ -36,7 +36,7 @@ class Drink: CustomStringConvertible, Hashable, NSCoding {
         volume = coder.decodeInteger(forKey: "volume")
         charge = coder.decodeInteger(forKey: "charge")
         name = coder.decodeObject(forKey: "name") as! String
-        manufacturing = coder.decodeObject(forKey: "brand") as! Date
+        manufacturing = coder.decodeObject(forKey: "manufacturing") as! Date
     }
     
     func encode(with coder: NSCoder) {
@@ -45,14 +45,6 @@ class Drink: CustomStringConvertible, Hashable, NSCoding {
         coder.encode(charge, forKey: "charge")
         coder.encode(name, forKey: "name")
         coder.encode(manufacturing, forKey: "manufacturing")
-    }
-    
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(self.brand)
-        hasher.combine(self.charge)
-        hasher.combine(self.manufacturing)
-        hasher.combine(self.name)
-        hasher.combine(self.volume)
     }
     
     static func == (lhs: Drink, rhs: Drink) -> Bool {

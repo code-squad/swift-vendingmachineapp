@@ -10,16 +10,33 @@ import Foundation
 class DataManager {
 
     class func load() -> VendingMachine? {
-        if UserDefaults.standard.object(forKey: String(describing: VendingMachine.self)) != nil {
+        let stringData = String(describing : VendingMachine.self)
+        if UserDefaults.standard.object(forKey: stringData) != nil {
+            guard let encodedData = UserDefaults.standard.data(forKey: stringData) else { return nil }
             
-            guard let encodedData = UserDefaults.standard.data(forKey: String(describing: VendingMachine.self)) else { return nil }
-            guard let archivedMachine = NSKeyedUnarchiver.unarchiveObject(with: encodedData) as? VendingMachine else { return nil }
-            return archivedMachine
+            do {
+                guard let archivedMachine = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(encodedData)
+                else {
+                    return nil
+                }
+                
+                return archivedMachine as? VendingMachine
+            } catch {
+                return nil
+            }
         }
         return nil
     }
 
-    class func save(data: VendingMachine) {
-        UserDefaults.standard.set(NSKeyedArchiver.archivedData(withRootObject: data), forKey: String(describing: VendingMachine.self))
+    class func save(data: VendingMachine) -> Bool {
+        let stringData = String(describing : VendingMachine.self)
+        
+        do {
+            UserDefaults.standard.setValue(try NSKeyedArchiver.archivedData(withRootObject: data, requiringSecureCoding: false), forKey: stringData)
+        }
+        catch {
+            return false
+        }
+        return true
     }
 }

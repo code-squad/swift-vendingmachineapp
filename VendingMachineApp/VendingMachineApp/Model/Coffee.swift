@@ -22,7 +22,7 @@ class Coffee: Drink {
     }
     
     required init?(coder: NSCoder) {
-        caffeine = coder.decodeDouble(forKey: "caffeine")
+        caffeine = coder.decodeObject(forKey: "caffeine") as! Double?
         super.init(coder: coder)
     }
     

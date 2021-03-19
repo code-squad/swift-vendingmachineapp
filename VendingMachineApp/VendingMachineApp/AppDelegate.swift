@@ -13,31 +13,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var vendingMachine = VendingMachine()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-        vendingMachine = DataManager.load() ?? VendingMachine()
-        print("init")
+        if DataManager.load() != nil {
+            vendingMachine = DataManager.load()!
+        }
+        else {
+            vendingMachine.initialStock(howMany: 3)
+        }
     return true
     }
     
-    func applicationWillResignActive(_ application: UIApplication) {
-        // fore to back
+    func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
+        if DataManager.load() != nil {
+            vendingMachine = DataManager.load()!
+        }
+        return UISceneConfiguration.init(name: "Default Configuration", sessionRole: connectingSceneSession.role)
+    }
+    
+    func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
         DataManager.save(data: vendingMachine)
-        print("willresign")
-    }
-    
-    func applicationDidEnterBackground(_ application: UIApplication) {
-        // fore to back 2
-        print("didEnterBack")
-    }
-    
-    func applicationWillEnterForeground(_ application: UIApplication) {
-        //back to fore
-        vendingMachine = DataManager.load() ?? VendingMachine()
-        print("enterfore")
-    }
-    
-    func applicationDidBecomeActive(_ application: UIApplication) {
-        //back to fore 2
-        print("didbecomeactive")
     }
 }
 

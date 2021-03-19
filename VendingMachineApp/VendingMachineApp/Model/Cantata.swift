@@ -21,7 +21,7 @@ class Cantata: Coffee {
     }
     
     required init?(coder: NSCoder) {
-        bean = coder.decodeObject(forKey: "bean") as! Beans
+        bean = Beans(rawValue: coder.decodeObject(forKey: "bean") as! String)!
         super.init(coder: coder)
     }
     
@@ -31,6 +31,6 @@ class Cantata: Coffee {
     
     override func encode(with coder: NSCoder) {
         super.encode(with: coder)
-        coder.encode(bean,forKey: "bean")
+        coder.encode(bean.rawValue,forKey: "bean")
     }
 }

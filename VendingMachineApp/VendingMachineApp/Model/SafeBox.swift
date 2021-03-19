@@ -7,7 +7,7 @@
 
 import Foundation
 
-class SafeBox :NSCoding {
+class SafeBox : NSObject, NSCoding {
     private var money : Int
     
     init(money : Int) {

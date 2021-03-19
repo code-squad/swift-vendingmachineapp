@@ -19,7 +19,7 @@ class BalanceStackView: UIStackView {
         self.distribution = .fillProportionally
     }
     
-    func collectSubelements() {
+    func collectSubelements(howMuch money : Int) {
         let balanceButton_1000 = BalanceButton.init()
         balanceButton_1000.setCriteria(with: 1000)
         balanceButton_1000.addTarget(superview?.superview?.superview, action: #selector(ViewController.doAddBalance(sender:)), for: .touchUpInside)
@@ -28,7 +28,7 @@ class BalanceStackView: UIStackView {
         balanceButton_5000.setCriteria(with: 5000)
         balanceButton_5000.addTarget(superview?.superview?.superview, action: #selector(ViewController.doAddBalance(sender:)), for: .touchUpInside)
         
-        balanceLabel.text = "0원"
+        balanceLabel.text = "\(money)원"
         NotificationCenter.default.addObserver(self, selector: #selector(didBalanceChanged(_:)), name: .balanceChanged, object: nil)
         
         self.addArrangedSubview(balanceButton_1000)

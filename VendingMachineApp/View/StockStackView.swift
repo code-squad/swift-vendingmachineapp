@@ -10,7 +10,6 @@ import UIKit
 class StockStackView: UIStackView {
     
     private var itemCountPerStand : Int = 4
-    
     public var stockCells : [OneStockView]!
     
     required init(coder: NSCoder) {
@@ -47,7 +46,8 @@ class StockStackView: UIStackView {
             let stock : OneStockView = {
                 let stockview = OneStockView(frame: CGRect(x: 0, y: 0, width: 180, height: 240))
                 stockview.beverageType = currentType
-                stockview.stockImageView.image = ImageManager.getImage(type: currentType.self)
+                let image = ImageManager.getImage(type: currentType.self)
+                stockview.setImage(with : image)
                 return stockview
             }()
             stockCells.append(stock)

@@ -51,22 +51,8 @@ class VendingMachine: NSObject, NSCoding {
         chargedCoins += coins
     }
     
-    func addStock(for drink: Drink) {
-        drinks.add(drink: drink)
-    }
-    
     func getAvailableDrinks() -> [Drink] {
         return drinks.getAvailableDrinks(with: chargedCoins)
-    }
-    
-    func purchase(drink: Drink.Type) {
-        drinks.getAllDrinks().forEach { (key, value) in
-            if key == ObjectIdentifier(drink), let instance = value.first {
-                chargedCoins -= instance.price
-                drinks.remove(drink: drink)
-                purchaseHistory.add(drink: instance)
-            }
-        }
     }
     
     func checkRemainCoins() -> Int {
@@ -91,5 +77,23 @@ class VendingMachine: NSObject, NSCoding {
     
     func post() {
         drinks.post()
+    }
+}
+
+extension VendingMachine: AdminMode {
+    func add(for drink: Drink) {
+        drinks.add(drink: drink)
+    }
+}
+
+extension VendingMachine: UserMode {
+    func purchase(for drink: Drink.Type) {
+        drinks.getAllDrinks().forEach { (key, value) in
+            if key == ObjectIdentifier(drink), let instance = value.first {
+                chargedCoins -= instance.price
+                drinks.remove(drink: drink)
+                purchaseHistory.add(drink: instance)
+            }
+        }
     }
 }

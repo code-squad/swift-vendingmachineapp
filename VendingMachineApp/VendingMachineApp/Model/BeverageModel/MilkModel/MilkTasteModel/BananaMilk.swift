@@ -29,6 +29,12 @@ class BananaMilk: Milk & FoodColoringApplicable {
         super.init(coder: coder)
     }
     
+    required init(brand: String, size: Int, price: Int, name: String, packageTime: Date) {
+        self.bananaFarm = BeverageFactory.generateRandomLocation()
+        self.foodColoring = BeverageFactory.generateFoodColoring()
+        super.init(brand: brand, size: size, price: price, name: name, packageTime: packageTime)
+    }
+    
     func isUsingFoodColoring() -> Bool {
         return foodColoring != nil
     }

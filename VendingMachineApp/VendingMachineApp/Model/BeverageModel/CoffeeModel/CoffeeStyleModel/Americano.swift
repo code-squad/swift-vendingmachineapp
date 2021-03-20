@@ -29,6 +29,12 @@ class Americano: Coffee & EnergyBoostable {
         super.init(coder: coder)
     }
     
+    required init(brand: String, size: Int, price: Int, name: String, packageTime: Date) {
+        self.caffeine = BeverageFactory.generateRandomCaffeineCapacity()
+        self.temperature = BeverageFactory.generateRandomTemperature()
+        super.init(brand: brand, size: size, price: price, name: name, packageTime: packageTime)
+    }
+    
     func highCaffeine(caffeine criterion: Int) -> Bool {
         return caffeine > criterion
     }

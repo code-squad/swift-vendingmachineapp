@@ -15,10 +15,6 @@ class Soda: Beverage {
         super.init(brand: brand, size: size, price: price, name: name, packageTime: packageTime)
     }
     
-    convenience override init(brand: String, size: Int, price: Int, name: String, packageTime: Date) {
-        self.init(brand: brand, size: size, price: price, name: name, packageTime: packageTime, calories: 0)
-    }
-    
     override func encode(with coder: NSCoder) {
         coder.encode(calories, forKey: "calories")
         super.encode(with: coder)
@@ -27,6 +23,11 @@ class Soda: Beverage {
     required init?(coder eDecoder: NSCoder) {
         calories = eDecoder.decodeInteger(forKey: "calories")
         super.init(coder: eDecoder)
+    }
+    
+    required init(brand: String, size: Int, price: Int, name: String, packageTime: Date) {
+        self.calories = BeverageFactory.generateRandomCalories()
+        super.init(brand: brand, size: size, price: price, name: name, packageTime: packageTime)
     }
     
     func isZeroCalorie() -> Bool {

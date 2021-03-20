@@ -11,6 +11,21 @@ class SeoulSterilized: Milk {
     
     private var saturatedFatContent: Int
     
+    required init() {
+        self.saturatedFatContent = 0
+        super.init()
+    }
+    
+    required init?(coder: NSCoder) {
+        self.saturatedFatContent = coder.decodeInteger(forKey: "saturatedFatContent")
+        super.init(coder: coder)
+    }
+    
+    override func encode(with coder: NSCoder) {
+        coder.encode(saturatedFatContent, forKey: "saturatedFatContent")
+        super.encode(with: coder)
+    }
+    
     init(manufacturer: String, volume: Int, price: Int, subbrand: String, calorieContent: Int, saturatedFatContent: Int, manufacturedAt: Date, expiration: Date, skuName: String) {
         self.saturatedFatContent = saturatedFatContent
         super.init(manufacturer: manufacturer, volume: volume, price: price, subbrand: subbrand, calorieContent: calorieContent, manufacturedAt: manufacturedAt, expiration: expiration, skuName: skuName)

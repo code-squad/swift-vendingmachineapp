@@ -2,30 +2,29 @@
 //  VendingMachineAppTests.swift
 //  VendingMachineAppTests
 //
-//  Created by Jun Ho JANG on 2021/03/05.
+//  Created by Jun Ho JANG on 2021/03/12.
 //
 
 import XCTest
+
 @testable import VendingMachineApp
 
 class VendingMachineTest: XCTestCase {
-    
+
     var vendingMachine: VendingMachine!
     
     override func setUp() {
         super.setUp()
         vendingMachine = VendingMachine()
     }
-    
-    
-    
+
     // 현금 투입
     func testAddCash_Success() {
         let cash = 100
         vendingMachine.addCash(cash: cash)
         let expectation = 100
         
-        XCTAssertEqual(expectation, vendingMachine.showAccount(), "Panther")
+        XCTAssertEqual(expectation, vendingMachine.showAccount())
     }
     
     
@@ -39,7 +38,7 @@ class VendingMachineTest: XCTestCase {
         let cash = 100
         let result = vendingMachine.insertCash(cash: cash)
         
-        XCTAssertEqual(result, vendingMachine.showAccount(), "Panther")
+        XCTAssertEqual(result, vendingMachine.showAccount())
     }
     
     
@@ -52,20 +51,20 @@ class VendingMachineTest: XCTestCase {
         vendingMachine.addCash(cash: secondCash)
         let expectation = 200
         
-        XCTAssertEqual(expectation, vendingMachine.showAccount(), "Panther")
+        XCTAssertEqual(expectation, vendingMachine.showAccount())
     }
     
     
     
     // 음료 추가
     func testAddBeverage_Success() {
-        let target1 = BeverageFactory.addBeverage(type: CantataLatte.self, manufacturedAt: Date(), expiration: Date())
+        let target1 = CoffeeFactory.addBeverage(type: CantataLatte.self, manufacturedAt: Date(), expiration: Date())
         if let cantataLatte = target1 {
             vendingMachine.addBeverage(beverage: cantataLatte)
         }
         let expectation = [target1]
         
-        XCTAssertEqual(expectation, vendingMachine.showInventory(), "Panther")
+        XCTAssertEqual(expectation, vendingMachine.showInventory())
     }
     
     
@@ -75,24 +74,24 @@ class VendingMachineTest: XCTestCase {
         
         vendingMachine.addCash(cash: 5000)
         
-        let target1 = BeverageFactory.addBeverage(type: CantataLatte.self, manufacturedAt: Date(), expiration: Date())
+        let target1 = CoffeeFactory.addBeverage(type: CantataLatte.self, manufacturedAt: Date(), expiration: Date())
         if let cantataLatte = target1 {
             vendingMachine.addBeverage(beverage: cantataLatte)
         }
         
-        let target2 = BeverageFactory.addBeverage(type: SeoulStrawberry.self, manufacturedAt: Date(), expiration: Date())
+        let target2 = MilkFactory.addBeverage(type: SeoulStrawberry.self, manufacturedAt: Date(), expiration: Date())
         if let seoulStrawberry = target2 {
             vendingMachine.addBeverage(beverage: seoulStrawberry)
         }
         
-        let target3 = BeverageFactory.addBeverage(type: BlueBottle.self, manufacturedAt: Date(), expiration: Date())
+        let target3 = CoffeeFactory.addBeverage(type: BlueBottle.self, manufacturedAt: Date(), expiration: Date())
         if let blueBottle = target3 {
             vendingMachine.addBeverage(beverage: blueBottle)
         }
         
         let expectation = [target1, target2]
         
-        XCTAssertEqual(expectation, vendingMachine.showPurchasable(), "Panther")
+        XCTAssertEqual(expectation, vendingMachine.showPurchasable())
     }
     
     
@@ -100,17 +99,17 @@ class VendingMachineTest: XCTestCase {
     // 재고에서 특정 음료 제거
     func testRemoveOneBeverage_Success() {
         
-        let target1 = BeverageFactory.addBeverage(type: CantataLatte.self, manufacturedAt: Date(), expiration: Date())
+        let target1 = CoffeeFactory.addBeverage(type: CantataLatte.self, manufacturedAt: Date(), expiration: Date())
         if let cantataLatte = target1 {
             vendingMachine.addBeverage(beverage: cantataLatte)
         }
         
-        let target2 = BeverageFactory.addBeverage(type: SeoulStrawberry.self, manufacturedAt: Date(), expiration: Date())
+        let target2 = MilkFactory.addBeverage(type: SeoulStrawberry.self, manufacturedAt: Date(), expiration: Date())
         if let seoulStrawberry = target2 {
             vendingMachine.addBeverage(beverage: seoulStrawberry)
         }
         
-        let target3 = BeverageFactory.addBeverage(type: BlueBottle.self, manufacturedAt: Date(), expiration: Date())
+        let target3 = CoffeeFactory.addBeverage(type: BlueBottle.self, manufacturedAt: Date(), expiration: Date())
         if let blueBottle = target3 {
             vendingMachine.addBeverage(beverage: blueBottle)
         }
@@ -119,7 +118,7 @@ class VendingMachineTest: XCTestCase {
         
         vendingMachine.remove(one: target2!)
         
-        XCTAssertEqual(expectation, vendingMachine.showInventory(), "Panther")
+        XCTAssertEqual(expectation, vendingMachine.showInventory())
     }
     
     
@@ -127,17 +126,17 @@ class VendingMachineTest: XCTestCase {
     // 재고에서 특정 음료 판매
     func testSellOneBeverage_Success() {
         
-        let target1 = BeverageFactory.addBeverage(type: CantataLatte.self, manufacturedAt: Date(), expiration: Date())
+        let target1 = CoffeeFactory.addBeverage(type: CantataLatte.self, manufacturedAt: Date(), expiration: Date())
         if let cantataLatte = target1 {
             vendingMachine.addBeverage(beverage: cantataLatte)
         }
         
-        let target2 = BeverageFactory.addBeverage(type: SeoulStrawberry.self, manufacturedAt: Date(), expiration: Date())
+        let target2 = MilkFactory.addBeverage(type: SeoulStrawberry.self, manufacturedAt: Date(), expiration: Date())
         if let seoulStrawberry = target2 {
             vendingMachine.addBeverage(beverage: seoulStrawberry)
         }
         
-        let target3 = BeverageFactory.addBeverage(type: BlueBottle.self, manufacturedAt: Date(), expiration: Date())
+        let target3 = CoffeeFactory.addBeverage(type: BlueBottle.self, manufacturedAt: Date(), expiration: Date())
         if let blueBottle = target3 {
             vendingMachine.addBeverage(beverage: blueBottle)
         }
@@ -146,23 +145,23 @@ class VendingMachineTest: XCTestCase {
         
         // 판매 후 제거 확인
         vendingMachine.sell(one: target2!)
-        XCTAssertEqual(expectation1, vendingMachine.showInventory(), "Panther")
+        XCTAssertEqual(expectation1, vendingMachine.showInventory())
         
         // 구매이력을 통한 구매 확인
         let expectation2 = [target2]
-        XCTAssertEqual(expectation2, vendingMachine.showHistory(), "Panther")
+        XCTAssertEqual(expectation2, vendingMachine.showHistory())
     }
     
     
     
     func testShowAccount_Success() {
-        XCTAssertEqual(0, vendingMachine.showAccount(), "Panther")
+        XCTAssertEqual(0, vendingMachine.showAccount())
     }
     
     
     
     func testShowInventory_Success() {
-        XCTAssertEqual([Beverage](), vendingMachine.showInventory(), "Panther")
+        XCTAssertEqual([Beverage](), vendingMachine.showInventory())
     }
     
     
@@ -170,12 +169,12 @@ class VendingMachineTest: XCTestCase {
     // 유통기한 만료 SKU만 확인
     func testShowExpired_Success() {
         
-        let target = BeverageFactory.addBeverage(type: CantataLatte.self, manufacturedAt: Date(), expiration: Date().stringToDate(date: "2020-02-20"))
+        let target = CoffeeFactory.addBeverage(type: CantataLatte.self, manufacturedAt: Date(), expiration: Date().stringToDate(date: "2020-02-20"))
         if let cantataLatte = target {
             vendingMachine.addBeverage(beverage: cantataLatte)
         }
         
-        XCTAssertEqual(false, vendingMachine.showInventory()[0].isNotExpired(), "Panther")
+        XCTAssertEqual(false, vendingMachine.showInventory()[0].isNotExpired())
     }
     
     
@@ -183,24 +182,24 @@ class VendingMachineTest: XCTestCase {
     // 뜨거운 음료만 확인
     func testFindHotBeverage_Success() {
         
-        let target1 = BeverageFactory.addBeverage(type: CantataLatte.self, manufacturedAt: Date(), expiration: Date())
+        let target1 = CoffeeFactory.addBeverage(type: CantataLatte.self, manufacturedAt: Date(), expiration: Date())
         if let cantataLatte = target1 {
             vendingMachine.addBeverage(beverage: cantataLatte)
         }
         
-        let target2 = BeverageFactory.addBeverage(type: SeoulStrawberry.self, manufacturedAt: Date(), expiration: Date())
+        let target2 = MilkFactory.addBeverage(type: SeoulStrawberry.self, manufacturedAt: Date(), expiration: Date())
         if let seoulStrawberry = target2 {
             vendingMachine.addBeverage(beverage: seoulStrawberry)
         }
         
-        let target3 = BeverageFactory.addBeverage(type: BlueBottle.self, manufacturedAt: Date(), expiration: Date())
+        let target3 = CoffeeFactory.addBeverage(type: BlueBottle.self, manufacturedAt: Date(), expiration: Date())
         if let blueBottle = target3 {
             vendingMachine.addBeverage(beverage: blueBottle)
         }
         
         let expectation = [target1]
         
-        XCTAssertEqual(expectation, vendingMachine.hotBeverage(), "Panther")
+        XCTAssertEqual(expectation, vendingMachine.hotBeverage())
     }
     
     
@@ -208,17 +207,17 @@ class VendingMachineTest: XCTestCase {
     // 제품 2개 구입
     func testSellTwoBeverage_Success() {
         
-        let target1 = BeverageFactory.addBeverage(type: CantataLatte.self, manufacturedAt: Date(), expiration: Date())
+        let target1 = CoffeeFactory.addBeverage(type: CantataLatte.self, manufacturedAt: Date(), expiration: Date())
         if let cantataLatte = target1 {
             vendingMachine.addBeverage(beverage: cantataLatte)
         }
         
-        let target2 = BeverageFactory.addBeverage(type: SeoulStrawberry.self, manufacturedAt: Date(), expiration: Date())
+        let target2 = MilkFactory.addBeverage(type: SeoulStrawberry.self, manufacturedAt: Date(), expiration: Date())
         if let seoulStrawberry = target2 {
             vendingMachine.addBeverage(beverage: seoulStrawberry)
         }
         
-        let target3 = BeverageFactory.addBeverage(type: BlueBottle.self, manufacturedAt: Date(), expiration: Date())
+        let target3 = CoffeeFactory.addBeverage(type: BlueBottle.self, manufacturedAt: Date(), expiration: Date())
         if let blueBottle = target3 {
             vendingMachine.addBeverage(beverage: blueBottle)
         }
@@ -228,11 +227,68 @@ class VendingMachineTest: XCTestCase {
         
         let expectation1 = [target2, target3]
         
-        XCTAssertEqual(expectation1, vendingMachine.showHistory(), "Panther")
+        XCTAssertEqual(expectation1, vendingMachine.showHistory())
         
         let expectation2 = [target1]
         
-        XCTAssertEqual(expectation2, vendingMachine.showInventory(), "Panther")
+        XCTAssertEqual(expectation2, vendingMachine.showInventory())
+    }
+
+    // 특정 제품 개수 확인
+    func testCountQuantity() {
+        let target1 = CoffeeFactory.addBeverage(type: CantataLatte.self, manufacturedAt: Date(), expiration: Date())
+        if let cantataLatte = target1 {
+            vendingMachine.addBeverage(beverage: cantataLatte)
+        }
+        
+        let target2 = CoffeeFactory.addBeverage(type: CantataLatte.self, manufacturedAt: Date(), expiration: Date())
+        if let cantataLatte = target2 {
+            vendingMachine.addBeverage(beverage: cantataLatte)
+        }
+        
+        let target3 = CoffeeFactory.addBeverage(type: CantataLatte.self, manufacturedAt: Date(), expiration: Date())
+        if let cantataLatte = target3 {
+            vendingMachine.addBeverage(beverage: cantataLatte)
+        }
+        
+        let expectation = 3
+        
+        XCTAssertEqual(expectation, vendingMachine.countSKUQuantity(CantataLatte.self))
+        
     }
     
+    func testCountQuant() {
+        let target1 = CoffeeFactory.addBeverage(type: CantataLatte.self, manufacturedAt: Date(), expiration: Date())
+        if let cantataLatte = target1 {
+            vendingMachine.addBeverage(beverage: cantataLatte)
+        }
+        
+        let target2 = CoffeeFactory.addBeverage(type: CantataLatte.self, manufacturedAt: Date(), expiration: Date())
+        if let cantataLatte = target2 {
+            vendingMachine.addBeverage(beverage: cantataLatte)
+        }
+        
+        let target3 = CoffeeFactory.addBeverage(type: CantataLatte.self, manufacturedAt: Date(), expiration: Date())
+        if let cantataLatte = target3 {
+            vendingMachine.addBeverage(beverage: cantataLatte)
+        }
+        
+        let expectation = 3
+        
+        XCTAssertEqual(expectation, vendingMachine.count(sku: CantataLatte.self))
+        
+    }
+    
+    func testNewFactory() {
+        
+        let target = InstanceCreator.createInstance(sku: CantataLatte.self)!
+        
+        vendingMachine.addBeverage(beverage: target)
+        
+        let expectation = [target]
+        
+        XCTAssertEqual(expectation, vendingMachine.showInventory())
+        
+    }
+
 }

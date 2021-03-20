@@ -76,23 +76,28 @@ class VendingMachine: NSObject, NSCoding {
     }
     
     func post() {
-        drinks.post()
+        let userInfo = ["stock": getAllDrinks()]
+        NotificationCenter.default.post(name: VendingMachine.NotificationName.updatedDrinkStock, object: self, userInfo: userInfo)
     }
 }
 
 extension VendingMachine: AdminMode {
     func add(for drink: Drink) {
         drinks.add(drink: drink)
+        post()
     }
 }
 
 extension VendingMachine: UserMode {
     func purchase(for drink: Drink.Type) {
         drinks.getAllDrinks().forEach { (key, value) in
-            if key == ObjectIdentifier(drink), let instance = value.first {
+            if key == ObjectIdentifier(drink), let instance = value.first, let last = getPurchaseHistory().last {
                 chargedCoins -= instance.price
                 drinks.remove(drink: drink)
                 purchaseHistory.add(drink: instance)
+                post()
+                let userInfo = ["drinkInfo": last]
+                NotificationCenter.default.post(name: VendingMachine.NotificationName.updatedPurchaseList, object: self, userInfo: userInfo)
             }
         }
     }

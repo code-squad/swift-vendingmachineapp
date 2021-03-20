@@ -17,7 +17,7 @@ class ViewController: UIViewController {
     private let drinkType = [BananaMilk.self, Cantata.self, Fanta.self]
     private var drinkViews: [DrinkStackView] = []
     private var buttonsForCharge: [UIButton: Int] = [:]
-    private var purchaseButtonsForDrink: [UIButton: Drink.Type] = [:] // TODO: 하위 타입으로
+    private var purchaseButtonsForDrink: [UIButton: Drink.Type] = [:]
     private let chargeAmount = ChargeUnit.allCases
     private var pointX: CGFloat = 0
     private lazy var scrollViewContentSizeWidth: CGFloat = 0
@@ -42,10 +42,10 @@ class ViewController: UIViewController {
             drinkViews.append(drinkStackView)
         }
         
-        NotificationCenter.default.addObserver(self, selector: #selector(updateStockLabel), name: VendingMachine.NotificationName.updatedDrinkStock, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(updateCoinLabel), name: VendingMachine.NotificationName.updatedRemainCoins, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateStockLabel), name: VendingMachine.NotificationName.updatedDrinkStock, object: vm)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateCoinLabel), name: VendingMachine.NotificationName.updatedRemainCoins, object: vm)
         NotificationCenter.default.addObserver(self, selector: #selector(updatePurchasedList), name: VendingMachine.NotificationName.updatedPurchaseList,
-                                               object: nil)
+                                               object: vm)
         
         setPurchasedDrinkListView()
         setPurchasedDrinkList()

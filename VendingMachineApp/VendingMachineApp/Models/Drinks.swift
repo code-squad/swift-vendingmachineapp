@@ -8,12 +8,7 @@
 import Foundation
 
 class Drinks: NSObject, NSCoding {
-    private var drinks: [Drink] = [] {
-        didSet {
-            post()
-        }
-    }
-    
+    private var drinks: [Drink] = []
     override var description: String {
         return "\(drinks)"
     }
@@ -66,10 +61,5 @@ class Drinks: NSObject, NSCoding {
             return $0.isHot(with: temperture)
         }
         return hotDrinks
-    }
-    
-    func post() {
-        let userInfo = ["stock": getAllDrinks()]
-        NotificationCenter.default.post(name: VendingMachine.NotificationName.updatedDrinkStock, object: self, userInfo: userInfo)
     }
 }

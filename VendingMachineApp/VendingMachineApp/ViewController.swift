@@ -61,18 +61,8 @@ class ViewController: UIViewController {
     }
         
     func getDrinkImageView(for drink: Drink, x: CGFloat) -> UIImageView {
-        let imageName: String
-        switch ObjectIdentifier(type(of: drink)) {
-        case ObjectIdentifier(BananaMilk.self):
-            imageName = "banana_milk"
-        case ObjectIdentifier(Cantata.self):
-            imageName = "cantata_coffee"
-        case ObjectIdentifier(Fanta.self):
-            imageName = "fanta"
-        default:
-            return UIImageView()
-        }
-        let image = UIImageView(image: UIImage(named: imageName))
+        let name: String = drink.imageName
+        let image = UIImageView(image: UIImage(named: name))
         image.frame = CGRect(x: x, y: 0, width: 100, height: 100)
         purchasedDrinkList.contentSize.width += 50
         pointX += 50

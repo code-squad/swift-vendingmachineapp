@@ -8,6 +8,11 @@
 import Foundation
 
 class Drink: NSObject, NSCoding {
+    var imageName: String {
+        get {
+            return ""
+        }
+    }
     private let manufacturer: String
     private let volume: Int
     private let name: String

@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     private let drinkType = [BananaMilk.self, Cantata.self, Fanta.self]
     private var drinkViews: [DrinkStackView] = []
     private var buttonsForCharge: [UIButton: Int] = [:]
+    private var purchaseButtonsForDrink: [UIButton: Drink.Type] = [:] // TODO: 하위 타입으로
     private let chargeAmount = ChargeUnit.allCases
     private var pointX: CGFloat = 0
     private lazy var scrollViewContentSizeWidth: CGFloat = 0
@@ -25,14 +26,20 @@ class ViewController: UIViewController {
         return scrollView
     }()
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let vc = segue.destination as? AdminViewController else {
+            return
+        }
+        vc.vm = vm
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
         drinkType.forEach {
-            let drinkView = DrinkStackView()
-            drinkView.configure(for: $0)
-            drinkList.addArrangedSubview(drinkView)
-            drinkViews.append(drinkView)
+            let drinkStackView = makeDrinkStackView(for: $0)
+            drinkStackView.addArrangedSubview(makePurchaseButton(for: $0))
+            drinkList.addArrangedSubview(drinkStackView)
+            drinkViews.append(drinkStackView)
         }
         
         NotificationCenter.default.addObserver(self, selector: #selector(updateStockLabel), name: VendingMachine.NotificationName.updatedDrinkStock, object: nil)
@@ -47,6 +54,21 @@ class ViewController: UIViewController {
         vm?.post()
     }
     
+    func makePurchaseButton(for drink: Drink.Type) -> UIButton {
+        let button = UIButton()
+        button.setTitle("구매", for: .normal)
+        button.setTitleColor(.red, for: .normal)
+        button.addTarget(self, action: #selector(purchase), for: .touchUpInside)
+        purchaseButtonsForDrink[button] = drink
+        return button
+    }
+    
+    func makeDrinkStackView(for drink: Drink.Type) -> DrinkStackView {
+        let drinkView = DrinkStackView()
+        drinkView.configure(for: drink)
+        return drinkView
+    }
+
     func setPurchasedDrinkListView() {
         view.addSubview(purchasedDrinkList)
         purchasedDrinkList.contentSize = CGSize(width: scrollViewContentSizeWidth, height: 100)
@@ -74,7 +96,14 @@ class ViewController: UIViewController {
             buttonsForCharge[$1] = chargeAmount[$0].rawValue
         }
     }
-        
+       
+    @objc func purchase(_ sender: UIButton) {
+        guard let drink = purchaseButtonsForDrink[sender] else {
+            return
+        }
+        VendingMachine.shared.purchase(for: drink)
+    }
+    
     @objc func updateStockLabel(notification: Notification) {
         drinkViews.forEach {
             $0.updateStockLabel(notification: notification)

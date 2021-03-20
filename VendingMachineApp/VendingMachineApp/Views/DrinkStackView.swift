@@ -23,14 +23,6 @@ class DrinkStackView: UIView {
         return stackView
     }()
     
-    private let add: UIButton = {
-        let button = UIButton()
-        button.setTitle("추가", for: .normal)
-        button.setTitleColor(.link, for: .normal)
-        button.addTarget(self, action: #selector(addStock), for: .touchUpInside)
-        return button
-    }()
-    
     private var image: UIImageView = {
         let image = UIImageView()
         image.layer.masksToBounds = true
@@ -49,20 +41,10 @@ class DrinkStackView: UIView {
         return label
     }()
     
-    private let purchaseButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("구매", for: .normal)
-        button.setTitleColor(.red, for: .normal)
-        button.addTarget(self, action: #selector(purchase), for: .touchUpInside)
-        return button
-    }()
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        drinkStackView.addArrangedSubview(add)
         drinkStackView.addArrangedSubview(image)
         drinkStackView.addArrangedSubview(stock)
-        drinkStackView.addArrangedSubview(purchaseButton)
         self.addSubview(drinkStackView)
     }
 
@@ -91,18 +73,7 @@ class DrinkStackView: UIView {
         self.stock.text = "\(stock.count)개"
     }
     
-    @objc func addStock() {
-        guard let type = drink,
-              let drink = DrinkFactory.createDrink(for: type) else {
-            return
-        }
-        VendingMachine.shared.addStock(for: drink)
-    }
-    
-    @objc func purchase() {
-        guard let drink = drink else {
-            return
-        }
-        VendingMachine.shared.purchase(drink: drink)
+    func addArrangedSubview(_ view: UIView) {
+        drinkStackView.addArrangedSubview(view)
     }
 }

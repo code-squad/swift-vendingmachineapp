@@ -13,7 +13,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var chargedCoins: UILabel!
     @IBOutlet var chargeButtons: [UIButton]!
     
-    var vm: VendingMachine?
+    var vm: UserMode?
     private let drinkType = [BananaMilk.self, Cantata.self, Fanta.self]
     private var drinkViews: [DrinkStackView] = []
     private var buttonsForCharge: [UIButton: Int] = [:]
@@ -27,7 +27,8 @@ class ViewController: UIViewController {
     }()
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let vc = segue.destination as? AdminViewController else {
+        guard let vm = vm as? VendingMachine,
+              let vc = segue.destination as? AdminViewController else {
             return
         }
         vc.vm = vm
@@ -51,7 +52,11 @@ class ViewController: UIViewController {
         setPurchasedDrinkList()
         setButtonsForCharge()
         updateCoinLabel()
-        vm?.post()
+        
+        guard let vm = vm as? VendingMachine else {
+            return
+        }
+        vm.post()
     }
     
     func makePurchaseButton(for drink: Drink.Type) -> UIButton {
@@ -76,8 +81,8 @@ class ViewController: UIViewController {
     }
     
     func setPurchasedDrinkList() {
-        guard let history = vm?.getPurchaseHistory() else { return }
-        history.forEach {
+        guard let vm = vm as? VendingMachine else { return }
+        vm.getPurchaseHistory().forEach {
             self.purchasedDrinkList.addSubview(getDrinkImageView(for: $0, x: pointX))
         }
     }
@@ -111,7 +116,7 @@ class ViewController: UIViewController {
     }
 
     @objc func updateCoinLabel() {
-        guard let vm = vm else {
+        guard let vm = vm as? VendingMachine else {
             return
         }
         chargedCoins.text = "\(vm.checkRemainCoins())원"

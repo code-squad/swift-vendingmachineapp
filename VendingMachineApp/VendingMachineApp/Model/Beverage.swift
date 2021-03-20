@@ -2,10 +2,11 @@
 //  Beverage.swift
 //  VendingMachineApp
 //
-//  Created by Jun Ho JANG on 2021/02/25.
+//  Created by Jun Ho JANG on 2021/03/12.
 //
 
 import Foundation
+<<<<<<< HEAD
 
 class Beverage: NSObject, NSCoding {
 
@@ -77,3 +78,5 @@ class Beverage: NSObject, NSCoding {
     }
 
 }
+=======
+>>>>>>> a92e49ab... 재고와 음료추가 뷰입니다.

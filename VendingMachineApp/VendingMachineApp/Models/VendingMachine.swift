@@ -16,13 +16,13 @@ class VendingMachine: NSObject, NSCoding {
     
     static var shared = VendingMachine(drinks: Drinks(), chargedCoins: 0)
     private var standardHotTempertaure = 70
-    private(set) var drinks: Drinks
+    private var drinks: Drinks
     private var chargedCoins: Int {
         didSet {
             NotificationCenter.default.post(name: VendingMachine.NotificationName.updatedRemainCoins, object: self, userInfo: nil)
         }
     }
-    private(set) var purchaseHistory: PurchaseHistory
+    private var purchaseHistory: PurchaseHistory
     override var description: String {
         return "\(drinks)"
     }
@@ -87,5 +87,9 @@ class VendingMachine: NSObject, NSCoding {
     
     func getPurchaseHistory() -> [Drink] {
         return purchaseHistory.purchasedDrinks
+    }
+    
+    func post() {
+        drinks.post()
     }
 }

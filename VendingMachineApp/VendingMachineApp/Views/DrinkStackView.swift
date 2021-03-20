@@ -17,8 +17,7 @@ class DrinkStackView: UIView {
     var drinkStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
-        stackView.alignment = .center
-        stackView.distribution = .fillEqually
+        stackView.alignment = .fill
         stackView.spacing = 10
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
@@ -35,14 +34,18 @@ class DrinkStackView: UIView {
     private var image: UIImageView = {
         let image = UIImageView()
         image.layer.masksToBounds = true
+        image.backgroundColor = .white
         image.contentMode = .scaleAspectFit
         image.layer.cornerRadius = 15
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.heightAnchor.constraint(equalToConstant: 120).isActive = true
         return image
     }()
     
     let stock: UILabel = {
         let label = UILabel()
         label.text = "0개"
+        label.textAlignment = .center
         return label
     }()
     
@@ -82,6 +85,7 @@ class DrinkStackView: UIView {
         guard let drink = drink,
               let dict = notification.userInfo?["stock"] as? [ObjectIdentifier: [Drink]],
               let stock = dict[ObjectIdentifier(drink)] else {
+            self.stock.text = "0개"
             return
         }
         self.stock.text = "\(stock.count)개"

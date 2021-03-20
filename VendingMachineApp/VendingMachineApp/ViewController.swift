@@ -9,19 +9,15 @@ import UIKit
 
 class ViewController: UIViewController {
     //MARK: IBOutlets
-    @IBOutlet var drinkImages: [UIImageView]!
-    @IBOutlet weak var remainCoinsLabel: UILabel!
-    @IBOutlet var drinkStockLabels: [UILabel]!
-    @IBOutlet var addDrinkStockButtons: [UIButton]!
+    @IBOutlet weak var drinkList: UIStackView!
+    @IBOutlet weak var chargedCoins: UILabel!
     @IBOutlet var chargeButtons: [UIButton]!
-    @IBOutlet var purchaseButtons: [UIButton]!
     
-    private let vm = VendingMachine.shared
-    private let chargeAmount = ChargeUnit.allCases
+    var vm: VendingMachine?
     private let drinkType = [BananaMilk.self, Cantata.self, Fanta.self]
-    private var buttonsForDrinkStock: [UIButton: Drink.Type] = [:]
-    private var buttonsForPurchase: [UIButton: Drink.Type] = [:]
+    private var drinkViews: [DrinkStackView] = []
     private var buttonsForCharge: [UIButton: Int] = [:]
+    private let chargeAmount = ChargeUnit.allCases
     private var pointX: CGFloat = 0
     private lazy var scrollViewContentSizeWidth: CGFloat = 0
     private var purchasedDrinkList: UIScrollView = {
@@ -32,28 +28,23 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        NotificationCenter.default.addObserver(forName: VendingMachine.NotificationName.updatedDrinkStock,
-                                               object: nil,
-                                               queue: .main) { [weak self] _ in
-            self?.updateDrinkStockLabels()
+        drinkType.forEach {
+            let drinkView = DrinkStackView()
+            drinkView.configure(for: $0)
+            drinkList.addArrangedSubview(drinkView)
+            drinkViews.append(drinkView)
         }
-        NotificationCenter.default.addObserver(forName: VendingMachine.NotificationName.updatedRemainCoins,
-                                               object: nil,
-                                               queue: .main) { [weak self] _ in
-            self?.updateRemainCoinsLabel()
-        }
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(updatePurchasedList(notification:)),
-                                               name: VendingMachine.NotificationName.updatedPurchaseList,
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(updateStockLabel), name: VendingMachine.NotificationName.updatedDrinkStock, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateCoinLabel), name: VendingMachine.NotificationName.updatedRemainCoins, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updatePurchasedList), name: VendingMachine.NotificationName.updatedPurchaseList,
                                                object: nil)
         
-        setupDrinkImage()
-        updateDrinkStockLabels()
-        updateRemainCoinsLabel()
-        setButtonsForCharge()
-        setButtonsForDrink()
         setPurchasedDrinkListView()
         setPurchasedDrinkList()
+        setButtonsForCharge()
+        updateCoinLabel()
+        vm?.post()
     }
     
     func setPurchasedDrinkListView() {
@@ -62,6 +53,13 @@ class ViewController: UIViewController {
         purchasedDrinkList.frame = CGRect(x: 40, y: 400, width: view.frame.width - 40, height: 100)
     }
     
+    func setPurchasedDrinkList() {
+        guard let history = vm?.getPurchaseHistory() else { return }
+        history.forEach {
+            self.purchasedDrinkList.addSubview(getDrinkImageView(for: $0, x: pointX))
+        }
+    }
+        
     func getDrinkImageView(for drink: Drink, x: CGFloat) -> UIImageView {
         let imageName: String
         switch ObjectIdentifier(type(of: drink)) {
@@ -81,59 +79,23 @@ class ViewController: UIViewController {
         return image
     }
     
-    func setPurchasedDrinkList() {
-        let history = vm.getPurchaseHistory()
-        history.forEach {
-            self.purchasedDrinkList.addSubview(getDrinkImageView(for: $0, x: pointX))
-        }
-    }
-    
-    func setButtonsForDrink() {
-        addDrinkStockButtons.forEach {
-            $0.addTarget(self, action: #selector(addDrinkStock), for: .touchUpInside)
-        }
-        
-        addDrinkStockButtons.enumerated().forEach {
-            buttonsForDrinkStock[$1] = drinkType[$0]
-        }
-        
-        purchaseButtons.forEach {
-            $0.addTarget(self, action: #selector(purchase), for: .touchUpInside)
-        }
-        
-        purchaseButtons.enumerated().forEach {
-            buttonsForPurchase[$1] = drinkType[$0]
-        }
-    }
-    
     func setButtonsForCharge() {
-        chargeButtons.forEach {
-            $0.addTarget(self, action: #selector(charge), for: .touchUpInside)
-        }
-        
         chargeButtons.enumerated().forEach {
             buttonsForCharge[$1] = chargeAmount[$0].rawValue
         }
     }
-    
-    func setupDrinkImage() {
-        drinkImages.forEach { image in
-            image.contentMode = .scaleAspectFit
-            image.layer.cornerRadius = 15
+        
+    @objc func updateStockLabel(notification: Notification) {
+        drinkViews.forEach {
+            $0.updateStockLabel(notification: notification)
         }
     }
-    
-    func updateDrinkStockLabels() {
-        let allDrinks = vm.getAllDrinks()
-        drinkType.enumerated().forEach { index, type in
-            let id = ObjectIdentifier(type)
-            drinkStockLabels[index].text = "\(allDrinks[id]?.count ?? 0)개"
+
+    @objc func updateCoinLabel() {
+        guard let vm = vm else {
+            return
         }
-    }
-    
-    func updateRemainCoinsLabel() {
-        let remainCoins = vm.checkRemainCoins()
-        remainCoinsLabel.text = "\(remainCoins)원"
+        chargedCoins.text = "\(vm.checkRemainCoins())원"
     }
     
     @objc func updatePurchasedList(notification: Notification) {
@@ -143,24 +105,11 @@ class ViewController: UIViewController {
         self.purchasedDrinkList.addSubview(getDrinkImageView(for: drinkInfo, x: pointX))
     }
     
-    @objc func addDrinkStock(_ sender: UIButton) {
-        guard let type = buttonsForDrinkStock[sender], let drink = DrinkFactory.createDrink(for: type) else {
-            return
-        }
-        vm.addStock(for: drink)
-    }
-    
-    @objc func charge(_ sender: UIButton) {
+    // MARK: - IBActions
+    @IBAction func charge(_ sender: UIButton) {
         guard let chargeAmount = buttonsForCharge[sender] else {
             return
         }
-        vm.charge(coins: chargeAmount)
-    }
-    
-    @objc func purchase(_ sender: UIButton) {
-        guard let drink = buttonsForPurchase[sender] else {
-            return
-        }
-        vm.purchase(drink: drink)
+        VendingMachine.shared.charge(coins: chargeAmount)
     }
 }

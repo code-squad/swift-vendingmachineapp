@@ -59,8 +59,14 @@ class Machine: NSObject, NSCoding {
         beverageStorage.increaseStock(beverage: beverage, by: amount)
     }
     
-    func checkStock() -> [Item] {
+    func stock() -> [Item] {
         return beverageStorage.stock
+    }
+    
+    func handleEnumeratedStock(handler: (Int, Item) -> ()) {
+        for (index, item) in beverageStorage.stock.enumerated() {
+            handler(index, item)
+        }
     }
     
     func checkSpecificTypeOfBeverage(beverage: Beverage) -> Int {

@@ -56,9 +56,7 @@ class ViewController: UIViewController {
     }
     
     func addBeveragesOnDisplayRows() {
-        let stock = machine.checkStock()
-        
-        for (index, item) in stock.enumerated() {
+        machine.handleEnumeratedStock { (index, item) in
             let row = displayRows.arrangedSubviews[index / 5] as! UIStackView
             let view = createBeverageView(with: item.beverage, of: item.count)
             row.addArrangedSubview(view)

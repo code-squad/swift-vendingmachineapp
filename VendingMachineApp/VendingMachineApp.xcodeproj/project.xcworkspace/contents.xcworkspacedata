@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/junhojang/Documents/CodesquadSwift/swift-vendingmachineapp/VendingMachineApp/VendingMachineApp/VendingMachine.swift">
+   </FileRef>
+   <FileRef
+      location = "group:../VendingMachineApp/ViewController.swift">
+   </FileRef>
+   <FileRef
       location = "self:">
    </FileRef>
 </Workspace>

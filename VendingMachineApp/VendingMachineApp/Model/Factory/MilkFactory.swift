@@ -22,4 +22,11 @@ class MilkFactory: addBeverage {
         }
     }
     
+    let something = type(of: CantataAmericano(manufacturedAt: Date().stringToDate(date: "2021-02-02"), expiration: Date().stringToDate(date: "2021-02-02")))
+    
+    
+    
 }
+
+
+

@@ -11,6 +11,21 @@ class CantataLatte: Coffee {
     
     private var milkContent: Int
     
+    required init() {
+        self.milkContent = 0
+        super.init()
+    }
+
+    required init?(coder: NSCoder) {
+        self.milkContent = coder.decodeInteger(forKey: "milkContent")
+        super.init(coder: coder)
+    }
+    
+    override func encode(with coder: NSCoder) {
+        coder.encode(milkContent, forKey: "milkContent")
+        super.encode(with: coder)
+    }
+    
     init(manufacturer: String, volume: Int, price: Int, subbrand: String, caffeineContent: Int, agtronNumber: Int, isHot: Bool, milkContent: Int, manufacturedAt: Date, expiration: Date, skuName: String) {
         self.milkContent = milkContent
         super.init(manufacturer: manufacturer, volume: volume, price: price, subbrand: subbrand, agtronNumber: agtronNumber, isHot: isHot, manufacturedAt: manufacturedAt, expiration: expiration, skuName: skuName)

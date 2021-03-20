@@ -23,7 +23,6 @@ class ViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(didChangePurchaseHistory), name: .didChangePurchaseHistory, object: machine)
         
         addBeveragesOnDisplayRows()
-        addEmptySlotsOnDisplayRows()
         updateBeverageDisplaySlots()
         updateMoneyOnTransactionLabel()
         addPurcahseHistoryScrollView()
@@ -61,6 +60,7 @@ class ViewController: UIViewController {
             let view = createBeverageView(with: item.beverage, of: item.count)
             row.addArrangedSubview(view)
         }
+        addEmptySlotsOnDisplayRows()
     }
     
     func addEmptySlotsOnDisplayRows() {
@@ -73,6 +73,7 @@ class ViewController: UIViewController {
         }
     }
     
+    //fIXME:- STRUCTURE REVISION NEEDED, so to views don't have beverage data. Subclassing can be an option
     func updateBeverageDisplaySlots() {
         displayRows.arrangedSubviews.forEach {
             guard let horizontalStack = $0 as? UIStackView else { return }

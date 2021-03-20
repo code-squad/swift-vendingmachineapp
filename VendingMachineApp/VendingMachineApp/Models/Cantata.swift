@@ -15,6 +15,9 @@ class Cantata: Coffee {
     }
     
     private let flavor: Flavor
+    override var imageName: String {
+        return "cantata_coffee"
+    }
     
     init(manufacturer: String, volume: Int, name: String, manufacturedAt: Date, price: Int, caffeineContent: Int, temperature: Int, calorie: Int, flavor: Flavor, expiredAt: Date) {
         self.flavor = flavor

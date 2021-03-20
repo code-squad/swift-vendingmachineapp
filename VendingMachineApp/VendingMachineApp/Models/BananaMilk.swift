@@ -9,6 +9,9 @@ import Foundation
 
 class BananaMilk: Milk  {
     private let farmCode: String
+    override var imageName: String {
+        return "banana_milk"
+    }
     
     init(manufacturer: String, volume: Int, name: String, manufacturedAt: Date, price: Int, temperature: Int, calorie: Int, fatContent: Int, farmCode: String, expiredAt: Date) {
         self.farmCode = farmCode

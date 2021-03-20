@@ -14,6 +14,9 @@ class Fanta: Soda {
     }
     
     private let packageMaterial: PackageMaterial
+    override var imageName: String {
+        return "fanta"
+    }
     
     init(manufacturer: String, volume: Int, name: String, manufacturedAt: Date, price: Int, calorie: Int, packageMaterial: PackageMaterial, temperature: Int, sugarContent: Int, expiredAt: Date) {
         self.packageMaterial = packageMaterial

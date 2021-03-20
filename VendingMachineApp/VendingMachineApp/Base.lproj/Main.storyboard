@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="1Wa-hW-was">
-                                <rect key="frame" x="0.0" y="100" width="800" height="668"/>
+                                <rect key="frame" x="40" y="100" width="800" height="668"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="800" id="07L-TU-Jhb"/>
                                 </constraints>
@@ -31,7 +31,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="yrm-46-DaX">
-                                <rect key="frame" x="860" y="200" width="50" height="126"/>
+                                <rect key="frame" x="900" y="200" width="50" height="126"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qDR-0f-AXT">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="30"/>
@@ -60,7 +60,7 @@
                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="1Wa-hW-was" secondAttribute="bottom" id="85T-ww-4Qq"/>
-                            <constraint firstItem="1Wa-hW-was" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Ev1-o1-aWT"/>
+                            <constraint firstItem="1Wa-hW-was" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="Ev1-o1-aWT"/>
                             <constraint firstItem="yrm-46-DaX" firstAttribute="leading" secondItem="1Wa-hW-was" secondAttribute="trailing" constant="60" id="IHw-BO-fD9"/>
                             <constraint firstItem="1Wa-hW-was" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="ffR-RN-fEW"/>
                             <constraint firstItem="yrm-46-DaX" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="200" id="tZI-WV-6us"/>

@@ -13,7 +13,7 @@ class AdminViewController: UIViewController {
     
     var vm: AdminMode?
     private let drinkType = [BananaMilk.self, Cantata.self, Fanta.self]
-    private var addButtonsForDrink: [UIButton: Drink.Type] = [:] // TODO: 하위 타입으로
+    private var addButtonsForDrink: [UIButton: Drink.Type] = [:]
     private var drinkViews: [DrinkStackView] = []
     
     override func viewDidLoad() {

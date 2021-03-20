@@ -17,7 +17,7 @@ class ViewController: UIViewController {
     @IBAction func insertCashOne(_ sender: Any) {
         vendingMachine.addCash(cash: 1000)
         updateTotalCash()
- 
+
     private var skuStackView: SKUStackView!
     private var vendingMachine: VendingMachine!
     private var purchasedHistoryView: PurchasedHistoryView!

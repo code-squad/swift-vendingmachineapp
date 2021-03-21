@@ -1,19 +1,11 @@
 
 import Foundation
 
-class BeveragePurchasedHistory : NSObject, NSCoding {
+class BeveragePurchasedHistory  {
     private var beveragePurchasedHistory: [String]
     
-    override init() {
+    init() {
         self.beveragePurchasedHistory = []
-    }
-    
-    required init?(coder: NSCoder) {
-        self.beveragePurchasedHistory = coder.decodeObject(forKey: "beveragePurchasedHistory") as! [String]
-    }
-    
-    func encode(with coder: NSCoder) {
-        coder.encode(self.beveragePurchasedHistory, forKey: "beveragePurchasedHistory")
     }
     
     func addHistory(name: String) {

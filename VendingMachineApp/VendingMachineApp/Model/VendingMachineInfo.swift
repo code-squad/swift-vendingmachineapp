@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol makingViewProtocol {
+protocol MakingViewProtocol {
     func showAllBeverageList() -> [ObjectIdentifier: [Beverage]]
 }
 
@@ -15,9 +15,9 @@ class VendingMachineInfo {
     private(set) var matchModelAndViewHelper: [ObjectIdentifier: BeverageView] = [:]
     private(set) var beverageTypeButtons: [UIButton: Beverage.Type] = [:]
 
-    private var objectforMakingView: makingViewProtocol
+    private var objectforMakingView: MakingViewProtocol
     
-    init(with objectforMakingView: makingViewProtocol) {
+    init(with objectforMakingView: MakingViewProtocol) {
         self.objectforMakingView = objectforMakingView
         self.renewVendingMachineInfo()
     }

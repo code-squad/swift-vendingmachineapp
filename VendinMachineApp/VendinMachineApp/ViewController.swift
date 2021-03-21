@@ -11,6 +11,8 @@ class ViewController: UIViewController {
     @IBOutlet var cashButtons: [UIButton]!
     @IBOutlet weak var cashLabel: UILabel!
 
+    @IBOutlet var buyButtons: [UIButton]!
+    
     var scrollView = UIScrollView()
     var appDelegate = UIApplication.shared.delegate as! AppDelegate
     var vendingMachineElements = VendingMachineElements()
@@ -18,12 +20,13 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
-        vendingMachineElements.setUpAll(images: beverageImages, beverageButtons: beverageAddButtons, cashButtons: cashButtons)
+        setUpScrollView()
+
+        vendingMachineElements.setUpAll(images: beverageImages, beverageButtons: beverageAddButtons, cashButtons: cashButtons, buyButtons: buyButtons)
  
         NotificationCenter.default.addObserver(self, selector: #selector(updateCurrentCash(notification:)), name: VendingMachine.insertCash, object: appDelegate.vendingMachine)
         NotificationCenter.default.addObserver(self, selector: #selector(updateBeverageStock(notification:)), name: VendingMachine.addBeverageStock, object: appDelegate.vendingMachine)
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(updateShoppingHistory(notification:)), name: BeveragePurchasedHistory.buyBeverage, object: appDelegate.vendingMachine.shoppingHistoryData)
         
         NotificationCenter.default.post(name: VendingMachine.insertCash, object: appDelegate.vendingMachine, userInfo: [VendingMachine.NotificationUserInfo.cashBox :appDelegate.vendingMachine.cashBox])
         NotificationCenter.default.post(name: VendingMachine.addBeverageStock, object: appDelegate.vendingMachine, userInfo: [VendingMachine.NotificationUserInfo.beverageStock :appDelegate.vendingMachine.totalBeverageStockList()])
@@ -35,7 +38,6 @@ class ViewController: UIViewController {
         }
         let beverage = BeverageFactory.make(beverage: beverageType)
         appDelegate.vendingMachine.addBeverageStock(beverage)
-        vendingMachineElements.updateBeverageStock(labels: beverageStockLabels, beverageStock: appDelegate.vendingMachine.totalBeverageStockList())
     }
     
     @IBAction func insertCash(_ sender: UIButton) {
@@ -45,6 +47,13 @@ class ViewController: UIViewController {
         appDelegate.vendingMachine.insertCash(amount: cash)
     }
 
+    @IBAction func buyBeverage(_ sender: UIButton) {
+        guard let beverageType = vendingMachineElements.pressedBuyBeverage(button: sender) else {
+            return
+        }
+        appDelegate.vendingMachine.buy(beverageType: beverageType)
+    }
+    
     @objc func updateCurrentCash(notification: Notification) {
         if let cash = notification.userInfo?[VendingMachine.NotificationUserInfo.cashBox] as? Int {
             cashLabel.text = "\(cash)"
@@ -59,8 +68,16 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction func bananaAdd(_ sender: Any) {
-        appDelegate.vendingMachine.buy(beverageType: BananaMilk.self)
+    @objc func updateShoppingHistory(notification: Notification) {
+        if let name = notification.userInfo?[BeveragePurchasedHistory.NotificationUserInfo.name] as? String, let count = notification.userInfo?[BeveragePurchasedHistory.NotificationUserInfo.beverageCount] as? Int {
+            let image = UIImage(named: name)
+            let imageView = UIImageView(image: image)
+            let xPosition = 70
+            
+            imageView.frame = CGRect(x: Int(self.scrollView.bounds.minX) + count * xPosition, y: 0, width: 140, height: 100)
+            scrollView.addSubview(imageView)
+            scrollView.contentSize.width = imageView.bounds.width + CGFloat(xPosition * count)
+        }
     }
     
     func setUpScrollView() {

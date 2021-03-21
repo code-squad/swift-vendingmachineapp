@@ -40,3 +40,12 @@
 - viewDidLoad에서 Observer 등록
 - vendingMachine 객체에서 모델 변화에 대한 Notification Post
 - 삭제했던 Beverage의 hash 재생성
+
+# Step 6
+
+<p align="center">
+<img width="800" alt="step6" src="https://user-images.githubusercontent.com/45817559/111897835-873a3180-8a65-11eb-9c66-e36ceaba23ae.gif">
+</p>
+
+- 구매 버튼 추가
+- 구매 상품 이미지 좌우로 스크롤 가능하도록 생성

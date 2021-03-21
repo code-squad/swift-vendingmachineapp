@@ -10,7 +10,7 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet weak var inventoryStackView: UIStackView!
-    @IBOutlet weak var purchasedBeverageScrollView: UIScrollView!
+    @IBOutlet weak var purchasedBeverageScrollView: PurchasedItemListScrollView!
     @IBOutlet weak var moneyLabel: UILabel!
     
     var vendingMachine: VendingMachine!
@@ -20,17 +20,37 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpInventoryStackView()
-
+        setUpPurchasedBeverageScrollView()
+        
         NotificationCenter.default.addObserver(self, selector: #selector(updateBeverageStockLabel), name: NSNotification.Name("addedBeverage"), object: vendingMachine)
         NotificationCenter.default.addObserver(self, selector: #selector(updateMoneyLabel), name: NSNotification.Name("addMoney"), object: vendingMachine)
         NotificationCenter.default.addObserver(self, selector: #selector(updateBeverageStockLabel), name: NSNotification.Name("buyBeverage"), object: vendingMachine)
         NotificationCenter.default.addObserver(self, selector: #selector(updateMoneyLabel), name: NSNotification.Name("buyBeverage"), object: vendingMachine)
+        NotificationCenter.default.addObserver(self, selector: #selector(addPurchasedBeverageView), name: NSNotification.Name("buyBeverage"), object: vendingMachine)
     }
     
     private func setUpInventoryStackView() {
         vendingMachineInfo.repeatForBeverageView { beverageView in
             inventoryStackView.addArrangedSubview(beverageView)
         }
+    }
+    
+    private func setUpPurchasedBeverageScrollView() {
+        vendingMachine.beverageListForPurchase().forEach { beverage in
+            let beverageImage = vendingMachineInfo.matchModelAndViewHelper[ObjectIdentifier(type(of: beverage))]?.imageView.image
+            purchasedBeverageScrollView.addImageView(image: beverageImage ?? UIImage())
+        }
+    }
+    
+    @objc
+    private func addPurchasedBeverageView(notification: Notification) {
+        guard let imageName = notification.userInfo as? [String : String],
+              let imageSource = imageName["imageName"],
+              let image = UIImage(named: imageSource) else {
+            return
+        }
+        
+        purchasedBeverageScrollView.addImageView(image: image)
     }
     
     @objc
@@ -73,7 +93,6 @@ class ViewController: UIViewController {
             beverageView.stockLabel.text = "\(vendingMachine.showAllBeverageList()[objectIdentifier]?.count ?? 0)"
         }
     }
-    
     
     @IBAction func addMoney5000(_ sender: Any) {
         vendingMachine.put(in: .fiveThousand)

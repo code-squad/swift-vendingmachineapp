@@ -50,7 +50,7 @@
                                 <rect key="frame" x="91" y="148" width="641" height="244"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </stackView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5ZE-yd-1d9">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5ZE-yd-1d9" customClass="PurchasedItemListScrollView" customModule="VendingMachineApp" customModuleProvider="target">
                                 <rect key="frame" x="91" y="496" width="641" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <viewLayoutGuide key="contentLayoutGuide" id="Lhp-L9-tP6"/>
@@ -63,7 +63,7 @@
                     <connections>
                         <outlet property="inventoryStackView" destination="GyI-fo-vUe" id="2SF-5x-DJI"/>
                         <outlet property="moneyLabel" destination="Qo9-cC-8x5" id="k1Q-LZ-NGR"/>
-                        <outlet property="purchasedBeverageScrollView" destination="5ZE-yd-1d9" id="FRO-qS-aef"/>
+                        <outlet property="purchasedBeverageScrollView" destination="5ZE-yd-1d9" id="ydg-VX-VSi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

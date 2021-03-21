@@ -27,17 +27,15 @@ class BeverageView: UIView {
     
     convenience init(beverageImage: UIImage, stockLabelText: String) {
         self.init()
+        configureView()
         imageView.image = beverageImage
         stockLabel.text = stockLabelText
+       
     }
     
     private func configureView() {
         self.loadViewFromNib(nibName: nibName)
         imageView.layer.cornerRadius = 25.0
         imageView.layer.masksToBounds = true
-    }
-    
-    @IBAction func didTapAddBeverageButton(_ sender: UIButton) {
-        NotificationCenter.default.post(name: NSNotification.Name("didTapBeverageButton"), object: sender, userInfo: nil)
     }
 }

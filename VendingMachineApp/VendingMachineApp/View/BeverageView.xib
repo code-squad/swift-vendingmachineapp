@@ -31,7 +31,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="287" height="30"/>
                     <state key="normal" title="추가"/>
                     <connections>
-                        <action selector="didTapAddBeverageButton:" destination="-1" eventType="touchUpInside" id="H5n-ps-dAr"/>
+                        <action selector="addBeverage:" destination="-2" eventType="touchUpInside" id="As6-5R-i3m"/>
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ad-UX-0V5">

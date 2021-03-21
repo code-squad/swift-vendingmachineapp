@@ -21,7 +21,6 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         setUpInventoryStackView()
 
-        NotificationCenter.default.addObserver(self, selector: #selector(addBeverage), name: NSNotification.Name("didTapBeverageButton"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(updateBeverageStockLabel), name: NSNotification.Name("addedBeverage"), object: vendingMachine)
         NotificationCenter.default.addObserver(self, selector: #selector(updateMoneyLabel), name: NSNotification.Name("addMoney"), object: vendingMachine)
     }
@@ -39,11 +38,11 @@ class ViewController: UIViewController {
         moneyLabel.text = "잔액: \(vendingMachine.showCurrentMoney()) 원"
     }
     
-    @objc
-    private func addBeverage(notification: Notification) {
+    //BeverageView - addButton의 First Responder로 설정
+    @IBAction
+    func addBeverage(_ sender: UIButton) {
         
-        guard let button = notification.object as? UIButton,
-              let beverageType = vendingMachineInfo.beverageTypeButtons[button] else {
+        guard let beverageType = vendingMachineInfo.beverageTypeButtons[sender] else {
             return
         }
 

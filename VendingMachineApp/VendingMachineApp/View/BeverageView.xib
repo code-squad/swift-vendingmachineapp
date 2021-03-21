@@ -51,6 +51,9 @@
                     <state key="normal" title="구매">
                         <color key="titleColor" systemColor="systemPinkColor"/>
                     </state>
+                    <connections>
+                        <action selector="buyBeverage:" destination="-2" eventType="touchUpInside" id="rvp-zO-TrY"/>
+                    </connections>
                 </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>

@@ -13,8 +13,9 @@ protocol MakingViewProtocol {
 
 class VendingMachineInfo {
     private(set) var matchModelAndViewHelper: [ObjectIdentifier: BeverageView] = [:]
-    private(set) var beverageTypeButtons: [UIButton: Beverage.Type] = [:]
-
+    private(set) var beverageTypeAddButtons: [UIButton: Beverage.Type] = [:]
+    private(set) var beverageTypeBuyButtons: [UIButton: Beverage.Type] = [:]
+    
     private var objectforMakingView: MakingViewProtocol
     
     init(with objectforMakingView: MakingViewProtocol) {
@@ -33,7 +34,8 @@ class VendingMachineInfo {
                 let beverageView =  BeverageView(beverageImage: image, stockLabelText: text )
                 
                 matchModelAndViewHelper[key] = beverageView
-                beverageTypeButtons[beverageView.addButton] = type(of: beverage)
+                beverageTypeAddButtons[beverageView.addButton] = type(of: beverage)
+                beverageTypeBuyButtons[beverageView.buyButton] = type(of: beverage)
             }
         }
     }

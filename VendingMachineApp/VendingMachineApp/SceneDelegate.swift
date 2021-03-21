@@ -7,15 +7,23 @@
 
 import UIKit
 
+protocol RootViewControllerProtocol {
+    var vendingMachine: VendingMachine! { get }
+}
+
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-
+    var vendingMachine: VendingMachine!
+    
     var appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+        guard let initialViewController = window?.rootViewController as? ViewController else { return }
+       
+        self.vendingMachine = ArchivingManager.loadData(forKey: "vendingMachine")
         
-        guard let _ = (scene as? UIWindowScene) else { return }
+        initialViewController.vendingMachine = vendingMachine
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -27,12 +35,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func sceneWillResignActive(_ scene: UIScene) {
-        ArchivingManager.save(data: appDelegate.vendingMachine, forkey: "vendingMachine")
+        ArchivingManager.save(data: vendingMachine, forkey: "vendingMachine")
     }
 
     func sceneWillEnterForeground(_ scene: UIScene) {
         // 앱 켰을 때 초기 잔액 LabelText 변경
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "addMoney"), object: appDelegate.vendingMachine, userInfo: nil)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "addMoney"), object: vendingMachine, userInfo: nil)
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {

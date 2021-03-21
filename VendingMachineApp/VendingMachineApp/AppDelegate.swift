@@ -9,12 +9,8 @@ import UIKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-    var vendingMachine: VendingMachine!
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
-        self.vendingMachine = ArchivingManager.loadData(forKey: "vendingMachine")
         
         return true
     }

@@ -13,9 +13,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var purchasedBeverageScrollView: UIScrollView!
     @IBOutlet weak var moneyLabel: UILabel!
     
-    var delegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
+    var vendingMachine: VendingMachine!
     
-    private lazy var vendingMachineInfo = VendingMachineInfo(with: delegate.vendingMachine)
+    private lazy var vendingMachineInfo = VendingMachineInfo(with: vendingMachine)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,7 +49,7 @@ class ViewController: UIViewController {
         guard let beverageType = vendingMachineInfo.beverageTypeButtons[button] else {
             return
         }
-        delegate.vendingMachine.appendInventory(beverageType.init())
+        vendingMachine.appendInventory(beverageType.init())
     }
     
     @objc
@@ -64,10 +64,10 @@ class ViewController: UIViewController {
     }
     
     @IBAction func addMoney5000(_ sender: Any) {
-        delegate.vendingMachine.put(in: .fiveThousand)
+        vendingMachine.put(in: .fiveThousand)
     }
     
     @IBAction func addMoney1000(_ sender: Any) {
-        delegate.vendingMachine.put(in: .thousand)
+        vendingMachine.put(in: .thousand)
     }
 }

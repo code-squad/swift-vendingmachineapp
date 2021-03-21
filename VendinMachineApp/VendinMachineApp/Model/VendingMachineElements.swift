@@ -5,11 +5,13 @@ import UIKit
 class VendingMachineElements {
     private var addBeverageButtons: [UIButton:Beverage.Type]
     private var insertCashButtons: [UIButton:Int]
+    private var buyBeverageButtons: [UIButton:Beverage.Type]
     private(set) var beverageList: [Beverage.Type]
     
     init() {
         self.addBeverageButtons = [:]
         self.insertCashButtons = [:]
+        self.buyBeverageButtons = [:]
         self.beverageList = [BananaMilk.self, ChocoMilk.self, Coke.self, Cider.self, Americano.self, Latte.self]
     }
     
@@ -19,6 +21,10 @@ class VendingMachineElements {
     
     func pressedAddBeverage(button: UIButton) -> Beverage.Type? {
         return self.addBeverageButtons[button]
+    }
+    
+    func pressedBuyBeverage(button: UIButton) -> Beverage.Type? {
+        return self.buyBeverageButtons[button]
     }
     
     func setUpBeverageImages(collection: [UIImageView]) {
@@ -42,19 +48,16 @@ class VendingMachineElements {
         }
     }
     
-    func updateCurrentCash(label: UILabel, cashBox: Int) {
-        label.text = "\(cashBox)"
-    }
-    
-    func updateBeverageStock(labels: [UILabel], beverageStock: Beverages) {
-        for (beverageLabel, beverageType) in zip(labels, beverageList) {
-            beverageLabel.text = "\(beverageStock.beverageCount(elementType: beverageType))"
+    func setUpBuyBeverageButtons(collection: [UIButton]) {
+        for (button, beverageType) in zip(collection, beverageList) {
+            buyBeverageButtons.updateValue(beverageType, forKey: button)
         }
     }
     
-    func setUpAll(images: [UIImageView], beverageButtons: [UIButton], cashButtons: [UIButton]) {
+    func setUpAll(images: [UIImageView], beverageButtons: [UIButton], cashButtons: [UIButton], buyButtons: [UIButton]) {
         self.setUpBeverageImages(collection: images)
         self.setUpInsertCashButtons(collection: cashButtons)
         self.setUpAddBeverageButtons(collection: beverageButtons)
+        self.setUpBuyBeverageButtons(collection: buyButtons)
     }
 }

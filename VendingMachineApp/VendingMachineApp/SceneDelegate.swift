@@ -7,10 +7,6 @@
 
 import UIKit
 
-protocol RootViewControllerProtocol {
-    var vendingMachine: VendingMachine! { get }
-}
-
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?

@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var purchasedBeverageScrollView: PurchasedItemListScrollView!
     @IBOutlet weak var moneyLabel: UILabel!
     
+    //TODO:- VendingMachine타입이 아니라 프로토콜로 수정
     var vendingMachine: VendingMachine!
     
     private lazy var vendingMachineInfo = VendingMachineInfo(with: vendingMachine)
@@ -22,6 +23,7 @@ class ViewController: UIViewController {
         setUpInventoryStackView()
         setUpPurchasedBeverageScrollView()
         
+        //TODO:- name을 VendingMachine Class에 enum타입으로 추가
         NotificationCenter.default.addObserver(self, selector: #selector(updateBeverageStockLabel), name: NSNotification.Name("addedBeverage"), object: vendingMachine)
         NotificationCenter.default.addObserver(self, selector: #selector(updateMoneyLabel), name: NSNotification.Name("addMoney"), object: vendingMachine)
         NotificationCenter.default.addObserver(self, selector: #selector(updateBeverageStockLabel), name: NSNotification.Name("buyBeverage"), object: vendingMachine)
@@ -36,7 +38,7 @@ class ViewController: UIViewController {
     }
     
     private func setUpPurchasedBeverageScrollView() {
-        vendingMachine.beverageListForPurchase().forEach { beverage in
+        vendingMachine.showPurchaseHistory().forEach { beverage in
             let beverageImage = vendingMachineInfo.matchModelAndViewHelper[ObjectIdentifier(type(of: beverage))]?.imageView.image
             purchasedBeverageScrollView.addImageView(image: beverageImage ?? UIImage())
         }
@@ -94,6 +96,7 @@ class ViewController: UIViewController {
         }
     }
     
+    //TODO:- sender를 이용하여 잔액 추가하도록 수정
     @IBAction func addMoney5000(_ sender: Any) {
         vendingMachine.put(in: .fiveThousand)
     }

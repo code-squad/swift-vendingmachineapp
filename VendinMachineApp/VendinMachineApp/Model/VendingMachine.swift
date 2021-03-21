@@ -20,8 +20,7 @@ class VendingMachine : NSObject, NSCoding {
     required init?(coder: NSCoder) {
         self.cashBox = coder.decodeInteger(forKey: "cashBox")
         self.beverages = Beverages()
-        self.shoppingHistoryData = coder.decodeObject(forKey: "shoppingHistoryList") as! BeveragePurchasedHistory
-        
+        self.shoppingHistoryData = BeveragePurchasedHistory()
         let beverageStockList:[[Beverage]] = coder.decodeObject(forKey: "beverageStockList") as! [[Beverage]]
 
         for (type, beverageList) in zip(VendingMachineElements().beverageList, beverageStockList) {
@@ -38,7 +37,6 @@ class VendingMachine : NSObject, NSCoding {
 
         coder.encode(self.cashBox, forKey: "cashBox")
         coder.encode(beverageStockList, forKey: "beverageStockList")
-        coder.encode(self.shoppingHistoryData, forKey: "shoppingHistoryList")
     }
     
     func shoppingHistory() -> BeveragePurchasedHistory {

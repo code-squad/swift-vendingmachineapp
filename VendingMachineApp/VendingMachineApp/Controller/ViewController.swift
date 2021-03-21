@@ -23,6 +23,8 @@ class ViewController: UIViewController {
 
         NotificationCenter.default.addObserver(self, selector: #selector(updateBeverageStockLabel), name: NSNotification.Name("addedBeverage"), object: vendingMachine)
         NotificationCenter.default.addObserver(self, selector: #selector(updateMoneyLabel), name: NSNotification.Name("addMoney"), object: vendingMachine)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateBeverageStockLabel), name: NSNotification.Name("buyBeverage"), object: vendingMachine)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateMoneyLabel), name: NSNotification.Name("buyBeverage"), object: vendingMachine)
     }
     
     private func setUpInventoryStackView() {
@@ -42,23 +44,36 @@ class ViewController: UIViewController {
     @IBAction
     func addBeverage(_ sender: UIButton) {
         
-        guard let beverageType = vendingMachineInfo.beverageTypeButtons[sender] else {
+        guard let beverageType = vendingMachineInfo.beverageTypeAddButtons[sender] else {
             return
         }
 
         vendingMachine.appendInventory(beverageType.init())
     }
     
+    //BeverageView - buyButton의 First Responder로 설정
+    @IBAction
+    func buyBeverage(_ sender: UIButton) {
+        
+        guard let beverageType = vendingMachineInfo.beverageTypeBuyButtons[sender] else {
+            return
+        }
+
+        vendingMachine.buy(beverageType)
+    }
+    
     @objc
     private func updateBeverageStockLabel(notification: Notification) {
 
-        guard let beverageType = notification.userInfo as? [ObjectIdentifier:[Beverage]] else {
-            return
-        }
-        beverageType.keys.forEach { objectIdentifier in
-            vendingMachineInfo.matchModelAndViewHelper[objectIdentifier]?.stockLabel.text = "\(beverageType[objectIdentifier]?.count ?? 0)"
+        let vendingMachine = notification.object as! VendingMachine
+       
+        vendingMachineInfo.matchModelAndViewHelper.forEach { (arg0) in
+            
+            let (objectIdentifier, beverageView) = arg0
+            beverageView.stockLabel.text = "\(vendingMachine.showAllBeverageList()[objectIdentifier]?.count ?? 0)"
         }
     }
+    
     
     @IBAction func addMoney5000(_ sender: Any) {
         vendingMachine.put(in: .fiveThousand)

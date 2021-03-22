@@ -9,6 +9,11 @@ import UIKit
 
 protocol MakingViewProtocol {
     func showAllBeverageList() -> [ObjectIdentifier: [Beverage]]
+    func showPurchaseHistory() -> [Beverage]
+    func put(in: Money)
+    func buy(_: Beverage.Type)
+    func appendInventory(_: Beverage)
+    func showCurrentMoney() -> Int
 }
 
 class VendingMachineInfo {

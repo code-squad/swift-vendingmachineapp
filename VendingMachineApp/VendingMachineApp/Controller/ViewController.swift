@@ -13,15 +13,14 @@ class ViewController: UIViewController {
     @IBOutlet weak var purchasedBeverageScrollView: PurchasedItemListScrollView!
     @IBOutlet weak var moneyLabel: UILabel!
     
-    //TODO:- VendingMachine타입이 아니라 프로토콜로 수정
-    var vendingMachine: VendingMachine!
+    var vendingMachine: MakingViewProtocol!
     
     private lazy var vendingMachineInfo = VendingMachineInfo(with: vendingMachine)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpInventoryStackView()
-        setUpBeverageStockLabel()
+        setUpMoneyLabel()
         setUpPurchasedBeverageScrollView()
         
         NotificationCenter.default.addObserver(self, selector: #selector(updateBeverageStockLabel), name: VendingMachine.addedBeverage, object: vendingMachine)
@@ -35,12 +34,8 @@ class ViewController: UIViewController {
         }
     }
     
-    private func setUpBeverageStockLabel() {
-        vendingMachineInfo.matchModelAndViewHelper.forEach { (arg0) in
-            
-            let (objectIdentifier, beverageView) = arg0
-            beverageView.stockLabel.text = "\(vendingMachine.showAllBeverageList()[objectIdentifier]?.count ?? 0)"
-        }
+    private func setUpMoneyLabel() {
+        moneyLabel.text = "잔액: \(vendingMachine.showCurrentMoney()) 원"
     }
     
     private func setUpPurchasedBeverageScrollView() {

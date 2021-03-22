@@ -8,7 +8,7 @@
 import Foundation
 
 class StrawBerryMilk: Milk & FoodColoringApplicable {
-    public let strawBerryFarm: LocationTrackable
+    private let strawBerryFarm: LocationTrackable
     var foodColoring: FoodColoring?
     
     init(brand: String, size: Int, price: Int, name: String, packageTime: Date, milkFarm: LocationTrackable, strawBerryFarm: LocationTrackable, foodColoring: FoodColoring?) {
@@ -27,6 +27,12 @@ class StrawBerryMilk: Milk & FoodColoringApplicable {
         strawBerryFarm = coder.decodeObject(forKey: "strawBerryFarm") as! LocationTrackable
         foodColoring = coder.decodeObject(forKey: "foodColoring") as! FoodColoring?
         super.init(coder: coder)
+    }
+    
+    required init(brand: String, size: Int, price: Int, name: String, packageTime: Date) {
+        self.strawBerryFarm = BeverageFactory.generateRandomLocation()
+        self.foodColoring = BeverageFactory.generateFoodColoring()
+        super.init(brand: brand, size: size, price: price, name: name, packageTime: packageTime)
     }
     
     func isUsingFoodColoring() -> Bool {

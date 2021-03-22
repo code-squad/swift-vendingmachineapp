@@ -14,11 +14,7 @@ class Coffee: Beverage {
         self.bean = bean
         super.init(brand: brand, size: size, price: price, name: name, packageTime: packageTime)
     }
-    
-    convenience override init(brand: String, size: Int, price: Int, name: String, packageTime: Date) {
-        self.init(brand: brand, size: size, price: price, name: name, packageTime: packageTime, bean: "robusta")
-    }
-    
+
     override func encode(with coder: NSCoder) {
         coder.encode(bean, forKey: "bean")
         super.encode(with: coder)
@@ -27,5 +23,10 @@ class Coffee: Beverage {
     required init?(coder eDecoder: NSCoder) {
         bean = eDecoder.decodeObject(forKey: "bean") as! String
         super.init(coder: eDecoder)
+    }
+    
+    required init(brand: String, size: Int, price: Int, name: String, packageTime: Date) {
+        self.bean = "robusta"
+        super.init(brand: brand, size: size, price: price, name: name, packageTime: packageTime)
     }
 }

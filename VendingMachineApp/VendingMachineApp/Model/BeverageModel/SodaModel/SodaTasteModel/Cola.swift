@@ -28,4 +28,9 @@ class Cola: Soda {
         bottle = eDecoder.decodeObject(forKey: "bottle") as! String
         super.init(coder: eDecoder)
     }
+    
+    required init(brand: String, size: Int, price: Int, name: String, packageTime: Date) {
+        self.bottle = "aluminium"
+        super.init(brand: brand, size: size, price: price, name: name, packageTime: packageTime)
+    }
 }

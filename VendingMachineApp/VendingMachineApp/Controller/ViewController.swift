@@ -8,28 +8,39 @@
 import UIKit
 
 class ViewController: UIViewController {
-    var machine = (UIApplication.shared.delegate as! AppDelegate).machine ?? Machine()
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    var machine: Machine!
+    var purchaseHistoryView: PurchaseHistoryView?
     
     @IBOutlet weak var moneyOnTransactionLabel: UILabel!
     @IBOutlet weak var displayRows: UIStackView!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(self, selector: #selector(didChangeMoneyOnTransaction), name: .didIncreaseMoneyOnTransaction, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(didIncreaseStock), name: .didIncreaseStock, object: nil)
+        machine = appDelegate.machine ?? Machine()
+        NotificationCenter.default.addObserver(self, selector: #selector(didChangeMoneyOnTransaction), name: .didIncreaseMoneyOnTransaction, object: machine.moneyProcessor)
+        NotificationCenter.default.addObserver(self, selector: #selector(didIncreaseStock), name: .didIncreaseStock, object: machine.beverageStorage)
+        NotificationCenter.default.addObserver(self, selector: #selector(didChangePurchaseHistory), name: .didChangePurchaseHistory, object: machine)
         
         addBeveragesOnDisplayRows()
-        addEmptySlotsOnDisplayRows()
         updateBeverageDisplaySlots()
         updateMoneyOnTransactionLabel()
+        addPurcahseHistoryScrollView()
     }
     
     @IBAction func thousandWonPlusButtonPressed(_ sender: UIButton) {
-        machine.receiveMoney(amount: 1_000)
+        machine.receiveMoney(amount: .thousandWon)
     }
     
     @IBAction func fiveThousandWonPlusButtonPressed(_ sender: UIButton) {
-        machine.receiveMoney(amount: 5_000)
+        machine.receiveMoney(amount: .fiveThousandWon)
+    }
+    
+    func addPurcahseHistoryScrollView() {
+        let imageHeight: CGFloat = 100
+        purchaseHistoryView = PurchaseHistoryView(frame: CGRect(x: 40, y: 575, width: self.view.frame.width / 4, height: imageHeight))
+        self.view.addSubview(purchaseHistoryView!)
+        purchaseHistoryView?.reset(with: machine.showPurchaseHistory())
     }
     
     func createBeverageView(with beverage: Beverage, of count: Int) -> BeverageView {
@@ -37,17 +48,19 @@ class ViewController: UIViewController {
         view.stockAddButton.addAction(UIAction.init(handler: { (touch) in
             self.machine.increaseStock(beverage: beverage, amount: 1)
         }), for: .touchUpInside)
+        view.purchaseButton.addAction(UIAction.init(handler: { (touch) in
+            self.machine.purchaseBeverage(beverage: beverage)
+        }), for: .touchUpInside)
         return view
     }
     
     func addBeveragesOnDisplayRows() {
-        let stock = machine.checkStock()
-        
-        for (index, item) in stock.enumerated() {
+        machine.handleEnumeratedStock { (index, item) in
             let row = displayRows.arrangedSubviews[index / 5] as! UIStackView
             let view = createBeverageView(with: item.beverage, of: item.count)
             row.addArrangedSubview(view)
         }
+        addEmptySlotsOnDisplayRows()
     }
     
     func addEmptySlotsOnDisplayRows() {
@@ -60,6 +73,7 @@ class ViewController: UIViewController {
         }
     }
     
+    //fIXME:- STRUCTURE REVISION NEEDED, so to views don't have beverage data. Subclassing can be an option
     func updateBeverageDisplaySlots() {
         displayRows.arrangedSubviews.forEach {
             guard let horizontalStack = $0 as? UIStackView else { return }
@@ -81,6 +95,12 @@ class ViewController: UIViewController {
     
     @objc func didIncreaseStock() {
         updateBeverageDisplaySlots()
+    }
+    
+    @objc func didChangePurchaseHistory() {
+        updateBeverageDisplaySlots()
+        updateMoneyOnTransactionLabel()
+        purchaseHistoryView?.reset(with: machine.showPurchaseHistory())
     }
 }
 

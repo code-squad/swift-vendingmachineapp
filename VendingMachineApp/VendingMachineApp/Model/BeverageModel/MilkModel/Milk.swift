@@ -24,4 +24,9 @@ class Milk: Beverage {
         farm = coder.decodeObject(forKey: "farm") as! LocationTrackable
         super.init(coder: coder)
     }
+    
+    required init(brand: String, size: Int, price: Int, name: String, packageTime: Date) {
+        self.farm = BeverageFactory.generateRandomLocation()
+        super.init(brand: brand, size: size, price: price, name: name, packageTime: packageTime)
+    }
 }

@@ -24,7 +24,7 @@ class MoneyProcessingUnit: NSObject, NSCoding {
     
     public func increaseMoneyOnTransaction(by amount: Int) {
         moneyOnTransaction += amount
-        NotificationCenter.default.post(name: .didIncreaseMoneyOnTransaction, object: nil)
+        NotificationCenter.default.post(name: .didIncreaseMoneyOnTransaction, object: self)
     }
     
     public func deductMoneyOnTransaction(with amount: Int) {

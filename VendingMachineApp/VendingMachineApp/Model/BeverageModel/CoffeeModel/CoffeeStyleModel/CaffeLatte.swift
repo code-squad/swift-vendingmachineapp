@@ -29,6 +29,12 @@ class CaffeLatte: Coffee & EnergyBoostable {
         super.init(coder: eDecoder)
     }
     
+    required init(brand: String, size: Int, price: Int, name: String, packageTime: Date) {
+        self.temperature = BeverageFactory.generateRandomTemperature()
+        self.caffeine = BeverageFactory.generateRandomCaffeineCapacity()
+        super.init(brand: brand, size: size, price: price, name: name, packageTime: packageTime)
+    }
+    
     func highCaffeine(caffeine criterion: Int) -> Bool {
         return caffeine > criterion
     }

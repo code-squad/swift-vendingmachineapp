@@ -14,7 +14,7 @@ class Beverage: NSObject, NSCoding {
     public let name: String
     private let packageTime: Date
     
-    init(brand: String, size: Int, price: Int, name: String, packageTime: Date) {
+    required init(brand: String, size: Int, price: Int, name: String, packageTime: Date) {
         self.brand = brand
         self.size = size
         self.price = price

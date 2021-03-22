@@ -29,6 +29,12 @@ class Fanta: Soda & IsHazardous {
         super.init(coder: eDecoder)
     }
     
+    required init(brand: String, size: Int, price: Int, name: String, packageTime: Date) {
+        self.foodColoring = BeverageFactory.generateFoodColoring()
+        self.caffeine = BeverageFactory.generateRandomCaffeineCapacity()
+        super.init(brand: brand, size: size, price: price, name: name, packageTime: packageTime)
+    }
+    
     func isUsingFoodColoring() -> Bool {
         return foodColoring != nil
     }

@@ -8,19 +8,19 @@
 import Foundation
 
 class Machine: NSObject, NSCoding {
-    private var moneyProccesor: MoneyProcessingUnit
-    private var beverageStorage: BeverageStorage
+    public var moneyProcessor: MoneyProcessingUnit
+    public var beverageStorage: BeverageStorage
     private var purchaseHistory: [Beverage]
     
     
     init(moneyProcessor: MoneyProcessingUnit, beverageStorage: BeverageStorage, purchaseHistory: [Beverage]) {
-        self.moneyProccesor = moneyProcessor
+        self.moneyProcessor = moneyProcessor
         self.beverageStorage = beverageStorage
         self.purchaseHistory = purchaseHistory
     }
     
     func encode(with coder: NSCoder) {
-        coder.encode(moneyProccesor, forKey: "moneyProcessor")
+        coder.encode(moneyProcessor, forKey: "moneyProcessor")
         coder.encode(beverageStorage, forKey: "beverageStorage")
         coder.encode(purchaseHistory, forKey: "purchaseHistory")
     }
@@ -33,17 +33,22 @@ class Machine: NSObject, NSCoding {
     }
     
     override init() {
-        self.moneyProccesor = MoneyProcessingUnit()
+        self.moneyProcessor = MoneyProcessingUnit()
         self.beverageStorage = BeverageStorage()
         self.purchaseHistory = [Beverage]()
     }
     
-    func receiveMoney(amount: Int) {
-        moneyProccesor.increaseMoneyOnTransaction(by: amount)
+    enum MoneyAmount: Int {
+        case thousandWon = 1_000
+        case fiveThousandWon = 5_000
+    }
+    
+    func receiveMoney(amount: MoneyAmount) {
+        moneyProcessor.increaseMoneyOnTransaction(by: amount.rawValue)
     }
     
     func showInsertedCashBalance() -> Int {
-        return moneyProccesor.moneyOnTransactionAmount()
+        return moneyProcessor.moneyOnTransactionAmount()
     }
     
     func addStock(beverage: Beverage, amount: Int) {
@@ -54,8 +59,14 @@ class Machine: NSObject, NSCoding {
         beverageStorage.increaseStock(beverage: beverage, by: amount)
     }
     
-    func checkStock() -> [Item] {
+    func stock() -> [Item] {
         return beverageStorage.stock
+    }
+    
+    func handleEnumeratedStock(handler: (Int, Item) -> ()) {
+        for (index, item) in beverageStorage.stock.enumerated() {
+            handler(index, item)
+        }
     }
     
     func checkSpecificTypeOfBeverage(beverage: Beverage) -> Int {
@@ -72,14 +83,15 @@ class Machine: NSObject, NSCoding {
     
     func purchaseBeverage(beverage: Beverage) {
         let itemPrice = beverage.showPrice()
-        guard itemPrice <= moneyProccesor.moneyOnTransactionAmount() else { return }
+        guard itemPrice <= moneyProcessor.moneyOnTransactionAmount() else { return }
             beverageStorage.decreaseStockByOne(beverage: beverage) {result in
                 switch result {
                 case .success(let deductedBeverage):
-                    moneyProccesor.deductMoneyOnTransaction(with: itemPrice)
+                    moneyProcessor.deductMoneyOnTransaction(with: itemPrice)
                     savePurchaseHistory(beverage: deductedBeverage)
-                case .failure(let error):
-                    print(error.localizedDescription)
+                    print(purchaseHistory)
+                    NotificationCenter.default.post(name: .didChangePurchaseHistory, object: self)
+                case .failure(_):
                     return
                 }
             }
@@ -87,7 +99,7 @@ class Machine: NSObject, NSCoding {
 
     func transactionStopButtonPressed() -> Int {
         resetPurchaseHistory()
-        return moneyProccesor.returnChanges()
+        return moneyProcessor.returnChanges()
     }
     
     private func savePurchaseHistory(beverage: Beverage) {

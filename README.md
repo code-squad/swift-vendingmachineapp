@@ -77,7 +77,7 @@
 #### 완료날짜: 2021년 3월 15일(월) 18: 15
 
 
-# 관찰자(Observer) 패턴
+# 앱 생명주기와 객체 저장
 
 #### 요구사항
 
@@ -108,3 +108,56 @@ sceneDidBecomeActive
 
 #### 완료날짜: 2021년 3월 18일(목) 23: 15
 
+
+
+# 관찰자(Observer) 패턴
+
+#### 요구사항
+
+- ViewController는 viewDidLoad에서 Observe를 등록한다.
+- 음식 재고가 바뀌는 Notification을 받으면 화면에 Label을 업데이트한다.
+- 추가 버튼을 누르면 해당 음식 재고를 모델에 추가할 때마다
+- VendingMachine 모델 객체에서는 변화에 대해 NotificationCenter에 post한다.
+- 모든 동작은 이전 단계와 동일하게 동작해야 한다.
+
+#### 학습
+
+- Notification
+
+  > Notification.post -> observer가 수신받음
+
+
+
+#### 완료날짜: 2021년 3월 20일(금) 22:40 
+
+# 구매목록 View 코드
+
+
+
+#### 요구사항
+
+- 실행이후 구매 목록을 화면 아래 이미지로 추가한다.
+- 화면 아래 부분을 좌우로 스크롤 가능하도록 만들고 상품 이미지를 추가한다. 계속 추가해도 스크롤할 수 있어야 한다.
+- 특정 제품을 구매할 때마다 해당 제품 이미지를 추가하도록 구현한다.
+  - NotificationCenter를 활용하자!
+- 특정 시점에 `self.scrollView.addSubView()` 메서드로 UIImageView를 수동 추가한다.
+
+
+
+#### 학습
+
+- UIScrollView
+
+- SceneDelegate에서 rootViewController 접근하는법 (상위모듈 -> 하위모듈 속성값 인스턴스 넣어주기)
+
+  >    **guard** **let** initialViewController = window?.rootViewController **as**? ViewController **else** { **return** }
+  >
+  > ​    initialViewController.vendingMachine = vendingMachine
+
+
+
+![ezgif com-gif-maker (6)](https://user-images.githubusercontent.com/73683735/111974755-208b4580-8b43-11eb-87e8-30b1049793aa.gif)
+
+
+
+#### 완료날짜: 2021년 3월 22일(월) 19: 08

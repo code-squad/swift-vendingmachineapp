@@ -34,7 +34,7 @@ class VendingMachine: NSObject, NSCoding, MakingViewProtocol {
     //특정 상품 인스턴스를 넘겨서 재고를 추가하는 기능
     public func appendInventory(_ beverage: Beverage) {
         inventory.append(beverage)
-        NotificationCenter.default.post(name: NSNotification.Name("addedBeverage"), object: self, userInfo: nil)
+        NotificationCenter.default.post(name: VendingMachine.addedBeverage, object: self, userInfo: nil)
     }
     
     //현재 금액으로 구매가능한 음료수 목록을 리턴하는 기능
@@ -45,16 +45,16 @@ class VendingMachine: NSObject, NSCoding, MakingViewProtocol {
     //자판기 금액을 원하는 금액만큼 올리는 기능
     public func put(in money: Money) {
         paymentManager.increase(money)
-        NotificationCenter.default.post(name: NSNotification.Name("addMoney"), object: self, userInfo: nil)
+        NotificationCenter.default.post(name: VendingMachine.addMoney, object: self, userInfo: nil)
     }
     
     //음료수를 구매하는 기능
     public func buy(_ beverageType: Beverage.Type) {
         guard let beverage = inventory.take(out: beverageType, for: paymentManager) else { return }
         purchaseHistory.append(item: beverage)
-        NotificationCenter.default.post(name: NSNotification.Name("buyBeverage"), object: self, userInfo: ["imageName":beverage.name])
-        NotificationCenter.default.post(name: NSNotification.Name("addedBeverage"), object: self, userInfo: nil)
-        NotificationCenter.default.post(name: NSNotification.Name("addMoney"), object: self, userInfo: nil)
+        NotificationCenter.default.post(name: VendingMachine.buyBeverage, object: self, userInfo: ["imageName":beverage.name])
+        NotificationCenter.default.post(name: VendingMachine.addedBeverage, object: self, userInfo: nil)
+        NotificationCenter.default.post(name: VendingMachine.addMoney, object: self, userInfo: nil)
     }
     
     //잔액을 확인하는 기능
@@ -83,3 +83,8 @@ class VendingMachine: NSObject, NSCoding, MakingViewProtocol {
     }
 }
 
+extension VendingMachine {
+    static let addMoney = Notification.Name("addMoney")
+    static let buyBeverage = Notification.Name("buyBeverage")
+    static let addedBeverage = Notification.Name("addedBeverage")
+}

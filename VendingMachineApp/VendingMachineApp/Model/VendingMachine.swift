@@ -53,6 +53,8 @@ class VendingMachine: NSObject, NSCoding, MakingViewProtocol {
         guard let beverage = inventory.take(out: beverageType, for: paymentManager) else { return }
         purchaseHistory.append(item: beverage)
         NotificationCenter.default.post(name: NSNotification.Name("buyBeverage"), object: self, userInfo: ["imageName":beverage.name])
+        NotificationCenter.default.post(name: NSNotification.Name("addedBeverage"), object: self, userInfo: nil)
+        NotificationCenter.default.post(name: NSNotification.Name("addMoney"), object: self, userInfo: nil)
     }
     
     //잔액을 확인하는 기능

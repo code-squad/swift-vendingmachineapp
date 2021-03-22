@@ -26,8 +26,6 @@ class ViewController: UIViewController {
         //TODO:- name을 VendingMachine Class에 enum타입으로 추가
         NotificationCenter.default.addObserver(self, selector: #selector(updateBeverageStockLabel), name: NSNotification.Name("addedBeverage"), object: vendingMachine)
         NotificationCenter.default.addObserver(self, selector: #selector(updateMoneyLabel), name: NSNotification.Name("addMoney"), object: vendingMachine)
-        NotificationCenter.default.addObserver(self, selector: #selector(updateBeverageStockLabel), name: NSNotification.Name("buyBeverage"), object: vendingMachine)
-        NotificationCenter.default.addObserver(self, selector: #selector(updateMoneyLabel), name: NSNotification.Name("buyBeverage"), object: vendingMachine)
         NotificationCenter.default.addObserver(self, selector: #selector(addPurchasedBeverageView), name: NSNotification.Name("buyBeverage"), object: vendingMachine)
     }
     

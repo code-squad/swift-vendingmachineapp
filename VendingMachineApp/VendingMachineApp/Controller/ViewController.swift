@@ -21,6 +21,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpInventoryStackView()
+        setUpBeverageStockLabel()
         setUpPurchasedBeverageScrollView()
         
         NotificationCenter.default.addObserver(self, selector: #selector(updateBeverageStockLabel), name: VendingMachine.addedBeverage, object: vendingMachine)
@@ -31,6 +32,14 @@ class ViewController: UIViewController {
     private func setUpInventoryStackView() {
         vendingMachineInfo.repeatForBeverageView { beverageView in
             inventoryStackView.addArrangedSubview(beverageView)
+        }
+    }
+    
+    private func setUpBeverageStockLabel() {
+        vendingMachineInfo.matchModelAndViewHelper.forEach { (arg0) in
+            
+            let (objectIdentifier, beverageView) = arg0
+            beverageView.stockLabel.text = "\(vendingMachine.showAllBeverageList()[objectIdentifier]?.count ?? 0)"
         }
     }
     

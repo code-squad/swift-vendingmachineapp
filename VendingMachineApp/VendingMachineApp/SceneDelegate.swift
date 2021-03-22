@@ -35,9 +35,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func sceneWillEnterForeground(_ scene: UIScene) {
-        //TODO:- 가짜노티 제거
-        // 앱 켰을 때 초기 잔액 LabelText 변경
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "addMoney"), object: vendingMachine, userInfo: nil)
+   
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {
